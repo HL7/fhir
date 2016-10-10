@@ -17,7 +17,7 @@ import org.hl7.fhir.dstu3.model.CodeSystem.CodeSystemHierarchyMeaning;
 import org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionComponent;
 import org.hl7.fhir.dstu3.model.Coding;
 import org.hl7.fhir.dstu3.model.DateTimeType;
-import org.hl7.fhir.dstu3.model.Enumerations.ConformanceResourceStatus;
+import org.hl7.fhir.dstu3.model.Enumerations.PublicationStatus;
 import org.hl7.fhir.dstu3.model.Identifier;
 import org.hl7.fhir.dstu3.model.ValueSet;
 import org.hl7.fhir.utilities.xml.XMLUtil;
@@ -101,7 +101,7 @@ public class ICPC2Importer {
       if (!a.getAttribute("name").contains("+"))
         vs.addContact().setName(a.getTextContent());
     vs.setCopyright("The copyright of ICPC, both in hard copy and in electronic form, is owned by Wonca. See http://www.kith.no/templates/kith_WebPage____1110.aspx");
-    vs.setStatus(ConformanceResourceStatus.ACTIVE);
+    vs.setStatus(PublicationStatus.ACTIVE);
     vs.setDateElement(new DateTimeType(title.getAttribute("date")));
     
     vs.getCompose().addInclude().setSystem("http://hl7.org/fhir/sid/icpc2");
@@ -119,7 +119,7 @@ public class ICPC2Importer {
       if (!a.getAttribute("name").contains("+"))
         cs.addContact().setName(a.getTextContent());
     cs.setCopyright("The copyright of ICPC, both in hard copy and in electronic form, is owned by Wonca. See http://www.kith.no/templates/kith_WebPage____1110.aspx");
-    cs.setStatus(ConformanceResourceStatus.ACTIVE);
+    cs.setStatus(PublicationStatus.ACTIVE);
     cs.setDateElement(new DateTimeType(title.getAttribute("date")));
     cs.setValueSet(vs.getUrl());
     

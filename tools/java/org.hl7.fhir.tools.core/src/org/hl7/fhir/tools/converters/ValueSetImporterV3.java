@@ -18,7 +18,7 @@ import org.hl7.fhir.dstu3.model.CodeSystem.CodeSystemHierarchyMeaning;
 import org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionComponent;
 import org.hl7.fhir.dstu3.model.ContactPoint.ContactPointSystem;
 import org.hl7.fhir.dstu3.model.DateTimeType;
-import org.hl7.fhir.dstu3.model.Enumerations.ConformanceResourceStatus;
+import org.hl7.fhir.dstu3.model.Enumerations.PublicationStatus;
 import org.hl7.fhir.dstu3.model.Factory;
 import org.hl7.fhir.dstu3.model.InstantType;
 import org.hl7.fhir.dstu3.model.Narrative;
@@ -172,7 +172,7 @@ public class ValueSetImporterV3 extends ValueSetImporterBase {
     vs.setName("v3 Code System " + id);
     vs.setPublisher("HL7, Inc");
     vs.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.OTHER, "http://hl7.org"));
-    vs.setStatus(ConformanceResourceStatus.ACTIVE);
+    vs.setStatus(PublicationStatus.ACTIVE);
     
     vs.setId("v3-" + FormatUtilities.makeId(id));
     vs.setUserData("path", "v3" + "/" + id + "/" + "vs.html");
@@ -405,7 +405,7 @@ public class ValueSetImporterV3 extends ValueSetImporterBase {
     }
     vs.setPublisher("HL7 v3");
     vs.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.OTHER, "http://www.hl7.org"));
-    vs.setStatus(ConformanceResourceStatus.ACTIVE);
+    vs.setStatus(PublicationStatus.ACTIVE);
     vs.setExperimental(false);
 
     r = XMLUtil.getNamedChild(e, "version");
@@ -452,7 +452,7 @@ public class ValueSetImporterV3 extends ValueSetImporterBase {
     }
     vs.setPublisher("HL7 v3");
     vs.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.OTHER, "http://www.hl7.org"));
-    vs.setStatus(ConformanceResourceStatus.ACTIVE);
+    vs.setStatus(PublicationStatus.ACTIVE);
     vs.setExperimental(false);
 
     r = XMLUtil.getNamedChild(e, "version");

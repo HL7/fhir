@@ -272,13 +272,13 @@
   Card. = 1..1
 
  -- Row 6 -----------------------------------
-  Element = StructureDefinition.display
+  Element = StructureDefinition.title
   Card. = 0..1
   Summary = Y
   Type = string
-  Short Name = Use this name when displaying the value
-  Definition = Defined so that applications can use this name when displaying the value of the extension to the user
-  Comments = Applications don\'t have to use this name, but can always fall back to it. In the absence of a value for this element, use the name
+  Short Name = Title for this structure definition (human friendly name)
+  Definition = A short, descriptive, user-friendly title for the measure. Defined so that applications can use this name when displaying the content of the structure to the user
+  Comments = Applications don\'t have to use this name, but can always fall back to it. The title also corresponds to the label for the root element
 
  -- Row 7 -----------------------------------
   Element = StructureDefinition.status
@@ -343,13 +343,7 @@
   11179 Mapping = COMPONENT, PROPERTY, TIME_ASPCT, SYSTEM, SCALE_TYP, METHOD_TYP, CLASS, CLASSTYPE, ORDER_OBS, DOCUMENT_SECTION, HL7_ATTACHMENT_STRUCTURE
 
  -- Row 16 -----------------------------------
-  Element = StructureDefinition.requirements
-  Card. = 0..1
-  Type = markdown
-  Short Name = Scope and Usage this structure definition is for
-  Definition = Explains why this structure definition is needed and why it\'s been constrained as it has
-  Comments = This element does not describe the usage of the structure definition (that\'s done in comments), rather it\'s for traceability of *why* the element is either needed or why the constraints exist as they do.  This may be used to point to source materials or specifications that drove the structure of this data element
-  w5 = why
+  Element = StructureDefinition.purpose
 
  -- Row 17 -----------------------------------
   Element = StructureDefinition.copyright
@@ -360,13 +354,13 @@
   Definition = A copyright statement relating to the structure definition and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the details of the constraints and mappings
 
  -- Row 18 -----------------------------------
-  Element = StructureDefinition.code
+  Element = StructureDefinition.keyword
   Card. = 0..*
   Summary = y
   Type = Coding
   Binding = StructureDefinitionCode
   Short Name = Assist with indexing and finding
-  Definition = A set of terms from external terminologies that may be used to assist with indexing and searching of templates.
+  Definition = A set of key words or terms from external terminologies that may be used to assist with indexing and searching of templates.
   Requirements = Assist in searching for appropriate StructureDefinitions
   11179 Mapping = keywords
 
@@ -600,10 +594,10 @@
   Path = StructureDefinition.description
 
  -- Row 4 -----------------------------------
-  Name = code
+  Name = keyword
   Type = token
   Description = A code for the profile
-  Path = StructureDefinition.code
+  Path = StructureDefinition.keyword
 
  -- Row 5 -----------------------------------
   Name = valueset
@@ -628,9 +622,9 @@
   Path = StructureDefinition.snapshot.element.path | StructureDefinition.differential.element.path
 
  -- Row 9 -----------------------------------
-  Name = display
+  Name = title
   Type = string
-  Path = StructureDefinition.display
+  Path = StructureDefinition.title
 
  -- Row 10 -----------------------------------
   Name = experimental

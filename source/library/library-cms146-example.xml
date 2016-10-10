@@ -21,12 +21,12 @@
   <description value="Logic for CMS 146: Appropriate Testing for Children with Pharyngitis"/>
   <publicationDate value="2015-07-22"/>
 
-  <relatedResource>
+  <relatedArtifact>
     <type value="depends-on"/>
     <resource>
       <reference value="Library/library-quick-model-definition"/>
     </resource>
-  </relatedResource>
+  </relatedArtifact>
 
   <!-- TODO: Need to determine the best way to expose this information -->
   <!--valueSet>

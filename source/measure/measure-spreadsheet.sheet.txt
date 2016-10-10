@@ -29,13 +29,6 @@
   Definition = The intended usage for supplemental data elements in the measure
   Conformance = required
 
- -- Row 5 -----------------------------------
-  Binding Name = MeasureStatus
-  Binding = value set
-  Reference = http://hl7.org/fhir/ValueSet/module-metadata-status
-  Definition = The status of the measure
-  Conformance = required
-
 === Sheet measure-population =====================================
 
  -- Row 1 -----------------------------------
@@ -153,7 +146,7 @@
  -- Row 1 -----------------------------------
   Element = Measure
   Type = DomainResource
-  Short Label = A quality measure definition
+  Short Name = A quality measure definition
   Definition = The Measure resource provides the definition of a quality measure
   w5 = clinical.general
 
@@ -162,7 +155,7 @@
   Card. = 0..1
   Summary = Y
   Type = uri
-  Short Label = Logical URL to reference this measure
+  Short Name = Logical URL to reference this measure
   Definition = An absolute URL that is used to identify this measure when it is referenced. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this measure is (or will be) published
   Requirements = Allows the measure to be referenced by a single globally unique identifier
   w5 = id
@@ -172,7 +165,7 @@
   Card. = 0..*
   Summary = Y
   Type = Identifier
-  Short Label = Logical identifier(s) for the measure
+  Short Name = Logical identifier(s) for the measure
   Definition = A logical identifier for the measure such as the CMS or NQF identifier. Note that at least one identifier is required for non-experimental active artifacts
   Requirements = Allows external business identifiers to be easily associated with the measure
   To Do = Add constraint to require identifier for non-experimental active artifacts
@@ -183,7 +176,7 @@
   Card. = 0..1
   Summary = Y
   Type = string
-  Short Label = The version of the measure, if any
+  Short Name = The version of the measure, if any
   Definition = The version of the measure, if any. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge assets, refer to the Decision Support Service specification. Note that a version is required for non-experimental active artifacts
   Requirements = Allows for versioning of the content of the measure
   To Do = Add constraint to require a version for non-experimental active artifacts
@@ -193,7 +186,7 @@
   Card. = 0..1
   Summary = Y
   Type = string
-  Short Label = A machine-friendly name for the measure
+  Short Name = A machine-friendly name for the measure
   Definition = A machine-friendly name for the measure. This name should be usable as an identifier for the measure by machine processing applications such as code generation
   Requirements = Simplifies machine-processing tasks related to the measure such as code-generation or logging
   Comments = This identifier for the measure should be unique within the intended scope of use, and should conform to the traditional syntactic definition of an identifier within most programming languages. regex: ([A-Za-z_][A-Za-z0-9_]*)
@@ -203,7 +196,7 @@
   Card. = 0..1
   Summary = Y
   Type = string
-  Short Label = A user-friendly title for the measure
+  Short Name = A user-friendly title for the measure
   Definition = A short, descriptive, user-friendly title for the measure
 
  -- Row 7 -----------------------------------
@@ -212,8 +205,8 @@
   Is Modifier = Y
   Summary = Y
   Type = code
-  Binding = MeasureStatus
-  Short Label = draft | active | inactive
+  Binding = PublicationStatus
+  Short Name = draft | active | retired
   Definition = The status of the measure
   Requirements = Enables tracking the life-cycle of the content of the measure
 
@@ -223,7 +216,7 @@
   Is Modifier = Y
   Summary = Y
   Type = boolean
-  Short Label = If for testing purposes, not real usage
+  Short Name = If for testing purposes, not real usage
   Definition = Determines whether the measure was developed for testing purposes (or education/evaluation/marketing), and is not intended to be used in production environments
   Requirements = Enables experimental content to be developed following the same life-cycle as a production-level measure would
 
@@ -231,7 +224,7 @@
   Element = Measure.description
   Card. = 0..1
   Type = string
-  Short Label = Natural language description of the measure
+  Short Name = Natural language description of the measure
   Definition = A free text natural language description of the measure from the consumer\'s perspective
   Comments = This description can be used to capture details such as why the measure was built, comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the measure as conveyed in the text field of the resource itself. This item SHOULD be populated unless the information is available from context
 
@@ -239,7 +232,7 @@
   Element = Measure.purpose
   Card. = 0..1
   Type = string
-  Short Label = Describes the purpose of the measure
+  Short Name = Describes the purpose of the measure
   Definition = A brief description of the purpose of the measure
   Comments = This description should address the question of why this measure was built, though not necessarily in as much detail as the justification, rationale, or clinical recommendation statement of a measure would. That information would typically be provided in the related resource element
 
@@ -247,28 +240,28 @@
   Element = Measure.usage
   Card. = 0..1
   Type = string
-  Short Label = Describes the clinical usage of the measure
+  Short Name = Describes the clinical usage of the measure
   Definition = A detailed description of how the measure is used from a clinical perspective
 
  -- Row 12 -----------------------------------
   Element = Measure.publicationDate
   Card. = 0..1
   Type = date
-  Short Label = Publication date for this version of the measure
+  Short Name = Publication date for this version of the measure
   Definition = The date on which the measure was published
 
  -- Row 13 -----------------------------------
   Element = Measure.lastReviewDate
   Card. = 0..1
   Type = date
-  Short Label = Last review date for the measure
+  Short Name = Last review date for the measure
   Definition = The date on which the measure content was last reviewed
 
  -- Row 14 -----------------------------------
   Element = Measure.effectivePeriod
   Card. = 0..1
   Type = Period
-  Short Label = The effective date range for the measure
+  Short Name = The effective date range for the measure
   Definition = The period during which the measure content is effective
   Comments = The effective period for a measure determines when the content is applicable for usage and is independent of publication and review dates. For example, a measure intended to be used for the year 2016 would be published in 2015
 
@@ -276,7 +269,7 @@
   Element = Measure.coverage
   Card. = 0..*
   Type = UsageContext
-  Short Label = Describes the context of use for this measure
+  Short Name = Describes the context of use for this measure
   Definition = Specifies various attributes of the patient population for whom and/or environment of care in which, the measure is applicable
   Requirements = Consumers of the measure must be able to determine the intended applicability for the measure. Ideally, this information would be used programmatically to determine when and how it should be incorporated or exposed
 
@@ -284,7 +277,7 @@
   Element = Measure.topic
   Card. = 0..*
   Type = CodeableConcept
-  Short Label = Descriptional topics for the measure
+  Short Name = Descriptional topics for the measure
   Definition = Clinical topics related to the content of the measure
   Requirements = Repositories must be able to determine how to categorize the measure so that it can be found by topical searches
 
@@ -292,7 +285,7 @@
   Element = Measure.contributor
   Card. = 0..*
   Type = Contributor
-  Short Label = A content contributor
+  Short Name = A content contributor
   Definition = A contributor to the content of the measure, including authors, editors, reviewers, and endorsers
   Requirements = Consumers of the content must be able to quickly determine who contributed to the content of the measure
 
@@ -300,7 +293,7 @@
   Element = Measure.publisher
   Card. = 0..1
   Type = string
-  Short Label = Name of the publisher (Organization or individual)
+  Short Name = Name of the publisher (Organization or individual)
   Definition = The name of the individual or organization that published the measure (also known as the steward for the measure). This information is required for non-experimental active artifacts
   Requirements = Consumers of the measure must be able to determine where to obtain support in the use of this measure, as well as where to direct questions and concerns about the content
   Comments = The publisher (or steward) of the measure is the organization or individual primarily responsible for the maintenance and upkeep of the measure. This is not necessarily the same organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the measure
@@ -310,22 +303,22 @@
   Element = Measure.contact
   Card. = 0..*
   Type = ContactDetail
-  Short Label = Contact details of the publisher
+  Short Name = Contact details of the publisher
   Definition = Contact details to assist a user in finding and communicating with the publisher
 
  -- Row 20 -----------------------------------
   Element = Measure.copyright
   Card. = 0..1
   Type = string
-  Short Label = Use and/or publishing restrictions
+  Short Name = Use and/or publishing restrictions
   Definition = A copyright statement relating to the measure and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the measure
   Requirements = Consumers of the measure must be able to determine any legal restrictions on the use of the measure and/or its content
 
  -- Row 21 -----------------------------------
-  Element = Measure.relatedResource
+  Element = Measure.relatedArtifact
   Card. = 0..*
-  Type = RelatedResource
-  Short Label = Related resources for the measure
+  Type = RelatedArtifact
+  Short Name = Related resources for the measure
   Definition = Related resources such as additional documentation, justification, or bibliographic references
   Requirements = Measures must be able to provide enough information for consumers of the content (and/or interventions or results produced by the content) to be able to determine and understand the justification for and evidence in support of the content
   Comments = Each related resource is either an attachment, or a reference to another resource, but not both
@@ -334,14 +327,14 @@
   Element = Measure.library
   Card. = 0..*
   Type = Reference(Library)
-  Short Label = Logic used by the measure
+  Short Name = Logic used by the measure
   Definition = A reference to a Library resource containing the formal logic used by the measure
 
  -- Row 23 -----------------------------------
   Element = Measure.disclaimer
   Card. = 0..1
   Type = markdown
-  Short Label = Disclaimer for the measure
+  Short Name = Disclaimer for the measure
   Definition = A disclaimer for the use of the measure
 
  -- Row 24 -----------------------------------
@@ -349,7 +342,7 @@
   Card. = 0..1
   Type = code
   Binding = MeasureScoring
-  Short Label = proportion | ratio | continuous-variable | cohort
+  Short Name = proportion | ratio | continuous-variable | cohort
   Definition = The measure scoring type, e.g. proportion, CV
 
  -- Row 25 -----------------------------------
@@ -357,98 +350,98 @@
   Card. = 0..*
   Type = code
   Binding = MeasureType
-  Short Label = process | outcome
+  Short Name = process | outcome
   Definition = The measure type, e.g. process, outcome
 
  -- Row 26 -----------------------------------
   Element = Measure.riskAdjustment
   Card. = 0..1
   Type = string
-  Short Label = How is risk adjustment applied for this measure
+  Short Name = How is risk adjustment applied for this measure
   Definition = A description of the risk adjustment factors that may impact the resulting score for the measure and how they may be accounted for when computing and reporting measure results
 
  -- Row 27 -----------------------------------
   Element = Measure.rateAggregation
   Card. = 0..1
   Type = string
-  Short Label = How is rate aggregation performed for this measure
+  Short Name = How is rate aggregation performed for this measure
   Definition = A description of the rate aggregation for the measure
 
  -- Row 28 -----------------------------------
   Element = Measure.rationale
   Card. = 0..1
   Type = markdown
-  Short Label = Why does this measure exist
+  Short Name = Why does this measure exist
   Definition = The rationale for the measure
 
  -- Row 29 -----------------------------------
   Element = Measure.clinicalRecommendationStatement
   Card. = 0..1
   Type = markdown
-  Short Label = Clinical recommendation
+  Short Name = Clinical recommendation
   Definition = The clinical recommendation statement for the measure
 
  -- Row 30 -----------------------------------
   Element = Measure.improvementNotation
   Card. = 0..1
   Type = string
-  Short Label = Improvement notation for the measure, e.g. higher score indicates better quality
+  Short Name = Improvement notation for the measure, e.g. higher score indicates better quality
   Definition = Improvement notation for the measure, e.g. higher score indicates better quality
 
  -- Row 31 -----------------------------------
   Element = Measure.definition
   Card. = 0..1
   Type = markdown
-  Short Label = A natural language definition of the measure
+  Short Name = A natural language definition of the measure
   Definition = A narrative description of the complete measure calculation
 
  -- Row 32 -----------------------------------
   Element = Measure.guidance
   Card. = 0..1
   Type = markdown
-  Short Label = The guidance for the measure
+  Short Name = The guidance for the measure
   Definition = Additional guidance for the measure including how it can be used in a clinical context, and the intent of the measure
 
  -- Row 33 -----------------------------------
   Element = Measure.set
   Card. = 0..1
   Type = string
-  Short Label = The measure set, e.g. Preventive Care and Screening
+  Short Name = The measure set, e.g. Preventive Care and Screening
   Definition = The measure set, e.g. Preventive Care and Screening
 
  -- Row 34 -----------------------------------
   Element = Measure.group
   Card. = 0..*
   UML = left
-  Short Label = Population criteria group
+  Short Name = Population criteria group
   Definition = A group of population criteria for the measure
 
  -- Row 35 -----------------------------------
   Element = Measure.group.identifier
   Card. = 1..1
   Type = Identifier
-  Short Label = Unique identifier
+  Short Name = Unique identifier
   Definition = A unique identifier for the group. This identifier will used to report data for the group in the measure report
 
  -- Row 36 -----------------------------------
   Element = Measure.group.name
   Card. = 0..1
   Type = string
-  Short Label = Short name
+  Short Name = Short name
   Definition = Optional name or short description of this group
 
  -- Row 37 -----------------------------------
   Element = Measure.group.description
   Card. = 0..1
   Type = string
-  Short Label = Summary description
+  Short Name = Summary description
   Definition = The human readable description of this population group
 
  -- Row 38 -----------------------------------
   Element = Measure.group.population
   Card. = 0..*
   UML = up
-  Short Label = Population criteria
+  Short Name = Population criteria
   Definition = A population criteria for the measure
 
  -- Row 39 -----------------------------------
@@ -456,77 +449,77 @@
   Card. = 1..1
   Type = code
   Binding = MeasurePopulationType
-  Short Label = initial-population | numerator | numerator-exclusion | denominator | denominator-exclusion | denominator-exception | measure-population | measure-population-exclusion | measure-score
+  Short Name = initial-population | numerator | numerator-exclusion | denominator | denominator-exclusion | denominator-exception | measure-population | measure-population-exclusion | measure-score
   Definition = The type of population criteria
 
  -- Row 40 -----------------------------------
   Element = Measure.group.population.identifier
   Card. = 1..1
   Type = Identifier
-  Short Label = Unique identifier
+  Short Name = Unique identifier
   Definition = A unique identifier for the population criteria. This identifier is used to report data against this criteria within the measure report
 
  -- Row 41 -----------------------------------
   Element = Measure.group.population.name
   Card. = 0..1
   Type = string
-  Short Label = Short name
+  Short Name = Short name
   Definition = Optional name or short description of this population
 
  -- Row 42 -----------------------------------
   Element = Measure.group.population.description
   Card. = 0..1
   Type = string
-  Short Label = The human readable description of this population criteria
+  Short Name = The human readable description of this population criteria
   Definition = The human readable description of this population criteria
 
  -- Row 43 -----------------------------------
   Element = Measure.group.population.criteria
   Card. = 1..1
   Type = string
-  Short Label = The name of a valid referenced CQL expression (may be namespaced) that defines this population criteria
+  Short Name = The name of a valid referenced CQL expression (may be namespaced) that defines this population criteria
   Definition = The name of a valid referenced CQL expression (may be namespaced) that defines this population criteria
 
  -- Row 44 -----------------------------------
   Element = Measure.group.stratifier
   Card. = 0..*
   UML = down
-  Short Label = Stratifier criteria for the measure
+  Short Name = Stratifier criteria for the measure
   Definition = The stratifier criteria for the measure report, specified as either the name of a valid CQL expression defined within a referenced library, or a valid FHIR Resource Path
 
  -- Row 45 -----------------------------------
   Element = Measure.group.stratifier.identifier
   Card. = 1..1
   Type = Identifier
-  Short Label = The identifier for the stratifier used to coordinate the reported data back to this stratifier
+  Short Name = The identifier for the stratifier used to coordinate the reported data back to this stratifier
   Definition = The identifier for the stratifier used to coordinate the reported data back to this stratifier
 
  -- Row 46 -----------------------------------
   Element = Measure.group.stratifier.criteria
   Card. = 0..1
   Type = string
-  Short Label = Stratifier criteria
+  Short Name = Stratifier criteria
   Definition = The criteria for the stratifier. This must be the name of an expression defined within a referenced library
 
  -- Row 47 -----------------------------------
   Element = Measure.group.stratifier.path
   Card. = 0..1
   Type = string
-  Short Label = Path to the stratifier
+  Short Name = Path to the stratifier
   Definition = The path to an element that defines the stratifier, specified as a valid FHIR resource path
 
  -- Row 48 -----------------------------------
   Element = Measure.supplementalData
   Card. = 0..*
   UML = right
-  Short Label = Supplemental data
+  Short Name = Supplemental data
   Definition = The supplemental data criteria for the measure report, specified as either the name of a valid CQL expression within a referenced library, or a valid FHIR Resource Path
 
  -- Row 49 -----------------------------------
   Element = Measure.supplementalData.identifier
   Card. = 1..1
   Type = Identifier
-  Short Label = Identifier, unique within the measure
+  Short Name = Identifier, unique within the measure
   Definition = An identifier for the supplemental data
 
  -- Row 50 -----------------------------------
@@ -534,21 +527,21 @@
   Card. = 0..*
   Type = code
   Binding = MeasureDataUsage
-  Short Label = supplemental-data | risk-adjustment-factor
+  Short Name = supplemental-data | risk-adjustment-factor
   Definition = An indicator of the intended usage for the supplemental data element. Supplemental data indicates the data is additional information requested to augment the measure information. Risk adjustment factor indicates the data is additional information used to calculate risk adjustment factors when applying a risk model to the measure calculation
 
  -- Row 51 -----------------------------------
   Element = Measure.supplementalData.criteria
   Card. = 0..1
   Type = string
-  Short Label = Supplemental data criteria
+  Short Name = Supplemental data criteria
   Definition = The criteria for the supplemental data. This must be the name of a valid expression defined within a referenced library, and defines the data to be returned for this element
 
  -- Row 52 -----------------------------------
   Element = Measure.supplementalData.path
   Card. = 0..1
   Type = string
-  Short Label = Path to the supplemental data element
+  Short Name = Path to the supplemental data element
   Definition = The supplemental data to be supplied as part of the measure response, specified as a valid FHIR Resource Path
 
 === Sheet Search =====================================

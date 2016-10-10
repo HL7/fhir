@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Oct 10, 2016 12:40+1100 for FHIR v1.7.0
+// Generated on Mon, Oct 10, 2016 15:45+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -864,7 +864,7 @@ public class DataElement extends MetadataResource {
   /**
    * Constructor
    */
-    public DataElement(Enumeration<ConformanceResourceStatus> status) {
+    public DataElement(Enumeration<PublicationStatus> status) {
       super();
       this.status = status;
     }
@@ -1023,12 +1023,12 @@ public class DataElement extends MetadataResource {
     /**
      * @return {@link #status} (The status of this data element.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<ConformanceResourceStatus> getStatusElement() { 
+    public Enumeration<PublicationStatus> getStatusElement() { 
       if (this.status == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DataElement.status");
         else if (Configuration.doAutoCreate())
-          this.status = new Enumeration<ConformanceResourceStatus>(new ConformanceResourceStatusEnumFactory()); // bb
+          this.status = new Enumeration<PublicationStatus>(new PublicationStatusEnumFactory()); // bb
       return this.status;
     }
 
@@ -1043,7 +1043,7 @@ public class DataElement extends MetadataResource {
     /**
      * @param value {@link #status} (The status of this data element.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public DataElement setStatusElement(Enumeration<ConformanceResourceStatus> value) { 
+    public DataElement setStatusElement(Enumeration<PublicationStatus> value) { 
       this.status = value;
       return this;
     }
@@ -1051,16 +1051,16 @@ public class DataElement extends MetadataResource {
     /**
      * @return The status of this data element.
      */
-    public ConformanceResourceStatus getStatus() { 
+    public PublicationStatus getStatus() { 
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
      * @param value The status of this data element.
      */
-    public DataElement setStatus(ConformanceResourceStatus value) { 
+    public DataElement setStatus(PublicationStatus value) { 
         if (this.status == null)
-          this.status = new Enumeration<ConformanceResourceStatus>(new ConformanceResourceStatusEnumFactory());
+          this.status = new Enumeration<PublicationStatus>(new PublicationStatusEnumFactory());
         this.status.setValue(value);
       return this;
     }
@@ -1591,7 +1591,7 @@ public class DataElement extends MetadataResource {
         case 116079: /*url*/ return this.url == null ? new Base[0] : new Base[] {this.url}; // UriType
         case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
         case 351608024: /*version*/ return this.version == null ? new Base[0] : new Base[] {this.version}; // StringType
-        case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<ConformanceResourceStatus>
+        case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<PublicationStatus>
         case -404562712: /*experimental*/ return this.experimental == null ? new Base[0] : new Base[] {this.experimental}; // BooleanType
         case 1447404028: /*publisher*/ return this.publisher == null ? new Base[0] : new Base[] {this.publisher}; // StringType
         case 3076014: /*date*/ return this.date == null ? new Base[0] : new Base[] {this.date}; // DateTimeType
@@ -1620,7 +1620,7 @@ public class DataElement extends MetadataResource {
           this.version = castToString(value); // StringType
           break;
         case -892481550: // status
-          this.status = new ConformanceResourceStatusEnumFactory().fromType(value); // Enumeration<ConformanceResourceStatus>
+          this.status = new PublicationStatusEnumFactory().fromType(value); // Enumeration<PublicationStatus>
           break;
         case -404562712: // experimental
           this.experimental = castToBoolean(value); // BooleanType
@@ -1666,7 +1666,7 @@ public class DataElement extends MetadataResource {
         else if (name.equals("version"))
           this.version = castToString(value); // StringType
         else if (name.equals("status"))
-          this.status = new ConformanceResourceStatusEnumFactory().fromType(value); // Enumeration<ConformanceResourceStatus>
+          this.status = new PublicationStatusEnumFactory().fromType(value); // Enumeration<PublicationStatus>
         else if (name.equals("experimental"))
           this.experimental = castToBoolean(value); // BooleanType
         else if (name.equals("publisher"))
@@ -1697,7 +1697,7 @@ public class DataElement extends MetadataResource {
         case 116079: throw new FHIRException("Cannot make property url as it is not a complex type"); // UriType
         case -1618432855:  return addIdentifier(); // Identifier
         case 351608024: throw new FHIRException("Cannot make property version as it is not a complex type"); // StringType
-        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<ConformanceResourceStatus>
+        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<PublicationStatus>
         case -404562712: throw new FHIRException("Cannot make property experimental as it is not a complex type"); // BooleanType
         case 1447404028: throw new FHIRException("Cannot make property publisher as it is not a complex type"); // StringType
         case 3076014: throw new FHIRException("Cannot make property date as it is not a complex type"); // DateTimeType
@@ -1817,10 +1817,8 @@ public class DataElement extends MetadataResource {
         if (!(other instanceof DataElement))
           return false;
         DataElement o = (DataElement) other;
-        return compareDeep(url, o.url, true) && compareDeep(identifier, o.identifier, true) && compareDeep(version, o.version, true)
-           && compareDeep(status, o.status, true) && compareDeep(experimental, o.experimental, true) && compareDeep(publisher, o.publisher, true)
-           && compareDeep(date, o.date, true) && compareDeep(name, o.name, true) && compareDeep(contact, o.contact, true)
-           && compareDeep(useContext, o.useContext, true) && compareDeep(copyright, o.copyright, true) && compareDeep(stringency, o.stringency, true)
+        return compareDeep(identifier, o.identifier, true) && compareDeep(publisher, o.publisher, true)
+           && compareDeep(contact, o.contact, true) && compareDeep(copyright, o.copyright, true) && compareDeep(stringency, o.stringency, true)
            && compareDeep(mapping, o.mapping, true) && compareDeep(element, o.element, true);
       }
 
@@ -1831,16 +1829,13 @@ public class DataElement extends MetadataResource {
         if (!(other instanceof DataElement))
           return false;
         DataElement o = (DataElement) other;
-        return compareValues(url, o.url, true) && compareValues(version, o.version, true) && compareValues(status, o.status, true)
-           && compareValues(experimental, o.experimental, true) && compareValues(publisher, o.publisher, true)
-           && compareValues(date, o.date, true) && compareValues(name, o.name, true) && compareValues(copyright, o.copyright, true)
-           && compareValues(stringency, o.stringency, true);
+        return compareValues(publisher, o.publisher, true) && compareValues(copyright, o.copyright, true) && compareValues(stringency, o.stringency, true)
+          ;
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(url, identifier, version
-          , status, experimental, publisher, date, name, contact, useContext, copyright
-          , stringency, mapping, element);
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, publisher, contact
+          , copyright, stringency, mapping, element);
       }
 
   @Override

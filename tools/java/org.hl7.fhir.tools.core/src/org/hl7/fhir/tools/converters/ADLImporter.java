@@ -14,7 +14,7 @@ import org.apache.commons.lang3.CharUtils;
 import org.hl7.fhir.dstu3.formats.IParser.OutputStyle;
 import org.hl7.fhir.dstu3.formats.XmlParser;
 import org.hl7.fhir.dstu3.model.ElementDefinition;
-import org.hl7.fhir.dstu3.model.Enumerations.ConformanceResourceStatus;
+import org.hl7.fhir.dstu3.model.Enumerations.PublicationStatus;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
 import org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionKind;
 import org.hl7.fhir.utilities.xml.XMLUtil;
@@ -136,14 +136,14 @@ public class ADLImporter {
 		Element details = XMLUtil.getNamedChild(description, "details");
 		sd.setDescription(XMLUtil.getNamedChild(details, "purpose").getTextContent());
 		sd.setCopyright(XMLUtil.getNamedChild(details, "copyright").getTextContent());
-		sd.setRequirements("Use:\r\n"+XMLUtil.getNamedChild(details, "use").getTextContent()+"\r\n\r\nMisuse:\r\n"+XMLUtil.getNamedChild(details, "misuse").getTextContent());
+		sd.setPurpose("Use:\r\n"+XMLUtil.getNamedChild(details, "use").getTextContent()+"\r\n\r\nMisuse:\r\n"+XMLUtil.getNamedChild(details, "misuse").getTextContent());
 		List<Element> set = new ArrayList<Element>();
 		XMLUtil.getNamedChildren(details, "keywords", set);
 		for (Element e : set) 
-			sd.addCode().setDisplay(e.getTextContent());
+			sd.addKeyword().setDisplay(e.getTextContent());
 		String status = XMLUtil.getNamedChild(description, "lifecycle_state").getTextContent();
 		if ("CommitteeDraft".equals(status) || "AuthorDraft".equals(status))
-			sd.setStatus(ConformanceResourceStatus.DRAFT);
+			sd.setStatus(PublicationStatus.DRAFT);
 		else
 			throw new Exception("Unknown life cycle state "+XMLUtil.getNamedChild(description, "lifecycle_state").getTextContent());
 

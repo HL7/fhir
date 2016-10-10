@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Oct 10, 2016 12:40+1100 for FHIR v1.7.0
+// Generated on Mon, Oct 10, 2016 15:45+1100 for FHIR v1.7.0
 
 import org.hl7.fhir.exceptions.FHIRException;
 
@@ -267,8 +267,6 @@ public class ResourceFactory extends Factory {
     public static Element createType(String name) throws FHIRException {
         if ("Meta".equals(name))
             return new Meta();
-        if ("RelatedResource".equals(name))
-            return new RelatedResource();
         if ("Address".equals(name))
             return new Address();
         if ("Contributor".equals(name))
@@ -315,6 +313,8 @@ public class ResourceFactory extends Factory {
             return new Duration();
         if ("Range".equals(name))
             return new Range();
+        if ("RelatedArtifact".equals(name))
+            return new RelatedArtifact();
         if ("Annotation".equals(name))
             return new Annotation();
         if ("Extension".equals(name))
@@ -562,8 +562,6 @@ public class ResourceFactory extends Factory {
             return new Location();
         if ("Meta".equals(name))
             return new Meta();
-        if ("RelatedResource".equals(name))
-            return new RelatedResource();
         if ("Address".equals(name))
             return new Address();
         if ("Contributor".equals(name))
@@ -610,6 +608,8 @@ public class ResourceFactory extends Factory {
             return new Duration();
         if ("Range".equals(name))
             return new Range();
+        if ("RelatedArtifact".equals(name))
+            return new RelatedArtifact();
         if ("Annotation".equals(name))
             return new Annotation();
         if ("Extension".equals(name))

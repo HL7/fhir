@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Oct 10, 2016 12:40+1100 for FHIR v1.7.0
+// Generated on Mon, Oct 10, 2016 15:45+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -2260,7 +2260,7 @@ public class ExpansionProfile extends MetadataResource {
   /**
    * Constructor
    */
-    public ExpansionProfile(Enumeration<ConformanceResourceStatus> status) {
+    public ExpansionProfile(Enumeration<PublicationStatus> status) {
       super();
       this.status = status;
     }
@@ -2439,12 +2439,12 @@ public class ExpansionProfile extends MetadataResource {
     /**
      * @return {@link #status} (The status of this expansion profile.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<ConformanceResourceStatus> getStatusElement() { 
+    public Enumeration<PublicationStatus> getStatusElement() { 
       if (this.status == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ExpansionProfile.status");
         else if (Configuration.doAutoCreate())
-          this.status = new Enumeration<ConformanceResourceStatus>(new ConformanceResourceStatusEnumFactory()); // bb
+          this.status = new Enumeration<PublicationStatus>(new PublicationStatusEnumFactory()); // bb
       return this.status;
     }
 
@@ -2459,7 +2459,7 @@ public class ExpansionProfile extends MetadataResource {
     /**
      * @param value {@link #status} (The status of this expansion profile.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public ExpansionProfile setStatusElement(Enumeration<ConformanceResourceStatus> value) { 
+    public ExpansionProfile setStatusElement(Enumeration<PublicationStatus> value) { 
       this.status = value;
       return this;
     }
@@ -2467,16 +2467,16 @@ public class ExpansionProfile extends MetadataResource {
     /**
      * @return The status of this expansion profile.
      */
-    public ConformanceResourceStatus getStatus() { 
+    public PublicationStatus getStatus() { 
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
      * @param value The status of this expansion profile.
      */
-    public ExpansionProfile setStatus(ConformanceResourceStatus value) { 
+    public ExpansionProfile setStatus(PublicationStatus value) { 
         if (this.status == null)
-          this.status = new Enumeration<ConformanceResourceStatus>(new ConformanceResourceStatusEnumFactory());
+          this.status = new Enumeration<PublicationStatus>(new PublicationStatusEnumFactory());
         this.status.setValue(value);
       return this;
     }
@@ -3223,7 +3223,7 @@ public class ExpansionProfile extends MetadataResource {
         case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : new Base[] {this.identifier}; // Identifier
         case 351608024: /*version*/ return this.version == null ? new Base[0] : new Base[] {this.version}; // StringType
         case 3373707: /*name*/ return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
-        case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<ConformanceResourceStatus>
+        case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<PublicationStatus>
         case -404562712: /*experimental*/ return this.experimental == null ? new Base[0] : new Base[] {this.experimental}; // BooleanType
         case 1447404028: /*publisher*/ return this.publisher == null ? new Base[0] : new Base[] {this.publisher}; // StringType
         case 951526432: /*contact*/ return this.contact == null ? new Base[0] : this.contact.toArray(new Base[this.contact.size()]); // ExpansionProfileContactComponent
@@ -3261,7 +3261,7 @@ public class ExpansionProfile extends MetadataResource {
           this.name = castToString(value); // StringType
           break;
         case -892481550: // status
-          this.status = new ConformanceResourceStatusEnumFactory().fromType(value); // Enumeration<ConformanceResourceStatus>
+          this.status = new PublicationStatusEnumFactory().fromType(value); // Enumeration<PublicationStatus>
           break;
         case -404562712: // experimental
           this.experimental = castToBoolean(value); // BooleanType
@@ -3327,7 +3327,7 @@ public class ExpansionProfile extends MetadataResource {
         else if (name.equals("name"))
           this.name = castToString(value); // StringType
         else if (name.equals("status"))
-          this.status = new ConformanceResourceStatusEnumFactory().fromType(value); // Enumeration<ConformanceResourceStatus>
+          this.status = new PublicationStatusEnumFactory().fromType(value); // Enumeration<PublicationStatus>
         else if (name.equals("experimental"))
           this.experimental = castToBoolean(value); // BooleanType
         else if (name.equals("publisher"))
@@ -3371,7 +3371,7 @@ public class ExpansionProfile extends MetadataResource {
         case -1618432855:  return getIdentifier(); // Identifier
         case 351608024: throw new FHIRException("Cannot make property version as it is not a complex type"); // StringType
         case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
-        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<ConformanceResourceStatus>
+        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<PublicationStatus>
         case -404562712: throw new FHIRException("Cannot make property experimental as it is not a complex type"); // BooleanType
         case 1447404028: throw new FHIRException("Cannot make property publisher as it is not a complex type"); // StringType
         case 951526432:  return addContact(); // ExpansionProfileContactComponent
@@ -3516,16 +3516,13 @@ public class ExpansionProfile extends MetadataResource {
         if (!(other instanceof ExpansionProfile))
           return false;
         ExpansionProfile o = (ExpansionProfile) other;
-        return compareDeep(url, o.url, true) && compareDeep(identifier, o.identifier, true) && compareDeep(version, o.version, true)
-           && compareDeep(name, o.name, true) && compareDeep(status, o.status, true) && compareDeep(experimental, o.experimental, true)
-           && compareDeep(publisher, o.publisher, true) && compareDeep(contact, o.contact, true) && compareDeep(date, o.date, true)
-           && compareDeep(description, o.description, true) && compareDeep(useContext, o.useContext, true)
-           && compareDeep(codeSystem, o.codeSystem, true) && compareDeep(includeDesignations, o.includeDesignations, true)
-           && compareDeep(designation, o.designation, true) && compareDeep(includeDefinition, o.includeDefinition, true)
-           && compareDeep(includeInactive, o.includeInactive, true) && compareDeep(excludeNested, o.excludeNested, true)
-           && compareDeep(excludeNotForUI, o.excludeNotForUI, true) && compareDeep(excludePostCoordinated, o.excludePostCoordinated, true)
-           && compareDeep(displayLanguage, o.displayLanguage, true) && compareDeep(limitedExpansion, o.limitedExpansion, true)
-          ;
+        return compareDeep(identifier, o.identifier, true) && compareDeep(publisher, o.publisher, true)
+           && compareDeep(contact, o.contact, true) && compareDeep(description, o.description, true) && compareDeep(codeSystem, o.codeSystem, true)
+           && compareDeep(includeDesignations, o.includeDesignations, true) && compareDeep(designation, o.designation, true)
+           && compareDeep(includeDefinition, o.includeDefinition, true) && compareDeep(includeInactive, o.includeInactive, true)
+           && compareDeep(excludeNested, o.excludeNested, true) && compareDeep(excludeNotForUI, o.excludeNotForUI, true)
+           && compareDeep(excludePostCoordinated, o.excludePostCoordinated, true) && compareDeep(displayLanguage, o.displayLanguage, true)
+           && compareDeep(limitedExpansion, o.limitedExpansion, true);
       }
 
       @Override
@@ -3535,19 +3532,17 @@ public class ExpansionProfile extends MetadataResource {
         if (!(other instanceof ExpansionProfile))
           return false;
         ExpansionProfile o = (ExpansionProfile) other;
-        return compareValues(url, o.url, true) && compareValues(version, o.version, true) && compareValues(name, o.name, true)
-           && compareValues(status, o.status, true) && compareValues(experimental, o.experimental, true) && compareValues(publisher, o.publisher, true)
-           && compareValues(date, o.date, true) && compareValues(description, o.description, true) && compareValues(includeDesignations, o.includeDesignations, true)
-           && compareValues(includeDefinition, o.includeDefinition, true) && compareValues(includeInactive, o.includeInactive, true)
-           && compareValues(excludeNested, o.excludeNested, true) && compareValues(excludeNotForUI, o.excludeNotForUI, true)
-           && compareValues(excludePostCoordinated, o.excludePostCoordinated, true) && compareValues(displayLanguage, o.displayLanguage, true)
-           && compareValues(limitedExpansion, o.limitedExpansion, true);
+        return compareValues(publisher, o.publisher, true) && compareValues(description, o.description, true)
+           && compareValues(includeDesignations, o.includeDesignations, true) && compareValues(includeDefinition, o.includeDefinition, true)
+           && compareValues(includeInactive, o.includeInactive, true) && compareValues(excludeNested, o.excludeNested, true)
+           && compareValues(excludeNotForUI, o.excludeNotForUI, true) && compareValues(excludePostCoordinated, o.excludePostCoordinated, true)
+           && compareValues(displayLanguage, o.displayLanguage, true) && compareValues(limitedExpansion, o.limitedExpansion, true)
+          ;
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(url, identifier, version
-          , name, status, experimental, publisher, contact, date, description, useContext
-          , codeSystem, includeDesignations, designation, includeDefinition, includeInactive
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, publisher, contact
+          , description, codeSystem, includeDesignations, designation, includeDefinition, includeInactive
           , excludeNested, excludeNotForUI, excludePostCoordinated, displayLanguage, limitedExpansion
           );
       }

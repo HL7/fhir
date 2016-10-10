@@ -29,11 +29,12 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Oct 10, 2016 12:40+1100 for FHIR v1.7.0
+// Generated on Mon, Oct 10, 2016 15:45+1100 for FHIR v1.7.0
 
 import java.util.*;
 
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.dstu3.model.Enumerations.*;
 import ca.uhn.fhir.model.api.annotation.ResourceDef;
 import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;
 import ca.uhn.fhir.model.api.annotation.Child;
@@ -47,112 +48,6 @@ import org.hl7.fhir.exceptions.FHIRException;
  */
 @ResourceDef(name="Library", profile="http://hl7.org/fhir/Profile/Library")
 public class Library extends DomainResource {
-
-    public enum LibraryStatus {
-        /**
-         * The module is in draft state
-         */
-        DRAFT, 
-        /**
-         * The module is active
-         */
-        ACTIVE, 
-        /**
-         * The module is inactive, either rejected before publication, or retired after publication
-         */
-        INACTIVE, 
-        /**
-         * added to help the parsers with the generic types
-         */
-        NULL;
-        public static LibraryStatus fromCode(String codeString) throws FHIRException {
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("draft".equals(codeString))
-          return DRAFT;
-        if ("active".equals(codeString))
-          return ACTIVE;
-        if ("inactive".equals(codeString))
-          return INACTIVE;
-        if (Configuration.isAcceptInvalidEnums())
-          return null;
-        else
-          throw new FHIRException("Unknown LibraryStatus code '"+codeString+"'");
-        }
-        public String toCode() {
-          switch (this) {
-            case DRAFT: return "draft";
-            case ACTIVE: return "active";
-            case INACTIVE: return "inactive";
-            default: return "?";
-          }
-        }
-        public String getSystem() {
-          switch (this) {
-            case DRAFT: return "http://hl7.org/fhir/module-metadata-status";
-            case ACTIVE: return "http://hl7.org/fhir/module-metadata-status";
-            case INACTIVE: return "http://hl7.org/fhir/module-metadata-status";
-            default: return "?";
-          }
-        }
-        public String getDefinition() {
-          switch (this) {
-            case DRAFT: return "The module is in draft state";
-            case ACTIVE: return "The module is active";
-            case INACTIVE: return "The module is inactive, either rejected before publication, or retired after publication";
-            default: return "?";
-          }
-        }
-        public String getDisplay() {
-          switch (this) {
-            case DRAFT: return "Draft";
-            case ACTIVE: return "Active";
-            case INACTIVE: return "Inactive";
-            default: return "?";
-          }
-        }
-    }
-
-  public static class LibraryStatusEnumFactory implements EnumFactory<LibraryStatus> {
-    public LibraryStatus fromCode(String codeString) throws IllegalArgumentException {
-      if (codeString == null || "".equals(codeString))
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("draft".equals(codeString))
-          return LibraryStatus.DRAFT;
-        if ("active".equals(codeString))
-          return LibraryStatus.ACTIVE;
-        if ("inactive".equals(codeString))
-          return LibraryStatus.INACTIVE;
-        throw new IllegalArgumentException("Unknown LibraryStatus code '"+codeString+"'");
-        }
-        public Enumeration<LibraryStatus> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
-            return null;
-          String codeString = ((PrimitiveType) code).asStringValue();
-          if (codeString == null || "".equals(codeString))
-            return null;
-        if ("draft".equals(codeString))
-          return new Enumeration<LibraryStatus>(this, LibraryStatus.DRAFT);
-        if ("active".equals(codeString))
-          return new Enumeration<LibraryStatus>(this, LibraryStatus.ACTIVE);
-        if ("inactive".equals(codeString))
-          return new Enumeration<LibraryStatus>(this, LibraryStatus.INACTIVE);
-        throw new FHIRException("Unknown LibraryStatus code '"+codeString+"'");
-        }
-    public String toCode(LibraryStatus code) {
-      if (code == LibraryStatus.DRAFT)
-        return "draft";
-      if (code == LibraryStatus.ACTIVE)
-        return "active";
-      if (code == LibraryStatus.INACTIVE)
-        return "inactive";
-      return "?";
-      }
-    public String toSystem(LibraryStatus code) {
-      return code.getSystem();
-      }
-    }
 
     /**
      * An absolute URL that is used to identify this library when it is referenced. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this library is (or will be) published.
@@ -201,9 +96,9 @@ public class Library extends DomainResource {
      * The status of the library.
      */
     @Child(name = "status", type = {CodeType.class}, order=6, min=1, max=1, modifier=true, summary=true)
-    @Description(shortDefinition="draft | active | inactive", formalDefinition="The status of the library." )
-    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/module-metadata-status")
-    protected Enumeration<LibraryStatus> status;
+    @Description(shortDefinition="draft | active | retired", formalDefinition="The status of the library." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/conformance-resource-status")
+    protected Enumeration<PublicationStatus> status;
 
     /**
      * Determines whether the library was developed for testing purposes (or education/evaluation/marketing), and is not intended to be used in production environments.
@@ -299,9 +194,9 @@ public class Library extends DomainResource {
     /**
      * Related resources such as additional documentation, justification, or bibliographic references.
      */
-    @Child(name = "relatedResource", type = {RelatedResource.class}, order=20, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "relatedArtifact", type = {RelatedArtifact.class}, order=20, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Related resources for the library", formalDefinition="Related resources such as additional documentation, justification, or bibliographic references." )
-    protected List<RelatedResource> relatedResource;
+    protected List<RelatedArtifact> relatedArtifact;
 
     /**
      * The parameter element defines parameters used by the library.
@@ -324,7 +219,7 @@ public class Library extends DomainResource {
     @Description(shortDefinition="The content of the library", formalDefinition="The content of the library as an Attachment. The content may be a reference to a url, or may be directly embedded as a base-64 string. Either way, the contentType of the attachment determines how to interpret the content." )
     protected Attachment content;
 
-    private static final long serialVersionUID = -1238044018L;
+    private static final long serialVersionUID = 1340376447L;
 
   /**
    * Constructor
@@ -336,7 +231,7 @@ public class Library extends DomainResource {
   /**
    * Constructor
    */
-    public Library(CodeableConcept type, Enumeration<LibraryStatus> status, Attachment content) {
+    public Library(CodeableConcept type, Enumeration<PublicationStatus> status, Attachment content) {
       super();
       this.type = type;
       this.status = status;
@@ -619,12 +514,12 @@ public class Library extends DomainResource {
     /**
      * @return {@link #status} (The status of the library.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<LibraryStatus> getStatusElement() { 
+    public Enumeration<PublicationStatus> getStatusElement() { 
       if (this.status == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Library.status");
         else if (Configuration.doAutoCreate())
-          this.status = new Enumeration<LibraryStatus>(new LibraryStatusEnumFactory()); // bb
+          this.status = new Enumeration<PublicationStatus>(new PublicationStatusEnumFactory()); // bb
       return this.status;
     }
 
@@ -639,7 +534,7 @@ public class Library extends DomainResource {
     /**
      * @param value {@link #status} (The status of the library.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Library setStatusElement(Enumeration<LibraryStatus> value) { 
+    public Library setStatusElement(Enumeration<PublicationStatus> value) { 
       this.status = value;
       return this;
     }
@@ -647,16 +542,16 @@ public class Library extends DomainResource {
     /**
      * @return The status of the library.
      */
-    public LibraryStatus getStatus() { 
+    public PublicationStatus getStatus() { 
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
      * @param value The status of the library.
      */
-    public Library setStatus(LibraryStatus value) { 
+    public Library setStatus(PublicationStatus value) { 
         if (this.status == null)
-          this.status = new Enumeration<LibraryStatus>(new LibraryStatusEnumFactory());
+          this.status = new Enumeration<PublicationStatus>(new PublicationStatusEnumFactory());
         this.status.setValue(value);
       return this;
     }
@@ -1286,56 +1181,56 @@ public class Library extends DomainResource {
     }
 
     /**
-     * @return {@link #relatedResource} (Related resources such as additional documentation, justification, or bibliographic references.)
+     * @return {@link #relatedArtifact} (Related resources such as additional documentation, justification, or bibliographic references.)
      */
-    public List<RelatedResource> getRelatedResource() { 
-      if (this.relatedResource == null)
-        this.relatedResource = new ArrayList<RelatedResource>();
-      return this.relatedResource;
+    public List<RelatedArtifact> getRelatedArtifact() { 
+      if (this.relatedArtifact == null)
+        this.relatedArtifact = new ArrayList<RelatedArtifact>();
+      return this.relatedArtifact;
     }
 
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public Library setRelatedResource(List<RelatedResource> theRelatedResource) { 
-      this.relatedResource = theRelatedResource;
+    public Library setRelatedArtifact(List<RelatedArtifact> theRelatedArtifact) { 
+      this.relatedArtifact = theRelatedArtifact;
       return this;
     }
 
-    public boolean hasRelatedResource() { 
-      if (this.relatedResource == null)
+    public boolean hasRelatedArtifact() { 
+      if (this.relatedArtifact == null)
         return false;
-      for (RelatedResource item : this.relatedResource)
+      for (RelatedArtifact item : this.relatedArtifact)
         if (!item.isEmpty())
           return true;
       return false;
     }
 
-    public RelatedResource addRelatedResource() { //3
-      RelatedResource t = new RelatedResource();
-      if (this.relatedResource == null)
-        this.relatedResource = new ArrayList<RelatedResource>();
-      this.relatedResource.add(t);
+    public RelatedArtifact addRelatedArtifact() { //3
+      RelatedArtifact t = new RelatedArtifact();
+      if (this.relatedArtifact == null)
+        this.relatedArtifact = new ArrayList<RelatedArtifact>();
+      this.relatedArtifact.add(t);
       return t;
     }
 
-    public Library addRelatedResource(RelatedResource t) { //3
+    public Library addRelatedArtifact(RelatedArtifact t) { //3
       if (t == null)
         return this;
-      if (this.relatedResource == null)
-        this.relatedResource = new ArrayList<RelatedResource>();
-      this.relatedResource.add(t);
+      if (this.relatedArtifact == null)
+        this.relatedArtifact = new ArrayList<RelatedArtifact>();
+      this.relatedArtifact.add(t);
       return this;
     }
 
     /**
-     * @return The first repetition of repeating field {@link #relatedResource}, creating it if it does not already exist
+     * @return The first repetition of repeating field {@link #relatedArtifact}, creating it if it does not already exist
      */
-    public RelatedResource getRelatedResourceFirstRep() { 
-      if (getRelatedResource().isEmpty()) {
-        addRelatedResource();
+    public RelatedArtifact getRelatedArtifactFirstRep() { 
+      if (getRelatedArtifact().isEmpty()) {
+        addRelatedArtifact();
       }
-      return getRelatedResource().get(0);
+      return getRelatedArtifact().get(0);
     }
 
     /**
@@ -1490,7 +1385,7 @@ public class Library extends DomainResource {
         childrenList.add(new Property("publisher", "string", "The name of the individual or organization that published the library (also known as the steward for the library). This information is required for non-experimental active artifacts.", 0, java.lang.Integer.MAX_VALUE, publisher));
         childrenList.add(new Property("contact", "ContactDetail", "Contact details to assist a user in finding and communicating with the publisher.", 0, java.lang.Integer.MAX_VALUE, contact));
         childrenList.add(new Property("copyright", "string", "A copyright statement relating to the library and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the library.", 0, java.lang.Integer.MAX_VALUE, copyright));
-        childrenList.add(new Property("relatedResource", "RelatedResource", "Related resources such as additional documentation, justification, or bibliographic references.", 0, java.lang.Integer.MAX_VALUE, relatedResource));
+        childrenList.add(new Property("relatedArtifact", "RelatedArtifact", "Related resources such as additional documentation, justification, or bibliographic references.", 0, java.lang.Integer.MAX_VALUE, relatedArtifact));
         childrenList.add(new Property("parameter", "ParameterDefinition", "The parameter element defines parameters used by the library.", 0, java.lang.Integer.MAX_VALUE, parameter));
         childrenList.add(new Property("dataRequirement", "DataRequirement", "Describes a set of data that must be provided in order to be able to successfully perform the computations defined by the library.", 0, java.lang.Integer.MAX_VALUE, dataRequirement));
         childrenList.add(new Property("content", "Attachment", "The content of the library as an Attachment. The content may be a reference to a url, or may be directly embedded as a base-64 string. Either way, the contentType of the attachment determines how to interpret the content.", 0, java.lang.Integer.MAX_VALUE, content));
@@ -1505,7 +1400,7 @@ public class Library extends DomainResource {
         case 3373707: /*name*/ return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
         case 110371416: /*title*/ return this.title == null ? new Base[0] : new Base[] {this.title}; // StringType
         case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // CodeableConcept
-        case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<LibraryStatus>
+        case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<PublicationStatus>
         case -404562712: /*experimental*/ return this.experimental == null ? new Base[0] : new Base[] {this.experimental}; // BooleanType
         case -1724546052: /*description*/ return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
         case -220463842: /*purpose*/ return this.purpose == null ? new Base[0] : new Base[] {this.purpose}; // StringType
@@ -1519,7 +1414,7 @@ public class Library extends DomainResource {
         case 1447404028: /*publisher*/ return this.publisher == null ? new Base[0] : new Base[] {this.publisher}; // StringType
         case 951526432: /*contact*/ return this.contact == null ? new Base[0] : this.contact.toArray(new Base[this.contact.size()]); // ContactDetail
         case 1522889671: /*copyright*/ return this.copyright == null ? new Base[0] : new Base[] {this.copyright}; // StringType
-        case 1554540889: /*relatedResource*/ return this.relatedResource == null ? new Base[0] : this.relatedResource.toArray(new Base[this.relatedResource.size()]); // RelatedResource
+        case 666807069: /*relatedArtifact*/ return this.relatedArtifact == null ? new Base[0] : this.relatedArtifact.toArray(new Base[this.relatedArtifact.size()]); // RelatedArtifact
         case 1954460585: /*parameter*/ return this.parameter == null ? new Base[0] : this.parameter.toArray(new Base[this.parameter.size()]); // ParameterDefinition
         case 629147193: /*dataRequirement*/ return this.dataRequirement == null ? new Base[0] : this.dataRequirement.toArray(new Base[this.dataRequirement.size()]); // DataRequirement
         case 951530617: /*content*/ return this.content == null ? new Base[0] : new Base[] {this.content}; // Attachment
@@ -1550,7 +1445,7 @@ public class Library extends DomainResource {
           this.type = castToCodeableConcept(value); // CodeableConcept
           break;
         case -892481550: // status
-          this.status = new LibraryStatusEnumFactory().fromType(value); // Enumeration<LibraryStatus>
+          this.status = new PublicationStatusEnumFactory().fromType(value); // Enumeration<PublicationStatus>
           break;
         case -404562712: // experimental
           this.experimental = castToBoolean(value); // BooleanType
@@ -1591,8 +1486,8 @@ public class Library extends DomainResource {
         case 1522889671: // copyright
           this.copyright = castToString(value); // StringType
           break;
-        case 1554540889: // relatedResource
-          this.getRelatedResource().add(castToRelatedResource(value)); // RelatedResource
+        case 666807069: // relatedArtifact
+          this.getRelatedArtifact().add(castToRelatedArtifact(value)); // RelatedArtifact
           break;
         case 1954460585: // parameter
           this.getParameter().add(castToParameterDefinition(value)); // ParameterDefinition
@@ -1623,7 +1518,7 @@ public class Library extends DomainResource {
         else if (name.equals("type"))
           this.type = castToCodeableConcept(value); // CodeableConcept
         else if (name.equals("status"))
-          this.status = new LibraryStatusEnumFactory().fromType(value); // Enumeration<LibraryStatus>
+          this.status = new PublicationStatusEnumFactory().fromType(value); // Enumeration<PublicationStatus>
         else if (name.equals("experimental"))
           this.experimental = castToBoolean(value); // BooleanType
         else if (name.equals("description"))
@@ -1650,8 +1545,8 @@ public class Library extends DomainResource {
           this.getContact().add(castToContactDetail(value));
         else if (name.equals("copyright"))
           this.copyright = castToString(value); // StringType
-        else if (name.equals("relatedResource"))
-          this.getRelatedResource().add(castToRelatedResource(value));
+        else if (name.equals("relatedArtifact"))
+          this.getRelatedArtifact().add(castToRelatedArtifact(value));
         else if (name.equals("parameter"))
           this.getParameter().add(castToParameterDefinition(value));
         else if (name.equals("dataRequirement"))
@@ -1671,7 +1566,7 @@ public class Library extends DomainResource {
         case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
         case 110371416: throw new FHIRException("Cannot make property title as it is not a complex type"); // StringType
         case 3575610:  return getType(); // CodeableConcept
-        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<LibraryStatus>
+        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<PublicationStatus>
         case -404562712: throw new FHIRException("Cannot make property experimental as it is not a complex type"); // BooleanType
         case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
         case -220463842: throw new FHIRException("Cannot make property purpose as it is not a complex type"); // StringType
@@ -1685,7 +1580,7 @@ public class Library extends DomainResource {
         case 1447404028: throw new FHIRException("Cannot make property publisher as it is not a complex type"); // StringType
         case 951526432:  return addContact(); // ContactDetail
         case 1522889671: throw new FHIRException("Cannot make property copyright as it is not a complex type"); // StringType
-        case 1554540889:  return addRelatedResource(); // RelatedResource
+        case 666807069:  return addRelatedArtifact(); // RelatedArtifact
         case 1954460585:  return addParameter(); // ParameterDefinition
         case 629147193:  return addDataRequirement(); // DataRequirement
         case 951530617:  return getContent(); // Attachment
@@ -1758,8 +1653,8 @@ public class Library extends DomainResource {
         else if (name.equals("copyright")) {
           throw new FHIRException("Cannot call addChild on a primitive type Library.copyright");
         }
-        else if (name.equals("relatedResource")) {
-          return addRelatedResource();
+        else if (name.equals("relatedArtifact")) {
+          return addRelatedArtifact();
         }
         else if (name.equals("parameter")) {
           return addParameter();
@@ -1823,10 +1718,10 @@ public class Library extends DomainResource {
             dst.contact.add(i.copy());
         };
         dst.copyright = copyright == null ? null : copyright.copy();
-        if (relatedResource != null) {
-          dst.relatedResource = new ArrayList<RelatedResource>();
-          for (RelatedResource i : relatedResource)
-            dst.relatedResource.add(i.copy());
+        if (relatedArtifact != null) {
+          dst.relatedArtifact = new ArrayList<RelatedArtifact>();
+          for (RelatedArtifact i : relatedArtifact)
+            dst.relatedArtifact.add(i.copy());
         };
         if (parameter != null) {
           dst.parameter = new ArrayList<ParameterDefinition>();
@@ -1860,7 +1755,7 @@ public class Library extends DomainResource {
            && compareDeep(lastReviewDate, o.lastReviewDate, true) && compareDeep(effectivePeriod, o.effectivePeriod, true)
            && compareDeep(coverage, o.coverage, true) && compareDeep(topic, o.topic, true) && compareDeep(contributor, o.contributor, true)
            && compareDeep(publisher, o.publisher, true) && compareDeep(contact, o.contact, true) && compareDeep(copyright, o.copyright, true)
-           && compareDeep(relatedResource, o.relatedResource, true) && compareDeep(parameter, o.parameter, true)
+           && compareDeep(relatedArtifact, o.relatedArtifact, true) && compareDeep(parameter, o.parameter, true)
            && compareDeep(dataRequirement, o.dataRequirement, true) && compareDeep(content, o.content, true)
           ;
       }
@@ -1883,7 +1778,7 @@ public class Library extends DomainResource {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(url, identifier, version
           , name, title, type, status, experimental, description, purpose, usage, publicationDate
           , lastReviewDate, effectivePeriod, coverage, topic, contributor, publisher, contact
-          , copyright, relatedResource, parameter, dataRequirement, content);
+          , copyright, relatedArtifact, parameter, dataRequirement, content);
       }
 
   @Override

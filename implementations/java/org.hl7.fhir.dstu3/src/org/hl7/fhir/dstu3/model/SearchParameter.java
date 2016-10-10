@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Oct 10, 2016 12:40+1100 for FHIR v1.7.0
+// Generated on Mon, Oct 10, 2016 15:45+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -434,11 +434,11 @@ public class SearchParameter extends MetadataResource {
     protected List<SearchParameterContactComponent> contact;
 
     /**
-     * The Scope and Usage that this search parameter was created to meet.
+     * Explains why this search parameter is needed and why it has been designed as it has.
      */
-    @Child(name = "requirements", type = {MarkdownType.class}, order=2, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="Why this search parameter is defined", formalDefinition="The Scope and Usage that this search parameter was created to meet." )
-    protected MarkdownType requirements;
+    @Child(name = "purpose", type = {MarkdownType.class}, order=2, min=0, max=1, modifier=false, summary=false)
+    @Description(shortDefinition="Why this search parameter is defined", formalDefinition="Explains why this search parameter is needed and why it has been designed as it has." )
+    protected MarkdownType purpose;
 
     /**
      * The code used in the URL or the parameter name in a parameters resource for this search parameter.
@@ -512,7 +512,7 @@ public class SearchParameter extends MetadataResource {
     protected List<SearchParameter> componentTarget;
 
 
-    private static final long serialVersionUID = 616652358L;
+    private static final long serialVersionUID = 1030244256L;
 
   /**
    * Constructor
@@ -524,7 +524,7 @@ public class SearchParameter extends MetadataResource {
   /**
    * Constructor
    */
-    public SearchParameter(UriType url, StringType name, Enumeration<ConformanceResourceStatus> status, CodeType code, CodeType base, Enumeration<SearchParamType> type, MarkdownType description) {
+    public SearchParameter(UriType url, StringType name, Enumeration<PublicationStatus> status, CodeType code, CodeType base, Enumeration<SearchParamType> type, MarkdownType description) {
       super();
       this.url = url;
       this.name = name;
@@ -677,12 +677,12 @@ public class SearchParameter extends MetadataResource {
     /**
      * @return {@link #status} (The status of this search parameter.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<ConformanceResourceStatus> getStatusElement() { 
+    public Enumeration<PublicationStatus> getStatusElement() { 
       if (this.status == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create SearchParameter.status");
         else if (Configuration.doAutoCreate())
-          this.status = new Enumeration<ConformanceResourceStatus>(new ConformanceResourceStatusEnumFactory()); // bb
+          this.status = new Enumeration<PublicationStatus>(new PublicationStatusEnumFactory()); // bb
       return this.status;
     }
 
@@ -697,7 +697,7 @@ public class SearchParameter extends MetadataResource {
     /**
      * @param value {@link #status} (The status of this search parameter.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public SearchParameter setStatusElement(Enumeration<ConformanceResourceStatus> value) { 
+    public SearchParameter setStatusElement(Enumeration<PublicationStatus> value) { 
       this.status = value;
       return this;
     }
@@ -705,16 +705,16 @@ public class SearchParameter extends MetadataResource {
     /**
      * @return The status of this search parameter.
      */
-    public ConformanceResourceStatus getStatus() { 
+    public PublicationStatus getStatus() { 
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
      * @param value The status of this search parameter.
      */
-    public SearchParameter setStatus(ConformanceResourceStatus value) { 
+    public SearchParameter setStatus(PublicationStatus value) { 
         if (this.status == null)
-          this.status = new Enumeration<ConformanceResourceStatus>(new ConformanceResourceStatusEnumFactory());
+          this.status = new Enumeration<PublicationStatus>(new PublicationStatusEnumFactory());
         this.status.setValue(value);
       return this;
     }
@@ -969,50 +969,50 @@ public class SearchParameter extends MetadataResource {
     }
 
     /**
-     * @return {@link #requirements} (The Scope and Usage that this search parameter was created to meet.). This is the underlying object with id, value and extensions. The accessor "getRequirements" gives direct access to the value
+     * @return {@link #purpose} (Explains why this search parameter is needed and why it has been designed as it has.). This is the underlying object with id, value and extensions. The accessor "getPurpose" gives direct access to the value
      */
-    public MarkdownType getRequirementsElement() { 
-      if (this.requirements == null)
+    public MarkdownType getPurposeElement() { 
+      if (this.purpose == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create SearchParameter.requirements");
+          throw new Error("Attempt to auto-create SearchParameter.purpose");
         else if (Configuration.doAutoCreate())
-          this.requirements = new MarkdownType(); // bb
-      return this.requirements;
+          this.purpose = new MarkdownType(); // bb
+      return this.purpose;
     }
 
-    public boolean hasRequirementsElement() { 
-      return this.requirements != null && !this.requirements.isEmpty();
+    public boolean hasPurposeElement() { 
+      return this.purpose != null && !this.purpose.isEmpty();
     }
 
-    public boolean hasRequirements() { 
-      return this.requirements != null && !this.requirements.isEmpty();
+    public boolean hasPurpose() { 
+      return this.purpose != null && !this.purpose.isEmpty();
     }
 
     /**
-     * @param value {@link #requirements} (The Scope and Usage that this search parameter was created to meet.). This is the underlying object with id, value and extensions. The accessor "getRequirements" gives direct access to the value
+     * @param value {@link #purpose} (Explains why this search parameter is needed and why it has been designed as it has.). This is the underlying object with id, value and extensions. The accessor "getPurpose" gives direct access to the value
      */
-    public SearchParameter setRequirementsElement(MarkdownType value) { 
-      this.requirements = value;
+    public SearchParameter setPurposeElement(MarkdownType value) { 
+      this.purpose = value;
       return this;
     }
 
     /**
-     * @return The Scope and Usage that this search parameter was created to meet.
+     * @return Explains why this search parameter is needed and why it has been designed as it has.
      */
-    public String getRequirements() { 
-      return this.requirements == null ? null : this.requirements.getValue();
+    public String getPurpose() { 
+      return this.purpose == null ? null : this.purpose.getValue();
     }
 
     /**
-     * @param value The Scope and Usage that this search parameter was created to meet.
+     * @param value Explains why this search parameter is needed and why it has been designed as it has.
      */
-    public SearchParameter setRequirements(String value) { 
+    public SearchParameter setPurpose(String value) { 
       if (value == null)
-        this.requirements = null;
+        this.purpose = null;
       else {
-        if (this.requirements == null)
-          this.requirements = new MarkdownType();
-        this.requirements.setValue(value);
+        if (this.purpose == null)
+          this.purpose = new MarkdownType();
+        this.purpose.setValue(value);
       }
       return this;
     }
@@ -1491,7 +1491,7 @@ public class SearchParameter extends MetadataResource {
         childrenList.add(new Property("publisher", "string", "The name of the individual or organization that published the search parameter.", 0, java.lang.Integer.MAX_VALUE, publisher));
         childrenList.add(new Property("contact", "", "Contacts to assist a user in finding and communicating with the publisher.", 0, java.lang.Integer.MAX_VALUE, contact));
         childrenList.add(new Property("useContext", "CodeableConcept", "The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of code system definitions.", 0, java.lang.Integer.MAX_VALUE, useContext));
-        childrenList.add(new Property("requirements", "markdown", "The Scope and Usage that this search parameter was created to meet.", 0, java.lang.Integer.MAX_VALUE, requirements));
+        childrenList.add(new Property("purpose", "markdown", "Explains why this search parameter is needed and why it has been designed as it has.", 0, java.lang.Integer.MAX_VALUE, purpose));
         childrenList.add(new Property("code", "code", "The code used in the URL or the parameter name in a parameters resource for this search parameter.", 0, java.lang.Integer.MAX_VALUE, code));
         childrenList.add(new Property("base", "code", "The base resource type that this search parameter refers to.", 0, java.lang.Integer.MAX_VALUE, base));
         childrenList.add(new Property("type", "code", "The type of value a search parameter refers to, and how the content is interpreted.", 0, java.lang.Integer.MAX_VALUE, type));
@@ -1509,13 +1509,13 @@ public class SearchParameter extends MetadataResource {
         case 116079: /*url*/ return this.url == null ? new Base[0] : new Base[] {this.url}; // UriType
         case 351608024: /*version*/ return this.version == null ? new Base[0] : new Base[] {this.version}; // StringType
         case 3373707: /*name*/ return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
-        case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<ConformanceResourceStatus>
+        case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<PublicationStatus>
         case -404562712: /*experimental*/ return this.experimental == null ? new Base[0] : new Base[] {this.experimental}; // BooleanType
         case 3076014: /*date*/ return this.date == null ? new Base[0] : new Base[] {this.date}; // DateTimeType
         case 1447404028: /*publisher*/ return this.publisher == null ? new Base[0] : new Base[] {this.publisher}; // StringType
         case 951526432: /*contact*/ return this.contact == null ? new Base[0] : this.contact.toArray(new Base[this.contact.size()]); // SearchParameterContactComponent
         case -669707736: /*useContext*/ return this.useContext == null ? new Base[0] : this.useContext.toArray(new Base[this.useContext.size()]); // CodeableConcept
-        case -1619874672: /*requirements*/ return this.requirements == null ? new Base[0] : new Base[] {this.requirements}; // MarkdownType
+        case -220463842: /*purpose*/ return this.purpose == null ? new Base[0] : new Base[] {this.purpose}; // MarkdownType
         case 3059181: /*code*/ return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeType
         case 3016401: /*base*/ return this.base == null ? new Base[0] : new Base[] {this.base}; // CodeType
         case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // Enumeration<SearchParamType>
@@ -1543,7 +1543,7 @@ public class SearchParameter extends MetadataResource {
           this.name = castToString(value); // StringType
           break;
         case -892481550: // status
-          this.status = new ConformanceResourceStatusEnumFactory().fromType(value); // Enumeration<ConformanceResourceStatus>
+          this.status = new PublicationStatusEnumFactory().fromType(value); // Enumeration<PublicationStatus>
           break;
         case -404562712: // experimental
           this.experimental = castToBoolean(value); // BooleanType
@@ -1560,8 +1560,8 @@ public class SearchParameter extends MetadataResource {
         case -669707736: // useContext
           this.getUseContext().add(castToCodeableConcept(value)); // CodeableConcept
           break;
-        case -1619874672: // requirements
-          this.requirements = castToMarkdown(value); // MarkdownType
+        case -220463842: // purpose
+          this.purpose = castToMarkdown(value); // MarkdownType
           break;
         case 3059181: // code
           this.code = castToCode(value); // CodeType
@@ -1604,7 +1604,7 @@ public class SearchParameter extends MetadataResource {
         else if (name.equals("name"))
           this.name = castToString(value); // StringType
         else if (name.equals("status"))
-          this.status = new ConformanceResourceStatusEnumFactory().fromType(value); // Enumeration<ConformanceResourceStatus>
+          this.status = new PublicationStatusEnumFactory().fromType(value); // Enumeration<PublicationStatus>
         else if (name.equals("experimental"))
           this.experimental = castToBoolean(value); // BooleanType
         else if (name.equals("date"))
@@ -1615,8 +1615,8 @@ public class SearchParameter extends MetadataResource {
           this.getContact().add((SearchParameterContactComponent) value);
         else if (name.equals("useContext"))
           this.getUseContext().add(castToCodeableConcept(value));
-        else if (name.equals("requirements"))
-          this.requirements = castToMarkdown(value); // MarkdownType
+        else if (name.equals("purpose"))
+          this.purpose = castToMarkdown(value); // MarkdownType
         else if (name.equals("code"))
           this.code = castToCode(value); // CodeType
         else if (name.equals("base"))
@@ -1645,13 +1645,13 @@ public class SearchParameter extends MetadataResource {
         case 116079: throw new FHIRException("Cannot make property url as it is not a complex type"); // UriType
         case 351608024: throw new FHIRException("Cannot make property version as it is not a complex type"); // StringType
         case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
-        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<ConformanceResourceStatus>
+        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<PublicationStatus>
         case -404562712: throw new FHIRException("Cannot make property experimental as it is not a complex type"); // BooleanType
         case 3076014: throw new FHIRException("Cannot make property date as it is not a complex type"); // DateTimeType
         case 1447404028: throw new FHIRException("Cannot make property publisher as it is not a complex type"); // StringType
         case 951526432:  return addContact(); // SearchParameterContactComponent
         case -669707736:  return addUseContext(); // CodeableConcept
-        case -1619874672: throw new FHIRException("Cannot make property requirements as it is not a complex type"); // MarkdownType
+        case -220463842: throw new FHIRException("Cannot make property purpose as it is not a complex type"); // MarkdownType
         case 3059181: throw new FHIRException("Cannot make property code as it is not a complex type"); // CodeType
         case 3016401: throw new FHIRException("Cannot make property base as it is not a complex type"); // CodeType
         case 3575610: throw new FHIRException("Cannot make property type as it is not a complex type"); // Enumeration<SearchParamType>
@@ -1695,8 +1695,8 @@ public class SearchParameter extends MetadataResource {
         else if (name.equals("useContext")) {
           return addUseContext();
         }
-        else if (name.equals("requirements")) {
-          throw new FHIRException("Cannot call addChild on a primitive type SearchParameter.requirements");
+        else if (name.equals("purpose")) {
+          throw new FHIRException("Cannot call addChild on a primitive type SearchParameter.purpose");
         }
         else if (name.equals("code")) {
           throw new FHIRException("Cannot call addChild on a primitive type SearchParameter.code");
@@ -1754,7 +1754,7 @@ public class SearchParameter extends MetadataResource {
           for (CodeableConcept i : useContext)
             dst.useContext.add(i.copy());
         };
-        dst.requirements = requirements == null ? null : requirements.copy();
+        dst.purpose = purpose == null ? null : purpose.copy();
         dst.code = code == null ? null : code.copy();
         dst.base = base == null ? null : base.copy();
         dst.type = type == null ? null : type.copy();
@@ -1786,11 +1786,9 @@ public class SearchParameter extends MetadataResource {
         if (!(other instanceof SearchParameter))
           return false;
         SearchParameter o = (SearchParameter) other;
-        return compareDeep(url, o.url, true) && compareDeep(version, o.version, true) && compareDeep(name, o.name, true)
-           && compareDeep(status, o.status, true) && compareDeep(experimental, o.experimental, true) && compareDeep(date, o.date, true)
-           && compareDeep(publisher, o.publisher, true) && compareDeep(contact, o.contact, true) && compareDeep(useContext, o.useContext, true)
-           && compareDeep(requirements, o.requirements, true) && compareDeep(code, o.code, true) && compareDeep(base, o.base, true)
-           && compareDeep(type, o.type, true) && compareDeep(description, o.description, true) && compareDeep(expression, o.expression, true)
+        return compareDeep(publisher, o.publisher, true) && compareDeep(contact, o.contact, true) && compareDeep(purpose, o.purpose, true)
+           && compareDeep(code, o.code, true) && compareDeep(base, o.base, true) && compareDeep(type, o.type, true)
+           && compareDeep(description, o.description, true) && compareDeep(expression, o.expression, true)
            && compareDeep(xpath, o.xpath, true) && compareDeep(xpathUsage, o.xpathUsage, true) && compareDeep(target, o.target, true)
            && compareDeep(component, o.component, true);
       }
@@ -1802,19 +1800,16 @@ public class SearchParameter extends MetadataResource {
         if (!(other instanceof SearchParameter))
           return false;
         SearchParameter o = (SearchParameter) other;
-        return compareValues(url, o.url, true) && compareValues(version, o.version, true) && compareValues(name, o.name, true)
-           && compareValues(status, o.status, true) && compareValues(experimental, o.experimental, true) && compareValues(date, o.date, true)
-           && compareValues(publisher, o.publisher, true) && compareValues(requirements, o.requirements, true)
-           && compareValues(code, o.code, true) && compareValues(base, o.base, true) && compareValues(type, o.type, true)
-           && compareValues(description, o.description, true) && compareValues(expression, o.expression, true)
-           && compareValues(xpath, o.xpath, true) && compareValues(xpathUsage, o.xpathUsage, true) && compareValues(target, o.target, true)
-          ;
+        return compareValues(publisher, o.publisher, true) && compareValues(purpose, o.purpose, true) && compareValues(code, o.code, true)
+           && compareValues(base, o.base, true) && compareValues(type, o.type, true) && compareValues(description, o.description, true)
+           && compareValues(expression, o.expression, true) && compareValues(xpath, o.xpath, true) && compareValues(xpathUsage, o.xpathUsage, true)
+           && compareValues(target, o.target, true);
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(url, version, name, status
-          , experimental, date, publisher, contact, useContext, requirements, code, base
-          , type, description, expression, xpath, xpathUsage, target, component);
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(publisher, contact, purpose
+          , code, base, type, description, expression, xpath, xpathUsage, target, component
+          );
       }
 
   @Override

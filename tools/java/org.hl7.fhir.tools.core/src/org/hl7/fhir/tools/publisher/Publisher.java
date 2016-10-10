@@ -153,7 +153,7 @@ import org.hl7.fhir.dstu3.model.DataElement;
 import org.hl7.fhir.dstu3.model.DomainResource;
 import org.hl7.fhir.dstu3.model.ElementDefinition;
 import org.hl7.fhir.dstu3.model.ElementDefinition.TypeRefComponent;
-import org.hl7.fhir.dstu3.model.Enumerations.ConformanceResourceStatus;
+import org.hl7.fhir.dstu3.model.Enumerations.PublicationStatus;
 import org.hl7.fhir.dstu3.model.Enumerations.SearchParamType;
 import org.hl7.fhir.dstu3.model.Factory;
 import org.hl7.fhir.dstu3.model.ImplementationGuide.GuidePageKind;
@@ -1166,7 +1166,7 @@ public class Publisher implements URIResolver, SectionNumberer {
           ns.setName(cs.getName());
           ns.setStatus(cs.getStatus());
           if (!ns.hasStatus())
-            ns.setStatus(ConformanceResourceStatus.DRAFT);
+            ns.setStatus(PublicationStatus.DRAFT);
           ns.setKind(NamingSystemType.CODESYSTEM);
           ns.setPublisher(cs.getPublisher());
           for (CodeSystemContactComponent c : cs.getContact()) {
@@ -1278,7 +1278,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     cpd.setId(c.getName());
     cpd.setUrl("http://hl7.org/fhir/CompartmentDefinition/" + c.getName());
     cpd.setName("Base FHIR compartment definition for " +c.getTitle());
-    cpd.setStatus(ConformanceResourceStatus.DRAFT);
+    cpd.setStatus(PublicationStatus.DRAFT);
     cpd.setDescription(c.getIdentity()+". "+c.getDescription());
     cpd.setExperimental(true);
     cpd.setDate(page.getGenDate().getTime());
@@ -1327,7 +1327,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     cpbs.setUrl("http://hl7.org/fhir/CapabilityStatement/" + name);
     cpbs.setVersion(page.getVersion() + "-" + page.getSvnRevision());
     cpbs.setName("Base FHIR Capability Statement " + (full ? "(Full)" : "(Empty)"));
-    cpbs.setStatus(ConformanceResourceStatus.DRAFT);
+    cpbs.setStatus(PublicationStatus.DRAFT);
     cpbs.setExperimental(true);
     cpbs.setDate(page.getGenDate().getTime());
     cpbs.setPublisher("FHIR Project Team");
@@ -2913,8 +2913,8 @@ public class Publisher implements URIResolver, SectionNumberer {
   private void minifyProfile(StructureDefinition p) {
     p.getContact().clear();
     p.setDescriptionElement(null);
-    p.getCode().clear();
-    p.setRequirementsElement(null);
+    p.getKeyword().clear();
+    p.setPurposeElement(null);
     p.getMapping().clear();
     p.setDifferential(null);
     for (ElementDefinition ed : p.getSnapshot().getElement()) {

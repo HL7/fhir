@@ -275,7 +275,7 @@
         <ns4:element name="type" type="QUICK.NamingSystemType"/>
         <ns4:element name="name" type="System.String"/>
         <ns4:element name="date" type="System.DateTime"/>
-        <ns4:element name="status" type="QUICK.ConformanceResourceStatus"/>
+        <ns4:element name="status" type="QUICK.PublicationStatus"/>
         <ns4:element name="country" type="System.String"/>
         <ns4:element name="category" type="System.Concept"/>
         <ns4:element name="responsible" type="System.String"/>
@@ -574,7 +574,7 @@
         <ns4:element name="publisher" type="System.String"/>
         <ns4:element name="contact" type="list&lt;QUICK.SearchParameter.Contact&gt;"/>
         <ns4:element name="requirements" type="System.String"/>
-        <ns4:element name="status" type="QUICK.ConformanceResourceStatus"/>
+        <ns4:element name="status" type="QUICK.PublicationStatus"/>
         <ns4:element name="experimental" type="System.Boolean"/>
         <ns4:element name="date" type="System.DateTime"/>
         <ns4:element name="base" type="System.String"/>
@@ -786,7 +786,7 @@
         <ns4:element name="requirements" type="System.String"/>
         <ns4:element name="copyright" type="System.String"/>
         <ns4:element name="code" type="list&lt;System.Code&gt;"/>
-        <ns4:element name="status" type="QUICK.ConformanceResourceStatus"/>
+        <ns4:element name="status" type="QUICK.PublicationStatus"/>
         <ns4:element name="experimental" type="System.Boolean"/>
         <ns4:element name="date" type="System.DateTime"/>
         <ns4:element name="fhirVersion" type="System.String"/>
@@ -1236,7 +1236,7 @@
         <ns4:element name="contact" type="list&lt;QUICK.OperationDefinition.Contact&gt;"/>
         <ns4:element name="description" type="System.String"/>
         <ns4:element name="requirements" type="System.String"/>
-        <ns4:element name="status" type="QUICK.ConformanceResourceStatus"/>
+        <ns4:element name="status" type="QUICK.PublicationStatus"/>
         <ns4:element name="experimental" type="System.Boolean"/>
         <ns4:element name="date" type="System.DateTime"/>
         <ns4:element name="kind" type="QUICK.OperationKind"/>
@@ -2845,7 +2845,7 @@
         <ns4:element name="name" type="System.String"/>
         <ns4:element name="useContext" type="list&lt;System.Concept&gt;"/>
         <ns4:element name="experimental" type="System.Boolean"/>
-        <ns4:element name="status" type="QUICK.ConformanceResourceStatus"/>
+        <ns4:element name="status" type="QUICK.PublicationStatus"/>
         <ns4:element name="date" type="System.DateTime"/>
         <ns4:element name="copyright" type="System.String"/>
         <ns4:element name="publisher" type="System.String"/>
@@ -3130,7 +3130,7 @@
         <ns4:element name="description" type="System.String"/>
         <ns4:element name="requirements" type="System.String"/>
         <ns4:element name="copyright" type="System.String"/>
-        <ns4:element name="status" type="QUICK.ConformanceResourceStatus"/>
+        <ns4:element name="status" type="QUICK.PublicationStatus"/>
         <ns4:element name="experimental" type="System.Boolean"/>
         <ns4:element name="extensible" type="System.Boolean"/>
         <ns4:element name="date" type="System.DateTime"/>
@@ -3157,7 +3157,7 @@
         <ns4:element name="description" type="System.String"/>
         <ns4:element name="requirements" type="System.String"/>
         <ns4:element name="copyright" type="System.String"/>
-        <ns4:element name="status" type="QUICK.ConformanceResourceStatus"/>
+        <ns4:element name="status" type="QUICK.PublicationStatus"/>
         <ns4:element name="experimental" type="System.Boolean"/>
         <ns4:element name="date" type="System.DateTime"/>
         <ns4:element name="software" type="QUICK.Conformance.Software"/>
@@ -3170,7 +3170,7 @@
         <ns4:element name="messaging" type="list&lt;QUICK.Conformance.Messaging&gt;"/>
         <ns4:element name="document" type="list&lt;QUICK.Conformance.Document&gt;"/>
     </ns4:typeInfo>
-    <ns4:typeInfo xsi:type="ns4:ClassInfo" name="QUICK.ConformanceResourceStatus" baseType="QUICK.Element">
+    <ns4:typeInfo xsi:type="ns4:ClassInfo" name="QUICK.PublicationStatus" baseType="QUICK.Element">
         <ns4:element name="value" type="System.String"/>
     </ns4:typeInfo>
     <ns4:typeInfo xsi:type="ns4:ClassInfo" name="QUICK.ConceptMap" baseType="QUICK.DomainResource">
@@ -3184,7 +3184,7 @@
         <ns4:element name="description" type="System.String"/>
         <ns4:element name="requirements" type="System.String"/>
         <ns4:element name="copyright" type="System.String"/>
-        <ns4:element name="status" type="QUICK.ConformanceResourceStatus"/>
+        <ns4:element name="status" type="QUICK.PublicationStatus"/>
         <ns4:element name="experimental" type="System.Boolean"/>
         <ns4:element name="date" type="System.DateTime"/>
         <ns4:element name="sourceUri" type="System.String"/>

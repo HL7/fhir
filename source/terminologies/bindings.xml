@@ -626,7 +626,7 @@
     <Cell><Data ss:Type="String">PA</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell><Data ss:Type="String">ConformanceResourceStatus</Data></Cell>
+    <Cell><Data ss:Type="String">PublicationStatus</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">The lifecycle status of a Value Set or Concept Map.</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:Index="5" ss:StyleID="s73"><Data ss:Type="String">#conformance-resource-status</Data></Cell>

@@ -24,12 +24,12 @@
     <text value="Chlamydia Screening"/>
   </topic>
   
-  <relatedResource>
+  <relatedArtifact>
     <type value="depends-on"/>
     <resource>
       <reference value="Library/library-quick-model-definition"/>
     </resource>
-  </relatedResource>
+  </relatedArtifact>
 
   <!--valueSet>
     <name value="Female Administrative Sex"/>

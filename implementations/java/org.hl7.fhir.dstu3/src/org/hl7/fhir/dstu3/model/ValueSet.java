@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Oct 10, 2016 12:40+1100 for FHIR v1.7.0
+// Generated on Mon, Oct 10, 2016 15:45+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -3520,11 +3520,11 @@ public class ValueSet extends MetadataResource {
     protected BooleanType immutable;
 
     /**
-     * Explains why this value set is needed and why it has been constrained as it has.
+     * Explains why this value set is needed and why it has been designed as it has.
      */
-    @Child(name = "requirements", type = {MarkdownType.class}, order=5, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="Why needed", formalDefinition="Explains why this value set is needed and why it has been constrained as it has." )
-    protected MarkdownType requirements;
+    @Child(name = "purpose", type = {MarkdownType.class}, order=5, min=0, max=1, modifier=false, summary=false)
+    @Description(shortDefinition="Why this value set is defined", formalDefinition="Explains why this value set is needed and why it has been designed as it has." )
+    protected MarkdownType purpose;
 
     /**
      * A copyright statement relating to the value set and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the value set.
@@ -3554,7 +3554,7 @@ public class ValueSet extends MetadataResource {
     @Description(shortDefinition="Used when the value set is \"expanded\"", formalDefinition="A value set can also be \"expanded\", where the value set is turned into a simple collection of enumerated codes. This element holds the expansion, if it has been performed." )
     protected ValueSetExpansionComponent expansion;
 
-    private static final long serialVersionUID = 1649313430L;
+    private static final long serialVersionUID = 287509246L;
 
   /**
    * Constructor
@@ -3566,7 +3566,7 @@ public class ValueSet extends MetadataResource {
   /**
    * Constructor
    */
-    public ValueSet(Enumeration<ConformanceResourceStatus> status) {
+    public ValueSet(Enumeration<PublicationStatus> status) {
       super();
       this.status = status;
     }
@@ -3774,12 +3774,12 @@ public class ValueSet extends MetadataResource {
     /**
      * @return {@link #status} (The status of this value set.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<ConformanceResourceStatus> getStatusElement() { 
+    public Enumeration<PublicationStatus> getStatusElement() { 
       if (this.status == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ValueSet.status");
         else if (Configuration.doAutoCreate())
-          this.status = new Enumeration<ConformanceResourceStatus>(new ConformanceResourceStatusEnumFactory()); // bb
+          this.status = new Enumeration<PublicationStatus>(new PublicationStatusEnumFactory()); // bb
       return this.status;
     }
 
@@ -3794,7 +3794,7 @@ public class ValueSet extends MetadataResource {
     /**
      * @param value {@link #status} (The status of this value set.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public ValueSet setStatusElement(Enumeration<ConformanceResourceStatus> value) { 
+    public ValueSet setStatusElement(Enumeration<PublicationStatus> value) { 
       this.status = value;
       return this;
     }
@@ -3802,16 +3802,16 @@ public class ValueSet extends MetadataResource {
     /**
      * @return The status of this value set.
      */
-    public ConformanceResourceStatus getStatus() { 
+    public PublicationStatus getStatus() { 
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
      * @param value The status of this value set.
      */
-    public ValueSet setStatus(ConformanceResourceStatus value) { 
+    public ValueSet setStatus(PublicationStatus value) { 
         if (this.status == null)
-          this.status = new Enumeration<ConformanceResourceStatus>(new ConformanceResourceStatusEnumFactory());
+          this.status = new Enumeration<PublicationStatus>(new PublicationStatusEnumFactory());
         this.status.setValue(value);
       return this;
     }
@@ -4160,50 +4160,50 @@ public class ValueSet extends MetadataResource {
     }
 
     /**
-     * @return {@link #requirements} (Explains why this value set is needed and why it has been constrained as it has.). This is the underlying object with id, value and extensions. The accessor "getRequirements" gives direct access to the value
+     * @return {@link #purpose} (Explains why this value set is needed and why it has been designed as it has.). This is the underlying object with id, value and extensions. The accessor "getPurpose" gives direct access to the value
      */
-    public MarkdownType getRequirementsElement() { 
-      if (this.requirements == null)
+    public MarkdownType getPurposeElement() { 
+      if (this.purpose == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ValueSet.requirements");
+          throw new Error("Attempt to auto-create ValueSet.purpose");
         else if (Configuration.doAutoCreate())
-          this.requirements = new MarkdownType(); // bb
-      return this.requirements;
+          this.purpose = new MarkdownType(); // bb
+      return this.purpose;
     }
 
-    public boolean hasRequirementsElement() { 
-      return this.requirements != null && !this.requirements.isEmpty();
+    public boolean hasPurposeElement() { 
+      return this.purpose != null && !this.purpose.isEmpty();
     }
 
-    public boolean hasRequirements() { 
-      return this.requirements != null && !this.requirements.isEmpty();
+    public boolean hasPurpose() { 
+      return this.purpose != null && !this.purpose.isEmpty();
     }
 
     /**
-     * @param value {@link #requirements} (Explains why this value set is needed and why it has been constrained as it has.). This is the underlying object with id, value and extensions. The accessor "getRequirements" gives direct access to the value
+     * @param value {@link #purpose} (Explains why this value set is needed and why it has been designed as it has.). This is the underlying object with id, value and extensions. The accessor "getPurpose" gives direct access to the value
      */
-    public ValueSet setRequirementsElement(MarkdownType value) { 
-      this.requirements = value;
+    public ValueSet setPurposeElement(MarkdownType value) { 
+      this.purpose = value;
       return this;
     }
 
     /**
-     * @return Explains why this value set is needed and why it has been constrained as it has.
+     * @return Explains why this value set is needed and why it has been designed as it has.
      */
-    public String getRequirements() { 
-      return this.requirements == null ? null : this.requirements.getValue();
+    public String getPurpose() { 
+      return this.purpose == null ? null : this.purpose.getValue();
     }
 
     /**
-     * @param value Explains why this value set is needed and why it has been constrained as it has.
+     * @param value Explains why this value set is needed and why it has been designed as it has.
      */
-    public ValueSet setRequirements(String value) { 
+    public ValueSet setPurpose(String value) { 
       if (value == null)
-        this.requirements = null;
+        this.purpose = null;
       else {
-        if (this.requirements == null)
-          this.requirements = new MarkdownType();
-        this.requirements.setValue(value);
+        if (this.purpose == null)
+          this.purpose = new MarkdownType();
+        this.purpose.setValue(value);
       }
       return this;
     }
@@ -4364,7 +4364,7 @@ public class ValueSet extends MetadataResource {
         childrenList.add(new Property("description", "markdown", "A free text natural language description of the use of the value set - reason for definition, \"the semantic space\" to be included in the value set, conditions of use, etc. The description may include a list of expected usages for the value set and can also describe the approach taken to build the value set.", 0, java.lang.Integer.MAX_VALUE, description));
         childrenList.add(new Property("useContext", "CodeableConcept", "The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of code system definitions.", 0, java.lang.Integer.MAX_VALUE, useContext));
         childrenList.add(new Property("immutable", "boolean", "If this is set to 'true', then no new versions of the content logical definition can be created.  Note: Other metadata might still change.", 0, java.lang.Integer.MAX_VALUE, immutable));
-        childrenList.add(new Property("requirements", "markdown", "Explains why this value set is needed and why it has been constrained as it has.", 0, java.lang.Integer.MAX_VALUE, requirements));
+        childrenList.add(new Property("purpose", "markdown", "Explains why this value set is needed and why it has been designed as it has.", 0, java.lang.Integer.MAX_VALUE, purpose));
         childrenList.add(new Property("copyright", "string", "A copyright statement relating to the value set and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the value set.", 0, java.lang.Integer.MAX_VALUE, copyright));
         childrenList.add(new Property("extensible", "boolean", "Whether this is intended to be used with an extensible binding or not.", 0, java.lang.Integer.MAX_VALUE, extensible));
         childrenList.add(new Property("compose", "", "A set of criteria that define the content logical definition of the value set by including or excluding codes from outside this value set. This I also known as the \"Content Logical Definition\" (CLD).", 0, java.lang.Integer.MAX_VALUE, compose));
@@ -4378,7 +4378,7 @@ public class ValueSet extends MetadataResource {
         case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
         case 351608024: /*version*/ return this.version == null ? new Base[0] : new Base[] {this.version}; // StringType
         case 3373707: /*name*/ return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
-        case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<ConformanceResourceStatus>
+        case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<PublicationStatus>
         case -404562712: /*experimental*/ return this.experimental == null ? new Base[0] : new Base[] {this.experimental}; // BooleanType
         case 1447404028: /*publisher*/ return this.publisher == null ? new Base[0] : new Base[] {this.publisher}; // StringType
         case 951526432: /*contact*/ return this.contact == null ? new Base[0] : this.contact.toArray(new Base[this.contact.size()]); // ValueSetContactComponent
@@ -4386,7 +4386,7 @@ public class ValueSet extends MetadataResource {
         case -1724546052: /*description*/ return this.description == null ? new Base[0] : new Base[] {this.description}; // MarkdownType
         case -669707736: /*useContext*/ return this.useContext == null ? new Base[0] : this.useContext.toArray(new Base[this.useContext.size()]); // CodeableConcept
         case 1596987778: /*immutable*/ return this.immutable == null ? new Base[0] : new Base[] {this.immutable}; // BooleanType
-        case -1619874672: /*requirements*/ return this.requirements == null ? new Base[0] : new Base[] {this.requirements}; // MarkdownType
+        case -220463842: /*purpose*/ return this.purpose == null ? new Base[0] : new Base[] {this.purpose}; // MarkdownType
         case 1522889671: /*copyright*/ return this.copyright == null ? new Base[0] : new Base[] {this.copyright}; // StringType
         case -1809433861: /*extensible*/ return this.extensible == null ? new Base[0] : new Base[] {this.extensible}; // BooleanType
         case 950497682: /*compose*/ return this.compose == null ? new Base[0] : new Base[] {this.compose}; // ValueSetComposeComponent
@@ -4412,7 +4412,7 @@ public class ValueSet extends MetadataResource {
           this.name = castToString(value); // StringType
           break;
         case -892481550: // status
-          this.status = new ConformanceResourceStatusEnumFactory().fromType(value); // Enumeration<ConformanceResourceStatus>
+          this.status = new PublicationStatusEnumFactory().fromType(value); // Enumeration<PublicationStatus>
           break;
         case -404562712: // experimental
           this.experimental = castToBoolean(value); // BooleanType
@@ -4435,8 +4435,8 @@ public class ValueSet extends MetadataResource {
         case 1596987778: // immutable
           this.immutable = castToBoolean(value); // BooleanType
           break;
-        case -1619874672: // requirements
-          this.requirements = castToMarkdown(value); // MarkdownType
+        case -220463842: // purpose
+          this.purpose = castToMarkdown(value); // MarkdownType
           break;
         case 1522889671: // copyright
           this.copyright = castToString(value); // StringType
@@ -4466,7 +4466,7 @@ public class ValueSet extends MetadataResource {
         else if (name.equals("name"))
           this.name = castToString(value); // StringType
         else if (name.equals("status"))
-          this.status = new ConformanceResourceStatusEnumFactory().fromType(value); // Enumeration<ConformanceResourceStatus>
+          this.status = new PublicationStatusEnumFactory().fromType(value); // Enumeration<PublicationStatus>
         else if (name.equals("experimental"))
           this.experimental = castToBoolean(value); // BooleanType
         else if (name.equals("publisher"))
@@ -4481,8 +4481,8 @@ public class ValueSet extends MetadataResource {
           this.getUseContext().add(castToCodeableConcept(value));
         else if (name.equals("immutable"))
           this.immutable = castToBoolean(value); // BooleanType
-        else if (name.equals("requirements"))
-          this.requirements = castToMarkdown(value); // MarkdownType
+        else if (name.equals("purpose"))
+          this.purpose = castToMarkdown(value); // MarkdownType
         else if (name.equals("copyright"))
           this.copyright = castToString(value); // StringType
         else if (name.equals("extensible"))
@@ -4502,7 +4502,7 @@ public class ValueSet extends MetadataResource {
         case -1618432855:  return addIdentifier(); // Identifier
         case 351608024: throw new FHIRException("Cannot make property version as it is not a complex type"); // StringType
         case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
-        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<ConformanceResourceStatus>
+        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<PublicationStatus>
         case -404562712: throw new FHIRException("Cannot make property experimental as it is not a complex type"); // BooleanType
         case 1447404028: throw new FHIRException("Cannot make property publisher as it is not a complex type"); // StringType
         case 951526432:  return addContact(); // ValueSetContactComponent
@@ -4510,7 +4510,7 @@ public class ValueSet extends MetadataResource {
         case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // MarkdownType
         case -669707736:  return addUseContext(); // CodeableConcept
         case 1596987778: throw new FHIRException("Cannot make property immutable as it is not a complex type"); // BooleanType
-        case -1619874672: throw new FHIRException("Cannot make property requirements as it is not a complex type"); // MarkdownType
+        case -220463842: throw new FHIRException("Cannot make property purpose as it is not a complex type"); // MarkdownType
         case 1522889671: throw new FHIRException("Cannot make property copyright as it is not a complex type"); // StringType
         case -1809433861: throw new FHIRException("Cannot make property extensible as it is not a complex type"); // BooleanType
         case 950497682:  return getCompose(); // ValueSetComposeComponent
@@ -4558,8 +4558,8 @@ public class ValueSet extends MetadataResource {
         else if (name.equals("immutable")) {
           throw new FHIRException("Cannot call addChild on a primitive type ValueSet.immutable");
         }
-        else if (name.equals("requirements")) {
-          throw new FHIRException("Cannot call addChild on a primitive type ValueSet.requirements");
+        else if (name.equals("purpose")) {
+          throw new FHIRException("Cannot call addChild on a primitive type ValueSet.purpose");
         }
         else if (name.equals("copyright")) {
           throw new FHIRException("Cannot call addChild on a primitive type ValueSet.copyright");
@@ -4611,7 +4611,7 @@ public class ValueSet extends MetadataResource {
             dst.useContext.add(i.copy());
         };
         dst.immutable = immutable == null ? null : immutable.copy();
-        dst.requirements = requirements == null ? null : requirements.copy();
+        dst.purpose = purpose == null ? null : purpose.copy();
         dst.copyright = copyright == null ? null : copyright.copy();
         dst.extensible = extensible == null ? null : extensible.copy();
         dst.compose = compose == null ? null : compose.copy();
@@ -4630,13 +4630,10 @@ public class ValueSet extends MetadataResource {
         if (!(other instanceof ValueSet))
           return false;
         ValueSet o = (ValueSet) other;
-        return compareDeep(url, o.url, true) && compareDeep(identifier, o.identifier, true) && compareDeep(version, o.version, true)
-           && compareDeep(name, o.name, true) && compareDeep(status, o.status, true) && compareDeep(experimental, o.experimental, true)
-           && compareDeep(publisher, o.publisher, true) && compareDeep(contact, o.contact, true) && compareDeep(date, o.date, true)
-           && compareDeep(description, o.description, true) && compareDeep(useContext, o.useContext, true)
-           && compareDeep(immutable, o.immutable, true) && compareDeep(requirements, o.requirements, true)
-           && compareDeep(copyright, o.copyright, true) && compareDeep(extensible, o.extensible, true) && compareDeep(compose, o.compose, true)
-           && compareDeep(expansion, o.expansion, true);
+        return compareDeep(identifier, o.identifier, true) && compareDeep(publisher, o.publisher, true)
+           && compareDeep(contact, o.contact, true) && compareDeep(description, o.description, true) && compareDeep(immutable, o.immutable, true)
+           && compareDeep(purpose, o.purpose, true) && compareDeep(copyright, o.copyright, true) && compareDeep(extensible, o.extensible, true)
+           && compareDeep(compose, o.compose, true) && compareDeep(expansion, o.expansion, true);
       }
 
       @Override
@@ -4646,17 +4643,14 @@ public class ValueSet extends MetadataResource {
         if (!(other instanceof ValueSet))
           return false;
         ValueSet o = (ValueSet) other;
-        return compareValues(url, o.url, true) && compareValues(version, o.version, true) && compareValues(name, o.name, true)
-           && compareValues(status, o.status, true) && compareValues(experimental, o.experimental, true) && compareValues(publisher, o.publisher, true)
-           && compareValues(date, o.date, true) && compareValues(description, o.description, true) && compareValues(immutable, o.immutable, true)
-           && compareValues(requirements, o.requirements, true) && compareValues(copyright, o.copyright, true)
+        return compareValues(publisher, o.publisher, true) && compareValues(description, o.description, true)
+           && compareValues(immutable, o.immutable, true) && compareValues(purpose, o.purpose, true) && compareValues(copyright, o.copyright, true)
            && compareValues(extensible, o.extensible, true);
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(url, identifier, version
-          , name, status, experimental, publisher, contact, date, description, useContext
-          , immutable, requirements, copyright, extensible, compose, expansion);
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, publisher, contact
+          , description, immutable, purpose, copyright, extensible, compose, expansion);
       }
 
   @Override

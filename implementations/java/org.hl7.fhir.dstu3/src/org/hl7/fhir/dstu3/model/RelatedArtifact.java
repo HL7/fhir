@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Oct 10, 2016 12:40+1100 for FHIR v1.7.0
+// Generated on Mon, Oct 10, 2016 15:45+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -44,10 +44,10 @@ import org.hl7.fhir.exceptions.FHIRException;
 /**
  * Related resources such as additional documentation, justification, or bibliographic references.
  */
-@DatatypeDef(name="RelatedResource")
-public class RelatedResource extends Type implements ICompositeType {
+@DatatypeDef(name="RelatedArtifact")
+public class RelatedArtifact extends Type implements ICompositeType {
 
-    public enum RelatedResourceType {
+    public enum RelatedArtifactType {
         /**
          * Additional documentation for the module. This would include additional instructions on usage as well as additional information on clinical context or appropriateness
          */
@@ -84,7 +84,7 @@ public class RelatedResource extends Type implements ICompositeType {
          * added to help the parsers with the generic types
          */
         NULL;
-        public static RelatedResourceType fromCode(String codeString) throws FHIRException {
+        public static RelatedArtifactType fromCode(String codeString) throws FHIRException {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("documentation".equals(codeString))
@@ -106,7 +106,7 @@ public class RelatedResource extends Type implements ICompositeType {
         if (Configuration.isAcceptInvalidEnums())
           return null;
         else
-          throw new FHIRException("Unknown RelatedResourceType code '"+codeString+"'");
+          throw new FHIRException("Unknown RelatedArtifactType code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
@@ -162,73 +162,73 @@ public class RelatedResource extends Type implements ICompositeType {
         }
     }
 
-  public static class RelatedResourceTypeEnumFactory implements EnumFactory<RelatedResourceType> {
-    public RelatedResourceType fromCode(String codeString) throws IllegalArgumentException {
+  public static class RelatedArtifactTypeEnumFactory implements EnumFactory<RelatedArtifactType> {
+    public RelatedArtifactType fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("documentation".equals(codeString))
-          return RelatedResourceType.DOCUMENTATION;
+          return RelatedArtifactType.DOCUMENTATION;
         if ("justification".equals(codeString))
-          return RelatedResourceType.JUSTIFICATION;
+          return RelatedArtifactType.JUSTIFICATION;
         if ("citation".equals(codeString))
-          return RelatedResourceType.CITATION;
+          return RelatedArtifactType.CITATION;
         if ("predecessor".equals(codeString))
-          return RelatedResourceType.PREDECESSOR;
+          return RelatedArtifactType.PREDECESSOR;
         if ("successor".equals(codeString))
-          return RelatedResourceType.SUCCESSOR;
+          return RelatedArtifactType.SUCCESSOR;
         if ("derived-from".equals(codeString))
-          return RelatedResourceType.DERIVEDFROM;
+          return RelatedArtifactType.DERIVEDFROM;
         if ("depends-on".equals(codeString))
-          return RelatedResourceType.DEPENDSON;
+          return RelatedArtifactType.DEPENDSON;
         if ("composed-of".equals(codeString))
-          return RelatedResourceType.COMPOSEDOF;
-        throw new IllegalArgumentException("Unknown RelatedResourceType code '"+codeString+"'");
+          return RelatedArtifactType.COMPOSEDOF;
+        throw new IllegalArgumentException("Unknown RelatedArtifactType code '"+codeString+"'");
         }
-        public Enumeration<RelatedResourceType> fromType(Base code) throws FHIRException {
+        public Enumeration<RelatedArtifactType> fromType(Base code) throws FHIRException {
           if (code == null || code.isEmpty())
             return null;
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
         if ("documentation".equals(codeString))
-          return new Enumeration<RelatedResourceType>(this, RelatedResourceType.DOCUMENTATION);
+          return new Enumeration<RelatedArtifactType>(this, RelatedArtifactType.DOCUMENTATION);
         if ("justification".equals(codeString))
-          return new Enumeration<RelatedResourceType>(this, RelatedResourceType.JUSTIFICATION);
+          return new Enumeration<RelatedArtifactType>(this, RelatedArtifactType.JUSTIFICATION);
         if ("citation".equals(codeString))
-          return new Enumeration<RelatedResourceType>(this, RelatedResourceType.CITATION);
+          return new Enumeration<RelatedArtifactType>(this, RelatedArtifactType.CITATION);
         if ("predecessor".equals(codeString))
-          return new Enumeration<RelatedResourceType>(this, RelatedResourceType.PREDECESSOR);
+          return new Enumeration<RelatedArtifactType>(this, RelatedArtifactType.PREDECESSOR);
         if ("successor".equals(codeString))
-          return new Enumeration<RelatedResourceType>(this, RelatedResourceType.SUCCESSOR);
+          return new Enumeration<RelatedArtifactType>(this, RelatedArtifactType.SUCCESSOR);
         if ("derived-from".equals(codeString))
-          return new Enumeration<RelatedResourceType>(this, RelatedResourceType.DERIVEDFROM);
+          return new Enumeration<RelatedArtifactType>(this, RelatedArtifactType.DERIVEDFROM);
         if ("depends-on".equals(codeString))
-          return new Enumeration<RelatedResourceType>(this, RelatedResourceType.DEPENDSON);
+          return new Enumeration<RelatedArtifactType>(this, RelatedArtifactType.DEPENDSON);
         if ("composed-of".equals(codeString))
-          return new Enumeration<RelatedResourceType>(this, RelatedResourceType.COMPOSEDOF);
-        throw new FHIRException("Unknown RelatedResourceType code '"+codeString+"'");
+          return new Enumeration<RelatedArtifactType>(this, RelatedArtifactType.COMPOSEDOF);
+        throw new FHIRException("Unknown RelatedArtifactType code '"+codeString+"'");
         }
-    public String toCode(RelatedResourceType code) {
-      if (code == RelatedResourceType.DOCUMENTATION)
+    public String toCode(RelatedArtifactType code) {
+      if (code == RelatedArtifactType.DOCUMENTATION)
         return "documentation";
-      if (code == RelatedResourceType.JUSTIFICATION)
+      if (code == RelatedArtifactType.JUSTIFICATION)
         return "justification";
-      if (code == RelatedResourceType.CITATION)
+      if (code == RelatedArtifactType.CITATION)
         return "citation";
-      if (code == RelatedResourceType.PREDECESSOR)
+      if (code == RelatedArtifactType.PREDECESSOR)
         return "predecessor";
-      if (code == RelatedResourceType.SUCCESSOR)
+      if (code == RelatedArtifactType.SUCCESSOR)
         return "successor";
-      if (code == RelatedResourceType.DERIVEDFROM)
+      if (code == RelatedArtifactType.DERIVEDFROM)
         return "derived-from";
-      if (code == RelatedResourceType.DEPENDSON)
+      if (code == RelatedArtifactType.DEPENDSON)
         return "depends-on";
-      if (code == RelatedResourceType.COMPOSEDOF)
+      if (code == RelatedArtifactType.COMPOSEDOF)
         return "composed-of";
       return "?";
       }
-    public String toSystem(RelatedResourceType code) {
+    public String toSystem(RelatedArtifactType code) {
       return code.getSystem();
       }
     }
@@ -239,7 +239,7 @@ public class RelatedResource extends Type implements ICompositeType {
     @Child(name = "type", type = {CodeType.class}, order=0, min=1, max=1, modifier=false, summary=true)
     @Description(shortDefinition="documentation | justification | citation | predecessor | successor | derived-from | depends-on | composed-of", formalDefinition="The type of related resource." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/related-resource-type")
-    protected Enumeration<RelatedResourceType> type;
+    protected Enumeration<RelatedArtifactType> type;
 
     /**
      * A brief description of the document or resource being referenced, suitable for display to a consumer.
@@ -281,19 +281,19 @@ public class RelatedResource extends Type implements ICompositeType {
      */
     protected Resource resourceTarget;
 
-    private static final long serialVersionUID = 242024734L;
+    private static final long serialVersionUID = -660871462L;
 
   /**
    * Constructor
    */
-    public RelatedResource() {
+    public RelatedArtifact() {
       super();
     }
 
   /**
    * Constructor
    */
-    public RelatedResource(Enumeration<RelatedResourceType> type) {
+    public RelatedArtifact(Enumeration<RelatedArtifactType> type) {
       super();
       this.type = type;
     }
@@ -301,12 +301,12 @@ public class RelatedResource extends Type implements ICompositeType {
     /**
      * @return {@link #type} (The type of related resource.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
      */
-    public Enumeration<RelatedResourceType> getTypeElement() { 
+    public Enumeration<RelatedArtifactType> getTypeElement() { 
       if (this.type == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create RelatedResource.type");
+          throw new Error("Attempt to auto-create RelatedArtifact.type");
         else if (Configuration.doAutoCreate())
-          this.type = new Enumeration<RelatedResourceType>(new RelatedResourceTypeEnumFactory()); // bb
+          this.type = new Enumeration<RelatedArtifactType>(new RelatedArtifactTypeEnumFactory()); // bb
       return this.type;
     }
 
@@ -321,7 +321,7 @@ public class RelatedResource extends Type implements ICompositeType {
     /**
      * @param value {@link #type} (The type of related resource.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
      */
-    public RelatedResource setTypeElement(Enumeration<RelatedResourceType> value) { 
+    public RelatedArtifact setTypeElement(Enumeration<RelatedArtifactType> value) { 
       this.type = value;
       return this;
     }
@@ -329,16 +329,16 @@ public class RelatedResource extends Type implements ICompositeType {
     /**
      * @return The type of related resource.
      */
-    public RelatedResourceType getType() { 
+    public RelatedArtifactType getType() { 
       return this.type == null ? null : this.type.getValue();
     }
 
     /**
      * @param value The type of related resource.
      */
-    public RelatedResource setType(RelatedResourceType value) { 
+    public RelatedArtifact setType(RelatedArtifactType value) { 
         if (this.type == null)
-          this.type = new Enumeration<RelatedResourceType>(new RelatedResourceTypeEnumFactory());
+          this.type = new Enumeration<RelatedArtifactType>(new RelatedArtifactTypeEnumFactory());
         this.type.setValue(value);
       return this;
     }
@@ -349,7 +349,7 @@ public class RelatedResource extends Type implements ICompositeType {
     public StringType getDisplayElement() { 
       if (this.display == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create RelatedResource.display");
+          throw new Error("Attempt to auto-create RelatedArtifact.display");
         else if (Configuration.doAutoCreate())
           this.display = new StringType(); // bb
       return this.display;
@@ -366,7 +366,7 @@ public class RelatedResource extends Type implements ICompositeType {
     /**
      * @param value {@link #display} (A brief description of the document or resource being referenced, suitable for display to a consumer.). This is the underlying object with id, value and extensions. The accessor "getDisplay" gives direct access to the value
      */
-    public RelatedResource setDisplayElement(StringType value) { 
+    public RelatedArtifact setDisplayElement(StringType value) { 
       this.display = value;
       return this;
     }
@@ -381,7 +381,7 @@ public class RelatedResource extends Type implements ICompositeType {
     /**
      * @param value A brief description of the document or resource being referenced, suitable for display to a consumer.
      */
-    public RelatedResource setDisplay(String value) { 
+    public RelatedArtifact setDisplay(String value) { 
       if (Utilities.noString(value))
         this.display = null;
       else {
@@ -398,7 +398,7 @@ public class RelatedResource extends Type implements ICompositeType {
     public StringType getCitationElement() { 
       if (this.citation == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create RelatedResource.citation");
+          throw new Error("Attempt to auto-create RelatedArtifact.citation");
         else if (Configuration.doAutoCreate())
           this.citation = new StringType(); // bb
       return this.citation;
@@ -415,7 +415,7 @@ public class RelatedResource extends Type implements ICompositeType {
     /**
      * @param value {@link #citation} (A bibliographic citation for the related resource. This text SHOULD be formatted according to an accepted citation format.). This is the underlying object with id, value and extensions. The accessor "getCitation" gives direct access to the value
      */
-    public RelatedResource setCitationElement(StringType value) { 
+    public RelatedArtifact setCitationElement(StringType value) { 
       this.citation = value;
       return this;
     }
@@ -430,7 +430,7 @@ public class RelatedResource extends Type implements ICompositeType {
     /**
      * @param value A bibliographic citation for the related resource. This text SHOULD be formatted according to an accepted citation format.
      */
-    public RelatedResource setCitation(String value) { 
+    public RelatedArtifact setCitation(String value) { 
       if (Utilities.noString(value))
         this.citation = null;
       else {
@@ -447,7 +447,7 @@ public class RelatedResource extends Type implements ICompositeType {
     public UriType getUrlElement() { 
       if (this.url == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create RelatedResource.url");
+          throw new Error("Attempt to auto-create RelatedArtifact.url");
         else if (Configuration.doAutoCreate())
           this.url = new UriType(); // bb
       return this.url;
@@ -464,7 +464,7 @@ public class RelatedResource extends Type implements ICompositeType {
     /**
      * @param value {@link #url} (A url for the resource that can be followed to access the actual content.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
      */
-    public RelatedResource setUrlElement(UriType value) { 
+    public RelatedArtifact setUrlElement(UriType value) { 
       this.url = value;
       return this;
     }
@@ -479,7 +479,7 @@ public class RelatedResource extends Type implements ICompositeType {
     /**
      * @param value A url for the resource that can be followed to access the actual content.
      */
-    public RelatedResource setUrl(String value) { 
+    public RelatedArtifact setUrl(String value) { 
       if (Utilities.noString(value))
         this.url = null;
       else {
@@ -496,7 +496,7 @@ public class RelatedResource extends Type implements ICompositeType {
     public Attachment getDocument() { 
       if (this.document == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create RelatedResource.document");
+          throw new Error("Attempt to auto-create RelatedArtifact.document");
         else if (Configuration.doAutoCreate())
           this.document = new Attachment(); // cc
       return this.document;
@@ -509,7 +509,7 @@ public class RelatedResource extends Type implements ICompositeType {
     /**
      * @param value {@link #document} (The document being referenced, represented as an attachment. This is exclusive with the resource element.)
      */
-    public RelatedResource setDocument(Attachment value) { 
+    public RelatedArtifact setDocument(Attachment value) { 
       this.document = value;
       return this;
     }
@@ -520,7 +520,7 @@ public class RelatedResource extends Type implements ICompositeType {
     public Reference getResource() { 
       if (this.resource == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create RelatedResource.resource");
+          throw new Error("Attempt to auto-create RelatedArtifact.resource");
         else if (Configuration.doAutoCreate())
           this.resource = new Reference(); // cc
       return this.resource;
@@ -533,7 +533,7 @@ public class RelatedResource extends Type implements ICompositeType {
     /**
      * @param value {@link #resource} (The related resource, such as a library, value set, profile, or other module.)
      */
-    public RelatedResource setResource(Reference value) { 
+    public RelatedArtifact setResource(Reference value) { 
       this.resource = value;
       return this;
     }
@@ -548,7 +548,7 @@ public class RelatedResource extends Type implements ICompositeType {
     /**
      * @param value {@link #resource} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The related resource, such as a library, value set, profile, or other module.)
      */
-    public RelatedResource setResourceTarget(Resource value) { 
+    public RelatedArtifact setResourceTarget(Resource value) { 
       this.resourceTarget = value;
       return this;
     }
@@ -566,7 +566,7 @@ public class RelatedResource extends Type implements ICompositeType {
       @Override
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // Enumeration<RelatedResourceType>
+        case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // Enumeration<RelatedArtifactType>
         case 1671764162: /*display*/ return this.display == null ? new Base[0] : new Base[] {this.display}; // StringType
         case -1442706713: /*citation*/ return this.citation == null ? new Base[0] : new Base[] {this.citation}; // StringType
         case 116079: /*url*/ return this.url == null ? new Base[0] : new Base[] {this.url}; // UriType
@@ -581,7 +581,7 @@ public class RelatedResource extends Type implements ICompositeType {
       public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 3575610: // type
-          this.type = new RelatedResourceTypeEnumFactory().fromType(value); // Enumeration<RelatedResourceType>
+          this.type = new RelatedArtifactTypeEnumFactory().fromType(value); // Enumeration<RelatedArtifactType>
           break;
         case 1671764162: // display
           this.display = castToString(value); // StringType
@@ -606,7 +606,7 @@ public class RelatedResource extends Type implements ICompositeType {
       @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("type"))
-          this.type = new RelatedResourceTypeEnumFactory().fromType(value); // Enumeration<RelatedResourceType>
+          this.type = new RelatedArtifactTypeEnumFactory().fromType(value); // Enumeration<RelatedArtifactType>
         else if (name.equals("display"))
           this.display = castToString(value); // StringType
         else if (name.equals("citation"))
@@ -624,7 +624,7 @@ public class RelatedResource extends Type implements ICompositeType {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3575610: throw new FHIRException("Cannot make property type as it is not a complex type"); // Enumeration<RelatedResourceType>
+        case 3575610: throw new FHIRException("Cannot make property type as it is not a complex type"); // Enumeration<RelatedArtifactType>
         case 1671764162: throw new FHIRException("Cannot make property display as it is not a complex type"); // StringType
         case -1442706713: throw new FHIRException("Cannot make property citation as it is not a complex type"); // StringType
         case 116079: throw new FHIRException("Cannot make property url as it is not a complex type"); // UriType
@@ -638,16 +638,16 @@ public class RelatedResource extends Type implements ICompositeType {
       @Override
       public Base addChild(String name) throws FHIRException {
         if (name.equals("type")) {
-          throw new FHIRException("Cannot call addChild on a primitive type RelatedResource.type");
+          throw new FHIRException("Cannot call addChild on a primitive type RelatedArtifact.type");
         }
         else if (name.equals("display")) {
-          throw new FHIRException("Cannot call addChild on a primitive type RelatedResource.display");
+          throw new FHIRException("Cannot call addChild on a primitive type RelatedArtifact.display");
         }
         else if (name.equals("citation")) {
-          throw new FHIRException("Cannot call addChild on a primitive type RelatedResource.citation");
+          throw new FHIRException("Cannot call addChild on a primitive type RelatedArtifact.citation");
         }
         else if (name.equals("url")) {
-          throw new FHIRException("Cannot call addChild on a primitive type RelatedResource.url");
+          throw new FHIRException("Cannot call addChild on a primitive type RelatedArtifact.url");
         }
         else if (name.equals("document")) {
           this.document = new Attachment();
@@ -662,12 +662,12 @@ public class RelatedResource extends Type implements ICompositeType {
       }
 
   public String fhirType() {
-    return "RelatedResource";
+    return "RelatedArtifact";
 
   }
 
-      public RelatedResource copy() {
-        RelatedResource dst = new RelatedResource();
+      public RelatedArtifact copy() {
+        RelatedArtifact dst = new RelatedArtifact();
         copyValues(dst);
         dst.type = type == null ? null : type.copy();
         dst.display = display == null ? null : display.copy();
@@ -678,7 +678,7 @@ public class RelatedResource extends Type implements ICompositeType {
         return dst;
       }
 
-      protected RelatedResource typedCopy() {
+      protected RelatedArtifact typedCopy() {
         return copy();
       }
 
@@ -686,9 +686,9 @@ public class RelatedResource extends Type implements ICompositeType {
       public boolean equalsDeep(Base other) {
         if (!super.equalsDeep(other))
           return false;
-        if (!(other instanceof RelatedResource))
+        if (!(other instanceof RelatedArtifact))
           return false;
-        RelatedResource o = (RelatedResource) other;
+        RelatedArtifact o = (RelatedArtifact) other;
         return compareDeep(type, o.type, true) && compareDeep(display, o.display, true) && compareDeep(citation, o.citation, true)
            && compareDeep(url, o.url, true) && compareDeep(document, o.document, true) && compareDeep(resource, o.resource, true)
           ;
@@ -698,9 +698,9 @@ public class RelatedResource extends Type implements ICompositeType {
       public boolean equalsShallow(Base other) {
         if (!super.equalsShallow(other))
           return false;
-        if (!(other instanceof RelatedResource))
+        if (!(other instanceof RelatedArtifact))
           return false;
-        RelatedResource o = (RelatedResource) other;
+        RelatedArtifact o = (RelatedArtifact) other;
         return compareValues(type, o.type, true) && compareValues(display, o.display, true) && compareValues(citation, o.citation, true)
            && compareValues(url, o.url, true);
       }

@@ -7,7 +7,7 @@
   <language value="en" />
   <url value="http://hl7.org/fhir/StructureDefinition/argonaut-provider" />
   <name value="Argonaut Provider Directory Practitioner Profile" />
-  <display value="Provider Directory Practitioner Profile" />
+  <title value="Provider Directory Practitioner Profile" />
   <status value="draft" />
   <experimental value="false" />
   <publisher value="Argonaut Project" />

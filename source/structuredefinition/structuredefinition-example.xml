@@ -9,9 +9,9 @@
     <value value="1.2.36.90146595217.4.2"/>
   </identifier>
   <version value="2"/>
-  <name value="Example Lipid Profile"/>
+  <name value="LipidProfileExample"/>
   <!-- Quite often this has the same value as name, but not always -->
-  <display value="Example Lipid Profile"/>
+  <title value="Example Lipid Profile"/>
   <status value="draft"/>
   <experimental value="true"/>
   <publisher value="Health Intersections Pty Ltd"/>
@@ -31,13 +31,13 @@
       <code value="AU"/>
     </coding>    
   </useContext>
-  <requirements value="Provide an example to demonstrate how to use StructureDefinition"/><!-- 0..1 Scope and Usage this structure definition is for -->
+  <purpose value="Provide an example to demonstrate how to use StructureDefinition"/><!-- 0..1 Scope and Usage this structure definition is for -->
   <copyright value="Createive Commons 0, per FHIR specification"/>
-  <code>
+  <keyword>
     <system value="http://snomed.info/sct"/>
     <code value="314079002"/>
     <display value="314079002"/>
-  </code>
+  </keyword>
   <fhirVersion value="1.0.0"/><!-- 0..1 FHIR Version this StructureDefinition targets -->
   <mapping> 
     <identity value="m1"/>

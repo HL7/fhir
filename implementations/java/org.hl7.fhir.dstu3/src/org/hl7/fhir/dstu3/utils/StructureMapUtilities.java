@@ -29,7 +29,7 @@ import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionMappingCompon
 import org.hl7.fhir.dstu3.model.ElementDefinition.TypeRefComponent;
 import org.hl7.fhir.dstu3.model.Enumeration;
 import org.hl7.fhir.dstu3.model.Enumerations.ConceptMapEquivalence;
-import org.hl7.fhir.dstu3.model.Enumerations.ConformanceResourceStatus;
+import org.hl7.fhir.dstu3.model.Enumerations.PublicationStatus;
 import org.hl7.fhir.dstu3.model.ExpressionNode;
 import org.hl7.fhir.dstu3.model.ExpressionNode.CollectionStatus;
 import org.hl7.fhir.dstu3.model.IdType;
@@ -510,7 +510,7 @@ public class StructureMapUtilities {
 		if (!id.startsWith("#"))
 			lexer.error("Concept Map identifier must start with #");
 		map.setId(id.substring(1));
-		map.setStatus(ConformanceResourceStatus.DRAFT); // todo: how to add this to the text format
+		map.setStatus(PublicationStatus.DRAFT); // todo: how to add this to the text format
 		result.getContained().add(map);
 		lexer.token("{");
 		lexer.skipComments();
@@ -2171,7 +2171,7 @@ public class StructureMapUtilities {
     StructureMap map = parse(b.toString());
     map.setId(tail(map.getUrl()));
     if (!map.hasStatus())
-      map.setStatus(ConformanceResourceStatus.DRAFT);
+      map.setStatus(PublicationStatus.DRAFT);
     map.getText().setStatus(NarrativeStatus.GENERATED);
     map.getText().setDiv(new XhtmlNode(NodeType.Element, "div"));
     map.getText().getDiv().addTag("pre").addText(render(map));

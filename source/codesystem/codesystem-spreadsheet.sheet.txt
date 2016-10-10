@@ -233,12 +233,7 @@
   CDISC Define.xml 2.0 Mapping = COMPONENT, PROPERTY, TIME_ASPCT, SYSTEM, SCALE_TYP, METHOD_TYP, CLASS, CLASSTYPE, ORDER_OBS, DOCUMENT_SECTION, HL7_ATTACHMENT_STRUCTURE
 
  -- Row 15 -----------------------------------
-  Element = CodeSystem.requirements
-  Card. = 0..1
-  Type = markdown
-  Short Name = Why needed
-  Definition = Explains why this code system is needed and why it has been constrained as it has
-  Comments = This element does not describe the usage of the code system (that is done in comments), rather it\'s for traceability of \'\'why\'\' the element is either needed or \'\'why\'\' the constraints exist as they do.  This may be used to point to source materials or specifications that drove the structure of this data element
+  Element = CodeSystem.purpose
 
  -- Row 16 -----------------------------------
   Element = CodeSystem.copyright

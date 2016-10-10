@@ -29,11 +29,12 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Oct 10, 2016 12:40+1100 for FHIR v1.7.0
+// Generated on Mon, Oct 10, 2016 15:45+1100 for FHIR v1.7.0
 
 import java.util.*;
 
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.dstu3.model.Enumerations.*;
 import ca.uhn.fhir.model.api.annotation.ResourceDef;
 import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;
 import ca.uhn.fhir.model.api.annotation.Child;
@@ -47,112 +48,6 @@ import org.hl7.fhir.exceptions.FHIRException;
  */
 @ResourceDef(name="ActivityDefinition", profile="http://hl7.org/fhir/Profile/ActivityDefinition")
 public class ActivityDefinition extends DomainResource {
-
-    public enum ActivityDefinitionStatus {
-        /**
-         * The module is in draft state
-         */
-        DRAFT, 
-        /**
-         * The module is active
-         */
-        ACTIVE, 
-        /**
-         * The module is inactive, either rejected before publication, or retired after publication
-         */
-        INACTIVE, 
-        /**
-         * added to help the parsers with the generic types
-         */
-        NULL;
-        public static ActivityDefinitionStatus fromCode(String codeString) throws FHIRException {
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("draft".equals(codeString))
-          return DRAFT;
-        if ("active".equals(codeString))
-          return ACTIVE;
-        if ("inactive".equals(codeString))
-          return INACTIVE;
-        if (Configuration.isAcceptInvalidEnums())
-          return null;
-        else
-          throw new FHIRException("Unknown ActivityDefinitionStatus code '"+codeString+"'");
-        }
-        public String toCode() {
-          switch (this) {
-            case DRAFT: return "draft";
-            case ACTIVE: return "active";
-            case INACTIVE: return "inactive";
-            default: return "?";
-          }
-        }
-        public String getSystem() {
-          switch (this) {
-            case DRAFT: return "http://hl7.org/fhir/module-metadata-status";
-            case ACTIVE: return "http://hl7.org/fhir/module-metadata-status";
-            case INACTIVE: return "http://hl7.org/fhir/module-metadata-status";
-            default: return "?";
-          }
-        }
-        public String getDefinition() {
-          switch (this) {
-            case DRAFT: return "The module is in draft state";
-            case ACTIVE: return "The module is active";
-            case INACTIVE: return "The module is inactive, either rejected before publication, or retired after publication";
-            default: return "?";
-          }
-        }
-        public String getDisplay() {
-          switch (this) {
-            case DRAFT: return "Draft";
-            case ACTIVE: return "Active";
-            case INACTIVE: return "Inactive";
-            default: return "?";
-          }
-        }
-    }
-
-  public static class ActivityDefinitionStatusEnumFactory implements EnumFactory<ActivityDefinitionStatus> {
-    public ActivityDefinitionStatus fromCode(String codeString) throws IllegalArgumentException {
-      if (codeString == null || "".equals(codeString))
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("draft".equals(codeString))
-          return ActivityDefinitionStatus.DRAFT;
-        if ("active".equals(codeString))
-          return ActivityDefinitionStatus.ACTIVE;
-        if ("inactive".equals(codeString))
-          return ActivityDefinitionStatus.INACTIVE;
-        throw new IllegalArgumentException("Unknown ActivityDefinitionStatus code '"+codeString+"'");
-        }
-        public Enumeration<ActivityDefinitionStatus> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
-            return null;
-          String codeString = ((PrimitiveType) code).asStringValue();
-          if (codeString == null || "".equals(codeString))
-            return null;
-        if ("draft".equals(codeString))
-          return new Enumeration<ActivityDefinitionStatus>(this, ActivityDefinitionStatus.DRAFT);
-        if ("active".equals(codeString))
-          return new Enumeration<ActivityDefinitionStatus>(this, ActivityDefinitionStatus.ACTIVE);
-        if ("inactive".equals(codeString))
-          return new Enumeration<ActivityDefinitionStatus>(this, ActivityDefinitionStatus.INACTIVE);
-        throw new FHIRException("Unknown ActivityDefinitionStatus code '"+codeString+"'");
-        }
-    public String toCode(ActivityDefinitionStatus code) {
-      if (code == ActivityDefinitionStatus.DRAFT)
-        return "draft";
-      if (code == ActivityDefinitionStatus.ACTIVE)
-        return "active";
-      if (code == ActivityDefinitionStatus.INACTIVE)
-        return "inactive";
-      return "?";
-      }
-    public String toSystem(ActivityDefinitionStatus code) {
-      return code.getSystem();
-      }
-    }
 
     public enum ActivityDefinitionCategory {
         /**
@@ -928,9 +823,9 @@ public class ActivityDefinition extends DomainResource {
      * The status of the asset.
      */
     @Child(name = "status", type = {CodeType.class}, order=5, min=1, max=1, modifier=true, summary=true)
-    @Description(shortDefinition="draft | active | inactive", formalDefinition="The status of the asset." )
-    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/module-metadata-status")
-    protected Enumeration<ActivityDefinitionStatus> status;
+    @Description(shortDefinition="draft | active | retired", formalDefinition="The status of the asset." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/conformance-resource-status")
+    protected Enumeration<PublicationStatus> status;
 
     /**
      * Determines whether the asset was developed for testing purposes (or education/evaluation/marketing), and is not intended to be used in production environments.
@@ -1026,9 +921,9 @@ public class ActivityDefinition extends DomainResource {
     /**
      * Related resources such as additional documentation, justification, or bibliographic references.
      */
-    @Child(name = "relatedResource", type = {RelatedResource.class}, order=19, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "relatedArtifact", type = {RelatedArtifact.class}, order=19, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Related resources for the asset", formalDefinition="Related resources such as additional documentation, justification, or bibliographic references." )
-    protected List<RelatedResource> relatedResource;
+    protected List<RelatedArtifact> relatedArtifact;
 
     /**
      * A reference to a Library resource containing any formal logic used by the asset.
@@ -1117,7 +1012,7 @@ public class ActivityDefinition extends DomainResource {
     @Description(shortDefinition="Dynamic aspects of the definition", formalDefinition="Dynamic values that will be evaluated to produce values for elements of the resulting resource. For example, if the dosage of a medication must be computed based on the patient's weight, a dynamic value would be used to specify an expression that calculated the weight, and the path on the intent resource that would contain the result." )
     protected List<ActivityDefinitionDynamicValueComponent> dynamicValue;
 
-    private static final long serialVersionUID = -606309039L;
+    private static final long serialVersionUID = -1808697241L;
 
   /**
    * Constructor
@@ -1129,7 +1024,7 @@ public class ActivityDefinition extends DomainResource {
   /**
    * Constructor
    */
-    public ActivityDefinition(Enumeration<ActivityDefinitionStatus> status) {
+    public ActivityDefinition(Enumeration<PublicationStatus> status) {
       super();
       this.status = status;
     }
@@ -1386,12 +1281,12 @@ public class ActivityDefinition extends DomainResource {
     /**
      * @return {@link #status} (The status of the asset.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<ActivityDefinitionStatus> getStatusElement() { 
+    public Enumeration<PublicationStatus> getStatusElement() { 
       if (this.status == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ActivityDefinition.status");
         else if (Configuration.doAutoCreate())
-          this.status = new Enumeration<ActivityDefinitionStatus>(new ActivityDefinitionStatusEnumFactory()); // bb
+          this.status = new Enumeration<PublicationStatus>(new PublicationStatusEnumFactory()); // bb
       return this.status;
     }
 
@@ -1406,7 +1301,7 @@ public class ActivityDefinition extends DomainResource {
     /**
      * @param value {@link #status} (The status of the asset.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public ActivityDefinition setStatusElement(Enumeration<ActivityDefinitionStatus> value) { 
+    public ActivityDefinition setStatusElement(Enumeration<PublicationStatus> value) { 
       this.status = value;
       return this;
     }
@@ -1414,16 +1309,16 @@ public class ActivityDefinition extends DomainResource {
     /**
      * @return The status of the asset.
      */
-    public ActivityDefinitionStatus getStatus() { 
+    public PublicationStatus getStatus() { 
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
      * @param value The status of the asset.
      */
-    public ActivityDefinition setStatus(ActivityDefinitionStatus value) { 
+    public ActivityDefinition setStatus(PublicationStatus value) { 
         if (this.status == null)
-          this.status = new Enumeration<ActivityDefinitionStatus>(new ActivityDefinitionStatusEnumFactory());
+          this.status = new Enumeration<PublicationStatus>(new PublicationStatusEnumFactory());
         this.status.setValue(value);
       return this;
     }
@@ -2053,56 +1948,56 @@ public class ActivityDefinition extends DomainResource {
     }
 
     /**
-     * @return {@link #relatedResource} (Related resources such as additional documentation, justification, or bibliographic references.)
+     * @return {@link #relatedArtifact} (Related resources such as additional documentation, justification, or bibliographic references.)
      */
-    public List<RelatedResource> getRelatedResource() { 
-      if (this.relatedResource == null)
-        this.relatedResource = new ArrayList<RelatedResource>();
-      return this.relatedResource;
+    public List<RelatedArtifact> getRelatedArtifact() { 
+      if (this.relatedArtifact == null)
+        this.relatedArtifact = new ArrayList<RelatedArtifact>();
+      return this.relatedArtifact;
     }
 
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public ActivityDefinition setRelatedResource(List<RelatedResource> theRelatedResource) { 
-      this.relatedResource = theRelatedResource;
+    public ActivityDefinition setRelatedArtifact(List<RelatedArtifact> theRelatedArtifact) { 
+      this.relatedArtifact = theRelatedArtifact;
       return this;
     }
 
-    public boolean hasRelatedResource() { 
-      if (this.relatedResource == null)
+    public boolean hasRelatedArtifact() { 
+      if (this.relatedArtifact == null)
         return false;
-      for (RelatedResource item : this.relatedResource)
+      for (RelatedArtifact item : this.relatedArtifact)
         if (!item.isEmpty())
           return true;
       return false;
     }
 
-    public RelatedResource addRelatedResource() { //3
-      RelatedResource t = new RelatedResource();
-      if (this.relatedResource == null)
-        this.relatedResource = new ArrayList<RelatedResource>();
-      this.relatedResource.add(t);
+    public RelatedArtifact addRelatedArtifact() { //3
+      RelatedArtifact t = new RelatedArtifact();
+      if (this.relatedArtifact == null)
+        this.relatedArtifact = new ArrayList<RelatedArtifact>();
+      this.relatedArtifact.add(t);
       return t;
     }
 
-    public ActivityDefinition addRelatedResource(RelatedResource t) { //3
+    public ActivityDefinition addRelatedArtifact(RelatedArtifact t) { //3
       if (t == null)
         return this;
-      if (this.relatedResource == null)
-        this.relatedResource = new ArrayList<RelatedResource>();
-      this.relatedResource.add(t);
+      if (this.relatedArtifact == null)
+        this.relatedArtifact = new ArrayList<RelatedArtifact>();
+      this.relatedArtifact.add(t);
       return this;
     }
 
     /**
-     * @return The first repetition of repeating field {@link #relatedResource}, creating it if it does not already exist
+     * @return The first repetition of repeating field {@link #relatedArtifact}, creating it if it does not already exist
      */
-    public RelatedResource getRelatedResourceFirstRep() { 
-      if (getRelatedResource().isEmpty()) {
-        addRelatedResource();
+    public RelatedArtifact getRelatedArtifactFirstRep() { 
+      if (getRelatedArtifact().isEmpty()) {
+        addRelatedArtifact();
       }
-      return getRelatedResource().get(0);
+      return getRelatedArtifact().get(0);
     }
 
     /**
@@ -2590,7 +2485,7 @@ public class ActivityDefinition extends DomainResource {
         childrenList.add(new Property("publisher", "string", "The name of the individual or organization that published the asset (also known as the steward for the asset). This information is required for non-experimental active artifacts.", 0, java.lang.Integer.MAX_VALUE, publisher));
         childrenList.add(new Property("contact", "ContactDetail", "Contact details to assist a user in finding and communicating with the publisher.", 0, java.lang.Integer.MAX_VALUE, contact));
         childrenList.add(new Property("copyright", "string", "A copyright statement relating to the asset and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the asset.", 0, java.lang.Integer.MAX_VALUE, copyright));
-        childrenList.add(new Property("relatedResource", "RelatedResource", "Related resources such as additional documentation, justification, or bibliographic references.", 0, java.lang.Integer.MAX_VALUE, relatedResource));
+        childrenList.add(new Property("relatedArtifact", "RelatedArtifact", "Related resources such as additional documentation, justification, or bibliographic references.", 0, java.lang.Integer.MAX_VALUE, relatedArtifact));
         childrenList.add(new Property("library", "Reference(Library)", "A reference to a Library resource containing any formal logic used by the asset.", 0, java.lang.Integer.MAX_VALUE, library));
         childrenList.add(new Property("category", "code", "High-level categorization of the type of activity.", 0, java.lang.Integer.MAX_VALUE, category));
         childrenList.add(new Property("code", "CodeableConcept", "Detailed description of the type of activity; e.g. What lab test, what procedure, what kind of encounter.", 0, java.lang.Integer.MAX_VALUE, code));
@@ -2611,7 +2506,7 @@ public class ActivityDefinition extends DomainResource {
         case 351608024: /*version*/ return this.version == null ? new Base[0] : new Base[] {this.version}; // StringType
         case 3373707: /*name*/ return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
         case 110371416: /*title*/ return this.title == null ? new Base[0] : new Base[] {this.title}; // StringType
-        case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<ActivityDefinitionStatus>
+        case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<PublicationStatus>
         case -404562712: /*experimental*/ return this.experimental == null ? new Base[0] : new Base[] {this.experimental}; // BooleanType
         case -1724546052: /*description*/ return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
         case -220463842: /*purpose*/ return this.purpose == null ? new Base[0] : new Base[] {this.purpose}; // StringType
@@ -2625,7 +2520,7 @@ public class ActivityDefinition extends DomainResource {
         case 1447404028: /*publisher*/ return this.publisher == null ? new Base[0] : new Base[] {this.publisher}; // StringType
         case 951526432: /*contact*/ return this.contact == null ? new Base[0] : this.contact.toArray(new Base[this.contact.size()]); // ContactDetail
         case 1522889671: /*copyright*/ return this.copyright == null ? new Base[0] : new Base[] {this.copyright}; // StringType
-        case 1554540889: /*relatedResource*/ return this.relatedResource == null ? new Base[0] : this.relatedResource.toArray(new Base[this.relatedResource.size()]); // RelatedResource
+        case 666807069: /*relatedArtifact*/ return this.relatedArtifact == null ? new Base[0] : this.relatedArtifact.toArray(new Base[this.relatedArtifact.size()]); // RelatedArtifact
         case 166208699: /*library*/ return this.library == null ? new Base[0] : this.library.toArray(new Base[this.library.size()]); // Reference
         case 50511102: /*category*/ return this.category == null ? new Base[0] : new Base[] {this.category}; // Enumeration<ActivityDefinitionCategory>
         case 3059181: /*code*/ return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeableConcept
@@ -2660,7 +2555,7 @@ public class ActivityDefinition extends DomainResource {
           this.title = castToString(value); // StringType
           break;
         case -892481550: // status
-          this.status = new ActivityDefinitionStatusEnumFactory().fromType(value); // Enumeration<ActivityDefinitionStatus>
+          this.status = new PublicationStatusEnumFactory().fromType(value); // Enumeration<PublicationStatus>
           break;
         case -404562712: // experimental
           this.experimental = castToBoolean(value); // BooleanType
@@ -2701,8 +2596,8 @@ public class ActivityDefinition extends DomainResource {
         case 1522889671: // copyright
           this.copyright = castToString(value); // StringType
           break;
-        case 1554540889: // relatedResource
-          this.getRelatedResource().add(castToRelatedResource(value)); // RelatedResource
+        case 666807069: // relatedArtifact
+          this.getRelatedArtifact().add(castToRelatedArtifact(value)); // RelatedArtifact
           break;
         case 166208699: // library
           this.getLibrary().add(castToReference(value)); // Reference
@@ -2752,7 +2647,7 @@ public class ActivityDefinition extends DomainResource {
         else if (name.equals("title"))
           this.title = castToString(value); // StringType
         else if (name.equals("status"))
-          this.status = new ActivityDefinitionStatusEnumFactory().fromType(value); // Enumeration<ActivityDefinitionStatus>
+          this.status = new PublicationStatusEnumFactory().fromType(value); // Enumeration<PublicationStatus>
         else if (name.equals("experimental"))
           this.experimental = castToBoolean(value); // BooleanType
         else if (name.equals("description"))
@@ -2779,8 +2674,8 @@ public class ActivityDefinition extends DomainResource {
           this.getContact().add(castToContactDetail(value));
         else if (name.equals("copyright"))
           this.copyright = castToString(value); // StringType
-        else if (name.equals("relatedResource"))
-          this.getRelatedResource().add(castToRelatedResource(value));
+        else if (name.equals("relatedArtifact"))
+          this.getRelatedArtifact().add(castToRelatedArtifact(value));
         else if (name.equals("library"))
           this.getLibrary().add(castToReference(value));
         else if (name.equals("category"))
@@ -2813,7 +2708,7 @@ public class ActivityDefinition extends DomainResource {
         case 351608024: throw new FHIRException("Cannot make property version as it is not a complex type"); // StringType
         case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
         case 110371416: throw new FHIRException("Cannot make property title as it is not a complex type"); // StringType
-        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<ActivityDefinitionStatus>
+        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<PublicationStatus>
         case -404562712: throw new FHIRException("Cannot make property experimental as it is not a complex type"); // BooleanType
         case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
         case -220463842: throw new FHIRException("Cannot make property purpose as it is not a complex type"); // StringType
@@ -2827,7 +2722,7 @@ public class ActivityDefinition extends DomainResource {
         case 1447404028: throw new FHIRException("Cannot make property publisher as it is not a complex type"); // StringType
         case 951526432:  return addContact(); // ContactDetail
         case 1522889671: throw new FHIRException("Cannot make property copyright as it is not a complex type"); // StringType
-        case 1554540889:  return addRelatedResource(); // RelatedResource
+        case 666807069:  return addRelatedArtifact(); // RelatedArtifact
         case 166208699:  return addLibrary(); // Reference
         case 50511102: throw new FHIRException("Cannot make property category as it is not a complex type"); // Enumeration<ActivityDefinitionCategory>
         case 3059181:  return getCode(); // CodeableConcept
@@ -2903,8 +2798,8 @@ public class ActivityDefinition extends DomainResource {
         else if (name.equals("copyright")) {
           throw new FHIRException("Cannot call addChild on a primitive type ActivityDefinition.copyright");
         }
-        else if (name.equals("relatedResource")) {
-          return addRelatedResource();
+        else if (name.equals("relatedArtifact")) {
+          return addRelatedArtifact();
         }
         else if (name.equals("library")) {
           return addLibrary();
@@ -3001,10 +2896,10 @@ public class ActivityDefinition extends DomainResource {
             dst.contact.add(i.copy());
         };
         dst.copyright = copyright == null ? null : copyright.copy();
-        if (relatedResource != null) {
-          dst.relatedResource = new ArrayList<RelatedResource>();
-          for (RelatedResource i : relatedResource)
-            dst.relatedResource.add(i.copy());
+        if (relatedArtifact != null) {
+          dst.relatedArtifact = new ArrayList<RelatedArtifact>();
+          for (RelatedArtifact i : relatedArtifact)
+            dst.relatedArtifact.add(i.copy());
         };
         if (library != null) {
           dst.library = new ArrayList<Reference>();
@@ -3049,7 +2944,7 @@ public class ActivityDefinition extends DomainResource {
            && compareDeep(lastReviewDate, o.lastReviewDate, true) && compareDeep(effectivePeriod, o.effectivePeriod, true)
            && compareDeep(coverage, o.coverage, true) && compareDeep(topic, o.topic, true) && compareDeep(contributor, o.contributor, true)
            && compareDeep(publisher, o.publisher, true) && compareDeep(contact, o.contact, true) && compareDeep(copyright, o.copyright, true)
-           && compareDeep(relatedResource, o.relatedResource, true) && compareDeep(library, o.library, true)
+           && compareDeep(relatedArtifact, o.relatedArtifact, true) && compareDeep(library, o.library, true)
            && compareDeep(category, o.category, true) && compareDeep(code, o.code, true) && compareDeep(timing, o.timing, true)
            && compareDeep(location, o.location, true) && compareDeep(participantType, o.participantType, true)
            && compareDeep(product, o.product, true) && compareDeep(quantity, o.quantity, true) && compareDeep(transform, o.transform, true)
@@ -3075,7 +2970,7 @@ public class ActivityDefinition extends DomainResource {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(url, identifier, version
           , name, title, status, experimental, description, purpose, usage, publicationDate
           , lastReviewDate, effectivePeriod, coverage, topic, contributor, publisher, contact
-          , copyright, relatedResource, library, category, code, timing, location, participantType
+          , copyright, relatedArtifact, library, category, code, timing, location, participantType
           , product, quantity, transform, dynamicValue);
       }
 

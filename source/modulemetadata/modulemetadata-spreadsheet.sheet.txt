@@ -369,12 +369,12 @@
   Definition = The legal rights declaration for the module
 
  -- Row 25 -----------------------------------
-  Element = ModuleMetadata.relatedResource
+  Element = ModuleMetadata.relatedArtifact
   Card. = 0..*
   Definition = Related resources such as additional documentation, supporting evidence, or bibliographic references
 
  -- Row 26 -----------------------------------
-  Element = ModuleMetadata.relatedResource.type
+  Element = ModuleMetadata.relatedArtifact.type
   Card. = 1..1
   Type = code
   Binding = ModuleMetadataResourceType
@@ -382,19 +382,19 @@
   Definition = The type of related resource
 
  -- Row 27 -----------------------------------
-  Element = ModuleMetadata.relatedResource.uri
+  Element = ModuleMetadata.relatedArtifact.uri
   Card. = 0..1
   Type = uri
   Definition = The uri of the related resource
 
  -- Row 28 -----------------------------------
-  Element = ModuleMetadata.relatedResource.description
+  Element = ModuleMetadata.relatedArtifact.description
   Card. = 0..1
   Type = string
   Definition = A brief description of the related resource
 
  -- Row 29 -----------------------------------
-  Element = ModuleMetadata.relatedResource.document
+  Element = ModuleMetadata.relatedArtifact.document
   Card. = 0..1
   Type = Attachment
   Definition = The document being referenced

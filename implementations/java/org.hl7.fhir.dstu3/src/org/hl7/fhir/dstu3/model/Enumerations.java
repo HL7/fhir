@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Oct 10, 2016 12:40+1100 for FHIR v1.7.0
+// Generated on Mon, Oct 10, 2016 15:45+1100 for FHIR v1.7.0
 
 
 import org.hl7.fhir.instance.model.api.*;
@@ -43,7 +43,6 @@ public class Enumerations {
 //   AgeUnits: A valueSet of UCUM codes for representing age value units.
 //   BindingStrength: Indication of the degree of conformance expectations associated with a binding.
 //   ConceptMapEquivalence: The degree of equivalence between concepts.
-//   ConformanceResourceStatus: The lifecycle status of a Value Set or Concept Map.
 //   DataAbsentReason: Used to specify why the normally expected content of the data element is missing.
 //   DataType: The type of an element - one of the FHIR data types.
 //   DocumentReferenceStatus: The status of the document reference.
@@ -51,6 +50,7 @@ public class Enumerations {
 //   FHIRDefinedType: Either a resource or a data type.
 //   MessageEvent: One of the message events defined as part of FHIR.
 //   NoteType: The presentation types of notes.
+//   PublicationStatus: The lifecycle status of a Value Set or Concept Map.
 //   RemittanceOutcome: The outcome of the processing.
 //   ResourceType: One of the resource types defined as part of FHIR.
 //   SearchParamType: Data types allowed to be used for search parameters.
@@ -748,109 +748,6 @@ public class Enumerations {
       }
     }
 
-    public enum ConformanceResourceStatus {
-        /**
-         * This resource is still under development.
-         */
-        DRAFT, 
-        /**
-         * This resource is ready for normal use.
-         */
-        ACTIVE, 
-        /**
-         * This resource has been withdrawn or superseded and should no longer be used.
-         */
-        RETIRED, 
-        /**
-         * added to help the parsers
-         */
-        NULL;
-        public static ConformanceResourceStatus fromCode(String codeString) throws FHIRException {
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("draft".equals(codeString))
-          return DRAFT;
-        if ("active".equals(codeString))
-          return ACTIVE;
-        if ("retired".equals(codeString))
-          return RETIRED;
-        throw new FHIRException("Unknown ConformanceResourceStatus code '"+codeString+"'");
-        }
-        public String toCode() {
-          switch (this) {
-            case DRAFT: return "draft";
-            case ACTIVE: return "active";
-            case RETIRED: return "retired";
-            default: return "?";
-          }
-        }
-        public String getSystem() {
-          switch (this) {
-            case DRAFT: return "http://hl7.org/fhir/conformance-resource-status";
-            case ACTIVE: return "http://hl7.org/fhir/conformance-resource-status";
-            case RETIRED: return "http://hl7.org/fhir/conformance-resource-status";
-            default: return "?";
-          }
-        }
-        public String getDefinition() {
-          switch (this) {
-            case DRAFT: return "This resource is still under development.";
-            case ACTIVE: return "This resource is ready for normal use.";
-            case RETIRED: return "This resource has been withdrawn or superseded and should no longer be used.";
-            default: return "?";
-          }
-        }
-        public String getDisplay() {
-          switch (this) {
-            case DRAFT: return "Draft";
-            case ACTIVE: return "Active";
-            case RETIRED: return "Retired";
-            default: return "?";
-          }
-        }
-    }
-
-  public static class ConformanceResourceStatusEnumFactory implements EnumFactory<ConformanceResourceStatus> {
-    public ConformanceResourceStatus fromCode(String codeString) throws IllegalArgumentException {
-      if (codeString == null || "".equals(codeString))
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("draft".equals(codeString))
-          return ConformanceResourceStatus.DRAFT;
-        if ("active".equals(codeString))
-          return ConformanceResourceStatus.ACTIVE;
-        if ("retired".equals(codeString))
-          return ConformanceResourceStatus.RETIRED;
-        throw new IllegalArgumentException("Unknown ConformanceResourceStatus code '"+codeString+"'");
-        }
-        public Enumeration<ConformanceResourceStatus> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
-            return null;
-          String codeString = ((PrimitiveType) code).asStringValue();
-          if (codeString == null || "".equals(codeString))
-            return null;
-        if ("draft".equals(codeString))
-          return new Enumeration<ConformanceResourceStatus>(this, ConformanceResourceStatus.DRAFT);
-        if ("active".equals(codeString))
-          return new Enumeration<ConformanceResourceStatus>(this, ConformanceResourceStatus.ACTIVE);
-        if ("retired".equals(codeString))
-          return new Enumeration<ConformanceResourceStatus>(this, ConformanceResourceStatus.RETIRED);
-        throw new FHIRException("Unknown ConformanceResourceStatus code '"+codeString+"'");
-        }
-    public String toCode(ConformanceResourceStatus code) {
-      if (code == ConformanceResourceStatus.DRAFT)
-        return "draft";
-      if (code == ConformanceResourceStatus.ACTIVE)
-        return "active";
-      if (code == ConformanceResourceStatus.RETIRED)
-        return "retired";
-      return "?";
-      }
-    public String toSystem(ConformanceResourceStatus code) {
-      return code.getSystem();
-      }
-    }
-
     public enum DataAbsentReason {
         /**
          * The value is not known.
@@ -1182,7 +1079,7 @@ public class Enumerations {
         /**
          * Related resources such as additional documentation, justification, or bibliographic references.
          */
-        RELATEDRESOURCE, 
+        RELATEDARTIFACT, 
         /**
          * A series of measurements taken by a device, with upper and lower limits. There may be more than one dimension in the data.
          */
@@ -1342,8 +1239,8 @@ public class Enumerations {
           return RATIO;
         if ("Reference".equals(codeString))
           return REFERENCE;
-        if ("RelatedResource".equals(codeString))
-          return RELATEDRESOURCE;
+        if ("RelatedArtifact".equals(codeString))
+          return RELATEDARTIFACT;
         if ("SampledData".equals(codeString))
           return SAMPLEDDATA;
         if ("Signature".equals(codeString))
@@ -1424,7 +1321,7 @@ public class Enumerations {
             case RANGE: return "Range";
             case RATIO: return "Ratio";
             case REFERENCE: return "Reference";
-            case RELATEDRESOURCE: return "RelatedResource";
+            case RELATEDARTIFACT: return "RelatedArtifact";
             case SAMPLEDDATA: return "SampledData";
             case SIGNATURE: return "Signature";
             case SIMPLEQUANTITY: return "SimpleQuantity";
@@ -1482,7 +1379,7 @@ public class Enumerations {
             case RANGE: return "http://hl7.org/fhir/data-types";
             case RATIO: return "http://hl7.org/fhir/data-types";
             case REFERENCE: return "http://hl7.org/fhir/data-types";
-            case RELATEDRESOURCE: return "http://hl7.org/fhir/data-types";
+            case RELATEDARTIFACT: return "http://hl7.org/fhir/data-types";
             case SAMPLEDDATA: return "http://hl7.org/fhir/data-types";
             case SIGNATURE: return "http://hl7.org/fhir/data-types";
             case SIMPLEQUANTITY: return "http://hl7.org/fhir/data-types";
@@ -1540,7 +1437,7 @@ public class Enumerations {
             case RANGE: return "A set of ordered Quantities defined by a low and high limit.";
             case RATIO: return "A relationship of two Quantity values - expressed as a numerator and a denominator.";
             case REFERENCE: return "A reference from one resource to another.";
-            case RELATEDRESOURCE: return "Related resources such as additional documentation, justification, or bibliographic references.";
+            case RELATEDARTIFACT: return "Related resources such as additional documentation, justification, or bibliographic references.";
             case SAMPLEDDATA: return "A series of measurements taken by a device, with upper and lower limits. There may be more than one dimension in the data.";
             case SIGNATURE: return "A digital signature along with supporting context. The signature may be electronic/cryptographic in nature, or a graphical image representing a hand-written signature, or a signature process. Different Signature approaches have different utilities.";
             case SIMPLEQUANTITY: return "";
@@ -1598,7 +1495,7 @@ public class Enumerations {
             case RANGE: return "Range";
             case RATIO: return "Ratio";
             case REFERENCE: return "Reference";
-            case RELATEDRESOURCE: return "RelatedResource";
+            case RELATEDARTIFACT: return "RelatedArtifact";
             case SAMPLEDDATA: return "SampledData";
             case SIGNATURE: return "Signature";
             case SIMPLEQUANTITY: return "SimpleQuantity";
@@ -1689,8 +1586,8 @@ public class Enumerations {
           return DataType.RATIO;
         if ("Reference".equals(codeString))
           return DataType.REFERENCE;
-        if ("RelatedResource".equals(codeString))
-          return DataType.RELATEDRESOURCE;
+        if ("RelatedArtifact".equals(codeString))
+          return DataType.RELATEDARTIFACT;
         if ("SampledData".equals(codeString))
           return DataType.SAMPLEDDATA;
         if ("Signature".equals(codeString))
@@ -1803,8 +1700,8 @@ public class Enumerations {
           return new Enumeration<DataType>(this, DataType.RATIO);
         if ("Reference".equals(codeString))
           return new Enumeration<DataType>(this, DataType.REFERENCE);
-        if ("RelatedResource".equals(codeString))
-          return new Enumeration<DataType>(this, DataType.RELATEDRESOURCE);
+        if ("RelatedArtifact".equals(codeString))
+          return new Enumeration<DataType>(this, DataType.RELATEDARTIFACT);
         if ("SampledData".equals(codeString))
           return new Enumeration<DataType>(this, DataType.SAMPLEDDATA);
         if ("Signature".equals(codeString))
@@ -1912,8 +1809,8 @@ public class Enumerations {
         return "Ratio";
       if (code == DataType.REFERENCE)
         return "Reference";
-      if (code == DataType.RELATEDRESOURCE)
-        return "RelatedResource";
+      if (code == DataType.RELATEDARTIFACT)
+        return "RelatedArtifact";
       if (code == DataType.SAMPLEDDATA)
         return "SampledData";
       if (code == DataType.SIGNATURE)
@@ -2188,7 +2085,7 @@ public class Enumerations {
         /**
          * Related resources such as additional documentation, justification, or bibliographic references.
          */
-        RELATEDRESOURCE, 
+        RELATEDARTIFACT, 
         /**
          * A series of measurements taken by a device, with upper and lower limits. There may be more than one dimension in the data.
          */
@@ -2812,8 +2709,8 @@ public class Enumerations {
           return RATIO;
         if ("Reference".equals(codeString))
           return REFERENCE;
-        if ("RelatedResource".equals(codeString))
-          return RELATEDRESOURCE;
+        if ("RelatedArtifact".equals(codeString))
+          return RELATEDARTIFACT;
         if ("SampledData".equals(codeString))
           return SAMPLEDDATA;
         if ("Signature".equals(codeString))
@@ -3126,7 +3023,7 @@ public class Enumerations {
             case RANGE: return "Range";
             case RATIO: return "Ratio";
             case REFERENCE: return "Reference";
-            case RELATEDRESOURCE: return "RelatedResource";
+            case RELATEDARTIFACT: return "RelatedArtifact";
             case SAMPLEDDATA: return "SampledData";
             case SIGNATURE: return "Signature";
             case SIMPLEQUANTITY: return "SimpleQuantity";
@@ -3300,7 +3197,7 @@ public class Enumerations {
             case RANGE: return "http://hl7.org/fhir/data-types";
             case RATIO: return "http://hl7.org/fhir/data-types";
             case REFERENCE: return "http://hl7.org/fhir/data-types";
-            case RELATEDRESOURCE: return "http://hl7.org/fhir/data-types";
+            case RELATEDARTIFACT: return "http://hl7.org/fhir/data-types";
             case SAMPLEDDATA: return "http://hl7.org/fhir/data-types";
             case SIGNATURE: return "http://hl7.org/fhir/data-types";
             case SIMPLEQUANTITY: return "http://hl7.org/fhir/data-types";
@@ -3474,7 +3371,7 @@ public class Enumerations {
             case RANGE: return "A set of ordered Quantities defined by a low and high limit.";
             case RATIO: return "A relationship of two Quantity values - expressed as a numerator and a denominator.";
             case REFERENCE: return "A reference from one resource to another.";
-            case RELATEDRESOURCE: return "Related resources such as additional documentation, justification, or bibliographic references.";
+            case RELATEDARTIFACT: return "Related resources such as additional documentation, justification, or bibliographic references.";
             case SAMPLEDDATA: return "A series of measurements taken by a device, with upper and lower limits. There may be more than one dimension in the data.";
             case SIGNATURE: return "A digital signature along with supporting context. The signature may be electronic/cryptographic in nature, or a graphical image representing a hand-written signature, or a signature process. Different Signature approaches have different utilities.";
             case SIMPLEQUANTITY: return "";
@@ -3648,7 +3545,7 @@ public class Enumerations {
             case RANGE: return "Range";
             case RATIO: return "Ratio";
             case REFERENCE: return "Reference";
-            case RELATEDRESOURCE: return "RelatedResource";
+            case RELATEDARTIFACT: return "RelatedArtifact";
             case SAMPLEDDATA: return "SampledData";
             case SIGNATURE: return "Signature";
             case SIMPLEQUANTITY: return "SimpleQuantity";
@@ -3855,8 +3752,8 @@ public class Enumerations {
           return FHIRAllTypes.RATIO;
         if ("Reference".equals(codeString))
           return FHIRAllTypes.REFERENCE;
-        if ("RelatedResource".equals(codeString))
-          return FHIRAllTypes.RELATEDRESOURCE;
+        if ("RelatedArtifact".equals(codeString))
+          return FHIRAllTypes.RELATEDARTIFACT;
         if ("SampledData".equals(codeString))
           return FHIRAllTypes.SAMPLEDDATA;
         if ("Signature".equals(codeString))
@@ -4201,8 +4098,8 @@ public class Enumerations {
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.RATIO);
         if ("Reference".equals(codeString))
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.REFERENCE);
-        if ("RelatedResource".equals(codeString))
-          return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.RELATEDRESOURCE);
+        if ("RelatedArtifact".equals(codeString))
+          return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.RELATEDARTIFACT);
         if ("SampledData".equals(codeString))
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.SAMPLEDDATA);
         if ("Signature".equals(codeString))
@@ -4542,8 +4439,8 @@ public class Enumerations {
         return "Ratio";
       if (code == FHIRAllTypes.REFERENCE)
         return "Reference";
-      if (code == FHIRAllTypes.RELATEDRESOURCE)
-        return "RelatedResource";
+      if (code == FHIRAllTypes.RELATEDARTIFACT)
+        return "RelatedArtifact";
       if (code == FHIRAllTypes.SAMPLEDDATA)
         return "SampledData";
       if (code == FHIRAllTypes.SIGNATURE)
@@ -4947,7 +4844,7 @@ public class Enumerations {
         /**
          * Related resources such as additional documentation, justification, or bibliographic references.
          */
-        RELATEDRESOURCE, 
+        RELATEDARTIFACT, 
         /**
          * A series of measurements taken by a device, with upper and lower limits. There may be more than one dimension in the data.
          */
@@ -5563,8 +5460,8 @@ public class Enumerations {
           return RATIO;
         if ("Reference".equals(codeString))
           return REFERENCE;
-        if ("RelatedResource".equals(codeString))
-          return RELATEDRESOURCE;
+        if ("RelatedArtifact".equals(codeString))
+          return RELATEDARTIFACT;
         if ("SampledData".equals(codeString))
           return SAMPLEDDATA;
         if ("Signature".equals(codeString))
@@ -5873,7 +5770,7 @@ public class Enumerations {
             case RANGE: return "Range";
             case RATIO: return "Ratio";
             case REFERENCE: return "Reference";
-            case RELATEDRESOURCE: return "RelatedResource";
+            case RELATEDARTIFACT: return "RelatedArtifact";
             case SAMPLEDDATA: return "SampledData";
             case SIGNATURE: return "Signature";
             case SIMPLEQUANTITY: return "SimpleQuantity";
@@ -6045,7 +5942,7 @@ public class Enumerations {
             case RANGE: return "http://hl7.org/fhir/data-types";
             case RATIO: return "http://hl7.org/fhir/data-types";
             case REFERENCE: return "http://hl7.org/fhir/data-types";
-            case RELATEDRESOURCE: return "http://hl7.org/fhir/data-types";
+            case RELATEDARTIFACT: return "http://hl7.org/fhir/data-types";
             case SAMPLEDDATA: return "http://hl7.org/fhir/data-types";
             case SIGNATURE: return "http://hl7.org/fhir/data-types";
             case SIMPLEQUANTITY: return "http://hl7.org/fhir/data-types";
@@ -6217,7 +6114,7 @@ public class Enumerations {
             case RANGE: return "A set of ordered Quantities defined by a low and high limit.";
             case RATIO: return "A relationship of two Quantity values - expressed as a numerator and a denominator.";
             case REFERENCE: return "A reference from one resource to another.";
-            case RELATEDRESOURCE: return "Related resources such as additional documentation, justification, or bibliographic references.";
+            case RELATEDARTIFACT: return "Related resources such as additional documentation, justification, or bibliographic references.";
             case SAMPLEDDATA: return "A series of measurements taken by a device, with upper and lower limits. There may be more than one dimension in the data.";
             case SIGNATURE: return "A digital signature along with supporting context. The signature may be electronic/cryptographic in nature, or a graphical image representing a hand-written signature, or a signature process. Different Signature approaches have different utilities.";
             case SIMPLEQUANTITY: return "";
@@ -6389,7 +6286,7 @@ public class Enumerations {
             case RANGE: return "Range";
             case RATIO: return "Ratio";
             case REFERENCE: return "Reference";
-            case RELATEDRESOURCE: return "RelatedResource";
+            case RELATEDARTIFACT: return "RelatedArtifact";
             case SAMPLEDDATA: return "SampledData";
             case SIGNATURE: return "Signature";
             case SIMPLEQUANTITY: return "SimpleQuantity";
@@ -6594,8 +6491,8 @@ public class Enumerations {
           return FHIRDefinedType.RATIO;
         if ("Reference".equals(codeString))
           return FHIRDefinedType.REFERENCE;
-        if ("RelatedResource".equals(codeString))
-          return FHIRDefinedType.RELATEDRESOURCE;
+        if ("RelatedArtifact".equals(codeString))
+          return FHIRDefinedType.RELATEDARTIFACT;
         if ("SampledData".equals(codeString))
           return FHIRDefinedType.SAMPLEDDATA;
         if ("Signature".equals(codeString))
@@ -6936,8 +6833,8 @@ public class Enumerations {
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.RATIO);
         if ("Reference".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.REFERENCE);
-        if ("RelatedResource".equals(codeString))
-          return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.RELATEDRESOURCE);
+        if ("RelatedArtifact".equals(codeString))
+          return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.RELATEDARTIFACT);
         if ("SampledData".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.SAMPLEDDATA);
         if ("Signature".equals(codeString))
@@ -7273,8 +7170,8 @@ public class Enumerations {
         return "Ratio";
       if (code == FHIRDefinedType.REFERENCE)
         return "Reference";
-      if (code == FHIRDefinedType.RELATEDRESOURCE)
-        return "RelatedResource";
+      if (code == FHIRDefinedType.RELATEDARTIFACT)
+        return "RelatedArtifact";
       if (code == FHIRDefinedType.SAMPLEDDATA)
         return "SampledData";
       if (code == FHIRDefinedType.SIGNATURE)
@@ -7888,6 +7785,109 @@ public class Enumerations {
       return "?";
       }
     public String toSystem(NoteType code) {
+      return code.getSystem();
+      }
+    }
+
+    public enum PublicationStatus {
+        /**
+         * This resource is still under development.
+         */
+        DRAFT, 
+        /**
+         * This resource is ready for normal use.
+         */
+        ACTIVE, 
+        /**
+         * This resource has been withdrawn or superseded and should no longer be used.
+         */
+        RETIRED, 
+        /**
+         * added to help the parsers
+         */
+        NULL;
+        public static PublicationStatus fromCode(String codeString) throws FHIRException {
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("draft".equals(codeString))
+          return DRAFT;
+        if ("active".equals(codeString))
+          return ACTIVE;
+        if ("retired".equals(codeString))
+          return RETIRED;
+        throw new FHIRException("Unknown PublicationStatus code '"+codeString+"'");
+        }
+        public String toCode() {
+          switch (this) {
+            case DRAFT: return "draft";
+            case ACTIVE: return "active";
+            case RETIRED: return "retired";
+            default: return "?";
+          }
+        }
+        public String getSystem() {
+          switch (this) {
+            case DRAFT: return "http://hl7.org/fhir/conformance-resource-status";
+            case ACTIVE: return "http://hl7.org/fhir/conformance-resource-status";
+            case RETIRED: return "http://hl7.org/fhir/conformance-resource-status";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case DRAFT: return "This resource is still under development.";
+            case ACTIVE: return "This resource is ready for normal use.";
+            case RETIRED: return "This resource has been withdrawn or superseded and should no longer be used.";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case DRAFT: return "Draft";
+            case ACTIVE: return "Active";
+            case RETIRED: return "Retired";
+            default: return "?";
+          }
+        }
+    }
+
+  public static class PublicationStatusEnumFactory implements EnumFactory<PublicationStatus> {
+    public PublicationStatus fromCode(String codeString) throws IllegalArgumentException {
+      if (codeString == null || "".equals(codeString))
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("draft".equals(codeString))
+          return PublicationStatus.DRAFT;
+        if ("active".equals(codeString))
+          return PublicationStatus.ACTIVE;
+        if ("retired".equals(codeString))
+          return PublicationStatus.RETIRED;
+        throw new IllegalArgumentException("Unknown PublicationStatus code '"+codeString+"'");
+        }
+        public Enumeration<PublicationStatus> fromType(Base code) throws FHIRException {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("draft".equals(codeString))
+          return new Enumeration<PublicationStatus>(this, PublicationStatus.DRAFT);
+        if ("active".equals(codeString))
+          return new Enumeration<PublicationStatus>(this, PublicationStatus.ACTIVE);
+        if ("retired".equals(codeString))
+          return new Enumeration<PublicationStatus>(this, PublicationStatus.RETIRED);
+        throw new FHIRException("Unknown PublicationStatus code '"+codeString+"'");
+        }
+    public String toCode(PublicationStatus code) {
+      if (code == PublicationStatus.DRAFT)
+        return "draft";
+      if (code == PublicationStatus.ACTIVE)
+        return "active";
+      if (code == PublicationStatus.RETIRED)
+        return "retired";
+      return "?";
+      }
+    public String toSystem(PublicationStatus code) {
       return code.getSystem();
       }
     }

@@ -29,7 +29,7 @@
 			<display value="United States of America (the)"/>
 		</coding>
 	</useContext>
-	<requirements value="Patient Search Operation"/>
+	<purpose value="Patient Search Operation"/>
 	<copyright value="© HL7.org 2011+"/>
 
 	<metadata>

@@ -18,7 +18,7 @@ import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionConstraintCom
 import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionMappingComponent;
 import org.hl7.fhir.dstu3.model.ElementDefinition.TypeRefComponent;
 import org.hl7.fhir.dstu3.model.Enumerations.BindingStrength;
-import org.hl7.fhir.dstu3.model.Enumerations.ConformanceResourceStatus;
+import org.hl7.fhir.dstu3.model.Enumerations.PublicationStatus;
 import org.hl7.fhir.dstu3.model.IntegerType;
 import org.hl7.fhir.dstu3.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.dstu3.model.OperationOutcome.IssueType;
@@ -295,14 +295,14 @@ public class ProfileComparer {
     if (outcome.ruleEqual(ln.path(), null,ln.path(), rn.path(), "Base Type is not compatible", false)) {
       if (compareElements(outcome, ln.path(), ln, rn)) {
         outcome.subset.setName("intersection of "+outcome.leftName()+" and "+outcome.rightName());
-        outcome.subset.setStatus(ConformanceResourceStatus.DRAFT);
+        outcome.subset.setStatus(PublicationStatus.DRAFT);
         outcome.subset.setKind(outcome.left.getKind());
         outcome.subset.setType(outcome.left.getType());
         outcome.subset.setBaseDefinition("http://hl7.org/fhir/StructureDefinition/"+outcome.subset.getType());
         outcome.subset.setDerivation(TypeDerivationRule.CONSTRAINT);
         outcome.subset.setAbstract(false);
         outcome.superset.setName("union of "+outcome.leftName()+" and "+outcome.rightName());
-        outcome.superset.setStatus(ConformanceResourceStatus.DRAFT);
+        outcome.superset.setStatus(PublicationStatus.DRAFT);
         outcome.superset.setKind(outcome.left.getKind());
         outcome.superset.setType(outcome.left.getType());
         outcome.superset.setBaseDefinition("http://hl7.org/fhir/StructureDefinition/"+outcome.subset.getType());
@@ -731,7 +731,7 @@ public class ProfileComparer {
   private ValueSet intersectByExpansion(ValueSet lvs, ValueSet rvs) {
     // this is pretty straight forward - we intersect the lists, and build a compose out of the intersection
     ValueSet vs = new ValueSet();
-    vs.setStatus(ConformanceResourceStatus.DRAFT);
+    vs.setStatus(PublicationStatus.DRAFT);
     
     Map<String, ValueSetExpansionContainsComponent> left = new HashMap<String, ValueSetExpansionContainsComponent>();
     scan(lvs.getExpansion().getContains(), left);

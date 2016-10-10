@@ -323,10 +323,10 @@ signatures.html
         <page title="Contributor Detailed Descriptions" filename="contributor-definitions.html"/>
         <page title="Contributor Mappings" filename="contributor-mappings.html"/>
       </page>
-      <page title="RelatedResource" filename="relatedresource.html">
-        <page title="RelatedResource Examples" filename="relatedresource-examples.html"/>
-        <page title="RelatedResource Detailed Descriptions" filename="relatedresource-definitions.html"/>
-        <page title="RelatedResource Mappings" filename="relatedresource-mappings.html"/>
+      <page title="RelatedArtifact" filename="relatedartifact.html">
+        <page title="RelatedArtifact Examples" filename="relatedartifact-examples.html"/>
+        <page title="RelatedArtifact Detailed Descriptions" filename="relatedartifact-definitions.html"/>
+        <page title="RelatedArtifact Mappings" filename="relatedartifact-mappings.html"/>
       </page>
       <page title="UsageContext" filename="usagecontext.html">
         <page title="UsageContext Examples" filename="usagecontext-examples.html"/>

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Oct 10, 2016 12:40+1100 for FHIR v1.7.0
+// Generated on Mon, Oct 10, 2016 15:45+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -996,7 +996,7 @@ public class NamingSystem extends MetadataResource {
   /**
    * Constructor
    */
-    public NamingSystem(StringType name, Enumeration<ConformanceResourceStatus> status, Enumeration<NamingSystemType> kind, DateTimeType date) {
+    public NamingSystem(StringType name, Enumeration<PublicationStatus> status, Enumeration<NamingSystemType> kind, DateTimeType date) {
       super();
       this.name = name;
       this.status = status;
@@ -1052,12 +1052,12 @@ public class NamingSystem extends MetadataResource {
     /**
      * @return {@link #status} (The status of this naming system.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<ConformanceResourceStatus> getStatusElement() { 
+    public Enumeration<PublicationStatus> getStatusElement() { 
       if (this.status == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create NamingSystem.status");
         else if (Configuration.doAutoCreate())
-          this.status = new Enumeration<ConformanceResourceStatus>(new ConformanceResourceStatusEnumFactory()); // bb
+          this.status = new Enumeration<PublicationStatus>(new PublicationStatusEnumFactory()); // bb
       return this.status;
     }
 
@@ -1072,7 +1072,7 @@ public class NamingSystem extends MetadataResource {
     /**
      * @param value {@link #status} (The status of this naming system.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public NamingSystem setStatusElement(Enumeration<ConformanceResourceStatus> value) { 
+    public NamingSystem setStatusElement(Enumeration<PublicationStatus> value) { 
       this.status = value;
       return this;
     }
@@ -1080,16 +1080,16 @@ public class NamingSystem extends MetadataResource {
     /**
      * @return The status of this naming system.
      */
-    public ConformanceResourceStatus getStatus() { 
+    public PublicationStatus getStatus() { 
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
      * @param value The status of this naming system.
      */
-    public NamingSystem setStatus(ConformanceResourceStatus value) { 
+    public NamingSystem setStatus(PublicationStatus value) { 
         if (this.status == null)
-          this.status = new Enumeration<ConformanceResourceStatus>(new ConformanceResourceStatusEnumFactory());
+          this.status = new Enumeration<PublicationStatus>(new PublicationStatusEnumFactory());
         this.status.setValue(value);
       return this;
     }
@@ -1628,7 +1628,7 @@ public class NamingSystem extends MetadataResource {
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
         case 3373707: /*name*/ return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
-        case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<ConformanceResourceStatus>
+        case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<PublicationStatus>
         case 3292052: /*kind*/ return this.kind == null ? new Base[0] : new Base[] {this.kind}; // Enumeration<NamingSystemType>
         case 3076014: /*date*/ return this.date == null ? new Base[0] : new Base[] {this.date}; // DateTimeType
         case 1447404028: /*publisher*/ return this.publisher == null ? new Base[0] : new Base[] {this.publisher}; // StringType
@@ -1652,7 +1652,7 @@ public class NamingSystem extends MetadataResource {
           this.name = castToString(value); // StringType
           break;
         case -892481550: // status
-          this.status = new ConformanceResourceStatusEnumFactory().fromType(value); // Enumeration<ConformanceResourceStatus>
+          this.status = new PublicationStatusEnumFactory().fromType(value); // Enumeration<PublicationStatus>
           break;
         case 3292052: // kind
           this.kind = new NamingSystemTypeEnumFactory().fromType(value); // Enumeration<NamingSystemType>
@@ -1697,7 +1697,7 @@ public class NamingSystem extends MetadataResource {
         if (name.equals("name"))
           this.name = castToString(value); // StringType
         else if (name.equals("status"))
-          this.status = new ConformanceResourceStatusEnumFactory().fromType(value); // Enumeration<ConformanceResourceStatus>
+          this.status = new PublicationStatusEnumFactory().fromType(value); // Enumeration<PublicationStatus>
         else if (name.equals("kind"))
           this.kind = new NamingSystemTypeEnumFactory().fromType(value); // Enumeration<NamingSystemType>
         else if (name.equals("date"))
@@ -1728,7 +1728,7 @@ public class NamingSystem extends MetadataResource {
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
-        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<ConformanceResourceStatus>
+        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<PublicationStatus>
         case 3292052: throw new FHIRException("Cannot make property kind as it is not a complex type"); // Enumeration<NamingSystemType>
         case 3076014: throw new FHIRException("Cannot make property date as it is not a complex type"); // DateTimeType
         case 1447404028: throw new FHIRException("Cannot make property publisher as it is not a complex type"); // StringType
@@ -1839,11 +1839,10 @@ public class NamingSystem extends MetadataResource {
         if (!(other instanceof NamingSystem))
           return false;
         NamingSystem o = (NamingSystem) other;
-        return compareDeep(name, o.name, true) && compareDeep(status, o.status, true) && compareDeep(kind, o.kind, true)
-           && compareDeep(date, o.date, true) && compareDeep(publisher, o.publisher, true) && compareDeep(contact, o.contact, true)
+        return compareDeep(kind, o.kind, true) && compareDeep(publisher, o.publisher, true) && compareDeep(contact, o.contact, true)
            && compareDeep(responsible, o.responsible, true) && compareDeep(type, o.type, true) && compareDeep(description, o.description, true)
-           && compareDeep(useContext, o.useContext, true) && compareDeep(usage, o.usage, true) && compareDeep(uniqueId, o.uniqueId, true)
-           && compareDeep(replacedBy, o.replacedBy, true);
+           && compareDeep(usage, o.usage, true) && compareDeep(uniqueId, o.uniqueId, true) && compareDeep(replacedBy, o.replacedBy, true)
+          ;
       }
 
       @Override
@@ -1853,15 +1852,13 @@ public class NamingSystem extends MetadataResource {
         if (!(other instanceof NamingSystem))
           return false;
         NamingSystem o = (NamingSystem) other;
-        return compareValues(name, o.name, true) && compareValues(status, o.status, true) && compareValues(kind, o.kind, true)
-           && compareValues(date, o.date, true) && compareValues(publisher, o.publisher, true) && compareValues(responsible, o.responsible, true)
+        return compareValues(kind, o.kind, true) && compareValues(publisher, o.publisher, true) && compareValues(responsible, o.responsible, true)
            && compareValues(description, o.description, true) && compareValues(usage, o.usage, true);
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(name, status, kind, date
-          , publisher, contact, responsible, type, description, useContext, usage, uniqueId
-          , replacedBy);
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(kind, publisher, contact
+          , responsible, type, description, usage, uniqueId, replacedBy);
       }
 
   @Override

@@ -635,7 +635,7 @@ public class FhirTurtleGenerator extends RdfGenerator {
       Section section = section("Extension: "+tail(extension.getUrl()));
       Subject subject = section.subject("ex:birthplace");
       subject.predicate("a", "fhir:ExtensionDefinition");
-      subject.label(extension.getDisplay());
+      subject.label(extension.getTitle());
       subject.comment(extension.getDescription());
       if (extension.hasVersion())
         subject.predicate("fhir:version", literal(extension.getVersion()));

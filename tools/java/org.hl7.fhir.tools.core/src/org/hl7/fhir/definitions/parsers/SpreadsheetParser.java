@@ -84,7 +84,7 @@ import org.hl7.fhir.dstu3.model.ContactPoint.ContactPointSystem;
 import org.hl7.fhir.dstu3.model.DateTimeType;
 import org.hl7.fhir.dstu3.model.DateType;
 import org.hl7.fhir.dstu3.model.DecimalType;
-import org.hl7.fhir.dstu3.model.Enumerations.ConformanceResourceStatus;
+import org.hl7.fhir.dstu3.model.Enumerations.PublicationStatus;
 import org.hl7.fhir.dstu3.model.Enumerations.SearchParamType;
 import org.hl7.fhir.dstu3.model.Factory;
 import org.hl7.fhir.dstu3.model.IdType;
@@ -788,7 +788,7 @@ public class SpreadsheetParser {
           sp.setExperimental(pack.getProfiles().get(0).getResource().getExperimental());
         } else {
           // we just guess
-          sp.setStatus(ConformanceResourceStatus.DRAFT);
+          sp.setStatus(PublicationStatus.DRAFT);
           sp.setExperimental(true);
         }
         
@@ -1214,7 +1214,7 @@ public class SpreadsheetParser {
       String oid = sheet.getColumn(row, "Oid");
       if (!Utilities.noString(oid))
         cd.setVsOid(oid); // no cs oid in this case
-      cd.setStatus(ConformanceResourceStatus.fromCode(sheet.getColumn(row, "Status")));
+      cd.setStatus(PublicationStatus.fromCode(sheet.getColumn(row, "Status")));
       cd.setWebSite(sheet.getColumn(row, "Website"));
       cd.setEmail(sheet.getColumn(row, "Email"));
       cd.setCopyright(sheet.getColumn(row, "Copyright"));
@@ -2125,7 +2125,7 @@ public class SpreadsheetParser {
           ex.addContext(c);
         }
 	  }
-	  ex.setDisplay(sheet.getColumn(row, "Display"));
+	  ex.setTitle(sheet.getColumn(row, "Display"));
 	  
 	  ElementDefn exe = new ElementDefn();
 	  exe.setName(sheet.getColumn(row, "Code"));
@@ -2147,7 +2147,7 @@ public class SpreadsheetParser {
     String sl = exe.getShortDefn();
     ex.setName(sheet.getColumn(row, "Name"));
     if (!ex.hasName())
-      ex.setName(ex.getDisplay());
+      ex.setName(ex.getTitle());
     if (!Utilities.noString(sl) && (!sl.contains("|") || !ex.hasName())) 
       ex.setName(sl);
     if (!ex.hasName())
@@ -2164,7 +2164,7 @@ public class SpreadsheetParser {
       ex.setDate(genDate.getTime());
 
     if (ap.hasMetadata("status")) 
-      ex.setStatus(ConformanceResourceStatus.fromCode(ap.metadata("status")));
+      ex.setStatus(PublicationStatus.fromCode(ap.metadata("status")));
    
     row++;
     if (ig == null || ig.isCore()) {

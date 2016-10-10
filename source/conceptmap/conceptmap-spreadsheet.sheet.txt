@@ -101,12 +101,7 @@
   Element = ConceptMap.useContext
 
  -- Row 15 -----------------------------------
-  Element = ConceptMap.requirements
-  Card. = 0..1
-  Type = markdown
-  Short Name = Why needed
-  Definition = Explains why this concept map is needed and why it has been constrained as it has
-  Comments = This element does not describe the usage of the concept map (that is done in comments), rather it\'s for traceability of \'\'why\'\' the element is either needed or \'\'why\'\' the constraints exist as they do.  This may be used to point to source materials or specifications that drove the structure of this data element
+  Element = ConceptMap.purpose
 
  -- Row 16 -----------------------------------
   Element = ConceptMap.copyright

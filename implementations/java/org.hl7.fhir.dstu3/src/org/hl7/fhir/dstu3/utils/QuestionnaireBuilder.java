@@ -20,7 +20,7 @@ import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionBindingCompon
 import org.hl7.fhir.dstu3.model.ElementDefinition.TypeRefComponent;
 import org.hl7.fhir.dstu3.model.Enumeration;
 import org.hl7.fhir.dstu3.model.Enumerations.BindingStrength;
-import org.hl7.fhir.dstu3.model.Enumerations.ConformanceResourceStatus;
+import org.hl7.fhir.dstu3.model.Enumerations.PublicationStatus;
 import org.hl7.fhir.dstu3.model.Factory;
 import org.hl7.fhir.dstu3.model.InstantType;
 import org.hl7.fhir.dstu3.model.IntegerType;
@@ -223,7 +223,7 @@ public class QuestionnaireBuilder {
       questionnaire.setPublisher(profile.getPublisher());
       Questionnaire.QuestionnaireItemComponent item = new Questionnaire.QuestionnaireItemComponent();
       questionnaire.addItem(item);
-      item.getConcept().addAll(profile.getCode());
+      item.getConcept().addAll(profile.getKeyword());
       questionnaire.setId(nextId("qs"));
     }
 
@@ -239,7 +239,7 @@ public class QuestionnaireBuilder {
 
   }
 
-  private QuestionnaireStatus convertStatus(ConformanceResourceStatus status) {
+  private QuestionnaireStatus convertStatus(PublicationStatus status) {
     switch (status) {
 		case ACTIVE: return QuestionnaireStatus.PUBLISHED;
 		case DRAFT: return QuestionnaireStatus.DRAFT;
@@ -422,7 +422,7 @@ public class QuestionnaireBuilder {
     ValueSet vs = new ValueSet();
     vs.setName("Type options for "+path);
     vs.setDescription(vs.getName());
-	  vs.setStatus(ConformanceResourceStatus.ACTIVE);
+	  vs.setStatus(PublicationStatus.ACTIVE);
     vs.setExpansion(new ValueSetExpansionComponent());
     vs.getExpansion().setIdentifier(Factory.createUUID());
     vs.getExpansion().setTimestampElement(DateTimeType.now());

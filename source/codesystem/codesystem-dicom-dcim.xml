@@ -15,7 +15,7 @@
   </contact>
   <date value="2015-04-20"/>
   <description value="DICOM Code Definitions (Coding Scheme Designator &quot;DCM&quot; Coding Scheme Version &quot;01&quot;)"/>
-  <requirements value="This value is published as part of FHIR in order to make the codes available to FHIR terminology services and so implementers can easily leverage the codes."/>
+  <purpose value="This value is published as part of FHIR in order to make the codes available to FHIR terminology services and so implementers can easily leverage the codes."/>
   <copyright value="These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright © 2011 by the National Electrical Manufacturers Association."/>
   <valueSet value="http://hl7.org/fhir/ValueSet/dicom-dcim"/>
   <caseSensitive value="true"/>

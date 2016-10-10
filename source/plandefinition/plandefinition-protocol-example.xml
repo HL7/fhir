@@ -67,7 +67,7 @@
       <code value="protocol"/>
     </coding>
   </type>
-<!--The status of the protocol.draft | active | inactive-->	
+<!--The status of the protocol.draft | active | retired-->	
   <status value="draft"/>
   <!--When is the protocol to be used-->
   <purpose value="Example of A medical algorithm for assessment and treatment of overweight and obesity"/>

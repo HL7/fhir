@@ -38,7 +38,7 @@
     </telecom>
   </contact>
   <description value="This is the FHIR capability statement for the main EHR at ACME for the private interface - it does not describe the public interface"/>
-  <requirements value="Main EHR capability statement, published for contracting and operational support"/>
+  <purpose value="Main EHR capability statement, published for contracting and operational support"/>
   <copyright value="Copyright © Acme Healthcare and GoodCorp EHR Systems"/>
   <kind value="instance"/>
   <software>

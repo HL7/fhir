@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Oct 10, 2016 12:40+1100 for FHIR v1.7.0
+// Generated on Mon, Oct 10, 2016 15:45+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -1729,11 +1729,11 @@ public class ConceptMap extends MetadataResource {
     protected MarkdownType description;
 
     /**
-     * Explains why this concept map is needed and why it has been constrained as it has.
+     * Explains why this concept map is needed and why it has been designed as it has.
      */
-    @Child(name = "requirements", type = {MarkdownType.class}, order=4, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="Why needed", formalDefinition="Explains why this concept map is needed and why it has been constrained as it has." )
-    protected MarkdownType requirements;
+    @Child(name = "purpose", type = {MarkdownType.class}, order=4, min=0, max=1, modifier=false, summary=false)
+    @Description(shortDefinition="Why this concept map is defined", formalDefinition="Explains why this concept map is needed and why it has been designed as it has." )
+    protected MarkdownType purpose;
 
     /**
      * A copyright statement relating to the concept map and/or its contents.
@@ -1763,7 +1763,7 @@ public class ConceptMap extends MetadataResource {
     @Description(shortDefinition="Same source and target systems", formalDefinition="A group of mappings that all have the same source and target system." )
     protected List<ConceptMapGroupComponent> group;
 
-    private static final long serialVersionUID = 1577163531L;
+    private static final long serialVersionUID = -1300195767L;
 
   /**
    * Constructor
@@ -1775,7 +1775,7 @@ public class ConceptMap extends MetadataResource {
   /**
    * Constructor
    */
-    public ConceptMap(Enumeration<ConformanceResourceStatus> status, Type source, Type target) {
+    public ConceptMap(Enumeration<PublicationStatus> status, Type source, Type target) {
       super();
       this.status = status;
       this.source = source;
@@ -1956,12 +1956,12 @@ public class ConceptMap extends MetadataResource {
     /**
      * @return {@link #status} (The status of this concept map.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<ConformanceResourceStatus> getStatusElement() { 
+    public Enumeration<PublicationStatus> getStatusElement() { 
       if (this.status == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ConceptMap.status");
         else if (Configuration.doAutoCreate())
-          this.status = new Enumeration<ConformanceResourceStatus>(new ConformanceResourceStatusEnumFactory()); // bb
+          this.status = new Enumeration<PublicationStatus>(new PublicationStatusEnumFactory()); // bb
       return this.status;
     }
 
@@ -1976,7 +1976,7 @@ public class ConceptMap extends MetadataResource {
     /**
      * @param value {@link #status} (The status of this concept map.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public ConceptMap setStatusElement(Enumeration<ConformanceResourceStatus> value) { 
+    public ConceptMap setStatusElement(Enumeration<PublicationStatus> value) { 
       this.status = value;
       return this;
     }
@@ -1984,16 +1984,16 @@ public class ConceptMap extends MetadataResource {
     /**
      * @return The status of this concept map.
      */
-    public ConformanceResourceStatus getStatus() { 
+    public PublicationStatus getStatus() { 
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
      * @param value The status of this concept map.
      */
-    public ConceptMap setStatus(ConformanceResourceStatus value) { 
+    public ConceptMap setStatus(PublicationStatus value) { 
         if (this.status == null)
-          this.status = new Enumeration<ConformanceResourceStatus>(new ConformanceResourceStatusEnumFactory());
+          this.status = new Enumeration<PublicationStatus>(new PublicationStatusEnumFactory());
         this.status.setValue(value);
       return this;
     }
@@ -2297,50 +2297,50 @@ public class ConceptMap extends MetadataResource {
     }
 
     /**
-     * @return {@link #requirements} (Explains why this concept map is needed and why it has been constrained as it has.). This is the underlying object with id, value and extensions. The accessor "getRequirements" gives direct access to the value
+     * @return {@link #purpose} (Explains why this concept map is needed and why it has been designed as it has.). This is the underlying object with id, value and extensions. The accessor "getPurpose" gives direct access to the value
      */
-    public MarkdownType getRequirementsElement() { 
-      if (this.requirements == null)
+    public MarkdownType getPurposeElement() { 
+      if (this.purpose == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ConceptMap.requirements");
+          throw new Error("Attempt to auto-create ConceptMap.purpose");
         else if (Configuration.doAutoCreate())
-          this.requirements = new MarkdownType(); // bb
-      return this.requirements;
+          this.purpose = new MarkdownType(); // bb
+      return this.purpose;
     }
 
-    public boolean hasRequirementsElement() { 
-      return this.requirements != null && !this.requirements.isEmpty();
+    public boolean hasPurposeElement() { 
+      return this.purpose != null && !this.purpose.isEmpty();
     }
 
-    public boolean hasRequirements() { 
-      return this.requirements != null && !this.requirements.isEmpty();
+    public boolean hasPurpose() { 
+      return this.purpose != null && !this.purpose.isEmpty();
     }
 
     /**
-     * @param value {@link #requirements} (Explains why this concept map is needed and why it has been constrained as it has.). This is the underlying object with id, value and extensions. The accessor "getRequirements" gives direct access to the value
+     * @param value {@link #purpose} (Explains why this concept map is needed and why it has been designed as it has.). This is the underlying object with id, value and extensions. The accessor "getPurpose" gives direct access to the value
      */
-    public ConceptMap setRequirementsElement(MarkdownType value) { 
-      this.requirements = value;
+    public ConceptMap setPurposeElement(MarkdownType value) { 
+      this.purpose = value;
       return this;
     }
 
     /**
-     * @return Explains why this concept map is needed and why it has been constrained as it has.
+     * @return Explains why this concept map is needed and why it has been designed as it has.
      */
-    public String getRequirements() { 
-      return this.requirements == null ? null : this.requirements.getValue();
+    public String getPurpose() { 
+      return this.purpose == null ? null : this.purpose.getValue();
     }
 
     /**
-     * @param value Explains why this concept map is needed and why it has been constrained as it has.
+     * @param value Explains why this concept map is needed and why it has been designed as it has.
      */
-    public ConceptMap setRequirements(String value) { 
+    public ConceptMap setPurpose(String value) { 
       if (value == null)
-        this.requirements = null;
+        this.purpose = null;
       else {
-        if (this.requirements == null)
-          this.requirements = new MarkdownType();
-        this.requirements.setValue(value);
+        if (this.purpose == null)
+          this.purpose = new MarkdownType();
+        this.purpose.setValue(value);
       }
       return this;
     }
@@ -2550,7 +2550,7 @@ public class ConceptMap extends MetadataResource {
         childrenList.add(new Property("date", "dateTime", "The date  (and optionally time) when the concept map was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the concept map changes.", 0, java.lang.Integer.MAX_VALUE, date));
         childrenList.add(new Property("description", "markdown", "A free text natural language description of the use of the concept map - reason for definition, conditions of use, etc.", 0, java.lang.Integer.MAX_VALUE, description));
         childrenList.add(new Property("useContext", "CodeableConcept", "The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of code system definitions.", 0, java.lang.Integer.MAX_VALUE, useContext));
-        childrenList.add(new Property("requirements", "markdown", "Explains why this concept map is needed and why it has been constrained as it has.", 0, java.lang.Integer.MAX_VALUE, requirements));
+        childrenList.add(new Property("purpose", "markdown", "Explains why this concept map is needed and why it has been designed as it has.", 0, java.lang.Integer.MAX_VALUE, purpose));
         childrenList.add(new Property("copyright", "string", "A copyright statement relating to the concept map and/or its contents.", 0, java.lang.Integer.MAX_VALUE, copyright));
         childrenList.add(new Property("source[x]", "uri|Reference(ValueSet|StructureDefinition)", "The source value set that specifies the concepts that are being mapped.", 0, java.lang.Integer.MAX_VALUE, source));
         childrenList.add(new Property("target[x]", "uri|Reference(ValueSet|StructureDefinition)", "The target value set provides context to the mappings. Note that the mapping is made between concepts, not between value sets, but the value set provides important context about how the concept mapping choices are made.", 0, java.lang.Integer.MAX_VALUE, target));
@@ -2564,14 +2564,14 @@ public class ConceptMap extends MetadataResource {
         case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : new Base[] {this.identifier}; // Identifier
         case 351608024: /*version*/ return this.version == null ? new Base[0] : new Base[] {this.version}; // StringType
         case 3373707: /*name*/ return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
-        case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<ConformanceResourceStatus>
+        case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<PublicationStatus>
         case -404562712: /*experimental*/ return this.experimental == null ? new Base[0] : new Base[] {this.experimental}; // BooleanType
         case 1447404028: /*publisher*/ return this.publisher == null ? new Base[0] : new Base[] {this.publisher}; // StringType
         case 951526432: /*contact*/ return this.contact == null ? new Base[0] : this.contact.toArray(new Base[this.contact.size()]); // ConceptMapContactComponent
         case 3076014: /*date*/ return this.date == null ? new Base[0] : new Base[] {this.date}; // DateTimeType
         case -1724546052: /*description*/ return this.description == null ? new Base[0] : new Base[] {this.description}; // MarkdownType
         case -669707736: /*useContext*/ return this.useContext == null ? new Base[0] : this.useContext.toArray(new Base[this.useContext.size()]); // CodeableConcept
-        case -1619874672: /*requirements*/ return this.requirements == null ? new Base[0] : new Base[] {this.requirements}; // MarkdownType
+        case -220463842: /*purpose*/ return this.purpose == null ? new Base[0] : new Base[] {this.purpose}; // MarkdownType
         case 1522889671: /*copyright*/ return this.copyright == null ? new Base[0] : new Base[] {this.copyright}; // StringType
         case -896505829: /*source*/ return this.source == null ? new Base[0] : new Base[] {this.source}; // Type
         case -880905839: /*target*/ return this.target == null ? new Base[0] : new Base[] {this.target}; // Type
@@ -2597,7 +2597,7 @@ public class ConceptMap extends MetadataResource {
           this.name = castToString(value); // StringType
           break;
         case -892481550: // status
-          this.status = new ConformanceResourceStatusEnumFactory().fromType(value); // Enumeration<ConformanceResourceStatus>
+          this.status = new PublicationStatusEnumFactory().fromType(value); // Enumeration<PublicationStatus>
           break;
         case -404562712: // experimental
           this.experimental = castToBoolean(value); // BooleanType
@@ -2617,8 +2617,8 @@ public class ConceptMap extends MetadataResource {
         case -669707736: // useContext
           this.getUseContext().add(castToCodeableConcept(value)); // CodeableConcept
           break;
-        case -1619874672: // requirements
-          this.requirements = castToMarkdown(value); // MarkdownType
+        case -220463842: // purpose
+          this.purpose = castToMarkdown(value); // MarkdownType
           break;
         case 1522889671: // copyright
           this.copyright = castToString(value); // StringType
@@ -2648,7 +2648,7 @@ public class ConceptMap extends MetadataResource {
         else if (name.equals("name"))
           this.name = castToString(value); // StringType
         else if (name.equals("status"))
-          this.status = new ConformanceResourceStatusEnumFactory().fromType(value); // Enumeration<ConformanceResourceStatus>
+          this.status = new PublicationStatusEnumFactory().fromType(value); // Enumeration<PublicationStatus>
         else if (name.equals("experimental"))
           this.experimental = castToBoolean(value); // BooleanType
         else if (name.equals("publisher"))
@@ -2661,8 +2661,8 @@ public class ConceptMap extends MetadataResource {
           this.description = castToMarkdown(value); // MarkdownType
         else if (name.equals("useContext"))
           this.getUseContext().add(castToCodeableConcept(value));
-        else if (name.equals("requirements"))
-          this.requirements = castToMarkdown(value); // MarkdownType
+        else if (name.equals("purpose"))
+          this.purpose = castToMarkdown(value); // MarkdownType
         else if (name.equals("copyright"))
           this.copyright = castToString(value); // StringType
         else if (name.equals("source[x]"))
@@ -2682,14 +2682,14 @@ public class ConceptMap extends MetadataResource {
         case -1618432855:  return getIdentifier(); // Identifier
         case 351608024: throw new FHIRException("Cannot make property version as it is not a complex type"); // StringType
         case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
-        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<ConformanceResourceStatus>
+        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<PublicationStatus>
         case -404562712: throw new FHIRException("Cannot make property experimental as it is not a complex type"); // BooleanType
         case 1447404028: throw new FHIRException("Cannot make property publisher as it is not a complex type"); // StringType
         case 951526432:  return addContact(); // ConceptMapContactComponent
         case 3076014: throw new FHIRException("Cannot make property date as it is not a complex type"); // DateTimeType
         case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // MarkdownType
         case -669707736:  return addUseContext(); // CodeableConcept
-        case -1619874672: throw new FHIRException("Cannot make property requirements as it is not a complex type"); // MarkdownType
+        case -220463842: throw new FHIRException("Cannot make property purpose as it is not a complex type"); // MarkdownType
         case 1522889671: throw new FHIRException("Cannot make property copyright as it is not a complex type"); // StringType
         case -1698413947:  return getSource(); // Type
         case -815579825:  return getTarget(); // Type
@@ -2735,8 +2735,8 @@ public class ConceptMap extends MetadataResource {
         else if (name.equals("useContext")) {
           return addUseContext();
         }
-        else if (name.equals("requirements")) {
-          throw new FHIRException("Cannot call addChild on a primitive type ConceptMap.requirements");
+        else if (name.equals("purpose")) {
+          throw new FHIRException("Cannot call addChild on a primitive type ConceptMap.purpose");
         }
         else if (name.equals("copyright")) {
           throw new FHIRException("Cannot call addChild on a primitive type ConceptMap.copyright");
@@ -2791,7 +2791,7 @@ public class ConceptMap extends MetadataResource {
           for (CodeableConcept i : useContext)
             dst.useContext.add(i.copy());
         };
-        dst.requirements = requirements == null ? null : requirements.copy();
+        dst.purpose = purpose == null ? null : purpose.copy();
         dst.copyright = copyright == null ? null : copyright.copy();
         dst.source = source == null ? null : source.copy();
         dst.target = target == null ? null : target.copy();
@@ -2814,13 +2814,10 @@ public class ConceptMap extends MetadataResource {
         if (!(other instanceof ConceptMap))
           return false;
         ConceptMap o = (ConceptMap) other;
-        return compareDeep(url, o.url, true) && compareDeep(identifier, o.identifier, true) && compareDeep(version, o.version, true)
-           && compareDeep(name, o.name, true) && compareDeep(status, o.status, true) && compareDeep(experimental, o.experimental, true)
-           && compareDeep(publisher, o.publisher, true) && compareDeep(contact, o.contact, true) && compareDeep(date, o.date, true)
-           && compareDeep(description, o.description, true) && compareDeep(useContext, o.useContext, true)
-           && compareDeep(requirements, o.requirements, true) && compareDeep(copyright, o.copyright, true)
-           && compareDeep(source, o.source, true) && compareDeep(target, o.target, true) && compareDeep(group, o.group, true)
-          ;
+        return compareDeep(identifier, o.identifier, true) && compareDeep(publisher, o.publisher, true)
+           && compareDeep(contact, o.contact, true) && compareDeep(description, o.description, true) && compareDeep(purpose, o.purpose, true)
+           && compareDeep(copyright, o.copyright, true) && compareDeep(source, o.source, true) && compareDeep(target, o.target, true)
+           && compareDeep(group, o.group, true);
       }
 
       @Override
@@ -2830,16 +2827,13 @@ public class ConceptMap extends MetadataResource {
         if (!(other instanceof ConceptMap))
           return false;
         ConceptMap o = (ConceptMap) other;
-        return compareValues(url, o.url, true) && compareValues(version, o.version, true) && compareValues(name, o.name, true)
-           && compareValues(status, o.status, true) && compareValues(experimental, o.experimental, true) && compareValues(publisher, o.publisher, true)
-           && compareValues(date, o.date, true) && compareValues(description, o.description, true) && compareValues(requirements, o.requirements, true)
-           && compareValues(copyright, o.copyright, true);
+        return compareValues(publisher, o.publisher, true) && compareValues(description, o.description, true)
+           && compareValues(purpose, o.purpose, true) && compareValues(copyright, o.copyright, true);
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(url, identifier, version
-          , name, status, experimental, publisher, contact, date, description, useContext
-          , requirements, copyright, source, target, group);
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, publisher, contact
+          , description, purpose, copyright, source, target, group);
       }
 
   @Override

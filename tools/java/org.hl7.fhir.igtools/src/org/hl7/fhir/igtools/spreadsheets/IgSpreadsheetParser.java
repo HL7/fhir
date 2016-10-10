@@ -40,7 +40,7 @@ import org.hl7.fhir.dstu3.model.ElementDefinition.PropertyRepresentation;
 import org.hl7.fhir.dstu3.model.ElementDefinition.SlicingRules;
 import org.hl7.fhir.dstu3.model.ElementDefinition.TypeRefComponent;
 import org.hl7.fhir.dstu3.model.Enumerations.BindingStrength;
-import org.hl7.fhir.dstu3.model.Enumerations.ConformanceResourceStatus;
+import org.hl7.fhir.dstu3.model.Enumerations.PublicationStatus;
 import org.hl7.fhir.dstu3.model.Enumerations.SearchParamType;
 import org.hl7.fhir.dstu3.model.Extension;
 import org.hl7.fhir.dstu3.model.Factory;
@@ -323,9 +323,9 @@ public class IgSpreadsheetParser {
       sd.setDate(genDate.getTime());
 
     if (hasMetadata("status")) 
-      sd.setStatus(ConformanceResourceStatus.fromCode(metadata("status")));
+      sd.setStatus(PublicationStatus.fromCode(metadata("status")));
     else
-      sd.setStatus(ConformanceResourceStatus.DRAFT);
+      sd.setStatus(PublicationStatus.DRAFT);
 
     new ProfileUtilities(context, null, null).setIds(sd, false);
     return sd;
@@ -1006,7 +1006,7 @@ public class IgSpreadsheetParser {
           ex.addContext(c);
         }
     }
-    ex.setDisplay(sheet.getColumn(row, "Display"));
+    ex.setTitle(sheet.getColumn(row, "Display"));
     ElementDefinition exe = ex.getDifferential().addElement();
     exe.setPath("Extension");
     exe.setName(sheet.getColumn(row, "Code"));
@@ -1026,7 +1026,7 @@ public class IgSpreadsheetParser {
     String sl = exe.getShort();
     ex.setName(sheet.getColumn(row, "Name"));
     if (!ex.hasName())
-      ex.setName(ex.getDisplay());
+      ex.setName(ex.getTitle());
     if (!Utilities.noString(sl) && (!sl.contains("|") || !ex.hasName())) 
       ex.setName(sl);
 //    ex.setName("Extension "+ex.getId()+(ex.hasDisplay() ? " "+ex.getDisplay() : ""));
@@ -1044,7 +1044,7 @@ public class IgSpreadsheetParser {
       ex.setDate(genDate.getTime());
 
     if (hasMetadata("status")) 
-      ex.setStatus(ConformanceResourceStatus.fromCode(metadata("status")));
+      ex.setStatus(PublicationStatus.fromCode(metadata("status")));
    
     row++;
     while (row < sheet.getRows().size() && sheet.getColumn(row, "Code").startsWith(name+".")) {
@@ -1063,15 +1063,15 @@ public class IgSpreadsheetParser {
     }
     ex.getDifferential().getElementFirstRep().getType().clear();
     if (ex.getDifferential().getElementFirstRep().hasRequirements()) {
-      ex.setRequirements(ex.getDifferential().getElementFirstRep().getRequirements());
+      ex.setPurpose(ex.getDifferential().getElementFirstRep().getRequirements());
       ex.getDifferential().getElementFirstRep().setRequirements(null);
     }
     if (ex.getDifferential().getElementFirstRep().hasLabel()) {
-      ex.setDisplay(ex.getDifferential().getElementFirstRep().getLabel());
+      ex.setTitle(ex.getDifferential().getElementFirstRep().getLabel());
       ex.getDifferential().getElementFirstRep().setLabel(null);
     }
     if (ex.getDifferential().getElementFirstRep().hasCode()) {
-      ex.getCode().addAll(ex.getDifferential().getElementFirstRep().getCode());
+      ex.getKeyword().addAll(ex.getDifferential().getElementFirstRep().getCode());
       ex.getDifferential().getElementFirstRep().getCode().clear();
     }
     

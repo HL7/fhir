@@ -69,7 +69,7 @@ public class CodeSystemConvertor {
     cs.setDescription(vs.getDescription());
     for (CodeableConcept cc : vs.getUseContext())
       cs.addUseContext(cc);
-    cs.setRequirements(vs.getRequirements());
+    cs.setPurpose(vs.getPurpose());
     cs.setCopyright(vs.getCopyright());
     cs.setValueSet(vs.getUrl());    
   }

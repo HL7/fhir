@@ -390,9 +390,9 @@
   Requirements = Consumers of the module must be able to determine any legal restrictions on the use of the module and/or its content
 
  -- Row 22 -----------------------------------
-  Element = ModuleMetadata.relatedResource
+  Element = ModuleMetadata.relatedArtifact
   Card. = 0..*
-  Type = RelatedResource
+  Type = RelatedArtifact
   Short Label = Related resources for the module
   Definition = Related resources such as additional documentation, justification, or bibliographic references
   Requirements = Modules must be able to provide enough information for consumers of the content (and/or interventions or results produced by the content) to be able to determine and understand the justification for and evidence in support of the content

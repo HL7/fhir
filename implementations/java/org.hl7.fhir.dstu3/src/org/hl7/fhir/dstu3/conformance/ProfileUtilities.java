@@ -1492,7 +1492,7 @@ public class ProfileUtilities {
         if (t.hasProfile() && t.getProfile().startsWith("http://hl7.org/fhir/StructureDefinition/")) {
           StructureDefinition sd = context.fetchResource(StructureDefinition.class, t.getProfile());
           if (sd != null) {
-            String disp = sd.hasDisplay() ? sd.getDisplay() : sd.getName();
+            String disp = sd.hasTitle() ? sd.getTitle() : sd.getName();
             c.addPiece(checkForNoChange(t, gen.new Piece(checkPrepend(corePath, sd.getUserString("path")), disp, null)));
           } else {
             String rn = t.getProfile().substring(40);
@@ -1501,7 +1501,7 @@ public class ProfileUtilities {
         } else if (t.hasProfile() && Utilities.isAbsoluteUrl(t.getProfile())) {
           StructureDefinition sd = context.fetchResource(StructureDefinition.class, t.getProfile());
           if (sd != null) {
-            String disp = sd.hasDisplay() ? sd.getDisplay() : sd.getName();
+            String disp = sd.hasTitle() ? sd.getTitle() : sd.getName();
             String ref = pkp.getLinkForProfile(null, sd.getUrl());
             if (ref.contains("|"))
               ref = ref.substring(0,  ref.indexOf("|"));

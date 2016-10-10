@@ -21,7 +21,7 @@ import org.hl7.fhir.dstu3.formats.XmlParser;
 import org.hl7.fhir.dstu3.model.ElementDefinition;
 import org.hl7.fhir.dstu3.model.ElementDefinition.PropertyRepresentation;
 import org.hl7.fhir.dstu3.model.Enumerations.BindingStrength;
-import org.hl7.fhir.dstu3.model.Enumerations.ConformanceResourceStatus;
+import org.hl7.fhir.dstu3.model.Enumerations.PublicationStatus;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
 import org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionKind;
 import org.hl7.fhir.dstu3.model.StructureDefinition.TypeDerivationRule;
@@ -97,7 +97,7 @@ public class ISO21090Importer {
     sd.setId(dt.name);
     sd.setUrl("http://hl7.org/fhir/iso21090/StructureDefinition/"+sd.getId());
     sd.setName(dt.name+" data type");
-    sd.setStatus(ConformanceResourceStatus.ACTIVE);
+    sd.setStatus(PublicationStatus.ACTIVE);
     sd.setExperimental(false);
     sd.setPublisher("HL7 / ISO");
     sd.setDate(new Date());

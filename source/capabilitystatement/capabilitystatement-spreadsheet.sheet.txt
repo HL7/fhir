@@ -662,12 +662,7 @@
   Element = CapabilityStatement.useContext
 
  -- Row 14 -----------------------------------
-  Element = CapabilityStatement.requirements
-  Card. = 0..1
-  Type = markdown
-  Short Name = Why this resource has been created
-  Definition = Explains why this capability statement is needed and why it\'s been constrained as it has
-  Comments = This element does not describe the usage of the capability statement (that\'s done in comments), rather it\'s for traceability of *why* the element is either needed or why the constraints exist as they do.  This may be used to point to source materials or specifications that drove the structure of this data element
+  Element = CapabilityStatement.purpose
 
  -- Row 15 -----------------------------------
   Element = CapabilityStatement.copyright

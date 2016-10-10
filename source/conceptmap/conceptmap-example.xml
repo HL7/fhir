@@ -28,7 +28,7 @@
 	<useContext>
 		<text value="for CDA Usage"/>
 	</useContext>
-	<requirements value="To help implementers map from HL7 v3/CDA to FHIR"/>
+	<purpose value="To help implementers map from HL7 v3/CDA to FHIR"/>
 	<copyright value="Creative Commons 0"/>
 	<sourceReference>
 		<reference value="http://hl7.org/fhir/ValueSet/address-use"/>

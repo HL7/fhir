@@ -67,7 +67,7 @@ import org.hl7.fhir.dstu3.model.DateTimeType;
 import org.hl7.fhir.dstu3.model.DomainResource;
 import org.hl7.fhir.dstu3.model.ElementDefinition;
 import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionConstraintComponent;
-import org.hl7.fhir.dstu3.model.Enumerations.ConformanceResourceStatus;
+import org.hl7.fhir.dstu3.model.Enumerations.PublicationStatus;
 import org.hl7.fhir.dstu3.model.ExpansionProfile;
 import org.hl7.fhir.dstu3.model.ExpressionNode;
 import org.hl7.fhir.dstu3.model.ImplementationGuide;
@@ -1427,7 +1427,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
           }
           if (!bc.hasStatus()) {
             altered = true;
-            bc.setStatus(ConformanceResourceStatus.DRAFT);
+            bc.setStatus(PublicationStatus.DRAFT);
           }
           if (altered)
             r.setElement(convertToElement(bc));

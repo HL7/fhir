@@ -71,7 +71,7 @@
         <ns4:element name="url" type="FHIR.uri"/>
         <ns4:element name="version" type="FHIR.string"/>
         <ns4:element name="name" type="FHIR.string"/>
-        <ns4:element name="status" type="FHIR.ConformanceResourceStatus"/>
+        <ns4:element name="status" type="FHIR.PublicationStatus"/>
         <ns4:element name="identifier" type="FHIR.Identifier"/>
         <ns4:element name="experimental" type="FHIR.boolean"/>
         <ns4:element name="publisher" type="FHIR.string"/>
@@ -190,7 +190,7 @@
         <ns4:element name="version" type="FHIR.string"/>
         <ns4:element name="name" type="FHIR.string"/>
         <ns4:element name="display" type="FHIR.string"/>
-        <ns4:element name="status" type="FHIR.ConformanceResourceStatus"/>
+        <ns4:element name="status" type="FHIR.PublicationStatus"/>
         <ns4:element name="experimental" type="FHIR.boolean"/>
         <ns4:element name="publisher" type="FHIR.string"/>
         <ns4:element name="contact" type="list&lt;FHIR.StructureDefinition.Contact&gt;"/>
@@ -339,7 +339,7 @@
     <ns4:typeInfo xsi:type="ns4:ClassInfo" name="FHIR.SearchParameter" retrievable="true" baseType="FHIR.DomainResource">
         <ns4:element name="url" type="FHIR.uri"/>
         <ns4:element name="name" type="FHIR.string"/>
-        <ns4:element name="status" type="FHIR.ConformanceResourceStatus"/>
+        <ns4:element name="status" type="FHIR.PublicationStatus"/>
         <ns4:element name="experimental" type="FHIR.boolean"/>
         <ns4:element name="date" type="FHIR.dateTime"/>
         <ns4:element name="publisher" type="FHIR.string"/>
@@ -430,7 +430,7 @@
         <ns4:element name="identifier" type="FHIR.Identifier"/>
         <ns4:element name="version" type="FHIR.string"/>
         <ns4:element name="name" type="FHIR.string"/>
-        <ns4:element name="status" type="FHIR.ConformanceResourceStatus"/>
+        <ns4:element name="status" type="FHIR.PublicationStatus"/>
         <ns4:element name="experimental" type="FHIR.boolean"/>
         <ns4:element name="publisher" type="FHIR.string"/>
         <ns4:element name="contact" type="list&lt;FHIR.ExpansionProfile.Contact&gt;"/>
@@ -950,7 +950,7 @@
         <ns4:element name="url" type="FHIR.uri"/>
         <ns4:element name="identifier" type="list&lt;FHIR.Identifier&gt;"/>
         <ns4:element name="version" type="FHIR.string"/>
-        <ns4:element name="status" type="FHIR.ConformanceResourceStatus"/>
+        <ns4:element name="status" type="FHIR.PublicationStatus"/>
         <ns4:element name="experimental" type="FHIR.boolean"/>
         <ns4:element name="publisher" type="FHIR.string"/>
         <ns4:element name="date" type="FHIR.dateTime"/>
@@ -1027,7 +1027,7 @@
     <ns4:typeInfo xsi:type="ns4:ClassInfo" name="FHIR.DocumentRelationshipType" retrievable="false" baseType="FHIR.Element">
         <ns4:element name="value" type="System.String"/>
     </ns4:typeInfo>
-    <ns4:typeInfo xsi:type="ns4:ClassInfo" name="FHIR.ConformanceResourceStatus" retrievable="false" baseType="FHIR.Element">
+    <ns4:typeInfo xsi:type="ns4:ClassInfo" name="FHIR.PublicationStatus" retrievable="false" baseType="FHIR.Element">
         <ns4:element name="value" type="System.String"/>
     </ns4:typeInfo>
     <ns4:typeInfo xsi:type="ns4:ClassInfo" name="FHIR.ImagingObjectSelection.Instance" retrievable="false" baseType="FHIR.BackboneElement">
@@ -1328,7 +1328,7 @@
         <ns4:element name="identifier" type="FHIR.Identifier"/>
         <ns4:element name="version" type="FHIR.string"/>
         <ns4:element name="name" type="FHIR.string"/>
-        <ns4:element name="status" type="FHIR.ConformanceResourceStatus"/>
+        <ns4:element name="status" type="FHIR.PublicationStatus"/>
         <ns4:element name="experimental" type="FHIR.boolean"/>
         <ns4:element name="publisher" type="FHIR.string"/>
         <ns4:element name="contact" type="list&lt;FHIR.ValueSet.Contact&gt;"/>
@@ -1594,7 +1594,7 @@
         <ns4:element name="identifier" type="FHIR.Identifier"/>
         <ns4:element name="version" type="FHIR.string"/>
         <ns4:element name="name" type="FHIR.string"/>
-        <ns4:element name="status" type="FHIR.ConformanceResourceStatus"/>
+        <ns4:element name="status" type="FHIR.PublicationStatus"/>
         <ns4:element name="experimental" type="FHIR.boolean"/>
         <ns4:element name="publisher" type="FHIR.string"/>
         <ns4:element name="contact" type="list&lt;FHIR.CodeSystem.Contact&gt;"/>
@@ -1823,7 +1823,7 @@
     </ns4:typeInfo>
     <ns4:typeInfo xsi:type="ns4:ClassInfo" name="FHIR.NamingSystem" retrievable="true" baseType="FHIR.DomainResource">
         <ns4:element name="name" type="FHIR.string"/>
-        <ns4:element name="status" type="FHIR.ConformanceResourceStatus"/>
+        <ns4:element name="status" type="FHIR.PublicationStatus"/>
         <ns4:element name="kind" type="FHIR.NamingSystemType"/>
         <ns4:element name="date" type="FHIR.dateTime"/>
         <ns4:element name="publisher" type="FHIR.string"/>
@@ -1857,7 +1857,7 @@
     <ns4:typeInfo xsi:type="ns4:ClassInfo" name="FHIR.IdentifierUse" retrievable="false" baseType="FHIR.Element">
         <ns4:element name="value" type="System.String"/>
     </ns4:typeInfo>
-    <ns4:typeInfo xsi:type="ns4:ClassInfo" name="FHIR.ModuleMetadata.RelatedResource" retrievable="false" baseType="FHIR.Element">
+    <ns4:typeInfo xsi:type="ns4:ClassInfo" name="FHIR.ModuleMetadata.relatedArtifact" retrievable="false" baseType="FHIR.Element">
         <ns4:element name="type" type="FHIR.ModuleMetadataResourceType"/>
         <ns4:element name="document" type="FHIR.Attachment"/>
         <ns4:element name="resource" type="FHIR.Reference"/>
@@ -2002,7 +2002,7 @@
         <ns4:element name="identifier" type="FHIR.Identifier"/>
         <ns4:element name="version" type="FHIR.string"/>
         <ns4:element name="name" type="FHIR.string"/>
-        <ns4:element name="status" type="FHIR.ConformanceResourceStatus"/>
+        <ns4:element name="status" type="FHIR.PublicationStatus"/>
         <ns4:element name="experimental" type="FHIR.boolean"/>
         <ns4:element name="publisher" type="FHIR.string"/>
         <ns4:element name="contact" type="list&lt;FHIR.ConceptMap.Contact&gt;"/>
@@ -2747,7 +2747,7 @@
         <ns4:element name="url" type="FHIR.uri"/>
         <ns4:element name="version" type="FHIR.string"/>
         <ns4:element name="name" type="FHIR.string"/>
-        <ns4:element name="status" type="FHIR.ConformanceResourceStatus"/>
+        <ns4:element name="status" type="FHIR.PublicationStatus"/>
         <ns4:element name="kind" type="FHIR.OperationKind"/>
         <ns4:element name="experimental" type="FHIR.boolean"/>
         <ns4:element name="date" type="FHIR.dateTime"/>
@@ -3243,7 +3243,7 @@
         <ns4:element name="url" type="FHIR.uri"/>
         <ns4:element name="version" type="FHIR.string"/>
         <ns4:element name="name" type="FHIR.string"/>
-        <ns4:element name="status" type="FHIR.ConformanceResourceStatus"/>
+        <ns4:element name="status" type="FHIR.PublicationStatus"/>
         <ns4:element name="experimental" type="FHIR.boolean"/>
         <ns4:element name="date" type="FHIR.dateTime"/>
         <ns4:element name="publisher" type="FHIR.string"/>
@@ -3758,7 +3758,7 @@
     <ns4:typeInfo xsi:type="ns4:ClassInfo" name="FHIR.CompartmentDefinition" retrievable="true" baseType="FHIR.DomainResource">
         <ns4:element name="url" type="FHIR.uri"/>
         <ns4:element name="name" type="FHIR.string"/>
-        <ns4:element name="status" type="FHIR.ConformanceResourceStatus"/>
+        <ns4:element name="status" type="FHIR.PublicationStatus"/>
         <ns4:element name="experimental" type="FHIR.boolean"/>
         <ns4:element name="publisher" type="FHIR.string"/>
         <ns4:element name="contact" type="list&lt;FHIR.CompartmentDefinition.Contact&gt;"/>
@@ -4006,7 +4006,7 @@
         <ns4:element name="identifier" type="list&lt;FHIR.Identifier&gt;"/>
         <ns4:element name="version" type="FHIR.string"/>
         <ns4:element name="name" type="FHIR.string"/>
-        <ns4:element name="status" type="FHIR.ConformanceResourceStatus"/>
+        <ns4:element name="status" type="FHIR.PublicationStatus"/>
         <ns4:element name="experimental" type="FHIR.boolean"/>
         <ns4:element name="publisher" type="FHIR.string"/>
         <ns4:element name="contact" type="list&lt;FHIR.StructureMap.Contact&gt;"/>
@@ -4260,7 +4260,7 @@
         <ns4:element name="publisher" type="FHIR.string"/>
         <ns4:element name="contact" type="list&lt;FHIR.ModuleMetadata.Contact&gt;"/>
         <ns4:element name="copyright" type="FHIR.string"/>
-        <ns4:element name="relatedResource" type="list&lt;FHIR.ModuleMetadata.RelatedResource&gt;"/>
+        <ns4:element name="RelatedArtifact" type="list&lt;FHIR.ModuleMetadata.relatedArtifact&gt;"/>
     </ns4:typeInfo>
     <ns4:typeInfo xsi:type="ns4:ClassInfo" name="FHIR.Use" retrievable="false" baseType="FHIR.Element">
         <ns4:element name="value" type="System.String"/>
@@ -5212,7 +5212,7 @@
         <ns4:element name="url" type="FHIR.uri"/>
         <ns4:element name="version" type="FHIR.string"/>
         <ns4:element name="name" type="FHIR.string"/>
-        <ns4:element name="status" type="FHIR.ConformanceResourceStatus"/>
+        <ns4:element name="status" type="FHIR.PublicationStatus"/>
         <ns4:element name="experimental" type="FHIR.boolean"/>
         <ns4:element name="publisher" type="FHIR.string"/>
         <ns4:element name="contact" type="list&lt;FHIR.ImplementationGuide.Contact&gt;"/>

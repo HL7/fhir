@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Oct 10, 2016 12:40+1100 for FHIR v1.7.0
+// Generated on Mon, Oct 10, 2016 15:45+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -7622,11 +7622,11 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
     protected MarkdownType description;
 
     /**
-     * Explains why this capability statement is needed and why it's been constrained as it has.
+     * Explains why this capability statement is needed and why it has been designed as it has.
      */
-    @Child(name = "requirements", type = {MarkdownType.class}, order=3, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="Why this resource has been created", formalDefinition="Explains why this capability statement is needed and why it's been constrained as it has." )
-    protected MarkdownType requirements;
+    @Child(name = "purpose", type = {MarkdownType.class}, order=3, min=0, max=1, modifier=false, summary=false)
+    @Description(shortDefinition="Why this capability statement is defined", formalDefinition="Explains why this capability statement is needed and why it has been designed as it has." )
+    protected MarkdownType purpose;
 
     /**
      * A copyright statement relating to the capability statement and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the details of the system described by the capability statement.
@@ -7719,7 +7719,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
     @Description(shortDefinition="Document definition", formalDefinition="A document definition." )
     protected List<CapabilityStatementDocumentComponent> document;
 
-    private static final long serialVersionUID = 814388805L;
+    private static final long serialVersionUID = 2042853481L;
 
   /**
    * Constructor
@@ -7731,7 +7731,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
   /**
    * Constructor
    */
-    public CapabilityStatement(Enumeration<ConformanceResourceStatus> status, DateTimeType date, Enumeration<CapabilityStatementKind> kind, IdType fhirVersion, Enumeration<UnknownContentCode> acceptUnknown) {
+    public CapabilityStatement(Enumeration<PublicationStatus> status, DateTimeType date, Enumeration<CapabilityStatementKind> kind, IdType fhirVersion, Enumeration<UnknownContentCode> acceptUnknown) {
       super();
       this.status = status;
       this.date = date;
@@ -7890,12 +7890,12 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
     /**
      * @return {@link #status} (The status of this capability statement.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<ConformanceResourceStatus> getStatusElement() { 
+    public Enumeration<PublicationStatus> getStatusElement() { 
       if (this.status == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create CapabilityStatement.status");
         else if (Configuration.doAutoCreate())
-          this.status = new Enumeration<ConformanceResourceStatus>(new ConformanceResourceStatusEnumFactory()); // bb
+          this.status = new Enumeration<PublicationStatus>(new PublicationStatusEnumFactory()); // bb
       return this.status;
     }
 
@@ -7910,7 +7910,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
     /**
      * @param value {@link #status} (The status of this capability statement.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public CapabilityStatement setStatusElement(Enumeration<ConformanceResourceStatus> value) { 
+    public CapabilityStatement setStatusElement(Enumeration<PublicationStatus> value) { 
       this.status = value;
       return this;
     }
@@ -7918,16 +7918,16 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
     /**
      * @return The status of this capability statement.
      */
-    public ConformanceResourceStatus getStatus() { 
+    public PublicationStatus getStatus() { 
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
      * @param value The status of this capability statement.
      */
-    public CapabilityStatement setStatus(ConformanceResourceStatus value) { 
+    public CapabilityStatement setStatus(PublicationStatus value) { 
         if (this.status == null)
-          this.status = new Enumeration<ConformanceResourceStatus>(new ConformanceResourceStatusEnumFactory());
+          this.status = new Enumeration<PublicationStatus>(new PublicationStatusEnumFactory());
         this.status.setValue(value);
       return this;
     }
@@ -8227,50 +8227,50 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
     }
 
     /**
-     * @return {@link #requirements} (Explains why this capability statement is needed and why it's been constrained as it has.). This is the underlying object with id, value and extensions. The accessor "getRequirements" gives direct access to the value
+     * @return {@link #purpose} (Explains why this capability statement is needed and why it has been designed as it has.). This is the underlying object with id, value and extensions. The accessor "getPurpose" gives direct access to the value
      */
-    public MarkdownType getRequirementsElement() { 
-      if (this.requirements == null)
+    public MarkdownType getPurposeElement() { 
+      if (this.purpose == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create CapabilityStatement.requirements");
+          throw new Error("Attempt to auto-create CapabilityStatement.purpose");
         else if (Configuration.doAutoCreate())
-          this.requirements = new MarkdownType(); // bb
-      return this.requirements;
+          this.purpose = new MarkdownType(); // bb
+      return this.purpose;
     }
 
-    public boolean hasRequirementsElement() { 
-      return this.requirements != null && !this.requirements.isEmpty();
+    public boolean hasPurposeElement() { 
+      return this.purpose != null && !this.purpose.isEmpty();
     }
 
-    public boolean hasRequirements() { 
-      return this.requirements != null && !this.requirements.isEmpty();
+    public boolean hasPurpose() { 
+      return this.purpose != null && !this.purpose.isEmpty();
     }
 
     /**
-     * @param value {@link #requirements} (Explains why this capability statement is needed and why it's been constrained as it has.). This is the underlying object with id, value and extensions. The accessor "getRequirements" gives direct access to the value
+     * @param value {@link #purpose} (Explains why this capability statement is needed and why it has been designed as it has.). This is the underlying object with id, value and extensions. The accessor "getPurpose" gives direct access to the value
      */
-    public CapabilityStatement setRequirementsElement(MarkdownType value) { 
-      this.requirements = value;
+    public CapabilityStatement setPurposeElement(MarkdownType value) { 
+      this.purpose = value;
       return this;
     }
 
     /**
-     * @return Explains why this capability statement is needed and why it's been constrained as it has.
+     * @return Explains why this capability statement is needed and why it has been designed as it has.
      */
-    public String getRequirements() { 
-      return this.requirements == null ? null : this.requirements.getValue();
+    public String getPurpose() { 
+      return this.purpose == null ? null : this.purpose.getValue();
     }
 
     /**
-     * @param value Explains why this capability statement is needed and why it's been constrained as it has.
+     * @param value Explains why this capability statement is needed and why it has been designed as it has.
      */
-    public CapabilityStatement setRequirements(String value) { 
+    public CapabilityStatement setPurpose(String value) { 
       if (value == null)
-        this.requirements = null;
+        this.purpose = null;
       else {
-        if (this.requirements == null)
-          this.requirements = new MarkdownType();
-        this.requirements.setValue(value);
+        if (this.purpose == null)
+          this.purpose = new MarkdownType();
+        this.purpose.setValue(value);
       }
       return this;
     }
@@ -8875,7 +8875,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         childrenList.add(new Property("contact", "", "Contacts to assist a user in finding and communicating with the publisher.", 0, java.lang.Integer.MAX_VALUE, contact));
         childrenList.add(new Property("description", "markdown", "A free text natural language description of the capability statement and its use. Typically, this is used when the capability statement describes a desired rather than an actual solution, for example as a formal expression of requirements as part of an RFP.", 0, java.lang.Integer.MAX_VALUE, description));
         childrenList.add(new Property("useContext", "CodeableConcept", "The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of code system definitions.", 0, java.lang.Integer.MAX_VALUE, useContext));
-        childrenList.add(new Property("requirements", "markdown", "Explains why this capability statement is needed and why it's been constrained as it has.", 0, java.lang.Integer.MAX_VALUE, requirements));
+        childrenList.add(new Property("purpose", "markdown", "Explains why this capability statement is needed and why it has been designed as it has.", 0, java.lang.Integer.MAX_VALUE, purpose));
         childrenList.add(new Property("copyright", "string", "A copyright statement relating to the capability statement and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the details of the system described by the capability statement.", 0, java.lang.Integer.MAX_VALUE, copyright));
         childrenList.add(new Property("kind", "code", "The way that this statement is intended to be used, to describe an actual running instance of software, a particular product (kind not instance of software) or a class of implementation (e.g. a desired purchase).", 0, java.lang.Integer.MAX_VALUE, kind));
         childrenList.add(new Property("instantiates", "uri", "Reference to a canonical URL of another CapabilityStatement that this software implements or uses. This capability statement is a published API description that corresponds to a business service. The rest of the capability statement does not need to repeat the details of the referenced resource, but can do so.", 0, java.lang.Integer.MAX_VALUE, instantiates));
@@ -8896,14 +8896,14 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         case 116079: /*url*/ return this.url == null ? new Base[0] : new Base[] {this.url}; // UriType
         case 351608024: /*version*/ return this.version == null ? new Base[0] : new Base[] {this.version}; // StringType
         case 3373707: /*name*/ return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
-        case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<ConformanceResourceStatus>
+        case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<PublicationStatus>
         case -404562712: /*experimental*/ return this.experimental == null ? new Base[0] : new Base[] {this.experimental}; // BooleanType
         case 3076014: /*date*/ return this.date == null ? new Base[0] : new Base[] {this.date}; // DateTimeType
         case 1447404028: /*publisher*/ return this.publisher == null ? new Base[0] : new Base[] {this.publisher}; // StringType
         case 951526432: /*contact*/ return this.contact == null ? new Base[0] : this.contact.toArray(new Base[this.contact.size()]); // CapabilityStatementContactComponent
         case -1724546052: /*description*/ return this.description == null ? new Base[0] : new Base[] {this.description}; // MarkdownType
         case -669707736: /*useContext*/ return this.useContext == null ? new Base[0] : this.useContext.toArray(new Base[this.useContext.size()]); // CodeableConcept
-        case -1619874672: /*requirements*/ return this.requirements == null ? new Base[0] : new Base[] {this.requirements}; // MarkdownType
+        case -220463842: /*purpose*/ return this.purpose == null ? new Base[0] : new Base[] {this.purpose}; // MarkdownType
         case 1522889671: /*copyright*/ return this.copyright == null ? new Base[0] : new Base[] {this.copyright}; // StringType
         case 3292052: /*kind*/ return this.kind == null ? new Base[0] : new Base[] {this.kind}; // Enumeration<CapabilityStatementKind>
         case -246883639: /*instantiates*/ return this.instantiates == null ? new Base[0] : this.instantiates.toArray(new Base[this.instantiates.size()]); // UriType
@@ -8934,7 +8934,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
           this.name = castToString(value); // StringType
           break;
         case -892481550: // status
-          this.status = new ConformanceResourceStatusEnumFactory().fromType(value); // Enumeration<ConformanceResourceStatus>
+          this.status = new PublicationStatusEnumFactory().fromType(value); // Enumeration<PublicationStatus>
           break;
         case -404562712: // experimental
           this.experimental = castToBoolean(value); // BooleanType
@@ -8954,8 +8954,8 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         case -669707736: // useContext
           this.getUseContext().add(castToCodeableConcept(value)); // CodeableConcept
           break;
-        case -1619874672: // requirements
-          this.requirements = castToMarkdown(value); // MarkdownType
+        case -220463842: // purpose
+          this.purpose = castToMarkdown(value); // MarkdownType
           break;
         case 1522889671: // copyright
           this.copyright = castToString(value); // StringType
@@ -9007,7 +9007,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         else if (name.equals("name"))
           this.name = castToString(value); // StringType
         else if (name.equals("status"))
-          this.status = new ConformanceResourceStatusEnumFactory().fromType(value); // Enumeration<ConformanceResourceStatus>
+          this.status = new PublicationStatusEnumFactory().fromType(value); // Enumeration<PublicationStatus>
         else if (name.equals("experimental"))
           this.experimental = castToBoolean(value); // BooleanType
         else if (name.equals("date"))
@@ -9020,8 +9020,8 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
           this.description = castToMarkdown(value); // MarkdownType
         else if (name.equals("useContext"))
           this.getUseContext().add(castToCodeableConcept(value));
-        else if (name.equals("requirements"))
-          this.requirements = castToMarkdown(value); // MarkdownType
+        else if (name.equals("purpose"))
+          this.purpose = castToMarkdown(value); // MarkdownType
         else if (name.equals("copyright"))
           this.copyright = castToString(value); // StringType
         else if (name.equals("kind"))
@@ -9056,14 +9056,14 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         case 116079: throw new FHIRException("Cannot make property url as it is not a complex type"); // UriType
         case 351608024: throw new FHIRException("Cannot make property version as it is not a complex type"); // StringType
         case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
-        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<ConformanceResourceStatus>
+        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<PublicationStatus>
         case -404562712: throw new FHIRException("Cannot make property experimental as it is not a complex type"); // BooleanType
         case 3076014: throw new FHIRException("Cannot make property date as it is not a complex type"); // DateTimeType
         case 1447404028: throw new FHIRException("Cannot make property publisher as it is not a complex type"); // StringType
         case 951526432:  return addContact(); // CapabilityStatementContactComponent
         case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // MarkdownType
         case -669707736:  return addUseContext(); // CodeableConcept
-        case -1619874672: throw new FHIRException("Cannot make property requirements as it is not a complex type"); // MarkdownType
+        case -220463842: throw new FHIRException("Cannot make property purpose as it is not a complex type"); // MarkdownType
         case 1522889671: throw new FHIRException("Cannot make property copyright as it is not a complex type"); // StringType
         case 3292052: throw new FHIRException("Cannot make property kind as it is not a complex type"); // Enumeration<CapabilityStatementKind>
         case -246883639: throw new FHIRException("Cannot make property instantiates as it is not a complex type"); // UriType
@@ -9113,8 +9113,8 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         else if (name.equals("useContext")) {
           return addUseContext();
         }
-        else if (name.equals("requirements")) {
-          throw new FHIRException("Cannot call addChild on a primitive type CapabilityStatement.requirements");
+        else if (name.equals("purpose")) {
+          throw new FHIRException("Cannot call addChild on a primitive type CapabilityStatement.purpose");
         }
         else if (name.equals("copyright")) {
           throw new FHIRException("Cannot call addChild on a primitive type CapabilityStatement.copyright");
@@ -9184,7 +9184,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
           for (CodeableConcept i : useContext)
             dst.useContext.add(i.copy());
         };
-        dst.requirements = requirements == null ? null : requirements.copy();
+        dst.purpose = purpose == null ? null : purpose.copy();
         dst.copyright = copyright == null ? null : copyright.copy();
         dst.kind = kind == null ? null : kind.copy();
         if (instantiates != null) {
@@ -9235,12 +9235,9 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         if (!(other instanceof CapabilityStatement))
           return false;
         CapabilityStatement o = (CapabilityStatement) other;
-        return compareDeep(url, o.url, true) && compareDeep(version, o.version, true) && compareDeep(name, o.name, true)
-           && compareDeep(status, o.status, true) && compareDeep(experimental, o.experimental, true) && compareDeep(date, o.date, true)
-           && compareDeep(publisher, o.publisher, true) && compareDeep(contact, o.contact, true) && compareDeep(description, o.description, true)
-           && compareDeep(useContext, o.useContext, true) && compareDeep(requirements, o.requirements, true)
-           && compareDeep(copyright, o.copyright, true) && compareDeep(kind, o.kind, true) && compareDeep(instantiates, o.instantiates, true)
-           && compareDeep(software, o.software, true) && compareDeep(implementation, o.implementation, true)
+        return compareDeep(publisher, o.publisher, true) && compareDeep(contact, o.contact, true) && compareDeep(description, o.description, true)
+           && compareDeep(purpose, o.purpose, true) && compareDeep(copyright, o.copyright, true) && compareDeep(kind, o.kind, true)
+           && compareDeep(instantiates, o.instantiates, true) && compareDeep(software, o.software, true) && compareDeep(implementation, o.implementation, true)
            && compareDeep(fhirVersion, o.fhirVersion, true) && compareDeep(acceptUnknown, o.acceptUnknown, true)
            && compareDeep(format, o.format, true) && compareDeep(profile, o.profile, true) && compareDeep(rest, o.rest, true)
            && compareDeep(messaging, o.messaging, true) && compareDeep(document, o.document, true);
@@ -9253,19 +9250,16 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         if (!(other instanceof CapabilityStatement))
           return false;
         CapabilityStatement o = (CapabilityStatement) other;
-        return compareValues(url, o.url, true) && compareValues(version, o.version, true) && compareValues(name, o.name, true)
-           && compareValues(status, o.status, true) && compareValues(experimental, o.experimental, true) && compareValues(date, o.date, true)
-           && compareValues(publisher, o.publisher, true) && compareValues(description, o.description, true) && compareValues(requirements, o.requirements, true)
-           && compareValues(copyright, o.copyright, true) && compareValues(kind, o.kind, true) && compareValues(instantiates, o.instantiates, true)
-           && compareValues(fhirVersion, o.fhirVersion, true) && compareValues(acceptUnknown, o.acceptUnknown, true)
-           && compareValues(format, o.format, true);
+        return compareValues(publisher, o.publisher, true) && compareValues(description, o.description, true)
+           && compareValues(purpose, o.purpose, true) && compareValues(copyright, o.copyright, true) && compareValues(kind, o.kind, true)
+           && compareValues(instantiates, o.instantiates, true) && compareValues(fhirVersion, o.fhirVersion, true)
+           && compareValues(acceptUnknown, o.acceptUnknown, true) && compareValues(format, o.format, true);
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(url, version, name, status
-          , experimental, date, publisher, contact, description, useContext, requirements
-          , copyright, kind, instantiates, software, implementation, fhirVersion, acceptUnknown
-          , format, profile, rest, messaging, document);
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(publisher, contact, description
+          , purpose, copyright, kind, instantiates, software, implementation, fhirVersion
+          , acceptUnknown, format, profile, rest, messaging, document);
       }
 
   @Override

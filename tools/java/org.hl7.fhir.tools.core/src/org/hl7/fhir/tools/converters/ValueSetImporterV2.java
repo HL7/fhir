@@ -23,7 +23,7 @@ import org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionComponent;
 import org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionDesignationComponent;
 import org.hl7.fhir.dstu3.model.ContactPoint.ContactPointSystem;
 import org.hl7.fhir.dstu3.model.DateTimeType;
-import org.hl7.fhir.dstu3.model.Enumerations.ConformanceResourceStatus;
+import org.hl7.fhir.dstu3.model.Enumerations.PublicationStatus;
 import org.hl7.fhir.dstu3.model.Factory;
 import org.hl7.fhir.dstu3.model.Narrative;
 import org.hl7.fhir.dstu3.model.Narrative.NarrativeStatus;
@@ -351,7 +351,7 @@ public class ValueSetImporterV2 extends ValueSetImporterBase {
     vs.setPublisher("HL7, Inc");
     vs.setVersion(MAX_VER);
     vs.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.OTHER, "http://hl7.org"));
-    vs.setStatus(ConformanceResourceStatus.ACTIVE);
+    vs.setStatus(PublicationStatus.ACTIVE);
     vs.setExperimental(true);
     vs.setDateElement(new DateTimeType(date)); 
     StringBuilder s = new StringBuilder();
@@ -486,7 +486,7 @@ public class ValueSetImporterV2 extends ValueSetImporterBase {
     vs.setPublisher("HL7, Inc");
     vs.setVersion(MAX_VER);
     vs.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.OTHER, "http://hl7.org"));
-    vs.setStatus(ConformanceResourceStatus.ACTIVE);
+    vs.setStatus(PublicationStatus.ACTIVE);
     vs.setExperimental(true);
     vs.setDateElement(new DateTimeType(date)); 
     
@@ -643,7 +643,7 @@ public class ValueSetImporterV2 extends ValueSetImporterBase {
     vs.setName("v2 table " + id + ", Version " + version);
     vs.setPublisher("HL7, Inc");
     vs.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.OTHER, "http://hl7.org"));
-    vs.setStatus(ConformanceResourceStatus.ACTIVE);
+    vs.setStatus(PublicationStatus.ACTIVE);
     vs.setExperimental(false);
     vs.setVersion(id);
     vs.setDateElement(new DateTimeType(date)); 

@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
       
-[%settitle RelatedResource%]
+[%settitle RelatedArtifact%]
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 [%file newheader%]
@@ -11,30 +11,30 @@
 <div class="col-9">
 
 <%rrheader base%>
-<h1>RelatedResource</h1>
+<h1>RelatedArtifact</h1>
 <table class="cols"><tr><td id="wg"><a _target="blank" href="[%wg cds%]">[%wgt cds%]</a> Work Group</td><td id="fmm"><a href="resource.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="help.html#status">Ballot Status</a>: <a href="history.html#pubs">STU 3</a></td></tr></table>
 
-<p>The RelatedResource structure defines resources related to a module such as previous and next versions of documents, documentation, citations, etc. Note that the name <i>resource</i> here is being used in a more general sense than the FHIR-specific Resource. The related resource may be a FHIR resource, or it may be another type of resource, represented using the Attachment data type.</p>
+<p>The RelatedArtifact structure defines resources related to a module such as previous and next versions of documents, documentation, citations, etc. Note that the name <i>resource</i> here is being used in a more general sense than the FHIR-specific Resource. The related resource may be a FHIR resource, or it may be another type of resource, represented using the Attachment data type.</p>
 
 <a name="definition"></a>
 <h2 style="margin-bottom: 1px">
 Content
 </h2>
 
-[%dt RelatedResource 1%]
+[%dt RelatedArtifact 1%]
 
 
 <div class="use">
 <p><b>Constraints</b></p>
-[%dt.constraints RelatedResource%]
+[%dt.constraints RelatedArtifact%]
 </div>
 
 <p>
-RelatedResource is used in the following places: [%dtusage RelatedResource%]
+RelatedArtifact is used in the following places: [%dtusage RelatedArtifact%]
 </p>
 
 <a name="interpretation"> </a>
-<h2>Interpretation of RelatedResource in different contexts</h2>
+<h2>Interpretation of RelatedArtifact in different contexts</h2>
 
 <!-- TODO -->
 
@@ -52,7 +52,7 @@ RelatedResource is used in the following places: [%dtusage RelatedResource%]
  if (!currentTabIndex)
    currentTabIndex = '0';
 
-$( '#tabs-RelatedResource' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
+$( '#tabs-RelatedArtifact' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
      
      
 function store(currentTab) {
@@ -61,7 +61,7 @@ function store(currentTab) {
     sessionStorage.setItem('fhir-resource-tab-index', currentTab);
   } catch(exception){ 
   }
-  $( '#tabs-RelatedResource' ).tabs('option', 'active', currentTab);
+  $( '#tabs-RelatedArtifact' ).tabs('option', 'active', currentTab);
 }     
 </script>
   

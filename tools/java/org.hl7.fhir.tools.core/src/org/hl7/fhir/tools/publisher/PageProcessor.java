@@ -3001,10 +3001,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   private String rrHeader(String mode) {
     StringBuilder b = new StringBuilder();
     b.append("<ul class=\"nav nav-tabs\">");
-    b.append(makeHeaderTab("RelatedResource", "relatedresource.html", mode==null || "base".equals(mode)));
-    b.append(makeHeaderTab("Examples", "relatedresource-examples.html", mode==null || "examples".equals(mode)));
-    b.append(makeHeaderTab("Detailed Descriptions", "relatedresource-definitions.html", mode==null || "definitions".equals(mode)));
-    b.append(makeHeaderTab("Mappings", "relatedresource-mappings.html", mode==null || "mappings".equals(mode)));
+    b.append(makeHeaderTab("RelatedResource", "relatedartifact.html", mode==null || "base".equals(mode)));
+    b.append(makeHeaderTab("Examples", "relatedartifact-examples.html", mode==null || "examples".equals(mode)));
+    b.append(makeHeaderTab("Detailed Descriptions", "relatedartifact-definitions.html", mode==null || "definitions".equals(mode)));
+    b.append(makeHeaderTab("Mappings", "relatedartifact-mappings.html", mode==null || "mappings".equals(mode)));
     b.append("</ul>\r\n");
     return b.toString();
   }

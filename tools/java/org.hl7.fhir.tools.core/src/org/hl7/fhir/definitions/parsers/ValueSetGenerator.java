@@ -22,7 +22,7 @@ import org.hl7.fhir.dstu3.model.CodeSystem.CodeSystemHierarchyMeaning;
 import org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionComponent;
 import org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionDesignationComponent;
 import org.hl7.fhir.dstu3.model.ContactPoint.ContactPointSystem;
-import org.hl7.fhir.dstu3.model.Enumerations.ConformanceResourceStatus;
+import org.hl7.fhir.dstu3.model.Enumerations.PublicationStatus;
 import org.hl7.fhir.dstu3.model.Factory;
 import org.hl7.fhir.dstu3.model.ValueSet;
 import org.hl7.fhir.dstu3.model.ValueSet.ValueSetComposeComponent;
@@ -221,7 +221,7 @@ public class ValueSetGenerator {
       vs.setCopyright(bs.getCopyright());
 
     if (!vs.hasStatus())
-      vs.setStatus(bs.getStatus() != null ? bs.getStatus() : ConformanceResourceStatus.DRAFT); // until we publish DSTU, then .review
+      vs.setStatus(bs.getStatus() != null ? bs.getStatus() : PublicationStatus.DRAFT); // until we publish DSTU, then .review
     if (!vs.hasDate())
       vs.setDate(genDate.getTime());
     if (!Utilities.noString(bs.getV2Map()))
@@ -255,7 +255,7 @@ public class ValueSetGenerator {
     c.addTelecom().setSystem(ContactPointSystem.OTHER).setValue("http://hl7.org/fhir");
     c.addTelecom().setSystem(ContactPointSystem.EMAIL).setValue("fhir@lists.hl7.org");
     vs.setDescription("Operation Outcome codes used by FHIR test servers (see Implementation file translations.xml)");
-    vs.setStatus(ConformanceResourceStatus.DRAFT);
+    vs.setStatus(PublicationStatus.DRAFT);
     vs.getCompose().addInclude().setSystem("http://hl7.org/fhir/operation-outcome");
 
     CodeSystem cs = new CodeSystem();

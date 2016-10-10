@@ -17,7 +17,7 @@
   </contact>
   
 <!--  this is the canonical definition for the _id search parameter  -->
-  <requirements value="Need to search by identifier for various infrastructural cases - mainly retrieving packages, and matching as part of a chain"/>
+  <purpose value="Need to search by identifier for various infrastructural cases - mainly retrieving packages, and matching as part of a chain"/>
   <code value="_id"/>
   <base value="Resource"/>
   <type value="token"/>

@@ -29,11 +29,12 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Oct 10, 2016 12:40+1100 for FHIR v1.7.0
+// Generated on Mon, Oct 10, 2016 15:45+1100 for FHIR v1.7.0
 
 import java.util.*;
 
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.dstu3.model.Enumerations.*;
 import ca.uhn.fhir.model.api.annotation.ResourceDef;
 import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;
 import ca.uhn.fhir.model.api.annotation.Child;
@@ -47,112 +48,6 @@ import org.hl7.fhir.exceptions.FHIRException;
  */
 @ResourceDef(name="ServiceDefinition", profile="http://hl7.org/fhir/Profile/ServiceDefinition")
 public class ServiceDefinition extends DomainResource {
-
-    public enum ServiceDefinitionStatus {
-        /**
-         * The module is in draft state
-         */
-        DRAFT, 
-        /**
-         * The module is active
-         */
-        ACTIVE, 
-        /**
-         * The module is inactive, either rejected before publication, or retired after publication
-         */
-        INACTIVE, 
-        /**
-         * added to help the parsers with the generic types
-         */
-        NULL;
-        public static ServiceDefinitionStatus fromCode(String codeString) throws FHIRException {
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("draft".equals(codeString))
-          return DRAFT;
-        if ("active".equals(codeString))
-          return ACTIVE;
-        if ("inactive".equals(codeString))
-          return INACTIVE;
-        if (Configuration.isAcceptInvalidEnums())
-          return null;
-        else
-          throw new FHIRException("Unknown ServiceDefinitionStatus code '"+codeString+"'");
-        }
-        public String toCode() {
-          switch (this) {
-            case DRAFT: return "draft";
-            case ACTIVE: return "active";
-            case INACTIVE: return "inactive";
-            default: return "?";
-          }
-        }
-        public String getSystem() {
-          switch (this) {
-            case DRAFT: return "http://hl7.org/fhir/module-metadata-status";
-            case ACTIVE: return "http://hl7.org/fhir/module-metadata-status";
-            case INACTIVE: return "http://hl7.org/fhir/module-metadata-status";
-            default: return "?";
-          }
-        }
-        public String getDefinition() {
-          switch (this) {
-            case DRAFT: return "The module is in draft state";
-            case ACTIVE: return "The module is active";
-            case INACTIVE: return "The module is inactive, either rejected before publication, or retired after publication";
-            default: return "?";
-          }
-        }
-        public String getDisplay() {
-          switch (this) {
-            case DRAFT: return "Draft";
-            case ACTIVE: return "Active";
-            case INACTIVE: return "Inactive";
-            default: return "?";
-          }
-        }
-    }
-
-  public static class ServiceDefinitionStatusEnumFactory implements EnumFactory<ServiceDefinitionStatus> {
-    public ServiceDefinitionStatus fromCode(String codeString) throws IllegalArgumentException {
-      if (codeString == null || "".equals(codeString))
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("draft".equals(codeString))
-          return ServiceDefinitionStatus.DRAFT;
-        if ("active".equals(codeString))
-          return ServiceDefinitionStatus.ACTIVE;
-        if ("inactive".equals(codeString))
-          return ServiceDefinitionStatus.INACTIVE;
-        throw new IllegalArgumentException("Unknown ServiceDefinitionStatus code '"+codeString+"'");
-        }
-        public Enumeration<ServiceDefinitionStatus> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
-            return null;
-          String codeString = ((PrimitiveType) code).asStringValue();
-          if (codeString == null || "".equals(codeString))
-            return null;
-        if ("draft".equals(codeString))
-          return new Enumeration<ServiceDefinitionStatus>(this, ServiceDefinitionStatus.DRAFT);
-        if ("active".equals(codeString))
-          return new Enumeration<ServiceDefinitionStatus>(this, ServiceDefinitionStatus.ACTIVE);
-        if ("inactive".equals(codeString))
-          return new Enumeration<ServiceDefinitionStatus>(this, ServiceDefinitionStatus.INACTIVE);
-        throw new FHIRException("Unknown ServiceDefinitionStatus code '"+codeString+"'");
-        }
-    public String toCode(ServiceDefinitionStatus code) {
-      if (code == ServiceDefinitionStatus.DRAFT)
-        return "draft";
-      if (code == ServiceDefinitionStatus.ACTIVE)
-        return "active";
-      if (code == ServiceDefinitionStatus.INACTIVE)
-        return "inactive";
-      return "?";
-      }
-    public String toSystem(ServiceDefinitionStatus code) {
-      return code.getSystem();
-      }
-    }
 
     /**
      * An absolute URL that is used to identify this module when it is referenced. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this module definition is (or will be) published.
@@ -193,9 +88,9 @@ public class ServiceDefinition extends DomainResource {
      * The status of the module.
      */
     @Child(name = "status", type = {CodeType.class}, order=5, min=1, max=1, modifier=true, summary=true)
-    @Description(shortDefinition="draft | active | inactive", formalDefinition="The status of the module." )
-    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/module-metadata-status")
-    protected Enumeration<ServiceDefinitionStatus> status;
+    @Description(shortDefinition="draft | active | retired", formalDefinition="The status of the module." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/conformance-resource-status")
+    protected Enumeration<PublicationStatus> status;
 
     /**
      * Determines whether the module was developed for testing purposes (or education/evaluation/marketing), and is not intended to be used in production environments.
@@ -291,9 +186,9 @@ public class ServiceDefinition extends DomainResource {
     /**
      * Related resources such as additional documentation, justification, or bibliographic references.
      */
-    @Child(name = "relatedResource", type = {RelatedResource.class}, order=19, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "relatedArtifact", type = {RelatedArtifact.class}, order=19, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Related resources for the module", formalDefinition="Related resources such as additional documentation, justification, or bibliographic references." )
-    protected List<RelatedResource> relatedResource;
+    protected List<RelatedArtifact> relatedArtifact;
 
     /**
      * The trigger element defines when the rule should be invoked. This information is used by consumers of the rule to determine how to integrate the rule into a specific workflow.
@@ -321,7 +216,7 @@ public class ServiceDefinition extends DomainResource {
      */
     protected OperationDefinition operationDefinitionTarget;
 
-    private static final long serialVersionUID = 168042738L;
+    private static final long serialVersionUID = -1475170258L;
 
   /**
    * Constructor
@@ -333,7 +228,7 @@ public class ServiceDefinition extends DomainResource {
   /**
    * Constructor
    */
-    public ServiceDefinition(Enumeration<ServiceDefinitionStatus> status) {
+    public ServiceDefinition(Enumeration<PublicationStatus> status) {
       super();
       this.status = status;
     }
@@ -590,12 +485,12 @@ public class ServiceDefinition extends DomainResource {
     /**
      * @return {@link #status} (The status of the module.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<ServiceDefinitionStatus> getStatusElement() { 
+    public Enumeration<PublicationStatus> getStatusElement() { 
       if (this.status == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ServiceDefinition.status");
         else if (Configuration.doAutoCreate())
-          this.status = new Enumeration<ServiceDefinitionStatus>(new ServiceDefinitionStatusEnumFactory()); // bb
+          this.status = new Enumeration<PublicationStatus>(new PublicationStatusEnumFactory()); // bb
       return this.status;
     }
 
@@ -610,7 +505,7 @@ public class ServiceDefinition extends DomainResource {
     /**
      * @param value {@link #status} (The status of the module.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public ServiceDefinition setStatusElement(Enumeration<ServiceDefinitionStatus> value) { 
+    public ServiceDefinition setStatusElement(Enumeration<PublicationStatus> value) { 
       this.status = value;
       return this;
     }
@@ -618,16 +513,16 @@ public class ServiceDefinition extends DomainResource {
     /**
      * @return The status of the module.
      */
-    public ServiceDefinitionStatus getStatus() { 
+    public PublicationStatus getStatus() { 
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
      * @param value The status of the module.
      */
-    public ServiceDefinition setStatus(ServiceDefinitionStatus value) { 
+    public ServiceDefinition setStatus(PublicationStatus value) { 
         if (this.status == null)
-          this.status = new Enumeration<ServiceDefinitionStatus>(new ServiceDefinitionStatusEnumFactory());
+          this.status = new Enumeration<PublicationStatus>(new PublicationStatusEnumFactory());
         this.status.setValue(value);
       return this;
     }
@@ -1257,56 +1152,56 @@ public class ServiceDefinition extends DomainResource {
     }
 
     /**
-     * @return {@link #relatedResource} (Related resources such as additional documentation, justification, or bibliographic references.)
+     * @return {@link #relatedArtifact} (Related resources such as additional documentation, justification, or bibliographic references.)
      */
-    public List<RelatedResource> getRelatedResource() { 
-      if (this.relatedResource == null)
-        this.relatedResource = new ArrayList<RelatedResource>();
-      return this.relatedResource;
+    public List<RelatedArtifact> getRelatedArtifact() { 
+      if (this.relatedArtifact == null)
+        this.relatedArtifact = new ArrayList<RelatedArtifact>();
+      return this.relatedArtifact;
     }
 
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public ServiceDefinition setRelatedResource(List<RelatedResource> theRelatedResource) { 
-      this.relatedResource = theRelatedResource;
+    public ServiceDefinition setRelatedArtifact(List<RelatedArtifact> theRelatedArtifact) { 
+      this.relatedArtifact = theRelatedArtifact;
       return this;
     }
 
-    public boolean hasRelatedResource() { 
-      if (this.relatedResource == null)
+    public boolean hasRelatedArtifact() { 
+      if (this.relatedArtifact == null)
         return false;
-      for (RelatedResource item : this.relatedResource)
+      for (RelatedArtifact item : this.relatedArtifact)
         if (!item.isEmpty())
           return true;
       return false;
     }
 
-    public RelatedResource addRelatedResource() { //3
-      RelatedResource t = new RelatedResource();
-      if (this.relatedResource == null)
-        this.relatedResource = new ArrayList<RelatedResource>();
-      this.relatedResource.add(t);
+    public RelatedArtifact addRelatedArtifact() { //3
+      RelatedArtifact t = new RelatedArtifact();
+      if (this.relatedArtifact == null)
+        this.relatedArtifact = new ArrayList<RelatedArtifact>();
+      this.relatedArtifact.add(t);
       return t;
     }
 
-    public ServiceDefinition addRelatedResource(RelatedResource t) { //3
+    public ServiceDefinition addRelatedArtifact(RelatedArtifact t) { //3
       if (t == null)
         return this;
-      if (this.relatedResource == null)
-        this.relatedResource = new ArrayList<RelatedResource>();
-      this.relatedResource.add(t);
+      if (this.relatedArtifact == null)
+        this.relatedArtifact = new ArrayList<RelatedArtifact>();
+      this.relatedArtifact.add(t);
       return this;
     }
 
     /**
-     * @return The first repetition of repeating field {@link #relatedResource}, creating it if it does not already exist
+     * @return The first repetition of repeating field {@link #relatedArtifact}, creating it if it does not already exist
      */
-    public RelatedResource getRelatedResourceFirstRep() { 
-      if (getRelatedResource().isEmpty()) {
-        addRelatedResource();
+    public RelatedArtifact getRelatedArtifactFirstRep() { 
+      if (getRelatedArtifact().isEmpty()) {
+        addRelatedArtifact();
       }
-      return getRelatedResource().get(0);
+      return getRelatedArtifact().get(0);
     }
 
     /**
@@ -1480,7 +1375,7 @@ public class ServiceDefinition extends DomainResource {
         childrenList.add(new Property("publisher", "string", "The name of the individual or organization that published the module (also known as the steward for the module). This information is required for non-experimental published artifacts.", 0, java.lang.Integer.MAX_VALUE, publisher));
         childrenList.add(new Property("contact", "ContactDetail", "Contact details to assist a user in finding and communicating with the publisher.", 0, java.lang.Integer.MAX_VALUE, contact));
         childrenList.add(new Property("copyright", "string", "A copyright statement relating to the module and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the module.", 0, java.lang.Integer.MAX_VALUE, copyright));
-        childrenList.add(new Property("relatedResource", "RelatedResource", "Related resources such as additional documentation, justification, or bibliographic references.", 0, java.lang.Integer.MAX_VALUE, relatedResource));
+        childrenList.add(new Property("relatedArtifact", "RelatedArtifact", "Related resources such as additional documentation, justification, or bibliographic references.", 0, java.lang.Integer.MAX_VALUE, relatedArtifact));
         childrenList.add(new Property("trigger", "TriggerDefinition", "The trigger element defines when the rule should be invoked. This information is used by consumers of the rule to determine how to integrate the rule into a specific workflow.", 0, java.lang.Integer.MAX_VALUE, trigger));
         childrenList.add(new Property("dataRequirement", "DataRequirement", "Data requirements are a machine processable description of the data required by the module in order to perform a successful evaluation.", 0, java.lang.Integer.MAX_VALUE, dataRequirement));
         childrenList.add(new Property("operationDefinition", "Reference(OperationDefinition)", "A reference to the operation that is used to invoke this service.", 0, java.lang.Integer.MAX_VALUE, operationDefinition));
@@ -1494,7 +1389,7 @@ public class ServiceDefinition extends DomainResource {
         case 351608024: /*version*/ return this.version == null ? new Base[0] : new Base[] {this.version}; // StringType
         case 3373707: /*name*/ return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
         case 110371416: /*title*/ return this.title == null ? new Base[0] : new Base[] {this.title}; // StringType
-        case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<ServiceDefinitionStatus>
+        case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<PublicationStatus>
         case -404562712: /*experimental*/ return this.experimental == null ? new Base[0] : new Base[] {this.experimental}; // BooleanType
         case -1724546052: /*description*/ return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
         case -220463842: /*purpose*/ return this.purpose == null ? new Base[0] : new Base[] {this.purpose}; // StringType
@@ -1508,7 +1403,7 @@ public class ServiceDefinition extends DomainResource {
         case 1447404028: /*publisher*/ return this.publisher == null ? new Base[0] : new Base[] {this.publisher}; // StringType
         case 951526432: /*contact*/ return this.contact == null ? new Base[0] : this.contact.toArray(new Base[this.contact.size()]); // ContactDetail
         case 1522889671: /*copyright*/ return this.copyright == null ? new Base[0] : new Base[] {this.copyright}; // StringType
-        case 1554540889: /*relatedResource*/ return this.relatedResource == null ? new Base[0] : this.relatedResource.toArray(new Base[this.relatedResource.size()]); // RelatedResource
+        case 666807069: /*relatedArtifact*/ return this.relatedArtifact == null ? new Base[0] : this.relatedArtifact.toArray(new Base[this.relatedArtifact.size()]); // RelatedArtifact
         case -1059891784: /*trigger*/ return this.trigger == null ? new Base[0] : this.trigger.toArray(new Base[this.trigger.size()]); // TriggerDefinition
         case 629147193: /*dataRequirement*/ return this.dataRequirement == null ? new Base[0] : this.dataRequirement.toArray(new Base[this.dataRequirement.size()]); // DataRequirement
         case 900960794: /*operationDefinition*/ return this.operationDefinition == null ? new Base[0] : new Base[] {this.operationDefinition}; // Reference
@@ -1536,7 +1431,7 @@ public class ServiceDefinition extends DomainResource {
           this.title = castToString(value); // StringType
           break;
         case -892481550: // status
-          this.status = new ServiceDefinitionStatusEnumFactory().fromType(value); // Enumeration<ServiceDefinitionStatus>
+          this.status = new PublicationStatusEnumFactory().fromType(value); // Enumeration<PublicationStatus>
           break;
         case -404562712: // experimental
           this.experimental = castToBoolean(value); // BooleanType
@@ -1577,8 +1472,8 @@ public class ServiceDefinition extends DomainResource {
         case 1522889671: // copyright
           this.copyright = castToString(value); // StringType
           break;
-        case 1554540889: // relatedResource
-          this.getRelatedResource().add(castToRelatedResource(value)); // RelatedResource
+        case 666807069: // relatedArtifact
+          this.getRelatedArtifact().add(castToRelatedArtifact(value)); // RelatedArtifact
           break;
         case -1059891784: // trigger
           this.getTrigger().add(castToTriggerDefinition(value)); // TriggerDefinition
@@ -1607,7 +1502,7 @@ public class ServiceDefinition extends DomainResource {
         else if (name.equals("title"))
           this.title = castToString(value); // StringType
         else if (name.equals("status"))
-          this.status = new ServiceDefinitionStatusEnumFactory().fromType(value); // Enumeration<ServiceDefinitionStatus>
+          this.status = new PublicationStatusEnumFactory().fromType(value); // Enumeration<PublicationStatus>
         else if (name.equals("experimental"))
           this.experimental = castToBoolean(value); // BooleanType
         else if (name.equals("description"))
@@ -1634,8 +1529,8 @@ public class ServiceDefinition extends DomainResource {
           this.getContact().add(castToContactDetail(value));
         else if (name.equals("copyright"))
           this.copyright = castToString(value); // StringType
-        else if (name.equals("relatedResource"))
-          this.getRelatedResource().add(castToRelatedResource(value));
+        else if (name.equals("relatedArtifact"))
+          this.getRelatedArtifact().add(castToRelatedArtifact(value));
         else if (name.equals("trigger"))
           this.getTrigger().add(castToTriggerDefinition(value));
         else if (name.equals("dataRequirement"))
@@ -1654,7 +1549,7 @@ public class ServiceDefinition extends DomainResource {
         case 351608024: throw new FHIRException("Cannot make property version as it is not a complex type"); // StringType
         case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
         case 110371416: throw new FHIRException("Cannot make property title as it is not a complex type"); // StringType
-        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<ServiceDefinitionStatus>
+        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<PublicationStatus>
         case -404562712: throw new FHIRException("Cannot make property experimental as it is not a complex type"); // BooleanType
         case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
         case -220463842: throw new FHIRException("Cannot make property purpose as it is not a complex type"); // StringType
@@ -1668,7 +1563,7 @@ public class ServiceDefinition extends DomainResource {
         case 1447404028: throw new FHIRException("Cannot make property publisher as it is not a complex type"); // StringType
         case 951526432:  return addContact(); // ContactDetail
         case 1522889671: throw new FHIRException("Cannot make property copyright as it is not a complex type"); // StringType
-        case 1554540889:  return addRelatedResource(); // RelatedResource
+        case 666807069:  return addRelatedArtifact(); // RelatedArtifact
         case -1059891784:  return addTrigger(); // TriggerDefinition
         case 629147193:  return addDataRequirement(); // DataRequirement
         case 900960794:  return getOperationDefinition(); // Reference
@@ -1737,8 +1632,8 @@ public class ServiceDefinition extends DomainResource {
         else if (name.equals("copyright")) {
           throw new FHIRException("Cannot call addChild on a primitive type ServiceDefinition.copyright");
         }
-        else if (name.equals("relatedResource")) {
-          return addRelatedResource();
+        else if (name.equals("relatedArtifact")) {
+          return addRelatedArtifact();
         }
         else if (name.equals("trigger")) {
           return addTrigger();
@@ -1801,10 +1696,10 @@ public class ServiceDefinition extends DomainResource {
             dst.contact.add(i.copy());
         };
         dst.copyright = copyright == null ? null : copyright.copy();
-        if (relatedResource != null) {
-          dst.relatedResource = new ArrayList<RelatedResource>();
-          for (RelatedResource i : relatedResource)
-            dst.relatedResource.add(i.copy());
+        if (relatedArtifact != null) {
+          dst.relatedArtifact = new ArrayList<RelatedArtifact>();
+          for (RelatedArtifact i : relatedArtifact)
+            dst.relatedArtifact.add(i.copy());
         };
         if (trigger != null) {
           dst.trigger = new ArrayList<TriggerDefinition>();
@@ -1838,7 +1733,7 @@ public class ServiceDefinition extends DomainResource {
            && compareDeep(lastReviewDate, o.lastReviewDate, true) && compareDeep(effectivePeriod, o.effectivePeriod, true)
            && compareDeep(coverage, o.coverage, true) && compareDeep(topic, o.topic, true) && compareDeep(contributor, o.contributor, true)
            && compareDeep(publisher, o.publisher, true) && compareDeep(contact, o.contact, true) && compareDeep(copyright, o.copyright, true)
-           && compareDeep(relatedResource, o.relatedResource, true) && compareDeep(trigger, o.trigger, true)
+           && compareDeep(relatedArtifact, o.relatedArtifact, true) && compareDeep(trigger, o.trigger, true)
            && compareDeep(dataRequirement, o.dataRequirement, true) && compareDeep(operationDefinition, o.operationDefinition, true)
           ;
       }
@@ -1861,7 +1756,7 @@ public class ServiceDefinition extends DomainResource {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(url, identifier, version
           , name, title, status, experimental, description, purpose, usage, publicationDate
           , lastReviewDate, effectivePeriod, coverage, topic, contributor, publisher, contact
-          , copyright, relatedResource, trigger, dataRequirement, operationDefinition);
+          , copyright, relatedArtifact, trigger, dataRequirement, operationDefinition);
       }
 
   @Override

@@ -9,30 +9,23 @@
   Conformance = required
 
  -- Row 2 -----------------------------------
-  Binding Name = ActivityDefinitionStatus
-  Binding = value set
-  Reference = http://hl7.org/fhir/ValueSet/module-metadata-status
-  Definition = The status of the ActivityDefinition
-  Conformance = required
-
- -- Row 3 -----------------------------------
   Binding Name = ActivityDefinitionCategory
   Binding = code list
   Reference = #activity-definition-category
   Definition = High-level categorization of the type of activity in a protocol.
   Conformance = required
 
- -- Row 4 -----------------------------------
+ -- Row 3 -----------------------------------
   Binding Name = ActivityDefinitionType
   Binding = unbound
   Definition = Detailed type of planned activity; e.g. CBC
 
- -- Row 5 -----------------------------------
+ -- Row 4 -----------------------------------
   Binding Name = ActivityTiming
   Binding = unbound
   Definition = Code describing the timing of an activity; e.g. BID, QD
 
- -- Row 6 -----------------------------------
+ -- Row 5 -----------------------------------
   Binding Name = ActivityProduct
   Binding = unbound
   Definition = Code describing the type of substance or medication
@@ -111,7 +104,7 @@
  -- Row 1 -----------------------------------
   Element = ActivityDefinition
   Type = DomainResource
-  Short Label = The definition of a specific activity to be taken, independent of any particular patient or context
+  Short Name = The definition of a specific activity to be taken, independent of any particular patient or context
   Definition = This resource allows for the definition of some activity to be performed, independent of a particular patient, practitioner, or other performance context
   w5 = clinical.general
 
@@ -120,7 +113,7 @@
   Card. = 0..1
   Summary = Y
   Type = uri
-  Short Label = Logical URL to reference this asset
+  Short Name = Logical URL to reference this asset
   Definition = An absolute URL that is used to identify this asset when it is referenced. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this asset is (or will be) published
   Requirements = Allows the asset to be referenced by a single globally unique identifier
   w5 = id
@@ -130,7 +123,7 @@
   Card. = 0..*
   Summary = Y
   Type = Identifier
-  Short Label = Logical identifier(s) for the asset
+  Short Name = Logical identifier(s) for the asset
   Definition = A logical identifier for the asset such as the CMS or NQF identifiers for a measure. Note that at least one identifier is required for non-experimental active assets
   Requirements = Allows external business identifiers to be easily associated with the asset
   To Do = Add constraint to require identifier for non-experimental active assets
@@ -141,7 +134,7 @@
   Card. = 0..1
   Summary = Y
   Type = string
-  Short Label = The version of the asset, if any
+  Short Name = The version of the asset, if any
   Definition = The version of the asset, if any. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge assets, refer to the Decision Support Service specification. Note that a version is required for non-experimental active assets
   Requirements = Allows for versioning of the content of the asset
   To Do = Add constraint to require version for non-experimental active assets
@@ -151,7 +144,7 @@
   Card. = 0..1
   Summary = Y
   Type = string
-  Short Label = A machine-friendly name for the asset
+  Short Name = A machine-friendly name for the asset
   Definition = A machine-friendly name for the asset. This name should be usable as an identifier for the asset by machine processing applications such as code generation
   Requirements = Simplifies machine-processing tasks related to the asset such as code-generation or logging
   Comments = This identifier for the asset should be unique within the intended scope of use, and should conform to the traditional syntactic definition of an identifier within most programming languages. regex: ([A-Za-z_][A-Za-z0-9_]*)
@@ -161,7 +154,7 @@
   Card. = 0..1
   Summary = Y
   Type = string
-  Short Label = A user-friendly title for the asset
+  Short Name = A user-friendly title for the asset
   Definition = A short, descriptive, user-friendly title for the asset
 
  -- Row 7 -----------------------------------
@@ -170,8 +163,8 @@
   Is Modifier = Y
   Summary = Y
   Type = code
-  Binding = ActivityDefinitionStatus
-  Short Label = draft | active | inactive
+  Binding = PublicationStatus
+  Short Name = draft | active | retired
   Definition = The status of the asset
   Requirements = Enables tracking the life-cycle of the content of the asset
 
@@ -181,7 +174,7 @@
   Is Modifier = Y
   Summary = Y
   Type = boolean
-  Short Label = If for testing purposes, not real usage
+  Short Name = If for testing purposes, not real usage
   Definition = Determines whether the asset was developed for testing purposes (or education/evaluation/marketing), and is not intended to be used in production environments
   Requirements = Enables experimental content to be developed following the same life-cycle as a production-level asset would
 
@@ -189,7 +182,7 @@
   Element = ActivityDefinition.description
   Card. = 0..1
   Type = string
-  Short Label = Natural language description of the asset
+  Short Name = Natural language description of the asset
   Definition = A free text natural language description of the asset from the consumer\'s perspective
   Comments = This description can be used to capture details such as why the asset was built, comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the asset as conveyed in the text field of the resource itself. This item SHOULD be populated unless the information is available from context
 
@@ -197,7 +190,7 @@
   Element = ActivityDefinition.purpose
   Card. = 0..1
   Type = string
-  Short Label = Describes the purpose of the asset
+  Short Name = Describes the purpose of the asset
   Definition = A brief description of the purpose of the asset
   Comments = This description should address the question of why this asset was built, though not necessarily in as much detail as the justification, rationale, or clinical recommendation statement of a measure would. That information would typically be provided in the related resource element
 
@@ -205,28 +198,28 @@
   Element = ActivityDefinition.usage
   Card. = 0..1
   Type = string
-  Short Label = Describes the clinical usage of the asset
+  Short Name = Describes the clinical usage of the asset
   Definition = A detailed description of how the asset is used from a clinical perspective
 
  -- Row 12 -----------------------------------
   Element = ActivityDefinition.publicationDate
   Card. = 0..1
   Type = date
-  Short Label = Publication date for this version of the asset
+  Short Name = Publication date for this version of the asset
   Definition = The date on which the asset was published
 
  -- Row 13 -----------------------------------
   Element = ActivityDefinition.lastReviewDate
   Card. = 0..1
   Type = date
-  Short Label = Last review date for the asset
+  Short Name = Last review date for the asset
   Definition = The date on which the asset content was last reviewed
 
  -- Row 14 -----------------------------------
   Element = ActivityDefinition.effectivePeriod
   Card. = 0..1
   Type = Period
-  Short Label = The effective date range for the asset
+  Short Name = The effective date range for the asset
   Definition = The period during which the asset content is effective
   Comments = The effective period for an asset determines when the content is applicable for usage and is independent of publication and review dates. For example, a measure intended to be used for the year 2016 would be published in 2015
 
@@ -234,7 +227,7 @@
   Element = ActivityDefinition.coverage
   Card. = 0..*
   Type = UsageContext
-  Short Label = Describes the context of use for this asset
+  Short Name = Describes the context of use for this asset
   Definition = Specifies various attributes of the patient population for whom and/or environment of care in which, the knowledge asset is applicable
   Requirements = Consumers of the asset must be able to determine the intended applicability for the asset. Ideally, this information would be used programmatically to determine when and how it should be incorporated or exposed
 
@@ -242,7 +235,7 @@
   Element = ActivityDefinition.topic
   Card. = 0..*
   Type = CodeableConcept
-  Short Label = Descriptional topics for the asset
+  Short Name = Descriptional topics for the asset
   Definition = Clinical topics related to the content of the asset
   Requirements = Repositories must be able to determine how to categorize the asset  so that it can be found by topical searches
 
@@ -250,7 +243,7 @@
   Element = ActivityDefinition.contributor
   Card. = 0..*
   Type = Contributor
-  Short Label = A content contributor
+  Short Name = A content contributor
   Definition = A contributor to the content of the asset, including authors, editors, reviewers, and endorsers
   Requirements = Consumers of the content must be able to quickly determine who contributed to the content of the knowledge asset
 
@@ -258,7 +251,7 @@
   Element = ActivityDefinition.publisher
   Card. = 0..1
   Type = string
-  Short Label = Name of the publisher (Organization or individual)
+  Short Name = Name of the publisher (Organization or individual)
   Definition = The name of the individual or organization that published the asset (also known as the steward for the asset). This information is required for non-experimental active artifacts
   Requirements = Consumers of the asset must be able to determine where to obtain support in the use of this asset, as well as where to direct questions and concerns about the content
   Comments = The publisher (or steward) of the module is the organization or individual primarily responsible for the maintenance and upkeep of the module. This is not necessarily the same organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the module
@@ -268,22 +261,22 @@
   Element = ActivityDefinition.contact
   Card. = 0..*
   Type = ContactDetail
-  Short Label = Contact details of the publisher
+  Short Name = Contact details of the publisher
   Definition = Contact details to assist a user in finding and communicating with the publisher
 
  -- Row 20 -----------------------------------
   Element = ActivityDefinition.copyright
   Card. = 0..1
   Type = string
-  Short Label = Use and/or publishing restrictions
+  Short Name = Use and/or publishing restrictions
   Definition = A copyright statement relating to the asset and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the asset
   Requirements = Consumers of the asset must be able to determine any legal restrictions on the use of the asset and/or its content
 
  -- Row 21 -----------------------------------
-  Element = ActivityDefinition.relatedResource
+  Element = ActivityDefinition.relatedArtifact
   Card. = 0..*
-  Type = RelatedResource
-  Short Label = Related resources for the asset
+  Type = RelatedArtifact
+  Short Name = Related resources for the asset
   Definition = Related resources such as additional documentation, justification, or bibliographic references
   Requirements = Assets must be able to provide enough information for consumers of the content (and/or interventions or results produced by the content) to be able to determine and understand the justification for and evidence in support of the content
   Comments = Each related resource is either an attachment, or a reference to another resource, but not both
@@ -292,7 +285,7 @@
   Element = ActivityDefinition.library
   Card. = 0..*
   Type = Reference(Library)
-  Short Label = Logic used by the asset
+  Short Name = Logic used by the asset
   Definition = A reference to a Library resource containing any formal logic used by the asset
 
  -- Row 23 -----------------------------------
@@ -300,7 +293,7 @@
   Card. = 0..1
   Type = code
   Binding = ActivityDefinitionCategory
-  Short Label = communication | device | diagnostic | diet | drug | encounter | immunization | observation | procedure | referral | supply | vision | other
+  Short Name = communication | device | diagnostic | diet | drug | encounter | immunization | observation | procedure | referral | supply | vision | other
   Definition = High-level categorization of the type of activity.
   Requirements = May determine what types of extensions are permitted
 
@@ -309,7 +302,7 @@
   Card. = 0..1
   Type = CodeableConcept
   Binding = ActivityDefinitionType
-  Short Label = Detail type of activity
+  Short Name = Detail type of activity
   Definition = Detailed description of the type of activity; e.g. What lab test, what procedure, what kind of encounter.
   Requirements = Allows matching performed to planned as well as validation against protocols
   Comments = Tends to be less relevant for activities involving particular products.
@@ -319,7 +312,7 @@
   Card. = 0..1
   Type = CodeableConcept | Timing
   Binding = ActivityTiming
-  Short Label = When activity is to occur
+  Short Name = When activity is to occur
   Definition = The period, timing or frequency upon which the described activity is to occur.
   Requirements = Allows prompting for activities and detection of missed planned activities.
 
@@ -328,7 +321,7 @@
   Card. = 0..1
   Aliases = facility
   Type = Reference(Location)
-  Short Label = Where it should happen
+  Short Name = Where it should happen
   Definition = Identifies the facility where the activity will occur; e.g. home, hospital, specific clinic, etc.
   Requirements = Helps in planning of activity
   Comments = May reference a specific clinical location or may just identify a type of location.
@@ -338,7 +331,7 @@
   Card. = 0..*
   Type = code
   Binding = ActivityParticipantType
-  Short Label = patient | practitioner | related-person
+  Short Name = patient | practitioner | related-person
   Definition = The type of participant in the action
 
  -- Row 28 -----------------------------------
@@ -346,7 +339,7 @@
   Card. = 0..1
   Type = Reference(Medication|Substance)|CodeableConcept
   Binding = ActivityProduct
-  Short Label = What\'s administered/supplied
+  Short Name = What\'s administered/supplied
   Definition = Identifies the food, drug or other product being consumed or supplied in the activity.
 
  -- Row 29 -----------------------------------
@@ -354,55 +347,55 @@
   Card. = 0..1
   Aliases = dose
   Type = SimpleQuantity
-  Short Label = How much is administered/consumed/supplied
+  Short Name = How much is administered/consumed/supplied
   Definition = Identifies the quantity expected to be consumed at once (per dose, per meal, etc.)
 
  -- Row 30 -----------------------------------
   Element = !ActivityDefinition.description
   Card. = 0..1
   Type = string
-  Short Label = Extra info on activity occurrence
+  Short Name = Extra info on activity occurrence
   Definition = This provides a textual description of constraints on the activity occurrence, including relation to other activities.  It may also include objectives, pre-conditions and end-conditions.  Finally, it may convey specifics about the activity such as body site, method, route, etc.
 
  -- Row 31 -----------------------------------
   Element = ActivityDefinition.transform
   Card. = 0..1
   Type = Reference(StructureMap)
-  Short Label = Transform to apply the template
+  Short Name = Transform to apply the template
   Definition = A reference to a StructureMap resource that defines a transform that can be executed to produce the intent resource using the ActivityDefinition instance as the input
 
  -- Row 32 -----------------------------------
   Element = ActivityDefinition.dynamicValue
   Card. = 0..*
-  Short Label = Dynamic aspects of the definition
+  Short Name = Dynamic aspects of the definition
   Definition = Dynamic values that will be evaluated to produce values for elements of the resulting resource. For example, if the dosage of a medication must be computed based on the patient\'s weight, a dynamic value would be used to specify an expression that calculated the weight, and the path on the intent resource that would contain the result
 
  -- Row 33 -----------------------------------
   Element = ActivityDefinition.dynamicValue.description
   Card. = 0..1
   Type = string
-  Short Label = Natural language description of the dynamic value
+  Short Name = Natural language description of the dynamic value
   Definition = A brief, natural language description of the intended semantics of the dynamic value
 
  -- Row 34 -----------------------------------
   Element = ActivityDefinition.dynamicValue.path
   Card. = 0..1
   Type = string
-  Short Label = The path to the element to be set dynamically
+  Short Name = The path to the element to be set dynamically
   Definition = The path to the element to be customized. This is the path on the resource that will hold the result of the calculation defined by the expression
 
  -- Row 35 -----------------------------------
   Element = ActivityDefinition.dynamicValue.language
   Card. = 0..1
   Type = string
-  Short Label = Language of the expression
+  Short Name = Language of the expression
   Definition = The media type of the language for the expression
 
  -- Row 36 -----------------------------------
   Element = ActivityDefinition.dynamicValue.expression
   Card. = 0..1
   Type = string
-  Short Label = An expression that provides the dynamic value for the customization
+  Short Name = An expression that provides the dynamic value for the customization
   Definition = An expression specifying the value of the customized element
   Comments = The expression may be inlined, or may be a reference to a named expression within a logic library referenced by the library element
 

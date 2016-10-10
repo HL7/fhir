@@ -50,7 +50,7 @@
   Is Modifier = yes
   Summary = y
   Type = code
-  Binding = ConformanceResourceStatus
+  Binding = PublicationStatus
   Short Name = draft | active | retired
   Definition = The status of this {{title}}
   Comments = Allows filtering of {{title}} that are appropriate for use vs. not
@@ -85,6 +85,16 @@
   Short Name = Content intends to support these contexts
   Definition = The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of code system definitions.
   Requirements = Assist in searching for appropriate content
+
+ -- Row 9 -----------------------------------
+  Element = MetadataResource.purpose
+  Card. = 0..1
+  Type = markdown
+  Short Name = Why this {{title}} is defined
+  Definition = Explains why this {{title}} is needed and why it has been designed as it has
+  Comments = This element does not describe the usage of the {{title}} (See, e.g, the comments element), rather it\'s for traceability of \'\'why\'\' the resource is either needed or \'\'why\'\' it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this {{title}}
+  Object Impl = no-gen-base
+  w5 = why
 
 === Sheet Search =====================================
 

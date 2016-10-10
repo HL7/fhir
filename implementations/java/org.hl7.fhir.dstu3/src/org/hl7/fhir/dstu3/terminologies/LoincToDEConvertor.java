@@ -18,7 +18,7 @@ import org.hl7.fhir.dstu3.model.Coding;
 import org.hl7.fhir.dstu3.model.DataElement;
 import org.hl7.fhir.dstu3.model.DateTimeType;
 import org.hl7.fhir.dstu3.model.ElementDefinition;
-import org.hl7.fhir.dstu3.model.Enumerations.ConformanceResourceStatus;
+import org.hl7.fhir.dstu3.model.Enumerations.PublicationStatus;
 import org.hl7.fhir.dstu3.model.Identifier;
 import org.hl7.fhir.dstu3.model.InstantType;
 import org.hl7.fhir.dstu3.model.Meta;
@@ -168,9 +168,9 @@ public class LoincToDEConvertor {
 				de.addIdentifier(id);
 				de.setPublisher("Regenstrief + FHIR Project Team");
 				if (!col(row, "STATUS").equals("ACTIVE"))
-	 				de.setStatus(ConformanceResourceStatus.DRAFT); // till we get good at this
+	 				de.setStatus(PublicationStatus.DRAFT); // till we get good at this
 				else
-					de.setStatus(ConformanceResourceStatus.RETIRED);
+					de.setStatus(PublicationStatus.RETIRED);
 				de.setDateElement(DateTimeType.now());
 				de.setName(comp);
 				ElementDefinition dee = de.addElement();

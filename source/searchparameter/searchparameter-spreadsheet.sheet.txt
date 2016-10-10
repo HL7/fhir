@@ -126,12 +126,7 @@
   Element = SearchParameter.useContext
 
  -- Row 13 -----------------------------------
-  Element = SearchParameter.requirements
-  Card. = 0..1
-  Type = markdown
-  Short Name = Why this search parameter is defined
-  Definition = The Scope and Usage that this search parameter was created to meet
-  w5 = why
+  Element = SearchParameter.purpose
 
  -- Row 14 -----------------------------------
   Element = SearchParameter.code

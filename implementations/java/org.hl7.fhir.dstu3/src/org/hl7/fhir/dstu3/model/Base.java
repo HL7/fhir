@@ -529,11 +529,11 @@ private Map<String, Object> userData;
 			throw new FHIRException("Unable to convert a "+b.getClass().getName()+" to a UsageContext");
 	}
 
-	public RelatedResource castToRelatedResource(Base b) throws FHIRException {
-		if (b instanceof RelatedResource)
-			return (RelatedResource) b;
+	public RelatedArtifact castToRelatedArtifact(Base b) throws FHIRException {
+		if (b instanceof RelatedArtifact)
+			return (RelatedArtifact) b;
 		else
-			throw new FHIRException("Unable to convert a "+b.getClass().getName()+" to a RelatedResource");
+			throw new FHIRException("Unable to convert a "+b.getClass().getName()+" to a RelatedArtifact");
 	}
 
 	public ContactPoint castToContactPoint(Base b) throws FHIRException {

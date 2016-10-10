@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Oct 10, 2016 12:40+1100 for FHIR v1.7.0
+// Generated on Mon, Oct 10, 2016 15:45+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -1302,11 +1302,11 @@ public class StructureDefinition extends MetadataResource {
     protected List<Identifier> identifier;
 
     /**
-     * Defined so that applications can use this name when displaying the value of the extension to the user.
+     * A short, descriptive, user-friendly title for the measure. Defined so that applications can use this name when displaying the content of the structure to the user.
      */
-    @Child(name = "display", type = {StringType.class}, order=1, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Use this name when displaying the value", formalDefinition="Defined so that applications can use this name when displaying the value of the extension to the user." )
-    protected StringType display;
+    @Child(name = "title", type = {StringType.class}, order=1, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="Title for this structure definition (human friendly name)", formalDefinition="A short, descriptive, user-friendly title for the measure. Defined so that applications can use this name when displaying the content of the structure to the user." )
+    protected StringType title;
 
     /**
      * The name of the individual or organization that published the structure definition.
@@ -1330,11 +1330,11 @@ public class StructureDefinition extends MetadataResource {
     protected MarkdownType description;
 
     /**
-     * Explains why this structure definition is needed and why it's been constrained as it has.
+     * Explains why this structure definition is needed and why it has been designed as it has.
      */
-    @Child(name = "requirements", type = {MarkdownType.class}, order=5, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="Scope and Usage this structure definition is for", formalDefinition="Explains why this structure definition is needed and why it's been constrained as it has." )
-    protected MarkdownType requirements;
+    @Child(name = "purpose", type = {MarkdownType.class}, order=5, min=0, max=1, modifier=false, summary=false)
+    @Description(shortDefinition="Why this structure definition is defined", formalDefinition="Explains why this structure definition is needed and why it has been designed as it has." )
+    protected MarkdownType purpose;
 
     /**
      * A copyright statement relating to the structure definition and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the details of the constraints and mappings.
@@ -1344,12 +1344,12 @@ public class StructureDefinition extends MetadataResource {
     protected StringType copyright;
 
     /**
-     * A set of terms from external terminologies that may be used to assist with indexing and searching of templates.
+     * A set of key words or terms from external terminologies that may be used to assist with indexing and searching of templates.
      */
-    @Child(name = "code", type = {Coding.class}, order=7, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-    @Description(shortDefinition="Assist with indexing and finding", formalDefinition="A set of terms from external terminologies that may be used to assist with indexing and searching of templates." )
+    @Child(name = "keyword", type = {Coding.class}, order=7, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Description(shortDefinition="Assist with indexing and finding", formalDefinition="A set of key words or terms from external terminologies that may be used to assist with indexing and searching of templates." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/profile-code")
-    protected List<Coding> code;
+    protected List<Coding> keyword;
 
     /**
      * The version of the FHIR specification on which this StructureDefinition is based - this is the formal version of the specification, without the revision number, e.g. [publication].[major].[minor], which is 1.7.0 for this version.
@@ -1439,7 +1439,7 @@ public class StructureDefinition extends MetadataResource {
     @Description(shortDefinition="Differential view of the structure", formalDefinition="A differential view is expressed relative to the base StructureDefinition - a statement of differences that it applies." )
     protected StructureDefinitionDifferentialComponent differential;
 
-    private static final long serialVersionUID = -2045076475L;
+    private static final long serialVersionUID = -808909975L;
 
   /**
    * Constructor
@@ -1451,7 +1451,7 @@ public class StructureDefinition extends MetadataResource {
   /**
    * Constructor
    */
-    public StructureDefinition(UriType url, StringType name, Enumeration<ConformanceResourceStatus> status, Enumeration<StructureDefinitionKind> kind, BooleanType abstract_, CodeType type) {
+    public StructureDefinition(UriType url, StringType name, Enumeration<PublicationStatus> status, Enumeration<StructureDefinitionKind> kind, BooleanType abstract_, CodeType type) {
       super();
       this.url = url;
       this.name = name;
@@ -1654,50 +1654,50 @@ public class StructureDefinition extends MetadataResource {
     }
 
     /**
-     * @return {@link #display} (Defined so that applications can use this name when displaying the value of the extension to the user.). This is the underlying object with id, value and extensions. The accessor "getDisplay" gives direct access to the value
+     * @return {@link #title} (A short, descriptive, user-friendly title for the measure. Defined so that applications can use this name when displaying the content of the structure to the user.). This is the underlying object with id, value and extensions. The accessor "getTitle" gives direct access to the value
      */
-    public StringType getDisplayElement() { 
-      if (this.display == null)
+    public StringType getTitleElement() { 
+      if (this.title == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create StructureDefinition.display");
+          throw new Error("Attempt to auto-create StructureDefinition.title");
         else if (Configuration.doAutoCreate())
-          this.display = new StringType(); // bb
-      return this.display;
+          this.title = new StringType(); // bb
+      return this.title;
     }
 
-    public boolean hasDisplayElement() { 
-      return this.display != null && !this.display.isEmpty();
+    public boolean hasTitleElement() { 
+      return this.title != null && !this.title.isEmpty();
     }
 
-    public boolean hasDisplay() { 
-      return this.display != null && !this.display.isEmpty();
+    public boolean hasTitle() { 
+      return this.title != null && !this.title.isEmpty();
     }
 
     /**
-     * @param value {@link #display} (Defined so that applications can use this name when displaying the value of the extension to the user.). This is the underlying object with id, value and extensions. The accessor "getDisplay" gives direct access to the value
+     * @param value {@link #title} (A short, descriptive, user-friendly title for the measure. Defined so that applications can use this name when displaying the content of the structure to the user.). This is the underlying object with id, value and extensions. The accessor "getTitle" gives direct access to the value
      */
-    public StructureDefinition setDisplayElement(StringType value) { 
-      this.display = value;
+    public StructureDefinition setTitleElement(StringType value) { 
+      this.title = value;
       return this;
     }
 
     /**
-     * @return Defined so that applications can use this name when displaying the value of the extension to the user.
+     * @return A short, descriptive, user-friendly title for the measure. Defined so that applications can use this name when displaying the content of the structure to the user.
      */
-    public String getDisplay() { 
-      return this.display == null ? null : this.display.getValue();
+    public String getTitle() { 
+      return this.title == null ? null : this.title.getValue();
     }
 
     /**
-     * @param value Defined so that applications can use this name when displaying the value of the extension to the user.
+     * @param value A short, descriptive, user-friendly title for the measure. Defined so that applications can use this name when displaying the content of the structure to the user.
      */
-    public StructureDefinition setDisplay(String value) { 
+    public StructureDefinition setTitle(String value) { 
       if (Utilities.noString(value))
-        this.display = null;
+        this.title = null;
       else {
-        if (this.display == null)
-          this.display = new StringType();
-        this.display.setValue(value);
+        if (this.title == null)
+          this.title = new StringType();
+        this.title.setValue(value);
       }
       return this;
     }
@@ -1705,12 +1705,12 @@ public class StructureDefinition extends MetadataResource {
     /**
      * @return {@link #status} (The status of this structure definition.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<ConformanceResourceStatus> getStatusElement() { 
+    public Enumeration<PublicationStatus> getStatusElement() { 
       if (this.status == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create StructureDefinition.status");
         else if (Configuration.doAutoCreate())
-          this.status = new Enumeration<ConformanceResourceStatus>(new ConformanceResourceStatusEnumFactory()); // bb
+          this.status = new Enumeration<PublicationStatus>(new PublicationStatusEnumFactory()); // bb
       return this.status;
     }
 
@@ -1725,7 +1725,7 @@ public class StructureDefinition extends MetadataResource {
     /**
      * @param value {@link #status} (The status of this structure definition.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public StructureDefinition setStatusElement(Enumeration<ConformanceResourceStatus> value) { 
+    public StructureDefinition setStatusElement(Enumeration<PublicationStatus> value) { 
       this.status = value;
       return this;
     }
@@ -1733,16 +1733,16 @@ public class StructureDefinition extends MetadataResource {
     /**
      * @return The status of this structure definition.
      */
-    public ConformanceResourceStatus getStatus() { 
+    public PublicationStatus getStatus() { 
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
      * @param value The status of this structure definition.
      */
-    public StructureDefinition setStatus(ConformanceResourceStatus value) { 
+    public StructureDefinition setStatus(PublicationStatus value) { 
         if (this.status == null)
-          this.status = new Enumeration<ConformanceResourceStatus>(new ConformanceResourceStatusEnumFactory());
+          this.status = new Enumeration<PublicationStatus>(new PublicationStatusEnumFactory());
         this.status.setValue(value);
       return this;
     }
@@ -2046,50 +2046,50 @@ public class StructureDefinition extends MetadataResource {
     }
 
     /**
-     * @return {@link #requirements} (Explains why this structure definition is needed and why it's been constrained as it has.). This is the underlying object with id, value and extensions. The accessor "getRequirements" gives direct access to the value
+     * @return {@link #purpose} (Explains why this structure definition is needed and why it has been designed as it has.). This is the underlying object with id, value and extensions. The accessor "getPurpose" gives direct access to the value
      */
-    public MarkdownType getRequirementsElement() { 
-      if (this.requirements == null)
+    public MarkdownType getPurposeElement() { 
+      if (this.purpose == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create StructureDefinition.requirements");
+          throw new Error("Attempt to auto-create StructureDefinition.purpose");
         else if (Configuration.doAutoCreate())
-          this.requirements = new MarkdownType(); // bb
-      return this.requirements;
+          this.purpose = new MarkdownType(); // bb
+      return this.purpose;
     }
 
-    public boolean hasRequirementsElement() { 
-      return this.requirements != null && !this.requirements.isEmpty();
+    public boolean hasPurposeElement() { 
+      return this.purpose != null && !this.purpose.isEmpty();
     }
 
-    public boolean hasRequirements() { 
-      return this.requirements != null && !this.requirements.isEmpty();
+    public boolean hasPurpose() { 
+      return this.purpose != null && !this.purpose.isEmpty();
     }
 
     /**
-     * @param value {@link #requirements} (Explains why this structure definition is needed and why it's been constrained as it has.). This is the underlying object with id, value and extensions. The accessor "getRequirements" gives direct access to the value
+     * @param value {@link #purpose} (Explains why this structure definition is needed and why it has been designed as it has.). This is the underlying object with id, value and extensions. The accessor "getPurpose" gives direct access to the value
      */
-    public StructureDefinition setRequirementsElement(MarkdownType value) { 
-      this.requirements = value;
+    public StructureDefinition setPurposeElement(MarkdownType value) { 
+      this.purpose = value;
       return this;
     }
 
     /**
-     * @return Explains why this structure definition is needed and why it's been constrained as it has.
+     * @return Explains why this structure definition is needed and why it has been designed as it has.
      */
-    public String getRequirements() { 
-      return this.requirements == null ? null : this.requirements.getValue();
+    public String getPurpose() { 
+      return this.purpose == null ? null : this.purpose.getValue();
     }
 
     /**
-     * @param value Explains why this structure definition is needed and why it's been constrained as it has.
+     * @param value Explains why this structure definition is needed and why it has been designed as it has.
      */
-    public StructureDefinition setRequirements(String value) { 
+    public StructureDefinition setPurpose(String value) { 
       if (value == null)
-        this.requirements = null;
+        this.purpose = null;
       else {
-        if (this.requirements == null)
-          this.requirements = new MarkdownType();
-        this.requirements.setValue(value);
+        if (this.purpose == null)
+          this.purpose = new MarkdownType();
+        this.purpose.setValue(value);
       }
       return this;
     }
@@ -2144,56 +2144,56 @@ public class StructureDefinition extends MetadataResource {
     }
 
     /**
-     * @return {@link #code} (A set of terms from external terminologies that may be used to assist with indexing and searching of templates.)
+     * @return {@link #keyword} (A set of key words or terms from external terminologies that may be used to assist with indexing and searching of templates.)
      */
-    public List<Coding> getCode() { 
-      if (this.code == null)
-        this.code = new ArrayList<Coding>();
-      return this.code;
+    public List<Coding> getKeyword() { 
+      if (this.keyword == null)
+        this.keyword = new ArrayList<Coding>();
+      return this.keyword;
     }
 
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public StructureDefinition setCode(List<Coding> theCode) { 
-      this.code = theCode;
+    public StructureDefinition setKeyword(List<Coding> theKeyword) { 
+      this.keyword = theKeyword;
       return this;
     }
 
-    public boolean hasCode() { 
-      if (this.code == null)
+    public boolean hasKeyword() { 
+      if (this.keyword == null)
         return false;
-      for (Coding item : this.code)
+      for (Coding item : this.keyword)
         if (!item.isEmpty())
           return true;
       return false;
     }
 
-    public Coding addCode() { //3
+    public Coding addKeyword() { //3
       Coding t = new Coding();
-      if (this.code == null)
-        this.code = new ArrayList<Coding>();
-      this.code.add(t);
+      if (this.keyword == null)
+        this.keyword = new ArrayList<Coding>();
+      this.keyword.add(t);
       return t;
     }
 
-    public StructureDefinition addCode(Coding t) { //3
+    public StructureDefinition addKeyword(Coding t) { //3
       if (t == null)
         return this;
-      if (this.code == null)
-        this.code = new ArrayList<Coding>();
-      this.code.add(t);
+      if (this.keyword == null)
+        this.keyword = new ArrayList<Coding>();
+      this.keyword.add(t);
       return this;
     }
 
     /**
-     * @return The first repetition of repeating field {@link #code}, creating it if it does not already exist
+     * @return The first repetition of repeating field {@link #keyword}, creating it if it does not already exist
      */
-    public Coding getCodeFirstRep() { 
-      if (getCode().isEmpty()) {
-        addCode();
+    public Coding getKeywordFirstRep() { 
+      if (getKeyword().isEmpty()) {
+        addKeyword();
       }
-      return getCode().get(0);
+      return getKeyword().get(0);
     }
 
     /**
@@ -2756,7 +2756,7 @@ public class StructureDefinition extends MetadataResource {
         childrenList.add(new Property("identifier", "Identifier", "Formal identifier that is used to identify this StructureDefinition when it is represented in other formats, or referenced in a specification, model, design or an instance  (should be globally unique OID, UUID, or URI), (if it's not possible to use the literal URI).", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("version", "string", "The identifier that is used to identify this version of the structure definition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the structure definition author manually and the value should be a timestamp.", 0, java.lang.Integer.MAX_VALUE, version));
         childrenList.add(new Property("name", "string", "A free text natural language name identifying the structure definition.", 0, java.lang.Integer.MAX_VALUE, name));
-        childrenList.add(new Property("display", "string", "Defined so that applications can use this name when displaying the value of the extension to the user.", 0, java.lang.Integer.MAX_VALUE, display));
+        childrenList.add(new Property("title", "string", "A short, descriptive, user-friendly title for the measure. Defined so that applications can use this name when displaying the content of the structure to the user.", 0, java.lang.Integer.MAX_VALUE, title));
         childrenList.add(new Property("status", "code", "The status of this structure definition.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("experimental", "boolean", "A flag to indicate that this structure definition is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.", 0, java.lang.Integer.MAX_VALUE, experimental));
         childrenList.add(new Property("publisher", "string", "The name of the individual or organization that published the structure definition.", 0, java.lang.Integer.MAX_VALUE, publisher));
@@ -2764,9 +2764,9 @@ public class StructureDefinition extends MetadataResource {
         childrenList.add(new Property("date", "dateTime", "The date  (and optionally time) when the structure definition was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the structure definition changes.", 0, java.lang.Integer.MAX_VALUE, date));
         childrenList.add(new Property("description", "markdown", "A free text natural language description of the StructureDefinition and its use.", 0, java.lang.Integer.MAX_VALUE, description));
         childrenList.add(new Property("useContext", "CodeableConcept", "The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of code system definitions.", 0, java.lang.Integer.MAX_VALUE, useContext));
-        childrenList.add(new Property("requirements", "markdown", "Explains why this structure definition is needed and why it's been constrained as it has.", 0, java.lang.Integer.MAX_VALUE, requirements));
+        childrenList.add(new Property("purpose", "markdown", "Explains why this structure definition is needed and why it has been designed as it has.", 0, java.lang.Integer.MAX_VALUE, purpose));
         childrenList.add(new Property("copyright", "string", "A copyright statement relating to the structure definition and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the details of the constraints and mappings.", 0, java.lang.Integer.MAX_VALUE, copyright));
-        childrenList.add(new Property("code", "Coding", "A set of terms from external terminologies that may be used to assist with indexing and searching of templates.", 0, java.lang.Integer.MAX_VALUE, code));
+        childrenList.add(new Property("keyword", "Coding", "A set of key words or terms from external terminologies that may be used to assist with indexing and searching of templates.", 0, java.lang.Integer.MAX_VALUE, keyword));
         childrenList.add(new Property("fhirVersion", "id", "The version of the FHIR specification on which this StructureDefinition is based - this is the formal version of the specification, without the revision number, e.g. [publication].[major].[minor], which is 1.7.0 for this version.", 0, java.lang.Integer.MAX_VALUE, fhirVersion));
         childrenList.add(new Property("mapping", "", "An external specification that the content is mapped to.", 0, java.lang.Integer.MAX_VALUE, mapping));
         childrenList.add(new Property("kind", "code", "Defines the kind of structure that this definition is describing.", 0, java.lang.Integer.MAX_VALUE, kind));
@@ -2788,17 +2788,17 @@ public class StructureDefinition extends MetadataResource {
         case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
         case 351608024: /*version*/ return this.version == null ? new Base[0] : new Base[] {this.version}; // StringType
         case 3373707: /*name*/ return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
-        case 1671764162: /*display*/ return this.display == null ? new Base[0] : new Base[] {this.display}; // StringType
-        case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<ConformanceResourceStatus>
+        case 110371416: /*title*/ return this.title == null ? new Base[0] : new Base[] {this.title}; // StringType
+        case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<PublicationStatus>
         case -404562712: /*experimental*/ return this.experimental == null ? new Base[0] : new Base[] {this.experimental}; // BooleanType
         case 1447404028: /*publisher*/ return this.publisher == null ? new Base[0] : new Base[] {this.publisher}; // StringType
         case 951526432: /*contact*/ return this.contact == null ? new Base[0] : this.contact.toArray(new Base[this.contact.size()]); // StructureDefinitionContactComponent
         case 3076014: /*date*/ return this.date == null ? new Base[0] : new Base[] {this.date}; // DateTimeType
         case -1724546052: /*description*/ return this.description == null ? new Base[0] : new Base[] {this.description}; // MarkdownType
         case -669707736: /*useContext*/ return this.useContext == null ? new Base[0] : this.useContext.toArray(new Base[this.useContext.size()]); // CodeableConcept
-        case -1619874672: /*requirements*/ return this.requirements == null ? new Base[0] : new Base[] {this.requirements}; // MarkdownType
+        case -220463842: /*purpose*/ return this.purpose == null ? new Base[0] : new Base[] {this.purpose}; // MarkdownType
         case 1522889671: /*copyright*/ return this.copyright == null ? new Base[0] : new Base[] {this.copyright}; // StringType
-        case 3059181: /*code*/ return this.code == null ? new Base[0] : this.code.toArray(new Base[this.code.size()]); // Coding
+        case -814408215: /*keyword*/ return this.keyword == null ? new Base[0] : this.keyword.toArray(new Base[this.keyword.size()]); // Coding
         case 461006061: /*fhirVersion*/ return this.fhirVersion == null ? new Base[0] : new Base[] {this.fhirVersion}; // IdType
         case 837556430: /*mapping*/ return this.mapping == null ? new Base[0] : this.mapping.toArray(new Base[this.mapping.size()]); // StructureDefinitionMappingComponent
         case 3292052: /*kind*/ return this.kind == null ? new Base[0] : new Base[] {this.kind}; // Enumeration<StructureDefinitionKind>
@@ -2831,11 +2831,11 @@ public class StructureDefinition extends MetadataResource {
         case 3373707: // name
           this.name = castToString(value); // StringType
           break;
-        case 1671764162: // display
-          this.display = castToString(value); // StringType
+        case 110371416: // title
+          this.title = castToString(value); // StringType
           break;
         case -892481550: // status
-          this.status = new ConformanceResourceStatusEnumFactory().fromType(value); // Enumeration<ConformanceResourceStatus>
+          this.status = new PublicationStatusEnumFactory().fromType(value); // Enumeration<PublicationStatus>
           break;
         case -404562712: // experimental
           this.experimental = castToBoolean(value); // BooleanType
@@ -2855,14 +2855,14 @@ public class StructureDefinition extends MetadataResource {
         case -669707736: // useContext
           this.getUseContext().add(castToCodeableConcept(value)); // CodeableConcept
           break;
-        case -1619874672: // requirements
-          this.requirements = castToMarkdown(value); // MarkdownType
+        case -220463842: // purpose
+          this.purpose = castToMarkdown(value); // MarkdownType
           break;
         case 1522889671: // copyright
           this.copyright = castToString(value); // StringType
           break;
-        case 3059181: // code
-          this.getCode().add(castToCoding(value)); // Coding
+        case -814408215: // keyword
+          this.getKeyword().add(castToCoding(value)); // Coding
           break;
         case 461006061: // fhirVersion
           this.fhirVersion = castToId(value); // IdType
@@ -2915,10 +2915,10 @@ public class StructureDefinition extends MetadataResource {
           this.version = castToString(value); // StringType
         else if (name.equals("name"))
           this.name = castToString(value); // StringType
-        else if (name.equals("display"))
-          this.display = castToString(value); // StringType
+        else if (name.equals("title"))
+          this.title = castToString(value); // StringType
         else if (name.equals("status"))
-          this.status = new ConformanceResourceStatusEnumFactory().fromType(value); // Enumeration<ConformanceResourceStatus>
+          this.status = new PublicationStatusEnumFactory().fromType(value); // Enumeration<PublicationStatus>
         else if (name.equals("experimental"))
           this.experimental = castToBoolean(value); // BooleanType
         else if (name.equals("publisher"))
@@ -2931,12 +2931,12 @@ public class StructureDefinition extends MetadataResource {
           this.description = castToMarkdown(value); // MarkdownType
         else if (name.equals("useContext"))
           this.getUseContext().add(castToCodeableConcept(value));
-        else if (name.equals("requirements"))
-          this.requirements = castToMarkdown(value); // MarkdownType
+        else if (name.equals("purpose"))
+          this.purpose = castToMarkdown(value); // MarkdownType
         else if (name.equals("copyright"))
           this.copyright = castToString(value); // StringType
-        else if (name.equals("code"))
-          this.getCode().add(castToCoding(value));
+        else if (name.equals("keyword"))
+          this.getKeyword().add(castToCoding(value));
         else if (name.equals("fhirVersion"))
           this.fhirVersion = castToId(value); // IdType
         else if (name.equals("mapping"))
@@ -2972,17 +2972,17 @@ public class StructureDefinition extends MetadataResource {
         case -1618432855:  return addIdentifier(); // Identifier
         case 351608024: throw new FHIRException("Cannot make property version as it is not a complex type"); // StringType
         case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
-        case 1671764162: throw new FHIRException("Cannot make property display as it is not a complex type"); // StringType
-        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<ConformanceResourceStatus>
+        case 110371416: throw new FHIRException("Cannot make property title as it is not a complex type"); // StringType
+        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<PublicationStatus>
         case -404562712: throw new FHIRException("Cannot make property experimental as it is not a complex type"); // BooleanType
         case 1447404028: throw new FHIRException("Cannot make property publisher as it is not a complex type"); // StringType
         case 951526432:  return addContact(); // StructureDefinitionContactComponent
         case 3076014: throw new FHIRException("Cannot make property date as it is not a complex type"); // DateTimeType
         case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // MarkdownType
         case -669707736:  return addUseContext(); // CodeableConcept
-        case -1619874672: throw new FHIRException("Cannot make property requirements as it is not a complex type"); // MarkdownType
+        case -220463842: throw new FHIRException("Cannot make property purpose as it is not a complex type"); // MarkdownType
         case 1522889671: throw new FHIRException("Cannot make property copyright as it is not a complex type"); // StringType
-        case 3059181:  return addCode(); // Coding
+        case -814408215:  return addKeyword(); // Coding
         case 461006061: throw new FHIRException("Cannot make property fhirVersion as it is not a complex type"); // IdType
         case 837556430:  return addMapping(); // StructureDefinitionMappingComponent
         case 3292052: throw new FHIRException("Cannot make property kind as it is not a complex type"); // Enumeration<StructureDefinitionKind>
@@ -3014,8 +3014,8 @@ public class StructureDefinition extends MetadataResource {
         else if (name.equals("name")) {
           throw new FHIRException("Cannot call addChild on a primitive type StructureDefinition.name");
         }
-        else if (name.equals("display")) {
-          throw new FHIRException("Cannot call addChild on a primitive type StructureDefinition.display");
+        else if (name.equals("title")) {
+          throw new FHIRException("Cannot call addChild on a primitive type StructureDefinition.title");
         }
         else if (name.equals("status")) {
           throw new FHIRException("Cannot call addChild on a primitive type StructureDefinition.status");
@@ -3038,14 +3038,14 @@ public class StructureDefinition extends MetadataResource {
         else if (name.equals("useContext")) {
           return addUseContext();
         }
-        else if (name.equals("requirements")) {
-          throw new FHIRException("Cannot call addChild on a primitive type StructureDefinition.requirements");
+        else if (name.equals("purpose")) {
+          throw new FHIRException("Cannot call addChild on a primitive type StructureDefinition.purpose");
         }
         else if (name.equals("copyright")) {
           throw new FHIRException("Cannot call addChild on a primitive type StructureDefinition.copyright");
         }
-        else if (name.equals("code")) {
-          return addCode();
+        else if (name.equals("keyword")) {
+          return addKeyword();
         }
         else if (name.equals("fhirVersion")) {
           throw new FHIRException("Cannot call addChild on a primitive type StructureDefinition.fhirVersion");
@@ -3105,7 +3105,7 @@ public class StructureDefinition extends MetadataResource {
         };
         dst.version = version == null ? null : version.copy();
         dst.name = name == null ? null : name.copy();
-        dst.display = display == null ? null : display.copy();
+        dst.title = title == null ? null : title.copy();
         dst.status = status == null ? null : status.copy();
         dst.experimental = experimental == null ? null : experimental.copy();
         dst.publisher = publisher == null ? null : publisher.copy();
@@ -3121,12 +3121,12 @@ public class StructureDefinition extends MetadataResource {
           for (CodeableConcept i : useContext)
             dst.useContext.add(i.copy());
         };
-        dst.requirements = requirements == null ? null : requirements.copy();
+        dst.purpose = purpose == null ? null : purpose.copy();
         dst.copyright = copyright == null ? null : copyright.copy();
-        if (code != null) {
-          dst.code = new ArrayList<Coding>();
-          for (Coding i : code)
-            dst.code.add(i.copy());
+        if (keyword != null) {
+          dst.keyword = new ArrayList<Coding>();
+          for (Coding i : keyword)
+            dst.keyword.add(i.copy());
         };
         dst.fhirVersion = fhirVersion == null ? null : fhirVersion.copy();
         if (mapping != null) {
@@ -3166,12 +3166,9 @@ public class StructureDefinition extends MetadataResource {
         if (!(other instanceof StructureDefinition))
           return false;
         StructureDefinition o = (StructureDefinition) other;
-        return compareDeep(url, o.url, true) && compareDeep(identifier, o.identifier, true) && compareDeep(version, o.version, true)
-           && compareDeep(name, o.name, true) && compareDeep(display, o.display, true) && compareDeep(status, o.status, true)
-           && compareDeep(experimental, o.experimental, true) && compareDeep(publisher, o.publisher, true)
-           && compareDeep(contact, o.contact, true) && compareDeep(date, o.date, true) && compareDeep(description, o.description, true)
-           && compareDeep(useContext, o.useContext, true) && compareDeep(requirements, o.requirements, true)
-           && compareDeep(copyright, o.copyright, true) && compareDeep(code, o.code, true) && compareDeep(fhirVersion, o.fhirVersion, true)
+        return compareDeep(identifier, o.identifier, true) && compareDeep(title, o.title, true) && compareDeep(publisher, o.publisher, true)
+           && compareDeep(contact, o.contact, true) && compareDeep(description, o.description, true) && compareDeep(purpose, o.purpose, true)
+           && compareDeep(copyright, o.copyright, true) && compareDeep(keyword, o.keyword, true) && compareDeep(fhirVersion, o.fhirVersion, true)
            && compareDeep(mapping, o.mapping, true) && compareDeep(kind, o.kind, true) && compareDeep(abstract_, o.abstract_, true)
            && compareDeep(contextType, o.contextType, true) && compareDeep(context, o.context, true) && compareDeep(contextInvariant, o.contextInvariant, true)
            && compareDeep(type, o.type, true) && compareDeep(baseDefinition, o.baseDefinition, true) && compareDeep(derivation, o.derivation, true)
@@ -3185,22 +3182,19 @@ public class StructureDefinition extends MetadataResource {
         if (!(other instanceof StructureDefinition))
           return false;
         StructureDefinition o = (StructureDefinition) other;
-        return compareValues(url, o.url, true) && compareValues(version, o.version, true) && compareValues(name, o.name, true)
-           && compareValues(display, o.display, true) && compareValues(status, o.status, true) && compareValues(experimental, o.experimental, true)
-           && compareValues(publisher, o.publisher, true) && compareValues(date, o.date, true) && compareValues(description, o.description, true)
-           && compareValues(requirements, o.requirements, true) && compareValues(copyright, o.copyright, true)
-           && compareValues(fhirVersion, o.fhirVersion, true) && compareValues(kind, o.kind, true) && compareValues(abstract_, o.abstract_, true)
-           && compareValues(contextType, o.contextType, true) && compareValues(context, o.context, true) && compareValues(contextInvariant, o.contextInvariant, true)
+        return compareValues(title, o.title, true) && compareValues(publisher, o.publisher, true) && compareValues(description, o.description, true)
+           && compareValues(purpose, o.purpose, true) && compareValues(copyright, o.copyright, true) && compareValues(fhirVersion, o.fhirVersion, true)
+           && compareValues(kind, o.kind, true) && compareValues(abstract_, o.abstract_, true) && compareValues(contextType, o.contextType, true)
+           && compareValues(context, o.context, true) && compareValues(contextInvariant, o.contextInvariant, true)
            && compareValues(type, o.type, true) && compareValues(baseDefinition, o.baseDefinition, true) && compareValues(derivation, o.derivation, true)
           ;
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(url, identifier, version
-          , name, display, status, experimental, publisher, contact, date, description
-          , useContext, requirements, copyright, code, fhirVersion, mapping, kind, abstract_
-          , contextType, context, contextInvariant, type, baseDefinition, derivation, snapshot
-          , differential);
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, title, publisher
+          , contact, description, purpose, copyright, keyword, fhirVersion, mapping, kind
+          , abstract_, contextType, context, contextInvariant, type, baseDefinition, derivation
+          , snapshot, differential);
       }
 
   @Override
@@ -3249,26 +3243,6 @@ public class StructureDefinition extends MetadataResource {
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
 
  /**
-   * Search parameter: <b>code</b>
-   * <p>
-   * Description: <b>A code for the profile</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>StructureDefinition.code</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="code", path="StructureDefinition.code", description="A code for the profile", type="token" )
-  public static final String SP_CODE = "code";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>code</b>
-   * <p>
-   * Description: <b>A code for the profile</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>StructureDefinition.code</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CODE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CODE);
-
- /**
    * Search parameter: <b>valueset</b>
    * <p>
    * Description: <b>A vocabulary binding reference</b><br>
@@ -3313,26 +3287,6 @@ public class StructureDefinition extends MetadataResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam KIND = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_KIND);
-
- /**
-   * Search parameter: <b>display</b>
-   * <p>
-   * Description: <b>Use this name when displaying the value</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>StructureDefinition.display</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="display", path="StructureDefinition.display", description="Use this name when displaying the value", type="string" )
-  public static final String SP_DISPLAY = "display";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>display</b>
-   * <p>
-   * Description: <b>Use this name when displaying the value</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>StructureDefinition.display</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam DISPLAY = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_DISPLAY);
 
  /**
    * Search parameter: <b>description</b>
@@ -3433,6 +3387,26 @@ public class StructureDefinition extends MetadataResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam TYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TYPE);
+
+ /**
+   * Search parameter: <b>title</b>
+   * <p>
+   * Description: <b>Title for this structure definition (human friendly name)</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>StructureDefinition.title</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="title", path="StructureDefinition.title", description="Title for this structure definition (human friendly name)", type="string" )
+  public static final String SP_TITLE = "title";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>title</b>
+   * <p>
+   * Description: <b>Title for this structure definition (human friendly name)</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>StructureDefinition.title</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam TITLE = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_TITLE);
 
  /**
    * Search parameter: <b>version</b>
@@ -3613,6 +3587,26 @@ public class StructureDefinition extends MetadataResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam DERIVATION = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_DERIVATION);
+
+ /**
+   * Search parameter: <b>keyword</b>
+   * <p>
+   * Description: <b>A code for the profile</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>StructureDefinition.keyword</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="keyword", path="StructureDefinition.keyword", description="A code for the profile", type="token" )
+  public static final String SP_KEYWORD = "keyword";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>keyword</b>
+   * <p>
+   * Description: <b>A code for the profile</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>StructureDefinition.keyword</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam KEYWORD = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_KEYWORD);
 
  /**
    * Search parameter: <b>status</b>

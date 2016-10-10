@@ -36594,13 +36594,13 @@ end = Registration_State.until_date"/>
     </resource>
   </entry>
   <entry>
-    <fullUrl value="http://hl7.org/fhir/StructureDefinition/cqif-basic-relatedResource"/>
+    <fullUrl value="http://hl7.org/fhir/StructureDefinition/cqif-basic-RelatedArtifact"/>
     <resource>
       <StructureDefinition>
-        <id value="cqif-basic-relatedResource"/>
-        <url value="http://hl7.org/fhir/StructureDefinition/cqif-basic-relatedResource"/>
-        <name value="relatedResource"/>
-        <display value="relatedResource"/>
+        <id value="cqif-basic-RelatedArtifact"/>
+        <url value="http://hl7.org/fhir/StructureDefinition/cqif-basic-RelatedArtifact"/>
+        <name value="RelatedArtifact"/>
+        <display value="RelatedArtifact"/>
         <status value="draft"/>
         <publisher value="Health Level Seven, Inc. - CDS WG"/>
         <contact>
@@ -37069,7 +37069,7 @@ end = Registration_State.until_date"/>
             <type>
               <code value="uri"/>
             </type>
-            <fixedUri value="http://hl7.org/fhir/StructureDefinition/cqif-basic-relatedResource"/>
+            <fixedUri value="http://hl7.org/fhir/StructureDefinition/cqif-basic-RelatedArtifact"/>
             <mapping>
               <identity value="rim"/>
               <map value="N/A"/>
@@ -37329,7 +37329,7 @@ end = Registration_State.until_date"/>
             <type>
               <code value="uri"/>
             </type>
-            <fixedUri value="http://hl7.org/fhir/StructureDefinition/cqif-basic-relatedResource"/>
+            <fixedUri value="http://hl7.org/fhir/StructureDefinition/cqif-basic-RelatedArtifact"/>
           </element>
           <element>
             <path value="Extension.value[x]"/>

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Oct 10, 2016 12:40+1100 for FHIR v1.7.0
+// Generated on Mon, Oct 10, 2016 15:45+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -837,9 +837,9 @@ public class ActivityGroup extends DomainResource {
         /**
          * Didactic or other informational resources associated with the action that can be provided to the CDS recipient. Information resources can include inline text commentary and links to web resources.
          */
-        @Child(name = "documentation", type = {RelatedResource.class}, order=7, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Child(name = "documentation", type = {RelatedArtifact.class}, order=7, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Supporting documentation for the intended performer of the action", formalDefinition="Didactic or other informational resources associated with the action that can be provided to the CDS recipient. Information resources can include inline text commentary and links to web resources." )
-        protected List<RelatedResource> documentation;
+        protected List<RelatedArtifact> documentation;
 
         /**
          * A relationship to another action such as "before" or "30-60 minutes after start of".
@@ -934,7 +934,7 @@ public class ActivityGroup extends DomainResource {
         @Description(shortDefinition="Sub action", formalDefinition="Sub actions." )
         protected List<ActivityGroupActionComponent> action;
 
-        private static final long serialVersionUID = 184428256L;
+        private static final long serialVersionUID = 573383068L;
 
     /**
      * Constructor
@@ -1219,16 +1219,16 @@ public class ActivityGroup extends DomainResource {
         /**
          * @return {@link #documentation} (Didactic or other informational resources associated with the action that can be provided to the CDS recipient. Information resources can include inline text commentary and links to web resources.)
          */
-        public List<RelatedResource> getDocumentation() { 
+        public List<RelatedArtifact> getDocumentation() { 
           if (this.documentation == null)
-            this.documentation = new ArrayList<RelatedResource>();
+            this.documentation = new ArrayList<RelatedArtifact>();
           return this.documentation;
         }
 
         /**
          * @return Returns a reference to <code>this</code> for easy method chaining
          */
-        public ActivityGroupActionComponent setDocumentation(List<RelatedResource> theDocumentation) { 
+        public ActivityGroupActionComponent setDocumentation(List<RelatedArtifact> theDocumentation) { 
           this.documentation = theDocumentation;
           return this;
         }
@@ -1236,25 +1236,25 @@ public class ActivityGroup extends DomainResource {
         public boolean hasDocumentation() { 
           if (this.documentation == null)
             return false;
-          for (RelatedResource item : this.documentation)
+          for (RelatedArtifact item : this.documentation)
             if (!item.isEmpty())
               return true;
           return false;
         }
 
-        public RelatedResource addDocumentation() { //3
-          RelatedResource t = new RelatedResource();
+        public RelatedArtifact addDocumentation() { //3
+          RelatedArtifact t = new RelatedArtifact();
           if (this.documentation == null)
-            this.documentation = new ArrayList<RelatedResource>();
+            this.documentation = new ArrayList<RelatedArtifact>();
           this.documentation.add(t);
           return t;
         }
 
-        public ActivityGroupActionComponent addDocumentation(RelatedResource t) { //3
+        public ActivityGroupActionComponent addDocumentation(RelatedArtifact t) { //3
           if (t == null)
             return this;
           if (this.documentation == null)
-            this.documentation = new ArrayList<RelatedResource>();
+            this.documentation = new ArrayList<RelatedArtifact>();
           this.documentation.add(t);
           return this;
         }
@@ -1262,7 +1262,7 @@ public class ActivityGroup extends DomainResource {
         /**
          * @return The first repetition of repeating field {@link #documentation}, creating it if it does not already exist
          */
-        public RelatedResource getDocumentationFirstRep() { 
+        public RelatedArtifact getDocumentationFirstRep() { 
           if (getDocumentation().isEmpty()) {
             addDocumentation();
           }
@@ -1796,7 +1796,7 @@ public class ActivityGroup extends DomainResource {
           childrenList.add(new Property("description", "string", "A short description of the action used to provide a summary to display to the user.", 0, java.lang.Integer.MAX_VALUE, description));
           childrenList.add(new Property("textEquivalent", "string", "A text equivalent of the action to be performed. This provides a human-interpretable description of the action when the definition is consumed by a system that may not be capable of interpreting it dynamically.", 0, java.lang.Integer.MAX_VALUE, textEquivalent));
           childrenList.add(new Property("concept", "CodeableConcept", "The concept represented by this action or its sub-actions.", 0, java.lang.Integer.MAX_VALUE, concept));
-          childrenList.add(new Property("documentation", "RelatedResource", "Didactic or other informational resources associated with the action that can be provided to the CDS recipient. Information resources can include inline text commentary and links to web resources.", 0, java.lang.Integer.MAX_VALUE, documentation));
+          childrenList.add(new Property("documentation", "RelatedArtifact", "Didactic or other informational resources associated with the action that can be provided to the CDS recipient. Information resources can include inline text commentary and links to web resources.", 0, java.lang.Integer.MAX_VALUE, documentation));
           childrenList.add(new Property("relatedAction", "", "A relationship to another action such as \"before\" or \"30-60 minutes after start of\".", 0, java.lang.Integer.MAX_VALUE, relatedAction));
           childrenList.add(new Property("timing[x]", "dateTime|Period|Duration|Range", "An optional value describing when the action should be performed.", 0, java.lang.Integer.MAX_VALUE, timing));
           childrenList.add(new Property("participant", "Reference(Patient|Person|Practitioner|RelatedPerson)", "The participant in the action.", 0, java.lang.Integer.MAX_VALUE, participant));
@@ -1819,7 +1819,7 @@ public class ActivityGroup extends DomainResource {
         case -1724546052: /*description*/ return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
         case -900391049: /*textEquivalent*/ return this.textEquivalent == null ? new Base[0] : new Base[] {this.textEquivalent}; // StringType
         case 951024232: /*concept*/ return this.concept == null ? new Base[0] : this.concept.toArray(new Base[this.concept.size()]); // CodeableConcept
-        case 1587405498: /*documentation*/ return this.documentation == null ? new Base[0] : this.documentation.toArray(new Base[this.documentation.size()]); // RelatedResource
+        case 1587405498: /*documentation*/ return this.documentation == null ? new Base[0] : this.documentation.toArray(new Base[this.documentation.size()]); // RelatedArtifact
         case -384107967: /*relatedAction*/ return this.relatedAction == null ? new Base[0] : new Base[] {this.relatedAction}; // ActivityGroupActionRelatedActionComponent
         case -873664438: /*timing*/ return this.timing == null ? new Base[0] : new Base[] {this.timing}; // Type
         case 767422259: /*participant*/ return this.participant == null ? new Base[0] : this.participant.toArray(new Base[this.participant.size()]); // Reference
@@ -1858,7 +1858,7 @@ public class ActivityGroup extends DomainResource {
           this.getConcept().add(castToCodeableConcept(value)); // CodeableConcept
           break;
         case 1587405498: // documentation
-          this.getDocumentation().add(castToRelatedResource(value)); // RelatedResource
+          this.getDocumentation().add(castToRelatedArtifact(value)); // RelatedArtifact
           break;
         case -384107967: // relatedAction
           this.relatedAction = (ActivityGroupActionRelatedActionComponent) value; // ActivityGroupActionRelatedActionComponent
@@ -1913,7 +1913,7 @@ public class ActivityGroup extends DomainResource {
         else if (name.equals("concept"))
           this.getConcept().add(castToCodeableConcept(value));
         else if (name.equals("documentation"))
-          this.getDocumentation().add(castToRelatedResource(value));
+          this.getDocumentation().add(castToRelatedArtifact(value));
         else if (name.equals("relatedAction"))
           this.relatedAction = (ActivityGroupActionRelatedActionComponent) value; // ActivityGroupActionRelatedActionComponent
         else if (name.equals("timing[x]"))
@@ -1949,7 +1949,7 @@ public class ActivityGroup extends DomainResource {
         case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
         case -900391049: throw new FHIRException("Cannot make property textEquivalent as it is not a complex type"); // StringType
         case 951024232:  return addConcept(); // CodeableConcept
-        case 1587405498:  return addDocumentation(); // RelatedResource
+        case 1587405498:  return addDocumentation(); // RelatedArtifact
         case -384107967:  return getRelatedAction(); // ActivityGroupActionRelatedActionComponent
         case 164632566:  return getTiming(); // Type
         case 767422259:  return addParticipant(); // Reference
@@ -2057,8 +2057,8 @@ public class ActivityGroup extends DomainResource {
             dst.concept.add(i.copy());
         };
         if (documentation != null) {
-          dst.documentation = new ArrayList<RelatedResource>();
-          for (RelatedResource i : documentation)
+          dst.documentation = new ArrayList<RelatedArtifact>();
+          for (RelatedArtifact i : documentation)
             dst.documentation.add(i.copy());
         };
         dst.relatedAction = relatedAction == null ? null : relatedAction.copy();

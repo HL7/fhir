@@ -2422,18 +2422,18 @@ public class VersionConvertor_14_20 {
     return tgt;
   }
 
-  public static org.hl7.fhir.dstu3.model.Enumerations.ConformanceResourceStatus convertConformanceResourceStatus(org.hl7.fhir.dstu2016may.model.Enumerations.ConformanceResourceStatus src) throws FHIRException {
+  public static org.hl7.fhir.dstu3.model.Enumerations.PublicationStatus convertConformanceResourceStatus(org.hl7.fhir.dstu2016may.model.Enumerations.ConformanceResourceStatus src) throws FHIRException {
     if (src == null)
       return null;
     switch (src) {
-    case DRAFT: return org.hl7.fhir.dstu3.model.Enumerations.ConformanceResourceStatus.DRAFT;
-    case ACTIVE: return org.hl7.fhir.dstu3.model.Enumerations.ConformanceResourceStatus.ACTIVE;
-    case RETIRED: return org.hl7.fhir.dstu3.model.Enumerations.ConformanceResourceStatus.RETIRED;
-    default: return org.hl7.fhir.dstu3.model.Enumerations.ConformanceResourceStatus.NULL;
+    case DRAFT: return org.hl7.fhir.dstu3.model.Enumerations.PublicationStatus.DRAFT;
+    case ACTIVE: return org.hl7.fhir.dstu3.model.Enumerations.PublicationStatus.ACTIVE;
+    case RETIRED: return org.hl7.fhir.dstu3.model.Enumerations.PublicationStatus.RETIRED;
+    default: return org.hl7.fhir.dstu3.model.Enumerations.PublicationStatus.NULL;
     }
   }
 
-  public static org.hl7.fhir.dstu2016may.model.Enumerations.ConformanceResourceStatus convertConformanceResourceStatus(org.hl7.fhir.dstu3.model.Enumerations.ConformanceResourceStatus src) throws FHIRException {
+  public static org.hl7.fhir.dstu2016may.model.Enumerations.ConformanceResourceStatus convertConformanceResourceStatus(org.hl7.fhir.dstu3.model.Enumerations.PublicationStatus src) throws FHIRException {
     if (src == null)
       return null;
     switch (src) {
@@ -2470,7 +2470,7 @@ public class VersionConvertor_14_20 {
     for (org.hl7.fhir.dstu2016may.model.CodeableConcept t : src.getUseContext())
       tgt.addUseContext(convertCodeableConcept(t));
     if (src.hasRequirements())
-      tgt.setRequirements(src.getRequirements());
+      tgt.setPurpose(src.getRequirements());
     if (src.hasCopyright())
       tgt.setCopyright(src.getCopyright());
     if (src.hasCaseSensitive())
@@ -2518,8 +2518,8 @@ public class VersionConvertor_14_20 {
       tgt.setDescription(src.getDescription());
     for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getUseContext())
       tgt.addUseContext(convertCodeableConcept(t));
-    if (src.hasRequirements())
-      tgt.setRequirements(src.getRequirements());
+    if (src.hasPurpose())
+      tgt.setRequirements(src.getPurpose());
     if (src.hasCopyright())
       tgt.setCopyright(src.getCopyright());
     if (src.hasCaseSensitive())
@@ -2775,7 +2775,7 @@ public class VersionConvertor_14_20 {
     if (src.hasDescription())
       tgt.setDescription(src.getDescription());
     if (src.hasRequirements())
-      tgt.setRequirements(src.getRequirements());
+      tgt.setPurpose(src.getRequirements());
     tgt.setCode(convertCompartmentType(src.getCode()));
     tgt.setSearch(src.getSearch());
     for (org.hl7.fhir.dstu2016may.model.CompartmentDefinition.CompartmentDefinitionResourceComponent t : src.getResource())
@@ -2801,8 +2801,8 @@ public class VersionConvertor_14_20 {
       tgt.setDate(src.getDate());
     if (src.hasDescription())
       tgt.setDescription(src.getDescription());
-    if (src.hasRequirements())
-      tgt.setRequirements(src.getRequirements());
+    if (src.hasPurpose())
+      tgt.setRequirements(src.getPurpose());
     tgt.setCode(convertCompartmentType(src.getCode()));
     tgt.setSearch(src.getSearch());
     for (org.hl7.fhir.dstu3.model.CompartmentDefinition.CompartmentDefinitionResourceComponent t : src.getResource())
@@ -2913,7 +2913,7 @@ public class VersionConvertor_14_20 {
     for (org.hl7.fhir.dstu2016may.model.CodeableConcept t : src.getUseContext())
       tgt.addUseContext(convertCodeableConcept(t));
     if (src.hasRequirements())
-      tgt.setRequirements(src.getRequirements());
+      tgt.setPurpose(src.getRequirements());
     if (src.hasCopyright())
       tgt.setCopyright(src.getCopyright());
     tgt.setSource(convertType(src.getSource()));
@@ -2963,8 +2963,8 @@ public class VersionConvertor_14_20 {
       tgt.setDescription(src.getDescription());
     for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getUseContext())
       tgt.addUseContext(convertCodeableConcept(t));
-    if (src.hasRequirements())
-      tgt.setRequirements(src.getRequirements());
+    if (src.hasPurpose())
+      tgt.setRequirements(src.getPurpose());
     if (src.hasCopyright())
       tgt.setCopyright(src.getCopyright());
     tgt.setSource(convertType(src.getSource()));
@@ -3159,7 +3159,7 @@ public class VersionConvertor_14_20 {
     for (org.hl7.fhir.dstu2016may.model.CodeableConcept t : src.getUseContext())
       tgt.addUseContext(convertCodeableConcept(t));
     if (src.hasRequirements())
-      tgt.setRequirements(src.getRequirements());
+      tgt.setPurpose(src.getRequirements());
     if (src.hasCopyright())
       tgt.setCopyright(src.getCopyright());
     tgt.setKind(convertConformanceStatementKind(src.getKind()));
@@ -3204,8 +3204,8 @@ public class VersionConvertor_14_20 {
       tgt.setDescription(src.getDescription());
     for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getUseContext())
       tgt.addUseContext(convertCodeableConcept(t));
-    if (src.hasRequirements())
-      tgt.setRequirements(src.getRequirements());
+    if (src.hasPurpose())
+      tgt.setRequirements(src.getPurpose());
     if (src.hasCopyright())
       tgt.setCopyright(src.getCopyright());
     tgt.setKind(convertConformanceStatementKind(src.getKind()));
@@ -4581,7 +4581,7 @@ public class VersionConvertor_14_20 {
     for (org.hl7.fhir.dstu2016may.model.CodeableConcept t : src.getUseContext())
       tgt.addUseContext(convertCodeableConcept(t));
     if (src.hasRequirements())
-      tgt.setRequirements(src.getRequirements());
+      tgt.setPurpose(src.getRequirements());
     if (src.hasIdempotent())
       tgt.setIdempotent(src.getIdempotent());
     tgt.setCode(src.getCode());
@@ -4622,8 +4622,8 @@ public class VersionConvertor_14_20 {
       tgt.setDescription(src.getDescription());
     for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getUseContext())
       tgt.addUseContext(convertCodeableConcept(t));
-    if (src.hasRequirements())
-      tgt.setRequirements(src.getRequirements());
+    if (src.hasPurpose())
+      tgt.setRequirements(src.getPurpose());
     if (src.hasIdempotent())
       tgt.setIdempotent(src.getIdempotent());
     tgt.setCode(src.getCode());
@@ -5298,7 +5298,7 @@ public class VersionConvertor_14_20 {
     for (org.hl7.fhir.dstu2016may.model.CodeableConcept t : src.getUseContext())
       tgt.addUseContext(convertCodeableConcept(t));
     if (src.hasRequirements())
-      tgt.setRequirements(src.getRequirements());
+      tgt.setPurpose(src.getRequirements());
     tgt.setCode(src.getCode());
     tgt.setBase(src.getBase());
     tgt.setType(convertSearchParamType(src.getType()));
@@ -5331,8 +5331,8 @@ public class VersionConvertor_14_20 {
       tgt.addContact(convertSearchParameterContactComponent(t));
     for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getUseContext())
       tgt.addUseContext(convertCodeableConcept(t));
-    if (src.hasRequirements())
-      tgt.setRequirements(src.getRequirements());
+    if (src.hasPurpose())
+      tgt.setRequirements(src.getPurpose());
     tgt.setCode(src.getCode());
     tgt.setBase(src.getBase());
     tgt.setType(convertSearchParamType(src.getType()));
@@ -5410,7 +5410,7 @@ public class VersionConvertor_14_20 {
       tgt.setVersion(src.getVersion());
     tgt.setName(src.getName());
     if (src.hasDisplay())
-      tgt.setDisplay(src.getDisplay());
+      tgt.setTitle(src.getDisplay());
     tgt.setStatus(convertConformanceResourceStatus(src.getStatus()));
     if (src.hasExperimental())
       tgt.setExperimental(src.getExperimental());
@@ -5425,11 +5425,11 @@ public class VersionConvertor_14_20 {
     for (org.hl7.fhir.dstu2016may.model.CodeableConcept t : src.getUseContext())
       tgt.addUseContext(convertCodeableConcept(t));
     if (src.hasRequirements())
-      tgt.setRequirements(src.getRequirements());
+      tgt.setPurpose(src.getRequirements());
     if (src.hasCopyright())
       tgt.setCopyright(src.getCopyright());
     for (org.hl7.fhir.dstu2016may.model.Coding t : src.getCode())
-      tgt.addCode(convertCoding(t));
+      tgt.addKeyword(convertCoding(t));
     if (src.hasFhirVersion())
       tgt.setFhirVersion(src.getFhirVersion());
     for (org.hl7.fhir.dstu2016may.model.StructureDefinition.StructureDefinitionMappingComponent t : src.getMapping())
@@ -5469,8 +5469,8 @@ public class VersionConvertor_14_20 {
     if (src.hasVersion())
       tgt.setVersion(src.getVersion());
     tgt.setName(src.getName());
-    if (src.hasDisplay())
-      tgt.setDisplay(src.getDisplay());
+    if (src.hasTitle())
+      tgt.setDisplay(src.getTitle());
     tgt.setStatus(convertConformanceResourceStatus(src.getStatus()));
     if (src.hasExperimental())
       tgt.setExperimental(src.getExperimental());
@@ -5484,11 +5484,11 @@ public class VersionConvertor_14_20 {
       tgt.setDescription(src.getDescription());
     for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getUseContext())
       tgt.addUseContext(convertCodeableConcept(t));
-    if (src.hasRequirements())
-      tgt.setRequirements(src.getRequirements());
+    if (src.hasPurpose())
+      tgt.setRequirements(src.getPurpose());
     if (src.hasCopyright())
       tgt.setCopyright(src.getCopyright());
-    for (org.hl7.fhir.dstu3.model.Coding t : src.getCode())
+    for (org.hl7.fhir.dstu3.model.Coding t : src.getKeyword())
       tgt.addCode(convertCoding(t));
     if (src.hasFhirVersion())
       tgt.setFhirVersion(src.getFhirVersion());
@@ -5690,7 +5690,7 @@ public class VersionConvertor_14_20 {
     for (org.hl7.fhir.dstu2016may.model.CodeableConcept t : src.getUseContext())
       tgt.addUseContext(convertCodeableConcept(t));
     if (src.hasRequirements())
-      tgt.setRequirements(src.getRequirements());
+      tgt.setPurpose(src.getRequirements());
     if (src.hasCopyright())
       tgt.setCopyright(src.getCopyright());
     for (org.hl7.fhir.dstu2016may.model.TestScript.TestScriptOriginComponent t : src.getOrigin())
@@ -5738,8 +5738,8 @@ public class VersionConvertor_14_20 {
       tgt.setDescription(src.getDescription());
     for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getUseContext())
       tgt.addUseContext(convertCodeableConcept(t));
-    if (src.hasRequirements())
-      tgt.setRequirements(src.getRequirements());
+    if (src.hasPurpose())
+      tgt.setRequirements(src.getPurpose());
     if (src.hasCopyright())
       tgt.setCopyright(src.getCopyright());
     for (org.hl7.fhir.dstu3.model.TestScript.TestScriptOriginComponent t : src.getOrigin())
@@ -6635,7 +6635,7 @@ public class VersionConvertor_14_20 {
     if (src.hasImmutable())
       tgt.setImmutable(src.getImmutable());
     if (src.hasRequirements())
-      tgt.setRequirements(src.getRequirements());
+      tgt.setPurpose(src.getRequirements());
     if (src.hasCopyright())
       tgt.setCopyright(src.getCopyright());
     if (src.hasExtensible())
@@ -6677,8 +6677,8 @@ public class VersionConvertor_14_20 {
       tgt.addUseContext(convertCodeableConcept(t));
     if (src.hasImmutable())
       tgt.setImmutable(src.getImmutable());
-    if (src.hasRequirements())
-      tgt.setRequirements(src.getRequirements());
+    if (src.hasPurpose())
+      tgt.setRequirements(src.getPurpose());
     if (src.hasCopyright())
       tgt.setCopyright(src.getCopyright());
     if (src.hasExtensible())

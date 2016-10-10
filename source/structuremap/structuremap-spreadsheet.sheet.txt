@@ -326,13 +326,7 @@
   Element = StructureMap.useContext
 
  -- Row 15 -----------------------------------
-  Element = StructureMap.requirements
-  Card. = 0..1
-  Type = markdown
-  Short Name = Scope and Usage this structure map is for
-  Definition = Explains why this structure map is needed and why it\'s been designed as it has
-  To Do = This element does not describe the usage of the structure map (that\'s done in comments), rather it\'s for traceability of *why* the element is either needed or why the constraints exist as they do.  This may be used to point to source materials or specifications that drove the structure of this data element
-  w5 = why
+  Element = StructureMap.purpose
 
  -- Row 16 -----------------------------------
   Element = StructureMap.copyright

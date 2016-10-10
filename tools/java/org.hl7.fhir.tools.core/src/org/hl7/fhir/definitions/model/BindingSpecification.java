@@ -35,7 +35,7 @@ import org.hl7.fhir.definitions.generators.specification.ToolResourceUtilities;
 import org.hl7.fhir.dstu3.model.CodeSystem;
 import org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionComponent;
 import org.hl7.fhir.dstu3.model.Enumerations.BindingStrength;
-import org.hl7.fhir.dstu3.model.Enumerations.ConformanceResourceStatus;
+import org.hl7.fhir.dstu3.model.Enumerations.PublicationStatus;
 import org.hl7.fhir.dstu3.model.UriType;
 import org.hl7.fhir.dstu3.model.ValueSet;
 import org.hl7.fhir.dstu3.model.ValueSet.ConceptReferenceComponent;
@@ -105,7 +105,7 @@ public class BindingSpecification {
   private String csOid;
   private String vsOid;
 //  private List<DefinedCode> childCodes;
-  private ConformanceResourceStatus status;
+  private PublicationStatus status;
   private List<DefinedCode> allCodes;
   
 
@@ -354,11 +354,11 @@ public class BindingSpecification {
     this.vsOid = vsOid;
   }
 
-  public ConformanceResourceStatus getStatus() {
+  public PublicationStatus getStatus() {
     return status;
   }
 
-  public void setStatus(ConformanceResourceStatus status) {
+  public void setStatus(PublicationStatus status) {
     this.status = status;
   }
 

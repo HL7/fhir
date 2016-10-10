@@ -120,12 +120,7 @@
   Definition = A free text natural language description of the CompartmentDefinition and its use
 
  -- Row 12 -----------------------------------
-  Element = CompartmentDefinition.requirements
-  Card. = 0..1
-  Type = markdown
-  Short Name = Why this compartment definition is defined
-  Definition = The Scope and Usage that this compartment definition was created to meet
-  w5 = why
+  Element = CompartmentDefinition.purpose
 
  -- Row 13 -----------------------------------
   Element = CompartmentDefinition.useContext

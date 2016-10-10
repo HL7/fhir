@@ -32,7 +32,7 @@
       <display value="United States of America"/>
     </coding>
   </useContext>
-  <requirements value="Show example rule based mappings"/>
+  <purpose value="Show example rule based mappings"/>
   <copyright value="Creative Commons 0"/>
   <sourceReference>
     <reference value="http://snomed.info/sct"/>

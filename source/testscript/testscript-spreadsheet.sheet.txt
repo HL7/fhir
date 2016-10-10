@@ -411,13 +411,7 @@
   Element = TestScript.useContext
 
  -- Row 15 -----------------------------------
-  Element = TestScript.requirements
-  Card. = 0..1
-  Type = markdown
-  Short Name = Scope and Usage this Test Script is for
-  Definition = Explains why this Test Script is needed and why it\'s been constrained as it has
-  Comments = This element does not describe the usage of the Test Script (that\'s done in comments), rather it\'s for traceability of *why* the element is either needed or why the constraints exist as they do.  This may be used to point to source materials or specifications that drove the structure of this data element
-  w5 = why
+  Element = TestScript.purpose
 
  -- Row 16 -----------------------------------
   Element = TestScript.copyright

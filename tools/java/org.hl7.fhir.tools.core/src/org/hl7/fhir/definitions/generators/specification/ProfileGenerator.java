@@ -75,7 +75,7 @@ import org.hl7.fhir.dstu3.model.ElementDefinition.PropertyRepresentation;
 import org.hl7.fhir.dstu3.model.ElementDefinition.SlicingRules;
 import org.hl7.fhir.dstu3.model.ElementDefinition.TypeRefComponent;
 import org.hl7.fhir.dstu3.model.Enumerations.BindingStrength;
-import org.hl7.fhir.dstu3.model.Enumerations.ConformanceResourceStatus;
+import org.hl7.fhir.dstu3.model.Enumerations.PublicationStatus;
 import org.hl7.fhir.dstu3.model.Enumerations.SearchParamType;
 import org.hl7.fhir.dstu3.model.Extension;
 import org.hl7.fhir.dstu3.model.Factory;
@@ -189,7 +189,7 @@ public class ProfileGenerator {
       
     de.getMeta().setLastUpdatedElement(new InstantType(genDate));
     de.setName(ed.getName());
-    de.setStatus(ConformanceResourceStatus.DRAFT);
+    de.setStatus(PublicationStatus.DRAFT);
     de.setExperimental(true);
     de.setStringency(DataElementStringency.FULLYSPECIFIED);
     // re-enable this when the extension is defined post DSTU-2
@@ -229,7 +229,7 @@ public class ProfileGenerator {
     p.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.OTHER, "http://hl7.org/fhir"));
     p.setDescription("Base StructureDefinition for "+type.getCode()+" Type: "+type.getDefinition());
     p.setDate(genDate.getTime());
-    p.setStatus(ConformanceResourceStatus.fromCode("draft")); // DSTU
+    p.setStatus(PublicationStatus.fromCode("draft")); // DSTU
 
     Set<String> containedSlices = new HashSet<String>();
 
@@ -356,7 +356,7 @@ public class ProfileGenerator {
     p.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.OTHER, "http://hl7.org/fhir"));
     p.setDescription("Base StructureDefinition for xhtml Type");
     p.setDate(genDate.getTime());
-    p.setStatus(ConformanceResourceStatus.fromCode("draft")); // DSTU
+    p.setStatus(PublicationStatus.fromCode("draft")); // DSTU
 
     Set<String> containedSlices = new HashSet<String>();
 
@@ -474,7 +474,7 @@ public class ProfileGenerator {
     p.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.OTHER, "http://hl7.org/fhir"));
     p.setDescription("Base StructureDefinition for "+type.getCode()+" type: "+type.getDefinition());
     p.setDate(genDate.getTime());
-    p.setStatus(ConformanceResourceStatus.fromCode("draft")); // DSTU
+    p.setStatus(PublicationStatus.fromCode("draft")); // DSTU
 
     Set<String> containedSlices = new HashSet<String>();
 
@@ -585,9 +585,9 @@ public class ProfileGenerator {
     p.setPublisher("HL7 FHIR Standard");
     p.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.OTHER, "http://hl7.org/fhir"));
     p.setDescription("Base StructureDefinition for "+t.getName()+" Type");
-    p.setRequirements(t.getRequirements());
+    p.setPurpose(t.getRequirements());
     p.setDate(genDate.getTime());
-    p.setStatus(ConformanceResourceStatus.fromCode("draft")); // DSTU
+    p.setStatus(PublicationStatus.fromCode("draft")); // DSTU
 
 
     Set<String> containedSlices = new HashSet<String>();
@@ -640,7 +640,7 @@ public class ProfileGenerator {
     p.setDescription("Base StructureDefinition for "+pt.getName()+" Resource");
     p.setDescription(pt.getDefinition());
     p.setDate(genDate.getTime());
-    p.setStatus(ConformanceResourceStatus.fromCode("draft")); // DSTU
+    p.setStatus(PublicationStatus.fromCode("draft")); // DSTU
 
     // first, the differential
     p.setName(pt.getName());
@@ -769,7 +769,7 @@ public class ProfileGenerator {
     p.setType(r.getRoot().getName());
     p.setUserData("filename", r.getName().toLowerCase());
     p.setUserData("path", r.getName().toLowerCase()+".html");
-    p.setDisplay(pack.metadata("display"));
+    p.setTitle(pack.metadata("display"));
     p.setFhirVersion(version);
 
     if (r.getFmmLevel() != null)
@@ -781,11 +781,11 @@ public class ProfileGenerator {
     if (r.getWg() != null)
       p.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.OTHER, r.getWg().getUrl()));
     p.setDescription("Base StructureDefinition for "+r.getRoot().getName()+" Resource");
-    p.setRequirements(r.getRoot().getRequirements());
-    if (!p.hasRequirements())
-      p.setRequirements(r.getRoot().getRequirements());
+    p.setPurpose(r.getRoot().getRequirements());
+    if (!p.hasPurpose())
+      p.setPurpose(r.getRoot().getRequirements());
     p.setDate(genDate.getTime());
-    p.setStatus(ConformanceResourceStatus.fromCode("draft")); // DSTU
+    p.setStatus(PublicationStatus.fromCode("draft")); // DSTU
 
     Set<String> containedSlices = new HashSet<String>();
 
@@ -855,7 +855,7 @@ public class ProfileGenerator {
     p.setAbstract(false);
     p.setUserData("filename", id);
     p.setUserData("path", ((usage == null || usage.isCore()) ? "" : usage.getCode()+File.separator)+id+".html");
-    p.setDisplay(pack.metadata("display"));
+    p.setTitle(pack.metadata("display"));
     p.setFhirVersion(version);
 
     if (pack.hasMetadata("summary-"+profile.getTitle()))
@@ -869,9 +869,9 @@ public class ProfileGenerator {
     p.setDescription(resource.getRoot().getShortDefn());    
     if (!p.hasDescriptionElement() && pack.hasMetadata("description"))
       p.setDescription(pack.metadata("description"));
-    p.setRequirements(resource.getRoot().getRequirements());
-    if (!p.hasRequirements() && pack.hasMetadata("requirements"))
-      p.setRequirements(pack.metadata("requirements"));
+    p.setPurpose(resource.getRoot().getRequirements());
+    if (!p.hasPurpose() && pack.hasMetadata("requirements"))
+      p.setPurpose(pack.metadata("requirements"));
 
     if (pack.hasMetadata("date"))
       p.setDateElement(Factory.newDateTime(pack.metadata("date").substring(0, 10)));
@@ -879,11 +879,11 @@ public class ProfileGenerator {
       p.setDate(genDate.getTime());
 
     if (pack.hasMetadata("status")) 
-      p.setStatus(ConformanceResourceStatus.fromCode(pack.metadata("status")));
+      p.setStatus(PublicationStatus.fromCode(pack.metadata("status")));
     if (pack.getMetadata().containsKey("code"))
       for (String s : pack.getMetadata().get("code")) 
         if (!Utilities.noString(s))
-          p.getCode().add(Factory.makeCoding(s));
+          p.getKeyword().add(Factory.makeCoding(s));
 
     if (pack.hasMetadata("datadictionary"))
       ToolingExtensions.setStringExtension(p, "http://hl7.org/fhir/StructureDefinition/datadictionary", pack.metadata("datadictionary"));
@@ -1646,7 +1646,7 @@ public class ProfileGenerator {
     opd.addContact().getTelecom().add(org.hl7.fhir.dstu3.model.Factory.newContactPoint(ContactPointSystem.OTHER, "http://hl7.org/fhir"));
     opd.getContact().get(0).getTelecom().add(org.hl7.fhir.dstu3.model.Factory.newContactPoint(ContactPointSystem.EMAIL, "fhir@lists.hl7.org"));
     opd.setDescription(op.getDoco());
-    opd.setStatus(ConformanceResourceStatus.DRAFT);
+    opd.setStatus(PublicationStatus.DRAFT);
     opd.setDate(genDate.getTime());
     if (op.getKind().toLowerCase().equals("operation"))
       opd.setKind(OperationKind.OPERATION);
@@ -1734,7 +1734,7 @@ public class ProfileGenerator {
     p.setAbstract(false);
     p.setUserData("filename", r.getName().toLowerCase());
     p.setUserData("path", igd.getPrefix()+ r.getName().toLowerCase()+".html");
-    p.setDisplay(r.getName());
+    p.setTitle(r.getName());
     p.setFhirVersion(version);
 
     ToolResourceUtilities.updateUsage(p, igd.getCode());
@@ -1744,11 +1744,11 @@ public class ProfileGenerator {
     if (r.getWg() != null)
       p.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.OTHER, r.getWg().getUrl()));
     p.setDescription("Logical Model: "+r.getDefinition());
-    p.setRequirements(r.getRoot().getRequirements());
-    if (!p.hasRequirements())
-      p.setRequirements(r.getRoot().getRequirements());
+    p.setPurpose(r.getRoot().getRequirements());
+    if (!p.hasPurpose())
+      p.setPurpose(r.getRoot().getRequirements());
     p.setDate(genDate.getTime());
-    p.setStatus(ConformanceResourceStatus.fromCode("draft")); // DSTU
+    p.setStatus(PublicationStatus.fromCode("draft")); // DSTU
 
     Set<String> containedSlices = new HashSet<String>();
 

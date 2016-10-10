@@ -17,7 +17,7 @@ import org.hl7.fhir.dstu3.model.CodeType;
 import org.hl7.fhir.dstu3.model.DateTimeType;
 import org.hl7.fhir.dstu3.model.ElementDefinition;
 import org.hl7.fhir.dstu3.model.Enumerations.BindingStrength;
-import org.hl7.fhir.dstu3.model.Enumerations.ConformanceResourceStatus;
+import org.hl7.fhir.dstu3.model.Enumerations.PublicationStatus;
 import org.hl7.fhir.dstu3.model.IntegerType;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
 import org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionKind;
@@ -110,7 +110,7 @@ public class V2ProfileGenerator {
     sd.setId(vi.version+"-"+segment.code);
     sd.setUrl("http://hl7.org/fhir/v2/StructureDefinition/"+vi.version+"-"+segment.code);
     sd.setName("Segment "+segment.code+" for Version "+vi.version);
-    sd.setStatus(ConformanceResourceStatus.DRAFT);
+    sd.setStatus(PublicationStatus.DRAFT);
     sd.setPublisher("HL7, International");
     sd.setDateElement(DateTimeType.today());
     sd.setCopyright("This content is published under HL7's normal content licence, the license that applies to HL7 v2. Use is only open to HL7 members");

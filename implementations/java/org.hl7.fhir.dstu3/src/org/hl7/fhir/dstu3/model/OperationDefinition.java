@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Oct 10, 2016 12:40+1100 for FHIR v1.7.0
+// Generated on Mon, Oct 10, 2016 15:45+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -1721,11 +1721,11 @@ public class OperationDefinition extends MetadataResource {
     protected MarkdownType description;
 
     /**
-     * Explains why this operation definition is needed and why it's been constrained as it has.
+     * Explains why this operation definition is needed and why it has been designed as it has.
      */
-    @Child(name = "requirements", type = {MarkdownType.class}, order=4, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="Why this resource has been created", formalDefinition="Explains why this operation definition is needed and why it's been constrained as it has." )
-    protected MarkdownType requirements;
+    @Child(name = "purpose", type = {MarkdownType.class}, order=4, min=0, max=1, modifier=false, summary=false)
+    @Description(shortDefinition="Why this operation definition is defined", formalDefinition="Explains why this operation definition is needed and why it has been designed as it has." )
+    protected MarkdownType purpose;
 
     /**
      * Operations that are idempotent (see [HTTP specification definition of idempotent](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html)) may be invoked by performing an HTTP GET operation instead of a POST.
@@ -1803,7 +1803,7 @@ public class OperationDefinition extends MetadataResource {
     @Description(shortDefinition="For generating overloaded methods in code", formalDefinition="Defines an appropriate combination of parameters to use when invoking this operation." )
     protected List<OperationDefinitionOverloadComponent> overload;
 
-    private static final long serialVersionUID = -1952193650L;
+    private static final long serialVersionUID = -661021400L;
 
   /**
    * Constructor
@@ -1815,7 +1815,7 @@ public class OperationDefinition extends MetadataResource {
   /**
    * Constructor
    */
-    public OperationDefinition(StringType name, Enumeration<ConformanceResourceStatus> status, Enumeration<OperationKind> kind, CodeType code, BooleanType system, BooleanType type, BooleanType instance) {
+    public OperationDefinition(StringType name, Enumeration<PublicationStatus> status, Enumeration<OperationKind> kind, CodeType code, BooleanType system, BooleanType type, BooleanType instance) {
       super();
       this.name = name;
       this.status = status;
@@ -1972,12 +1972,12 @@ public class OperationDefinition extends MetadataResource {
     /**
      * @return {@link #status} (The status of this operation definition.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<ConformanceResourceStatus> getStatusElement() { 
+    public Enumeration<PublicationStatus> getStatusElement() { 
       if (this.status == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create OperationDefinition.status");
         else if (Configuration.doAutoCreate())
-          this.status = new Enumeration<ConformanceResourceStatus>(new ConformanceResourceStatusEnumFactory()); // bb
+          this.status = new Enumeration<PublicationStatus>(new PublicationStatusEnumFactory()); // bb
       return this.status;
     }
 
@@ -1992,7 +1992,7 @@ public class OperationDefinition extends MetadataResource {
     /**
      * @param value {@link #status} (The status of this operation definition.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public OperationDefinition setStatusElement(Enumeration<ConformanceResourceStatus> value) { 
+    public OperationDefinition setStatusElement(Enumeration<PublicationStatus> value) { 
       this.status = value;
       return this;
     }
@@ -2000,16 +2000,16 @@ public class OperationDefinition extends MetadataResource {
     /**
      * @return The status of this operation definition.
      */
-    public ConformanceResourceStatus getStatus() { 
+    public PublicationStatus getStatus() { 
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
      * @param value The status of this operation definition.
      */
-    public OperationDefinition setStatus(ConformanceResourceStatus value) { 
+    public OperationDefinition setStatus(PublicationStatus value) { 
         if (this.status == null)
-          this.status = new Enumeration<ConformanceResourceStatus>(new ConformanceResourceStatusEnumFactory());
+          this.status = new Enumeration<PublicationStatus>(new PublicationStatusEnumFactory());
         this.status.setValue(value);
       return this;
     }
@@ -2358,50 +2358,50 @@ public class OperationDefinition extends MetadataResource {
     }
 
     /**
-     * @return {@link #requirements} (Explains why this operation definition is needed and why it's been constrained as it has.). This is the underlying object with id, value and extensions. The accessor "getRequirements" gives direct access to the value
+     * @return {@link #purpose} (Explains why this operation definition is needed and why it has been designed as it has.). This is the underlying object with id, value and extensions. The accessor "getPurpose" gives direct access to the value
      */
-    public MarkdownType getRequirementsElement() { 
-      if (this.requirements == null)
+    public MarkdownType getPurposeElement() { 
+      if (this.purpose == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create OperationDefinition.requirements");
+          throw new Error("Attempt to auto-create OperationDefinition.purpose");
         else if (Configuration.doAutoCreate())
-          this.requirements = new MarkdownType(); // bb
-      return this.requirements;
+          this.purpose = new MarkdownType(); // bb
+      return this.purpose;
     }
 
-    public boolean hasRequirementsElement() { 
-      return this.requirements != null && !this.requirements.isEmpty();
+    public boolean hasPurposeElement() { 
+      return this.purpose != null && !this.purpose.isEmpty();
     }
 
-    public boolean hasRequirements() { 
-      return this.requirements != null && !this.requirements.isEmpty();
+    public boolean hasPurpose() { 
+      return this.purpose != null && !this.purpose.isEmpty();
     }
 
     /**
-     * @param value {@link #requirements} (Explains why this operation definition is needed and why it's been constrained as it has.). This is the underlying object with id, value and extensions. The accessor "getRequirements" gives direct access to the value
+     * @param value {@link #purpose} (Explains why this operation definition is needed and why it has been designed as it has.). This is the underlying object with id, value and extensions. The accessor "getPurpose" gives direct access to the value
      */
-    public OperationDefinition setRequirementsElement(MarkdownType value) { 
-      this.requirements = value;
+    public OperationDefinition setPurposeElement(MarkdownType value) { 
+      this.purpose = value;
       return this;
     }
 
     /**
-     * @return Explains why this operation definition is needed and why it's been constrained as it has.
+     * @return Explains why this operation definition is needed and why it has been designed as it has.
      */
-    public String getRequirements() { 
-      return this.requirements == null ? null : this.requirements.getValue();
+    public String getPurpose() { 
+      return this.purpose == null ? null : this.purpose.getValue();
     }
 
     /**
-     * @param value Explains why this operation definition is needed and why it's been constrained as it has.
+     * @param value Explains why this operation definition is needed and why it has been designed as it has.
      */
-    public OperationDefinition setRequirements(String value) { 
+    public OperationDefinition setPurpose(String value) { 
       if (value == null)
-        this.requirements = null;
+        this.purpose = null;
       else {
-        if (this.requirements == null)
-          this.requirements = new MarkdownType();
-        this.requirements.setValue(value);
+        if (this.purpose == null)
+          this.purpose = new MarkdownType();
+        this.purpose.setValue(value);
       }
       return this;
     }
@@ -2904,7 +2904,7 @@ public class OperationDefinition extends MetadataResource {
         childrenList.add(new Property("contact", "", "Contacts to assist a user in finding and communicating with the publisher.", 0, java.lang.Integer.MAX_VALUE, contact));
         childrenList.add(new Property("description", "markdown", "A free text natural language description of the profile and its use.", 0, java.lang.Integer.MAX_VALUE, description));
         childrenList.add(new Property("useContext", "CodeableConcept", "The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of code system definitions.", 0, java.lang.Integer.MAX_VALUE, useContext));
-        childrenList.add(new Property("requirements", "markdown", "Explains why this operation definition is needed and why it's been constrained as it has.", 0, java.lang.Integer.MAX_VALUE, requirements));
+        childrenList.add(new Property("purpose", "markdown", "Explains why this operation definition is needed and why it has been designed as it has.", 0, java.lang.Integer.MAX_VALUE, purpose));
         childrenList.add(new Property("idempotent", "boolean", "Operations that are idempotent (see [HTTP specification definition of idempotent](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html)) may be invoked by performing an HTTP GET operation instead of a POST.", 0, java.lang.Integer.MAX_VALUE, idempotent));
         childrenList.add(new Property("code", "code", "The name used to invoke the operation.", 0, java.lang.Integer.MAX_VALUE, code));
         childrenList.add(new Property("comment", "string", "Additional information about how to use this operation or named query.", 0, java.lang.Integer.MAX_VALUE, comment));
@@ -2923,7 +2923,7 @@ public class OperationDefinition extends MetadataResource {
         case 116079: /*url*/ return this.url == null ? new Base[0] : new Base[] {this.url}; // UriType
         case 351608024: /*version*/ return this.version == null ? new Base[0] : new Base[] {this.version}; // StringType
         case 3373707: /*name*/ return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
-        case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<ConformanceResourceStatus>
+        case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<PublicationStatus>
         case 3292052: /*kind*/ return this.kind == null ? new Base[0] : new Base[] {this.kind}; // Enumeration<OperationKind>
         case -404562712: /*experimental*/ return this.experimental == null ? new Base[0] : new Base[] {this.experimental}; // BooleanType
         case 3076014: /*date*/ return this.date == null ? new Base[0] : new Base[] {this.date}; // DateTimeType
@@ -2931,7 +2931,7 @@ public class OperationDefinition extends MetadataResource {
         case 951526432: /*contact*/ return this.contact == null ? new Base[0] : this.contact.toArray(new Base[this.contact.size()]); // OperationDefinitionContactComponent
         case -1724546052: /*description*/ return this.description == null ? new Base[0] : new Base[] {this.description}; // MarkdownType
         case -669707736: /*useContext*/ return this.useContext == null ? new Base[0] : this.useContext.toArray(new Base[this.useContext.size()]); // CodeableConcept
-        case -1619874672: /*requirements*/ return this.requirements == null ? new Base[0] : new Base[] {this.requirements}; // MarkdownType
+        case -220463842: /*purpose*/ return this.purpose == null ? new Base[0] : new Base[] {this.purpose}; // MarkdownType
         case 1680468793: /*idempotent*/ return this.idempotent == null ? new Base[0] : new Base[] {this.idempotent}; // BooleanType
         case 3059181: /*code*/ return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeType
         case 950398559: /*comment*/ return this.comment == null ? new Base[0] : new Base[] {this.comment}; // StringType
@@ -2960,7 +2960,7 @@ public class OperationDefinition extends MetadataResource {
           this.name = castToString(value); // StringType
           break;
         case -892481550: // status
-          this.status = new ConformanceResourceStatusEnumFactory().fromType(value); // Enumeration<ConformanceResourceStatus>
+          this.status = new PublicationStatusEnumFactory().fromType(value); // Enumeration<PublicationStatus>
           break;
         case 3292052: // kind
           this.kind = new OperationKindEnumFactory().fromType(value); // Enumeration<OperationKind>
@@ -2983,8 +2983,8 @@ public class OperationDefinition extends MetadataResource {
         case -669707736: // useContext
           this.getUseContext().add(castToCodeableConcept(value)); // CodeableConcept
           break;
-        case -1619874672: // requirements
-          this.requirements = castToMarkdown(value); // MarkdownType
+        case -220463842: // purpose
+          this.purpose = castToMarkdown(value); // MarkdownType
           break;
         case 1680468793: // idempotent
           this.idempotent = castToBoolean(value); // BooleanType
@@ -3030,7 +3030,7 @@ public class OperationDefinition extends MetadataResource {
         else if (name.equals("name"))
           this.name = castToString(value); // StringType
         else if (name.equals("status"))
-          this.status = new ConformanceResourceStatusEnumFactory().fromType(value); // Enumeration<ConformanceResourceStatus>
+          this.status = new PublicationStatusEnumFactory().fromType(value); // Enumeration<PublicationStatus>
         else if (name.equals("kind"))
           this.kind = new OperationKindEnumFactory().fromType(value); // Enumeration<OperationKind>
         else if (name.equals("experimental"))
@@ -3045,8 +3045,8 @@ public class OperationDefinition extends MetadataResource {
           this.description = castToMarkdown(value); // MarkdownType
         else if (name.equals("useContext"))
           this.getUseContext().add(castToCodeableConcept(value));
-        else if (name.equals("requirements"))
-          this.requirements = castToMarkdown(value); // MarkdownType
+        else if (name.equals("purpose"))
+          this.purpose = castToMarkdown(value); // MarkdownType
         else if (name.equals("idempotent"))
           this.idempotent = castToBoolean(value); // BooleanType
         else if (name.equals("code"))
@@ -3077,7 +3077,7 @@ public class OperationDefinition extends MetadataResource {
         case 116079: throw new FHIRException("Cannot make property url as it is not a complex type"); // UriType
         case 351608024: throw new FHIRException("Cannot make property version as it is not a complex type"); // StringType
         case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
-        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<ConformanceResourceStatus>
+        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<PublicationStatus>
         case 3292052: throw new FHIRException("Cannot make property kind as it is not a complex type"); // Enumeration<OperationKind>
         case -404562712: throw new FHIRException("Cannot make property experimental as it is not a complex type"); // BooleanType
         case 3076014: throw new FHIRException("Cannot make property date as it is not a complex type"); // DateTimeType
@@ -3085,7 +3085,7 @@ public class OperationDefinition extends MetadataResource {
         case 951526432:  return addContact(); // OperationDefinitionContactComponent
         case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // MarkdownType
         case -669707736:  return addUseContext(); // CodeableConcept
-        case -1619874672: throw new FHIRException("Cannot make property requirements as it is not a complex type"); // MarkdownType
+        case -220463842: throw new FHIRException("Cannot make property purpose as it is not a complex type"); // MarkdownType
         case 1680468793: throw new FHIRException("Cannot make property idempotent as it is not a complex type"); // BooleanType
         case 3059181: throw new FHIRException("Cannot make property code as it is not a complex type"); // CodeType
         case 950398559: throw new FHIRException("Cannot make property comment as it is not a complex type"); // StringType
@@ -3136,8 +3136,8 @@ public class OperationDefinition extends MetadataResource {
         else if (name.equals("useContext")) {
           return addUseContext();
         }
-        else if (name.equals("requirements")) {
-          throw new FHIRException("Cannot call addChild on a primitive type OperationDefinition.requirements");
+        else if (name.equals("purpose")) {
+          throw new FHIRException("Cannot call addChild on a primitive type OperationDefinition.purpose");
         }
         else if (name.equals("idempotent")) {
           throw new FHIRException("Cannot call addChild on a primitive type OperationDefinition.idempotent");
@@ -3201,7 +3201,7 @@ public class OperationDefinition extends MetadataResource {
           for (CodeableConcept i : useContext)
             dst.useContext.add(i.copy());
         };
-        dst.requirements = requirements == null ? null : requirements.copy();
+        dst.purpose = purpose == null ? null : purpose.copy();
         dst.idempotent = idempotent == null ? null : idempotent.copy();
         dst.code = code == null ? null : code.copy();
         dst.comment = comment == null ? null : comment.copy();
@@ -3238,11 +3238,8 @@ public class OperationDefinition extends MetadataResource {
         if (!(other instanceof OperationDefinition))
           return false;
         OperationDefinition o = (OperationDefinition) other;
-        return compareDeep(url, o.url, true) && compareDeep(version, o.version, true) && compareDeep(name, o.name, true)
-           && compareDeep(status, o.status, true) && compareDeep(kind, o.kind, true) && compareDeep(experimental, o.experimental, true)
-           && compareDeep(date, o.date, true) && compareDeep(publisher, o.publisher, true) && compareDeep(contact, o.contact, true)
-           && compareDeep(description, o.description, true) && compareDeep(useContext, o.useContext, true)
-           && compareDeep(requirements, o.requirements, true) && compareDeep(idempotent, o.idempotent, true)
+        return compareDeep(kind, o.kind, true) && compareDeep(publisher, o.publisher, true) && compareDeep(contact, o.contact, true)
+           && compareDeep(description, o.description, true) && compareDeep(purpose, o.purpose, true) && compareDeep(idempotent, o.idempotent, true)
            && compareDeep(code, o.code, true) && compareDeep(comment, o.comment, true) && compareDeep(base, o.base, true)
            && compareDeep(resource, o.resource, true) && compareDeep(system, o.system, true) && compareDeep(type, o.type, true)
            && compareDeep(instance, o.instance, true) && compareDeep(parameter, o.parameter, true) && compareDeep(overload, o.overload, true)
@@ -3256,20 +3253,16 @@ public class OperationDefinition extends MetadataResource {
         if (!(other instanceof OperationDefinition))
           return false;
         OperationDefinition o = (OperationDefinition) other;
-        return compareValues(url, o.url, true) && compareValues(version, o.version, true) && compareValues(name, o.name, true)
-           && compareValues(status, o.status, true) && compareValues(kind, o.kind, true) && compareValues(experimental, o.experimental, true)
-           && compareValues(date, o.date, true) && compareValues(publisher, o.publisher, true) && compareValues(description, o.description, true)
-           && compareValues(requirements, o.requirements, true) && compareValues(idempotent, o.idempotent, true)
-           && compareValues(code, o.code, true) && compareValues(comment, o.comment, true) && compareValues(resource, o.resource, true)
-           && compareValues(system, o.system, true) && compareValues(type, o.type, true) && compareValues(instance, o.instance, true)
-          ;
+        return compareValues(kind, o.kind, true) && compareValues(publisher, o.publisher, true) && compareValues(description, o.description, true)
+           && compareValues(purpose, o.purpose, true) && compareValues(idempotent, o.idempotent, true) && compareValues(code, o.code, true)
+           && compareValues(comment, o.comment, true) && compareValues(resource, o.resource, true) && compareValues(system, o.system, true)
+           && compareValues(type, o.type, true) && compareValues(instance, o.instance, true);
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(url, version, name, status
-          , kind, experimental, date, publisher, contact, description, useContext, requirements
-          , idempotent, code, comment, base, resource, system, type, instance, parameter
-          , overload);
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(kind, publisher, contact
+          , description, purpose, idempotent, code, comment, base, resource, system, type
+          , instance, parameter, overload);
       }
 
   @Override

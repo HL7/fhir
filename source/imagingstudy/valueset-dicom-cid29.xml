@@ -12,7 +12,7 @@
     </telecom>
   </contact>
   <description value="This Value Set includes codes that may be used to identify an image or waveform acquisition modality, as used in the ImagingStudy resource, Dicom  Attribute Modality (0008,0060) or HL7 v2 Table 0259 (see HL7 v2.6 Chapter 8 Section 8.8.8.47). It generally corresponds to a class of diagnostic equipment, or to a specific acquisition function or technique in a device."/>
-  <requirements value="This Value Set is not the complete set of codes that may appear in the Attribute Modality (0008,0060); these are only the codes associated with orderable acquisition processes (not post-processing)."/>
+  <purpose value="This Value Set is not the complete set of codes that may appear in the Attribute Modality (0008,0060); these are only the codes associated with orderable acquisition processes (not post-processing)."/>
   <copyright value="These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright 2011 by the National Electrical Manufacturers Association."/>
   <extensible value="true"/>
   <compose>

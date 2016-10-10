@@ -46,7 +46,7 @@ import org.hl7.fhir.dstu3.model.CodeSystem;
 import org.hl7.fhir.dstu3.model.ConceptMap;
 import org.hl7.fhir.dstu3.model.DateTimeType;
 import org.hl7.fhir.dstu3.model.Enumerations.BindingStrength;
-import org.hl7.fhir.dstu3.model.Enumerations.ConformanceResourceStatus;
+import org.hl7.fhir.dstu3.model.Enumerations.PublicationStatus;
 import org.hl7.fhir.dstu3.model.ValueSet;
 import org.hl7.fhir.dstu3.terminologies.CodeSystemUtilities;
 import org.hl7.fhir.dstu3.terminologies.ValueSetUtilities;
@@ -155,7 +155,7 @@ public class BindingsParser {
         cd.getValueSet().setUserData("path", "valueset-"+cd.getValueSet().getId()+".html");
         cd.getValueSet().setName(cd.getName());
         cd.getValueSet().setDateElement(new DateTimeType(genDate));
-        cd.getValueSet().setStatus(ConformanceResourceStatus.DRAFT);
+        cd.getValueSet().setStatus(PublicationStatus.DRAFT);
         cd.getValueSet().setDescription(sheet.getColumn(row, "Description"));
         if (!cd.getValueSet().hasDescription())
           cd.getValueSet().setDescription(cd.getDefinition());
@@ -206,7 +206,7 @@ public class BindingsParser {
       if (!Utilities.noString(oid))
         cd.setVsOid(oid); // no cs oid in this case
       cd.setWebSite(sheet.getColumn(row, "Website"));
-      cd.setStatus(ConformanceResourceStatus.fromCode(sheet.getColumn(row, "Status")));
+      cd.setStatus(PublicationStatus.fromCode(sheet.getColumn(row, "Status")));
       cd.setEmail(sheet.getColumn(row, "Email"));
       cd.setV2Map(sheet.getColumn(row, "v2"));
       cd.setV3Map(sheet.getColumn(row, "v3"));

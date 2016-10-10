@@ -214,12 +214,7 @@
   Comments = Normally immutability is set to \'false\', which is the default assumption if it is not populated.  Note that the implication is that if this is set to \'true\', there may be only one ValueSet version for this definition. Immutability tends to be set to \'true\' in one of two cases: - Where the value set, by the nature of its usage, cannot change.  For example \"All specializations of ACT in ActClassCode\" - Where there\'s no safe way to express the \"Purpose\" such that someone else could safely make changes to the value set definition. Source workflow control must guarantee that the same URI always yields the same definition
 
  -- Row 16 -----------------------------------
-  Element = ValueSet.requirements
-  Card. = 0..1
-  Type = markdown
-  Short Name = Why needed
-  Definition = Explains why this value set is needed and why it has been constrained as it has
-  Comments = This element does not describe the usage of the value set (that is done in comments), rather it\'s for traceability of \'\'why\'\' the element is either needed or \'\'why\'\' the constraints exist as they do.  This may be used to point to source materials or specifications that drove the structure of this data element
+  Element = ValueSet.purpose
 
  -- Row 17 -----------------------------------
   Element = ValueSet.copyright

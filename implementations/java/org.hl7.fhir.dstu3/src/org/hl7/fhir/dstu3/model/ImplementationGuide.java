@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Oct 10, 2016 12:40+1100 for FHIR v1.7.0
+// Generated on Mon, Oct 10, 2016 15:45+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -2518,7 +2518,7 @@ public class ImplementationGuide extends MetadataResource {
   /**
    * Constructor
    */
-    public ImplementationGuide(UriType url, StringType name, Enumeration<ConformanceResourceStatus> status) {
+    public ImplementationGuide(UriType url, StringType name, Enumeration<PublicationStatus> status) {
       super();
       this.url = url;
       this.name = name;
@@ -2667,12 +2667,12 @@ public class ImplementationGuide extends MetadataResource {
     /**
      * @return {@link #status} (The status of this implementation guide.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<ConformanceResourceStatus> getStatusElement() { 
+    public Enumeration<PublicationStatus> getStatusElement() { 
       if (this.status == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ImplementationGuide.status");
         else if (Configuration.doAutoCreate())
-          this.status = new Enumeration<ConformanceResourceStatus>(new ConformanceResourceStatusEnumFactory()); // bb
+          this.status = new Enumeration<PublicationStatus>(new PublicationStatusEnumFactory()); // bb
       return this.status;
     }
 
@@ -2687,7 +2687,7 @@ public class ImplementationGuide extends MetadataResource {
     /**
      * @param value {@link #status} (The status of this implementation guide.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public ImplementationGuide setStatusElement(Enumeration<ConformanceResourceStatus> value) { 
+    public ImplementationGuide setStatusElement(Enumeration<PublicationStatus> value) { 
       this.status = value;
       return this;
     }
@@ -2695,16 +2695,16 @@ public class ImplementationGuide extends MetadataResource {
     /**
      * @return The status of this implementation guide.
      */
-    public ConformanceResourceStatus getStatus() { 
+    public PublicationStatus getStatus() { 
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
      * @param value The status of this implementation guide.
      */
-    public ImplementationGuide setStatus(ConformanceResourceStatus value) { 
+    public ImplementationGuide setStatus(PublicationStatus value) { 
         if (this.status == null)
-          this.status = new Enumeration<ConformanceResourceStatus>(new ConformanceResourceStatusEnumFactory());
+          this.status = new Enumeration<PublicationStatus>(new PublicationStatusEnumFactory());
         this.status.setValue(value);
       return this;
     }
@@ -3376,7 +3376,7 @@ public class ImplementationGuide extends MetadataResource {
         case 116079: /*url*/ return this.url == null ? new Base[0] : new Base[] {this.url}; // UriType
         case 351608024: /*version*/ return this.version == null ? new Base[0] : new Base[] {this.version}; // StringType
         case 3373707: /*name*/ return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
-        case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<ConformanceResourceStatus>
+        case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<PublicationStatus>
         case -404562712: /*experimental*/ return this.experimental == null ? new Base[0] : new Base[] {this.experimental}; // BooleanType
         case 1447404028: /*publisher*/ return this.publisher == null ? new Base[0] : new Base[] {this.publisher}; // StringType
         case 951526432: /*contact*/ return this.contact == null ? new Base[0] : this.contact.toArray(new Base[this.contact.size()]); // ImplementationGuideContactComponent
@@ -3408,7 +3408,7 @@ public class ImplementationGuide extends MetadataResource {
           this.name = castToString(value); // StringType
           break;
         case -892481550: // status
-          this.status = new ConformanceResourceStatusEnumFactory().fromType(value); // Enumeration<ConformanceResourceStatus>
+          this.status = new PublicationStatusEnumFactory().fromType(value); // Enumeration<PublicationStatus>
           break;
         case -404562712: // experimental
           this.experimental = castToBoolean(value); // BooleanType
@@ -3463,7 +3463,7 @@ public class ImplementationGuide extends MetadataResource {
         else if (name.equals("name"))
           this.name = castToString(value); // StringType
         else if (name.equals("status"))
-          this.status = new ConformanceResourceStatusEnumFactory().fromType(value); // Enumeration<ConformanceResourceStatus>
+          this.status = new PublicationStatusEnumFactory().fromType(value); // Enumeration<PublicationStatus>
         else if (name.equals("experimental"))
           this.experimental = castToBoolean(value); // BooleanType
         else if (name.equals("publisher"))
@@ -3500,7 +3500,7 @@ public class ImplementationGuide extends MetadataResource {
         case 116079: throw new FHIRException("Cannot make property url as it is not a complex type"); // UriType
         case 351608024: throw new FHIRException("Cannot make property version as it is not a complex type"); // StringType
         case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
-        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<ConformanceResourceStatus>
+        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<PublicationStatus>
         case -404562712: throw new FHIRException("Cannot make property experimental as it is not a complex type"); // BooleanType
         case 1447404028: throw new FHIRException("Cannot make property publisher as it is not a complex type"); // StringType
         case 951526432:  return addContact(); // ImplementationGuideContactComponent
@@ -3640,12 +3640,10 @@ public class ImplementationGuide extends MetadataResource {
         if (!(other instanceof ImplementationGuide))
           return false;
         ImplementationGuide o = (ImplementationGuide) other;
-        return compareDeep(url, o.url, true) && compareDeep(version, o.version, true) && compareDeep(name, o.name, true)
-           && compareDeep(status, o.status, true) && compareDeep(experimental, o.experimental, true) && compareDeep(publisher, o.publisher, true)
-           && compareDeep(contact, o.contact, true) && compareDeep(date, o.date, true) && compareDeep(description, o.description, true)
-           && compareDeep(useContext, o.useContext, true) && compareDeep(copyright, o.copyright, true) && compareDeep(fhirVersion, o.fhirVersion, true)
-           && compareDeep(dependency, o.dependency, true) && compareDeep(package_, o.package_, true) && compareDeep(global, o.global, true)
-           && compareDeep(binary, o.binary, true) && compareDeep(page, o.page, true);
+        return compareDeep(publisher, o.publisher, true) && compareDeep(contact, o.contact, true) && compareDeep(description, o.description, true)
+           && compareDeep(copyright, o.copyright, true) && compareDeep(fhirVersion, o.fhirVersion, true) && compareDeep(dependency, o.dependency, true)
+           && compareDeep(package_, o.package_, true) && compareDeep(global, o.global, true) && compareDeep(binary, o.binary, true)
+           && compareDeep(page, o.page, true);
       }
 
       @Override
@@ -3655,16 +3653,14 @@ public class ImplementationGuide extends MetadataResource {
         if (!(other instanceof ImplementationGuide))
           return false;
         ImplementationGuide o = (ImplementationGuide) other;
-        return compareValues(url, o.url, true) && compareValues(version, o.version, true) && compareValues(name, o.name, true)
-           && compareValues(status, o.status, true) && compareValues(experimental, o.experimental, true) && compareValues(publisher, o.publisher, true)
-           && compareValues(date, o.date, true) && compareValues(description, o.description, true) && compareValues(copyright, o.copyright, true)
-           && compareValues(fhirVersion, o.fhirVersion, true) && compareValues(binary, o.binary, true);
+        return compareValues(publisher, o.publisher, true) && compareValues(description, o.description, true)
+           && compareValues(copyright, o.copyright, true) && compareValues(fhirVersion, o.fhirVersion, true) && compareValues(binary, o.binary, true)
+          ;
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(url, version, name, status
-          , experimental, publisher, contact, date, description, useContext, copyright, fhirVersion
-          , dependency, package_, global, binary, page);
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(publisher, contact, description
+          , copyright, fhirVersion, dependency, package_, global, binary, page);
       }
 
   @Override

@@ -150,12 +150,7 @@
   Element = OperationDefinition.useContext
 
  -- Row 15 -----------------------------------
-  Element = OperationDefinition.requirements
-  Card. = 0..1
-  Type = markdown
-  Short Name = Why this resource has been created
-  Definition = Explains why this operation definition is needed and why it\'s been constrained as it has
-  Comments = This element does not describe the usage of the operation definition (that\'s done in comments), rather it\'s for traceability of *why* the element is either needed or why the constraints exist as they do.  This may be used to point to source materials or specifications that drove the structure of this data element
+  Element = OperationDefinition.purpose
 
  -- Row 16 -----------------------------------
   Element = OperationDefinition.idempotent

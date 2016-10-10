@@ -11,7 +11,7 @@ import org.hl7.fhir.dstu3.model.CodeSystem.CodeSystemContentMode;
 import org.hl7.fhir.dstu3.model.CodeSystem.CodeSystemHierarchyMeaning;
 import org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionComponent;
 import org.hl7.fhir.dstu3.model.DateTimeType;
-import org.hl7.fhir.dstu3.model.Enumerations.ConformanceResourceStatus;
+import org.hl7.fhir.dstu3.model.Enumerations.PublicationStatus;
 import org.hl7.fhir.dstu3.utils.ToolingExtensions;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.utilities.CSVReader;
@@ -34,7 +34,7 @@ public class NUCCConvertor {
     cs.setDateElement(new DateTimeType());
     cs.setDescription("The Health Care Provider Taxonomy code is a unique alphanumeric code, ten characters in length. The code set is structured into three distinct 'Levels' including Provider Type, Classification, and Area of Specialization");
     cs.setCopyright("See NUCC copyright statement");
-    cs.setStatus(ConformanceResourceStatus.ACTIVE);
+    cs.setStatus(PublicationStatus.ACTIVE);
     cs.setContent(CodeSystemContentMode.COMPLETE);
     cs.setExperimental(false);
     cs.setValueSet("http://hl7.org/fhir/ValueSet/nucc-provider-taxonomy"); 
