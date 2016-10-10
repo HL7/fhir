@@ -129,42 +129,12 @@
 
  -- Row 6 -----------------------------------
   Element = NamingSystem.publisher
-  Card. = 0..1
-  Summary = y
-  Type = string
-  Short Name = Name of the publisher (Organization or individual)
-  Definition = The name of the individual or organization that published the naming system
-  Requirements = Helps establish the \"authority/credibility\" of the naming system.  May also allow for contact
-  Comments = Usually an organization, but may be an individual. This item SHOULD be populated unless the information is available from context.
-  w5 = who.witness
 
  -- Row 7 -----------------------------------
   Element = NamingSystem.contact
-  Card. = 0..*
-  Summary = y
   UML = 400;20
-  Short Name = Contact details of the publisher
-  Definition = Contacts to assist a user in finding and communicating with the publisher
-  Comments = May be a web site, an email address, a telephone number (tel:), etc.
 
  -- Row 8 -----------------------------------
-  Element = NamingSystem.contact.name
-  Card. = 0..1
-  Summary = Y
-  Type = string
-  Short Name = Name of an individual to contact
-  Definition = The name of an individual to contact regarding the naming system
-  Comments = If there is no named individual, the telecom is for the organization as a whole
-
- -- Row 9 -----------------------------------
-  Element = NamingSystem.contact.telecom
-  Card. = 0..*
-  Summary = Y
-  Type = ContactPoint
-  Short Name = Contact details for individual or publisher
-  Definition = Contact details for individual (if a name was provided) or the publisher
-
- -- Row 10 -----------------------------------
   Element = NamingSystem.responsible
   Card. = 0..1
   Type = string
@@ -173,7 +143,7 @@
   Comments = This is the primary organization.  Responsibility for some aspects of a namespace may be delegated
   w5 = who.witness
 
- -- Row 11 -----------------------------------
+ -- Row 9 -----------------------------------
   Element = NamingSystem.type
   Card. = 0..1
   Type = CodeableConcept
@@ -182,24 +152,21 @@
   Definition = Categorizes a naming system for easier search by grouping related naming systems.
   Comments = This will most commonly be used for identifier namespaces, but categories could potentially be useful for code systems and authorities as well.
 
- -- Row 12 -----------------------------------
+ -- Row 10 -----------------------------------
   Element = NamingSystem.description
-  Card. = 0..1
-  Type = markdown
-  Short Name = What does naming system identify?
-  Definition = Details about what the namespace identifies including scope, granularity, version labeling, etc.
+  Definition = & Details about what the namespace identifies including scope, granularity, version labeling, etc.
 
- -- Row 13 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = NamingSystem.useContext
 
- -- Row 14 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = NamingSystem.usage
   Card. = 0..1
   Type = string
   Short Name = How/where is it used
   Definition = Provides guidance on the use of the namespace, including the handling of formatting characters, use of upper vs. lower case, etc.
 
- -- Row 15 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = NamingSystem.uniqueId
   Card. = 1..*
   UML = 400;120
@@ -207,7 +174,7 @@
   Definition = Indicates how the system may be identified when referenced in electronic exchange
   Comments = Multiple identifiers may exist, either due to duplicate registration, regional rules, needs of different communication technologies, etc.
 
- -- Row 16 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = NamingSystem.uniqueId.type
   Card. = 1..1
   Type = code
@@ -216,7 +183,7 @@
   Definition = Identifies the unique identifier scheme used for this particular identifier.
   Comments = Different identifier types may be used in different types of communications (OIDs for v3, URIs for FHIR, etc.).  Other includes RUIDs from v3, standard v2 code name strings, etc.
 
- -- Row 17 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = NamingSystem.uniqueId.value
   Card. = 1..1
   Type = string
@@ -225,7 +192,7 @@
   Comments = If the value is a URI intended for use as FHIR system identifier, the URI should not contain \"\\\" or \"?\" or \",\" since this makes escaping very difficult
   w5 = id
 
- -- Row 18 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = NamingSystem.uniqueId.preferred
   Card. = 0..1
   Type = boolean
@@ -233,7 +200,7 @@
   Definition = Indicates whether this identifier is the \"preferred\" identifier of this type.
   Missing Meaning = If there are multiple ids, and one is labelled \"preferred\", then the assumption is that the others are not preferred. In the absence of any id marked as preferred, no inference can be drawn
 
- -- Row 19 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = NamingSystem.uniqueId.comment
   Card. = 0..1
   Type = string
@@ -241,7 +208,7 @@
   Definition = Notes about the past or intended usage of this identifier
   Comments = e.g. \"must be used in Germany\" or \"was initially published in error with this value\"
 
- -- Row 20 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = NamingSystem.uniqueId.period
   Card. = 0..1
   Type = Period
@@ -249,7 +216,7 @@
   Definition = Identifies the period of time over which this identifier is considered appropriate to refer to the naming system.  Outside of this window, the identifier might be non-deterministic
   Comments = Within a registry, a given identifier should only be \"active\" for a single namespace at a time.  (Ideally, an identifier should only ever be associated with a single namespace across all time)
 
- -- Row 21 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = NamingSystem.replacedBy
   Card. = 0..1
   Inv. = 3
@@ -290,21 +257,16 @@
   Path = NamingSystem.uniqueId.period
 
  -- Row 7 -----------------------------------
-  Name = publisher
-  Type = string
-  Path = NamingSystem.publisher
-
- -- Row 8 -----------------------------------
   Name = contact
   Type = string
   Path = NamingSystem.contact.name
 
- -- Row 9 -----------------------------------
+ -- Row 8 -----------------------------------
   Name = telecom
   Type = token
   Path = NamingSystem.contact.telecom
 
- -- Row 10 -----------------------------------
+ -- Row 9 -----------------------------------
   Name = replaced-by
   Type = reference
   Path = NamingSystem.replacedBy

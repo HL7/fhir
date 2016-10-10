@@ -103,63 +103,27 @@
 
  -- Row 9 -----------------------------------
   Element = OperationDefinition.publisher
-  Card. = 0..1
-  Summary = y
-  Type = string
-  Short Name = Name of the publisher (Organization or individual)
-  Definition = The name of the individual or organization that published the operation definition
-  Requirements = Helps establish the \"authority/credibility\" of the operation definition.  May also allow for contact
-  Comments = Usually an organization, but may be an individual. This item SHOULD be populated unless the information is available from context.
-  w5 = who.witness
 
  -- Row 10 -----------------------------------
   Element = OperationDefinition.contact
-  Card. = 0..*
-  Summary = y
-  UML = 400;340
-  Short Name = Contact details of the publisher
-  Definition = Contacts to assist a user in finding and communicating with the publisher
-  Comments = May be a web site, an email address, a telephone number (tel:), etc.
 
  -- Row 11 -----------------------------------
-  Element = OperationDefinition.contact.name
-  Card. = 0..1
-  Summary = Y
-  Type = string
-  Short Name = Name of an individual to contact
-  Definition = The name of an individual to contact regarding the operation definition
-  Comments = If there is no named individual, the telecom is for the organization as a whole
+  Element = OperationDefinition.description
 
  -- Row 12 -----------------------------------
-  Element = OperationDefinition.contact.telecom
-  Card. = 0..*
-  Summary = Y
-  Type = ContactPoint
-  Short Name = Contact details for individual or publisher
-  Definition = Contact details for individual (if a name was provided) or the publisher
-
- -- Row 13 -----------------------------------
-  Element = OperationDefinition.description
-  Card. = 0..1
-  Type = markdown
-  Short Name = Natural language description of the operation
-  Definition = A free text natural language description of the profile and its use
-  Comments = This field can be used for things such as why the profile was written, comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc.  It is *not* a rendering of the profile as conveyed in Profile.text. This item SHOULD be populated unless the information is available from context.
-
- -- Row 14 -----------------------------------
   Element = OperationDefinition.useContext
 
- -- Row 15 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = OperationDefinition.purpose
 
- -- Row 16 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = OperationDefinition.idempotent
   Card. = 0..1
   Type = boolean
   Short Name = Whether content is unchanged by the operation
   Definition = Operations that are idempotent (see [HTTP specification definition of idempotent](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html)) may be invoked by performing an HTTP GET operation instead of a POST
 
- -- Row 17 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = OperationDefinition.code
   Card. = 1..1
   Type = code
@@ -168,14 +132,14 @@
   Definition = The name used to invoke the operation
   Comments = The code does not include the \'$\' prefix that is always included in the URL when the operation is invoked
 
- -- Row 18 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = OperationDefinition.comment
   Card. = 0..1
   Type = string
   Short Name = Additional information about use
   Definition = Additional information about how to use this operation or named query
 
- -- Row 19 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = OperationDefinition.base
   Card. = 0..1
   Type = Reference(OperationDefinition)
@@ -183,7 +147,7 @@
   Definition = Indicates that this operation definition is a constraining profile on the base
   Comments = A constrained profile can make optional parameters required or not used and clarify documentation
 
- -- Row 20 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = OperationDefinition.resource
   Card. = 0..*
   Type = code
@@ -192,28 +156,28 @@
   Definition = The types on which this operation can be executed
   Comments = If the type is an abstract resource (\"Resource\" or \"DomainResource\") then the operation can be invoked on any concrete specialization
 
- -- Row 21 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = OperationDefinition.system
   Card. = 1..1
   Type = boolean
   Short Name = Invoke at the system level?
   Definition = Indicates whether this operation or named query can be invoked at the system level (e.g. without needing to choose a resource type for the context)
 
- -- Row 22 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = OperationDefinition.type
   Card. = 1..1
   Type = boolean
   Short Name = Invole at the type level?
   Definition = Indicates whether this operation or named query can be invoked at the resource type level for any given resource type level (e.g. without needing to choose a specific resource id for the context)
 
- -- Row 23 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = OperationDefinition.instance
   Card. = 1..1
   Type = boolean
   Short Name = Invoke on an instance?
   Definition = Indicates whether this operation can be invoked on a particular instance of one of the given types
 
- -- Row 24 -----------------------------------
+ -- Row 22 -----------------------------------
   Element = OperationDefinition.parameter
   Card. = 0..*
   UML = 400;0
@@ -221,7 +185,7 @@
   Definition = The parameters for the operation/query
   Comments = Query Definitions only have one output parameter, named \"result\". This may not be described, but can be to allow a profile to be defined
 
- -- Row 25 -----------------------------------
+ -- Row 23 -----------------------------------
   Element = OperationDefinition.parameter.name
   Card. = 1..1
   Type = code
@@ -230,7 +194,7 @@
   Definition = The name of used to identify the parameter
   Comments = This name must be a token (start with a letter in a..z, and only contain letters, numerals, and underscore. Note that for search parameters (type = string, with a search type), the name may be altered by the search modifiers
 
- -- Row 26 -----------------------------------
+ -- Row 24 -----------------------------------
   Element = OperationDefinition.parameter.use
   Card. = 1..1
   Type = code
@@ -239,28 +203,28 @@
   Definition = Whether this is an input or an output parameter
   Comments = If a parameter name is used for both an input and an output parameter, the parameter should be defined twice
 
- -- Row 27 -----------------------------------
+ -- Row 25 -----------------------------------
   Element = OperationDefinition.parameter.min
   Card. = 1..1
   Type = integer
   Short Name = Minimum Cardinality
   Definition = The minimum number of times this parameter SHALL appear in the request or response
 
- -- Row 28 -----------------------------------
+ -- Row 26 -----------------------------------
   Element = OperationDefinition.parameter.max
   Card. = 1..1
   Type = string
   Short Name = Maximum Cardinality (a number or *)
   Definition = The maximum number of times this element is permitted to appear in the request or response
 
- -- Row 29 -----------------------------------
+ -- Row 27 -----------------------------------
   Element = OperationDefinition.parameter.documentation
   Card. = 0..1
   Type = string
   Short Name = Description of meaning/use
   Definition = Describes the meaning or use of this parameter
 
- -- Row 30 -----------------------------------
+ -- Row 28 -----------------------------------
   Element = OperationDefinition.parameter.type
   Card. = 0..1
   Inv. = 1
@@ -270,7 +234,7 @@
   Definition = The type for this parameter
   Comments = if there is no stated parameter, then the parameter is a multi-part parameter; type and must have at least one part defined
 
- -- Row 31 -----------------------------------
+ -- Row 29 -----------------------------------
   Element = OperationDefinition.parameter.searchType
   Card. = 0..1
   Inv. = 2
@@ -279,21 +243,21 @@
   Short Name = number | date | string | token | reference | composite | quantity | uri
   Definition = How the parameter is understood as a search parameter. This is only used if the parameter type is \'string\'
 
- -- Row 32 -----------------------------------
+ -- Row 30 -----------------------------------
   Element = OperationDefinition.parameter.profile
   Card. = 0..1
   Type = Reference(StructureDefinition)
   Short Name = Profile on the type
   Definition = A profile the specifies the rules that this parameter must conform to
 
- -- Row 33 -----------------------------------
+ -- Row 31 -----------------------------------
   Element = OperationDefinition.parameter.binding
   Card. = 0..1
   UML = 400;180
   Short Name = ValueSet details if this is coded
   Definition = Binds to a value set if this parameter is coded (code, Coding, CodeableConcept)
 
- -- Row 34 -----------------------------------
+ -- Row 32 -----------------------------------
   Element = OperationDefinition.parameter.binding.strength
   Card. = 1..1
   Aliases = conformance; extensibility
@@ -303,7 +267,7 @@
   Definition = Indicates the degree of conformance expectations associated with this binding - that is, the degree to which the provided value set must be adhered to in the instances
   Comments = For further discussion, see [[[Using Terminologies]]]
 
- -- Row 35 -----------------------------------
+ -- Row 33 -----------------------------------
   Element = OperationDefinition.parameter.binding.valueSet[x]
   Card. = 1..1
   Type = uri | Reference(ValueSet)
@@ -311,7 +275,7 @@
   Definition = Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used
   Comments = For value sets with a referenceResource, the display can contain the value set description.  The reference may be version-specific or not
 
- -- Row 36 -----------------------------------
+ -- Row 34 -----------------------------------
   Element = OperationDefinition.parameter.part
   Card. = 0..*
   UML = right
@@ -321,7 +285,7 @@
   Definition = The parts of a nested Parameter
   Comments = Query Definitions only have one output parameter, named \"result\". This may not be described, but can be to allow a profile to be defined
 
- -- Row 37 -----------------------------------
+ -- Row 35 -----------------------------------
   Element = OperationDefinition.overload
   Card. = 0..*
   UML = left
@@ -329,14 +293,14 @@
   Definition = Defines an appropriate combination of parameters to use when invoking this operation
   Comments = This element is intended for generating overloaded methods in code, and the combinations are not authoritative
 
- -- Row 38 -----------------------------------
+ -- Row 36 -----------------------------------
   Element = OperationDefinition.overload.parameterName
   Card. = 0..*
   Type = string
   Short Name = Name of parameter to include in overload
   Definition = Name of parameter to include in overload
 
- -- Row 39 -----------------------------------
+ -- Row 37 -----------------------------------
   Element = OperationDefinition.overload.comment
   Card. = 0..1
   Type = string
@@ -346,41 +310,36 @@
 === Sheet Search =====================================
 
  -- Row 1 -----------------------------------
-  Name = publisher
-  Type = string
-  Path = OperationDefinition.publisher
-
- -- Row 2 -----------------------------------
   Name = code
   Type = token
   Path = OperationDefinition.code
 
- -- Row 3 -----------------------------------
+ -- Row 2 -----------------------------------
   Name = kind
   Type = token
   Path = OperationDefinition.kind
 
- -- Row 4 -----------------------------------
+ -- Row 3 -----------------------------------
   Name = base
   Type = reference
   Path = OperationDefinition.base
 
- -- Row 5 -----------------------------------
+ -- Row 4 -----------------------------------
   Name = system
   Type = token
   Path = OperationDefinition.system
 
- -- Row 6 -----------------------------------
+ -- Row 5 -----------------------------------
   Name = type
   Type = token
   Path = OperationDefinition.type
 
- -- Row 7 -----------------------------------
+ -- Row 6 -----------------------------------
   Name = instance
   Type = token
   Path = OperationDefinition.instance
 
- -- Row 8 -----------------------------------
+ -- Row 7 -----------------------------------
   Name = paramprofile
   Type = reference
   Path = OperationDefinition.parameter.profile

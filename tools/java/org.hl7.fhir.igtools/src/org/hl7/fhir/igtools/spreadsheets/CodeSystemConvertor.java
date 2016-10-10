@@ -6,11 +6,10 @@ import java.util.Map;
 
 import org.hl7.fhir.dstu3.formats.IParser;
 import org.hl7.fhir.dstu3.model.CodeSystem;
-import org.hl7.fhir.dstu3.model.CodeSystem.CodeSystemContactComponent;
 import org.hl7.fhir.dstu3.model.CodeableConcept;
+import org.hl7.fhir.dstu3.model.ContactDetail;
 import org.hl7.fhir.dstu3.model.ContactPoint;
 import org.hl7.fhir.dstu3.model.ValueSet;
-import org.hl7.fhir.dstu3.model.ValueSet.ValueSetContactComponent;
 import org.hl7.fhir.dstu3.terminologies.CodeSystemUtilities;
 import org.hl7.fhir.utilities.Utilities;
 
@@ -59,8 +58,8 @@ public class CodeSystemConvertor {
     cs.setStatus(vs.getStatus());
     cs.setExperimental(vs.getExperimental());
     cs.setPublisher(vs.getPublisher());
-    for (ValueSetContactComponent csrc : vs.getContact()) {
-      CodeSystemContactComponent ctgt = cs.addContact();
+    for (ContactDetail csrc : vs.getContact()) {
+      ContactDetail ctgt = cs.addContact();
       ctgt.setName(csrc.getName());
       for (ContactPoint cc : csrc.getTelecom())
         ctgt.addTelecom(cc);

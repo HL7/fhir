@@ -22,6 +22,7 @@ import org.hl7.fhir.dstu3.model.ConceptMap.ConceptMapGroupComponent;
 import org.hl7.fhir.dstu3.model.ConceptMap.SourceElementComponent;
 import org.hl7.fhir.dstu3.model.ConceptMap.TargetElementComponent;
 import org.hl7.fhir.dstu3.model.Constants;
+import org.hl7.fhir.dstu3.model.ContactDetail;
 import org.hl7.fhir.dstu3.model.ContactPoint;
 import org.hl7.fhir.dstu3.model.DecimalType;
 import org.hl7.fhir.dstu3.model.ElementDefinition;
@@ -41,11 +42,9 @@ import org.hl7.fhir.dstu3.model.Resource;
 import org.hl7.fhir.dstu3.model.ResourceFactory;
 import org.hl7.fhir.dstu3.model.StringType;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
-import org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionContactComponent;
 import org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionMappingComponent;
 import org.hl7.fhir.dstu3.model.StructureDefinition.TypeDerivationRule;
 import org.hl7.fhir.dstu3.model.StructureMap;
-import org.hl7.fhir.dstu3.model.StructureMap.StructureMapContactComponent;
 import org.hl7.fhir.dstu3.model.StructureMap.StructureMapContextType;
 import org.hl7.fhir.dstu3.model.StructureMap.StructureMapGroupComponent;
 import org.hl7.fhir.dstu3.model.StructureMap.StructureMapGroupInputComponent;
@@ -2114,8 +2113,8 @@ public class StructureMapUtilities {
     profile.setStatus(map.getStatus());
     profile.setExperimental(map.getExperimental());
     profile.setDescription("Generated automatically from the mapping by the Java Reference Implementation");
-    for (StructureMapContactComponent c : map.getContact()) {
-      StructureDefinitionContactComponent p = profile.addContact();
+    for (ContactDetail c : map.getContact()) {
+      ContactDetail p = profile.addContact();
       p.setName(c.getName());
       for (ContactPoint cc : c.getTelecom()) 
         p.addTelecom(cc);

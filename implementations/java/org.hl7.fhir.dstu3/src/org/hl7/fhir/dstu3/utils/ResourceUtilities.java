@@ -10,10 +10,10 @@ import org.hl7.fhir.dstu3.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.dstu3.model.Bundle.BundleLinkComponent;
 import org.hl7.fhir.dstu3.model.CodeableConcept;
 import org.hl7.fhir.dstu3.model.Coding;
+import org.hl7.fhir.dstu3.model.ContactDetail;
 import org.hl7.fhir.dstu3.model.ContactPoint;
 import org.hl7.fhir.dstu3.model.ContactPoint.ContactPointSystem;
 import org.hl7.fhir.dstu3.model.DataElement;
-import org.hl7.fhir.dstu3.model.DataElement.DataElementContactComponent;
 import org.hl7.fhir.dstu3.model.ElementDefinition;
 import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionBindingComponent;
 import org.hl7.fhir.dstu3.model.ElementDefinition.TypeRefComponent;
@@ -308,7 +308,7 @@ public class ResourceUtilities {
       if (meta.hasContact()) {
         b.append("<tr><td>Contacts:</td><td>");
         boolean firsti = true;
-        for (DataElementContactComponent c : meta.getContact()) {
+        for (ContactDetail c : meta.getContact()) {
           if (firsti)
             firsti = false;
           else

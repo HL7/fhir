@@ -2510,7 +2510,7 @@ public class VersionConvertor_14_20 {
       tgt.setExperimental(src.getExperimental());
     if (src.hasPublisher())
       tgt.setPublisher(src.getPublisher());
-    for (org.hl7.fhir.dstu3.model.CodeSystem.CodeSystemContactComponent t : src.getContact())
+    for (org.hl7.fhir.dstu3.model.ContactDetail t : src.getContact())
       tgt.addContact(convertCodeSystemContactComponent(t));
     if (src.hasDate())
       tgt.setDate(src.getDate());
@@ -2566,10 +2566,10 @@ public class VersionConvertor_14_20 {
   }
 }
 
-  public static org.hl7.fhir.dstu3.model.CodeSystem.CodeSystemContactComponent convertCodeSystemContactComponent(org.hl7.fhir.dstu2016may.model.CodeSystem.CodeSystemContactComponent src) throws FHIRException {
+  public static org.hl7.fhir.dstu3.model.ContactDetail convertCodeSystemContactComponent(org.hl7.fhir.dstu2016may.model.CodeSystem.CodeSystemContactComponent src) throws FHIRException {
     if (src == null || src.isEmpty())
       return null;
-    org.hl7.fhir.dstu3.model.CodeSystem.CodeSystemContactComponent tgt = new org.hl7.fhir.dstu3.model.CodeSystem.CodeSystemContactComponent();
+    org.hl7.fhir.dstu3.model.ContactDetail tgt = new org.hl7.fhir.dstu3.model.ContactDetail();
     copyElement(src, tgt);
     if (src.hasName())
       tgt.setName(src.getName());
@@ -2578,7 +2578,7 @@ public class VersionConvertor_14_20 {
     return tgt;
   }
 
-  public static org.hl7.fhir.dstu2016may.model.CodeSystem.CodeSystemContactComponent convertCodeSystemContactComponent(org.hl7.fhir.dstu3.model.CodeSystem.CodeSystemContactComponent src) throws FHIRException {
+  public static org.hl7.fhir.dstu2016may.model.CodeSystem.CodeSystemContactComponent convertCodeSystemContactComponent(org.hl7.fhir.dstu3.model.ContactDetail src) throws FHIRException {
     if (src == null || src.isEmpty())
       return null;
     org.hl7.fhir.dstu2016may.model.CodeSystem.CodeSystemContactComponent tgt = new org.hl7.fhir.dstu2016may.model.CodeSystem.CodeSystemContactComponent();
@@ -2795,7 +2795,7 @@ public class VersionConvertor_14_20 {
       tgt.setExperimental(src.getExperimental());
     if (src.hasPublisher())
       tgt.setPublisher(src.getPublisher());
-    for (org.hl7.fhir.dstu3.model.CompartmentDefinition.CompartmentDefinitionContactComponent t : src.getContact())
+    for (org.hl7.fhir.dstu3.model.ContactDetail t : src.getContact())
       tgt.addContact(convertCompartmentDefinitionContactComponent(t));
     if (src.hasDate())
       tgt.setDate(src.getDate());
@@ -2836,10 +2836,10 @@ public class VersionConvertor_14_20 {
   }
 }
 
-  public static org.hl7.fhir.dstu3.model.CompartmentDefinition.CompartmentDefinitionContactComponent convertCompartmentDefinitionContactComponent(org.hl7.fhir.dstu2016may.model.CompartmentDefinition.CompartmentDefinitionContactComponent src) throws FHIRException {
+  public static org.hl7.fhir.dstu3.model.ContactDetail convertCompartmentDefinitionContactComponent(org.hl7.fhir.dstu2016may.model.CompartmentDefinition.CompartmentDefinitionContactComponent src) throws FHIRException {
     if (src == null || src.isEmpty())
       return null;
-    org.hl7.fhir.dstu3.model.CompartmentDefinition.CompartmentDefinitionContactComponent tgt = new org.hl7.fhir.dstu3.model.CompartmentDefinition.CompartmentDefinitionContactComponent();
+    org.hl7.fhir.dstu3.model.ContactDetail tgt = new org.hl7.fhir.dstu3.model.ContactDetail();
     copyElement(src, tgt);
     if (src.hasName())
       tgt.setName(src.getName());
@@ -2848,7 +2848,7 @@ public class VersionConvertor_14_20 {
     return tgt;
   }
 
-  public static org.hl7.fhir.dstu2016may.model.CompartmentDefinition.CompartmentDefinitionContactComponent convertCompartmentDefinitionContactComponent(org.hl7.fhir.dstu3.model.CompartmentDefinition.CompartmentDefinitionContactComponent src) throws FHIRException {
+  public static org.hl7.fhir.dstu2016may.model.CompartmentDefinition.CompartmentDefinitionContactComponent convertCompartmentDefinitionContactComponent(org.hl7.fhir.dstu3.model.ContactDetail src) throws FHIRException {
     if (src == null || src.isEmpty())
       return null;
     org.hl7.fhir.dstu2016may.model.CompartmentDefinition.CompartmentDefinitionContactComponent tgt = new org.hl7.fhir.dstu2016may.model.CompartmentDefinition.CompartmentDefinitionContactComponent();
@@ -2955,7 +2955,7 @@ public class VersionConvertor_14_20 {
       tgt.setExperimental(src.getExperimental());
     if (src.hasPublisher())
       tgt.setPublisher(src.getPublisher());
-    for (org.hl7.fhir.dstu3.model.ConceptMap.ConceptMapContactComponent t : src.getContact())
+    for (org.hl7.fhir.dstu3.model.ContactDetail t : src.getContact())
       tgt.addContact(convertConceptMapContactComponent(t));
     if (src.hasDate())
       tgt.setDate(src.getDate());
@@ -2976,10 +2976,10 @@ public class VersionConvertor_14_20 {
   }
 
 
-  public static org.hl7.fhir.dstu3.model.ConceptMap.ConceptMapContactComponent convertConceptMapContactComponent(org.hl7.fhir.dstu2016may.model.ConceptMap.ConceptMapContactComponent src) throws FHIRException {
+  public static org.hl7.fhir.dstu3.model.ContactDetail convertConceptMapContactComponent(org.hl7.fhir.dstu2016may.model.ConceptMap.ConceptMapContactComponent src) throws FHIRException {
     if (src == null || src.isEmpty())
       return null;
-    org.hl7.fhir.dstu3.model.ConceptMap.ConceptMapContactComponent tgt = new org.hl7.fhir.dstu3.model.ConceptMap.ConceptMapContactComponent();
+    org.hl7.fhir.dstu3.model.ContactDetail tgt = new org.hl7.fhir.dstu3.model.ContactDetail();
     copyElement(src, tgt);
     if (src.hasName())
       tgt.setName(src.getName());
@@ -2988,7 +2988,7 @@ public class VersionConvertor_14_20 {
     return tgt;
   }
 
-  public static org.hl7.fhir.dstu2016may.model.ConceptMap.ConceptMapContactComponent convertConceptMapContactComponent(org.hl7.fhir.dstu3.model.ConceptMap.ConceptMapContactComponent src) throws FHIRException {
+  public static org.hl7.fhir.dstu2016may.model.ConceptMap.ConceptMapContactComponent convertConceptMapContactComponent(org.hl7.fhir.dstu3.model.ContactDetail src) throws FHIRException {
     if (src == null || src.isEmpty())
       return null;
     org.hl7.fhir.dstu2016may.model.ConceptMap.ConceptMapContactComponent tgt = new org.hl7.fhir.dstu2016may.model.ConceptMap.ConceptMapContactComponent();
@@ -3198,7 +3198,7 @@ public class VersionConvertor_14_20 {
       tgt.setDate(src.getDate());
     if (src.hasPublisher())
       tgt.setPublisher(src.getPublisher());
-    for (org.hl7.fhir.dstu3.model.CapabilityStatement.CapabilityStatementContactComponent t : src.getContact())
+    for (org.hl7.fhir.dstu3.model.ContactDetail t : src.getContact())
       tgt.addContact(convertConformanceContactComponent(t));
     if (src.hasDescription())
       tgt.setDescription(src.getDescription());
@@ -3272,10 +3272,10 @@ public class VersionConvertor_14_20 {
     }
   }
 
-  public static org.hl7.fhir.dstu3.model.CapabilityStatement.CapabilityStatementContactComponent convertConformanceContactComponent(org.hl7.fhir.dstu2016may.model.Conformance.ConformanceContactComponent src) throws FHIRException {
+  public static org.hl7.fhir.dstu3.model.ContactDetail convertConformanceContactComponent(org.hl7.fhir.dstu2016may.model.Conformance.ConformanceContactComponent src) throws FHIRException {
     if (src == null || src.isEmpty())
       return null;
-    org.hl7.fhir.dstu3.model.CapabilityStatement.CapabilityStatementContactComponent tgt = new org.hl7.fhir.dstu3.model.CapabilityStatement.CapabilityStatementContactComponent();
+    org.hl7.fhir.dstu3.model.ContactDetail tgt = new org.hl7.fhir.dstu3.model.ContactDetail();
     copyElement(src, tgt);
     if (src.hasName())
       tgt.setName(src.getName());
@@ -3284,7 +3284,7 @@ public class VersionConvertor_14_20 {
     return tgt;
   }
 
-  public static org.hl7.fhir.dstu2016may.model.Conformance.ConformanceContactComponent convertConformanceContactComponent(org.hl7.fhir.dstu3.model.CapabilityStatement.CapabilityStatementContactComponent src) throws FHIRException {
+  public static org.hl7.fhir.dstu2016may.model.Conformance.ConformanceContactComponent convertConformanceContactComponent(org.hl7.fhir.dstu3.model.ContactDetail src) throws FHIRException {
     if (src == null || src.isEmpty())
       return null;
     org.hl7.fhir.dstu2016may.model.Conformance.ConformanceContactComponent tgt = new org.hl7.fhir.dstu2016may.model.Conformance.ConformanceContactComponent();
@@ -4016,7 +4016,7 @@ public class VersionConvertor_14_20 {
       tgt.setDate(src.getDate());
     if (src.hasName())
       tgt.setName(src.getName());
-    for (org.hl7.fhir.dstu3.model.DataElement.DataElementContactComponent t : src.getContact())
+    for (org.hl7.fhir.dstu3.model.ContactDetail t : src.getContact())
       tgt.addContact(convertDataElementContactComponent(t));
     for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getUseContext())
       tgt.addUseContext(convertCodeableConcept(t));
@@ -4058,10 +4058,10 @@ public class VersionConvertor_14_20 {
     }
   }
 
-  public static org.hl7.fhir.dstu3.model.DataElement.DataElementContactComponent convertDataElementContactComponent(org.hl7.fhir.dstu2016may.model.DataElement.DataElementContactComponent src) throws FHIRException {
+  public static org.hl7.fhir.dstu3.model.ContactDetail convertDataElementContactComponent(org.hl7.fhir.dstu2016may.model.DataElement.DataElementContactComponent src) throws FHIRException {
     if (src == null || src.isEmpty())
       return null;
-    org.hl7.fhir.dstu3.model.DataElement.DataElementContactComponent tgt = new org.hl7.fhir.dstu3.model.DataElement.DataElementContactComponent();
+    org.hl7.fhir.dstu3.model.ContactDetail tgt = new org.hl7.fhir.dstu3.model.ContactDetail();
     copyElement(src, tgt);
     if (src.hasName())
       tgt.setName(src.getName());
@@ -4070,7 +4070,7 @@ public class VersionConvertor_14_20 {
     return tgt;
   }
 
-  public static org.hl7.fhir.dstu2016may.model.DataElement.DataElementContactComponent convertDataElementContactComponent(org.hl7.fhir.dstu3.model.DataElement.DataElementContactComponent src) throws FHIRException {
+  public static org.hl7.fhir.dstu2016may.model.DataElement.DataElementContactComponent convertDataElementContactComponent(org.hl7.fhir.dstu3.model.ContactDetail src) throws FHIRException {
     if (src == null || src.isEmpty())
       return null;
     org.hl7.fhir.dstu2016may.model.DataElement.DataElementContactComponent tgt = new org.hl7.fhir.dstu2016may.model.DataElement.DataElementContactComponent();
@@ -4164,7 +4164,7 @@ public class VersionConvertor_14_20 {
       tgt.setExperimental(src.getExperimental());
     if (src.hasPublisher())
       tgt.setPublisher(src.getPublisher());
-    for (org.hl7.fhir.dstu3.model.ImplementationGuide.ImplementationGuideContactComponent t : src.getContact())
+    for (org.hl7.fhir.dstu3.model.ContactDetail t : src.getContact())
       tgt.addContact(convertImplementationGuideContactComponent(t));
     if (src.hasDate())
       tgt.setDate(src.getDate());
@@ -4188,10 +4188,10 @@ public class VersionConvertor_14_20 {
     return tgt;
   }
 
-  public static org.hl7.fhir.dstu3.model.ImplementationGuide.ImplementationGuideContactComponent convertImplementationGuideContactComponent(org.hl7.fhir.dstu2016may.model.ImplementationGuide.ImplementationGuideContactComponent src) throws FHIRException {
+  public static org.hl7.fhir.dstu3.model.ContactDetail convertImplementationGuideContactComponent(org.hl7.fhir.dstu2016may.model.ImplementationGuide.ImplementationGuideContactComponent src) throws FHIRException {
     if (src == null || src.isEmpty())
       return null;
-    org.hl7.fhir.dstu3.model.ImplementationGuide.ImplementationGuideContactComponent tgt = new org.hl7.fhir.dstu3.model.ImplementationGuide.ImplementationGuideContactComponent();
+    org.hl7.fhir.dstu3.model.ContactDetail tgt = new org.hl7.fhir.dstu3.model.ContactDetail();
     copyElement(src, tgt);
     if (src.hasName())
       tgt.setName(src.getName());
@@ -4200,7 +4200,7 @@ public class VersionConvertor_14_20 {
     return tgt;
   }
 
-  public static org.hl7.fhir.dstu2016may.model.ImplementationGuide.ImplementationGuideContactComponent convertImplementationGuideContactComponent(org.hl7.fhir.dstu3.model.ImplementationGuide.ImplementationGuideContactComponent src) throws FHIRException {
+  public static org.hl7.fhir.dstu2016may.model.ImplementationGuide.ImplementationGuideContactComponent convertImplementationGuideContactComponent(org.hl7.fhir.dstu3.model.ContactDetail src) throws FHIRException {
     if (src == null || src.isEmpty())
       return null;
     org.hl7.fhir.dstu2016may.model.ImplementationGuide.ImplementationGuideContactComponent tgt = new org.hl7.fhir.dstu2016may.model.ImplementationGuide.ImplementationGuideContactComponent();
@@ -4443,7 +4443,7 @@ public class VersionConvertor_14_20 {
     tgt.setDate(src.getDate());
     if (src.hasPublisher())
       tgt.setPublisher(src.getPublisher());
-    for (org.hl7.fhir.dstu3.model.NamingSystem.NamingSystemContactComponent t : src.getContact())
+    for (org.hl7.fhir.dstu3.model.ContactDetail t : src.getContact())
       tgt.addContact(convertNamingSystemContactComponent(t));
     if (src.hasResponsible())
       tgt.setResponsible(src.getResponsible());
@@ -4482,10 +4482,10 @@ public class VersionConvertor_14_20 {
     }
   }
 
-  public static org.hl7.fhir.dstu3.model.NamingSystem.NamingSystemContactComponent convertNamingSystemContactComponent(org.hl7.fhir.dstu2016may.model.NamingSystem.NamingSystemContactComponent src) throws FHIRException {
+  public static org.hl7.fhir.dstu3.model.ContactDetail convertNamingSystemContactComponent(org.hl7.fhir.dstu2016may.model.NamingSystem.NamingSystemContactComponent src) throws FHIRException {
     if (src == null || src.isEmpty())
       return null;
-    org.hl7.fhir.dstu3.model.NamingSystem.NamingSystemContactComponent tgt = new org.hl7.fhir.dstu3.model.NamingSystem.NamingSystemContactComponent();
+    org.hl7.fhir.dstu3.model.ContactDetail tgt = new org.hl7.fhir.dstu3.model.ContactDetail();
     copyElement(src, tgt);
     if (src.hasName())
       tgt.setName(src.getName());
@@ -4494,7 +4494,7 @@ public class VersionConvertor_14_20 {
     return tgt;
   }
 
-  public static org.hl7.fhir.dstu2016may.model.NamingSystem.NamingSystemContactComponent convertNamingSystemContactComponent(org.hl7.fhir.dstu3.model.NamingSystem.NamingSystemContactComponent src) throws FHIRException {
+  public static org.hl7.fhir.dstu2016may.model.NamingSystem.NamingSystemContactComponent convertNamingSystemContactComponent(org.hl7.fhir.dstu3.model.ContactDetail src) throws FHIRException {
     if (src == null || src.isEmpty())
       return null;
     org.hl7.fhir.dstu2016may.model.NamingSystem.NamingSystemContactComponent tgt = new org.hl7.fhir.dstu2016may.model.NamingSystem.NamingSystemContactComponent();
@@ -4616,7 +4616,7 @@ public class VersionConvertor_14_20 {
       tgt.setDate(src.getDate());
     if (src.hasPublisher())
       tgt.setPublisher(src.getPublisher());
-    for (org.hl7.fhir.dstu3.model.OperationDefinition.OperationDefinitionContactComponent t : src.getContact())
+    for (org.hl7.fhir.dstu3.model.ContactDetail t : src.getContact())
       tgt.addContact(convertOperationDefinitionContactComponent(t));
     if (src.hasDescription())
       tgt.setDescription(src.getDescription());
@@ -4660,10 +4660,10 @@ public class VersionConvertor_14_20 {
     }
   }
 
-  public static org.hl7.fhir.dstu3.model.OperationDefinition.OperationDefinitionContactComponent convertOperationDefinitionContactComponent(org.hl7.fhir.dstu2016may.model.OperationDefinition.OperationDefinitionContactComponent src) throws FHIRException {
+  public static org.hl7.fhir.dstu3.model.ContactDetail convertOperationDefinitionContactComponent(org.hl7.fhir.dstu2016may.model.OperationDefinition.OperationDefinitionContactComponent src) throws FHIRException {
     if (src == null || src.isEmpty())
       return null;
-    org.hl7.fhir.dstu3.model.OperationDefinition.OperationDefinitionContactComponent tgt = new org.hl7.fhir.dstu3.model.OperationDefinition.OperationDefinitionContactComponent();
+    org.hl7.fhir.dstu3.model.ContactDetail tgt = new org.hl7.fhir.dstu3.model.ContactDetail();
     copyElement(src, tgt);
     if (src.hasName())
       tgt.setName(src.getName());
@@ -4672,7 +4672,7 @@ public class VersionConvertor_14_20 {
     return tgt;
   }
 
-  public static org.hl7.fhir.dstu2016may.model.OperationDefinition.OperationDefinitionContactComponent convertOperationDefinitionContactComponent(org.hl7.fhir.dstu3.model.OperationDefinition.OperationDefinitionContactComponent src) throws FHIRException {
+  public static org.hl7.fhir.dstu2016may.model.OperationDefinition.OperationDefinitionContactComponent convertOperationDefinitionContactComponent(org.hl7.fhir.dstu3.model.ContactDetail src) throws FHIRException {
     if (src == null || src.isEmpty())
       return null;
     org.hl7.fhir.dstu2016may.model.OperationDefinition.OperationDefinitionContactComponent tgt = new org.hl7.fhir.dstu2016may.model.OperationDefinition.OperationDefinitionContactComponent();
@@ -5327,7 +5327,7 @@ public class VersionConvertor_14_20 {
       tgt.setDate(src.getDate());
     if (src.hasPublisher())
       tgt.setPublisher(src.getPublisher());
-    for (org.hl7.fhir.dstu3.model.SearchParameter.SearchParameterContactComponent t : src.getContact())
+    for (org.hl7.fhir.dstu3.model.ContactDetail t : src.getContact())
       tgt.addContact(convertSearchParameterContactComponent(t));
     for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getUseContext())
       tgt.addUseContext(convertCodeableConcept(t));
@@ -5373,10 +5373,10 @@ public class VersionConvertor_14_20 {
     }
   }
 
-  public static org.hl7.fhir.dstu3.model.SearchParameter.SearchParameterContactComponent convertSearchParameterContactComponent(org.hl7.fhir.dstu2016may.model.SearchParameter.SearchParameterContactComponent src) throws FHIRException {
+  public static org.hl7.fhir.dstu3.model.ContactDetail convertSearchParameterContactComponent(org.hl7.fhir.dstu2016may.model.SearchParameter.SearchParameterContactComponent src) throws FHIRException {
     if (src == null || src.isEmpty())
       return null;
-    org.hl7.fhir.dstu3.model.SearchParameter.SearchParameterContactComponent tgt = new org.hl7.fhir.dstu3.model.SearchParameter.SearchParameterContactComponent();
+    org.hl7.fhir.dstu3.model.ContactDetail tgt = new org.hl7.fhir.dstu3.model.ContactDetail();
     copyElement(src, tgt);
     if (src.hasName())
       tgt.setName(src.getName());
@@ -5385,7 +5385,7 @@ public class VersionConvertor_14_20 {
     return tgt;
   }
 
-  public static org.hl7.fhir.dstu2016may.model.SearchParameter.SearchParameterContactComponent convertSearchParameterContactComponent(org.hl7.fhir.dstu3.model.SearchParameter.SearchParameterContactComponent src) throws FHIRException {
+  public static org.hl7.fhir.dstu2016may.model.SearchParameter.SearchParameterContactComponent convertSearchParameterContactComponent(org.hl7.fhir.dstu3.model.ContactDetail src) throws FHIRException {
     if (src == null || src.isEmpty())
       return null;
     org.hl7.fhir.dstu2016may.model.SearchParameter.SearchParameterContactComponent tgt = new org.hl7.fhir.dstu2016may.model.SearchParameter.SearchParameterContactComponent();
@@ -5476,7 +5476,7 @@ public class VersionConvertor_14_20 {
       tgt.setExperimental(src.getExperimental());
     if (src.hasPublisher())
       tgt.setPublisher(src.getPublisher());
-    for (org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionContactComponent t : src.getContact())
+    for (org.hl7.fhir.dstu3.model.ContactDetail t : src.getContact())
       tgt.addContact(convertStructureDefinitionContactComponent(t));
     if (src.hasDate())
       tgt.setDate(src.getDate());
@@ -5572,10 +5572,10 @@ public class VersionConvertor_14_20 {
     }
   }
 
-  public static org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionContactComponent convertStructureDefinitionContactComponent(org.hl7.fhir.dstu2016may.model.StructureDefinition.StructureDefinitionContactComponent src) throws FHIRException {
+  public static org.hl7.fhir.dstu3.model.ContactDetail convertStructureDefinitionContactComponent(org.hl7.fhir.dstu2016may.model.StructureDefinition.StructureDefinitionContactComponent src) throws FHIRException {
     if (src == null || src.isEmpty())
       return null;
-    org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionContactComponent tgt = new org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionContactComponent();
+    org.hl7.fhir.dstu3.model.ContactDetail tgt = new org.hl7.fhir.dstu3.model.ContactDetail();
     copyElement(src, tgt);
     if (src.hasName())
       tgt.setName(src.getName());
@@ -5584,7 +5584,7 @@ public class VersionConvertor_14_20 {
     return tgt;
   }
 
-  public static org.hl7.fhir.dstu2016may.model.StructureDefinition.StructureDefinitionContactComponent convertStructureDefinitionContactComponent(org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionContactComponent src) throws FHIRException {
+  public static org.hl7.fhir.dstu2016may.model.StructureDefinition.StructureDefinitionContactComponent convertStructureDefinitionContactComponent(org.hl7.fhir.dstu3.model.ContactDetail src) throws FHIRException {
     if (src == null || src.isEmpty())
       return null;
     org.hl7.fhir.dstu2016may.model.StructureDefinition.StructureDefinitionContactComponent tgt = new org.hl7.fhir.dstu2016may.model.StructureDefinition.StructureDefinitionContactComponent();
@@ -5730,7 +5730,7 @@ public class VersionConvertor_14_20 {
       tgt.setExperimental(src.getExperimental());
     if (src.hasPublisher())
       tgt.setPublisher(src.getPublisher());
-    for (org.hl7.fhir.dstu3.model.TestScript.TestScriptContactComponent t : src.getContact())
+    for (org.hl7.fhir.dstu3.model.ContactDetail t : src.getContact())
       tgt.addContact(convertTestScriptContactComponent(t));
     if (src.hasDate())
       tgt.setDate(src.getDate());
@@ -5764,10 +5764,10 @@ public class VersionConvertor_14_20 {
     return tgt;
   }
 
-  public static org.hl7.fhir.dstu3.model.TestScript.TestScriptContactComponent convertTestScriptContactComponent(org.hl7.fhir.dstu2016may.model.TestScript.TestScriptContactComponent src) throws FHIRException {
+  public static org.hl7.fhir.dstu3.model.ContactDetail convertTestScriptContactComponent(org.hl7.fhir.dstu2016may.model.TestScript.TestScriptContactComponent src) throws FHIRException {
     if (src == null || src.isEmpty())
       return null;
-    org.hl7.fhir.dstu3.model.TestScript.TestScriptContactComponent tgt = new org.hl7.fhir.dstu3.model.TestScript.TestScriptContactComponent();
+    org.hl7.fhir.dstu3.model.ContactDetail tgt = new org.hl7.fhir.dstu3.model.ContactDetail();
     copyElement(src, tgt);
     if (src.hasName())
       tgt.setName(src.getName());
@@ -5776,7 +5776,7 @@ public class VersionConvertor_14_20 {
     return tgt;
   }
 
-  public static org.hl7.fhir.dstu2016may.model.TestScript.TestScriptContactComponent convertTestScriptContactComponent(org.hl7.fhir.dstu3.model.TestScript.TestScriptContactComponent src) throws FHIRException {
+  public static org.hl7.fhir.dstu2016may.model.TestScript.TestScriptContactComponent convertTestScriptContactComponent(org.hl7.fhir.dstu3.model.ContactDetail src) throws FHIRException {
     if (src == null || src.isEmpty())
       return null;
     org.hl7.fhir.dstu2016may.model.TestScript.TestScriptContactComponent tgt = new org.hl7.fhir.dstu2016may.model.TestScript.TestScriptContactComponent();
@@ -6665,7 +6665,7 @@ public class VersionConvertor_14_20 {
       tgt.setExperimental(src.getExperimental());
     if (src.hasPublisher())
       tgt.setPublisher(src.getPublisher());
-    for (org.hl7.fhir.dstu3.model.ValueSet.ValueSetContactComponent t : src.getContact())
+    for (org.hl7.fhir.dstu3.model.ContactDetail t : src.getContact())
       tgt.addContact(convertValueSetContactComponent(t));
     if (src.hasDate())
       tgt.setDate(src.getDate());
@@ -6688,10 +6688,10 @@ public class VersionConvertor_14_20 {
     return tgt;
   }
 
-  public static org.hl7.fhir.dstu3.model.ValueSet.ValueSetContactComponent convertValueSetContactComponent(org.hl7.fhir.dstu2016may.model.ValueSet.ValueSetContactComponent src) throws FHIRException {
+  public static org.hl7.fhir.dstu3.model.ContactDetail convertValueSetContactComponent(org.hl7.fhir.dstu2016may.model.ValueSet.ValueSetContactComponent src) throws FHIRException {
     if (src == null || src.isEmpty())
       return null;
-    org.hl7.fhir.dstu3.model.ValueSet.ValueSetContactComponent tgt = new org.hl7.fhir.dstu3.model.ValueSet.ValueSetContactComponent();
+    org.hl7.fhir.dstu3.model.ContactDetail tgt = new org.hl7.fhir.dstu3.model.ContactDetail();
     copyElement(src, tgt);
     if (src.hasName())
       tgt.setName(src.getName());
@@ -6700,7 +6700,7 @@ public class VersionConvertor_14_20 {
     return tgt;
   }
 
-  public static org.hl7.fhir.dstu2016may.model.ValueSet.ValueSetContactComponent convertValueSetContactComponent(org.hl7.fhir.dstu3.model.ValueSet.ValueSetContactComponent src) throws FHIRException {
+  public static org.hl7.fhir.dstu2016may.model.ValueSet.ValueSetContactComponent convertValueSetContactComponent(org.hl7.fhir.dstu3.model.ContactDetail src) throws FHIRException {
     if (src == null || src.isEmpty())
       return null;
     org.hl7.fhir.dstu2016may.model.ValueSet.ValueSetContactComponent tgt = new org.hl7.fhir.dstu2016may.model.ValueSet.ValueSetContactComponent();

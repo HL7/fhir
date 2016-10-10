@@ -118,19 +118,11 @@
 
  -- Row 7 -----------------------------------
   Element = DataElement.publisher
-  Card. = 0..1
-  Summary = y
-  Type = string
-  Short Name = Name of the publisher (Organization or individual)
-  Definition = The name of the individual or organization that published the data element
-  Requirements = Helps establish the \"authority/credibility\" of the data element.  May also allow for contact
-  Comments = Usually an organization, but may be an individual. This item SHOULD be populated unless the information is available from context.
   IHE DEX mapping = registrationAuthority
   v2 Mapping = OM1.16
   RIM Mapping = ./participation[typeCode=AUT]/role[classCode=ASSIGN]/scoper[classCode=ORG,determinerCode=INSTANCE]/name
   11179 Mapping = (Administered_Item).stewardship_record.organization.name
   LOINC Code = Fixed to Regenstrief or SOURCE
-  w5 = who.witness
 
  -- Row 8 -----------------------------------
   Element = DataElement.date
@@ -154,54 +146,24 @@
 
  -- Row 11 -----------------------------------
   Element = DataElement.contact
-  Card. = 0..*
-  Summary = y
-  UML = 400;40
-  Short Name = Contact details of the publisher
-  Definition = Contacts to assist a user in finding and communicating with the publisher
-  Comments = May be a web site, an email address, a telephone number (tel:), etc.
   v2 Mapping = OM1.17
   RIM Mapping = ./participation[typeCode=AUT]/role[classCode=ASSIGN]/scoper[classCode=ORG,determinerCode=INSTANCE]
   11179 Mapping = (Administered_Item).stewardship_record.organization.[email_address, phone_number, uri]
   LOINC Code = N/A
 
  -- Row 12 -----------------------------------
-  Element = DataElement.contact.name
-  Card. = 0..1
-  Summary = Y
-  Type = string
-  Short Name = Name of an individual to contact
-  Definition = The name of an individual to contact regarding the data element
-  Comments = If there is no named individual, the telecom is for the organization as a whole
-  RIM Mapping = ./name
-
- -- Row 13 -----------------------------------
-  Element = DataElement.contact.telecom
-  Card. = 0..*
-  Summary = Y
-  Type = ContactPoint
-  Short Name = Contact details for individual or publisher
-  Definition = Contact details for individual (if a name was provided) or the publisher
-  RIM Mapping = ./telecom
-
- -- Row 14 -----------------------------------
   Element = DataElement.useContext
   v2 Mapping = OM1.18, OM1.42, OM1.46, OM7.3
   RIM Mapping = ./inboundRelationship[typeCode=SUBJ]/source[classCode=LIST, moodCode=EVN]/code
   11179 Mapping = (Classifiable_Item).classifier
   LOINC Code = COMPONENT, PROPERTY, TIME_ASPCT, SYSTEM, SCALE_TYP, METHOD_TYP, CLASS, CLASSTYPE, ORDER_OBS, DOCUMENT_SECTION, HL7_ATTACHMENT_STRUCTURE
 
- -- Row 15 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = DataElement.copyright
-  Card. = 0..1
-  Aliases = License,Restrictions
-  Type = string
-  Short Name = Use and/or publishing restrictions
-  Definition = A copyright statement relating to the definition of the data element. Copyright statements are generally legal restrictions on the use and publishing of the details of the definition of the data element
-  Comments = The copyright statement does not apply to values for the data element, only to its definition
+  Comments = & The copyright statement does not apply to values for the data element, only to its definition
   RIM Mapping = ./inboundRelationship[typeCode=SUBJ]/source[classCode=CONTRACT,moodCode=EVN].text
 
- -- Row 16 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = DataElement.stringency
   Card. = 0..1
   Summary = Y
@@ -214,7 +176,7 @@
   RIM Mapping = ./target[typeCode=SUBJ]/source[classCode=OBS, moodCode=EVN, code=\"granularity\"]/value
   To Do = Should this be an extension?
 
- -- Row 17 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = DataElement.mapping
   Card. = 0..*
   UML = 400;140
@@ -223,7 +185,7 @@
   IHE DEX mapping = 100;0
   RIM Mapping = N/A (MIF)
 
- -- Row 18 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = DataElement.mapping.identity
   Card. = 1..1
   Type = id
@@ -232,7 +194,7 @@
   Comments = The specification is described once, with general comments, and then specific mappings are made that reference this declaration
   RIM Mapping = N/A (MIF)
 
- -- Row 19 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = DataElement.mapping.uri
   Card. = 0..1
   Type = uri
@@ -241,7 +203,7 @@
   Comments = A formal identity for the specification being mapped to helps with identifying maps consistently
   RIM Mapping = N/A (MIF)
 
- -- Row 20 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = DataElement.mapping.name
   Card. = 0..1
   Type = string
@@ -249,7 +211,7 @@
   Definition = A name for the specification that is being mapped to
   RIM Mapping = N/A (MIF)
 
- -- Row 21 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = DataElement.mapping.comment
   Card. = 0..1
   Type = string
@@ -257,7 +219,7 @@
   Definition = Comments about this mapping, including version notes, issues, scope limitations, and other important notes for usage
   RIM Mapping = N/A (MIF)
 
- -- Row 22 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = DataElement.element
   Card. = 1..*
   Summary = y
@@ -272,24 +234,18 @@
 === Sheet Search =====================================
 
  -- Row 1 -----------------------------------
-  Name = publisher
-  Type = string
-  Description = Name of the publisher of the data element
-  Path = DataElement.publisher
-
- -- Row 2 -----------------------------------
   Name = description
   Type = string
   Description = Text search in the description of the data element.  This corresponds to the definition of the first DataElement.element.
   Path = DataElement.element.definition
 
- -- Row 3 -----------------------------------
+ -- Row 2 -----------------------------------
   Name = code
   Type = token
   Description = A code for the data element (server may choose to do subsumption)
   Path = DataElement.element.code
 
- -- Row 4 -----------------------------------
+ -- Row 3 -----------------------------------
   Name = stringency
   Type = token
   Description = The stringency of the data element definition

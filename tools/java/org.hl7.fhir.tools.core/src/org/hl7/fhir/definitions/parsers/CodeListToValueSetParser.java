@@ -8,10 +8,10 @@ import org.hl7.fhir.dstu3.model.CodeSystem;
 import org.hl7.fhir.dstu3.model.CodeSystem.CodeSystemContentMode;
 import org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionComponent;
 import org.hl7.fhir.dstu3.model.ConceptMap;
-import org.hl7.fhir.dstu3.model.ConceptMap.ConceptMapContactComponent;
 import org.hl7.fhir.dstu3.model.ConceptMap.ConceptMapGroupComponent;
 import org.hl7.fhir.dstu3.model.ConceptMap.SourceElementComponent;
 import org.hl7.fhir.dstu3.model.ConceptMap.TargetElementComponent;
+import org.hl7.fhir.dstu3.model.ContactDetail;
 import org.hl7.fhir.dstu3.model.ContactPoint;
 import org.hl7.fhir.dstu3.model.Enumerations.ConceptMapEquivalence;
 import org.hl7.fhir.dstu3.model.Factory;
@@ -19,7 +19,6 @@ import org.hl7.fhir.dstu3.model.ValueSet;
 import org.hl7.fhir.dstu3.model.ValueSet.ConceptReferenceComponent;
 import org.hl7.fhir.dstu3.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.dstu3.model.ValueSet.ValueSetComposeComponent;
-import org.hl7.fhir.dstu3.model.ValueSet.ValueSetContactComponent;
 import org.hl7.fhir.dstu3.terminologies.CodeSystemUtilities;
 import org.hl7.fhir.dstu3.utils.ToolingExtensions;
 import org.hl7.fhir.igtools.spreadsheets.CodeSystemConvertor;
@@ -182,8 +181,8 @@ public class CodeListToValueSetParser {
     cm.setUrl("http://hl7.org/fhir/ConceptMap/" + cm.getId());
     cm.setName("v2 map for " + vs.getName());
     cm.setPublisher("HL7 (FHIR Project)");
-    for (ValueSetContactComponent cc : vs.getContact()) {
-      ConceptMapContactComponent cd = cm.addContact();
+    for (ContactDetail cc : vs.getContact()) {
+      ContactDetail cd = cm.addContact();
       cd.setName(cc.getName());
       for (ContactPoint ccs : cc.getTelecom())
         cd.addTelecom(ccs.copy());
@@ -274,8 +273,8 @@ public class CodeListToValueSetParser {
     cm.setUrl("http://hl7.org/fhir/ConceptMap/" + cm.getId());
     cm.setName("v3 map for " + vs.getName());
     cm.setPublisher("HL7 (FHIR Project)");
-    for (ValueSetContactComponent cc : vs.getContact()) {
-      ConceptMapContactComponent cd = cm.addContact();
+    for (ContactDetail cc : vs.getContact()) {
+      ContactDetail cd = cm.addContact();
       cd.setName(cc.getName());
       for (ContactPoint ccs : cc.getTelecom())
         cd.addTelecom(ccs.copy());

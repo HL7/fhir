@@ -100,6 +100,26 @@
   w5 = when.recorded
 
  -- Row 10 -----------------------------------
+  Element = MetadataResource.publisher
+  Card. = 0..1
+  Summary = y
+  Type = string
+  Short Name = Name of the publisher (Organization or individual)
+  Definition = The name of the individual or organization that published the {{title}}
+  Requirements = Helps establish the \"authority/credibility\" of the {{title}}.  May also allow for contact
+  Comments = Usually an organization, but may be an individual. The publisher (or steward) of the {{title}} is the organization or individual primarily responsible for the maintenance and upkeep of the {{title}}. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the {{title}}. This item SHOULD be populated unless the information is available from context.
+  w5 = who.witness
+
+ -- Row 11 -----------------------------------
+  Element = MetadataResource.contact
+  Card. = 0..*
+  Summary = y
+  Type = ContactDetail
+  Short Name = Contact details for the publisher
+  Definition = Contact details to assist a user in finding and communicating with the publisher
+  Comments = May be a web site, an email address, a telephone number, etc.
+
+ -- Row 12 -----------------------------------
   Element = MetadataResource.useContext
   Card. = 0..*
   Summary = y
@@ -109,7 +129,15 @@
   Definition = The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of code system definitions.
   Requirements = Assist in searching for appropriate content
 
- -- Row 11 -----------------------------------
+ -- Row 13 -----------------------------------
+  Element = MetadataResource.description
+  Card. = 0..1
+  Type = markdown
+  Short Name = Natural language description of the {{title}}
+  Definition = A free text natural language description of the {{title}} from the consumer\'s perspective
+  Comments = This description can be used to capture details such as why the {{title}} was built, comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the module as conveyed in the text field of the resource itself. This item SHOULD be populated unless the information is available from context
+
+ -- Row 14 -----------------------------------
   Element = MetadataResource.purpose
   Card. = 0..1
   Type = markdown
@@ -118,6 +146,16 @@
   Comments = This element does not describe the usage of the {{title}} (See, e.g, the comments element, or relatedArtifacts), rather it\'s for traceability of \'\'why\'\' the resource is either needed or \'\'why\'\' it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this {{title}}
   Object Impl = no-gen-base
   w5 = why
+
+ -- Row 15 -----------------------------------
+  Element = MetadataResource.copyright
+  Card. = 0..1
+  Aliases = License,Restrictions
+  Type = markdown
+  Short Name = Use and/or publishing restrictions
+  Definition = A copyright statement relating to the {{title}} and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the {{title}}
+  Requirements = Consumers of the library must be able to determine any legal restrictions on the use of the {{title}} and/or its content
+  Object Impl = no-gen-base
 
 === Sheet Search =====================================
 
@@ -168,6 +206,18 @@
   Type = string
   Description = Text search against the title of the {{title}}
   Path = MetadataResource.title
+
+ -- Row 9 -----------------------------------
+  Name = description
+  Type = string
+  Description = Text search against the description of the {{title}}
+  Path = MetadataResource.description
+
+ -- Row 10 -----------------------------------
+  Name = publisher
+  Type = string
+  Description = Name of the publisher of the {{title}}
+  Path = MetadataResource.publisher
 
 === Sheet Profiles =====================================
 

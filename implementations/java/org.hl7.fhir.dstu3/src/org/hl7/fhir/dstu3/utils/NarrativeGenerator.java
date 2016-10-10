@@ -66,11 +66,11 @@ import org.hl7.fhir.dstu3.model.CompartmentDefinition.CompartmentDefinitionResou
 import org.hl7.fhir.dstu3.model.Composition;
 import org.hl7.fhir.dstu3.model.Composition.SectionComponent;
 import org.hl7.fhir.dstu3.model.ConceptMap;
-import org.hl7.fhir.dstu3.model.ConceptMap.ConceptMapContactComponent;
 import org.hl7.fhir.dstu3.model.ConceptMap.ConceptMapGroupComponent;
 import org.hl7.fhir.dstu3.model.ConceptMap.OtherElementComponent;
 import org.hl7.fhir.dstu3.model.ConceptMap.SourceElementComponent;
 import org.hl7.fhir.dstu3.model.ConceptMap.TargetElementComponent;
+import org.hl7.fhir.dstu3.model.ContactDetail;
 import org.hl7.fhir.dstu3.model.CapabilityStatement;
 import org.hl7.fhir.dstu3.model.CapabilityStatement.CapabilityStatementRestComponent;
 import org.hl7.fhir.dstu3.model.CapabilityStatement.CapabilityStatementRestResourceComponent;
@@ -1915,7 +1915,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     if (!cm.getContact().isEmpty()) {
       p.addText(" (");
       boolean firsti = true;
-      for (ConceptMapContactComponent ci : cm.getContact()) {
+      for (ContactDetail ci : cm.getContact()) {
         if (firsti)
           firsti = false;
         else

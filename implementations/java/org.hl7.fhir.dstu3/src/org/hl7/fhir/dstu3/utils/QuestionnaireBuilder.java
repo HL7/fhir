@@ -295,6 +295,8 @@ public class QuestionnaireBuilder {
         // it will have children of its own
         if (child.getType().isEmpty() || isAbstractType(child.getType())) 
           buildGroup(childGroup, profile, child, nparents, nResponse);
+        else if (isInlineDataType(child.getType()))
+          buildGroup(childGroup, profile, child, nparents, nResponse); // todo: get the right children for this one...
         else
           buildQuestion(childGroup, profile, child, child.getPath(), nResponse);
       }
@@ -303,6 +305,10 @@ public class QuestionnaireBuilder {
 
   private boolean isAbstractType(List<TypeRefComponent> type) {
     return type.size() == 1 && (type.get(0).getCode().equals("Element") || type.get(0).getCode().equals("BackboneElement"));
+  }
+
+  private boolean isInlineDataType(List<TypeRefComponent> type) {
+    return type.size() == 1 && (type.get(0).getCode().equals("ContactDetail"));
   }
 
   private boolean isExempt(ElementDefinition element, ElementDefinition child) {
@@ -737,7 +743,9 @@ public class QuestionnaireBuilder {
     else if (t.getCode().equals("Extension")) {
       if (t.hasProfile())
         addExtensionQuestions(profile, group, element, path, t.getProfile(), answerGroups);
-    } else if (!t.getCode().equals("Narrative") && !t.getCode().equals("Resource") && !t.getCode().equals("ElementDefinition")&& !t.getCode().equals("Meta")&& !t.getCode().equals("Signature"))
+    } else if (t.getCode().equals("SampledData"))
+      addSampledDataQuestions(group, element, path, answerGroups);
+    else if (!t.getCode().equals("Narrative") && !t.getCode().equals("Resource") && !t.getCode().equals("ElementDefinition")&& !t.getCode().equals("Meta")&& !t.getCode().equals("Signature"))
       throw new NotImplementedException("Unhandled Data Type: "+t.getCode()+" on element "+element.getPath());
   }
 

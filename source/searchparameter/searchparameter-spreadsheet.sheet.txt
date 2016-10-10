@@ -87,48 +87,18 @@
 
  -- Row 8 -----------------------------------
   Element = SearchParameter.publisher
-  Card. = 0..1
-  Summary = y
-  Type = string
-  Short Name = Name of the publisher (Organization or individual)
-  Definition = The name of the individual or organization that published the search parameter
-  Requirements = Helps establish the \"authority/credibility\" of the search parameter.  May also allow for contact
-  Comments = Usually an organization, but may be an individual. This item SHOULD be populated unless the information is available from context.
-  w5 = who.witness
 
  -- Row 9 -----------------------------------
   Element = SearchParameter.contact
-  Card. = 0..*
-  Summary = y
   UML = 350;60
-  Short Name = Contact details of the publisher
-  Definition = Contacts to assist a user in finding and communicating with the publisher
-  Comments = May be a web site, an email address, a telephone number (tel:), etc.
 
  -- Row 10 -----------------------------------
-  Element = SearchParameter.contact.name
-  Card. = 0..1
-  Summary = Y
-  Type = string
-  Short Name = Name of an individual to contact
-  Definition = The name of an individual to contact regarding the search parameter
-  Comments = If there is no named individual, the telecom is for the organization as a whole
-
- -- Row 11 -----------------------------------
-  Element = SearchParameter.contact.telecom
-  Card. = 0..*
-  Summary = Y
-  Type = ContactPoint
-  Short Name = Contact details for individual or publisher
-  Definition = Contact details for individual (if a name was provided) or the publisher
-
- -- Row 12 -----------------------------------
   Element = SearchParameter.useContext
 
- -- Row 13 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = SearchParameter.purpose
 
- -- Row 14 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = SearchParameter.code
   Card. = 1..1
   Summary = Y
@@ -138,7 +108,7 @@
   Definition = The code used in the URL or the parameter name in a parameters resource for this search parameter
   Comments = For maximum compatibility, use only lowercase ASCII characters
 
- -- Row 15 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = SearchParameter.base
   Card. = 1..1
   Summary = Y
@@ -147,7 +117,7 @@
   Short Name = The resource type this search parameter applies to
   Definition = The base resource type that this search parameter refers to
 
- -- Row 16 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = SearchParameter.type
   Card. = 1..1
   Summary = y
@@ -156,15 +126,13 @@
   Short Name = number | date | string | token | reference | composite | quantity | uri
   Definition = The type of value a search parameter refers to, and how the content is interpreted
 
- -- Row 17 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = SearchParameter.description
   Card. = 1..1
   Summary = y
-  Type = markdown
-  Short Name = Documentation for  search parameter
-  Definition = A description of the search parameters and how it used
+  Definition = & and how it used
 
- -- Row 18 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = SearchParameter.expression
   Card. = 0..1
   Inv. = 1
@@ -173,7 +141,7 @@
   Definition = A FluentPath expression that returns a set of elements for the search parameter
   Comments = Note that the elements returned by the expression are sometimes complex elements where logic is required to determine quite how to handle them; e.g. CodeableConcepts may contain text and/or multiple codings, where the codings themselves contain a code and a system
 
- -- Row 19 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = SearchParameter.xpath
   Card. = 0..1
   Inv. = 1
@@ -182,7 +150,7 @@
   Definition = An XPath expression that returns a set of elements for the search parameter
   Comments = Note that the elements returned by the XPath are sometimes complex elements where logic is required to determine quite how to handle them; e.g. CodeableConcepts may contain text and/or multiple codings, where the codings themselves contain a code and a system
 
- -- Row 20 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = SearchParameter.xpathUsage
   Card. = 0..1
   Inv. = 1
@@ -191,7 +159,7 @@
   Short Name = normal | phonetic | nearby | distance | other
   Definition = How the search parameter relates to the set of elements returned by evaluating the xpath query
 
- -- Row 21 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = SearchParameter.target
   Card. = 0..*
   Type = code
@@ -199,7 +167,7 @@
   Short Name = Types of resource (if a resource reference)
   Definition = Types of resource (if a resource is referenced)
 
- -- Row 22 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = SearchParameter.component
   Card. = 0..*
   Type = Reference(SearchParameter)
@@ -219,21 +187,16 @@
   Path = SearchParameter.type
 
  -- Row 3 -----------------------------------
-  Name = description
-  Type = string
-  Path = SearchParameter.description
-
- -- Row 4 -----------------------------------
   Name = target
   Type = token
   Path = SearchParameter.target
 
- -- Row 5 -----------------------------------
+ -- Row 4 -----------------------------------
   Name = code
   Type = token
   Path = SearchParameter.code
 
- -- Row 6 -----------------------------------
+ -- Row 5 -----------------------------------
   Name = component
   Type = reference
   Path = SearchParameter.component

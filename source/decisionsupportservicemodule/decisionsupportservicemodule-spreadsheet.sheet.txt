@@ -50,11 +50,6 @@
 
  -- Row 10 -----------------------------------
   Element = DecisionSupportServiceModule.description
-  Card. = 0..1
-  Type = string
-  Short Name = Natural language description of the module
-  Definition = A free text natural language description of the module from the consumer\'s perspective
-  Comments = This description can be used to capture details such as why the module was built, comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the module as conveyed in the text field of the resource itself. This item SHOULD be populated unless the information is available from context
 
  -- Row 11 -----------------------------------
   Element = DecisionSupportServiceModule.purpose
@@ -107,28 +102,13 @@
 
  -- Row 18 -----------------------------------
   Element = DecisionSupportServiceModule.publisher
-  Card. = 0..1
-  Type = string
-  Short Name = Name of the publisher (Organization or individual)
-  Definition = The name of the individual or organization that published the module (also known as the steward for the module). This information is required for non-experimental published artifacts
-  Requirements = Consumers of the module must be able to determine where to obtain support in the use of this module, as well as where to direct questions and concerns about the content
-  Comments = The publisher (or steward) of the module is the organization or individual primarily responsible for the maintenance and upkeep of the module. This is not necessarily the same organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the module
   To Do = Add constraint to require a publisher for non-experimental active artifacts
 
  -- Row 19 -----------------------------------
   Element = DecisionSupportServiceModule.contact
-  Card. = 0..*
-  Type = ContactDetail
-  Short Name = Contact details of the publisher
-  Definition = Contact details to assist a user in finding and communicating with the publisher
 
  -- Row 20 -----------------------------------
   Element = DecisionSupportServiceModule.copyright
-  Card. = 0..1
-  Type = string
-  Short Name = Use and/or publishing restrictions
-  Definition = A copyright statement relating to the module and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the module
-  Requirements = Consumers of the module must be able to determine any legal restrictions on the use of the module and/or its content
 
  -- Row 21 -----------------------------------
   Element = DecisionSupportServiceModule.relatedArtifact
@@ -169,12 +149,6 @@
   Path = DecisionSupportServiceModule.topic
 
  -- Row 2 -----------------------------------
-  Name = description
-  Type = string
-  Description = Text search against the description
-  Path = DecisionSupportServiceModule.description
-
- -- Row 3 -----------------------------------
   Name = !minScore
   Type = number
   Description = The minimum relevance score of any match that will be returned

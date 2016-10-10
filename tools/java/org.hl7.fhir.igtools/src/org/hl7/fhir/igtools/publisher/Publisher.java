@@ -62,6 +62,7 @@ import org.hl7.fhir.dstu3.model.CodeSystem;
 import org.hl7.fhir.dstu3.model.ConceptMap;
 import org.hl7.fhir.dstu3.model.CapabilityStatement;
 import org.hl7.fhir.dstu3.model.Constants;
+import org.hl7.fhir.dstu3.model.ContactDetail;
 import org.hl7.fhir.dstu3.model.ContactPoint;
 import org.hl7.fhir.dstu3.model.DateTimeType;
 import org.hl7.fhir.dstu3.model.DomainResource;
@@ -71,7 +72,6 @@ import org.hl7.fhir.dstu3.model.Enumerations.PublicationStatus;
 import org.hl7.fhir.dstu3.model.ExpansionProfile;
 import org.hl7.fhir.dstu3.model.ExpressionNode;
 import org.hl7.fhir.dstu3.model.ImplementationGuide;
-import org.hl7.fhir.dstu3.model.ImplementationGuide.ImplementationGuideContactComponent;
 import org.hl7.fhir.dstu3.model.ImplementationGuide.ImplementationGuidePackageComponent;
 import org.hl7.fhir.dstu3.model.ImplementationGuide.ImplementationGuidePackageResourceComponent;
 import org.hl7.fhir.dstu3.model.ImplementationGuide.ImplementationGuidePageComponent;
@@ -2184,7 +2184,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
     if (sourceIg.hasContact()) {
       JsonArray jc = new JsonArray();
       ig.add("contact", jc);
-      for (ImplementationGuideContactComponent c : sourceIg.getContact()) {
+      for (ContactDetail c : sourceIg.getContact()) {
         JsonObject jco = new JsonObject();
         jc.add(jco);
         jco.addProperty("name", c.getName());
