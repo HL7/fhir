@@ -188,16 +188,18 @@
 
  -- Row 13 -----------------------------------
   Element = CodeSystem.useContext
-  CDISC Define.xml 2.0 Mapping = COMPONENT, PROPERTY, TIME_ASPCT, SYSTEM, SCALE_TYP, METHOD_TYP, CLASS, CLASSTYPE, ORDER_OBS, DOCUMENT_SECTION, HL7_ATTACHMENT_STRUCTURE
 
  -- Row 14 -----------------------------------
-  Element = CodeSystem.purpose
+  Element = CodeSystem.jurisdiction
 
  -- Row 15 -----------------------------------
+  Element = CodeSystem.purpose
+
+ -- Row 16 -----------------------------------
   Element = CodeSystem.copyright
   Comments = & Frequently, the copyright differs between the code system and the codes that are included. The copyright statement should clearly differentiate between these when required
 
- -- Row 16 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = CodeSystem.caseSensitive
   Card. = 0..1
   Summary = y
@@ -206,7 +208,7 @@
   Definition = If code comparison is case sensitive when codes within this system are compared to each other
   Comments = If this value is missing, then it is not specified whether a code system is case sensitive or not. When the rule is not known, Postel\'s law should be followed: produce codes with the correct case, and accept codes in any case. This element is primarily provided to support validation software
 
- -- Row 17 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = CodeSystem.valueSet
   Card. = 0..1
   Summary = y
@@ -214,7 +216,7 @@
   Short Name = Canonical URL for value set with entire code system
   Definition = Canonical URL of value set that contains the entire code system
 
- -- Row 18 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = CodeSystem.hierarchyMeaning
   Card. = 0..1
   Summary = y
@@ -223,7 +225,7 @@
   Short Name = grouped-by | subsumes | part-of | classified-with
   Definition = The meaning of the heirarchy of concepts
 
- -- Row 19 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = CodeSystem.compositional
   Card. = 0..1
   Aliases = grammar
@@ -233,7 +235,7 @@
   Definition = True If code system defines a post-composition grammar
   Comments = Note that the code system resource does not define what the compositional grammar is, only whether or not there is one
 
- -- Row 20 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = CodeSystem.versionNeeded
   Card. = 0..1
   Summary = y
@@ -242,7 +244,7 @@
   Definition = This flag is used to signify that the code system has not (or does not) maintain the definitions, and a version must be specified when referencing this code system
   Comments = Best practice is that code systems do not redefine concepts, or that if concepts are redefined, a new code system definition is created. But this is not always possible, so some code systems may be defined as \'versionNeeded\'
 
- -- Row 21 -----------------------------------
+ -- Row 22 -----------------------------------
   Element = CodeSystem.content
   Card. = 1..1
   Summary = y
@@ -251,7 +253,7 @@
   Short Name = not-present | examplar | fragment | complete
   Definition = How much of the content of the code system - the concepts and codes it defines - are represented in this resource
 
- -- Row 22 -----------------------------------
+ -- Row 23 -----------------------------------
   Element = CodeSystem.count
   Card. = 0..1
   Summary = Y
@@ -260,7 +262,7 @@
   Definition = The total number of concepts defined by the code system. Where the code system has a compositional grammar, the count refers to the number of base (primitive) concepts
   Comments = The count of concepts defined in this resource cannot be more than this value, but may be less for several reasons - see the content value
 
- -- Row 23 -----------------------------------
+ -- Row 24 -----------------------------------
   Element = CodeSystem.filter
   Card. = 0..*
   Summary = Y
@@ -268,7 +270,7 @@
   Short Name = Filter that can be used in a value set
   Definition = A filter that can be used in a value set compose statement when selecting concepts using a filter
 
- -- Row 24 -----------------------------------
+ -- Row 25 -----------------------------------
   Element = CodeSystem.filter.code
   Card. = 1..1
   Summary = y
@@ -277,7 +279,7 @@
   Short Name = Code that identifies the filter
   Definition = The code that identifies this filter when it is used in the instance
 
- -- Row 25 -----------------------------------
+ -- Row 26 -----------------------------------
   Element = CodeSystem.filter.description
   Card. = 0..1
   Summary = y
@@ -285,7 +287,7 @@
   Short Name = How or why the filter is used
   Definition = A description of how or why the filter is used
 
- -- Row 26 -----------------------------------
+ -- Row 27 -----------------------------------
   Element = CodeSystem.filter.operator
   Card. = 1..*
   Summary = y
@@ -294,7 +296,7 @@
   Short Name = Operators that can be used with filter
   Definition = A list of operators that can be used with the filter
 
- -- Row 27 -----------------------------------
+ -- Row 28 -----------------------------------
   Element = CodeSystem.filter.value
   Card. = 1..1
   Summary = y
@@ -302,7 +304,7 @@
   Short Name = What to use for the value
   Definition = A description of what the value for the filter should be
 
- -- Row 28 -----------------------------------
+ -- Row 29 -----------------------------------
   Element = CodeSystem.property
   Card. = 0..*
   Summary = y
@@ -311,7 +313,7 @@
   Short Name = Additional information supplied about each concept
   Definition = A property defines an additional slot through which additional information can be provided about a concept
 
- -- Row 29 -----------------------------------
+ -- Row 30 -----------------------------------
   Element = CodeSystem.property.code
   Card. = 1..1
   Summary = y
@@ -320,7 +322,7 @@
   Short Name = Identifies the property on the concepts, and when referred to in operations
   Definition = A code that is used to identify the property. The code is used internally (in CodeSystem.concept.property.code) and also externally, such as in property filters
 
- -- Row 30 -----------------------------------
+ -- Row 31 -----------------------------------
   Element = CodeSystem.property.uri
   Card. = 0..1
   Summary = y
@@ -328,7 +330,7 @@
   Short Name = Formal identifier for the property
   Definition = Reference to the formal meaning of the property. One possible source of meaning is the [Concept Properties](codesystem-concept-properties.html) code system
 
- -- Row 31 -----------------------------------
+ -- Row 32 -----------------------------------
   Element = CodeSystem.property.description
   Card. = 0..1
   Summary = y
@@ -336,7 +338,7 @@
   Short Name = Why the property is defined, and/or what it conveys
   Definition = A description of the property- why it is defined, and how it\'s value might be used
 
- -- Row 32 -----------------------------------
+ -- Row 33 -----------------------------------
   Element = CodeSystem.property.type
   Card. = 1..1
   Summary = y
@@ -345,7 +347,7 @@
   Short Name = code | Coding | string | integer | boolean | dateTime
   Definition = The type of the property value. Properties of type \"code\" contain a code defined by the code system (e.g. a reference to anotherr defined concept)
 
- -- Row 33 -----------------------------------
+ -- Row 34 -----------------------------------
   Element = CodeSystem.concept
   Card. = 0..*
   UML = right
@@ -354,7 +356,7 @@
   Definition = Concepts that are in the code system. The concept definitions are inherently hierarchical, but the definitions must be consulted to determine what the meaning of the hierarchical relationships are
   Comments = If this is empty, it means that the code system resource does not represent the content of the code system
 
- -- Row 34 -----------------------------------
+ -- Row 35 -----------------------------------
   Element = CodeSystem.concept.code
   Card. = 1..1
   Type = code
@@ -362,21 +364,21 @@
   Short Name = Code that identifies concept
   Definition = A code - a text symbol - that uniquely identifies the concept within the code system
 
- -- Row 35 -----------------------------------
+ -- Row 36 -----------------------------------
   Element = CodeSystem.concept.display
   Card. = 0..1
   Type = string
   Short Name = Text to display to the user
   Definition = A human readable string that is the recommended default way to present this concept to a user
 
- -- Row 36 -----------------------------------
+ -- Row 37 -----------------------------------
   Element = CodeSystem.concept.definition
   Card. = 0..1
   Type = string
   Short Name = Formal definition
   Definition = The formal definition of the concept. The code system resource does not make formal definitions required, because of the prevalence of legacy systems. However, they are highly recommended, as without them there is no formal meaning associated with the concept
 
- -- Row 37 -----------------------------------
+ -- Row 38 -----------------------------------
   Element = CodeSystem.concept.designation
   Card. = 0..*
   UML = up
@@ -384,7 +386,7 @@
   Definition = Additional representations for the concept - other languages, aliases, specialized purposes, used for particular purposes, etc.
   Requirements = Many concept definition systems support multiple representations, in multiple languages, and for multiple purposes
 
- -- Row 38 -----------------------------------
+ -- Row 39 -----------------------------------
   Element = CodeSystem.concept.designation.language
   Card. = 0..1
   Type = code
@@ -393,7 +395,7 @@
   Definition = The language this designation is defined for
   Comments = In the absence of a language, the resource language applies
 
- -- Row 39 -----------------------------------
+ -- Row 40 -----------------------------------
   Element = CodeSystem.concept.designation.use
   Card. = 0..1
   Type = Coding
@@ -402,14 +404,14 @@
   Definition = A code that details how this designation would be used
   Comments = If no use is provided, the designation can be assumed to be suitable for general display to a human user
 
- -- Row 40 -----------------------------------
+ -- Row 41 -----------------------------------
   Element = CodeSystem.concept.designation.value
   Card. = 1..1
   Type = string
   Short Name = The text value for this designation
   Definition = The text value for this designation
 
- -- Row 41 -----------------------------------
+ -- Row 42 -----------------------------------
   Element = CodeSystem.concept.property
   Card. = 0..*
   UML = 400;240
@@ -417,7 +419,7 @@
   Short Name = Property value for the concept
   Definition = A property value for this concept
 
- -- Row 42 -----------------------------------
+ -- Row 43 -----------------------------------
   Element = CodeSystem.concept.property.code
   Card. = 1..1
   Type = code
@@ -425,14 +427,14 @@
   Short Name = Reference to CodeSystem.property.code
   Definition = A code that is a reference to CodeSystem.property.code
 
- -- Row 43 -----------------------------------
+ -- Row 44 -----------------------------------
   Element = CodeSystem.concept.property.value[x]
   Card. = 1..1
   Type = code | Coding | string | integer | boolean | dateTime
   Short Name = Value of the property for this concept
   Definition = The value of this property
 
- -- Row 44 -----------------------------------
+ -- Row 45 -----------------------------------
   Element = CodeSystem.concept.concept
   Card. = 0..*
   Type = @CodeSystem.concept

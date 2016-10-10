@@ -130,9 +130,12 @@
   Element = ImplementationGuide.useContext
 
  -- Row 12 -----------------------------------
-  Element = ImplementationGuide.copyright
+  Element = ImplementationGuide.jurisdiction
 
  -- Row 13 -----------------------------------
+  Element = ImplementationGuide.copyright
+
+ -- Row 14 -----------------------------------
   Element = ImplementationGuide.fhirVersion
   Card. = 0..1
   Summary = y
@@ -141,7 +144,7 @@
   Definition = The version of the FHIR specification on which this ImplementationGuide is based - this is the formal version of the specification, without the revision number, e.g. [publication].[major].[minor], which is $version$ for this version
   Comments = An Implementation Guide should specify the target it applies to, as ImplementationGuides are rarely valid across multiple versions of FHIR
 
- -- Row 14 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = ImplementationGuide.dependency
   Card. = 0..*
   Summary = Y
@@ -149,7 +152,7 @@
   Short Name = Another Implementation guide this depends on
   Definition = Another implementation guide that this implementation depends on. Typically, an implementation guide uses value sets, profiles etc.defined in other implementation guides
 
- -- Row 15 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = ImplementationGuide.dependency.type
   Card. = 1..1
   Summary = Y
@@ -159,7 +162,7 @@
   Definition = How the dependency is represented when the guide is published
   Comments = For information about processing included guides, see [Including Guides]{implementationguide.html#include}
 
- -- Row 16 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = ImplementationGuide.dependency.uri
   Card. = 1..1
   Summary = Y
@@ -168,7 +171,7 @@
   Definition = Where the dependency is located
   Comments = When a guide is published, and the type is \'include\', this will be a relative reference within the guide
 
- -- Row 17 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = ImplementationGuide.package
   Card. = 0..*
   Summary = Y
@@ -176,7 +179,7 @@
   Short Name = Group of resources as used in .page.package
   Definition = A logical group of resources. Logical groups can be used when building pages
 
- -- Row 18 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = ImplementationGuide.package.name
   Card. = 1..1
   Summary = Y
@@ -184,13 +187,13 @@
   Short Name = Name used .page.package
   Definition = The name for the group, as used in page.package
 
- -- Row 19 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = ImplementationGuide.package.description
   Card. = 0..1
   Type = string
   Short Name = Human readable text describing the package
 
- -- Row 20 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = ImplementationGuide.package.resource
   Card. = 1..*
   Summary = Y
@@ -198,7 +201,7 @@
   Short Name = Resource in the implementation guide
   Definition = A resource that is part of the implementation guide. Conformance resources (value set, structure definition, capability statements etc.) are obvious candidates for inclusion, but any kind of resource can be included as an example resource
 
- -- Row 21 -----------------------------------
+ -- Row 22 -----------------------------------
   Element = ImplementationGuide.package.resource.example
   Card. = 1..1
   Summary = Y
@@ -207,7 +210,7 @@
   Definition = Whether a resource is included in the guide as part of the rules defined by the guide, or just as an example of a resource that conforms to the rules and/or help implementers understand the intent of the guide
   Comments = Typically, conformance resources and knowledge resources are directly part of the implementation guide, with their normal meaning, and patient linked resources are usually examples. However this is not always true
 
- -- Row 22 -----------------------------------
+ -- Row 23 -----------------------------------
   Element = ImplementationGuide.package.resource.name
   Card. = 0..1
   Summary = Y
@@ -215,7 +218,7 @@
   Short Name = Human Name for the resource
   Definition = A human assigned name for the resource. All resources SHOULD have a name, but the name may be extracted from the resource (e.g. ValueSet.name)
 
- -- Row 23 -----------------------------------
+ -- Row 24 -----------------------------------
   Element = ImplementationGuide.package.resource.description
   Card. = 0..1
   Type = string
@@ -223,7 +226,7 @@
   Definition = A description of the reason that a resource has been included in the implementation guide
   Comments = This is mostly used with examples to explain why it is present (though they can have extensive comments in the examples)
 
- -- Row 24 -----------------------------------
+ -- Row 25 -----------------------------------
   Element = ImplementationGuide.package.resource.acronym
   Card. = 0..1
   Type = string
@@ -231,7 +234,7 @@
   Definition = A short code that may be used to identify the resource throughout the implementation guide
   Comments = This is used when generating schematrons from profiles, for example, but has other uses. Publishing tooling may autogenerate this value, but a human assigned value is more useful. This value must be unique within an implementation guide (across included guides as well)
 
- -- Row 25 -----------------------------------
+ -- Row 26 -----------------------------------
   Element = ImplementationGuide.package.resource.source[x]
   Card. = 1..1
   Summary = y
@@ -240,7 +243,7 @@
   Definition = Where this resource is found
   Comments = Usually this is a relative URL that locates the resource within the implementation guide. If you authoring an implementation guide, and will publish it using the FHIR publication tooling, use a URI that may point to a resource, or to one of various alternative representations (e.g. spreadsheet). The tooling will convert this when it publishes it
 
- -- Row 26 -----------------------------------
+ -- Row 27 -----------------------------------
   Element = ImplementationGuide.package.resource.exampleFor
   Card. = 0..1
   Type = Reference(StructureDefinition)
@@ -248,7 +251,7 @@
   Definition = Another resource that this resource is an example for. This is mostly used for resources that are included as examples of StructureDefinitions
   Comments = Examples:\n* StructureDefinition -> Any\n* ValueSet -> expansion\n* OperationDefinition -> Parameters\n* Questionnaire -> QuestionnaireResponse
 
- -- Row 27 -----------------------------------
+ -- Row 28 -----------------------------------
   Element = ImplementationGuide.global
   Card. = 0..*
   Summary = Y
@@ -257,7 +260,7 @@
   Definition = A set of profiles that all resources covered by this implementation guide must conform to
   Comments = See [Default Profiles](implementationguide.html#default) for a discussion of which resources are \'covered\' by an implementation guide
 
- -- Row 28 -----------------------------------
+ -- Row 29 -----------------------------------
   Element = ImplementationGuide.global.type
   Card. = 1..1
   Summary = Y
@@ -267,7 +270,7 @@
   Definition = The type of resource that all instances must conform to
   Comments = The type must match that of the profile that is referred to, but is made explicit here as a denormalization so that a system processing the implementation guide resource knows which resources the profile applies to even if the profile itself is not available
 
- -- Row 29 -----------------------------------
+ -- Row 30 -----------------------------------
   Element = ImplementationGuide.global.profile
   Card. = 1..1
   Summary = Y
@@ -275,7 +278,7 @@
   Short Name = Profile that all resources must conform to
   Definition = A reference to the profile that all instances must conform to
 
- -- Row 30 -----------------------------------
+ -- Row 31 -----------------------------------
   Element = ImplementationGuide.binary
   Card. = 0..*
   Type = uri
@@ -283,7 +286,7 @@
   Definition = A binary file that is included in the  implementation guide when it is published
   Comments = This is principally included for the FHIR publishing tool, but may be useful when extracting and reusing content from the implementation guide
 
- -- Row 31 -----------------------------------
+ -- Row 32 -----------------------------------
   Element = ImplementationGuide.page
   Card. = 0..1
   Summary = Y
@@ -292,7 +295,7 @@
   Definition = A page / section in the implementation guide. The root page is the implementation guide home page
   Comments = Pages automatically become sections if they have sub-pages. By convention, the home page is called index.html
 
- -- Row 32 -----------------------------------
+ -- Row 33 -----------------------------------
   Element = ImplementationGuide.page.source
   Card. = 1..1
   Summary = Y
@@ -301,7 +304,7 @@
   Definition = The source address for the page
   Comments = The publishing tool will autogenerate source for list (source = n/a), and inject included implementations for include (source = uri of guide to include)
 
- -- Row 33 -----------------------------------
+ -- Row 34 -----------------------------------
   Element = ImplementationGuide.page.title
   Card. = 1..1
   Summary = Y
@@ -309,7 +312,7 @@
   Short Name = Short title shown for navigational assistance
   Definition = A short title used to represent this page in navigational structures such as table of contents, bread crumbs, etc.
 
- -- Row 34 -----------------------------------
+ -- Row 35 -----------------------------------
   Element = ImplementationGuide.page.kind
   Card. = 1..1
   Summary = Y
@@ -318,7 +321,7 @@
   Short Name = page | example | list | include | directory | dictionary | toc | resource
   Definition = The kind of page that this is. Some pages are autogenerated (list, example), and other kinds are of interest so that tools can navigate the user to the page of interest
 
- -- Row 35 -----------------------------------
+ -- Row 36 -----------------------------------
   Element = ImplementationGuide.page.type
   Card. = 0..*
   Type = code
@@ -326,14 +329,14 @@
   Short Name = Kind of resource to include in the list
   Definition = For constructed pages, what kind of resources to include in the list
 
- -- Row 36 -----------------------------------
+ -- Row 37 -----------------------------------
   Element = ImplementationGuide.page.package
   Card. = 0..*
   Type = string
   Short Name = Name of package to include
   Definition = For constructed pages, a list of packages to include in the page (or else empty for everything)
 
- -- Row 37 -----------------------------------
+ -- Row 38 -----------------------------------
   Element = ImplementationGuide.page.format
   Card. = 0..1
   Type = code
@@ -342,7 +345,7 @@
   Definition = The format of the page
   Comments = This is primarily for the publishing tool, that will convert all pages to html format. HTML pages are pre-processed, see xxxx
 
- -- Row 38 -----------------------------------
+ -- Row 39 -----------------------------------
   Element = ImplementationGuide.page.page
   Card. = 0..*
   Type = @ImplementationGuide.page

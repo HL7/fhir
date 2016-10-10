@@ -239,12 +239,11 @@
     <SheetIndex>12</SheetIndex>
    </Xct>
   </SupBook>
-  <WindowHeight>17010</WindowHeight>
-  <WindowWidth>-27136</WindowWidth>
+  <WindowHeight>11445</WindowHeight>
+  <WindowWidth>24690</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>780</TabRatio>
-  <ActiveSheet>9</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -586,7 +585,7 @@
    ss:RefersTo="='\work\org.hl7.fhir\build\source\conceptmap\[conceptmap-spreadsheet.xml]Invariants'!R2C1:R50C1"/>
  </Names>
  <Worksheet ss:Name="Bindings">
-  <Table ss:ExpandedColumnCount="17" ss:ExpandedRowCount="34" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="17" ss:ExpandedRowCount="35" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s64" ss:DefaultColumnWidth="54"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="157.5"/>
@@ -1037,6 +1036,13 @@
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s76"/>
    </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Jurisdiction</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Countries and regions within which this artifact is targeted for use</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">extensible</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">valueset-jurisdiction</Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -1051,11 +1057,12 @@
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>-3</VerticalResolution>
    </Print>
+   <Selected/>
+   <TopRowVisible>4</TopRowVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>12</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     <ActiveRow>33</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -3879,7 +3886,6 @@
     <HorizontalResolution>-1</HorizontalResolution>
     <VerticalResolution>-1</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>

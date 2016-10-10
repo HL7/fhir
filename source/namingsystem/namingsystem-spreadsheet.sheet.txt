@@ -160,13 +160,16 @@
   Element = NamingSystem.useContext
 
  -- Row 12 -----------------------------------
+  Element = NamingSystem.jurisdiction
+
+ -- Row 13 -----------------------------------
   Element = NamingSystem.usage
   Card. = 0..1
   Type = string
   Short Name = How/where is it used
   Definition = Provides guidance on the use of the namespace, including the handling of formatting characters, use of upper vs. lower case, etc.
 
- -- Row 13 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = NamingSystem.uniqueId
   Card. = 1..*
   UML = 400;120
@@ -174,7 +177,7 @@
   Definition = Indicates how the system may be identified when referenced in electronic exchange
   Comments = Multiple identifiers may exist, either due to duplicate registration, regional rules, needs of different communication technologies, etc.
 
- -- Row 14 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = NamingSystem.uniqueId.type
   Card. = 1..1
   Type = code
@@ -183,7 +186,7 @@
   Definition = Identifies the unique identifier scheme used for this particular identifier.
   Comments = Different identifier types may be used in different types of communications (OIDs for v3, URIs for FHIR, etc.).  Other includes RUIDs from v3, standard v2 code name strings, etc.
 
- -- Row 15 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = NamingSystem.uniqueId.value
   Card. = 1..1
   Type = string
@@ -192,7 +195,7 @@
   Comments = If the value is a URI intended for use as FHIR system identifier, the URI should not contain \"\\\" or \"?\" or \",\" since this makes escaping very difficult
   w5 = id
 
- -- Row 16 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = NamingSystem.uniqueId.preferred
   Card. = 0..1
   Type = boolean
@@ -200,7 +203,7 @@
   Definition = Indicates whether this identifier is the \"preferred\" identifier of this type.
   Missing Meaning = If there are multiple ids, and one is labelled \"preferred\", then the assumption is that the others are not preferred. In the absence of any id marked as preferred, no inference can be drawn
 
- -- Row 17 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = NamingSystem.uniqueId.comment
   Card. = 0..1
   Type = string
@@ -208,7 +211,7 @@
   Definition = Notes about the past or intended usage of this identifier
   Comments = e.g. \"must be used in Germany\" or \"was initially published in error with this value\"
 
- -- Row 18 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = NamingSystem.uniqueId.period
   Card. = 0..1
   Type = Period
@@ -216,7 +219,7 @@
   Definition = Identifies the period of time over which this identifier is considered appropriate to refer to the naming system.  Outside of this window, the identifier might be non-deterministic
   Comments = Within a registry, a given identifier should only be \"active\" for a single namespace at a time.  (Ideally, an identifier should only ever be associated with a single namespace across all time)
 
- -- Row 19 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = NamingSystem.replacedBy
   Card. = 0..1
   Inv. = 3

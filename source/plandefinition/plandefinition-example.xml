@@ -165,62 +165,95 @@
   <date value="2015-08-15"/>
   <description value="..."/>
   <coverage>
-    <patientAgeGroup>
+    <code>
+      <system value="http://hl7.org/fhir/usage-context-type"/>
+      <code value="gender"/>
+    </code>
+    <valueCodeableConcept>
       <coding>
-        <!-- Error: Connection to http://localhost:960 refused -->
-        <!--<system value="http://snomed.info/sct"/>-->
+        <system value="http://snomed.info/sct"/>
         <code value="133936004"/>
         <display value="Adult"/>
       </coding>
-    </patientAgeGroup>
-    <clinicalFocus>
+    </valueCodeableConcept>
+  </coverage>
+  <coverage>
+    <code>
+      <system value="http://hl7.org/fhir/usage-context-type"/>
+      <code value="focus"/>
+    </code>
+    <valueCodeableConcept>
       <coding>
-        <!-- Error: Connection to http://localhost:960 refused -->
-        <!--<system value="http://snomed.info/sct"/>-->
+        <system value="http://snomed.info/sct"/>
         <code value="87512008"/>
         <display value="Mild major depression"/>
       </coding>
-    </clinicalFocus>
-    <clinicalFocus>
+    </valueCodeableConcept>
+  </coverage>
+  <coverage>
+    <code>
+      <system value="http://hl7.org/fhir/usage-context-type"/>
+      <code value="focus"/>
+    </code>
+    <valueCodeableConcept>
       <coding>
-        <!-- Error: Connection to http://localhost:960 refused -->
-        <!--<system value="http://snomed.info/sct"/>-->
+        <system value="http://snomed.info/sct"/>
         <code value="40379007"/>
         <display value="Major depression, recurrent, mild"/>
       </coding>
-    </clinicalFocus>
-    <clinicalFocus>
+    </valueCodeableConcept>
+  </coverage>
+  <coverage>
+    <code>
+      <system value="http://hl7.org/fhir/usage-context-type"/>
+      <code value="focus"/>
+    </code>
+    <valueCodeableConcept>
       <coding>
-        <!-- Error: Connection to http://localhost:960 refused -->
-        <!--<system value="http://snomed.info/sct"/>-->
+        <system value="http://snomed.info/sct"/>
         <code value="394687007"/>
         <display value="Low suicide risk"/>
       </coding>
-    </clinicalFocus>
-    <clinicalFocus>
+    </valueCodeableConcept>
+  </coverage>
+  <coverage>
+    <code>
+      <system value="http://hl7.org/fhir/usage-context-type"/>
+      <code value="focus"/>
+    </code>
+    <valueCodeableConcept>
       <coding>
-        <!-- Error: Connection to http://localhost:960 refused -->
-        <!--<system value="http://snomed.info/sct"/>-->
+        <system value="http://snomed.info/sct"/>
         <code value="225337009"/>
         <display value="Suicide risk assessment"/>
       </coding>
-    </clinicalFocus>
-    <targetUser>
+    </valueCodeableConcept>
+  </coverage>
+  <coverage>
+    <code>
+      <system value="http://hl7.org/fhir/usage-context-type"/>
+      <code value="specialty"/>
+    </code>
+    <valueCodeableConcept>
       <coding>
-        <!-- Error: Connection to http://localhost:960 refused -->
-        <!--<system value="http://snomed.info/sct"/>-->
+        <system value="http://snomed.info/sct"/>
         <code value="309343006"/>
         <display value="Physician"/>
       </coding>
-    </targetUser>
-    <clinicalVenue>
+    </valueCodeableConcept>
+  </coverage>
+  <coverage>
+    <code>
+      <system value="http://hl7.org/fhir/usage-context-type"/>
+      <code value="venue"/>
+    </code>
+    <valueCodeableConcept>
       <coding>
-        <!-- Error: Connection to http://localhost:960 refused -->
-        <!--<system value="http://snomed.info/sct"/>-->
+        <system value="http://snomed.info/sct"/>
         <code value="440655000"/>
         <display value="Outpatient environment"/>
       </coding>
-    </clinicalVenue>
+    </valueCodeableConcept>
   </coverage>
   <topic>
     <text value="Suicide risk assessment"/>

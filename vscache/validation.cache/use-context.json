@@ -17,6 +17,11 @@
       "message": "Unable to provide support for code system "
     },
     {
+      "hash": "#|urn:iso:std:iso:3166|null|NZ|null",
+      "severity": "error",
+      "message": "Unable to provide support for code system "
+    },
+    {
       "hash": "#|urn:iso:std:iso:3166|null|US|United States of America (the)",
       "severity": "error",
       "message": "Unable to provide support for code system "

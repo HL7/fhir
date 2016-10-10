@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="jurisdiction"/>
+  <name value="Jurisdiction ValueSet"/>
+  <status value="draft"/>
+  <publisher value="FHIR Project team"/>
+  <contact>
+    <telecom>
+      <system value="other"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="This value set defines a base set of codes for country and region, for indicating where a resource is intended to be used"/>
+  <compose>
+    <include>
+      <!--   ISO 2 letter country codes   -->
+      <system value="urn:iso:std:iso:3166"/>
+    </include>
+    <include>
+    <!--   ISO region codes   -->
+      <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/>
+    </include>
+    <include>
+      <!--   US states   -->
+      <valueSet value="http://hl7.org/fhir/ValueSet/usps-state"/>
+    </include>
+  </compose>
+</ValueSet>

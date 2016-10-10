@@ -364,6 +364,9 @@
   Requirements = Consumers of the asset must be able to determine the intended applicability for the asset. Ideally, this information would be used programmatically to determine when and how it should be incorporated or exposed
 
  -- Row 17 -----------------------------------
+  Element = PlanDefinition.jurisdiction
+
+ -- Row 18 -----------------------------------
   Element = PlanDefinition.topic
   Card. = 0..*
   Type = CodeableConcept
@@ -371,7 +374,7 @@
   Definition = Clinical topics related to the content of the asset
   Requirements = Repositories must be able to determine how to categorize the asset so that it can be found by topical searches
 
- -- Row 18 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = PlanDefinition.contributor
   Card. = 0..*
   Type = Contributor
@@ -379,17 +382,17 @@
   Definition = A contributor to the content of the asset, including authors, editors, reviewers, and endorsers
   Requirements = Consumers of the content must be able to quickly determine who contributed to the content of the asset
 
- -- Row 19 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = PlanDefinition.publisher
   To Do = Add constraint to require a publisher for non-experimental active artifacts
 
- -- Row 20 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = PlanDefinition.contact
 
- -- Row 21 -----------------------------------
+ -- Row 22 -----------------------------------
   Element = PlanDefinition.copyright
 
- -- Row 22 -----------------------------------
+ -- Row 23 -----------------------------------
   Element = PlanDefinition.relatedArtifact
   Card. = 0..*
   Type = RelatedArtifact
@@ -398,77 +401,77 @@
   Requirements = Assets must be able to provide enough information for consumers of the content (and/or interventions or results produced by the content) to be able to determine and understand the justification for and evidence in support of the content
   Comments = Each related resource is either an attachment, or a reference to another resource, but not both
 
- -- Row 23 -----------------------------------
+ -- Row 24 -----------------------------------
   Element = PlanDefinition.library
   Card. = 0..*
   Type = Reference(Library)
   Short Name = Logic used by the plan definition
   Definition = A reference to a Library resource containing any formal logic used by the plan definition
 
- -- Row 24 -----------------------------------
+ -- Row 25 -----------------------------------
   Element = PlanDefinition.actionDefinition
   Card. = 0..*
   UML = 310;0
   Short Name = Action defined by the plan
   Definition = An action to be taken as part of the plan
 
- -- Row 25 -----------------------------------
+ -- Row 26 -----------------------------------
   Element = PlanDefinition.actionDefinition.actionIdentifier
   Card. = 0..1
   Type = Identifier
   Short Name = Unique identifier
   Definition = A unique identifier for the action. The identifier SHALL be unique within the container in which it appears, and MAY be universally unique
 
- -- Row 26 -----------------------------------
+ -- Row 27 -----------------------------------
   Element = PlanDefinition.actionDefinition.label
   Card. = 0..1
   Type = string
   Short Name = User-visible label for the action (e.g. 1. or A.)
   Definition = A user-visible label for the action
 
- -- Row 27 -----------------------------------
+ -- Row 28 -----------------------------------
   Element = PlanDefinition.actionDefinition.title
   Card. = 0..1
   Type = string
   Short Name = User-visible title
   Definition = The title of the action displayed to a user
 
- -- Row 28 -----------------------------------
+ -- Row 29 -----------------------------------
   Element = PlanDefinition.actionDefinition.description
   Card. = 0..1
   Type = string
   Short Name = Short description of the action
   Definition = A short description of the action used to provide a summary to display to the user
 
- -- Row 29 -----------------------------------
+ -- Row 30 -----------------------------------
   Element = PlanDefinition.actionDefinition.textEquivalent
   Card. = 0..1
   Type = string
   Short Name = Static text equivalent of the action, used if the dynamic aspects cannot be interpreted by the receiving system
   Definition = A text equivalent of the action to be performed. This provides a human-interpretable description of the action when the definition is consumed by a system that may not be capable of interpreting it dynamically
 
- -- Row 30 -----------------------------------
+ -- Row 31 -----------------------------------
   Element = PlanDefinition.actionDefinition.concept
   Card. = 0..*
   Type = CodeableConcept
   Short Name = The meaning of the action or its sub-actions
   Definition = The concept represented by this action or its sub-actions
 
- -- Row 31 -----------------------------------
+ -- Row 32 -----------------------------------
   Element = PlanDefinition.actionDefinition.documentation
   Card. = 0..*
   Type = RelatedArtifact
   Short Name = Supporting documentation for the intended performer of the action
   Definition = Didactic or other informational resources associated with the action that can be provided to the CDS recipient. Information resources can include inline text commentary and links to web resources
 
- -- Row 32 -----------------------------------
+ -- Row 33 -----------------------------------
   Element = PlanDefinition.actionDefinition.triggerDefinition
   Card. = 0..*
   Type = TriggerDefinition
   Short Name = When the action should be triggered
   Definition = A description of when the action should be triggered
 
- -- Row 33 -----------------------------------
+ -- Row 34 -----------------------------------
   Element = PlanDefinition.actionDefinition.condition
   Card. = 0..1
   UML = 650;0
@@ -476,21 +479,21 @@
   Short Name = Whether or not the action is applicable
   Definition = An expression specifying whether or not the action is applicable in a given context
 
- -- Row 34 -----------------------------------
+ -- Row 35 -----------------------------------
   Element = PlanDefinition.actionDefinition.condition.description
   Card. = 0..1
   Type = string
   Short Name = Natural language description of the condition
   Definition = A brief, natural language description of the condition that effectively communicates the intended semantics
 
- -- Row 35 -----------------------------------
+ -- Row 36 -----------------------------------
   Element = PlanDefinition.actionDefinition.condition.language
   Card. = 0..1
   Type = string
   Short Name = Language of the expression
   Definition = The media type of the language for the expression
 
- -- Row 36 -----------------------------------
+ -- Row 37 -----------------------------------
   Element = PlanDefinition.actionDefinition.condition.expression
   Card. = 0..1
   Type = string
@@ -498,7 +501,7 @@
   Definition = An expression that returns true or false, indicating whether or not the condition is satisfied
   Comments = The expression may be inlined, or may be a reference to a named expression within a logic library referenced by the library element
 
- -- Row 37 -----------------------------------
+ -- Row 38 -----------------------------------
   Element = PlanDefinition.actionDefinition.relatedAction
   Card. = 0..*
   UML = down
@@ -506,14 +509,14 @@
   Definition = A relationship to another action such as \"before\" or \"30-60 minutes after start of\"
   Comments = When an action depends on multiple actions, the meaning is that all actions are dependencies, rather than that any of the actions are a dependency
 
- -- Row 38 -----------------------------------
+ -- Row 39 -----------------------------------
   Element = PlanDefinition.actionDefinition.relatedAction.actionIdentifier
   Card. = 1..1
   Type = Identifier
   Short Name = Identifier of the related action
   Definition = The unique identifier of the related action
 
- -- Row 39 -----------------------------------
+ -- Row 40 -----------------------------------
   Element = PlanDefinition.actionDefinition.relatedAction.relationship
   Card. = 1..1
   Type = code
@@ -521,14 +524,14 @@
   Short Name = before | after | concurrent
   Definition = The relationship of this action to the related action
 
- -- Row 40 -----------------------------------
+ -- Row 41 -----------------------------------
   Element = PlanDefinition.actionDefinition.relatedAction.offset[x]
   Card. = 0..1
   Type = Duration|Range
   Short Name = Time offset for the relationship
   Definition = A duration or range of durations to apply to the relationship. For example, 30-60 minutes before
 
- -- Row 41 -----------------------------------
+ -- Row 42 -----------------------------------
   Element = PlanDefinition.actionDefinition.relatedAction.anchor
   Card. = 0..1
   Type = code
@@ -536,14 +539,14 @@
   Short Name = start | end
   Definition = An optional indicator for how the relationship is anchored to the related action. For example \"before the start\" or \"before the end\" of the related action
 
- -- Row 42 -----------------------------------
+ -- Row 43 -----------------------------------
   Element = PlanDefinition.actionDefinition.timing[x]
   Card. = 0..1
   Type = dateTime|Period|Duration|Range|Timing
   Short Name = When the action should take place
   Definition = An optional value describing when the action should be performed
 
- -- Row 43 -----------------------------------
+ -- Row 44 -----------------------------------
   Element = PlanDefinition.actionDefinition.participantType
   Card. = 0..*
   Type = code
@@ -551,7 +554,7 @@
   Short Name = patient | practitioner | related-person
   Definition = The type of participant in the action
 
- -- Row 44 -----------------------------------
+ -- Row 45 -----------------------------------
   Element = PlanDefinition.actionDefinition.type
   Card. = 0..1
   Type = Coding
@@ -559,7 +562,7 @@
   Short Name = create | update | remove | fire-event
   Definition = The type of action to perform (create, update, remove)
 
- -- Row 45 -----------------------------------
+ -- Row 46 -----------------------------------
   Element = PlanDefinition.actionDefinition.groupingBehavior
   Card. = 0..1
   Type = code
@@ -567,7 +570,7 @@
   Short Name = visual-group | logical-group | sentence-group
   Definition = Defines the grouping behavior for the action and its children
 
- -- Row 46 -----------------------------------
+ -- Row 47 -----------------------------------
   Element = PlanDefinition.actionDefinition.selectionBehavior
   Card. = 0..1
   Type = code
@@ -575,7 +578,7 @@
   Short Name = any | all | all-or-none | exactly-one | at-most-one | one-or-more
   Definition = Defines the selection behavior for the action and its children
 
- -- Row 47 -----------------------------------
+ -- Row 48 -----------------------------------
   Element = PlanDefinition.actionDefinition.requiredBehavior
   Card. = 0..1
   Type = code
@@ -583,7 +586,7 @@
   Short Name = must | could | must-unless-documented
   Definition = Defines the requiredness behavior for the action
 
- -- Row 48 -----------------------------------
+ -- Row 49 -----------------------------------
   Element = PlanDefinition.actionDefinition.precheckBehavior
   Card. = 0..1
   Type = code
@@ -591,7 +594,7 @@
   Short Name = yes | no
   Definition = Defines whether the action should usually be preselected
 
- -- Row 49 -----------------------------------
+ -- Row 50 -----------------------------------
   Element = PlanDefinition.actionDefinition.cardinalityBehavior
   Card. = 0..1
   Type = code
@@ -599,7 +602,7 @@
   Short Name = single | multiple
   Definition = Defines whether the action can be selected multiple times
 
- -- Row 50 -----------------------------------
+ -- Row 51 -----------------------------------
   Element = PlanDefinition.actionDefinition.activityDefinition
   Card. = 0..1
   Type = Reference(ActivityDefinition)
@@ -607,42 +610,42 @@
   Definition = A reference to an ActivityDefinition that describes the action to be taken in detail
   Comments = Note that the resource is optional, and if no resource is specified, a dynamicValue with a root (/) path can be used to define the entire resource dynamically
 
- -- Row 51 -----------------------------------
+ -- Row 52 -----------------------------------
   Element = PlanDefinition.actionDefinition.transform
   Card. = 0..1
   Type = Reference(StructureMap)
   Short Name = Transform to apply the template
   Definition = A reference to a StructureMap resource that defines a transform that can be executed to produce the intent resource using the ActivityDefinition instance as the input
 
- -- Row 52 -----------------------------------
+ -- Row 53 -----------------------------------
   Element = PlanDefinition.actionDefinition.dynamicValue
   Card. = 0..*
   UML = 650;200
   Short Name = Dynamic aspects of the definition
   Definition = Customizations that should be applied to the statically defined resource. For example, if the dosage of a medication must be computed based on the patient\'s weight, a customization would be used to specify an expression that calculated the weight, and the path on the resource that would contain the result
 
- -- Row 53 -----------------------------------
+ -- Row 54 -----------------------------------
   Element = PlanDefinition.actionDefinition.dynamicValue.description
   Card. = 0..1
   Type = string
   Short Name = Natural language description of the dynamic value
   Definition = A brief, natural language description of the intended semantics of the dynamic value
 
- -- Row 54 -----------------------------------
+ -- Row 55 -----------------------------------
   Element = PlanDefinition.actionDefinition.dynamicValue.path
   Card. = 0..1
   Type = string
   Short Name = The path to the element to be set dynamically
   Definition = The path to the element to be customized. This is the path on the resource that will hold the result of the calculation defined by the expression
 
- -- Row 55 -----------------------------------
+ -- Row 56 -----------------------------------
   Element = PlanDefinition.actionDefinition.dynamicValue.language
   Card. = 0..1
   Type = string
   Short Name = Language of the expression
   Definition = The media type of the language for the expression
 
- -- Row 56 -----------------------------------
+ -- Row 57 -----------------------------------
   Element = PlanDefinition.actionDefinition.dynamicValue.expression
   Card. = 0..1
   Type = string
@@ -650,7 +653,7 @@
   Definition = An expression specifying the value of the customized element
   Comments = The expression may be inlined, or may be a reference to a named expression within a logic library referenced by the library element
 
- -- Row 57 -----------------------------------
+ -- Row 58 -----------------------------------
   Element = PlanDefinition.actionDefinition.actionDefinition
   Card. = 0..*
   Type = @PlanDefinition.actionDefinition
