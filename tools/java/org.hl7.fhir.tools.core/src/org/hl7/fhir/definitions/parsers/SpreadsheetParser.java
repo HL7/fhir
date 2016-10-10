@@ -163,6 +163,8 @@ public class SpreadsheetParser {
   private List<FHIRPathUsage> fpUsages;
   private Map<String, CodeSystem> codeSystems;
   private Map<String, ConceptMap> maps;
+  private ResourceDefn template;
+  private String templateTitle;
 
 	public SpreadsheetParser(String usageContext, InputStream in, String name,	Definitions definitions, String root, Logger log, BindingNameRegistry registry, String version, BuildWorkerContext context, Calendar genDate, boolean isAbstract, Map<String, StructureDefinition> extensionDefinitions, ProfileKnowledgeProvider pkp, boolean isType, IniFile ini, String committee, Map<String, ConstraintStructure> profileIds, List<FHIRPathUsage> fpUsages, Map<String, ConceptMap> maps) throws Exception {
 	  this.usageContext = usageContext;
@@ -270,6 +272,11 @@ public class SpreadsheetParser {
 		for (int row = 0; row < sheet.rows.size(); row++) {
 		  processLine(resource, sheet, row, invariants, false, null, row == 0);
 		}
+		if (template != null) {
+		  resource.setTemplate(template.getRoot());
+		  copySearchParameters(resource);
+		  template = null;
+		}
     parseMetadata(resource);
 
 		if (invariants != null) {
@@ -308,7 +315,25 @@ public class SpreadsheetParser {
 	}
 	
 	
-	private void parseMetadata(ResourceDefn resource) throws Exception {
+	private void copySearchParameters(ResourceDefn resource) {
+	  for (SearchParameterDefn sps : template.getSearchParams().values()) {
+	    if (hasPath(resource, sps.getPaths().get(0))) {
+	      SearchParameterDefn spt = new SearchParameterDefn(sps, template.getName(), resource.getName(), templateTitle);
+	      resource.getSearchParams().put(spt.getCode(), spt);
+	    }
+    }
+  }
+
+  private boolean hasPath(ResourceDefn resource, String path) {
+    String tail = path.substring(path.lastIndexOf('.')+1);
+    for (ElementDefn element : resource.getRoot().getElements()) {
+      if (element.getName().equals(tail))
+        return true;
+    }
+    return false;
+  }
+
+  private void parseMetadata(ResourceDefn resource) throws Exception {
     Sheet sheet = loadSheet("Instructions");
     
     if (sheet != null) {
@@ -394,7 +419,7 @@ public class SpreadsheetParser {
 	}
 	
 	
-	public ResourceDefn parseResource() throws Exception {
+	public ResourceDefn parseResource(boolean isTemplate) throws Exception {
 	  isProfile = false;
 	  ResourceDefn root = parseCommonTypeColumns(true);
  
@@ -405,7 +430,8 @@ public class SpreadsheetParser {
 	    readPackages(root, loadSheet("Profiles")); 
 	  else
 	    readPackages(root, loadSheet("Packages")); 
-    readExamples(root, loadSheet("Examples"));
+	  if (!isTemplate)
+	    readExamples(root, loadSheet("Examples"));
 	  readOperations(root.getOperations(), loadSheet("Operations"));
 
 	  tabfmt.close();
@@ -1626,7 +1652,7 @@ public class SpreadsheetParser {
       tabfmt.column("Inv.");
       tabfmt.column("Type");
       tabfmt.column("Binding");
-      tabfmt.column("Short Label");
+      tabfmt.column("Short Name");
       tabfmt.column("Definition");
       tabfmt.column("Max Length");
       tabfmt.column("Requirements");
@@ -1661,8 +1687,8 @@ public class SpreadsheetParser {
 		tabfmt.cell(sheet.getColumn(row, "Inv."));
 		tabfmt.cell(sheet.getColumn(row, "Type"));
 		tabfmt.cell(sheet.getColumn(row, "Binding"));
-    if (!Utilities.noString(sheet.getColumn(row, "Short Label")))
-      tabfmt.cell(sheet.getColumn(row, "Short Label"));
+    if (!Utilities.noString(sheet.getColumn(row, "Short Name")))
+      tabfmt.cell(sheet.getColumn(row, "Short Name"));
     else // todo: make this a warning when a fair chunk of the spreadsheets have been converted 
       tabfmt.cell(sheet.getColumn(row, "Short Name"));
     tabfmt.cell(sheet.getColumn(row, "Definition"));
@@ -1705,13 +1731,14 @@ public class SpreadsheetParser {
 			root.setRoot((TypeDefn) e);
 		} else {
 			e = makeFromPath(root.getRoot(), path, row, profileName, true);
+			if (template != null) {
+			  ElementDefn ted = getTemplateDefinition(path);
+			  if (ted != null) { 
+			    e.copyFrom(ted, root.getName(), templateTitle);
+			  }
+			}
 		}
 
-		String tasks = sheet.getColumn(row, "gForge");
-		if (!Utilities.noString(tasks)) {
-		  for (String t : tasks.split(","))
-		    e.getTasks().add(t);
-		}
 		
 		if (e.getName().startsWith("@")) {
 		  e.setName(e.getName().substring(1));
@@ -1719,9 +1746,9 @@ public class SpreadsheetParser {
 		}
 		String c = sheet.getColumn(row, "Card.");
 		if (c == null || c.equals("") || c.startsWith("!")) {
-			if (!isRoot && !profile)
+			if (!isRoot && !profile && (template == null))
 				throw new Exception("Missing cardinality at "+ getLocation(row) + " on " + path);
-			if (isRoot) {
+			if (isRoot && (template == null)) {
 			  e.setMinCardinality(0);
 			  e.setMaxCardinality(Integer.MAX_VALUE);
 			}
@@ -1743,14 +1770,16 @@ public class SpreadsheetParser {
     if (sheet.hasColumn(row, "Must Understand"))
       throw new Exception("Column 'Must Understand' has been renamed to 'Is Modifier'");
 
-		e.setIsModifier(parseBoolean(sheet.getColumn(row, "Is Modifier"), row, null));
+    if (sheet.hasColumn(row, "Is Modifier"))
+      e.setIsModifier(parseBoolean(sheet.getColumn(row, "Is Modifier"), row, null));
 		if (isProfile) {
 		  // later, this will get hooked in from the underlying definitions, but we need to know this now to validate the extension modifier matching
 	    if (e.getName().equals("modifierExtension"))
 	      e.setIsModifier(true);
 		  e.setMustSupport(parseBoolean(sheet.getColumn(row, "Must Support"), row, null));
 		}
-    e.setSummaryItem(parseBoolean(sheet.getColumn(row, "Summary"), row, null));
+		if (sheet.hasColumn(row, "Summary"))
+		  e.setSummaryItem(parseBoolean(sheet.getColumn(row, "Summary"), row, null));
     e.setRegex(sheet.getColumn(row, "Regex"));
     String uml = sheet.getColumn(row, "UML");
     if (uml != null) {
@@ -1783,6 +1812,14 @@ public class SpreadsheetParser {
 
 		TypeParser tp = new TypeParser();
 		e.getTypes().addAll(tp.parse(sheet.getColumn(row, "Type"), isProfile, profileExtensionBase, context, !path.contains("."), this.name));
+		if (isRoot && e.getTypes().size() == 1 && definitions  != null) {
+		  if (definitions.getResourceTemplates().containsKey(e.getTypes().get(0).getName())) {
+		    // we've got a template in play.
+		    template = definitions.getResourceTemplates().get(e.getTypes().get(0).getName());
+		    templateTitle = Utilities.unCamelCase(e.getName());
+		    e.getTypes().get(0).setName(template.getRoot().getTypes().get(0).getName());
+		  }
+		}
 
 		
 		if (isProfile && ((path.endsWith(".extension") || path.endsWith(".modifierExtension")) && (e.getTypes().size() == 1) && e.getTypes().get(0).hasProfile()) && Utilities.noString(profileName))
@@ -1808,12 +1845,21 @@ public class SpreadsheetParser {
 		    binding.getUseContexts().add(name);
 		}
     if (!Utilities.noString(sheet.getColumn(row, "Short Label")))
-      e.setShortDefn(sheet.getColumn(row, "Short Label"));
-    else // todo: make this a warning when a fair chunk of the spreadsheets have been converted 
-      e.setShortDefn(sheet.getColumn(row, "Short Name"));
-      
+      throw new Exception("Short Label is no longer used");
+    if (sheet.hasColumn(row, "Short Name"))// todo: make this a warning when a fair chunk of the spreadsheets have been converted 
+      if (sheet.getColumn(row, "Short Name").startsWith("&"))
+        e.setShortDefn(e.getShortDefn() + sheet.getColumn(row, "Short Name").substring(1));
+      else
+        e.setShortDefn(sheet.getColumn(row, "Short Name"));
+    if (e.getShortDefn() == null)
+      e.setShortDefn("(todo");
+//      throw new Exception("A short definition is required "+ getLocation(row));
     
-		e.setDefinition(Utilities.appendPeriod(processDefinition(sheet.getColumn(row, "Definition"))));
+    if (sheet.hasColumn(row, "Definition"))
+      if (sheet.getColumn(row, "Definition").startsWith("&"))
+        e.setDefinition(Utilities.appendPeriod(e.getDefinition() + sheet.getColumn(row, "Definition").substring(1)));
+      else
+        e.setDefinition(Utilities.appendPeriod(processDefinition(sheet.getColumn(row, "Definition"))));
 		
 		if (isRoot) {
 			root.setDefinition(e.getDefinition());
@@ -1821,8 +1867,16 @@ public class SpreadsheetParser {
 		
 		if (isProfile || isLogicalModel)
 		  e.setMaxLength(sheet.getColumn(row, "Max Length"));
-		e.setRequirements(Utilities.appendPeriod(sheet.getColumn(row, "Requirements")));
-		e.setComments(Utilities.appendPeriod(sheet.getColumn(row, "Comments")));
+		if (sheet.hasColumn(row, "Requirements"))
+		  if (sheet.getColumn(row, "Requirements").startsWith("&"))
+		    e.setRequirements(Utilities.appendPeriod(e.getRequirements() + sheet.getColumn(row, "Requirements").substring(1)));
+		  else
+		    e.setRequirements(Utilities.appendPeriod(sheet.getColumn(row, "Requirements")));
+		if (sheet.hasColumn(row, "Comments"))
+		  if (sheet.getColumn(row, "Comments").startsWith("&"))
+		    e.setComments(Utilities.appendPeriod(e.getComments() + sheet.getColumn(row, "Comments").substring(1)));
+		  else
+		    e.setComments(Utilities.appendPeriod(sheet.getColumn(row, "Comments")));
 		for (String n : mappings.keySet()) {
 		  e.addMapping(n, sheet.getColumn(row, mappings.get(n).getColumnName()));
 		}
@@ -1831,23 +1885,41 @@ public class SpreadsheetParser {
         e.addMapping(n, sheet.getColumn(row, pack.getMappingSpaces().get(n).getColumnName()));
       }      
     }
-		e.setTodo(Utilities.appendPeriod(sheet.getColumn(row, "To Do")));
-		e.setExample(processValue(sheet, row, "Example", sheet.getColumn(row, "Example"), e));
+    if (sheet.hasColumn(row, "To Do"))
+      e.setTodo(Utilities.appendPeriod(sheet.getColumn(row, "To Do")));
+    if (sheet.hasColumn(row, "Example"))
+      e.setExample(processValue(sheet, row, "Example", sheet.getColumn(row, "Example"), e));
 		processOtherExamples(e, sheet, row);		
-		e.setCommitteeNotes(Utilities.appendPeriod(sheet.getColumn(row, "Committee Notes")));
-		e.setDisplayHint(sheet.getColumn(row, "Display Hint"));
+		if (sheet.hasColumn(row, "Committee Notes"))
+		  e.setCommitteeNotes(Utilities.appendPeriod(sheet.getColumn(row, "Committee Notes")));
+		if (sheet.hasColumn(row, "Display Hint"))
+		  e.setDisplayHint(sheet.getColumn(row, "Display Hint"));
 		if (isProfile) {
       e.setFixed(processValue(sheet, row, "Value", sheet.getColumn(row, "Value"), e));
       e.setPattern(processValue(sheet, row, "Pattern", sheet.getColumn(row, "Pattern"), e));
 		} else {
-      e.setDefaultValue(processValue(sheet, row, "Default Value", sheet.getColumn(row, "Default Value"), e));
-      e.setMeaningWhenMissing(sheet.getColumn(row, "Missing Meaning"));
+		  if (sheet.hasColumn(row, "Default Value"))
+		    e.setDefaultValue(processValue(sheet, row, "Default Value", sheet.getColumn(row, "Default Value"), e));
+		  if (sheet.hasColumn(row, "Missing Meaning"))
+		    e.setMeaningWhenMissing(sheet.getColumn(row, "Missing Meaning"));
 		}
-		e.setW5(checkW5(sheet.getColumn(row, "w5"), path));
+		if (sheet.hasColumn(row, "w5"))
+		  e.setW5(checkW5(sheet.getColumn(row, "w5"), path));
 		return e;
 	}
 
-	private void processOtherExamples(ElementDefn e, Sheet sheet, int row) throws Exception {
+	private ElementDefn getTemplateDefinition(String path) {
+	  String[] parts = path.split("\\.");
+	  if (parts.length != 2)
+	    return null;
+	  for (ElementDefn ted : template.getRoot().getElements()) {
+	    if (ted.getName().equals(parts[1]))
+	      return ted;
+	  }
+    return null;
+  }
+
+  private void processOtherExamples(ElementDefn e, Sheet sheet, int row) throws Exception {
 	  for (int i = 1; i <= 20; i++) {
 	    String s = sheet.getColumn(row, "Example "+Integer.toString(i));
 	    if (Utilities.noString(s))
@@ -2154,14 +2226,9 @@ public class SpreadsheetParser {
     for (String n : mappings.keySet()) {
       exe.addMapping(n, sheet.getColumn(row, mappings.get(n).getColumnName()));
     }
-    String tasks = sheet.getColumn(row, "gForge");
-    if (!Utilities.noString(tasks)) {
-      for (String t : tasks.split(","))
-        exe.getTasks().add(t);
-    }   
     exe.setTodo(Utilities.appendPeriod(sheet.getColumn(row, "To Do")));
     exe.setCommitteeNotes(Utilities.appendPeriod(sheet.getColumn(row, "Committee Notes")));
-    exe.setShortDefn(sheet.getColumn(row, "Short Label"));
+    exe.setShortDefn(sheet.getColumn(row, "Short Name"));
 
     exe.setIsModifier(parseBoolean(sheet.getColumn(row, "Is Modifier"), row, null));
     if (nested && exe.isModifier())

@@ -63,7 +63,8 @@ public class ResourceDefn  {
   private String fmmLevel;
   private String proposedOrder;
   private String display;
-
+  private ElementDefn template;
+  
   private List<InheritedMapping> inheritedMappings = new ArrayList<InheritedMapping>();
 
   public String getName()
@@ -290,6 +291,14 @@ public class ResourceDefn  {
       }
     }
     return null;
+  }
+
+  public ElementDefn getTemplate() {
+    return template;
+  }
+
+  public void setTemplate(ElementDefn template) {
+    this.template = template;
   }
   
   

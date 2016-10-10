@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sun, Oct 9, 2016 19:10+1100 for FHIR v1.7.0
+// Generated on Mon, Oct 10, 2016 12:40+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -1756,14 +1756,14 @@ public class ElementDefinition extends Type implements ICompositeType {
         /**
          * A [FluentPath](http://hl7.org/fluentpath) expression of constraint that can be executed to see if this constraint is met.
          */
-        @Child(name = "expression", type = {StringType.class}, order=5, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "expression", type = {StringType.class}, order=5, min=1, max=1, modifier=false, summary=true)
         @Description(shortDefinition="FluentPath expression of constraint", formalDefinition="A [FluentPath](http://hl7.org/fluentpath) expression of constraint that can be executed to see if this constraint is met." )
         protected StringType expression;
 
         /**
          * An XPath expression of constraint that can be executed to see if this constraint is met.
          */
-        @Child(name = "xpath", type = {StringType.class}, order=6, min=1, max=1, modifier=false, summary=true)
+        @Child(name = "xpath", type = {StringType.class}, order=6, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="XPath expression of constraint", formalDefinition="An XPath expression of constraint that can be executed to see if this constraint is met." )
         protected StringType xpath;
 
@@ -1779,12 +1779,12 @@ public class ElementDefinition extends Type implements ICompositeType {
     /**
      * Constructor
      */
-      public ElementDefinitionConstraintComponent(IdType key, Enumeration<ConstraintSeverity> severity, StringType human, StringType xpath) {
+      public ElementDefinitionConstraintComponent(IdType key, Enumeration<ConstraintSeverity> severity, StringType human, StringType expression) {
         super();
         this.key = key;
         this.severity = severity;
         this.human = human;
-        this.xpath = xpath;
+        this.expression = expression;
       }
 
         /**
@@ -2010,13 +2010,9 @@ public class ElementDefinition extends Type implements ICompositeType {
          * @param value A [FluentPath](http://hl7.org/fluentpath) expression of constraint that can be executed to see if this constraint is met.
          */
         public ElementDefinitionConstraintComponent setExpression(String value) { 
-          if (Utilities.noString(value))
-            this.expression = null;
-          else {
             if (this.expression == null)
               this.expression = new StringType();
             this.expression.setValue(value);
-          }
           return this;
         }
 
@@ -2059,9 +2055,13 @@ public class ElementDefinition extends Type implements ICompositeType {
          * @param value An XPath expression of constraint that can be executed to see if this constraint is met.
          */
         public ElementDefinitionConstraintComponent setXpath(String value) { 
+          if (Utilities.noString(value))
+            this.xpath = null;
+          else {
             if (this.xpath == null)
               this.xpath = new StringType();
             this.xpath.setValue(value);
+          }
           return this;
         }
 

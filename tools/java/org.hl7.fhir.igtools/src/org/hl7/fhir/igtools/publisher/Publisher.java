@@ -54,7 +54,7 @@ import org.hl7.fhir.dstu3.elementmodel.ParserBase.ValidationPolicy;
 import org.hl7.fhir.dstu3.formats.IParser.OutputStyle;
 import org.hl7.fhir.dstu3.formats.JsonParser;
 import org.hl7.fhir.dstu3.formats.XmlParser;
-import org.hl7.fhir.dstu3.model.BaseConformance;
+import org.hl7.fhir.dstu3.model.MetadataResource;
 import org.hl7.fhir.dstu3.model.Bundle;
 import org.hl7.fhir.dstu3.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.dstu3.model.Bundle.BundleType;
@@ -398,8 +398,8 @@ public class Publisher implements IWorkerContext.ILoggingService {
 
   private FetchedResource getResourceForUri(FetchedFile f, String uri) {
       for (FetchedResource r : f.getResources()) {
-        if (r.getResource() != null && r.getResource() instanceof BaseConformance) {
-          BaseConformance bc = (BaseConformance) r.getResource();
+        if (r.getResource() != null && r.getResource() instanceof MetadataResource) {
+          MetadataResource bc = (MetadataResource) r.getResource();
           if (bc.getUrl().equals(uri))
           return r;
         }
@@ -773,8 +773,8 @@ public class Publisher implements IWorkerContext.ILoggingService {
         } catch (Exception e) {
           throw new Exception("Unable to parse "+fn+" from IG "+name, e);
         }
-        if (r instanceof BaseConformance) {
-          String u = ((BaseConformance) r).getUrl();
+        if (r instanceof MetadataResource) {
+          String u = ((MetadataResource) r).getUrl();
           if (u != null) {
             String p = igm.getPath(u);
             if (p == null)
@@ -1419,7 +1419,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
             } catch (Exception e) {
               throw new Exception("Error parsing "+f.getName()+": "+e.getMessage(), e);
             }
-          BaseConformance bc = (BaseConformance) r.getResource();
+          MetadataResource bc = (MetadataResource) r.getResource();
           boolean altered = false;
           if (!bc.hasDate()) {
             altered = true;
@@ -1748,7 +1748,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
     if (res == null)
       throw new Exception("Unable to find regeneration source for "+uri);
 
-    BaseConformance bc = (BaseConformance) res;
+    MetadataResource bc = (MetadataResource) res;
 
     FetchedFile f = new FetchedFile();
     FetchedResource r = f.addResource();
@@ -1805,8 +1805,8 @@ public class Publisher implements IWorkerContext.ILoggingService {
     for (FetchedFile f : fileList) {
       for (FetchedResource r : f.getResources()) {
         String u = igpkp.getCanonical()+r.getUrlTail();
-        if (r.getResource() != null && r.getResource() instanceof BaseConformance) {
-          String uc = ((BaseConformance) r.getResource()).getUrl();
+        if (r.getResource() != null && r.getResource() instanceof MetadataResource) {
+          String uc = ((MetadataResource) r.getResource()).getUrl();
           if (uc != null && !u.equals(uc) && !u.startsWith("http://hl7.org/fhir/template-adhoc-ig") && !(r.getResource() instanceof CodeSystem))
             throw new Exception("URL Mismatch "+u+" vs "+uc);
         }
@@ -1835,7 +1835,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
     Set<String> files = new HashSet<String>();
     for (FetchedFile f : fileList) {
       for (FetchedResource r : f.getResources()) {
-        if (r.getResource() != null && r.getResource() instanceof BaseConformance) {
+        if (r.getResource() != null && r.getResource() instanceof MetadataResource) {
           String fn = Utilities.path(outputDir, r.getElement().fhirType()+"-"+r.getId()+"."+fmt.getExtension());
           if (new File(fn).exists())
             files.add(fn);
@@ -1860,7 +1860,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
     zip.addBytes("version.info", context.getBinaries().get("version.info"), false);
     for (FetchedFile f : fileList) {
       for (FetchedResource r : f.getResources()) {
-        if (r.getResource() != null && r.getResource() instanceof BaseConformance) {
+        if (r.getResource() != null && r.getResource() instanceof MetadataResource) {
           ByteArrayOutputStream bs = new ByteArrayOutputStream();
           new JsonParser().compose(bs, r.getResource());
           zip.addBytes(r.getElement().fhirType()+"-"+r.getId()+".json", bs.toByteArray(), false);
@@ -2289,9 +2289,9 @@ public class Publisher implements IWorkerContext.ILoggingService {
   private void genEntryItem(StringBuilder list, StringBuilder table, FetchedFile f, FetchedResource r, String name) throws Exception {
     String ref = igpkp.doReplacements(igpkp.getLinkFor(r), r, null, null);
     String desc = r.getTitle();
-    if (r.getResource() != null && r.getResource() instanceof BaseConformance) {
-      name = ((BaseConformance) r.getResource()).getName();
-      desc = getDesc((BaseConformance) r.getResource(), desc);
+    if (r.getResource() != null && r.getResource() instanceof MetadataResource) {
+      name = ((MetadataResource) r.getResource()).getName();
+      desc = getDesc((MetadataResource) r.getResource(), desc);
     }
     list.append(" <li><a href=\""+ref+"\">"+Utilities.escapeXml(name)+"</a> "+Utilities.escapeXml(desc)+"</li>\r\n");
     table.append(" <tr><td><a href=\""+ref+"\">"+Utilities.escapeXml(name)+"</a> </td><td>"+new BaseRenderer(context, null, igpkp, specMaps).processMarkdown("description", desc)+"</td></tr>\r\n");
@@ -2318,7 +2318,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
     }
   }
 
-  private String getDesc(BaseConformance r, String desc) {
+  private String getDesc(MetadataResource r, String desc) {
     if (r instanceof CodeSystem) {
       CodeSystem v = (CodeSystem) r;
       if (v.hasDescription())

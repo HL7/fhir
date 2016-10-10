@@ -76,13 +76,11 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 
   public enum JavaGenClass { Structure, Type, Resource, BackboneElement, Constraint }
 	private JavaGenClass clss;
-  private Map<String, ImpliedBaseType> impliedTypes;
   private Map<String, String> adornments;
 	
-	public JavaResourceGenerator(OutputStream out, Definitions definitions, Map<String, ImpliedBaseType> impliedTypes, Map<String, String> adornments) throws UnsupportedEncodingException {
+	public JavaResourceGenerator(OutputStream out, Definitions definitions, Map<String, String> adornments) throws UnsupportedEncodingException {
 		super(out);
 		this.definitions = definitions;
-		this.impliedTypes = impliedTypes;
 		this.adornments = adornments; 
 	}
 
@@ -101,7 +99,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 		return typeNames;
 	}
 
-	public void generate(ElementDefn root, String name, JavaGenClass clss, ProfiledType cd, Date genDate, String version, boolean isAbstract, Map<String, SearchParameterDefn> nameToSearchParamDef) throws Exception {
+	public void generate(ElementDefn root, String name, JavaGenClass clss, ProfiledType cd, Date genDate, String version, boolean isAbstract, Map<String, SearchParameterDefn> nameToSearchParamDef, ElementDefn template) throws Exception {
 		typeNames.clear();
 		typeNameStrings.clear();
 		enums.clear();
@@ -162,12 +160,9 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
     }
 		jdoc("", root.getDefinition());
 		String supertype = root.typeCode();
-		boolean hasImpliedBaseType = false;
 		
-		if (root.hasMapping("http://hl7.org/fhir/object-implementation")) {
-		  supertype = processImpliedBaseType(root.getMapping("http://hl7.org/fhir/object-implementation"), root);
-		  hasImpliedBaseType = true;
-		}
+		if (template != null)
+		  supertype = template.getName();
 		
     if (clss == JavaGenClass.Resource) {
 		  
@@ -175,23 +170,23 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 		    write("@ResourceDef(name=\""+upFirst(name).replace("ListResource", "List")+"\", profile=\"http://hl7.org/fhir/Profile/"+upFirst(name)+"\")\r\n");
 		  }
 		  
-		  if (HAPI_16) {
-		    if (hasImpliedBaseType) {
-	        write("@ChildOrder(names={");
-	        boolean first = true; 
-	        for (ElementDefn e : root.getElements()) {
-	          if (first) {
-	            first = false;
-	          } else {
-	            write(", ");
-	          }
-	          write("\"");
-            write(e.getName());
-            write("\"");
-	        }
-	        write("})\r\n");
-		    }
-		  }
+//		  if (HAPI_16) {
+//		    if (hasImpliedBaseType) {
+//	        write("@ChildOrder(names={");
+//	        boolean first = true; 
+//	        for (ElementDefn e : root.getElements()) {
+//	          if (first) {
+//	            first = false;
+//	          } else {
+//	            write(", ");
+//	          }
+//	          write("\"");
+//            write(e.getName());
+//            write("\"");
+//	        }
+//	        write("})\r\n");
+//		    }
+//		  }
 		  
 			String hierarchy;
       if (Utilities.noString(supertype)) {
@@ -272,7 +267,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
       allfields = "";
       int i = 0;
 			for (ElementDefn e : root.getElements()) {
-			  if (processObjectImpl(e)) {
+			  if (!e.isFromTemplate() && processObjectImpl(e)) {
 				  generateField(root, e, "    ", i++);
 			  }
 			}
@@ -411,47 +406,33 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 	}
 
   private boolean processObjectImpl(ElementDefn e) throws Exception {
-    if (e.hasMapping("http://hl7.org/fhir/object-implementation")) {
-      String[] path = e.getMapping("http://hl7.org/fhir/object-implementation").split("\\.");
-      ImpliedBaseType bt = impliedTypes.get(path[0]);
-      ElementDefn found = null;
-      for (ElementDefn c : bt.getRoot().getElements()) {
-        if (c.getName().equals(path[1])) {
-          found = c;
-          break;
-        }
-      }
-      if (found != null) {
-        if (!found.getName().equals(e.getName()))
-          throw new Exception("name mismatch on "+found.getName()+": "+found.getMaxCardinality().toString()+"/"+e.getMaxCardinality().toString()+" for "+e.getPath());
-        if (!found.getMaxCardinality().equals(e.getMaxCardinality()))
-          throw new Exception("cardinality mismatch on "+found.getName()+": "+found.getMaxCardinality().toString()+"/"+e.getMaxCardinality().toString()+" for "+e.getPath());
-        if (!found.typeCode().equals(e.typeCode()))
-          throw new Exception("type mismatch");
-      } else {
-        ElementDefn newe = new ElementDefn(e);
-        newe.getMappings().clear();
-        bt.getRoot().getElements().add(newe);
-      }
-      return false;
-    }
-    else 
-      return true;
-  }
-
-  private String processImpliedBaseType(String name, ElementDefn root) throws Exception {
-    ImpliedBaseType bt = impliedTypes.get(name);
-    if (bt == null) {
-      ElementDefn newRoot = new ElementDefn();
-      newRoot.getTypes().addAll(root.getTypes());
-      newRoot.setName(name);
-      bt = new ImpliedBaseType(name, newRoot);
-      impliedTypes.put(name,  bt);
-    } else {
-      if (!root.typeCode().equals(bt.getRoot().typeCode()))
-        throw new Exception("Crossed parent types on impled type "+name);
-    }
-    return name;
+    return true;
+//    if (e.hasMapping("http://hl7.org/fhir/object-implementation")) {
+//      String[] path = e.getMapping("http://hl7.org/fhir/object-implementation").split("\\.");
+//      ImpliedBaseType bt = impliedTypes.get(path[0]);
+//      ElementDefn found = null;
+//      for (ElementDefn c : bt.getRoot().getElements()) {
+//        if (c.getName().equals(path[1])) {
+//          found = c;
+//          break;
+//        }
+//      }
+//      if (found != null) {
+//        if (!found.getName().equals(e.getName()))
+//          throw new Exception("name mismatch on "+found.getName()+": "+found.getMaxCardinality().toString()+"/"+e.getMaxCardinality().toString()+" for "+e.getPath());
+//        if (!found.getMaxCardinality().equals(e.getMaxCardinality()))
+//          throw new Exception("cardinality mismatch on "+found.getName()+": "+found.getMaxCardinality().toString()+"/"+e.getMaxCardinality().toString()+" for "+e.getPath());
+//        if (!found.typeCode().equals(e.typeCode()))
+//          throw new Exception("type mismatch");
+//      } else {
+//        ElementDefn newe = new ElementDefn(e);
+//        newe.getMappings().clear();
+//        bt.getRoot().getElements().add(newe);
+//      }
+//      return false;
+//    }
+//    else 
+//      return true;
   }
 
   private void writeSearchParameterField(String name, JavaGenClass clss, boolean isAbstract, SearchParameterDefn sp, String code, String[] theCompositeOf, Map<String, SearchParameterDefn> theNameToSearchParamDef) throws IOException {
@@ -1588,6 +1569,8 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 	  if (isAbstract) {
       write("      public abstract "+tn+" copy();\r\n\r\n");
       write("      public void copyValues("+tn+" dst) {\r\n");
+      if (!e.getName().equals("Element") && !e.getName().equals("Resource"))
+        write("        super.copyValues(dst);\r\n");
 	  } else {
       write("      public "+tn+" copy() {\r\n");
       write("        "+tn+" dst = new "+tn+"();\r\n");

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Sun, Oct 9, 2016 19:10+1100 for FHIR v1.7.0
+// Generated on Mon, Oct 10, 2016 12:40+1100 for FHIR v1.7.0
 
 import org.hl7.fhir.dstu3.model.DateType;
 import org.hl7.fhir.dstu3.model.DateTimeType;
@@ -3505,6 +3505,8 @@ public class RdfParser extends RdfParserBase {
       composeMarkdown(t, "CompartmentDefinition", "description", element.getDescriptionElement(), -1);
     if (element.hasRequirementsElement())
       composeMarkdown(t, "CompartmentDefinition", "requirements", element.getRequirementsElement(), -1);
+    for (int i = 0; i < element.getUseContext().size(); i++)
+      composeCodeableConcept(t, "CompartmentDefinition", "useContext", element.getUseContext().get(i), i);
     if (element.hasCodeElement())
       composeEnum(t, "CompartmentDefinition", "code", element.getCodeElement(), -1);
     if (element.hasSearchElement())
@@ -5419,6 +5421,8 @@ public class RdfParser extends RdfParserBase {
       composeDateTime(t, "ExpansionProfile", "date", element.getDateElement(), -1);
     if (element.hasDescriptionElement())
       composeMarkdown(t, "ExpansionProfile", "description", element.getDescriptionElement(), -1);
+    for (int i = 0; i < element.getUseContext().size(); i++)
+      composeCodeableConcept(t, "ExpansionProfile", "useContext", element.getUseContext().get(i), i);
     if (element.hasCodeSystem())
       composeExpansionProfileExpansionProfileCodeSystemComponent(t, "ExpansionProfile", "codeSystem", element.getCodeSystem(), -1);
     if (element.hasIncludeDesignationsElement())
@@ -10229,6 +10233,8 @@ public class RdfParser extends RdfParserBase {
     composeDomainResource(t, "SearchParameter", name, element, index);
     if (element.hasUrlElement())
       composeUri(t, "SearchParameter", "url", element.getUrlElement(), -1);
+    if (element.hasVersionElement())
+      composeString(t, "SearchParameter", "version", element.getVersionElement(), -1);
     if (element.hasNameElement())
       composeString(t, "SearchParameter", "name", element.getNameElement(), -1);
     if (element.hasStatusElement())
@@ -11353,14 +11359,14 @@ public class RdfParser extends RdfParserBase {
     composeDomainResource(t, "TestScript", name, element, index);
     if (element.hasUrlElement())
       composeUri(t, "TestScript", "url", element.getUrlElement(), -1);
+    if (element.hasIdentifier())
+      composeIdentifier(t, "TestScript", "identifier", element.getIdentifier(), -1);
     if (element.hasVersionElement())
       composeString(t, "TestScript", "version", element.getVersionElement(), -1);
     if (element.hasNameElement())
       composeString(t, "TestScript", "name", element.getNameElement(), -1);
     if (element.hasStatusElement())
       composeEnum(t, "TestScript", "status", element.getStatusElement(), -1);
-    if (element.hasIdentifier())
-      composeIdentifier(t, "TestScript", "identifier", element.getIdentifier(), -1);
     if (element.hasExperimentalElement())
       composeBoolean(t, "TestScript", "experimental", element.getExperimentalElement(), -1);
     if (element.hasPublisherElement())

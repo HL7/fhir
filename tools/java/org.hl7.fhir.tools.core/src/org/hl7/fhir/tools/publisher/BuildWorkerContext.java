@@ -31,7 +31,7 @@ import org.hl7.fhir.dstu3.formats.IParser;
 import org.hl7.fhir.dstu3.formats.JsonParser;
 import org.hl7.fhir.dstu3.formats.ParserType;
 import org.hl7.fhir.dstu3.formats.XmlParser;
-import org.hl7.fhir.dstu3.model.BaseConformance;
+import org.hl7.fhir.dstu3.model.MetadataResource;
 import org.hl7.fhir.dstu3.model.CodeSystem;
 import org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionComponent;
 import org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionDesignationComponent;
@@ -1018,8 +1018,8 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
   }
 
   @Override
-  public List<BaseConformance> allConformanceResources() {
-    List<BaseConformance> result = new ArrayList<BaseConformance>();
+  public List<MetadataResource> allConformanceResources() {
+    List<MetadataResource> result = new ArrayList<MetadataResource>();
     result.addAll(profiles.values());
     result.addAll(valueSets.values());
     result.addAll(codeSystems.values());

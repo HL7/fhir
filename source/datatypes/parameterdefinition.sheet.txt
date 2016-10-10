@@ -15,7 +15,7 @@
  -- Row 1 -----------------------------------
   Element = ParameterDefinition
   Type = Type
-  Short Label = Definition of a parameter to a module
+  Short Name = Definition of a parameter to a module
   Definition = The parameters to the module. This collection specifies both the input and output parameters. Input parameters are provided by the caller as part of the $evaluate operation. Output parameters are included in the GuidanceResponse
 
  -- Row 2 -----------------------------------
@@ -23,7 +23,7 @@
   Card. = 0..1
   Type = code
   Binding = !
-  Short Label = Parameter name
+  Short Name = Parameter name
   Definition = The name of the parameter
 
  -- Row 3 -----------------------------------
@@ -31,27 +31,28 @@
   Card. = 1..1
   Type = code
   Binding = ParameterUse
+  Short Name = input | output
   Definition = Whether the parameter is input or output for the module
 
  -- Row 4 -----------------------------------
   Element = ParameterDefinition.min
   Card. = 0..1
   Type = integer
-  Short Label = Minimum cardinality
+  Short Name = Minimum cardinality
   Definition = The minimum number of times this parameter SHALL appear in the request or response
 
  -- Row 5 -----------------------------------
   Element = ParameterDefinition.max
   Card. = 0..1
   Type = string
-  Short Label = Maximum cardinality (a number of *)
+  Short Name = Maximum cardinality (a number of *)
   Definition = The maximum number of times this element is permitted to appear in the request or response
 
  -- Row 6 -----------------------------------
   Element = ParameterDefinition.documentation
   Card. = 0..1
   Type = string
-  Short Label = A brief description of the parameter
+  Short Name = A brief description of the parameter
   Definition = A brief discussion of what the parameter is for and how it is used by the module
 
  -- Row 7 -----------------------------------
@@ -59,11 +60,12 @@
   Card. = 1..1
   Type = code
   Binding = FHIRAllTypes
+  Short Name = Type for the parameter
   Definition = The type of the parameter
 
  -- Row 8 -----------------------------------
   Element = ParameterDefinition.profile
   Card. = 0..1
   Type = Reference(StructureDefinition)
-  Short Label = The profile of the parameter, any
+  Short Name = The profile of the parameter, any
   Definition = If specified, this indicates a profile that the input data must conform to, or that the output data will conform to

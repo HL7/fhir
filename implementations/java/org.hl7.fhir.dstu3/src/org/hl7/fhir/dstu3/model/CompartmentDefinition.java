@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sun, Oct 9, 2016 19:10+1100 for FHIR v1.7.0
+// Generated on Mon, Oct 10, 2016 12:40+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -47,8 +47,7 @@ import org.hl7.fhir.exceptions.FHIRException;
  * A compartment definition that defines how resources are accessed on a server.
  */
 @ResourceDef(name="CompartmentDefinition", profile="http://hl7.org/fhir/Profile/CompartmentDefinition")
-@ChildOrder(names={"url", "name", "status", "experimental", "publisher", "contact", "date", "description", "requirements", "code", "search", "resource"})
-public class CompartmentDefinition extends BaseConformance {
+public class CompartmentDefinition extends MetadataResource {
 
     public enum CompartmentType {
         /**
@@ -737,44 +736,37 @@ public class CompartmentDefinition extends BaseConformance {
   }
 
     /**
-     * A flag to indicate that this compartment definition definition is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
-     */
-    @Child(name = "experimental", type = {BooleanType.class}, order=0, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="If for testing purposes, not real usage", formalDefinition="A flag to indicate that this compartment definition definition is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage." )
-    protected BooleanType experimental;
-
-    /**
      * The name of the individual or organization that published the compartment definition.
      */
-    @Child(name = "publisher", type = {StringType.class}, order=1, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "publisher", type = {StringType.class}, order=0, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Name of the publisher (Organization or individual)", formalDefinition="The name of the individual or organization that published the compartment definition." )
     protected StringType publisher;
 
     /**
      * Contacts to assist a user in finding and communicating with the publisher.
      */
-    @Child(name = "contact", type = {}, order=2, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "contact", type = {}, order=1, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Contact details of the publisher", formalDefinition="Contacts to assist a user in finding and communicating with the publisher." )
     protected List<CompartmentDefinitionContactComponent> contact;
 
     /**
      * A free text natural language description of the CompartmentDefinition and its use.
      */
-    @Child(name = "description", type = {MarkdownType.class}, order=3, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "description", type = {MarkdownType.class}, order=2, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Natural language description of the CompartmentDefinition", formalDefinition="A free text natural language description of the CompartmentDefinition and its use." )
     protected MarkdownType description;
 
     /**
      * The Scope and Usage that this compartment definition was created to meet.
      */
-    @Child(name = "requirements", type = {MarkdownType.class}, order=4, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "requirements", type = {MarkdownType.class}, order=3, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Why this compartment definition is defined", formalDefinition="The Scope and Usage that this compartment definition was created to meet." )
     protected MarkdownType requirements;
 
     /**
      * Which compartment this definition describes.
      */
-    @Child(name = "code", type = {CodeType.class}, order=5, min=1, max=1, modifier=false, summary=true)
+    @Child(name = "code", type = {CodeType.class}, order=4, min=1, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Patient | Encounter | RelatedPerson | Practitioner | Device", formalDefinition="Which compartment this definition describes." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/compartment-type")
     protected Enumeration<CompartmentType> code;
@@ -782,18 +774,18 @@ public class CompartmentDefinition extends BaseConformance {
     /**
      * Whether the search syntax is supported.
      */
-    @Child(name = "search", type = {BooleanType.class}, order=6, min=1, max=1, modifier=false, summary=true)
+    @Child(name = "search", type = {BooleanType.class}, order=5, min=1, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Whether the search syntax is supported", formalDefinition="Whether the search syntax is supported." )
     protected BooleanType search;
 
     /**
      * Information about how a resource it related to the compartment.
      */
-    @Child(name = "resource", type = {}, order=7, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "resource", type = {}, order=6, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="How resource is related to the compartment", formalDefinition="Information about how a resource it related to the compartment." )
     protected List<CompartmentDefinitionResourceComponent> resource;
 
-    private static final long serialVersionUID = -1020391L;
+    private static final long serialVersionUID = 555704601L;
 
   /**
    * Constructor
@@ -805,22 +797,93 @@ public class CompartmentDefinition extends BaseConformance {
   /**
    * Constructor
    */
-    public CompartmentDefinition(UriType url, StringType name, Enumeration<CompartmentType> code, BooleanType search) {
+    public CompartmentDefinition(UriType url, StringType name, Enumeration<ConformanceResourceStatus> status, Enumeration<CompartmentType> code, BooleanType search) {
       super();
       this.url = url;
       this.name = name;
+      this.status = status;
       this.code = code;
       this.search = search;
     }
 
     /**
-     * @param value An absolute URL that is used to identify this compartment definition when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this compartment definition is (or will be) published.
+     * @return {@link #url} (An absolute URL that is used to identify this compartment definition when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this capability statement is (or will be) published.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
+     */
+    public UriType getUrlElement() { 
+      if (this.url == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create CompartmentDefinition.url");
+        else if (Configuration.doAutoCreate())
+          this.url = new UriType(); // bb
+      return this.url;
+    }
+
+    public boolean hasUrlElement() { 
+      return this.url != null && !this.url.isEmpty();
+    }
+
+    public boolean hasUrl() { 
+      return this.url != null && !this.url.isEmpty();
+    }
+
+    /**
+     * @param value {@link #url} (An absolute URL that is used to identify this compartment definition when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this capability statement is (or will be) published.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
+     */
+    public CompartmentDefinition setUrlElement(UriType value) { 
+      this.url = value;
+      return this;
+    }
+
+    /**
+     * @return An absolute URL that is used to identify this compartment definition when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this capability statement is (or will be) published.
+     */
+    public String getUrl() { 
+      return this.url == null ? null : this.url.getValue();
+    }
+
+    /**
+     * @param value An absolute URL that is used to identify this compartment definition when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this capability statement is (or will be) published.
      */
     public CompartmentDefinition setUrl(String value) { 
         if (this.url == null)
           this.url = new UriType();
         this.url.setValue(value);
       return this;
+    }
+
+    /**
+     * @return {@link #name} (A free text natural language name identifying the compartment definition.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
+     */
+    public StringType getNameElement() { 
+      if (this.name == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create CompartmentDefinition.name");
+        else if (Configuration.doAutoCreate())
+          this.name = new StringType(); // bb
+      return this.name;
+    }
+
+    public boolean hasNameElement() { 
+      return this.name != null && !this.name.isEmpty();
+    }
+
+    public boolean hasName() { 
+      return this.name != null && !this.name.isEmpty();
+    }
+
+    /**
+     * @param value {@link #name} (A free text natural language name identifying the compartment definition.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
+     */
+    public CompartmentDefinition setNameElement(StringType value) { 
+      this.name = value;
+      return this;
+    }
+
+    /**
+     * @return A free text natural language name identifying the compartment definition.
+     */
+    public String getName() { 
+      return this.name == null ? null : this.name.getValue();
     }
 
     /**
@@ -834,21 +897,52 @@ public class CompartmentDefinition extends BaseConformance {
     }
 
     /**
-     * @param value The status of this compartment definition definition.
+     * @return {@link #status} (The status of this compartment definition.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public CompartmentDefinition setStatus(ConformanceResourceStatus value) { 
-      if (value == null)
-        this.status = null;
-      else {
-        if (this.status == null)
-          this.status = new Enumeration<ConformanceResourceStatus>(new ConformanceResourceStatusEnumFactory());
-        this.status.setValue(value);
-      }
+    public Enumeration<ConformanceResourceStatus> getStatusElement() { 
+      if (this.status == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create CompartmentDefinition.status");
+        else if (Configuration.doAutoCreate())
+          this.status = new Enumeration<ConformanceResourceStatus>(new ConformanceResourceStatusEnumFactory()); // bb
+      return this.status;
+    }
+
+    public boolean hasStatusElement() { 
+      return this.status != null && !this.status.isEmpty();
+    }
+
+    public boolean hasStatus() { 
+      return this.status != null && !this.status.isEmpty();
+    }
+
+    /**
+     * @param value {@link #status} (The status of this compartment definition.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
+     */
+    public CompartmentDefinition setStatusElement(Enumeration<ConformanceResourceStatus> value) { 
+      this.status = value;
       return this;
     }
 
     /**
-     * @return {@link #experimental} (A flag to indicate that this compartment definition definition is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.). This is the underlying object with id, value and extensions. The accessor "getExperimental" gives direct access to the value
+     * @return The status of this compartment definition.
+     */
+    public ConformanceResourceStatus getStatus() { 
+      return this.status == null ? null : this.status.getValue();
+    }
+
+    /**
+     * @param value The status of this compartment definition.
+     */
+    public CompartmentDefinition setStatus(ConformanceResourceStatus value) { 
+        if (this.status == null)
+          this.status = new Enumeration<ConformanceResourceStatus>(new ConformanceResourceStatusEnumFactory());
+        this.status.setValue(value);
+      return this;
+    }
+
+    /**
+     * @return {@link #experimental} (A flag to indicate that this compartment definition is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.). This is the underlying object with id, value and extensions. The accessor "getExperimental" gives direct access to the value
      */
     public BooleanType getExperimentalElement() { 
       if (this.experimental == null)
@@ -868,7 +962,7 @@ public class CompartmentDefinition extends BaseConformance {
     }
 
     /**
-     * @param value {@link #experimental} (A flag to indicate that this compartment definition definition is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.). This is the underlying object with id, value and extensions. The accessor "getExperimental" gives direct access to the value
+     * @param value {@link #experimental} (A flag to indicate that this compartment definition is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.). This is the underlying object with id, value and extensions. The accessor "getExperimental" gives direct access to the value
      */
     public CompartmentDefinition setExperimentalElement(BooleanType value) { 
       this.experimental = value;
@@ -876,14 +970,14 @@ public class CompartmentDefinition extends BaseConformance {
     }
 
     /**
-     * @return A flag to indicate that this compartment definition definition is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
+     * @return A flag to indicate that this compartment definition is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
      */
     public boolean getExperimental() { 
       return this.experimental == null || this.experimental.isEmpty() ? false : this.experimental.getValue();
     }
 
     /**
-     * @param value A flag to indicate that this compartment definition definition is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
+     * @param value A flag to indicate that this compartment definition is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
      */
     public CompartmentDefinition setExperimental(boolean value) { 
         if (this.experimental == null)
@@ -995,7 +1089,42 @@ public class CompartmentDefinition extends BaseConformance {
     }
 
     /**
-     * @param value The date  (and optionally time) when the compartment definition definition was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the compartment definition changes.
+     * @return {@link #date} (The date  (and optionally time) when the compartment definition was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the compartment definition changes.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
+     */
+    public DateTimeType getDateElement() { 
+      if (this.date == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create CompartmentDefinition.date");
+        else if (Configuration.doAutoCreate())
+          this.date = new DateTimeType(); // bb
+      return this.date;
+    }
+
+    public boolean hasDateElement() { 
+      return this.date != null && !this.date.isEmpty();
+    }
+
+    public boolean hasDate() { 
+      return this.date != null && !this.date.isEmpty();
+    }
+
+    /**
+     * @param value {@link #date} (The date  (and optionally time) when the compartment definition was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the compartment definition changes.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
+     */
+    public CompartmentDefinition setDateElement(DateTimeType value) { 
+      this.date = value;
+      return this;
+    }
+
+    /**
+     * @return The date  (and optionally time) when the compartment definition was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the compartment definition changes.
+     */
+    public Date getDate() { 
+      return this.date == null ? null : this.date.getValue();
+    }
+
+    /**
+     * @param value The date  (and optionally time) when the compartment definition was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the compartment definition changes.
      */
     public CompartmentDefinition setDate(Date value) { 
       if (value == null)
@@ -1104,6 +1233,59 @@ public class CompartmentDefinition extends BaseConformance {
         this.requirements.setValue(value);
       }
       return this;
+    }
+
+    /**
+     * @return {@link #useContext} (The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of code system definitions.)
+     */
+    public List<CodeableConcept> getUseContext() { 
+      if (this.useContext == null)
+        this.useContext = new ArrayList<CodeableConcept>();
+      return this.useContext;
+    }
+
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public CompartmentDefinition setUseContext(List<CodeableConcept> theUseContext) { 
+      this.useContext = theUseContext;
+      return this;
+    }
+
+    public boolean hasUseContext() { 
+      if (this.useContext == null)
+        return false;
+      for (CodeableConcept item : this.useContext)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    public CodeableConcept addUseContext() { //3
+      CodeableConcept t = new CodeableConcept();
+      if (this.useContext == null)
+        this.useContext = new ArrayList<CodeableConcept>();
+      this.useContext.add(t);
+      return t;
+    }
+
+    public CompartmentDefinition addUseContext(CodeableConcept t) { //3
+      if (t == null)
+        return this;
+      if (this.useContext == null)
+        this.useContext = new ArrayList<CodeableConcept>();
+      this.useContext.add(t);
+      return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #useContext}, creating it if it does not already exist
+     */
+    public CodeableConcept getUseContextFirstRep() { 
+      if (getUseContext().isEmpty()) {
+        addUseContext();
+      }
+      return getUseContext().get(0);
     }
 
     /**
@@ -1251,11 +1433,16 @@ public class CompartmentDefinition extends BaseConformance {
 
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
-        childrenList.add(new Property("experimental", "boolean", "A flag to indicate that this compartment definition definition is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.", 0, java.lang.Integer.MAX_VALUE, experimental));
+        childrenList.add(new Property("url", "uri", "An absolute URL that is used to identify this compartment definition when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this capability statement is (or will be) published.", 0, java.lang.Integer.MAX_VALUE, url));
+        childrenList.add(new Property("name", "string", "A free text natural language name identifying the compartment definition.", 0, java.lang.Integer.MAX_VALUE, name));
+        childrenList.add(new Property("status", "code", "The status of this compartment definition.", 0, java.lang.Integer.MAX_VALUE, status));
+        childrenList.add(new Property("experimental", "boolean", "A flag to indicate that this compartment definition is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.", 0, java.lang.Integer.MAX_VALUE, experimental));
         childrenList.add(new Property("publisher", "string", "The name of the individual or organization that published the compartment definition.", 0, java.lang.Integer.MAX_VALUE, publisher));
         childrenList.add(new Property("contact", "", "Contacts to assist a user in finding and communicating with the publisher.", 0, java.lang.Integer.MAX_VALUE, contact));
+        childrenList.add(new Property("date", "dateTime", "The date  (and optionally time) when the compartment definition was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the compartment definition changes.", 0, java.lang.Integer.MAX_VALUE, date));
         childrenList.add(new Property("description", "markdown", "A free text natural language description of the CompartmentDefinition and its use.", 0, java.lang.Integer.MAX_VALUE, description));
         childrenList.add(new Property("requirements", "markdown", "The Scope and Usage that this compartment definition was created to meet.", 0, java.lang.Integer.MAX_VALUE, requirements));
+        childrenList.add(new Property("useContext", "CodeableConcept", "The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of code system definitions.", 0, java.lang.Integer.MAX_VALUE, useContext));
         childrenList.add(new Property("code", "code", "Which compartment this definition describes.", 0, java.lang.Integer.MAX_VALUE, code));
         childrenList.add(new Property("search", "boolean", "Whether the search syntax is supported.", 0, java.lang.Integer.MAX_VALUE, search));
         childrenList.add(new Property("resource", "", "Information about how a resource it related to the compartment.", 0, java.lang.Integer.MAX_VALUE, resource));
@@ -1273,6 +1460,7 @@ public class CompartmentDefinition extends BaseConformance {
         case 3076014: /*date*/ return this.date == null ? new Base[0] : new Base[] {this.date}; // DateTimeType
         case -1724546052: /*description*/ return this.description == null ? new Base[0] : new Base[] {this.description}; // MarkdownType
         case -1619874672: /*requirements*/ return this.requirements == null ? new Base[0] : new Base[] {this.requirements}; // MarkdownType
+        case -669707736: /*useContext*/ return this.useContext == null ? new Base[0] : this.useContext.toArray(new Base[this.useContext.size()]); // CodeableConcept
         case 3059181: /*code*/ return this.code == null ? new Base[0] : new Base[] {this.code}; // Enumeration<CompartmentType>
         case -906336856: /*search*/ return this.search == null ? new Base[0] : new Base[] {this.search}; // BooleanType
         case -341064690: /*resource*/ return this.resource == null ? new Base[0] : this.resource.toArray(new Base[this.resource.size()]); // CompartmentDefinitionResourceComponent
@@ -1311,6 +1499,9 @@ public class CompartmentDefinition extends BaseConformance {
         case -1619874672: // requirements
           this.requirements = castToMarkdown(value); // MarkdownType
           break;
+        case -669707736: // useContext
+          this.getUseContext().add(castToCodeableConcept(value)); // CodeableConcept
+          break;
         case 3059181: // code
           this.code = new CompartmentTypeEnumFactory().fromType(value); // Enumeration<CompartmentType>
           break;
@@ -1345,6 +1536,8 @@ public class CompartmentDefinition extends BaseConformance {
           this.description = castToMarkdown(value); // MarkdownType
         else if (name.equals("requirements"))
           this.requirements = castToMarkdown(value); // MarkdownType
+        else if (name.equals("useContext"))
+          this.getUseContext().add(castToCodeableConcept(value));
         else if (name.equals("code"))
           this.code = new CompartmentTypeEnumFactory().fromType(value); // Enumeration<CompartmentType>
         else if (name.equals("search"))
@@ -1367,6 +1560,7 @@ public class CompartmentDefinition extends BaseConformance {
         case 3076014: throw new FHIRException("Cannot make property date as it is not a complex type"); // DateTimeType
         case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // MarkdownType
         case -1619874672: throw new FHIRException("Cannot make property requirements as it is not a complex type"); // MarkdownType
+        case -669707736:  return addUseContext(); // CodeableConcept
         case 3059181: throw new FHIRException("Cannot make property code as it is not a complex type"); // Enumeration<CompartmentType>
         case -906336856: throw new FHIRException("Cannot make property search as it is not a complex type"); // BooleanType
         case -341064690:  return addResource(); // CompartmentDefinitionResourceComponent
@@ -1404,6 +1598,9 @@ public class CompartmentDefinition extends BaseConformance {
         else if (name.equals("requirements")) {
           throw new FHIRException("Cannot call addChild on a primitive type CompartmentDefinition.requirements");
         }
+        else if (name.equals("useContext")) {
+          return addUseContext();
+        }
         else if (name.equals("code")) {
           throw new FHIRException("Cannot call addChild on a primitive type CompartmentDefinition.code");
         }
@@ -1438,6 +1635,11 @@ public class CompartmentDefinition extends BaseConformance {
         dst.date = date == null ? null : date.copy();
         dst.description = description == null ? null : description.copy();
         dst.requirements = requirements == null ? null : requirements.copy();
+        if (useContext != null) {
+          dst.useContext = new ArrayList<CodeableConcept>();
+          for (CodeableConcept i : useContext)
+            dst.useContext.add(i.copy());
+        };
         dst.code = code == null ? null : code.copy();
         dst.search = search == null ? null : search.copy();
         if (resource != null) {
@@ -1459,8 +1661,10 @@ public class CompartmentDefinition extends BaseConformance {
         if (!(other instanceof CompartmentDefinition))
           return false;
         CompartmentDefinition o = (CompartmentDefinition) other;
-        return compareDeep(experimental, o.experimental, true) && compareDeep(publisher, o.publisher, true)
-           && compareDeep(contact, o.contact, true) && compareDeep(description, o.description, true) && compareDeep(requirements, o.requirements, true)
+        return compareDeep(url, o.url, true) && compareDeep(name, o.name, true) && compareDeep(status, o.status, true)
+           && compareDeep(experimental, o.experimental, true) && compareDeep(publisher, o.publisher, true)
+           && compareDeep(contact, o.contact, true) && compareDeep(date, o.date, true) && compareDeep(description, o.description, true)
+           && compareDeep(requirements, o.requirements, true) && compareDeep(useContext, o.useContext, true)
            && compareDeep(code, o.code, true) && compareDeep(search, o.search, true) && compareDeep(resource, o.resource, true)
           ;
       }
@@ -1472,14 +1676,16 @@ public class CompartmentDefinition extends BaseConformance {
         if (!(other instanceof CompartmentDefinition))
           return false;
         CompartmentDefinition o = (CompartmentDefinition) other;
-        return compareValues(experimental, o.experimental, true) && compareValues(publisher, o.publisher, true)
-           && compareValues(description, o.description, true) && compareValues(requirements, o.requirements, true)
+        return compareValues(url, o.url, true) && compareValues(name, o.name, true) && compareValues(status, o.status, true)
+           && compareValues(experimental, o.experimental, true) && compareValues(publisher, o.publisher, true)
+           && compareValues(date, o.date, true) && compareValues(description, o.description, true) && compareValues(requirements, o.requirements, true)
            && compareValues(code, o.code, true) && compareValues(search, o.search, true);
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(experimental, publisher, contact
-          , description, requirements, code, search, resource);
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(url, name, status, experimental
+          , publisher, contact, date, description, requirements, useContext, code, search
+          , resource);
       }
 
   @Override
@@ -1490,17 +1696,17 @@ public class CompartmentDefinition extends BaseConformance {
  /**
    * Search parameter: <b>date</b>
    * <p>
-   * Description: <b>Publication Date(/time)</b><br>
+   * Description: <b>The compartment definition publication date</b><br>
    * Type: <b>date</b><br>
    * Path: <b>CompartmentDefinition.date</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="date", path="CompartmentDefinition.date", description="Publication Date(/time)", type="date" )
+  @SearchParamDefinition(name="date", path="CompartmentDefinition.date", description="The compartment definition publication date", type="date" )
   public static final String SP_DATE = "date";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>date</b>
    * <p>
-   * Description: <b>Publication Date(/time)</b><br>
+   * Description: <b>The compartment definition publication date</b><br>
    * Type: <b>date</b><br>
    * Path: <b>CompartmentDefinition.date</b><br>
    * </p>
@@ -1550,17 +1756,17 @@ public class CompartmentDefinition extends BaseConformance {
  /**
    * Search parameter: <b>name</b>
    * <p>
-   * Description: <b>Informal name for this compartment definition</b><br>
+   * Description: <b>Name of the compartment definition</b><br>
    * Type: <b>string</b><br>
    * Path: <b>CompartmentDefinition.name</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="name", path="CompartmentDefinition.name", description="Informal name for this compartment definition", type="string" )
+  @SearchParamDefinition(name="name", path="CompartmentDefinition.name", description="Name of the compartment definition", type="string" )
   public static final String SP_NAME = "name";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>name</b>
    * <p>
-   * Description: <b>Informal name for this compartment definition</b><br>
+   * Description: <b>Name of the compartment definition</b><br>
    * Type: <b>string</b><br>
    * Path: <b>CompartmentDefinition.name</b><br>
    * </p>
@@ -1568,19 +1774,39 @@ public class CompartmentDefinition extends BaseConformance {
   public static final ca.uhn.fhir.rest.gclient.StringClientParam NAME = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_NAME);
 
  /**
+   * Search parameter: <b>context</b>
+   * <p>
+   * Description: <b>A use context assigned to the compartment definition</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>CompartmentDefinition.useContext</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="context", path="CompartmentDefinition.useContext", description="A use context assigned to the compartment definition", type="token" )
+  public static final String SP_CONTEXT = "context";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>context</b>
+   * <p>
+   * Description: <b>A use context assigned to the compartment definition</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>CompartmentDefinition.useContext</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CONTEXT = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CONTEXT);
+
+ /**
    * Search parameter: <b>url</b>
    * <p>
-   * Description: <b>Absolute URL used to reference this compartment definition</b><br>
+   * Description: <b>The uri that identifies the compartment definition</b><br>
    * Type: <b>uri</b><br>
    * Path: <b>CompartmentDefinition.url</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="url", path="CompartmentDefinition.url", description="Absolute URL used to reference this compartment definition", type="uri" )
+  @SearchParamDefinition(name="url", path="CompartmentDefinition.url", description="The uri that identifies the compartment definition", type="uri" )
   public static final String SP_URL = "url";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>url</b>
    * <p>
-   * Description: <b>Absolute URL used to reference this compartment definition</b><br>
+   * Description: <b>The uri that identifies the compartment definition</b><br>
    * Type: <b>uri</b><br>
    * Path: <b>CompartmentDefinition.url</b><br>
    * </p>
@@ -1590,17 +1816,17 @@ public class CompartmentDefinition extends BaseConformance {
  /**
    * Search parameter: <b>status</b>
    * <p>
-   * Description: <b>draft | active | retired</b><br>
+   * Description: <b>The current status of the compartment definition</b><br>
    * Type: <b>token</b><br>
    * Path: <b>CompartmentDefinition.status</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="status", path="CompartmentDefinition.status", description="draft | active | retired", type="token" )
+  @SearchParamDefinition(name="status", path="CompartmentDefinition.status", description="The current status of the compartment definition", type="token" )
   public static final String SP_STATUS = "status";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>status</b>
    * <p>
-   * Description: <b>draft | active | retired</b><br>
+   * Description: <b>The current status of the compartment definition</b><br>
    * Type: <b>token</b><br>
    * Path: <b>CompartmentDefinition.status</b><br>
    * </p>

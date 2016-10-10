@@ -48,65 +48,35 @@
   Element = CompartmentDefinition
   Card. = 1..1
   UML = 0;0
-  Type = DomainResource
-  Short Label = Compartment Definition for a resource
+  Type = MetadataResource
+  Short Name = Compartment Definition for a resource
   Definition = A compartment definition that defines how resources are accessed on a server
   Comments = In FHIR, search is not performed directly on a resource (by XML or JSON path), but on a named parameter that maps into the resource content
   v2 Mapping = n/a
   RIM Mapping = n/a
-  Object Impl = BaseConformance
   w5 = conformance.behavior
 
  -- Row 2 -----------------------------------
   Element = CompartmentDefinition.url
   Card. = 1..1
-  Summary = y
-  Type = uri
-  Short Label = Absolute URL used to reference this compartment definition
-  Definition = An absolute URL that is used to identify this compartment definition when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this compartment definition is (or will be) published
-  Requirements = To allow referencing and reusing compartment definition definitions under other names on operational systems (in case of name clash)
-  Object Impl = BaseConformance.url
-  w5 = id
 
  -- Row 3 -----------------------------------
   Element = CompartmentDefinition.name
   Card. = 1..1
-  Summary = y
-  Type = string
-  Short Label = Informal name for this compartment definition
-  Definition = A free text natural language name identifying the compartment definition
-  Comments = This is often the same as the code for the parameter, but does not need to be
-  Object Impl = BaseConformance.name
+  Comments = & This is often the same as the code for the parameter, but does not need to be
 
  -- Row 4 -----------------------------------
   Element = CompartmentDefinition.status
-  Card. = 0..1
-  Is Modifier = yes
-  Summary = y
-  Type = code
-  Binding = ConformanceResourceStatus
-  Short Label = draft | active | retired
-  Definition = The status of this compartment definition definition
-  Comments = This is not intended for use with actual conformance statements, but where conformance statements are used to describe possible or desired systems
-  Object Impl = BaseConformance.status
-  w5 = status
 
  -- Row 5 -----------------------------------
   Element = CompartmentDefinition.experimental
-  Card. = 0..1
-  Summary = y
-  Type = boolean
-  Short Label = If for testing purposes, not real usage
-  Definition = A flag to indicate that this compartment definition definition is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage
-  Comments = Allows filtering of compartment definition definitions that are appropriate for use vs. not
-  w5 = class
 
  -- Row 6 -----------------------------------
   Element = CompartmentDefinition.publisher
   Card. = 0..1
   Summary = y
   Type = string
-  Short Label = Name of the publisher (Organization or individual)
+  Short Name = Name of the publisher (Organization or individual)
   Definition = The name of the individual or organization that published the compartment definition
   Requirements = Helps establish the \"authority/credibility\" of the compartment definition.  May also allow for contact
   Comments = Usually an organization, but may be an individual. This item SHOULD be populated unless the information is available from context.
@@ -117,7 +87,7 @@
   Card. = 0..*
   Summary = y
   UML = 350;60
-  Short Label = Contact details of the publisher
+  Short Name = Contact details of the publisher
   Definition = Contacts to assist a user in finding and communicating with the publisher
   Comments = May be a web site, an email address, a telephone number (tel:), etc.
 
@@ -126,7 +96,7 @@
   Card. = 0..1
   Summary = Y
   Type = string
-  Short Label = Name of an individual to contact
+  Short Name = Name of an individual to contact
   Definition = The name of an individual to contact regarding the compartment definition
   Comments = If there is no named individual, the telecom is for the organization as a whole
 
@@ -135,119 +105,94 @@
   Card. = 0..*
   Summary = Y
   Type = ContactPoint
-  Short Label = Contact details for individual or publisher
+  Short Name = Contact details for individual or publisher
   Definition = Contact details for individual (if a name was provided) or the publisher
 
  -- Row 10 -----------------------------------
   Element = CompartmentDefinition.date
-  Card. = 0..1
-  Summary = y
-  Type = dateTime
-  Short Label = Publication Date(/time)
-  Definition = The date  (and optionally time) when the compartment definition definition was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the compartment definition changes
-  Comments = Additional specific dates may be added as extensions
-  Object Impl = BaseConformance.date
-  w5 = when.recorded
 
  -- Row 11 -----------------------------------
   Element = CompartmentDefinition.description
   Card. = 0..1
   Summary = y
   Type = markdown
-  Short Label = Natural language description of the CompartmentDefinition
+  Short Name = Natural language description of the CompartmentDefinition
   Definition = A free text natural language description of the CompartmentDefinition and its use
 
  -- Row 12 -----------------------------------
   Element = CompartmentDefinition.requirements
   Card. = 0..1
   Type = markdown
-  Short Label = Why this compartment definition is defined
+  Short Name = Why this compartment definition is defined
   Definition = The Scope and Usage that this compartment definition was created to meet
   w5 = why
 
  -- Row 13 -----------------------------------
+  Element = CompartmentDefinition.useContext
+
+ -- Row 14 -----------------------------------
   Element = CompartmentDefinition.code
   Card. = 1..1
   Summary = Y
   Type = code
   Binding = CompartmentType
-  Short Label = Patient | Encounter | RelatedPerson | Practitioner | Device
+  Short Name = Patient | Encounter | RelatedPerson | Practitioner | Device
   Definition = Which compartment this definition describes
   Comments = Only the specification can define the compartments that can exist. Servers can choose to support them
 
- -- Row 14 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = CompartmentDefinition.search
   Card. = 1..1
   Summary = y
   Type = boolean
-  Short Label = Whether the search syntax is supported
+  Short Name = Whether the search syntax is supported
   Definition = Whether the search syntax is supported
   Comments = Servers may define and use compartments to manage logical access without implementing the compoartment related syntax
 
- -- Row 15 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = CompartmentDefinition.resource
   Card. = 0..*
   Summary = y
   UML = 350;260
-  Short Label = How resource is related to the compartment
+  Short Name = How resource is related to the compartment
   Definition = Information about how a resource it related to the compartment
 
- -- Row 16 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = CompartmentDefinition.resource.code
   Card. = 1..1
   Summary = y
   Type = code
   Binding = ResourceType
-  Short Label = Name of resource type
+  Short Name = Name of resource type
   Definition = The name of a resource supported by the server
 
- -- Row 17 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = CompartmentDefinition.resource.param
   Card. = 0..*
   Summary = y
   Type = string
-  Short Label = Search Parameter Name, or chained params
+  Short Name = Search Parameter Name, or chained params
   Definition = The name of a search parameter that represents the link to the compartment. More than one may be listed because a resource may be linked to a compartment more than one way
   Comments = If no search parameters are listed, then the resource is not linked to the compartment
 
- -- Row 18 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = CompartmentDefinition.resource.documentation
   Card. = 0..1
   Type = string
-  Short Label = Additional doco about the resource and compartment
+  Short Name = Additional doco about the resource and compartment
   Definition = Additional doco about the resource and compartment
 
 === Sheet Search =====================================
 
  -- Row 1 -----------------------------------
-  Name = url
-  Type = uri
-  Path = CompartmentDefinition.url
-
- -- Row 2 -----------------------------------
-  Name = name
-  Type = string
-  Path = CompartmentDefinition.name
-
- -- Row 3 -----------------------------------
   Name = code
   Type = token
   Path = CompartmentDefinition.code
 
- -- Row 4 -----------------------------------
+ -- Row 2 -----------------------------------
   Name = resource
   Type = token
   Path = CompartmentDefinition.resource.code
-
- -- Row 5 -----------------------------------
-  Name = status
-  Type = token
-  Path = CompartmentDefinition.status
-
- -- Row 6 -----------------------------------
-  Name = date
-  Type = date
-  Path = CompartmentDefinition.date
 
 === Sheet Profiles =====================================
 

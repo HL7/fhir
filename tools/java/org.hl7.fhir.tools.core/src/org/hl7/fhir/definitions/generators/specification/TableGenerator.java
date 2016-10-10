@@ -120,7 +120,7 @@ public class TableGenerator extends BaseGenerator {
       }
     }
       
-    Cell cc = gen.new Cell(null, Utilities.isURL(e.getShortDefn()) ? e.getShortDefn() : null, e.getShortDefn(), null, null);
+    Cell cc = gen.new Cell(null, e.getShortDefn() != null && Utilities.isURL(e.getShortDefn()) ? e.getShortDefn() : null, e.getShortDefn(), null, null);
     row.getCells().add(cc);
     
     // constraints

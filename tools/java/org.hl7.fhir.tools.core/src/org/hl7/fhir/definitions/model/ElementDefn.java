@@ -72,7 +72,6 @@ public class ElementDefn {
 	private String committeeNotes;
 	private String condition;
 	private String maxLength;
-	private List<String> tasks = new ArrayList<String>();
 	
 	private String profileName; // only in a profile, for slicing
 	private List<String> discriminator = new ArrayList<String>(); // when slicing
@@ -656,6 +655,8 @@ public class ElementDefn {
 
     private String path;
 
+    private boolean fromTemplate;
+
 	   public List<String> getAcceptableGenericTypes()
 	   {
 		   return acceptableGenericTypes;
@@ -803,10 +804,6 @@ public class ElementDefn {
     this.displayHint = displayHint;
   }
 
-  public List<String> getTasks() {
-    return tasks;
-  }
-
   public boolean hasStatedProfile() {
     if (types.isEmpty())
       return false;
@@ -890,6 +887,61 @@ public class ElementDefn {
 
   public String getPathTail() {
     return path.contains(".") ? path.substring(path.lastIndexOf(".")+1) : path;
+  }
+
+  public void copyFrom(ElementDefn other, String rootName, String title) {
+    types.clear();
+    types.addAll(other.types);
+    minCardinality = other.minCardinality;
+    maxCardinality = other.maxCardinality;
+    statedInvariants.clear();
+    statedInvariants.addAll(other.statedInvariants);
+    modifier = other.modifier;
+    mustSupport = other.mustSupport;
+    summaryItem = other.summaryItem; 
+    regex = other.regex;
+    xmlAttribute = other.xmlAttribute;
+    mappings.clear();
+    mappings.putAll(other.mappings);
+    binding = other.binding;
+    umlDir = other.umlDir;
+    umlBreak = other.umlBreak;
+    svgLeft = other.svgLeft;
+    svgTop = other.svgTop;
+    svgWidth = other.svgWidth;
+    name = other.name == null ? null : other.name.replace("{{title}}", title);
+    shortDefn = other.shortDefn == null ? null : other.shortDefn.replace("{{title}}", title);
+    definition = other.definition == null ? null : other.definition.replace("{{title}}", title);
+    requirements = other.requirements == null ? null : other.requirements.replace("{{title}}", title);
+    comments = other.comments == null ? null : other.comments.replace("{{title}}", title);
+    todo = other.todo;
+    aliases.clear();
+    aliases.addAll(other.aliases);
+    committeeNotes = other.committeeNotes == null ? null : other.committeeNotes.replace("{{title}}", title);
+    condition = other.condition;
+    maxLength = other.maxLength;
+    profileName = other.profileName;
+    discriminator.clear();
+    discriminator.addAll(other.discriminator);
+    example = other.example;
+    otherExamples.clear();
+    otherExamples.putAll(other.otherExamples);
+    defaultValue = other.defaultValue;
+    meaningWhenMissing = other.meaningWhenMissing == null ? null : other.meaningWhenMissing.replace("{{title}}", title);
+    fixed = other.fixed;
+    pattern = other.pattern;
+    derivation = other.derivation;
+    inherited = other.inherited;
+    statedType = other.statedType;
+    isCoveredByExample = other.isCoveredByExample;
+    displayHint = other.displayHint;
+    w5 = other.w5;
+    noBindingAllowed = other.noBindingAllowed;
+    fromTemplate = true; 
+  }
+
+  public boolean isFromTemplate() {
+    return fromTemplate;
   }	
   
 }

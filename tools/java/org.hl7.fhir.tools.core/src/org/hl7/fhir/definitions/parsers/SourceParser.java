@@ -67,6 +67,7 @@ import org.hl7.fhir.definitions.model.Profile.ConformancePackageSourceType;
 import org.hl7.fhir.definitions.model.ProfiledType;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.SearchParameterDefn;
+import org.hl7.fhir.definitions.model.TypeDefn;
 import org.hl7.fhir.definitions.model.W5Entry;
 import org.hl7.fhir.definitions.model.WorkGroup;
 import org.hl7.fhir.definitions.validation.FHIRPathUsage;
@@ -209,16 +210,20 @@ public class SourceParser {
 
     // basic infrastructure
     for (String n : ini.getPropertyNames("resource-infrastructure")) {
-      ResourceDefn r = loadResource(n, null, true);
+      ResourceDefn r = loadResource(n, null, true, false);
       String[] parts = ini.getStringProperty("resource-infrastructure", n).split("\\,");
       if (parts[0].equals("abstract"))
         r.setAbstract(true);
       definitions.getBaseResources().put(parts[1], r);
     }
 
+    logger.log("Load Resource Templates", LogMessageType.Process);
+    for (String n : ini.getPropertyNames("resource-templates"))
+      loadResource(n, definitions.getResourceTemplates(), false, true);
+    
     logger.log("Load Resources", LogMessageType.Process);
     for (String n : ini.getPropertyNames("resources"))
-      loadResource(n, definitions.getResources(), false);
+      loadResource(n, definitions.getResources(), false, false);
 
     processSearchExpressions();
     processContainerExamples();
@@ -280,7 +285,38 @@ public class SourceParser {
         }
       }        
     }
+    closeTemplates();
   }
+
+  private void closeTemplates() throws Exception {
+    for (ResourceDefn r : definitions.getResourceTemplates().values()) 
+      closeTemplate(r.getRoot(), Utilities.unCamelCase(r.getName()), 0);
+  }
+
+  private void closeTemplate(ElementDefn element, String title, int level) throws Exception {
+    if (element.getShortDefn() != null)
+      element.setShortDefn(element.getShortDefn().replace("{{title}}", title));
+    if (element.getDefinition() != null)
+      element.setDefinition(element.getDefinition().replace("{{title}}", title));
+    if (element.getComments() != null)
+      element.setComments(element.getComments().replace("{{title}}", title));
+    if (element.getCommitteeNotes() != null)
+      element.setCommitteeNotes(element.getCommitteeNotes().replace("{{title}}", title));
+    if (element.getRequirements() != null)
+      element.setRequirements(element.getRequirements().replace("{{title}}", title));
+    if (element.getTodo() != null)
+      element.setTodo(element.getTodo().replace("{{title}}", title));
+    if (level == 0)
+      for (ElementDefn child : element.getElements()) 
+        closeTemplate(child, title, level+1);
+    else 
+      if (!element.getElements().isEmpty()) {
+        throw new Exception("No complex elements in a template - found "+element.getName()+"."+element.getElements().get(0).getName()); 
+      }
+  }
+
+
+
 
   private LogicalModel loadLogicalModel(String n) throws Exception {
     File spreadsheet = new CSFile(Utilities.path(srcDir, n, n+"-spreadsheet.xml"));    
@@ -817,7 +853,7 @@ public class SourceParser {
     }
   }
 
-  private ResourceDefn loadResource(String n, Map<String, ResourceDefn> map, boolean isAbstract) throws Exception {
+  private ResourceDefn loadResource(String n, Map<String, ResourceDefn> map, boolean isAbstract, boolean isTemplate) throws Exception {
     String folder = n;
     File spreadsheet = new CSFile((srcDir) + folder + File.separatorChar + n + "-spreadsheet.xml");
 
@@ -830,7 +866,7 @@ public class SourceParser {
         spreadsheet), spreadsheet.getName(), definitions, srcDir, logger, registry, version, context, genDate, isAbstract, extensionDefinitions, page, false, ini, wg.getCode(), definitions.getProfileIds(), fpUsages, page.getConceptMaps());
     ResourceDefn root;
     try {
-      root = sparser.parseResource();
+      root = sparser.parseResource(isTemplate);
     } catch (Exception e) {
       throw new Exception("Error Parsing Resource "+n+": "+e.getMessage(), e);
     }
@@ -840,14 +876,16 @@ public class SourceParser {
     for (EventDefn e : sparser.getEvents())
       processEvent(e, root.getRoot());
 
-    definitions.getKnownResources().put(root.getName(), new DefinedCode(root.getName(), root.getRoot().getDefinition(), n));
-        if (map != null) {
-      map.put(root.getName(), root);
-    }
     root.setStatus(ini.getStringProperty("status", n));
     if (Utilities.noString(root.getStatus()) && ini.getBooleanProperty("draft-resources", root.getName()))
       root.setStatus("draft");
-    context.getResourceNames().add(root.getName());
+    if (map != null) {
+      map.put(root.getName(), root);
+    }
+    if (!isTemplate) {
+      definitions.getKnownResources().put(root.getName(), new DefinedCode(root.getName(), root.getRoot().getDefinition(), n));
+      context.getResourceNames().add(root.getName());
+    }
     return root;
   }
 

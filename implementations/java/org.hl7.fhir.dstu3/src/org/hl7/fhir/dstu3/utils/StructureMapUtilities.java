@@ -190,7 +190,7 @@ public class StructureMapUtilities {
     super();
     this.worker = worker;
     this.library = new HashMap<String, StructureMap>();
-    for (org.hl7.fhir.dstu3.model.BaseConformance bc : worker.allConformanceResources()) {
+    for (org.hl7.fhir.dstu3.model.MetadataResource bc : worker.allConformanceResources()) {
       if (bc instanceof StructureMap)
         library.put(bc.getUrl(), (StructureMap) bc);
     }

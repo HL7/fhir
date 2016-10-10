@@ -56,248 +56,189 @@
   Element = SearchParameter
   Card. = 1..1
   UML = 0;0
-  Type = DomainResource
-  Short Label = Search Parameter for a resource
+  Type = MetadataResource
+  Short Name = Search Parameter for a resource
   Definition = A search parameter that defines a named search item that can be used to search/filter on a resource.
   Comments = In FHIR, search is not performed directly on a resource (by XML or JSON path), but on a named parameter that maps into the resource content
   v2 Mapping = n/a
   RIM Mapping = n/a
-  Object Impl = BaseConformance
   w5 = conformance.behavior
 
  -- Row 2 -----------------------------------
   Element = SearchParameter.url
   Card. = 1..1
-  Summary = y
-  Type = uri
-  Short Label = Absolute URL used to reference this search parameter
-  Definition = An absolute URL that is used to identify this search parameter when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this search parameter is (or will be) published
-  Requirements = To allow referencing and reusing search parameter definitions under other names on operational systems (in case of name clash)
-  Object Impl = BaseConformance.url
-  w5 = id
+  Requirements = & To allow referencing and reusing search parameter definitions under other names on operational systems (in case of name clash)
 
  -- Row 3 -----------------------------------
-  Element = SearchParameter.name
-  Card. = 1..1
-  Summary = y
-  Type = string
-  Short Label = Informal name for this search parameter
-  Definition = A free text natural language name identifying the search parameter
-  Comments = This is often the same as the code for the parameter, but does not need to be
-  Object Impl = BaseConformance.name
+  Element = SearchParameter.version
 
  -- Row 4 -----------------------------------
-  Element = SearchParameter.status
+  Element = SearchParameter.name
   Card. = 1..1
-  Is Modifier = yes
-  Summary = y
-  Type = code
-  Binding = ConformanceResourceStatus
-  Short Label = draft | active | retired
-  Definition = The status of this search parameter definition
-  Comments = This is not intended for use with actual Capability statements, but where Capability statements are used to describe possible or desired systems
-  Object Impl = BaseConformance.status
-  w5 = status
 
  -- Row 5 -----------------------------------
-  Element = SearchParameter.experimental
-  Card. = 0..1
-  Summary = y
-  Type = boolean
-  Short Label = If for testing purposes, not real usage
-  Definition = A flag to indicate that this search parameter definition is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage
-  Comments = Allows filtering of search parameter definitions that are appropriate for use vs. not
-  w5 = class
+  Element = SearchParameter.status
 
  -- Row 6 -----------------------------------
-  Element = SearchParameter.date
-  Card. = 0..1
-  Summary = y
-  Type = dateTime
-  Short Label = Publication Date(/time)
-  Definition = The date  (and optionally time) when the search parameter definition was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the search parameter changes
-  Comments = Additional specific dates may be added as extensions
-  Object Impl = BaseConformance.date
-  w5 = when.recorded
+  Element = SearchParameter.experimental
 
  -- Row 7 -----------------------------------
+  Element = SearchParameter.date
+
+ -- Row 8 -----------------------------------
   Element = SearchParameter.publisher
   Card. = 0..1
   Summary = y
   Type = string
-  Short Label = Name of the publisher (Organization or individual)
+  Short Name = Name of the publisher (Organization or individual)
   Definition = The name of the individual or organization that published the search parameter
   Requirements = Helps establish the \"authority/credibility\" of the search parameter.  May also allow for contact
   Comments = Usually an organization, but may be an individual. This item SHOULD be populated unless the information is available from context.
   w5 = who.witness
 
- -- Row 8 -----------------------------------
+ -- Row 9 -----------------------------------
   Element = SearchParameter.contact
   Card. = 0..*
   Summary = y
   UML = 350;60
-  Short Label = Contact details of the publisher
+  Short Name = Contact details of the publisher
   Definition = Contacts to assist a user in finding and communicating with the publisher
   Comments = May be a web site, an email address, a telephone number (tel:), etc.
 
- -- Row 9 -----------------------------------
+ -- Row 10 -----------------------------------
   Element = SearchParameter.contact.name
   Card. = 0..1
   Summary = Y
   Type = string
-  Short Label = Name of an individual to contact
+  Short Name = Name of an individual to contact
   Definition = The name of an individual to contact regarding the search parameter
   Comments = If there is no named individual, the telecom is for the organization as a whole
 
- -- Row 10 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = SearchParameter.contact.telecom
   Card. = 0..*
   Summary = Y
   Type = ContactPoint
-  Short Label = Contact details for individual or publisher
+  Short Name = Contact details for individual or publisher
   Definition = Contact details for individual (if a name was provided) or the publisher
 
- -- Row 11 -----------------------------------
-  Element = SearchParameter.useContext
-  Card. = 0..*
-  Summary = y
-  Type = CodeableConcept
-  Binding = ConformanceUseContext
-  Short Label = Content intends to support these contexts
-  Definition = The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of search parameters.
-  Requirements = Assist in searching for appropriate content
-  Object Impl = BaseConformance.useContext
-
  -- Row 12 -----------------------------------
+  Element = SearchParameter.useContext
+
+ -- Row 13 -----------------------------------
   Element = SearchParameter.requirements
   Card. = 0..1
   Type = markdown
-  Short Label = Why this search parameter is defined
+  Short Name = Why this search parameter is defined
   Definition = The Scope and Usage that this search parameter was created to meet
   w5 = why
 
- -- Row 13 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = SearchParameter.code
   Card. = 1..1
   Summary = Y
   Type = code
   Binding = !
-  Short Label = Code used in URL
+  Short Name = Code used in URL
   Definition = The code used in the URL or the parameter name in a parameters resource for this search parameter
   Comments = For maximum compatibility, use only lowercase ASCII characters
 
- -- Row 14 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = SearchParameter.base
   Card. = 1..1
   Summary = Y
   Type = code
   Binding = ResourceType
-  Short Label = The resource type this search parameter applies to
+  Short Name = The resource type this search parameter applies to
   Definition = The base resource type that this search parameter refers to
 
- -- Row 15 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = SearchParameter.type
   Card. = 1..1
   Summary = y
   Type = code
   Binding = SearchParamType
-  Short Label = number | date | string | token | reference | composite | quantity | uri
+  Short Name = number | date | string | token | reference | composite | quantity | uri
   Definition = The type of value a search parameter refers to, and how the content is interpreted
 
- -- Row 16 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = SearchParameter.description
   Card. = 1..1
   Summary = y
   Type = markdown
-  Short Label = Documentation for  search parameter
+  Short Name = Documentation for  search parameter
   Definition = A description of the search parameters and how it used
 
- -- Row 17 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = SearchParameter.expression
   Card. = 0..1
   Inv. = 1
   Type = string
-  Short Label = FluentPath expression that extracts the values
+  Short Name = FluentPath expression that extracts the values
   Definition = A FluentPath expression that returns a set of elements for the search parameter
   Comments = Note that the elements returned by the expression are sometimes complex elements where logic is required to determine quite how to handle them; e.g. CodeableConcepts may contain text and/or multiple codings, where the codings themselves contain a code and a system
 
- -- Row 18 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = SearchParameter.xpath
   Card. = 0..1
   Inv. = 1
   Type = string
-  Short Label = XPath that extracts the values
+  Short Name = XPath that extracts the values
   Definition = An XPath expression that returns a set of elements for the search parameter
   Comments = Note that the elements returned by the XPath are sometimes complex elements where logic is required to determine quite how to handle them; e.g. CodeableConcepts may contain text and/or multiple codings, where the codings themselves contain a code and a system
 
- -- Row 19 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = SearchParameter.xpathUsage
   Card. = 0..1
   Inv. = 1
   Type = code
   Binding = XPathUsageType
-  Short Label = normal | phonetic | nearby | distance | other
+  Short Name = normal | phonetic | nearby | distance | other
   Definition = How the search parameter relates to the set of elements returned by evaluating the xpath query
 
- -- Row 20 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = SearchParameter.target
   Card. = 0..*
   Type = code
   Binding = ResourceType
-  Short Label = Types of resource (if a resource reference)
+  Short Name = Types of resource (if a resource reference)
   Definition = Types of resource (if a resource is referenced)
 
- -- Row 21 -----------------------------------
+ -- Row 22 -----------------------------------
   Element = SearchParameter.component
   Card. = 0..*
   Type = Reference(SearchParameter)
-  Short Label = For Composite resources to define the parts
+  Short Name = For Composite resources to define the parts
   Definition = Used to define the parts of a composite search parameter
 
 === Sheet Search =====================================
 
  -- Row 1 -----------------------------------
-  Name = url
-  Type = uri
-  Path = SearchParameter.url
-
- -- Row 2 -----------------------------------
-  Name = name
-  Type = string
-  Path = SearchParameter.name
-
- -- Row 3 -----------------------------------
   Name = base
   Type = token
   Path = SearchParameter.base
 
- -- Row 4 -----------------------------------
+ -- Row 2 -----------------------------------
   Name = type
   Type = token
   Path = SearchParameter.type
 
- -- Row 5 -----------------------------------
+ -- Row 3 -----------------------------------
   Name = description
   Type = string
   Path = SearchParameter.description
 
- -- Row 6 -----------------------------------
+ -- Row 4 -----------------------------------
   Name = target
   Type = token
   Path = SearchParameter.target
 
- -- Row 7 -----------------------------------
+ -- Row 5 -----------------------------------
   Name = code
   Type = token
   Path = SearchParameter.code
 
- -- Row 8 -----------------------------------
-  Name = context
-  Type = token
-  Description = A use context assigned to the search parameter
-  Path = SearchParameter.useContext
-
- -- Row 9 -----------------------------------
+ -- Row 6 -----------------------------------
   Name = component
   Type = reference
   Path = SearchParameter.component

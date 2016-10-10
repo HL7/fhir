@@ -49,81 +49,40 @@
  -- Row 1 -----------------------------------
   Element = ExpansionProfile
   Aliases = ValueSetExpansionProfile
-  Type = DomainResource
-  Short Label = Defines behaviour and contraints on the ValueSet Expansion operation
+  Type = MetadataResource
+  Short Name = Defines behaviour and contraints on the ValueSet Expansion operation
   Definition = Resource to define constraints on the Expansion of a FHIR ValueSet.
-  Object Impl = BaseConformance
   w5 = conformance.terminology
 
  -- Row 2 -----------------------------------
   Element = ExpansionProfile.url
-  Card. = 0..1
-  Summary = y
-  Type = uri
-  Short Label = Globally unique logical identifier for  expansion profile
-  Definition = An absolute URL that is used to identify this expansion profile when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this expansion profile is (or will be) published
-  Object Impl = BaseConformance.url
-  w5 = id
 
  -- Row 3 -----------------------------------
   Element = ExpansionProfile.identifier
   Card. = 0..1
   Summary = y
   Type = Identifier
-  Short Label = Additional identifier for the expansion profile (e.g. an Object Identifier)
+  Short Name = Additional identifier for the expansion profile (e.g. an Object Identifier)
   Definition = Formal identifier that is used to identify this expansion profile when it is represented in other formats, or referenced in a specification, model, design or an instance.
 
  -- Row 4 -----------------------------------
   Element = ExpansionProfile.version
-  Card. = 0..1
-  Summary = y
-  Type = string
-  Short Label = Logical identifier for this version of the expansion profile
-  Definition = Used to identify this version of the expansion profile when it is referenced in a specification, model, design or instance.
-  Comments = There may be multiple resource versions of the expansion profile that have the same identifier
-  Object Impl = BaseConformance.version
 
  -- Row 5 -----------------------------------
   Element = ExpansionProfile.name
-  Card. = 0..1
-  Summary = y
-  Type = string
-  Short Label = Informal name for this expansion profile
-  Definition = A free text natural language name for the expansion profile
-  Requirements = Support human navigation
-  Comments = The name is not expected to be unique. A name should be provided unless the expansion profile is a contained resource (e.g. an anonymous expansion profile in a FHIR profile). Most registries will require a name.
-  Object Impl = BaseConformance.name
 
  -- Row 6 -----------------------------------
   Element = ExpansionProfile.status
-  Card. = 1..1
-  Is Modifier = Yes
-  Summary = y
-  Type = code
-  Binding = ConformanceResourceStatus
-  Short Label = draft | active | retired
-  Definition = The status of the expansion profile
-  Requirements = Identify when/if the expansion profile should be used.
-  Comments = Allows filtering of expansion instances that are appropriate (or not) for use
-  Object Impl = BaseConformance.status
-  w5 = status
 
  -- Row 7 -----------------------------------
   Element = ExpansionProfile.experimental
-  Card. = 0..1
-  Summary = y
-  Type = boolean
-  Short Label = If for testing purposes, not real usage
-  Definition = This expansion profile was authored for testing purposes (or education/evaluation/marketing), and is not intended for genuine production usage
-  Requirements = This expansion profile was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage
-  Comments = Allows filtering of expansion instances that are appropriate (or not) for use
 
  -- Row 8 -----------------------------------
   Element = ExpansionProfile.publisher
   Card. = 0..1
   Summary = y
   Type = string
-  Short Label = Name of the publisher (organization or individual)
+  Short Name = Name of the publisher (organization or individual)
   Definition = The name of the individual or organization that published the expansion profile
   Requirements = Helps establish the \"authority/credibility\" of the expansion profile.
   Comments = Usually an organization, but may be an individual. This item SHOULD be populated unless the information is available from context.
@@ -133,7 +92,7 @@
   Card. = 0..*
   Summary = y
   UML = up
-  Short Label = Contact details of the publisher
+  Short Name = Contact details of the publisher
   Definition = Contacts to assist a user in finding and communicating with the publisher
   Comments = May be a web site, an email address, a telephone number, etc.
 
@@ -142,7 +101,7 @@
   Card. = 0..1
   Summary = y
   Type = string
-  Short Label = Name of an individual to contact
+  Short Name = Name of an individual to contact
   Definition = The name of an individual to contact regarding the expansion profile
   Comments = If there is no named individual, the telecom is for the organization as a whole
 
@@ -151,317 +110,282 @@
   Card. = 0..*
   Summary = y
   Type = ContactPoint
-  Short Label = Contact details for individual or publisher
+  Short Name = Contact details for individual or publisher
   Definition = Contact details for individual (if a name was provided) or the publisher
 
  -- Row 12 -----------------------------------
   Element = ExpansionProfile.date
-  Card. = 0..1
-  Summary = y
-  Type = dateTime
-  Short Label = Date for given status
-  Definition = The date that the expansion profile status was last changed. The date must change when the business version changes, if it does, and it must change if the status code changes.
-  Requirements = Need to know when an expansion profile was first legal for use or became withdrawn or replaced.
-  Comments = Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the expansion profile. Additional specific dates may be added as extensions
-  Object Impl = BaseConformance.date
 
  -- Row 13 -----------------------------------
   Element = ExpansionProfile.description
   Card. = 0..1
   Summary = y
   Type = markdown
-  Short Label = Human language description of the expansion profile
+  Short Name = Human language description of the expansion profile
   Definition = A free text natural language description of the use of the expansion profile - reason for definition,  conditions of use, etc. The description may include a list of expected usages for the expansion profile and can also describe the approach taken to build the expansion profile.
   Requirements = Human understandability
   Comments = The description is not intended to describe the semantics of the expansion profile. The description should capture its intended use, which is needed for ensuring integrity for its use in models across future changes. A description should be provided unless the expansion profile is a contained resource (e.g. an anonymous expansion profile in a FHIR profile). Most registries will require a description
 
  -- Row 14 -----------------------------------
+  Element = ExpansionProfile.useContext
+
+ -- Row 15 -----------------------------------
   Element = ExpansionProfile.codeSystem
   Card. = 0..1
   Summary = y
   UML = left
-  Short Label = When the expansion profile imposes code system contraints
+  Short Name = When the expansion profile imposes code system contraints
   Definition = A set of criteria that provide the constraints imposed on the value set expansion by including or excluding codes from specific code systems (or versions)
 
- -- Row 15 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = ExpansionProfile.codeSystem.include
   Card. = 0..1
   Summary = y
   UML = up
   Type = =CodeSystemInclude
-  Short Label = Code systems to be included
+  Short Name = Code systems to be included
   Definition = Code systems to be included in value set expansions
 
- -- Row 16 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = ExpansionProfile.codeSystem.include.codeSystem
   Card. = 1..*
   Summary = y
   UML = up
   Type = =CodeSystemIncludeCodeSystem
-  Short Label = The code systems to be included
+  Short Name = The code systems to be included
   Definition = A data group for each code system to be included
 
- -- Row 17 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = ExpansionProfile.codeSystem.include.codeSystem.system
   Card. = 1..1
   Summary = y
   Type = uri
-  Short Label = The specific code system to be included
+  Short Name = The specific code system to be included
   Definition = An absolute URI which is the code system to be included
   Comments = See \'\'Coding.system\'\' for further documentation
 
- -- Row 18 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = ExpansionProfile.codeSystem.include.codeSystem.version
   Card. = 0..1
   Summary = y
   Type = string
-  Short Label = Specific version of the code system referred to
+  Short Name = Specific version of the code system referred to
   Definition = The version of the code system from which codes in the expansion should be included
   Comments = This is used to apply version specifc inclusion contraints. If no version is specified, then all codes from the code system present in the expansion (prior to application of the expansion profile) will be retained
 
- -- Row 19 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = ExpansionProfile.codeSystem.exclude
   Card. = 0..1
   Summary = y
   UML = down
   Type = =CodeSystemExclude
-  Short Label = Code systems to be excluded
+  Short Name = Code systems to be excluded
   Definition = Code systems to be excluded from value set expansions
 
- -- Row 20 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = ExpansionProfile.codeSystem.exclude.codeSystem
   Card. = 1..*
   Summary = y
   UML = down
   Type = =CodeSystemExcludeCodeSystem
-  Short Label = The code systems to be excluded
+  Short Name = The code systems to be excluded
   Definition = A data group for each code system to be excluded
 
- -- Row 21 -----------------------------------
+ -- Row 22 -----------------------------------
   Element = ExpansionProfile.codeSystem.exclude.codeSystem.system
   Card. = 1..1
   Summary = y
   Type = uri
-  Short Label = The specific code system to be excluded
+  Short Name = The specific code system to be excluded
   Definition = An absolute URI which is the code system to be excluded
   Comments = See \'\'Coding.system\'\' for further documentation
 
- -- Row 22 -----------------------------------
+ -- Row 23 -----------------------------------
   Element = ExpansionProfile.codeSystem.exclude.codeSystem.version
   Card. = 0..1
   Summary = y
   Type = string
-  Short Label = Specific version of the code system referred to
+  Short Name = Specific version of the code system referred to
   Definition = The version of the code system from which codes in the expansion should be excluded
   Comments = This is used to apply version specifc exclusion contraints. If no version is specified, then all codes from the code system present in the expansion (prior to application of the expansion profile) will be excluded
 
- -- Row 23 -----------------------------------
+ -- Row 24 -----------------------------------
   Element = ExpansionProfile.includeDesignations
   Card. = 0..1
   Summary = y
   Type = boolean
-  Short Label = Whether the expansion should include concept designations
+  Short Name = Whether the expansion should include concept designations
   Definition = Controls whether concept designations are to be included or excluded in value set expansions.
   Comments = ExpansionProfile.designation.include and ExpansionProfile.designation.exclude are only evaluated if includeDesignations is present and set to \"true\". If includeDesignations is present with a value of \"true\" and both ExpansionProfile.designation.include and ExpansionProfile.designation.exclude are absent, then all designations are returned in the expansion.
 
- -- Row 24 -----------------------------------
+ -- Row 25 -----------------------------------
   Element = ExpansionProfile.designation
   Card. = 0..1
   Summary = y
   UML = right
-  Short Label = When the expansion profile imposes designation contraints
+  Short Name = When the expansion profile imposes designation contraints
   Definition = A set of criteria that provide the constraints imposed on the value set expansion by including or excluding designations
 
- -- Row 25 -----------------------------------
+ -- Row 26 -----------------------------------
   Element = ExpansionProfile.designation.include
   Card. = 0..1
   Summary = y
   UML = up
   Type = =DesignationInclude
-  Short Label = Designations to be included
+  Short Name = Designations to be included
   Definition = Designations to be included
 
- -- Row 26 -----------------------------------
+ -- Row 27 -----------------------------------
   Element = ExpansionProfile.designation.include.designation
   Card. = 0..*
   Summary = y
   UML = up
   Type = =DesignationIncludeDesignation
-  Short Label = The designation to be included
+  Short Name = The designation to be included
   Definition = A data group for each designation to be included
   Comments = At least one of designation.language or designation.use must be provided for each include.designation element
 
- -- Row 27 -----------------------------------
+ -- Row 28 -----------------------------------
   Element = ExpansionProfile.designation.include.designation.language
   Card. = 0..1
   Summary = y
   Type = code
   Binding = Language
-  Short Label = Human language of the designation to be included
+  Short Name = Human language of the designation to be included
   Definition = The language this designation is defined for
   Comments = In the absence of a language, all designations are retained which match the designation.use parameter for this include.designation
 
- -- Row 28 -----------------------------------
+ -- Row 29 -----------------------------------
   Element = ExpansionProfile.designation.include.designation.use
   Card. = 0..1
   Summary = y
   Type = Coding
   Binding = ConceptDesignationUse
-  Short Label = Designation use
+  Short Name = Designation use
   Definition = Designation uses for inclusion in the expansion
   Comments = In the absence of a use, all designations are retained which match the designation.language parameter for this include.designation element
 
- -- Row 29 -----------------------------------
+ -- Row 30 -----------------------------------
   Element = ExpansionProfile.designation.exclude
   Card. = 0..1
   Summary = y
   UML = down
   Type = =DesignationExclude
-  Short Label = Designations to be excluded
+  Short Name = Designations to be excluded
   Definition = Designations to be excluded
 
- -- Row 30 -----------------------------------
+ -- Row 31 -----------------------------------
   Element = ExpansionProfile.designation.exclude.designation
   Card. = 0..*
   Summary = y
   UML = down
   Type = =DesignationExcludeDesignation
-  Short Label = The designation to be excluded
+  Short Name = The designation to be excluded
   Definition = A data group for each designation to be excluded
   Comments = At least one of designation.language or designation.use must be provided for each exclude.designation element
 
- -- Row 31 -----------------------------------
+ -- Row 32 -----------------------------------
   Element = ExpansionProfile.designation.exclude.designation.language
   Card. = 0..1
   Summary = y
   Type = code
   Binding = Language
-  Short Label = Human language of the designation to be excluded
+  Short Name = Human language of the designation to be excluded
   Definition = The language this designation is defined for
   Comments = In the absence of a language, all designations are excluded which match the designation.use parameter for this exclude.designation element
 
- -- Row 32 -----------------------------------
+ -- Row 33 -----------------------------------
   Element = ExpansionProfile.designation.exclude.designation.use
   Card. = 0..1
   Summary = y
   Type = Coding
   Binding = ConceptDesignationUse
-  Short Label = Designation use
+  Short Name = Designation use
   Definition = Designation uses for exclusion in the expansion
   Comments = In the absence of a use, all designations are retained which match the designation.language parameter for this exclude.designation element
 
- -- Row 33 -----------------------------------
+ -- Row 34 -----------------------------------
   Element = ExpansionProfile.includeDefinition
   Card. = 0..1
   Summary = y
   Type = boolean
-  Short Label = Include or exclude the value set definition in the expansion
+  Short Name = Include or exclude the value set definition in the expansion
   Definition = Controls whether the value set definition is included or excluded in value set expansions.
   Comments = The ValueSet defintion refers to all fields in the ValueSet definition apart from  ValueSet.contains. The definition is only included if includeDefinition is present and has a value of \"true\".
 
- -- Row 34 -----------------------------------
+ -- Row 35 -----------------------------------
   Element = ExpansionProfile.includeInactive
   Card. = 0..1
   Summary = y
   Type = boolean
-  Short Label = Include or exclude inactive concepts in the expansion
+  Short Name = Include or exclude inactive concepts in the expansion
   Definition = Controls whether inactive concepts are included or excluded in value set expansions.
   Comments = Inactive codes are included if includeInactive is present and has a value of \"true\".
 
- -- Row 35 -----------------------------------
+ -- Row 36 -----------------------------------
   Element = ExpansionProfile.excludeNested
   Card. = 0..1
   Summary = y
   Type = boolean
-  Short Label = Include or exclude nested codes in the value set expansion
+  Short Name = Include or exclude nested codes in the value set expansion
   Definition = Controls whether or not the value set expansion includes nested codes (i.e. ValueSet.expansion.contains.contains).
   Comments = Nested codes excluded if excludeNested is present and has a value of \"true\".
 
- -- Row 36 -----------------------------------
+ -- Row 37 -----------------------------------
   Element = ExpansionProfile.excludeNotForUI
   Card. = 0..1
   Summary = y
   Type = boolean
-  Short Label = Include or exclude codes which cannot be rendered in user interfaces in the value set expansion
+  Short Name = Include or exclude codes which cannot be rendered in user interfaces in the value set expansion
   Definition = Controls whether or not the value set expansion includes codes which cannot be displayed in user interfaces.
   Comments = Codes which cannot be used in user interfaces will be excluded if excludeNotForUI is present and has a value of \"true\".
 
- -- Row 37 -----------------------------------
+ -- Row 38 -----------------------------------
   Element = ExpansionProfile.excludePostCoordinated
   Card. = 0..1
   Summary = y
   Type = boolean
-  Short Label = Include or exclude codes which are post coordinated expressions in the value set expansion
+  Short Name = Include or exclude codes which are post coordinated expressions in the value set expansion
   Definition = Controls whether or not the value set expansion includes post coordinated codes.
   Comments = Post coordinated codes are excluded if excludePostCoordinated is present and has a value of \"true\".
 
- -- Row 38 -----------------------------------
+ -- Row 39 -----------------------------------
   Element = ExpansionProfile.displayLanguage
   Card. = 0..1
   Summary = y
   Type = code
   Binding = Language
-  Short Label = Specify the language for the display element of codes in the value set expansion
+  Short Name = Specify the language for the display element of codes in the value set expansion
   Definition = Specifies the language to be used for description in the expansions i.e. the language to be used for ValueSet.expansion.contains.display
 
- -- Row 39 -----------------------------------
+ -- Row 40 -----------------------------------
   Element = ExpansionProfile.limitedExpansion
   Card. = 0..1
   Summary = y
   Type = boolean
-  Short Label = Controls behaviour of the value set expand operation when value sets are too large to be completely expanded
+  Short Name = Controls behaviour of the value set expand operation when value sets are too large to be completely expanded
   Definition = If the value set being expanded is incomplete (because it is too big to expand), return a limited expansion (a subset) with an indicator that expansion is incomplete.
   Comments = This field overides the default behaviour (which is to return an error). This does not apply to expansions which are unbounded.
 
 === Sheet Search =====================================
 
  -- Row 1 -----------------------------------
-  Name = url
-  Type = uri
-  Description = The logical URL for the expansion profile
-  Path = ExpansionProfile.url
-
- -- Row 2 -----------------------------------
   Name = identifier
   Type = token
   Description = The identifier for the expansion profile
   Path = ExpansionProfile.identifier
 
- -- Row 3 -----------------------------------
-  Name = version
-  Type = token
-  Description = The version identifier of the expansion profile
-  Path = ExpansionProfile.version
-
- -- Row 4 -----------------------------------
-  Name = name
-  Type = string
-  Description = The name of the expansion profile
-  Path = ExpansionProfile.name
-
- -- Row 5 -----------------------------------
+ -- Row 2 -----------------------------------
   Name = publisher
   Type = string
   Description = Name of the publisher of the expansion profile
   Path = ExpansionProfile.publisher
 
- -- Row 6 -----------------------------------
+ -- Row 3 -----------------------------------
   Name = description
   Type = string
   Description = Text search in the description of the expansion profile
   Path = ExpansionProfile.description
-
- -- Row 7 -----------------------------------
-  Name = status
-  Type = token
-  Description = The status of the expansion profile
-  Path = ExpansionProfile.status
-
- -- Row 8 -----------------------------------
-  Name = date
-  Type = date
-  Description = The expansion profile publication date
-  Path = ExpansionProfile.date
 
 === Sheet Profiles =====================================
 

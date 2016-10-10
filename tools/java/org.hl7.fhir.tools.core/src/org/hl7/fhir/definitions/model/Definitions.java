@@ -140,6 +140,7 @@ public class Definitions {
 	private Map<String, TypeDefn> infrastructure = new HashMap<String, TypeDefn>();
   private Map<String, ResourceDefn> baseResources = new HashMap<String, ResourceDefn>();
   private Map<String, ResourceDefn> resources = new HashMap<String, ResourceDefn>();
+  private Map<String, ResourceDefn> resourceTemplates = new HashMap<String, ResourceDefn>();
   private Map<String, WorkGroup> workgroups = new HashMap<String, WorkGroup>();
 
 	// profiles not owned by a particular resource
@@ -267,11 +268,16 @@ public class Definitions {
 		return aggregationEndpoints;
 	}
 
-	// List of resources, excluding future resources
-	public Map<String, ResourceDefn> getResources() {
-		return resources;
-	}
-	
+  // List of resources, excluding future resources
+  public Map<String, ResourceDefn> getResources() {
+    return resources;
+  }
+  
+  // List of resources, excluding future resources
+  public Map<String, ResourceDefn> getResourceTemplates() {
+    return resourceTemplates;
+  }
+  
 
 	public ResourceDefn getResourceByName(String name) throws Exception {
 		ResourceDefn root = null;

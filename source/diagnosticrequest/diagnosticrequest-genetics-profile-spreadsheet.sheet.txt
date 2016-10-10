@@ -12,7 +12,7 @@
   Profile Name = Item
   Card. = 0..*
   Type = Extension{#Item}
-  Short Label = The items the orderer requested
+  Short Name = The items the orderer requested
   Definition = The specific diagnostic investigations that are requested as part of this request. Sometimes, there can only be one item per request, but in most contexts, more than one investigation can be requested
 
 === Sheet Search =====================================

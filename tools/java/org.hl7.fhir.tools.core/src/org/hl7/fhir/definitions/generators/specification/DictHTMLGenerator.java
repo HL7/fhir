@@ -443,9 +443,6 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
     tableRow("LOINC Code", null, e.getMapping(Definitions.LOINC_MAPPING));
     tableRow("SNOMED-CT Code", null, e.getMapping(Definitions.SNOMED_MAPPING));
 		tableRow("To Do", null, e.getTodo());
-		if (e.getTasks().size() > 0) {
-	    tableRowNE("gForge Tasks", null, tasks(e.getTasks()));
-		}
 	}
 	
   private String tasks(List<String> tasks) {

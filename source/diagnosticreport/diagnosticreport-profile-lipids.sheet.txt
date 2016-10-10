@@ -15,7 +15,7 @@
   Element = DiagnosticReport
   Card. = 1..1
   Type = Resource
-  Short Label = Lipid Lab Report
+  Short Name = Lipid Lab Report
   Definition = The findings and interpretation of a general lipd lab profile
   Comments = In this profile, mustSupport means that authoring systems must include the ability to report these elements, and processing systems must cater for them by either displaying them to the user or considering them appropriately in decision support systems
   Committee Notes = Note that this profile doesn\'t mention workflow  elements - it\'s solely concerned with the semantics of a lipid report. Things that are ignored are not constrained
@@ -24,7 +24,7 @@
   Element = DiagnosticReport.code
   Card. = 1..1
   Type = CodeableConcept
-  Short Label = LOINC Code for Lipid Panel with LDL
+  Short Name = LOINC Code for Lipid Panel with LDL
   Definition = LOINC Code for Lipid Panel with LDL
   Comments = LOINC code includes \"direct\" LDL - does this mean LDL derived by measuring VLDL by ultracentrifugation? This panel includes both measured and calculated LDL
   Committee Notes = Fix the name of the report to an appropriate LOINC code
@@ -37,7 +37,7 @@
   Card. = 1..1
   Must Support = Y
   Type = Reference(Observation) {#Cholesterol}
-  Short Label = Cholesterol Result
+  Short Name = Cholesterol Result
   Definition = Reference to Cholesterol Result
   Committee Notes = Now, Slice the result list into 4 parts for the for atomic results
 
@@ -47,7 +47,7 @@
   Card. = 1..1
   Must Support = Y
   Type = Reference(Observation){#Triglyceride}
-  Short Label = Triglyceride Result
+  Short Name = Triglyceride Result
   Definition = Group of elements for Triglyceride result
   Committee Notes = the value with a # on a resource reference is reference to another profile wit the #[tab name]
 
@@ -57,7 +57,7 @@
   Card. = 1..1
   Must Support = Y
   Type = Reference(Observation){#HDLCholesterol}
-  Short Label = HDL Cholesterol Result
+  Short Name = HDL Cholesterol Result
   Definition = Group of elements for HDL Cholesterol result
 
  -- Row 6 -----------------------------------
@@ -66,14 +66,14 @@
   Card. = 0..1
   Must Support = Y
   Type = Reference(Observation){#LDLCholesterol}
-  Short Label = LDL Cholesterol result, if reported
+  Short Name = LDL Cholesterol result, if reported
 
  -- Row 7 -----------------------------------
   Element = DiagnosticReport.conclusion
   Card. = 0..1
   Must Support = Y
   Type = string
-  Short Label = Clinical Interpretation of Lipid Panel
+  Short Name = Clinical Interpretation of Lipid Panel
   Definition = May include diagnosis or suggestions for follow up testing
   Comments = It\'s not unusual for the lab to make some kind of interpretative comment on the set of results
 
@@ -81,7 +81,7 @@
   Element = DiagnosticReport.codedDiagnosis
   Card. = 0..0
   Type = CodeableConcept
-  Short Label = No codes for a lipid panel
+  Short Name = No codes for a lipid panel
   Comments = Not used in this context
   Committee Notes = we don\'t want codes???.
 
@@ -98,7 +98,7 @@
   Card. = 1..1
   Must Support = Y
   Type = CodeableConcept
-  Short Label = Cholesterol
+  Short Name = Cholesterol
   Committee Notes = Fix value to a single LOINC Code
   Value = { \"coding\" : [{ \"system\" : \"http://loinc.org\", \"code\": \"35200-5\" , \"display\" : \"Cholesterol\" }]}
 
@@ -107,7 +107,7 @@
   Card. = 0..1
   Must Support = Y
   Type = Quantity
-  Short Label = Cholesterol value
+  Short Name = Cholesterol value
   Definition = Cholesterol value. If a result is not available, use the comments field
 
  -- Row 4 -----------------------------------
@@ -115,7 +115,7 @@
   Card. = 0..1
   Must Support = y
   Type = decimal
-  Short Label = Actual numerical value
+  Short Name = Actual numerical value
   Definition = Actual numerical value
 
  -- Row 5 -----------------------------------
@@ -150,7 +150,7 @@
   Card. = 0..1
   Must Support = Y
   Type = CodeableConcept
-  Short Label = + | ++ | +++ | - | -- | ---
+  Short Name = + | ++ | +++ | - | -- | ---
   To Do = subset this list
 
  -- Row 10 -----------------------------------
@@ -158,7 +158,7 @@
   Card. = 0..1
   Must Support = Y
   Type = string
-  Short Label = Comments about result
+  Short Name = Comments about result
   Definition = May include statements about significant, unexpected or unreliable. values, or information about the source of the value where this may be relevant to the interpretation of the result.
 
  -- Row 11 -----------------------------------
@@ -182,7 +182,7 @@
   Element = Observation.referenceRange.meaning
   Card. = 0..0
   Type = CodeableConcept
-  Short Label = Range is a recommended range
+  Short Name = Range is a recommended range
   Definition = Range is a recommended range
   To Do = so I suppose it should be coded, right? But coded how? No publically available terminologies include an appropriate code???
 
@@ -201,7 +201,7 @@
   Element = Observation
   Card. = 1..1
   Type = Resource
-  Short Label = Triglyceride Result
+  Short Name = Triglyceride Result
   Definition = Group of elements for Triglyceride result
   To Do = do we need to say anything about method?
 
@@ -210,7 +210,7 @@
   Card. = 1..1
   Must Support = Y
   Type = CodeableConcept
-  Short Label = Triglyceride
+  Short Name = Triglyceride
   Committee Notes = Fix value to a single LOINC Code
   Value = { \"coding\" : [{ \"system\" : \"http://loinc.org\", \"code\": \"35217-9\" , \"display\" : \"Triglyceride\" }]}
 
@@ -219,7 +219,7 @@
   Card. = 0..1
   Must Support = Y
   Type = Quantity
-  Short Label = Triglyceride value
+  Short Name = Triglyceride value
   Definition = Triglyceride value. If a result is not available, use the comments field
 
  -- Row 4 -----------------------------------
@@ -227,7 +227,7 @@
   Card. = 0..1
   Must Support = Y
   Type = CodeableConcept
-  Short Label = + | ++ | +++ | - | -- | ---
+  Short Name = + | ++ | +++ | - | -- | ---
   To Do = subset this list
 
  -- Row 5 -----------------------------------
@@ -235,7 +235,7 @@
   Card. = 0..1
   Must Support = Y
   Type = string
-  Short Label = Comments about result
+  Short Name = Comments about result
 
  -- Row 6 -----------------------------------
   Element = Observation.referenceRange
@@ -257,7 +257,7 @@
   Element = Observation.referenceRange.meaning
   Card. = 0..0
   Type = CodeableConcept
-  Short Label = Range is a recommended range
+  Short Name = Range is a recommended range
   Definition = Range is a recommended range
   To Do = so I suppose it should be coded, right? But coded how? No publically available terminologies include an appropriate code???
 
@@ -276,7 +276,7 @@
   Element = Observation
   Card. = 1..1
   Type = Resource
-  Short Label = HDL Cholesterol Result
+  Short Name = HDL Cholesterol Result
   Definition = Group of elements for HDL Cholesterol result
   To Do = do we need to say anything about method?
 
@@ -285,7 +285,7 @@
   Card. = 1..1
   Must Support = Y
   Type = CodeableConcept
-  Short Label = HDL Cholesterol
+  Short Name = HDL Cholesterol
   Committee Notes = Fix value to a single LOINC Code
   Value = { \"coding\" : [{ \"system\" : \"http://loinc.org\", \"code\": \"2085-9\" , \"display\" : \"HDL Cholesterol\" }]}
 
@@ -294,7 +294,7 @@
   Card. = 0..1
   Must Support = Y
   Type = Quantity
-  Short Label = HDL Cholesterol value
+  Short Name = HDL Cholesterol value
   Definition = HDL Cholesterol value. If a result is not available, use the comments field
 
  -- Row 4 -----------------------------------
@@ -302,7 +302,7 @@
   Card. = 0..1
   Must Support = Y
   Type = CodeableConcept
-  Short Label = + | ++ | +++ | - | -- | ---
+  Short Name = + | ++ | +++ | - | -- | ---
   To Do = subset this list
 
  -- Row 5 -----------------------------------
@@ -310,7 +310,7 @@
   Card. = 0..1
   Must Support = Y
   Type = string
-  Short Label = Comments about result
+  Short Name = Comments about result
 
  -- Row 6 -----------------------------------
   Element = Observation.referenceRange
@@ -333,7 +333,7 @@
   Element = Observation.referenceRange.meaning
   Card. = 0..0
   Type = CodeableConcept
-  Short Label = Range is a recommended range
+  Short Name = Range is a recommended range
   Definition = Range is a recommended range
   To Do = so I suppose it should be coded, right? But coded how? No publically available terminologies include an appropriate code???
 
@@ -352,7 +352,7 @@
   Element = Observation
   Card. = 1..1
   Type = Resource
-  Short Label = LDL Cholesterol Result
+  Short Name = LDL Cholesterol Result
   Definition = Group of elements for LDL Cholesterol result
   To Do = do we need to say anything about method?
 
@@ -361,7 +361,7 @@
   Profile Name = LDLCalculated
   Card. = 0..1
   Type = Extension{#ldl-chol-calculated}
-  Short Label = Whether LDL value is calculated
+  Short Name = Whether LDL value is calculated
   Definition = Whether LDL value is calculated
   Committee Notes = See comments on the extension definition
 
@@ -371,7 +371,7 @@
   Must Support = Y
   Type = CodeableConcept
   Binding = LDLCodes
-  Short Label = LDL Cholesterol -measured or calculated per code
+  Short Name = LDL Cholesterol -measured or calculated per code
   Definition = LDL Cholesterol -measured or calculated per code
   Committee Notes = Can\'t fix to a single value. Need to define a value set
 
@@ -380,7 +380,7 @@
   Card. = 0..1
   Must Support = Y
   Type = Quantity
-  Short Label = LDL Cholesterol value
+  Short Name = LDL Cholesterol value
   Definition = LDL Cholesterol value. If a result is not available, use the comments field
 
  -- Row 5 -----------------------------------
@@ -388,7 +388,7 @@
   Card. = 0..1
   Must Support = Y
   Type = CodeableConcept
-  Short Label = + | ++ | +++ | - | -- | ---
+  Short Name = + | ++ | +++ | - | -- | ---
   To Do = subset this list
 
  -- Row 6 -----------------------------------
@@ -396,7 +396,7 @@
   Card. = 0..1
   Must Support = Y
   Type = string
-  Short Label = Comments about result
+  Short Name = Comments about result
 
  -- Row 7 -----------------------------------
   Element = Observation.referenceRange
@@ -419,7 +419,7 @@
   Element = Observation.referenceRange.meaning
   Card. = 0..0
   Type = CodeableConcept
-  Short Label = Range is a recommended range
+  Short Name = Range is a recommended range
   Definition = Range is a recommended range
   To Do = so I suppose it should be coded, right? But coded how? No publically available terminologies include an appropriate code???
 

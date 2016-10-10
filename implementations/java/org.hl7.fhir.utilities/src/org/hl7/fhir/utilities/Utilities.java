@@ -984,6 +984,22 @@ public class Utilities {
   }
 
 
+  public static String unCamelCase(String name) {
+    StringBuilder b = new StringBuilder();
+    boolean first = true;
+    for (char c : name.toCharArray()) {
+      if (Character.isUpperCase(c)) {
+        if (!first)
+          b.append(" ");
+        b.append(Character.toLowerCase(c));
+      } else 
+        b.append(c);
+      first = false;        
+    }
+    return b.toString();
+  }
+
+
 
 
 }

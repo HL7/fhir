@@ -114,30 +114,22 @@
  -- Row 1 -----------------------------------
   Element = ValueSet
   UML = 0;0
-  Type = DomainResource
-  Short Label = A set of codes drawn from one or more code systems
+  Type = MetadataResource
+  Short Name = A set of codes drawn from one or more code systems
   Definition = A value set specifies a set of codes drawn from one or more code systems.
   RIM Mapping = N/A
-  Object Impl = BaseConformance
   w5 = conformance.terminology
 
  -- Row 2 -----------------------------------
   Element = ValueSet.url
-  Card. = 0..1
-  Summary = y
-  Type = uri
-  Short Label = Globally unique logical identifier for  value set
-  Definition = An absolute URL that is used to identify this value set when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this value set is (or will be) published
   RIM Mapping = N/A
-  Object Impl = BaseConformance.url
-  w5 = id
 
  -- Row 3 -----------------------------------
   Element = ValueSet.identifier
   Card. = 0..*
   Summary = y
   Type = Identifier
-  Short Label = Additional identifier for the value set (e.g. HL7 v2 / CDA)
+  Short Name = Additional identifier for the value set (e.g. HL7 v2 / CDA)
   Definition = A formal identifier that is used to identify this value set when it is represented in other formats, or referenced in a specification, model, design or an instance.
   Comments = Typically, this is used for values that can go in an HL7 v3 II data type
   CDISC Define.xml 2.0 Mapping = Identifier part
@@ -145,59 +137,23 @@
 
  -- Row 4 -----------------------------------
   Element = ValueSet.version
-  Card. = 0..1
-  Summary = y
-  Type = string
-  Short Label = Logical identifier for this version of the value set
-  Definition = Used to identify this version of the value set when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp
-  Comments = There may be multiple resource versions of the value set that have the same identifier
-  RIM Mapping = N/A
-  Object Impl = BaseConformance.version
-  w5 = id.version
 
  -- Row 5 -----------------------------------
   Element = ValueSet.name
-  Card. = 0..1
-  Summary = y
-  Type = string
-  Short Label = Informal name for this value set
-  Definition = A free text natural language name describing the value set
-  Requirements = Support human navigation
-  Comments = The name is not expected to be unique. A name should be provided unless the value set is a contained resource (e.g. an anonymous value set in a profile). Most registries will require a name
-  RIM Mapping = N/A
-  Object Impl = BaseConformance.name
+  Comments = & A name should be provided unless the value set is a contained resource (e.g. an anonymous value set in a profile). Most registries will require a name
 
  -- Row 6 -----------------------------------
   Element = ValueSet.status
-  Card. = 1..1
-  Is Modifier = Yes
-  Summary = y
-  Type = code
-  Binding = ConformanceResourceStatus
-  Short Label = draft | active | retired
-  Definition = The status of the value set
-  Requirements = Identify when/if the value set should be used.
-  Comments = Allows filtering of value set instances that are appropriate (or not) for use
-  RIM Mapping = N/A
-  Object Impl = BaseConformance.status
-  w5 = status
 
  -- Row 7 -----------------------------------
   Element = ValueSet.experimental
-  Card. = 0..1
-  Summary = y
-  Type = boolean
-  Short Label = If for testing purposes, not real usage
-  Definition = This valueset was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage
-  Comments = Allows filtering of value sets that are appropriate for use vs. not
-  w5 = class
 
  -- Row 8 -----------------------------------
   Element = ValueSet.publisher
   Card. = 0..1
   Summary = y
   Type = string
-  Short Label = Name of the publisher (organization or individual)
+  Short Name = Name of the publisher (organization or individual)
   Definition = The name of the individual or organization that published the value set
   Requirements = Helps establish the \"authority/credibility\" of the value set.  May also allow for contact
   Comments = Usually an organization, but may be an individual. This item SHOULD be populated unless the information is available from context.
@@ -207,7 +163,7 @@
   Element = ValueSet.contact
   Card. = 0..*
   Summary = y
-  Short Label = Contact details of the publisher
+  Short Name = Contact details of the publisher
   Definition = Contacts to assist a user in finding and communicating with the publisher
   Comments = May be a web site, an email address, a telephone number, etc.
 
@@ -216,7 +172,7 @@
   Card. = 0..1
   Summary = Y
   Type = string
-  Short Label = Name of an individual to contact
+  Short Name = Name of an individual to contact
   Definition = The name of an individual to contact regarding the value set
   Comments = If there is no named individual, the telecom is for the organization as a whole
 
@@ -225,21 +181,13 @@
   Card. = 0..*
   Summary = Y
   Type = ContactPoint
-  Short Label = Contact details for individual or publisher
+  Short Name = Contact details for individual or publisher
   Definition = Contact details for individual (if a name was provided) or the publisher
 
  -- Row 12 -----------------------------------
   Element = ValueSet.date
-  Card. = 0..1
-  Summary = y
-  Type = dateTime
-  Short Label = Date for given status
-  Definition = The date that the value set status was last changed. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the implementation guide changes (e.g. the \'content logical definition\')
-  Requirements = Need to know when a value set was first legal for use or became withdrawn or replaced.
-  Comments = Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the value set. Additional specific dates may be added as extensions
+  Definition = & (e.g. the \'content logical definition\')
   RIM Mapping = N/A
-  Object Impl = BaseConformance.date
-  w5 = when.recorded
 
  -- Row 13 -----------------------------------
   Element = ValueSet.description
@@ -247,7 +195,7 @@
   Aliases = Scope; Purpose
   Summary = y
   Type = markdown
-  Short Label = Human language description of the value set
+  Short Name = Human language description of the value set
   Definition = A free text natural language description of the use of the value set - reason for definition, \"the semantic space\" to be included in the value set, conditions of use, etc. The description may include a list of expected usages for the value set and can also describe the approach taken to build the value set.
   Requirements = Human understandability
   Comments = The description is not intended to describe the semantics of the Value Set - there are no intrinsic semantics separate from the codes contained in its expansion. The description should capture its intended use, which is needed for ensuring integrity for its use in models across future changes. A description should be provided unless the value set is a contained resource (e.g. an anonymous value set in a profile). Most registries will require a description
@@ -255,22 +203,13 @@
 
  -- Row 14 -----------------------------------
   Element = ValueSet.useContext
-  Card. = 0..*
-  Summary = y
-  Type = CodeableConcept
-  Binding = ConformanceUseContext
-  Short Label = Content intends to support these contexts
-  Definition = The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of value set definitions.
-  Requirements = Assist in searching for appropriate content
-  CDISC Define.xml 2.0 Mapping = COMPONENT, PROPERTY, TIME_ASPCT, SYSTEM, SCALE_TYP, METHOD_TYP, CLASS, CLASSTYPE, ORDER_OBS, DOCUMENT_SECTION, HL7_ATTACHMENT_STRUCTURE
-  Object Impl = BaseConformance.useContext
 
  -- Row 15 -----------------------------------
   Element = ValueSet.immutable
   Card. = 0..1
   Summary = Y
   Type = boolean
-  Short Label = Indicates whether or not any change to the content logical definition may occur
+  Short Name = Indicates whether or not any change to the content logical definition may occur
   Definition = If this is set to \'true\', then no new versions of the content logical definition can be created.  Note: Other metadata might still change
   Comments = Normally immutability is set to \'false\', which is the default assumption if it is not populated.  Note that the implication is that if this is set to \'true\', there may be only one ValueSet version for this definition. Immutability tends to be set to \'true\' in one of two cases: - Where the value set, by the nature of its usage, cannot change.  For example \"All specializations of ACT in ActClassCode\" - Where there\'s no safe way to express the \"Purpose\" such that someone else could safely make changes to the value set definition. Source workflow control must guarantee that the same URI always yields the same definition
 
@@ -278,7 +217,7 @@
   Element = ValueSet.requirements
   Card. = 0..1
   Type = markdown
-  Short Label = Why needed
+  Short Name = Why needed
   Definition = Explains why this value set is needed and why it has been constrained as it has
   Comments = This element does not describe the usage of the value set (that is done in comments), rather it\'s for traceability of \'\'why\'\' the element is either needed or \'\'why\'\' the constraints exist as they do.  This may be used to point to source materials or specifications that drove the structure of this data element
 
@@ -287,7 +226,7 @@
   Card. = 0..1
   Aliases = License,Restrictions
   Type = string
-  Short Label = Use and/or publishing restrictions
+  Short Name = Use and/or publishing restrictions
   Definition = A copyright statement relating to the value set and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the value set
   Comments = Frequently, the copyright differs between the value set and the codes that are included. The copyright statement should clearly differentiate between these when required
 
@@ -296,7 +235,7 @@
   Card. = 0..1
   Summary = Y
   Type = boolean
-  Short Label = Whether this is intended to be used with an extensible binding
+  Short Name = Whether this is intended to be used with an extensible binding
   Definition = Whether this is intended to be used with an extensible binding or not
   Requirements = It is not required to say whether this intent applies
 
@@ -306,7 +245,7 @@
   Aliases = Content Logical Definition
   UML = 40;290
   Inv. = 5
-  Short Label = Definition of the content of the value set (CLD)
+  Short Name = Definition of the content of the value set (CLD)
   Definition = A set of criteria that define the content logical definition of the value set by including or excluding codes from outside this value set. This I also known as the \"Content Logical Definition\" (CLD)
 
  -- Row 20 -----------------------------------
@@ -314,7 +253,7 @@
   Card. = 0..1
   Summary = Y
   Type = date
-  Short Label = Fixed date for all referenced code systems and value sets
+  Short Name = Fixed date for all referenced code systems and value sets
   Definition = If a locked date is defined, then the Content Logical Definition must be evaluated using the current version of all referenced code system(s) and value set instances as of the locked date
   Comments = With a defined lockedDate the value set is considered \"Locked\". Otherwise, the value set may have different expansions as underlying code systems and/or value sets evolve.  The interpretation of lockedDate is often dependent on the context - e.g. a SNOMED CT derived value set with a lockedDate will have a different expansion in USA than in UK.  If a value set specifies a version for include and exclude statements, and also specifies a locked date, the specified versions need to be available that date, or the value set will not be usable
   w5 = when.init
@@ -325,7 +264,7 @@
   Summary = y
   UML = 40;390
   Type = =ConceptSet
-  Short Label = Include one or more codes from a code system or other value set(s)
+  Short Name = Include one or more codes from a code system or other value set(s)
   Definition = Include one or more codes from a code system or other value set(s)
   Comments = All the conditions in an include must be true. If a system is listed, all the codes from the system are listed. If one or more filters are listed, all of the filters must apply. If one or more value sets are listed, the codes must be in all the value sets. E.g. each include is \'include all the codes that meet all these conditions\'
   RIM Mapping = N/A
@@ -336,7 +275,7 @@
   Summary = y
   Inv. = 1,2
   Type = uri
-  Short Label = The system the codes come from
+  Short Name = The system the codes come from
   Definition = An absolute URI which is the code system from which the selected codes come from
   Comments = If there are no codes or filters, the entire code system is included. Note that the set of codes that are included may contain abstract codes. See \'\'Coding.system\'\' for further documentation about the correct value for the system element
   CDISC Define.xml 2.0 Mapping = ODM/Study/MetaDataVersion/CodeList/ExternalCodeList/Href
@@ -347,7 +286,7 @@
   Card. = 0..1
   Summary = y
   Type = string
-  Short Label = Specific version of the code system referred to
+  Short Name = Specific version of the code system referred to
   Definition = The version of the code system that the codes are selected from
   Comments = This is used when selecting the descendants of a concept - they may change between versions. If no version is specified, then the exact contents of the value set may not be known until a context of use binds it to a particular version
   CDISC Define.xml 2.0 Mapping = ODM/Study/MetaDataVersion/CodeList/ExternalCodeList/Version
@@ -358,7 +297,7 @@
   Card. = 1..1
   Type = code
   Binding = CodeSelectionMode
-  Short Label = code | children | descendants | all
+  Short Name = code | children | descendants | all
   Definition = The mode of selection - whether the codes themselves, and/or their children or descendants are being selected
   RIM Mapping = N/A
 
@@ -368,7 +307,7 @@
   UML = down
   Inv. = 3
   Type = =ConceptReference
-  Short Label = A concept defined in the system
+  Short Name = A concept defined in the system
   Definition = Specifies a concept to be included or excluded.
   Comments = The list of concepts is considered ordered, though the order may not have any particular significance. Typically, the order of an expansion follows that defined in the compose element
   RIM Mapping = N/A
@@ -378,7 +317,7 @@
   Card. = 1..1
   Type = code
   Binding = !
-  Short Label = Code or expression from system
+  Short Name = Code or expression from system
   Definition = Specifies a code for the concept to be included or excluded
   Comments = Expressions are allowed if defined by the underlying code system
   RIM Mapping = N/A
@@ -387,7 +326,7 @@
   Element = ValueSet.compose.include.concept.display
   Card. = 0..1
   Type = string
-  Short Label = Text to display for this code for this value set
+  Short Name = Text to display for this code for this value set
   Definition = The text to display to the user for this concept in the context of this valueset. If no display is provided, then applications using the value set use the display specified for the code by the system
   Comments = The value set resource allows for an alternative display to be specified for when this concept is used in this particular value set. See notes in the value set narrative about the correct use of this element
   RIM Mapping = N/A
@@ -396,7 +335,7 @@
   Element = ValueSet.compose.include.concept.designation
   Card. = 0..*
   UML = right
-  Short Label = Additional representations for this concept
+  Short Name = Additional representations for this concept
   Definition = Additional representations for this concept when used in this value set - other languages, aliases, specialized purposes, used for particular purposes, etc.
 
  -- Row 29 -----------------------------------
@@ -404,7 +343,7 @@
   Card. = 0..1
   Type = code
   Binding = Language
-  Short Label = Human language of the designation
+  Short Name = Human language of the designation
   Definition = The language this designation is defined for
   Comments = In the absence of a language, the resource language applies
 
@@ -413,7 +352,7 @@
   Card. = 0..1
   Type = Coding
   Binding = ConceptDesignationUse
-  Short Label = Details how this designation would be used
+  Short Name = Details how this designation would be used
   Definition = A code that details how this designation would be used
   Comments = If no use is provided, the designation can be assumed to be suitable for general display to a human user
 
@@ -421,7 +360,7 @@
   Element = ValueSet.compose.include.concept.designation.value
   Card. = 1..1
   Type = string
-  Short Label = The text value for this designation
+  Short Name = The text value for this designation
   Definition = The text value for this designation
 
  -- Row 32 -----------------------------------
@@ -429,7 +368,7 @@
   Card. = 0..*
   UML = 230;420
   Inv. = 3
-  Short Label = Select codes/concepts by their properties (including relationships)
+  Short Name = Select codes/concepts by their properties (including relationships)
   Definition = Select concepts by specify a matching criteria based on the properties (including relationships) defined by the system. If multiple filters are specified, they SHALL all be true.
   Comments = Selecting codes by specifying filters based on properties is only possible where the underlying code system defines appropriate properties. Note that in some cases, the underlying code system defines the logical concepts but not the literal codes for the concepts. In such cases, the literal definitions may be provided by a third party
   RIM Mapping = N/A
@@ -439,7 +378,7 @@
   Card. = 1..1
   Type = code
   Binding = !
-  Short Label = A property defined by the code system
+  Short Name = A property defined by the code system
   Definition = A code that identifies a property defined in the code system
   RIM Mapping = N/A
 
@@ -448,7 +387,7 @@
   Card. = 1..1
   Type = code
   Binding = FilterOperator
-  Short Label = = | is-a | is-not-a | regex | in | not-in | generalizes
+  Short Name = = | is-a | is-not-a | regex | in | not-in | generalizes
   Definition = The kind of operation to perform as a part of the filter criteria
   RIM Mapping = N/A
 
@@ -457,7 +396,7 @@
   Card. = 1..1
   Type = code
   Binding = !
-  Short Label = Code from the system, or regex criteria
+  Short Name = Code from the system, or regex criteria
   Definition = The match value may be either a code defined by the system, or a string value, which is a regex match on the literal string of the property value
   Comments = Use regex matching with care - full regex matching on every SNOMED CT term is prohibitive, for example
   RIM Mapping = N/A
@@ -468,7 +407,7 @@
   Summary = y
   Inv. = 1
   Type = uri
-  Short Label = Select only contents included in this value set
+  Short Name = Select only contents included in this value set
   Definition = Selects concepts found in this value set. This is an absolute URI that is a reference to ValueSet.url
   Comments = The value set URI is either a logical reference to a defined value set such as a [SNOMED CT reference set]{snomedct.html#implicit}, or a direct reference to a value set definition using ValueSet.url. The reference may not refer to an actual FHIR ValueSet resource; in this case, whatever is referred to is an implicit definition of a value set that needs to be clear about how versions are resolved
   RIM Mapping = N/A
@@ -478,7 +417,7 @@
   Card. = 0..*
   Inv. = 2
   Type = @ValueSet.compose.include
-  Short Label = Explicitly exclude codes from a code system or other value sets
+  Short Name = Explicitly exclude codes from a code system or other value sets
   Definition = Exclude one or more codes from the value set based on code system filters and/or other value sets
   Comments = Usually this is used to selectively exclude codes that were included by subsumption in the inclusions. Any display names specified for the codes are ignored
   RIM Mapping = N/A
@@ -488,7 +427,7 @@
   Card. = 0..1
   UML = 360;205
   Inv. = 5
-  Short Label = Used when the value set is \"expanded\"
+  Short Name = Used when the value set is \"expanded\"
   Definition = A value set can also be \"expanded\", where the value set is turned into a simple collection of enumerated codes. This element holds the expansion, if it has been performed
   Comments = Expansion is performed to produce a collection of codes that are ready to use for data entry or validation
 
@@ -496,7 +435,7 @@
   Element = ValueSet.expansion.identifier
   Card. = 1..1
   Type = uri
-  Short Label = Uniquely identifies this expansion
+  Short Name = Uniquely identifies this expansion
   Definition = An identifier that uniquely identifies this expansion of the valueset. Systems may re-use the same identifier as long as the expansion and the definition remain the same, but are not required to do so
   Comments = Typically, this uri is a UUID (e.g. urn:uuid:8230ff20-c97a-4167-a59d-dc2cb9df16dd)
 
@@ -504,7 +443,7 @@
   Element = ValueSet.expansion.timestamp
   Card. = 1..1
   Type = dateTime
-  Short Label = Time ValueSet expansion happened
+  Short Name = Time ValueSet expansion happened
   Definition = The time at which the expansion was produced by the expanding system.
   Comments = This SHOULD be a fully populated instant, but in some circumstances, value sets are expanded by hand, and the expansion is published without that precision
 
@@ -512,7 +451,7 @@
   Element = ValueSet.expansion.total
   Card. = 0..1
   Type = integer
-  Short Label = Total number of codes in the expansion
+  Short Name = Total number of codes in the expansion
   Definition = The total number of concepts in the expansion. If the number of concept nodes in this resource is less than the stated number, then the server can return more using the offset parameter
   Comments = Paging only applies to flat expansions
 
@@ -520,7 +459,7 @@
   Element = ValueSet.expansion.offset
   Card. = 0..1
   Type = integer
-  Short Label = Offset at which this resource starts
+  Short Name = Offset at which this resource starts
   Definition = If paging is being used, the offset at which this resource starts.  I.e. this resource is a partial view into the expansion. If paging is not being used, this element SHALL not be present
   Comments = Paging only applies to flat expansions. If a filter is applied, the count is the number of concepts that matched the filter, not the number of concepts in an unfiltered view of the expansion
   Missing Meaning = Paging is not being used
@@ -529,7 +468,7 @@
   Element = ValueSet.expansion.parameter
   Card. = 0..*
   UML = 290;80
-  Short Label = Parameter that controlled the expansion process
+  Short Name = Parameter that controlled the expansion process
   Definition = A parameter that controlled the expansion process. These parameters may be used by users of expanded value sets to check whether the expansion is suitable for a particular purpose, or to pick the correct expansion
   Comments = The server decides which parameters to include here, but at a minimum, the list SHOULD include the date, filter, and profile parameters passed to the $expand operation (if any)
 
@@ -537,7 +476,7 @@
   Element = ValueSet.expansion.parameter.name
   Card. = 1..1
   Type = string
-  Short Label = Name as assigned by the server
+  Short Name = Name as assigned by the server
   Definition = The name of the parameter
   Comments = The names are assigned at the discretion of the server
   Committee Notes = There is no standardization of parameter names that control the expansion process. This will be reviewed in the future
@@ -546,28 +485,28 @@
   Element = ValueSet.expansion.parameter.value[x]
   Card. = 0..1
   Type = string | boolean | integer | decimal | uri | code
-  Short Label = Value of the named parameter
+  Short Name = Value of the named parameter
   Definition = The value of the parameter
 
  -- Row 46 -----------------------------------
   Element = ValueSet.expansion.contains
   Card. = 0..*
   UML = 190;290
-  Short Label = Codes in the value set
+  Short Name = Codes in the value set
   Definition = The codes that are contained in the value set expansion
 
  -- Row 47 -----------------------------------
   Element = ValueSet.expansion.contains.system
   Card. = 0..1
   Type = uri
-  Short Label = System value for the code
+  Short Name = System value for the code
   Definition = An absolute URI which is the code system in which the code for this item in the expansion is defined
 
  -- Row 48 -----------------------------------
   Element = ValueSet.expansion.contains.abstract
   Card. = 0..1
   Type = boolean
-  Short Label = If user cannot select this entry
+  Short Name = If user cannot select this entry
   Definition = If true, this entry is included in the expansion for navigational purposes, and the user cannot select the code directly as a proper value
   Comments = This should not be understood to exclude its use for searching (e.g. by subsumption testing). The client should know whether it is appropriate for the user to select an abstract code or not
   Default Value = false
@@ -576,7 +515,7 @@
   Element = ValueSet.expansion.contains.version
   Card. = 0..1
   Type = string
-  Short Label = Version in which this code/display is defined
+  Short Name = Version in which this code/display is defined
   Definition = The version of this code system that defined this code and/or display. This should only be used with code systems that do not enforce concept permanence
   Comments = The exact value of the version string is specified by the system from which the code is derived
 
@@ -586,7 +525,7 @@
   Inv. = 6
   Type = code
   Binding = !
-  Short Label = Code - if blank, this is not a selectable code
+  Short Name = Code - if blank, this is not a selectable code
   Definition = The code for this item in the expansion hierarchy. If this code is missing the entry in the hierarchy is a place holder (abstract) and does not represent a valid code in the value set
 
  -- Row 51 -----------------------------------
@@ -594,14 +533,14 @@
   Card. = 0..1
   Inv. = 6
   Type = string
-  Short Label = User display for the concept
+  Short Name = User display for the concept
   Definition = The recommended display for this item in the expansion
 
  -- Row 52 -----------------------------------
   Element = ValueSet.expansion.contains.designation
   Card. = 0..*
   Type = @ValueSet.compose.include.concept.designation
-  Short Label = Additional representations for this item
+  Short Name = Additional representations for this item
   Definition = Additional representations for this item - other languages, aliases, specialized purposes, used for particular purposes, etc. These are relevant when the conditions of the expansion do not fix to a single correct representation
   Comments = The designations provided must be based on the value set and code system definitions
 
@@ -609,85 +548,49 @@
   Element = ValueSet.expansion.contains.contains
   Card. = 0..*
   Type = @ValueSet.expansion.contains
-  Short Label = Codes contained under this entry
+  Short Name = Codes contained under this entry
   Definition = Other codes and entries contained under this entry in the hierarchy
   Comments = If the expansion uses this element, there is  no implication about the logical relationship between them, and the  structure cannot be used for logical inferencing. The structure  exists to provide navigational assistance for helping human users to  locate codes in the expansion.
 
 === Sheet Search =====================================
 
  -- Row 1 -----------------------------------
-  Name = url
-  Type = uri
-  Description = The logical URL for the value set
-  Path = ValueSet.url
-
- -- Row 2 -----------------------------------
   Name = identifier
   Type = token
   Description = The identifier for the value set
   Path = ValueSet.identifier
 
- -- Row 3 -----------------------------------
-  Name = version
-  Type = token
-  Description = The version identifier of the value set
-  Path = ValueSet.version
-
- -- Row 4 -----------------------------------
-  Name = name
-  Type = string
-  Description = The name of the value set
-  Path = ValueSet.name
-
- -- Row 5 -----------------------------------
+ -- Row 2 -----------------------------------
   Name = publisher
   Type = string
   Description = Name of the publisher of the value set
   Path = ValueSet.publisher
 
- -- Row 6 -----------------------------------
+ -- Row 3 -----------------------------------
   Name = description
   Type = string
   Description = Text search in the description of the value set
   Path = ValueSet.description
 
- -- Row 7 -----------------------------------
-  Name = status
-  Type = token
-  Description = The status of the value set
-  Path = ValueSet.status
-
- -- Row 8 -----------------------------------
-  Name = date
-  Type = date
-  Description = The value set publication date
-  Path = ValueSet.date
-
- -- Row 9 -----------------------------------
+ -- Row 4 -----------------------------------
   Name = !system
   Type = uri
   Description = The system for any codes defined by this value set
   Path = ValueSet.codeSystem.system
 
- -- Row 10 -----------------------------------
+ -- Row 5 -----------------------------------
   Name = !code
   Type = token
   Description = A code defined in the value set
   Path = ValueSet.codeSystem.concept.code
 
- -- Row 11 -----------------------------------
+ -- Row 6 -----------------------------------
   Name = reference
   Type = uri
   Description = A code system included or excluded in the value set or an imported value set
   Path = ValueSet.compose.include.system
 
- -- Row 12 -----------------------------------
-  Name = context
-  Type = token
-  Description = A use context assigned to the value set
-  Path = ValueSet.useContext
-
- -- Row 13 -----------------------------------
+ -- Row 7 -----------------------------------
   Name = expansion
   Type = uri
   Path = ValueSet.expansion.identifier

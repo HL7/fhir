@@ -76,7 +76,7 @@
   Element = Observation.code
   Must Support = Y
   Binding = VitalSigns
-  Short Label = Coded Responses from C-CDA Vital Sign Results
+  Short Name = Coded Responses from C-CDA Vital Sign Results
 
  -- Row 7 -----------------------------------
   Element = Observation.code.coding
@@ -102,7 +102,7 @@
   Must Support = Y
   Type = Quantity
   Binding = VitalSignsUnits
-  Short Label = Vital Sign Value recorded with UCUM
+  Short Name = Vital Sign Value recorded with UCUM
 
  -- Row 12 -----------------------------------
   Element = Observation.valueQuantity.value
@@ -124,7 +124,7 @@
   Element = Observation.valueQuantity.code
   Card. = 1..1
   Must Support = Y
-  Short Label = Coded responses from the common UCUM units for vital signs value set.
+  Short Name = Coded responses from the common UCUM units for vital signs value set.
 
  -- Row 16 -----------------------------------
   Element = Observation.dataAbsentReason
@@ -135,7 +135,7 @@
   Element = Observation.effective[x]
   Card. = 1..1
   Must Support = Y
-  Short Label = Often just a dateTime for Vital Signs
+  Short Name = Often just a dateTime for Vital Signs
 
  -- Row 18 -----------------------------------
   Element = Observation.status
@@ -231,13 +231,13 @@
   Element = Observation
   Profile Name = BodyWeight
   Type = {http://hl7.org/fhir/StructureDefinition/vitalsigns}
-  Short Label = FHIR Body Weight Profile
+  Short Name = FHIR Body Weight Profile
   Definition = This profile defines  how to represent body weight observations in FHIR using a standard LOINC code and UCUM units of measure
 
  -- Row 2 -----------------------------------
   Element = Observation.code
   Aliases = Test, Name,
-  Short Label = Body Weight
+  Short Name = Body Weight
   Comments = additional codes that translate or map to this code are allowed.  For example a more granular LOINC code or code that is used locally in a system.
 
  -- Row 3 -----------------------------------
@@ -268,13 +268,13 @@
   Element = Observation
   Profile Name = RespiratoryRate
   Type = {http://hl7.org/fhir/StructureDefinition/vitalsigns}
-  Short Label = FHIR Respiratory Rate Profile
+  Short Name = FHIR Respiratory Rate Profile
   Definition = This profile defines  how to represent Respiratory Rate observations in FHIR using a standard LOINC code and UCUM units of measure
 
  -- Row 2 -----------------------------------
   Element = Observation.code
   Aliases = Test, Name,
-  Short Label = Respiratory Rate
+  Short Name = Respiratory Rate
   Comments = additional codes that translate or map to this code are allowed.  For example a more granular LOINC code or code that is used locally in a system.
 
  -- Row 3 -----------------------------------
@@ -306,13 +306,13 @@
   Element = Observation
   Profile Name = HeartRate
   Type = {http://hl7.org/fhir/StructureDefinition/vitalsigns}
-  Short Label = FHIR Heart Rate Profile
+  Short Name = FHIR Heart Rate Profile
   Definition = This profile defines how to represent heart rate observations in FHIR using a standard LOINC code and UCUM units of measure
 
  -- Row 2 -----------------------------------
   Element = Observation.code
   Aliases = Test, Name,
-  Short Label = Heart Rate
+  Short Name = Heart Rate
   Comments = additional codes that translate or map to this code are allowed.  For example a more granular LOINC code or code that is used locally in a system.
 
  -- Row 3 -----------------------------------
@@ -344,13 +344,13 @@
   Element = Observation
   Profile Name = BodyTemperature
   Type = {http://hl7.org/fhir/StructureDefinition/vitalsigns}
-  Short Label = FHIR Body Temperature Profile
+  Short Name = FHIR Body Temperature Profile
   Definition = This profile defines  how to represent Body Temperature observations in FHIR using a standard LOINC code and UCUM units of measure
 
  -- Row 2 -----------------------------------
   Element = Observation.code
   Aliases = Test, Name,
-  Short Label = Body Temperature
+  Short Name = Body Temperature
   Comments = additional codes that translate or map to this code are allowed.  For example a more granular LOINC code or code that is used locally in a system.
 
  -- Row 3 -----------------------------------
@@ -381,13 +381,13 @@
   Element = Observation
   Profile Name = BodyHeight
   Type = {http://hl7.org/fhir/StructureDefinition/vitalsigns}
-  Short Label = FHIR Body Height Profile
+  Short Name = FHIR Body Height Profile
   Definition = This profile defines  how to represent Body Height observations in FHIR using a standard LOINC code and UCUM units of measure
 
  -- Row 2 -----------------------------------
   Element = Observation.code
   Aliases = Test, Name,
-  Short Label = Body Height
+  Short Name = Body Height
   Comments = additional codes that translate or map to this code are allowed.  For example a more granular LOINC code or code that is used locally in a system.
 
  -- Row 3 -----------------------------------
@@ -418,13 +418,13 @@
   Element = Observation
   Profile Name = HeadCircumference
   Type = {http://hl7.org/fhir/StructureDefinition/vitalsigns}
-  Short Label = FHIR Head Circumference Profile
+  Short Name = FHIR Head Circumference Profile
   Definition = This profile defines  how to represent Head Circumference observations in FHIR using a standard LOINC code and UCUM units of measure
 
  -- Row 2 -----------------------------------
   Element = Observation.code
   Aliases = Test, Name,
-  Short Label = Head Circumference
+  Short Name = Head Circumference
   Comments = additional codes that translate or map to this code are allowed.  For example a more granular LOINC code or code that is used locally in a system.
 
  -- Row 3 -----------------------------------
@@ -455,13 +455,13 @@
   Element = Observation
   Profile Name = OxygenSaturation
   Type = {http://hl7.org/fhir/StructureDefinition/vitalsigns}
-  Short Label = FHIR Oxygen Saturation Profile
+  Short Name = FHIR Oxygen Saturation Profile
   Definition = This profile defines  how to represent Oxygen Saturation observations in FHIR using a standard LOINC code and UCUM units of measure
 
  -- Row 2 -----------------------------------
   Element = Observation.code
   Aliases = Test, Name,
-  Short Label = Oxygen Saturation
+  Short Name = Oxygen Saturation
   Comments = additional codes that translate or map to this code are allowed.  For example a more granular LOINC code or code that is used locally in a system.
 
  -- Row 3 -----------------------------------
@@ -493,13 +493,13 @@
   Element = Observation
   Profile Name = BodyMassIndex
   Type = {http://hl7.org/fhir/StructureDefinition/vitalsigns}
-  Short Label = FHIR Body Mass Index (BMI) Profile
+  Short Name = FHIR Body Mass Index (BMI) Profile
   Definition = This profile defines  how to represent Body Mass Index (BMI) observations in FHIR using a standard LOINC code and UCUM units of measure
 
  -- Row 2 -----------------------------------
   Element = Observation.code
   Aliases = Test, Name,
-  Short Label = Body Mass Index (BMI)
+  Short Name = Body Mass Index (BMI)
   Comments = additional codes that translate or map to this code are allowed.  For example a more granular LOINC code or code that is used locally in a system.
 
  -- Row 3 -----------------------------------
@@ -531,13 +531,13 @@
   Element = Observation
   Profile Name = MeanBloodPressure
   Type = {http://hl7.org/fhir/StructureDefinition/vitalsigns}
-  Short Label = FHIR Mean Blood Pressure Profile
+  Short Name = FHIR Mean Blood Pressure Profile
   Definition = This profile defines  how to represent Mean Blood Pressure observations in FHIR using a standard LOINC code and UCUM units of measure.  Mean blood Pressure is defined as Mean Arterial Pressure or MAP = 2/3 diastolic blood pressure + 1/2 systolic blood pressure.
 
  -- Row 2 -----------------------------------
   Element = Observation.code
   Aliases = Test, Name,
-  Short Label = Mean Blood Pressure
+  Short Name = Mean Blood Pressure
   Comments = additional codes that translate or map to this code are allowed.  For example a more granular LOINC code or code that is used locally in a system.
 
  -- Row 3 -----------------------------------
@@ -569,13 +569,13 @@
   Element = Observation
   Profile Name = BloodPressure
   Type = {http://hl7.org/fhir/StructureDefinition/vitalsigns}
-  Short Label = FHIR Blood Pressure Profile
+  Short Name = FHIR Blood Pressure Profile
   Definition = This profile defines  how to represent Blood Pressure observations in FHIR using a standard LOINC code and UCUM units of measure.  This is a grouping structure. It has no value in Observation.valueQuantity but contains at least one component (systolic and/or diastolic).
 
  -- Row 2 -----------------------------------
   Element = Observation.code
   Aliases = Test, Name,
-  Short Label = Blood Pressure
+  Short Name = Blood Pressure
   Comments = additional codes that translate or map to this code are allowed.  For example a more granular LOINC code or code that is used locally in a system.
 
  -- Row 3 -----------------------------------
@@ -607,7 +607,7 @@
   Element = Observation.component.code.coding
   Profile Name = SBPCode
   Discriminator = code|unordered|open
-  Short Label = Systolic Blood Pressure
+  Short Name = Systolic Blood Pressure
 
  -- Row 9 -----------------------------------
   Element = Observation.component.code.coding.system
@@ -641,7 +641,7 @@
   Element = Observation.component.code.coding
   Profile Name = DBPCode
   Discriminator = code|unordered|open
-  Short Label = Diastolic Blood Pressure
+  Short Name = Diastolic Blood Pressure
 
  -- Row 16 -----------------------------------
   Element = Observation.component.code.coding.system

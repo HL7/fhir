@@ -1,0 +1,129 @@
+﻿
+=== Sheet Bindings =====================================
+
+=== Sheet Invariants =====================================
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = MetadataResource
+  Card. = 1..1
+  UML = 230;160
+  Type = DomainResource
+  Short Name = Common Ancestor declaration for definitional resources
+  Definition = Common Ancestor declaration for conformance and knowledge artifact resources
+  w5 = conformance.behavior
+
+ -- Row 2 -----------------------------------
+  Element = MetadataResource.url
+  Card. = 0..1
+  Summary = y
+  Type = uri
+  Short Name = Globally unique Logical uri to reference this {{title}}
+  Definition = An absolute URL that is used to identify this {{title}} when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this capability statement is (or will be) published
+  Comments = Can be a urn:uuid: or a urn:oid:, but real http: addresses are preferred
+  w5 = id
+
+ -- Row 3 -----------------------------------
+  Element = MetadataResource.version
+  Card. = 0..1
+  Summary = y
+  Type = string
+  Short Name = Logical id for this version of the {{title}}
+  Definition = The identifier that is used to identify this version of the {{title}} when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the {{title}} author manually and the value should be a timestamp
+  Comments = There may be multiple different instances of a {{title}} that have the same identifier but different versions
+  w5 = id.version
+
+ -- Row 4 -----------------------------------
+  Element = MetadataResource.name
+  Card. = 0..1
+  Summary = y
+  Type = string
+  Short Name = Informal name for this {{title}}
+  Definition = A free text natural language name identifying the {{title}}
+  Requirements = Support human navigation & code generation
+  Comments = The name is not expected to be globally unique. The name should be a simple alpha-numeric type name to ensure it is computable friendly
+
+ -- Row 5 -----------------------------------
+  Element = MetadataResource.status
+  Card. = 1..1
+  Is Modifier = yes
+  Summary = y
+  Type = code
+  Binding = ConformanceResourceStatus
+  Short Name = draft | active | retired
+  Definition = The status of this {{title}}
+  Comments = Allows filtering of {{title}} that are appropriate for use vs. not
+  w5 = status
+
+ -- Row 6 -----------------------------------
+  Element = MetadataResource.experimental
+  Card. = 0..1
+  Summary = y
+  Type = boolean
+  Short Name = If for testing purposes, not real usage
+  Definition = A flag to indicate that this {{title}} is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage
+  Comments = Allows filtering of {{title}} that are appropriate for use vs. not
+  w5 = class
+
+ -- Row 7 -----------------------------------
+  Element = MetadataResource.date
+  Card. = 0..1
+  Summary = y
+  Type = dateTime
+  Short Name = Date this was last changed
+  Definition = The date  (and optionally time) when the {{title}} was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the {{title}} changes
+  Comments = Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the {{title}}. Additional specific dates may be added as extensions
+  w5 = when.recorded
+
+ -- Row 8 -----------------------------------
+  Element = MetadataResource.useContext
+  Card. = 0..*
+  Summary = y
+  Type = CodeableConcept
+  Binding = ConformanceUseContext
+  Short Name = Content intends to support these contexts
+  Definition = The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of code system definitions.
+  Requirements = Assist in searching for appropriate content
+
+=== Sheet Search =====================================
+
+ -- Row 1 -----------------------------------
+  Name = url
+  Type = uri
+  Description = The uri that identifies the {{title}}
+  Path = MetadataResource.url
+
+ -- Row 2 -----------------------------------
+  Name = version
+  Type = token
+  Description = The version identifier of the {{title}}
+  Path = MetadataResource.version
+
+ -- Row 3 -----------------------------------
+  Name = name
+  Type = string
+  Description = Name of the {{title}}
+  Path = MetadataResource.name
+
+ -- Row 4 -----------------------------------
+  Name = status
+  Type = token
+  Description = The current status of the {{title}}
+  Path = MetadataResource.status
+
+ -- Row 5 -----------------------------------
+  Name = date
+  Type = date
+  Description = The {{title}} publication date
+  Path = MetadataResource.date
+
+ -- Row 6 -----------------------------------
+  Name = context
+  Type = token
+  Description = A use context assigned to the {{title}}
+  Path = MetadataResource.useContext
+
+=== Sheet Profiles =====================================
+
+=== Sheet Examples =====================================

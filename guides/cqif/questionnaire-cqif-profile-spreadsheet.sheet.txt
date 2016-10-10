@@ -7,7 +7,7 @@
   Element = Questionnaire
   Profile Name = CQIF-Questionnaire
   Type = DomainResource
-  Short Label = A questionnaire with the ability to specify behavior associated with questions or groups of questions
+  Short Name = A questionnaire with the ability to specify behavior associated with questions or groups of questions
   Definition = A CQIF questionnaire is a questionnaire with the added ability to describe behavior associated with questions. For example, whether or not to display a particular question or group of questions, or automatically calculating the value of an answer based on the answers to previous questions
 
  -- Row 2 -----------------------------------
@@ -15,7 +15,7 @@
   Profile Name = library
   Aliases = library
   Type = Extension{http://hl7.org/fhir/StructureDefinition/cqif-basic-library}
-  Short Label = A library containing logic referenced by the questionnaire
+  Short Name = A library containing logic referenced by the questionnaire
   Definition = A CQL or ELM library containing any logic referenced by the questionnaire
 
  -- Row 3 -----------------------------------
@@ -27,7 +27,7 @@
   Card. = 0..1
   Aliases = condition
   Type = Extension{http://hl7.org/fhir/StructureDefinition/cqif-basic-condition}
-  Short Label = A condition that determines whether or not the group is applicable
+  Short Name = A condition that determines whether or not the group is applicable
   Definition = The name of an expression that determines whether the group on which it appears is applicable. The expression is evaluated within the current context. If the result of evaluating the expression is true, the group is applicable. The expression has access to the current value of answered questions by the linkId of the question
   Comments = Note that per Lloyd this extension may not be necessary, it may be able to specified structurally using the elements already available within Questionnaire
 
@@ -37,7 +37,7 @@
   Card. = 0..1
   Aliases = initialValue
   Type = Extension{http://hl7.org/fhir/StructureDefinition/cqif-basic-initialValue}
-  Short Label = An expression that provides the initial value for the answer to the question
+  Short Name = An expression that provides the initial value for the answer to the question
   Definition = The name of an expression that determines the initial value for the answer to the question. This expression is evaluated once as part of displaying the form, and does not have access to the answers to other questions
 
  -- Row 6 -----------------------------------
@@ -46,7 +46,7 @@
   Card. = 0..1
   Aliases = calculatedValue
   Type = Extension{http://hl7.org/fhir/StructureDefinition/cqif-basic-calculatedValue}
-  Short Label = An expression that provides a calculated value for the answer to the question
+  Short Name = An expression that provides a calculated value for the answer to the question
   Definition = The name of an expression that determines a calculated value for the answer to the question. The expression is evaluated as necessary and has access to the answers to other questions by the linkId of the question
 
 === Sheet Search =====================================

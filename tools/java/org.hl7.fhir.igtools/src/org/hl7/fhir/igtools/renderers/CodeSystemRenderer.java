@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Set;
 
 import org.hl7.fhir.dstu3.context.IWorkerContext;
-import org.hl7.fhir.dstu3.model.BaseConformance;
+import org.hl7.fhir.dstu3.model.MetadataResource;
 import org.hl7.fhir.dstu3.model.CodeSystem;
 import org.hl7.fhir.dstu3.model.CodeSystem.CodeSystemContentMode;
 import org.hl7.fhir.dstu3.model.ValueSet;
@@ -92,7 +92,7 @@ public class CodeSystemRenderer extends BaseRenderer {
     boolean first = true;
     b.append("\r\n");
     List<String> vsurls = new ArrayList<String>();
-    for (BaseConformance sd : context.allConformanceResources()) {
+    for (MetadataResource sd : context.allConformanceResources()) {
       if (sd instanceof ValueSet)
         vsurls.add(sd.getUrl());
     }

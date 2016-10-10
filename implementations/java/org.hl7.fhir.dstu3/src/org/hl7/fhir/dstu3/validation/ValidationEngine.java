@@ -55,7 +55,7 @@ import org.hl7.fhir.dstu3.elementmodel.Manager.FhirFormat;
 import org.hl7.fhir.dstu3.formats.JsonParser;
 import org.hl7.fhir.dstu3.formats.RdfParser;
 import org.hl7.fhir.dstu3.formats.XmlParser;
-import org.hl7.fhir.dstu3.model.BaseConformance;
+import org.hl7.fhir.dstu3.model.MetadataResource;
 import org.hl7.fhir.dstu3.model.Bundle;
 import org.hl7.fhir.dstu3.model.DomainResource;
 import org.hl7.fhir.dstu3.model.ImplementationGuide;
@@ -300,8 +300,8 @@ public class ValidationEngine {
         throw new Exception("Error parsing "+fn+": "+e.getMessage(), e);
       }
 
-      if (res != null && res instanceof BaseConformance) {
-        context.seeResource(((BaseConformance) res).getUrl(), res);
+      if (res != null && res instanceof MetadataResource) {
+        context.seeResource(((MetadataResource) res).getUrl(), res);
       } else if (res != null && res instanceof Questionnaire) {
         context.seeResource(((Questionnaire) res).getUrl(), res);
 	}

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sun, Oct 9, 2016 19:10+1100 for FHIR v1.7.0
+// Generated on Mon, Oct 10, 2016 12:40+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -4493,7 +4493,7 @@ public class ClaimResponse extends DomainResource {
      * Payment details for the claim if the claim has been paid.
      */
     @Child(name = "payment", type = {}, order=18, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="", formalDefinition="Payment details for the claim if the claim has been paid." )
+    @Description(shortDefinition="(todo", formalDefinition="Payment details for the claim if the claim has been paid." )
     protected PaymentComponent payment;
 
     /**

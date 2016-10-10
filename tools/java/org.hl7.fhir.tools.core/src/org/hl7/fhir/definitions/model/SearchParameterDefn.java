@@ -91,6 +91,20 @@ public class SearchParameterDefn {
     this.xPathUsage = xPathUsage; 
   }
     
+  public SearchParameterDefn(SearchParameterDefn source, String oldName, String newName, String title) {
+    super();
+    code = source.code;
+    description = source.description.replace("{{title}}", title);
+    type = source.type;
+    xPathUsage = source.xPathUsage;
+    for (String s : source.paths)
+      paths.add(s.replace(oldName+'.', newName+'.')); 
+    expression = source.expression;
+    composites.addAll(source.composites);
+    targets.addAll(source.targets);
+    manualTargets.addAll(source.manualTargets);
+  }
+
   public List<String> getPaths() {
     return paths;
   }

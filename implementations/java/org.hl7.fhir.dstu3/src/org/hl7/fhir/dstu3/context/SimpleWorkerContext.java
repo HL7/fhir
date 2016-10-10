@@ -25,7 +25,7 @@ import org.hl7.fhir.dstu3.formats.IParser;
 import org.hl7.fhir.dstu3.formats.JsonParser;
 import org.hl7.fhir.dstu3.formats.ParserType;
 import org.hl7.fhir.dstu3.formats.XmlParser;
-import org.hl7.fhir.dstu3.model.BaseConformance;
+import org.hl7.fhir.dstu3.model.MetadataResource;
 import org.hl7.fhir.dstu3.model.Bundle;
 import org.hl7.fhir.dstu3.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.dstu3.model.CodeSystem;
@@ -451,8 +451,8 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
   }
 
 	@Override
-  public List<BaseConformance> allConformanceResources() {
-    List<BaseConformance> result = new ArrayList<BaseConformance>();
+  public List<MetadataResource> allConformanceResources() {
+    List<MetadataResource> result = new ArrayList<MetadataResource>();
     result.addAll(structures.values());
     result.addAll(codeSystems.values());
     result.addAll(valueSets.values());

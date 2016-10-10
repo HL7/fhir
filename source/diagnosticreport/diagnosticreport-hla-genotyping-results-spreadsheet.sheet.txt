@@ -12,7 +12,7 @@
   Profile Name = AlleleDatabase
   Card. = 0..1
   Type = Extension{#AlleleDatabase}
-  Short Label = Allele Database
+  Short Name = Allele Database
   Definition = Allele Database
 
  -- Row 3 -----------------------------------
@@ -20,7 +20,7 @@
   Profile Name = Glstring
   Card. = 0..1
   Type = Extension{#Glstring}
-  Short Label = Glstring
+  Short Name = Glstring
   Definition = Glstring
 
  -- Row 4 -----------------------------------
@@ -28,7 +28,7 @@
   Profile Name = Haploid
   Card. = 0..*
   Type = Extension{#Haploid}
-  Short Label = Haploid
+  Short Name = Haploid
   Definition = Haploid
 
  -- Row 5 -----------------------------------
@@ -36,7 +36,7 @@
   Profile Name = Method
   Card. = 0..1
   Type = Extension{#Method}
-  Short Label = The platform, methodology and software applied at the time of the\rgenotyping
+  Short Name = The platform, methodology and software applied at the time of the\rgenotyping
   Definition = The platform, methodology and software applied at the time of the\rgenotyping
 
 === Sheet Search =====================================

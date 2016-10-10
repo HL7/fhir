@@ -11,7 +11,7 @@ import org.hl7.fhir.dstu3.context.IWorkerContext;
 import org.hl7.fhir.dstu3.elementmodel.ParserBase;
 import org.hl7.fhir.dstu3.elementmodel.Property;
 import org.hl7.fhir.dstu3.formats.FormatUtilities;
-import org.hl7.fhir.dstu3.model.BaseConformance;
+import org.hl7.fhir.dstu3.model.MetadataResource;
 import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionBindingComponent;
 import org.hl7.fhir.dstu3.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.dstu3.model.OperationOutcome.IssueType;
@@ -169,7 +169,7 @@ public class IGKnowledgeProvider implements ProfileKnowledgeProvider, ParserBase
 
   public void loadSpecPaths(SpecMapManager paths) throws Exception {
     this.specPaths = paths;
-    for (BaseConformance bc : context.allConformanceResources()) {
+    for (MetadataResource bc : context.allConformanceResources()) {
       String s = paths.getPath(bc.getUrl());
       if (s != null)
         bc.setUserData("path", specPath(s));
@@ -192,7 +192,7 @@ public class IGKnowledgeProvider implements ProfileKnowledgeProvider, ParserBase
       r.setConfig(e);
   }
   
-  public void checkForPath(FetchedFile f, FetchedResource r, BaseConformance bc) {
+  public void checkForPath(FetchedFile f, FetchedResource r, MetadataResource bc) {
     if (!bc.hasUrl())
       error("Resource has no url: "+bc.getId());
     else if (!bc.getUrl().endsWith("/"+bc.getId()))

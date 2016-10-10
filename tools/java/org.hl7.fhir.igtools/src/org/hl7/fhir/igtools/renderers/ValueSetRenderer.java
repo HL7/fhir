@@ -6,7 +6,7 @@ import java.util.Collections;
 import java.util.List;
 
 import org.hl7.fhir.dstu3.context.IWorkerContext;
-import org.hl7.fhir.dstu3.model.BaseConformance;
+import org.hl7.fhir.dstu3.model.MetadataResource;
 import org.hl7.fhir.dstu3.model.ElementDefinition;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
 import org.hl7.fhir.dstu3.model.UriType;
@@ -84,7 +84,7 @@ public class ValueSetRenderer extends BaseRenderer {
     b.append("\r\n");
     List<String> sdurls = new ArrayList<String>();
     List<String> vsurls = new ArrayList<String>();
-    for (BaseConformance sd : context.allConformanceResources()) {
+    for (MetadataResource sd : context.allConformanceResources()) {
       if (sd instanceof StructureDefinition)
         sdurls.add(sd.getUrl());
       if (sd instanceof ValueSet)
