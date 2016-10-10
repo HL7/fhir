@@ -18,8 +18,8 @@
     </coding>
   </type>
   <status value="draft"/>
+  <date value="2016-07-08"/>
   <description value="Model definition for the FHIR Model"/>
-  <publicationDate value="2016-07-08"/>
   <topic>
     <text value="FHIR"/>
   </topic>

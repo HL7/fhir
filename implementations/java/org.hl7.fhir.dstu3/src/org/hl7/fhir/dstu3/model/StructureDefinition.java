@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Oct 10, 2016 15:45+1100 for FHIR v1.7.0
+// Generated on Mon, Oct 10, 2016 17:18+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -1295,58 +1295,51 @@ public class StructureDefinition extends MetadataResource {
   }
 
     /**
-     * Formal identifier that is used to identify this StructureDefinition when it is represented in other formats, or referenced in a specification, model, design or an instance  (should be globally unique OID, UUID, or URI), (if it's not possible to use the literal URI).
+     * A formal identifier that is used to identify this structure definition when it is represented in other formats, or referenced in a specification, model, design or an instance.
      */
     @Child(name = "identifier", type = {Identifier.class}, order=0, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-    @Description(shortDefinition="Other identifiers for the StructureDefinition", formalDefinition="Formal identifier that is used to identify this StructureDefinition when it is represented in other formats, or referenced in a specification, model, design or an instance  (should be globally unique OID, UUID, or URI), (if it's not possible to use the literal URI)." )
+    @Description(shortDefinition="Additional identifier for the structure definition", formalDefinition="A formal identifier that is used to identify this structure definition when it is represented in other formats, or referenced in a specification, model, design or an instance." )
     protected List<Identifier> identifier;
-
-    /**
-     * A short, descriptive, user-friendly title for the measure. Defined so that applications can use this name when displaying the content of the structure to the user.
-     */
-    @Child(name = "title", type = {StringType.class}, order=1, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Title for this structure definition (human friendly name)", formalDefinition="A short, descriptive, user-friendly title for the measure. Defined so that applications can use this name when displaying the content of the structure to the user." )
-    protected StringType title;
 
     /**
      * The name of the individual or organization that published the structure definition.
      */
-    @Child(name = "publisher", type = {StringType.class}, order=2, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "publisher", type = {StringType.class}, order=1, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Name of the publisher (Organization or individual)", formalDefinition="The name of the individual or organization that published the structure definition." )
     protected StringType publisher;
 
     /**
      * Contacts to assist a user in finding and communicating with the publisher.
      */
-    @Child(name = "contact", type = {}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "contact", type = {}, order=2, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Contact details of the publisher", formalDefinition="Contacts to assist a user in finding and communicating with the publisher." )
     protected List<StructureDefinitionContactComponent> contact;
 
     /**
      * A free text natural language description of the StructureDefinition and its use.
      */
-    @Child(name = "description", type = {MarkdownType.class}, order=4, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "description", type = {MarkdownType.class}, order=3, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Natural language description of the StructureDefinition", formalDefinition="A free text natural language description of the StructureDefinition and its use." )
     protected MarkdownType description;
 
     /**
      * Explains why this structure definition is needed and why it has been designed as it has.
      */
-    @Child(name = "purpose", type = {MarkdownType.class}, order=5, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "purpose", type = {MarkdownType.class}, order=4, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Why this structure definition is defined", formalDefinition="Explains why this structure definition is needed and why it has been designed as it has." )
     protected MarkdownType purpose;
 
     /**
      * A copyright statement relating to the structure definition and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the details of the constraints and mappings.
      */
-    @Child(name = "copyright", type = {StringType.class}, order=6, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "copyright", type = {StringType.class}, order=5, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Use and/or publishing restrictions", formalDefinition="A copyright statement relating to the structure definition and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the details of the constraints and mappings." )
     protected StringType copyright;
 
     /**
      * A set of key words or terms from external terminologies that may be used to assist with indexing and searching of templates.
      */
-    @Child(name = "keyword", type = {Coding.class}, order=7, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "keyword", type = {Coding.class}, order=6, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Assist with indexing and finding", formalDefinition="A set of key words or terms from external terminologies that may be used to assist with indexing and searching of templates." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/profile-code")
     protected List<Coding> keyword;
@@ -1354,21 +1347,21 @@ public class StructureDefinition extends MetadataResource {
     /**
      * The version of the FHIR specification on which this StructureDefinition is based - this is the formal version of the specification, without the revision number, e.g. [publication].[major].[minor], which is 1.7.0 for this version.
      */
-    @Child(name = "fhirVersion", type = {IdType.class}, order=8, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "fhirVersion", type = {IdType.class}, order=7, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="FHIR Version this StructureDefinition targets", formalDefinition="The version of the FHIR specification on which this StructureDefinition is based - this is the formal version of the specification, without the revision number, e.g. [publication].[major].[minor], which is 1.7.0 for this version." )
     protected IdType fhirVersion;
 
     /**
      * An external specification that the content is mapped to.
      */
-    @Child(name = "mapping", type = {}, order=9, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "mapping", type = {}, order=8, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="External specification that the content is mapped to", formalDefinition="An external specification that the content is mapped to." )
     protected List<StructureDefinitionMappingComponent> mapping;
 
     /**
      * Defines the kind of structure that this definition is describing.
      */
-    @Child(name = "kind", type = {CodeType.class}, order=10, min=1, max=1, modifier=false, summary=true)
+    @Child(name = "kind", type = {CodeType.class}, order=9, min=1, max=1, modifier=false, summary=true)
     @Description(shortDefinition="primitive-type | complex-type | resource | logical", formalDefinition="Defines the kind of structure that this definition is describing." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/structure-definition-kind")
     protected Enumeration<StructureDefinitionKind> kind;
@@ -1376,14 +1369,14 @@ public class StructureDefinition extends MetadataResource {
     /**
      * Whether structure this definition describes is abstract or not  - that is, whether an actual exchanged item can ever be of this type.
      */
-    @Child(name = "abstract", type = {BooleanType.class}, order=11, min=1, max=1, modifier=false, summary=true)
+    @Child(name = "abstract", type = {BooleanType.class}, order=10, min=1, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Whether the structure is abstract", formalDefinition="Whether structure this definition describes is abstract or not  - that is, whether an actual exchanged item can ever be of this type." )
     protected BooleanType abstract_;
 
     /**
      * If this is an extension, Identifies the context within FHIR resources where the extension can be used.
      */
-    @Child(name = "contextType", type = {CodeType.class}, order=12, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "contextType", type = {CodeType.class}, order=11, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="resource | datatype | extension", formalDefinition="If this is an extension, Identifies the context within FHIR resources where the extension can be used." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/extension-context")
     protected Enumeration<ExtensionContext> contextType;
@@ -1391,21 +1384,21 @@ public class StructureDefinition extends MetadataResource {
     /**
      * Identifies the types of resource or data type elements to which the extension can be applied.
      */
-    @Child(name = "context", type = {StringType.class}, order=13, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "context", type = {StringType.class}, order=12, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Where the extension can be used in instances", formalDefinition="Identifies the types of resource or data type elements to which the extension can be applied." )
     protected List<StringType> context;
 
     /**
      * A set of rules as Fluent Invariants about when the extension can be used (e.g. co-occurance variants for the extension).
      */
-    @Child(name = "contextInvariant", type = {StringType.class}, order=14, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "contextInvariant", type = {StringType.class}, order=13, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="FluentPath invariants - when the extension can be used", formalDefinition="A set of rules as Fluent Invariants about when the extension can be used (e.g. co-occurance variants for the extension)." )
     protected List<StringType> contextInvariant;
 
     /**
      * The type this structure is describes. If the derivation kind is 'specialization' then this is the master definition for a type, and there is always one of these (a data type, an extension, a resource, including abstract ones). Otherwise the structure definition is a constraint on the stated type (and in this case, the type cannot be an abstract type).
      */
-    @Child(name = "type", type = {CodeType.class}, order=15, min=1, max=1, modifier=false, summary=true)
+    @Child(name = "type", type = {CodeType.class}, order=14, min=1, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Type defined or constrained by this structure", formalDefinition="The type this structure is describes. If the derivation kind is 'specialization' then this is the master definition for a type, and there is always one of these (a data type, an extension, a resource, including abstract ones). Otherwise the structure definition is a constraint on the stated type (and in this case, the type cannot be an abstract type)." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/defined-types")
     protected CodeType type;
@@ -1413,14 +1406,14 @@ public class StructureDefinition extends MetadataResource {
     /**
      * An absolute URI that is the base structure from which this type is derived, either by specialization or constraint.
      */
-    @Child(name = "baseDefinition", type = {UriType.class}, order=16, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "baseDefinition", type = {UriType.class}, order=15, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Definition that this type is constrained/specialized from", formalDefinition="An absolute URI that is the base structure from which this type is derived, either by specialization or constraint." )
     protected UriType baseDefinition;
 
     /**
      * How the type relates to the baseDefinition.
      */
-    @Child(name = "derivation", type = {CodeType.class}, order=17, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "derivation", type = {CodeType.class}, order=16, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="specialization | constraint - How relates to base definition", formalDefinition="How the type relates to the baseDefinition." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/type-derivation-rule")
     protected Enumeration<TypeDerivationRule> derivation;
@@ -1428,18 +1421,18 @@ public class StructureDefinition extends MetadataResource {
     /**
      * A snapshot view is expressed in a stand alone form that can be used and interpreted without considering the base StructureDefinition.
      */
-    @Child(name = "snapshot", type = {}, order=18, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "snapshot", type = {}, order=17, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Snapshot view of the structure", formalDefinition="A snapshot view is expressed in a stand alone form that can be used and interpreted without considering the base StructureDefinition." )
     protected StructureDefinitionSnapshotComponent snapshot;
 
     /**
      * A differential view is expressed relative to the base StructureDefinition - a statement of differences that it applies.
      */
-    @Child(name = "differential", type = {}, order=19, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "differential", type = {}, order=18, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Differential view of the structure", formalDefinition="A differential view is expressed relative to the base StructureDefinition - a statement of differences that it applies." )
     protected StructureDefinitionDifferentialComponent differential;
 
-    private static final long serialVersionUID = -808909975L;
+    private static final long serialVersionUID = -645376036L;
 
   /**
    * Constructor
@@ -1507,7 +1500,7 @@ public class StructureDefinition extends MetadataResource {
     }
 
     /**
-     * @return {@link #identifier} (Formal identifier that is used to identify this StructureDefinition when it is represented in other formats, or referenced in a specification, model, design or an instance  (should be globally unique OID, UUID, or URI), (if it's not possible to use the literal URI).)
+     * @return {@link #identifier} (A formal identifier that is used to identify this structure definition when it is represented in other formats, or referenced in a specification, model, design or an instance.)
      */
     public List<Identifier> getIdentifier() { 
       if (this.identifier == null)
@@ -1609,7 +1602,7 @@ public class StructureDefinition extends MetadataResource {
     }
 
     /**
-     * @return {@link #name} (A free text natural language name identifying the structure definition.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
+     * @return {@link #name} (A natural language name identifying the structure definition. This name should be usable as an identifier for the module by machine processing applications such as code generation.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
      */
     public StringType getNameElement() { 
       if (this.name == null)
@@ -1629,7 +1622,7 @@ public class StructureDefinition extends MetadataResource {
     }
 
     /**
-     * @param value {@link #name} (A free text natural language name identifying the structure definition.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
+     * @param value {@link #name} (A natural language name identifying the structure definition. This name should be usable as an identifier for the module by machine processing applications such as code generation.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
      */
     public StructureDefinition setNameElement(StringType value) { 
       this.name = value;
@@ -1637,14 +1630,14 @@ public class StructureDefinition extends MetadataResource {
     }
 
     /**
-     * @return A free text natural language name identifying the structure definition.
+     * @return A natural language name identifying the structure definition. This name should be usable as an identifier for the module by machine processing applications such as code generation.
      */
     public String getName() { 
       return this.name == null ? null : this.name.getValue();
     }
 
     /**
-     * @param value A free text natural language name identifying the structure definition.
+     * @param value A natural language name identifying the structure definition. This name should be usable as an identifier for the module by machine processing applications such as code generation.
      */
     public StructureDefinition setName(String value) { 
         if (this.name == null)
@@ -1654,7 +1647,7 @@ public class StructureDefinition extends MetadataResource {
     }
 
     /**
-     * @return {@link #title} (A short, descriptive, user-friendly title for the measure. Defined so that applications can use this name when displaying the content of the structure to the user.). This is the underlying object with id, value and extensions. The accessor "getTitle" gives direct access to the value
+     * @return {@link #title} (A short, descriptive, user-friendly title for the structure definition.). This is the underlying object with id, value and extensions. The accessor "getTitle" gives direct access to the value
      */
     public StringType getTitleElement() { 
       if (this.title == null)
@@ -1674,7 +1667,7 @@ public class StructureDefinition extends MetadataResource {
     }
 
     /**
-     * @param value {@link #title} (A short, descriptive, user-friendly title for the measure. Defined so that applications can use this name when displaying the content of the structure to the user.). This is the underlying object with id, value and extensions. The accessor "getTitle" gives direct access to the value
+     * @param value {@link #title} (A short, descriptive, user-friendly title for the structure definition.). This is the underlying object with id, value and extensions. The accessor "getTitle" gives direct access to the value
      */
     public StructureDefinition setTitleElement(StringType value) { 
       this.title = value;
@@ -1682,14 +1675,14 @@ public class StructureDefinition extends MetadataResource {
     }
 
     /**
-     * @return A short, descriptive, user-friendly title for the measure. Defined so that applications can use this name when displaying the content of the structure to the user.
+     * @return A short, descriptive, user-friendly title for the structure definition.
      */
     public String getTitle() { 
       return this.title == null ? null : this.title.getValue();
     }
 
     /**
-     * @param value A short, descriptive, user-friendly title for the measure. Defined so that applications can use this name when displaying the content of the structure to the user.
+     * @param value A short, descriptive, user-friendly title for the structure definition.
      */
     public StructureDefinition setTitle(String value) { 
       if (Utilities.noString(value))
@@ -1703,7 +1696,7 @@ public class StructureDefinition extends MetadataResource {
     }
 
     /**
-     * @return {@link #status} (The status of this structure definition.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
+     * @return {@link #status} (The status of this structure definition. Enables tracking the life-cycle of the content.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
     public Enumeration<PublicationStatus> getStatusElement() { 
       if (this.status == null)
@@ -1723,7 +1716,7 @@ public class StructureDefinition extends MetadataResource {
     }
 
     /**
-     * @param value {@link #status} (The status of this structure definition.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
+     * @param value {@link #status} (The status of this structure definition. Enables tracking the life-cycle of the content.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
     public StructureDefinition setStatusElement(Enumeration<PublicationStatus> value) { 
       this.status = value;
@@ -1731,14 +1724,14 @@ public class StructureDefinition extends MetadataResource {
     }
 
     /**
-     * @return The status of this structure definition.
+     * @return The status of this structure definition. Enables tracking the life-cycle of the content.
      */
     public PublicationStatus getStatus() { 
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
-     * @param value The status of this structure definition.
+     * @param value The status of this structure definition. Enables tracking the life-cycle of the content.
      */
     public StructureDefinition setStatus(PublicationStatus value) { 
         if (this.status == null)
@@ -2753,11 +2746,11 @@ public class StructureDefinition extends MetadataResource {
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("url", "uri", "An absolute URL that is used to identify this structure definition when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this capability statement is (or will be) published.", 0, java.lang.Integer.MAX_VALUE, url));
-        childrenList.add(new Property("identifier", "Identifier", "Formal identifier that is used to identify this StructureDefinition when it is represented in other formats, or referenced in a specification, model, design or an instance  (should be globally unique OID, UUID, or URI), (if it's not possible to use the literal URI).", 0, java.lang.Integer.MAX_VALUE, identifier));
+        childrenList.add(new Property("identifier", "Identifier", "A formal identifier that is used to identify this structure definition when it is represented in other formats, or referenced in a specification, model, design or an instance.", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("version", "string", "The identifier that is used to identify this version of the structure definition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the structure definition author manually and the value should be a timestamp.", 0, java.lang.Integer.MAX_VALUE, version));
-        childrenList.add(new Property("name", "string", "A free text natural language name identifying the structure definition.", 0, java.lang.Integer.MAX_VALUE, name));
-        childrenList.add(new Property("title", "string", "A short, descriptive, user-friendly title for the measure. Defined so that applications can use this name when displaying the content of the structure to the user.", 0, java.lang.Integer.MAX_VALUE, title));
-        childrenList.add(new Property("status", "code", "The status of this structure definition.", 0, java.lang.Integer.MAX_VALUE, status));
+        childrenList.add(new Property("name", "string", "A natural language name identifying the structure definition. This name should be usable as an identifier for the module by machine processing applications such as code generation.", 0, java.lang.Integer.MAX_VALUE, name));
+        childrenList.add(new Property("title", "string", "A short, descriptive, user-friendly title for the structure definition.", 0, java.lang.Integer.MAX_VALUE, title));
+        childrenList.add(new Property("status", "code", "The status of this structure definition. Enables tracking the life-cycle of the content.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("experimental", "boolean", "A flag to indicate that this structure definition is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.", 0, java.lang.Integer.MAX_VALUE, experimental));
         childrenList.add(new Property("publisher", "string", "The name of the individual or organization that published the structure definition.", 0, java.lang.Integer.MAX_VALUE, publisher));
         childrenList.add(new Property("contact", "", "Contacts to assist a user in finding and communicating with the publisher.", 0, java.lang.Integer.MAX_VALUE, contact));
@@ -3166,7 +3159,7 @@ public class StructureDefinition extends MetadataResource {
         if (!(other instanceof StructureDefinition))
           return false;
         StructureDefinition o = (StructureDefinition) other;
-        return compareDeep(identifier, o.identifier, true) && compareDeep(title, o.title, true) && compareDeep(publisher, o.publisher, true)
+        return compareDeep(identifier, o.identifier, true) && compareDeep(publisher, o.publisher, true)
            && compareDeep(contact, o.contact, true) && compareDeep(description, o.description, true) && compareDeep(purpose, o.purpose, true)
            && compareDeep(copyright, o.copyright, true) && compareDeep(keyword, o.keyword, true) && compareDeep(fhirVersion, o.fhirVersion, true)
            && compareDeep(mapping, o.mapping, true) && compareDeep(kind, o.kind, true) && compareDeep(abstract_, o.abstract_, true)
@@ -3182,7 +3175,7 @@ public class StructureDefinition extends MetadataResource {
         if (!(other instanceof StructureDefinition))
           return false;
         StructureDefinition o = (StructureDefinition) other;
-        return compareValues(title, o.title, true) && compareValues(publisher, o.publisher, true) && compareValues(description, o.description, true)
+        return compareValues(publisher, o.publisher, true) && compareValues(description, o.description, true)
            && compareValues(purpose, o.purpose, true) && compareValues(copyright, o.copyright, true) && compareValues(fhirVersion, o.fhirVersion, true)
            && compareValues(kind, o.kind, true) && compareValues(abstract_, o.abstract_, true) && compareValues(contextType, o.contextType, true)
            && compareValues(context, o.context, true) && compareValues(contextInvariant, o.contextInvariant, true)
@@ -3191,10 +3184,10 @@ public class StructureDefinition extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, title, publisher
-          , contact, description, purpose, copyright, keyword, fhirVersion, mapping, kind
-          , abstract_, contextType, context, contextInvariant, type, baseDefinition, derivation
-          , snapshot, differential);
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, publisher, contact
+          , description, purpose, copyright, keyword, fhirVersion, mapping, kind, abstract_
+          , contextType, context, contextInvariant, type, baseDefinition, derivation, snapshot
+          , differential);
       }
 
   @Override
@@ -3225,17 +3218,17 @@ public class StructureDefinition extends MetadataResource {
  /**
    * Search parameter: <b>identifier</b>
    * <p>
-   * Description: <b>The identifier of the profile</b><br>
+   * Description: <b>External identifiers for the structure definition</b><br>
    * Type: <b>token</b><br>
    * Path: <b>StructureDefinition.identifier</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="identifier", path="StructureDefinition.identifier", description="The identifier of the profile", type="token" )
+  @SearchParamDefinition(name="identifier", path="StructureDefinition.identifier", description="External identifiers for the structure definition", type="token" )
   public static final String SP_IDENTIFIER = "identifier";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
    * <p>
-   * Description: <b>The identifier of the profile</b><br>
+   * Description: <b>External identifiers for the structure definition</b><br>
    * Type: <b>token</b><br>
    * Path: <b>StructureDefinition.identifier</b><br>
    * </p>
@@ -3369,6 +3362,26 @@ public class StructureDefinition extends MetadataResource {
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam ABSTRACT = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_ABSTRACT);
 
  /**
+   * Search parameter: <b>title</b>
+   * <p>
+   * Description: <b>Text search against the title of the structure definition</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>StructureDefinition.title</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="title", path="StructureDefinition.title", description="Text search against the title of the structure definition", type="string" )
+  public static final String SP_TITLE = "title";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>title</b>
+   * <p>
+   * Description: <b>Text search against the title of the structure definition</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>StructureDefinition.title</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam TITLE = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_TITLE);
+
+ /**
    * Search parameter: <b>type</b>
    * <p>
    * Description: <b>Type defined or constrained by this structure</b><br>
@@ -3387,26 +3400,6 @@ public class StructureDefinition extends MetadataResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam TYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TYPE);
-
- /**
-   * Search parameter: <b>title</b>
-   * <p>
-   * Description: <b>Title for this structure definition (human friendly name)</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>StructureDefinition.title</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="title", path="StructureDefinition.title", description="Title for this structure definition (human friendly name)", type="string" )
-  public static final String SP_TITLE = "title";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>title</b>
-   * <p>
-   * Description: <b>Title for this structure definition (human friendly name)</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>StructureDefinition.title</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam TITLE = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_TITLE);
 
  /**
    * Search parameter: <b>version</b>

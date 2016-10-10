@@ -18,8 +18,8 @@
     </coding>
   </type>
   <status value="draft"/>
+  <date value="2015-07-22"/>
   <description value="Logic for CMS 146: Appropriate Testing for Children with Pharyngitis"/>
-  <publicationDate value="2015-07-22"/>
 
   <relatedArtifact>
     <type value="depends-on"/>

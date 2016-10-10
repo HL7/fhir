@@ -14,8 +14,8 @@
 	<title value="Chlamydia Screening Common Library"/>
 	<type value="library"/>
 	<status value="draft"/>
+	<date value="2015-07-22"/>
 	<description value="Common Logic for adherence to Chlamydia Screening guidelines"/>
-	<publicationDate value="2015-07-22"/>
 	<topic>
 		<text value="Chlamydia Screening"/>
 	</topic>

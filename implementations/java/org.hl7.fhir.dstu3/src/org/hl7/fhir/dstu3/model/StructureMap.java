@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Oct 10, 2016 15:45+1100 for FHIR v1.7.0
+// Generated on Mon, Oct 10, 2016 17:18+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -4474,10 +4474,10 @@ public class StructureMap extends MetadataResource {
   }
 
     /**
-     * Formal identifier that is used to identify this StructureMap when it is represented in other formats, or referenced in a specification, model, design or an instance  (should be globally unique OID, UUID, or URI), (if it's not possible to use the literal URI).
+     * A formal identifier that is used to identify this structure map when it is represented in other formats, or referenced in a specification, model, design or an instance.
      */
     @Child(name = "identifier", type = {Identifier.class}, order=0, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-    @Description(shortDefinition="Other identifiers for the StructureMap", formalDefinition="Formal identifier that is used to identify this StructureMap when it is represented in other formats, or referenced in a specification, model, design or an instance  (should be globally unique OID, UUID, or URI), (if it's not possible to use the literal URI)." )
+    @Description(shortDefinition="Additional identifier for the structure map", formalDefinition="A formal identifier that is used to identify this structure map when it is represented in other formats, or referenced in a specification, model, design or an instance." )
     protected List<Identifier> identifier;
 
     /**
@@ -4601,7 +4601,7 @@ public class StructureMap extends MetadataResource {
     }
 
     /**
-     * @return {@link #identifier} (Formal identifier that is used to identify this StructureMap when it is represented in other formats, or referenced in a specification, model, design or an instance  (should be globally unique OID, UUID, or URI), (if it's not possible to use the literal URI).)
+     * @return {@link #identifier} (A formal identifier that is used to identify this structure map when it is represented in other formats, or referenced in a specification, model, design or an instance.)
      */
     public List<Identifier> getIdentifier() { 
       if (this.identifier == null)
@@ -4703,7 +4703,7 @@ public class StructureMap extends MetadataResource {
     }
 
     /**
-     * @return {@link #name} (A free text natural language name identifying the structure map.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
+     * @return {@link #name} (A natural language name identifying the structure map. This name should be usable as an identifier for the module by machine processing applications such as code generation.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
      */
     public StringType getNameElement() { 
       if (this.name == null)
@@ -4723,7 +4723,7 @@ public class StructureMap extends MetadataResource {
     }
 
     /**
-     * @param value {@link #name} (A free text natural language name identifying the structure map.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
+     * @param value {@link #name} (A natural language name identifying the structure map. This name should be usable as an identifier for the module by machine processing applications such as code generation.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
      */
     public StructureMap setNameElement(StringType value) { 
       this.name = value;
@@ -4731,14 +4731,14 @@ public class StructureMap extends MetadataResource {
     }
 
     /**
-     * @return A free text natural language name identifying the structure map.
+     * @return A natural language name identifying the structure map. This name should be usable as an identifier for the module by machine processing applications such as code generation.
      */
     public String getName() { 
       return this.name == null ? null : this.name.getValue();
     }
 
     /**
-     * @param value A free text natural language name identifying the structure map.
+     * @param value A natural language name identifying the structure map. This name should be usable as an identifier for the module by machine processing applications such as code generation.
      */
     public StructureMap setName(String value) { 
         if (this.name == null)
@@ -4748,7 +4748,56 @@ public class StructureMap extends MetadataResource {
     }
 
     /**
-     * @return {@link #status} (The status of this structure map.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
+     * @return {@link #title} (A short, descriptive, user-friendly title for the structure map.). This is the underlying object with id, value and extensions. The accessor "getTitle" gives direct access to the value
+     */
+    public StringType getTitleElement() { 
+      if (this.title == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create StructureMap.title");
+        else if (Configuration.doAutoCreate())
+          this.title = new StringType(); // bb
+      return this.title;
+    }
+
+    public boolean hasTitleElement() { 
+      return this.title != null && !this.title.isEmpty();
+    }
+
+    public boolean hasTitle() { 
+      return this.title != null && !this.title.isEmpty();
+    }
+
+    /**
+     * @param value {@link #title} (A short, descriptive, user-friendly title for the structure map.). This is the underlying object with id, value and extensions. The accessor "getTitle" gives direct access to the value
+     */
+    public StructureMap setTitleElement(StringType value) { 
+      this.title = value;
+      return this;
+    }
+
+    /**
+     * @return A short, descriptive, user-friendly title for the structure map.
+     */
+    public String getTitle() { 
+      return this.title == null ? null : this.title.getValue();
+    }
+
+    /**
+     * @param value A short, descriptive, user-friendly title for the structure map.
+     */
+    public StructureMap setTitle(String value) { 
+      if (Utilities.noString(value))
+        this.title = null;
+      else {
+        if (this.title == null)
+          this.title = new StringType();
+        this.title.setValue(value);
+      }
+      return this;
+    }
+
+    /**
+     * @return {@link #status} (The status of this structure map. Enables tracking the life-cycle of the content.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
     public Enumeration<PublicationStatus> getStatusElement() { 
       if (this.status == null)
@@ -4768,7 +4817,7 @@ public class StructureMap extends MetadataResource {
     }
 
     /**
-     * @param value {@link #status} (The status of this structure map.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
+     * @param value {@link #status} (The status of this structure map. Enables tracking the life-cycle of the content.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
     public StructureMap setStatusElement(Enumeration<PublicationStatus> value) { 
       this.status = value;
@@ -4776,14 +4825,14 @@ public class StructureMap extends MetadataResource {
     }
 
     /**
-     * @return The status of this structure map.
+     * @return The status of this structure map. Enables tracking the life-cycle of the content.
      */
     public PublicationStatus getStatus() { 
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
-     * @param value The status of this structure map.
+     * @param value The status of this structure map. Enables tracking the life-cycle of the content.
      */
     public StructureMap setStatus(PublicationStatus value) { 
         if (this.status == null)
@@ -5358,10 +5407,11 @@ public class StructureMap extends MetadataResource {
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("url", "uri", "An absolute URL that is used to identify this structure map when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this capability statement is (or will be) published.", 0, java.lang.Integer.MAX_VALUE, url));
-        childrenList.add(new Property("identifier", "Identifier", "Formal identifier that is used to identify this StructureMap when it is represented in other formats, or referenced in a specification, model, design or an instance  (should be globally unique OID, UUID, or URI), (if it's not possible to use the literal URI).", 0, java.lang.Integer.MAX_VALUE, identifier));
+        childrenList.add(new Property("identifier", "Identifier", "A formal identifier that is used to identify this structure map when it is represented in other formats, or referenced in a specification, model, design or an instance.", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("version", "string", "The identifier that is used to identify this version of the structure map when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the structure map author manually and the value should be a timestamp.", 0, java.lang.Integer.MAX_VALUE, version));
-        childrenList.add(new Property("name", "string", "A free text natural language name identifying the structure map.", 0, java.lang.Integer.MAX_VALUE, name));
-        childrenList.add(new Property("status", "code", "The status of this structure map.", 0, java.lang.Integer.MAX_VALUE, status));
+        childrenList.add(new Property("name", "string", "A natural language name identifying the structure map. This name should be usable as an identifier for the module by machine processing applications such as code generation.", 0, java.lang.Integer.MAX_VALUE, name));
+        childrenList.add(new Property("title", "string", "A short, descriptive, user-friendly title for the structure map.", 0, java.lang.Integer.MAX_VALUE, title));
+        childrenList.add(new Property("status", "code", "The status of this structure map. Enables tracking the life-cycle of the content.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("experimental", "boolean", "A flag to indicate that this structure map is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.", 0, java.lang.Integer.MAX_VALUE, experimental));
         childrenList.add(new Property("publisher", "string", "The name of the individual or organization that published the structure map.", 0, java.lang.Integer.MAX_VALUE, publisher));
         childrenList.add(new Property("contact", "", "Contacts to assist a user in finding and communicating with the publisher.", 0, java.lang.Integer.MAX_VALUE, contact));
@@ -5382,6 +5432,7 @@ public class StructureMap extends MetadataResource {
         case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
         case 351608024: /*version*/ return this.version == null ? new Base[0] : new Base[] {this.version}; // StringType
         case 3373707: /*name*/ return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
+        case 110371416: /*title*/ return this.title == null ? new Base[0] : new Base[] {this.title}; // StringType
         case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<PublicationStatus>
         case -404562712: /*experimental*/ return this.experimental == null ? new Base[0] : new Base[] {this.experimental}; // BooleanType
         case 1447404028: /*publisher*/ return this.publisher == null ? new Base[0] : new Base[] {this.publisher}; // StringType
@@ -5413,6 +5464,9 @@ public class StructureMap extends MetadataResource {
           break;
         case 3373707: // name
           this.name = castToString(value); // StringType
+          break;
+        case 110371416: // title
+          this.title = castToString(value); // StringType
           break;
         case -892481550: // status
           this.status = new PublicationStatusEnumFactory().fromType(value); // Enumeration<PublicationStatus>
@@ -5465,6 +5519,8 @@ public class StructureMap extends MetadataResource {
           this.version = castToString(value); // StringType
         else if (name.equals("name"))
           this.name = castToString(value); // StringType
+        else if (name.equals("title"))
+          this.title = castToString(value); // StringType
         else if (name.equals("status"))
           this.status = new PublicationStatusEnumFactory().fromType(value); // Enumeration<PublicationStatus>
         else if (name.equals("experimental"))
@@ -5500,6 +5556,7 @@ public class StructureMap extends MetadataResource {
         case -1618432855:  return addIdentifier(); // Identifier
         case 351608024: throw new FHIRException("Cannot make property version as it is not a complex type"); // StringType
         case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
+        case 110371416: throw new FHIRException("Cannot make property title as it is not a complex type"); // StringType
         case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<PublicationStatus>
         case -404562712: throw new FHIRException("Cannot make property experimental as it is not a complex type"); // BooleanType
         case 1447404028: throw new FHIRException("Cannot make property publisher as it is not a complex type"); // StringType
@@ -5530,6 +5587,9 @@ public class StructureMap extends MetadataResource {
         }
         else if (name.equals("name")) {
           throw new FHIRException("Cannot call addChild on a primitive type StructureMap.name");
+        }
+        else if (name.equals("title")) {
+          throw new FHIRException("Cannot call addChild on a primitive type StructureMap.title");
         }
         else if (name.equals("status")) {
           throw new FHIRException("Cannot call addChild on a primitive type StructureMap.status");
@@ -5587,6 +5647,7 @@ public class StructureMap extends MetadataResource {
         };
         dst.version = version == null ? null : version.copy();
         dst.name = name == null ? null : name.copy();
+        dst.title = title == null ? null : title.copy();
         dst.status = status == null ? null : status.copy();
         dst.experimental = experimental == null ? null : experimental.copy();
         dst.publisher = publisher == null ? null : publisher.copy();
@@ -5684,17 +5745,17 @@ public class StructureMap extends MetadataResource {
  /**
    * Search parameter: <b>identifier</b>
    * <p>
-   * Description: <b>The identifier of the profile</b><br>
+   * Description: <b>External identifiers for the structure map</b><br>
    * Type: <b>token</b><br>
    * Path: <b>StructureMap.identifier</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="identifier", path="StructureMap.identifier", description="The identifier of the profile", type="token" )
+  @SearchParamDefinition(name="identifier", path="StructureMap.identifier", description="External identifiers for the structure map", type="token" )
   public static final String SP_IDENTIFIER = "identifier";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
    * <p>
-   * Description: <b>The identifier of the profile</b><br>
+   * Description: <b>External identifiers for the structure map</b><br>
    * Type: <b>token</b><br>
    * Path: <b>StructureMap.identifier</b><br>
    * </p>
@@ -5800,6 +5861,26 @@ public class StructureMap extends MetadataResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam EXPERIMENTAL = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_EXPERIMENTAL);
+
+ /**
+   * Search parameter: <b>title</b>
+   * <p>
+   * Description: <b>Text search against the title of the structure map</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>StructureMap.title</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="title", path="StructureMap.title", description="Text search against the title of the structure map", type="string" )
+  public static final String SP_TITLE = "title";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>title</b>
+   * <p>
+   * Description: <b>Text search against the title of the structure map</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>StructureMap.title</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam TITLE = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_TITLE);
 
  /**
    * Search parameter: <b>version</b>

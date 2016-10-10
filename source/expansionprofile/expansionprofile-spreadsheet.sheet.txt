@@ -60,10 +60,6 @@
  -- Row 3 -----------------------------------
   Element = ExpansionProfile.identifier
   Card. = 0..1
-  Summary = y
-  Type = Identifier
-  Short Name = Additional identifier for the expansion profile (e.g. an Object Identifier)
-  Definition = Formal identifier that is used to identify this expansion profile when it is represented in other formats, or referenced in a specification, model, design or an instance.
 
  -- Row 4 -----------------------------------
   Element = ExpansionProfile.version
@@ -370,18 +366,12 @@
 === Sheet Search =====================================
 
  -- Row 1 -----------------------------------
-  Name = identifier
-  Type = token
-  Description = The identifier for the expansion profile
-  Path = ExpansionProfile.identifier
-
- -- Row 2 -----------------------------------
   Name = publisher
   Type = string
   Description = Name of the publisher of the expansion profile
   Path = ExpansionProfile.publisher
 
- -- Row 3 -----------------------------------
+ -- Row 2 -----------------------------------
   Name = description
   Type = string
   Description = Text search in the description of the expansion profile

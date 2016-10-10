@@ -40,59 +40,30 @@
 
  -- Row 1 -----------------------------------
   Element = Library
-  Type = DomainResource
+  Type = MetadataResource
   Short Name = Represents a library of quality improvement components
   Definition = The Library resource is a general-purpose container for knowledge asset definitions. It can be used to describe and expose exist knowledge assets such as logic libraries and information model descriptions, as well as to describe a collection of knowledge assets
   w5 = clinical.general
 
  -- Row 2 -----------------------------------
   Element = Library.url
-  Card. = 0..1
-  Summary = Y
-  Type = uri
-  Short Name = Logical URL to reference this library
-  Definition = An absolute URL that is used to identify this library when it is referenced. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this library is (or will be) published
-  Requirements = Allows the library to be referenced by a single globally unique identifier
-  w5 = id
 
  -- Row 3 -----------------------------------
   Element = Library.identifier
   Card. = 0..*
-  Summary = Y
-  Type = Identifier
-  Short Name = Logical identifier(s) for the library
-  Definition = A logical identifier for the library such as the CMS or NQF identifiers for a measure artifact. Note that at least one identifier is required for non-experimental active artifacts
-  Requirements = Allows external business identifiers to be easily associated with the library
+  Definition = & e.g. CMS or NQF identifiers for a measure artifact. Note that at least one identifier is required for non-experimental active artifacts
   To Do = Add constraint to require an identifier for non-experimental active artifacts
-  w5 = id
 
  -- Row 4 -----------------------------------
   Element = Library.version
-  Card. = 0..1
-  Summary = Y
-  Type = string
-  Short Name = The version of the library, if any
-  Definition = The version of the library, if any. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge assets, refer to the Decision Support Service specification. Note that a version is required for non-experimental active artifacts
-  Requirements = Allows for versioning of the content of the library
+  Definition = & To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge assets, refer to the Decision Support Service specification. Note that a version is required for non-experimental active artifacts
   To Do = Add constraint to require a version for non-experimental active artifacts
 
  -- Row 5 -----------------------------------
   Element = Library.name
-  Card. = 0..1
-  Summary = Y
-  Type = string
-  Short Name = A machine-friendly name for the library
-  Definition = A machine-friendly name for the library. This name should be usable as an identifier for the library by machine processing applications such as code generation
-  Requirements = Simplifies machine-processing tasks related to the library such as code-generation or logging
-  Comments = This identifier for the library should be unique within the intended scope of use, and should conform to the traditional syntactic definition of an identifier within most programming languages. regex: ([A-Za-z_][A-Za-z0-9_]*)
 
  -- Row 6 -----------------------------------
   Element = Library.title
-  Card. = 0..1
-  Summary = Y
-  Type = string
-  Short Name = A user-friendly title for the library
-  Definition = A short, descriptive, user-friendly title for the library
 
  -- Row 7 -----------------------------------
   Element = Library.type
@@ -107,26 +78,14 @@
 
  -- Row 8 -----------------------------------
   Element = Library.status
-  Card. = 1..1
-  Is Modifier = Y
-  Summary = Y
-  Type = code
-  Binding = PublicationStatus
-  Short Name = draft | active | retired
-  Definition = The status of the library
-  Requirements = Enables tracking the life-cycle of the content of the library
 
  -- Row 9 -----------------------------------
   Element = Library.experimental
-  Card. = 0..1
-  Is Modifier = Y
-  Summary = Y
-  Type = boolean
-  Short Name = If for testing purposes, not real usage
-  Definition = Determines whether the library was developed for testing purposes (or education/evaluation/marketing), and is not intended to be used in production environments
-  Requirements = Enables experimental content to be developed following the same life-cycle as a production-level library would
 
  -- Row 10 -----------------------------------
+  Element = Library.date
+
+ -- Row 11 -----------------------------------
   Element = Library.description
   Card. = 0..1
   Type = string
@@ -134,27 +93,15 @@
   Definition = A free text natural language description of the library from the consumer\'s perspective
   Comments = This description can be used to capture details such as why the library was built, comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the library as conveyed in the text field of the resource itself. This item SHOULD be populated unless the information is available from context
 
- -- Row 11 -----------------------------------
-  Element = Library.purpose
-  Card. = 0..1
-  Type = string
-  Short Name = Describes the purpose of the library
-  Definition = A brief description of the purpose of the library
-  Comments = This description should address the question of why this library was built, though not necessarily in as much detail as the justification, rationale, or clinical recommendation statement of a measure would. That information would typically be provided in the related resource element
-
  -- Row 12 -----------------------------------
+  Element = Library.purpose
+
+ -- Row 13 -----------------------------------
   Element = Library.usage
   Card. = 0..1
   Type = string
   Short Name = Describes the clinical usage of the library
   Definition = A detailed description of how the library is used from a clinical perspective
-
- -- Row 13 -----------------------------------
-  Element = Library.publicationDate
-  Card. = 0..1
-  Type = date
-  Short Name = Publication date for this version of the library
-  Definition = The date on which the library was published
 
  -- Row 14 -----------------------------------
   Element = Library.lastReviewDate
@@ -253,42 +200,18 @@
 === Sheet Search =====================================
 
  -- Row 1 -----------------------------------
-  Name = identifier
-  Type = token
-  Description = Logical identifier for the module (e.g. CMS-143)
-  Path = Library.identifier
-
- -- Row 2 -----------------------------------
   Name = topic
   Type = token
   Description = Topics associated with the module
   Path = Library.topic
 
- -- Row 3 -----------------------------------
-  Name = title
-  Type = string
-  Description = Text search against the title
-  Path = Library.title
-
- -- Row 4 -----------------------------------
+ -- Row 2 -----------------------------------
   Name = description
   Type = string
   Description = Text search against the description
   Path = Library.description
 
- -- Row 5 -----------------------------------
-  Name = version
-  Type = string
-  Description = Version of the module (e.g. 1.0.0)
-  Path = Library.version
-
- -- Row 6 -----------------------------------
-  Name = status
-  Type = token
-  Description = Status of the module
-  Path = Library.status
-
- -- Row 7 -----------------------------------
+ -- Row 3 -----------------------------------
   Name = !minScore
   Type = number
   Description = The minimum relevance score of any match that will be returned

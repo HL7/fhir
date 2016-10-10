@@ -256,12 +256,7 @@
  -- Row 3 -----------------------------------
   Element = StructureDefinition.identifier
   Card. = 0..*
-  Summary = y
-  Type = Identifier
-  Short Name = Other identifiers for the StructureDefinition
-  Definition = Formal identifier that is used to identify this StructureDefinition when it is represented in other formats, or referenced in a specification, model, design or an instance  (should be globally unique OID, UUID, or URI), (if it\'s not possible to use the literal URI)
   11179 Mapping = Identifier part
-  w5 = id
 
  -- Row 4 -----------------------------------
   Element = StructureDefinition.version
@@ -274,11 +269,7 @@
  -- Row 6 -----------------------------------
   Element = StructureDefinition.title
   Card. = 0..1
-  Summary = Y
-  Type = string
-  Short Name = Title for this structure definition (human friendly name)
-  Definition = A short, descriptive, user-friendly title for the measure. Defined so that applications can use this name when displaying the content of the structure to the user
-  Comments = Applications don\'t have to use this name, but can always fall back to it. The title also corresponds to the label for the root element
+  Comments = & Applications don\'t have to use this name, but can always fall back to it. The title also corresponds to the label for the root element
 
  -- Row 7 -----------------------------------
   Element = StructureDefinition.status
@@ -576,87 +567,76 @@
 === Sheet Search =====================================
 
  -- Row 1 -----------------------------------
-  Name = identifier
-  Type = token
-  Description = The identifier of the profile
-  Path = StructureDefinition.identifier
-
- -- Row 2 -----------------------------------
   Name = publisher
   Type = string
   Description = Name of the publisher of the profile
   Path = StructureDefinition.publisher
 
- -- Row 3 -----------------------------------
+ -- Row 2 -----------------------------------
   Name = description
   Type = string
   Description = Text search in the description of the profile
   Path = StructureDefinition.description
 
- -- Row 4 -----------------------------------
+ -- Row 3 -----------------------------------
   Name = keyword
   Type = token
   Description = A code for the profile
   Path = StructureDefinition.keyword
 
- -- Row 5 -----------------------------------
+ -- Row 4 -----------------------------------
   Name = valueset
   Type = reference
   Description = A vocabulary binding reference
   Path = StructureDefinition.snapshot.element.binding.valueSet[x]
 
- -- Row 6 -----------------------------------
+ -- Row 5 -----------------------------------
   Name = type
   Type = token
   Path = StructureDefinition.type
 
- -- Row 7 -----------------------------------
+ -- Row 6 -----------------------------------
   Name = kind
   Type = token
   Path = StructureDefinition.kind
 
- -- Row 8 -----------------------------------
+ -- Row 7 -----------------------------------
   Name = path
   Type = token
   Description = A path that is constrained in the profile
   Path = StructureDefinition.snapshot.element.path | StructureDefinition.differential.element.path
 
- -- Row 9 -----------------------------------
-  Name = title
-  Type = string
-  Path = StructureDefinition.title
-
- -- Row 10 -----------------------------------
+ -- Row 8 -----------------------------------
   Name = experimental
   Type = token
   Path = StructureDefinition.experimental
 
- -- Row 11 -----------------------------------
+ -- Row 9 -----------------------------------
   Name = abstract
   Type = token
   Path = StructureDefinition.abstract
 
- -- Row 12 -----------------------------------
+ -- Row 10 -----------------------------------
   Name = context-type
   Type = token
   Path = StructureDefinition.contextType
 
- -- Row 13 -----------------------------------
+ -- Row 11 -----------------------------------
   Name = ext-context
   Type = string
   Path = StructureDefinition.context
 
- -- Row 14 -----------------------------------
+ -- Row 12 -----------------------------------
   Name = base
   Type = uri
   Path = StructureDefinition.baseDefinition
 
- -- Row 15 -----------------------------------
+ -- Row 13 -----------------------------------
   Name = base-path
   Type = token
   Path = StructureDefinition.snapshot.element.base.path | StructureDefinition.differential.element.base.path
 
- -- Row 16 -----------------------------------
+ -- Row 14 -----------------------------------
   Name = derivation
   Type = token
   Path = StructureDefinition.derivation

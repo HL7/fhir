@@ -284,59 +284,30 @@
  -- Row 1 -----------------------------------
   Element = PlanDefinition
   UML = 0;0
-  Type = DomainResource
+  Type = MetadataResource
   Short Name = The definition of a plan for a series of actions, independent of any specific patient or context
   Definition = This resource allows for the definition of various types of plans as a sharable, consumable, and executable artifact. The resource is general enough to support the description of a broad range of clinical artifacts such as clinical decision support rules, order sets and protocols
   w5 = clinical.general
 
  -- Row 2 -----------------------------------
   Element = PlanDefinition.url
-  Card. = 0..1
-  Summary = Y
-  Type = uri
-  Short Name = Logical URL to reference this asset
-  Definition = An absolute URL that is used to identify this asset when it is referenced. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this asset is (or will be) published
-  Requirements = Allows the asset to be referenced by a single globally unique identifier
-  w5 = id
 
  -- Row 3 -----------------------------------
   Element = PlanDefinition.identifier
   Card. = 0..*
-  Summary = Y
-  Type = Identifier
-  Short Name = Logical identifier(s) for the asset
-  Definition = A logical identifier for the asset such as the CMS or NQF identifiers for a measure artifact. Note that at least one identifier is required for non-experimental active artifacts
-  Requirements = Allows external business identifiers to be easily associated with the asset
   To Do = Add constraint to require an identifier for non-experimental active artifacts
   w5 = id
 
  -- Row 4 -----------------------------------
   Element = PlanDefinition.version
-  Card. = 0..1
-  Summary = Y
-  Type = string
-  Short Name = The version of the asset, if any
-  Definition = The version of the asset, if any. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge assets, refer to the Decision Support Service specification. Note that a version is required for non-experimental active artifacts
-  Requirements = Allows for versioning of the content of the asset
+  Definition = & To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge assets, refer to the Decision Support Service specification. Note that a version is required for non-experimental active artifacts
   To Do = Add constraint to require a version for non-experimental active artifacts
 
  -- Row 5 -----------------------------------
   Element = PlanDefinition.name
-  Card. = 0..1
-  Summary = Y
-  Type = string
-  Short Name = A machine-friendly name for the asset
-  Definition = A machine-friendly name for the asset. This name should be usable as an identifier for the asset by machine processing applications such as code generation
-  Requirements = Simplifies machine-processing tasks related to the asset such as code-generation or logging
-  Comments = This identifier for the asset should be unique within the intended scope of use, and should conform to the traditional syntactic definition of an identifier within most programming languages. regex: ([A-Za-z_][A-Za-z0-9_]*)
 
  -- Row 6 -----------------------------------
   Element = PlanDefinition.title
-  Card. = 0..1
-  Summary = Y
-  Type = string
-  Short Name = A user-friendly title for the asset
-  Definition = A short, descriptive, user-friendly title for the asset
 
  -- Row 7 -----------------------------------
   Element = PlanDefinition.type
@@ -349,26 +320,14 @@
 
  -- Row 8 -----------------------------------
   Element = PlanDefinition.status
-  Card. = 1..1
-  Is Modifier = Y
-  Summary = Y
-  Type = code
-  Binding = PublicationStatus
-  Short Name = draft | active | retired
-  Definition = The status of the asset
-  Requirements = Enables tracking the life-cycle of the content of the asset
 
  -- Row 9 -----------------------------------
   Element = PlanDefinition.experimental
-  Card. = 0..1
-  Is Modifier = Y
-  Summary = Y
-  Type = boolean
-  Short Name = If for testing purposes, not real usage
-  Definition = Determines whether the asset was developed for testing purposes (or education/evaluation/marketing), and is not intended to be used in production environments
-  Requirements = Enables experimental content to be developed following the same life-cycle as a production-level asset would
 
  -- Row 10 -----------------------------------
+  Element = PlanDefinition.date
+
+ -- Row 11 -----------------------------------
   Element = PlanDefinition.description
   Card. = 0..1
   Type = string
@@ -376,27 +335,15 @@
   Definition = A free text natural language description of the asset from the consumer\'s perspective
   Comments = This description can be used to capture details such as why the asset was built, comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the asset as conveyed in the text field of the resource itself. This item SHOULD be populated unless the information is available from context
 
- -- Row 11 -----------------------------------
-  Element = PlanDefinition.purpose
-  Card. = 0..1
-  Type = string
-  Short Name = Describes the purpose of the asset
-  Definition = A brief description of the purpose of the asset
-  Comments = This description should address the question of why this asset was built, though not necessarily in as much detail as the justification, rationale, or clinical recommendation statement of a measure would. That information would typically be provided in the related resource element
-
  -- Row 12 -----------------------------------
+  Element = PlanDefinition.purpose
+
+ -- Row 13 -----------------------------------
   Element = PlanDefinition.usage
   Card. = 0..1
   Type = string
   Short Name = Describes the clinical usage of the asset
   Definition = A detailed description of how the asset is used from a clinical perspective
-
- -- Row 13 -----------------------------------
-  Element = PlanDefinition.publicationDate
-  Card. = 0..1
-  Type = date
-  Short Name = Publication date for this version of the asset
-  Definition = The date on which the asset was published
 
  -- Row 14 -----------------------------------
   Element = PlanDefinition.lastReviewDate
@@ -733,42 +680,18 @@
 === Sheet Search =====================================
 
  -- Row 1 -----------------------------------
-  Name = identifier
-  Type = token
-  Description = Logical identifier for the module (e.g. CMS-143)
-  Path = PlanDefinition.identifier
-
- -- Row 2 -----------------------------------
   Name = topic
   Type = token
   Description = Topics associated with the module
   Path = PlanDefinition.topic
 
- -- Row 3 -----------------------------------
-  Name = title
-  Type = string
-  Description = Text search against the title
-  Path = PlanDefinition.title
-
- -- Row 4 -----------------------------------
+ -- Row 2 -----------------------------------
   Name = description
   Type = string
   Description = Text search against the description
   Path = PlanDefinition.description
 
- -- Row 5 -----------------------------------
-  Name = version
-  Type = string
-  Description = Version of the module (e.g. 1.0.0)
-  Path = PlanDefinition.version
-
- -- Row 6 -----------------------------------
-  Name = status
-  Type = token
-  Description = Status of the module
-  Path = PlanDefinition.status
-
- -- Row 7 -----------------------------------
+ -- Row 3 -----------------------------------
   Name = !minScore
   Type = number
   Description = The minimum relevance score of any match that will be returned

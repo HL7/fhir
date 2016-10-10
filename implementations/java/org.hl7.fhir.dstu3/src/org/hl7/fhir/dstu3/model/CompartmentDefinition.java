@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Oct 10, 2016 15:45+1100 for FHIR v1.7.0
+// Generated on Mon, Oct 10, 2016 17:18+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -852,7 +852,7 @@ public class CompartmentDefinition extends MetadataResource {
     }
 
     /**
-     * @return {@link #name} (A free text natural language name identifying the compartment definition.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
+     * @return {@link #name} (A natural language name identifying the compartment definition. This name should be usable as an identifier for the module by machine processing applications such as code generation.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
      */
     public StringType getNameElement() { 
       if (this.name == null)
@@ -872,7 +872,7 @@ public class CompartmentDefinition extends MetadataResource {
     }
 
     /**
-     * @param value {@link #name} (A free text natural language name identifying the compartment definition.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
+     * @param value {@link #name} (A natural language name identifying the compartment definition. This name should be usable as an identifier for the module by machine processing applications such as code generation.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
      */
     public CompartmentDefinition setNameElement(StringType value) { 
       this.name = value;
@@ -880,14 +880,14 @@ public class CompartmentDefinition extends MetadataResource {
     }
 
     /**
-     * @return A free text natural language name identifying the compartment definition.
+     * @return A natural language name identifying the compartment definition. This name should be usable as an identifier for the module by machine processing applications such as code generation.
      */
     public String getName() { 
       return this.name == null ? null : this.name.getValue();
     }
 
     /**
-     * @param value A free text natural language name identifying the compartment definition.
+     * @param value A natural language name identifying the compartment definition. This name should be usable as an identifier for the module by machine processing applications such as code generation.
      */
     public CompartmentDefinition setName(String value) { 
         if (this.name == null)
@@ -897,7 +897,56 @@ public class CompartmentDefinition extends MetadataResource {
     }
 
     /**
-     * @return {@link #status} (The status of this compartment definition.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
+     * @return {@link #title} (A short, descriptive, user-friendly title for the compartment definition.). This is the underlying object with id, value and extensions. The accessor "getTitle" gives direct access to the value
+     */
+    public StringType getTitleElement() { 
+      if (this.title == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create CompartmentDefinition.title");
+        else if (Configuration.doAutoCreate())
+          this.title = new StringType(); // bb
+      return this.title;
+    }
+
+    public boolean hasTitleElement() { 
+      return this.title != null && !this.title.isEmpty();
+    }
+
+    public boolean hasTitle() { 
+      return this.title != null && !this.title.isEmpty();
+    }
+
+    /**
+     * @param value {@link #title} (A short, descriptive, user-friendly title for the compartment definition.). This is the underlying object with id, value and extensions. The accessor "getTitle" gives direct access to the value
+     */
+    public CompartmentDefinition setTitleElement(StringType value) { 
+      this.title = value;
+      return this;
+    }
+
+    /**
+     * @return A short, descriptive, user-friendly title for the compartment definition.
+     */
+    public String getTitle() { 
+      return this.title == null ? null : this.title.getValue();
+    }
+
+    /**
+     * @param value A short, descriptive, user-friendly title for the compartment definition.
+     */
+    public CompartmentDefinition setTitle(String value) { 
+      if (Utilities.noString(value))
+        this.title = null;
+      else {
+        if (this.title == null)
+          this.title = new StringType();
+        this.title.setValue(value);
+      }
+      return this;
+    }
+
+    /**
+     * @return {@link #status} (The status of this compartment definition. Enables tracking the life-cycle of the content.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
     public Enumeration<PublicationStatus> getStatusElement() { 
       if (this.status == null)
@@ -917,7 +966,7 @@ public class CompartmentDefinition extends MetadataResource {
     }
 
     /**
-     * @param value {@link #status} (The status of this compartment definition.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
+     * @param value {@link #status} (The status of this compartment definition. Enables tracking the life-cycle of the content.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
     public CompartmentDefinition setStatusElement(Enumeration<PublicationStatus> value) { 
       this.status = value;
@@ -925,14 +974,14 @@ public class CompartmentDefinition extends MetadataResource {
     }
 
     /**
-     * @return The status of this compartment definition.
+     * @return The status of this compartment definition. Enables tracking the life-cycle of the content.
      */
     public PublicationStatus getStatus() { 
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
-     * @param value The status of this compartment definition.
+     * @param value The status of this compartment definition. Enables tracking the life-cycle of the content.
      */
     public CompartmentDefinition setStatus(PublicationStatus value) { 
         if (this.status == null)
@@ -1434,8 +1483,9 @@ public class CompartmentDefinition extends MetadataResource {
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("url", "uri", "An absolute URL that is used to identify this compartment definition when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this capability statement is (or will be) published.", 0, java.lang.Integer.MAX_VALUE, url));
-        childrenList.add(new Property("name", "string", "A free text natural language name identifying the compartment definition.", 0, java.lang.Integer.MAX_VALUE, name));
-        childrenList.add(new Property("status", "code", "The status of this compartment definition.", 0, java.lang.Integer.MAX_VALUE, status));
+        childrenList.add(new Property("name", "string", "A natural language name identifying the compartment definition. This name should be usable as an identifier for the module by machine processing applications such as code generation.", 0, java.lang.Integer.MAX_VALUE, name));
+        childrenList.add(new Property("title", "string", "A short, descriptive, user-friendly title for the compartment definition.", 0, java.lang.Integer.MAX_VALUE, title));
+        childrenList.add(new Property("status", "code", "The status of this compartment definition. Enables tracking the life-cycle of the content.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("experimental", "boolean", "A flag to indicate that this compartment definition is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.", 0, java.lang.Integer.MAX_VALUE, experimental));
         childrenList.add(new Property("publisher", "string", "The name of the individual or organization that published the compartment definition.", 0, java.lang.Integer.MAX_VALUE, publisher));
         childrenList.add(new Property("contact", "", "Contacts to assist a user in finding and communicating with the publisher.", 0, java.lang.Integer.MAX_VALUE, contact));
@@ -1453,6 +1503,7 @@ public class CompartmentDefinition extends MetadataResource {
         switch (hash) {
         case 116079: /*url*/ return this.url == null ? new Base[0] : new Base[] {this.url}; // UriType
         case 3373707: /*name*/ return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
+        case 110371416: /*title*/ return this.title == null ? new Base[0] : new Base[] {this.title}; // StringType
         case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<PublicationStatus>
         case -404562712: /*experimental*/ return this.experimental == null ? new Base[0] : new Base[] {this.experimental}; // BooleanType
         case 1447404028: /*publisher*/ return this.publisher == null ? new Base[0] : new Base[] {this.publisher}; // StringType
@@ -1477,6 +1528,9 @@ public class CompartmentDefinition extends MetadataResource {
           break;
         case 3373707: // name
           this.name = castToString(value); // StringType
+          break;
+        case 110371416: // title
+          this.title = castToString(value); // StringType
           break;
         case -892481550: // status
           this.status = new PublicationStatusEnumFactory().fromType(value); // Enumeration<PublicationStatus>
@@ -1522,6 +1576,8 @@ public class CompartmentDefinition extends MetadataResource {
           this.url = castToUri(value); // UriType
         else if (name.equals("name"))
           this.name = castToString(value); // StringType
+        else if (name.equals("title"))
+          this.title = castToString(value); // StringType
         else if (name.equals("status"))
           this.status = new PublicationStatusEnumFactory().fromType(value); // Enumeration<PublicationStatus>
         else if (name.equals("experimental"))
@@ -1553,6 +1609,7 @@ public class CompartmentDefinition extends MetadataResource {
         switch (hash) {
         case 116079: throw new FHIRException("Cannot make property url as it is not a complex type"); // UriType
         case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
+        case 110371416: throw new FHIRException("Cannot make property title as it is not a complex type"); // StringType
         case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<PublicationStatus>
         case -404562712: throw new FHIRException("Cannot make property experimental as it is not a complex type"); // BooleanType
         case 1447404028: throw new FHIRException("Cannot make property publisher as it is not a complex type"); // StringType
@@ -1576,6 +1633,9 @@ public class CompartmentDefinition extends MetadataResource {
         }
         else if (name.equals("name")) {
           throw new FHIRException("Cannot call addChild on a primitive type CompartmentDefinition.name");
+        }
+        else if (name.equals("title")) {
+          throw new FHIRException("Cannot call addChild on a primitive type CompartmentDefinition.title");
         }
         else if (name.equals("status")) {
           throw new FHIRException("Cannot call addChild on a primitive type CompartmentDefinition.status");
@@ -1624,6 +1684,7 @@ public class CompartmentDefinition extends MetadataResource {
         copyValues(dst);
         dst.url = url == null ? null : url.copy();
         dst.name = name == null ? null : name.copy();
+        dst.title = title == null ? null : title.copy();
         dst.status = status == null ? null : status.copy();
         dst.experimental = experimental == null ? null : experimental.copy();
         dst.publisher = publisher == null ? null : publisher.copy();
@@ -1787,6 +1848,26 @@ public class CompartmentDefinition extends MetadataResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam CONTEXT = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CONTEXT);
+
+ /**
+   * Search parameter: <b>title</b>
+   * <p>
+   * Description: <b>Text search against the title of the compartment definition</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>CompartmentDefinition.title</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="title", path="CompartmentDefinition.title", description="Text search against the title of the compartment definition", type="string" )
+  public static final String SP_TITLE = "title";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>title</b>
+   * <p>
+   * Description: <b>Text search against the title of the compartment definition</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>CompartmentDefinition.title</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam TITLE = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_TITLE);
 
  /**
    * Search parameter: <b>url</b>

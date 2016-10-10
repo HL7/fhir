@@ -13,8 +13,8 @@
   <version value="1.0.0"/>
   <title value="Guideline Appropriate Ordering Module"/>
   <status value="draft"/>
+  <date value="2015-07-22"/>
   <description value="Guideline appropriate ordering is used to assess appropriateness of an order given a patient, a proposed order, and a set of clinical indications."/>
-  <publicationDate value="2015-07-22"/>
   <topic>
     <text value="Guideline Appropriate Ordering"/>
   </topic>

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Mon, Oct 10, 2016 15:45+1100 for FHIR v1.7.0
+// Generated on Mon, Oct 10, 2016 17:18+1100 for FHIR v1.7.0
 
 import org.hl7.fhir.dstu3.model.DateType;
 import org.hl7.fhir.dstu3.model.DateTimeType;
@@ -1233,14 +1233,14 @@ public class RdfParser extends RdfParserBase {
       composeEnum(t, "ActivityDefinition", "status", element.getStatusElement(), -1);
     if (element.hasExperimentalElement())
       composeBoolean(t, "ActivityDefinition", "experimental", element.getExperimentalElement(), -1);
+    if (element.hasDateElement())
+      composeDateTime(t, "ActivityDefinition", "date", element.getDateElement(), -1);
     if (element.hasDescriptionElement())
       composeString(t, "ActivityDefinition", "description", element.getDescriptionElement(), -1);
     if (element.hasPurposeElement())
-      composeString(t, "ActivityDefinition", "purpose", element.getPurposeElement(), -1);
+      composeMarkdown(t, "ActivityDefinition", "purpose", element.getPurposeElement(), -1);
     if (element.hasUsageElement())
       composeString(t, "ActivityDefinition", "usage", element.getUsageElement(), -1);
-    if (element.hasPublicationDateElement())
-      composeDate(t, "ActivityDefinition", "publicationDate", element.getPublicationDateElement(), -1);
     if (element.hasLastReviewDateElement())
       composeDate(t, "ActivityDefinition", "lastReviewDate", element.getLastReviewDateElement(), -1);
     if (element.hasEffectivePeriod())
@@ -1909,6 +1909,8 @@ public class RdfParser extends RdfParserBase {
       composeString(t, "CapabilityStatement", "version", element.getVersionElement(), -1);
     if (element.hasNameElement())
       composeString(t, "CapabilityStatement", "name", element.getNameElement(), -1);
+    if (element.hasTitleElement())
+      composeString(t, "CapabilityStatement", "title", element.getTitleElement(), -1);
     if (element.hasStatusElement())
       composeEnum(t, "CapabilityStatement", "status", element.getStatusElement(), -1);
     if (element.hasExperimentalElement())
@@ -3211,6 +3213,8 @@ public class RdfParser extends RdfParserBase {
       composeString(t, "CodeSystem", "version", element.getVersionElement(), -1);
     if (element.hasNameElement())
       composeString(t, "CodeSystem", "name", element.getNameElement(), -1);
+    if (element.hasTitleElement())
+      composeString(t, "CodeSystem", "title", element.getTitleElement(), -1);
     if (element.hasStatusElement())
       composeEnum(t, "CodeSystem", "status", element.getStatusElement(), -1);
     if (element.hasExperimentalElement())
@@ -3491,6 +3495,8 @@ public class RdfParser extends RdfParserBase {
       composeUri(t, "CompartmentDefinition", "url", element.getUrlElement(), -1);
     if (element.hasNameElement())
       composeString(t, "CompartmentDefinition", "name", element.getNameElement(), -1);
+    if (element.hasTitleElement())
+      composeString(t, "CompartmentDefinition", "title", element.getTitleElement(), -1);
     if (element.hasStatusElement())
       composeEnum(t, "CompartmentDefinition", "status", element.getStatusElement(), -1);
     if (element.hasExperimentalElement())
@@ -3671,6 +3677,8 @@ public class RdfParser extends RdfParserBase {
       composeString(t, "ConceptMap", "version", element.getVersionElement(), -1);
     if (element.hasNameElement())
       composeString(t, "ConceptMap", "name", element.getNameElement(), -1);
+    if (element.hasTitleElement())
+      composeString(t, "ConceptMap", "title", element.getTitleElement(), -1);
     if (element.hasStatusElement())
       composeEnum(t, "ConceptMap", "status", element.getStatusElement(), -1);
     if (element.hasExperimentalElement())
@@ -4267,6 +4275,8 @@ public class RdfParser extends RdfParserBase {
       composeDateTime(t, "DataElement", "date", element.getDateElement(), -1);
     if (element.hasNameElement())
       composeString(t, "DataElement", "name", element.getNameElement(), -1);
+    if (element.hasTitleElement())
+      composeString(t, "DataElement", "title", element.getTitleElement(), -1);
     for (int i = 0; i < element.getContact().size(); i++)
       composeDataElementDataElementContactComponent(t, "DataElement", "contact", element.getContact().get(i), i);
     for (int i = 0; i < element.getUseContext().size(); i++)
@@ -7241,14 +7251,14 @@ public class RdfParser extends RdfParserBase {
       composeEnum(t, "Library", "status", element.getStatusElement(), -1);
     if (element.hasExperimentalElement())
       composeBoolean(t, "Library", "experimental", element.getExperimentalElement(), -1);
+    if (element.hasDateElement())
+      composeDateTime(t, "Library", "date", element.getDateElement(), -1);
     if (element.hasDescriptionElement())
       composeString(t, "Library", "description", element.getDescriptionElement(), -1);
     if (element.hasPurposeElement())
-      composeString(t, "Library", "purpose", element.getPurposeElement(), -1);
+      composeMarkdown(t, "Library", "purpose", element.getPurposeElement(), -1);
     if (element.hasUsageElement())
       composeString(t, "Library", "usage", element.getUsageElement(), -1);
-    if (element.hasPublicationDateElement())
-      composeDate(t, "Library", "publicationDate", element.getPublicationDateElement(), -1);
     if (element.hasLastReviewDateElement())
       composeDate(t, "Library", "lastReviewDate", element.getLastReviewDateElement(), -1);
     if (element.hasEffectivePeriod())
@@ -7447,14 +7457,14 @@ public class RdfParser extends RdfParserBase {
       composeEnum(t, "Measure", "status", element.getStatusElement(), -1);
     if (element.hasExperimentalElement())
       composeBoolean(t, "Measure", "experimental", element.getExperimentalElement(), -1);
+    if (element.hasDateElement())
+      composeDateTime(t, "Measure", "date", element.getDateElement(), -1);
     if (element.hasDescriptionElement())
       composeString(t, "Measure", "description", element.getDescriptionElement(), -1);
     if (element.hasPurposeElement())
-      composeString(t, "Measure", "purpose", element.getPurposeElement(), -1);
+      composeMarkdown(t, "Measure", "purpose", element.getPurposeElement(), -1);
     if (element.hasUsageElement())
       composeString(t, "Measure", "usage", element.getUsageElement(), -1);
-    if (element.hasPublicationDateElement())
-      composeDate(t, "Measure", "publicationDate", element.getPublicationDateElement(), -1);
     if (element.hasLastReviewDateElement())
       composeDate(t, "Measure", "lastReviewDate", element.getLastReviewDateElement(), -1);
     if (element.hasEffectivePeriod())
@@ -9221,14 +9231,14 @@ public class RdfParser extends RdfParserBase {
       composeEnum(t, "PlanDefinition", "status", element.getStatusElement(), -1);
     if (element.hasExperimentalElement())
       composeBoolean(t, "PlanDefinition", "experimental", element.getExperimentalElement(), -1);
+    if (element.hasDateElement())
+      composeDateTime(t, "PlanDefinition", "date", element.getDateElement(), -1);
     if (element.hasDescriptionElement())
       composeString(t, "PlanDefinition", "description", element.getDescriptionElement(), -1);
     if (element.hasPurposeElement())
-      composeString(t, "PlanDefinition", "purpose", element.getPurposeElement(), -1);
+      composeMarkdown(t, "PlanDefinition", "purpose", element.getPurposeElement(), -1);
     if (element.hasUsageElement())
       composeString(t, "PlanDefinition", "usage", element.getUsageElement(), -1);
-    if (element.hasPublicationDateElement())
-      composeDate(t, "PlanDefinition", "publicationDate", element.getPublicationDateElement(), -1);
     if (element.hasLastReviewDateElement())
       composeDate(t, "PlanDefinition", "lastReviewDate", element.getLastReviewDateElement(), -1);
     if (element.hasEffectivePeriod())
@@ -10517,14 +10527,14 @@ public class RdfParser extends RdfParserBase {
       composeEnum(t, "ServiceDefinition", "status", element.getStatusElement(), -1);
     if (element.hasExperimentalElement())
       composeBoolean(t, "ServiceDefinition", "experimental", element.getExperimentalElement(), -1);
+    if (element.hasDateElement())
+      composeDateTime(t, "ServiceDefinition", "date", element.getDateElement(), -1);
     if (element.hasDescriptionElement())
       composeString(t, "ServiceDefinition", "description", element.getDescriptionElement(), -1);
     if (element.hasPurposeElement())
-      composeString(t, "ServiceDefinition", "purpose", element.getPurposeElement(), -1);
+      composeMarkdown(t, "ServiceDefinition", "purpose", element.getPurposeElement(), -1);
     if (element.hasUsageElement())
       composeString(t, "ServiceDefinition", "usage", element.getUsageElement(), -1);
-    if (element.hasPublicationDateElement())
-      composeDate(t, "ServiceDefinition", "publicationDate", element.getPublicationDateElement(), -1);
     if (element.hasLastReviewDateElement())
       composeDate(t, "ServiceDefinition", "lastReviewDate", element.getLastReviewDateElement(), -1);
     if (element.hasEffectivePeriod())
@@ -10835,6 +10845,8 @@ public class RdfParser extends RdfParserBase {
       composeString(t, "StructureMap", "version", element.getVersionElement(), -1);
     if (element.hasNameElement())
       composeString(t, "StructureMap", "name", element.getNameElement(), -1);
+    if (element.hasTitleElement())
+      composeString(t, "StructureMap", "title", element.getTitleElement(), -1);
     if (element.hasStatusElement())
       composeEnum(t, "StructureMap", "status", element.getStatusElement(), -1);
     if (element.hasExperimentalElement())
@@ -11365,6 +11377,8 @@ public class RdfParser extends RdfParserBase {
       composeString(t, "TestScript", "version", element.getVersionElement(), -1);
     if (element.hasNameElement())
       composeString(t, "TestScript", "name", element.getNameElement(), -1);
+    if (element.hasTitleElement())
+      composeString(t, "TestScript", "title", element.getTitleElement(), -1);
     if (element.hasStatusElement())
       composeEnum(t, "TestScript", "status", element.getStatusElement(), -1);
     if (element.hasExperimentalElement())
@@ -11937,6 +11951,8 @@ public class RdfParser extends RdfParserBase {
       composeString(t, "ValueSet", "version", element.getVersionElement(), -1);
     if (element.hasNameElement())
       composeString(t, "ValueSet", "name", element.getNameElement(), -1);
+    if (element.hasTitleElement())
+      composeString(t, "ValueSet", "title", element.getTitleElement(), -1);
     if (element.hasStatusElement())
       composeEnum(t, "ValueSet", "status", element.getStatusElement(), -1);
     if (element.hasExperimentalElement())

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Oct 10, 2016 15:45+1100 for FHIR v1.7.0
+// Generated on Mon, Oct 10, 2016 17:18+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -7839,7 +7839,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
     }
 
     /**
-     * @return {@link #name} (A free text natural language name identifying the capability statement.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
+     * @return {@link #name} (A natural language name identifying the capability statement. This name should be usable as an identifier for the module by machine processing applications such as code generation.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
      */
     public StringType getNameElement() { 
       if (this.name == null)
@@ -7859,7 +7859,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
     }
 
     /**
-     * @param value {@link #name} (A free text natural language name identifying the capability statement.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
+     * @param value {@link #name} (A natural language name identifying the capability statement. This name should be usable as an identifier for the module by machine processing applications such as code generation.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
      */
     public CapabilityStatement setNameElement(StringType value) { 
       this.name = value;
@@ -7867,14 +7867,14 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
     }
 
     /**
-     * @return A free text natural language name identifying the capability statement.
+     * @return A natural language name identifying the capability statement. This name should be usable as an identifier for the module by machine processing applications such as code generation.
      */
     public String getName() { 
       return this.name == null ? null : this.name.getValue();
     }
 
     /**
-     * @param value A free text natural language name identifying the capability statement.
+     * @param value A natural language name identifying the capability statement. This name should be usable as an identifier for the module by machine processing applications such as code generation.
      */
     public CapabilityStatement setName(String value) { 
       if (Utilities.noString(value))
@@ -7888,7 +7888,56 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
     }
 
     /**
-     * @return {@link #status} (The status of this capability statement.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
+     * @return {@link #title} (A short, descriptive, user-friendly title for the capability statement.). This is the underlying object with id, value and extensions. The accessor "getTitle" gives direct access to the value
+     */
+    public StringType getTitleElement() { 
+      if (this.title == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create CapabilityStatement.title");
+        else if (Configuration.doAutoCreate())
+          this.title = new StringType(); // bb
+      return this.title;
+    }
+
+    public boolean hasTitleElement() { 
+      return this.title != null && !this.title.isEmpty();
+    }
+
+    public boolean hasTitle() { 
+      return this.title != null && !this.title.isEmpty();
+    }
+
+    /**
+     * @param value {@link #title} (A short, descriptive, user-friendly title for the capability statement.). This is the underlying object with id, value and extensions. The accessor "getTitle" gives direct access to the value
+     */
+    public CapabilityStatement setTitleElement(StringType value) { 
+      this.title = value;
+      return this;
+    }
+
+    /**
+     * @return A short, descriptive, user-friendly title for the capability statement.
+     */
+    public String getTitle() { 
+      return this.title == null ? null : this.title.getValue();
+    }
+
+    /**
+     * @param value A short, descriptive, user-friendly title for the capability statement.
+     */
+    public CapabilityStatement setTitle(String value) { 
+      if (Utilities.noString(value))
+        this.title = null;
+      else {
+        if (this.title == null)
+          this.title = new StringType();
+        this.title.setValue(value);
+      }
+      return this;
+    }
+
+    /**
+     * @return {@link #status} (The status of this capability statement. Enables tracking the life-cycle of the content.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
     public Enumeration<PublicationStatus> getStatusElement() { 
       if (this.status == null)
@@ -7908,7 +7957,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
     }
 
     /**
-     * @param value {@link #status} (The status of this capability statement.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
+     * @param value {@link #status} (The status of this capability statement. Enables tracking the life-cycle of the content.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
     public CapabilityStatement setStatusElement(Enumeration<PublicationStatus> value) { 
       this.status = value;
@@ -7916,14 +7965,14 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
     }
 
     /**
-     * @return The status of this capability statement.
+     * @return The status of this capability statement. Enables tracking the life-cycle of the content.
      */
     public PublicationStatus getStatus() { 
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
-     * @param value The status of this capability statement.
+     * @param value The status of this capability statement. Enables tracking the life-cycle of the content.
      */
     public CapabilityStatement setStatus(PublicationStatus value) { 
         if (this.status == null)
@@ -8867,8 +8916,9 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         super.listChildren(childrenList);
         childrenList.add(new Property("url", "uri", "An absolute URL that is used to identify this capability statement when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this capability statement is (or will be) published.", 0, java.lang.Integer.MAX_VALUE, url));
         childrenList.add(new Property("version", "string", "The identifier that is used to identify this version of the capability statement when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the capability statement author manually and the value should be a timestamp.", 0, java.lang.Integer.MAX_VALUE, version));
-        childrenList.add(new Property("name", "string", "A free text natural language name identifying the capability statement.", 0, java.lang.Integer.MAX_VALUE, name));
-        childrenList.add(new Property("status", "code", "The status of this capability statement.", 0, java.lang.Integer.MAX_VALUE, status));
+        childrenList.add(new Property("name", "string", "A natural language name identifying the capability statement. This name should be usable as an identifier for the module by machine processing applications such as code generation.", 0, java.lang.Integer.MAX_VALUE, name));
+        childrenList.add(new Property("title", "string", "A short, descriptive, user-friendly title for the capability statement.", 0, java.lang.Integer.MAX_VALUE, title));
+        childrenList.add(new Property("status", "code", "The status of this capability statement. Enables tracking the life-cycle of the content.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("experimental", "boolean", "A flag to indicate that this capability statement is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.", 0, java.lang.Integer.MAX_VALUE, experimental));
         childrenList.add(new Property("date", "dateTime", "The date  (and optionally time) when the capability statement was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the capability statement changes.", 0, java.lang.Integer.MAX_VALUE, date));
         childrenList.add(new Property("publisher", "string", "The name of the individual or organization that published the Capability Statement.", 0, java.lang.Integer.MAX_VALUE, publisher));
@@ -8896,6 +8946,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         case 116079: /*url*/ return this.url == null ? new Base[0] : new Base[] {this.url}; // UriType
         case 351608024: /*version*/ return this.version == null ? new Base[0] : new Base[] {this.version}; // StringType
         case 3373707: /*name*/ return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
+        case 110371416: /*title*/ return this.title == null ? new Base[0] : new Base[] {this.title}; // StringType
         case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<PublicationStatus>
         case -404562712: /*experimental*/ return this.experimental == null ? new Base[0] : new Base[] {this.experimental}; // BooleanType
         case 3076014: /*date*/ return this.date == null ? new Base[0] : new Base[] {this.date}; // DateTimeType
@@ -8932,6 +8983,9 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
           break;
         case 3373707: // name
           this.name = castToString(value); // StringType
+          break;
+        case 110371416: // title
+          this.title = castToString(value); // StringType
           break;
         case -892481550: // status
           this.status = new PublicationStatusEnumFactory().fromType(value); // Enumeration<PublicationStatus>
@@ -9006,6 +9060,8 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
           this.version = castToString(value); // StringType
         else if (name.equals("name"))
           this.name = castToString(value); // StringType
+        else if (name.equals("title"))
+          this.title = castToString(value); // StringType
         else if (name.equals("status"))
           this.status = new PublicationStatusEnumFactory().fromType(value); // Enumeration<PublicationStatus>
         else if (name.equals("experimental"))
@@ -9056,6 +9112,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         case 116079: throw new FHIRException("Cannot make property url as it is not a complex type"); // UriType
         case 351608024: throw new FHIRException("Cannot make property version as it is not a complex type"); // StringType
         case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
+        case 110371416: throw new FHIRException("Cannot make property title as it is not a complex type"); // StringType
         case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<PublicationStatus>
         case -404562712: throw new FHIRException("Cannot make property experimental as it is not a complex type"); // BooleanType
         case 3076014: throw new FHIRException("Cannot make property date as it is not a complex type"); // DateTimeType
@@ -9091,6 +9148,9 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         }
         else if (name.equals("name")) {
           throw new FHIRException("Cannot call addChild on a primitive type CapabilityStatement.name");
+        }
+        else if (name.equals("title")) {
+          throw new FHIRException("Cannot call addChild on a primitive type CapabilityStatement.title");
         }
         else if (name.equals("status")) {
           throw new FHIRException("Cannot call addChild on a primitive type CapabilityStatement.status");
@@ -9169,6 +9229,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         dst.url = url == null ? null : url.copy();
         dst.version = version == null ? null : version.copy();
         dst.name = name == null ? null : name.copy();
+        dst.title = title == null ? null : title.copy();
         dst.status = status == null ? null : status.copy();
         dst.experimental = experimental == null ? null : experimental.copy();
         dst.date = date == null ? null : date.copy();
@@ -9366,6 +9427,26 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.StringClientParam DESCRIPTION = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_DESCRIPTION);
+
+ /**
+   * Search parameter: <b>title</b>
+   * <p>
+   * Description: <b>Text search against the title of the capability statement</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>CapabilityStatement.title</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="title", path="CapabilityStatement.title", description="Text search against the title of the capability statement", type="string" )
+  public static final String SP_TITLE = "title";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>title</b>
+   * <p>
+   * Description: <b>Text search against the title of the capability statement</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>CapabilityStatement.title</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam TITLE = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_TITLE);
 
  /**
    * Search parameter: <b>fhirversion</b>

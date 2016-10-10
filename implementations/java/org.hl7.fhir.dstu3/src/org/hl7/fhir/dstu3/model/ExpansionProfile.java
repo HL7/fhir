@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Oct 10, 2016 15:45+1100 for FHIR v1.7.0
+// Generated on Mon, Oct 10, 2016 17:18+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -2150,10 +2150,10 @@ public class ExpansionProfile extends MetadataResource {
   }
 
     /**
-     * Formal identifier that is used to identify this expansion profile when it is represented in other formats, or referenced in a specification, model, design or an instance.
+     * A formal identifier that is used to identify this expansion profile when it is represented in other formats, or referenced in a specification, model, design or an instance.
      */
     @Child(name = "identifier", type = {Identifier.class}, order=0, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Additional identifier for the expansion profile (e.g. an Object Identifier)", formalDefinition="Formal identifier that is used to identify this expansion profile when it is represented in other formats, or referenced in a specification, model, design or an instance." )
+    @Description(shortDefinition="Additional identifier for the expansion profile", formalDefinition="A formal identifier that is used to identify this expansion profile when it is represented in other formats, or referenced in a specification, model, design or an instance." )
     protected Identifier identifier;
 
     /**
@@ -2315,7 +2315,7 @@ public class ExpansionProfile extends MetadataResource {
     }
 
     /**
-     * @return {@link #identifier} (Formal identifier that is used to identify this expansion profile when it is represented in other formats, or referenced in a specification, model, design or an instance.)
+     * @return {@link #identifier} (A formal identifier that is used to identify this expansion profile when it is represented in other formats, or referenced in a specification, model, design or an instance.)
      */
     public Identifier getIdentifier() { 
       if (this.identifier == null)
@@ -2331,7 +2331,7 @@ public class ExpansionProfile extends MetadataResource {
     }
 
     /**
-     * @param value {@link #identifier} (Formal identifier that is used to identify this expansion profile when it is represented in other formats, or referenced in a specification, model, design or an instance.)
+     * @param value {@link #identifier} (A formal identifier that is used to identify this expansion profile when it is represented in other formats, or referenced in a specification, model, design or an instance.)
      */
     public ExpansionProfile setIdentifier(Identifier value) { 
       this.identifier = value;
@@ -2388,7 +2388,7 @@ public class ExpansionProfile extends MetadataResource {
     }
 
     /**
-     * @return {@link #name} (A free text natural language name identifying the expansion profile.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
+     * @return {@link #name} (A natural language name identifying the expansion profile. This name should be usable as an identifier for the module by machine processing applications such as code generation.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
      */
     public StringType getNameElement() { 
       if (this.name == null)
@@ -2408,7 +2408,7 @@ public class ExpansionProfile extends MetadataResource {
     }
 
     /**
-     * @param value {@link #name} (A free text natural language name identifying the expansion profile.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
+     * @param value {@link #name} (A natural language name identifying the expansion profile. This name should be usable as an identifier for the module by machine processing applications such as code generation.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
      */
     public ExpansionProfile setNameElement(StringType value) { 
       this.name = value;
@@ -2416,14 +2416,14 @@ public class ExpansionProfile extends MetadataResource {
     }
 
     /**
-     * @return A free text natural language name identifying the expansion profile.
+     * @return A natural language name identifying the expansion profile. This name should be usable as an identifier for the module by machine processing applications such as code generation.
      */
     public String getName() { 
       return this.name == null ? null : this.name.getValue();
     }
 
     /**
-     * @param value A free text natural language name identifying the expansion profile.
+     * @param value A natural language name identifying the expansion profile. This name should be usable as an identifier for the module by machine processing applications such as code generation.
      */
     public ExpansionProfile setName(String value) { 
       if (Utilities.noString(value))
@@ -2437,7 +2437,7 @@ public class ExpansionProfile extends MetadataResource {
     }
 
     /**
-     * @return {@link #status} (The status of this expansion profile.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
+     * @return {@link #status} (The status of this expansion profile. Enables tracking the life-cycle of the content.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
     public Enumeration<PublicationStatus> getStatusElement() { 
       if (this.status == null)
@@ -2457,7 +2457,7 @@ public class ExpansionProfile extends MetadataResource {
     }
 
     /**
-     * @param value {@link #status} (The status of this expansion profile.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
+     * @param value {@link #status} (The status of this expansion profile. Enables tracking the life-cycle of the content.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
     public ExpansionProfile setStatusElement(Enumeration<PublicationStatus> value) { 
       this.status = value;
@@ -2465,14 +2465,14 @@ public class ExpansionProfile extends MetadataResource {
     }
 
     /**
-     * @return The status of this expansion profile.
+     * @return The status of this expansion profile. Enables tracking the life-cycle of the content.
      */
     public PublicationStatus getStatus() { 
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
-     * @param value The status of this expansion profile.
+     * @param value The status of this expansion profile. Enables tracking the life-cycle of the content.
      */
     public ExpansionProfile setStatus(PublicationStatus value) { 
         if (this.status == null)
@@ -3194,10 +3194,10 @@ public class ExpansionProfile extends MetadataResource {
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("url", "uri", "An absolute URL that is used to identify this expansion profile when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this capability statement is (or will be) published.", 0, java.lang.Integer.MAX_VALUE, url));
-        childrenList.add(new Property("identifier", "Identifier", "Formal identifier that is used to identify this expansion profile when it is represented in other formats, or referenced in a specification, model, design or an instance.", 0, java.lang.Integer.MAX_VALUE, identifier));
+        childrenList.add(new Property("identifier", "Identifier", "A formal identifier that is used to identify this expansion profile when it is represented in other formats, or referenced in a specification, model, design or an instance.", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("version", "string", "The identifier that is used to identify this version of the expansion profile when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the expansion profile author manually and the value should be a timestamp.", 0, java.lang.Integer.MAX_VALUE, version));
-        childrenList.add(new Property("name", "string", "A free text natural language name identifying the expansion profile.", 0, java.lang.Integer.MAX_VALUE, name));
-        childrenList.add(new Property("status", "code", "The status of this expansion profile.", 0, java.lang.Integer.MAX_VALUE, status));
+        childrenList.add(new Property("name", "string", "A natural language name identifying the expansion profile. This name should be usable as an identifier for the module by machine processing applications such as code generation.", 0, java.lang.Integer.MAX_VALUE, name));
+        childrenList.add(new Property("status", "code", "The status of this expansion profile. Enables tracking the life-cycle of the content.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("experimental", "boolean", "A flag to indicate that this expansion profile is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.", 0, java.lang.Integer.MAX_VALUE, experimental));
         childrenList.add(new Property("publisher", "string", "The name of the individual or organization that published the expansion profile.", 0, java.lang.Integer.MAX_VALUE, publisher));
         childrenList.add(new Property("contact", "", "Contacts to assist a user in finding and communicating with the publisher.", 0, java.lang.Integer.MAX_VALUE, contact));
@@ -3575,17 +3575,17 @@ public class ExpansionProfile extends MetadataResource {
  /**
    * Search parameter: <b>identifier</b>
    * <p>
-   * Description: <b>The identifier for the expansion profile</b><br>
+   * Description: <b>External identifiers for the expansion profile</b><br>
    * Type: <b>token</b><br>
    * Path: <b>ExpansionProfile.identifier</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="identifier", path="ExpansionProfile.identifier", description="The identifier for the expansion profile", type="token" )
+  @SearchParamDefinition(name="identifier", path="ExpansionProfile.identifier", description="External identifiers for the expansion profile", type="token" )
   public static final String SP_IDENTIFIER = "identifier";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
    * <p>
-   * Description: <b>The identifier for the expansion profile</b><br>
+   * Description: <b>External identifiers for the expansion profile</b><br>
    * Type: <b>token</b><br>
    * Path: <b>ExpansionProfile.identifier</b><br>
    * </p>

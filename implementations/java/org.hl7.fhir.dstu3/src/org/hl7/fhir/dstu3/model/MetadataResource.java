@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Oct 10, 2016 15:45+1100 for FHIR v1.7.0
+// Generated on Mon, Oct 10, 2016 17:18+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -52,7 +52,7 @@ public abstract class MetadataResource extends DomainResource {
      * An absolute URL that is used to identify this metadata resource when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this capability statement is (or will be) published.
      */
     @Child(name = "url", type = {UriType.class}, order=0, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Globally unique Logical uri to reference this metadata resource", formalDefinition="An absolute URL that is used to identify this metadata resource when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this capability statement is (or will be) published." )
+    @Description(shortDefinition="Logical uri to reference this metadata resource (globally unique)", formalDefinition="An absolute URL that is used to identify this metadata resource when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this capability statement is (or will be) published." )
     protected UriType url;
 
     /**
@@ -63,43 +63,50 @@ public abstract class MetadataResource extends DomainResource {
     protected StringType version;
 
     /**
-     * A free text natural language name identifying the metadata resource.
+     * A natural language name identifying the metadata resource. This name should be usable as an identifier for the module by machine processing applications such as code generation.
      */
     @Child(name = "name", type = {StringType.class}, order=2, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Informal name for this metadata resource", formalDefinition="A free text natural language name identifying the metadata resource." )
+    @Description(shortDefinition="Name for this metadata resource (Computer friendly)", formalDefinition="A natural language name identifying the metadata resource. This name should be usable as an identifier for the module by machine processing applications such as code generation." )
     protected StringType name;
 
     /**
-     * The status of this metadata resource.
+     * A short, descriptive, user-friendly title for the metadata resource.
      */
-    @Child(name = "status", type = {CodeType.class}, order=3, min=1, max=1, modifier=true, summary=true)
-    @Description(shortDefinition="draft | active | retired", formalDefinition="The status of this metadata resource." )
+    @Child(name = "title", type = {StringType.class}, order=3, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="Name for this metadata resource (Human friendly)", formalDefinition="A short, descriptive, user-friendly title for the metadata resource." )
+    protected StringType title;
+
+    /**
+     * The status of this metadata resource. Enables tracking the life-cycle of the content.
+     */
+    @Child(name = "status", type = {CodeType.class}, order=4, min=1, max=1, modifier=true, summary=true)
+    @Description(shortDefinition="draft | active | retired", formalDefinition="The status of this metadata resource. Enables tracking the life-cycle of the content." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/conformance-resource-status")
     protected Enumeration<PublicationStatus> status;
 
     /**
      * A flag to indicate that this metadata resource is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
      */
-    @Child(name = "experimental", type = {BooleanType.class}, order=4, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "experimental", type = {BooleanType.class}, order=5, min=0, max=1, modifier=true, summary=true)
     @Description(shortDefinition="If for testing purposes, not real usage", formalDefinition="A flag to indicate that this metadata resource is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage." )
     protected BooleanType experimental;
 
     /**
      * The date  (and optionally time) when the metadata resource was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the metadata resource changes.
      */
-    @Child(name = "date", type = {DateTimeType.class}, order=5, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "date", type = {DateTimeType.class}, order=6, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Date this was last changed", formalDefinition="The date  (and optionally time) when the metadata resource was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the metadata resource changes." )
     protected DateTimeType date;
 
     /**
      * The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of code system definitions.
      */
-    @Child(name = "useContext", type = {CodeableConcept.class}, order=6, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "useContext", type = {CodeableConcept.class}, order=7, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Content intends to support these contexts", formalDefinition="The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of code system definitions." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/use-context")
     protected List<CodeableConcept> useContext;
 
-    private static final long serialVersionUID = -665043763L;
+    private static final long serialVersionUID = -2041633568L;
 
   /**
    * Constructor
@@ -215,7 +222,7 @@ public abstract class MetadataResource extends DomainResource {
     }
 
     /**
-     * @return {@link #name} (A free text natural language name identifying the metadata resource.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
+     * @return {@link #name} (A natural language name identifying the metadata resource. This name should be usable as an identifier for the module by machine processing applications such as code generation.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
      */
     public StringType getNameElement() { 
       if (this.name == null)
@@ -235,7 +242,7 @@ public abstract class MetadataResource extends DomainResource {
     }
 
     /**
-     * @param value {@link #name} (A free text natural language name identifying the metadata resource.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
+     * @param value {@link #name} (A natural language name identifying the metadata resource. This name should be usable as an identifier for the module by machine processing applications such as code generation.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
      */
     public MetadataResource setNameElement(StringType value) { 
       this.name = value;
@@ -243,14 +250,14 @@ public abstract class MetadataResource extends DomainResource {
     }
 
     /**
-     * @return A free text natural language name identifying the metadata resource.
+     * @return A natural language name identifying the metadata resource. This name should be usable as an identifier for the module by machine processing applications such as code generation.
      */
     public String getName() { 
       return this.name == null ? null : this.name.getValue();
     }
 
     /**
-     * @param value A free text natural language name identifying the metadata resource.
+     * @param value A natural language name identifying the metadata resource. This name should be usable as an identifier for the module by machine processing applications such as code generation.
      */
     public MetadataResource setName(String value) { 
       if (Utilities.noString(value))
@@ -264,7 +271,56 @@ public abstract class MetadataResource extends DomainResource {
     }
 
     /**
-     * @return {@link #status} (The status of this metadata resource.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
+     * @return {@link #title} (A short, descriptive, user-friendly title for the metadata resource.). This is the underlying object with id, value and extensions. The accessor "getTitle" gives direct access to the value
+     */
+    public StringType getTitleElement() { 
+      if (this.title == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create MetadataResource.title");
+        else if (Configuration.doAutoCreate())
+          this.title = new StringType(); // bb
+      return this.title;
+    }
+
+    public boolean hasTitleElement() { 
+      return this.title != null && !this.title.isEmpty();
+    }
+
+    public boolean hasTitle() { 
+      return this.title != null && !this.title.isEmpty();
+    }
+
+    /**
+     * @param value {@link #title} (A short, descriptive, user-friendly title for the metadata resource.). This is the underlying object with id, value and extensions. The accessor "getTitle" gives direct access to the value
+     */
+    public MetadataResource setTitleElement(StringType value) { 
+      this.title = value;
+      return this;
+    }
+
+    /**
+     * @return A short, descriptive, user-friendly title for the metadata resource.
+     */
+    public String getTitle() { 
+      return this.title == null ? null : this.title.getValue();
+    }
+
+    /**
+     * @param value A short, descriptive, user-friendly title for the metadata resource.
+     */
+    public MetadataResource setTitle(String value) { 
+      if (Utilities.noString(value))
+        this.title = null;
+      else {
+        if (this.title == null)
+          this.title = new StringType();
+        this.title.setValue(value);
+      }
+      return this;
+    }
+
+    /**
+     * @return {@link #status} (The status of this metadata resource. Enables tracking the life-cycle of the content.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
     public Enumeration<PublicationStatus> getStatusElement() { 
       if (this.status == null)
@@ -284,7 +340,7 @@ public abstract class MetadataResource extends DomainResource {
     }
 
     /**
-     * @param value {@link #status} (The status of this metadata resource.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
+     * @param value {@link #status} (The status of this metadata resource. Enables tracking the life-cycle of the content.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
     public MetadataResource setStatusElement(Enumeration<PublicationStatus> value) { 
       this.status = value;
@@ -292,14 +348,14 @@ public abstract class MetadataResource extends DomainResource {
     }
 
     /**
-     * @return The status of this metadata resource.
+     * @return The status of this metadata resource. Enables tracking the life-cycle of the content.
      */
     public PublicationStatus getStatus() { 
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
-     * @param value The status of this metadata resource.
+     * @param value The status of this metadata resource. Enables tracking the life-cycle of the content.
      */
     public MetadataResource setStatus(PublicationStatus value) { 
         if (this.status == null)
@@ -458,8 +514,9 @@ public abstract class MetadataResource extends DomainResource {
       protected void listChildren(List<Property> childrenList) {
         childrenList.add(new Property("url", "uri", "An absolute URL that is used to identify this metadata resource when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this capability statement is (or will be) published.", 0, java.lang.Integer.MAX_VALUE, url));
         childrenList.add(new Property("version", "string", "The identifier that is used to identify this version of the metadata resource when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the metadata resource author manually and the value should be a timestamp.", 0, java.lang.Integer.MAX_VALUE, version));
-        childrenList.add(new Property("name", "string", "A free text natural language name identifying the metadata resource.", 0, java.lang.Integer.MAX_VALUE, name));
-        childrenList.add(new Property("status", "code", "The status of this metadata resource.", 0, java.lang.Integer.MAX_VALUE, status));
+        childrenList.add(new Property("name", "string", "A natural language name identifying the metadata resource. This name should be usable as an identifier for the module by machine processing applications such as code generation.", 0, java.lang.Integer.MAX_VALUE, name));
+        childrenList.add(new Property("title", "string", "A short, descriptive, user-friendly title for the metadata resource.", 0, java.lang.Integer.MAX_VALUE, title));
+        childrenList.add(new Property("status", "code", "The status of this metadata resource. Enables tracking the life-cycle of the content.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("experimental", "boolean", "A flag to indicate that this metadata resource is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.", 0, java.lang.Integer.MAX_VALUE, experimental));
         childrenList.add(new Property("date", "dateTime", "The date  (and optionally time) when the metadata resource was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the metadata resource changes.", 0, java.lang.Integer.MAX_VALUE, date));
         childrenList.add(new Property("useContext", "CodeableConcept", "The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of code system definitions.", 0, java.lang.Integer.MAX_VALUE, useContext));
@@ -471,6 +528,7 @@ public abstract class MetadataResource extends DomainResource {
         case 116079: /*url*/ return this.url == null ? new Base[0] : new Base[] {this.url}; // UriType
         case 351608024: /*version*/ return this.version == null ? new Base[0] : new Base[] {this.version}; // StringType
         case 3373707: /*name*/ return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
+        case 110371416: /*title*/ return this.title == null ? new Base[0] : new Base[] {this.title}; // StringType
         case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<PublicationStatus>
         case -404562712: /*experimental*/ return this.experimental == null ? new Base[0] : new Base[] {this.experimental}; // BooleanType
         case 3076014: /*date*/ return this.date == null ? new Base[0] : new Base[] {this.date}; // DateTimeType
@@ -491,6 +549,9 @@ public abstract class MetadataResource extends DomainResource {
           break;
         case 3373707: // name
           this.name = castToString(value); // StringType
+          break;
+        case 110371416: // title
+          this.title = castToString(value); // StringType
           break;
         case -892481550: // status
           this.status = new PublicationStatusEnumFactory().fromType(value); // Enumeration<PublicationStatus>
@@ -517,6 +578,8 @@ public abstract class MetadataResource extends DomainResource {
           this.version = castToString(value); // StringType
         else if (name.equals("name"))
           this.name = castToString(value); // StringType
+        else if (name.equals("title"))
+          this.title = castToString(value); // StringType
         else if (name.equals("status"))
           this.status = new PublicationStatusEnumFactory().fromType(value); // Enumeration<PublicationStatus>
         else if (name.equals("experimental"))
@@ -535,6 +598,7 @@ public abstract class MetadataResource extends DomainResource {
         case 116079: throw new FHIRException("Cannot make property url as it is not a complex type"); // UriType
         case 351608024: throw new FHIRException("Cannot make property version as it is not a complex type"); // StringType
         case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
+        case 110371416: throw new FHIRException("Cannot make property title as it is not a complex type"); // StringType
         case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<PublicationStatus>
         case -404562712: throw new FHIRException("Cannot make property experimental as it is not a complex type"); // BooleanType
         case 3076014: throw new FHIRException("Cannot make property date as it is not a complex type"); // DateTimeType
@@ -554,6 +618,9 @@ public abstract class MetadataResource extends DomainResource {
         }
         else if (name.equals("name")) {
           throw new FHIRException("Cannot call addChild on a primitive type MetadataResource.name");
+        }
+        else if (name.equals("title")) {
+          throw new FHIRException("Cannot call addChild on a primitive type MetadataResource.title");
         }
         else if (name.equals("status")) {
           throw new FHIRException("Cannot call addChild on a primitive type MetadataResource.status");
@@ -583,6 +650,7 @@ public abstract class MetadataResource extends DomainResource {
         dst.url = url == null ? null : url.copy();
         dst.version = version == null ? null : version.copy();
         dst.name = name == null ? null : name.copy();
+        dst.title = title == null ? null : title.copy();
         dst.status = status == null ? null : status.copy();
         dst.experimental = experimental == null ? null : experimental.copy();
         dst.date = date == null ? null : date.copy();
@@ -601,8 +669,8 @@ public abstract class MetadataResource extends DomainResource {
           return false;
         MetadataResource o = (MetadataResource) other;
         return compareDeep(url, o.url, true) && compareDeep(version, o.version, true) && compareDeep(name, o.name, true)
-           && compareDeep(status, o.status, true) && compareDeep(experimental, o.experimental, true) && compareDeep(date, o.date, true)
-           && compareDeep(useContext, o.useContext, true);
+           && compareDeep(title, o.title, true) && compareDeep(status, o.status, true) && compareDeep(experimental, o.experimental, true)
+           && compareDeep(date, o.date, true) && compareDeep(useContext, o.useContext, true);
       }
 
       @Override
@@ -613,13 +681,13 @@ public abstract class MetadataResource extends DomainResource {
           return false;
         MetadataResource o = (MetadataResource) other;
         return compareValues(url, o.url, true) && compareValues(version, o.version, true) && compareValues(name, o.name, true)
-           && compareValues(status, o.status, true) && compareValues(experimental, o.experimental, true) && compareValues(date, o.date, true)
-          ;
+           && compareValues(title, o.title, true) && compareValues(status, o.status, true) && compareValues(experimental, o.experimental, true)
+           && compareValues(date, o.date, true);
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(url, version, name, status
-          , experimental, date, useContext);
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(url, version, name, title
+          , status, experimental, date, useContext);
       }
 
 

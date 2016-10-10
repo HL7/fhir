@@ -66,12 +66,15 @@
   Comments = & This is often the same as the code for the parameter, but does not need to be
 
  -- Row 4 -----------------------------------
-  Element = CompartmentDefinition.status
+  Element = CompartmentDefinition.title
 
  -- Row 5 -----------------------------------
-  Element = CompartmentDefinition.experimental
+  Element = CompartmentDefinition.status
 
  -- Row 6 -----------------------------------
+  Element = CompartmentDefinition.experimental
+
+ -- Row 7 -----------------------------------
   Element = CompartmentDefinition.publisher
   Card. = 0..1
   Summary = y
@@ -82,7 +85,7 @@
   Comments = Usually an organization, but may be an individual. This item SHOULD be populated unless the information is available from context.
   w5 = who.witness
 
- -- Row 7 -----------------------------------
+ -- Row 8 -----------------------------------
   Element = CompartmentDefinition.contact
   Card. = 0..*
   Summary = y
@@ -91,7 +94,7 @@
   Definition = Contacts to assist a user in finding and communicating with the publisher
   Comments = May be a web site, an email address, a telephone number (tel:), etc.
 
- -- Row 8 -----------------------------------
+ -- Row 9 -----------------------------------
   Element = CompartmentDefinition.contact.name
   Card. = 0..1
   Summary = Y
@@ -100,7 +103,7 @@
   Definition = The name of an individual to contact regarding the compartment definition
   Comments = If there is no named individual, the telecom is for the organization as a whole
 
- -- Row 9 -----------------------------------
+ -- Row 10 -----------------------------------
   Element = CompartmentDefinition.contact.telecom
   Card. = 0..*
   Summary = Y
@@ -108,10 +111,10 @@
   Short Name = Contact details for individual or publisher
   Definition = Contact details for individual (if a name was provided) or the publisher
 
- -- Row 10 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = CompartmentDefinition.date
 
- -- Row 11 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = CompartmentDefinition.description
   Card. = 0..1
   Summary = y
@@ -119,13 +122,13 @@
   Short Name = Natural language description of the CompartmentDefinition
   Definition = A free text natural language description of the CompartmentDefinition and its use
 
- -- Row 12 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = CompartmentDefinition.purpose
 
- -- Row 13 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = CompartmentDefinition.useContext
 
- -- Row 14 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = CompartmentDefinition.code
   Card. = 1..1
   Summary = Y
@@ -135,7 +138,7 @@
   Definition = Which compartment this definition describes
   Comments = Only the specification can define the compartments that can exist. Servers can choose to support them
 
- -- Row 15 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = CompartmentDefinition.search
   Card. = 1..1
   Summary = y
@@ -144,7 +147,7 @@
   Definition = Whether the search syntax is supported
   Comments = Servers may define and use compartments to manage logical access without implementing the compoartment related syntax
 
- -- Row 16 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = CompartmentDefinition.resource
   Card. = 0..*
   Summary = y
@@ -152,7 +155,7 @@
   Short Name = How resource is related to the compartment
   Definition = Information about how a resource it related to the compartment
 
- -- Row 17 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = CompartmentDefinition.resource.code
   Card. = 1..1
   Summary = y
@@ -161,7 +164,7 @@
   Short Name = Name of resource type
   Definition = The name of a resource supported by the server
 
- -- Row 18 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = CompartmentDefinition.resource.param
   Card. = 0..*
   Summary = y
@@ -170,7 +173,7 @@
   Definition = The name of a search parameter that represents the link to the compartment. More than one may be listed because a resource may be linked to a compartment more than one way
   Comments = If no search parameters are listed, then the resource is not linked to the compartment
 
- -- Row 19 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = CompartmentDefinition.resource.documentation
   Card. = 0..1
   Type = string

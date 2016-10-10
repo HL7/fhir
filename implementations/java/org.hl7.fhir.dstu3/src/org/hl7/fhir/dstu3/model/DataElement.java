@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Oct 10, 2016 15:45+1100 for FHIR v1.7.0
+// Generated on Mon, Oct 10, 2016 17:18+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -803,10 +803,10 @@ public class DataElement extends MetadataResource {
   }
 
     /**
-     * Formal identifier that is used to identify this data element when it is represented in other formats, or referenced in a specification, model, design or an instance.
+     * A formal identifier that is used to identify this data element when it is represented in other formats, or referenced in a specification, model, design or an instance.
      */
     @Child(name = "identifier", type = {Identifier.class}, order=0, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-    @Description(shortDefinition="Logical id to reference this data element", formalDefinition="Formal identifier that is used to identify this data element when it is represented in other formats, or referenced in a specification, model, design or an instance." )
+    @Description(shortDefinition="Additional identifier for the data element", formalDefinition="A formal identifier that is used to identify this data element when it is represented in other formats, or referenced in a specification, model, design or an instance." )
     protected List<Identifier> identifier;
 
     /**
@@ -919,7 +919,7 @@ public class DataElement extends MetadataResource {
     }
 
     /**
-     * @return {@link #identifier} (Formal identifier that is used to identify this data element when it is represented in other formats, or referenced in a specification, model, design or an instance.)
+     * @return {@link #identifier} (A formal identifier that is used to identify this data element when it is represented in other formats, or referenced in a specification, model, design or an instance.)
      */
     public List<Identifier> getIdentifier() { 
       if (this.identifier == null)
@@ -1021,7 +1021,7 @@ public class DataElement extends MetadataResource {
     }
 
     /**
-     * @return {@link #status} (The status of this data element.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
+     * @return {@link #status} (The status of this data element. Enables tracking the life-cycle of the content.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
     public Enumeration<PublicationStatus> getStatusElement() { 
       if (this.status == null)
@@ -1041,7 +1041,7 @@ public class DataElement extends MetadataResource {
     }
 
     /**
-     * @param value {@link #status} (The status of this data element.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
+     * @param value {@link #status} (The status of this data element. Enables tracking the life-cycle of the content.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
     public DataElement setStatusElement(Enumeration<PublicationStatus> value) { 
       this.status = value;
@@ -1049,14 +1049,14 @@ public class DataElement extends MetadataResource {
     }
 
     /**
-     * @return The status of this data element.
+     * @return The status of this data element. Enables tracking the life-cycle of the content.
      */
     public PublicationStatus getStatus() { 
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
-     * @param value The status of this data element.
+     * @param value The status of this data element. Enables tracking the life-cycle of the content.
      */
     public DataElement setStatus(PublicationStatus value) { 
         if (this.status == null)
@@ -1209,7 +1209,7 @@ public class DataElement extends MetadataResource {
     }
 
     /**
-     * @return {@link #name} (A free text natural language name identifying the data element.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
+     * @return {@link #name} (A natural language name identifying the data element. This name should be usable as an identifier for the module by machine processing applications such as code generation.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
      */
     public StringType getNameElement() { 
       if (this.name == null)
@@ -1229,7 +1229,7 @@ public class DataElement extends MetadataResource {
     }
 
     /**
-     * @param value {@link #name} (A free text natural language name identifying the data element.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
+     * @param value {@link #name} (A natural language name identifying the data element. This name should be usable as an identifier for the module by machine processing applications such as code generation.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
      */
     public DataElement setNameElement(StringType value) { 
       this.name = value;
@@ -1237,14 +1237,14 @@ public class DataElement extends MetadataResource {
     }
 
     /**
-     * @return A free text natural language name identifying the data element.
+     * @return A natural language name identifying the data element. This name should be usable as an identifier for the module by machine processing applications such as code generation.
      */
     public String getName() { 
       return this.name == null ? null : this.name.getValue();
     }
 
     /**
-     * @param value A free text natural language name identifying the data element.
+     * @param value A natural language name identifying the data element. This name should be usable as an identifier for the module by machine processing applications such as code generation.
      */
     public DataElement setName(String value) { 
       if (Utilities.noString(value))
@@ -1253,6 +1253,55 @@ public class DataElement extends MetadataResource {
         if (this.name == null)
           this.name = new StringType();
         this.name.setValue(value);
+      }
+      return this;
+    }
+
+    /**
+     * @return {@link #title} (A short, descriptive, user-friendly title for the data element.). This is the underlying object with id, value and extensions. The accessor "getTitle" gives direct access to the value
+     */
+    public StringType getTitleElement() { 
+      if (this.title == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create DataElement.title");
+        else if (Configuration.doAutoCreate())
+          this.title = new StringType(); // bb
+      return this.title;
+    }
+
+    public boolean hasTitleElement() { 
+      return this.title != null && !this.title.isEmpty();
+    }
+
+    public boolean hasTitle() { 
+      return this.title != null && !this.title.isEmpty();
+    }
+
+    /**
+     * @param value {@link #title} (A short, descriptive, user-friendly title for the data element.). This is the underlying object with id, value and extensions. The accessor "getTitle" gives direct access to the value
+     */
+    public DataElement setTitleElement(StringType value) { 
+      this.title = value;
+      return this;
+    }
+
+    /**
+     * @return A short, descriptive, user-friendly title for the data element.
+     */
+    public String getTitle() { 
+      return this.title == null ? null : this.title.getValue();
+    }
+
+    /**
+     * @param value A short, descriptive, user-friendly title for the data element.
+     */
+    public DataElement setTitle(String value) { 
+      if (Utilities.noString(value))
+        this.title = null;
+      else {
+        if (this.title == null)
+          this.title = new StringType();
+        this.title.setValue(value);
       }
       return this;
     }
@@ -1570,13 +1619,14 @@ public class DataElement extends MetadataResource {
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("url", "uri", "An absolute URL that is used to identify this data element when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this capability statement is (or will be) published.", 0, java.lang.Integer.MAX_VALUE, url));
-        childrenList.add(new Property("identifier", "Identifier", "Formal identifier that is used to identify this data element when it is represented in other formats, or referenced in a specification, model, design or an instance.", 0, java.lang.Integer.MAX_VALUE, identifier));
+        childrenList.add(new Property("identifier", "Identifier", "A formal identifier that is used to identify this data element when it is represented in other formats, or referenced in a specification, model, design or an instance.", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("version", "string", "The identifier that is used to identify this version of the data element when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the data element author manually and the value should be a timestamp.", 0, java.lang.Integer.MAX_VALUE, version));
-        childrenList.add(new Property("status", "code", "The status of this data element.", 0, java.lang.Integer.MAX_VALUE, status));
+        childrenList.add(new Property("status", "code", "The status of this data element. Enables tracking the life-cycle of the content.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("experimental", "boolean", "A flag to indicate that this data element is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.", 0, java.lang.Integer.MAX_VALUE, experimental));
         childrenList.add(new Property("publisher", "string", "The name of the individual or organization that published the data element.", 0, java.lang.Integer.MAX_VALUE, publisher));
         childrenList.add(new Property("date", "dateTime", "The date  (and optionally time) when the data element was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the data element changes.", 0, java.lang.Integer.MAX_VALUE, date));
-        childrenList.add(new Property("name", "string", "A free text natural language name identifying the data element.", 0, java.lang.Integer.MAX_VALUE, name));
+        childrenList.add(new Property("name", "string", "A natural language name identifying the data element. This name should be usable as an identifier for the module by machine processing applications such as code generation.", 0, java.lang.Integer.MAX_VALUE, name));
+        childrenList.add(new Property("title", "string", "A short, descriptive, user-friendly title for the data element.", 0, java.lang.Integer.MAX_VALUE, title));
         childrenList.add(new Property("contact", "", "Contacts to assist a user in finding and communicating with the publisher.", 0, java.lang.Integer.MAX_VALUE, contact));
         childrenList.add(new Property("useContext", "CodeableConcept", "The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of code system definitions.", 0, java.lang.Integer.MAX_VALUE, useContext));
         childrenList.add(new Property("copyright", "string", "A copyright statement relating to the definition of the data element. Copyright statements are generally legal restrictions on the use and publishing of the details of the definition of the data element.", 0, java.lang.Integer.MAX_VALUE, copyright));
@@ -1596,6 +1646,7 @@ public class DataElement extends MetadataResource {
         case 1447404028: /*publisher*/ return this.publisher == null ? new Base[0] : new Base[] {this.publisher}; // StringType
         case 3076014: /*date*/ return this.date == null ? new Base[0] : new Base[] {this.date}; // DateTimeType
         case 3373707: /*name*/ return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
+        case 110371416: /*title*/ return this.title == null ? new Base[0] : new Base[] {this.title}; // StringType
         case 951526432: /*contact*/ return this.contact == null ? new Base[0] : this.contact.toArray(new Base[this.contact.size()]); // DataElementContactComponent
         case -669707736: /*useContext*/ return this.useContext == null ? new Base[0] : this.useContext.toArray(new Base[this.useContext.size()]); // CodeableConcept
         case 1522889671: /*copyright*/ return this.copyright == null ? new Base[0] : new Base[] {this.copyright}; // StringType
@@ -1633,6 +1684,9 @@ public class DataElement extends MetadataResource {
           break;
         case 3373707: // name
           this.name = castToString(value); // StringType
+          break;
+        case 110371416: // title
+          this.title = castToString(value); // StringType
           break;
         case 951526432: // contact
           this.getContact().add((DataElementContactComponent) value); // DataElementContactComponent
@@ -1675,6 +1729,8 @@ public class DataElement extends MetadataResource {
           this.date = castToDateTime(value); // DateTimeType
         else if (name.equals("name"))
           this.name = castToString(value); // StringType
+        else if (name.equals("title"))
+          this.title = castToString(value); // StringType
         else if (name.equals("contact"))
           this.getContact().add((DataElementContactComponent) value);
         else if (name.equals("useContext"))
@@ -1702,6 +1758,7 @@ public class DataElement extends MetadataResource {
         case 1447404028: throw new FHIRException("Cannot make property publisher as it is not a complex type"); // StringType
         case 3076014: throw new FHIRException("Cannot make property date as it is not a complex type"); // DateTimeType
         case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
+        case 110371416: throw new FHIRException("Cannot make property title as it is not a complex type"); // StringType
         case 951526432:  return addContact(); // DataElementContactComponent
         case -669707736:  return addUseContext(); // CodeableConcept
         case 1522889671: throw new FHIRException("Cannot make property copyright as it is not a complex type"); // StringType
@@ -1738,6 +1795,9 @@ public class DataElement extends MetadataResource {
         }
         else if (name.equals("name")) {
           throw new FHIRException("Cannot call addChild on a primitive type DataElement.name");
+        }
+        else if (name.equals("title")) {
+          throw new FHIRException("Cannot call addChild on a primitive type DataElement.title");
         }
         else if (name.equals("contact")) {
           return addContact();
@@ -1781,6 +1841,7 @@ public class DataElement extends MetadataResource {
         dst.publisher = publisher == null ? null : publisher.copy();
         dst.date = date == null ? null : date.copy();
         dst.name = name == null ? null : name.copy();
+        dst.title = title == null ? null : title.copy();
         if (contact != null) {
           dst.contact = new ArrayList<DataElementContactComponent>();
           for (DataElementContactComponent i : contact)
@@ -1866,17 +1927,17 @@ public class DataElement extends MetadataResource {
  /**
    * Search parameter: <b>identifier</b>
    * <p>
-   * Description: <b>The identifier of the data element</b><br>
+   * Description: <b>External identifiers for the data element</b><br>
    * Type: <b>token</b><br>
    * Path: <b>DataElement.identifier</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="identifier", path="DataElement.identifier", description="The identifier of the data element", type="token" )
+  @SearchParamDefinition(name="identifier", path="DataElement.identifier", description="External identifiers for the data element", type="token" )
   public static final String SP_IDENTIFIER = "identifier";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
    * <p>
-   * Description: <b>The identifier of the data element</b><br>
+   * Description: <b>External identifiers for the data element</b><br>
    * Type: <b>token</b><br>
    * Path: <b>DataElement.identifier</b><br>
    * </p>
@@ -2002,6 +2063,26 @@ public class DataElement extends MetadataResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.StringClientParam DESCRIPTION = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_DESCRIPTION);
+
+ /**
+   * Search parameter: <b>title</b>
+   * <p>
+   * Description: <b>Text search against the title of the data element</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>DataElement.title</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="title", path="DataElement.title", description="Text search against the title of the data element", type="string" )
+  public static final String SP_TITLE = "title";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>title</b>
+   * <p>
+   * Description: <b>Text search against the title of the data element</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>DataElement.title</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam TITLE = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_TITLE);
 
  /**
    * Search parameter: <b>version</b>

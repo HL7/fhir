@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Oct 10, 2016 15:45+1100 for FHIR v1.7.0
+// Generated on Mon, Oct 10, 2016 17:18+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -1925,7 +1925,7 @@ public class OperationDefinition extends MetadataResource {
     }
 
     /**
-     * @return {@link #name} (A free text natural language name identifying the operation definition.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
+     * @return {@link #name} (A natural language name identifying the operation definition. This name should be usable as an identifier for the module by machine processing applications such as code generation.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
      */
     public StringType getNameElement() { 
       if (this.name == null)
@@ -1945,7 +1945,7 @@ public class OperationDefinition extends MetadataResource {
     }
 
     /**
-     * @param value {@link #name} (A free text natural language name identifying the operation definition.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
+     * @param value {@link #name} (A natural language name identifying the operation definition. This name should be usable as an identifier for the module by machine processing applications such as code generation.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
      */
     public OperationDefinition setNameElement(StringType value) { 
       this.name = value;
@@ -1953,14 +1953,14 @@ public class OperationDefinition extends MetadataResource {
     }
 
     /**
-     * @return A free text natural language name identifying the operation definition.
+     * @return A natural language name identifying the operation definition. This name should be usable as an identifier for the module by machine processing applications such as code generation.
      */
     public String getName() { 
       return this.name == null ? null : this.name.getValue();
     }
 
     /**
-     * @param value A free text natural language name identifying the operation definition.
+     * @param value A natural language name identifying the operation definition. This name should be usable as an identifier for the module by machine processing applications such as code generation.
      */
     public OperationDefinition setName(String value) { 
         if (this.name == null)
@@ -1970,7 +1970,7 @@ public class OperationDefinition extends MetadataResource {
     }
 
     /**
-     * @return {@link #status} (The status of this operation definition.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
+     * @return {@link #status} (The status of this operation definition. Enables tracking the life-cycle of the content.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
     public Enumeration<PublicationStatus> getStatusElement() { 
       if (this.status == null)
@@ -1990,7 +1990,7 @@ public class OperationDefinition extends MetadataResource {
     }
 
     /**
-     * @param value {@link #status} (The status of this operation definition.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
+     * @param value {@link #status} (The status of this operation definition. Enables tracking the life-cycle of the content.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
     public OperationDefinition setStatusElement(Enumeration<PublicationStatus> value) { 
       this.status = value;
@@ -1998,14 +1998,14 @@ public class OperationDefinition extends MetadataResource {
     }
 
     /**
-     * @return The status of this operation definition.
+     * @return The status of this operation definition. Enables tracking the life-cycle of the content.
      */
     public PublicationStatus getStatus() { 
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
-     * @param value The status of this operation definition.
+     * @param value The status of this operation definition. Enables tracking the life-cycle of the content.
      */
     public OperationDefinition setStatus(PublicationStatus value) { 
         if (this.status == null)
@@ -2895,8 +2895,8 @@ public class OperationDefinition extends MetadataResource {
         super.listChildren(childrenList);
         childrenList.add(new Property("url", "uri", "An absolute URL that is used to identify this operation definition when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this capability statement is (or will be) published.", 0, java.lang.Integer.MAX_VALUE, url));
         childrenList.add(new Property("version", "string", "The identifier that is used to identify this version of the operation definition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the operation definition author manually and the value should be a timestamp.", 0, java.lang.Integer.MAX_VALUE, version));
-        childrenList.add(new Property("name", "string", "A free text natural language name identifying the operation definition.", 0, java.lang.Integer.MAX_VALUE, name));
-        childrenList.add(new Property("status", "code", "The status of this operation definition.", 0, java.lang.Integer.MAX_VALUE, status));
+        childrenList.add(new Property("name", "string", "A natural language name identifying the operation definition. This name should be usable as an identifier for the module by machine processing applications such as code generation.", 0, java.lang.Integer.MAX_VALUE, name));
+        childrenList.add(new Property("status", "code", "The status of this operation definition. Enables tracking the life-cycle of the content.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("kind", "code", "Whether this is an operation or a named query.", 0, java.lang.Integer.MAX_VALUE, kind));
         childrenList.add(new Property("experimental", "boolean", "A flag to indicate that this operation definition is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.", 0, java.lang.Integer.MAX_VALUE, experimental));
         childrenList.add(new Property("date", "dateTime", "The date  (and optionally time) when the operation definition was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the operation definition changes.", 0, java.lang.Integer.MAX_VALUE, date));

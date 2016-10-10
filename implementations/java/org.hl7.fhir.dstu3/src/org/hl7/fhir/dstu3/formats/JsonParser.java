@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Mon, Oct 10, 2016 15:45+1100 for FHIR v1.7.0
+// Generated on Mon, Oct 10, 2016 17:18+1100 for FHIR v1.7.0
 
 import org.hl7.fhir.dstu3.model.DateType;
 import org.hl7.fhir.dstu3.model.DateTimeType;
@@ -1705,22 +1705,22 @@ public class JsonParser extends JsonParserBase {
       res.setExperimentalElement(parseBoolean(json.get("experimental").getAsBoolean()));
     if (json.has("_experimental"))
       parseElementProperties(json.getAsJsonObject("_experimental"), res.getExperimentalElement());
+    if (json.has("date"))
+      res.setDateElement(parseDateTime(json.get("date").getAsString()));
+    if (json.has("_date"))
+      parseElementProperties(json.getAsJsonObject("_date"), res.getDateElement());
     if (json.has("description"))
       res.setDescriptionElement(parseString(json.get("description").getAsString()));
     if (json.has("_description"))
       parseElementProperties(json.getAsJsonObject("_description"), res.getDescriptionElement());
     if (json.has("purpose"))
-      res.setPurposeElement(parseString(json.get("purpose").getAsString()));
+      res.setPurposeElement(parseMarkdown(json.get("purpose").getAsString()));
     if (json.has("_purpose"))
       parseElementProperties(json.getAsJsonObject("_purpose"), res.getPurposeElement());
     if (json.has("usage"))
       res.setUsageElement(parseString(json.get("usage").getAsString()));
     if (json.has("_usage"))
       parseElementProperties(json.getAsJsonObject("_usage"), res.getUsageElement());
-    if (json.has("publicationDate"))
-      res.setPublicationDateElement(parseDate(json.get("publicationDate").getAsString()));
-    if (json.has("_publicationDate"))
-      parseElementProperties(json.getAsJsonObject("_publicationDate"), res.getPublicationDateElement());
     if (json.has("lastReviewDate"))
       res.setLastReviewDateElement(parseDate(json.get("lastReviewDate").getAsString()));
     if (json.has("_lastReviewDate"))
@@ -2710,6 +2710,10 @@ public class JsonParser extends JsonParserBase {
       res.setNameElement(parseString(json.get("name").getAsString()));
     if (json.has("_name"))
       parseElementProperties(json.getAsJsonObject("_name"), res.getNameElement());
+    if (json.has("title"))
+      res.setTitleElement(parseString(json.get("title").getAsString()));
+    if (json.has("_title"))
+      parseElementProperties(json.getAsJsonObject("_title"), res.getTitleElement());
     if (json.has("status"))
       res.setStatusElement(parseEnumeration(json.get("status").getAsString(), Enumerations.PublicationStatus.NULL, new Enumerations.PublicationStatusEnumFactory()));
     if (json.has("_status"))
@@ -4713,6 +4717,10 @@ public class JsonParser extends JsonParserBase {
       res.setNameElement(parseString(json.get("name").getAsString()));
     if (json.has("_name"))
       parseElementProperties(json.getAsJsonObject("_name"), res.getNameElement());
+    if (json.has("title"))
+      res.setTitleElement(parseString(json.get("title").getAsString()));
+    if (json.has("_title"))
+      parseElementProperties(json.getAsJsonObject("_title"), res.getTitleElement());
     if (json.has("status"))
       res.setStatusElement(parseEnumeration(json.get("status").getAsString(), Enumerations.PublicationStatus.NULL, new Enumerations.PublicationStatusEnumFactory()));
     if (json.has("_status"))
@@ -5150,6 +5158,10 @@ public class JsonParser extends JsonParserBase {
       res.setNameElement(parseString(json.get("name").getAsString()));
     if (json.has("_name"))
       parseElementProperties(json.getAsJsonObject("_name"), res.getNameElement());
+    if (json.has("title"))
+      res.setTitleElement(parseString(json.get("title").getAsString()));
+    if (json.has("_title"))
+      parseElementProperties(json.getAsJsonObject("_title"), res.getTitleElement());
     if (json.has("status"))
       res.setStatusElement(parseEnumeration(json.get("status").getAsString(), Enumerations.PublicationStatus.NULL, new Enumerations.PublicationStatusEnumFactory()));
     if (json.has("_status"))
@@ -5432,6 +5444,10 @@ public class JsonParser extends JsonParserBase {
       res.setNameElement(parseString(json.get("name").getAsString()));
     if (json.has("_name"))
       parseElementProperties(json.getAsJsonObject("_name"), res.getNameElement());
+    if (json.has("title"))
+      res.setTitleElement(parseString(json.get("title").getAsString()));
+    if (json.has("_title"))
+      parseElementProperties(json.getAsJsonObject("_title"), res.getTitleElement());
     if (json.has("status"))
       res.setStatusElement(parseEnumeration(json.get("status").getAsString(), Enumerations.PublicationStatus.NULL, new Enumerations.PublicationStatusEnumFactory()));
     if (json.has("_status"))
@@ -6303,6 +6319,10 @@ public class JsonParser extends JsonParserBase {
       res.setNameElement(parseString(json.get("name").getAsString()));
     if (json.has("_name"))
       parseElementProperties(json.getAsJsonObject("_name"), res.getNameElement());
+    if (json.has("title"))
+      res.setTitleElement(parseString(json.get("title").getAsString()));
+    if (json.has("_title"))
+      parseElementProperties(json.getAsJsonObject("_title"), res.getTitleElement());
     if (json.has("contact")) {
       JsonArray array = json.getAsJsonArray("contact");
       for (int i = 0; i < array.size(); i++) {
@@ -10614,22 +10634,22 @@ public class JsonParser extends JsonParserBase {
       res.setExperimentalElement(parseBoolean(json.get("experimental").getAsBoolean()));
     if (json.has("_experimental"))
       parseElementProperties(json.getAsJsonObject("_experimental"), res.getExperimentalElement());
+    if (json.has("date"))
+      res.setDateElement(parseDateTime(json.get("date").getAsString()));
+    if (json.has("_date"))
+      parseElementProperties(json.getAsJsonObject("_date"), res.getDateElement());
     if (json.has("description"))
       res.setDescriptionElement(parseString(json.get("description").getAsString()));
     if (json.has("_description"))
       parseElementProperties(json.getAsJsonObject("_description"), res.getDescriptionElement());
     if (json.has("purpose"))
-      res.setPurposeElement(parseString(json.get("purpose").getAsString()));
+      res.setPurposeElement(parseMarkdown(json.get("purpose").getAsString()));
     if (json.has("_purpose"))
       parseElementProperties(json.getAsJsonObject("_purpose"), res.getPurposeElement());
     if (json.has("usage"))
       res.setUsageElement(parseString(json.get("usage").getAsString()));
     if (json.has("_usage"))
       parseElementProperties(json.getAsJsonObject("_usage"), res.getUsageElement());
-    if (json.has("publicationDate"))
-      res.setPublicationDateElement(parseDate(json.get("publicationDate").getAsString()));
-    if (json.has("_publicationDate"))
-      parseElementProperties(json.getAsJsonObject("_publicationDate"), res.getPublicationDateElement());
     if (json.has("lastReviewDate"))
       res.setLastReviewDateElement(parseDate(json.get("lastReviewDate").getAsString()));
     if (json.has("_lastReviewDate"))
@@ -10933,22 +10953,22 @@ public class JsonParser extends JsonParserBase {
       res.setExperimentalElement(parseBoolean(json.get("experimental").getAsBoolean()));
     if (json.has("_experimental"))
       parseElementProperties(json.getAsJsonObject("_experimental"), res.getExperimentalElement());
+    if (json.has("date"))
+      res.setDateElement(parseDateTime(json.get("date").getAsString()));
+    if (json.has("_date"))
+      parseElementProperties(json.getAsJsonObject("_date"), res.getDateElement());
     if (json.has("description"))
       res.setDescriptionElement(parseString(json.get("description").getAsString()));
     if (json.has("_description"))
       parseElementProperties(json.getAsJsonObject("_description"), res.getDescriptionElement());
     if (json.has("purpose"))
-      res.setPurposeElement(parseString(json.get("purpose").getAsString()));
+      res.setPurposeElement(parseMarkdown(json.get("purpose").getAsString()));
     if (json.has("_purpose"))
       parseElementProperties(json.getAsJsonObject("_purpose"), res.getPurposeElement());
     if (json.has("usage"))
       res.setUsageElement(parseString(json.get("usage").getAsString()));
     if (json.has("_usage"))
       parseElementProperties(json.getAsJsonObject("_usage"), res.getUsageElement());
-    if (json.has("publicationDate"))
-      res.setPublicationDateElement(parseDate(json.get("publicationDate").getAsString()));
-    if (json.has("_publicationDate"))
-      parseElementProperties(json.getAsJsonObject("_publicationDate"), res.getPublicationDateElement());
     if (json.has("lastReviewDate"))
       res.setLastReviewDateElement(parseDate(json.get("lastReviewDate").getAsString()));
     if (json.has("_lastReviewDate"))
@@ -13443,22 +13463,22 @@ public class JsonParser extends JsonParserBase {
       res.setExperimentalElement(parseBoolean(json.get("experimental").getAsBoolean()));
     if (json.has("_experimental"))
       parseElementProperties(json.getAsJsonObject("_experimental"), res.getExperimentalElement());
+    if (json.has("date"))
+      res.setDateElement(parseDateTime(json.get("date").getAsString()));
+    if (json.has("_date"))
+      parseElementProperties(json.getAsJsonObject("_date"), res.getDateElement());
     if (json.has("description"))
       res.setDescriptionElement(parseString(json.get("description").getAsString()));
     if (json.has("_description"))
       parseElementProperties(json.getAsJsonObject("_description"), res.getDescriptionElement());
     if (json.has("purpose"))
-      res.setPurposeElement(parseString(json.get("purpose").getAsString()));
+      res.setPurposeElement(parseMarkdown(json.get("purpose").getAsString()));
     if (json.has("_purpose"))
       parseElementProperties(json.getAsJsonObject("_purpose"), res.getPurposeElement());
     if (json.has("usage"))
       res.setUsageElement(parseString(json.get("usage").getAsString()));
     if (json.has("_usage"))
       parseElementProperties(json.getAsJsonObject("_usage"), res.getUsageElement());
-    if (json.has("publicationDate"))
-      res.setPublicationDateElement(parseDate(json.get("publicationDate").getAsString()));
-    if (json.has("_publicationDate"))
-      parseElementProperties(json.getAsJsonObject("_publicationDate"), res.getPublicationDateElement());
     if (json.has("lastReviewDate"))
       res.setLastReviewDateElement(parseDate(json.get("lastReviewDate").getAsString()));
     if (json.has("_lastReviewDate"))
@@ -15470,22 +15490,22 @@ public class JsonParser extends JsonParserBase {
       res.setExperimentalElement(parseBoolean(json.get("experimental").getAsBoolean()));
     if (json.has("_experimental"))
       parseElementProperties(json.getAsJsonObject("_experimental"), res.getExperimentalElement());
+    if (json.has("date"))
+      res.setDateElement(parseDateTime(json.get("date").getAsString()));
+    if (json.has("_date"))
+      parseElementProperties(json.getAsJsonObject("_date"), res.getDateElement());
     if (json.has("description"))
       res.setDescriptionElement(parseString(json.get("description").getAsString()));
     if (json.has("_description"))
       parseElementProperties(json.getAsJsonObject("_description"), res.getDescriptionElement());
     if (json.has("purpose"))
-      res.setPurposeElement(parseString(json.get("purpose").getAsString()));
+      res.setPurposeElement(parseMarkdown(json.get("purpose").getAsString()));
     if (json.has("_purpose"))
       parseElementProperties(json.getAsJsonObject("_purpose"), res.getPurposeElement());
     if (json.has("usage"))
       res.setUsageElement(parseString(json.get("usage").getAsString()));
     if (json.has("_usage"))
       parseElementProperties(json.getAsJsonObject("_usage"), res.getUsageElement());
-    if (json.has("publicationDate"))
-      res.setPublicationDateElement(parseDate(json.get("publicationDate").getAsString()));
-    if (json.has("_publicationDate"))
-      parseElementProperties(json.getAsJsonObject("_publicationDate"), res.getPublicationDateElement());
     if (json.has("lastReviewDate"))
       res.setLastReviewDateElement(parseDate(json.get("lastReviewDate").getAsString()));
     if (json.has("_lastReviewDate"))
@@ -15987,6 +16007,10 @@ public class JsonParser extends JsonParserBase {
       res.setNameElement(parseString(json.get("name").getAsString()));
     if (json.has("_name"))
       parseElementProperties(json.getAsJsonObject("_name"), res.getNameElement());
+    if (json.has("title"))
+      res.setTitleElement(parseString(json.get("title").getAsString()));
+    if (json.has("_title"))
+      parseElementProperties(json.getAsJsonObject("_title"), res.getTitleElement());
     if (json.has("status"))
       res.setStatusElement(parseEnumeration(json.get("status").getAsString(), Enumerations.PublicationStatus.NULL, new Enumerations.PublicationStatusEnumFactory()));
     if (json.has("_status"))
@@ -16747,6 +16771,10 @@ public class JsonParser extends JsonParserBase {
       res.setNameElement(parseString(json.get("name").getAsString()));
     if (json.has("_name"))
       parseElementProperties(json.getAsJsonObject("_name"), res.getNameElement());
+    if (json.has("title"))
+      res.setTitleElement(parseString(json.get("title").getAsString()));
+    if (json.has("_title"))
+      parseElementProperties(json.getAsJsonObject("_title"), res.getTitleElement());
     if (json.has("status"))
       res.setStatusElement(parseEnumeration(json.get("status").getAsString(), Enumerations.PublicationStatus.NULL, new Enumerations.PublicationStatusEnumFactory()));
     if (json.has("_status"))
@@ -17535,6 +17563,10 @@ public class JsonParser extends JsonParserBase {
       res.setNameElement(parseString(json.get("name").getAsString()));
     if (json.has("_name"))
       parseElementProperties(json.getAsJsonObject("_name"), res.getNameElement());
+    if (json.has("title"))
+      res.setTitleElement(parseString(json.get("title").getAsString()));
+    if (json.has("_title"))
+      parseElementProperties(json.getAsJsonObject("_title"), res.getTitleElement());
     if (json.has("status"))
       res.setStatusElement(parseEnumeration(json.get("status").getAsString(), Enumerations.PublicationStatus.NULL, new Enumerations.PublicationStatusEnumFactory()));
     if (json.has("_status"))
@@ -20707,21 +20739,21 @@ public class JsonParser extends JsonParserBase {
         composeBooleanCore("experimental", element.getExperimentalElement(), false);
         composeBooleanExtras("experimental", element.getExperimentalElement(), false);
       }
+      if (element.hasDateElement()) {
+        composeDateTimeCore("date", element.getDateElement(), false);
+        composeDateTimeExtras("date", element.getDateElement(), false);
+      }
       if (element.hasDescriptionElement()) {
         composeStringCore("description", element.getDescriptionElement(), false);
         composeStringExtras("description", element.getDescriptionElement(), false);
       }
       if (element.hasPurposeElement()) {
-        composeStringCore("purpose", element.getPurposeElement(), false);
-        composeStringExtras("purpose", element.getPurposeElement(), false);
+        composeMarkdownCore("purpose", element.getPurposeElement(), false);
+        composeMarkdownExtras("purpose", element.getPurposeElement(), false);
       }
       if (element.hasUsageElement()) {
         composeStringCore("usage", element.getUsageElement(), false);
         composeStringExtras("usage", element.getUsageElement(), false);
-      }
-      if (element.hasPublicationDateElement()) {
-        composeDateCore("publicationDate", element.getPublicationDateElement(), false);
-        composeDateExtras("publicationDate", element.getPublicationDateElement(), false);
       }
       if (element.hasLastReviewDateElement()) {
         composeDateCore("lastReviewDate", element.getLastReviewDateElement(), false);
@@ -21799,6 +21831,10 @@ public class JsonParser extends JsonParserBase {
       if (element.hasNameElement()) {
         composeStringCore("name", element.getNameElement(), false);
         composeStringExtras("name", element.getNameElement(), false);
+      }
+      if (element.hasTitleElement()) {
+        composeStringCore("title", element.getTitleElement(), false);
+        composeStringExtras("title", element.getTitleElement(), false);
       }
       if (element.hasStatusElement()) {
         composeEnumerationCore("status", element.getStatusElement(), new Enumerations.PublicationStatusEnumFactory(), false);
@@ -23974,6 +24010,10 @@ public class JsonParser extends JsonParserBase {
         composeStringCore("name", element.getNameElement(), false);
         composeStringExtras("name", element.getNameElement(), false);
       }
+      if (element.hasTitleElement()) {
+        composeStringCore("title", element.getTitleElement(), false);
+        composeStringExtras("title", element.getTitleElement(), false);
+      }
       if (element.hasStatusElement()) {
         composeEnumerationCore("status", element.getStatusElement(), new Enumerations.PublicationStatusEnumFactory(), false);
         composeEnumerationExtras("status", element.getStatusElement(), new Enumerations.PublicationStatusEnumFactory(), false);
@@ -24438,6 +24478,10 @@ public class JsonParser extends JsonParserBase {
         composeStringCore("name", element.getNameElement(), false);
         composeStringExtras("name", element.getNameElement(), false);
       }
+      if (element.hasTitleElement()) {
+        composeStringCore("title", element.getTitleElement(), false);
+        composeStringExtras("title", element.getTitleElement(), false);
+      }
       if (element.hasStatusElement()) {
         composeEnumerationCore("status", element.getStatusElement(), new Enumerations.PublicationStatusEnumFactory(), false);
         composeEnumerationExtras("status", element.getStatusElement(), new Enumerations.PublicationStatusEnumFactory(), false);
@@ -24738,6 +24782,10 @@ public class JsonParser extends JsonParserBase {
       if (element.hasNameElement()) {
         composeStringCore("name", element.getNameElement(), false);
         composeStringExtras("name", element.getNameElement(), false);
+      }
+      if (element.hasTitleElement()) {
+        composeStringCore("title", element.getTitleElement(), false);
+        composeStringExtras("title", element.getTitleElement(), false);
       }
       if (element.hasStatusElement()) {
         composeEnumerationCore("status", element.getStatusElement(), new Enumerations.PublicationStatusEnumFactory(), false);
@@ -25693,6 +25741,10 @@ public class JsonParser extends JsonParserBase {
       if (element.hasNameElement()) {
         composeStringCore("name", element.getNameElement(), false);
         composeStringExtras("name", element.getNameElement(), false);
+      }
+      if (element.hasTitleElement()) {
+        composeStringCore("title", element.getTitleElement(), false);
+        composeStringExtras("title", element.getTitleElement(), false);
       }
       if (element.hasContact()) {
         openArray("contact");
@@ -30455,21 +30507,21 @@ public class JsonParser extends JsonParserBase {
         composeBooleanCore("experimental", element.getExperimentalElement(), false);
         composeBooleanExtras("experimental", element.getExperimentalElement(), false);
       }
+      if (element.hasDateElement()) {
+        composeDateTimeCore("date", element.getDateElement(), false);
+        composeDateTimeExtras("date", element.getDateElement(), false);
+      }
       if (element.hasDescriptionElement()) {
         composeStringCore("description", element.getDescriptionElement(), false);
         composeStringExtras("description", element.getDescriptionElement(), false);
       }
       if (element.hasPurposeElement()) {
-        composeStringCore("purpose", element.getPurposeElement(), false);
-        composeStringExtras("purpose", element.getPurposeElement(), false);
+        composeMarkdownCore("purpose", element.getPurposeElement(), false);
+        composeMarkdownExtras("purpose", element.getPurposeElement(), false);
       }
       if (element.hasUsageElement()) {
         composeStringCore("usage", element.getUsageElement(), false);
         composeStringExtras("usage", element.getUsageElement(), false);
-      }
-      if (element.hasPublicationDateElement()) {
-        composeDateCore("publicationDate", element.getPublicationDateElement(), false);
-        composeDateExtras("publicationDate", element.getPublicationDateElement(), false);
       }
       if (element.hasLastReviewDateElement()) {
         composeDateCore("lastReviewDate", element.getLastReviewDateElement(), false);
@@ -30799,21 +30851,21 @@ public class JsonParser extends JsonParserBase {
         composeBooleanCore("experimental", element.getExperimentalElement(), false);
         composeBooleanExtras("experimental", element.getExperimentalElement(), false);
       }
+      if (element.hasDateElement()) {
+        composeDateTimeCore("date", element.getDateElement(), false);
+        composeDateTimeExtras("date", element.getDateElement(), false);
+      }
       if (element.hasDescriptionElement()) {
         composeStringCore("description", element.getDescriptionElement(), false);
         composeStringExtras("description", element.getDescriptionElement(), false);
       }
       if (element.hasPurposeElement()) {
-        composeStringCore("purpose", element.getPurposeElement(), false);
-        composeStringExtras("purpose", element.getPurposeElement(), false);
+        composeMarkdownCore("purpose", element.getPurposeElement(), false);
+        composeMarkdownExtras("purpose", element.getPurposeElement(), false);
       }
       if (element.hasUsageElement()) {
         composeStringCore("usage", element.getUsageElement(), false);
         composeStringExtras("usage", element.getUsageElement(), false);
-      }
-      if (element.hasPublicationDateElement()) {
-        composeDateCore("publicationDate", element.getPublicationDateElement(), false);
-        composeDateExtras("publicationDate", element.getPublicationDateElement(), false);
       }
       if (element.hasLastReviewDateElement()) {
         composeDateCore("lastReviewDate", element.getLastReviewDateElement(), false);
@@ -33577,21 +33629,21 @@ public class JsonParser extends JsonParserBase {
         composeBooleanCore("experimental", element.getExperimentalElement(), false);
         composeBooleanExtras("experimental", element.getExperimentalElement(), false);
       }
+      if (element.hasDateElement()) {
+        composeDateTimeCore("date", element.getDateElement(), false);
+        composeDateTimeExtras("date", element.getDateElement(), false);
+      }
       if (element.hasDescriptionElement()) {
         composeStringCore("description", element.getDescriptionElement(), false);
         composeStringExtras("description", element.getDescriptionElement(), false);
       }
       if (element.hasPurposeElement()) {
-        composeStringCore("purpose", element.getPurposeElement(), false);
-        composeStringExtras("purpose", element.getPurposeElement(), false);
+        composeMarkdownCore("purpose", element.getPurposeElement(), false);
+        composeMarkdownExtras("purpose", element.getPurposeElement(), false);
       }
       if (element.hasUsageElement()) {
         composeStringCore("usage", element.getUsageElement(), false);
         composeStringExtras("usage", element.getUsageElement(), false);
-      }
-      if (element.hasPublicationDateElement()) {
-        composeDateCore("publicationDate", element.getPublicationDateElement(), false);
-        composeDateExtras("publicationDate", element.getPublicationDateElement(), false);
       }
       if (element.hasLastReviewDateElement()) {
         composeDateCore("lastReviewDate", element.getLastReviewDateElement(), false);
@@ -35763,21 +35815,21 @@ public class JsonParser extends JsonParserBase {
         composeBooleanCore("experimental", element.getExperimentalElement(), false);
         composeBooleanExtras("experimental", element.getExperimentalElement(), false);
       }
+      if (element.hasDateElement()) {
+        composeDateTimeCore("date", element.getDateElement(), false);
+        composeDateTimeExtras("date", element.getDateElement(), false);
+      }
       if (element.hasDescriptionElement()) {
         composeStringCore("description", element.getDescriptionElement(), false);
         composeStringExtras("description", element.getDescriptionElement(), false);
       }
       if (element.hasPurposeElement()) {
-        composeStringCore("purpose", element.getPurposeElement(), false);
-        composeStringExtras("purpose", element.getPurposeElement(), false);
+        composeMarkdownCore("purpose", element.getPurposeElement(), false);
+        composeMarkdownExtras("purpose", element.getPurposeElement(), false);
       }
       if (element.hasUsageElement()) {
         composeStringCore("usage", element.getUsageElement(), false);
         composeStringExtras("usage", element.getUsageElement(), false);
-      }
-      if (element.hasPublicationDateElement()) {
-        composeDateCore("publicationDate", element.getPublicationDateElement(), false);
-        composeDateExtras("publicationDate", element.getPublicationDateElement(), false);
       }
       if (element.hasLastReviewDateElement()) {
         composeDateCore("lastReviewDate", element.getLastReviewDateElement(), false);
@@ -36310,6 +36362,10 @@ public class JsonParser extends JsonParserBase {
       if (element.hasNameElement()) {
         composeStringCore("name", element.getNameElement(), false);
         composeStringExtras("name", element.getNameElement(), false);
+      }
+      if (element.hasTitleElement()) {
+        composeStringCore("title", element.getTitleElement(), false);
+        composeStringExtras("title", element.getTitleElement(), false);
       }
       if (element.hasStatusElement()) {
         composeEnumerationCore("status", element.getStatusElement(), new Enumerations.PublicationStatusEnumFactory(), false);
@@ -37135,6 +37191,10 @@ public class JsonParser extends JsonParserBase {
       if (element.hasNameElement()) {
         composeStringCore("name", element.getNameElement(), false);
         composeStringExtras("name", element.getNameElement(), false);
+      }
+      if (element.hasTitleElement()) {
+        composeStringCore("title", element.getTitleElement(), false);
+        composeStringExtras("title", element.getTitleElement(), false);
       }
       if (element.hasStatusElement()) {
         composeEnumerationCore("status", element.getStatusElement(), new Enumerations.PublicationStatusEnumFactory(), false);
@@ -37989,6 +38049,10 @@ public class JsonParser extends JsonParserBase {
       if (element.hasNameElement()) {
         composeStringCore("name", element.getNameElement(), false);
         composeStringExtras("name", element.getNameElement(), false);
+      }
+      if (element.hasTitleElement()) {
+        composeStringCore("title", element.getTitleElement(), false);
+        composeStringExtras("title", element.getTitleElement(), false);
       }
       if (element.hasStatusElement()) {
         composeEnumerationCore("status", element.getStatusElement(), new Enumerations.PublicationStatusEnumFactory(), false);

@@ -253,11 +253,6 @@
  -- Row 3 -----------------------------------
   Element = StructureMap.identifier
   Card. = 0..*
-  Summary = y
-  Type = Identifier
-  Short Name = Other identifiers for the StructureMap
-  Definition = Formal identifier that is used to identify this StructureMap when it is represented in other formats, or referenced in a specification, model, design or an instance  (should be globally unique OID, UUID, or URI), (if it\'s not possible to use the literal URI)
-  w5 = id
 
  -- Row 4 -----------------------------------
   Element = StructureMap.version
@@ -267,12 +262,15 @@
   Card. = 1..1
 
  -- Row 6 -----------------------------------
-  Element = StructureMap.status
+  Element = StructureMap.title
 
  -- Row 7 -----------------------------------
-  Element = StructureMap.experimental
+  Element = StructureMap.status
 
  -- Row 8 -----------------------------------
+  Element = StructureMap.experimental
+
+ -- Row 9 -----------------------------------
   Element = StructureMap.publisher
   Card. = 0..1
   Summary = y
@@ -283,7 +281,7 @@
   To Do = Usually an organization, but may be an individual. This item SHOULD be populated unless the information is available from context.
   w5 = who.witness
 
- -- Row 9 -----------------------------------
+ -- Row 10 -----------------------------------
   Element = StructureMap.contact
   Card. = 0..*
   Summary = y
@@ -293,7 +291,7 @@
   To Do = May be a web site, an email address, a telephone number (tel:), etc.
   Committee Notes = 400;0
 
- -- Row 10 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = StructureMap.contact.name
   Card. = 0..1
   Summary = Y
@@ -302,7 +300,7 @@
   Definition = The name of an individual to contact regarding the structure map
   To Do = If there is no named individual, the telecom is for the organization as a whole
 
- -- Row 11 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = StructureMap.contact.telecom
   Card. = 0..*
   Summary = Y
@@ -310,10 +308,10 @@
   Short Name = Contact details for individual or publisher
   Definition = Contact details for individual (if a name was provided) or the publisher
 
- -- Row 12 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = StructureMap.date
 
- -- Row 13 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = StructureMap.description
   Card. = 0..1
   Summary = y
@@ -322,13 +320,13 @@
   Definition = A free text natural language description of the StructureMap and its use
   To Do = This field can be used for things such as why the StructureMap was written, comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc.  It is *not* a rendering of the StructureMap as conveyed in StructureMap.text. This item SHOULD be populated unless the information is available from context
 
- -- Row 14 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = StructureMap.useContext
 
- -- Row 15 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = StructureMap.purpose
 
- -- Row 16 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = StructureMap.copyright
   Card. = 0..1
   Aliases = License,Restrictions
@@ -336,7 +334,7 @@
   Short Name = Use and/or publishing restrictions
   Definition = A copyright statement relating to the structure map and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the details of the constraints and mappings
 
- -- Row 17 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = StructureMap.structure
   Card. = 0..*
   Summary = y
@@ -345,7 +343,7 @@
   Definition = A structure definition used by this map. The structure definition may describe instances that are converted, or the instances that are produced
   Comments = It is not necessary for a structure map to identify any dependent structures, though not losting them may restrict it\'s usefulness
 
- -- Row 18 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = StructureMap.structure.url
   Card. = 1..1
   Summary = y
@@ -353,7 +351,7 @@
   Short Name = Canonical URL for structure definition
   Definition = The canonical URL that identifies the structure
 
- -- Row 19 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = StructureMap.structure.mode
   Card. = 1..1
   Summary = y
@@ -362,14 +360,14 @@
   Short Name = source | queried | target | produced
   Definition = How the referenced structure is used in this mapping
 
- -- Row 20 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = StructureMap.structure.documentation
   Card. = 0..1
   Type = string
   Short Name = Documentation on use of structure
   Definition = Documentation that describes how the structure is used in the mapping
 
- -- Row 21 -----------------------------------
+ -- Row 22 -----------------------------------
   Element = StructureMap.import
   Card. = 0..*
   Summary = y
@@ -377,35 +375,35 @@
   Short Name = Other maps used by this map (canonical URLs)
   Definition = Other maps used by this map (canonical URLs)
 
- -- Row 22 -----------------------------------
+ -- Row 23 -----------------------------------
   Element = StructureMap.group
   Card. = 1..*
   Summary = y
   UML = down
   Short Name = Named sections for reader convenience
 
- -- Row 23 -----------------------------------
+ -- Row 24 -----------------------------------
   Element = StructureMap.group.name
   Card. = 1..1
   Summary = y
   Type = id
   Short Name = Descriptive name for a user
 
- -- Row 24 -----------------------------------
+ -- Row 25 -----------------------------------
   Element = StructureMap.group.extends
   Card. = 0..1
   Summary = y
   Type = id
   Short Name = Another group that this group adds rules to
 
- -- Row 25 -----------------------------------
+ -- Row 26 -----------------------------------
   Element = StructureMap.group.documentation
   Card. = 0..1
   Summary = y
   Type = string
   Short Name = Documentation for this group
 
- -- Row 26 -----------------------------------
+ -- Row 27 -----------------------------------
   Element = StructureMap.group.input
   Card. = 1..*
   Summary = y
@@ -414,21 +412,21 @@
   Definition = A name assigned to an instance of data. The instance must be provided when the mapping is invoked
   Comments = If no inputs are named, then the entry mappings are type based
 
- -- Row 27 -----------------------------------
+ -- Row 28 -----------------------------------
   Element = StructureMap.group.input.name
   Card. = 1..1
   Summary = y
   Type = id
   Short Name = Name for this instance of data
 
- -- Row 28 -----------------------------------
+ -- Row 29 -----------------------------------
   Element = StructureMap.group.input.type
   Card. = 0..1
   Summary = y
   Type = string
   Short Name = Type for this instance of data
 
- -- Row 29 -----------------------------------
+ -- Row 30 -----------------------------------
   Element = StructureMap.group.input.mode
   Card. = 1..1
   Summary = y
@@ -437,41 +435,41 @@
   Short Name = source | target
   Definition = Mode for this instance of data
 
- -- Row 30 -----------------------------------
+ -- Row 31 -----------------------------------
   Element = StructureMap.group.input.documentation
   Card. = 0..1
   Type = string
   Short Name = Documentation for this instance of data
 
- -- Row 31 -----------------------------------
+ -- Row 32 -----------------------------------
   Element = StructureMap.group.rule
   Card. = 1..*
   Summary = y
   UML = down
   Short Name = Transform Rule from source to target
 
- -- Row 32 -----------------------------------
+ -- Row 33 -----------------------------------
   Element = StructureMap.group.rule.name
   Card. = 1..1
   Summary = y
   Type = id
   Short Name = Name of the rule for internal references
 
- -- Row 33 -----------------------------------
+ -- Row 34 -----------------------------------
   Element = StructureMap.group.rule.source
   Card. = 1..*
   Summary = y
   UML = left
   Short Name = Source inputs to the mapping
 
- -- Row 34 -----------------------------------
+ -- Row 35 -----------------------------------
   Element = StructureMap.group.rule.source.required
   Card. = 1..1
   Summary = y
   Type = boolean
   Short Name = Whether this rule applies if the source isn\'t found
 
- -- Row 35 -----------------------------------
+ -- Row 36 -----------------------------------
   Element = StructureMap.group.rule.source.context
   Card. = 1..1
   Summary = y
@@ -479,7 +477,7 @@
   Short Name = Type or variable this rule applies to
   Definition = Type or variable this rule applies to
 
- -- Row 36 -----------------------------------
+ -- Row 37 -----------------------------------
   Element = StructureMap.group.rule.source.contextType
   Card. = 1..1
   Summary = y
@@ -488,14 +486,14 @@
   Short Name = type | variable
   Definition = How to interpret the context
 
- -- Row 37 -----------------------------------
+ -- Row 38 -----------------------------------
   Element = StructureMap.group.rule.source.element
   Card. = 0..1
   Summary = y
   Type = string
   Short Name = Optional field for this source
 
- -- Row 38 -----------------------------------
+ -- Row 39 -----------------------------------
   Element = StructureMap.group.rule.source.listMode
   Card. = 0..1
   Summary = y
@@ -504,35 +502,35 @@
   Short Name = first | share | last
   Definition = How to handle the list mode for this element
 
- -- Row 39 -----------------------------------
+ -- Row 40 -----------------------------------
   Element = StructureMap.group.rule.source.variable
   Card. = 0..1
   Summary = y
   Type = id
   Short Name = Named context for field, if a field is specified
 
- -- Row 40 -----------------------------------
+ -- Row 41 -----------------------------------
   Element = StructureMap.group.rule.source.condition
   Card. = 0..1
   Summary = y
   Type = string
   Short Name = FluentPath expression  - must be true or the rule does not apply
 
- -- Row 41 -----------------------------------
+ -- Row 42 -----------------------------------
   Element = StructureMap.group.rule.source.check
   Card. = 0..1
   Summary = y
   Type = string
   Short Name = FluentPath expression  - must be true or the mapping engine throws an error instead of completing
 
- -- Row 42 -----------------------------------
+ -- Row 43 -----------------------------------
   Element = StructureMap.group.rule.target
   Card. = 0..*
   Summary = y
   UML = right
   Short Name = Content to create because of this mapping rule
 
- -- Row 43 -----------------------------------
+ -- Row 44 -----------------------------------
   Element = StructureMap.group.rule.target.context
   Card. = 0..1
   Summary = y
@@ -540,7 +538,7 @@
   Short Name = Type or variable this rule applies to
   Definition = Type or variable this rule applies to
 
- -- Row 44 -----------------------------------
+ -- Row 45 -----------------------------------
   Element = StructureMap.group.rule.target.contextType
   Card. = 0..1
   Summary = y
@@ -549,21 +547,21 @@
   Short Name = type | variable
   Definition = How to interpret the context
 
- -- Row 45 -----------------------------------
+ -- Row 46 -----------------------------------
   Element = StructureMap.group.rule.target.element
   Card. = 0..1
   Summary = y
   Type = string
   Short Name = Field to create in the context
 
- -- Row 46 -----------------------------------
+ -- Row 47 -----------------------------------
   Element = StructureMap.group.rule.target.variable
   Card. = 0..1
   Summary = y
   Type = id
   Short Name = Named context for field, if desired, and a field is specified
 
- -- Row 47 -----------------------------------
+ -- Row 48 -----------------------------------
   Element = StructureMap.group.rule.target.listMode
   Card. = 0..*
   Summary = y
@@ -572,14 +570,14 @@
   Short Name = first | share | last
   Definition = If field is a list, how to manage the list
 
- -- Row 48 -----------------------------------
+ -- Row 49 -----------------------------------
   Element = StructureMap.group.rule.target.listRuleId
   Card. = 0..1
   Summary = y
   Type = id
   Short Name = Internal rule reference for shared list items
 
- -- Row 49 -----------------------------------
+ -- Row 50 -----------------------------------
   Element = StructureMap.group.rule.target.transform
   Card. = 0..1
   Summary = y
@@ -588,49 +586,49 @@
   Short Name = create | copy +
   Definition = How the data is copied / created
 
- -- Row 50 -----------------------------------
+ -- Row 51 -----------------------------------
   Element = StructureMap.group.rule.target.parameter
   Card. = 0..*
   Summary = y
   UML = up
   Short Name = Parameters to the transform
 
- -- Row 51 -----------------------------------
+ -- Row 52 -----------------------------------
   Element = StructureMap.group.rule.target.parameter.value[x]
   Card. = 1..1
   Summary = y
   Type = id | string | boolean | integer | decimal
   Short Name = Parameter value - variable or literal
 
- -- Row 52 -----------------------------------
+ -- Row 53 -----------------------------------
   Element = StructureMap.group.rule.rule
   Card. = 0..*
   Summary = y
   Type = @StructureMap.group.rule
   Short Name = Rules contained in this rule
 
- -- Row 53 -----------------------------------
+ -- Row 54 -----------------------------------
   Element = StructureMap.group.rule.dependent
   Card. = 0..*
   Summary = y
   UML = down
   Short Name = Which other rules to apply in the context of this rule
 
- -- Row 54 -----------------------------------
+ -- Row 55 -----------------------------------
   Element = StructureMap.group.rule.dependent.name
   Card. = 1..1
   Summary = y
   Type = id
   Short Name = Name of a rule or group to apply
 
- -- Row 55 -----------------------------------
+ -- Row 56 -----------------------------------
   Element = StructureMap.group.rule.dependent.variable
   Card. = 1..*
   Summary = y
   Type = string
   Short Name = Names of variables to pass to the rule or group
 
- -- Row 56 -----------------------------------
+ -- Row 57 -----------------------------------
   Element = StructureMap.group.rule.documentation
   Card. = 0..1
   Type = string
@@ -639,24 +637,18 @@
 === Sheet Search =====================================
 
  -- Row 1 -----------------------------------
-  Name = identifier
-  Type = token
-  Description = The identifier of the profile
-  Path = StructureMap.identifier
-
- -- Row 2 -----------------------------------
   Name = publisher
   Type = string
   Description = Name of the publisher of the profile
   Path = StructureMap.publisher
 
- -- Row 3 -----------------------------------
+ -- Row 2 -----------------------------------
   Name = description
   Type = string
   Description = Text search in the description of the profile
   Path = StructureMap.description
 
- -- Row 4 -----------------------------------
+ -- Row 3 -----------------------------------
   Name = experimental
   Type = token
   Description = Whether the map is defined purely for experimental reasons

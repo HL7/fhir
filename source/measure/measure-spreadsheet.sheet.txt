@@ -145,82 +145,40 @@
 
  -- Row 1 -----------------------------------
   Element = Measure
-  Type = DomainResource
+  Type = MetadataResource
   Short Name = A quality measure definition
   Definition = The Measure resource provides the definition of a quality measure
   w5 = clinical.general
 
  -- Row 2 -----------------------------------
   Element = Measure.url
-  Card. = 0..1
-  Summary = Y
-  Type = uri
-  Short Name = Logical URL to reference this measure
-  Definition = An absolute URL that is used to identify this measure when it is referenced. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this measure is (or will be) published
-  Requirements = Allows the measure to be referenced by a single globally unique identifier
-  w5 = id
 
  -- Row 3 -----------------------------------
   Element = Measure.identifier
   Card. = 0..*
-  Summary = Y
-  Type = Identifier
-  Short Name = Logical identifier(s) for the measure
-  Definition = A logical identifier for the measure such as the CMS or NQF identifier. Note that at least one identifier is required for non-experimental active artifacts
-  Requirements = Allows external business identifiers to be easily associated with the measure
   To Do = Add constraint to require identifier for non-experimental active artifacts
-  w5 = id
 
  -- Row 4 -----------------------------------
   Element = Measure.version
-  Card. = 0..1
-  Summary = Y
-  Type = string
-  Short Name = The version of the measure, if any
-  Definition = The version of the measure, if any. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge assets, refer to the Decision Support Service specification. Note that a version is required for non-experimental active artifacts
-  Requirements = Allows for versioning of the content of the measure
+  Definition = & To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge assets, refer to the Decision Support Service specification. Note that a version is required for non-experimental active artifacts
   To Do = Add constraint to require a version for non-experimental active artifacts
 
  -- Row 5 -----------------------------------
   Element = Measure.name
-  Card. = 0..1
-  Summary = Y
-  Type = string
-  Short Name = A machine-friendly name for the measure
-  Definition = A machine-friendly name for the measure. This name should be usable as an identifier for the measure by machine processing applications such as code generation
-  Requirements = Simplifies machine-processing tasks related to the measure such as code-generation or logging
-  Comments = This identifier for the measure should be unique within the intended scope of use, and should conform to the traditional syntactic definition of an identifier within most programming languages. regex: ([A-Za-z_][A-Za-z0-9_]*)
 
  -- Row 6 -----------------------------------
   Element = Measure.title
-  Card. = 0..1
-  Summary = Y
-  Type = string
-  Short Name = A user-friendly title for the measure
-  Definition = A short, descriptive, user-friendly title for the measure
 
  -- Row 7 -----------------------------------
   Element = Measure.status
-  Card. = 1..1
-  Is Modifier = Y
-  Summary = Y
-  Type = code
-  Binding = PublicationStatus
-  Short Name = draft | active | retired
-  Definition = The status of the measure
-  Requirements = Enables tracking the life-cycle of the content of the measure
 
  -- Row 8 -----------------------------------
   Element = Measure.experimental
-  Card. = 0..1
-  Is Modifier = Y
-  Summary = Y
-  Type = boolean
-  Short Name = If for testing purposes, not real usage
-  Definition = Determines whether the measure was developed for testing purposes (or education/evaluation/marketing), and is not intended to be used in production environments
-  Requirements = Enables experimental content to be developed following the same life-cycle as a production-level measure would
 
  -- Row 9 -----------------------------------
+  Element = Measure.date
+
+ -- Row 10 -----------------------------------
   Element = Measure.description
   Card. = 0..1
   Type = string
@@ -228,27 +186,15 @@
   Definition = A free text natural language description of the measure from the consumer\'s perspective
   Comments = This description can be used to capture details such as why the measure was built, comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the measure as conveyed in the text field of the resource itself. This item SHOULD be populated unless the information is available from context
 
- -- Row 10 -----------------------------------
-  Element = Measure.purpose
-  Card. = 0..1
-  Type = string
-  Short Name = Describes the purpose of the measure
-  Definition = A brief description of the purpose of the measure
-  Comments = This description should address the question of why this measure was built, though not necessarily in as much detail as the justification, rationale, or clinical recommendation statement of a measure would. That information would typically be provided in the related resource element
-
  -- Row 11 -----------------------------------
+  Element = Measure.purpose
+
+ -- Row 12 -----------------------------------
   Element = Measure.usage
   Card. = 0..1
   Type = string
   Short Name = Describes the clinical usage of the measure
   Definition = A detailed description of how the measure is used from a clinical perspective
-
- -- Row 12 -----------------------------------
-  Element = Measure.publicationDate
-  Card. = 0..1
-  Type = date
-  Short Name = Publication date for this version of the measure
-  Definition = The date on which the measure was published
 
  -- Row 13 -----------------------------------
   Element = Measure.lastReviewDate
@@ -547,42 +493,18 @@
 === Sheet Search =====================================
 
  -- Row 1 -----------------------------------
-  Name = identifier
-  Type = token
-  Description = Logical identifier for the module (e.g. CMS-143)
-  Path = Measure.identifier
-
- -- Row 2 -----------------------------------
   Name = topic
   Type = token
   Description = Topics associated with the module
   Path = Measure.topic
 
- -- Row 3 -----------------------------------
-  Name = title
-  Type = string
-  Description = Text search against the title
-  Path = Measure.title
-
- -- Row 4 -----------------------------------
+ -- Row 2 -----------------------------------
   Name = description
   Type = string
   Description = Text search against the description
   Path = Measure.description
 
- -- Row 5 -----------------------------------
-  Name = version
-  Type = string
-  Description = Version of the module (e.g. 1.0.0)
-  Path = Measure.version
-
- -- Row 6 -----------------------------------
-  Name = status
-  Type = token
-  Description = Status of the module
-  Path = Measure.status
-
- -- Row 7 -----------------------------------
+ -- Row 3 -----------------------------------
   Name = !minScore
   Type = number
   Description = The minimum relevance score of any match that will be returned

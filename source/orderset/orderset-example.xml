@@ -136,8 +136,8 @@
 		<title value="Low Suicide Risk Order Set"/>
 		<type value="order-set"/>
 		<status value="draft"/>
+		<date value="2015-08-15"/>
 		<description value="..."/>
-		<publicationDate value="2015-08-15"/>
 		<coverage>
 			<patientAgeGroup>
 				<coding>

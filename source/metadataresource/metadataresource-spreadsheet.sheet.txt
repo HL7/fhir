@@ -19,12 +19,25 @@
   Card. = 0..1
   Summary = y
   Type = uri
-  Short Name = Globally unique Logical uri to reference this {{title}}
+  Short Name = Logical uri to reference this {{title}} (globally unique)
   Definition = An absolute URL that is used to identify this {{title}} when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this capability statement is (or will be) published
+  Requirements = Allows the {{title}} to be referenced by a single globally unique identifier
   Comments = Can be a urn:uuid: or a urn:oid:, but real http: addresses are preferred
   w5 = id
 
  -- Row 3 -----------------------------------
+  Element = MetadataResource.identifier
+  Card. = 0..*
+  Summary = y
+  Type = Identifier
+  Short Name = Additional identifier for the {{title}}
+  Definition = A formal identifier that is used to identify this {{title}} when it is represented in other formats, or referenced in a specification, model, design or an instance.
+  Requirements = Allows externally provided and/or useable business identifiers to be easily associated with the module
+  Comments = Typically, this is used for identifiers that can go in an HL7 v3 II data type - e.g. to identify this {{title}} outside of FHIR, where the logical URL is not possible to use
+  Object Impl = no-gen-base
+  w5 = id
+
+ -- Row 4 -----------------------------------
   Element = MetadataResource.version
   Card. = 0..1
   Summary = y
@@ -34,39 +47,49 @@
   Comments = There may be multiple different instances of a {{title}} that have the same identifier but different versions
   w5 = id.version
 
- -- Row 4 -----------------------------------
+ -- Row 5 -----------------------------------
   Element = MetadataResource.name
   Card. = 0..1
   Summary = y
   Type = string
-  Short Name = Informal name for this {{title}}
-  Definition = A free text natural language name identifying the {{title}}
+  Short Name = Name for this {{title}} (Computer friendly)
+  Definition = A natural language name identifying the {{title}}. This name should be usable as an identifier for the module by machine processing applications such as code generation
   Requirements = Support human navigation & code generation
   Comments = The name is not expected to be globally unique. The name should be a simple alpha-numeric type name to ensure it is computable friendly
 
- -- Row 5 -----------------------------------
+ -- Row 6 -----------------------------------
+  Element = MetadataResource.title
+  Card. = 0..1
+  Summary = y
+  Type = string
+  Short Name = Name for this {{title}} (Human friendly)
+  Definition = A short, descriptive, user-friendly title for the {{title}}
+
+ -- Row 7 -----------------------------------
   Element = MetadataResource.status
   Card. = 1..1
-  Is Modifier = yes
+  Is Modifier = y
   Summary = y
   Type = code
   Binding = PublicationStatus
   Short Name = draft | active | retired
-  Definition = The status of this {{title}}
+  Definition = The status of this {{title}}. Enables tracking the life-cycle of the content
   Comments = Allows filtering of {{title}} that are appropriate for use vs. not
   w5 = status
 
- -- Row 6 -----------------------------------
+ -- Row 8 -----------------------------------
   Element = MetadataResource.experimental
   Card. = 0..1
+  Is Modifier = y
   Summary = y
   Type = boolean
   Short Name = If for testing purposes, not real usage
   Definition = A flag to indicate that this {{title}} is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage
+  Requirements = Enables experimental content to be developed following the same life-cycle as a production-level {{title}} would
   Comments = Allows filtering of {{title}} that are appropriate for use vs. not
   w5 = class
 
- -- Row 7 -----------------------------------
+ -- Row 9 -----------------------------------
   Element = MetadataResource.date
   Card. = 0..1
   Summary = y
@@ -76,7 +99,7 @@
   Comments = Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the {{title}}. Additional specific dates may be added as extensions
   w5 = when.recorded
 
- -- Row 8 -----------------------------------
+ -- Row 10 -----------------------------------
   Element = MetadataResource.useContext
   Card. = 0..*
   Summary = y
@@ -86,13 +109,13 @@
   Definition = The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of code system definitions.
   Requirements = Assist in searching for appropriate content
 
- -- Row 9 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = MetadataResource.purpose
   Card. = 0..1
   Type = markdown
   Short Name = Why this {{title}} is defined
   Definition = Explains why this {{title}} is needed and why it has been designed as it has
-  Comments = This element does not describe the usage of the {{title}} (See, e.g, the comments element), rather it\'s for traceability of \'\'why\'\' the resource is either needed or \'\'why\'\' it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this {{title}}
+  Comments = This element does not describe the usage of the {{title}} (See, e.g, the comments element, or relatedArtifacts), rather it\'s for traceability of \'\'why\'\' the resource is either needed or \'\'why\'\' it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this {{title}}
   Object Impl = no-gen-base
   w5 = why
 
@@ -133,6 +156,18 @@
   Type = token
   Description = A use context assigned to the {{title}}
   Path = MetadataResource.useContext
+
+ -- Row 7 -----------------------------------
+  Name = identifier
+  Type = token
+  Description = External identifiers for the {{title}}
+  Path = MetadataResource.identifier
+
+ -- Row 8 -----------------------------------
+  Name = title
+  Type = string
+  Description = Text search against the title of the {{title}}
+  Path = MetadataResource.title
 
 === Sheet Profiles =====================================
 

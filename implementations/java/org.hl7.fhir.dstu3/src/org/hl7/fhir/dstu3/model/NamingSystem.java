@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Oct 10, 2016 15:45+1100 for FHIR v1.7.0
+// Generated on Mon, Oct 10, 2016 17:18+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -1005,7 +1005,7 @@ public class NamingSystem extends MetadataResource {
     }
 
     /**
-     * @return {@link #name} (A free text natural language name identifying the naming system.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
+     * @return {@link #name} (A natural language name identifying the naming system. This name should be usable as an identifier for the module by machine processing applications such as code generation.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
      */
     public StringType getNameElement() { 
       if (this.name == null)
@@ -1025,7 +1025,7 @@ public class NamingSystem extends MetadataResource {
     }
 
     /**
-     * @param value {@link #name} (A free text natural language name identifying the naming system.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
+     * @param value {@link #name} (A natural language name identifying the naming system. This name should be usable as an identifier for the module by machine processing applications such as code generation.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
      */
     public NamingSystem setNameElement(StringType value) { 
       this.name = value;
@@ -1033,14 +1033,14 @@ public class NamingSystem extends MetadataResource {
     }
 
     /**
-     * @return A free text natural language name identifying the naming system.
+     * @return A natural language name identifying the naming system. This name should be usable as an identifier for the module by machine processing applications such as code generation.
      */
     public String getName() { 
       return this.name == null ? null : this.name.getValue();
     }
 
     /**
-     * @param value A free text natural language name identifying the naming system.
+     * @param value A natural language name identifying the naming system. This name should be usable as an identifier for the module by machine processing applications such as code generation.
      */
     public NamingSystem setName(String value) { 
         if (this.name == null)
@@ -1050,7 +1050,7 @@ public class NamingSystem extends MetadataResource {
     }
 
     /**
-     * @return {@link #status} (The status of this naming system.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
+     * @return {@link #status} (The status of this naming system. Enables tracking the life-cycle of the content.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
     public Enumeration<PublicationStatus> getStatusElement() { 
       if (this.status == null)
@@ -1070,7 +1070,7 @@ public class NamingSystem extends MetadataResource {
     }
 
     /**
-     * @param value {@link #status} (The status of this naming system.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
+     * @param value {@link #status} (The status of this naming system. Enables tracking the life-cycle of the content.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
     public NamingSystem setStatusElement(Enumeration<PublicationStatus> value) { 
       this.status = value;
@@ -1078,14 +1078,14 @@ public class NamingSystem extends MetadataResource {
     }
 
     /**
-     * @return The status of this naming system.
+     * @return The status of this naming system. Enables tracking the life-cycle of the content.
      */
     public PublicationStatus getStatus() { 
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
-     * @param value The status of this naming system.
+     * @param value The status of this naming system. Enables tracking the life-cycle of the content.
      */
     public NamingSystem setStatus(PublicationStatus value) { 
         if (this.status == null)
@@ -1609,8 +1609,8 @@ public class NamingSystem extends MetadataResource {
 
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
-        childrenList.add(new Property("name", "string", "A free text natural language name identifying the naming system.", 0, java.lang.Integer.MAX_VALUE, name));
-        childrenList.add(new Property("status", "code", "The status of this naming system.", 0, java.lang.Integer.MAX_VALUE, status));
+        childrenList.add(new Property("name", "string", "A natural language name identifying the naming system. This name should be usable as an identifier for the module by machine processing applications such as code generation.", 0, java.lang.Integer.MAX_VALUE, name));
+        childrenList.add(new Property("status", "code", "The status of this naming system. Enables tracking the life-cycle of the content.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("kind", "code", "Indicates the purpose for the naming system - what kinds of things does it make unique?", 0, java.lang.Integer.MAX_VALUE, kind));
         childrenList.add(new Property("date", "dateTime", "The date  (and optionally time) when the naming system was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the naming system changes.", 0, java.lang.Integer.MAX_VALUE, date));
         childrenList.add(new Property("publisher", "string", "The name of the individual or organization that published the naming system.", 0, java.lang.Integer.MAX_VALUE, publisher));

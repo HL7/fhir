@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Oct 10, 2016 15:45+1100 for FHIR v1.7.0
+// Generated on Mon, Oct 10, 2016 17:18+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -2620,7 +2620,7 @@ public class ImplementationGuide extends MetadataResource {
     }
 
     /**
-     * @return {@link #name} (A free text natural language name identifying the implementation guide.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
+     * @return {@link #name} (A natural language name identifying the implementation guide. This name should be usable as an identifier for the module by machine processing applications such as code generation.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
      */
     public StringType getNameElement() { 
       if (this.name == null)
@@ -2640,7 +2640,7 @@ public class ImplementationGuide extends MetadataResource {
     }
 
     /**
-     * @param value {@link #name} (A free text natural language name identifying the implementation guide.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
+     * @param value {@link #name} (A natural language name identifying the implementation guide. This name should be usable as an identifier for the module by machine processing applications such as code generation.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
      */
     public ImplementationGuide setNameElement(StringType value) { 
       this.name = value;
@@ -2648,14 +2648,14 @@ public class ImplementationGuide extends MetadataResource {
     }
 
     /**
-     * @return A free text natural language name identifying the implementation guide.
+     * @return A natural language name identifying the implementation guide. This name should be usable as an identifier for the module by machine processing applications such as code generation.
      */
     public String getName() { 
       return this.name == null ? null : this.name.getValue();
     }
 
     /**
-     * @param value A free text natural language name identifying the implementation guide.
+     * @param value A natural language name identifying the implementation guide. This name should be usable as an identifier for the module by machine processing applications such as code generation.
      */
     public ImplementationGuide setName(String value) { 
         if (this.name == null)
@@ -2665,7 +2665,7 @@ public class ImplementationGuide extends MetadataResource {
     }
 
     /**
-     * @return {@link #status} (The status of this implementation guide.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
+     * @return {@link #status} (The status of this implementation guide. Enables tracking the life-cycle of the content.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
     public Enumeration<PublicationStatus> getStatusElement() { 
       if (this.status == null)
@@ -2685,7 +2685,7 @@ public class ImplementationGuide extends MetadataResource {
     }
 
     /**
-     * @param value {@link #status} (The status of this implementation guide.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
+     * @param value {@link #status} (The status of this implementation guide. Enables tracking the life-cycle of the content.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
     public ImplementationGuide setStatusElement(Enumeration<PublicationStatus> value) { 
       this.status = value;
@@ -2693,14 +2693,14 @@ public class ImplementationGuide extends MetadataResource {
     }
 
     /**
-     * @return The status of this implementation guide.
+     * @return The status of this implementation guide. Enables tracking the life-cycle of the content.
      */
     public PublicationStatus getStatus() { 
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
-     * @param value The status of this implementation guide.
+     * @param value The status of this implementation guide. Enables tracking the life-cycle of the content.
      */
     public ImplementationGuide setStatus(PublicationStatus value) { 
         if (this.status == null)
@@ -3353,8 +3353,8 @@ public class ImplementationGuide extends MetadataResource {
         super.listChildren(childrenList);
         childrenList.add(new Property("url", "uri", "An absolute URL that is used to identify this implementation guide when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this capability statement is (or will be) published.", 0, java.lang.Integer.MAX_VALUE, url));
         childrenList.add(new Property("version", "string", "The identifier that is used to identify this version of the implementation guide when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the implementation guide author manually and the value should be a timestamp.", 0, java.lang.Integer.MAX_VALUE, version));
-        childrenList.add(new Property("name", "string", "A free text natural language name identifying the implementation guide.", 0, java.lang.Integer.MAX_VALUE, name));
-        childrenList.add(new Property("status", "code", "The status of this implementation guide.", 0, java.lang.Integer.MAX_VALUE, status));
+        childrenList.add(new Property("name", "string", "A natural language name identifying the implementation guide. This name should be usable as an identifier for the module by machine processing applications such as code generation.", 0, java.lang.Integer.MAX_VALUE, name));
+        childrenList.add(new Property("status", "code", "The status of this implementation guide. Enables tracking the life-cycle of the content.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("experimental", "boolean", "A flag to indicate that this implementation guide is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.", 0, java.lang.Integer.MAX_VALUE, experimental));
         childrenList.add(new Property("publisher", "string", "The name of the individual or organization that published the implementation guide.", 0, java.lang.Integer.MAX_VALUE, publisher));
         childrenList.add(new Property("contact", "", "Contacts to assist a user in finding and communicating with the publisher.", 0, java.lang.Integer.MAX_VALUE, contact));

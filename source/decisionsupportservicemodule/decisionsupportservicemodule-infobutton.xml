@@ -13,8 +13,8 @@
   <version value="1.0.0"/>
   <title value="InfoButton Module"/>
   <status value="draft"/>
+  <date value="2016-07-05"/>
   <description value="The InfoButton specification defines a mechanism for retrieving relevant clinical context based a particular set of search criteria.."/>
-  <publicationDate value="2016-07-05"/>
   <topic>
     <text value="InfoButton Module"/>
   </topic>
