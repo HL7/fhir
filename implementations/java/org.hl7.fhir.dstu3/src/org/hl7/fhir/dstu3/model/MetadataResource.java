@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Oct 11, 2016 11:12+1100 for FHIR v1.7.0
+// Generated on Tue, Oct 11, 2016 12:41+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -115,10 +115,9 @@ public abstract class MetadataResource extends DomainResource {
     /**
      * The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of code system definitions.
      */
-    @Child(name = "useContext", type = {CodeableConcept.class}, order=9, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "useContext", type = {UsageContext.class}, order=9, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Content intends to support these contexts", formalDefinition="The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of code system definitions." )
-    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/use-context")
-    protected List<CodeableConcept> useContext;
+    protected List<UsageContext> useContext;
 
     /**
      * A jurisdiction in which the metadata resource is intended to be used.
@@ -135,7 +134,7 @@ public abstract class MetadataResource extends DomainResource {
     @Description(shortDefinition="Natural language description of the metadata resource", formalDefinition="A free text natural language description of the metadata resource from the consumer's perspective." )
     protected MarkdownType description;
 
-    private static final long serialVersionUID = -1598498411L;
+    private static final long serialVersionUID = 145908634L;
 
   /**
    * Constructor
@@ -592,16 +591,16 @@ public abstract class MetadataResource extends DomainResource {
     /**
      * @return {@link #useContext} (The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of code system definitions.)
      */
-    public List<CodeableConcept> getUseContext() { 
+    public List<UsageContext> getUseContext() { 
       if (this.useContext == null)
-        this.useContext = new ArrayList<CodeableConcept>();
+        this.useContext = new ArrayList<UsageContext>();
       return this.useContext;
     }
 
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public MetadataResource setUseContext(List<CodeableConcept> theUseContext) { 
+    public MetadataResource setUseContext(List<UsageContext> theUseContext) { 
       this.useContext = theUseContext;
       return this;
     }
@@ -609,25 +608,25 @@ public abstract class MetadataResource extends DomainResource {
     public boolean hasUseContext() { 
       if (this.useContext == null)
         return false;
-      for (CodeableConcept item : this.useContext)
+      for (UsageContext item : this.useContext)
         if (!item.isEmpty())
           return true;
       return false;
     }
 
-    public CodeableConcept addUseContext() { //3
-      CodeableConcept t = new CodeableConcept();
+    public UsageContext addUseContext() { //3
+      UsageContext t = new UsageContext();
       if (this.useContext == null)
-        this.useContext = new ArrayList<CodeableConcept>();
+        this.useContext = new ArrayList<UsageContext>();
       this.useContext.add(t);
       return t;
     }
 
-    public MetadataResource addUseContext(CodeableConcept t) { //3
+    public MetadataResource addUseContext(UsageContext t) { //3
       if (t == null)
         return this;
       if (this.useContext == null)
-        this.useContext = new ArrayList<CodeableConcept>();
+        this.useContext = new ArrayList<UsageContext>();
       this.useContext.add(t);
       return this;
     }
@@ -635,7 +634,7 @@ public abstract class MetadataResource extends DomainResource {
     /**
      * @return The first repetition of repeating field {@link #useContext}, creating it if it does not already exist
      */
-    public CodeableConcept getUseContextFirstRep() { 
+    public UsageContext getUseContextFirstRep() { 
       if (getUseContext().isEmpty()) {
         addUseContext();
       }
@@ -754,7 +753,7 @@ public abstract class MetadataResource extends DomainResource {
         childrenList.add(new Property("date", "dateTime", "The date  (and optionally time) when the metadata resource was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the metadata resource changes.", 0, java.lang.Integer.MAX_VALUE, date));
         childrenList.add(new Property("publisher", "string", "The name of the individual or organization that published the metadata resource.", 0, java.lang.Integer.MAX_VALUE, publisher));
         childrenList.add(new Property("contact", "ContactDetail", "Contact details to assist a user in finding and communicating with the publisher.", 0, java.lang.Integer.MAX_VALUE, contact));
-        childrenList.add(new Property("useContext", "CodeableConcept", "The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of code system definitions.", 0, java.lang.Integer.MAX_VALUE, useContext));
+        childrenList.add(new Property("useContext", "UsageContext", "The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of code system definitions.", 0, java.lang.Integer.MAX_VALUE, useContext));
         childrenList.add(new Property("jurisdiction", "CodeableConcept", "A jurisdiction in which the metadata resource is intended to be used.", 0, java.lang.Integer.MAX_VALUE, jurisdiction));
         childrenList.add(new Property("description", "markdown", "A free text natural language description of the metadata resource from the consumer's perspective.", 0, java.lang.Integer.MAX_VALUE, description));
       }
@@ -771,7 +770,7 @@ public abstract class MetadataResource extends DomainResource {
         case 3076014: /*date*/ return this.date == null ? new Base[0] : new Base[] {this.date}; // DateTimeType
         case 1447404028: /*publisher*/ return this.publisher == null ? new Base[0] : new Base[] {this.publisher}; // StringType
         case 951526432: /*contact*/ return this.contact == null ? new Base[0] : this.contact.toArray(new Base[this.contact.size()]); // ContactDetail
-        case -669707736: /*useContext*/ return this.useContext == null ? new Base[0] : this.useContext.toArray(new Base[this.useContext.size()]); // CodeableConcept
+        case -669707736: /*useContext*/ return this.useContext == null ? new Base[0] : this.useContext.toArray(new Base[this.useContext.size()]); // UsageContext
         case -507075711: /*jurisdiction*/ return this.jurisdiction == null ? new Base[0] : this.jurisdiction.toArray(new Base[this.jurisdiction.size()]); // CodeableConcept
         case -1724546052: /*description*/ return this.description == null ? new Base[0] : new Base[] {this.description}; // MarkdownType
         default: return super.getProperty(hash, name, checkValid);
@@ -810,7 +809,7 @@ public abstract class MetadataResource extends DomainResource {
           this.getContact().add(castToContactDetail(value)); // ContactDetail
           break;
         case -669707736: // useContext
-          this.getUseContext().add(castToCodeableConcept(value)); // CodeableConcept
+          this.getUseContext().add(castToUsageContext(value)); // UsageContext
           break;
         case -507075711: // jurisdiction
           this.getJurisdiction().add(castToCodeableConcept(value)); // CodeableConcept
@@ -844,7 +843,7 @@ public abstract class MetadataResource extends DomainResource {
         else if (name.equals("contact"))
           this.getContact().add(castToContactDetail(value));
         else if (name.equals("useContext"))
-          this.getUseContext().add(castToCodeableConcept(value));
+          this.getUseContext().add(castToUsageContext(value));
         else if (name.equals("jurisdiction"))
           this.getJurisdiction().add(castToCodeableConcept(value));
         else if (name.equals("description"))
@@ -865,7 +864,7 @@ public abstract class MetadataResource extends DomainResource {
         case 3076014: throw new FHIRException("Cannot make property date as it is not a complex type"); // DateTimeType
         case 1447404028: throw new FHIRException("Cannot make property publisher as it is not a complex type"); // StringType
         case 951526432:  return addContact(); // ContactDetail
-        case -669707736:  return addUseContext(); // CodeableConcept
+        case -669707736:  return addUseContext(); // UsageContext
         case -507075711:  return addJurisdiction(); // CodeableConcept
         case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // MarkdownType
         default: return super.makeProperty(hash, name);
@@ -938,8 +937,8 @@ public abstract class MetadataResource extends DomainResource {
             dst.contact.add(i.copy());
         };
         if (useContext != null) {
-          dst.useContext = new ArrayList<CodeableConcept>();
-          for (CodeableConcept i : useContext)
+          dst.useContext = new ArrayList<UsageContext>();
+          for (UsageContext i : useContext)
             dst.useContext.add(i.copy());
         };
         if (jurisdiction != null) {

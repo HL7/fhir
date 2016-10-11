@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Tue, Oct 11, 2016 11:12+1100 for FHIR v1.7.0
+// Generated on Tue, Oct 11, 2016 12:41+1100 for FHIR v1.7.0
 
 import org.hl7.fhir.dstu3.model.DateType;
 import org.hl7.fhir.dstu3.model.DateTimeType;
@@ -1236,7 +1236,7 @@ public class RdfParser extends RdfParserBase {
     if (element.hasEffectivePeriod())
       composePeriod(t, "ActivityDefinition", "effectivePeriod", element.getEffectivePeriod(), -1);
     for (int i = 0; i < element.getUseContext().size(); i++)
-      composeCodeableConcept(t, "ActivityDefinition", "useContext", element.getUseContext().get(i), i);
+      composeUsageContext(t, "ActivityDefinition", "useContext", element.getUseContext().get(i), i);
     for (int i = 0; i < element.getJurisdiction().size(); i++)
       composeCodeableConcept(t, "ActivityDefinition", "jurisdiction", element.getJurisdiction().get(i), i);
     for (int i = 0; i < element.getTopic().size(); i++)
@@ -1916,7 +1916,7 @@ public class RdfParser extends RdfParserBase {
     if (element.hasDescriptionElement())
       composeMarkdown(t, "CapabilityStatement", "description", element.getDescriptionElement(), -1);
     for (int i = 0; i < element.getUseContext().size(); i++)
-      composeCodeableConcept(t, "CapabilityStatement", "useContext", element.getUseContext().get(i), i);
+      composeUsageContext(t, "CapabilityStatement", "useContext", element.getUseContext().get(i), i);
     for (int i = 0; i < element.getJurisdiction().size(); i++)
       composeCodeableConcept(t, "CapabilityStatement", "jurisdiction", element.getJurisdiction().get(i), i);
     if (element.hasPurposeElement())
@@ -3206,7 +3206,7 @@ public class RdfParser extends RdfParserBase {
     if (element.hasDescriptionElement())
       composeMarkdown(t, "CodeSystem", "description", element.getDescriptionElement(), -1);
     for (int i = 0; i < element.getUseContext().size(); i++)
-      composeCodeableConcept(t, "CodeSystem", "useContext", element.getUseContext().get(i), i);
+      composeUsageContext(t, "CodeSystem", "useContext", element.getUseContext().get(i), i);
     for (int i = 0; i < element.getJurisdiction().size(); i++)
       composeCodeableConcept(t, "CodeSystem", "jurisdiction", element.getJurisdiction().get(i), i);
     if (element.hasPurposeElement())
@@ -3476,7 +3476,7 @@ public class RdfParser extends RdfParserBase {
     if (element.hasPurposeElement())
       composeMarkdown(t, "CompartmentDefinition", "purpose", element.getPurposeElement(), -1);
     for (int i = 0; i < element.getUseContext().size(); i++)
-      composeCodeableConcept(t, "CompartmentDefinition", "useContext", element.getUseContext().get(i), i);
+      composeUsageContext(t, "CompartmentDefinition", "useContext", element.getUseContext().get(i), i);
     for (int i = 0; i < element.getJurisdiction().size(); i++)
       composeCodeableConcept(t, "CompartmentDefinition", "jurisdiction", element.getJurisdiction().get(i), i);
     if (element.hasCodeElement())
@@ -3642,7 +3642,7 @@ public class RdfParser extends RdfParserBase {
     if (element.hasDescriptionElement())
       composeMarkdown(t, "ConceptMap", "description", element.getDescriptionElement(), -1);
     for (int i = 0; i < element.getUseContext().size(); i++)
-      composeCodeableConcept(t, "ConceptMap", "useContext", element.getUseContext().get(i), i);
+      composeUsageContext(t, "ConceptMap", "useContext", element.getUseContext().get(i), i);
     for (int i = 0; i < element.getJurisdiction().size(); i++)
       composeCodeableConcept(t, "ConceptMap", "jurisdiction", element.getJurisdiction().get(i), i);
     if (element.hasPurposeElement())
@@ -4216,7 +4216,7 @@ public class RdfParser extends RdfParserBase {
     for (int i = 0; i < element.getContact().size(); i++)
       composeContactDetail(t, "DataElement", "contact", element.getContact().get(i), i);
     for (int i = 0; i < element.getUseContext().size(); i++)
-      composeCodeableConcept(t, "DataElement", "useContext", element.getUseContext().get(i), i);
+      composeUsageContext(t, "DataElement", "useContext", element.getUseContext().get(i), i);
     for (int i = 0; i < element.getJurisdiction().size(); i++)
       composeCodeableConcept(t, "DataElement", "jurisdiction", element.getJurisdiction().get(i), i);
     if (element.hasCopyrightElement())
@@ -4288,7 +4288,7 @@ public class RdfParser extends RdfParserBase {
     if (element.hasEffectivePeriod())
       composePeriod(t, "DecisionSupportServiceModule", "effectivePeriod", element.getEffectivePeriod(), -1);
     for (int i = 0; i < element.getUseContext().size(); i++)
-      composeCodeableConcept(t, "DecisionSupportServiceModule", "useContext", element.getUseContext().get(i), i);
+      composeUsageContext(t, "DecisionSupportServiceModule", "useContext", element.getUseContext().get(i), i);
     for (int i = 0; i < element.getJurisdiction().size(); i++)
       composeCodeableConcept(t, "DecisionSupportServiceModule", "jurisdiction", element.getJurisdiction().get(i), i);
     for (int i = 0; i < element.getTopic().size(); i++)
@@ -5358,7 +5358,7 @@ public class RdfParser extends RdfParserBase {
     if (element.hasDescriptionElement())
       composeMarkdown(t, "ExpansionProfile", "description", element.getDescriptionElement(), -1);
     for (int i = 0; i < element.getUseContext().size(); i++)
-      composeCodeableConcept(t, "ExpansionProfile", "useContext", element.getUseContext().get(i), i);
+      composeUsageContext(t, "ExpansionProfile", "useContext", element.getUseContext().get(i), i);
     for (int i = 0; i < element.getJurisdiction().size(); i++)
       composeCodeableConcept(t, "ExpansionProfile", "jurisdiction", element.getJurisdiction().get(i), i);
     if (element.hasCodeSystem())
@@ -7004,7 +7004,7 @@ public class RdfParser extends RdfParserBase {
     if (element.hasDescriptionElement())
       composeMarkdown(t, "ImplementationGuide", "description", element.getDescriptionElement(), -1);
     for (int i = 0; i < element.getUseContext().size(); i++)
-      composeCodeableConcept(t, "ImplementationGuide", "useContext", element.getUseContext().get(i), i);
+      composeUsageContext(t, "ImplementationGuide", "useContext", element.getUseContext().get(i), i);
     for (int i = 0; i < element.getJurisdiction().size(); i++)
       composeCodeableConcept(t, "ImplementationGuide", "jurisdiction", element.getJurisdiction().get(i), i);
     if (element.hasCopyrightElement())
@@ -7164,7 +7164,7 @@ public class RdfParser extends RdfParserBase {
     if (element.hasEffectivePeriod())
       composePeriod(t, "Library", "effectivePeriod", element.getEffectivePeriod(), -1);
     for (int i = 0; i < element.getUseContext().size(); i++)
-      composeCodeableConcept(t, "Library", "useContext", element.getUseContext().get(i), i);
+      composeUsageContext(t, "Library", "useContext", element.getUseContext().get(i), i);
     for (int i = 0; i < element.getJurisdiction().size(); i++)
       composeCodeableConcept(t, "Library", "jurisdiction", element.getJurisdiction().get(i), i);
     for (int i = 0; i < element.getTopic().size(); i++)
@@ -7374,7 +7374,7 @@ public class RdfParser extends RdfParserBase {
     if (element.hasEffectivePeriod())
       composePeriod(t, "Measure", "effectivePeriod", element.getEffectivePeriod(), -1);
     for (int i = 0; i < element.getUseContext().size(); i++)
-      composeCodeableConcept(t, "Measure", "useContext", element.getUseContext().get(i), i);
+      composeUsageContext(t, "Measure", "useContext", element.getUseContext().get(i), i);
     for (int i = 0; i < element.getJurisdiction().size(); i++)
       composeCodeableConcept(t, "Measure", "jurisdiction", element.getJurisdiction().get(i), i);
     for (int i = 0; i < element.getTopic().size(); i++)
@@ -8272,7 +8272,7 @@ public class RdfParser extends RdfParserBase {
     if (element.hasDescriptionElement())
       composeMarkdown(t, "NamingSystem", "description", element.getDescriptionElement(), -1);
     for (int i = 0; i < element.getUseContext().size(); i++)
-      composeCodeableConcept(t, "NamingSystem", "useContext", element.getUseContext().get(i), i);
+      composeUsageContext(t, "NamingSystem", "useContext", element.getUseContext().get(i), i);
     for (int i = 0; i < element.getJurisdiction().size(); i++)
       composeCodeableConcept(t, "NamingSystem", "jurisdiction", element.getJurisdiction().get(i), i);
     if (element.hasUsageElement())
@@ -8610,7 +8610,7 @@ public class RdfParser extends RdfParserBase {
     if (element.hasDescriptionElement())
       composeMarkdown(t, "OperationDefinition", "description", element.getDescriptionElement(), -1);
     for (int i = 0; i < element.getUseContext().size(); i++)
-      composeCodeableConcept(t, "OperationDefinition", "useContext", element.getUseContext().get(i), i);
+      composeUsageContext(t, "OperationDefinition", "useContext", element.getUseContext().get(i), i);
     for (int i = 0; i < element.getJurisdiction().size(); i++)
       composeCodeableConcept(t, "OperationDefinition", "jurisdiction", element.getJurisdiction().get(i), i);
     if (element.hasPurposeElement())
@@ -9124,7 +9124,7 @@ public class RdfParser extends RdfParserBase {
     if (element.hasEffectivePeriod())
       composePeriod(t, "PlanDefinition", "effectivePeriod", element.getEffectivePeriod(), -1);
     for (int i = 0; i < element.getUseContext().size(); i++)
-      composeCodeableConcept(t, "PlanDefinition", "useContext", element.getUseContext().get(i), i);
+      composeUsageContext(t, "PlanDefinition", "useContext", element.getUseContext().get(i), i);
     for (int i = 0; i < element.getJurisdiction().size(); i++)
       composeCodeableConcept(t, "PlanDefinition", "jurisdiction", element.getJurisdiction().get(i), i);
     for (int i = 0; i < element.getTopic().size(); i++)
@@ -10140,7 +10140,7 @@ public class RdfParser extends RdfParserBase {
     for (int i = 0; i < element.getContact().size(); i++)
       composeContactDetail(t, "SearchParameter", "contact", element.getContact().get(i), i);
     for (int i = 0; i < element.getUseContext().size(); i++)
-      composeCodeableConcept(t, "SearchParameter", "useContext", element.getUseContext().get(i), i);
+      composeUsageContext(t, "SearchParameter", "useContext", element.getUseContext().get(i), i);
     for (int i = 0; i < element.getJurisdiction().size(); i++)
       composeCodeableConcept(t, "SearchParameter", "jurisdiction", element.getJurisdiction().get(i), i);
     if (element.hasPurposeElement())
@@ -10410,7 +10410,7 @@ public class RdfParser extends RdfParserBase {
     if (element.hasEffectivePeriod())
       composePeriod(t, "ServiceDefinition", "effectivePeriod", element.getEffectivePeriod(), -1);
     for (int i = 0; i < element.getUseContext().size(); i++)
-      composeCodeableConcept(t, "ServiceDefinition", "useContext", element.getUseContext().get(i), i);
+      composeUsageContext(t, "ServiceDefinition", "useContext", element.getUseContext().get(i), i);
     for (int i = 0; i < element.getJurisdiction().size(); i++)
       composeCodeableConcept(t, "ServiceDefinition", "jurisdiction", element.getJurisdiction().get(i), i);
     for (int i = 0; i < element.getTopic().size(); i++)
@@ -10602,7 +10602,7 @@ public class RdfParser extends RdfParserBase {
     if (element.hasDescriptionElement())
       composeMarkdown(t, "StructureDefinition", "description", element.getDescriptionElement(), -1);
     for (int i = 0; i < element.getUseContext().size(); i++)
-      composeCodeableConcept(t, "StructureDefinition", "useContext", element.getUseContext().get(i), i);
+      composeUsageContext(t, "StructureDefinition", "useContext", element.getUseContext().get(i), i);
     for (int i = 0; i < element.getJurisdiction().size(); i++)
       composeCodeableConcept(t, "StructureDefinition", "jurisdiction", element.getJurisdiction().get(i), i);
     if (element.hasPurposeElement())
@@ -10718,7 +10718,7 @@ public class RdfParser extends RdfParserBase {
     if (element.hasDescriptionElement())
       composeMarkdown(t, "StructureMap", "description", element.getDescriptionElement(), -1);
     for (int i = 0; i < element.getUseContext().size(); i++)
-      composeCodeableConcept(t, "StructureMap", "useContext", element.getUseContext().get(i), i);
+      composeUsageContext(t, "StructureMap", "useContext", element.getUseContext().get(i), i);
     for (int i = 0; i < element.getJurisdiction().size(); i++)
       composeCodeableConcept(t, "StructureMap", "jurisdiction", element.getJurisdiction().get(i), i);
     if (element.hasPurposeElement())
@@ -11236,7 +11236,7 @@ public class RdfParser extends RdfParserBase {
     if (element.hasDescriptionElement())
       composeMarkdown(t, "TestScript", "description", element.getDescriptionElement(), -1);
     for (int i = 0; i < element.getUseContext().size(); i++)
-      composeCodeableConcept(t, "TestScript", "useContext", element.getUseContext().get(i), i);
+      composeUsageContext(t, "TestScript", "useContext", element.getUseContext().get(i), i);
     for (int i = 0; i < element.getJurisdiction().size(); i++)
       composeCodeableConcept(t, "TestScript", "jurisdiction", element.getJurisdiction().get(i), i);
     if (element.hasPurposeElement())
@@ -11796,7 +11796,7 @@ public class RdfParser extends RdfParserBase {
     if (element.hasDescriptionElement())
       composeMarkdown(t, "ValueSet", "description", element.getDescriptionElement(), -1);
     for (int i = 0; i < element.getUseContext().size(); i++)
-      composeCodeableConcept(t, "ValueSet", "useContext", element.getUseContext().get(i), i);
+      composeUsageContext(t, "ValueSet", "useContext", element.getUseContext().get(i), i);
     for (int i = 0; i < element.getJurisdiction().size(); i++)
       composeCodeableConcept(t, "ValueSet", "jurisdiction", element.getJurisdiction().get(i), i);
     if (element.hasImmutableElement())

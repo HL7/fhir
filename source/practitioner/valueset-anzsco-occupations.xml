@@ -14,18 +14,18 @@
     </telecom>
   </contact>
   <description value="Developed for use in the collection, analysis and dissemination of occupation statistics in Australia and New Zealand."/>
-  <useContext>
+  <jurisdiction>
     <coding>
       <system value="urn:iso:std:iso:3166"/>
       <code value="AU"/>
     </coding>
-  </useContext>
-  <useContext>
+  </jurisdiction>
+  <jurisdiction>
     <coding>
       <system value="urn:iso:std:iso:3166"/>
       <code value="NZ"/>
     </coding>
-  </useContext>
+  </jurisdiction>
   <copyright value="Copyright Australian Bureau of Statistics"/>
   <compose>
     <include>

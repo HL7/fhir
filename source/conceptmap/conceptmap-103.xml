@@ -25,13 +25,13 @@
   </contact>
   <date value="2012-06-13"/>
   <description value="Example rule-based mappings between SNOMED CT to ICD-10-CM for fracture of ulna"/>
-  <useContext>
+  <jurisdiction>
     <coding>
       <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/>
       <code value="840"/>
       <display value="United States of America"/>
     </coding>
-  </useContext>
+  </jurisdiction>
   <purpose value="Show example rule based mappings"/>
   <copyright value="Creative Commons 0"/>
   <sourceReference>

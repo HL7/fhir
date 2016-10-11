@@ -142,6 +142,7 @@
 	<status value="active"/>
 	<publisher value="DCP"/>
 	<name value="Gender Code"/>
+  <!--
 	<useContext>
 		<coding>
 			<system value="http://example.org/FBPP"/>
@@ -208,6 +209,7 @@
 			<display value="Sulindac for Breast"/>
 		</coding>
 	</useContext>
+  -->
 	<element>
 		<extension url="http://hl7.org/fhir/StructureDefinition/minLength">
 			<valueInteger value="1"/>

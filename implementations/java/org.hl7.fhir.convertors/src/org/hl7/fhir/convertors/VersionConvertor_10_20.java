@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.apache.commons.codec.binary.Base64;
 import org.hl7.fhir.dstu2.utils.ToolingExtensions;
+import org.hl7.fhir.dstu2.model.CodeableConcept;
 import org.hl7.fhir.dstu3.model.Annotation;
 import org.hl7.fhir.dstu3.model.CapabilityStatement.SystemRestfulInteraction;
 import org.hl7.fhir.dstu3.model.CodeSystem;
@@ -3869,7 +3870,10 @@ public class VersionConvertor_10_20 {
       tgt.setDate(src.getDate());
     tgt.setDescription(src.getDescription());
     for (org.hl7.fhir.dstu2.model.CodeableConcept t : src.getUseContext())
-      tgt.addUseContext(convertCodeableConcept(t));
+      if (isJurisdiction(t))
+        tgt.addJurisdiction(convertCodeableConcept(t));
+      else
+        tgt.addUseContext(convertCodeableConceptToUsageContext(t));
     tgt.setPurpose(src.getRequirements());
     tgt.setCopyright(src.getCopyright());
     tgt.setSource(convertType(src.getSource()));
@@ -3881,6 +3885,14 @@ public class VersionConvertor_10_20 {
     }
     return tgt;
   }
+
+  public org.hl7.fhir.dstu3.model.UsageContext convertCodeableConceptToUsageContext(org.hl7.fhir.dstu2.model.CodeableConcept t) throws FHIRException {
+    org.hl7.fhir.dstu3.model.UsageContext result = new org.hl7.fhir.dstu3.model.UsageContext();
+    // todo: set type..
+    result.setValue(convertCodeableConcept(t));
+    return result;  
+  }
+
 
   private ConceptMapGroupComponent getGroup(ConceptMap map, String srcs, String tgts) {
     for (ConceptMapGroupComponent grp : map.getGroup()) {
@@ -3912,8 +3924,11 @@ public class VersionConvertor_10_20 {
     if (src.hasDate())
       tgt.setDate(src.getDate());
     tgt.setDescription(src.getDescription());
-    for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getUseContext())
-      tgt.addUseContext(convertCodeableConcept(t));
+    for (org.hl7.fhir.dstu3.model.UsageContext t : src.getUseContext())
+      if (t.hasValueCodeableConcept())
+        tgt.addUseContext(convertCodeableConcept(t.getValueCodeableConcept()));
+    for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getJurisdiction())
+        tgt.addUseContext(convertCodeableConcept(t));
     tgt.setRequirements(src.getPurpose());
     tgt.setCopyright(src.getCopyright());
     tgt.setSource(convertType(src.getSource()));
@@ -5295,7 +5310,10 @@ public class VersionConvertor_10_20 {
     for (org.hl7.fhir.dstu2.model.DataElement.DataElementContactComponent t : src.getContact())
       tgt.addContact(convertDataElementContactComponent(t));
     for (org.hl7.fhir.dstu2.model.CodeableConcept t : src.getUseContext())
-      tgt.addUseContext(convertCodeableConcept(t));
+      if (isJurisdiction(t))
+        tgt.addJurisdiction(convertCodeableConcept(t));
+      else
+        tgt.addUseContext(convertCodeableConceptToUsageContext(t));
     tgt.setCopyright(src.getCopyright());
     tgt.setStringency(convertDataElementStringency(src.getStringency()));
     for (org.hl7.fhir.dstu2.model.DataElement.DataElementMappingComponent t : src.getMapping())
@@ -5323,8 +5341,11 @@ public class VersionConvertor_10_20 {
     tgt.setName(src.getName());
     for (org.hl7.fhir.dstu3.model.ContactDetail t : src.getContact())
       tgt.addContact(convertDataElementContactComponent(t));
-    for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getUseContext())
-      tgt.addUseContext(convertCodeableConcept(t));
+    for (org.hl7.fhir.dstu3.model.UsageContext t : src.getUseContext())
+      if (t.hasValueCodeableConcept())
+        tgt.addUseContext(convertCodeableConcept(t.getValueCodeableConcept()));
+    for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getJurisdiction())
+        tgt.addUseContext(convertCodeableConcept(t));
     tgt.setCopyright(src.getCopyright());
     tgt.setStringency(convertDataElementStringency(src.getStringency()));
     for (org.hl7.fhir.dstu3.model.DataElement.DataElementMappingComponent t : src.getMapping())
@@ -7989,7 +8010,10 @@ public class VersionConvertor_10_20 {
       tgt.setDate(src.getDate());
     tgt.setDescription(src.getDescription());
     for (org.hl7.fhir.dstu2.model.CodeableConcept t : src.getUseContext())
-      tgt.addUseContext(convertCodeableConcept(t));
+      if (isJurisdiction(t))
+        tgt.addJurisdiction(convertCodeableConcept(t));
+      else
+        tgt.addUseContext(convertCodeableConceptToUsageContext(t));
     tgt.setCopyright(src.getCopyright());
     tgt.setFhirVersion(src.getFhirVersion());
     for (org.hl7.fhir.dstu2.model.ImplementationGuide.ImplementationGuideDependencyComponent t : src.getDependency())
@@ -8021,8 +8045,11 @@ public class VersionConvertor_10_20 {
     if (src.hasDate())
       tgt.setDate(src.getDate());
     tgt.setDescription(src.getDescription());
-    for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getUseContext())
-      tgt.addUseContext(convertCodeableConcept(t));
+    for (org.hl7.fhir.dstu3.model.UsageContext t : src.getUseContext())
+      if (t.hasValueCodeableConcept())
+        tgt.addUseContext(convertCodeableConcept(t.getValueCodeableConcept()));
+    for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getJurisdiction())
+        tgt.addUseContext(convertCodeableConcept(t));
     tgt.setCopyright(src.getCopyright());
     tgt.setFhirVersion(src.getFhirVersion());
     for (org.hl7.fhir.dstu3.model.ImplementationGuide.ImplementationGuideDependencyComponent t : src.getDependency())
@@ -9234,7 +9261,10 @@ public class VersionConvertor_10_20 {
     tgt.setType(convertCodeableConcept(src.getType()));
     tgt.setDescription(src.getDescription());
     for (org.hl7.fhir.dstu2.model.CodeableConcept t : src.getUseContext())
-      tgt.addUseContext(convertCodeableConcept(t));
+      if (isJurisdiction(t))
+        tgt.addJurisdiction(convertCodeableConcept(t));
+      else
+        tgt.addUseContext(convertCodeableConceptToUsageContext(t));
     tgt.setUsage(src.getUsage());
     for (org.hl7.fhir.dstu2.model.NamingSystem.NamingSystemUniqueIdComponent t : src.getUniqueId())
       tgt.addUniqueId(convertNamingSystemUniqueIdComponent(t));
@@ -9258,8 +9288,11 @@ public class VersionConvertor_10_20 {
     tgt.setResponsible(src.getResponsible());
     tgt.setType(convertCodeableConcept(src.getType()));
     tgt.setDescription(src.getDescription());
-    for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getUseContext())
-      tgt.addUseContext(convertCodeableConcept(t));
+    for (org.hl7.fhir.dstu3.model.UsageContext t : src.getUseContext())
+      if (t.hasValueCodeableConcept())
+        tgt.addUseContext(convertCodeableConcept(t.getValueCodeableConcept()));
+    for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getJurisdiction())
+        tgt.addUseContext(convertCodeableConcept(t));
     tgt.setUsage(src.getUsage());
     for (org.hl7.fhir.dstu3.model.NamingSystem.NamingSystemUniqueIdComponent t : src.getUniqueId())
       tgt.addUniqueId(convertNamingSystemUniqueIdComponent(t));
@@ -11929,7 +11962,10 @@ public class VersionConvertor_10_20 {
       tgt.setDate(src.getDate());
     tgt.setDescription(src.getDescription());
     for (org.hl7.fhir.dstu2.model.CodeableConcept t : src.getUseContext())
-      tgt.addUseContext(convertCodeableConcept(t));
+      if (isJurisdiction(t))
+        tgt.addJurisdiction(convertCodeableConcept(t));
+      else
+        tgt.addUseContext(convertCodeableConceptToUsageContext(t));
     tgt.setPurpose(src.getRequirements());
     tgt.setCopyright(src.getCopyright());
     for (org.hl7.fhir.dstu2.model.Coding t : src.getCode())
@@ -11981,8 +12017,11 @@ public class VersionConvertor_10_20 {
     if (src.hasDate())
       tgt.setDate(src.getDate());
     tgt.setDescription(src.getDescription());
-    for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getUseContext())
-      tgt.addUseContext(convertCodeableConcept(t));
+    for (org.hl7.fhir.dstu3.model.UsageContext t : src.getUseContext())
+      if (t.hasValueCodeableConcept())
+        tgt.addUseContext(convertCodeableConcept(t.getValueCodeableConcept()));
+    for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getJurisdiction())
+        tgt.addUseContext(convertCodeableConcept(t));
     tgt.setRequirements(src.getPurpose());
     tgt.setCopyright(src.getCopyright());
     for (org.hl7.fhir.dstu3.model.Coding t : src.getKeyword())
@@ -12496,7 +12535,10 @@ public class VersionConvertor_10_20 {
       tgt.setDate(src.getDate());
     tgt.setDescription(src.getDescription());
     for (org.hl7.fhir.dstu2.model.CodeableConcept t : src.getUseContext())
-      tgt.addUseContext(convertCodeableConcept(t));
+      if (isJurisdiction(t))
+        tgt.addJurisdiction(convertCodeableConcept(t));
+      else
+        tgt.addUseContext(convertCodeableConceptToUsageContext(t));
     tgt.setPurpose(src.getRequirements());
     tgt.setCopyright(src.getCopyright());
     tgt.setMetadata(convertTestScriptMetadataComponent(src.getMetadata()));
@@ -12531,8 +12573,11 @@ public class VersionConvertor_10_20 {
     if (src.hasDate())
       tgt.setDate(src.getDate());
     tgt.setDescription(src.getDescription());
-    for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getUseContext())
-      tgt.addUseContext(convertCodeableConcept(t));
+    for (org.hl7.fhir.dstu3.model.UsageContext t : src.getUseContext())
+      if (t.hasValueCodeableConcept())
+        tgt.addUseContext(convertCodeableConcept(t.getValueCodeableConcept()));
+    for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getJurisdiction())
+        tgt.addUseContext(convertCodeableConcept(t));
     tgt.setRequirements(src.getPurpose());
     tgt.setCopyright(src.getCopyright());
     tgt.setMetadata(convertTestScriptMetadataComponent(src.getMetadata()));
@@ -13110,7 +13155,10 @@ public org.hl7.fhir.dstu2.model.ValueSet.ConceptDefinitionDesignationComponent c
       tgt.setDate(src.getDate());
     tgt.setDescription(src.getDescription());
     for (org.hl7.fhir.dstu2.model.CodeableConcept t : src.getUseContext())
-      tgt.addUseContext(convertCodeableConcept(t));
+      if (isJurisdiction(t))
+        tgt.addJurisdiction(convertCodeableConcept(t));
+      else
+        tgt.addUseContext(convertCodeableConceptToUsageContext(t));
     tgt.setImmutable(src.getImmutable());
     tgt.setPurpose(src.getRequirements());
     tgt.setCopyright(src.getCopyright());
@@ -13132,7 +13180,10 @@ public org.hl7.fhir.dstu2.model.ValueSet.ConceptDefinitionDesignationComponent c
         tgtcs.setDate(src.getDate());
       tgtcs.setDescription(src.getDescription());
       for (org.hl7.fhir.dstu2.model.CodeableConcept t : src.getUseContext())
-        tgtcs.addUseContext(convertCodeableConcept(t));
+        if (isJurisdiction(t))
+          tgtcs.addJurisdiction(convertCodeableConcept(t));
+        else
+          tgtcs.addUseContext(convertCodeableConceptToUsageContext(t));
       tgtcs.setPurpose(src.getRequirements());
       tgtcs.setCopyright(src.getCopyright());
       tgtcs.setCaseSensitive(src.getCodeSystem().getCaseSensitive());
@@ -13185,8 +13236,11 @@ public org.hl7.fhir.dstu2.model.ValueSet.ConceptDefinitionDesignationComponent c
       tgt.setDate(src.getDate());
     tgt.setLockedDate(src.getCompose().getLockedDate());
     tgt.setDescription(src.getDescription());
-    for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getUseContext())
-      tgt.addUseContext(convertCodeableConcept(t));
+    for (org.hl7.fhir.dstu3.model.UsageContext t : src.getUseContext())
+      if (t.hasValueCodeableConcept())
+        tgt.addUseContext(convertCodeableConcept(t.getValueCodeableConcept()));
+    for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getJurisdiction())
+        tgt.addUseContext(convertCodeableConcept(t));
     tgt.setImmutable(src.getImmutable());
     tgt.setRequirements(src.getPurpose());
     tgt.setCopyright(src.getCopyright());
@@ -13195,6 +13249,12 @@ public org.hl7.fhir.dstu2.model.ValueSet.ConceptDefinitionDesignationComponent c
     tgt.setExpansion(convertValueSetExpansionComponent(src.getExpansion()));
     return tgt;
   }
+
+  private static boolean isJurisdiction(CodeableConcept t) {
+    return t.hasCoding() && ("http://unstats.un.org/unsd/methods/m49/m49.htm".equals(t.getCoding().get(0).getSystem()) || "urn:iso:std:iso:3166".equals(t.getCoding().get(0).getSystem()) 
+        || "https://www.usps.com/".equals(t.getCoding().get(0).getSystem()));
+  }
+
 
   public org.hl7.fhir.dstu3.model.ContactDetail convertValueSetContactComponent(org.hl7.fhir.dstu2.model.ValueSet.ValueSetContactComponent src) throws FHIRException {
     if (src == null || src.isEmpty())

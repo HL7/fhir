@@ -22,13 +22,13 @@
 	</contact>
 	<date value="2016-09-26"/>
 	<description value="TestScript example resource with setup to delete if present and create a new instance of a Patient; and single test definition to read the created Patient with various asserts. The asserts now include example rule and ruleset definitions to execute."/>
-	<useContext>
+	<jurisdiction>
 		<coding>
 			<system value="urn:iso:std:iso:3166"/>
 			<code value="US"/>
 			<display value="United States of America (the)"/>
 		</coding>
-	</useContext>
+	</jurisdiction>
 	<purpose value="Patient Conditional Create (Update), Read and Delete Operations"/>
 	<copyright value="© HL7.org 2011+"/>
 

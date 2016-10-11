@@ -1320,7 +1320,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   }
 
   private String getCountry(NamingSystem ns) {
-    for (CodeableConcept cc : ns.getUseContext()) {
+    for (CodeableConcept cc : ns.getJurisdiction()) {
       for (Coding c : cc.getCoding()) {
         if (c.getSystem().equals("urn:iso:std:iso:3166"))
           return c.hasDisplay() ? c.getDisplay() : c.getCode();

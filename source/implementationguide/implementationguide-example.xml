@@ -25,12 +25,12 @@
   </contact>
   <date value="2015-01-01"/>
   <description value="The Data Access Framework (DAF) Initiative leverages the HL7 FHIR standards to standardize access to Meaningful Use Stage 2 structured information both within the organization and from external organizations"/>
-  <useContext>
+  <jurisdiction>
     <coding>
       <system value="urn:iso:std:iso:3166"/>
       <code value="US"/>
     </coding>
-  </useContext>
+  </jurisdiction>
   <copyright value="Published by ONC under the standard FHIR license (CC0)"/>
   <fhirVersion value="1.0.0"/>
   <dependency> 

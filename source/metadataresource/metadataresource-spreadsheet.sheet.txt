@@ -123,8 +123,7 @@
   Element = MetadataResource.useContext
   Card. = 0..*
   Summary = y
-  Type = CodeableConcept
-  Binding = ConformanceUseContext
+  Type = UsageContext
   Short Name = Content intends to support these contexts
   Definition = The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of code system definitions.
   Requirements = Assist in searching for appropriate content
@@ -231,7 +230,7 @@
   Name = context
   Type = token
   Description = A use context assigned to the {{title}}
-  Path = MetadataResource.useContext
+  Path = MetadataResource.useContext.value[x]
 
  -- Row 7 -----------------------------------
   Name = identifier

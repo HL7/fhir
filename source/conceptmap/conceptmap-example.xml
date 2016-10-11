@@ -26,7 +26,13 @@
 	<date value="2012-06-13"/>
 	<description value="A mapping between the FHIR and HL7 v3 AddressUse Code systems"/>
 	<useContext>
-		<text value="for CDA Usage"/>
+    <code>
+      <system value="http://hl7.org/fhir/usage-context-type"/>
+      <code value="venue"/> <!-- todo ... -->
+    </code>
+    <valueCodeableConcept>
+		  <text value="for CDA Usage"/>
+    </valueCodeableConcept>
 	</useContext>
 	<purpose value="To help implementers map from HL7 v3/CDA to FHIR"/>
 	<copyright value="Creative Commons 0"/>

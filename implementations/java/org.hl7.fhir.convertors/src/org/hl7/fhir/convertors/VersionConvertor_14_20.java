@@ -35,6 +35,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.hl7.fhir.dstu2016may.model.CodeSystem.ConceptDefinitionPropertyComponent;
+import org.hl7.fhir.dstu2016may.model.CodeableConcept;
 import org.hl7.fhir.dstu2016may.model.StructureDefinition.TypeDerivationRule;
 import org.hl7.fhir.dstu3.model.CodeSystem;
 import org.hl7.fhir.dstu3.model.CodeSystem.FilterOperator;
@@ -2468,7 +2469,10 @@ public class VersionConvertor_14_20 {
     if (src.hasDescription())
       tgt.setDescription(src.getDescription());
     for (org.hl7.fhir.dstu2016may.model.CodeableConcept t : src.getUseContext())
-      tgt.addUseContext(convertCodeableConcept(t));
+      if (isJurisdiction(t))
+        tgt.addJurisdiction(convertCodeableConcept(t));
+      else
+        tgt.addUseContext(convertCodeableConceptToUsageContext(t));
     if (src.hasRequirements())
       tgt.setPurpose(src.getRequirements());
     if (src.hasCopyright())
@@ -2491,6 +2495,19 @@ public class VersionConvertor_14_20 {
     for (org.hl7.fhir.dstu2016may.model.CodeSystem.ConceptDefinitionComponent t : src.getConcept())
       tgt.addConcept(convertConceptDefinitionComponent(t));
     return tgt;
+  }
+  
+  
+  private static boolean isJurisdiction(CodeableConcept t) {
+    return t.hasCoding() && ("http://unstats.un.org/unsd/methods/m49/m49.htm".equals(t.getCoding().get(0).getSystem()) || "urn:iso:std:iso:3166".equals(t.getCoding().get(0).getSystem()) 
+        || "https://www.usps.com/".equals(t.getCoding().get(0).getSystem()));
+  }
+
+  public static org.hl7.fhir.dstu3.model.UsageContext convertCodeableConceptToUsageContext(org.hl7.fhir.dstu2016may.model.CodeableConcept t) throws FHIRException {
+    org.hl7.fhir.dstu3.model.UsageContext result = new org.hl7.fhir.dstu3.model.UsageContext();
+    // todo: set type..
+    result.setValue(convertCodeableConcept(t));
+    return result;  
   }
 
   public static org.hl7.fhir.dstu2016may.model.CodeSystem convertCodeSystem(org.hl7.fhir.dstu3.model.CodeSystem src) throws FHIRException {
@@ -2516,8 +2533,11 @@ public class VersionConvertor_14_20 {
       tgt.setDate(src.getDate());
     if (src.hasDescription())
       tgt.setDescription(src.getDescription());
-    for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getUseContext())
-      tgt.addUseContext(convertCodeableConcept(t));
+    for (org.hl7.fhir.dstu3.model.UsageContext t : src.getUseContext())
+      if (t.hasValueCodeableConcept())
+        tgt.addUseContext(convertCodeableConcept(t.getValueCodeableConcept()));
+    for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getJurisdiction())
+        tgt.addUseContext(convertCodeableConcept(t));
     if (src.hasPurpose())
       tgt.setRequirements(src.getPurpose());
     if (src.hasCopyright())
@@ -2911,7 +2931,10 @@ public class VersionConvertor_14_20 {
     if (src.hasDescription())
       tgt.setDescription(src.getDescription());
     for (org.hl7.fhir.dstu2016may.model.CodeableConcept t : src.getUseContext())
-      tgt.addUseContext(convertCodeableConcept(t));
+      if (isJurisdiction(t))
+        tgt.addJurisdiction(convertCodeableConcept(t));
+      else
+        tgt.addUseContext(convertCodeableConceptToUsageContext(t));
     if (src.hasRequirements())
       tgt.setPurpose(src.getRequirements());
     if (src.hasCopyright())
@@ -2961,7 +2984,10 @@ public class VersionConvertor_14_20 {
       tgt.setDate(src.getDate());
     if (src.hasDescription())
       tgt.setDescription(src.getDescription());
-    for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getUseContext())
+    for (org.hl7.fhir.dstu3.model.UsageContext t : src.getUseContext())
+      if (t.hasValueCodeableConcept())
+        tgt.addUseContext(convertCodeableConcept(t.getValueCodeableConcept()));
+    for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getJurisdiction())
       tgt.addUseContext(convertCodeableConcept(t));
     if (src.hasPurpose())
       tgt.setRequirements(src.getPurpose());
@@ -3157,7 +3183,10 @@ public class VersionConvertor_14_20 {
     if (src.hasDescription())
       tgt.setDescription(src.getDescription());
     for (org.hl7.fhir.dstu2016may.model.CodeableConcept t : src.getUseContext())
-      tgt.addUseContext(convertCodeableConcept(t));
+      if (isJurisdiction(t))
+        tgt.addJurisdiction(convertCodeableConcept(t));
+      else
+        tgt.addUseContext(convertCodeableConceptToUsageContext(t));
     if (src.hasRequirements())
       tgt.setPurpose(src.getRequirements());
     if (src.hasCopyright())
@@ -3202,7 +3231,10 @@ public class VersionConvertor_14_20 {
       tgt.addContact(convertConformanceContactComponent(t));
     if (src.hasDescription())
       tgt.setDescription(src.getDescription());
-    for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getUseContext())
+    for (org.hl7.fhir.dstu3.model.UsageContext t : src.getUseContext())
+      if (t.hasValueCodeableConcept())
+        tgt.addUseContext(convertCodeableConcept(t.getValueCodeableConcept()));
+    for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getJurisdiction())
       tgt.addUseContext(convertCodeableConcept(t));
     if (src.hasPurpose())
       tgt.setRequirements(src.getPurpose());
@@ -3985,7 +4017,10 @@ public class VersionConvertor_14_20 {
     for (org.hl7.fhir.dstu2016may.model.DataElement.DataElementContactComponent t : src.getContact())
       tgt.addContact(convertDataElementContactComponent(t));
     for (org.hl7.fhir.dstu2016may.model.CodeableConcept t : src.getUseContext())
-      tgt.addUseContext(convertCodeableConcept(t));
+      if (isJurisdiction(t))
+        tgt.addJurisdiction(convertCodeableConcept(t));
+      else
+        tgt.addUseContext(convertCodeableConceptToUsageContext(t));
     if (src.hasCopyright())
       tgt.setCopyright(src.getCopyright());
     tgt.setStringency(convertDataElementStringency(src.getStringency()));
@@ -4018,7 +4053,10 @@ public class VersionConvertor_14_20 {
       tgt.setName(src.getName());
     for (org.hl7.fhir.dstu3.model.ContactDetail t : src.getContact())
       tgt.addContact(convertDataElementContactComponent(t));
-    for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getUseContext())
+    for (org.hl7.fhir.dstu3.model.UsageContext t : src.getUseContext())
+      if (t.hasValueCodeableConcept())
+        tgt.addUseContext(convertCodeableConcept(t.getValueCodeableConcept()));
+    for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getJurisdiction())
       tgt.addUseContext(convertCodeableConcept(t));
     if (src.hasCopyright())
       tgt.setCopyright(src.getCopyright());
@@ -4133,7 +4171,10 @@ public class VersionConvertor_14_20 {
     if (src.hasDescription())
       tgt.setDescription(src.getDescription());
     for (org.hl7.fhir.dstu2016may.model.CodeableConcept t : src.getUseContext())
-      tgt.addUseContext(convertCodeableConcept(t));
+      if (isJurisdiction(t))
+        tgt.addJurisdiction(convertCodeableConcept(t));
+      else
+        tgt.addUseContext(convertCodeableConceptToUsageContext(t));
     if (src.hasCopyright())
       tgt.setCopyright(src.getCopyright());
     if (src.hasFhirVersion())
@@ -4170,7 +4211,10 @@ public class VersionConvertor_14_20 {
       tgt.setDate(src.getDate());
     if (src.hasDescription())
       tgt.setDescription(src.getDescription());
-    for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getUseContext())
+    for (org.hl7.fhir.dstu3.model.UsageContext t : src.getUseContext())
+      if (t.hasValueCodeableConcept())
+        tgt.addUseContext(convertCodeableConcept(t.getValueCodeableConcept()));
+    for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getJurisdiction())
       tgt.addUseContext(convertCodeableConcept(t));
     if (src.hasCopyright())
       tgt.setCopyright(src.getCopyright());
@@ -4423,7 +4467,10 @@ public class VersionConvertor_14_20 {
     if (src.hasDescription())
       tgt.setDescription(src.getDescription());
     for (org.hl7.fhir.dstu2016may.model.CodeableConcept t : src.getUseContext())
-      tgt.addUseContext(convertCodeableConcept(t));
+      if (isJurisdiction(t))
+        tgt.addJurisdiction(convertCodeableConcept(t));
+      else
+        tgt.addUseContext(convertCodeableConceptToUsageContext(t));
     if (src.hasUsage())
       tgt.setUsage(src.getUsage());
     for (org.hl7.fhir.dstu2016may.model.NamingSystem.NamingSystemUniqueIdComponent t : src.getUniqueId())
@@ -4450,7 +4497,10 @@ public class VersionConvertor_14_20 {
     tgt.setType(convertCodeableConcept(src.getType()));
     if (src.hasDescription())
       tgt.setDescription(src.getDescription());
-    for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getUseContext())
+    for (org.hl7.fhir.dstu3.model.UsageContext t : src.getUseContext())
+      if (t.hasValueCodeableConcept())
+        tgt.addUseContext(convertCodeableConcept(t.getValueCodeableConcept()));
+    for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getJurisdiction())
       tgt.addUseContext(convertCodeableConcept(t));
     if (src.hasUsage())
       tgt.setUsage(src.getUsage());
@@ -4579,7 +4629,10 @@ public class VersionConvertor_14_20 {
     if (src.hasDescription())
       tgt.setDescription(src.getDescription());
     for (org.hl7.fhir.dstu2016may.model.CodeableConcept t : src.getUseContext())
-      tgt.addUseContext(convertCodeableConcept(t));
+      if (isJurisdiction(t))
+        tgt.addJurisdiction(convertCodeableConcept(t));
+      else
+        tgt.addUseContext(convertCodeableConceptToUsageContext(t));
     if (src.hasRequirements())
       tgt.setPurpose(src.getRequirements());
     if (src.hasIdempotent())
@@ -4620,7 +4673,10 @@ public class VersionConvertor_14_20 {
       tgt.addContact(convertOperationDefinitionContactComponent(t));
     if (src.hasDescription())
       tgt.setDescription(src.getDescription());
-    for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getUseContext())
+    for (org.hl7.fhir.dstu3.model.UsageContext t : src.getUseContext())
+      if (t.hasValueCodeableConcept())
+        tgt.addUseContext(convertCodeableConcept(t.getValueCodeableConcept()));
+    for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getJurisdiction())
       tgt.addUseContext(convertCodeableConcept(t));
     if (src.hasPurpose())
       tgt.setRequirements(src.getPurpose());
@@ -4938,7 +4994,10 @@ public class VersionConvertor_14_20 {
     for (org.hl7.fhir.dstu2016may.model.ContactPoint t : src.getTelecom())
       tgt.addTelecom(convertContactPoint(t));
     for (org.hl7.fhir.dstu2016may.model.CodeableConcept t : src.getUseContext())
-      tgt.addUseContext(convertCodeableConcept(t));
+//      if (isJurisdiction(t))
+//        tgt.addJurisdiction(convertCodeableConcept(t));
+//      else
+        tgt.addUseContext(convertCodeableConcept(t));
     if (src.hasTitle())
       tgt.setTitle(src.getTitle());
     for (org.hl7.fhir.dstu2016may.model.Coding t : src.getConcept())
@@ -4970,6 +5029,8 @@ public class VersionConvertor_14_20 {
       tgt.addTelecom(convertContactPoint(t));
     for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getUseContext())
       tgt.addUseContext(convertCodeableConcept(t));
+//    for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getJurisdiction())
+//      tgt.addUseContext(convertCodeableConcept(t));
     if (src.hasTitle())
       tgt.setTitle(src.getTitle());
     for (org.hl7.fhir.dstu3.model.Coding t : src.getConcept())
@@ -5296,7 +5357,10 @@ public class VersionConvertor_14_20 {
     for (org.hl7.fhir.dstu2016may.model.SearchParameter.SearchParameterContactComponent t : src.getContact())
       tgt.addContact(convertSearchParameterContactComponent(t));
     for (org.hl7.fhir.dstu2016may.model.CodeableConcept t : src.getUseContext())
-      tgt.addUseContext(convertCodeableConcept(t));
+      if (isJurisdiction(t))
+        tgt.addJurisdiction(convertCodeableConcept(t));
+      else
+        tgt.addUseContext(convertCodeableConceptToUsageContext(t));
     if (src.hasRequirements())
       tgt.setPurpose(src.getRequirements());
     tgt.setCode(src.getCode());
@@ -5329,7 +5393,10 @@ public class VersionConvertor_14_20 {
       tgt.setPublisher(src.getPublisher());
     for (org.hl7.fhir.dstu3.model.ContactDetail t : src.getContact())
       tgt.addContact(convertSearchParameterContactComponent(t));
-    for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getUseContext())
+    for (org.hl7.fhir.dstu3.model.UsageContext t : src.getUseContext())
+      if (t.hasValueCodeableConcept())
+        tgt.addUseContext(convertCodeableConcept(t.getValueCodeableConcept()));
+    for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getJurisdiction())
       tgt.addUseContext(convertCodeableConcept(t));
     if (src.hasPurpose())
       tgt.setRequirements(src.getPurpose());
@@ -5423,7 +5490,10 @@ public class VersionConvertor_14_20 {
     if (src.hasDescription())
       tgt.setDescription(src.getDescription());
     for (org.hl7.fhir.dstu2016may.model.CodeableConcept t : src.getUseContext())
-      tgt.addUseContext(convertCodeableConcept(t));
+      if (isJurisdiction(t))
+        tgt.addJurisdiction(convertCodeableConcept(t));
+      else
+        tgt.addUseContext(convertCodeableConceptToUsageContext(t));
     if (src.hasRequirements())
       tgt.setPurpose(src.getRequirements());
     if (src.hasCopyright())
@@ -5482,7 +5552,10 @@ public class VersionConvertor_14_20 {
       tgt.setDate(src.getDate());
     if (src.hasDescription())
       tgt.setDescription(src.getDescription());
-    for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getUseContext())
+    for (org.hl7.fhir.dstu3.model.UsageContext t : src.getUseContext())
+      if (t.hasValueCodeableConcept())
+        tgt.addUseContext(convertCodeableConcept(t.getValueCodeableConcept()));
+    for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getJurisdiction())
       tgt.addUseContext(convertCodeableConcept(t));
     if (src.hasPurpose())
       tgt.setRequirements(src.getPurpose());
@@ -5688,7 +5761,10 @@ public class VersionConvertor_14_20 {
     if (src.hasDescription())
       tgt.setDescription(src.getDescription());
     for (org.hl7.fhir.dstu2016may.model.CodeableConcept t : src.getUseContext())
-      tgt.addUseContext(convertCodeableConcept(t));
+      if (isJurisdiction(t))
+        tgt.addJurisdiction(convertCodeableConcept(t));
+      else
+        tgt.addUseContext(convertCodeableConceptToUsageContext(t));
     if (src.hasRequirements())
       tgt.setPurpose(src.getRequirements());
     if (src.hasCopyright())
@@ -5736,7 +5812,10 @@ public class VersionConvertor_14_20 {
       tgt.setDate(src.getDate());
     if (src.hasDescription())
       tgt.setDescription(src.getDescription());
-    for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getUseContext())
+    for (org.hl7.fhir.dstu3.model.UsageContext t : src.getUseContext())
+      if (t.hasValueCodeableConcept())
+        tgt.addUseContext(convertCodeableConcept(t.getValueCodeableConcept()));
+    for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getJurisdiction())
       tgt.addUseContext(convertCodeableConcept(t));
     if (src.hasPurpose())
       tgt.setRequirements(src.getPurpose());
@@ -6631,7 +6710,10 @@ public class VersionConvertor_14_20 {
     if (src.hasDescription())
       tgt.setDescription(src.getDescription());
     for (org.hl7.fhir.dstu2016may.model.CodeableConcept t : src.getUseContext())
-      tgt.addUseContext(convertCodeableConcept(t));
+      if (isJurisdiction(t))
+        tgt.addJurisdiction(convertCodeableConcept(t));
+      else
+        tgt.addUseContext(convertCodeableConceptToUsageContext(t));
     if (src.hasImmutable())
       tgt.setImmutable(src.getImmutable());
     if (src.hasRequirements())
@@ -6673,7 +6755,10 @@ public class VersionConvertor_14_20 {
       tgt.setLockedDate(src.getCompose().getLockedDate());
     if (src.hasDescription())
       tgt.setDescription(src.getDescription());
-    for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getUseContext())
+    for (org.hl7.fhir.dstu3.model.UsageContext t : src.getUseContext())
+      if (t.hasValueCodeableConcept())
+        tgt.addUseContext(convertCodeableConcept(t.getValueCodeableConcept()));
+    for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getJurisdiction())
       tgt.addUseContext(convertCodeableConcept(t));
     if (src.hasImmutable())
       tgt.setImmutable(src.getImmutable());

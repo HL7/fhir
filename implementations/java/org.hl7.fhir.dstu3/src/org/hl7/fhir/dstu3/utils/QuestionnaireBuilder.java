@@ -308,7 +308,7 @@ public class QuestionnaireBuilder {
   }
 
   private boolean isInlineDataType(List<TypeRefComponent> type) {
-    return type.size() == 1 && (type.get(0).getCode().equals("ContactDetail"));
+    return type.size() == 1 && (type.get(0).getCode().equals("ContactDetail") || type.get(0).getCode().equals("UsageContext"));
   }
 
   private boolean isExempt(ElementDefinition element, ElementDefinition child) {

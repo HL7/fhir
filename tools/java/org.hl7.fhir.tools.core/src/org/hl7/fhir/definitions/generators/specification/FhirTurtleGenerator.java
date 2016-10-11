@@ -30,9 +30,11 @@ import org.hl7.fhir.dstu3.model.IntegerType;
 import org.hl7.fhir.dstu3.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.dstu3.model.OperationOutcome.IssueType;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
+import org.hl7.fhir.dstu3.model.UsageContext;
 import org.hl7.fhir.dstu3.model.ValueSet;
 import org.hl7.fhir.dstu3.validation.ValidationMessage;
 import org.hl7.fhir.dstu3.validation.ValidationMessage.Source;
+import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.igtools.spreadsheets.TypeRef;
 import org.hl7.fhir.rdf.RdfGenerator;
 import org.hl7.fhir.tools.publisher.BuildWorkerContext;
@@ -627,7 +629,7 @@ public class FhirTurtleGenerator extends RdfGenerator {
   }
 
   
-  private void genExtension(StructureDefinition extension) {
+  private void genExtension(StructureDefinition extension) throws FHIRException {
     // for now, only simple extensions
     if (extension.getSnapshot().getElement().size() == 5 && !hasSection("Extension: "+tail(extension.getUrl()))) {
       ElementDefinition base = extension.getSnapshot().getElement().get(0);
@@ -643,8 +645,8 @@ public class FhirTurtleGenerator extends RdfGenerator {
         subject.predicate("dc:rights", literal(extension.getCopyright()));
       subject.predicate("fhir:status", complex().predicate("a", "fhir:conformance-resource-status\\#"+extension.getStatus().toCode()));
       subject.predicate("fhir:canonicalStatus", complex().predicate("a", getCanonicalStatus("ValueSet.status", extension.getStatus().toCode())));
-      for (CodeableConcept cc : extension.getUseContext()) 
-        codedTriple(subject, "fhir:useContext", cc);
+      for (UsageContext cc : extension.getUseContext()) 
+        codedTriple(subject, "fhir:useContext", cc.getValueCodeableConcept());
       if (extension.hasDate()) 
         subject.predicate("dc:date", literal(extension.getDateElement().asStringValue()));
       
@@ -654,7 +656,7 @@ public class FhirTurtleGenerator extends RdfGenerator {
     }    
   }
 
-  private void gen(String bn, ValueSet vs) {
+  private void gen(String bn, ValueSet vs) throws FHIRException {
     Section section = section(bn);
     section.triple(bn, "a", "fhir:ValueSet");
     if (vs.hasVersion())
@@ -668,8 +670,8 @@ public class FhirTurtleGenerator extends RdfGenerator {
     if (vs.hasDate()) 
       section.triple(bn, "dc:date", literal(vs.getDateElement().asStringValue()));
     
-    for (CodeableConcept cc : vs.getUseContext()) 
-      codedTriple(section, bn, "fhir:useContext", cc);
+    for (UsageContext cc : vs.getUseContext()) 
+      codedTriple(section, bn, "fhir:useContext", cc.getValueCodeableConcept());
     section.triple(bn, "fhir:status", complex().predicate("a", "fhir:conformance-resource-status\\#"+vs.getStatus().toCode()));
     section.triple(bn, "fhir:canonicalStatus", complex().predicate("a", getCanonicalStatus("ValueSet.status", vs.getStatus().toCode())));
   }

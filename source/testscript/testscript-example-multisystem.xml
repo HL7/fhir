@@ -22,13 +22,13 @@
 	</contact>
 	<date value="2016-09-26"/>
 	<description value="TestScript example resource showing use of origin and destination for multisystem support. The single origin will execute a Patient read against the two destination systems using user defined dynamic variables. The test engine will wait at each operation action with a defined origin and destination for the origin test system to send the expected FHIR operation to the destination test system. Once the expected request and response is observed, the test engine will continue with the test execution."/>
-	<useContext>
+	<jurisdiction>
 		<coding>
 			<system value="urn:iso:std:iso:3166"/>
 			<code value="US"/>
 			<display value="United States of America (the)"/>
 		</coding>
-	</useContext>
+	</jurisdiction>
 	<purpose value="Patient Read Operation"/>
 	<copyright value="© HL7.org 2011+"/>
 

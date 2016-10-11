@@ -9,6 +9,7 @@ import org.hl7.fhir.dstu3.model.CodeSystem;
 import org.hl7.fhir.dstu3.model.CodeableConcept;
 import org.hl7.fhir.dstu3.model.ContactDetail;
 import org.hl7.fhir.dstu3.model.ContactPoint;
+import org.hl7.fhir.dstu3.model.UsageContext;
 import org.hl7.fhir.dstu3.model.ValueSet;
 import org.hl7.fhir.dstu3.terminologies.CodeSystemUtilities;
 import org.hl7.fhir.utilities.Utilities;
@@ -66,7 +67,7 @@ public class CodeSystemConvertor {
     }
     cs.setDate(vs.getDate());
     cs.setDescription(vs.getDescription());
-    for (CodeableConcept cc : vs.getUseContext())
+    for (UsageContext cc : vs.getUseContext())
       cs.addUseContext(cc);
     cs.setPurpose(vs.getPurpose());
     cs.setCopyright(vs.getCopyright());

@@ -24,13 +24,13 @@
   </contact>
   <date value="2012-05-12"/>
   <description value="Describes how the lab report is used for a standard Lipid Profile - Cholesterol, Triglyceride and Cholesterol fractions. Uses LOINC codes"/>
-  <useContext>
+  <jurisdiction>
     <!-- based on Australian recommendations -->
     <coding>
       <system value="urn:iso:std:iso:3166"/>
       <code value="AU"/>
     </coding>    
-  </useContext>
+  </jurisdiction>
   <purpose value="Provide an example to demonstrate how to use StructureDefinition"/><!-- 0..1 Scope and Usage this structure definition is for -->
   <copyright value="Createive Commons 0, per FHIR specification"/>
   <keyword>

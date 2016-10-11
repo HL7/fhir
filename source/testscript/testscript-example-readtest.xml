@@ -22,13 +22,13 @@
 	</contact>
 	<date value="2016-09-26"/>
 	<description value="TestScript example resource with ported Sprinkler basic read tests R001, R002, R003, R004. The read tests will utilize user defined dynamic variables that will hold the Patient resource id values."/>
-	<useContext>
+	<jurisdiction>
 		<coding>
 			<system value="urn:iso:std:iso:3166"/>
 			<code value="US"/>
 			<display value="United States of America (the)"/>
 		</coding>
-	</useContext>
+	</jurisdiction>
 	<purpose value="Patient Read Operation"/>
 	<copyright value="© HL7.org 2011+"/>
 

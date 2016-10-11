@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Tue, Oct 11, 2016 11:12+1100 for FHIR v1.7.0
+// Generated on Tue, Oct 11, 2016 12:41+1100 for FHIR v1.7.0
 
 import org.hl7.fhir.dstu3.model.DateType;
 import org.hl7.fhir.dstu3.model.DateTimeType;
@@ -1808,7 +1808,7 @@ public class XmlParser extends XmlParserBase {
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("effectivePeriod")) {
         res.setEffectivePeriod(parsePeriod(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("useContext")) {
-        res.getUseContext().add(parseCodeableConcept(xpp));
+        res.getUseContext().add(parseUsageContext(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("jurisdiction")) {
         res.getJurisdiction().add(parseCodeableConcept(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("topic")) {
@@ -2713,7 +2713,7 @@ public class XmlParser extends XmlParserBase {
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("description")) {
         res.setDescriptionElement(parseMarkdown(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("useContext")) {
-        res.getUseContext().add(parseCodeableConcept(xpp));
+        res.getUseContext().add(parseUsageContext(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("jurisdiction")) {
         res.getJurisdiction().add(parseCodeableConcept(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("purpose")) {
@@ -4444,7 +4444,7 @@ public class XmlParser extends XmlParserBase {
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("description")) {
         res.setDescriptionElement(parseMarkdown(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("useContext")) {
-        res.getUseContext().add(parseCodeableConcept(xpp));
+        res.getUseContext().add(parseUsageContext(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("jurisdiction")) {
         res.getJurisdiction().add(parseCodeableConcept(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("purpose")) {
@@ -4804,7 +4804,7 @@ public class XmlParser extends XmlParserBase {
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("purpose")) {
         res.setPurposeElement(parseMarkdown(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("useContext")) {
-        res.getUseContext().add(parseCodeableConcept(xpp));
+        res.getUseContext().add(parseUsageContext(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("jurisdiction")) {
         res.getJurisdiction().add(parseCodeableConcept(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("code")) {
@@ -5024,7 +5024,7 @@ public class XmlParser extends XmlParserBase {
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("description")) {
         res.setDescriptionElement(parseMarkdown(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("useContext")) {
-        res.getUseContext().add(parseCodeableConcept(xpp));
+        res.getUseContext().add(parseUsageContext(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("jurisdiction")) {
         res.getJurisdiction().add(parseCodeableConcept(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("purpose")) {
@@ -5805,7 +5805,7 @@ public class XmlParser extends XmlParserBase {
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("contact")) {
         res.getContact().add(parseContactDetail(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("useContext")) {
-        res.getUseContext().add(parseCodeableConcept(xpp));
+        res.getUseContext().add(parseUsageContext(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("jurisdiction")) {
         res.getJurisdiction().add(parseCodeableConcept(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("copyright")) {
@@ -5895,7 +5895,7 @@ public class XmlParser extends XmlParserBase {
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("effectivePeriod")) {
         res.setEffectivePeriod(parsePeriod(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("useContext")) {
-        res.getUseContext().add(parseCodeableConcept(xpp));
+        res.getUseContext().add(parseUsageContext(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("jurisdiction")) {
         res.getJurisdiction().add(parseCodeableConcept(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("topic")) {
@@ -7289,7 +7289,7 @@ public class XmlParser extends XmlParserBase {
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("description")) {
         res.setDescriptionElement(parseMarkdown(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("useContext")) {
-        res.getUseContext().add(parseCodeableConcept(xpp));
+        res.getUseContext().add(parseUsageContext(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("jurisdiction")) {
         res.getJurisdiction().add(parseCodeableConcept(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("codeSystem")) {
@@ -9520,7 +9520,7 @@ public class XmlParser extends XmlParserBase {
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("description")) {
         res.setDescriptionElement(parseMarkdown(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("useContext")) {
-        res.getUseContext().add(parseCodeableConcept(xpp));
+        res.getUseContext().add(parseUsageContext(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("jurisdiction")) {
         res.getJurisdiction().add(parseCodeableConcept(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("copyright")) {
@@ -9734,7 +9734,7 @@ public class XmlParser extends XmlParserBase {
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("effectivePeriod")) {
         res.setEffectivePeriod(parsePeriod(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("useContext")) {
-        res.getUseContext().add(parseCodeableConcept(xpp));
+        res.getUseContext().add(parseUsageContext(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("jurisdiction")) {
         res.getJurisdiction().add(parseCodeableConcept(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("topic")) {
@@ -10007,7 +10007,7 @@ public class XmlParser extends XmlParserBase {
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("effectivePeriod")) {
         res.setEffectivePeriod(parsePeriod(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("useContext")) {
-        res.getUseContext().add(parseCodeableConcept(xpp));
+        res.getUseContext().add(parseUsageContext(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("jurisdiction")) {
         res.getJurisdiction().add(parseCodeableConcept(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("topic")) {
@@ -11220,7 +11220,7 @@ public class XmlParser extends XmlParserBase {
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("description")) {
         res.setDescriptionElement(parseMarkdown(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("useContext")) {
-        res.getUseContext().add(parseCodeableConcept(xpp));
+        res.getUseContext().add(parseUsageContext(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("jurisdiction")) {
         res.getJurisdiction().add(parseCodeableConcept(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("usage")) {
@@ -11675,7 +11675,7 @@ public class XmlParser extends XmlParserBase {
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("description")) {
         res.setDescriptionElement(parseMarkdown(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("useContext")) {
-        res.getUseContext().add(parseCodeableConcept(xpp));
+        res.getUseContext().add(parseUsageContext(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("jurisdiction")) {
         res.getJurisdiction().add(parseCodeableConcept(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("purpose")) {
@@ -12360,7 +12360,7 @@ public class XmlParser extends XmlParserBase {
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("effectivePeriod")) {
         res.setEffectivePeriod(parsePeriod(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("useContext")) {
-        res.getUseContext().add(parseCodeableConcept(xpp));
+        res.getUseContext().add(parseUsageContext(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("jurisdiction")) {
         res.getJurisdiction().add(parseCodeableConcept(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("topic")) {
@@ -13691,7 +13691,7 @@ public class XmlParser extends XmlParserBase {
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("contact")) {
         res.getContact().add(parseContactDetail(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("useContext")) {
-        res.getUseContext().add(parseCodeableConcept(xpp));
+        res.getUseContext().add(parseUsageContext(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("jurisdiction")) {
         res.getJurisdiction().add(parseCodeableConcept(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("purpose")) {
@@ -14042,7 +14042,7 @@ public class XmlParser extends XmlParserBase {
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("effectivePeriod")) {
         res.setEffectivePeriod(parsePeriod(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("useContext")) {
-        res.getUseContext().add(parseCodeableConcept(xpp));
+        res.getUseContext().add(parseUsageContext(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("jurisdiction")) {
         res.getJurisdiction().add(parseCodeableConcept(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("topic")) {
@@ -14288,7 +14288,7 @@ public class XmlParser extends XmlParserBase {
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("description")) {
         res.setDescriptionElement(parseMarkdown(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("useContext")) {
-        res.getUseContext().add(parseCodeableConcept(xpp));
+        res.getUseContext().add(parseUsageContext(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("jurisdiction")) {
         res.getJurisdiction().add(parseCodeableConcept(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("purpose")) {
@@ -14440,7 +14440,7 @@ public class XmlParser extends XmlParserBase {
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("description")) {
         res.setDescriptionElement(parseMarkdown(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("useContext")) {
-        res.getUseContext().add(parseCodeableConcept(xpp));
+        res.getUseContext().add(parseUsageContext(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("jurisdiction")) {
         res.getJurisdiction().add(parseCodeableConcept(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("purpose")) {
@@ -15147,7 +15147,7 @@ public class XmlParser extends XmlParserBase {
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("description")) {
         res.setDescriptionElement(parseMarkdown(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("useContext")) {
-        res.getUseContext().add(parseCodeableConcept(xpp));
+        res.getUseContext().add(parseUsageContext(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("jurisdiction")) {
         res.getJurisdiction().add(parseCodeableConcept(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("purpose")) {
@@ -15950,7 +15950,7 @@ public class XmlParser extends XmlParserBase {
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("description")) {
         res.setDescriptionElement(parseMarkdown(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("useContext")) {
-        res.getUseContext().add(parseCodeableConcept(xpp));
+        res.getUseContext().add(parseUsageContext(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("jurisdiction")) {
         res.getJurisdiction().add(parseCodeableConcept(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("immutable")) {
@@ -19020,8 +19020,8 @@ public class XmlParser extends XmlParserBase {
         composePeriod("effectivePeriod", element.getEffectivePeriod());
       }
       if (element.hasUseContext()) { 
-        for (CodeableConcept e : element.getUseContext()) 
-          composeCodeableConcept("useContext", e);
+        for (UsageContext e : element.getUseContext()) 
+          composeUsageContext("useContext", e);
       }
       if (element.hasJurisdiction()) { 
         for (CodeableConcept e : element.getJurisdiction()) 
@@ -19960,8 +19960,8 @@ public class XmlParser extends XmlParserBase {
         composeMarkdown("description", element.getDescriptionElement());
       }
       if (element.hasUseContext()) { 
-        for (CodeableConcept e : element.getUseContext()) 
-          composeCodeableConcept("useContext", e);
+        for (UsageContext e : element.getUseContext()) 
+          composeUsageContext("useContext", e);
       }
       if (element.hasJurisdiction()) { 
         for (CodeableConcept e : element.getJurisdiction()) 
@@ -21770,8 +21770,8 @@ public class XmlParser extends XmlParserBase {
         composeMarkdown("description", element.getDescriptionElement());
       }
       if (element.hasUseContext()) { 
-        for (CodeableConcept e : element.getUseContext()) 
-          composeCodeableConcept("useContext", e);
+        for (UsageContext e : element.getUseContext()) 
+          composeUsageContext("useContext", e);
       }
       if (element.hasJurisdiction()) { 
         for (CodeableConcept e : element.getJurisdiction()) 
@@ -22148,8 +22148,8 @@ public class XmlParser extends XmlParserBase {
         composeMarkdown("purpose", element.getPurposeElement());
       }
       if (element.hasUseContext()) { 
-        for (CodeableConcept e : element.getUseContext()) 
-          composeCodeableConcept("useContext", e);
+        for (UsageContext e : element.getUseContext()) 
+          composeUsageContext("useContext", e);
       }
       if (element.hasJurisdiction()) { 
         for (CodeableConcept e : element.getJurisdiction()) 
@@ -22381,8 +22381,8 @@ public class XmlParser extends XmlParserBase {
         composeMarkdown("description", element.getDescriptionElement());
       }
       if (element.hasUseContext()) { 
-        for (CodeableConcept e : element.getUseContext()) 
-          composeCodeableConcept("useContext", e);
+        for (UsageContext e : element.getUseContext()) 
+          composeUsageContext("useContext", e);
       }
       if (element.hasJurisdiction()) { 
         for (CodeableConcept e : element.getJurisdiction()) 
@@ -23185,8 +23185,8 @@ public class XmlParser extends XmlParserBase {
           composeContactDetail("contact", e);
       }
       if (element.hasUseContext()) { 
-        for (CodeableConcept e : element.getUseContext()) 
-          composeCodeableConcept("useContext", e);
+        for (UsageContext e : element.getUseContext()) 
+          composeUsageContext("useContext", e);
       }
       if (element.hasJurisdiction()) { 
         for (CodeableConcept e : element.getJurisdiction()) 
@@ -23288,8 +23288,8 @@ public class XmlParser extends XmlParserBase {
         composePeriod("effectivePeriod", element.getEffectivePeriod());
       }
       if (element.hasUseContext()) { 
-        for (CodeableConcept e : element.getUseContext()) 
-          composeCodeableConcept("useContext", e);
+        for (UsageContext e : element.getUseContext()) 
+          composeUsageContext("useContext", e);
       }
       if (element.hasJurisdiction()) { 
         for (CodeableConcept e : element.getJurisdiction()) 
@@ -24799,8 +24799,8 @@ public class XmlParser extends XmlParserBase {
         composeMarkdown("description", element.getDescriptionElement());
       }
       if (element.hasUseContext()) { 
-        for (CodeableConcept e : element.getUseContext()) 
-          composeCodeableConcept("useContext", e);
+        for (UsageContext e : element.getUseContext()) 
+          composeUsageContext("useContext", e);
       }
       if (element.hasJurisdiction()) { 
         for (CodeableConcept e : element.getJurisdiction()) 
@@ -27077,8 +27077,8 @@ public class XmlParser extends XmlParserBase {
         composeMarkdown("description", element.getDescriptionElement());
       }
       if (element.hasUseContext()) { 
-        for (CodeableConcept e : element.getUseContext()) 
-          composeCodeableConcept("useContext", e);
+        for (UsageContext e : element.getUseContext()) 
+          composeUsageContext("useContext", e);
       }
       if (element.hasJurisdiction()) { 
         for (CodeableConcept e : element.getJurisdiction()) 
@@ -27300,8 +27300,8 @@ public class XmlParser extends XmlParserBase {
         composePeriod("effectivePeriod", element.getEffectivePeriod());
       }
       if (element.hasUseContext()) { 
-        for (CodeableConcept e : element.getUseContext()) 
-          composeCodeableConcept("useContext", e);
+        for (UsageContext e : element.getUseContext()) 
+          composeUsageContext("useContext", e);
       }
       if (element.hasJurisdiction()) { 
         for (CodeableConcept e : element.getJurisdiction()) 
@@ -27598,8 +27598,8 @@ public class XmlParser extends XmlParserBase {
         composePeriod("effectivePeriod", element.getEffectivePeriod());
       }
       if (element.hasUseContext()) { 
-        for (CodeableConcept e : element.getUseContext()) 
-          composeCodeableConcept("useContext", e);
+        for (UsageContext e : element.getUseContext()) 
+          composeUsageContext("useContext", e);
       }
       if (element.hasJurisdiction()) { 
         for (CodeableConcept e : element.getJurisdiction()) 
@@ -28823,8 +28823,8 @@ public class XmlParser extends XmlParserBase {
         composeMarkdown("description", element.getDescriptionElement());
       }
       if (element.hasUseContext()) { 
-        for (CodeableConcept e : element.getUseContext()) 
-          composeCodeableConcept("useContext", e);
+        for (UsageContext e : element.getUseContext()) 
+          composeUsageContext("useContext", e);
       }
       if (element.hasJurisdiction()) { 
         for (CodeableConcept e : element.getJurisdiction()) 
@@ -29292,8 +29292,8 @@ public class XmlParser extends XmlParserBase {
         composeMarkdown("description", element.getDescriptionElement());
       }
       if (element.hasUseContext()) { 
-        for (CodeableConcept e : element.getUseContext()) 
-          composeCodeableConcept("useContext", e);
+        for (UsageContext e : element.getUseContext()) 
+          composeUsageContext("useContext", e);
       }
       if (element.hasJurisdiction()) { 
         for (CodeableConcept e : element.getJurisdiction()) 
@@ -30008,8 +30008,8 @@ public class XmlParser extends XmlParserBase {
         composePeriod("effectivePeriod", element.getEffectivePeriod());
       }
       if (element.hasUseContext()) { 
-        for (CodeableConcept e : element.getUseContext()) 
-          composeCodeableConcept("useContext", e);
+        for (UsageContext e : element.getUseContext()) 
+          composeUsageContext("useContext", e);
       }
       if (element.hasJurisdiction()) { 
         for (CodeableConcept e : element.getJurisdiction()) 
@@ -31457,8 +31457,8 @@ public class XmlParser extends XmlParserBase {
           composeContactDetail("contact", e);
       }
       if (element.hasUseContext()) { 
-        for (CodeableConcept e : element.getUseContext()) 
-          composeCodeableConcept("useContext", e);
+        for (UsageContext e : element.getUseContext()) 
+          composeUsageContext("useContext", e);
       }
       if (element.hasJurisdiction()) { 
         for (CodeableConcept e : element.getJurisdiction()) 
@@ -31833,8 +31833,8 @@ public class XmlParser extends XmlParserBase {
         composePeriod("effectivePeriod", element.getEffectivePeriod());
       }
       if (element.hasUseContext()) { 
-        for (CodeableConcept e : element.getUseContext()) 
-          composeCodeableConcept("useContext", e);
+        for (UsageContext e : element.getUseContext()) 
+          composeUsageContext("useContext", e);
       }
       if (element.hasJurisdiction()) { 
         for (CodeableConcept e : element.getJurisdiction()) 
@@ -32112,8 +32112,8 @@ public class XmlParser extends XmlParserBase {
         composeMarkdown("description", element.getDescriptionElement());
       }
       if (element.hasUseContext()) { 
-        for (CodeableConcept e : element.getUseContext()) 
-          composeCodeableConcept("useContext", e);
+        for (UsageContext e : element.getUseContext()) 
+          composeUsageContext("useContext", e);
       }
       if (element.hasJurisdiction()) { 
         for (CodeableConcept e : element.getJurisdiction()) 
@@ -32276,8 +32276,8 @@ public class XmlParser extends XmlParserBase {
         composeMarkdown("description", element.getDescriptionElement());
       }
       if (element.hasUseContext()) { 
-        for (CodeableConcept e : element.getUseContext()) 
-          composeCodeableConcept("useContext", e);
+        for (UsageContext e : element.getUseContext()) 
+          composeUsageContext("useContext", e);
       }
       if (element.hasJurisdiction()) { 
         for (CodeableConcept e : element.getJurisdiction()) 
@@ -32978,8 +32978,8 @@ public class XmlParser extends XmlParserBase {
         composeMarkdown("description", element.getDescriptionElement());
       }
       if (element.hasUseContext()) { 
-        for (CodeableConcept e : element.getUseContext()) 
-          composeCodeableConcept("useContext", e);
+        for (UsageContext e : element.getUseContext()) 
+          composeUsageContext("useContext", e);
       }
       if (element.hasJurisdiction()) { 
         for (CodeableConcept e : element.getJurisdiction()) 
@@ -33729,8 +33729,8 @@ public class XmlParser extends XmlParserBase {
         composeMarkdown("description", element.getDescriptionElement());
       }
       if (element.hasUseContext()) { 
-        for (CodeableConcept e : element.getUseContext()) 
-          composeCodeableConcept("useContext", e);
+        for (UsageContext e : element.getUseContext()) 
+          composeUsageContext("useContext", e);
       }
       if (element.hasJurisdiction()) { 
         for (CodeableConcept e : element.getJurisdiction()) 
