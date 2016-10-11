@@ -1,26 +1,27 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <div>
-<h2>Scope and Usage</h2>
-<p>
-This profile defines several extensions relevant to the US realm
-</p>
-<h3>Extensions to Patient</h3>
+<h2 id="scope-and-usage">Scope and Usage</h2>
+
+<p>This profile defines several extensions relevant to the US realm</p>
+
+<h3 id="extensions-to-patient">Extensions to Patient</h3>
+
 <ul>
-<li><b>race</b> - (0..1) A CodeableConcept bound to the v3 valueset for Race</li>
-<li><b>ethnicity</b> - (0..1) A CodeableConcept bound to the v3 valueset for Ethnicity</li>
+<li><strong>race</strong> - (0..1) A CodeableConcept bound to the v3 valueset for the 5 OMB Race categories and 900+ detailed race codes</li>
+<li><strong>ethnicity</strong> - (0..1) A CodeableConcept bound to the v3 valueset for the 2 ONB Ethnicity categories and 40+ detalied ethnicity codes</li>
+<li><strong>birthsex</strong> - (0..1)  A code classifying the person’s sex assigned at birth as specified by the Office of the National Coordinator for Health IT (ONC).</li>
+<li><strong>direct</strong> - (0..1) A boolean flag indicating that a particular email address can be used with the <a href="https://www.healthit.gov/policy-researchers-implementers/direct-project">Direct Protocol</a></li>
 </ul>
-<h3>Extensions to Address</h3>
+
+
+
+<h3 id="extensions-to-address">Extensions to Address</h3>
+
 <ul>
-<li><b>county</b> - (0..1) A string containing the name of the county</li>
+<li><strong>county</strong> - (0..1) A string containing the name of the county</li>
 </ul>
-<h3>Extensions to ContactPoint</h3>
-<ul>
-<li><b>direct</b> - (0..1) A boolean flag indicating that a particular email address can be used with the <a href="http://wiki.directproject.org/Addressing+Specification">Direct Protocol</a></li>
-</ul>
-<p>
-An example Patient showing these extensions can be found <a href="patient-example-us-extensions.html">here</a>.
-</p>
-</div>
+
+<p>An example Patient showing these extensions can be found <a href="patient-example-us-extensions.html">here</a>.</p></div>
 
 </div>
