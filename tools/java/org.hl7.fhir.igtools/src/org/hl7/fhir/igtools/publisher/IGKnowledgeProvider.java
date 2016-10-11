@@ -68,11 +68,8 @@ public class IGKnowledgeProvider implements ProfileKnowledgeProvider, ParserBase
           throw new Exception("Bad Resource Identity - should have the format [Type]/[id]:" + s);
         String type = s.substring(0,  s.indexOf("/"));
         String id = s.substring(s.indexOf("/")+1); 
-        try {
-          ResourceType.fromCode(type);
-        } catch (Exception ex) {
+        if (!context.hasResource(StructureDefinition.class , "http://hl7.org/fhir/StructureDefinition/"+type))
           throw new Exception("Bad Resource Identity - should have the format [Type]/[id] where Type is a valid resource type:" + s);
-        }
         if (!id.matches(FormatUtilities.ID_REGEX))
           throw new Exception("Bad Resource Identity - should have the format [Type]/[id] where id is a valid FHIR id type:" + s);
 
