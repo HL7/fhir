@@ -8,9 +8,9 @@
  xmlns:html="http://www.w3.org/TR/REC-html40">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>Eric Haas</LastAuthor>
+  <LastAuthor>Jason Walonoski</LastAuthor>
   <Created>2013-11-28T10:43:10Z</Created>
-  <LastSaved>2015-04-15T04:11:27Z</LastSaved>
+  <LastSaved>2016-10-11T02:43:27Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <CustomDocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
@@ -2140,6 +2140,25 @@
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"><Data ss:Type="String">retired</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">TestReport.status</Data></Cell>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">pending</Data></Cell>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">error</Data></Cell>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">complete</Data></Cell>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s86"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ValueSet.status</Data></Cell>

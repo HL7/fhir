@@ -719,6 +719,10 @@
         <translation lang="en">TestScript</translation>
         <translation lang="fr">ScriptTest</translation>
     </item>
+    <item id="TestReport">
+        <translation lang="en">TestReport</translation>
+        <translation lang="fr">RapportTest</translation>
+    </item>
     <!-- Messages -->
     <item id="MSG_AUTH_REQUIRED" ecode="true">
         <translation lang="en">You must authenticate before you can use this service</translation>
