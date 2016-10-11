@@ -1,0 +1,9 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = CodeSystemCategory
+  Binding = unbound
+  Definition = Classifications for value sets.  Can include such concepts as \"demographics\", \"lab\", \"clinical research\".  Might also be used to tie a value set to particular usage projects
+
+=== Sheet Search =====================================

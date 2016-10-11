@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Mon, Oct 10, 2016 21:25+1100 for FHIR v1.7.0
+// Generated on Tue, Oct 11, 2016 11:12+1100 for FHIR v1.7.0
 
 import org.hl7.fhir.dstu3.model.DateType;
 import org.hl7.fhir.dstu3.model.DateTimeType;
@@ -1021,54 +1021,11 @@ public class JsonParser extends JsonParserBase {
 
   protected void parseUsageContextProperties(JsonObject json, UsageContext res) throws IOException, FHIRFormatError {
     parseTypeProperties(json, res);
-    if (json.has("patientGender")) {
-      JsonArray array = json.getAsJsonArray("patientGender");
-      for (int i = 0; i < array.size(); i++) {
-        res.getPatientGender().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
-      }
-    };
-    if (json.has("patientAgeGroup")) {
-      JsonArray array = json.getAsJsonArray("patientAgeGroup");
-      for (int i = 0; i < array.size(); i++) {
-        res.getPatientAgeGroup().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
-      }
-    };
-    if (json.has("clinicalFocus")) {
-      JsonArray array = json.getAsJsonArray("clinicalFocus");
-      for (int i = 0; i < array.size(); i++) {
-        res.getClinicalFocus().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
-      }
-    };
-    if (json.has("targetUser")) {
-      JsonArray array = json.getAsJsonArray("targetUser");
-      for (int i = 0; i < array.size(); i++) {
-        res.getTargetUser().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
-      }
-    };
-    if (json.has("workflowSetting")) {
-      JsonArray array = json.getAsJsonArray("workflowSetting");
-      for (int i = 0; i < array.size(); i++) {
-        res.getWorkflowSetting().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
-      }
-    };
-    if (json.has("workflowTask")) {
-      JsonArray array = json.getAsJsonArray("workflowTask");
-      for (int i = 0; i < array.size(); i++) {
-        res.getWorkflowTask().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
-      }
-    };
-    if (json.has("clinicalVenue")) {
-      JsonArray array = json.getAsJsonArray("clinicalVenue");
-      for (int i = 0; i < array.size(); i++) {
-        res.getClinicalVenue().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
-      }
-    };
-    if (json.has("jurisdiction")) {
-      JsonArray array = json.getAsJsonArray("jurisdiction");
-      for (int i = 0; i < array.size(); i++) {
-        res.getJurisdiction().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
-      }
-    };
+    if (json.has("code"))
+      res.setCode(parseCoding(json.getAsJsonObject("code")));
+    Type value = parseType("value", json);
+    if (value != null)
+      res.setValue(value);
   }
 
   protected Timing parseTiming(JsonObject json) throws IOException, FHIRFormatError {
@@ -1721,16 +1678,26 @@ public class JsonParser extends JsonParserBase {
       res.setUsageElement(parseString(json.get("usage").getAsString()));
     if (json.has("_usage"))
       parseElementProperties(json.getAsJsonObject("_usage"), res.getUsageElement());
+    if (json.has("approvalDate"))
+      res.setApprovalDateElement(parseDate(json.get("approvalDate").getAsString()));
+    if (json.has("_approvalDate"))
+      parseElementProperties(json.getAsJsonObject("_approvalDate"), res.getApprovalDateElement());
     if (json.has("lastReviewDate"))
       res.setLastReviewDateElement(parseDate(json.get("lastReviewDate").getAsString()));
     if (json.has("_lastReviewDate"))
       parseElementProperties(json.getAsJsonObject("_lastReviewDate"), res.getLastReviewDateElement());
     if (json.has("effectivePeriod"))
       res.setEffectivePeriod(parsePeriod(json.getAsJsonObject("effectivePeriod")));
-    if (json.has("coverage")) {
-      JsonArray array = json.getAsJsonArray("coverage");
+    if (json.has("useContext")) {
+      JsonArray array = json.getAsJsonArray("useContext");
       for (int i = 0; i < array.size(); i++) {
-        res.getCoverage().add(parseUsageContext(array.get(i).getAsJsonObject()));
+        res.getUseContext().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("jurisdiction")) {
+      JsonArray array = json.getAsJsonArray("jurisdiction");
+      for (int i = 0; i < array.size(); i++) {
+        res.getJurisdiction().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
       }
     };
     if (json.has("topic")) {
@@ -2744,6 +2711,12 @@ public class JsonParser extends JsonParserBase {
       JsonArray array = json.getAsJsonArray("useContext");
       for (int i = 0; i < array.size(); i++) {
         res.getUseContext().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("jurisdiction")) {
+      JsonArray array = json.getAsJsonArray("jurisdiction");
+      for (int i = 0; i < array.size(); i++) {
+        res.getJurisdiction().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
       }
     };
     if (json.has("purpose"))
@@ -4733,6 +4706,12 @@ public class JsonParser extends JsonParserBase {
         res.getUseContext().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
       }
     };
+    if (json.has("jurisdiction")) {
+      JsonArray array = json.getAsJsonArray("jurisdiction");
+      for (int i = 0; i < array.size(); i++) {
+        res.getJurisdiction().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
+      }
+    };
     if (json.has("purpose"))
       res.setPurposeElement(parseMarkdown(json.get("purpose").getAsString()));
     if (json.has("_purpose"))
@@ -5158,6 +5137,12 @@ public class JsonParser extends JsonParserBase {
         res.getUseContext().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
       }
     };
+    if (json.has("jurisdiction")) {
+      JsonArray array = json.getAsJsonArray("jurisdiction");
+      for (int i = 0; i < array.size(); i++) {
+        res.getJurisdiction().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
+      }
+    };
     if (json.has("code"))
       res.setCodeElement(parseEnumeration(json.get("code").getAsString(), CompartmentDefinition.CompartmentType.NULL, new CompartmentDefinition.CompartmentTypeEnumFactory()));
     if (json.has("_code"))
@@ -5418,6 +5403,12 @@ public class JsonParser extends JsonParserBase {
       JsonArray array = json.getAsJsonArray("useContext");
       for (int i = 0; i < array.size(); i++) {
         res.getUseContext().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("jurisdiction")) {
+      JsonArray array = json.getAsJsonArray("jurisdiction");
+      for (int i = 0; i < array.size(); i++) {
+        res.getJurisdiction().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
       }
     };
     if (json.has("purpose"))
@@ -6255,6 +6246,12 @@ public class JsonParser extends JsonParserBase {
         res.getUseContext().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
       }
     };
+    if (json.has("jurisdiction")) {
+      JsonArray array = json.getAsJsonArray("jurisdiction");
+      for (int i = 0; i < array.size(); i++) {
+        res.getJurisdiction().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
+      }
+    };
     if (json.has("copyright"))
       res.setCopyrightElement(parseMarkdown(json.get("copyright").getAsString()));
     if (json.has("_copyright"))
@@ -6357,16 +6354,26 @@ public class JsonParser extends JsonParserBase {
       res.setUsageElement(parseString(json.get("usage").getAsString()));
     if (json.has("_usage"))
       parseElementProperties(json.getAsJsonObject("_usage"), res.getUsageElement());
+    if (json.has("approvalDate"))
+      res.setApprovalDateElement(parseDate(json.get("approvalDate").getAsString()));
+    if (json.has("_approvalDate"))
+      parseElementProperties(json.getAsJsonObject("_approvalDate"), res.getApprovalDateElement());
     if (json.has("lastReviewDate"))
       res.setLastReviewDateElement(parseDate(json.get("lastReviewDate").getAsString()));
     if (json.has("_lastReviewDate"))
       parseElementProperties(json.getAsJsonObject("_lastReviewDate"), res.getLastReviewDateElement());
     if (json.has("effectivePeriod"))
       res.setEffectivePeriod(parsePeriod(json.getAsJsonObject("effectivePeriod")));
-    if (json.has("coverage")) {
-      JsonArray array = json.getAsJsonArray("coverage");
+    if (json.has("useContext")) {
+      JsonArray array = json.getAsJsonArray("useContext");
       for (int i = 0; i < array.size(); i++) {
-        res.getCoverage().add(parseUsageContext(array.get(i).getAsJsonObject()));
+        res.getUseContext().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("jurisdiction")) {
+      JsonArray array = json.getAsJsonArray("jurisdiction");
+      for (int i = 0; i < array.size(); i++) {
+        res.getJurisdiction().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
       }
     };
     if (json.has("topic")) {
@@ -7934,6 +7941,12 @@ public class JsonParser extends JsonParserBase {
       JsonArray array = json.getAsJsonArray("useContext");
       for (int i = 0; i < array.size(); i++) {
         res.getUseContext().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("jurisdiction")) {
+      JsonArray array = json.getAsJsonArray("jurisdiction");
+      for (int i = 0; i < array.size(); i++) {
+        res.getJurisdiction().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
       }
     };
     if (json.has("codeSystem"))
@@ -10258,6 +10271,12 @@ public class JsonParser extends JsonParserBase {
         res.getUseContext().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
       }
     };
+    if (json.has("jurisdiction")) {
+      JsonArray array = json.getAsJsonArray("jurisdiction");
+      for (int i = 0; i < array.size(); i++) {
+        res.getJurisdiction().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
+      }
+    };
     if (json.has("copyright"))
       res.setCopyrightElement(parseMarkdown(json.get("copyright").getAsString()));
     if (json.has("_copyright"))
@@ -10510,16 +10529,26 @@ public class JsonParser extends JsonParserBase {
       res.setUsageElement(parseString(json.get("usage").getAsString()));
     if (json.has("_usage"))
       parseElementProperties(json.getAsJsonObject("_usage"), res.getUsageElement());
+    if (json.has("approvalDate"))
+      res.setApprovalDateElement(parseDate(json.get("approvalDate").getAsString()));
+    if (json.has("_approvalDate"))
+      parseElementProperties(json.getAsJsonObject("_approvalDate"), res.getApprovalDateElement());
     if (json.has("lastReviewDate"))
       res.setLastReviewDateElement(parseDate(json.get("lastReviewDate").getAsString()));
     if (json.has("_lastReviewDate"))
       parseElementProperties(json.getAsJsonObject("_lastReviewDate"), res.getLastReviewDateElement());
     if (json.has("effectivePeriod"))
       res.setEffectivePeriod(parsePeriod(json.getAsJsonObject("effectivePeriod")));
-    if (json.has("coverage")) {
-      JsonArray array = json.getAsJsonArray("coverage");
+    if (json.has("useContext")) {
+      JsonArray array = json.getAsJsonArray("useContext");
       for (int i = 0; i < array.size(); i++) {
-        res.getCoverage().add(parseUsageContext(array.get(i).getAsJsonObject()));
+        res.getUseContext().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("jurisdiction")) {
+      JsonArray array = json.getAsJsonArray("jurisdiction");
+      for (int i = 0; i < array.size(); i++) {
+        res.getJurisdiction().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
       }
     };
     if (json.has("topic")) {
@@ -10829,16 +10858,26 @@ public class JsonParser extends JsonParserBase {
       res.setUsageElement(parseString(json.get("usage").getAsString()));
     if (json.has("_usage"))
       parseElementProperties(json.getAsJsonObject("_usage"), res.getUsageElement());
+    if (json.has("approvalDate"))
+      res.setApprovalDateElement(parseDate(json.get("approvalDate").getAsString()));
+    if (json.has("_approvalDate"))
+      parseElementProperties(json.getAsJsonObject("_approvalDate"), res.getApprovalDateElement());
     if (json.has("lastReviewDate"))
       res.setLastReviewDateElement(parseDate(json.get("lastReviewDate").getAsString()));
     if (json.has("_lastReviewDate"))
       parseElementProperties(json.getAsJsonObject("_lastReviewDate"), res.getLastReviewDateElement());
     if (json.has("effectivePeriod"))
       res.setEffectivePeriod(parsePeriod(json.getAsJsonObject("effectivePeriod")));
-    if (json.has("coverage")) {
-      JsonArray array = json.getAsJsonArray("coverage");
+    if (json.has("useContext")) {
+      JsonArray array = json.getAsJsonArray("useContext");
       for (int i = 0; i < array.size(); i++) {
-        res.getCoverage().add(parseUsageContext(array.get(i).getAsJsonObject()));
+        res.getUseContext().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("jurisdiction")) {
+      JsonArray array = json.getAsJsonArray("jurisdiction");
+      for (int i = 0; i < array.size(); i++) {
+        res.getJurisdiction().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
       }
     };
     if (json.has("topic")) {
@@ -12081,6 +12120,12 @@ public class JsonParser extends JsonParserBase {
         res.getUseContext().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
       }
     };
+    if (json.has("jurisdiction")) {
+      JsonArray array = json.getAsJsonArray("jurisdiction");
+      for (int i = 0; i < array.size(); i++) {
+        res.getJurisdiction().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
+      }
+    };
     if (json.has("usage"))
       res.setUsageElement(parseString(json.get("usage").getAsString()));
     if (json.has("_usage"))
@@ -12539,6 +12584,12 @@ public class JsonParser extends JsonParserBase {
       JsonArray array = json.getAsJsonArray("useContext");
       for (int i = 0; i < array.size(); i++) {
         res.getUseContext().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("jurisdiction")) {
+      JsonArray array = json.getAsJsonArray("jurisdiction");
+      for (int i = 0; i < array.size(); i++) {
+        res.getJurisdiction().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
       }
     };
     if (json.has("purpose"))
@@ -13299,16 +13350,26 @@ public class JsonParser extends JsonParserBase {
       res.setUsageElement(parseString(json.get("usage").getAsString()));
     if (json.has("_usage"))
       parseElementProperties(json.getAsJsonObject("_usage"), res.getUsageElement());
+    if (json.has("approvalDate"))
+      res.setApprovalDateElement(parseDate(json.get("approvalDate").getAsString()));
+    if (json.has("_approvalDate"))
+      parseElementProperties(json.getAsJsonObject("_approvalDate"), res.getApprovalDateElement());
     if (json.has("lastReviewDate"))
       res.setLastReviewDateElement(parseDate(json.get("lastReviewDate").getAsString()));
     if (json.has("_lastReviewDate"))
       parseElementProperties(json.getAsJsonObject("_lastReviewDate"), res.getLastReviewDateElement());
     if (json.has("effectivePeriod"))
       res.setEffectivePeriod(parsePeriod(json.getAsJsonObject("effectivePeriod")));
-    if (json.has("coverage")) {
-      JsonArray array = json.getAsJsonArray("coverage");
+    if (json.has("useContext")) {
+      JsonArray array = json.getAsJsonArray("useContext");
       for (int i = 0; i < array.size(); i++) {
-        res.getCoverage().add(parseUsageContext(array.get(i).getAsJsonObject()));
+        res.getUseContext().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("jurisdiction")) {
+      JsonArray array = json.getAsJsonArray("jurisdiction");
+      for (int i = 0; i < array.size(); i++) {
+        res.getJurisdiction().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
       }
     };
     if (json.has("topic")) {
@@ -14913,6 +14974,12 @@ public class JsonParser extends JsonParserBase {
         res.getUseContext().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
       }
     };
+    if (json.has("jurisdiction")) {
+      JsonArray array = json.getAsJsonArray("jurisdiction");
+      for (int i = 0; i < array.size(); i++) {
+        res.getJurisdiction().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
+      }
+    };
     if (json.has("purpose"))
       res.setPurposeElement(parseMarkdown(json.get("purpose").getAsString()));
     if (json.has("_purpose"))
@@ -15306,16 +15373,26 @@ public class JsonParser extends JsonParserBase {
       res.setUsageElement(parseString(json.get("usage").getAsString()));
     if (json.has("_usage"))
       parseElementProperties(json.getAsJsonObject("_usage"), res.getUsageElement());
+    if (json.has("approvalDate"))
+      res.setApprovalDateElement(parseDate(json.get("approvalDate").getAsString()));
+    if (json.has("_approvalDate"))
+      parseElementProperties(json.getAsJsonObject("_approvalDate"), res.getApprovalDateElement());
     if (json.has("lastReviewDate"))
       res.setLastReviewDateElement(parseDate(json.get("lastReviewDate").getAsString()));
     if (json.has("_lastReviewDate"))
       parseElementProperties(json.getAsJsonObject("_lastReviewDate"), res.getLastReviewDateElement());
     if (json.has("effectivePeriod"))
       res.setEffectivePeriod(parsePeriod(json.getAsJsonObject("effectivePeriod")));
-    if (json.has("coverage")) {
-      JsonArray array = json.getAsJsonArray("coverage");
+    if (json.has("useContext")) {
+      JsonArray array = json.getAsJsonArray("useContext");
       for (int i = 0; i < array.size(); i++) {
-        res.getCoverage().add(parseUsageContext(array.get(i).getAsJsonObject()));
+        res.getUseContext().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("jurisdiction")) {
+      JsonArray array = json.getAsJsonArray("jurisdiction");
+      for (int i = 0; i < array.size(); i++) {
+        res.getJurisdiction().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
       }
     };
     if (json.has("topic")) {
@@ -15619,6 +15696,12 @@ public class JsonParser extends JsonParserBase {
         res.getUseContext().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
       }
     };
+    if (json.has("jurisdiction")) {
+      JsonArray array = json.getAsJsonArray("jurisdiction");
+      for (int i = 0; i < array.size(); i++) {
+        res.getJurisdiction().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
+      }
+    };
     if (json.has("purpose"))
       res.setPurposeElement(parseMarkdown(json.get("purpose").getAsString()));
     if (json.has("_purpose"))
@@ -15821,6 +15904,12 @@ public class JsonParser extends JsonParserBase {
       JsonArray array = json.getAsJsonArray("useContext");
       for (int i = 0; i < array.size(); i++) {
         res.getUseContext().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("jurisdiction")) {
+      JsonArray array = json.getAsJsonArray("jurisdiction");
+      for (int i = 0; i < array.size(); i++) {
+        res.getJurisdiction().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
       }
     };
     if (json.has("purpose"))
@@ -16565,6 +16654,12 @@ public class JsonParser extends JsonParserBase {
       JsonArray array = json.getAsJsonArray("useContext");
       for (int i = 0; i < array.size(); i++) {
         res.getUseContext().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("jurisdiction")) {
+      JsonArray array = json.getAsJsonArray("jurisdiction");
+      for (int i = 0; i < array.size(); i++) {
+        res.getJurisdiction().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
       }
     };
     if (json.has("purpose"))
@@ -17337,6 +17432,12 @@ public class JsonParser extends JsonParserBase {
       JsonArray array = json.getAsJsonArray("useContext");
       for (int i = 0; i < array.size(); i++) {
         res.getUseContext().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("jurisdiction")) {
+      JsonArray array = json.getAsJsonArray("jurisdiction");
+      for (int i = 0; i < array.size(); i++) {
+        res.getJurisdiction().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
       }
     };
     if (json.has("immutable"))
@@ -19747,54 +19848,12 @@ public class JsonParser extends JsonParserBase {
 
   protected void composeUsageContextInner(UsageContext element) throws IOException {
       composeElement(element);
-      if (element.hasPatientGender()) {
-        openArray("patientGender");
-        for (CodeableConcept e : element.getPatientGender()) 
-          composeCodeableConcept(null, e);
-        closeArray();
-      };
-      if (element.hasPatientAgeGroup()) {
-        openArray("patientAgeGroup");
-        for (CodeableConcept e : element.getPatientAgeGroup()) 
-          composeCodeableConcept(null, e);
-        closeArray();
-      };
-      if (element.hasClinicalFocus()) {
-        openArray("clinicalFocus");
-        for (CodeableConcept e : element.getClinicalFocus()) 
-          composeCodeableConcept(null, e);
-        closeArray();
-      };
-      if (element.hasTargetUser()) {
-        openArray("targetUser");
-        for (CodeableConcept e : element.getTargetUser()) 
-          composeCodeableConcept(null, e);
-        closeArray();
-      };
-      if (element.hasWorkflowSetting()) {
-        openArray("workflowSetting");
-        for (CodeableConcept e : element.getWorkflowSetting()) 
-          composeCodeableConcept(null, e);
-        closeArray();
-      };
-      if (element.hasWorkflowTask()) {
-        openArray("workflowTask");
-        for (CodeableConcept e : element.getWorkflowTask()) 
-          composeCodeableConcept(null, e);
-        closeArray();
-      };
-      if (element.hasClinicalVenue()) {
-        openArray("clinicalVenue");
-        for (CodeableConcept e : element.getClinicalVenue()) 
-          composeCodeableConcept(null, e);
-        closeArray();
-      };
-      if (element.hasJurisdiction()) {
-        openArray("jurisdiction");
-        for (CodeableConcept e : element.getJurisdiction()) 
-          composeCodeableConcept(null, e);
-        closeArray();
-      };
+      if (element.hasCode()) {
+        composeCoding("code", element.getCode());
+      }
+      if (element.hasValue()) {
+        composeType("value", element.getValue());
+      }
   }
 
   protected void composeTiming(String name, Timing element) throws IOException {
@@ -20475,6 +20534,10 @@ public class JsonParser extends JsonParserBase {
         composeStringCore("usage", element.getUsageElement(), false);
         composeStringExtras("usage", element.getUsageElement(), false);
       }
+      if (element.hasApprovalDateElement()) {
+        composeDateCore("approvalDate", element.getApprovalDateElement(), false);
+        composeDateExtras("approvalDate", element.getApprovalDateElement(), false);
+      }
       if (element.hasLastReviewDateElement()) {
         composeDateCore("lastReviewDate", element.getLastReviewDateElement(), false);
         composeDateExtras("lastReviewDate", element.getLastReviewDateElement(), false);
@@ -20482,10 +20545,16 @@ public class JsonParser extends JsonParserBase {
       if (element.hasEffectivePeriod()) {
         composePeriod("effectivePeriod", element.getEffectivePeriod());
       }
-      if (element.hasCoverage()) {
-        openArray("coverage");
-        for (UsageContext e : element.getCoverage()) 
-          composeUsageContext(null, e);
+      if (element.hasUseContext()) {
+        openArray("useContext");
+        for (CodeableConcept e : element.getUseContext()) 
+          composeCodeableConcept(null, e);
+        closeArray();
+      };
+      if (element.hasJurisdiction()) {
+        openArray("jurisdiction");
+        for (CodeableConcept e : element.getJurisdiction()) 
+          composeCodeableConcept(null, e);
         closeArray();
       };
       if (element.hasTopic()) {
@@ -21585,6 +21654,12 @@ public class JsonParser extends JsonParserBase {
       if (element.hasUseContext()) {
         openArray("useContext");
         for (CodeableConcept e : element.getUseContext()) 
+          composeCodeableConcept(null, e);
+        closeArray();
+      };
+      if (element.hasJurisdiction()) {
+        openArray("jurisdiction");
+        for (CodeableConcept e : element.getJurisdiction()) 
           composeCodeableConcept(null, e);
         closeArray();
       };
@@ -23744,6 +23819,12 @@ public class JsonParser extends JsonParserBase {
           composeCodeableConcept(null, e);
         closeArray();
       };
+      if (element.hasJurisdiction()) {
+        openArray("jurisdiction");
+        for (CodeableConcept e : element.getJurisdiction()) 
+          composeCodeableConcept(null, e);
+        closeArray();
+      };
       if (element.hasPurposeElement()) {
         composeMarkdownCore("purpose", element.getPurposeElement(), false);
         composeMarkdownExtras("purpose", element.getPurposeElement(), false);
@@ -24194,6 +24275,12 @@ public class JsonParser extends JsonParserBase {
           composeCodeableConcept(null, e);
         closeArray();
       };
+      if (element.hasJurisdiction()) {
+        openArray("jurisdiction");
+        for (CodeableConcept e : element.getJurisdiction()) 
+          composeCodeableConcept(null, e);
+        closeArray();
+      };
       if (element.hasCodeElement()) {
         composeEnumerationCore("code", element.getCodeElement(), new CompartmentDefinition.CompartmentTypeEnumFactory(), false);
         composeEnumerationExtras("code", element.getCodeElement(), new CompartmentDefinition.CompartmentTypeEnumFactory(), false);
@@ -24470,6 +24557,12 @@ public class JsonParser extends JsonParserBase {
       if (element.hasUseContext()) {
         openArray("useContext");
         for (CodeableConcept e : element.getUseContext()) 
+          composeCodeableConcept(null, e);
+        closeArray();
+      };
+      if (element.hasJurisdiction()) {
+        openArray("jurisdiction");
+        for (CodeableConcept e : element.getJurisdiction()) 
           composeCodeableConcept(null, e);
         closeArray();
       };
@@ -25390,6 +25483,12 @@ public class JsonParser extends JsonParserBase {
           composeCodeableConcept(null, e);
         closeArray();
       };
+      if (element.hasJurisdiction()) {
+        openArray("jurisdiction");
+        for (CodeableConcept e : element.getJurisdiction()) 
+          composeCodeableConcept(null, e);
+        closeArray();
+      };
       if (element.hasCopyrightElement()) {
         composeMarkdownCore("copyright", element.getCopyrightElement(), false);
         composeMarkdownExtras("copyright", element.getCopyrightElement(), false);
@@ -25495,6 +25594,10 @@ public class JsonParser extends JsonParserBase {
         composeStringCore("usage", element.getUsageElement(), false);
         composeStringExtras("usage", element.getUsageElement(), false);
       }
+      if (element.hasApprovalDateElement()) {
+        composeDateCore("approvalDate", element.getApprovalDateElement(), false);
+        composeDateExtras("approvalDate", element.getApprovalDateElement(), false);
+      }
       if (element.hasLastReviewDateElement()) {
         composeDateCore("lastReviewDate", element.getLastReviewDateElement(), false);
         composeDateExtras("lastReviewDate", element.getLastReviewDateElement(), false);
@@ -25502,10 +25605,16 @@ public class JsonParser extends JsonParserBase {
       if (element.hasEffectivePeriod()) {
         composePeriod("effectivePeriod", element.getEffectivePeriod());
       }
-      if (element.hasCoverage()) {
-        openArray("coverage");
-        for (UsageContext e : element.getCoverage()) 
-          composeUsageContext(null, e);
+      if (element.hasUseContext()) {
+        openArray("useContext");
+        for (CodeableConcept e : element.getUseContext()) 
+          composeCodeableConcept(null, e);
+        closeArray();
+      };
+      if (element.hasJurisdiction()) {
+        openArray("jurisdiction");
+        for (CodeableConcept e : element.getJurisdiction()) 
+          composeCodeableConcept(null, e);
         closeArray();
       };
       if (element.hasTopic()) {
@@ -27248,6 +27357,12 @@ public class JsonParser extends JsonParserBase {
       if (element.hasUseContext()) {
         openArray("useContext");
         for (CodeableConcept e : element.getUseContext()) 
+          composeCodeableConcept(null, e);
+        closeArray();
+      };
+      if (element.hasJurisdiction()) {
+        openArray("jurisdiction");
+        for (CodeableConcept e : element.getJurisdiction()) 
           composeCodeableConcept(null, e);
         closeArray();
       };
@@ -29831,6 +29946,12 @@ public class JsonParser extends JsonParserBase {
           composeCodeableConcept(null, e);
         closeArray();
       };
+      if (element.hasJurisdiction()) {
+        openArray("jurisdiction");
+        for (CodeableConcept e : element.getJurisdiction()) 
+          composeCodeableConcept(null, e);
+        closeArray();
+      };
       if (element.hasCopyrightElement()) {
         composeMarkdownCore("copyright", element.getCopyrightElement(), false);
         composeMarkdownExtras("copyright", element.getCopyrightElement(), false);
@@ -30089,6 +30210,10 @@ public class JsonParser extends JsonParserBase {
         composeStringCore("usage", element.getUsageElement(), false);
         composeStringExtras("usage", element.getUsageElement(), false);
       }
+      if (element.hasApprovalDateElement()) {
+        composeDateCore("approvalDate", element.getApprovalDateElement(), false);
+        composeDateExtras("approvalDate", element.getApprovalDateElement(), false);
+      }
       if (element.hasLastReviewDateElement()) {
         composeDateCore("lastReviewDate", element.getLastReviewDateElement(), false);
         composeDateExtras("lastReviewDate", element.getLastReviewDateElement(), false);
@@ -30096,10 +30221,16 @@ public class JsonParser extends JsonParserBase {
       if (element.hasEffectivePeriod()) {
         composePeriod("effectivePeriod", element.getEffectivePeriod());
       }
-      if (element.hasCoverage()) {
-        openArray("coverage");
-        for (UsageContext e : element.getCoverage()) 
-          composeUsageContext(null, e);
+      if (element.hasUseContext()) {
+        openArray("useContext");
+        for (CodeableConcept e : element.getUseContext()) 
+          composeCodeableConcept(null, e);
+        closeArray();
+      };
+      if (element.hasJurisdiction()) {
+        openArray("jurisdiction");
+        for (CodeableConcept e : element.getJurisdiction()) 
+          composeCodeableConcept(null, e);
         closeArray();
       };
       if (element.hasTopic()) {
@@ -30433,6 +30564,10 @@ public class JsonParser extends JsonParserBase {
         composeStringCore("usage", element.getUsageElement(), false);
         composeStringExtras("usage", element.getUsageElement(), false);
       }
+      if (element.hasApprovalDateElement()) {
+        composeDateCore("approvalDate", element.getApprovalDateElement(), false);
+        composeDateExtras("approvalDate", element.getApprovalDateElement(), false);
+      }
       if (element.hasLastReviewDateElement()) {
         composeDateCore("lastReviewDate", element.getLastReviewDateElement(), false);
         composeDateExtras("lastReviewDate", element.getLastReviewDateElement(), false);
@@ -30440,10 +30575,16 @@ public class JsonParser extends JsonParserBase {
       if (element.hasEffectivePeriod()) {
         composePeriod("effectivePeriod", element.getEffectivePeriod());
       }
-      if (element.hasCoverage()) {
-        openArray("coverage");
-        for (UsageContext e : element.getCoverage()) 
-          composeUsageContext(null, e);
+      if (element.hasUseContext()) {
+        openArray("useContext");
+        for (CodeableConcept e : element.getUseContext()) 
+          composeCodeableConcept(null, e);
+        closeArray();
+      };
+      if (element.hasJurisdiction()) {
+        openArray("jurisdiction");
+        for (CodeableConcept e : element.getJurisdiction()) 
+          composeCodeableConcept(null, e);
         closeArray();
       };
       if (element.hasTopic()) {
@@ -31825,6 +31966,12 @@ public class JsonParser extends JsonParserBase {
           composeCodeableConcept(null, e);
         closeArray();
       };
+      if (element.hasJurisdiction()) {
+        openArray("jurisdiction");
+        for (CodeableConcept e : element.getJurisdiction()) 
+          composeCodeableConcept(null, e);
+        closeArray();
+      };
       if (element.hasUsageElement()) {
         composeStringCore("usage", element.getUsageElement(), false);
         composeStringExtras("usage", element.getUsageElement(), false);
@@ -32341,6 +32488,12 @@ public class JsonParser extends JsonParserBase {
       if (element.hasUseContext()) {
         openArray("useContext");
         for (CodeableConcept e : element.getUseContext()) 
+          composeCodeableConcept(null, e);
+        closeArray();
+      };
+      if (element.hasJurisdiction()) {
+        openArray("jurisdiction");
+        for (CodeableConcept e : element.getJurisdiction()) 
           composeCodeableConcept(null, e);
         closeArray();
       };
@@ -33167,6 +33320,10 @@ public class JsonParser extends JsonParserBase {
         composeStringCore("usage", element.getUsageElement(), false);
         composeStringExtras("usage", element.getUsageElement(), false);
       }
+      if (element.hasApprovalDateElement()) {
+        composeDateCore("approvalDate", element.getApprovalDateElement(), false);
+        composeDateExtras("approvalDate", element.getApprovalDateElement(), false);
+      }
       if (element.hasLastReviewDateElement()) {
         composeDateCore("lastReviewDate", element.getLastReviewDateElement(), false);
         composeDateExtras("lastReviewDate", element.getLastReviewDateElement(), false);
@@ -33174,10 +33331,16 @@ public class JsonParser extends JsonParserBase {
       if (element.hasEffectivePeriod()) {
         composePeriod("effectivePeriod", element.getEffectivePeriod());
       }
-      if (element.hasCoverage()) {
-        openArray("coverage");
-        for (UsageContext e : element.getCoverage()) 
-          composeUsageContext(null, e);
+      if (element.hasUseContext()) {
+        openArray("useContext");
+        for (CodeableConcept e : element.getUseContext()) 
+          composeCodeableConcept(null, e);
+        closeArray();
+      };
+      if (element.hasJurisdiction()) {
+        openArray("jurisdiction");
+        for (CodeableConcept e : element.getJurisdiction()) 
+          composeCodeableConcept(null, e);
         closeArray();
       };
       if (element.hasTopic()) {
@@ -34911,6 +35074,12 @@ public class JsonParser extends JsonParserBase {
           composeCodeableConcept(null, e);
         closeArray();
       };
+      if (element.hasJurisdiction()) {
+        openArray("jurisdiction");
+        for (CodeableConcept e : element.getJurisdiction()) 
+          composeCodeableConcept(null, e);
+        closeArray();
+      };
       if (element.hasPurposeElement()) {
         composeMarkdownCore("purpose", element.getPurposeElement(), false);
         composeMarkdownExtras("purpose", element.getPurposeElement(), false);
@@ -35331,6 +35500,10 @@ public class JsonParser extends JsonParserBase {
         composeStringCore("usage", element.getUsageElement(), false);
         composeStringExtras("usage", element.getUsageElement(), false);
       }
+      if (element.hasApprovalDateElement()) {
+        composeDateCore("approvalDate", element.getApprovalDateElement(), false);
+        composeDateExtras("approvalDate", element.getApprovalDateElement(), false);
+      }
       if (element.hasLastReviewDateElement()) {
         composeDateCore("lastReviewDate", element.getLastReviewDateElement(), false);
         composeDateExtras("lastReviewDate", element.getLastReviewDateElement(), false);
@@ -35338,10 +35511,16 @@ public class JsonParser extends JsonParserBase {
       if (element.hasEffectivePeriod()) {
         composePeriod("effectivePeriod", element.getEffectivePeriod());
       }
-      if (element.hasCoverage()) {
-        openArray("coverage");
-        for (UsageContext e : element.getCoverage()) 
-          composeUsageContext(null, e);
+      if (element.hasUseContext()) {
+        openArray("useContext");
+        for (CodeableConcept e : element.getUseContext()) 
+          composeCodeableConcept(null, e);
+        closeArray();
+      };
+      if (element.hasJurisdiction()) {
+        openArray("jurisdiction");
+        for (CodeableConcept e : element.getJurisdiction()) 
+          composeCodeableConcept(null, e);
         closeArray();
       };
       if (element.hasTopic()) {
@@ -35670,6 +35849,12 @@ public class JsonParser extends JsonParserBase {
           composeCodeableConcept(null, e);
         closeArray();
       };
+      if (element.hasJurisdiction()) {
+        openArray("jurisdiction");
+        for (CodeableConcept e : element.getJurisdiction()) 
+          composeCodeableConcept(null, e);
+        closeArray();
+      };
       if (element.hasPurposeElement()) {
         composeMarkdownCore("purpose", element.getPurposeElement(), false);
         composeMarkdownExtras("purpose", element.getPurposeElement(), false);
@@ -35874,6 +36059,12 @@ public class JsonParser extends JsonParserBase {
       if (element.hasUseContext()) {
         openArray("useContext");
         for (CodeableConcept e : element.getUseContext()) 
+          composeCodeableConcept(null, e);
+        closeArray();
+      };
+      if (element.hasJurisdiction()) {
+        openArray("jurisdiction");
+        for (CodeableConcept e : element.getJurisdiction()) 
           composeCodeableConcept(null, e);
         closeArray();
       };
@@ -36681,6 +36872,12 @@ public class JsonParser extends JsonParserBase {
       if (element.hasUseContext()) {
         openArray("useContext");
         for (CodeableConcept e : element.getUseContext()) 
+          composeCodeableConcept(null, e);
+        closeArray();
+      };
+      if (element.hasJurisdiction()) {
+        openArray("jurisdiction");
+        for (CodeableConcept e : element.getJurisdiction()) 
           composeCodeableConcept(null, e);
         closeArray();
       };
@@ -37517,6 +37714,12 @@ public class JsonParser extends JsonParserBase {
       if (element.hasUseContext()) {
         openArray("useContext");
         for (CodeableConcept e : element.getUseContext()) 
+          composeCodeableConcept(null, e);
+        closeArray();
+      };
+      if (element.hasJurisdiction()) {
+        openArray("jurisdiction");
+        for (CodeableConcept e : element.getJurisdiction()) 
           composeCodeableConcept(null, e);
         closeArray();
       };

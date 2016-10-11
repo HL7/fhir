@@ -255,6 +255,10 @@ public class SourceParser {
       loadConformancePackages(n, issues);
     }
 
+    for (ResourceDefn r : definitions.getBaseResources().values()) {
+      for (Profile p : r.getConformancePackages()) 
+        loadConformancePackage(p, r.getWg().getCode(), issues);
+    }
     for (ResourceDefn r : definitions.getResources().values()) {
       for (Profile p : r.getConformancePackages()) 
         loadConformancePackage(p, r.getWg().getCode(), issues);

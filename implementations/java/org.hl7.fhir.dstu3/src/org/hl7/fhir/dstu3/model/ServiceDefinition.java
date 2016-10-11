@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Oct 10, 2016 21:25+1100 for FHIR v1.7.0
+// Generated on Tue, Oct 11, 2016 11:12+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -71,25 +71,25 @@ public class ServiceDefinition extends MetadataResource {
     protected StringType usage;
 
     /**
-     * The date on which the module content was last reviewed.
+     * The date on which the asset content was approved by the publisher. Approval happens once when the content is officially approved for usage.
      */
-    @Child(name = "lastReviewDate", type = {DateType.class}, order=3, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="Last review date for the module", formalDefinition="The date on which the module content was last reviewed." )
+    @Child(name = "approvalDate", type = {DateType.class}, order=3, min=0, max=1, modifier=false, summary=false)
+    @Description(shortDefinition="When service definition approved by publisher", formalDefinition="The date on which the asset content was approved by the publisher. Approval happens once when the content is officially approved for usage." )
+    protected DateType approvalDate;
+
+    /**
+     * The date on which the asset content was last reviewed. Review happens periodically after that, but doesn't change the original approval date.
+     */
+    @Child(name = "lastReviewDate", type = {DateType.class}, order=4, min=0, max=1, modifier=false, summary=false)
+    @Description(shortDefinition="Last review date for the service definition", formalDefinition="The date on which the asset content was last reviewed. Review happens periodically after that, but doesn't change the original approval date." )
     protected DateType lastReviewDate;
 
     /**
-     * The period during which the module content is effective.
+     * The period during which the service definition content was or is planned to be effective.
      */
-    @Child(name = "effectivePeriod", type = {Period.class}, order=4, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="The effective date range for the module", formalDefinition="The period during which the module content is effective." )
+    @Child(name = "effectivePeriod", type = {Period.class}, order=5, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="The effective date range for the service definition", formalDefinition="The period during which the service definition content was or is planned to be effective." )
     protected Period effectivePeriod;
-
-    /**
-     * Specifies various attributes of the patient population for whom and/or environment of care in which, the knowledge module is applicable.
-     */
-    @Child(name = "coverage", type = {UsageContext.class}, order=5, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-    @Description(shortDefinition="Describes the context of use for this module", formalDefinition="Specifies various attributes of the patient population for whom and/or environment of care in which, the knowledge module is applicable." )
-    protected List<UsageContext> coverage;
 
     /**
      * Clinical topics related to the content of the module.
@@ -145,7 +145,7 @@ public class ServiceDefinition extends MetadataResource {
      */
     protected OperationDefinition operationDefinitionTarget;
 
-    private static final long serialVersionUID = 1970160903L;
+    private static final long serialVersionUID = -1517933892L;
 
   /**
    * Constructor
@@ -698,7 +698,56 @@ public class ServiceDefinition extends MetadataResource {
     }
 
     /**
-     * @return {@link #lastReviewDate} (The date on which the module content was last reviewed.). This is the underlying object with id, value and extensions. The accessor "getLastReviewDate" gives direct access to the value
+     * @return {@link #approvalDate} (The date on which the asset content was approved by the publisher. Approval happens once when the content is officially approved for usage.). This is the underlying object with id, value and extensions. The accessor "getApprovalDate" gives direct access to the value
+     */
+    public DateType getApprovalDateElement() { 
+      if (this.approvalDate == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create ServiceDefinition.approvalDate");
+        else if (Configuration.doAutoCreate())
+          this.approvalDate = new DateType(); // bb
+      return this.approvalDate;
+    }
+
+    public boolean hasApprovalDateElement() { 
+      return this.approvalDate != null && !this.approvalDate.isEmpty();
+    }
+
+    public boolean hasApprovalDate() { 
+      return this.approvalDate != null && !this.approvalDate.isEmpty();
+    }
+
+    /**
+     * @param value {@link #approvalDate} (The date on which the asset content was approved by the publisher. Approval happens once when the content is officially approved for usage.). This is the underlying object with id, value and extensions. The accessor "getApprovalDate" gives direct access to the value
+     */
+    public ServiceDefinition setApprovalDateElement(DateType value) { 
+      this.approvalDate = value;
+      return this;
+    }
+
+    /**
+     * @return The date on which the asset content was approved by the publisher. Approval happens once when the content is officially approved for usage.
+     */
+    public Date getApprovalDate() { 
+      return this.approvalDate == null ? null : this.approvalDate.getValue();
+    }
+
+    /**
+     * @param value The date on which the asset content was approved by the publisher. Approval happens once when the content is officially approved for usage.
+     */
+    public ServiceDefinition setApprovalDate(Date value) { 
+      if (value == null)
+        this.approvalDate = null;
+      else {
+        if (this.approvalDate == null)
+          this.approvalDate = new DateType();
+        this.approvalDate.setValue(value);
+      }
+      return this;
+    }
+
+    /**
+     * @return {@link #lastReviewDate} (The date on which the asset content was last reviewed. Review happens periodically after that, but doesn't change the original approval date.). This is the underlying object with id, value and extensions. The accessor "getLastReviewDate" gives direct access to the value
      */
     public DateType getLastReviewDateElement() { 
       if (this.lastReviewDate == null)
@@ -718,7 +767,7 @@ public class ServiceDefinition extends MetadataResource {
     }
 
     /**
-     * @param value {@link #lastReviewDate} (The date on which the module content was last reviewed.). This is the underlying object with id, value and extensions. The accessor "getLastReviewDate" gives direct access to the value
+     * @param value {@link #lastReviewDate} (The date on which the asset content was last reviewed. Review happens periodically after that, but doesn't change the original approval date.). This is the underlying object with id, value and extensions. The accessor "getLastReviewDate" gives direct access to the value
      */
     public ServiceDefinition setLastReviewDateElement(DateType value) { 
       this.lastReviewDate = value;
@@ -726,14 +775,14 @@ public class ServiceDefinition extends MetadataResource {
     }
 
     /**
-     * @return The date on which the module content was last reviewed.
+     * @return The date on which the asset content was last reviewed. Review happens periodically after that, but doesn't change the original approval date.
      */
     public Date getLastReviewDate() { 
       return this.lastReviewDate == null ? null : this.lastReviewDate.getValue();
     }
 
     /**
-     * @param value The date on which the module content was last reviewed.
+     * @param value The date on which the asset content was last reviewed. Review happens periodically after that, but doesn't change the original approval date.
      */
     public ServiceDefinition setLastReviewDate(Date value) { 
       if (value == null)
@@ -747,7 +796,7 @@ public class ServiceDefinition extends MetadataResource {
     }
 
     /**
-     * @return {@link #effectivePeriod} (The period during which the module content is effective.)
+     * @return {@link #effectivePeriod} (The period during which the service definition content was or is planned to be effective.)
      */
     public Period getEffectivePeriod() { 
       if (this.effectivePeriod == null)
@@ -763,7 +812,7 @@ public class ServiceDefinition extends MetadataResource {
     }
 
     /**
-     * @param value {@link #effectivePeriod} (The period during which the module content is effective.)
+     * @param value {@link #effectivePeriod} (The period during which the service definition content was or is planned to be effective.)
      */
     public ServiceDefinition setEffectivePeriod(Period value) { 
       this.effectivePeriod = value;
@@ -771,56 +820,109 @@ public class ServiceDefinition extends MetadataResource {
     }
 
     /**
-     * @return {@link #coverage} (Specifies various attributes of the patient population for whom and/or environment of care in which, the knowledge module is applicable.)
+     * @return {@link #useContext} (The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of code system definitions.)
      */
-    public List<UsageContext> getCoverage() { 
-      if (this.coverage == null)
-        this.coverage = new ArrayList<UsageContext>();
-      return this.coverage;
+    public List<CodeableConcept> getUseContext() { 
+      if (this.useContext == null)
+        this.useContext = new ArrayList<CodeableConcept>();
+      return this.useContext;
     }
 
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public ServiceDefinition setCoverage(List<UsageContext> theCoverage) { 
-      this.coverage = theCoverage;
+    public ServiceDefinition setUseContext(List<CodeableConcept> theUseContext) { 
+      this.useContext = theUseContext;
       return this;
     }
 
-    public boolean hasCoverage() { 
-      if (this.coverage == null)
+    public boolean hasUseContext() { 
+      if (this.useContext == null)
         return false;
-      for (UsageContext item : this.coverage)
+      for (CodeableConcept item : this.useContext)
         if (!item.isEmpty())
           return true;
       return false;
     }
 
-    public UsageContext addCoverage() { //3
-      UsageContext t = new UsageContext();
-      if (this.coverage == null)
-        this.coverage = new ArrayList<UsageContext>();
-      this.coverage.add(t);
+    public CodeableConcept addUseContext() { //3
+      CodeableConcept t = new CodeableConcept();
+      if (this.useContext == null)
+        this.useContext = new ArrayList<CodeableConcept>();
+      this.useContext.add(t);
       return t;
     }
 
-    public ServiceDefinition addCoverage(UsageContext t) { //3
+    public ServiceDefinition addUseContext(CodeableConcept t) { //3
       if (t == null)
         return this;
-      if (this.coverage == null)
-        this.coverage = new ArrayList<UsageContext>();
-      this.coverage.add(t);
+      if (this.useContext == null)
+        this.useContext = new ArrayList<CodeableConcept>();
+      this.useContext.add(t);
       return this;
     }
 
     /**
-     * @return The first repetition of repeating field {@link #coverage}, creating it if it does not already exist
+     * @return The first repetition of repeating field {@link #useContext}, creating it if it does not already exist
      */
-    public UsageContext getCoverageFirstRep() { 
-      if (getCoverage().isEmpty()) {
-        addCoverage();
+    public CodeableConcept getUseContextFirstRep() { 
+      if (getUseContext().isEmpty()) {
+        addUseContext();
       }
-      return getCoverage().get(0);
+      return getUseContext().get(0);
+    }
+
+    /**
+     * @return {@link #jurisdiction} (A jurisdiction in which the service definition is intended to be used.)
+     */
+    public List<CodeableConcept> getJurisdiction() { 
+      if (this.jurisdiction == null)
+        this.jurisdiction = new ArrayList<CodeableConcept>();
+      return this.jurisdiction;
+    }
+
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public ServiceDefinition setJurisdiction(List<CodeableConcept> theJurisdiction) { 
+      this.jurisdiction = theJurisdiction;
+      return this;
+    }
+
+    public boolean hasJurisdiction() { 
+      if (this.jurisdiction == null)
+        return false;
+      for (CodeableConcept item : this.jurisdiction)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    public CodeableConcept addJurisdiction() { //3
+      CodeableConcept t = new CodeableConcept();
+      if (this.jurisdiction == null)
+        this.jurisdiction = new ArrayList<CodeableConcept>();
+      this.jurisdiction.add(t);
+      return t;
+    }
+
+    public ServiceDefinition addJurisdiction(CodeableConcept t) { //3
+      if (t == null)
+        return this;
+      if (this.jurisdiction == null)
+        this.jurisdiction = new ArrayList<CodeableConcept>();
+      this.jurisdiction.add(t);
+      return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #jurisdiction}, creating it if it does not already exist
+     */
+    public CodeableConcept getJurisdictionFirstRep() { 
+      if (getJurisdiction().isEmpty()) {
+        addJurisdiction();
+      }
+      return getJurisdiction().get(0);
     }
 
     /**
@@ -1296,9 +1398,11 @@ public class ServiceDefinition extends MetadataResource {
         childrenList.add(new Property("description", "markdown", "A free text natural language description of the service definition from the consumer's perspective.", 0, java.lang.Integer.MAX_VALUE, description));
         childrenList.add(new Property("purpose", "markdown", "Explains why this service definition is needed and why it has been designed as it has.", 0, java.lang.Integer.MAX_VALUE, purpose));
         childrenList.add(new Property("usage", "string", "A detailed description of how the module is used from a clinical perspective.", 0, java.lang.Integer.MAX_VALUE, usage));
-        childrenList.add(new Property("lastReviewDate", "date", "The date on which the module content was last reviewed.", 0, java.lang.Integer.MAX_VALUE, lastReviewDate));
-        childrenList.add(new Property("effectivePeriod", "Period", "The period during which the module content is effective.", 0, java.lang.Integer.MAX_VALUE, effectivePeriod));
-        childrenList.add(new Property("coverage", "UsageContext", "Specifies various attributes of the patient population for whom and/or environment of care in which, the knowledge module is applicable.", 0, java.lang.Integer.MAX_VALUE, coverage));
+        childrenList.add(new Property("approvalDate", "date", "The date on which the asset content was approved by the publisher. Approval happens once when the content is officially approved for usage.", 0, java.lang.Integer.MAX_VALUE, approvalDate));
+        childrenList.add(new Property("lastReviewDate", "date", "The date on which the asset content was last reviewed. Review happens periodically after that, but doesn't change the original approval date.", 0, java.lang.Integer.MAX_VALUE, lastReviewDate));
+        childrenList.add(new Property("effectivePeriod", "Period", "The period during which the service definition content was or is planned to be effective.", 0, java.lang.Integer.MAX_VALUE, effectivePeriod));
+        childrenList.add(new Property("useContext", "CodeableConcept", "The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of code system definitions.", 0, java.lang.Integer.MAX_VALUE, useContext));
+        childrenList.add(new Property("jurisdiction", "CodeableConcept", "A jurisdiction in which the service definition is intended to be used.", 0, java.lang.Integer.MAX_VALUE, jurisdiction));
         childrenList.add(new Property("topic", "CodeableConcept", "Clinical topics related to the content of the module.", 0, java.lang.Integer.MAX_VALUE, topic));
         childrenList.add(new Property("contributor", "Contributor", "A contributor to the content of the module, including authors, editors, reviewers, and endorsers.", 0, java.lang.Integer.MAX_VALUE, contributor));
         childrenList.add(new Property("publisher", "string", "The name of the individual or organization that published the service definition.", 0, java.lang.Integer.MAX_VALUE, publisher));
@@ -1324,9 +1428,11 @@ public class ServiceDefinition extends MetadataResource {
         case -1724546052: /*description*/ return this.description == null ? new Base[0] : new Base[] {this.description}; // MarkdownType
         case -220463842: /*purpose*/ return this.purpose == null ? new Base[0] : new Base[] {this.purpose}; // MarkdownType
         case 111574433: /*usage*/ return this.usage == null ? new Base[0] : new Base[] {this.usage}; // StringType
+        case 223539345: /*approvalDate*/ return this.approvalDate == null ? new Base[0] : new Base[] {this.approvalDate}; // DateType
         case -1687512484: /*lastReviewDate*/ return this.lastReviewDate == null ? new Base[0] : new Base[] {this.lastReviewDate}; // DateType
         case -403934648: /*effectivePeriod*/ return this.effectivePeriod == null ? new Base[0] : new Base[] {this.effectivePeriod}; // Period
-        case -351767064: /*coverage*/ return this.coverage == null ? new Base[0] : this.coverage.toArray(new Base[this.coverage.size()]); // UsageContext
+        case -669707736: /*useContext*/ return this.useContext == null ? new Base[0] : this.useContext.toArray(new Base[this.useContext.size()]); // CodeableConcept
+        case -507075711: /*jurisdiction*/ return this.jurisdiction == null ? new Base[0] : this.jurisdiction.toArray(new Base[this.jurisdiction.size()]); // CodeableConcept
         case 110546223: /*topic*/ return this.topic == null ? new Base[0] : this.topic.toArray(new Base[this.topic.size()]); // CodeableConcept
         case -1895276325: /*contributor*/ return this.contributor == null ? new Base[0] : this.contributor.toArray(new Base[this.contributor.size()]); // Contributor
         case 1447404028: /*publisher*/ return this.publisher == null ? new Base[0] : new Base[] {this.publisher}; // StringType
@@ -1377,14 +1483,20 @@ public class ServiceDefinition extends MetadataResource {
         case 111574433: // usage
           this.usage = castToString(value); // StringType
           break;
+        case 223539345: // approvalDate
+          this.approvalDate = castToDate(value); // DateType
+          break;
         case -1687512484: // lastReviewDate
           this.lastReviewDate = castToDate(value); // DateType
           break;
         case -403934648: // effectivePeriod
           this.effectivePeriod = castToPeriod(value); // Period
           break;
-        case -351767064: // coverage
-          this.getCoverage().add(castToUsageContext(value)); // UsageContext
+        case -669707736: // useContext
+          this.getUseContext().add(castToCodeableConcept(value)); // CodeableConcept
+          break;
+        case -507075711: // jurisdiction
+          this.getJurisdiction().add(castToCodeableConcept(value)); // CodeableConcept
           break;
         case 110546223: // topic
           this.getTopic().add(castToCodeableConcept(value)); // CodeableConcept
@@ -1442,12 +1554,16 @@ public class ServiceDefinition extends MetadataResource {
           this.purpose = castToMarkdown(value); // MarkdownType
         else if (name.equals("usage"))
           this.usage = castToString(value); // StringType
+        else if (name.equals("approvalDate"))
+          this.approvalDate = castToDate(value); // DateType
         else if (name.equals("lastReviewDate"))
           this.lastReviewDate = castToDate(value); // DateType
         else if (name.equals("effectivePeriod"))
           this.effectivePeriod = castToPeriod(value); // Period
-        else if (name.equals("coverage"))
-          this.getCoverage().add(castToUsageContext(value));
+        else if (name.equals("useContext"))
+          this.getUseContext().add(castToCodeableConcept(value));
+        else if (name.equals("jurisdiction"))
+          this.getJurisdiction().add(castToCodeableConcept(value));
         else if (name.equals("topic"))
           this.getTopic().add(castToCodeableConcept(value));
         else if (name.equals("contributor"))
@@ -1484,9 +1600,11 @@ public class ServiceDefinition extends MetadataResource {
         case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // MarkdownType
         case -220463842: throw new FHIRException("Cannot make property purpose as it is not a complex type"); // MarkdownType
         case 111574433: throw new FHIRException("Cannot make property usage as it is not a complex type"); // StringType
+        case 223539345: throw new FHIRException("Cannot make property approvalDate as it is not a complex type"); // DateType
         case -1687512484: throw new FHIRException("Cannot make property lastReviewDate as it is not a complex type"); // DateType
         case -403934648:  return getEffectivePeriod(); // Period
-        case -351767064:  return addCoverage(); // UsageContext
+        case -669707736:  return addUseContext(); // CodeableConcept
+        case -507075711:  return addJurisdiction(); // CodeableConcept
         case 110546223:  return addTopic(); // CodeableConcept
         case -1895276325:  return addContributor(); // Contributor
         case 1447404028: throw new FHIRException("Cannot make property publisher as it is not a complex type"); // StringType
@@ -1536,6 +1654,9 @@ public class ServiceDefinition extends MetadataResource {
         else if (name.equals("usage")) {
           throw new FHIRException("Cannot call addChild on a primitive type ServiceDefinition.usage");
         }
+        else if (name.equals("approvalDate")) {
+          throw new FHIRException("Cannot call addChild on a primitive type ServiceDefinition.approvalDate");
+        }
         else if (name.equals("lastReviewDate")) {
           throw new FHIRException("Cannot call addChild on a primitive type ServiceDefinition.lastReviewDate");
         }
@@ -1543,8 +1664,11 @@ public class ServiceDefinition extends MetadataResource {
           this.effectivePeriod = new Period();
           return this.effectivePeriod;
         }
-        else if (name.equals("coverage")) {
-          return addCoverage();
+        else if (name.equals("useContext")) {
+          return addUseContext();
+        }
+        else if (name.equals("jurisdiction")) {
+          return addJurisdiction();
         }
         else if (name.equals("topic")) {
           return addTopic();
@@ -1601,12 +1725,18 @@ public class ServiceDefinition extends MetadataResource {
         dst.description = description == null ? null : description.copy();
         dst.purpose = purpose == null ? null : purpose.copy();
         dst.usage = usage == null ? null : usage.copy();
+        dst.approvalDate = approvalDate == null ? null : approvalDate.copy();
         dst.lastReviewDate = lastReviewDate == null ? null : lastReviewDate.copy();
         dst.effectivePeriod = effectivePeriod == null ? null : effectivePeriod.copy();
-        if (coverage != null) {
-          dst.coverage = new ArrayList<UsageContext>();
-          for (UsageContext i : coverage)
-            dst.coverage.add(i.copy());
+        if (useContext != null) {
+          dst.useContext = new ArrayList<CodeableConcept>();
+          for (CodeableConcept i : useContext)
+            dst.useContext.add(i.copy());
+        };
+        if (jurisdiction != null) {
+          dst.jurisdiction = new ArrayList<CodeableConcept>();
+          for (CodeableConcept i : jurisdiction)
+            dst.jurisdiction.add(i.copy());
         };
         if (topic != null) {
           dst.topic = new ArrayList<CodeableConcept>();
@@ -1656,8 +1786,8 @@ public class ServiceDefinition extends MetadataResource {
           return false;
         ServiceDefinition o = (ServiceDefinition) other;
         return compareDeep(identifier, o.identifier, true) && compareDeep(purpose, o.purpose, true) && compareDeep(usage, o.usage, true)
-           && compareDeep(lastReviewDate, o.lastReviewDate, true) && compareDeep(effectivePeriod, o.effectivePeriod, true)
-           && compareDeep(coverage, o.coverage, true) && compareDeep(topic, o.topic, true) && compareDeep(contributor, o.contributor, true)
+           && compareDeep(approvalDate, o.approvalDate, true) && compareDeep(lastReviewDate, o.lastReviewDate, true)
+           && compareDeep(effectivePeriod, o.effectivePeriod, true) && compareDeep(topic, o.topic, true) && compareDeep(contributor, o.contributor, true)
            && compareDeep(copyright, o.copyright, true) && compareDeep(relatedArtifact, o.relatedArtifact, true)
            && compareDeep(trigger, o.trigger, true) && compareDeep(dataRequirement, o.dataRequirement, true)
            && compareDeep(operationDefinition, o.operationDefinition, true);
@@ -1670,13 +1800,14 @@ public class ServiceDefinition extends MetadataResource {
         if (!(other instanceof ServiceDefinition))
           return false;
         ServiceDefinition o = (ServiceDefinition) other;
-        return compareValues(purpose, o.purpose, true) && compareValues(usage, o.usage, true) && compareValues(lastReviewDate, o.lastReviewDate, true)
-           && compareValues(copyright, o.copyright, true);
+        return compareValues(purpose, o.purpose, true) && compareValues(usage, o.usage, true) && compareValues(approvalDate, o.approvalDate, true)
+           && compareValues(lastReviewDate, o.lastReviewDate, true) && compareValues(copyright, o.copyright, true)
+          ;
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, purpose, usage
-          , lastReviewDate, effectivePeriod, coverage, topic, contributor, copyright, relatedArtifact
+          , approvalDate, lastReviewDate, effectivePeriod, topic, contributor, copyright, relatedArtifact
           , trigger, dataRequirement, operationDefinition);
       }
 
@@ -1726,24 +1857,24 @@ public class ServiceDefinition extends MetadataResource {
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
 
  /**
-   * Search parameter: <b>name</b>
+   * Search parameter: <b>jurisdiction</b>
    * <p>
-   * Description: <b>Name of the service definition</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>ServiceDefinition.name</b><br>
+   * Description: <b>Intended jurisdiction for service definition</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ServiceDefinition.jurisdiction</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="name", path="ServiceDefinition.name", description="Name of the service definition", type="string" )
-  public static final String SP_NAME = "name";
+  @SearchParamDefinition(name="jurisdiction", path="ServiceDefinition.jurisdiction", description="Intended jurisdiction for service definition", type="token" )
+  public static final String SP_JURISDICTION = "jurisdiction";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>name</b>
+   * <b>Fluent Client</b> search parameter constant for <b>jurisdiction</b>
    * <p>
-   * Description: <b>Name of the service definition</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>ServiceDefinition.name</b><br>
+   * Description: <b>Intended jurisdiction for service definition</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ServiceDefinition.jurisdiction</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam NAME = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_NAME);
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam JURISDICTION = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_JURISDICTION);
 
  /**
    * Search parameter: <b>description</b>
@@ -1764,46 +1895,6 @@ public class ServiceDefinition extends MetadataResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.StringClientParam DESCRIPTION = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_DESCRIPTION);
-
- /**
-   * Search parameter: <b>publisher</b>
-   * <p>
-   * Description: <b>Name of the publisher of the service definition</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>ServiceDefinition.publisher</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="publisher", path="ServiceDefinition.publisher", description="Name of the publisher of the service definition", type="string" )
-  public static final String SP_PUBLISHER = "publisher";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>publisher</b>
-   * <p>
-   * Description: <b>Name of the publisher of the service definition</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>ServiceDefinition.publisher</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam PUBLISHER = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_PUBLISHER);
-
- /**
-   * Search parameter: <b>topic</b>
-   * <p>
-   * Description: <b>Topics associated with the module</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>ServiceDefinition.topic</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="topic", path="ServiceDefinition.topic", description="Topics associated with the module", type="token" )
-  public static final String SP_TOPIC = "topic";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>topic</b>
-   * <p>
-   * Description: <b>Topics associated with the module</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>ServiceDefinition.topic</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam TOPIC = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TOPIC);
 
  /**
    * Search parameter: <b>title</b>
@@ -1864,6 +1955,106 @@ public class ServiceDefinition extends MetadataResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.UriClientParam URL = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_URL);
+
+ /**
+   * Search parameter: <b>effective</b>
+   * <p>
+   * Description: <b>Effective time associated with the service definition</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>ServiceDefinition.effectivePeriod</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="effective", path="ServiceDefinition.effectivePeriod", description="Effective time associated with the service definition", type="date" )
+  public static final String SP_EFFECTIVE = "effective";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>effective</b>
+   * <p>
+   * Description: <b>Effective time associated with the service definition</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>ServiceDefinition.effectivePeriod</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam EFFECTIVE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_EFFECTIVE);
+
+ /**
+   * Search parameter: <b>name</b>
+   * <p>
+   * Description: <b>Name of the service definition</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>ServiceDefinition.name</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="name", path="ServiceDefinition.name", description="Name of the service definition", type="string" )
+  public static final String SP_NAME = "name";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>name</b>
+   * <p>
+   * Description: <b>Name of the service definition</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>ServiceDefinition.name</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam NAME = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_NAME);
+
+ /**
+   * Search parameter: <b>context</b>
+   * <p>
+   * Description: <b>A use context assigned to the service definition</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ServiceDefinition.useContext</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="context", path="ServiceDefinition.useContext", description="A use context assigned to the service definition", type="token" )
+  public static final String SP_CONTEXT = "context";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>context</b>
+   * <p>
+   * Description: <b>A use context assigned to the service definition</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ServiceDefinition.useContext</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CONTEXT = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CONTEXT);
+
+ /**
+   * Search parameter: <b>publisher</b>
+   * <p>
+   * Description: <b>Name of the publisher of the service definition</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>ServiceDefinition.publisher</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="publisher", path="ServiceDefinition.publisher", description="Name of the publisher of the service definition", type="string" )
+  public static final String SP_PUBLISHER = "publisher";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>publisher</b>
+   * <p>
+   * Description: <b>Name of the publisher of the service definition</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>ServiceDefinition.publisher</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam PUBLISHER = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_PUBLISHER);
+
+ /**
+   * Search parameter: <b>topic</b>
+   * <p>
+   * Description: <b>Topics associated with the module</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ServiceDefinition.topic</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="topic", path="ServiceDefinition.topic", description="Topics associated with the module", type="token" )
+  public static final String SP_TOPIC = "topic";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>topic</b>
+   * <p>
+   * Description: <b>Topics associated with the module</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ServiceDefinition.topic</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam TOPIC = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TOPIC);
 
  /**
    * Search parameter: <b>status</b>

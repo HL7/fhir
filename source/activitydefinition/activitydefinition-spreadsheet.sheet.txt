@@ -115,7 +115,6 @@
   Element = ActivityDefinition.identifier
   Card. = 0..*
   To Do = Add constraint to require identifier for non-experimental active assets
-  w5 = id
 
  -- Row 4 -----------------------------------
   Element = ActivityDefinition.version
@@ -151,32 +150,21 @@
   Definition = A detailed description of how the asset is used from a clinical perspective
 
  -- Row 13 -----------------------------------
-  Element = ActivityDefinition.lastReviewDate
-  Card. = 0..1
-  Type = date
-  Short Name = Last review date for the asset
-  Definition = The date on which the asset content was last reviewed
+  Element = ActivityDefinition.approvalDate
 
  -- Row 14 -----------------------------------
-  Element = ActivityDefinition.effectivePeriod
-  Card. = 0..1
-  Type = Period
-  Short Name = The effective date range for the asset
-  Definition = The period during which the asset content is effective
-  Comments = The effective period for an asset determines when the content is applicable for usage and is independent of publication and review dates. For example, a measure intended to be used for the year 2016 would be published in 2015
+  Element = ActivityDefinition.lastReviewDate
 
  -- Row 15 -----------------------------------
-  Element = ActivityDefinition.coverage
-  Card. = 0..*
-  Type = UsageContext
-  Short Name = Describes the context of use for this asset
-  Definition = Specifies various attributes of the patient population for whom and/or environment of care in which, the knowledge asset is applicable
-  Requirements = Consumers of the asset must be able to determine the intended applicability for the asset. Ideally, this information would be used programmatically to determine when and how it should be incorporated or exposed
+  Element = ActivityDefinition.effectivePeriod
 
  -- Row 16 -----------------------------------
-  Element = ActivityDefinition.jurisdiction
+  Element = ActivityDefinition.useContext
 
  -- Row 17 -----------------------------------
+  Element = ActivityDefinition.jurisdiction
+
+ -- Row 18 -----------------------------------
   Element = ActivityDefinition.topic
   Card. = 0..*
   Type = CodeableConcept
@@ -184,7 +172,7 @@
   Definition = Clinical topics related to the content of the asset
   Requirements = Repositories must be able to determine how to categorize the asset  so that it can be found by topical searches
 
- -- Row 18 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = ActivityDefinition.contributor
   Card. = 0..*
   Type = Contributor
@@ -192,17 +180,17 @@
   Definition = A contributor to the content of the asset, including authors, editors, reviewers, and endorsers
   Requirements = Consumers of the content must be able to quickly determine who contributed to the content of the knowledge asset
 
- -- Row 19 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = ActivityDefinition.publisher
   To Do = Add constraint to require publisher on non-experimental active assets
 
- -- Row 20 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = ActivityDefinition.contact
 
- -- Row 21 -----------------------------------
+ -- Row 22 -----------------------------------
   Element = ActivityDefinition.copyright
 
- -- Row 22 -----------------------------------
+ -- Row 23 -----------------------------------
   Element = ActivityDefinition.relatedArtifact
   Card. = 0..*
   Type = RelatedArtifact
@@ -211,14 +199,14 @@
   Requirements = Assets must be able to provide enough information for consumers of the content (and/or interventions or results produced by the content) to be able to determine and understand the justification for and evidence in support of the content
   Comments = Each related resource is either an attachment, or a reference to another resource, but not both
 
- -- Row 23 -----------------------------------
+ -- Row 24 -----------------------------------
   Element = ActivityDefinition.library
   Card. = 0..*
   Type = Reference(Library)
   Short Name = Logic used by the asset
   Definition = A reference to a Library resource containing any formal logic used by the asset
 
- -- Row 24 -----------------------------------
+ -- Row 25 -----------------------------------
   Element = ActivityDefinition.category
   Card. = 0..1
   Type = code
@@ -227,7 +215,7 @@
   Definition = High-level categorization of the type of activity.
   Requirements = May determine what types of extensions are permitted
 
- -- Row 25 -----------------------------------
+ -- Row 26 -----------------------------------
   Element = ActivityDefinition.code
   Card. = 0..1
   Type = CodeableConcept
@@ -237,7 +225,7 @@
   Requirements = Allows matching performed to planned as well as validation against protocols
   Comments = Tends to be less relevant for activities involving particular products.
 
- -- Row 26 -----------------------------------
+ -- Row 27 -----------------------------------
   Element = ActivityDefinition.timing[x]
   Card. = 0..1
   Type = CodeableConcept | Timing
@@ -246,7 +234,7 @@
   Definition = The period, timing or frequency upon which the described activity is to occur.
   Requirements = Allows prompting for activities and detection of missed planned activities.
 
- -- Row 27 -----------------------------------
+ -- Row 28 -----------------------------------
   Element = ActivityDefinition.location
   Card. = 0..1
   Aliases = facility
@@ -256,7 +244,7 @@
   Requirements = Helps in planning of activity
   Comments = May reference a specific clinical location or may just identify a type of location.
 
- -- Row 28 -----------------------------------
+ -- Row 29 -----------------------------------
   Element = ActivityDefinition.participantType
   Card. = 0..*
   Type = code
@@ -264,7 +252,7 @@
   Short Name = patient | practitioner | related-person
   Definition = The type of participant in the action
 
- -- Row 29 -----------------------------------
+ -- Row 30 -----------------------------------
   Element = ActivityDefinition.product[x]
   Card. = 0..1
   Type = Reference(Medication|Substance)|CodeableConcept
@@ -272,7 +260,7 @@
   Short Name = What\'s administered/supplied
   Definition = Identifies the food, drug or other product being consumed or supplied in the activity.
 
- -- Row 30 -----------------------------------
+ -- Row 31 -----------------------------------
   Element = ActivityDefinition.quantity
   Card. = 0..1
   Aliases = dose
@@ -280,48 +268,48 @@
   Short Name = How much is administered/consumed/supplied
   Definition = Identifies the quantity expected to be consumed at once (per dose, per meal, etc.)
 
- -- Row 31 -----------------------------------
+ -- Row 32 -----------------------------------
   Element = !ActivityDefinition.description
   Card. = 0..1
   Type = string
   Short Name = Extra info on activity occurrence
   Definition = This provides a textual description of constraints on the activity occurrence, including relation to other activities.  It may also include objectives, pre-conditions and end-conditions.  Finally, it may convey specifics about the activity such as body site, method, route, etc.
 
- -- Row 32 -----------------------------------
+ -- Row 33 -----------------------------------
   Element = ActivityDefinition.transform
   Card. = 0..1
   Type = Reference(StructureMap)
   Short Name = Transform to apply the template
   Definition = A reference to a StructureMap resource that defines a transform that can be executed to produce the intent resource using the ActivityDefinition instance as the input
 
- -- Row 33 -----------------------------------
+ -- Row 34 -----------------------------------
   Element = ActivityDefinition.dynamicValue
   Card. = 0..*
   Short Name = Dynamic aspects of the definition
   Definition = Dynamic values that will be evaluated to produce values for elements of the resulting resource. For example, if the dosage of a medication must be computed based on the patient\'s weight, a dynamic value would be used to specify an expression that calculated the weight, and the path on the intent resource that would contain the result
 
- -- Row 34 -----------------------------------
+ -- Row 35 -----------------------------------
   Element = ActivityDefinition.dynamicValue.description
   Card. = 0..1
   Type = string
   Short Name = Natural language description of the dynamic value
   Definition = A brief, natural language description of the intended semantics of the dynamic value
 
- -- Row 35 -----------------------------------
+ -- Row 36 -----------------------------------
   Element = ActivityDefinition.dynamicValue.path
   Card. = 0..1
   Type = string
   Short Name = The path to the element to be set dynamically
   Definition = The path to the element to be customized. This is the path on the resource that will hold the result of the calculation defined by the expression
 
- -- Row 36 -----------------------------------
+ -- Row 37 -----------------------------------
   Element = ActivityDefinition.dynamicValue.language
   Card. = 0..1
   Type = string
   Short Name = Language of the expression
   Definition = The media type of the language for the expression
 
- -- Row 37 -----------------------------------
+ -- Row 38 -----------------------------------
   Element = ActivityDefinition.dynamicValue.expression
   Card. = 0..1
   Type = string

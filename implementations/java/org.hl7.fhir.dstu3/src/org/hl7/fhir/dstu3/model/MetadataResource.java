@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Oct 10, 2016 21:25+1100 for FHIR v1.7.0
+// Generated on Tue, Oct 11, 2016 11:12+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -121,13 +121,21 @@ public abstract class MetadataResource extends DomainResource {
     protected List<CodeableConcept> useContext;
 
     /**
+     * A jurisdiction in which the metadata resource is intended to be used.
+     */
+    @Child(name = "jurisdiction", type = {CodeableConcept.class}, order=10, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Description(shortDefinition="Intended jurisdiction for metadata resource (if applicable)", formalDefinition="A jurisdiction in which the metadata resource is intended to be used." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/jurisdiction")
+    protected List<CodeableConcept> jurisdiction;
+
+    /**
      * A free text natural language description of the metadata resource from the consumer's perspective.
      */
-    @Child(name = "description", type = {MarkdownType.class}, order=10, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "description", type = {MarkdownType.class}, order=11, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Natural language description of the metadata resource", formalDefinition="A free text natural language description of the metadata resource from the consumer's perspective." )
     protected MarkdownType description;
 
-    private static final long serialVersionUID = 346217581L;
+    private static final long serialVersionUID = -1598498411L;
 
   /**
    * Constructor
@@ -635,6 +643,59 @@ public abstract class MetadataResource extends DomainResource {
     }
 
     /**
+     * @return {@link #jurisdiction} (A jurisdiction in which the metadata resource is intended to be used.)
+     */
+    public List<CodeableConcept> getJurisdiction() { 
+      if (this.jurisdiction == null)
+        this.jurisdiction = new ArrayList<CodeableConcept>();
+      return this.jurisdiction;
+    }
+
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public MetadataResource setJurisdiction(List<CodeableConcept> theJurisdiction) { 
+      this.jurisdiction = theJurisdiction;
+      return this;
+    }
+
+    public boolean hasJurisdiction() { 
+      if (this.jurisdiction == null)
+        return false;
+      for (CodeableConcept item : this.jurisdiction)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    public CodeableConcept addJurisdiction() { //3
+      CodeableConcept t = new CodeableConcept();
+      if (this.jurisdiction == null)
+        this.jurisdiction = new ArrayList<CodeableConcept>();
+      this.jurisdiction.add(t);
+      return t;
+    }
+
+    public MetadataResource addJurisdiction(CodeableConcept t) { //3
+      if (t == null)
+        return this;
+      if (this.jurisdiction == null)
+        this.jurisdiction = new ArrayList<CodeableConcept>();
+      this.jurisdiction.add(t);
+      return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #jurisdiction}, creating it if it does not already exist
+     */
+    public CodeableConcept getJurisdictionFirstRep() { 
+      if (getJurisdiction().isEmpty()) {
+        addJurisdiction();
+      }
+      return getJurisdiction().get(0);
+    }
+
+    /**
      * @return {@link #description} (A free text natural language description of the metadata resource from the consumer's perspective.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
     public MarkdownType getDescriptionElement() { 
@@ -694,6 +755,7 @@ public abstract class MetadataResource extends DomainResource {
         childrenList.add(new Property("publisher", "string", "The name of the individual or organization that published the metadata resource.", 0, java.lang.Integer.MAX_VALUE, publisher));
         childrenList.add(new Property("contact", "ContactDetail", "Contact details to assist a user in finding and communicating with the publisher.", 0, java.lang.Integer.MAX_VALUE, contact));
         childrenList.add(new Property("useContext", "CodeableConcept", "The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of code system definitions.", 0, java.lang.Integer.MAX_VALUE, useContext));
+        childrenList.add(new Property("jurisdiction", "CodeableConcept", "A jurisdiction in which the metadata resource is intended to be used.", 0, java.lang.Integer.MAX_VALUE, jurisdiction));
         childrenList.add(new Property("description", "markdown", "A free text natural language description of the metadata resource from the consumer's perspective.", 0, java.lang.Integer.MAX_VALUE, description));
       }
 
@@ -710,6 +772,7 @@ public abstract class MetadataResource extends DomainResource {
         case 1447404028: /*publisher*/ return this.publisher == null ? new Base[0] : new Base[] {this.publisher}; // StringType
         case 951526432: /*contact*/ return this.contact == null ? new Base[0] : this.contact.toArray(new Base[this.contact.size()]); // ContactDetail
         case -669707736: /*useContext*/ return this.useContext == null ? new Base[0] : this.useContext.toArray(new Base[this.useContext.size()]); // CodeableConcept
+        case -507075711: /*jurisdiction*/ return this.jurisdiction == null ? new Base[0] : this.jurisdiction.toArray(new Base[this.jurisdiction.size()]); // CodeableConcept
         case -1724546052: /*description*/ return this.description == null ? new Base[0] : new Base[] {this.description}; // MarkdownType
         default: return super.getProperty(hash, name, checkValid);
         }
@@ -749,6 +812,9 @@ public abstract class MetadataResource extends DomainResource {
         case -669707736: // useContext
           this.getUseContext().add(castToCodeableConcept(value)); // CodeableConcept
           break;
+        case -507075711: // jurisdiction
+          this.getJurisdiction().add(castToCodeableConcept(value)); // CodeableConcept
+          break;
         case -1724546052: // description
           this.description = castToMarkdown(value); // MarkdownType
           break;
@@ -779,6 +845,8 @@ public abstract class MetadataResource extends DomainResource {
           this.getContact().add(castToContactDetail(value));
         else if (name.equals("useContext"))
           this.getUseContext().add(castToCodeableConcept(value));
+        else if (name.equals("jurisdiction"))
+          this.getJurisdiction().add(castToCodeableConcept(value));
         else if (name.equals("description"))
           this.description = castToMarkdown(value); // MarkdownType
         else
@@ -798,6 +866,7 @@ public abstract class MetadataResource extends DomainResource {
         case 1447404028: throw new FHIRException("Cannot make property publisher as it is not a complex type"); // StringType
         case 951526432:  return addContact(); // ContactDetail
         case -669707736:  return addUseContext(); // CodeableConcept
+        case -507075711:  return addJurisdiction(); // CodeableConcept
         case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // MarkdownType
         default: return super.makeProperty(hash, name);
         }
@@ -836,6 +905,9 @@ public abstract class MetadataResource extends DomainResource {
         else if (name.equals("useContext")) {
           return addUseContext();
         }
+        else if (name.equals("jurisdiction")) {
+          return addJurisdiction();
+        }
         else if (name.equals("description")) {
           throw new FHIRException("Cannot call addChild on a primitive type MetadataResource.description");
         }
@@ -870,6 +942,11 @@ public abstract class MetadataResource extends DomainResource {
           for (CodeableConcept i : useContext)
             dst.useContext.add(i.copy());
         };
+        if (jurisdiction != null) {
+          dst.jurisdiction = new ArrayList<CodeableConcept>();
+          for (CodeableConcept i : jurisdiction)
+            dst.jurisdiction.add(i.copy());
+        };
         dst.description = description == null ? null : description.copy();
       }
 
@@ -883,8 +960,8 @@ public abstract class MetadataResource extends DomainResource {
         return compareDeep(url, o.url, true) && compareDeep(version, o.version, true) && compareDeep(name, o.name, true)
            && compareDeep(title, o.title, true) && compareDeep(status, o.status, true) && compareDeep(experimental, o.experimental, true)
            && compareDeep(date, o.date, true) && compareDeep(publisher, o.publisher, true) && compareDeep(contact, o.contact, true)
-           && compareDeep(useContext, o.useContext, true) && compareDeep(description, o.description, true)
-          ;
+           && compareDeep(useContext, o.useContext, true) && compareDeep(jurisdiction, o.jurisdiction, true)
+           && compareDeep(description, o.description, true);
       }
 
       @Override
@@ -902,7 +979,8 @@ public abstract class MetadataResource extends DomainResource {
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(url, version, name, title
-          , status, experimental, date, publisher, contact, useContext, description);
+          , status, experimental, date, publisher, contact, useContext, jurisdiction, description
+          );
       }
 
 

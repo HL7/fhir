@@ -62,32 +62,21 @@
   Definition = A detailed description of how the module is used from a clinical perspective
 
  -- Row 13 -----------------------------------
-  Element = DecisionSupportServiceModule.lastReviewDate
-  Card. = 0..1
-  Type = date
-  Short Name = Last review date for the module
-  Definition = The date on which the module content was last reviewed
+  Element = DecisionSupportServiceModule.approvalDate
 
  -- Row 14 -----------------------------------
-  Element = DecisionSupportServiceModule.effectivePeriod
-  Card. = 0..1
-  Type = Period
-  Short Name = The effective date range for the module
-  Definition = The period during which the module content is effective
-  Comments = The effective period for a module determines when the content is applicable for usage and is independent of publication and review dates. For example, a measure intended to be used for the year 2016 would be published in 2015
+  Element = DecisionSupportServiceModule.lastReviewDate
 
  -- Row 15 -----------------------------------
-  Element = DecisionSupportServiceModule.coverage
-  Card. = 0..*
-  Type = UsageContext
-  Short Name = Describes the context of use for this module
-  Definition = Specifies various attributes of the patient population for whom and/or environment of care in which, the knowledge module is applicable
-  Requirements = Consumers of the module must be able to determine the intended applicability for the module. Ideally, this information would be used programmatically to determine when and how it should be incorporated or exposed
+  Element = DecisionSupportServiceModule.effectivePeriod
 
  -- Row 16 -----------------------------------
-  Element = DecisionSupportServiceModule.jurisdiction
+  Element = DecisionSupportServiceModule.useContext
 
  -- Row 17 -----------------------------------
+  Element = DecisionSupportServiceModule.jurisdiction
+
+ -- Row 18 -----------------------------------
   Element = DecisionSupportServiceModule.topic
   Card. = 0..*
   Type = CodeableConcept
@@ -95,7 +84,7 @@
   Definition = Clinical topics related to the content of the module
   Requirements = Repositories must be able to determine how to categorize the module so that it can be found by topical searches
 
- -- Row 18 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = DecisionSupportServiceModule.contributor
   Card. = 0..*
   Type = Contributor
@@ -103,17 +92,17 @@
   Definition = A contributor to the content of the module, including authors, editors, reviewers, and endorsers
   Requirements = Consumers of the content must be able to quickly determine who contributed to the content of the knowledge module
 
- -- Row 19 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = DecisionSupportServiceModule.publisher
   To Do = Add constraint to require a publisher for non-experimental active artifacts
 
- -- Row 20 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = DecisionSupportServiceModule.contact
 
- -- Row 21 -----------------------------------
+ -- Row 22 -----------------------------------
   Element = DecisionSupportServiceModule.copyright
 
- -- Row 22 -----------------------------------
+ -- Row 23 -----------------------------------
   Element = DecisionSupportServiceModule.relatedArtifact
   Card. = 0..*
   Type = RelatedArtifact
@@ -122,21 +111,21 @@
   Requirements = Modules must be able to provide enough information for consumers of the content (and/or interventions or results produced by the content) to be able to determine and understand the justification for and evidence in support of the content
   Comments = Each related resource is either an attachment, or a reference to another resource, but not both
 
- -- Row 23 -----------------------------------
+ -- Row 24 -----------------------------------
   Element = DecisionSupportServiceModule.trigger
   Card. = 0..*
   Type = TriggerDefinition
   Short Name = \"when\" the module should be invoked
   Definition = The trigger element defines when the rule should be invoked. This information is used by consumers of the rule to determine how to integrate the rule into a specific workflow
 
- -- Row 24 -----------------------------------
+ -- Row 25 -----------------------------------
   Element = DecisionSupportServiceModule.parameter
   Card. = 0..*
   Type = ParameterDefinition
   Short Name = Parameters to the module
   Definition = The parameters to the module. This collection specifies both the input and output parameters. Input parameters are provided by the caller as part of the $evaluate operation. Output parameters are included in the GuidanceResponse
 
- -- Row 25 -----------------------------------
+ -- Row 26 -----------------------------------
   Element = DecisionSupportServiceModule.dataRequirement
   Card. = 0..*
   Type = DataRequirement

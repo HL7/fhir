@@ -164,7 +164,7 @@
   <status value="draft"/>
   <date value="2015-08-15"/>
   <description value="..."/>
-  <coverage>
+  <useContext>
     <code>
       <system value="http://hl7.org/fhir/usage-context-type"/>
       <code value="gender"/>
@@ -176,8 +176,8 @@
         <display value="Adult"/>
       </coding>
     </valueCodeableConcept>
-  </coverage>
-  <coverage>
+  </useContext>
+  <useContext>
     <code>
       <system value="http://hl7.org/fhir/usage-context-type"/>
       <code value="focus"/>
@@ -189,8 +189,8 @@
         <display value="Mild major depression"/>
       </coding>
     </valueCodeableConcept>
-  </coverage>
-  <coverage>
+  </useContext>
+  <useContext>
     <code>
       <system value="http://hl7.org/fhir/usage-context-type"/>
       <code value="focus"/>
@@ -202,8 +202,8 @@
         <display value="Major depression, recurrent, mild"/>
       </coding>
     </valueCodeableConcept>
-  </coverage>
-  <coverage>
+  </useContext>
+  <useContext>
     <code>
       <system value="http://hl7.org/fhir/usage-context-type"/>
       <code value="focus"/>
@@ -215,8 +215,8 @@
         <display value="Low suicide risk"/>
       </coding>
     </valueCodeableConcept>
-  </coverage>
-  <coverage>
+  </useContext>
+  <useContext>
     <code>
       <system value="http://hl7.org/fhir/usage-context-type"/>
       <code value="focus"/>
@@ -228,11 +228,11 @@
         <display value="Suicide risk assessment"/>
       </coding>
     </valueCodeableConcept>
-  </coverage>
-  <coverage>
+  </useContext>
+  <useContext>
     <code>
       <system value="http://hl7.org/fhir/usage-context-type"/>
-      <code value="specialty"/>
+      <code value="user"/>
     </code>
     <valueCodeableConcept>
       <coding>
@@ -241,8 +241,8 @@
         <display value="Physician"/>
       </coding>
     </valueCodeableConcept>
-  </coverage>
-  <coverage>
+  </useContext>
+  <useContext>
     <code>
       <system value="http://hl7.org/fhir/usage-context-type"/>
       <code value="venue"/>
@@ -254,7 +254,7 @@
         <display value="Outpatient environment"/>
       </coding>
     </valueCodeableConcept>
-  </coverage>
+  </useContext>
   <topic>
     <text value="Suicide risk assessment"/>
   </topic>

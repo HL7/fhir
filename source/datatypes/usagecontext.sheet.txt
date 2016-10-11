@@ -30,8 +30,8 @@
 
  -- Row 4 -----------------------------------
   Id = 4
-  Code = specialty
-  Display = Clinical Speciality
+  Code = user
+  Display = User Type
   Definition = The clinical speciality of the context in which the patient is bring treated - For example, PCP, Patient, Cardiologist, Behavioral Professional, Oral Health Professional, Prescriber, etc... taken from the NUCC Health Care provider taxonomyCode system (OID: 2.16.840.1.113883.6.101).
 
  -- Row 5 -----------------------------------

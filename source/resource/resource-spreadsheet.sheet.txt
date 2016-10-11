@@ -34,7 +34,7 @@
 
  -- Row 1 -----------------------------------
   Element = Resource
-  Short Label = Base Resource
+  Short Name = Base Resource
   Definition = This is the base resource type for everything.
   RIM Mapping = Entity. Role, or Act
 
@@ -43,7 +43,7 @@
   Card. = 0..1
   Summary = Y
   Type = id
-  Short Label = Logical id of this artifact
+  Short Name = Logical id of this artifact
   Definition = The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes
   Comments = The only time that a resource does not have an id is when it is being submitted to the server using a create operation
 
@@ -53,7 +53,7 @@
   Summary = Y
   UML = 200;0
   Type = Meta
-  Short Label = Metadata about the resource
+  Short Name = Metadata about the resource
   Definition = The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content may not always be associated with version changes to the resource
 
  -- Row 4 -----------------------------------
@@ -62,7 +62,7 @@
   Is Modifier = y
   Summary = Y
   Type = uri
-  Short Label = A set of rules under which this content was created
+  Short Name = A set of rules under which this content was created
   Definition = A reference to a set of rules that were followed when the resource was constructed, and which must be understood when processing the content.
   Comments = Asserting this rule set restricts the content to be only understood by a limited set of trading partners. This inherently limits the usefulness of the data in the long term. However, the existing health eco-system is highly fractured, and not yet ready to define, collect, and exchange data in a generally computable sense. Wherever possible, implementers and/or specification writers should avoid using this element as much as possible
 
@@ -71,7 +71,7 @@
   Card. = 0..1
   Type = code
   Binding = Language
-  Short Label = Language of the resource content
+  Short Name = Language of the resource content
   Definition = The base language in which the resource is written
   Comments = Language is provided to support indexing and accessibility (typically, services such as text to speech use the language tag). The html language tag in the narrative applies  to the narrative. The language tag on the resource may be used to specify the language of other presentations generated from the data in the resource  Not all the content has to be in the base language. The Resource.language should not be assumed to apply to the narrative automatically. If a language is specified, it should it also be specified on the div element in the html (see rules in HTML5 for information about the relationship between xml:lang and the html lang attribute)
 
@@ -113,6 +113,12 @@
   Description = A custom search profile that describes a specific defined query operation
 
 === Sheet Profiles =====================================
+
+ -- Row 1 -----------------------------------
+  Name = Resource Extensions
+  IG Name = core
+  Filename = resource-extensions.xml
+  Type = spreadsheet
 
 === Sheet Examples =====================================
 
