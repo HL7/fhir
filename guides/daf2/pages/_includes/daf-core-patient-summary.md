@@ -24,13 +24,15 @@ Additionally your system must return:
 1.  A date of birth in `Patient.birthDate`
 2.  One or more languages spoken in `Patient.communication.language` which has an [required](http://hl7-fhir.github.io/terminologies.html#required) binding to:
     -    [Common Languages] 
-3.  One or more races codes in [US Core Patient Race] extension which:
+3.  One or more race codes in  `Patient.extension`= [US Core Race Extension] which:
     - Must include at least one code from [OMB Race Categories]
-    - May include additional codes from [US Core Race]
+    - May include additional race codes from [CDC Race Codes]
  
-4.  An ethnicitiy code in [US Core Patient Ethnicity] extension which which has an [required](http://hl7-fhir.github.io/terminologies.html#required) binding to: 
-    -  [US Core Ethnicity]
-5.  One Birth Sex in the [US Core Patient Birth Sex] extension which has an [required](http://hl7-fhir.github.io/terminologies.html#required) binding to:
+4.  One or more ethnicity codes in  `Patient.extension`=[US Core ethnicity Extension] which:
+    - Must include at least one code from [OMB Ethnicity Categories]
+    - May include additional race codes from [CDC Ethnicity Codes]
+ 
+5.  One Birth Sex in `Patient.extension`= [US Core Patient Birth Sex] which has an [required](http://hl7-fhir.github.io/terminologies.html#required) binding to:
     -   [US Core Birth Sex]
     
 
@@ -40,9 +42,11 @@ Additionally your system must return:
   [US Core Patient Birth Sex]: http://hl7-fhir.github.io/extension-us-core-birthsex.html
   [US Core Birth Sex]: http://hl7-fhir.github.io/valueset-usrealm-birthsex.html
   [US Core Patient Race]:  http://hl7-fhir.github.io/extension-us-core-race.html
-  [OMB Race Categories]: valueset-daf-race.html
-  [US Core Race]: http://hl7-fhir.github.io/v3/Race/vs.html
- [US Core Patient Ethnicity]: http://hl7-fhir.github.io/extension-us-core-ethnicity.html
- [US Core Ethnicity]: http://hl7-fhir.github.io/extension-us-core-ethnicity.html
+  [OMB Race Categories]: http://hl7-fhir.github.io/valueset-omb-race.html
+  [US Core Race Extension]: http://hl7-fhir.github.io/extension-us-core-race.html
+  [CDC Race Codes]:http://hl7-fhir.github.io/valueset-detailed-race.html
+ [CDC Ethnicity Codes]: http://hl7-fhir.github.io/valueset-detailed-ethnicity.html
+ [US Core ethnicity Extension]: http://hl7-fhir.github.io/extension-us-core-ethnicity.html
+ [OMB Ethnicity Categories]: http://hl7-fhir.github.io/valueset-omb-ethnicity.html
  
-  http://hl7-fhir.github.io/extension-us-core-race.html
+ 

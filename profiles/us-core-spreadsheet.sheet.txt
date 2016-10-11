@@ -2,55 +2,41 @@
 === Sheet Bindings =====================================
 
  -- Row 1 -----------------------------------
-  Binding Name = !Race
-  Binding = value set
-  Reference = http://hl7.org/fhir/ValueSet/v3-Race
-  Definition = A code classifying the person into a named category of humans sharing common history, traits, geographical origin or nationality.
-  Conformance = required
-
- -- Row 2 -----------------------------------
-  Binding Name = !Ethnicity
-  Binding = value set
-  Reference = http://hl7.org/fhir/ValueSet/v3-Ethnicity
-  Definition = A code classifying the person into a named category of humans sharing a common real or presumed heritage.
-  Conformance = required
-
- -- Row 3 -----------------------------------
   Binding Name = Religion
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/v3-ReligiousAffiliation
   Definition = A code classifying a person\'s professed religion
   Conformance = required
 
- -- Row 4 -----------------------------------
+ -- Row 2 -----------------------------------
   Binding Name = BirthSex
   Binding = value set
   Reference = valueset-usrealm-birthsex
   Definition = Code for sex assigned at birth
   Conformance = required
 
- -- Row 5 -----------------------------------
+ -- Row 3 -----------------------------------
   Binding Name = OMBRace
   Binding = value set
   Reference = valueset-omb-race
   Definition = The 5 race category codes according to the [OMB Standards for Maintaining, Collecting, and Presenting Federal Data on Race and Ethnicity, Statistical Policy Directive No. 15, as revised, October 30, 1997](https://www.whitehouse.gov/omb/fedreg_1997standards).
   Conformance = required
 
- -- Row 6 -----------------------------------
+ -- Row 4 -----------------------------------
   Binding Name = DetailedRace
   Binding = value set
   Reference = valueset-detailed-race
   Definition = The [900+ CDC Race codes](http://www.cdc.gov/phin/resources/vocabulary/index.html) that are grouped under one of the 5 OMB race category codes.
   Conformance = required
 
- -- Row 7 -----------------------------------
+ -- Row 5 -----------------------------------
   Binding Name = OMBEthnicity
   Binding = value set
   Reference = valueset-omb-ethnicity
   Definition = The 2 ethnicity category codes according to the [OMB Standards for Maintaining, Collecting, and Presenting Federal Data on Race and Ethnicity, Statistical Policy Directive No. 15, as revised, October 30, 1997](https://www.whitehouse.gov/omb/fedreg_1997standards).
   Conformance = required
 
- -- Row 8 -----------------------------------
+ -- Row 6 -----------------------------------
   Binding Name = DetailedEthnicity
   Binding = value set
   Reference = valueset-detailed-ethnicity
