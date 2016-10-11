@@ -11,7 +11,6 @@
 <li><strong>race</strong> - (0..1) A CodeableConcept bound to the v3 valueset for the 5 OMB Race categories and 900+ detailed race codes</li>
 <li><strong>ethnicity</strong> - (0..1) A CodeableConcept bound to the v3 valueset for the 2 ONB Ethnicity categories and 40+ detalied ethnicity codes</li>
 <li><strong>birthsex</strong> - (0..1)  A code classifying the person’s sex assigned at birth as specified by the Office of the National Coordinator for Health IT (ONC).</li>
-<li><strong>direct</strong> - (0..1) A boolean flag indicating that a particular email address can be used with the <a href="https://www.healthit.gov/policy-researchers-implementers/direct-project">Direct Protocol</a></li>
 </ul>
 
 
@@ -22,6 +21,13 @@
 <li><strong>county</strong> - (0..1) A string containing the name of the county</li>
 </ul>
 
-<p>An example Patient showing these extensions can be found <a href="patient-example-us-extensions.html">here</a>.</p></div>
+<h3 id="extensions-to-contactpoint">Extensions to ContactPoint Datatype</h3>
+<ul>
+	<li><strong>direct</strong> - (0..1) A boolean flag indicating that a particular email address can be used with the <a href="https://www.healthit.gov/policy-researchers-implementers/direct-project">Direct Protocol</a></li>
+
+</ul>
+
+<h4>An example Patient showing these extensions can be found <a href="patient-example-us-extensions.html">here</a>.</h4>
+</div>
 
 </div>
