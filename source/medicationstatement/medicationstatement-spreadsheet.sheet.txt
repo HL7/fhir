@@ -70,6 +70,13 @@
   Definition = A coded concept identifying where the medication included in the is expected to be consumed or administered
   Conformance = example
 
+ -- Row 11 -----------------------------------
+  Binding Name = MedicationStatementNotTaken
+  Binding = code list
+  Reference = #medication-statement-nottaken
+  Definition = A coded concept identifying level of certainty if patient has taken or has not taken the medication
+  Conformance = required
+
 === Sheet medication-statement-status =====================================
 
  -- Row 1 -----------------------------------
@@ -139,28 +146,48 @@
   Display = Patient Specified
   Definition = Includes statements about medication use, including over the counter medication, provided by the patient, agent or another provider
 
+=== Sheet medication-statement-nottaken =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = Y
+  Display = Yes
+  Definition = Positive assertion that patient has taken medication
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = N
+  Display = No
+  Definition = Negative assertion that patient has not taken medication
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = UNK
+  Display = Unknown
+  Definition = Unknown assertion if patient has taken medication
+
 === Sheet Invariants =====================================
 
  -- Row 1 -----------------------------------
   Id = 1
   Context = MedicationStatement
-  English = Reason not taken is only permitted if notTaken is true
-  XPath = not(exists(f:reasonNotTaken) and f:notTaken/@value=false())
-  Expression = reasonNotTaken.empty() or notTaken = true
+  English = Reason not taken is only permitted if notTaken is Yes
+  XPath = not(exists(f:reasonNotTaken) and (f:notTaken/@value=\'N\' or f:notTaken/@value=\'UNK\'))
+  Expression = reasonNotTaken.empty() or notTaken=\'Y\'
 
  -- Row 2 -----------------------------------
   Id = 2
   Context = MedicationStatement
-  English = Reason for use code is only permitted if notTaken is false
-  XPath = not(exists(*[starts-with(local-name(.), \'reasonForUseCode\')]) and f:notTaken/@value=true())
-  Expression = reasonForUseCode.empty() or notTaken = false
+  English = Reason for use code is only permitted if notTaken is No
+  XPath = not(exists(*[starts-with(local-name(.), \'reasonForUseCode\')]) and (f:notTaken/@value=\'Y\' or f:notTaken/@value=\'UNK\'))
+  Expression = reasonForUseCode.empty() or notTaken = \'N\'
 
  -- Row 3 -----------------------------------
   Id = 3
   Context = MedicationStatement
-  English = Reason for use reference is only permitted if notTaken is false
-  XPath = not(exists(*[starts-with(local-name(.), \'reasonForUseReference\')]) and f:notTaken/@value=true())
-  Expression = reasonForUseReference.empty() or notTaken = false
+  English = Reason for use reference is only permitted if notTaken is No
+  XPath = not(exists(*[starts-with(local-name(.), \'reasonForUseReference\')]) and (f:notTaken/@value=\'Y\' or f:notTaken/@value=\'UNK\'))
+  Expression = reasonForUseReference.empty() or notTaken = \'N\'
 
 === Sheet Data Elements =====================================
 
@@ -261,11 +288,10 @@
   Card. = 0..1
   Is Modifier = Y
   Summary = y
-  Type = boolean
-  Short Label = True if medication is/was not being taken
-  Definition = Set this to true if the record is saying that the medication was NOT taken.
-  RIM Mapping = SubstanceAdministration.actionNegationInd
-  Missing Meaning = If this is missing, then the medication was taken
+  Type = code
+  Binding = MedicationStatementNotTaken
+  Short Label = Y | N | UNK
+  Definition = Indicator of the certainty of whether the medication was taken by the patient
 
  -- Row 11 -----------------------------------
   Element = MedicationStatement.reasonNotTaken

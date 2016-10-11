@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <MedicationStatement xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://hl7.org/fhir ../schema/medicationstatement.xsd"
+ xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationstatement.xsd"
  xmlns="http://hl7.org/fhir">
   <id value="example003"/>
   <status value="active" />
@@ -17,7 +17,7 @@
     <display value="Donald Duck"/> 
   </informationSource>
   <dateAsserted value="2014-02-22"/>
-  <notTaken value="false"/>
+  <notTaken value="N"/>
   <note>
     <text value="Patient can not remember the name of the tablet, but takes it every day in the morning for water retention"/>
   </note>
