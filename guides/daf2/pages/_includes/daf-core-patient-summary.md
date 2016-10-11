@@ -29,7 +29,7 @@ Additionally your system must return:
     - May include additional race codes from [CDC Race Codes]
  
 4.  One or more ethnicity codes in  `Patient.extension`=[US Core ethnicity Extension] which:
-    - Must include at least one code from [OMB Ethnicity Categories]
+    - Must include one code from [OMB Ethnicity Categories]
     - May include additional race codes from [CDC Ethnicity Codes]
  
 5.  One Birth Sex in `Patient.extension`= [US Core Patient Birth Sex] which has an [required](http://hl7-fhir.github.io/terminologies.html#required) binding to:
