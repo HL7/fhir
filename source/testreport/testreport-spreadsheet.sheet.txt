@@ -1,0 +1,407 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = TestReportStatus
+  Binding = code list
+  Reference = #report-status-codes
+  Definition = The execution status of the TestReport.
+  Description = The execution status of the TestReport.
+  Conformance = required
+
+ -- Row 2 -----------------------------------
+  Binding Name = TestReportResultCodes
+  Binding = code list
+  Reference = #report-result-codes
+  Definition = The results of executing an action.
+  Description = The results of execution an action.
+  Conformance = required
+
+ -- Row 3 -----------------------------------
+  Binding Name = TestReportParticipantType
+  Binding = code list
+  Reference = #report-participant-type
+  Definition = The type of participant.
+  Description = The type of participant.
+  Conformance = required
+
+=== Sheet report-status-codes =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = complete
+  Display = complete
+  Definition = The TestReport is complete.
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = pending
+  Display = pending
+  Definition = The TestReport is pending.
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = error
+  Display = error
+  Definition = The TestReport failed with an error.
+
+=== Sheet report-result-codes =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = pass
+  Display = pass
+  Definition = The action was successful.
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = skip
+  Display = skip
+  Definition = The action was skipped.
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = fail
+  Display = fail
+  Definition = The action failed.
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = warning
+  Display = warning
+  Definition = The action passed but with warnings.
+
+ -- Row 5 -----------------------------------
+  Id = 5
+  Code = error
+  Display = error
+  Definition = The action encountered a fatal error and the engine was unable to process.
+
+=== Sheet report-participant-type =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = test-engine
+  Display = test-engine
+  Definition = The test execution engine.
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = client
+  Display = client
+  Definition = A FHIR Client
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = server
+  Display = server
+  Definition = A FHIR Server
+
+=== Sheet Invariants =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Context = TestReport.setup.action
+  English = Setup action SHALL contain either an operation or assert but not both.
+  XPath = (f:operation or f:assert) and not(f:operation and f:assert)
+  Expression = operation.exists() xor assert.exists()
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Context = TestReport.test.action
+  English = Test action SHALL contain either an operation or assert but not both.
+  XPath = (f:operation or f:assert) and not(f:operation and f:assert)
+  Expression = operation.exists() xor assert.exists()
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = TestReport
+  UML = 200;150
+  Type = DomainResource
+  Short Name = Describes a set of tests
+  Definition = TestReport is a resource that includes summary information on the results of executing a TestScript.
+  Object Impl = BaseConformance
+  w5 = conformance.misc
+
+ -- Row 2 -----------------------------------
+  Element = TestReport.identifier
+  Card. = 0..1
+  Summary = y
+  Type = Identifier
+  Short Name = External identifier
+  Definition = Identifier for the TestScript assigned for external purposes outside the context of FHIR.
+  w5 = id
+
+ -- Row 3 -----------------------------------
+  Element = TestReport.name
+  Card. = 0..1
+  Summary = y
+  Type = string
+  Short Name = Informal name of the executed TestScript
+  Definition = A free text natural language name identifying the executed TestScript
+  Comments = Not expected to be globally unique
+  Object Impl = BaseConformance.name
+
+ -- Row 4 -----------------------------------
+  Element = TestReport.status
+  Card. = 1..1
+  Is Modifier = yes
+  Summary = y
+  Type = code
+  Binding = TestReportStatus
+  Short Name = complete | pending | error
+  Definition = The status of the TestReport
+  Object Impl = BaseConformance.status
+  w5 = status
+
+ -- Row 5 -----------------------------------
+  Element = TestReport.score
+  Card. = 0..1
+  Summary = y
+  Type = decimal
+  Short Name = The final score (percentage of tests passed) resulting from the execution of the TestScript
+  Definition = The final score (percentage of tests passed) resulting from the execution of the TestScript.
+
+ -- Row 6 -----------------------------------
+  Element = TestReport.tester
+  Card. = 0..1
+  Summary = y
+  Type = string
+  Short Name = Name of the tester producing this report (Organization or individual)
+  Definition = Name of the tester producing this report (Organization or individual)
+  Requirements = Helps establish the \"authority/credibility\" of the TestReport.  May also allow for contact
+  Comments = Usually an organization, but may be an individual. This item SHOULD be populated unless the information is available from context.
+
+ -- Row 7 -----------------------------------
+  Element = TestReport.testScript
+  Card. = 1..1
+  Summary = y
+  Type = Reference(TestScript)
+  Short Name = Reference to the  version-specific TestScript that was executed to produce this TestReport
+  Definition = Ideally this is an absolute URL that is used to identify the version-specific TestScript that was executed, matching the `TestScript.url`.
+  w5 = id
+
+ -- Row 8 -----------------------------------
+  Element = TestReport.issued
+  Card. = 0..1
+  Summary = y
+  Type = dateTime
+  Short Name = When the TestScript was executed and this TestReport was generated
+  Definition = When the TestScript was executed and this TestReport was generated.
+  Comments = Additional specific dates may be added as extensions
+  Object Impl = BaseConformance.date
+  w5 = when.recorded
+
+ -- Row 9 -----------------------------------
+  Element = TestReport.participant
+  Card. = 0..*
+  Short Name = A participant in the test execution, either the execution engine, a client, or a server
+  Definition = A participant in the test execution, either the execution engine, a client, or a server.
+
+ -- Row 10 -----------------------------------
+  Element = TestReport.participant.type
+  Card. = 1..1
+  Type = code
+  Binding = TestReportParticipantType
+  Short Name = test-engine | client | server
+  Definition = The type of participant.
+
+ -- Row 11 -----------------------------------
+  Element = TestReport.participant.uri
+  Card. = 1..1
+  Type = uri
+  Short Name = The uri of the participant. An absolute URL is preferred
+  Definition = The uri of the participant. An absolute URL is preferred.
+
+ -- Row 12 -----------------------------------
+  Element = TestReport.participant.display
+  Card. = 0..1
+  Type = string
+  Short Name = The display name of the participant
+  Definition = The display name of the participant.
+
+ -- Row 13 -----------------------------------
+  Element = TestReport.setup
+  Card. = 0..1
+  UML = 30;240
+  Short Name = The results of the series of required setup operations before the tests were executed
+  Definition = The results of the series of required setup operations before the tests were executed.
+
+ -- Row 14 -----------------------------------
+  Element = TestReport.setup.action
+  Card. = 1..*
+  UML = 50;380
+  Type = =SetupAction
+  Short Name = A setup operation or assert that was executed
+  Definition = Action would contain either an operation or an assertion.
+  Comments = An action should contain either an operation or an assertion but not both.  It can contain any number of variables.
+
+ -- Row 15 -----------------------------------
+  Element = TestReport.setup.action.operation
+  Card. = 0..1
+  UML = 280;480
+  Short Name = The operation to perform
+  Definition = The operation performed.
+
+ -- Row 16 -----------------------------------
+  Element = TestReport.setup.action.operation.result
+  Card. = 1..1
+  Type = code
+  Binding = TestReportResultCodes
+  Short Name = pass | skip | fail | warning | error
+  Definition = The result of this operation.
+
+ -- Row 17 -----------------------------------
+  Element = TestReport.setup.action.operation.message
+  Card. = 0..1
+  Type = markdown
+  Short Name = A message associated with the result
+  Definition = An explanatory message associated with the result.
+
+ -- Row 18 -----------------------------------
+  Element = TestReport.setup.action.operation.detail
+  Card. = 0..1
+  Type = uri
+  Short Name = A link to further details on the result
+  Definition = A link to further details on the result.
+
+ -- Row 19 -----------------------------------
+  Element = TestReport.setup.action.assert
+  Card. = 0..1
+  UML = 0;480
+  Short Name = The assertion to perform
+  Definition = The results of the assertion performed on the previous operations.
+
+ -- Row 20 -----------------------------------
+  Element = TestReport.setup.action.assert.result
+  Card. = 1..1
+  Type = code
+  Binding = TestReportResultCodes
+  Short Name = pass | skip | fail | warning | error
+  Definition = The result of this assertion
+
+ -- Row 21 -----------------------------------
+  Element = TestReport.setup.action.assert.message
+  Card. = 0..1
+  Type = markdown
+  Short Name = A message associated with the result
+  Definition = An explanatory message associated with the result.
+
+ -- Row 22 -----------------------------------
+  Element = TestReport.setup.action.assert.detail
+  Card. = 0..1
+  Type = string
+  Short Name = A link to further details on the result
+  Definition = A link to further details on the result.
+
+ -- Row 23 -----------------------------------
+  Element = TestReport.test
+  Card. = 0..*
+  UML = 580;270
+  Short Name = A test executed from the test script
+  Definition = A test executed from the test script.
+
+ -- Row 24 -----------------------------------
+  Element = TestReport.test.name
+  Card. = 0..1
+  Type = string
+  Short Name = Tracking/logging name of this test
+  Definition = The name of this test used for tracking/logging purposes by test engines.
+
+ -- Row 25 -----------------------------------
+  Element = TestReport.test.description
+  Card. = 0..1
+  Type = string
+  Short Name = Tracking/reporting short description of the test
+  Definition = A short description of the test used by test engines for tracking and reporting purposes.
+
+ -- Row 26 -----------------------------------
+  Element = TestReport.test.action
+  Card. = 1..*
+  UML = 450;380
+  Type = =TestAction
+  Short Name = A test operation or assert that was performed
+  Definition = Action would contain either an operation or an assertion.
+  Comments = An action should contain either an operation or an assertion but not both.  It can contain any number of variables.
+
+ -- Row 27 -----------------------------------
+  Element = TestReport.test.action.operation
+  Card. = 0..1
+  Type = @TestReport.setup.action.operation
+  Short Name = The operation performed
+  Definition = An operation would involve a REST request to a server.
+
+ -- Row 28 -----------------------------------
+  Element = TestReport.test.action.assert
+  Card. = 0..1
+  Type = @TestReport.setup.action.assert
+  Short Name = The assertion performed
+  Definition = The results of the assertion performed on the previous operations.
+
+ -- Row 29 -----------------------------------
+  Element = TestReport.teardown
+  Card. = 0..1
+  UML = 70;290
+  Short Name = The results of running the series of required clean up steps
+  Definition = The results of the series of operations required to clean up after the all the tests were executed (successfully or otherwise).
+
+ -- Row 30 -----------------------------------
+  Element = TestReport.teardown.action
+  Card. = 1..*
+  UML = 200;380
+  Type = =TeardownAction
+  Short Name = One or more teardown operations performed
+  Definition = The teardown action will only contain an operation.
+  Comments = An action should contain either an operation or an assertion but not both.  It can contain any number of variables.
+
+ -- Row 31 -----------------------------------
+  Element = TestReport.teardown.action.operation
+  Card. = 1..1
+  Type = @TestReport.setup.action.operation
+  Short Name = The teardown operation performed
+  Definition = An operation would involve a REST request to a server.
+
+=== Sheet Search =====================================
+
+ -- Row 1 -----------------------------------
+  Name = issued
+  Type = date
+  Path = TestReport.issued
+
+ -- Row 2 -----------------------------------
+  Name = identifier
+  Type = token
+  Path = TestReport.identifier
+
+ -- Row 3 -----------------------------------
+  Name = name
+  Type = string
+  Path = TestReport.name
+
+ -- Row 4 -----------------------------------
+  Name = tester
+  Type = string
+  Path = TestReport.tester
+
+ -- Row 5 -----------------------------------
+  Name = testscript
+  Type = reference
+  Path = TestReport.testScript
+
+ -- Row 6 -----------------------------------
+  Name = participant
+  Type = uri
+  Path = TestReport.participant.uri
+
+=== Sheet Profiles =====================================
+
+=== Sheet Examples =====================================
+
+ -- Row 1 -----------------------------------
+  Name = General
+  Identity = testreport-example
+  Description = General TestReport Example
+  Filename = testreport-example.xml
+
+=== Sheet Examples =====================================
