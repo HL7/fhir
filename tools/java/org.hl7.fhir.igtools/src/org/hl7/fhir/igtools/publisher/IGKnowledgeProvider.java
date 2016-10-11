@@ -383,4 +383,8 @@ public class IGKnowledgeProvider implements ProfileKnowledgeProvider, ParserBase
 	  return base;
     return r.getElement().fhirType()+"-"+r.getId()+".html";
   }
+
+  public IWorkerContext getContext() {
+    return context;
+  }
 }
