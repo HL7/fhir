@@ -59,6 +59,8 @@ import org.hl7.fhir.utilities.CSFileInputStream;
 import org.hl7.fhir.utilities.OIDUtils;
 import org.hl7.fhir.utilities.Utilities;
 
+import ca.uhn.fhir.parser.DataFormatException;
+
 /*
  * This is a stand alone implementation of worker context for use inside a tool.
  * It loads from the validation package (validation-min.xml.zip), and has a 
@@ -136,8 +138,10 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
 		Bundle f;
 		try {
 			f = (Bundle) xml.parse(stream);
-		} catch (FHIRFormatError e1) {
-			throw new org.hl7.fhir.exceptions.FHIRFormatError(e1.getMessage(), e1);
+    } catch (DataFormatException e1) {
+      throw new org.hl7.fhir.exceptions.FHIRFormatError("Error parsing "+name+":" +e1.getMessage(), e1);
+    } catch (Exception e1) {
+			throw new org.hl7.fhir.exceptions.FHIRFormatError("Error parsing "+name+":" +e1.getMessage(), e1);
 		}
 		for (BundleEntryComponent e : f.getEntry()) {
 			if (e.getFullUrl() == null) {

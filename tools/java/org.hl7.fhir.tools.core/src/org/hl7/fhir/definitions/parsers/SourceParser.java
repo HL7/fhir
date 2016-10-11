@@ -310,13 +310,28 @@ public class SourceParser {
       element.setRequirements(element.getRequirements().replace("{{title}}", title));
     if (element.getTodo() != null)
       element.setTodo(element.getTodo().replace("{{title}}", title));
-    if (level == 0)
+    if (level == 0) {
+      // we're preparing this for code generation now; we want to ditch any labelled as 'no-gen'
+      List<ElementDefn> delete = new ArrayList<ElementDefn>();
       for (ElementDefn child : element.getElements()) 
-        closeTemplate(child, title, level+1);
-    else 
+        if (wantToGenerate(child))
+          closeTemplate(child, title, level+1);
+        else
+          delete.add(child);
+      element.getElements().removeAll(delete);   
+    } else 
       if (!element.getElements().isEmpty()) {
         throw new Exception("No complex elements in a template - found "+element.getName()+"."+element.getElements().get(0).getName()); 
       }
+  }
+
+
+  private boolean wantToGenerate(ElementDefn child) {
+    String gen = child.getMapping("http://hl7.org/fhir/object-implementation");
+    if (gen == null)
+      return true;
+    else
+      return !"no-gen-base".equals(gen);
   }
 
 

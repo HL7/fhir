@@ -730,7 +730,7 @@ public class Publisher implements URIResolver, SectionNumberer {
 
     for (ResourceDefn r : page.getDefinitions().getBaseResources().values()) {
         r.setConformancePack(makeConformancePack(r));
-        r.setProfile(new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), page.getVersion(), dataElements, fpUsages).generate(r.getConformancePack(), r, "core"));
+        r.setProfile(new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), page.getVersion(), dataElements, fpUsages).generate(r.getConformancePack(), r, "core", false));
         if (page.getProfiles().containsKey(r.getProfile().getUrl()))
           throw new Exception("Duplicate Profile URL "+r.getProfile().getUrl());
         page.getProfiles().put(r.getProfile().getUrl(), r.getProfile());
@@ -741,7 +741,7 @@ public class Publisher implements URIResolver, SectionNumberer {
 
     for (ResourceDefn r : page.getDefinitions().getResources().values()) {
       r.setConformancePack(makeConformancePack(r));
-      r.setProfile(new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), page.getVersion(), dataElements, fpUsages).generate(r.getConformancePack(), r, "core"));
+      r.setProfile(new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), page.getVersion(), dataElements, fpUsages).generate(r.getConformancePack(), r, "core", false));
       if (page.getProfiles().containsKey(r.getProfile().getUrl()))
         throw new Exception("Duplicate Profile URL "+r.getProfile().getUrl());
       page.getProfiles().put(r.getProfile().getUrl(), r.getProfile());
@@ -750,6 +750,17 @@ public class Publisher implements URIResolver, SectionNumberer {
       r.getProfile().getText().getDiv().getChildNodes().add(rtg.generate(r.getRoot(), ""));
     }
 
+    for (ResourceDefn r : page.getDefinitions().getResourceTemplates().values()) {
+      r.setConformancePack(makeConformancePack(r));
+      r.setProfile(new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), page.getVersion(), dataElements, fpUsages).generate(r.getConformancePack(), r, "core", true));
+      ResourceTableGenerator rtg = new ResourceTableGenerator(page.getFolders().dstDir, page, null, true);
+      r.getProfile().getText().setDiv(new XhtmlNode(NodeType.Element, "div"));
+      r.getProfile().getText().getDiv().getChildNodes().add(rtg.generate(r.getRoot(), ""));
+      if (page.getProfiles().containsKey(r.getProfile().getUrl()))
+        throw new Exception("Duplicate Profile URL "+r.getProfile().getUrl());
+      page.getProfiles().put(r.getProfile().getUrl(), r.getProfile());
+    }
+    
     for (ProfiledType pt : page.getDefinitions().getConstraints().values()) {
       genProfiledTypeProfile(pt);
     }
@@ -1114,14 +1125,14 @@ public class Publisher implements URIResolver, SectionNumberer {
     ResourceDefn r = page.getDefinitions().getResources().get("CodeSystem");
     if (isGenerate && wantBuild("CodeSystem")) {
       produceResource1(r, false);
-      produceResource2(r, false, null);
+      produceResource2(r, false, null, false);
     }
     generateCodeSystemsPart2();
     page.log(" ...resource ValueSet", LogMessageType.Process);
     r = page.getDefinitions().getResources().get("ValueSet");
     if (isGenerate && wantBuild("ValueSet")) {
       produceResource1(r, false);
-      produceResource2(r, false, null);
+      produceResource2(r, false, null, false);
     }
     page.log(" ...value sets", LogMessageType.Process);
     generateValueSetsPart2();
@@ -2110,14 +2121,18 @@ public class Publisher implements URIResolver, SectionNumberer {
     for (String rname : page.getDefinitions().getBaseResources().keySet()) {
       ResourceDefn r = page.getDefinitions().getBaseResources().get(rname);
       page.log(" ...resource " + r.getName(), LogMessageType.Process);
-      produceResource2(r, true, rname.equals("Resource") ? "Meta" : null);
+      produceResource2(r, true, rname.equals("Resource") ? "Meta" : null, false);
     }
     for (String rname : page.getDefinitions().sortedResourceNames()) {
       if (!rname.equals("ValueSet") && !rname.equals("CodeSystem") && wantBuild(rname)) {
         ResourceDefn r = page.getDefinitions().getResources().get(rname);
         page.log(" ...resource " + r.getName(), LogMessageType.Process);
-        produceResource2(r, false, null);
+        produceResource2(r, false, null, false);
       }
+    }
+    for (String rname : page.getDefinitions().getResourceTemplates().keySet()) {
+        ResourceDefn r = page.getDefinitions().getResourceTemplates().get(rname);
+        produceResource2(r, false, null, true);
     }
 
     for (Compartment c : page.getDefinitions().getCompartments()) {
@@ -3489,7 +3504,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     generateProfile(resource, n, xml, json, ttl, false);
   }
 
-  private void produceResource2(ResourceDefn resource, boolean isAbstract, String extraTypeForDefn) throws Exception {
+  private void produceResource2(ResourceDefn resource, boolean isAbstract, String extraTypeForDefn, boolean logicalOnly) throws Exception {
     File tmp = Utilities.createTempFile("tmp", ".tmp");
     String n = resource.getName().toLowerCase();
     String xml = xmls.get(n);
@@ -3518,110 +3533,111 @@ public class Publisher implements URIResolver, SectionNumberer {
     String mappings = mgen.getMappings();
     String mappingsList = mgen.getMappingsList();
 
-    SvgGenerator svg = new SvgGenerator(page, "");
-    svg.generate(resource, page.getFolders().dstDir + n + ".svg", "1");
+    if (!logicalOnly) {
+      SvgGenerator svg = new SvgGenerator(page, "");
+      svg.generate(resource, page.getFolders().dstDir + n + ".svg", "1");
+  
+      String prefix = page.getBreadCrumbManager().getIndexPrefixForReference(resource.getName());
+      SectionTracker st = new SectionTracker(prefix, false);
+      st.start("");
+      page.getSectionTrackerCache().put(n, st);
 
-    String prefix = page.getBreadCrumbManager().getIndexPrefixForReference(resource.getName());
-    SectionTracker st = new SectionTracker(prefix, false);
-    st.start("");
-    page.getSectionTrackerCache().put(n, st);
+      String template = isAbstract ? "template-abstract" : "template";
+      String src = TextFile.fileToString(page.getFolders().srcDir + template+".html");
+      src = insertSectionNumbers(page.processResourceIncludes(n, resource, xml, json, ttl, tx, dict, src, mappings, mappingsList, "resource", n + ".html", null), st, n + ".html", 0, null);
+      TextFile.stringToFile(src, page.getFolders().dstDir + n + ".html");
+      page.getHTMLChecker().registerFile(n + ".html", "Base Page for " + resource.getName(), HTMLLinkChecker.XHTML_TYPE, true);
 
-    String template = isAbstract ? "template-abstract" : "template";
-    String src = TextFile.fileToString(page.getFolders().srcDir + template+".html");
-    src = insertSectionNumbers(page.processResourceIncludes(n, resource, xml, json, ttl, tx, dict, src, mappings, mappingsList, "resource", n + ".html", null), st, n + ".html", 0, null);
-    TextFile.stringToFile(src, page.getFolders().dstDir + n + ".html");
-    page.getHTMLChecker().registerFile(n + ".html", "Base Page for " + resource.getName(), HTMLLinkChecker.XHTML_TYPE, true);
-
-    StructureDefinition profile = (StructureDefinition) ResourceUtilities.getById(page.getResourceBundle(), ResourceType.StructureDefinition, resource.getName());
-    String pages = page.getIni().getStringProperty("resource-pages", n);
-    if (!Utilities.noString(pages)) {
-      for (String p : pages.split(",")) {
-        producePage(p, n);
-      }
-    }
-    try {
-      if (!isAbstract)
-        processQuestionnaire(profile, st, true, "", null);
-    } catch (Exception e) {
-//      e.printStackTrace();
-      page.log("Questionnaire Generation Failed: "+e.getMessage(), LogMessageType.Error);
-    }
-
-    if (!isAbstract || !resource.getExamples().isEmpty()) {
-      src = TextFile.fileToString(page.getFolders().srcDir + template+"-examples.html");
-      TextFile.stringToFile(
-          insertSectionNumbers(page.processResourceIncludes(n, resource, xml, json, ttl, tx, dict, src, mappings, mappingsList, "res-Examples", n + "-examples.html", null), st, n + "-examples.html", 0, null),
-          page.getFolders().dstDir + n + "-examples.html");
-      page.getHTMLChecker().registerFile(n + "-examples.html", "Examples for " + resource.getName(), HTMLLinkChecker.XHTML_TYPE, true);
-      for (Example e : resource.getExamples()) {
-        try {
-          processExample(e, resource.getName(), profile, null, e.getIg() == null ? null : page.getDefinitions().getIgs().get(e.getIg()));
-        } catch (Exception ex) {
-          throw new Exception("processing " + e.getTitle(), ex);
-          // throw new Exception(ex.getMessage()+" processing "+e.getFileTitle());
+      StructureDefinition profile = (StructureDefinition) ResourceUtilities.getById(page.getResourceBundle(), ResourceType.StructureDefinition, resource.getName());
+      String pages = page.getIni().getStringProperty("resource-pages", n);
+      if (!Utilities.noString(pages)) {
+        for (String p : pages.split(",")) {
+          producePage(p, n);
         }
       }
-    }
-    src = TextFile.fileToString(page.getFolders().srcDir + template+"-definitions.html");
-    TextFile.stringToFile(
-        insertSectionNumbers(page.processResourceIncludes(n, resource, xml, json, ttl, tx, dict, src, mappings, mappingsList, "res-Detailed Descriptions", n + "-definitions.html", null), st, n
-            + "-definitions.html", 0, null), page.getFolders().dstDir + n + "-definitions.html");
-    page.getHTMLChecker().registerFile(n + "-definitions.html", "Detailed Descriptions for " + resource.getName(), HTMLLinkChecker.XHTML_TYPE, true);
-
-    if (!isAbstract) {
-      src = TextFile.fileToString(page.getFolders().srcDir + "template-mappings.html");
-      TextFile.stringToFile(
-          insertSectionNumbers(page.processResourceIncludes(n, resource, xml, json, ttl, tx, dict, src, mappings, mappingsList, "res-Mappings", n + "-mappings.html", null), st, n + "-mappings.html", 0, null),
-          page.getFolders().dstDir + n + "-mappings.html");
-      page.getHTMLChecker().registerFile(n + "-mappings.html", "Formal Mappings for " + resource.getName(), HTMLLinkChecker.XHTML_TYPE, true);
-      src = TextFile.fileToString(page.getFolders().srcDir + "template-explanations.html");
-      TextFile.stringToFile(
-          insertSectionNumbers(page.processResourceIncludes(n, resource, xml, json, ttl, tx, dict, src, mappings, mappingsList, "res-Design Notes", n + "-explanations.html", null), st, n
-              + "-explanations.html", 0, null), page.getFolders().dstDir + n + "-explanations.html");
-      page.getHTMLChecker().registerFile(n + "-explanations.html", "Design Notes for " + resource.getName(), HTMLLinkChecker.XHTML_TYPE, true);
-      src = TextFile.fileToString(page.getFolders().srcDir + "template-profiles.html");
-      TextFile.stringToFile(
-          insertSectionNumbers(page.processResourceIncludes(n, resource, xml, json, ttl, tx, dict, src, mappings, mappingsList, "res-Profiles", n + "-profiles.html", null), st, n + "-profiles.html", 0, null),
-          page.getFolders().dstDir + n + "-profiles.html");
-      page.getHTMLChecker().registerFile(n + "-profiles.html", "Profiles for " + resource.getName(), HTMLLinkChecker.XHTML_TYPE, true);
-    }
-    for (Profile ap : resource.getConformancePackages())
-      produceConformancePackage(resource.getName(), ap, st);
-
-    if (!resource.getOperations().isEmpty()) {
-      src = TextFile.fileToString(page.getFolders().srcDir + "template-operations.html");
-      TextFile.stringToFile(
-          insertSectionNumbers(page.processResourceIncludes(n, resource, xml, json, ttl, tx, dict, src, mappings, mappingsList, "res-Operations", n + "-operations.html", null), st, n
-              + "-operations.html", 0, null), page.getFolders().dstDir + n + "-operations.html");
-      page.getHTMLChecker().registerFile(n + "-operations.html", "Operations for " + resource.getName(), HTMLLinkChecker.XHTML_TYPE, true);
-
-      for (Operation t : resource.getOperations()) {
-        produceOperation(null, resource.getName().toLowerCase()+"-"+t.getName(), resource.getName()+"-"+t.getName(), resource.getName(), t);
+      try {
+        if (!isAbstract)
+          processQuestionnaire(profile, st, true, "", null);
+      } catch (Exception e) {
+        //      e.printStackTrace();
+        page.log("Questionnaire Generation Failed: "+e.getMessage(), LogMessageType.Error);
       }
 
-//      // todo: get rid of these...
-//      src = TextFile.fileToString(page.getFolders().srcDir + "template-book.html").replace("<body>", "<body style=\"margin: 10px\">");
-//      src = page.processResourceIncludes(n, resource, xml, json, tx, dict, src, mappings, mappingsList, "resource", n + ".html", null);
-//      cachePage(n + ".html", src, "Resource " + resource.getName(), true);
-//      //    src = TextFile.fileToString(page.getFolders().srcDir + "template-book-ex.html").replace("<body>", "<body style=\"margin: 10px\">");
-//      //    src = page.processResourceIncludes(n, resource, xml, tx, dict, src, mappings, mappingsList, "res-Examples");
-//      // cachePage(n + "Ex.html", src,
-//      // "Resource Examples for "+resource.getName());
-//      src = TextFile.fileToString(page.getFolders().srcDir + "template-book-defn.html").replace("<body>", "<body style=\"margin: 10px\">");
-//      src = page.processResourceIncludes(n, resource, xml, json, tx, dict, src, mappings, mappingsList, "res-Detailed Descriptions", n + "-definitions.html", null);
-//      cachePage(n + "-definitions.html", src, "Resource Definitions for " + resource.getName(), true);
+      if (!isAbstract || !resource.getExamples().isEmpty()) {
+        src = TextFile.fileToString(page.getFolders().srcDir + template+"-examples.html");
+        TextFile.stringToFile(
+            insertSectionNumbers(page.processResourceIncludes(n, resource, xml, json, ttl, tx, dict, src, mappings, mappingsList, "res-Examples", n + "-examples.html", null), st, n + "-examples.html", 0, null),
+            page.getFolders().dstDir + n + "-examples.html");
+        page.getHTMLChecker().registerFile(n + "-examples.html", "Examples for " + resource.getName(), HTMLLinkChecker.XHTML_TYPE, true);
+        for (Example e : resource.getExamples()) {
+          try {
+            processExample(e, resource.getName(), profile, null, e.getIg() == null ? null : page.getDefinitions().getIgs().get(e.getIg()));
+          } catch (Exception ex) {
+            throw new Exception("processing " + e.getTitle(), ex);
+            // throw new Exception(ex.getMessage()+" processing "+e.getFileTitle());
+          }
+        }
+      }
+      src = TextFile.fileToString(page.getFolders().srcDir + template+"-definitions.html");
+      TextFile.stringToFile(
+          insertSectionNumbers(page.processResourceIncludes(n, resource, xml, json, ttl, tx, dict, src, mappings, mappingsList, "res-Detailed Descriptions", n + "-definitions.html", null), st, n
+              + "-definitions.html", 0, null), page.getFolders().dstDir + n + "-definitions.html");
+      page.getHTMLChecker().registerFile(n + "-definitions.html", "Detailed Descriptions for " + resource.getName(), HTMLLinkChecker.XHTML_TYPE, true);
+
+      if (!isAbstract) {
+        src = TextFile.fileToString(page.getFolders().srcDir + "template-mappings.html");
+        TextFile.stringToFile(
+            insertSectionNumbers(page.processResourceIncludes(n, resource, xml, json, ttl, tx, dict, src, mappings, mappingsList, "res-Mappings", n + "-mappings.html", null), st, n + "-mappings.html", 0, null),
+            page.getFolders().dstDir + n + "-mappings.html");
+        page.getHTMLChecker().registerFile(n + "-mappings.html", "Formal Mappings for " + resource.getName(), HTMLLinkChecker.XHTML_TYPE, true);
+        src = TextFile.fileToString(page.getFolders().srcDir + "template-explanations.html");
+        TextFile.stringToFile(
+            insertSectionNumbers(page.processResourceIncludes(n, resource, xml, json, ttl, tx, dict, src, mappings, mappingsList, "res-Design Notes", n + "-explanations.html", null), st, n
+                + "-explanations.html", 0, null), page.getFolders().dstDir + n + "-explanations.html");
+        page.getHTMLChecker().registerFile(n + "-explanations.html", "Design Notes for " + resource.getName(), HTMLLinkChecker.XHTML_TYPE, true);
+        src = TextFile.fileToString(page.getFolders().srcDir + "template-profiles.html");
+        TextFile.stringToFile(
+            insertSectionNumbers(page.processResourceIncludes(n, resource, xml, json, ttl, tx, dict, src, mappings, mappingsList, "res-Profiles", n + "-profiles.html", null), st, n + "-profiles.html", 0, null),
+            page.getFolders().dstDir + n + "-profiles.html");
+        page.getHTMLChecker().registerFile(n + "-profiles.html", "Profiles for " + resource.getName(), HTMLLinkChecker.XHTML_TYPE, true);
+      }
+      for (Profile ap : resource.getConformancePackages())
+        produceConformancePackage(resource.getName(), ap, st);
+
+      if (!resource.getOperations().isEmpty()) {
+        src = TextFile.fileToString(page.getFolders().srcDir + "template-operations.html");
+        TextFile.stringToFile(
+            insertSectionNumbers(page.processResourceIncludes(n, resource, xml, json, ttl, tx, dict, src, mappings, mappingsList, "res-Operations", n + "-operations.html", null), st, n
+                + "-operations.html", 0, null), page.getFolders().dstDir + n + "-operations.html");
+        page.getHTMLChecker().registerFile(n + "-operations.html", "Operations for " + resource.getName(), HTMLLinkChecker.XHTML_TYPE, true);
+
+        for (Operation t : resource.getOperations()) {
+          produceOperation(null, resource.getName().toLowerCase()+"-"+t.getName(), resource.getName()+"-"+t.getName(), resource.getName(), t);
+        }
+
+        //      // todo: get rid of these...
+        //      src = TextFile.fileToString(page.getFolders().srcDir + "template-book.html").replace("<body>", "<body style=\"margin: 10px\">");
+        //      src = page.processResourceIncludes(n, resource, xml, json, tx, dict, src, mappings, mappingsList, "resource", n + ".html", null);
+        //      cachePage(n + ".html", src, "Resource " + resource.getName(), true);
+        //      //    src = TextFile.fileToString(page.getFolders().srcDir + "template-book-ex.html").replace("<body>", "<body style=\"margin: 10px\">");
+        //      //    src = page.processResourceIncludes(n, resource, xml, tx, dict, src, mappings, mappingsList, "res-Examples");
+        //      // cachePage(n + "Ex.html", src,
+        //      // "Resource Examples for "+resource.getName());
+        //      src = TextFile.fileToString(page.getFolders().srcDir + "template-book-defn.html").replace("<body>", "<body style=\"margin: 10px\">");
+        //      src = page.processResourceIncludes(n, resource, xml, json, tx, dict, src, mappings, mappingsList, "res-Detailed Descriptions", n + "-definitions.html", null);
+        //      cachePage(n + "-definitions.html", src, "Resource Definitions for " + resource.getName(), true);
+      }
+
+      // xml to json
+      // todo - fix this up
+      // JsonGenerator jsongen = new JsonGenerator();
+      // jsongen.generate(new CSFile(page.getFolders().dstDir+n+".xml"), new
+      // File(page.getFolders().dstDir+n+".json"));
     }
-
-    // xml to json
-    // todo - fix this up
-    // JsonGenerator jsongen = new JsonGenerator();
-    // jsongen.generate(new CSFile(page.getFolders().dstDir+n+".xml"), new
-    // File(page.getFolders().dstDir+n+".json"));
-
     tmp.delete();
     // because we'll pick up a little more information as we process the
     // resource
-    StructureDefinition p = generateProfile(resource, n, xml, json, ttl, true);
+    StructureDefinition p = generateProfile(resource, n, xml, json, ttl, !logicalOnly);
 //    if (!isAbstract && !n.equals("Bundle") && web)
 //      generateQuestionnaire(n, p);
   }

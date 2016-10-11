@@ -754,16 +754,21 @@ public class ProfileGenerator {
     throw new Exception("Unable to find snapshot for "+baseType);
   }
 
-  public StructureDefinition generate(Profile pack, ResourceDefn r, String usage) throws Exception {
+  public StructureDefinition generate(Profile pack, ResourceDefn r, String usage, boolean logical) throws Exception {
     StructureDefinition p = new StructureDefinition();
     p.setId(r.getRoot().getName());
     p.setUrl("http://hl7.org/fhir/StructureDefinition/"+ r.getRoot().getName());
-    p.setKind(StructureDefinitionKind.RESOURCE);
+    if (logical)
+      p.setKind(StructureDefinitionKind.LOGICAL);
+    else
+      p.setKind(StructureDefinitionKind.RESOURCE);
     p.setAbstract(r.isAbstract());
     assert !Utilities.noString(r.getRoot().typeCode());
     if (!Utilities.noString(r.getRoot().typeCode())) {
       p.setBaseDefinition("http://hl7.org/fhir/StructureDefinition/"+r.getRoot().typeCode());
       p.setDerivation(TypeDerivationRule.SPECIALIZATION);
+      if (r.getTemplate() != null)
+        ToolingExtensions.addStringExtension(p.getBaseDefinitionElement(), ToolingExtensions.EXT_CODE_GENREATION_PARENT, r.getTemplate().getName());
     }
     p.setType(r.getRoot().getName());
     p.setUserData("filename", r.getName().toLowerCase());
@@ -800,11 +805,13 @@ public class ProfileGenerator {
       if (!ed.hasBase())
         generateElementDefinition(ed, getParent(ed, p.getSnapshot().getElement()));
 
-    List<String> names = new ArrayList<String>();
-    names.addAll(r.getSearchParams().keySet());
-    Collections.sort(names);
-    for (String pn : names) {
-      pack.getSearchParameters().add(makeSearchParam(p, r.getName()+"-"+pn.replace("_", ""), r.getName(), r.getSearchParams().get(pn)));
+    if (!logical) {
+      List<String> names = new ArrayList<String>();
+      names.addAll(r.getSearchParams().keySet());
+      Collections.sort(names);
+      for (String pn : names) {
+        pack.getSearchParameters().add(makeSearchParam(p, r.getName()+"-"+pn.replace("_", ""), r.getName(), r.getSearchParams().get(pn)));
+      }
     }
     containedSlices.clear();
 
