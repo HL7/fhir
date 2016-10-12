@@ -33,6 +33,7 @@ http://xyz.com/codes/subplan
 http://hl7.org/fhir/oralservicecodes
 http:hl7.org/fhir/ValueSet/v3-ActPharmacySupplyType
 http://acme.org/tests
+http://hl7.org/fhir/ValueSet/v3-Ethnicity
 http://hl7.org/fhir/animal-breed
 http://orionhealth.com/fhir/apps/referraltypes
 http:/acme.ped/apgarcolor

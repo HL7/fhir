@@ -1843,6 +1843,9 @@ public class SpreadsheetParser {
 		  e.setBinding(binding);
 		  if (binding != null && !binding.getUseContexts().contains(name))
 		    binding.getUseContexts().add(name);
+		} else if (e.getBinding() != null) {
+      if (!e.getBinding().getUseContexts().contains(name))
+        e.getBinding().getUseContexts().add(name);
 		}
     if (!Utilities.noString(sheet.getColumn(row, "Short Label")))
       throw new Exception("Short Label is no longer used");
