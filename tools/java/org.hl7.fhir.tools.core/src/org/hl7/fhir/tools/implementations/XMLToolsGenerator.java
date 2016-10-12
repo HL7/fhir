@@ -25,7 +25,7 @@ public class XMLToolsGenerator extends BaseGenerator implements PlatformGenerato
 
   @Override
   public String getTitle() {
-    return "XML Tools";
+    return "XMLTools";
   }
 
   @Override
