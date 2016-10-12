@@ -8,8 +8,8 @@
     "output" : "output",
     "specification" : "http://hl7.org/fhir/2016May"
   },
-	"canonicalBase": "http://hl7.org/fhir/test-ig-14",
-  "version" : "1.0.1",
+	"canonicalBase": "http://hl7.org/fhir/test-ig-10",
+  "version" : "1.0.2",
 	"spreadsheets": [
 		"diagnosticorder-daf-profile-spreadsheet.xml"
 	],  

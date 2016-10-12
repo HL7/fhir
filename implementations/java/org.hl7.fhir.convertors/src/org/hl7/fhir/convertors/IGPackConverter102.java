@@ -14,6 +14,7 @@ import org.hl7.fhir.dstu3.model.Bundle;
 import org.hl7.fhir.dstu3.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.dstu3.model.Bundle.BundleType;
 import org.hl7.fhir.dstu3.model.CodeSystem;
+import org.hl7.fhir.dstu3.model.ValueSet;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.utilities.Utilities;
 
@@ -62,8 +63,13 @@ public class IGPackConverter102 implements VersionConvertorAdvisor {
   }
 
   @Override
-  public void handleCodeSystem(CodeSystem tgtcs) {
+  public void handleCodeSystem(CodeSystem tgtcs, ValueSet vs) {
     cslist.addEntry().setFullUrl(tgtcs.getUrl()).setResource(tgtcs);
+  }
+
+  @Override
+  public CodeSystem getCodeSystem(ValueSet src) {
+    return null;
   }
 
 }

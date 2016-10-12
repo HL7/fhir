@@ -1,6 +1,6 @@
 <ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/conformance.xsd">
   <id value="test-ig-vs"/>
-  <url value="http://hl7.org/fhir/test/ValueSet/test-ig-vs"/>
+  <url value="http://hl7.org/fhir/test-ig-10/ValueSet/test-ig-vs"/>
   <version value="0.1"/>
   <name value="Test IG Value Set"/>
   <status value="draft"/>

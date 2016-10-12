@@ -85,9 +85,14 @@ public class DSTU2ValidationConvertor implements VersionConvertorAdvisor {
   }
 
   @Override
-  public void handleCodeSystem(CodeSystem tgtcs) {
+  public void handleCodeSystem(CodeSystem tgtcs, ValueSet vs) {
    throw new Error("not done yet");
     
+  }
+
+  @Override
+  public CodeSystem getCodeSystem(ValueSet src) {
+    return null;
   }
 
 

@@ -15,9 +15,13 @@ import org.hl7.fhir.dstu3.model.ConceptMap;
 import org.hl7.fhir.dstu3.model.ConceptMap.ConceptMapGroupComponent;
 import org.hl7.fhir.dstu3.model.ConceptMap.SourceElementComponent;
 import org.hl7.fhir.dstu3.model.NutritionRequest.NutritionOrderStatus;
+import org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionKind;
+import org.hl7.fhir.dstu3.model.StructureDefinition.TypeDerivationRule;
 import org.hl7.fhir.dstu3.model.UriType;
+import org.hl7.fhir.dstu3.model.ValueSet;
 import org.hl7.fhir.dstu3.terminologies.CodeSystemUtilities;
 import org.hl7.fhir.exceptions.FHIRException;
+import org.hl7.fhir.utilities.Utilities;
 
 /*
   Copyright (c) 2011+, HL7, Inc.
@@ -60,7 +64,9 @@ public class VersionConvertor_10_20 {
     org.hl7.fhir.dstu2.model.Resource convert(org.hl7.fhir.dstu3.model.Resource resource) throws FHIRException;
 
     // called when an r2 value set has a codeSystem in it
-    void handleCodeSystem(CodeSystem tgtcs);
+    void handleCodeSystem(CodeSystem tgtcs, ValueSet source);
+
+    CodeSystem getCodeSystem(ValueSet src);
   }
 
   public VersionConvertorAdvisor advisor;
@@ -11973,7 +11979,7 @@ public class VersionConvertor_10_20 {
     tgt.setFhirVersion(src.getFhirVersion());
     for (org.hl7.fhir.dstu2.model.StructureDefinition.StructureDefinitionMappingComponent t : src.getMapping())
       tgt.addMapping(convertStructureDefinitionMappingComponent(t));
-    tgt.setKind(convertStructureDefinitionKind(src.getKind()));
+    tgt.setKind(convertStructureDefinitionKind(src.getKind(), tgt.getId()));
     tgt.setAbstract(src.getAbstract());
     tgt.setContextType(convertExtensionContext(src.getContextType()));
     for (org.hl7.fhir.dstu2.model.StringType t : src.getContext())
@@ -11994,6 +12000,11 @@ public class VersionConvertor_10_20 {
       tgt.getSnapshot().getElementFirstRep().getType().clear();
     if (tgt.hasDifferential())
       tgt.getDifferential().getElementFirstRep().getType().clear();
+    if (tgt.getKind() == StructureDefinitionKind.PRIMITIVETYPE && !tgt.getType().equals(tgt.getId())) {
+      tgt.setDerivation(TypeDerivationRule.SPECIALIZATION);
+      tgt.setBaseDefinition("http://hl7.org/fhir/StructureDefinition/"+tgt.getType());
+      tgt.setType(tgt.getId());
+    }
     return tgt;
   }
 
@@ -12051,11 +12062,15 @@ public class VersionConvertor_10_20 {
     return base.substring(base.lastIndexOf("/")+1);
   }
 
-  public org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionKind convertStructureDefinitionKind(org.hl7.fhir.dstu2.model.StructureDefinition.StructureDefinitionKind src) throws FHIRException {
+  public org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionKind convertStructureDefinitionKind(org.hl7.fhir.dstu2.model.StructureDefinition.StructureDefinitionKind src, String dtName) throws FHIRException {
     if (src == null)
       return null;
     switch (src) {
-    case DATATYPE: return org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionKind.COMPLEXTYPE;
+    case DATATYPE:
+      if (Utilities.existsInList(dtName, "boolean", "integer", "decimal", "base64Binary", "instant", "string", "uri", "date", "dateTime", "time", "code", "oid", "id", "unsignedInt", "positiveInt", "markdown"))
+        return org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionKind.PRIMITIVETYPE;
+      else
+        return org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionKind.COMPLEXTYPE;
     case RESOURCE: return org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionKind.RESOURCE;
     case LOGICAL: return org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionKind.LOGICAL;
     default: return org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionKind.NULL;
@@ -13163,6 +13178,8 @@ public org.hl7.fhir.dstu2.model.ValueSet.ConceptDefinitionDesignationComponent c
     tgt.setPurpose(src.getRequirements());
     tgt.setCopyright(src.getCopyright());
     tgt.setExtensible(src.getExtensible());
+    tgt.setCompose(convertValueSetComposeComponent(src.getCompose()));
+    tgt.getCompose().setLockedDate(src.getLockedDate());
     if (src.hasCodeSystem() && advisor != null) {
       org.hl7.fhir.dstu3.model.CodeSystem tgtcs = new org.hl7.fhir.dstu3.model.CodeSystem();
       copyDomainResource(src, tgtcs);
@@ -13189,10 +13206,10 @@ public org.hl7.fhir.dstu2.model.ValueSet.ConceptDefinitionDesignationComponent c
       tgtcs.setCaseSensitive(src.getCodeSystem().getCaseSensitive());
       for (org.hl7.fhir.dstu2.model.ValueSet.ConceptDefinitionComponent cs : src.getCodeSystem().getConcept()) 
         processConcept(tgtcs.getConcept(), cs, tgtcs);
-      advisor.handleCodeSystem(tgtcs);
+      advisor.handleCodeSystem(tgtcs, tgt);
+      tgt.setUserData("r2-cs", tgtcs);
+      tgt.getCompose().addInclude().setSystem(tgtcs.getUrl());
     }
-    tgt.setCompose(convertValueSetComposeComponent(src.getCompose()));
-    tgt.getCompose().setLockedDate(src.getLockedDate());
     tgt.setExpansion(convertValueSetExpansionComponent(src.getExpansion()));
     return tgt;
   }
@@ -13214,6 +13231,25 @@ public org.hl7.fhir.dstu2.model.ValueSet.ConceptDefinitionDesignationComponent c
     
     for (org.hl7.fhir.dstu2.model.ValueSet.ConceptDefinitionComponent csc : cs.getConcept()) 
       processConcept(ct.getConcept(), csc, tgtcs);
+  }
+
+  private void processConcept(List<org.hl7.fhir.dstu2.model.ValueSet.ConceptDefinitionComponent> concepts, ConceptDefinitionComponent cs, CodeSystem srcCS) throws FHIRException {
+    org.hl7.fhir.dstu2.model.ValueSet.ConceptDefinitionComponent ct = new org.hl7.fhir.dstu2.model.ValueSet.ConceptDefinitionComponent();
+    concepts.add(ct);
+    ct.setCode(cs.getCode());
+    ct.setDisplay(cs.getDisplay());
+    ct.setDefinition(cs.getDefinition());
+    if (CodeSystemUtilities.isAbstract(srcCS, cs))
+      ct.setAbstract(true);
+    for (org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionDesignationComponent csd : cs.getDesignation()) {
+      org.hl7.fhir.dstu2.model.ValueSet.ConceptDefinitionDesignationComponent cst = new org.hl7.fhir.dstu2.model.ValueSet.ConceptDefinitionDesignationComponent();
+      cst.setLanguage(csd.getLanguage());
+      cst.setUse(convertCoding(csd.getUse()));
+      cst.setValue(csd.getValue());
+    }
+    
+    for (ConceptDefinitionComponent csc : cs.getConcept()) 
+      processConcept(ct.getConcept(), csc, srcCS);
   }
 
   public org.hl7.fhir.dstu2.model.ValueSet convertValueSet(org.hl7.fhir.dstu3.model.ValueSet src) throws FHIRException {
@@ -13245,7 +13281,18 @@ public org.hl7.fhir.dstu2.model.ValueSet.ConceptDefinitionDesignationComponent c
     tgt.setRequirements(src.getPurpose());
     tgt.setCopyright(src.getCopyright());
     tgt.setExtensible(src.getExtensible());
-    tgt.setCompose(convertValueSetComposeComponent(src.getCompose()));
+    org.hl7.fhir.dstu3.model.CodeSystem srcCS = (CodeSystem) src.getUserData("r2-cs");
+    if (srcCS == null)
+      srcCS = advisor.getCodeSystem(src);
+    if (srcCS != null) {
+      tgt.getCodeSystem().setSystem(srcCS.getUrl());
+      tgt.getCodeSystem().setVersion(srcCS.getVersion());
+      tgt.getCodeSystem().setCaseSensitive(srcCS.getCaseSensitive());
+      for (org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionComponent cs : srcCS.getConcept()) 
+        processConcept(tgt.getCodeSystem().getConcept(), cs, srcCS);
+      
+    }
+    tgt.setCompose(convertValueSetComposeComponent(src.getCompose(), srcCS == null ? null : srcCS.getUrl()));
     tgt.setExpansion(convertValueSetExpansionComponent(src.getExpansion()));
     return tgt;
   }
@@ -13303,7 +13350,7 @@ public org.hl7.fhir.dstu2.model.ValueSet.ConceptDefinitionDesignationComponent c
     return tgt;
   }
 
-  public org.hl7.fhir.dstu2.model.ValueSet.ValueSetComposeComponent convertValueSetComposeComponent(org.hl7.fhir.dstu3.model.ValueSet.ValueSetComposeComponent src) throws FHIRException {
+  public org.hl7.fhir.dstu2.model.ValueSet.ValueSetComposeComponent convertValueSetComposeComponent(org.hl7.fhir.dstu3.model.ValueSet.ValueSetComposeComponent src, String noSystem) throws FHIRException {
     if (src == null || src.isEmpty())
       return null;
     org.hl7.fhir.dstu2.model.ValueSet.ValueSetComposeComponent tgt = new org.hl7.fhir.dstu2.model.ValueSet.ValueSetComposeComponent();
@@ -13311,7 +13358,8 @@ public org.hl7.fhir.dstu2.model.ValueSet.ConceptDefinitionDesignationComponent c
     for (org.hl7.fhir.dstu3.model.ValueSet.ConceptSetComponent t : src.getInclude()) {
       for (org.hl7.fhir.dstu3.model.UriType ti : t.getValueSet())
         tgt.addImport(ti.getValue());
-      tgt.addInclude(convertConceptSetComponent(t));
+      if (noSystem == null || !t.getSystem().equals(noSystem))
+        tgt.addInclude(convertConceptSetComponent(t));
     }
     for (org.hl7.fhir.dstu3.model.ValueSet.ConceptSetComponent t : src.getExclude())
       tgt.addExclude(convertConceptSetComponent(t));

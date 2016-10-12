@@ -43,6 +43,7 @@ import org.apache.commons.exec.PumpStreamHandler;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.SystemUtils;
 import org.hl7.fhir.convertors.VersionConvertor_10_20;
+import org.hl7.fhir.convertors.VersionConvertor_10_20.VersionConvertorAdvisor;
 import org.hl7.fhir.convertors.VersionConvertor_14_20;
 import org.hl7.fhir.dstu3.conformance.ProfileUtilities;
 import org.hl7.fhir.dstu3.context.IWorkerContext;
@@ -116,6 +117,7 @@ import org.hl7.fhir.igtools.renderers.XmlXHtmlRenderer;
 import org.hl7.fhir.igtools.spreadsheets.IgSpreadsheetParser;
 import org.hl7.fhir.igtools.ui.GraphicalPublisher;
 import org.hl7.fhir.utilities.CSFile;
+import org.hl7.fhir.utilities.CSFileInputStream;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.ZipGenerator;
@@ -711,8 +713,8 @@ public class Publisher implements IWorkerContext.ILoggingService {
     String source;
     if (version.equals("1.4.0")) 
       source = "http://hl7.org/fhir/2016May/igpack.zip"; 
-    else if (version.equals("1.6.0")) 
-      source = "http://hl7.org/fhir/2016May/igpack-current.zip";
+    else if (version.equals("1.0.2")) 
+      source = "http://hl7.org/fhir/DSTU2/igpack.zip";
     else
       throw new FHIRException("Unsupported version "+version);
     
@@ -724,7 +726,10 @@ public class Publisher implements IWorkerContext.ILoggingService {
       fn = grabToLocalCache(source);
       }
     log("Local Validation Pack from cache location " + fn);
-    context = SimpleWorkerContext.fromPack(fn);
+    if ("1.0.2".equals(version)) {
+      context = SimpleWorkerContext.fromPack(fn, new R2ToR3Loader());
+    } else
+      context = SimpleWorkerContext.fromPack(fn);
   }
 
   private String grabToLocalCache(String source) throws IOException {
@@ -1374,7 +1379,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
         String ver = r.getConfig() == null ? null : ostr(r.getConfig(), "version");
         if (ver == null)
           ver = version; // fall back to global version
-        if ("1.0.2".equals(ver)) {
+        if ("1.0.1".equals(ver)) {
           file.getErrors().clear();
           org.hl7.fhir.dstu2.model.Resource res2 = null;
           if (file.getContentType().contains("json"))
@@ -1618,6 +1623,17 @@ public class Publisher implements IWorkerContext.ILoggingService {
       else
         throw new Exception("Unable to determine file type for "+file.getName());
       return VersionConvertor_14_20.convertResource(res);
+    } else if (version.equals("1.0.2")) {
+      org.hl7.fhir.dstu2.model.Resource res;
+      if (file.getContentType().contains("json"))
+        res = new org.hl7.fhir.dstu2.formats.JsonParser().parse(file.getSource());
+      else if (file.getContentType().contains("xml"))
+        res = new org.hl7.fhir.dstu2.formats.XmlParser().parse(file.getSource());
+      else
+        throw new Exception("Unable to determine file type for "+file.getName());
+      
+      VersionConvertorAdvisor advisor = new IGR2ConvertorAdvisor();
+      return new VersionConvertor_10_20(advisor ).convertResource(res);
     } else if (version.equals(Constants.VERSION)) {
       if (file.getContentType().contains("json"))
         return new JsonParser().parse(file.getSource());
@@ -1767,6 +1783,9 @@ public class Publisher implements IWorkerContext.ILoggingService {
     if (version.equals("1.4.0")) {
       org.hl7.fhir.dstu2016may.formats.JsonParser jp = new org.hl7.fhir.dstu2016may.formats.JsonParser();
       jp.compose(bs, VersionConvertor_14_20.convertResource(res));
+    } else if (version.equals("1.0.2")) {
+        org.hl7.fhir.dstu2.formats.JsonParser jp = new org.hl7.fhir.dstu2.formats.JsonParser();
+        jp.compose(bs, new VersionConvertor_10_20(new IGR2ConvertorAdvisor()).convertResource(res));
     } else { // if (version.equals(Constants.VERSION)) {
       org.hl7.fhir.dstu3.formats.JsonParser jp = new org.hl7.fhir.dstu3.formats.JsonParser();
       jp.compose(bs, res);

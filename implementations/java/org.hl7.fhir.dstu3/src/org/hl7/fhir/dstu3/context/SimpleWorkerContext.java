@@ -21,6 +21,7 @@ import java.util.zip.ZipInputStream;
 import org.apache.commons.io.IOUtils;
 import org.hl7.fhir.dstu3.conformance.ProfileUtilities;
 import org.hl7.fhir.dstu3.conformance.ProfileUtilities.ProfileKnowledgeProvider;
+import org.hl7.fhir.dstu3.context.SimpleWorkerContext.IContextResourceLoader;
 import org.hl7.fhir.dstu3.formats.IParser;
 import org.hl7.fhir.dstu3.formats.JsonParser;
 import org.hl7.fhir.dstu3.formats.ParserType;
@@ -69,7 +70,11 @@ import ca.uhn.fhir.parser.DataFormatException;
 
 public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerContext, ProfileKnowledgeProvider {
 
-	// all maps are to the full URI
+	public interface IContextResourceLoader {
+    Bundle loadBundle(InputStream stream, boolean isJson) throws FHIRException, IOException;
+  }
+
+  // all maps are to the full URI
 	private Map<String, StructureDefinition> structures = new HashMap<String, StructureDefinition>();
 	private List<NamingSystem> systems = new ArrayList<NamingSystem>();
 	private Questionnaire questionnaire;
@@ -91,38 +96,44 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
 	 * @throws FHIRException 
 	 * @throws Exception
 	 */
-	public static SimpleWorkerContext fromPack(String path) throws FileNotFoundException, IOException, FHIRException {
-		SimpleWorkerContext res = new SimpleWorkerContext();
-		res.loadFromPack(path);
-		return res;
-	}
+  public static SimpleWorkerContext fromPack(String path) throws FileNotFoundException, IOException, FHIRException {
+    SimpleWorkerContext res = new SimpleWorkerContext();
+    res.loadFromPack(path, null);
+    return res;
+  }
+
+  public static SimpleWorkerContext fromPack(String path, IContextResourceLoader loader) throws FileNotFoundException, IOException, FHIRException {
+    SimpleWorkerContext res = new SimpleWorkerContext();
+    res.loadFromPack(path, loader);
+    return res;
+  }
 
 	public static SimpleWorkerContext fromClassPath() throws IOException, FHIRException {
 		SimpleWorkerContext res = new SimpleWorkerContext();
-		res.loadFromStream(SimpleWorkerContext.class.getResourceAsStream("validation.json.zip"));
+		res.loadFromStream(SimpleWorkerContext.class.getResourceAsStream("validation.json.zip"), null);
 		return res;
 	}
 
 	 public static SimpleWorkerContext fromClassPath(String name) throws IOException, FHIRException {
 	   InputStream s = SimpleWorkerContext.class.getResourceAsStream("/"+name);
 	    SimpleWorkerContext res = new SimpleWorkerContext();
-	   res.loadFromStream(s);
+	   res.loadFromStream(s, null);
 	    return res;
 	  }
 
 	public static SimpleWorkerContext fromDefinitions(Map<String, byte[]> source) throws IOException, FHIRException {
 		SimpleWorkerContext res = new SimpleWorkerContext();
 		for (String name : source.keySet()) {
-		  res.loadDefinitionItem(name, new ByteArrayInputStream(source.get(name)));
+		  res.loadDefinitionItem(name, new ByteArrayInputStream(source.get(name)), null);
 		}
 		return res;
 	}
 
-	private void loadDefinitionItem(String name, InputStream stream) throws IOException, FHIRException {
+	private void loadDefinitionItem(String name, InputStream stream, IContextResourceLoader loader) throws IOException, FHIRException {
     if (name.endsWith(".xml"))
-      loadFromFile(stream, name);
+      loadFromFile(stream, name, loader);
     else if (name.endsWith(".json"))
-      loadFromFileJson(stream, name);
+      loadFromFileJson(stream, name, loader);
     else if (name.equals("version.info"))
       readVersionInfo(stream);
     else
@@ -133,11 +144,15 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
 	  txServer = new FHIRToolingClient(url);
 	}
 
-	private void loadFromFile(InputStream stream, String name) throws IOException, FHIRException {
-		XmlParser xml = new XmlParser();
+	private void loadFromFile(InputStream stream, String name, IContextResourceLoader loader) throws IOException, FHIRException {
 		Bundle f;
 		try {
-			f = (Bundle) xml.parse(stream);
+		  if (loader != null)
+		    f = loader.loadBundle(stream, false);
+		  else {
+		    XmlParser xml = new XmlParser();
+		    f = (Bundle) xml.parse(stream);
+		  }
     } catch (DataFormatException e1) {
       throw new org.hl7.fhir.exceptions.FHIRFormatError("Error parsing "+name+":" +e1.getMessage(), e1);
     } catch (Exception e1) {
@@ -151,11 +166,15 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
 		}
 	}
 
-  private void loadFromFileJson(InputStream stream, String name) throws IOException, FHIRException {
-    JsonParser json = new JsonParser();
+  private void loadFromFileJson(InputStream stream, String name, IContextResourceLoader loader) throws IOException, FHIRException {
     Bundle f;
     try {
-      f = (Bundle) json.parse(stream);
+      if (loader != null)
+        f = loader.loadBundle(stream, true);
+      else {
+        JsonParser json = new JsonParser();
+        f = (Bundle) json.parse(stream);
+      }
     } catch (FHIRFormatError e1) {
       throw new org.hl7.fhir.exceptions.FHIRFormatError(e1.getMessage(), e1);
     }
@@ -227,15 +246,15 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
 			structures.put(url, p);
 	}
 
-	private void loadFromPack(String path) throws FileNotFoundException, IOException, FHIRException {
-		loadFromStream(new CSFileInputStream(path));
+	private void loadFromPack(String path, IContextResourceLoader loader) throws FileNotFoundException, IOException, FHIRException {
+		loadFromStream(new CSFileInputStream(path), loader);
 	}
 
-	private void loadFromStream(InputStream stream) throws IOException, FHIRException {
+	private void loadFromStream(InputStream stream, IContextResourceLoader loader) throws IOException, FHIRException {
 		ZipInputStream zip = new ZipInputStream(stream);
 		ZipEntry ze;
 		while ((ze = zip.getNextEntry()) != null) {
-      loadDefinitionItem(ze.getName(), zip);
+      loadDefinitionItem(ze.getName(), zip, loader);
 			zip.closeEntry();
 		}
 		zip.close();
