@@ -127,7 +127,7 @@
  -- Row 1 -----------------------------------
   Element = Goal
   Type = DomainResource
-  Short Label = Describes the intended objective(s) for a patient, group or organization
+  Short Name = Describes the intended objective(s) for a patient, group or organization
   Definition = Describes the intended objective(s) for a patient, group or organization care, for example, weight loss, restoring an activity of daily living, obtaining herd immunity via immunization, meeting a process improvement objective, etc.
   Comments = Goal can be achieving a particular change or merely maintaining a current state or even slowing a decline.
   v2 Mapping = GOL.1
@@ -138,7 +138,7 @@
   Element = Goal.identifier
   Card. = 0..*
   Type = Identifier
-  Short Label = External Ids for this goal
+  Short Name = External Ids for this goal
   Definition = This records identifiers associated with this care plan that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation)
   Requirements = Need to allow connection to a wider workflow
   RIM Mapping = .id
@@ -151,7 +151,7 @@
   Summary = Y
   Type = code
   Binding = GoalStatus
-  Short Label = proposed | planned | accepted | rejected | in-progress | achieved | sustaining | on-hold | cancelled | on-target | ahead-of-target | behind-target
+  Short Name = proposed | planned | accepted | rejected | in-progress | achieved | sustaining | on-hold | cancelled | on-target | ahead-of-target | behind-target
   Definition = Indicates whether the goal has been reached and is still considered relevant
   Requirements = Allows measuring outcome and whether goal needs to be further tracked.
   v2 Mapping = GOL-18-goal life cycle status
@@ -164,7 +164,7 @@
   Summary = Y
   Type = CodeableConcept
   Binding = GoalCategory
-  Short Label = E.g. Treatment, dietary, behavioral, etc.
+  Short Name = E.g. Treatment, dietary, behavioral, etc.
   Definition = Indicates a category the goal falls within
   Requirements = Allows goals to be filtered and sorted
   w5 = class
@@ -175,7 +175,7 @@
   Summary = Y
   Type = CodeableConcept
   Binding = GoalPriority
-  Short Label = high | medium |low
+  Short Name = high | medium |low
   Definition = Identifies the mutually agreed level of importance associated with reaching/sustaining the goal
   Requirements = Used for sorting and presenting goals
   Comments = Extensions are available to track priorities as established by each participant (i.e. Priority from the patient\'s perspective, different practitioners\' perspectives, family member\'s perspectives)\r\rThe ordinal extension on Coding can be used to convey a numerically comparable ranking to priority.  (Keep in mind that different coding systems may use a \"low value=important\"
@@ -188,7 +188,7 @@
   Summary = Y
   Type = CodeableConcept
   Binding = GoalDescription
-  Short Label = Code or text describing goal
+  Short Name = Code or text describing goal
   Definition = Code and/or human-readable description of a specific desired objective of care.
   Requirements = Without a description of what\'s trying to be achieved, element has no purpose
   Comments = If no code is available, use CodeableConcept.text.
@@ -201,7 +201,7 @@
   Card. = 0..1
   Summary = Y
   Type = Reference(Patient | Group | Organization)
-  Short Label = Who this goal is intended for
+  Short Name = Who this goal is intended for
   Definition = Identifies the patient, group or organization for whom the goal is being established.
   Requirements = Subject is optional to support annonymized reporting
   v2 Mapping = PID-3-patient ID list
@@ -214,7 +214,7 @@
   Summary = Y
   Type = date | CodeableConcept
   Binding = GoalStartEvent
-  Short Label = When goal pursuit begins
+  Short Name = When goal pursuit begins
   Definition = The date or event after which the goal should begin being pursued
   Requirements = Goals can be established prior to there being an intention to start pursuing them; e.g. Goals for post-surgical recovery established prior to surgery.
   w5 = when.planned
@@ -224,7 +224,7 @@
   Card. = 0..1
   Summary = Y
   Type = date | Duration
-  Short Label = Reach goal on or before
+  Short Name = Reach goal on or before
   Definition = Indicates either the date or the duration after start by which the goal should be met
   Requirements = Identifies when the goal should be evaluated.
   w5 = when.done
@@ -234,7 +234,7 @@
   Card. = 0..1
   Summary = Y
   Type = date
-  Short Label = When goal status took effect
+  Short Name = When goal status took effect
   Definition = Identifies when the current status.  I.e. When initially created, when achieved, when cancelled, etc.
   Comments = To see the date for past statuses, query history
   w5 = when.recorded
@@ -244,7 +244,7 @@
   Card. = 0..*
   Type = CodeableConcept
   Binding = GoalStatusReason
-  Short Label = Reason for current status
+  Short Name = Reason for current status
   Definition = Captures the reason for the current status.
   Comments = This will typically be captured for statuses such as rejected, on-hold or cancelled, but could be present for others.
 
@@ -253,7 +253,7 @@
   Card. = 0..1
   Summary = Y
   Type = Reference(Patient|Practitioner|RelatedPerson)
-  Short Label = Who\'s responsible for creating Goal?
+  Short Name = Who\'s responsible for creating Goal?
   Definition = Indicates whose goal this is - patient goal, practitioner goal, etc.
   Comments = This is the individual reponsible for establishing the goal, not necessarily who recorded it.  (For that, use the Provenance resource.)
   w5 = who.source
@@ -262,7 +262,7 @@
   Element = Goal.addresses
   Card. = 0..*
   Type = Reference(Condition | Observation | MedicationStatement | NutritionRequest | ProcedureRequest | RiskAssessment)
-  Short Label = Issues addressed by this goal
+  Short Name = Issues addressed by this goal
   Definition = The identified conditions and other health record elements that are intended to be addressed by the goal
   Requirements = Allows specific goals to explicitly linked to the concerns they\'re dealing with - makes the goal more understandable
   RIM Mapping = .outboundRelationship[typeCode=SUBJ].target[classCode=CONC]
@@ -272,7 +272,7 @@
   Element = Goal.note
   Card. = 0..*
   Type = Annotation
-  Short Label = Comments about the goal
+  Short Name = Comments about the goal
   Definition = Any comments related to the goal
   Requirements = There\'s a need to capture information about the goal that doesn\'t actually describe the goal.
   Comments = May be used for progress notes, concerns or other related information that doesn\'t actually describe the goal itself.
@@ -283,7 +283,7 @@
   Element = Goal.outcome
   Card. = 0..*
   UML = 400;100
-  Short Label = What was end result of goal?
+  Short Name = What was end result of goal?
   Definition = Identifies the change (or lack of change) at the point where the goal was deemed to be cancelled or achieved.
   Requirements = Outcome tracking is a key aspect of care planning
   Comments = Note that this should not duplicate the goal status.
@@ -294,7 +294,7 @@
   Card. = 0..1
   Type = CodeableConcept | Reference(Observation)
   Binding = GoalOutcome
-  Short Label = Code or observation that resulted from goal
+  Short Name = Code or observation that resulted from goal
   Definition = Details of what\'s changed (or not changed)
 
 === Sheet Search =====================================

@@ -80,7 +80,7 @@
   Element = Endpoint
   UML = 200;0
   Type = DomainResource
-  Short Label = The technical details of an endpoint that can be used for electronic services
+  Short Name = The technical details of an endpoint that can be used for electronic services
   Definition = The technical details of an endpoint that can be used for electronic services, such as for web services providing XDS.b or a REST endpoint for another FHIR server. This may include any security context information.
   RIM Mapping = n/a
   w5 = infrastructure.exchange
@@ -90,7 +90,7 @@
   Card. = 0..*
   Summary = Y
   Type = Identifier
-  Short Label = Identifies this endpoint across multiple systems
+  Short Name = Identifies this endpoint across multiple systems
   Definition = Identifier for the organization that is used to identify the endpoint across multiple disparate systems
   RIM Mapping = n/a
   w5 = id
@@ -102,7 +102,7 @@
   Summary = Y
   Type = code
   Binding = EndpointStatus
-  Short Label = active | suspended | error | off | entered-in-error | test
+  Short Name = active | suspended | error | off | entered-in-error | test
   Definition = active | suspended | error | off | test
   RIM Mapping = n/a
   w5 = status
@@ -112,7 +112,7 @@
   Card. = 0..1
   Summary = Y
   Type = string
-  Short Label = A name that this endpoint can be identified by
+  Short Name = A name that this endpoint can be identified by
   Definition = A friendly name that this endpoint can be referred to with
   RIM Mapping = n/a
 
@@ -121,7 +121,7 @@
   Card. = 0..1
   Summary = Y
   Type = Reference(Organization)
-  Short Label = Organization that manages this endpoint (may not be the organization that exposes the endpoint)
+  Short Name = Organization that manages this endpoint (may not be the organization that exposes the endpoint)
   Definition = The organization that manages this endpoint (even if technically another organisation is hosting this in the cloud, it is the organisation associated with the data)
   Comments = This property is not typically used when searching for Endpoint resources for usage. The typical usage is via the reference from an aplicable Organization/Location/Practitioner resource, which is where the context is provided. Multiple Locations may reference a single endpoint, and don\'t have to be within the same organization resource, but most likely within the same organizational heirarchy
   RIM Mapping = n/a
@@ -131,7 +131,7 @@
   Element = Endpoint.contact
   Card. = 0..*
   Type = ContactPoint
-  Short Label = Contact details for source (e.g. troubleshooting)
+  Short Name = Contact details for source (e.g. troubleshooting)
   Definition = Contact details for a human to contact about the subscription. The primary use of this for system administrator troubleshooting
   RIM Mapping = n/a
 
@@ -140,7 +140,7 @@
   Card. = 0..1
   Summary = Y
   Type = Period
-  Short Label = Interval the endpoint is expected to be operational
+  Short Name = Interval the endpoint is expected to be operational
   Definition = The interval during which the endpoint is expected to be operational
   RIM Mapping = n/a
   w5 = when.init
@@ -154,7 +154,7 @@
   Summary = Y
   Type = Coding
   Binding = endpoint-contype
-  Short Label = Protocol/Profile/Standard to be used with this endpoint connection
+  Short Name = Protocol/Profile/Standard to be used with this endpoint connection
   Definition = A coded value that represents the technical details of the usage of this endpoint, such as what WSDLs should be used in what way. (e.g. XDS.b/DICOM/cds-hook)
   Comments = For additional connectivity details for the protocol, extensions will be used at this point, as in the XDS example.
   RIM Mapping = n/a
@@ -166,7 +166,7 @@
   Summary = Y
   Type = Coding
   Binding = http-verb
-  Short Label = The http verb to be used when calling this endpoint
+  Short Name = The http verb to be used when calling this endpoint
   Comments = This is the HTTP method that must be used when using the connection
   RIM Mapping = n/a
 
@@ -179,7 +179,7 @@
   Summary = Y
   Type = CodeableConcept
   Binding = PayloadType
-  Short Label = The type of content that may be used at this endpoint (e.g. XDS Discharge summaries)
+  Short Name = The type of content that may be used at this endpoint (e.g. XDS Discharge summaries)
   Definition = The payload type describes the acceptable content that can be communicated on the endpoint
   Comments = The payloadFormat describes the wire format of the data, where the payloadType indicates the specific document/schema that is being transferred. E.g. DischargeSummary or CarePlan
   RIM Mapping = n/a
@@ -190,7 +190,7 @@
   Summary = Y
   Type = code
   Binding = MimeType
-  Short Label = Mimetype to send. If not specified, the content could be anything (including no payload, if the connectionType defined this)
+  Short Name = Mimetype to send. If not specified, the content could be anything (including no payload, if the connectionType defined this)
   Definition = The mime type to send the payload in - e.g. application/fhir+xml, application/fhir+json. If the mime type is not specified, then the sender could send any content (including no content depending on the connectionType)
   Comments = Sending the payload has obvious security consequences. The server is responsible for ensuring that the content is appropriately secured
   RIM Mapping = n/a
@@ -200,7 +200,7 @@
   Card. = 0..*
   Summary = Y
   Type = CodeableConcept
-  Short Label = The subtypes of content that can be used on this endpoint (e.g. DischargeSummary)
+  Short Name = The subtypes of content that can be used on this endpoint (e.g. DischargeSummary)
   RIM Mapping = n/a
 
  -- Row 15 -----------------------------------
@@ -208,7 +208,7 @@
   Card. = 1..1
   Summary = y
   Type = uri
-  Short Label = The technical address for conneccting to this endpoint
+  Short Name = The technical address for conneccting to this endpoint
   Definition = The uri that describes the actual end-point to send messages to
   Comments = For rest-hook, and websocket, the end-point must be an http: or https: URL; for email, a mailto: url, for sms, a tel: url, and for message the endpoint can be in any form of url the server understands (usually, http: or mllp:). The URI is allowed to be relative; in which case, it is relative to the server end-point (since their may be more than one, clients should avoid using relative URIs)
   RIM Mapping = n/a
@@ -218,7 +218,7 @@
   Card. = 0..*
   Summary = n
   Type = string
-  Short Label = Usage depends on the channel type
+  Short Name = Usage depends on the channel type
   Definition = Additional headers / information to send as part of the notification
   Comments = Exactly what these mean depend on the channel type. The can convey additional information to the recipient and/or meet security requirements
 
@@ -226,7 +226,7 @@
   Element = Endpoint.publicKey
   Card. = 0..1
   Type = string
-  Short Label = PKI Public keys to support secure communications
+  Short Name = PKI Public keys to support secure communications
   Definition = The public part of the \'keys\' allocated to an Organization by an accredited body to support secure exchange of data over the internet. To be provided by the Organization, where available
   RIM Mapping = n/a
 

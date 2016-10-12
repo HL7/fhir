@@ -30,7 +30,7 @@
   Element = Medication
   UML = 200;0
   Type = DomainResource
-  Short Label = Definition of a Medication
+  Short Name = Definition of a Medication
   Definition = This resource is primarily used for the identification and definition of a medication. It covers the ingredients and the packaging for a medication.
   SCRIPT 10.6 Mapping = NewRx/MedicationPrescribed\r-or-\rRxFill/MedicationDispensed\r-or-\rRxHistoryResponse/MedicationDispensed\r-or-\rRxHistoryResponse/MedicationPrescribed
   RIM Mapping = ManufacturedProduct[classCode=ADMM]
@@ -42,7 +42,7 @@
   Summary = y
   Type = CodeableConcept
   Binding = MedicationFormalRepresentation
-  Short Label = Codes that identify this medication
+  Short Name = Codes that identify this medication
   Definition = A code (or set of codes) that specify this medication, or a textual description if no code is available. Usage note: This could be a standard medication code such as a code from RxNorm, SNOMED CT, IDMP etc. It could also be a national or local formulary code, optionally with translations to other code systems.
   Comments = Depending on the context of use, the code that was actually selected by the user (prescriber, dispenser, etc.) should be marked as \"primary\". Other codes can only be literal translations to alternative code systems, or codes at a lower level of granularity (e.g. a generic code for a vendor-specific primary one).
   SCRIPT 10.6 Mapping = coding.code = //element(*,MedicationType)/DrugCoded/ProductCode\r\rcoding.system = //element(*,MedicationType)/DrugCoded/ProductCodeQualifier\r\rcoding.display = //element(*,MedicationType)/DrugDescription
@@ -55,7 +55,7 @@
   Card. = 0..1
   Summary = y
   Type = boolean
-  Short Label = True if a brand
+  Short Name = True if a brand
   Definition = Set to true if the item is attributable to a specific manufacturer.
   SCRIPT 10.6 Mapping = no mapping
   RIM Mapping = true if .player.scopingRole[typeCode=MANU] exists
@@ -66,7 +66,7 @@
   Card. = 0..1
   Summary = y
   Type = Reference(Organization)
-  Short Label = Manufacturer of the item
+  Short Name = Manufacturer of the item
   Definition = Describes the details of the manufacturer
   SCRIPT 10.6 Mapping = no mapping
   v2 Mapping = RXD-20-Substance Manufacturer Name / RXG-21-Substance Manufacturer Name / RXA-17-Substance Manufacturer Name
@@ -77,7 +77,7 @@
   Element = Medication.product
   Card. = 0..1
   UML = 450;120
-  Short Label = Administrable medication details
+  Short Name = Administrable medication details
   Definition = Information that only applies to products (not packages)
   SCRIPT 10.6 Mapping = //element(*,DrugCodedType)/
   RIM Mapping = .player [classCode != CONT]
@@ -87,7 +87,7 @@
   Card. = 0..1
   Type = CodeableConcept
   Binding = MedicationForm
-  Short Label = powder | tablets | capsule +
+  Short Name = powder | tablets | capsule +
   Definition = Describes the form of the item.  Powder; tablets; capsule
   Comments = When Medication is referenced from MedicationOrder, this is the ordered form.  When Medication is referenced within MedicationDispense, this is the dispensed form.  When Medication is referenced within MedicationAdministration, this is administered form.
   SCRIPT 10.6 Mapping = coding.code =  //element(*,DrugCodedType)/FormCode\r\rcoding.system = //element(*,DrugCodedType)/FormSourceCode
@@ -98,7 +98,7 @@
   Element = Medication.product.ingredient
   Card. = 0..*
   UML = 480;240
-  Short Label = Active or inactive ingredient
+  Short Name = Active or inactive ingredient
   Definition = Identifies a particular constituent of interest in the product
   Comments = The ingredients need not be a complete list; usually only active ingredients are listed
   RIM Mapping = .scopesRole[typeCode=INGR]
@@ -107,7 +107,7 @@
   Element = Medication.product.ingredient.item[x]
   Card. = 1..1
   Type = CodeableConcept|Reference(Substance|Medication)
-  Short Label = The product contained
+  Short Name = The product contained
   Definition = The actual ingredient - either a substance (simple ingredient) or another medication
   SCRIPT 10.6 Mapping = coding.code = //element(*,MedicationType)/DrugCoded/ProductCode\r\rcoding.system = //element(*,MedicationType)/DrugCoded/ProductCodeQualifier\r\rcoding.display = //element(*,MedicationType)/DrugDescription
   v2 Mapping = RXC-2-Component Code  if medication: RXO-1-Requested Give Code / RXE-2-Give Code / RXD-2-Dispense/Give Code / RXG-4-Give Code / RXA-5-Administered Code
@@ -117,7 +117,7 @@
   Element = Medication.product.ingredient.amount
   Card. = 0..1
   Type = Ratio
-  Short Label = Quantity of ingredient present
+  Short Name = Quantity of ingredient present
   Definition = Specifies how many (or how much) of the items there are in this Medication.  For example, 250 mg per tablet.  This is expressed as a ratio where the numerator is 250mg and the denominator is 1 tablet.
   SCRIPT 10.6 Mapping = //element(*,DrugCodedType)/Strength
   v2 Mapping = RXC-3-Component Amount & RXC-4-Component Units  if medication: RXO-2-Requested Give Amount - Minimum & RXO-4-Requested Give Units / RXO-3-Requested Give Amount - Maximum & RXO-4-Requested Give Units / RXO-11-Requested Dispense Amount & RXO-12-Requested Dispense Units / RXE-3-Give Amount - Minimum & RXE-5-Give Units / RXE-4-Give Amount - Maximum & RXE-5-Give Units / RXE-10-Dispense Amount & RXE-10-Dispense Units
@@ -154,7 +154,7 @@
   Card. = 0..1
   UML = 0;120
   Type = code
-  Short Label = Details about packaged medications
+  Short Name = Details about packaged medications
   Definition = Information that only applies to packages (not products)
   SCRIPT 10.6 Mapping = no mapping
   RIM Mapping = .player[classCode=CONT]
@@ -164,7 +164,7 @@
   Card. = 0..1
   Type = CodeableConcept
   Binding = MedicationContainer
-  Short Label = E.g. box, vial, blister-pack
+  Short Name = E.g. box, vial, blister-pack
   Definition = The kind of container that this package comes as
   SCRIPT 10.6 Mapping = no mapping
   RIM Mapping = .code
@@ -173,7 +173,7 @@
   Element = Medication.package.content
   Card. = 0..*
   UML = 0;240
-  Short Label = What is  in the package
+  Short Name = What is  in the package
   Definition = A set of components that go to make up the described item.
   SCRIPT 10.6 Mapping = no mapping
   RIM Mapping = .scopesRole[typeCode=CONT]
@@ -182,7 +182,7 @@
   Element = Medication.package.content.item[x]
   Card. = 1..1
   Type = CodeableConcept|Reference(Medication)
-  Short Label = The item in the package
+  Short Name = The item in the package
   Definition = Identifies one of the items in the package
   SCRIPT 10.6 Mapping = no mapping
   RIM Mapping = .player
@@ -191,7 +191,7 @@
   Element = Medication.package.content.amount
   Card. = 0..1
   Type = SimpleQuantity
-  Short Label = Quantity present in the package
+  Short Name = Quantity present in the package
   Definition = The amount of the product that is in the package
   SCRIPT 10.6 Mapping = no mapping
   RIM Mapping = .quantity

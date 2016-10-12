@@ -65,7 +65,7 @@
  -- Row 1 -----------------------------------
   Element = EligibilityRequest
   Type = DomainResource
-  Short Label = Eligibility request
+  Short Name = Eligibility request
   Definition = This resource provides the insurance eligibility details from the insurer regarding a specified coverage and optionally some class of service.
   w5 = financial.support
 
@@ -76,7 +76,7 @@
   Element = EligibilityRequest.identifier
   Card. = 0..*
   Type = Identifier
-  Short Label = Business Identifier
+  Short Name = Business Identifier
   Definition = The Response business identifier
   w5 = id
 
@@ -87,7 +87,7 @@
   Summary = Y
   Type = code
   Binding = EligibilityRequestStatus
-  Short Label = active | cancelled | draft | entered-in-error
+  Short Name = active | cancelled | draft | entered-in-error
   Definition = The status of the resource instance.
   w5 = status
 
@@ -96,7 +96,7 @@
   Card. = 0..1
   Type = Coding
   Binding = Ruleset
-  Short Label = Resource version
+  Short Name = Resource version
   Definition = The version of the style of resource contents. This should be mapped to the allowable profiles for this and supporting resources.
   w5 = id.version
 
@@ -105,7 +105,7 @@
   Card. = 0..1
   Type = Coding
   Binding = Ruleset
-  Short Label = Original version
+  Short Name = Original version
   Definition = The style (standard) and version of the original material which was converted into this resource.
   Requirements = Knowledge of the original version can inform the processing of this instance so that information which is processable by the originating system may be generated.
 
@@ -113,7 +113,7 @@
   Element = EligibilityRequest.created
   Card. = 0..1
   Type = dateTime
-  Short Label = Creation date
+  Short Name = Creation date
   Definition = The date when this resource was created.
   w5 = when.recorded
 
@@ -121,7 +121,7 @@
   Element = EligibilityRequest.insurer
   Card. = 0..1
   Type = Reference(Organization)
-  Short Label = Target
+  Short Name = Target
   Definition = The Insurer who is target  of the request.
   w5 = who
 
@@ -129,7 +129,7 @@
   Element = EligibilityRequest.provider
   Card. = 0..1
   Type = Reference(Practitioner)
-  Short Label = Responsible practitioner
+  Short Name = Responsible practitioner
   Definition = The practitioner who is responsible for the services rendered to the patient.
   CDAnet v4 Mapping = B01
   w5 = who.source
@@ -138,7 +138,7 @@
   Element = EligibilityRequest.organization
   Card. = 0..1
   Type = Reference(Organization)
-  Short Label = Responsible organization
+  Short Name = Responsible organization
   Definition = The organization which is responsible for the services rendered to the patient.
   w5 = who.source
 
@@ -147,7 +147,7 @@
   Card. = 0..1
   Type = Coding
   Binding = ProcessPriority
-  Short Label = Desired processing priority
+  Short Name = Desired processing priority
   Definition = Immediate (STAT), best effort (NORMAL), deferred (DEFER)
   w5 = class
 
@@ -155,7 +155,7 @@
   Element = EligibilityRequest.enterer
   Card. = 0..1
   Type = Reference(Practitioner)
-  Short Label = Author
+  Short Name = Author
   Definition = Person who created the invoice/claim/pre-determination or pre-authorization.
   w5 = who.author
 
@@ -163,7 +163,7 @@
   Element = EligibilityRequest.facility
   Card. = 0..1
   Type = Reference(Location)
-  Short Label = Servicing Facility
+  Short Name = Servicing Facility
   Definition = Facility where the services were provided.
   w5 = where
 
@@ -174,7 +174,7 @@
   Element = EligibilityRequest.patient
   Card. = 0..1
   Type = Reference(Patient)
-  Short Label = The subject of the Products and Services
+  Short Name = The subject of the Products and Services
   Definition = Patient Resource
   Comments = 1..1
   CDAnet v4 Mapping = C06,C07,C08, C05, C04
@@ -187,7 +187,7 @@
   Element = EligibilityRequest.coverage
   Card. = 0..1
   Type = Reference(Coverage)
-  Short Label = Insurance or medical plan
+  Short Name = Insurance or medical plan
   Definition = Financial instrument by which payment information for health care
   Requirements = Need to identify the issuer to target for processing and for coordination of benefit processing.
   Comments = 1..1
@@ -196,14 +196,14 @@
   Element = EligibilityRequest.businessArrangement
   Card. = 0..1
   Type = string
-  Short Label = Business agreement
+  Short Name = Business agreement
   Definition = The contract number of a business agreement which describes the terms and conditions.
 
  -- Row 19 -----------------------------------
   Element = EligibilityRequest.serviced[x]
   Card. = 0..1
   Type = date|Period
-  Short Label = Estimated date or dates of Service
+  Short Name = Estimated date or dates of Service
   Definition = The date or dates when the enclosed suite of services were performed or completed
   CDAnet v4 Mapping = F09
   w5 = when.done
@@ -213,7 +213,7 @@
   Card. = 0..1
   Type = Coding
   Binding = BenefitCategory
-  Short Label = Benefit Category
+  Short Name = Benefit Category
   Definition = Dental, Vision, Medical, Pharmacy, Rehab etc.
 
  -- Row 21 -----------------------------------
@@ -221,7 +221,7 @@
   Card. = 0..1
   Type = Coding
   Binding = BenefitSubCategory
-  Short Label = Benefit SubCategory
+  Short Name = Benefit SubCategory
   Definition = Dental: basic, major, ortho; Vision exam, glasses, contacts; etc
 
 === Sheet Search =====================================

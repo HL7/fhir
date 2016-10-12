@@ -102,7 +102,7 @@
   Element = List
   Aliases = Collection; WorkingList; Organizer
   Type = DomainResource
-  Short Label = Information summarized from a list of other resources
+  Short Name = Information summarized from a list of other resources
   Definition = A set of information summarized from a list of other resources.
   RIM Mapping = Act[classCode<ORG,moodCode=EVN]
   To Do = RIM harmonization proposal to move LIST under GROUPER  RIM harmonization proposal to allow organizers to group roles as well as acts.
@@ -112,7 +112,7 @@
   Element = List.identifier
   Card. = 0..*
   Type = Identifier
-  Short Label = Business identifier
+  Short Name = Business identifier
   Definition = Identifier for the List assigned for business purposes outside the context of FHIR.
   RIM Mapping = .id
   w5 = id
@@ -124,7 +124,7 @@
   Summary = Y
   Type = code
   Binding = ListStatus
-  Short Label = current | retired | entered-in-error
+  Short Name = current | retired | entered-in-error
   Definition = Indicates the current state of this list
   w5 = status
 
@@ -135,7 +135,7 @@
   Summary = Y
   Type = code
   Binding = ListMode
-  Short Label = working | snapshot | changes
+  Short Name = working | snapshot | changes
   Definition = How this list was prepared - whether it is a working list that is suitable for being maintained on an ongoing basis, or if it represents a snapshot of a list of items from another source, or whether it is a prepared list where items may be marked as added, modified or deleted
   Requirements = Lists are used in various ways, and it must be known in what way it is safe to use them
   RIM Mapping = .outBoundRelationship[typeCode=COMP].target[classCode=OBS\"].value
@@ -146,7 +146,7 @@
   Card. = 0..1
   Summary = Y
   Type = string
-  Short Label = Descriptive name for the list
+  Short Name = Descriptive name for the list
   Definition = A label for the list assigned by the author
   Requirements = Allows customization beyond just the code identifying the kind of list
   Example = Dr. Jane\'s Patients
@@ -157,7 +157,7 @@
   Summary = Y
   Type = CodeableConcept
   Binding = ListPurpose
-  Short Label = What the purpose of this list is
+  Short Name = What the purpose of this list is
   Definition = This code defines the purpose of the list - why it was created
   Requirements = Lists often contain subsets of resources rather than an exhaustive list.  The code identifies what type of subset is included
   Comments = If there is no code, the purpose of the list is implied where it is used, such as in a document section using Document.section.code
@@ -169,7 +169,7 @@
   Card. = 0..1
   Summary = Y
   Type = Reference(Patient|Group|Device|Location)
-  Short Label = If all resources have the same subject
+  Short Name = If all resources have the same subject
   Definition = The common subject (or patient) of the resources that are in the list, if there is one
   Requirements = The primary purpose of listing the subject explicitly is to help with finding the right list
   Comments = Some purely arbitrary lists do not have a common subject, so this is optional
@@ -180,7 +180,7 @@
   Element = List.encounter
   Card. = 0..1
   Type = Reference(Encounter)
-  Short Label = Context in which list created
+  Short Name = Context in which list created
   Definition = The encounter that is the context in which this list was created
   RIM Mapping = inboundRelationship[typeCode=COMP].source[classCode=ENC, moodCode=EVN]
   w5 = context
@@ -190,7 +190,7 @@
   Card. = 0..1
   Summary = Y
   Type = dateTime
-  Short Label = When the list was prepared
+  Short Name = When the list was prepared
   Definition = The date that the list was prepared
   Requirements = Identifies how current the list is which affects relevance
   Comments = The actual important date is the date of currency of the resources that were summarized, but it is usually assumed that these are current when the preparation occurs
@@ -203,7 +203,7 @@
   Aliases = Author
   Summary = Y
   Type = Reference(Practitioner|Patient|Device)
-  Short Label = Who and/or what defined the list contents (aka Author)
+  Short Name = Who and/or what defined the list contents (aka Author)
   Definition = The entity responsible for deciding what the contents of the list were. Where the list was created by a human, this is the same as the author of the list
   Requirements = Allows follow-up as well as context
   Comments = The primary source is the entity that made the decisions what items are in the list. This may be software or user
@@ -215,7 +215,7 @@
   Card. = 0..1
   Type = CodeableConcept
   Binding = ListOrder
-  Short Label = What order the list has
+  Short Name = What order the list has
   Definition = What order applies to the items in the list
   Requirements = Important for presentation and rendering.  Lists may be sorted to place more important information first or to group related entries.
   Comments = Applications SHOULD render ordered lists in the order provided, but MAY allow users to re-order based on their own preferences as well. If there is no order specified, the order is unknown, though there may still be some order
@@ -225,7 +225,7 @@
   Element = List.note
   Card. = 0..*
   Type = Annotation
-  Short Label = Comments about the list
+  Short Name = Comments about the list
   Definition = Comments that apply to the overall list
 
  -- Row 13 -----------------------------------
@@ -233,7 +233,7 @@
   Card. = 0..*
   UML = right
   Inv. = 1
-  Short Label = Entries in the list
+  Short Name = Entries in the list
   Definition = Entries in this list
   Comments = If there are no entries in the list, an emptyReason SHOULD be provided
   RIM Mapping = .outboundRelationship[typeCode=COMP] or  .participation[typeCode=SBJ]
@@ -243,7 +243,7 @@
   Card. = 0..1
   Type = CodeableConcept
   Binding = ListItemFlag
-  Short Label = Status/Workflow information about this item
+  Short Name = Status/Workflow information about this item
   Definition = The flag allows the system constructing the list to indicate the role and significance of the item in the list
   Requirements = This field is present to support various clinical uses of lists, such as a discharge summary medication list, where flags specify whether the medication was added, modified, or deleted from the list
   Comments = The flag can only be understood in the context of the List.code. If the flag means that the entry has actually been deleted from the list, the deleted element SHALL be true. Deleted can only be used if the List.mode is \"changes\"
@@ -255,7 +255,7 @@
   Is Modifier = Y
   Inv. = 2
   Type = boolean
-  Short Label = If this item is actually marked as deleted
+  Short Name = If this item is actually marked as deleted
   Definition = True if this item is marked as deleted in the list.
   Requirements = The flag element may contain codes that an application processing the list does not understand. However there can be no ambiguity if a list item is actually marked as \"deleted\"
   Comments = If the flag means that the entry has actually been deleted from the list, the deleted element SHALL be true. Both flag and deleted can only be used if the List.mode is \"changes\". A deleted entry should be displayed in narrative as deleted
@@ -266,7 +266,7 @@
   Element = List.entry.date
   Card. = 0..1
   Type = dateTime
-  Short Label = When item added to list
+  Short Name = When item added to list
   Definition = When this item was added to the list
   Requirements = The date may be significant for understanding the meaning of items in a working list
   Comments = This is only useful and meaningful when the mode is \"working\"
@@ -276,7 +276,7 @@
   Element = List.entry.item
   Card. = 1..1
   Type = Reference(Any)
-  Short Label = Actual entry
+  Short Name = Actual entry
   Definition = A reference to the actual resource from which data was derived
   RIM Mapping = .target or .role or .role.entity
 
@@ -286,7 +286,7 @@
   Inv. = 1
   Type = CodeableConcept
   Binding = ListEmptyReason
-  Short Label = Why list is empty
+  Short Name = Why list is empty
   Definition = If the list is empty, why the list is empty
   Requirements = Allows capturing things like \"none exist\" or \"not asked\" which can be important for most lists
   Comments = The various reasons for an empty list make a significant interpretation to its interpretation. Note that this code is for use when the entire list has been suppressed, and not for when individual items are omitted - implementers may consider using a text note or a flag on an entry in these cases

@@ -173,7 +173,7 @@
   Aliases = Visit
   UML = 0;0
   Type = DomainResource
-  Short Label = An interaction during which services are provided to the patient
+  Short Name = An interaction during which services are provided to the patient
   Definition = An interaction between a patient and healthcare provider(s) for the purpose of providing healthcare service(s) or assessing the health status of a patient.
   RIM Mapping = Encounter[@moodCode=\'EVN\']
   w5 = workflow.encounter
@@ -183,7 +183,7 @@
   Card. = 0..*
   Summary = y
   Type = Identifier
-  Short Label = Identifier(s) by which this encounter is known
+  Short Name = Identifier(s) by which this encounter is known
   v2 Mapping = PV1-19
   RIM Mapping = .id
   w5 = id
@@ -195,7 +195,7 @@
   Summary = y
   Type = code
   Binding = EncounterStatus
-  Short Label = planned | arrived | in-progress | onleave | finished | cancelled | entered-in-error
+  Short Name = planned | arrived | in-progress | onleave | finished | cancelled | entered-in-error
   v2 Mapping = No clear equivalent in HL7 v2; active/finished could be inferred from PV1-44, PV1-45, PV2-24; inactive could be inferred from PV2-16
   RIM Mapping = .statusCode
   w5 = status
@@ -205,7 +205,7 @@
   Card. = 0..*
   UML = 20;300
   Type = event
-  Short Label = List of past encounter statuses
+  Short Name = List of past encounter statuses
   Definition = The status history permits the encounter resource to contain the status history without needing to read through the historical versions of the resource, or even have the server store them
   Comments = The current status is always found in the current version of the resource, not the status history
   RIM Mapping = n/a
@@ -215,14 +215,14 @@
   Card. = 1..1
   Type = code
   Binding = EncounterStatus
-  Short Label = planned | arrived | in-progress | onleave | finished | cancelled | entered-in-error
+  Short Name = planned | arrived | in-progress | onleave | finished | cancelled | entered-in-error
   RIM Mapping = n/a
 
  -- Row 6 -----------------------------------
   Element = Encounter.statusHistory.period
   Card. = 1..1
   Type = Period
-  Short Label = The time that the episode was in the specified status
+  Short Name = The time that the episode was in the specified status
   RIM Mapping = n/a
 
  -- Row 7 -----------------------------------
@@ -231,7 +231,7 @@
   Summary = y
   Type = Coding
   Binding = EncounterClass
-  Short Label = inpatient | outpatient | ambulatory | emergency +
+  Short Name = inpatient | outpatient | ambulatory | emergency +
   v2 Mapping = PV1-2
   RIM Mapping = .inboundRelationship[typeCode=SUBJ].source[classCode=LIST].code
   w5 = class
@@ -242,7 +242,7 @@
   Summary = y
   Type = CodeableConcept
   Binding = EncounterType
-  Short Label = Specific type of encounter
+  Short Name = Specific type of encounter
   Definition = Specific type of encounter (e.g. e-mail consultation, surgical day-care, skilled nursing, rehabilitation)
   Comments = Since there are many ways to further classify encounters, this element is 0..*
   v2 Mapping = PV1-4 / PV1-18
@@ -254,7 +254,7 @@
   Card. = 0..1
   Type = CodeableConcept
   Binding = Priority
-  Short Label = Indicates the urgency of the encounter
+  Short Name = Indicates the urgency of the encounter
   v2 Mapping = PV2-25
   RIM Mapping = .priorityCode
   w5 = grade
@@ -265,7 +265,7 @@
   Aliases = patient
   Summary = y
   Type = Reference(Patient)
-  Short Label = The patient present at the encounter
+  Short Name = The patient present at the encounter
   Comments = While the encounter is always about the patient, the patient may not actually be known in all contexts of use
   v2 Mapping = PID-3
   RIM Mapping = .participation[typeCode=SBJ]/role[classCode=PAT]
@@ -276,7 +276,7 @@
   Card. = 0..*
   Summary = Y
   Type = Reference(EpisodeOfCare)
-  Short Label = Episode(s) of care that this encounter should be recorded against
+  Short Name = Episode(s) of care that this encounter should be recorded against
   Definition = Where a specific encounter should be classified as a part of a specific episode(s) of care this field should be used. This association can facilitate grouping of related encounters together for a specific purpose, such as government reporting, issue tracking, association via a common problem.  The association is recorded on the encounter as these are typically created after the episode of care, and grouped on entry rather than editing the episode of care to append another encounter to it (the episode of care could span years)
   v2 Mapping = PV1-54, PV1-53
   RIM Mapping = n/a
@@ -286,7 +286,7 @@
   Element = Encounter.incomingReferral
   Card. = 0..*
   Type = Reference(ReferralRequest)
-  Short Label = The ReferralRequest that initiated this encounter
+  Short Name = The ReferralRequest that initiated this encounter
   Definition = The referral request this encounter satisfies (incoming referral)
   RIM Mapping = .reason.ClinicalDocument
 
@@ -295,7 +295,7 @@
   Card. = 0..*
   Summary = y
   UML = 350;0
-  Short Label = List of participants involved in the encounter
+  Short Name = List of participants involved in the encounter
   Definition = The list of people responsible for providing the service
   v2 Mapping = ROL
   RIM Mapping = .participation[typeCode=PFM]
@@ -306,7 +306,7 @@
   Summary = y
   Type = CodeableConcept
   Binding = ParticipantType
-  Short Label = Role of participant in encounter
+  Short Name = Role of participant in encounter
   Definition = Role of participant in encounter
   Comments = The participant type indicates how an individual partitipates in an encounter. It includes non-practitioner participants, and for practitioners this is to describe the action type in the context of this encounter (e.g. Admitting Dr, Attending Dr, Translator, Consulting Dr). This is different to the practitioner roles which are functional roles, derived from terms of employment, education, licensing, etc.
   v2 Mapping = ROL-3 (or maybe PRT-4)
@@ -316,7 +316,7 @@
   Element = Encounter.participant.period
   Card. = 0..1
   Type = Period
-  Short Label = Period of time during the encounter that the participant participated
+  Short Name = Period of time during the encounter that the participant participated
   Definition = The period of time that the specified participant participated in the encounter. These can overlap or be sub-sets of the overall encounter\'s period
   v2 Mapping = ROL-5, ROL-6 (or maybe PRT-5)
   RIM Mapping = .time
@@ -326,7 +326,7 @@
   Card. = 0..1
   Summary = y
   Type = Reference(Practitioner|RelatedPerson)
-  Short Label = Persons involved in the encounter other than the patient
+  Short Name = Persons involved in the encounter other than the patient
   v2 Mapping = ROL-4
   RIM Mapping = .role
   w5 = who
@@ -336,7 +336,7 @@
   Card. = 0..1
   Summary = y
   Type = Reference(Appointment)
-  Short Label = The appointment that scheduled this encounter
+  Short Name = The appointment that scheduled this encounter
   v2 Mapping = SCH-1 / SCH-2
   RIM Mapping = .outboundRelationship[typeCode=FLFS].target[classCode=ENC, moodCode=APT]
 
@@ -344,7 +344,7 @@
   Element = Encounter.period
   Card. = 0..1
   Type = Period
-  Short Label = The start and end time of the encounter
+  Short Name = The start and end time of the encounter
   Definition = The start and end time of the encounter
   Comments = If not (yet) known, the end of the Period may be omitted
   v2 Mapping = PV1-44, PV1-45
@@ -355,7 +355,7 @@
   Element = Encounter.length
   Card. = 0..1
   Type = Duration
-  Short Label = Quantity of time the encounter lasted (less time absent)
+  Short Name = Quantity of time the encounter lasted (less time absent)
   Definition = Quantity of time the encounter lasted. This excludes the time during leaves of absence.
   Comments = May differ from the time the Encounter.period lasted because of leave of absence.
   v2 Mapping = (PV1-45 less PV1-44) iff ( (PV1-44 not empty) and (PV1-45 not empty) ); units in minutes
@@ -368,7 +368,7 @@
   Summary = y
   Type = CodeableConcept
   Binding = EncounterReason
-  Short Label = Reason the encounter takes place (code)
+  Short Name = Reason the encounter takes place (code)
   Definition = Reason the encounter takes place, expressed as a code. For admissions, this can be used for a coded admission diagnosis
   Comments = For systems that need to know which was the primary diagnosis, these will be marked with the standard extension primaryDiagnosis (which is a sequence value rather than a flag, 1 = primary diagnosis)
   v2 Mapping = EVN-4 / PV2-3 (note: PV2-3 is nominally constrained to inpatient admissions; HL7 v2 makes no vocabulary suggestions for PV2-3; would not expect PV2 segment or PV2-3 to be in use in all implementations )
@@ -380,7 +380,7 @@
   Card. = 0..*
   Aliases = Admission diagnosis
   Type = Reference(Condition|Procedure)
-  Short Label = Reason the encounter takes place (resource)
+  Short Name = Reason the encounter takes place (resource)
   Definition = Reason the encounter takes place, as specified using information from another resource. For admissions, this is the admission diagnosis. The indication will typically be a Condition (with other resources referenced in the evidence.detail), or a Procedure
   Comments = For systems that need to know which was the primary diagnosis, these will be marked with the standard extension primaryDiagnosis (which is a sequence value rather than a flag, 1 = primary diagnosis)
   v2 Mapping = Resources that would commonly referenced at Encounter.indication would be Condition and/or Procedure. These most closely align with DG1/PRB and PR1 respectively.
@@ -391,7 +391,7 @@
   Element = Encounter.account
   Card. = 0..*
   Type = Reference(Account)
-  Short Label = The set of accounts that may be used for billing for this Encounter
+  Short Name = The set of accounts that may be used for billing for this Encounter
   Comments = The billing system may choose to allocate billable items associated with the Encounter to different referenced Accounts based on internal business rules.
   RIM Mapping = .pertains.A_Account
 
@@ -399,7 +399,7 @@
   Element = Encounter.hospitalization
   Card. = 0..1
   UML = 350;200
-  Short Label = Details about the admission to a healthcare service
+  Short Name = Details about the admission to a healthcare service
   Comments = An Encounter may cover more than just the inpatient stay. Contexts such as outpatients, community clinics, and aged care facilities are also included.\r\rThe duration recorded in the period of this encounter covers the entire scope of this hospitalization record.
   RIM Mapping = .outboundRelationship[typeCode=COMP].target[classCode=ENC, moodCode=EVN]
 
@@ -407,7 +407,7 @@
   Element = Encounter.hospitalization.preAdmissionIdentifier
   Card. = 0..1
   Type = Identifier
-  Short Label = Pre-admission identifier
+  Short Name = Pre-admission identifier
   v2 Mapping = PV1-5
   RIM Mapping = .id
 
@@ -416,7 +416,7 @@
   Card. = 0..1
   Type = CodeableConcept
   Binding = PreAdminTest
-  Short Label = Tests to be done before admission
+  Short Name = Tests to be done before admission
   v2 Mapping = PV1-12
   RIM Mapping = .outboundRelationship[typeCode=PRCN].target[classCode=OBS, moodCode=EVN, isCriterion=true]
 
@@ -424,7 +424,7 @@
   Element = Encounter.hospitalization.origin
   Card. = 0..1
   Type = Reference(Location)
-  Short Label = The location from which the patient came before admission
+  Short Name = The location from which the patient came before admission
   RIM Mapping = .participation[typeCode=ORG].role
 
  -- Row 27 -----------------------------------
@@ -432,7 +432,7 @@
   Card. = 0..1
   Type = CodeableConcept
   Binding = AdmitSource
-  Short Label = From where patient was admitted (physician referral, transfer)
+  Short Name = From where patient was admitted (physician referral, transfer)
   v2 Mapping = PV1-14
   RIM Mapping = .admissionReferralSourceCode
 
@@ -440,7 +440,7 @@
   Element = Encounter.hospitalization.admittingDiagnosis
   Card. = 0..*
   Type = Reference(Condition)
-  Short Label = The admitting diagnosis as reported by admitting practitioner
+  Short Name = The admitting diagnosis as reported by admitting practitioner
   Definition = The admitting diagnosis field is used to record the diagnosis codes as reported by admitting practitioner. This could be different or in addition to the conditions reported as reason-condition(s) for the encounter
   RIM Mapping = .reason.A_ObservationDx
 
@@ -449,7 +449,7 @@
   Card. = 0..1
   Type = CodeableConcept
   Binding = ReAdmissionType
-  Short Label = The type of hospital re-admission that has occurred (if any). If the value is absent, then this is not identified as a readmission
+  Short Name = The type of hospital re-admission that has occurred (if any). If the value is absent, then this is not identified as a readmission
   Definition = Whether this hospitalization is a readmission and why if known
   v2 Mapping = PV1-13
   RIM Mapping = Propose at harmonization
@@ -459,7 +459,7 @@
   Element = !Encounter.hospitalization.period
   Card. = 0..1
   Type = Period
-  Short Label = Period during which the patient was admitted
+  Short Name = Period during which the patient was admitted
   Definition = Period during which the patient was admitted
   Comments = May differ from start + length, since length excludes leaves of absence.
   v2 Mapping = PV2-11 / PV1-44 / PV1-45
@@ -469,14 +469,14 @@
   Element = !Encounter.hospitalization.accomodation
   Card. = 0..*
   UML = down
-  Short Label = Where the patient stays during this encounter
+  Short Name = Where the patient stays during this encounter
   RIM Mapping = .outboundRelationship[typeCode=COMP].target[classCode=ACCOM, moodCode=EVN]
 
  -- Row 32 -----------------------------------
   Element = !Encounter.hospitalization.accomodation.bed
   Card. = 0..1
   Type = Reference(Location)
-  Short Label = The bed that is assigned to the patient
+  Short Name = The bed that is assigned to the patient
   v2 Mapping = PV1-3
   RIM Mapping = .participation[typeCode=LOC].role.player[classCode=PLC, code=BED]
 
@@ -484,7 +484,7 @@
   Element = !Encounter.hospitalization.accomodation.period
   Card. = 0..1
   Type = Period
-  Short Label = Period during which the patient was assigned the bed
+  Short Name = Period during which the patient was assigned the bed
   RIM Mapping = .effectiveTime
 
  -- Row 34 -----------------------------------
@@ -492,7 +492,7 @@
   Card. = 0..*
   Type = CodeableConcept
   Binding = PatientDiet
-  Short Label = Diet preferences reported by the patient
+  Short Name = Diet preferences reported by the patient
   Requirements = Used to track patient\'s diet restrictions and/or preference. For a complete description of the nutrition needs of a patient during their stay, one should use the nutritionOrder resource which links to Encounter
   Comments = For example a patient may request both a dairy-free and nut-free diet preference (not mutually exclusive)
   v2 Mapping = PV1-38
@@ -503,7 +503,7 @@
   Card. = 0..*
   Type = CodeableConcept
   Binding = Courtesies
-  Short Label = Special courtesies (VIP, board member)
+  Short Name = Special courtesies (VIP, board member)
   v2 Mapping = PV1-16
   RIM Mapping = .specialCourtesiesCode
 
@@ -512,7 +512,7 @@
   Card. = 0..*
   Type = CodeableConcept
   Binding = Arrangements
-  Short Label = Wheelchair, translator, stretcher, etc.
+  Short Name = Wheelchair, translator, stretcher, etc.
   v2 Mapping = PV1-15 / OBR-30 / OBR-43
   RIM Mapping = .specialArrangementCode
 
@@ -520,7 +520,7 @@
   Element = Encounter.hospitalization.destination
   Card. = 0..1
   Type = Reference(Location)
-  Short Label = Location to which the patient is discharged
+  Short Name = Location to which the patient is discharged
   v2 Mapping = PV1-37
   RIM Mapping = .participation[typeCode=DST]
 
@@ -529,7 +529,7 @@
   Card. = 0..1
   Type = CodeableConcept
   Binding = DischargeDisp
-  Short Label = Category or kind of location after discharge
+  Short Name = Category or kind of location after discharge
   v2 Mapping = PV1-36
   RIM Mapping = .dischargeDispositionCode
 
@@ -537,14 +537,14 @@
   Element = Encounter.hospitalization.dischargeDiagnosis
   Card. = 0..*
   Type = Reference(Condition)
-  Short Label = The final diagnosis given a patient before release from the hospital after all testing, surgery, and workup are complete
+  Short Name = The final diagnosis given a patient before release from the hospital after all testing, surgery, and workup are complete
   RIM Mapping = .outboundRelationship[typeCode=OUT].target[classCode=OBS, moodCode=EVN, code=ASSERTION].value
 
  -- Row 40 -----------------------------------
   Element = Encounter.location
   Card. = 0..*
   UML = 350;100
-  Short Label = List of locations where the patient has been
+  Short Name = List of locations where the patient has been
   Definition = List of locations where  the patient has been during this encounter
   Comments = Virtual encounters can be recorded in the Encounter by specifying a location reference to a location of type \"kind\" such as \"client\'s home\" and an encounter.class = \"virtual\"
   RIM Mapping = .participation[typeCode=LOC]
@@ -553,7 +553,7 @@
   Element = Encounter.location.location
   Card. = 1..1
   Type = Reference(Location)
-  Short Label = Location the encounter takes place
+  Short Name = Location the encounter takes place
   Definition = The location where the encounter takes place
   v2 Mapping = PV1-3 / PV1-6 / PV1-11 / PV1-42 / PV1-43
   RIM Mapping = .role
@@ -564,7 +564,7 @@
   Card. = 0..1
   Type = code
   Binding = EncounterLocationStatus
-  Short Label = planned | active | reserved | completed
+  Short Name = planned | active | reserved | completed
   Definition = The status of the participants\' presence at the specified location during the period specified. If the participant is is no longer at the location, then the period will have an end date/time
   Comments = When the patient is no longer active at a location, then the period end date is entered, and the status may be changed to completed
   RIM Mapping = .role.statusCode
@@ -573,14 +573,14 @@
   Element = Encounter.location.period
   Card. = 0..1
   Type = Period
-  Short Label = Time period during which the patient was present at the location
+  Short Name = Time period during which the patient was present at the location
   RIM Mapping = .time
 
  -- Row 44 -----------------------------------
   Element = Encounter.serviceProvider
   Card. = 0..1
   Type = Reference(Organization)
-  Short Label = The custodian organization of this Encounter record
+  Short Name = The custodian organization of this Encounter record
   Definition = An organization that is in charge of maintaining the information of this Encounter (e.g. who maintains the report or the master service catalog item, etc.). This MAY be the same as the organization on the Patient record, however it could be different. This MAY not be not the Service Delivery Location\'s Organization.
   v2 Mapping = PV1-10 / PL.6  & PL.1  (note: HL7 v2 definition is \"the treatment or type of surgery that the patient is scheduled to receive\"; seems slightly out of alignment with the concept name \'hospital service\'. Would not trust that implementations apply this semantic by default)
   RIM Mapping = .particiaption[typeCode=PFM].role
@@ -589,7 +589,7 @@
   Element = Encounter.partOf
   Card. = 0..1
   Type = Reference(Encounter)
-  Short Label = Another Encounter this encounter is part of
+  Short Name = Another Encounter this encounter is part of
   Definition = Another Encounter of which this encounter is a part of (administratively or in time).
   Comments = This is also used for associating a child\'s encounter back to the mother\'s encounter.\r\rRefer to the Notes section in the Patient resource for further details.
   RIM Mapping = .inboundRelationship[typeCode=COMP].source[classCode=COMP, moodCode=EVN]

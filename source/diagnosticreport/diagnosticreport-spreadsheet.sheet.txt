@@ -92,7 +92,7 @@
   Element = DiagnosticReport
   Aliases = Report, Test, Result, Results, Labs, Laboratory
   Type = DomainResource
-  Short Label = A Diagnostic report - a combination of request information, atomic results, images, interpretation, as well as formatted reports
+  Short Name = A Diagnostic report - a combination of request information, atomic results, images, interpretation, as well as formatted reports
   Definition = The findings and interpretation of diagnostic  tests performed on patients, groups of patients, devices, and locations, and/or specimens derived from these. The report includes clinical context such as requesting and provider information, and some mix of atomic results, images, textual and coded interpretations, and formatted representation of diagnostic reports.
   Requirements = To support reporting for any diagnostic report into a clinical data repository.
   Comments = This is intended to capture a single report, and is not suitable for use in displaying summary information that covers multiple reports.  For example, this resource has not been designed for laboratory cumulative reporting formats nor detailed structured reports for sequencing.
@@ -107,7 +107,7 @@
   Aliases = ReportID
   Summary = y
   Type = Identifier
-  Short Label = Id for external references to this report
+  Short Name = Id for external references to this report
   Definition = The local ID assigned to the report by the order filler, usually by the Information System of the diagnostic service provider
   Requirements = Need to know what identifier to use when making queries about this report from the source laboratory, and for linking to the report outside FHIR context
   v2 Mapping = OBR-51
@@ -121,7 +121,7 @@
   Summary = y
   Type = code
   Binding = DiagnosticReportStatus
-  Short Label = registered | partial | final | corrected | appended | cancelled | entered-in-error
+  Short Name = registered | partial | final | corrected | appended | cancelled | entered-in-error
   Definition = The status of the diagnostic report as a whole
   Requirements = Diagnostic services routinely issue provisional/incomplete reports, and sometimes withdraw previously released reports.
   Comments = This is labeled as \"Is Modifier\" because applications need to take appropriate action if a report is withdrawn
@@ -137,7 +137,7 @@
   Summary = y
   Type = CodeableConcept
   Binding = DiagnosticServiceSection
-  Short Label = Service category
+  Short Name = Service category
   Definition = A code that classifies the clinical discipline, department or diagnostic service that created the report (e.g. cardiology, biochemistry, hematology, MRI). This is used for searching, sorting and display purposes.
   Comments = The level of granularity is defined by the category concepts in the value set. More fine-grained filtering can be performed using the metadata and/or terminology hierarchy in DiagnosticReport.code.
   v2 Mapping = OBR-24
@@ -151,7 +151,7 @@
   Summary = Y
   Type = CodeableConcept
   Binding = DiagnosticReportCodes
-  Short Label = Name/Code for this diagnostic report
+  Short Name = Name/Code for this diagnostic report
   Definition = A code or name that describes this diagnostic report
   v2 Mapping = OBR-4 (HL7 v2 doesn\'t provide an easy way to indicate both the ordered test and the performed panel)
   RIM Mapping = code
@@ -164,7 +164,7 @@
   Aliases = Patient
   Summary = y
   Type = Reference(Patient|Group|Device|Location)
-  Short Label = The subject of the report, usually, but not always, the patient
+  Short Name = The subject of the report, usually, but not always, the patient
   Definition = The subject of the report. Usually, but not always, this is a patient. However diagnostic services also perform analyses on specimens collected from a variety of other sources.
   Requirements = SHALL know the subject context
   v2 Mapping = PID-3 (no HL7 v2 mapping for Group or Device)
@@ -176,7 +176,7 @@
   Card. = 0..1
   Summary = Y
   Type = Reference(Encounter)
-  Short Label = Health care event when test ordered
+  Short Name = Health care event when test ordered
   Definition = The link to the health care event (encounter) when the order was made.
   v2 Mapping = PV1-19
   RIM Mapping = inboundRelationship[typeCode=COMP].source[classCode=ENC, moodCode=EVN]
@@ -189,7 +189,7 @@
   Aliases = Observation time, Effective Time
   Summary = y
   Type = dateTime|Period
-  Short Label = Clinically Relevant time/time-period for report
+  Short Name = Clinically Relevant time/time-period for report
   Definition = The time or time-period the observed values are related to. When the subject of the report is a patient, this is usually either the time of the procedure or of specimen collection(s), but very often the source of the date/time is not known, only the date/time itself.
   Requirements = Need to know where in the patient history to file/present this report
   Comments = If the diagnostic procedure was performed on the patient, this is the time it was performed. If there are specimens, the diagnostically relevant time can be derived from the specimen collection times, but the specimen information is not always available, and the exact relationship between the specimens and the diagnostically relevant time is not always automatic.
@@ -203,7 +203,7 @@
   Aliases = Date Created, Date published, Date Issued
   Summary = y
   Type = instant
-  Short Label = DateTime this version was released
+  Short Name = DateTime this version was released
   Definition = The date and time that this version of the report was released from the source diagnostic service
   Requirements = Clinicians need to be able to check the date that the report was released
   Comments = May be different from the update time of the resource itself, because that is the status of the record (potentially a secondary copy), not the actual release time of the report
@@ -218,7 +218,7 @@
   Aliases = Laboratory, Service, Practitioner, Department, Company
   Summary = y
   Type = Reference(Practitioner|Organization)
-  Short Label = Responsible Diagnostic Service
+  Short Name = Responsible Diagnostic Service
   Definition = The diagnostic service that is responsible for issuing the report
   Requirements = Need to know whom to contact if there are queries about the results. Also may need to track the source of reports for secondary data analysis
   Comments = This is not necessarily the source of the atomic data items. It is the entity that takes responsibility for the clinical report.
@@ -230,7 +230,7 @@
   Element = DiagnosticReport.request
   Card. = 0..*
   Type = Reference(DiagnosticRequest|ProcedureRequest|ReferralRequest)
-  Short Label = What was requested
+  Short Name = What was requested
   Definition = Details concerning a test or procedure requested.
   Requirements = Need to be able to track completion of requests based on reports issued and also to report what diagnostic tests were requested (not always the same as what is delivered)
   Comments = Note: Usually there is one test request for each result, however in some circumstances multiple test requests may be represented using a single test result resource. Note that there are also cases where one request leads to multiple reports.
@@ -241,7 +241,7 @@
   Element = DiagnosticReport.specimen
   Card. = 0..*
   Type = Reference(Specimen)
-  Short Label = Specimens this report is based on
+  Short Name = Specimens this report is based on
   Definition = Details about the specimens on which this diagnostic report is based
   Requirements = Need to be able to report information about the collected specimens on which the report is based
   Comments = If the specimen is sufficiently specified with a code in the test result name, then this additional data may be redundant. If there are multiple specimens, these may be represented per Observation or group.
@@ -253,7 +253,7 @@
   Card. = 0..*
   Aliases = Data, Atomic Value, Result, Atomic result, Data, Test, Analyte,Battery, Organizer
   Type = Reference(Observation)
-  Short Label = Observations - simple, or complex nested groups
+  Short Name = Observations - simple, or complex nested groups
   Definition = Observations that are part of this diagnostic report. Observations can be simple name/value pairs (e.g. \"atomic\" results), or they can be grouping observations that include references to other members of the group (e.g. \"panels\").
   Requirements = Need to support individual results, or report groups of results, where the result grouping is arbitrary, but meaningful. This structure is recursive - observations can contain observations
   v2 Mapping = OBXs
@@ -263,7 +263,7 @@
   Element = DiagnosticReport.imagingStudy
   Card. = 0..*
   Type = Reference(ImagingStudy|ImagingManifest)
-  Short Label = Reference to full details of imaging associated with the diagnostic report
+  Short Name = Reference to full details of imaging associated with the diagnostic report
   Definition = One or more links to full details of any imaging performed during the diagnostic investigation. Typically, this is imaging performed by DICOM enabled modalities, but this is not required. A fully enabled PACS viewer can use this information to provide views of the source images.
   Comments = ImagingStudy and ImageManifest and the image element are somewhat overlapping - typically, the list of image references in the image element will also be found in one of the imaging study resources. However each caters to different types of displays for different types of purposes. Neither, either, or both may be provided.
   RIM Mapping = outboundRelationship[typeCode=COMP].target[classsCode=DGIMG, moodCode=EVN]
@@ -275,7 +275,7 @@
   Aliases = DICOM, Slides, Scans
   Summary = Y
   UML = 400;125
-  Short Label = Key images associated with this report
+  Short Name = Key images associated with this report
   Definition = A list of key images associated with this report. The images are generally created during the diagnostic process, and may be directly of the patient, or of treated specimens (i.e. slides of interest).
   Requirements = Many diagnostic services include images in the report as part of their service
   v2 Mapping = OBX?
@@ -285,7 +285,7 @@
   Element = DiagnosticReport.image.comment
   Card. = 0..1
   Type = string
-  Short Label = Comment about the image (e.g. explanation)
+  Short Name = Comment about the image (e.g. explanation)
   Definition = A comment about the image. Typically, this is used to provide an explanation for why the image is included, or to draw the viewer\'s attention to important features.
   Requirements = The provider of the report should make a comment about each image included in the report.
   Comments = The comment should be displayed with the image. It would be common for the report to include additional discussion of the image contents in other sections such as the conclusion.
@@ -296,7 +296,7 @@
   Card. = 1..1
   Summary = Y
   Type = Reference(Media)
-  Short Label = Reference to the image source
+  Short Name = Reference to the image source
   RIM Mapping = .value.reference
 
  -- Row 18 -----------------------------------
@@ -304,7 +304,7 @@
   Card. = 0..1
   Aliases = Report
   Type = string
-  Short Label = Clinical Interpretation of test results
+  Short Name = Clinical Interpretation of test results
   Definition = Concise and clinically contextualized impression / summary of the diagnostic report.
   Requirements = Need to be able to provide a conclusion that is not lost among the basic result data
   v2 Mapping = OBX
@@ -315,7 +315,7 @@
   Card. = 0..*
   Type = CodeableConcept
   Binding = AdjunctDiagnosis
-  Short Label = Codes for the conclusion
+  Short Name = Codes for the conclusion
   v2 Mapping = OBX
   RIM Mapping = inboundRelationship[typeCode=SPRT].source[classCode=OBS, moodCode=EVN, code=LOINC:54531-9].value (type=CD)
 
@@ -323,7 +323,7 @@
   Element = DiagnosticReport.presentedForm
   Card. = 0..*
   Type = Attachment
-  Short Label = Entire report as issued
+  Short Name = Entire report as issued
   Definition = Rich text representation of the entire result as issued by the diagnostic service. Multiple formats are allowed but they SHALL be semantically equivalent.
   Requirements = Gives Laboratory the ability to provide its own fully formatted report for clinical fidelity
   Comments = \"application/pdf\" is recommended as the most reliable and interoperable in this context.
