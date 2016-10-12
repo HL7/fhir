@@ -16,7 +16,7 @@
  -- Row 1 -----------------------------------
   Element = Signature
   Type = Type
-  Short Label = A digital Signature - XML DigSig, JWT, Graphical image of signature, etc.
+  Short Name = A digital Signature - XML DigSig, JWT, Graphical image of signature, etc.
   Definition = A digital signature along with supporting context. The signature may be electronic/cryptographic in nature, or a graphical image representing a hand-written signature, or a signature process. Different Signature approaches have different utilities
   Requirements = There are a number of places where content must be signed in healthcare
   Comments = The elements of the Signature Resource are for ease of access of these elements. Foro digital signatures (Xml DigSig, JWT), the non-repudiation proof comes from the Signature  validation, which includes validation of the referenced objects (e.g. Resources) (a.k.a., Content) in the XML-Signature Detached form.
@@ -27,7 +27,7 @@
   Summary = y
   Type = Coding
   Binding = SignatureType
-  Short Label = Indication of the reason the entity signed the object(s)
+  Short Name = Indication of the reason the entity signed the object(s)
   Definition = An indication of the reason that the entity signed this document. This may be explicitly included as part of the signature information and can be used when determining accountability for various actions concerning the document.
   Comments = Examples include attesting to: authorship, correct transcription, and witness of specific event. Also known as a &quot;Commitment Type Indication&quot;
 
@@ -36,7 +36,7 @@
   Card. = 1..1
   Summary = y
   Type = instant
-  Short Label = When the signature was created
+  Short Name = When the signature was created
   Definition = When the digital signature was signed.
   Comments = This should agree with the information in the signature
 
@@ -45,7 +45,7 @@
   Card. = 1..1
   Summary = y
   Type = uri|Reference(Practitioner|RelatedPerson|Patient|Device|Organization)
-  Short Label = Who signed
+  Short Name = Who signed
   Definition = A reference to an application-usable description of the identity that signed  (e.g. the signature used their private key)
   Comments = This should agree with the information in the signature
 
@@ -54,7 +54,7 @@
   Card. = 0..1
   Summary = y
   Type = uri|Reference(Practitioner|RelatedPerson|Patient|Device|Organization)
-  Short Label = The party represented
+  Short Name = The party represented
   Definition = A reference to an application-usable description of the identity that is represented by the signature.
   Requirements = used when the signature is on behalf of a non-signer.
   Comments = The party that can\'t sign. For example a child.
@@ -65,13 +65,13 @@
   Summary = y
   Type = code
   Binding = MimeType
-  Short Label = The technical format of the signature
+  Short Name = The technical format of the signature
   Definition = A mime type that indicates the technical format of the signature. Important mime types are application/signature+xml for X ML DigSig, application/jwt for JWT, and image/* for a graphical image of a signature, etc.
 
  -- Row 7 -----------------------------------
   Element = Signature.blob
   Card. = 0..1
   Type = base64Binary
-  Short Label = The actual signature content (XML DigSig. JWT, picture, etc.)
+  Short Name = The actual signature content (XML DigSig. JWT, picture, etc.)
   Definition = The base64 encoding of the Signature content. When signature is not recorded electronically this element would be empty.
   Comments = Where the signature type is an XML DigSig, the signed content is a FHIR Resource(s), the signature is of the XML form of the Resource(s) using  XML-Signature (XMLDIG) \"Detached Signature\" form.

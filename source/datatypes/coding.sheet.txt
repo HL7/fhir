@@ -8,7 +8,7 @@
  -- Row 1 -----------------------------------
   Element = Coding
   Type = Type
-  Short Label = A reference to a code defined by a terminology system
+  Short Name = A reference to a code defined by a terminology system
   Definition = A reference to a code defined by a terminology system
   Requirements = References to codes are very common in healthcare models
   Comments = Codes may be defined very casually in enumerations or code lists, up to very formal definitions such as SNOMED CT - see the HL7 v3 Core Principles for more information
@@ -20,7 +20,7 @@
   Element = Coding.system
   Card. = 0..1
   Type = uri
-  Short Label = Identity of the terminology system
+  Short Name = Identity of the terminology system
   Definition = The identification of the code system that defines the meaning of the symbol in the code.
   Requirements = Need to be unambiguous about the source of the definition of the symbol
   Comments = The URI may be an OID (urn:oid:...) or a UUID (urn:uuid:...).  OIDs and UUIDs SHALL be references to the HL7 OID registry. Otherwise, the URI should come from HL7\'s list of FHIR defined special URIs or it should de-reference to some definition that establish the system clearly and unambiguously
@@ -32,7 +32,7 @@
   Element = Coding.version
   Card. = 0..1
   Type = string
-  Short Label = Version of the system - if relevant
+  Short Name = Version of the system - if relevant
   Definition = The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured. and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged
   Comments = Where the terminology does not clearly define what string should be used to identify code system versions, the recommendation is to use the date (expressed in FHIR date format) on which that version was officially published as the version date
   v2 Mapping = C*E.7
@@ -43,7 +43,7 @@
   Element = Coding.code
   Card. = 0..1
   Type = code
-  Short Label = Symbol in syntax defined by the system
+  Short Name = Symbol in syntax defined by the system
   Definition = A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination)
   Requirements = Need to refer to a particular code in the system
   v2 Mapping = C*E.1
@@ -54,7 +54,7 @@
   Element = Coding.display
   Card. = 0..1
   Type = string
-  Short Label = Representation defined by the system
+  Short Name = Representation defined by the system
   Definition = A representation of the meaning of the code in the system, following the rules of the system
   Requirements = Need to be able to carry a human-readable meaning of the code for readers that do not know  the system
   v2 Mapping = C*E.2 - but note this is not well followed
@@ -65,7 +65,7 @@
   Element = Coding.userSelected
   Card. = 0..1
   Type = boolean
-  Short Label = If this coding was chosen directly by the user
+  Short Name = If this coding was chosen directly by the user
   Definition = Indicates that this coding was chosen by a user directly - i.e. off a pick list of available items (codes or displays)
   Requirements = This has been identified as a clinical safety criterium - that this exact system/code pair was chosen explicitly, rather than inferred by the system based on some rules or language processing
   Comments = Amongst a set of alternatives, a directly chosen code is the most appropriate starting point for new translations. There is some ambiguity about what exactly \'directly chosen\' implies, and trading partner agreement may be needed to clarify the use of this element and its consequences more completely

@@ -107,7 +107,7 @@
   Element = DeviceComponent
   UML = 0;0
   Type = DomainResource
-  Short Label = An instance of a medical-related component of a medical device
+  Short Name = An instance of a medical-related component of a medical device
   Definition = Describes the characteristics, operational status and capabilities of a medical-related component of a medical device.
   Comments = For the initial scope, this DeviceComponent resource is only applicable to describe a single node in the containment tree that is produced by the context scanner in any medical device that implements or derives from the ISO/IEEE 11073 standard and that does not represent a metric. Examples for such a node are MDS, VMD, or Channel.
   w5 = administrative.device
@@ -117,7 +117,7 @@
   Card. = 1..1
   Type = CodeableConcept
   Binding = ComponentType
-  Short Label = What kind of component it is
+  Short Name = What kind of component it is
   Definition = Describes the specific component type as defined in the object-oriented or metric nomenclature partition.
   Comments = DeviceComponent.type can be referred to either GDMN (nomenclature system supported by FDA Global UDI Database) or preferable RTMMS coding system.
   w5 = class
@@ -126,7 +126,7 @@
   Element = DeviceComponent.identifier
   Card. = 1..1
   Type = Identifier
-  Short Label = Instance id assigned by the software stack
+  Short Name = Instance id assigned by the software stack
   Definition = Describes the local assigned unique identification by the software. For example: handle ID.
   w5 = id
 
@@ -134,7 +134,7 @@
   Element = DeviceComponent.lastSystemChange
   Card. = 1..1
   Type = instant
-  Short Label = Recent system change timestamp
+  Short Name = Recent system change timestamp
   Definition = Describes the timestamp for the most recent system change which includes device configuration or setting change.
   w5 = when.init
 
@@ -142,14 +142,14 @@
   Element = DeviceComponent.source
   Card. = 0..1
   Type = Reference(Device)
-  Short Label = A source device of this component
+  Short Name = A source device of this component
   Definition = Describes the link to the source Device that contains administrative device information such as manufacture, serial number, etc.
 
  -- Row 6 -----------------------------------
   Element = DeviceComponent.parent
   Card. = 0..1
   Type = Reference(DeviceComponent)
-  Short Label = Parent resource link
+  Short Name = Parent resource link
   Definition = Describes the link to the parent resource. For example: Channel is linked to its VMD parent.
 
  -- Row 7 -----------------------------------
@@ -157,7 +157,7 @@
   Card. = 0..*
   Type = CodeableConcept
   Binding = DeviceComponentOperationalStatus
-  Short Label = Component operational status
+  Short Name = Component operational status
   Definition = Indicates current operational status of the device. For example: On, Off, Standby, etc.
   Comments = OperationalStatus for the MDS, VMD, or Channel will be bound to a specific ValueSet that is defined in its profile.
 
@@ -166,7 +166,7 @@
   Card. = 0..1
   Type = CodeableConcept
   Binding = DeviceComponentParameterGroup
-  Short Label = Current supported parameter group
+  Short Name = Current supported parameter group
   Definition = Describes the parameter group supported by the current device component that is based on some nomenclature, e.g. cardiovascular.
 
  -- Row 9 -----------------------------------
@@ -174,14 +174,14 @@
   Card. = 0..1
   Type = code
   Binding = Measmnt-Principle
-  Short Label = other | chemical | electrical | impedance | nuclear | optical | thermal | biological | mechanical | acoustical | manual+
+  Short Name = other | chemical | electrical | impedance | nuclear | optical | thermal | biological | mechanical | acoustical | manual+
   Definition = Describes the physical principle of the measurement. For example: thermal, chemical, acoustical, etc.
 
  -- Row 10 -----------------------------------
   Element = DeviceComponent.productionSpecification
   Card. = 0..*
   UML = 420;50
-  Short Label = Production specification of the component
+  Short Name = Production specification of the component
   Definition = Describes the production specification such as component revision, serial number, etc.
 
  -- Row 11 -----------------------------------
@@ -189,21 +189,21 @@
   Card. = 0..1
   Type = CodeableConcept
   Binding = DeviceSpecificationSpecType
-  Short Label = Specification type
+  Short Name = Specification type
   Definition = Describes the specification type, such as, serial number, part number, hardware revision, software revision, etc.
 
  -- Row 12 -----------------------------------
   Element = DeviceComponent.productionSpecification.componentId
   Card. = 0..1
   Type = Identifier
-  Short Label = Internal component unique identification
+  Short Name = Internal component unique identification
   Definition = Describes the internal component unique identification. This is a provision for manufacture specific standard components using a private OID. 11073-10101 has a partition for private OID semantic that the manufacture can make use of.
 
  -- Row 13 -----------------------------------
   Element = DeviceComponent.productionSpecification.productionSpec
   Card. = 0..1
   Type = string
-  Short Label = A printable string defining the component
+  Short Name = A printable string defining the component
   Definition = Describes the printable string defining the component.
 
  -- Row 14 -----------------------------------
@@ -211,7 +211,7 @@
   Card. = 0..1
   Type = CodeableConcept
   Binding = Language
-  Short Label = Language code for the human-readable text strings produced by the device
+  Short Name = Language code for the human-readable text strings produced by the device
   Definition = Describes the language code for the human-readable text string produced by the device. This language code will follow the IETF language tag. Example: en-US.
 
 === Sheet Search =====================================

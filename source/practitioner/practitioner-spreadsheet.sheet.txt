@@ -29,7 +29,7 @@
  -- Row 1 -----------------------------------
   Element = Practitioner
   Type = DomainResource
-  Short Label = A person with a  formal responsibility in the provisioning of healthcare or related services
+  Short Name = A person with a  formal responsibility in the provisioning of healthcare or related services
   Definition = A person who is directly or indirectly involved in the provisioning of healthcare.
   Requirements = Need to track doctors, staff, locums etc. for both healthcare practitioners, funders, etc.
   Comments = Note that a cab driver no longer fits the bill. You probably would be interested in the organization rather than the individual?
@@ -43,7 +43,7 @@
   Card. = 0..*
   Summary = y
   Type = Identifier
-  Short Label = A identifier for the person as this agent
+  Short Name = A identifier for the person as this agent
   Definition = An identifier that applies to this person in this role
   Requirements = Often, specific identities are assigned for the agent
   v2 Mapping = PRD-7 (or XCN.1)
@@ -57,7 +57,7 @@
   Card. = 0..1
   Summary = y
   Type = boolean
-  Short Label = Whether this practitioner\'s record is in active use
+  Short Name = Whether this practitioner\'s record is in active use
   Definition = Whether this practitioner\'s record is in active use
   Requirements = Need to be able to mark a practitioner record as not to be used because it was created in error
   Comments = Default is true. \r\rIf the practitioner is not in use by one organization, then it should mark the period on the PractitonerRole with an end date (even if they are active) as they may be active in another role.
@@ -70,7 +70,7 @@
   Card. = 0..*
   Summary = y
   Type = HumanName
-  Short Label = The name(s) associated with the practitioner
+  Short Name = The name(s) associated with the practitioner
   Definition = The name(s) associated with the practitioner
   Requirements = The name(s) that a Practitioner is known by. Where there are multiple, the name that the practitioner is usually known as should be used in the display.
   Comments = The selection of the use property should ensure that there is a single usual name specified, and others use the nickname (alias), old, or other values as appropriate.\r\rIn general select the value to be used in the ResourceReference.display based on this:\r\r1. There is more than 1 name\r2. Use = usual\r3. Period is current to the date of the usage\r4. Use = official\r5. Other order as decided by internal business rules.
@@ -83,7 +83,7 @@
   Card. = 0..*
   Summary = y
   Type = ContactPoint
-  Short Label = A contact detail for the practitioner (that apply to all roles)
+  Short Name = A contact detail for the practitioner (that apply to all roles)
   Definition = A contact detail for the practitioner, e.g. a telephone number or an email address.
   Requirements = Need to know how to reach a practitioner independent to any roles the practitioner may have
   Comments = Person may have multiple ways to be contacted with different uses or applicable periods.  May need to have options for contacting the person urgently, and also to help with identification\r\rThese typically will have home numbers, or mobile numbers that are not role specific.
@@ -96,7 +96,7 @@
   Card. = 0..*
   Summary = y
   Type = Address
-  Short Label = Address(es) of the practitioner that are not role specific (typically home address)
+  Short Name = Address(es) of the practitioner that are not role specific (typically home address)
   Definition = Address(es) of the practitioner that are not role specific (typically home address). \rWork addresses are not typically entered in this property as they are usually role dependent.
   Requirements = The home/mailing address of the practitioner is often required for employee administration purposes, and also for some rostering services where the start point (practitioners home) can be used in calculations.
   Comments = The PractitionerRole does not have an address value on it, as it is expected that the location property be used for this purpose (which has an address)
@@ -110,7 +110,7 @@
   Summary = y
   Type = code
   Binding = AdministrativeGender
-  Short Label = male | female | other | unknown
+  Short Name = male | female | other | unknown
   Definition = Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes.
   Requirements = Needed to address the person correctly
   v2 Mapping = STF-5
@@ -122,7 +122,7 @@
   Card. = 0..1
   Summary = y
   Type = date
-  Short Label = The date  on which the practitioner was born
+  Short Name = The date  on which the practitioner was born
   Definition = The date of birth for the practitioner
   Requirements = Needed for identification
   v2 Mapping = STF-6
@@ -133,7 +133,7 @@
   Element = Practitioner.photo
   Card. = 0..*
   Type = Attachment
-  Short Label = Image of the person
+  Short Name = Image of the person
   Definition = Image of the person
   Requirements = Many EHR systems have the capability to capture an image of patients and personnel. Fits with newer social media usage too.
   RIM Mapping = ./subjectOf/ObservationEvent[code=\"photo\"]/value
@@ -144,7 +144,7 @@
   Card. = 0..1
   Summary = y
   Type = Reference(Organization)
-  Short Label = The represented organization
+  Short Name = The represented organization
   Definition = The organization that the practitioner represents
   Requirements = Need to be able to track the represented organization separately, if any.
   v2 Mapping = PRD-10 (-> 14) / PRA-9  / PRT-8
@@ -155,7 +155,7 @@
   Element = Practitioner.role
   Card. = 0..*
   UML = 400;20
-  Short Label = Roles/organizations the practitioner is associated with
+  Short Name = Roles/organizations the practitioner is associated with
   Definition = The list of roles/organizations that the practitioner is associated with
   Comments = The address to be used for this PractitionerRole is in the referenced location (removing duplication across all the services provided at the location)
   RIM Mapping = .playingEntity.playingRole
@@ -164,7 +164,7 @@
   Element = Practitioner.role.organization
   Card. = 0..1
   Type = Reference(Organization)
-  Short Label = Organization where the roles are performed
+  Short Name = Organization where the roles are performed
   Definition = The organization where the Practitioner performs the roles associated
   RIM Mapping = .playingEntity.playingRole.scopingOrganization
 
@@ -174,7 +174,7 @@
   Summary = y
   Type = CodeableConcept
   Binding = PractitionerRole
-  Short Label = Roles which this practitioner may perform
+  Short Name = Roles which this practitioner may perform
   Definition = Roles which this practitioner is authorized to perform for the organization
   Requirements = Need to know what authority the practitioner has - what can they do?
   Comments = A person may have more than one role. At least one role is required.
@@ -188,7 +188,7 @@
   Summary = y
   Type = CodeableConcept
   Binding = PractitionerSpecialty
-  Short Label = Specific specialty of the practitioner
+  Short Name = Specific specialty of the practitioner
   Definition = Specific specialty of the practitioner
   v2 Mapping = PRA-5
   RIM Mapping = .playingEntity.playingRole[classCode=QUAL].code
@@ -199,7 +199,7 @@
   Card. = 0..*
   Summary = y
   Type = Identifier
-  Short Label = Business Identifiers that are specific to a role/location
+  Short Name = Business Identifiers that are specific to a role/location
   Requirements = Some business identifiers are specific to a location and should be able to be associated.
   RIM Mapping = .playingEntity.playingRole.id
 
@@ -208,7 +208,7 @@
   Card. = 0..*
   Summary = y
   Type = ContactPoint
-  Short Label = Contact details that are specific to the role/location/service
+  Short Name = Contact details that are specific to the role/location/service
   Requirements = Often practitioners have a dedicated line for each location (or service) that they work at, and need to be able to define separate contact details for each of these.
   RIM Mapping = .playingEntity.playingRole.telecom
 
@@ -217,7 +217,7 @@
   Card. = 0..1
   Summary = y
   Type = Period
-  Short Label = The period during which the practitioner is authorized to perform in these role(s)
+  Short Name = The period during which the practitioner is authorized to perform in these role(s)
   Definition = The period during which the person is authorized to act as a practitioner in these role(s) for the organization
   Requirements = Even after the agencies is revoked, the fact that it existed must still be recorded
   v2 Mapping = PRD-8/9 / PRA-5.4
@@ -230,7 +230,7 @@
   Element = Practitioner.role.location
   Card. = 0..*
   Type = Reference(Location)
-  Short Label = The location(s) at which this practitioner provides care
+  Short Name = The location(s) at which this practitioner provides care
   Definition = The location(s) at which this practitioner provides care
   RIM Mapping = .playingEntity.playingRole.location.source[classCode=SDLOC]
   ServD Mapping = (ServD maps Practitioners and Organizations via another entity, so this concept is not available)<br/> However these are accessed via the Site.ServiceSite.ServiceSiteProvider record. (The Site has the location)
@@ -240,21 +240,21 @@
   Element = Practitioner.role.healthcareService
   Card. = 0..*
   Type = Reference(HealthcareService)
-  Short Label = The list of healthcare services that this worker provides for this role\'s Organization/Location(s)
+  Short Name = The list of healthcare services that this worker provides for this role\'s Organization/Location(s)
   RIM Mapping = n/a
 
  -- Row 20 -----------------------------------
   Element = Practitioner.role.endpoint
   Card. = 0..*
   Type = Reference(Endpoint)
-  Short Label = Technical endpoints providing access to services operated for the PractitonerRole
+  Short Name = Technical endpoints providing access to services operated for the PractitonerRole
   RIM Mapping = n/a
 
  -- Row 21 -----------------------------------
   Element = Practitioner.qualification
   Card. = 0..*
   UML = 350;200
-  Short Label = Qualifications obtained by training and certification
+  Short Name = Qualifications obtained by training and certification
   v2 Mapping = CER?
   RIM Mapping = .playingEntity.playingRole[classCode=QUAL].code
   ServD Mapping = ./Qualifications
@@ -263,7 +263,7 @@
   Element = Practitioner.qualification.identifier
   Card. = 0..*
   Type = Identifier
-  Short Label = An identifier for this qualification for the practitioner
+  Short Name = An identifier for this qualification for the practitioner
   Definition = An identifier that applies to this person\'s qualification in this role
   Requirements = Often, specific identities are assigned for the qualification
   RIM Mapping = .playingEntity.playingRole[classCode=QUAL].id
@@ -273,7 +273,7 @@
   Card. = 1..1
   Type = CodeableConcept
   Binding = Qualification
-  Short Label = Coded representation of the qualification
+  Short Name = Coded representation of the qualification
   RIM Mapping = .playingEntity.playingRole[classCode=QUAL].code
   ServD Mapping = ./Qualifications.Value
 
@@ -281,7 +281,7 @@
   Element = Practitioner.qualification.period
   Card. = 0..1
   Type = Period
-  Short Label = Period during which the qualification is valid
+  Short Name = Period during which the qualification is valid
   Definition = Period during which the qualification is valid
   Requirements = Qualifications are often for a limited period of time, and can be revoked.
   RIM Mapping = .playingEntity.playingRole[classCode=QUAL].effectiveTime
@@ -291,7 +291,7 @@
   Element = Practitioner.qualification.issuer
   Card. = 0..1
   Type = Reference(Organization)
-  Short Label = Organization that regulates and issues the qualification
+  Short Name = Organization that regulates and issues the qualification
   Definition = Organization that regulates and issues the qualification
   RIM Mapping = .playingEntity.playingRole[classCode=QUAL].scoper
 
@@ -300,7 +300,7 @@
   Card. = 0..*
   Type = CodeableConcept
   Binding = Language
-  Short Label = A language the practitioner is able to use in patient communication
+  Short Name = A language the practitioner is able to use in patient communication
   Definition = A language the practitioner is able to use in patient communication
   Requirements = Knowing which language a practitioner speaks can help in facilitating communication with patients
   Comments = The structure aa-BB with this exact casing is one the most widely used notations for locale. However not all systems actually code this but instead have it as free text. Hence CodeableConcept instead of code as the data type

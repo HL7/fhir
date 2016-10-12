@@ -175,7 +175,7 @@
   Aliases = Care Team
   UML = 0,0
   Type = DomainResource
-  Short Label = Healthcare plan for patient or group
+  Short Name = Healthcare plan for patient or group
   Definition = Describes the intention of how one or more practitioners intend to deliver care for a particular patient, group or community for a period of time, possibly limited to care for a specific condition or set of conditions.
   RIM Mapping = Act[classCode=PCPR, moodCode=INT]
   Committee Notes = At present, this resource combines the concepts of CarePlan and CareTeam.  Should they be split?
@@ -186,7 +186,7 @@
   Card. = 0..*
   Summary = Y
   Type = Identifier
-  Short Label = External Ids for this plan
+  Short Name = External Ids for this plan
   Definition = This records identifiers associated with this care plan that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation)
   Requirements = Need to allow connection to a wider workflow
   v2 Mapping = PTH-3
@@ -200,7 +200,7 @@
   Summary = Y
   Type = code
   Binding = CarePlanStatus
-  Short Label = proposed | draft | active | completed | cancelled
+  Short Name = proposed | draft | active | completed | cancelled
   Definition = Indicates whether the plan is currently being acted upon, represents future intentions or is now a historical record.
   Requirements = Allows clinicians to determine whether the plan is actionable or not
   v2 Mapping = PTH-5
@@ -213,7 +213,7 @@
   Summary = Y
   Type = CodeableConcept
   Binding = CarePlanCategory
-  Short Label = Type of plan
+  Short Name = Type of plan
   Definition = Identifies what \"kind\" of plan this is to support differentiation between multiple co-existing plans; e.g. \"Home health\", \"psychiatric\", \"asthma\", \"disease management\", \"wellness plan\", etc.
   Requirements = Used for filtering what plan(s) are retrieved and displayed to different types of users
   Comments = There may be multiple axis of categorization and one plan may serve multiple purposes.  In some cases, this may be redundant with references to CarePlan.concern.
@@ -225,7 +225,7 @@
   Card. = 0..1
   Summary = Y
   Type = string
-  Short Label = Summary of nature of plan
+  Short Name = Summary of nature of plan
   Definition = A description of the scope and nature of the plan
   Requirements = Provides more detail than conveyed by category
   w5 = what
@@ -235,7 +235,7 @@
   Card. = 0..1
   Summary = Y
   Type = Reference(Patient | Group)
-  Short Label = Who care plan is for
+  Short Name = Who care plan is for
   Definition = Identifies the patient or group whose intended care is described by the plan.
   v2 Mapping = PID-3
   RIM Mapping = .participation[typeCode=PAT].role[classCode=PAT]
@@ -246,7 +246,7 @@
   Card. = 0..1
   Summary = Y
   Type = Reference(Encounter|EpisodeOfCare)
-  Short Label = Created in context of
+  Short Name = Created in context of
   Definition = Identifies the context in which this particular CarePlan is defined.
   Comments = Activities conducted as a result of the care plan may well occur as part of other encounters/episodes
   v2 Mapping = Associated PV1
@@ -258,7 +258,7 @@
   Card. = 0..1
   Summary = Y
   Type = Period
-  Short Label = Time period plan covers
+  Short Name = Time period plan covers
   Definition = Indicates when the plan did (or is intended to) come into effect and end.
   Requirements = Allows tracking what plan(s) are in effect at a particular time.
   Comments = Any activities scheduled as part of the plan should be constrained to the specified period.
@@ -271,7 +271,7 @@
   Card. = 0..1
   Summary = Y
   Type = dateTime
-  Short Label = When last updated
+  Short Name = When last updated
   Definition = Identifies the most recent date on which the plan has been revised.
   Requirements = Indicates how current the plan is.
   v2 Mapping = PTH-6
@@ -284,7 +284,7 @@
   Card. = 0..*
   Summary = Y
   Type = Reference(Patient|Practitioner|RelatedPerson|Organization)
-  Short Label = Who is responsible for contents of the plan
+  Short Name = Who is responsible for contents of the plan
   Definition = Identifies the individual(s) or ogranization who is responsible for the content of the care plan.
   Comments = Collaborative care plans may have multiple authors.
   w5 = who.source
@@ -293,7 +293,7 @@
   Element = CarePlan.careTeam
   Card. = 0..*
   Type = Reference(CareTeam)
-  Short Label = Who\'s involved in plan?
+  Short Name = Who\'s involved in plan?
   Definition = Identifies all people and organizations who are expected to be involved in the care envisioned by this plan.
   Requirements = Allows representation of care teams, helps scope care plan.  In some cases may be a determiner of access permissions.
   w5 = who.actor
@@ -303,7 +303,7 @@
   Card. = 0..*
   Summary = Y
   Type = Reference(Condition)
-  Short Label = Health issues this plan addresses
+  Short Name = Health issues this plan addresses
   Definition = Identifies the conditions/problems/concerns/diagnoses/etc. whose management and/or mitigation are handled by this plan.
   Requirements = Links plan to the conditions it manages.  Also scopes plans - multiple plans may exist addressing different concerns.
   v2 Mapping = PRB-4
@@ -314,7 +314,7 @@
   Element = CarePlan.support
   Card. = 0..*
   Type = Reference(Any)
-  Short Label = Information considered as part of plan
+  Short Name = Information considered as part of plan
   Definition = Identifies portions of the patient\'s record that specifically influenced the formation of the plan.  These might include co-morbidities, recent procedures, limitations, recent assessments, etc.
   Requirements = Identifies barriers and other considerations associated with the care plan.
   Comments = Use \"concern\" to identify specific conditions addressed by the care plan.
@@ -323,7 +323,7 @@
   Element = CarePlan.relatedPlan
   Card. = 0..*
   UML = 0;300
-  Short Label = Plans related to this one
+  Short Name = Plans related to this one
   Definition = Identifies CarePlans with some sort of formal relationship to the current plan.
   Comments = Relationships are uni-directional with the \"newer\" plan pointing to the older one.
 
@@ -332,7 +332,7 @@
   Card. = 0..1
   Type = code
   Binding = CarePlanRelationship
-  Short Label = includes | replaces | fulfills
+  Short Name = includes | replaces | fulfills
   Definition = Identifies the type of relationship this plan has to the target plan.
   Comments = Read the relationship as \"this plan\" [relatedPlan.code] \"relatedPlan.plan\"; e.g. This plan includes Plan B.\n\nAdditional relationship types can be proposed for future releases or handled as extensions.
 
@@ -340,14 +340,14 @@
   Element = CarePlan.relatedPlan.plan
   Card. = 1..1
   Type = Reference(CarePlan)
-  Short Label = Plan relationship exists with
+  Short Name = Plan relationship exists with
   Definition = A reference to the plan to which a relationship is asserted.
 
  -- Row 17 -----------------------------------
   Element = CarePlan.goal
   Card. = 0..*
   Type = Reference(Goal)
-  Short Label = Desired outcome of plan
+  Short Name = Desired outcome of plan
   Definition = Describes the intended objective(s) of carrying out the care plan.
   Requirements = Provides context for plan.  Allows plan effectiveness to be evaluated by clinicians.
   Comments = Goal can be achieving a particular change or merely maintaining a current state or even slowing a decline.
@@ -359,7 +359,7 @@
   Element = CarePlan.activity
   Card. = 0..*
   UML = 350;0
-  Short Label = Action to occur as part of plan
+  Short Name = Action to occur as part of plan
   Definition = Identifies a planned action to occur as part of the plan.  For example, a medication to be used, lab tests to perform, self-monitoring, education, etc.
   Requirements = Allows systems to prompt for performance of planned activities, and validate plans against best practice.
   RIM Mapping = .outboundRelationship[typeCode=COMP].target
@@ -368,7 +368,7 @@
   Element = CarePlan.activity.actionResulting
   Card. = 0..*
   Type = Reference(Any)
-  Short Label = Appointments, orders, etc.
+  Short Name = Appointments, orders, etc.
   Definition = Resources that describe follow-on actions resulting from the plan, such as drug prescriptions, encounter records, appointments, etc.
   Requirements = Links plan to resulting actions
   RIM Mapping = .inboundRelationship[typeCode=FLFS].source
@@ -378,14 +378,14 @@
   Card. = 0..1
   Type = CodeableConcept
   Binding = CarePlanActivityOutcome
-  Short Label = Results of the activity
+  Short Name = Results of the activity
   Definition = Results of the careplan activity
 
  -- Row 21 -----------------------------------
   Element = CarePlan.activity.progress
   Card. = 0..*
   Type = Annotation
-  Short Label = Comments about the activity status/progress
+  Short Name = Comments about the activity status/progress
   Definition = Notes about the adherence/status/progress of the activity
   Requirements = Can be used to capture information about adherence, progress, concerns, etc.
   Comments = This element should NOT be used to describe the activity to be performed - that occurs either within the resource pointed to by activity.detail.reference or in activity.detail.description
@@ -397,7 +397,7 @@
   Card. = 0..1
   Inv. = 3
   Type = Reference(Appointment|CommunicationRequest|DeviceUseRequest|DiagnosticRequest|MedicationOrder|NutritionRequest|ProcedureRequest|ProcessRequest|ReferralRequest|VisionPrescription)
-  Short Label = Activity details defined in specific resource
+  Short Name = Activity details defined in specific resource
   Definition = The details of the proposed activity represented in a specific resource
   Requirements = Details in a form consistent with other applications and contexts of use
   Comments = Standard extension exists (http://hl7-fhir.github.io/extension-goal-pertainstogoal.html) that allows goals to be referenced from any of the referenced resources in CarePlan.activity.reference\rThe goal should be visible when the resource referenced by CarePlan.activity.reference is viewed indepedently from the CarePlan.
@@ -408,7 +408,7 @@
   Card. = 0..1
   UML = 350;200
   Inv. = 3
-  Short Label = In-line definition of activity
+  Short Name = In-line definition of activity
   Definition = A simple summary of a planned activity suitable for a general care plan system (e.g. form driven) that doesn\'t know about specific resources such as procedure etc.
   Requirements = Details in a simple form for generic care plan systems
   RIM Mapping = .outboundRelationship[typeCode=COMP, subsetCode=SUMM].target
@@ -418,7 +418,7 @@
   Card. = 0..1
   Type = CodeableConcept
   Binding = CarePlanActivityCategory
-  Short Label = diet | drug | encounter | observation | procedure | supply | other
+  Short Name = diet | drug | encounter | observation | procedure | supply | other
   Definition = High-level categorization of the type of activity in a care plan.
   Requirements = May determine what types of extensions are permitted
   RIM Mapping = .inboundRelationship[typeCode=COMP].source[classCode=LIST].code
@@ -428,7 +428,7 @@
   Element = CarePlan.activity.detail.definition
   Card. = 0..1
   Type = Reference(PlanDefinition|Questionnaire)
-  Short Label = Protocol or definition
+  Short Name = Protocol or definition
   Definition = Identifies the protocol, questionnaire, guideline or other specification the planned activity should be conducted in accordance with.
 
  -- Row 26 -----------------------------------
@@ -436,7 +436,7 @@
   Card. = 0..1
   Type = CodeableConcept
   Binding = CarePlanActivityType
-  Short Label = Detail type of activity
+  Short Name = Detail type of activity
   Definition = Detailed description of the type of planned activity; e.g. What lab test, what procedure, what kind of encounter.
   Requirements = Allows matching performed to planned as well as validation against protocols
   Comments = Tends to be less relevant for activities involving particular products.  Codes should not convey negation - use \"prohibited\" instead.
@@ -448,7 +448,7 @@
   Card. = 0..*
   Type = CodeableConcept
   Binding = CarePlanActivityReason
-  Short Label = Why activity should be done
+  Short Name = Why activity should be done
   Definition = Provides the rationale that drove the inclusion of this particular activity as part of the plan.
   Comments = This could be a diagnosis code.  If a full condition record exists or additional detail is needed, use reasonCondition instead
 
@@ -456,7 +456,7 @@
   Element = CarePlan.activity.detail.reasonReference
   Card. = 0..*
   Type = Reference(Condition)
-  Short Label = Condition triggering need for activity
+  Short Name = Condition triggering need for activity
   Definition = Provides the health condition(s) that drove the inclusion of this particular activity as part of the plan.
   Comments = Conditions can be identified at the activity level that are not identified as reasons for the overall plan
 
@@ -464,7 +464,7 @@
   Element = CarePlan.activity.detail.goal
   Card. = 0..*
   Type = Reference(Goal)
-  Short Label = Goals this activity relates to
+  Short Name = Goals this activity relates to
   Definition = Internal reference that identifies the goals that this activity is intended to contribute towards meeting
   Requirements = So that participants know the link explicitly
   RIM Mapping = .outboundRelationship[typeCode<=OBJ].
@@ -475,7 +475,7 @@
   Is Modifier = Y
   Type = code
   Binding = CarePlanActivityStatus
-  Short Label = not-started | scheduled | in-progress | on-hold | completed | cancelled
+  Short Name = not-started | scheduled | in-progress | on-hold | completed | cancelled
   Definition = Identifies what progress is being made for the specific activity.
   Requirements = Indicates progress against the plan, whether the activity is still relevant for the plan
   Comments = Some aspects of status can be inferred based on the resources linked in actionTaken.  Note that \"status\" is only as current as the plan was most recently updated.
@@ -487,7 +487,7 @@
   Card. = 0..1
   Type = CodeableConcept
   Binding = CarePlanActivityStatusReason
-  Short Label = Reason for current status
+  Short Name = Reason for current status
   Definition = Provides reason why the activity isn\'t yet started, is on hold, was cancelled, etc.
   Comments = Will generally not be present if status is \"complete\".  Be sure to prompt to update this (or at least remove the existing value) if the status is changed.
   To Do = Need a proper value set
@@ -497,7 +497,7 @@
   Card. = 1..1
   Is Modifier = Y
   Type = boolean
-  Short Label = Do NOT do
+  Short Name = Do NOT do
   Definition = If true, indicates that the described activity is one that must NOT be engaged in when following the plan.
   Requirements = Captures intention to not do something that may have been previously typical.
   RIM Mapping = actionNegationInd
@@ -506,7 +506,7 @@
   Element = CarePlan.activity.detail.scheduled[x]
   Card. = 0..1
   Type = Timing|Period | string
-  Short Label = When activity is to occur
+  Short Name = When activity is to occur
   Definition = The period, timing or frequency upon which the described activity is to occur.
   Requirements = Allows prompting for activities and detection of missed planned activities.
   v2 Mapping = TQ1
@@ -516,7 +516,7 @@
   Element = CarePlan.activity.detail.location
   Card. = 0..1
   Type = Reference(Location)
-  Short Label = Where it should happen
+  Short Name = Where it should happen
   Definition = Identifies the facility where the activity will occur; e.g. home, hospital, specific clinic, etc.
   Requirements = Helps in planning of activity
   Comments = May reference a specific clinical location or may identify a type of location.
@@ -527,7 +527,7 @@
   Element = CarePlan.activity.detail.performer
   Card. = 0..*
   Type = Reference(Practitioner|Organization|RelatedPerson|Patient)
-  Short Label = Who will be responsible?
+  Short Name = Who will be responsible?
   Definition = Identifies who\'s expected to be involved in the activity.
   Requirements = Helps in planning of activity
   Comments = A performer MAY also be a participant in the care plan
@@ -539,7 +539,7 @@
   Card. = 0..1
   Type = CodeableConcept | Reference(Medication|Substance)
   Binding = CarePlanProduct
-  Short Label = What is to be administered/supplied
+  Short Name = What is to be administered/supplied
   Definition = Identifies the food, drug or other product to be consumed or supplied in the activity.
   v2 Mapping = RXE-2 / RXO-1 / RXD-2
   RIM Mapping = .participation[typeCode=PRD].role
@@ -549,7 +549,7 @@
   Card. = 0..1
   Aliases = daily dose
   Type = SimpleQuantity
-  Short Label = How to consume/day?
+  Short Name = How to consume/day?
   Definition = Identifies the quantity expected to be consumed in a given day.
   Requirements = Allows rough dose checking
   v2 Mapping = RXO-23 / RXE-19 / RXD-12
@@ -559,7 +559,7 @@
   Element = CarePlan.activity.detail.quantity
   Card. = 0..1
   Type = SimpleQuantity
-  Short Label = How much to administer/supply/consume
+  Short Name = How much to administer/supply/consume
   Definition = Identifies the quantity expected to be supplied, administered or consumed by the subject
   v2 Mapping = RXO-11 / RXE-10 / RXD-4 / RXG-5 / RXA-6 /  TQ1-2.1  *and*  RXO-12 /  RXE-11 / RXD-5 / RXG-7 / RXA-7 / TQ1-2.2
   RIM Mapping = .outboundRelationship[typeCode=COMP][classCode=SPLY].quantity
@@ -568,7 +568,7 @@
   Element = CarePlan.activity.detail.description
   Card. = 0..1
   Type = string
-  Short Label = Extra info describing activity to perform
+  Short Name = Extra info describing activity to perform
   Definition = This provides a textual description of constraints on the intended activity occurrence, including relation to other activities.  It may also include objectives, pre-conditions and end-conditions.  Finally, it may convey specifics about the activity such as body site, method, route, etc.
   v2 Mapping = NTE?
   RIM Mapping = .text
@@ -577,7 +577,7 @@
   Element = CarePlan.note
   Card. = 0..1
   Type = Annotation
-  Short Label = Comments about the plan
+  Short Name = Comments about the plan
   Definition = General notes about the care plan not covered elsewhere
   Requirements = Used to capture information that applies to the plan as a whole that doesn\'t fit into discrete elements.
   v2 Mapping = NTE?

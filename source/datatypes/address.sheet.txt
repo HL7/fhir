@@ -83,7 +83,7 @@
  -- Row 1 -----------------------------------
   Element = Address
   Type = Structure
-  Short Label = An address expressed using postal conventions (as opposed to GPS or other location definition formats)
+  Short Name = An address expressed using postal conventions (as opposed to GPS or other location definition formats)
   Definition = An address expressed using postal conventions (as opposed to GPS or other location definition formats).  This data type may be used to convey addresses for use in delivering mail as well as for visiting locations and which might not be valid for mail delivery.  There are a variety of postal address formats defined around the world.
   Requirements = Need to be able to record postal addresses, along with notes about their use
   Comments = Note: address is for postal addresses, not physical locations
@@ -97,7 +97,7 @@
   Is Modifier = Y
   Type = code
   Binding = AddressUse
-  Short Label = home | work | temp | old - purpose of this address
+  Short Name = home | work | temp | old - purpose of this address
   Definition = The purpose of this address
   Requirements = Allows an appropriate address to be chosen from a list of many
   Comments = This is labeled as \"Is Modifier\" because applications should not mistake a temporary or old address etc.for a current/permanent one. Applications can assume that an address is current unless it explicitly says that it is temporary or old
@@ -112,7 +112,7 @@
   Card. = 0..1
   Type = code
   Binding = AddressType
-  Short Label = postal | physical | both
+  Short Name = postal | physical | both
   Definition = Distinguishes between physical addresses (those you can visit) and mailing addresses (e.g. PO Boxes and care-of addresses). Most addresses are both
   v2 Mapping = XAD.18
   RIM Mapping = unique(./use)
@@ -123,7 +123,7 @@
   Element = Address.text
   Card. = 0..1
   Type = string
-  Short Label = Text representation of the address
+  Short Name = Text representation of the address
   Definition = A full text representation of the address
   Requirements = A renderable, unencoded form
   Comments = Can provide both a text representation and parts
@@ -136,7 +136,7 @@
   Element = Address.line
   Card. = 0..*
   Type = string
-  Short Label = Street name, number, direction & P.O. Box etc.
+  Short Name = Street name, number, direction & P.O. Box etc.
   Definition = This component contains the house number, apartment number, street name, street direction,  P.O. Box number, delivery hints, and similar address information
   Requirements = home | work | temp | old - purpose of this address
   v2 Mapping = XAD.1 + XAD.2 (note: XAD.1 and XAD.2 have different meanings for a company address than for a person address)
@@ -150,7 +150,7 @@
   Card. = 0..1
   Aliases = Municpality
   Type = string
-  Short Label = Name of city, town etc.
+  Short Name = Name of city, town etc.
   Definition = The name of the city, town, village or other community or delivery center
   v2 Mapping = XAD.3
   RIM Mapping = AD.part[parttype = CTY]
@@ -163,7 +163,7 @@
   Card. = 0..1
   Aliases = County
   Type = string
-  Short Label = District name (aka county)
+  Short Name = District name (aka county)
   Definition = The name of the administrative area (county)
   Comments = District is sometimes known as county, but in some regions \'county\' is used in place of city (municipality), so county name should be conveyed in city instead
   v2 Mapping = XAD.9
@@ -175,7 +175,7 @@
   Card. = 0..1
   Aliases = Province, Territory
   Type = string
-  Short Label = Sub-unit of country (abbreviations ok)
+  Short Name = Sub-unit of country (abbreviations ok)
   Definition = Sub-unit of a country with limited sovereignty in a federally organized country. A code may be used if codes are in common use (i.e. US 2 letter state codes)
   v2 Mapping = XAD.4
   RIM Mapping = AD.part[parttype = STA]
@@ -187,7 +187,7 @@
   Card. = 0..1
   Aliases = Zip
   Type = string
-  Short Label = Postal code for area
+  Short Name = Postal code for area
   Definition = A postal code designating a region defined by the postal service
   v2 Mapping = XAD.5
   RIM Mapping = AD.part[parttype = ZIP]
@@ -199,7 +199,7 @@
   Element = Address.country
   Card. = 0..1
   Type = string
-  Short Label = Country (can be ISO 3166 3 letter code)
+  Short Name = Country (can be ISO 3166 3 letter code)
   Definition = Country - a nation as commonly understood or generally accepted
   Comments = ISO 3166 3 letter codes can be used in place of a full country name.
   v2 Mapping = XAD.6
@@ -211,7 +211,7 @@
   Element = Address.period
   Card. = 0..1
   Type = Period
-  Short Label = Time period when address was/is in use
+  Short Name = Time period when address was/is in use
   Definition = Time period when address was/is in use
   Requirements = Allows addresses to be placed in historical context
   v2 Mapping = XAD.12 / XAD.13 + XAD.14

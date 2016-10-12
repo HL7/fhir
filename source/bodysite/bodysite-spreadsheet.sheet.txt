@@ -45,7 +45,7 @@
   Element = BodySite
   Aliases = anatomical location
   Type = DomainResource
-  Short Label = Specific and identified anatomical location
+  Short Name = Specific and identified anatomical location
   Definition = Record details about the anatomical location of a specimen or body part.  This resource may be used when a coded concept does not provide the necessary detail needed for the use case.
   OpenEHR mapping = Archetype ID   openEHR-EHR-CLUSTER.anatomical_location.v1      Concept name   Anatomical Location      Concept description   Record details about an anatomical location.      Keywords   location, site, anatomical      Copyright   © openEHR Foundation      Purpose   To record details about anatomical location.      Misuse   Not for specifiying unilateral/bilateral occurence - this is related to an evaluation which perhaps includes multiple locations.      Author   Author name: Heather Leslie Organisation: Ocean Informatics Email: heather.leslie@oceaninformatics.com Date of Origination: 2008-11-10       Translator   Norwegian Bokmål: Lars Bitsch-Larsen, Haukeland University Hospital of Bergen, Norway, MD, DEAA, MBA, spec in anesthesia, spec in tropical medicine. Arabic (Syria): Mona Saleh       Other contributors   Heather Leslie, Ocean Informatics, Australia (Editor) Ian McNicoll, freshEHR Clinical Informatics, United Kingdom (Editor) Dunmail Hodkinson, Black Pear Software Ltd, UK      References   Use cases: - 5LICS, midclavicular line - L forearm, 2cm anterior to the cubital fossa - Right iliac fossa - 5 cm below L tibial tuberosity - 2 cm medial to R nipple - 4 cm below R costal margin in midclavicular line - R femur - midline nose - medial aspect of R great toe nail.
   To Do = RIM mappings
@@ -56,7 +56,7 @@
   Card. = 1..1
   Summary = Y
   Type = Reference(Patient)
-  Short Label = Patient
+  Short Name = Patient
   Definition = The person to which the body site belongs
 
  -- Row 3 -----------------------------------
@@ -64,14 +64,14 @@
   Card. = 0..*
   Summary = Y
   Type = Identifier
-  Short Label = Bodysite identifier
+  Short Name = Bodysite identifier
   Definition = Identifier for this instance of the anatomical location.
   OpenEHR mapping = Specific location  Cluster Optional (0..1) Cardinality: Mandatory, repeating, unordered (1..*)
 
  -- Row 4 -----------------------------------
   Element = !BodySite.specificLocation
   Card. = 0..1
-  Short Label = Specific anatomical location
+  Short Name = Specific anatomical location
   Definition = The Specific and identified anatomical location.
   OpenEHR mapping = Specific location  Cluster Optional (0..1) Cardinality: Mandatory, repeating, unordered (1..*)
 
@@ -81,7 +81,7 @@
   Summary = Y
   Type = CodeableConcept
   Binding = BodySite
-  Short Label = Named anatomical location
+  Short Name = Named anatomical location
   Definition = Named anatomical location - ideally coded where possible.
   v2 Mapping = OBX-20
   OpenEHR mapping = Name of location
@@ -91,7 +91,7 @@
   Card. = 0..*
   Type = CodeableConcept
   Binding = BodySiteModifier
-  Short Label = Modification to location code
+  Short Name = Modification to location code
   Definition = Modifier to refine the anatomical location.  These include modifiers for laterality, relative location, directionality, number, and plane.
   v2 Mapping = No distinct element defined in V2.x. The IHE Radiology Technical Framework directs the use of OBR-15-specimen source to contain laterality for imaging studies.
   OpenEHR mapping = Combines Side, Numerical identifier, Anatomical plane,and Aspect
@@ -102,7 +102,7 @@
   Aliases = lateraility
   Type = CodeableConcept
   Binding = Laterality
-  Short Label = Laterality
+  Short Name = Laterality
   Definition = Modifier to refine the anatomical location.  This includes concepts for laterality, relative location, directionality, number, and plane.
   OpenEHR mapping = Side
 
@@ -111,7 +111,7 @@
   Card. = 0..1
   Aliases = number
   Type = positiveInt
-  Short Label = Which instance of many
+  Short Name = Which instance of many
   Definition = Identify the specific anatomical site out of multiple e.g. tenth rib; fourth vertebra; second toe.
   OpenEHR mapping = Numerical identifier
 
@@ -120,7 +120,7 @@
   Card. = 0..1
   Type = CodeableConcept
   Binding = AnatomicPlane
-  Short Label = Description of anatomical plane
+  Short Name = Description of anatomical plane
   Definition = Line describing the position of a vertical anatomical plane in the body.
   OpenEHR mapping = Anatomical plane
 
@@ -128,7 +128,7 @@
   Element = !BodySite.relativeLocation
   Card. = 0..*
   UML = right
-  Short Label = Relative anatomical location(s)
+  Short Name = Relative anatomical location(s)
   Definition = Qualifiers to identify non-specific location e.g. 5cm (distance) inferior (aspect) to the tibial tuberosity (landmark). There may be more than one relative location required to provide a cross reference.
   OpenEHR mapping = Relative location Cluster Optional, repeating (0..*) Cardinality: Mandatory, repeating, unordered (1..*)
 
@@ -137,7 +137,7 @@
   Card. = 0..1
   Type = CodeableConcept
   Binding = BodySite
-  Short Label = Identified landmark
+  Short Name = Identified landmark
   Definition = Identified anatomical landmark from which to specify relative anatomical location.
   OpenEHR mapping = Identified landmark
 
@@ -146,7 +146,7 @@
   Card. = 0..1
   Type = CodeableConcept
   Binding = RelativeLocation
-  Short Label = Relative position to landmark
+  Short Name = Relative position to landmark
   Definition = Qualifier to identify which direction the anatomical location is in relation to the identified landmark.
   OpenEHR mapping = Aspect
 
@@ -154,7 +154,7 @@
   Element = !BodySite.relativeLocation.distance
   Card. = 0..1
   Type = SimpleQuantity
-  Short Label = Distance from Landmark
+  Short Name = Distance from Landmark
   Definition = Distance of location from the identified landmark.
   OpenEHR mapping = Distance from landmark
 
@@ -163,7 +163,7 @@
   Card. = 0..1
   Summary = Y
   Type = string
-  Short Label = The Description of anatomical location
+  Short Name = The Description of anatomical location
   Definition = Description of anatomical location.
   Comments = This Description  could include any visual markings used to orientate the viewer e.g. external reference points, special sutures, ink markings.
   OpenEHR mapping = Description of anatomical location/Visual markings/orientation
@@ -172,7 +172,7 @@
   Element = BodySite.image
   Card. = 0..*
   Type = Attachment
-  Short Label = Attached images
+  Short Name = Attached images
   Definition = Image or images used to identify a location.
   OpenEHR mapping = Image
 

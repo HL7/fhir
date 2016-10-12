@@ -137,7 +137,7 @@
  -- Row 1 -----------------------------------
   Element = MedicationDispense
   Type = DomainResource
-  Short Label = Dispensing a medication to a named patient
+  Short Name = Dispensing a medication to a named patient
   Definition = Indicates that a medication product is to be or has been dispensed for a named person/patient.  This includes a description of the medication product (supply) provided and the instructions for administering the medication.  The medication dispense is the result of a pharmacy system responding to a medication order.
   Comments = The WG will be updating the MedicationDispense resource  to adjust each affected resource to align with the workflow pattern (see workflow.html).
   RIM Mapping = Supply[moodCode=EVN]
@@ -148,7 +148,7 @@
   Element = MedicationDispense.identifier
   Card. = 0..1
   Type = Identifier
-  Short Label = External identifier
+  Short Name = External identifier
   Definition = Identifier assigned by the dispensing facility - this is an identifier assigned outside FHIR.
   RIM Mapping = .id
   w5 = id
@@ -160,7 +160,7 @@
   Summary = y
   Type = code
   Binding = MedicationDispenseStatus
-  Short Label = in-progress | on-hold | completed | entered-in-error | stopped
+  Short Name = in-progress | on-hold | completed | entered-in-error | stopped
   Definition = A code specifying the state of the set of dispense events.
   RIM Mapping = .status
   Committee Notes = Active - processed but not pickup Completed - process and pickup Aborted - process and put back in stock  This is not related to partialFill whioch is really a partialFulfillment of the order
@@ -172,7 +172,7 @@
   Summary = y
   Type = CodeableConcept|Reference(Medication)
   Binding = MedicationCode
-  Short Label = What medication was supplied
+  Short Name = What medication was supplied
   Definition = Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.
   Comments = If only a code is specified, then it needs to be a code for a specific product.  If more information is required, then the use of the medication resource is recommended.  Note: do not use Medication.name to describe the dispensed medication. When the only available information is a text description of the medication, Medication.code.text should be used
   v2 Mapping = RXD-2-Dispense/Give Code
@@ -184,7 +184,7 @@
   Card. = 0..1
   Summary = y
   Type = Reference(Patient)
-  Short Label = Who the dispense is for
+  Short Name = Who the dispense is for
   Definition = A link to a resource representing the person to whom the medication will be given.
   Comments = SubstanceAdministration->subject->Patient
   v2 Mapping = PID-3-Patient ID List
@@ -195,7 +195,7 @@
   Element = MedicationDispense.dispenser
   Card. = 0..1
   Type = Reference(Practitioner)
-  Short Label = Practitioner responsible for dispensing medication
+  Short Name = Practitioner responsible for dispensing medication
   Definition = The individual responsible for dispensing the medication
   v2 Mapping = RXD-10-Dispensing Provider / PRT-5-Participation Person: PRT-4-Participation=\'DP\' (RXD-10 is deprecated)
   RIM Mapping = .participation[typeCode=PFM].role[classCode=ASSIGN]
@@ -205,7 +205,7 @@
   Element = MedicationDispense.dispensingOrganization
   Card. = 0..1
   Type = Reference(Organization)
-  Short Label = Organization responsible for the dispense of the medication
+  Short Name = Organization responsible for the dispense of the medication
   Definition = The organizaation responsible for the dispense of the medication.
   RIM Mapping = .participation[typeCode=RESP].role[classCode=ASSIGNED]
   w5 = who.actor
@@ -214,7 +214,7 @@
   Element = MedicationDispense.authorizingPrescription
   Card. = 0..*
   Type = Reference(MedicationOrder)
-  Short Label = Medication order that authorizes the dispense
+  Short Name = Medication order that authorizes the dispense
   Definition = Indicates the medication order that is being dispensed against.
   v2 Mapping = ORC-2 Placer Order Number
   RIM Mapping = .outboundRelationship[typeCode=FLFS].target[moodCode=RQO]
@@ -224,7 +224,7 @@
   Card. = 0..1
   Type = CodeableConcept
   Binding = MedicationDispenseType
-  Short Label = Trial fill, partial fill, emergency fill, etc.
+  Short Name = Trial fill, partial fill, emergency fill, etc.
   Definition = Indicates the type of dispensing event that is performed. For example, Trial Fill, Completion of Trial, Partial Fill, Emergency Fill, Samples, etc.
   v2 Mapping = RXD-33-Dispense Type
   RIM Mapping = .code
@@ -233,7 +233,7 @@
   Element = MedicationDispense.quantity
   Card. = 0..1
   Type = SimpleQuantity
-  Short Label = Amount dispensed
+  Short Name = Amount dispensed
   Definition = The amount of medication that has been dispensed. Includes unit of measure.
   v2 Mapping = RXD-4-Actual Dispense Amount / RXD-5.1-Actual Dispense Units.code / RXD-5.3-Actual Dispense Units.name of coding system
   RIM Mapping = .quantity
@@ -242,7 +242,7 @@
   Element = MedicationDispense.daysSupply
   Card. = 0..1
   Type = SimpleQuantity
-  Short Label = Amount of medication expressed as a timing amount
+  Short Name = Amount of medication expressed as a timing amount
   Definition = The amount of medication expressed as a timing amount.
   RIM Mapping = effectiveUseTime
 
@@ -251,7 +251,7 @@
   Card. = 0..1
   Summary = y
   Type = dateTime
-  Short Label = When product was packaged and reviewed
+  Short Name = When product was packaged and reviewed
   Definition = The time when the dispensed product was packaged and reviewed.
   v2 Mapping = RXD-3-Date/Time Dispensed
   RIM Mapping = .effectiveTime[xmi:type=IVL_TS].low
@@ -261,7 +261,7 @@
   Element = MedicationDispense.whenHandedOver
   Card. = 0..1
   Type = dateTime
-  Short Label = When product was given out
+  Short Name = When product was given out
   Definition = The time the dispensed product was provided to the patient or their representative.
   v2 Mapping = RXD-3-Date/Time Dispensed
   RIM Mapping = .effectiveTime[xmi:type=IVL_TS].high
@@ -271,7 +271,7 @@
   Element = MedicationDispense.destination
   Card. = 0..1
   Type = Reference(Location)
-  Short Label = Where the medication was sent
+  Short Name = Where the medication was sent
   Definition = Identification of the facility/location where the medication was shipped to, as part of the dispense event.
   v2 Mapping = RXD-13 Dispense-to Location; RXD-30 Dispense to Pharmacy; RXD-31 Dispense to Pharmacy Address
   RIM Mapping = .participation[typeCode=DST].role
@@ -281,7 +281,7 @@
   Element = MedicationDispense.receiver
   Card. = 0..*
   Type = Reference(Patient|Practitioner)
-  Short Label = Who collected the medication
+  Short Name = Who collected the medication
   Definition = Identifies the person who picked up the medication.  This will usually be a patient or their caregiver, but some cases exist where it can be a healthcare professional
   RIM Mapping = .participation[typeCode=RCV].role
   Committee Notes = This is in the core because Controlled Drugs must be signed for and the recievers identiy must be recorded.
@@ -290,7 +290,7 @@
   Element = MedicationDispense.note
   Card. = 0..*
   Type = Annotation
-  Short Label = Information about the dispense
+  Short Name = Information about the dispense
   Definition = Extra information about the dispense that could not be conveyed in the other attributes.
   v2 Mapping = RXD-9 Dispense Notes
   RIM Mapping = .inboundRelationship[typeCode=SUBJ]/source[classCode=ACT,moodCode=EVN]
@@ -299,7 +299,7 @@
   Element = MedicationDispense.dosageInstruction
   Card. = 0..*
   UML = right
-  Short Label = Medicine administration instructions to the patient/caregiver
+  Short Name = Medicine administration instructions to the patient/caregiver
   Definition = Indicates how the medication is to be used by the patient.  The pharmacist reviews the medication order prior to dispense and updates the dosageInstruction based on the actual product being dispensed.
   Comments = When the dose or rate is intended to change over the entire administration period (e.g. Tapering dose prescriptions), multiple instances of dosage instructions will need to be supplied to convey the different doses/rates.
   RIM Mapping = .outboundRelationship[typeCode=COMP].target[classCode=SBADM, moodCode=INT]
@@ -309,7 +309,7 @@
   Element = MedicationDispense.dosageInstruction.text
   Card. = 0..1
   Type = string
-  Short Label = Free text dosage instructions e.g. SIG
+  Short Name = Free text dosage instructions e.g. SIG
   Definition = Free text dosage instructions can be used for cases where the instructions are too complex to code. When coded instructions are present, the free text instructions may still be present for display to humans taking or administering the medication.
   RIM Mapping = .text
 
@@ -318,7 +318,7 @@
   Card. = 0..*
   Type = CodeableConcept
   Binding = AdditionalInstructions
-  Short Label = E.g. \"Take with food\"
+  Short Name = E.g. \"Take with food\"
   Definition = Additional instructions such as \"Swallow with plenty of water\" which may or may not be coded.
   RIM Mapping = .text
 
@@ -326,7 +326,7 @@
   Element = MedicationDispense.dosageInstruction.timing
   Card. = 0..1
   Type = Timing
-  Short Label = When medication should be administered
+  Short Name = When medication should be administered
   Definition = The timing schedule for giving the medication to the patient.  The Schedule data type allows many different expressions.  For example, \"Every  8 hours\"; \"Three times a day\"; \"1/2 an hour before breakfast for 10 days from 23-Dec 2011:\";  \"15 Oct 2013, 17 Oct 2013 and 1 Nov 2013\".  Sometimes, a rate can imply duration when expressed as total volume / duration (e.g.  500mL/2 hours implies a duration of 2 hours).  However, when rate doesn\'t imply duration (e.g. 250mL/hour), then the timing.repeat.duration is needed to convey the infuse over time period.
   RIM Mapping = .effectiveTime
 
@@ -335,7 +335,7 @@
   Card. = 0..1
   Type = boolean | CodeableConcept
   Binding = MedicationAsNeededReason
-  Short Label = Take \"as needed\" f(or x)
+  Short Name = Take \"as needed\" f(or x)
   Definition = Indicates whether the Medication is only taken when needed within a specific dosing schedule (Boolean option), or it indicates the precondition for taking the Medication (CodeableConcept).  \n\nSpecifically if \'boolean\' datatype is selected, then the following logic applies:  If set to True, this indicates that the medication is only taken when needed, within the specified schedule.
   RIM Mapping = boolean: .outboundRelationship[typeCode=PRCN].negationInd (inversed - so negationInd = true means asNeeded=false  CodeableConcept: .outboundRelationship[typCode=PRCN].target[classCode=OBS, moodCode=EVN, isCriterionInd=true, code=\"Assertion\"].value
 
@@ -344,7 +344,7 @@
   Card. = 0..1
   Type = CodeableConcept | Reference(BodySite)
   Binding = MedicationAdministrationSite
-  Short Label = Body site to administer to
+  Short Name = Body site to administer to
   Definition = A coded specification of the anatomic site where the medication first enters the body
   v2 Mapping = RXR-2-Administration Site
   RIM Mapping = .approachSiteCode
@@ -354,7 +354,7 @@
   Card. = 0..1
   Type = CodeableConcept
   Binding = RouteOfAdministration
-  Short Label = How drug should enter body
+  Short Name = How drug should enter body
   Definition = A code specifying the route or physiological path of administration of a therapeutic agent into or onto a subject.
   v2 Mapping = RXR-1-Route
   RIM Mapping = .routeCode
@@ -364,7 +364,7 @@
   Card. = 0..1
   Type = CodeableConcept
   Binding = MedicationAdministrationMethod
-  Short Label = Technique for administering medication
+  Short Name = Technique for administering medication
   Definition = A coded value indicating the method by which the medication is intended to be or was introduced into or on the body.
   Comments = This attribute will most often NOT be populated.  It is most commonly used for injections.  For example, Slow Push, Deep IV.  One of the reasons this attribute is not used often, is that the method is often pre-coordinated with the route and/or form of administration.  This means the codes used in route or form may pre-coordinate the method in the route code or the form code.  The implementation decision about what coding system to use for route or form code will determine how frequently the method code will be populated e.g. if route or form code pre-coordinate method code, then this attribute will not be populated often; if there is no pre-coordination then method code may  be used frequently.
   v2 Mapping = RXR-4-Administration Method
@@ -374,7 +374,7 @@
   Element = MedicationDispense.dosageInstruction.dose[x]
   Card. = 0..1
   Type = Range | SimpleQuantity
-  Short Label = Amount of medication per dose
+  Short Name = Amount of medication per dose
   Definition = The amount of therapeutic or other substance given at one administration event.
   Comments = Note that this specifies the quantity of the specified medication, not the quantity of active ingredient(s).  The prescribed strength can be calculated by multiplying the doseQuantity by the strength of each active ingredient in the prescribed Medication. If the administration is not intended to be instantaneous (rate is present or timing has a duration), this can be specified to convey the total amount to be administered over the period of time as indicated by the schedule.
   v2 Mapping = RXE-23-Give Rate Amount / RXE-24.1-Give Rate Units.code / RXE-24.3-Give Rate Units.name of coding system
@@ -384,7 +384,7 @@
   Element = MedicationDispense.dosageInstruction.rate[x]
   Card. = 0..1
   Type = Ratio|Range| SimpleQuantity
-  Short Label = Amount of medication per unit of time
+  Short Name = Amount of medication per unit of time
   Definition = Identifies the speed with which the medication was or will be introduced into the patient. Typically the rate for an infusion e.g. 100 ml per 1 hour or 100 ml/hr.  May also be expressed as a rate per unit of time e.g. 500 ml per 2 hours.  Other examples: 200 mcg/min or 200 mcg/1 minute; 1 liter/8 hours.  Sometimes, a rate can imply duration when expressed as total volume / duration (e.g.  500mL/2 hours implies a duration of 2 hours).  However, when rate doesn\'t imply duration (e.g. 250mL/hour), then the timing.repeat.duration is needed to convey the infuse over time period.
   v2 Mapping = RXE-22-Give Per (Time Unit)
   RIM Mapping = .rateQuantity
@@ -393,7 +393,7 @@
   Element = MedicationDispense.dosageInstruction.maxDosePerPeriod
   Card. = 0..1
   Type = Ratio
-  Short Label = Upper limit on medication per unit of time
+  Short Name = Upper limit on medication per unit of time
   Definition = The maximum total quantity of a therapeutic substance that may be administered to a subject over the period of time,  e.g. 1000mg in 24 hours.
   v2 Mapping = RXE-4-Give Amount - Maximum / RXE-5-Give Units
   RIM Mapping = .maxDoseQuantity
@@ -402,7 +402,7 @@
   Element = MedicationDispense.substitution
   Card. = 0..1
   UML = right
-  Short Label = Deals with substitution of one medicine for another
+  Short Name = Deals with substitution of one medicine for another
   Definition = Indicates whether or not substitution was made as part of the dispense.  In some cases substitution will be expected but does not happen, in other cases substitution is not expected but does happen.  This block explains what substitution did or did not happen and why.
   RIM Mapping = .outboundRelationship[typeCode=COMP].target[classCode=SUBST, moodCode=EVN]
   Committee Notes = Significant discssion around this topic.  May not have it right yet. What about the attribution?
@@ -412,7 +412,7 @@
   Card. = 1..1
   Type = CodeableConcept
   Binding = MedicationIntendedSubstitutionType
-  Short Label = Code signifying whether a different drug was dispensed from what was prescribed
+  Short Name = Code signifying whether a different drug was dispensed from what was prescribed
   Definition = A code signifying whether a different drug was dispensed from what was prescribed.
   v2 Mapping = RXO-9-Allow Substitutions / RXE-9-Substitution Status
   RIM Mapping = .code
@@ -423,7 +423,7 @@
   Card. = 0..*
   Type = CodeableConcept
   Binding = MedicationIntendedSubstitutionReason
-  Short Label = Why was substitution made
+  Short Name = Why was substitution made
   Definition = Indicates the reason for the substitution of (or lack of substitution) from what was prescribed.
   RIM Mapping = .reasonCode
 
@@ -431,7 +431,7 @@
   Element = MedicationDispense.substitution.responsibleParty
   Card. = 0..*
   Type = Reference(Practitioner)
-  Short Label = Who is responsible for the substitution
+  Short Name = Who is responsible for the substitution
   Definition = The person or organization that has primary responsibility for the substitution
   RIM Mapping = .participation[typeCode=PFM].role[classCode=ASSIGN]
   Committee Notes = Who is this handled?  Elsewhere attribution is handled by FHIR
@@ -440,7 +440,7 @@
   Element = MedicationDispense.eventHistory
   Card. = 0..*
   Type = Reference(Provenance)
-  Short Label = A list of events of interest in the lifecycle
+  Short Name = A list of events of interest in the lifecycle
   Definition = A summary of the events of interest that have occurred, such as when the dispense was verified.
   Comments = See usage notes in Request pattern in request history
 

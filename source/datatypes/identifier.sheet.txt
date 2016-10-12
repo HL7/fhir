@@ -40,7 +40,7 @@
  -- Row 1 -----------------------------------
   Element = Identifier
   Type = Type
-  Short Label = An identifier intended for computation
+  Short Name = An identifier intended for computation
   Definition = A technical identifier - identifies some entity uniquely and unambiguously
   Requirements = Need to be able to identify things with confidence and be sure that the identification is not subject to misinterpretation
   v2 Mapping = CX / EI (occasionally, more often EI maps to a resource id or a URL)
@@ -53,7 +53,7 @@
   Is Modifier = Y
   Type = code
   Binding = IdentifierUse
-  Short Label = usual | official | temp | secondary (If known)
+  Short Name = usual | official | temp | secondary (If known)
   Definition = The purpose of this identifier
   Requirements = Allows the appropriate identifier for a particular context of use to be selected from among a set of identifiers
   Comments = This is labeled as \"Is Modifier\" because applications should not mistake a temporary id for a permanent one. Applications can assume that an identifier is permanent unless it explicitly says that it is temporary
@@ -65,7 +65,7 @@
   Card. = 0..1
   Type = CodeableConcept
   Binding = IdentifierType
-  Short Label = Description of identifier
+  Short Name = Description of identifier
   Definition = A coded type for the identifier that can be used to determine which identifier to use for a specific purpose
   Requirements = Allows users to make use of identifiers when the identifier system is not known
   Comments = This element deals only with general categories of identifiers.  It SHOULD not be used for codes that correspond 1..1 with the Identifier.system. Some identifiers may fall into multiple categories due to common usage. \n\nWhere the system is known, a type is unnecessary because the type is always part of the system definition. However systems often need to handle identifiers where the system is not known. There is not a 1:1 relationship between type and system, since many different systems have the same type
@@ -76,7 +76,7 @@
   Element = Identifier.system
   Card. = 0..1
   Type = uri
-  Short Label = The namespace for the identifier
+  Short Name = The namespace for the identifier
   Definition = Establishes the namespace in which set of possible id values is unique.
   Requirements = There are many sequences of identifiers.  To perform matching, we need to know what sequence we\'re dealing with. The system identifies a particular sequence or set of unique identifiers
   v2 Mapping = CX.4 / EI-2-4
@@ -88,7 +88,7 @@
   Element = Identifier.value
   Card. = 0..1
   Type = string
-  Short Label = The value that is unique
+  Short Name = The value that is unique
   Definition = The portion of the identifier typically relevant to the user and which is unique within the context of the system
   Comments = If the value is a full URI, then the system SHALL be urn:ietf:rfc:3986.  The value\'s primary purpose is computational mapping.  As a result, it may be normalized for comparison purposes (e.g. removing non-significant whitespace, dashes, etc.)  A value formatted for human display can be conveyed using the [Rendered Value extension](extension-rendered-value.html)
   v2 Mapping = CX.1 / EI.1
@@ -100,7 +100,7 @@
   Element = Identifier.period
   Card. = 0..1
   Type = Period
-  Short Label = Time period when id is/was valid for use
+  Short Name = Time period when id is/was valid for use
   Definition = Time period during which identifier is/was valid for use
   v2 Mapping = CX.7 + CX.8
   RIM Mapping = Role.effectiveTime or implied by context
@@ -110,7 +110,7 @@
   Element = Identifier.assigner
   Card. = 0..1
   Type = Reference(Organization)
-  Short Label = Organization that issued id (may be just text)
+  Short Name = Organization that issued id (may be just text)
   Definition = Organization that issued/manages the identifier
   Comments = The Identifier.assigner may omit the .reference element and only contain a .display element reflecting the name or other textual information about the assigning organization
   v2 Mapping = CX.4 / (CX.4,CX.9,CX.10)

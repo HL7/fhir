@@ -146,7 +146,7 @@
   Aliases = Manifest, XDS-I summary, Key Images, (in limited use) Key Object Selection (KOS)
   UML = 0;0
   Type = DomainResource
-  Short Label = Key Object Selection
+  Short Name = Key Object Selection
   Definition = A manifest of a set of DICOM Service-Object Pair Instances (SOP Instances).  The referenced SOP Instances (images or other content) are for a single patient, and may be from one or more studies. The referenced SOP Instances may have been selected for a purpose, such as  conference, or consult.  Reflecting a range of sharing purposes, typical ImagingManifest resources may include all SOP Instances in a study (perhaps for sharing through a Health Information Exchange); key images from multiple studies (for reference by a referring or treating physician); both a multi-frame ultrasound instance (\"cine\" video clip) and a set of measurements taken from that instance (for inclusion in a teaching file); and so on.
   Requirements = A FHIR representation of DICOM Key Object Selection (KOS) SOP Instances enables access to a set of selected DICOM SOP Instances.
   DICOM Mapping = Key Object Selection SOP Class (1.2.840.10008.5.1.4.1.1.88.59)
@@ -158,7 +158,7 @@
   Aliases = SOPInstanceUID
   Summary = y
   Type = oid
-  Short Label = SOP Instance UID
+  Short Name = SOP Instance UID
   Definition = Unique identifier of the the DICOM Key Object Selection (KOS) that this resource represents
   Requirements = DICOM SOP Instance is always assigned with a unique identifier (UID).
   RIM Mapping = .id
@@ -170,7 +170,7 @@
   Card. = 1..1
   Summary = y
   Type = Reference(Patient)
-  Short Label = Patient of the selected objects
+  Short Name = Patient of the selected objects
   Definition = A patient resource reference which is the patient subject of all DICOM SOP Instances in this ImagingManifest.
   Requirements = SOP Instances in ImagingManifest must be from the same patient.
   Comments = SOP instances selected in the ImagingManifest can be from different studies, but must be of the same patient.
@@ -184,7 +184,7 @@
   Aliases = ObservationDateTime
   Summary = y
   Type = dateTime
-  Short Label = Time when the selection of instances was made
+  Short Name = Time when the selection of instances was made
   Definition = Date and time when the selection of the referenced instances were made. It is (typically) different from the creation date of the selection resource, and from dates associated with the referenced instances (e.g. capture time of the referenced image).
   Requirements = Date and time when the selection was made can be important to understand the content of selection.
   RIM Mapping = .effectiveTime
@@ -196,7 +196,7 @@
   Card. = 0..1
   Summary = y
   Type = Reference(Practitioner|Device|Organization|Patient|RelatedPerson)
-  Short Label = Author (human or machine)
+  Short Name = Author (human or machine)
   Definition = Author of ImagingManifest. It can be a human author or a device which made the decision of the SOP instances selected. For example, a radiologist selected a set of imaging SOP instances to attach in a diagnostic report, and a CAD application may author a selection to describe SOP instances it used to generate a detection conclusion.
   Requirements = Track the selection decision maker.
   DICOM Mapping = (0040,A730) - Content Sequence TID 1002 - Observer Context
@@ -208,7 +208,7 @@
   Summary = y
   Type = CodeableConcept
   Binding = KOStitle
-  Short Label = Reason for selection
+  Short Name = Reason for selection
   Definition = The reason for, or significance of, the selection of objects referenced in the resource
   Requirements = Need to represent the application purpose that the SOP instances in ImagingManifest are selected for.
   Comments = Value set is a subset of DICOM Standard Part 16, CID-7010.  Common values are 113013 (Best in Set), 113000 (Of Interest), 113032 (Complete Study Content). The title value chosen may suggest whether the ImagingManifest references full study content, or only highlights. A DICOM Key Object Selection has a wide range of uses, indicated by the KOS title. Certain titles indicate that the referenced images should be removed or not used; ImagingManifest is not intended to support those uses.
@@ -220,7 +220,7 @@
   Aliases = TextValue
   Summary = y
   Type = string
-  Short Label = Description text
+  Short Name = Description text
   Definition = Text description of the DICOM SOP instances selected in the ImagingManifest. This should be aligned with the content of the title element, and can provide further explanation of the SOP instances in the selection.
   Requirements = Need to provide a narrative description of the SOP instances in the selection.
   Comments = Free text narrative description of the ImagingManifest
@@ -232,7 +232,7 @@
   Summary = y
   UML = 0;200
   Type = =Study
-  Short Label = Study identity of the selected instances
+  Short Name = Study identity of the selected instances
   Definition = Study identity and locating information of the DICOM SOP instances in the selection.
   Requirements = DICOM SOP instances are identified through the UIDs of the study - series - instance hierarchy. In addition, the locator at the study level provide a means of retrieving the entire study.
   Comments = Study component represents the study level identity and locator information of the DICOM SOP instances in the selection. It is the top level identity of the hierachical identification of the instances.
@@ -243,7 +243,7 @@
   Aliases = StudyInstanceUID, Referenced study instance UID
   Summary = y
   Type = oid
-  Short Label = Study instance UID
+  Short Name = Study instance UID
   Definition = Study instance UID of the SOP instances in the selection
   Requirements = Study instance UID is required to fully identify the DICOM SOP instances in the selection
   DICOM Mapping = (0020,000D) - Study Instance UID
@@ -253,7 +253,7 @@
   Card. = 0..1
   Summary = y
   Type = Reference(ImagingStudy)
-  Short Label = Reference to ImagingStudy
+  Short Name = Reference to ImagingStudy
   Definition = Reference to the Imaging Study in FHIR form.
   Requirements = Used to retrieve the ImagingStudy that contain the images referenced in the Imaging ObjectSelection.study
   DICOM Mapping = imagingStudy (0020,000D) - Study Instance UID
@@ -263,7 +263,7 @@
   Card. = 0..*
   UML = 300;175
   Type = =StudyBaseLocation
-  Short Label = Study access service endpoint
+  Short Name = Study access service endpoint
   Definition = Methods of accessing  (e.g., retrieving, viewing) the study.
   Requirements = Access methods for viewing (e.g. IHE’s IID profile) or retrieving (e.g., DICOM’s WADO-URI and WADO-RS) the study or the study’s series or instances. The study-level baseLocation applies to each series in the study, unless overridden in series by a series-level baseLocation of the same type.
   To Do = likely change to Endpoint Resource reference
@@ -273,14 +273,14 @@
   Card. = 1..1
   Type = Coding
   Binding = dWebType
-  Short Label = WADO-RS | WADO-URI | IID
+  Short Name = WADO-RS | WADO-URI | IID
   Definition = The service type for accessing (e.g., retrieving, viewing) the DICOM instances.
 
  -- Row 13 -----------------------------------
   Element = ImagingManifest.study.baseLocation.url
   Card. = 1..1
   Type = uri
-  Short Label = Study access URL
+  Short Name = Study access URL
   Definition = The service URL for accessing the study. The interpretation of the URL depends on the type of the service specified in ImagingManifest.study.baseLocation.type.
   Comments = This URL is to a service endpoint for the particular service indicated by ImagingManifest.study.baseLocation.type. Depending on the type of service, it is may be used to construct a URL to view, retrieve, or otherwise access the study or the study’s series or instances. For example, this element may be a DICOMweb WADO-RS endpoint.
   DICOM Mapping = (0040,E023) WADO Retrieval Sequence > (0040,E010) Retrieve URI | \n(0040,E025) WADO-RS Retrieval Sequence > (0008,1190) Retrieve URI
@@ -291,7 +291,7 @@
   Summary = y
   UML = 0;300
   Type = =Series
-  Short Label = Series identity of the selected instances
+  Short Name = Series identity of the selected instances
   Definition = Series identity and locating information of the DICOM SOP instances in the selection
   Requirements = DICOM SOP instances are identified through the UIDs of the study - series - instance hierarchy. In addition, the locator at the series level provide a means of retrieving the entire series
   Comments = Series component represents the series level identity and locator information of the DICOM SOP instances in the selection.
@@ -302,7 +302,7 @@
   Aliases = SeriesInstanceUID, Referenced series instance UID
   Summary = y
   Type = oid
-  Short Label = Series instance UID
+  Short Name = Series instance UID
   Definition = Series instance UID of the SOP instances in the selection
   Requirements = Series instance UID is required to fully identify the DICOM SOP instances in the selection
   DICOM Mapping = (0020,000E) - Series Instance UID
@@ -312,7 +312,7 @@
   Card. = 0..*
   UML = 300;300
   Type = =SeriesBaseLocation
-  Short Label = Series access endpoint
+  Short Name = Series access endpoint
   Definition = Methods of accessing (e.g. retrieving) the series
   Requirements = Access methods for retrieving (e.g., DICOM’s WADO-URI and WADO-RS) the series or the series’ instances. A baseLocation specified at the series level has precedence over a baseLocation of the same type specified at the study level.
   To Do = likely change to Endpoint Resource reference
@@ -322,14 +322,14 @@
   Card. = 1..1
   Type = Coding
   Binding = dWebType
-  Short Label = WADO-RS | WADO-URI | IID
+  Short Name = WADO-RS | WADO-URI | IID
   Definition = The service type for accessing (e.g., retrieving) the DICOM instances.
 
  -- Row 18 -----------------------------------
   Element = ImagingManifest.study.series.baseLocation.url
   Card. = 1..1
   Type = uri
-  Short Label = Series access URL
+  Short Name = Series access URL
   Definition = The service URL for accessing the study. The interpretation of the URL depends on the type of the service specified in ImagingManifest.study.series.baseLocation.type.
   Comments = This URL is to a service endpoint for the particular service indicated by ImagingManifest.study.series.baseLocation.type. Depending on the type of service, it is may be used to construct a URL to retrieve, or otherwise access, the series or the series’ instances. For example, this element may be a DICOMweb WADO-RS endpoint.
   DICOM Mapping = (0040,E023) WADO Retrieval Sequence > (0040,E010) Retrieve URI | \n(0040,E025) WADO-RS Retrieval Sequence > (0008,1190) Retrieve URI
@@ -340,7 +340,7 @@
   Summary = y
   UML = 0;400
   Type = =Instance
-  Short Label = The selected instance
+  Short Name = The selected instance
   Definition = Identity and locating information of the selected DICOM SOP instances
   Requirements = DICOM SOP instances are identified through the UIDs of the study - series - instance hierarchy. This is the instance level identity of the instance in the selection.
   Comments = SOP Instance component identify the instance selected, along with the study and series identities to form the DICOM identity hierachy.
@@ -351,7 +351,7 @@
   Aliases = SOPClassUID
   Summary = y
   Type = oid
-  Short Label = SOP class UID of instance
+  Short Name = SOP class UID of instance
   Definition = SOP class UID of the selected instance
   Requirements = DICOM SOP instances can be an image or other data object. The SOP class UID provide the accurate information about what type the instance is.
   Comments = SOP class UID identifies the type of the selected instances, e.g. CT image, Gray scale softcopy presentation state, ECG waveform, etc.
@@ -364,7 +364,7 @@
   Aliases = SOPInstanceUID, Referenced SOP instance UID
   Summary = y
   Type = oid
-  Short Label = Selected instance UID
+  Short Name = Selected instance UID
   Definition = SOP Instance UID of the selected instance
   Requirements = SOP instance UID is required to fully identify the DICOM SOP instance in the selection.
   Comments = SOP instance UID identifies the instance

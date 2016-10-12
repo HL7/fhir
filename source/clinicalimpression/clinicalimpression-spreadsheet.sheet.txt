@@ -69,7 +69,7 @@
   Element = ClinicalImpression
   UML = 0;0
   Type = DomainResource
-  Short Label = A clinical assessment performed when planning treatments and management strategies for a patient
+  Short Name = A clinical assessment performed when planning treatments and management strategies for a patient
   Definition = A record of a clinical assessment performed to determine what problem(s) may affect the patient and before planning the treatments or management strategies that are best to manage a patient\'s condition. Assessments are often 1:1 with a clinical consultation / encounter,  but this varies greatly depending on the clinical workflow. This resource is called \"ClinicalImpression\" rather than \"ClinicalAssessment\" to avoid confusion with the recording of assessment tools such as Apgar score
   v2 Mapping = Partial mapping for problem evaluation
   w5 = clinical.general
@@ -79,7 +79,7 @@
   Card. = 0..*
   Summary = Y
   Type = Identifier
-  Short Label = Business identifier
+  Short Name = Business identifier
   Definition = A unique identifier assigned to the clinical impression that remains consistent regardless of what server the impression is stored on.
   v2 Mapping = PID-3
   w5 = id
@@ -91,7 +91,7 @@
   Summary = Y
   Type = code
   Binding = ClinicalImpressionStatus
-  Short Label = draft | completed | entered-in-error
+  Short Name = draft | completed | entered-in-error
   Definition = Identifies the workflow status of the assessment
   v2 Mapping = PRB-14
   w5 = status
@@ -102,7 +102,7 @@
   Summary = Y
   Type = CodeableConcept
   Binding = ClinicalImpressionCode
-  Short Label = Kind of impression performed
+  Short Name = Kind of impression performed
   Definition = Categorizes the type of clinical impression performed
   Comments = This is present as a place-holder only and may be removed based on feedback/work group opinion
   w5 = what
@@ -112,7 +112,7 @@
   Card. = 0..1
   Summary = Y
   Type = string
-  Short Label = Why/how the assessment was performed
+  Short Name = Why/how the assessment was performed
   Definition = A summary of the context and/or cause of the assessment - why / where was it peformed, and what patient events/status prompted it
 
  -- Row 6 -----------------------------------
@@ -120,7 +120,7 @@
   Card. = 1..1
   Summary = Y
   Type = Reference(Patient|Group)
-  Short Label = Patient or group assessed
+  Short Name = Patient or group assessed
   Definition = The patient or group of individuals assessed as part of this record
   Requirements = Group is typically for veterinary and/or public health purposes
   v2 Mapping = PID-3
@@ -131,7 +131,7 @@
   Card. = 0..1
   Summary = Y
   Type = Reference(Practitioner)
-  Short Label = The clinician performing the assessment
+  Short Name = The clinician performing the assessment
   Definition = The clinician performing the assessment
   v2 Mapping = ROL-4
   w5 = who.author
@@ -141,7 +141,7 @@
   Card. = 0..1
   Summary = Y
   Type = dateTime
-  Short Label = When the assessment was documented
+  Short Name = When the assessment was documented
   Definition = Indicates when the documentation of the assessment was complete
   w5 = when.recorded
 
@@ -150,7 +150,7 @@
   Card. = 0..1
   Summary = Y
   Type = dateTime|Period
-  Short Label = Time of assessment
+  Short Name = Time of assessment
   Definition = The point in time or period over which the subject was assessed
   Comments = This SHOULD be accurate to at least the minute, though some assessments only have a known date
   v2 Mapping = PRB-2
@@ -161,14 +161,14 @@
   Card. = 0..1
   Summary = Y
   Type = Reference(Encounter|EpisodeOfCare)
-  Short Label = Encounter or Episode created from
+  Short Name = Encounter or Episode created from
   Definition = The encounter or episode of care this impression was created as part of.
 
  -- Row 11 -----------------------------------
   Element = ClinicalImpression.previous
   Card. = 0..1
   Type = Reference(ClinicalImpression)
-  Short Label = Reference to last assessment
+  Short Name = Reference to last assessment
   Definition = A reference to the last assesment that was conducted bon this patient. Assessments are often/usually ongoing in nature; a care provider (practitioner or team) will make new assessments on an ongoing basis as new data arises or the patient\'s conditions changes
   Comments = It is always likely that multiple previous assessments exist for a patient. The point of quoting a previous assessment is that this assessment is relative to it (see resolved)
 
@@ -177,7 +177,7 @@
   Card. = 0..*
   Summary = Y
   Type = Reference(Condition | AllergyIntolerance)
-  Short Label = Relevant impressions of patient state
+  Short Name = Relevant impressions of patient state
   Definition = This a list of the relevant problems/conditions for a patient
   Comments = e.g. The patient is a pregnant, and cardiac congestive failure, ‎Adenocarcinoma, and is allergic to penicillin
   v2 Mapping = PRB-3 / IAM-7
@@ -187,7 +187,7 @@
   Element = ClinicalImpression.investigations
   Card. = 0..*
   UML = 400;0
-  Short Label = One or more sets of investigations (signs, symptions, etc.)
+  Short Name = One or more sets of investigations (signs, symptions, etc.)
   Definition = One or more sets of investigations (signs, symptions, etc.). The actual grouping of investigations vary greatly depending on the type and context of the assessment. These investigations may include data generated during the assessment process, or data previously generated and recorded that is pertinent to the outcomes
 
  -- Row 14 -----------------------------------
@@ -195,14 +195,14 @@
   Card. = 1..1
   Type = CodeableConcept
   Binding = InvestigationGroupType
-  Short Label = A name/code for the set
+  Short Name = A name/code for the set
   Definition = A name/code for the group (\"set\") of investigations. Typically, this will be something like \"signs\", \"symptoms\", \"clinical\", \"diagnostic\", but the list is not constrained, and others such groups such as (exposure|family|travel|nutitirional) history may be used
 
  -- Row 15 -----------------------------------
   Element = ClinicalImpression.investigations.item
   Card. = 0..*
   Type = Reference(Observation| QuestionnaireResponse | FamilyMemberHistory | DiagnosticReport|RiskAssessment | ImagingStudy)
-  Short Label = Record of a specific investigation
+  Short Name = Record of a specific investigation
   Definition = A record of a specific investigation that was undertaken
   Comments = Most investigations are observations of one kind of or another but some other specific types of data collection resources can also be used
   v2 Mapping = OBX-21
@@ -211,14 +211,14 @@
   Element = ClinicalImpression.protocol
   Card. = 0..*
   Type = uri
-  Short Label = Clinical Protocol followed
+  Short Name = Clinical Protocol followed
   Definition = Reference to a specific published clinical protocol that was followed during this assessment, and/or that provides evidence in support of the diagnosis
 
  -- Row 17 -----------------------------------
   Element = ClinicalImpression.summary
   Card. = 0..1
   Type = string
-  Short Label = Summary of the assessment
+  Short Name = Summary of the assessment
   Definition = A text summary of the investigations and the diagnosis
   v2 Mapping = OBX
 
@@ -226,7 +226,7 @@
   Element = ClinicalImpression.finding
   Card. = 0..*
   UML = 400;140
-  Short Label = Possible or likely findings and diagnoses
+  Short Name = Possible or likely findings and diagnoses
   Definition = Specific findings or diagnoses that was considered likely or relevant to ongoing treatment
 
  -- Row 19 -----------------------------------
@@ -234,7 +234,7 @@
   Card. = 1..1
   Type = CodeableConcept | Reference(Condition | Observation)
   Binding = ConditionKind
-  Short Label = What was found
+  Short Name = What was found
   Definition = Specific text, code or reference for finding or diagnosis, which may include ruled-out or resolved conditions
   v2 Mapping = OBX
 
@@ -242,7 +242,7 @@
   Element = ClinicalImpression.finding.cause
   Card. = 0..1
   Type = string
-  Short Label = Which investigations support finding
+  Short Name = Which investigations support finding
   Definition = Which investigations support finding or diagnosis
 
  -- Row 21 -----------------------------------
@@ -250,7 +250,7 @@
   Card. = 0..*
   Type = CodeableConcept
   Binding = ClinicalImpressionPrognosis
-  Short Label = Estimate of likely outcome
+  Short Name = Estimate of likely outcome
   Definition = Estimate of likely outcome
   v2 Mapping = PRB-22
 
@@ -258,28 +258,28 @@
   Element = ClinicalImpression.prognosisReference
   Card. = 0..*
   Type = Reference(RiskAssessment)
-  Short Label = RiskAssessment expressing likely outcome
+  Short Name = RiskAssessment expressing likely outcome
   Definition = RiskAssessment expressing likely outcome
 
  -- Row 23 -----------------------------------
   Element = ClinicalImpression.plan
   Card. = 0..*
   Type = Reference(CarePlan|Appointment|CommunicationRequest|DeviceUseRequest|DiagnosticRequest|MedicationOrder|NutritionRequest|ProcedureRequest|ProcessRequest|ReferralRequest|VisionPrescription)
-  Short Label = Plan of action after assessment
+  Short Name = Plan of action after assessment
   Definition = Plan of action after assessment
 
  -- Row 24 -----------------------------------
   Element = ClinicalImpression.action
   Card. = 0..*
   Type = Reference(ReferralRequest | ProcedureRequest | Procedure | MedicationOrder | DiagnosticRequest | NutritionRequest | DeviceUseRequest | Appointment)
-  Short Label = Actions taken during assessment
+  Short Name = Actions taken during assessment
   Definition = Actions taken during assessment
 
  -- Row 25 -----------------------------------
   Element = ClinicalImpression.note
   Card. = 0..*
   Type = Annotation
-  Short Label = Comments made about the ClinicalImpression
+  Short Name = Comments made about the ClinicalImpression
   Definition = Commentary about the impression, typically recorded after the impression itself was made, though supplemental notes by the original author could also appear
   Comments = Don\'t use this element for content that should more properly appear as one of the specific elements of the impression.
 

@@ -255,7 +255,7 @@
  -- Row 1 -----------------------------------
   Element = OperationOutcome
   Type = DomainResource
-  Short Label = Information about the success/failure of an action
+  Short Name = Information about the success/failure of an action
   Definition = A collection of error, warning or information messages that result from a system action.
   Comments = Can result from the failure of a REST call or be part of the response message returned from a request message.  If sent with extensions overriding particular issues, might even appear as part of a request message.
   RIM Mapping = Grouping is handled through multiple repetitions from whatever context references the outcomes (no specific grouper required)
@@ -265,7 +265,7 @@
   Element = OperationOutcome.issue
   Card. = 1..*
   UML = right
-  Short Label = A single issue associated with the action
+  Short Name = A single issue associated with the action
   Definition = An error, warning or information message that results from a system action
   v2 Mapping = ERR
   RIM Mapping = AcknowledgementDetail or Observation[classCode=\"ALRT\" and moodCode=\"EVN\"]
@@ -276,7 +276,7 @@
   Is Modifier = y
   Type = code
   Binding = IssueSeverity
-  Short Label = fatal | error | warning | information
+  Short Name = fatal | error | warning | information
   Definition = Indicates whether the issue indicates a variation from successful processing
   Requirements = Indicates how relevant the issue is to the overall success of the action.
   Comments = This is labeled as \"Is Modifier\" because applications should not confuse hints and warnings with errors
@@ -288,7 +288,7 @@
   Card. = 1..1
   Type = code
   Binding = IssueType
-  Short Label = Error or warning code
+  Short Name = Error or warning code
   Definition = Describes the type of the issue. The system that creates an OperationOutcome SHALL choose the most applicable code from the IssueType value set, and may additional provide its own code for the error in the details element
   Requirements = Expresses the issue in a human and computer-friendly way, allowing the requesting system to behave differently based on the type of issue
   v2 Mapping = ERR-3
@@ -299,7 +299,7 @@
   Card. = 0..1
   Type = CodeableConcept
   Binding = IssueDetails
-  Short Label = Additional details about the error
+  Short Name = Additional details about the error
   Definition = Additional details about the error. This may be a text description of the error, or a system code that identifies the error
   Comments = A human readable description of the error issue SHOULD be placed in details.text
   v2 Mapping = ERR-5
@@ -309,7 +309,7 @@
   Element = OperationOutcome.issue.diagnostics
   Card. = 0..1
   Type = string
-  Short Label = Additional diagnostic information about the issue
+  Short Name = Additional diagnostic information about the issue
   Definition = Additional diagnostic information about the issue.  Typically, this may be a description of how a value is erroneous, or a stack dump to help trace the issue.
   Comments = Typically this field is used to provide troubleshooting information about the error
   v2 Mapping = ERR-8
@@ -319,7 +319,7 @@
   Element = OperationOutcome.issue.location
   Card. = 0..*
   Type = string
-  Short Label = XPath of element(s) related to issue
+  Short Name = XPath of element(s) related to issue
   Definition = A simple XPath limited to element names, repetition indicators and the default child access that identifies one of the elements in the resource that caused this issue to be raised.
   Requirements = Allows systems to highlight or otherwise guide users to elements implicated in issues to allow them to be fixed more easily.
   Comments = The root of the XPath is the resource or bundle that generated OperationOutcome.  Each XPath SHALL resolve to a single node.  The XPath syntax is used whether the referenced instance is expressed in XML or JSON. Note that expression is being trialed as an alternative to XPath
@@ -330,7 +330,7 @@
   Element = OperationOutcome.issue.expression
   Card. = 0..*
   Type = string
-  Short Label = FluentPath of element(s) related to issue
+  Short Name = FluentPath of element(s) related to issue
   Definition = A simple FluentPath limited to element names, repetition indicators and the default child access that identifies one of the elements in the resource that caused this issue to be raised.
   Requirements = Allows systems to highlight or otherwise guide users to elements implicated in issues to allow them to be fixed more easily.
   Comments = The root of the FluentPath is the resource or bundle that generated OperationOutcome.  Each FluentPath SHALL resolve to a single node

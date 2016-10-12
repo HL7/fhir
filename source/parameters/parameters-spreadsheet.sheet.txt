@@ -15,7 +15,7 @@
  -- Row 1 -----------------------------------
   Element = Parameters
   Type = Resource
-  Short Label = Operation Request or Response
+  Short Name = Operation Request or Response
   Definition = This special resource type is used to represent an operation request and response (operations.html). It has no other use, and there is no RESTful endpoint associated with it.
   Comments = The parameters that may be used are defined by the OperationDefinition resource
   v2 Mapping = n/a
@@ -26,14 +26,14 @@
   Element = Parameters.parameter
   Card. = 0..*
   UML = 250;0
-  Short Label = Operation Parameter
+  Short Name = Operation Parameter
   Definition = A parameter passed to or received from the operation
 
  -- Row 3 -----------------------------------
   Element = Parameters.parameter.name
   Card. = 1..1
   Type = string
-  Short Label = Name from the definition
+  Short Name = Name from the definition
   Definition = The name of the parameter (reference to the operation definition)
 
  -- Row 4 -----------------------------------
@@ -41,7 +41,7 @@
   Card. = 0..1
   Inv. = 1
   Type = *
-  Short Label = If parameter is a data type
+  Short Name = If parameter is a data type
   Definition = If the parameter is a data type
 
  -- Row 5 -----------------------------------
@@ -49,14 +49,14 @@
   Card. = 0..1
   Inv. = 1
   Type = Resource
-  Short Label = If parameter is a whole resource
+  Short Name = If parameter is a whole resource
   Definition = If the parameter is a whole resource
 
  -- Row 6 -----------------------------------
   Element = Parameters.parameter.part
   Card. = 0..*
   Type = @Parameters.parameter
-  Short Label = Named part of a multi-part parameter
+  Short Name = Named part of a multi-part parameter
   Definition = A named part of a multi-part parameter
   Comments = Only one level of nested parameters is allowed
 
@@ -64,7 +64,7 @@
   Element = !Parameters.parameter.part.name
   Card. = 1..1
   Type = string
-  Short Label = Name from the definition
+  Short Name = Name from the definition
   Definition = The name of the parameter (reference to the operation definition)
 
  -- Row 8 -----------------------------------
@@ -72,7 +72,7 @@
   Card. = 0..1
   Inv. = 2
   Type = *
-  Short Label = Value of the part
+  Short Name = Value of the part
   Definition = The value of the parameter
   Comments = If there is no value, simply omit the parameter
 
@@ -81,7 +81,7 @@
   Card. = 0..1
   Inv. = 2
   Type = Resource
-  Short Label = If part is a whole resource
+  Short Name = If part is a whole resource
   Definition = If the parameter is a whole resource
 
 === Sheet Search =====================================

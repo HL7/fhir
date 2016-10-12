@@ -15,5 +15,5 @@
  -- Row 1 -----------------------------------
   Element = Duration
   Type = Quantity
-  Short Label = A length of time
+  Short Name = A length of time
   RIM Mapping = PQ, IVL<PQ> depending on the values

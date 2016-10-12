@@ -263,7 +263,7 @@
  -- Row 1 -----------------------------------
   Element = Timing
   Type = Structure
-  Short Label = A timing schedule that specifies an event that may occur multiple times
+  Short Name = A timing schedule that specifies an event that may occur multiple times
   Definition = Specifies an event that may occur multiple times. Timing schedules are used to record when things are expected or requested to occur. The most common usage is in dosage instructions for medications. They are also used when planning care of various kinds
   Requirements = Need to able to track proposed timing schedules. There are several different ways to do this: one or more specified times, a simple rules like three times a day, or  before/after meals
   Comments = A timing schedule can be either a list of events - intervals on which the event occurs, or a single event with repeating criteria or just repeating criteria with no actual event.  When both event and a repeating specification are provided, the list of events should be understood as an interpretation of the information in the repeat structure
@@ -274,7 +274,7 @@
   Element = Timing.event
   Card. = 0..*
   Type = dateTime
-  Short Label = When the event occurs
+  Short Name = When the event occurs
   Definition = Identifies specific times when the event occurs
   Requirements = In an MAR, for instance, you need to take a general specification, and turn it into a precise specification
   RIM Mapping = QLIST<TS>
@@ -283,7 +283,7 @@
   Element = Timing.repeat
   Card. = 0..1
   UML = 120;200
-  Short Label = When the event is to occur
+  Short Name = When the event is to occur
   Definition = A set of rules that describe when the event should occur
   Requirements = Many timing schedules are determined by regular repetitions
   RIM Mapping = Implies PIVL or EIVL
@@ -292,7 +292,7 @@
   Element = Timing.repeat.bounds[x]
   Card. = 0..1
   Type = Duration | Range | Period
-  Short Label = Length/Range of lengths, or (Start and/or end) limits
+  Short Name = Length/Range of lengths, or (Start and/or end) limits
   Definition = Either a duration for the length of the timing schedule, a range of possible length, or outer bounds for start and/or end limits of the timing schedule
   RIM Mapping = IVL(TS) used in a QSI
 
@@ -300,7 +300,7 @@
   Element = Timing.repeat.count
   Card. = 0..1
   Type = integer
-  Short Label = Number of times to repeat
+  Short Name = Number of times to repeat
   Definition = A total count of the desired number of repetitions
   Requirements = Repetitions may be limited by end time or total occurrences
   Comments = If you have both bounds and count, then this should be understood as within the bounds period, until count times happens
@@ -310,7 +310,7 @@
   Element = Timing.repeat.countMax
   Card. = 0..1
   Type = integer
-  Short Label = Maximum number of times to repeat
+  Short Name = Maximum number of times to repeat
   Definition = A maximum value for the count of the desired repetitions (e.g. do something 6-8 times)
   RIM Mapping = PIVL.count
 
@@ -318,7 +318,7 @@
   Element = Timing.repeat.duration
   Card. = 0..1
   Type = decimal
-  Short Label = How long when it happens
+  Short Name = How long when it happens
   Definition = How long this thing happens for when it happens
   Requirements = Some activities are not instantaneous and need to be maintained for a period of time
   Comments = For some events the duration is part of the definition of the event (e.g. IV infusions, where the duration is implicit in the specified quantity and rate). For others, it\'s part of the timing specification (e.g. exercise)
@@ -328,7 +328,7 @@
   Element = Timing.repeat.durationMax
   Card. = 0..1
   Type = decimal
-  Short Label = How long when it happens (Max)
+  Short Name = How long when it happens (Max)
   Definition = The upper limit of how long this thing happens for when it happens
   Requirements = Some activities are not instantaneous and need to be maintained for a period of time
   Comments = For some events the duration is part of the definition of the event (e.g. IV infusions, where the duration is implicit in the specified quantity and rate). For others, it\'s part of the timing specification (e.g. exercise)
@@ -339,7 +339,7 @@
   Card. = 0..1
   Type = code
   Binding = UnitsOfTime
-  Short Label = s | min | h | d | wk | mo | a - unit of time (UCUM)
+  Short Name = s | min | h | d | wk | mo | a - unit of time (UCUM)
   Definition = The units of time for the duration, in UCUM units
   RIM Mapping = PIVL.phase.unit
 
@@ -347,7 +347,7 @@
   Element = Timing.repeat.frequency
   Card. = 0..1
   Type = integer
-  Short Label = Event occurs frequency times per period
+  Short Name = Event occurs frequency times per period
   Definition = The number of times to repeat the action within the specified period / period range (i.e. both period and periodMax provided)
   RIM Mapping = PIVL.phase / EIVL.offset
   Default Value = 1
@@ -356,7 +356,7 @@
   Element = Timing.repeat.frequencyMax
   Card. = 0..1
   Type = integer
-  Short Label = Event occurs up to frequencyMax times per period
+  Short Name = Event occurs up to frequencyMax times per period
   Definition = If present, indicates that the frequency is a range - so repeat between [frequency] and [frequencyMax] times within the period or period range
   RIM Mapping = PIVL.phase
 
@@ -364,7 +364,7 @@
   Element = Timing.repeat.period
   Card. = 0..1
   Type = decimal
-  Short Label = Event occurs frequency times per period
+  Short Name = Event occurs frequency times per period
   Definition = Indicates the duration of time over which repetitions are to occur; e.g. to express \"3 times per day\", 3 would be the frequency and \"1 day\" would be the period
   RIM Mapping = PIVL.phase
 
@@ -372,7 +372,7 @@
   Element = Timing.repeat.periodMax
   Card. = 0..1
   Type = decimal
-  Short Label = Upper limit of period (3-4 hours)
+  Short Name = Upper limit of period (3-4 hours)
   Definition = If present, indicates that the period is a range from [period] to [periodMax], allowing expressing concepts such as \"do this once every 3-5 days
   RIM Mapping = PIVL.phase
 
@@ -381,7 +381,7 @@
   Card. = 0..1
   Type = code
   Binding = UnitsOfTime
-  Short Label = s | min | h | d | wk | mo | a - unit of time (UCUM)
+  Short Name = s | min | h | d | wk | mo | a - unit of time (UCUM)
   Definition = The units of time for the period in UCUM units
   RIM Mapping = PIVL.phase.unit
 
@@ -390,7 +390,7 @@
   Card. = 0..1
   Type = code
   Binding = EventTiming
-  Short Label = Regular life events the event is tied to
+  Short Name = Regular life events the event is tied to
   Definition = A real world event that the occurrence of the event should be tied to.
   Requirements = Timings are frequently determined by occurrences such as waking, eating and sleep
   RIM Mapping = EIVL.event
@@ -399,7 +399,7 @@
   Element = Timing.repeat.offset
   Card. = 0..1
   Type = unsignedInt
-  Short Label = Minutes from event (before or after)
+  Short Name = Minutes from event (before or after)
   Definition = The number of minutes from the event. If the event code does not indicate whether the minutes is before or after the event, then the offset is assumed to be after the event
 
  -- Row 17 -----------------------------------
@@ -407,7 +407,7 @@
   Card. = 0..1
   Type = CodeableConcept
   Binding = TimingAbbreviation
-  Short Label = BID | TID | QID | AM | PM | QD | QOD | Q4H | Q6H +
+  Short Name = BID | TID | QID | AM | PM | QD | QOD | Q4H | Q6H +
   Definition = A code for the timing pattern. Some codes such as BID are ubiquitous, but many institutions define their own additional codes. If a code is provided, the code is understood to be a complete statement of whatever is specified in the structured timing data, and either the code or the data may be used to interpret the Timing
   Comments = BID etc are defined as \'at institutionally specified times\'. For example, an institution may choose that BID is \"always at 7am and 6pm\".  If it is inappropriate for this choice to be made, the code BID should not be used. Instead, a distinct organization-specific code should be used in place of the HL7-defined BID code and/or the a structured representation should be used (in this case, specifying the two event times)
   RIM Mapping = QSC.code

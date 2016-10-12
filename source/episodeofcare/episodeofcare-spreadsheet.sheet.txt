@@ -74,7 +74,7 @@
   Aliases = Case Program Problem
   UML = 200;0
   Type = DomainResource
-  Short Label = An association of a Patient with an Organization and  Healthcare Provider(s) for a period of time that the Organization assumes some level of responsibility
+  Short Name = An association of a Patient with an Organization and  Healthcare Provider(s) for a period of time that the Organization assumes some level of responsibility
   Definition = An association between a patient and an organization / healthcare provider(s) during which time encounters may occur. The managing organization assumes a level of responsibility for the patient during this time.
   RIM Mapping = n/a
   w5 = workflow.encounter
@@ -83,7 +83,7 @@
   Element = EpisodeOfCare.identifier
   Card. = 0..*
   Type = Identifier
-  Short Label = Identifier(s) for the EpisodeOfCare
+  Short Name = Identifier(s) for the EpisodeOfCare
   Definition = Identifier(s) by which this EpisodeOfCare is known
   w5 = id
 
@@ -94,7 +94,7 @@
   Summary = Y
   Type = code
   Binding = EpisodeOfCareStatus
-  Short Label = planned | waitlist | active | onhold | finished | cancelled | entered-in-error
+  Short Name = planned | waitlist | active | onhold | finished | cancelled | entered-in-error
   Definition = planned | waitlist | active | onhold | finished | cancelled
   w5 = status
 
@@ -102,7 +102,7 @@
   Element = EpisodeOfCare.statusHistory
   Card. = 0..*
   UML = 0;220
-  Short Label = Past list of status codes
+  Short Name = Past list of status codes
   Definition = The history of statuses that the EpisodeOfCare has been through (without requiring processing the history of the resource)
 
  -- Row 5 -----------------------------------
@@ -110,14 +110,14 @@
   Card. = 1..1
   Type = code
   Binding = EpisodeOfCareStatus
-  Short Label = planned | waitlist | active | onhold | finished | cancelled | entered-in-error
+  Short Name = planned | waitlist | active | onhold | finished | cancelled | entered-in-error
   Definition = planned | waitlist | active | onhold | finished | cancelled
 
  -- Row 6 -----------------------------------
   Element = EpisodeOfCare.statusHistory.period
   Card. = 1..1
   Type = Period
-  Short Label = Period for the status
+  Short Name = Period for the status
   Definition = The period during this EpisodeOfCare that the specific status applied
 
  -- Row 7 -----------------------------------
@@ -126,7 +126,7 @@
   Summary = Y
   Type = CodeableConcept
   Binding = EpisodeOfCareType
-  Short Label = Type/class  - e.g. specialist referral, disease management
+  Short Name = Type/class  - e.g. specialist referral, disease management
   Definition = A classification of the type of episode of care; e.g. specialist referral, disease management, type of funded care
   Comments = The type can be very important in processing as this could be used in determining if the EpisodeOfCare is relevant to specific government reporting, or other types of classifications
   w5 = class
@@ -135,7 +135,7 @@
   Element = EpisodeOfCare.condition
   Card. = 0..*
   Type = Reference(Condition)
-  Short Label = Conditions/problems/diagnoses this episode of care is for
+  Short Name = Conditions/problems/diagnoses this episode of care is for
   Definition = A list of conditions/problems/diagnoses that this episode of care is intended to be providing care for
   w5 = what
 
@@ -144,7 +144,7 @@
   Card. = 1..1
   Summary = Y
   Type = Reference(Patient)
-  Short Label = Patient for this episode of care
+  Short Name = Patient for this episode of care
   Definition = The patient that this EpisodeOfCare applies to
   w5 = who.focus
 
@@ -153,7 +153,7 @@
   Card. = 0..1
   Summary = Y
   Type = Reference(Organization)
-  Short Label = Organization that assumes care
+  Short Name = Organization that assumes care
   Definition = The organization that has assumed the specific responsibilities for the specified duration
   Committee Notes = This was left as 0..1 to permit small systems having an implied Organization
 
@@ -162,7 +162,7 @@
   Card. = 0..1
   Summary = Y
   Type = Period
-  Short Label = Interval during responsibility is assumed
+  Short Name = Interval during responsibility is assumed
   Definition = The interval during which the managing organization assumes the defined responsibility
   w5 = when.init
 
@@ -170,14 +170,14 @@
   Element = EpisodeOfCare.referralRequest
   Card. = 0..*
   Type = Reference(ReferralRequest)
-  Short Label = Originating Referral Request(s)
+  Short Name = Originating Referral Request(s)
   Definition = Referral Request(s) that are fulfilled by this EpisodeOfCare, incoming referrals
 
  -- Row 13 -----------------------------------
   Element = EpisodeOfCare.careManager
   Card. = 0..1
   Type = Reference(Practitioner)
-  Short Label = Care manager/care co-ordinator for the patient
+  Short Name = Care manager/care co-ordinator for the patient
   Definition = The practitioner that is the care manager/care co-ordinator for this patient
 
  -- Row 14 -----------------------------------
@@ -186,7 +186,7 @@
   Aliases = CareTeam
   UML = 420;220
   Type = Reference(CareTeam)
-  Short Label = Other practitioners facilitating this episode of care
+  Short Name = Other practitioners facilitating this episode of care
   Definition = The list of practitioners that may be facilitating this episode of care for specific purposes
 
  -- Row 15 -----------------------------------
@@ -194,21 +194,21 @@
   Card. = 0..*
   Type = CodeableConcept
   Binding = EpisodeOfCareTeamRole
-  Short Label = Role taken by this team member
+  Short Name = Role taken by this team member
   Definition = The role this team member is taking within this episode of care
 
  -- Row 16 -----------------------------------
   Element = !EpisodeOfCare.careTeam.period
   Card. = 0..1
   Type = Period
-  Short Label = Period of time for this role
+  Short Name = Period of time for this role
   Definition = The period of time this practitioner is performing some role within the episode of care
 
  -- Row 17 -----------------------------------
   Element = !EpisodeOfCare.careTeam.member
   Card. = 0..1
   Type = Reference(Practitioner|Organization)
-  Short Label = The practitioner (or Organization) within the team
+  Short Name = The practitioner (or Organization) within the team
   Definition = The practitioner (or Organization) within the team
   Comments = Where an Organization is included in the CareTeam, it is really providing some form of services to the EpisodeOfCare (e.g. Jim\'s Mowing Services) the details of the services would be included on a CarePlan
   w5 = who
@@ -217,7 +217,7 @@
   Element = EpisodeOfCare.account
   Card. = 0..*
   Type = Reference(Account)
-  Short Label = The set of accounts that may be used for billing for this EpisodeOfCare
+  Short Name = The set of accounts that may be used for billing for this EpisodeOfCare
   Comments = The billing system may choose to allocate billable items associated with the EpisodeOfCare to different referenced Accounts based on internal business rules.
 
 === Sheet Search =====================================

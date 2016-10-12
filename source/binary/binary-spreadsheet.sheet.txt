@@ -8,7 +8,7 @@
  -- Row 1 -----------------------------------
   Element = Binary
   Type = Resource
-  Short Label = Pure binary content defined by some other format than FHIR
+  Short Name = Pure binary content defined by some other format than FHIR
   Definition = A binary resource can contain any content, whether text, image, pdf, zip archive, etc.
   Requirements = There are situations where it is useful or required to handle pure binary content using the same framework as other resources
   Comments = Typically, Binary resources are used for handling content such as:  * CDA Documents (i.e. with XDS) * PDF Documents * Images (the Media resource is preferred for handling images, but not possible when the content is already binary - e.g. XDS)
@@ -21,14 +21,14 @@
   Summary = y
   Type = code
   Binding = MimeType
-  Short Label = MimeType of the binary content
+  Short Name = MimeType of the binary content
   Definition = MimeType of the binary content represented as a standard MimeType (BCP 13)
 
  -- Row 3 -----------------------------------
   Element = Binary.content
   Card. = 1..1
   Type = base64Binary
-  Short Label = The actual content
+  Short Name = The actual content
   Definition = The actual content, base64 encoded
   Comments = If the content type is itself base64 encoding, then this will be base64 encoded twice - what is created by un-base64ing the content must be the specified content type
 

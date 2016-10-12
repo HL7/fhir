@@ -72,7 +72,7 @@
  -- Row 1 -----------------------------------
   Element = Slot
   Type = DomainResource
-  Short Label = A slot of time on a schedule that may be available for booking appointments
+  Short Name = A slot of time on a schedule that may be available for booking appointments
   Definition = A slot of time on a schedule that may be available for booking appointments.
   RIM Mapping = n/a
   iCal Mapping = (refer to the Availability resource for the header mapping details)
@@ -83,7 +83,7 @@
   Card. = 0..*
   Summary = Y
   Type = Identifier
-  Short Label = External Ids for this item
+  Short Name = External Ids for this item
   w5 = id
 
  -- Row 3 -----------------------------------
@@ -92,7 +92,7 @@
   Summary = Y
   Type = CodeableConcept
   Binding = service-category
-  Short Label = A broad categorisation of the service that is to be performed during this appointment
+  Short Name = A broad categorisation of the service that is to be performed during this appointment
 
  -- Row 4 -----------------------------------
   Element = Slot.serviceType
@@ -100,7 +100,7 @@
   Summary = Y
   Type = CodeableConcept
   Binding = service-type
-  Short Label = The type of appointments that can be booked into this slot (ideally this would be an identifiable service - which is at a location, rather than the location itself). If provided then this overrides the value provided on the availability resource
+  Short Name = The type of appointments that can be booked into this slot (ideally this would be an identifiable service - which is at a location, rather than the location itself). If provided then this overrides the value provided on the availability resource
 
  -- Row 5 -----------------------------------
   Element = Slot.specialty
@@ -108,7 +108,7 @@
   Summary = Y
   Type = CodeableConcept
   Binding = specialty
-  Short Label = The specialty of a practitioner that would be required to perform the service requested in this appointment
+  Short Name = The specialty of a practitioner that would be required to perform the service requested in this appointment
   w5 = class
 
  -- Row 6 -----------------------------------
@@ -117,14 +117,14 @@
   Summary = Y
   Type = CodeableConcept
   Binding = appointment-type
-  Short Label = The style of appointment or patient that has been booked in the slot (not service type)
+  Short Name = The style of appointment or patient that has been booked in the slot (not service type)
 
  -- Row 7 -----------------------------------
   Element = Slot.schedule
   Card. = 1..1
   Summary = Y
   Type = Reference(Schedule)
-  Short Label = The schedule resource that this slot defines an interval of status information
+  Short Name = The schedule resource that this slot defines an interval of status information
 
  -- Row 8 -----------------------------------
   Element = Slot.status
@@ -132,7 +132,7 @@
   Summary = Y
   Type = code
   Binding = SlotStatus
-  Short Label = busy | free | busy-unavailable | busy-tentative | entered-in-error
+  Short Name = busy | free | busy-unavailable | busy-tentative | entered-in-error
   iCal Mapping = FREEBUSY;FBTYPE=(freeBusyType):19980314T233000Z/19980315T003000Z If the freeBusyType is BUSY, then this value can be excluded
   Committee Notes = This is not a modifier element as the status of the slot being busy is not a change in the interpretation of the slot.
 
@@ -141,7 +141,7 @@
   Card. = 1..1
   Summary = Y
   Type = instant
-  Short Label = Date/Time that the slot is to begin
+  Short Name = Date/Time that the slot is to begin
   iCal Mapping = FREEBUSY;FBTYPE=FREE:(start)/19980315T003000Z If the freeBusyType is BUSY, then this value can be excluded
   w5 = when.planned
 
@@ -150,7 +150,7 @@
   Card. = 1..1
   Summary = Y
   Type = instant
-  Short Label = Date/Time that the slot is to conclude
+  Short Name = Date/Time that the slot is to conclude
   iCal Mapping = FREEBUSY:19980314T233000Z/(end) If the freeBusyType is BUSY, then this value can be excluded (as shown)
   w5 = when.planned
 
@@ -158,20 +158,20 @@
   Element = Slot.overbooked
   Card. = 0..1
   Type = boolean
-  Short Label = This slot has already been overbooked, appointments are unlikely to be accepted for this time
+  Short Name = This slot has already been overbooked, appointments are unlikely to be accepted for this time
   Missing Meaning = If overbooked is missing, systems may assume that there are still appointments available
 
  -- Row 12 -----------------------------------
   Element = Slot.comment
   Card. = 0..1
   Type = string
-  Short Label = Comments on the slot to describe any extended information. Such as custom constraints on the slot
+  Short Name = Comments on the slot to describe any extended information. Such as custom constraints on the slot
 
  -- Row 13 -----------------------------------
   Element = !Slot.lastModified
   Card. = 0..1
   Type = dateTime
-  Short Label = When this slot was created, or last revised
+  Short Name = When this slot was created, or last revised
   w5 = when.recorded
 
 === Sheet Search =====================================

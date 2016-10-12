@@ -84,7 +84,7 @@
  -- Row 1 -----------------------------------
   Element = Media
   Type = DomainResource
-  Short Label = A photo, video, or audio recording acquired or used in healthcare. The actual content may be inline or provided by direct reference
+  Short Name = A photo, video, or audio recording acquired or used in healthcare. The actual content may be inline or provided by direct reference
   Definition = A photo, video, or audio recording acquired or used in healthcare. The actual content may be inline or provided by direct reference
   RIM Mapping = Act[classCode=\"DGIMG\", moodCode=\"EVN\"]
   w5 = infrastructure.structure
@@ -94,7 +94,7 @@
   Card. = 0..*
   Summary = y
   Type = Identifier
-  Short Label = Identifier(s) for the image
+  Short Name = Identifier(s) for the image
   Definition = Identifiers associated with the image - these may include identifiers for the image itself, identifiers for the context of its collection (e.g. series ids) and context ids such as accession numbers or other workflow identifiers
   Comments = The identifier label and use can be used to determine what kind of identifier it is
   RIM Mapping = .id
@@ -107,7 +107,7 @@
   Summary = y
   Type = code
   Binding = DigitalMediaType
-  Short Label = photo | video | audio
+  Short Name = photo | video | audio
   Definition = Whether the media is a photo (still image), an audio recording, or a video recording
   RIM Mapping = .code
   w5 = class
@@ -118,7 +118,7 @@
   Summary = y
   Type = CodeableConcept
   Binding = DigitalMediaSubtype
-  Short Label = The type of acquisition equipment/process
+  Short Name = The type of acquisition equipment/process
   Definition = Details of the type of the media - usually, how it was acquired (what type of device). If images sourced from a DICOM system, are wrapped in a Media resource, then this is the modality
   RIM Mapping = .outboundRelationship[typeCode=\"COMP].target[classCode=\"LIST\", moodCode=\"EVN\"].code
   DICOM Mapping = 0008,0060 | 0008,1032
@@ -130,7 +130,7 @@
   Summary = y
   Type = CodeableConcept
   Binding = MediaView
-  Short Label = Imaging view, e.g. Lateral or Antero-posterior
+  Short Name = Imaging view, e.g. Lateral or Antero-posterior
   Definition = The name of the imaging view e.g. Lateral or Antero-posterior (AP).
   RIM Mapping = DiagnosticImage.subjectOrientationCode
   w5 = class
@@ -140,7 +140,7 @@
   Card. = 0..1
   Summary = y
   Type = Reference(Patient|Practitioner|Group|Device|Specimen)
-  Short Label = Who/What this Media is a record of
+  Short Name = Who/What this Media is a record of
   Definition = Who/What this Media is a record of
   RIM Mapping = .participation[typeCode=\"SUBJ\"]???
   DICOM Mapping = ~0010,0020
@@ -151,7 +151,7 @@
   Card. = 0..1
   Summary = y
   Type = Reference(Practitioner)
-  Short Label = Who asked that this image be collected
+  Short Name = Who asked that this image be collected
   Definition = Who requested that this image be collected
   Comments = Helps connect to workflow etc.
   RIM Mapping = .participation[typeCode=\"REFB\"]???
@@ -163,7 +163,7 @@
   Card. = 0..1
   Summary = y
   Type = Reference(Practitioner)
-  Short Label = The person who generated the image
+  Short Name = The person who generated the image
   Definition = The person who administered the collection of the image
   RIM Mapping = .participation[typeCode=\"PERF\"]???
   DICOM Mapping = 0008,1060?
@@ -174,7 +174,7 @@
   Card. = 0..1
   Summary = y
   Type = string
-  Short Label = Name of the device/manufacturer
+  Short Name = Name of the device/manufacturer
   Definition = The name of the device / manufacturer of the device  that was used to make the recording
   RIM Mapping = .participation[typeCode=\"DEV\"].role.player.Entity[classCode=\"DEV\"].name
   DICOM Mapping = 0008,0070
@@ -185,7 +185,7 @@
   Summary = y
   Inv. = 1
   Type = positiveInt
-  Short Label = Height of the image in pixels (photo/video)
+  Short Name = Height of the image in pixels (photo/video)
   Definition = Height of the image in pixels (photo/video)
   RIM Mapping = .outboundRelationship[typeCode=\"COMP].target[classCode=\"OBS\", moodCode=\"EVN\",code=\"<CODE>\"].value
   DICOM Mapping = 0028,0010
@@ -196,7 +196,7 @@
   Summary = y
   Inv. = 2
   Type = positiveInt
-  Short Label = Width of the image in pixels (photo/video)
+  Short Name = Width of the image in pixels (photo/video)
   Definition = Width of the image in pixels (photo/video)
   RIM Mapping = .outboundRelationship[typeCode=\"COMP].target[classCode=\"OBS\", moodCode=\"EVN\",code=\"<CODE>\"].value
   DICOM Mapping = 0028,0011
@@ -207,7 +207,7 @@
   Summary = y
   Inv. = 3
   Type = positiveInt
-  Short Label = Number of frames if > 1 (photo)
+  Short Name = Number of frames if > 1 (photo)
   Definition = The number of frames in a photo. This is used with a multi-page fax, or an imaging acquisition context that takes multiple slices in a single image, or an animated gif. If there is more than one frame, this SHALL have a value in order to alert interface software that a multi-frame capable rendering widget is required
   RIM Mapping = .outboundRelationship[typeCode=\"COMP].target[classCode=\"OBS\", moodCode=\"EVN\",code=\"<CODE>\"].value
   Default Value = 1
@@ -218,7 +218,7 @@
   Summary = y
   Inv. = 4
   Type = unsignedInt
-  Short Label = Length in seconds (audio / video)
+  Short Name = Length in seconds (audio / video)
   Definition = The duration of the recording in seconds - for audio and video
   RIM Mapping = .outboundRelationship[typeCode=\"COMP].target[classCode=\"OBS\", moodCode=\"EVN\",code=\"<CODE>\"].value
   DICOM Mapping = ~0028,0002
@@ -227,7 +227,7 @@
   Element = Media.content
   Card. = 1..1
   Type = Attachment
-  Short Label = Actual Media - reference or data
+  Short Name = Actual Media - reference or data
   Definition = The actual content of the media - inline or by direct reference to the media source file
   Comments = Recommended content types: image/jpeg, image/png, image/tiff, video/mpeg, audio/mp4, application/dicom. Application/dicom can contain the transfer syntax as a parameter.  For an media that covers a period of time (video/sound), the content.creationTime is the end time. Creation time is used for tracking, organizing versions and searching
   RIM Mapping = .text

@@ -15,7 +15,7 @@
  -- Row 1 -----------------------------------
   Element = CareTeam
   Type = DomainResource
-  Short Label = Planned participants in the coordination and delivery of care for a patient or group
+  Short Name = Planned participants in the coordination and delivery of care for a patient or group
   Definition = The Care Team includes all the people and organizations who plan to participate in the coordination and delivery of care for a patient
   w5 = clinical.careprovision
 
@@ -24,7 +24,7 @@
   Card. = 0..*
   Summary = Y
   Type = Identifier
-  Short Label = External Ids for this team
+  Short Name = External Ids for this team
   Definition = This records identifiers associated with this care team that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate.
   w5 = id
 
@@ -34,7 +34,7 @@
   Is Modifier = Y
   Summary = Y
   Type = CodeableConcept
-  Short Label = active | suspended | inactive | entered in error
+  Short Name = active | suspended | inactive | entered in error
   Definition = Indicates whether the care team is currently active, suspended, inactive, or entered in error
   w5 = status
 
@@ -43,7 +43,7 @@
   Card. = 0..*
   Summary = Y
   Type = CodeableConcept
-  Short Label = Type of team
+  Short Name = Type of team
   Definition = Identifies what kind of team.  This is to support differentiation between multiple co-existing teams, such as care plan team, episode of care team, longitudinal care team
   Requirements = Used for filtering what teams(s) are retrieved and displayed to different types of users
   Comments = There may be multiple axis of categorization and one team may serve multiple purposes.
@@ -55,7 +55,7 @@
   Card. = 0..1
   Summary = Y
   Type = string
-  Short Label = Name of the team, such as crisis assessment team
+  Short Name = Name of the team, such as crisis assessment team
   Definition = Name of the care team
 
  -- Row 6 -----------------------------------
@@ -63,7 +63,7 @@
   Card. = 0..1
   Summary = Y
   Type = Reference(Patient | Group)
-  Short Label = Who care team is for
+  Short Name = Who care team is for
   Definition = Identifies the patient or group whose intended care is handled by the team
   Requirements = Allows the team to care for a group (e.g. marriage) therapy
   w5 = who.focus
@@ -73,7 +73,7 @@
   Card. = 0..1
   Summary = Y
   Type = Period
-  Short Label = Time period team covers
+  Short Name = Time period team covers
   Definition = Indicates when the team did (or is intended to) come into effect and end.
   Requirements = Allows tracking what team(s) are in effect at a particular time.
   w5 = when.init
@@ -81,7 +81,7 @@
  -- Row 8 -----------------------------------
   Element = CareTeam.participant
   Card. = 0..*
-  Short Label = Members of the team
+  Short Name = Members of the team
   Definition = Identifies all people and organizations who are expected to be involved in the care team.
   v2 Mapping = REL (REL.4 is always the Patient) ( or PRT?)
   RIM Mapping = .participation[typeCode=PFM]
@@ -92,7 +92,7 @@
   Summary = Y
   Type = CodeableConcept
   Binding = CareTeamParticipantRole
-  Short Label = Type of involvement
+  Short Name = Type of involvement
   Definition = Indicates specific responsibility of an individual within the care team, such as \"Primary physician\", \"Team coordinator\", \"Caregiver\", etc.
   Comments = Roles may sometimes be inferred by type of Practitioner.  These are relationships that hold only within the context of the care team.  General relationships should be handled as properties of the Patient resource directly.
   v2 Mapping = REL.2 (or PRT-4?)
@@ -103,7 +103,7 @@
   Card. = 0..1
   Summary = Y
   Type = Reference(Practitioner|RelatedPerson|Patient|Organization)
-  Short Label = Who is involved
+  Short Name = Who is involved
   Definition = The specific person or organization who is participating/expected to participate in the care team.
   Comments = Patient only needs to be listed if they have a role other than \"subject of care\".\n\nMember is optional because some participants may be known only by their role, particularly in draft plans.
   v2 Mapping = REL.5 (or PRT-5 : ( PRV-4 {provider participations} ) / PRT-5 : ( PRV-4  {non-provider person participations} ) / PRT-5 : ( PRV-4 = (patient non-subject of care) ) / PRT-8?)
@@ -114,7 +114,7 @@
   Element = CareTeam.participant.period
   Card. = 0..1
   Type = Period
-  Short Label = Time period of participant
+  Short Name = Time period of participant
   Definition = Indicates when the specific member or organization did (or is intended to) come into effect and end.
 
  -- Row 12 -----------------------------------
@@ -122,7 +122,7 @@
   Card. = 0..1
   Summary = Y
   Type = Reference(Organization)
-  Short Label = Organization responsible for the care team
+  Short Name = Organization responsible for the care team
   Definition = The organization responsible for the care team
 
 === Sheet Search =====================================

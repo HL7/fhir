@@ -30,7 +30,7 @@
   Element = ImmunizationRecommendation
   UML = 0;0
   Type = DomainResource
-  Short Label = Guidance or advice relating to an immunization
+  Short Name = Guidance or advice relating to an immunization
   Definition = A patient\'s point-in-time immunization and recommendation (i.e. forecasting a patient\'s immunization eligibility according to a published schedule) with optional supporting justification.
   v2 Mapping = VXU_V04
   RIM Mapping = SubstanceAdministration[moodCode=RMD]
@@ -41,7 +41,7 @@
   Card. = 0..*
   Summary = Y
   Type = Identifier
-  Short Label = Business identifier
+  Short Name = Business identifier
   Definition = A unique identifier assigned to this particular recommendation record.
   RIM Mapping = .id
   w5 = id
@@ -51,7 +51,7 @@
   Card. = 1..1
   Summary = Y
   Type = Reference(Patient)
-  Short Label = Who this profile is for
+  Short Name = Who this profile is for
   Definition = The patient for whom the recommendations are for.
   v2 Mapping = PID-3
   RIM Mapping = .partipication[typeCode=SUBJ].role
@@ -63,7 +63,7 @@
   Card. = 1..*
   Summary = Y
   UML = 300;120
-  Short Label = Vaccine administration recommendations
+  Short Name = Vaccine administration recommendations
   Definition = Vaccine administration recommendations
   RIM Mapping = .outboundRelationship[typeCode=\'COMP\'].target[classCode=SBADM, moodCode=RMD]
 
@@ -72,7 +72,7 @@
   Card. = 1..1
   Summary = Y
   Type = dateTime
-  Short Label = Date recommendation created
+  Short Name = Date recommendation created
   Definition = The date the immunization recommendation was created.
   v2 Mapping = OBX-15
   RIM Mapping = .partipication[typeCode=AUTH].time
@@ -83,7 +83,7 @@
   Summary = Y
   Type = CodeableConcept
   Binding = VaccineCode
-  Short Label = Vaccine recommendation applies to
+  Short Name = Vaccine recommendation applies to
   Definition = Vaccine that pertains to the recommendation
   v2 Mapping = OBX-5 : OBX-3 e { 30956-7 | 38890-0 }
   RIM Mapping = .partipication[typeCode=CSM].role[classCode=ADMM].code
@@ -93,7 +93,7 @@
   Card. = 0..1
   Summary = Y
   Type = positiveInt
-  Short Label = Recommended dose number
+  Short Name = Recommended dose number
   Definition = This indicates the next recommended dose number (e.g. dose 2 is the next recommended dose).
   Comments = May need other dose concepts such as administered vs. valid
   v2 Mapping = OBX-5 : OBX-3 = 30973-2
@@ -105,7 +105,7 @@
   Summary = Y
   Type = CodeableConcept
   Binding = ImmunizationRecommendationStatus
-  Short Label = Vaccine administration status
+  Short Name = Vaccine administration status
   Definition = Vaccine administration status
   v2 Mapping = OBX-5 : OBX-3 = 59783-1
   RIM Mapping = .inboundRelationship[typeCode=SUBJ] .source[classCode=OBS, moodCode=EVN, code=\"Immunization Forecast Status\"].value
@@ -114,7 +114,7 @@
   Element = ImmunizationRecommendation.recommendation.dateCriterion
   Card. = 0..*
   UML = 350;0
-  Short Label = Dates governing proposed immunization
+  Short Name = Dates governing proposed immunization
   Definition = Vaccine date recommendations.  For example, earliest date to administer, latest date to administer, etc.
   v2 Mapping = OBX-3: 30980-7 = Next dose recommended, 59777-3 = Latest next dose should be given, 59778-1 = Dose is overdue
   RIM Mapping = .outboundRelationship[typeCode=\'LIMIT\'].target[classCode=OBS, moodCode=EVN, isCriterionInd=true]
@@ -124,7 +124,7 @@
   Card. = 1..1
   Type = CodeableConcept
   Binding = ImmunizationRecommendationDateCriterion
-  Short Label = Type of date
+  Short Name = Type of date
   Definition = Date classification of recommendation.  For example, earliest date to give, latest date to give, etc.
   v2 Mapping = OBX-3
   RIM Mapping = .code
@@ -133,7 +133,7 @@
   Element = ImmunizationRecommendation.recommendation.dateCriterion.value
   Card. = 1..1
   Type = dateTime
-  Short Label = Recommended date
+  Short Name = Recommended date
   Definition = The date whose meaning is specified by dateCriterion.code
   v2 Mapping = OBX-5
   RIM Mapping = .value
@@ -142,7 +142,7 @@
   Element = ImmunizationRecommendation.recommendation.protocol
   Card. = 0..1
   UML = 0;150
-  Short Label = Protocol used by recommendation
+  Short Name = Protocol used by recommendation
   Definition = Contains information about the protocol under which the vaccine was administered
   RIM Mapping = .inboundRelationship[typeCode=INST].source[classCode=SBADM, moodCode=DEF]
 
@@ -150,7 +150,7 @@
   Element = ImmunizationRecommendation.recommendation.protocol.doseSequence
   Card. = 0..1
   Type = positiveInt
-  Short Label = Dose number within sequence
+  Short Name = Dose number within sequence
   Definition = Indicates the nominal position in a series of the next dose.  This is the recommended dose number as per a specified protocol.
   v2 Mapping = OBX-5 : OBX-3 = 30973-2
   RIM Mapping = .inboundRelationship[typeCode=COMP, .source[classCode=SBADM, moodCode=DEF]].sequenceNumber
@@ -159,7 +159,7 @@
   Element = ImmunizationRecommendation.recommendation.protocol.description
   Card. = 0..1
   Type = string
-  Short Label = Protocol details
+  Short Name = Protocol details
   Definition = Contains the description about the protocol under which the vaccine was administered
   v2 Mapping = OBX-5 : OBX-3 = 30956-7
   RIM Mapping = .text
@@ -168,7 +168,7 @@
   Element = ImmunizationRecommendation.recommendation.protocol.authority
   Card. = 0..1
   Type = Reference(Organization)
-  Short Label = Who is responsible for protocol
+  Short Name = Who is responsible for protocol
   Definition = Indicates the authority who published the protocol.  For example, ACIP
   v2 Mapping = OBX-5 : OBX-3 = 59779-9
   RIM Mapping = .participation[typeCode=AUT]
@@ -177,7 +177,7 @@
   Element = ImmunizationRecommendation.recommendation.protocol.series
   Card. = 0..1
   Type = string
-  Short Label = Name of vaccination series
+  Short Name = Name of vaccination series
   Definition = One possible path to achieve presumed immunity against a disease - within the context of an authority
   v2 Mapping = RXA-5-administered code
   RIM Mapping = .title
@@ -186,7 +186,7 @@
   Element = ImmunizationRecommendation.recommendation.supportingImmunization
   Card. = 0..*
   Type = Reference(Immunization)
-  Short Label = Past immunizations supporting recommendation
+  Short Name = Past immunizations supporting recommendation
   Definition = Immunization event history that supports the status and recommendation
   v2 Mapping = ? No clear way to associate in HL7 v2 or IG
   RIM Mapping = .outboundRelationship[typeCode=RSON].target[classCode=SBADM, moodCode=EVN, code=\"immunization\"]
@@ -195,7 +195,7 @@
   Element = ImmunizationRecommendation.recommendation.supportingPatientInformation
   Card. = 0..*
   Type = Reference(Observation | AllergyIntolerance)
-  Short Label = Patient observations supporting recommendation
+  Short Name = Patient observations supporting recommendation
   Definition = Patient Information that supports the status and recommendation.  This includes patient observations, adverse reactions and allergy/intolerance information.
   v2 Mapping = OBX If OBX is associated with ( RXA : RXA-5-administered code = \'998^No vaccine administered^CVX\'), could contain the reason the vaccine was not administered
   RIM Mapping = .outboundRelationship[typeCode=RSON].target[classCode=OBS, moodCode=EVN]

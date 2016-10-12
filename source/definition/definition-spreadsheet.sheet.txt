@@ -44,7 +44,7 @@
  -- Row 1 -----------------------------------
   Element = Definition
   Type = Logical
-  Short Label = Definition Pattern
+  Short Name = Definition Pattern
   Definition = A pattern to be followed by resources that represent a specific proposal, plan and/or order for some sort of action or service
   RIM Mapping = Act[moodCode<=DEFN]
 
@@ -53,7 +53,7 @@
   Card. = 0..1
   Summary = Y
   Type = Identifier
-  Short Label = Business Identifer for definition/protocol
+  Short Name = Business Identifer for definition/protocol
   Definition = Identifiers assigned to this request by the requester, performer and other systems
   Requirements = Allows identification of the definition as it is known by various participating systems and in a way that remains consistent across servers
   RIM Mapping = .identifier
@@ -64,7 +64,7 @@
   Card. = 0..*
   Summary = Y
   Type = Reference(Definition)
-  Short Label = Instantiates protocol or definition
+  Short Name = Instantiates protocol or definition
   Definition = A protocol, guideline, orderset or other definition that is adhered to in whole or in part by this definition
   Requirements = Protocols and order sets may be refinements of more generic protocols and order sets
   Comments = [The allowed reference resources may be adjusted as appropriate for the request resource]
@@ -76,7 +76,7 @@
   Aliases = container
   Summary = Y
   Type = Reference(Definition)
-  Short Label = Part of referenced definition
+  Short Name = Part of referenced definition
   Definition = A larger definition of which this particular definition is a component or step
   Requirements = E.g. Drug administration as part of a procedure, procedure as part of observation, etc.
   Comments = [The allowed reference resources may be adjusted as appropriate for the event resource]
@@ -88,7 +88,7 @@
   Aliases = supersedes, prior, renewed order
   Summary = Y
   Type = Reference(Definition)
-  Short Label = Request(s) replaced by this request
+  Short Name = Request(s) replaced by this request
   Definition = Completed or terminated request(s) whose function is taken by this new request
   Requirements = As new versions of a protocol or guideline are defined, allows identification of what versions are replaced by a new instance
   RIM Mapping = .outboundRelationship[typeCode=RPLC].target
@@ -100,7 +100,7 @@
   Summary = Y
   Type = code
   Binding = DefinitionStatus
-  Short Label = draft | active | withdrawn
+  Short Name = draft | active | withdrawn
   Definition = The current state of the definition
   RIM Mapping = .status
   To Do = Should this be a common code system for all definitions?
@@ -113,7 +113,7 @@
   Summary = Y
   Type = CodeableConcept | Reference(Group)
   Binding = DefinitionSubject
-  Short Label = Type of individual the defined service is for
+  Short Name = Type of individual the defined service is for
   Definition = A code or group definition that describes the intended subject of instantiations of this definition.
   Requirements = Many protocols, order sets and guidelines are inted for use only with specific types of patients or subjects.
   RIM Mapping = .participation[typeCode=SBJ].role
@@ -125,7 +125,7 @@
   Aliases = created
   Summary = Y
   Type = dateTime
-  Short Label = Date status first applied
+  Short Name = Date status first applied
   Definition = For draft definitions, indicates the date of initial creation.  For active definitions, represents the date of activation.  For withdrawn definitions, indicates the date of withdrawal.
   RIM Mapping = .participation[typeCode=AUT].time
   w5 = when.recorded
@@ -136,7 +136,7 @@
   Aliases = author
   Summary = Y
   Type = Reference(Practitioner|Organization)
-  Short Label = Who/what is requesting service
+  Short Name = Who/what is requesting service
   Definition = The individual or group with primary responsibility for the content of this definition.
   RIM Mapping = .participation[typeCode=AUT].role
   w5 = who.author
@@ -147,7 +147,7 @@
   Summary = Y
   Type = CodeableConcept
   Binding = PerformerType
-  Short Label = Desired kind of service performer
+  Short Name = Desired kind of service performer
   Definition = The type of individual that is expected to act upon instances of this definition
   RIM Mapping = .participation[typeCode=PRF].role[scoper.determinerCode=KIND].code
   To Do = Need to define who.performer

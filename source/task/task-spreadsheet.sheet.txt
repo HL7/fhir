@@ -189,7 +189,7 @@
  -- Row 1 -----------------------------------
   Element = Task
   Type = DomainResource
-  Short Label = A task to be performed
+  Short Name = A task to be performed
   Definition = A task to be performed
   RIM Mapping = ControlAct[moodCode=INT]
   w5 = workflow.order
@@ -198,7 +198,7 @@
   Element = Task.identifier
   Card. = 0..1
   Type = Identifier
-  Short Label = Task Instance Identifier
+  Short Name = Task Instance Identifier
   Definition = The business identifier for this task.
   RIM Mapping = .id
   w5 = id
@@ -208,7 +208,7 @@
   Card. = 0..*
   Summary = Y
   Type = Reference(Any)
-  Short Label = Request fulfilled by this task
+  Short Name = Request fulfilled by this task
   Definition = Identifies a plan, proposal or order that this task has been created in fulfillment of
   RIM Mapping = .outboundRelationship[typeCode=FLFS].target[moodCode=INT]
 
@@ -217,7 +217,7 @@
   Card. = 0..1
   Summary = Y
   Type = Identifier
-  Short Label = Requisition or grouper id
+  Short Name = Requisition or grouper id
   Definition = An identifier that links together multiple tasks and other requests that were created in the same context
   Requirements = Billing and/or reporting can be linked to whether multiple requests were created as a single unit.
   RIM Mapping = .inboundRelationship[typeCode=COMP].source[moodCode=INT].id
@@ -227,7 +227,7 @@
   Card. = 0..*
   Summary = Y
   Type = Reference(Task)
-  Short Label = Composite task
+  Short Name = Composite task
   Definition = Task that this particular task is part of
   Requirements = Allows tasks to be broken down into sub-steps (and this division can occur independent of the original task)
   Comments = This should usually be 0..1
@@ -239,7 +239,7 @@
   Summary = Y
   Type = code
   Binding = TaskStatus
-  Short Label = draft | requested | received | accepted | +
+  Short Name = draft | requested | received | accepted | +
   Definition = The current status of the task.
   Requirements = These states enable coordination of task status with off-the-shelf workflow solutions that support automation of tasks.
   RIM Mapping = .statusCode
@@ -250,7 +250,7 @@
   Card. = 0..1
   Summary = Y
   Type = CodeableConcept
-  Short Label = Reason for current status
+  Short Name = Reason for current status
   Definition = An explanation as to why this task is held, failed, was refused, etc.
   Comments = This applies to the current status.  Look at the history of the task to see reasons for past statuses
   RIM Mapping = .inboundRelationship[typeCode=SUBJ].source[classCode=CACT, moodCode=EVN, code=\"status change\"].reasonCode
@@ -261,7 +261,7 @@
   Summary = Y
   Type = CodeableConcept
   Binding = TaskBusinessStatus
-  Short Label = E.g. \"Specimen collected\", \"IV prepped\"
+  Short Name = E.g. \"Specimen collected\", \"IV prepped\"
   Definition = Contains business-specific nuances of the business state.
   Requirements = There\'s often a need to track substates of a task - this is often variable by specific workflow implementation
   RIM Mapping = .inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=\"business status\"]
@@ -272,7 +272,7 @@
   Summary = Y
   Type = CodeableConcept
   Binding = TaskStage
-  Short Label = proposed | planned | actionable +
+  Short Name = proposed | planned | actionable +
   Definition = Indicates the \"level\" of actionability associated with the Task.  I.e. Is this a proposed task, a planned task, an actionable task, etc.
   Comments = This element is immutable.  Proposed tasks, planned tasks, etc. must be distinct instances.
   RIM Mapping = .moodCode
@@ -283,7 +283,7 @@
   Card. = 0..1
   Summary = Y
   Type = CodeableConcept
-  Short Label = Task Type
+  Short Name = Task Type
   Definition = A name or code (or both) briefly describing what the task involves.
   RIM Mapping = .code
   w5 = class
@@ -293,7 +293,7 @@
   Card. = 0..1
   Type = code
   Binding = TaskPriority
-  Short Label = low | normal | high
+  Short Name = low | normal | high
   Definition = The priority of the task among other tasks of the same type
   Requirements = Used to identify the service level expected while performing a task.
   RIM Mapping = .priorityCode
@@ -305,7 +305,7 @@
   Card. = 0..1
   Summary = Y
   Type = string
-  Short Label = Human-readable explanation of task
+  Short Name = Human-readable explanation of task
   Definition = A free-text description of what is to be performed.
   RIM Mapping = .text
 
@@ -314,7 +314,7 @@
   Card. = 0..1
   Summary = Y
   Type = Reference(Any)
-  Short Label = What task is acting on
+  Short Name = What task is acting on
   Definition = The request being actioned or the resource being manipulated by this task
   Requirements = Used to identify the thing to be done
   Comments = If multiple resources need to be manipulated, use sub-tasks.  (This ensures that status can be tracked independently for each referenced resource.)
@@ -327,7 +327,7 @@
   Aliases = Patient
   Summary = Y
   Type = Reference(Any)
-  Short Label = Beneficiary of the Task
+  Short Name = Beneficiary of the Task
   Definition = The entity who benefits from the performance of the service specified in the task (e.g., the patient).
   Requirements = Used to track tasks outstanding for a beneficiary.  Do not use to track the task owner or creator (see owner and creator respectively).  This can also affect access control
   RIM Mapping = .participation[typeCode=RCT].role
@@ -338,7 +338,7 @@
   Card. = 0..1
   Summary = Y
   Type = Reference(Encounter|EpisodeOfCare)
-  Short Label = Healthcare event during which this task originated
+  Short Name = Healthcare event during which this task originated
   Definition = The healthcare event  (e.g. a patient and healthcare provider interaction) during which this task was created
   Requirements = For some tasks it may be important to know the link between the task or episode of care the task originated within.
   RIM Mapping = .inboundRelationship[typeCode=COMP].source[classCode=PCPR, moodCode=EVN]
@@ -350,7 +350,7 @@
   Aliases = Created Date
   Inv. = inv-1
   Type = dateTime
-  Short Label = Task Creation Date
+  Short Name = Task Creation Date
   Definition = The date and time this task was created.
   Requirements = Most often used along with lastUpdated to track duration of task to supporting monitoring and management.
   RIM Mapping = .participation[typeCode=AUT].time
@@ -363,7 +363,7 @@
   Summary = Y
   Inv. = inv-1
   Type = dateTime
-  Short Label = Task Last Modified Date
+  Short Name = Task Last Modified Date
   Definition = The date and time of last modification to this task.
   Requirements = Used along with history to track task activity and time in a particular task state.  This enables monitoring and management.
   RIM Mapping = .inboundRelationship[typeCode=SUBJ, ].source[classCode=CACT, moodCode=EVN].effectiveTime
@@ -374,7 +374,7 @@
   Aliases = Initiator; Author
   Summary = Y
   Type = Reference(Device | Organization | Patient | Practitioner | RelatedPerson )
-  Short Label = Task Creator
+  Short Name = Task Creator
   Definition = The creator of the task.
   Requirements = Identifies who created this task.  May be used by access control mechanisms (e.g., to ensure that only the creator can cancel a task).
   RIM Mapping = .participation[typeCode=AUT].role
@@ -386,7 +386,7 @@
   Aliases = Performer; Executer
   Summary = Y
   Type = Reference(Device | Organization | Patient | Practitioner | RelatedPerson )
-  Short Label = Task Owner
+  Short Name = Task Owner
   Definition = The owner of this task.  The participant who can execute this task.
   Requirements = Identifies who is expected to perform this task.
   Comments = Tasks may be created with an owner not yet identified
@@ -398,7 +398,7 @@
   Card. = 0..*
   Type = CodeableConcept
   Binding = TaskPerformerType
-  Short Label = requester | dispatcher | scheduler | performer | monitor | manager | acquirer | reviewer
+  Short Name = requester | dispatcher | scheduler | performer | monitor | manager | acquirer | reviewer
   Definition = The type of participant that can execute the task.
   Requirements = Use to distinguish tasks on different activity queues.
   RIM Mapping = .participation[typeCode=PRF].role.code
@@ -409,7 +409,7 @@
   Card. = 0..1
   Type = CodeableConcept
   Binding = TaskReason
-  Short Label = Why task is needed
+  Short Name = Why task is needed
   Definition = A description or code indicating why this task needs to be performed
   Comments = This should only be included if there is no focus or if it differs from the reason indicated on the focus.
   RIM Mapping = .reasonCode
@@ -419,7 +419,7 @@
   Element = Task.note
   Card. = 0..*
   Type = Annotation
-  Short Label = Comments made about the task
+  Short Name = Comments made about the task
   Definition = Free-text information captured about the task as it progresses.
   RIM Mapping = .inboundRelationship[typeCode=SUBJ, ].source[classCode=OBS, moodCode=EVN, code=\"annotation\"].value(string)
 
@@ -427,7 +427,7 @@
   Element = Task.fulfillment
   Card. = 0..1
   UML = 400;00
-  Short Label = Constraints on fulfillment tasks
+  Short Name = Constraints on fulfillment tasks
   Definition = Identifies any limitations on what part of a referenced task subject request should be actioned
   Requirements = Sometimes when fulfillment is sought, you don\'t want full fulfillment
   RIM Mapping = Instead of pointing to request, would point to component of request, having these characteristics
@@ -436,7 +436,7 @@
   Element = Task.fulfillment.repetitions
   Card. = 0..1
   Type = positiveInt
-  Short Label = How many times to repeat
+  Short Name = How many times to repeat
   Definition = Indicates the number of times the requested action should occur
   Requirements = E.g. order that requests monthly lab tests, fulfillment is sought for 1
   RIM Mapping = .repeatNumber
@@ -445,7 +445,7 @@
   Element = Task.fulfillment.period
   Card. = 0..1
   Type = Period
-  Short Label = Over what time-period is fulfillment sought
+  Short Name = Over what time-period is fulfillment sought
   Requirements = E.g. order that authorizes 1 year\'s services.  Fulfillment is sought for next 3 months.
   RIM Mapping = .effectiveTime(IVL<TS>)
 
@@ -453,7 +453,7 @@
   Element = Task.fulfillment.recipients
   Card. = 0..*
   Type = Reference(Patient|Practitioner|RelatedPerson|Group|Organization)
-  Short Label = For whom is fulfillment sought?
+  Short Name = For whom is fulfillment sought?
   Definition = For requests that are targeted to more than on potential recipient/target, for whom is fulfillment sought?
   RIM Mapping = .participation[typeCode=SBJ].role
   To Do = Is this in the 80%?
@@ -463,7 +463,7 @@
   Card. = 0..1
   Summary = Y
   Type = uri
-  Short Label = Task Definition
+  Short Name = Task Definition
   Definition = A reference to a formal or informal definition of the task.  For example, a protocol, a step within a defined workflow definition, etc.
   Requirements = Enables a formal definition of how he task is to be performed (e.g. using BPMN, BPEL, XPDL or other formal notation) to be associated with a task, enabling automation.
   RIM Mapping = .outboundRelationship[typeCode=DEFN].target
@@ -474,7 +474,7 @@
   Aliases = Supporting Information
   UML = 400;125
   Type = =Parameter
-  Short Label = Supporting information
+  Short Name = Supporting information
   Definition = Additional information that may be needed in the execution of the task
   Requirements = Resources and data used to perform the task.  This data is used in the business logic of task execution, and is stored separately because it varies between workflows.
   RIM Mapping = ???
@@ -485,7 +485,7 @@
   Aliases = Name
   Type = CodeableConcept
   Binding = TaskInputParameterType
-  Short Label = Label for the input
+  Short Name = Label for the input
   Definition = A code or description indicating how the input is intended to be used as part of the task execution
   Requirements = Inputs are named to enable task automation to bind data and pass it from one task to the next.
   Comments = If referencing a BPMN workflow or Protocol, the \"system\" is the URL for the workflow definition and the code is the \"name\" of the required input.
@@ -495,7 +495,7 @@
   Element = Task.input.value[x]
   Card. = 1..1
   Type = *
-  Short Label = Input Value
+  Short Name = Input Value
   Definition = The value of the input parameter as a basic type.
   RIM Mapping = ???
 
@@ -504,7 +504,7 @@
   Card. = 0..*
   UML = 400;200
   Type = @Parameter
-  Short Label = Task Output
+  Short Name = Task Output
   Definition = Outputs produced by the Task
   Requirements = Resources and data produced during the execution the task.  This data is generated by the business logic of task execution, and is stored separately because it varies between workflows.
   RIM Mapping = ???
@@ -515,7 +515,7 @@
   Aliases = Name
   Type = CodeableConcept
   Binding = TaskOutputParameterType
-  Short Label = Output Name
+  Short Name = Output Name
   Definition = The name of the Output parameter.
   Requirements = Outputs are named to enable task automation to bind data and pass it from one task to the next.
   RIM Mapping = ???
@@ -524,7 +524,7 @@
   Element = Task.output.value[x]
   Card. = 1..1
   Type = *
-  Short Label = Output Value
+  Short Name = Output Value
   Definition = The value of the Output parameter as a basic type.
   Requirements = Task outputs can take any form.
   RIM Mapping = ???

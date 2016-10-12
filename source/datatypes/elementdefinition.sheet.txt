@@ -270,7 +270,7 @@
   Card. = 0..*
   UML = 220;250
   Type = Type
-  Short Label = Definition of an element in a resource or extension
+  Short Name = Definition of an element in a resource or extension
   Definition = Captures constraints on each element within the resource, profile, or extension
   IHE DEX mapping = RetrieveMetadata response
   v2 Mapping = OM1
@@ -281,7 +281,7 @@
   Element = ElementDefinition.path
   Card. = 1..1
   Type = string
-  Short Label = Path of the element in the heirarchy of elements
+  Short Name = Path of the element in the heirarchy of elements
   Definition = The path identifies the element and is expressed as a \".\"-separated list of ancestor elements, beginning with the name of the resource or extension
   v2 Mapping = N/A
   RIM Mapping = N/A
@@ -292,7 +292,7 @@
   Card. = 0..*
   Type = code
   Binding = PropertyRepresentation
-  Short Label = xmlAttr | xmlText | typeAttr | cdaText | xhtml
+  Short Name = xmlAttr | xmlText | typeAttr | cdaText | xhtml
   Definition = Codes that define how this element is represented in instances, when the deviation varies from the normal case
   Comments = In resources, this is rarely used except for special cases where the representation deviates from the normal, and can only be done in the base standard (and profiles must reproduce what the base standard does). This element is used quite commonly in Logical models when the logical models represent a specific wire format (e.g. CDA, v2 etc)
   v2 Mapping = N/A
@@ -303,7 +303,7 @@
   Element = ElementDefinition.name
   Card. = 0..1
   Type = string
-  Short Label = Name for this particular element definition (reference target)
+  Short Name = Name for this particular element definition (reference target)
   Definition = The name of this element definition. This is a unique name referring to a specific set of constraints applied to this element, used to provide a name to different slices of the same element
   Requirements = May also be used for code generation purposes
   Comments = The name SHALL be unique within the structure within the context of the constrained resource element.  (Though to avoid confusion, uniqueness across all elements is recommended.)
@@ -315,7 +315,7 @@
   Element = ElementDefinition.label
   Card. = 0..1
   Type = string
-  Short Label = Name for element to display with or prompt for element
+  Short Name = Name for element to display with or prompt for element
   Definition = The text to display beside the element indicating its meaning or to use to prompt for the element in a user display or form.
   Comments = Question and label serve similar purposes in they both can be used to prompt for capturing a data element.  Whether the question form or label form should be used will depend on the type of instrument being used to capture the information.
   RIM Mapping = ./code/display
@@ -326,7 +326,7 @@
   Card. = 0..*
   Type = Coding
   Binding = ElementDefinitionCode
-  Short Label = Defining code
+  Short Name = Defining code
   Definition = A code that provides the meaning for the element according to a particular terminology.
   Requirements = Links the meaning of an element to an external terminology
   Comments = The data element definition and other constraints SHALL be a proper constraint on the meaning (as defined in the code system, including relationships) of any code listed here.  Where multiple codes exist in a terminology that could correspond to the data element, the most granular code(s) should be selected, so long as they are not more restrictive than the data element itself.
@@ -339,7 +339,7 @@
   Element = ElementDefinition.slicing
   Card. = 0..1
   UML = 0;230
-  Short Label = This element is sliced - slices follow
+  Short Name = This element is sliced - slices follow
   Definition = Indicates that the element is sliced into a set of alternative definitions (i.e. in a structure definition, there are multiple different constraints on a single element in the base resource). Slicing can be used in any resource that has cardinality ..* on the base resource, or any resource with a choice of types. The set of slices is any elements that come after this in the element sequence that have the same path, until a shorter path occurs (the shorter path terminates the set)
   Comments = The first element in the sequence, the one that carries the slicing, is the definition that applies to all the slices. This is based on the unconstrained element, but can apply any constraints as appropriate. This may include the common constraints on the children of the element
   RIM Mapping = N/A
@@ -349,7 +349,7 @@
   Element = ElementDefinition.slicing.discriminator
   Card. = 0..*
   Type = string
-  Short Label = Element values that are used to distinguish the slices
+  Short Name = Element values that are used to distinguish the slices
   Definition = Designates which child elements are used to discriminate between the slices when processing an instance. If one or more discriminators are provided, the value of the child elements in the instance data SHALL completely distinguish which slice the element in the resource matches based on the allowed values for those elements in each of the slices
   Comments = If there is no discriminator, the content is hard to process, so this should be avoided. If the base element has a cardinality of ..1, and there is a choice of types, the discriminator most be \"@type\"
   RIM Mapping = N/A
@@ -360,7 +360,7 @@
   Card. = 0..1
   Inv. = 1
   Type = string
-  Short Label = Text description of how slicing works (or not)
+  Short Name = Text description of how slicing works (or not)
   Definition = A human-readable text description of how the slicing works. If there is no discriminator, this is required to be present to provide whatever information is possible about how the slices can be differentiated
   Comments = If it\'s really not possible to differentiate them, the design should be re-evaluated to make the content usable.
   RIM Mapping = N/A
@@ -369,7 +369,7 @@
   Element = ElementDefinition.slicing.ordered
   Card. = 0..1
   Type = boolean
-  Short Label = If elements must be in same order as slices
+  Short Name = If elements must be in same order as slices
   Definition = If the matching elements have to occur in the same order as defined in the profile
   Comments = Order should only be required when it is a pressing concern for presentation. Profile authors should consider making the order a feature of the rules about the narrative, not the rules about the data - requiring ordered data makes the profile much less re-usable
   RIM Mapping = N/A
@@ -381,7 +381,7 @@
   Card. = 1..1
   Type = code
   Binding = SlicingRules
-  Short Label = closed | open | openAtEnd
+  Short Name = closed | open | openAtEnd
   Definition = Whether additional slices are allowed or not. When the slices are ordered, profile authors can also say that additional slices are only allowed at the end
   Comments = Allowing additional elements makes for a much for flexible template - it\'s open for use in wider contexts, but also means that the content of the resource is not closed, and applications have to decide how to handle content not described by the profile
   RIM Mapping = N/A
@@ -391,7 +391,7 @@
   Element = ElementDefinition.short
   Card. = 0..1
   Type = string
-  Short Label = Concise definition for xml presentation
+  Short Name = Concise definition for xml presentation
   Definition = A concise description of what this element means (e.g. for use in autogenerated summaries)
   Comments = May change the term to provide language more appropriate to the context of the profile or to reflect slicing
   RIM Mapping = N/A
@@ -402,7 +402,7 @@
   Card. = 0..1
   Aliases = Description
   Type = markdown
-  Short Label = Full formal definition as narrative text
+  Short Name = Full formal definition as narrative text
   Definition = Provides a complete explanation of the meaning of the data element for human readability.  For the case of elements derived from existing elements (e.g. constraints), the definition SHALL be consistent with the base definition, but convey the meaning of the element in the particular context of use of the resource
   Requirements = To allow a user to state the usage of an element in a particular context
   Comments = It is easy for a different definition to change the meaning of an element and this can have nasty downstream consequences. Please be careful when providing definitions
@@ -415,7 +415,7 @@
   Element = ElementDefinition.comments
   Card. = 0..1
   Type = markdown
-  Short Label = Comments about the use of this element
+  Short Name = Comments about the use of this element
   Definition = Explanatory notes and implementation guidance about the data element, including notes about how to use the data properly, exceptions to proper use, etc.
   Comments = If it is possible to capture usage rules using constraints, that mechanism should be used in preference to this element
   v2 Mapping = NTE, OM.32, OM1.33, OM1.39
@@ -427,7 +427,7 @@
   Element = ElementDefinition.requirements
   Card. = 0..1
   Type = markdown
-  Short Label = Why this resource has been created
+  Short Name = Why this resource has been created
   Definition = This element is for traceability of why the element was created and why the constraints exist as they do. This may be used to point to source materials or specifications that drove the structure of this element.
   Comments = This element does not describe the usage of the element (that\'s done in comments), rather it\'s for traceability of *why* the element is either needed or why the constraints exist as they do.  This may be used to point to source materials or specifications that drove the structure of this data element
   RIM Mapping = ./inboundRelationship[typeCode=META]/source[classCode=ACT, moodCode=EVN, isCriterionInd=true]/reasonCode/originalText
@@ -439,7 +439,7 @@
   Card. = 0..*
   Aliases = synonym, other name
   Type = string
-  Short Label = Other names
+  Short Name = Other names
   Definition = Identifies additional names by which this element might also be known
   Requirements = Allows for better easier recognition of the element by multiple communities, including international communities
   v2 Mapping = OM1.8, OM1.52
@@ -452,7 +452,7 @@
   Card. = 0..1
   Inv. = 2
   Type = integer
-  Short Label = Minimum Cardinality
+  Short Name = Minimum Cardinality
   Definition = The minimum number of times this element SHALL appear in the instance
   RIM Mapping = N/A (MIF territory)
   11179 Mapping = Minimum  size of  data element  values?
@@ -462,7 +462,7 @@
   Card. = 0..1
   Inv. = 3,2
   Type = string
-  Short Label = Maximum Cardinality (a number or *)
+  Short Name = Maximum Cardinality (a number or *)
   Definition = The maximum number of times this element is permitted to appear in the instance
   v2 Mapping = OMC.10
   RIM Mapping = N/A (MIF territory)
@@ -471,7 +471,7 @@
  -- Row 19 -----------------------------------
   Element = ElementDefinition.base
   Card. = 0..1
-  Short Label = Base definition information for tools
+  Short Name = Base definition information for tools
   Definition = Information about the base definition of the element, provided to make it unnecessary for tools to trace the deviation of the element through the derived and related profiles. This information is provided when the element definition is not the original definition of an element - i.g. either in a constraint on another type, or for elements from a super type in a snap shot.
   Comments = The base information does not carry any information that could not be determined from the path and related profiles, but making this determination requires both that the related profiles are available, and that the algorithm to determine them be available. So they are deformalised into this location for tooling convenience, and to ensure that the base information is available without dependencies.
   RIM Mapping = N/A (MIF territory)
@@ -481,7 +481,7 @@
   Element = ElementDefinition.base.path
   Card. = 1..1
   Type = string
-  Short Label = Path that identifies the base element
+  Short Name = Path that identifies the base element
   Definition = The Path that identifies the base element - this matches the ElementDefinition.path for that element. Across FHIR, there is only one base definition of any element - that is, an element definition on a [[[StructureDefinition]]] without a StructureDefinition.base
   RIM Mapping = N/A (MIF territory)
   11179 Mapping = n/a
@@ -490,7 +490,7 @@
   Element = ElementDefinition.base.min
   Card. = 1..1
   Type = integer
-  Short Label = Min cardinality of the base element
+  Short Name = Min cardinality of the base element
   Definition = Minimum cardinality of the base element identified by the path
   Comments = This is provided for consistency with max, and may affect code generation of mandatory elements of the base resource are generated differently (some reference implementations have done this)
   RIM Mapping = N/A (MIF territory)
@@ -500,7 +500,7 @@
   Element = ElementDefinition.base.max
   Card. = 1..1
   Type = string
-  Short Label = Max cardinality of the base element
+  Short Name = Max cardinality of the base element
   Definition = Maximum cardinality of the base element identified by the path
   Comments = This is provided to code generation, since the wire representation in JSON differs depending on whether the base element has max > 1. Also, some forms of code generation may differ
   RIM Mapping = N/A (MIF territory)
@@ -511,7 +511,7 @@
   Card. = 0..1
   Inv. = 5
   Type = uri
-  Short Label = Reference to definition of content for the element
+  Short Name = Reference to definition of content for the element
   Definition = Identifies the identity of an element defined elsewhere in the profile whose content rules should be applied to the current element
   RIM Mapping = N/A
 
@@ -521,7 +521,7 @@
   UML = 0;490
   Inv. = 13
   Type = =TypeRef
-  Short Label = Data type and Profile for this element
+  Short Name = Data type and Profile for this element
   Definition = The data type or resource that the value of this element is permitted to be
   Comments = The Type of the element can be left blank in a differential constraint, in which case the type is inherited from the resource. Abstract types are not permitted to appear as a type when multiple types are listed.  (I.e. Abstract types cannot be part of a choice)
   IHE DEX mapping = valueDomain.dataType
@@ -535,7 +535,7 @@
   Card. = 1..1
   Type = code
   Binding = FHIRDefinedTypeExt
-  Short Label = Name of Data type or Resource
+  Short Name = Name of Data type or Resource
   Definition = Name of Data type or Resource that is a(or the) type used for this element
   Comments = If the element is a reference to another resource, this element contains \"Reference\", and the profile element refers to the profile of the allowed target of the resource, which may be a reference to the general definition of a resource (e.g. http://hl7.org/fhir/StructureDefinition/Patient). There would be one pair of type/code for each allowed target resource type
   v2 Mapping = OM1.3
@@ -547,7 +547,7 @@
   Element = ElementDefinition.type.profile
   Card. = 0..1
   Type = uri
-  Short Label = Profile (StructureDefinition) to apply (or IG)
+  Short Name = Profile (StructureDefinition) to apply (or IG)
   Definition = Identifies a profile structure or implementation Guide that SHALL hold for the datatype this element refers to. Can be a local reference - to a contained StructureDefinition, or a reference to another StructureDefinition in another profile. When an implementation guide is specified, the resource SHALL conform to at least one profile defined in the implementation guide
   RIM Mapping = N/A (MIF territory)
   11179 Mapping = n/a
@@ -556,7 +556,7 @@
   Element = ElementDefinition.type.targetProfile
   Card. = 0..1
   Type = uri
-  Short Label = Profile (StructureDefinition) to apply to reference target (or IG)
+  Short Name = Profile (StructureDefinition) to apply to reference target (or IG)
   Definition = Identifies a profile structure or implementation Guide that SHALL hold for the target of the reference this element refers to. Can be a local reference - to a contained StructureDefinition, or a reference to another StructureDefinition in another profile. When an implementation guide is specified, the resource SHALL conform to at least one profile defined in the implementation guide
   Comments = NOTE: This element is not used properly by the build tooling at this time - it puts what should go in here in .profile. This will be fixed prior to publication of STU3. When this happens, there will be a constrain that this element must be populated if the value of .code is \'Reference\'
   RIM Mapping = N/A (MIF territory)
@@ -568,7 +568,7 @@
   Inv. = 4
   Type = code
   Binding = AggregationMode
-  Short Label = contained | referenced | bundled - how aggregated
+  Short Name = contained | referenced | bundled - how aggregated
   Definition = If the type is a reference to another resource, how the resource is or can be aggregated - is it a contained resource, or a reference, and if the context is a bundle, is it included in the bundle.
   RIM Mapping = N/A (MIF territory)
   11179 Mapping = n/a
@@ -578,7 +578,7 @@
   Card. = 0..1
   Type = code
   Binding = ReferenceVersionRules
-  Short Label = either | independent | specific
+  Short Name = either | independent | specific
   Definition = Whether this reference needs to be version specific or version independent, or whetehr either can be used
   Comments = The base specification never makes a rule as to which form is allowed, but implementation guides may do this
   RIM Mapping = N/A (MIF territory)
@@ -589,7 +589,7 @@
   Card. = 0..1
   Inv. = 15
   Type = *
-  Short Label = Specified value if missing from instance
+  Short Name = Specified value if missing from instance
   Definition = The value that should be used if there is no value stated in the instance (e.g. \'if not otherwise specified, the abstract is false\')
   Comments = Default values can only be specified on a resource, data type, or extension definition, and never in a profile that applies to one of these. Specifying a default value means that the property can never been unknown - it must always have a value. Further, the default value can never be changed. For these reasons, default values are (and should be) used extremely sparingly.
   RIM Mapping = N/A (MIF territory)
@@ -599,7 +599,7 @@
   Card. = 0..1
   Inv. = 15
   Type = markdown
-  Short Label = Implicit meaning when this element is missing
+  Short Name = Implicit meaning when this element is missing
   Definition = The Implicit meaning that is to be understood when this element is missing (e.g. \'when this element is missing, the period is ongoing\'
   Comments = Implicit meanings for missing values can only be specified on a resource, data type, or extension definition, and never in a profile that applies to one of these. An implicit meaning for a missing value can never be changed, and specifying one has the consequence that constraining its use in profiles eliminates use cases as possibilities, not merely moving them out of scope
   RIM Mapping = N/A (MIF territory)
@@ -609,7 +609,7 @@
   Card. = 0..1
   Inv. = 5,6,8
   Type = *
-  Short Label = Value must be exactly this
+  Short Name = Value must be exactly this
   Definition = Specifies a value that SHALL be exactly the value  for this element in the instance. For purposes of comparison, non-significant whitespace is ignored, and all values must be an exact match (case and accent sensitive). Missing elements/attributes must also be missing.
   Comments = This is not recommended for Coding and CodeableConcept since these often have highly contextual properties such as version or display
   RIM Mapping = N/A (MIF territory)
@@ -620,7 +620,7 @@
   Card. = 0..1
   Inv. = 5,7,8
   Type = *
-  Short Label = Value must have at least these property values
+  Short Name = Value must have at least these property values
   Definition = Specifies a value that the value in the instance SHALL follow - that is, any value in the pattern must be found in the instance. Other additional values may be found too. This is effectively constraint by example.  The values of elements present in the pattern must match exactly (case-sensitive, accent-sensitive, etc.).
   Comments = Mostly used for fixing values of CodeableConcept. At present, pattern[x] is not recommended as a basis for slicing while issues related to this are investigated during the DSTU period
   RIM Mapping = N/A (MIF territory)
@@ -629,7 +629,7 @@
   Element = ElementDefinition.example[x]
   Card. = 0..1
   Type = *
-  Short Label = Example value (as defined for type)
+  Short Name = Example value (as defined for type)
   Definition = A sample value for this element demonstrating the type of information that would typically be captured.
   Comments = This will most commonly be present for data where it\'s not implicitly obvious from either the data type or value set what the values might be.  (I.e. Example values for dates or quantities would generally be unnecessary.)  If the example value is fully populated, the publication tool can generate an instance automatically.
   RIM Mapping = N/A (MIF territory)
@@ -640,7 +640,7 @@
   Element = ElementDefinition.minValue[x]
   Card. = 0..1
   Type = date | dateTime | instant | time | decimal | integer | positiveInt | unsignedInt | Quantity
-  Short Label = Minimum Allowed Value (for some types)
+  Short Name = Minimum Allowed Value (for some types)
   Definition = The minimum allowed value for the element. The value is inclusive. This is allowed for the types date, dateTime, instant, time, decimal, integer, and Quantity
   Comments = Except for date/date/instant, the type of the minValue[x] SHALL be the same as the specified type of the element. For the date/dateTime/instant values, the type of minValue[x] SHALL be either the same, or a a [Duration](datatypes.html#duration) which specifies a relative time limit to the current time. The duration value is positive, and is subtracted from the current clock to determine the minimum allowable value.   A minimum value for a Quantity is interpreted as an canonical minimum - e.g. you cannot provide 100mg if the minimum value is 10g.
   RIM Mapping = N/A (MIF territory)
@@ -649,7 +649,7 @@
   Element = ElementDefinition.maxValue[x]
   Card. = 0..1
   Type = date | dateTime | instant | time | decimal | integer | positiveInt | unsignedInt | Quantity
-  Short Label = Maximum Allowed Value (for some types)
+  Short Name = Maximum Allowed Value (for some types)
   Definition = The maximum allowed value for the element. The value is inclusive. This is allowed for the types date, dateTime, instant, time, decimal, integer, and Quantity
   Comments = Except for date/date/instant, the type of the maxValue[x] SHALL be the same as the specified type of the element. For the date/dateTime/instant values, the type of maxValue[x] SHALL be either the same, or a a [Duration](datatypes.html#duration) which specifies a relative time limit to the current time. The duration value is positive, and is added to the current clock to determine the maximum allowable value.   A maximum value for a Quantity is interpreted as an canonical maximum - e.g. you cannot provide 10g if the maximum value is 50mg.
   RIM Mapping = N/A (MIF territory)
@@ -658,7 +658,7 @@
   Element = ElementDefinition.maxLength
   Card. = 0..1
   Type = integer
-  Short Label = Max length for strings
+  Short Name = Max length for strings
   Definition = Indicates the maximum length in characters that is permitted to be present in conformant instances and which is expected to be supported by conformant consumers that support the element
   Comments = Receivers are not required to reject instances that exceed the maximum length.  The full length could be stored.  In some cases, data might be truncated, though truncation should be undertaken with care and an understanding of the consequences of doing so. If not specified, there is no conformance expectation for length support
   v2 Mapping = OMC.12
@@ -669,14 +669,14 @@
   Element = ElementDefinition.condition
   Card. = 0..*
   Type = id
-  Short Label = Reference to invariant about presence
+  Short Name = Reference to invariant about presence
   Definition = A reference to an invariant that may make additional statements about the cardinality or value in the instance
 
  -- Row 39 -----------------------------------
   Element = ElementDefinition.constraint
   Card. = 0..*
   UML = 0;330
-  Short Label = Condition that must evaluate to true
+  Short Name = Condition that must evaluate to true
   Definition = Formal constraints such as co-occurrence and other constraints that can be computationally evaluated within the context of the instance
   Comments = Constraints should be declared on the \"context\" element - the lowest element in the hierarchy that is common to all nodes referenced by the constraint
   11179 Mapping = ??
@@ -686,14 +686,14 @@
   Card. = 1..1
   Inv. = 14
   Type = id
-  Short Label = Target of \'condition\' reference above
+  Short Name = Target of \'condition\' reference above
   Definition = Allows identification of which elements have their cardinalities impacted by the constraint.  Will not be referenced for constraints that do not affect cardinality
 
  -- Row 41 -----------------------------------
   Element = ElementDefinition.constraint.requirements
   Card. = 0..1
   Type = string
-  Short Label = Why this constraint is necessary or appropriate
+  Short Name = Why this constraint is necessary or appropriate
   Definition = Description of why this constraint is necessary or appropriate
   Comments = To be used if the reason for the constraint may not be intuitive to all implementers
 
@@ -702,7 +702,7 @@
   Card. = 1..1
   Type = code
   Binding = ConstraintSeverity
-  Short Label = error | warning
+  Short Name = error | warning
   Definition = Identifies the impact constraint violation has on the conformance of the instance
   Comments = This allows constraints to be asserted as \"shall\" (error) and \"should\" (warning)
 
@@ -710,7 +710,7 @@
   Element = ElementDefinition.constraint.human
   Card. = 1..1
   Type = string
-  Short Label = Human description of constraint
+  Short Name = Human description of constraint
   Definition = Text that can be used to describe the constraint in messages identifying that the constraint has been violated
   Comments = Should be expressed in business terms as much as possible
 
@@ -718,7 +718,7 @@
   Element = ElementDefinition.constraint.expression
   Card. = 1..1
   Type = string
-  Short Label = FluentPath expression of constraint
+  Short Name = FluentPath expression of constraint
   Definition = A [FluentPath](http://hl7.org/fluentpath) expression of constraint that can be executed to see if this constraint is met
   Requirements = Used by validation tooling tests of the validity of the resource
 
@@ -726,7 +726,7 @@
   Element = ElementDefinition.constraint.xpath
   Card. = 0..1
   Type = string
-  Short Label = XPath expression of constraint
+  Short Name = XPath expression of constraint
   Definition = An XPath expression of constraint that can be executed to see if this constraint is met
   Requirements = Used in Schematron tests of the validity of the resource
   Comments = Elements SHALL use \"f\" as the namespace prefix for the FHIR namespace, and \"x\" for the xhtml namespace, and SHALL NOT use any other prefixes. \n\nNote: we are considering deprecating the xpath element. Implementer feedback is welcome
@@ -735,7 +735,7 @@
   Element = ElementDefinition.mustSupport
   Card. = 0..1
   Type = boolean
-  Short Label = If the element must supported
+  Short Name = If the element must supported
   Definition = If true, implementations that produce or consume resources SHALL provide \"support\" for the element in some meaningful way.  If false, the element may be ignored and not supported
   Requirements = Allows a profile to set expectations for system capabilities beyond merely respecting cardinality constraints
   Comments = \"Something useful\" is context dependent and impossible to describe in the base FHIR specification. For this reason, tue mustSupport flag is never set to true by the FHIR specification itself - it is only set to true in profiles. \n\nThis is done in [Resource Profiles](profiling.html#mustsupport), where the profile labels an element as mustSupport=true. When a profile does this, it SHALL also make clear exactly what kind of \"support\" is required, as this can mean many things.\n\nNote that an element that has the property IsModifier is not necessarily a \"key\" element (e.g. one of the important elements to make use of the resource), nor is it automatically mustSupport - however both of these things are more likely to be true for IsModifier elements than for other elements.
@@ -746,7 +746,7 @@
   Element = ElementDefinition.isModifier
   Card. = 0..1
   Type = boolean
-  Short Label = If this modifies the meaning of other elements
+  Short Name = If this modifies the meaning of other elements
   Definition = If true, the value of this element affects the interpretation of the element or resource that contains it, and the value of the element cannot be ignored. Typically, this is used for status, negation and qualification codes. The effect of this is that the element cannot be ignored by systems: they SHALL either recognize the element and process it, and/or a pre-determination has been made that it is not relevant to their particular system.
   Requirements = Allows elements to be introduced into a specification that can\'t safely be ignored by applications that don\'t recognize them
   Comments = Only the definition of an element can set IsModifier true - either the specification itself or where an extension is originally defined. Once set, it cannot be changed in derived profiles. An element/extension that has isModifier=true SHOULD also have a minimum cardinality of 1, so that there is no lack of clarity about what to do if it is missing. If it can be missing, the definition SHALL make the meaning of a missing element clear
@@ -757,7 +757,7 @@
   Element = ElementDefinition.isSummary
   Card. = 0..1
   Type = boolean
-  Short Label = Include when _summary = true?
+  Short Name = Include when _summary = true?
   Definition = Whether the element should be included if a client requests a search with the parameter _summary=true
   Requirements = Allow clients to search through large resources quickly
   Comments = Some resources include a set of simple metadata, and some very large data. This element is used to reduce the quantity of data returned in searches. Note that servers may pre-cache summarized resources for optimal performance, so servers may not support per-profile use of the isSummary flag. When a request is made with _summary=true, serailisers only include elements marked as \'isSummary = true\'. Other than Attachment.data, all data type properties are included in the summary form. Modifier elements or elements with minimum cardinality = 1 must be marked as summary elements
@@ -769,7 +769,7 @@
   Card. = 0..1
   UML = 480;390
   Inv. = 11
-  Short Label = ValueSet details if this is coded
+  Short Name = ValueSet details if this is coded
   Definition = Binds to a value set if this element is coded (code, Coding, CodeableConcept)
   Comments = For a CodeableConcept, when no codes are allowed - only text, use a binding of strength \"required\" with a description explaining that no coded values are allowed and what sort of information to put in the \"text\" element.
   v2 Mapping = OM3, OMC.11
@@ -783,7 +783,7 @@
   Aliases = conformance; extensibility
   Type = code
   Binding = BindingStrength
-  Short Label = required | extensible | preferred | example
+  Short Name = required | extensible | preferred | example
   Definition = Indicates the degree of conformance expectations associated with this binding - that is, the degree to which the provided value set must be adhered to in the instances
   Comments = For further discussion, see [[[Using Terminologies]]]
   v2 Mapping = N/A
@@ -795,7 +795,7 @@
   Card. = 0..1
   Inv. = 10
   Type = string
-  Short Label = Human explanation of the value set
+  Short Name = Human explanation of the value set
   Definition = Describes the intended use of this particular set of codes
   RIM Mapping = N/A (MIF territory)
   11179 Mapping = .domain.description
@@ -805,7 +805,7 @@
   Card. = 0..1
   Inv. = 10,12
   Type = uri | Reference(ValueSet)
-  Short Label = Source of value set
+  Short Name = Source of value set
   Definition = Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used. If the binding refers to an explicit value set - the normal case - then use a Reference(ValueSet) preferably containing the canonical URL for the value set. If the reference is to an implicit value set - usually, an IETF RFC that defines a grammar, such as mime types - then use a uri
   Comments = For value sets with a referenceResource, the display can contain the value set description.  The reference may be version-specific or not
   IHE DEX mapping = valueDomain.valueSet
@@ -817,7 +817,7 @@
   Element = ElementDefinition.mapping
   Card. = 0..*
   UML = 480;540
-  Short Label = Map element to another set of definitions
+  Short Name = Map element to another set of definitions
   Definition = Identifies a concept from an external specification that roughly corresponds to this element
   Requirements = Provides guidance to implementers familiar with or converting content from other specifications
   Comments = Mappings are not necessarily specific enough for safe translation
@@ -829,7 +829,7 @@
   Element = ElementDefinition.mapping.identity
   Card. = 1..1
   Type = id
-  Short Label = Reference to mapping declaration
+  Short Name = Reference to mapping declaration
   Definition = An internal reference to the definition of a mapping
   RIM Mapping = N/A (MIF territory)
 
@@ -838,7 +838,7 @@
   Card. = 0..1
   Type = code
   Binding = MimeType
-  Short Label = Computable language of mapping
+  Short Name = Computable language of mapping
   Definition = Identifies the computable language in which mapping.map is expressed.
   Comments = If omitted, then there can be no expectation of computational interpretation of the mapping
   RIM Mapping = N/A (MIF territory)
@@ -847,7 +847,7 @@
   Element = ElementDefinition.mapping.map
   Card. = 1..1
   Type = string
-  Short Label = Details of the mapping
+  Short Name = Details of the mapping
   Definition = Expresses what part of the target specification corresponds to this element
   Comments = For most mappings, the syntax is undefined.  Syntax will be provided for mappings to the RIM.  Multiple mappings may be possible and may include constraints on other resource elements that identify when a particular mapping applies
   RIM Mapping = N/A (MIF territory)

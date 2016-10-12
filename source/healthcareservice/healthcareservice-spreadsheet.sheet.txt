@@ -157,7 +157,7 @@
   Element = HealthcareService
   UML = 0;0
   Type = DomainResource
-  Short Label = The details of a healthcare service available at a location
+  Short Name = The details of a healthcare service available at a location
   Definition = The details of a healthcare service available at a location.
   RIM Mapping = act[classCode=ACT][moodCode=DEF]
   w5 = administrative.group
@@ -167,7 +167,7 @@
   Card. = 0..*
   Summary = Y
   Type = Identifier
-  Short Label = External identifiers for this item
+  Short Name = External identifiers for this item
   Definition = External identifiers for this item
   RIM Mapping = .id
   w5 = id
@@ -178,7 +178,7 @@
   Is Modifier = Y
   Summary = Y
   Type = boolean
-  Short Label = Whether this healthcareservice is in active use
+  Short Name = Whether this healthcareservice is in active use
   Definition = Whether this healthcareservice record is in active use
   RIM Mapping = .statusCode
   Default Value = True
@@ -189,7 +189,7 @@
   Card. = 0..1
   Summary = Y
   Type = Reference(Organization)
-  Short Label = Organization that provides this service
+  Short Name = Organization that provides this service
   Definition = The organization that provides this healthcare service
   Comments = This property is recommended to be the same as the Location\'s managingOrganization, and if not provided should be interpreted as such. If the Location does not have a managing Organization, then this property should be populated.
   RIM Mapping = .scopingRole.Organization
@@ -201,7 +201,7 @@
   Summary = Y
   Type = CodeableConcept
   Binding = service-category
-  Short Label = Broad category of service being performed or delivered
+  Short Name = Broad category of service being performed or delivered
   Definition = Identifies the broad category of service being performed or delivered
   Comments = Selecting a Service Category then determines the list of relevant service types that can be selected in the primary service type
   RIM Mapping = .code
@@ -213,7 +213,7 @@
   Summary = Y
   UML = 350;0
   Type = =ServiceType
-  Short Label = Specific service delivered or performed
+  Short Name = Specific service delivered or performed
   Definition = A specific type of service that may be delivered or performed
   RIM Mapping = .actrelationship[typeCode=COMP.act[classCode=ACT][moodCode=DEF].code
 
@@ -223,7 +223,7 @@
   Summary = Y
   Type = CodeableConcept
   Binding = service-type
-  Short Label = Type of service that may be delivered or performed
+  Short Name = Type of service that may be delivered or performed
   Definition = The specific type of service that may be delivered or performed
   RIM Mapping = .actrelationship[typeCode=COMP.act[classCode=ACT][moodCode=DEF].code
 
@@ -233,7 +233,7 @@
   Summary = Y
   Type = CodeableConcept
   Binding = service-specialty
-  Short Label = Specialties handled by the HealthcareService
+  Short Name = Specialties handled by the HealthcareService
   Definition = Collection of specialties handled by the service site. This is more of a medical term
   RIM Mapping = .actrelationship[typeCode=COMP.act[classCode=ACT][moodCode=DEF].code
 
@@ -242,7 +242,7 @@
   Card. = 0..*
   Summary = Y
   Type = Reference(Location)
-  Short Label = Location(s) where service may be provided
+  Short Name = Location(s) where service may be provided
   Definition = The location(s) where this healthcare service may be provided
   RIM Mapping = .location.role[classCode=SDLOC]
   w5 = where
@@ -252,7 +252,7 @@
   Card. = 0..1
   Summary = Y
   Type = string
-  Short Label = Description of service as presented to a consumer while searching
+  Short Name = Description of service as presented to a consumer while searching
   Definition = Further description of the service as it would be presented to a consumer while searching
   RIM Mapping = .name
 
@@ -261,7 +261,7 @@
   Card. = 0..1
   Summary = Y
   Type = string
-  Short Label = Additional description and/or any specific issues not covered elsewhere
+  Short Name = Additional description and/or any specific issues not covered elsewhere
   Definition = Any additional description of the service and/or any specific issues not covered by the other attributes, which can be displayed as further detail under the serviceName
   Comments = Would expect that a user would not see this information on a search results, and it would only be available when viewing the complete details of the service.
   RIM Mapping = .location.role[classCode=SDLOC].desc
@@ -270,7 +270,7 @@
   Element = HealthcareService.extraDetails
   Card. = 0..1
   Type = string
-  Short Label = Extra details about the service that can\'t be placed in the other fields
+  Short Name = Extra details about the service that can\'t be placed in the other fields
   Definition = Extra details about the service that can\'t be placed in the other fields
   RIM Mapping = .actrelationship[typeCode=COMP.act[classCode=ACT][moodCode=DEF].text
 
@@ -279,7 +279,7 @@
   Card. = 0..1
   Summary = Y
   Type = Attachment
-  Short Label = Facilitates quick identification of the service
+  Short Name = Facilitates quick identification of the service
   Definition = If there is a photo/symbol associated with this HealthcareService, it may be included here to facilitate quick identification of the service in a list
   RIM Mapping = .actrelationship[typeCode=SBJ].observation.value
 
@@ -287,7 +287,7 @@
   Element = HealthcareService.telecom
   Card. = 0..*
   Type = ContactPoint
-  Short Label = Contacts related to the healthcare service
+  Short Name = Contacts related to the healthcare service
   Definition = List of contacts related to this specific healthcare service
   Comments = If this is empty, then refer to the location\'s contacts
   RIM Mapping = .telecom
@@ -296,7 +296,7 @@
   Element = HealthcareService.coverageArea
   Card. = 0..*
   Type = Reference(Location)
-  Short Label = Location(s) service is inteded for/available to
+  Short Name = Location(s) service is inteded for/available to
   Definition = The location(s) that this service is available to (not where the service is provided)
   Comments = The locations referenced by the coverage area can include both specific locations, including areas, and also conceptual domains too (mode = kind), such as a physical area (tri-state area) and some other attribute (covered by Example Care Organization). These types of Locations are often not managed by any specific organization. This could also include generic locations such as \"in-home\".
   RIM Mapping = .location.role[classCode=SDLOC].subjectOf.A_SpatialCoordinate
@@ -306,7 +306,7 @@
   Card. = 0..*
   Type = CodeableConcept
   Binding = ServiceProvisionConditions
-  Short Label = Conditions under which service is available/offered
+  Short Name = Conditions under which service is available/offered
   Definition = The code(s) that detail the conditions under which the healthcare service is available/offered
   Comments = The provision means being commissioned by, contractually obliged or financially sourced. Types of costings that may apply to this healthcare service, such if the service may be available for free, some discounts available, or fees apply.
   RIM Mapping = .actrelationship[typeCode=PRCN].observation[moodCode=EVN.CRT]
@@ -316,7 +316,7 @@
   Card. = 0..1
   Type = CodeableConcept
   Binding = ServiceEligibility
-  Short Label = Specific eligibility requirements required to use the service
+  Short Name = Specific eligibility requirements required to use the service
   Definition = Does this service have specific eligibility requirements that need to be met in order to use the service?
   RIM Mapping = .actrelationship[typeCode=PRCN].observation[moodCode=EVN.CRT]
 
@@ -324,7 +324,7 @@
   Element = HealthcareService.eligibilityNote
   Card. = 0..1
   Type = string
-  Short Label = Describes the eligibility conditions for the service
+  Short Name = Describes the eligibility conditions for the service
   Definition = Describes the eligibility conditions for the service
   Comments = The description of service eligibility should, in general, not exceed one or two paragraphs. It should be sufficient for a prospective consumer to determine if they are likely to be eligible or not. Where eligibility requirements and conditions are complex, it may simply be noted that an eligibility assessment is required. Where eligibility is determined by an outside source, such as an Act of Parliament, this should be noted, preferably with a reference to a commonly available copy of the source document such as a web page.
   RIM Mapping = .actrelationship[typeCode=PRCN].observation[moodCode=EVN.CRT].text
@@ -333,7 +333,7 @@
   Element = HealthcareService.programName
   Card. = 0..*
   Type = string
-  Short Label = Program Names that categorize the service
+  Short Name = Program Names that categorize the service
   Definition = Program Names that can be used to categorize the service
   Comments = Programs are often defined externally to an Organization, commonly by governments; e.g. Home and Community Care Programs, Homeless Program, …
   RIM Mapping = .actrelationship[typeCode=PERT].observation
@@ -343,7 +343,7 @@
   Card. = 0..*
   Type = CodeableConcept
   Binding = ServiceCharacteristic
-  Short Label = Collection of characteristics (attributes)
+  Short Name = Collection of characteristics (attributes)
   Definition = Collection of characteristics (attributes)
   Comments = These could be such things as is wheelchair accessible
   RIM Mapping = .actrelationship[typeCode=PERT].observation
@@ -353,7 +353,7 @@
   Card. = 0..*
   Type = CodeableConcept
   Binding = ReferralMethod
-  Short Label = Ways that the service accepts referrals
+  Short Name = Ways that the service accepts referrals
   Definition = Ways that the service accepts referrals, if this is not provided then it is implied that no referral is required
   RIM Mapping = .actrelationship[typeCode=PERT].observation
 
@@ -361,7 +361,7 @@
   Element = HealthcareService.publicKey
   Card. = 0..1
   Type = string
-  Short Label = PKI Public keys to support secure communications
+  Short Name = PKI Public keys to support secure communications
   Definition = The public part of the \'keys\' allocated to an Organization by an accredited body to support secure exchange of data over the internet. To be provided by the Organization, where available
   Comments = Note: This is a base64 encoded digital certificate.
   RIM Mapping = .certificateText
@@ -370,7 +370,7 @@
   Element = HealthcareService.appointmentRequired
   Card. = 0..1
   Type = boolean
-  Short Label = If an appointment is required for access to this service
+  Short Name = If an appointment is required for access to this service
   Definition = Indicates whether or not a prospective consumer will require an appointment for a particular service at a site to be provided by the Organization. Indicates if an appointment is required for access to this service.
   RIM Mapping = .actrelationship[typeCode=PERT].observation
 
@@ -378,7 +378,7 @@
   Element = HealthcareService.availableTime
   Card. = 0..*
   UML = 380;100
-  Short Label = Times the Service Site is available
+  Short Name = Times the Service Site is available
   Definition = A collection of times that the Service Site is available
   Comments = More detailed availability information may be provided in associated Schedule/Slot resources.
   RIM Mapping = .effectiveTime
@@ -388,7 +388,7 @@
   Card. = 0..*
   Type = code
   Binding = DaysOfWeek
-  Short Label = mon | tue | wed | thu | fri | sat | sun
+  Short Name = mon | tue | wed | thu | fri | sat | sun
   Definition = Indicates which days of the week are available between the start and end Times
   RIM Mapping = .effectiveTime
 
@@ -396,7 +396,7 @@
   Element = HealthcareService.availableTime.allDay
   Card. = 0..1
   Type = boolean
-  Short Label = Always available? e.g. 24 hour service
+  Short Name = Always available? e.g. 24 hour service
   Definition = Is this always available? (hence times are irrelevant) e.g. 24 hour service
   RIM Mapping = .effectiveTime
 
@@ -404,7 +404,7 @@
   Element = HealthcareService.availableTime.availableStartTime
   Card. = 0..1
   Type = time
-  Short Label = Opening time of day (ignored if allDay = true)
+  Short Name = Opening time of day (ignored if allDay = true)
   Definition = The opening time of day. Note: If the AllDay flag is set, then this time is ignored
   Comments = The timezone is expected to be for where this HealthcareService is provided at.
   RIM Mapping = .effectiveTime
@@ -413,7 +413,7 @@
   Element = HealthcareService.availableTime.availableEndTime
   Card. = 0..1
   Type = time
-  Short Label = Closing time of day (ignored if allDay = true)
+  Short Name = Closing time of day (ignored if allDay = true)
   Definition = The closing time of day. Note: If the AllDay flag is set, then this time is ignored
   Comments = The timezone is expected to be for where this HealthcareService is provided at.
   RIM Mapping = .effectiveTime
@@ -422,7 +422,7 @@
   Element = HealthcareService.notAvailable
   Card. = 0..*
   UML = 400;250
-  Short Label = Not available during this time due to provided reason
+  Short Name = Not available during this time due to provided reason
   Definition = The HealthcareService is not available during this period of time due to the provided reason
   RIM Mapping = .effectiveTime
 
@@ -430,7 +430,7 @@
   Element = HealthcareService.notAvailable.description
   Card. = 1..1
   Type = string
-  Short Label = Reason presented to the user explaining why time not available
+  Short Name = Reason presented to the user explaining why time not available
   Definition = The reason that can be presented to the user as to why this time is not available
   RIM Mapping = n/a
 
@@ -438,7 +438,7 @@
   Element = HealthcareService.notAvailable.during
   Card. = 0..1
   Type = Period
-  Short Label = Service not availablefrom this date
+  Short Name = Service not availablefrom this date
   Definition = Service is not available (seasonally or for a public holiday) from this date
   RIM Mapping = .effectiveTime
 
@@ -446,7 +446,7 @@
   Element = HealthcareService.availabilityExceptions
   Card. = 0..1
   Type = string
-  Short Label = Description of availability exceptions
+  Short Name = Description of availability exceptions
   Definition = A description of site availability exceptions, e.g. public holiday availability. Succinctly describing all possible exceptions to normal site availability as details in the available Times and not available Times
   RIM Mapping = .effectiveTime
 
@@ -454,7 +454,7 @@
   Element = !HealthcareService.eLSURL
   Card. = 0..1
   Type = uri
-  Short Label = Web service address of the ELS server\'s Lookup interface
+  Short Name = Web service address of the ELS server\'s Lookup interface
   Definition = Web service address of the ELS server\'s Lookup interface
   Comments = This is to be moved into an extension (Australians!)
   RIM Mapping = telecom
@@ -464,7 +464,7 @@
   Element = !HealthcareService.setting
   Card. = 0..*
   Type = CodeableConcept
-  Short Label = The setting where this service can be provided, such is in home, or at location in organisation
+  Short Name = The setting where this service can be provided, such is in home, or at location in organisation
   Definition = The setting where this service can be provided, such is in home, or at location in organisation
   RIM Mapping = .location.role[classCode=SDLOC].subjectOf.A_SpatialCoordinate
   Committee Notes = This was removed and now used the coverageArea locations instead - with generic locations
@@ -473,7 +473,7 @@
   Element = !HealthcareService.targetGroup
   Card. = 0..*
   Type = CodeableConcept
-  Short Label = Collection of Target Groups for the Service Site (The target audience that this service is for)
+  Short Name = Collection of Target Groups for the Service Site (The target audience that this service is for)
   Definition = Collection of Target Groups for the Service Site (The target audience that this service is for)
   RIM Mapping = .actrelationship[typeCode=PERT].observation
 
@@ -487,7 +487,7 @@
   Element = !HealthcareService.serviceCode
   Card. = 0..*
   Type = CodeableConcept
-  Short Label = List of the specific
+  Short Name = List of the specific
   Definition = List of the specific
   To Do = Need better description
 

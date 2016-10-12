@@ -75,7 +75,7 @@
   Element = Group
   UML = 0;0
   Type = DomainResource
-  Short Label = Group of multiple entities
+  Short Name = Group of multiple entities
   Definition = Represents a defined collection of entities that may be discussed or acted upon collectively but which are not expected to act collectively and are not formally or legally recognized; i.e. a collection of entities that isn\'t an Organization.
   RIM Mapping = Entity[determinerCode=\"GRP\" or determinerCode=\"GRP_KIND\"]
   To Do = We need determiner codes that indicate we\'re talking about a group even when we haven\'t specified a specific quantity
@@ -86,7 +86,7 @@
   Card. = 0..*
   Summary = y
   Type = Identifier
-  Short Label = Unique id
+  Short Name = Unique id
   Definition = A unique business identifier for this group
   Requirements = Allows the group to be referenced from external specifications
   RIM Mapping = unique(./id[displayable=\"true\" and scope=\"OBJ\"])
@@ -98,7 +98,7 @@
   Summary = y
   Type = code
   Binding = GroupType
-  Short Label = person | animal | practitioner | device | medication | substance
+  Short Name = person | animal | practitioner | device | medication | substance
   Definition = Identifies the broad classification of the kind of resources the group includes
   Requirements = Identifies what type of resources the group is made up of
   Comments = Group members SHALL be of the appropriate resource type (Patient for person or animal; or Practitioner, Device, Medicaiton or Substance for the other types.)
@@ -112,7 +112,7 @@
   Summary = y
   Inv. = 1
   Type = boolean
-  Short Label = Descriptive or actual
+  Short Name = Descriptive or actual
   Definition = If true, indicates that the resource refers to a specific group of real individuals.  If false, the group defines a set of intended individuals
   Requirements = There are use-cases for groups that define specific collections of individuals, and other groups that define \"types\" of intended individuals.  The requirements for both kinds of groups are similar, so we use a single resource, distinguished by this flag.
   RIM Mapping = true: ./determinerCode=\"GRP\"  false: ./determinerCode=\"GRP_KIND\"
@@ -123,7 +123,7 @@
   Card. = 0..1
   Summary = y
   Type = boolean
-  Short Label = Whether this group\'s record is in active use
+  Short Name = Whether this group\'s record is in active use
   Definition = Indicates whether the record for the group is available for use or is merely being retained for historical purposes
   Requirements = Need to be able to mark a group record as not to be used because it was created in error or is otherwise no longer available (e.g. a herd that no longer exists)
   RIM Mapping = ./statusCode
@@ -136,7 +136,7 @@
   Summary = y
   Type = CodeableConcept
   Binding = GroupKind
-  Short Label = Kind of Group members
+  Short Name = Kind of Group members
   Definition = Provides a specific type of resource the group includes; e.g. \"cow\", \"syringe\", etc.
   Comments = This would generally be omitted for Person resources
   RIM Mapping = ./code
@@ -147,7 +147,7 @@
   Card. = 0..1
   Summary = y
   Type = string
-  Short Label = Label for Group
+  Short Name = Label for Group
   Definition = A label assigned to the group for human identification and communication
   Requirements = Used to identify the group in human communication
   RIM Mapping = ./name[type=\"ST\"]
@@ -157,7 +157,7 @@
   Card. = 0..1
   Summary = y
   Type = unsignedInt
-  Short Label = Number of members
+  Short Name = Number of members
   Definition = A count of the number of resource instances that are part of the group
   Requirements = Group size is a common defining characteristic
   Comments = Note that the quantity may be less than the number of members if some of the members are not active
@@ -167,7 +167,7 @@
   Element = Group.characteristic
   Card. = 0..*
   UML = 300;0
-  Short Label = Trait of group members
+  Short Name = Trait of group members
   Definition = Identifies the traits shared by members of the group
   Requirements = Needs to be a generic mechanism for identifying what individuals can be part of a group
   Comments = All the identified characteristics must be true for an entity to a member of the group
@@ -178,7 +178,7 @@
   Card. = 1..1
   Type = CodeableConcept
   Binding = GroupCharacteristicKind
-  Short Label = Kind of characteristic
+  Short Name = Kind of characteristic
   Definition = A code that identifies the kind of trait being asserted
   Requirements = Need a formal way of identifying the characteristic being described
   RIM Mapping = ./code
@@ -188,7 +188,7 @@
   Card. = 1..1
   Type = CodeableConcept|boolean|Quantity|Range
   Binding = GroupCharacteristicValue
-  Short Label = Value held by characteristic
+  Short Name = Value held by characteristic
   Definition = The value of the trait that holds (or does not hold - see \'exclude\') for members of the group
   Requirements = The value of the characteristic is what determines group membership.
   Comments = For Range, it means members of the group have a value that falls somewhere within the specified range.
@@ -199,7 +199,7 @@
   Card. = 1..1
   Is Modifier = y
   Type = boolean
-  Short Label = Group includes or excludes
+  Short Name = Group includes or excludes
   Definition = If true, indicates the characteristic is one that is NOT held by members of the group
   Requirements = Sometimes group membership is determined by characteristics not possessed
   Comments = This is labeled as \"Is Modifier\" because applications cannot wrongly include excluded members as included or vice versa
@@ -209,7 +209,7 @@
   Element = Group.characteristic.period
   Card. = 0..1
   Type = Period
-  Short Label = Period over which characteristic is tested
+  Short Name = Period over which characteristic is tested
   Definition = The period over which the characteristic is tested; e.g. the patient had an operation during the month of June
 
  -- Row 14 -----------------------------------
@@ -217,7 +217,7 @@
   Card. = 0..*
   UML = 200;180
   Inv. = 1
-  Short Label = Who or what is in group
+  Short Name = Who or what is in group
   Definition = Identifies the resource instances that are members of the group.
   Requirements = Often the only thing of interest about a group is \"who\'s in it\"
   RIM Mapping = ./scopedRole[isNormalRole() and classCode=\"MBR\"]/player
@@ -227,14 +227,14 @@
   Element = Group.member.entity
   Card. = 1..1
   Type = Reference(Patient|Practitioner|Device|Medication|Substance)
-  Short Label = Reference to the group member
+  Short Name = Reference to the group member
   Definition = A reference to the entity that is a member of the group. Must be consistent with Group.type
 
  -- Row 16 -----------------------------------
   Element = Group.member.period
   Card. = 0..1
   Type = Period
-  Short Label = Period member belonged to the group
+  Short Name = Period member belonged to the group
   Definition = The period that the member was in the group, if known
   Requirements = Need to track who was in a group at a  particular time
   Missing Meaning = The member is in the group at this time
@@ -243,7 +243,7 @@
   Element = Group.member.inactive
   Card. = 0..1
   Type = boolean
-  Short Label = If member is no longer in group
+  Short Name = If member is no longer in group
   Definition = A flag to indicate that the member is no longer in the group, but previously may have been a member
   Requirements = Sometimes you don\'t know when someone stopped being in a group, but not when
   Default Value = False

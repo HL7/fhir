@@ -10966,6 +10966,10 @@
     <display value="Madura cattle breed"/>
     <display value="Madura wild javan X zebu cattle breed (organism)"/>
   </concept>
+  <concept id="133936004" display="Adult">
+    <display value="Adult"/>
+    <display value="Adult (person)"/>
+  </concept>
   <concept id="134622004" display="Capecitabine 500mg tablet (product)">
     <display value="Capecitabine 500mg tablet (product)"/>
     <display value="Capecitabine 500mg tablet"/>
@@ -11698,6 +11702,11 @@
     <display value="Following the programme plan"/>
     <display value="Implementation of planned interventions"/>
     <display value="Implementation of planned interventions (procedure)"/>
+  </concept>
+  <concept id="225337009" display="Suicide risk assessment">
+    <display value="Suicide risk assessment (regime/therapy)"/>
+    <display value="Suicide risk assessment"/>
+    <display value="Suicide risk assessment (procedure)"/>
   </concept>
   <concept id="22549003" display="Hospital-based outpatient gynecology clinic (environment)">
     <display value="Hospital-based outpatient gynaecology clinic"/>
@@ -13240,6 +13249,10 @@
     <display value="Gastric brushings sample"/>
     <display value="Gastric brushings sample (specimen)"/>
   </concept>
+  <concept id="309343006" display="Physician">
+    <display value="Physician"/>
+    <display value="Physician (occupation)"/>
+  </concept>
   <concept id="309502007" display="Fetus specimen (specimen)">
     <display value="Foetus specimen"/>
     <display value="Fetus specimen"/>
@@ -14540,6 +14553,10 @@
     <display value="Nuclear medicine - specialty"/>
     <display value="Nuclear medicine"/>
   </concept>
+  <concept id="394687007" display="Low suicide risk (finding)">
+    <display value="Low suicide risk (finding)"/>
+    <display value="Low suicide risk"/>
+  </concept>
   <concept id="394725008" display="Diabetes medication review (procedure)">
     <display value="Diabetes medication review (procedure)"/>
     <display value="Diabetes medication review"/>
@@ -14882,6 +14899,10 @@
     <display value="Supine position"/>
     <display value="Prostration, NOS"/>
     <display value="Supine body position (finding)"/>
+  </concept>
+  <concept id="40379007" display="Mild recurrent major depression">
+    <display value="Mild recurrent major depression"/>
+    <display value="Mild recurrent major depression (disorder)"/>
   </concept>
   <concept id="40415009" display="Proximal (qualifier value)">
     <display value="Neighbour of"/>
@@ -15991,6 +16012,10 @@
   <concept id="440622005" display="Specimen received (situation)">
     <display value="Specimen received (situation)"/>
     <display value="Specimen received"/>
+  </concept>
+  <concept id="440655000" display="Outpatient environment (environment)">
+    <display value="Outpatient environment (environment)"/>
+    <display value="Outpatient environment"/>
   </concept>
   <concept id="440674008" display="Specimen obtained by lavage (specimen)">
     <display value="Specimen obtained by lavage (specimen)"/>
@@ -18414,6 +18439,10 @@
   <concept id="87061000" display="Boar power pig 282">
     <display value="Boar power pig 282"/>
     <display value="Boar power pig 282 (organism)"/>
+  </concept>
+  <concept id="87512008" display="Mild major depression">
+    <display value="Mild major depression"/>
+    <display value="Mild major depression (disorder)"/>
   </concept>
   <concept id="87530001" display="Welsummer chicken">
     <display value="Welsummer chicken"/>

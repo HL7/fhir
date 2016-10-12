@@ -107,7 +107,7 @@
  -- Row 1 -----------------------------------
   Element = ContactPoint
   Type = Structure
-  Short Label = Details of a Technology mediated contact point (phone, fax, email, etc.)
+  Short Name = Details of a Technology mediated contact point (phone, fax, email, etc.)
   Definition = Details for all kinds of technology mediated contact points for a person or organization, including telephone, email, etc.
   Requirements = Need to track phone, fax, mobile, sms numbers, email addresses, twitter tags, etc.
   v2 Mapping = XTN
@@ -120,7 +120,7 @@
   Inv. = 2
   Type = code
   Binding = ContactPointSystem
-  Short Label = phone | fax | email | pager | other
+  Short Name = phone | fax | email | pager | other
   Definition = Telecommunications form for contact point - what communications system is required to make use of the contact
   v2 Mapping = XTN.3
   RIM Mapping = ./scheme
@@ -130,7 +130,7 @@
   Element = ContactPoint.value
   Card. = 0..1
   Type = string
-  Short Label = The actual contact point details
+  Short Name = The actual contact point details
   Definition = The actual contact point details, in a form that is meaningful to the designated communication system (i.e. phone number or email address).
   Requirements = Need to support legacy numbers that are not in a tightly controlled format
   Comments = Additional text data such as phone extension numbers, or notes about use of the contact are sometimes included in the value
@@ -144,7 +144,7 @@
   Is Modifier = Y
   Type = code
   Binding = ContactPointUse
-  Short Label = home | work | temp | old | mobile - purpose of this contact point
+  Short Name = home | work | temp | old | mobile - purpose of this contact point
   Definition = Identifies the purpose for the contact point
   Requirements = Need to track the way a person uses this contact, so a user can choose which is appropriate for their purpose
   Comments = This is labeled as \"Is Modifier\" because applications should not mistake a temporary or old contact etc.for a current/permanent one. Applications can assume that a contact is current unless it explicitly says that it is temporary or old
@@ -156,7 +156,7 @@
   Element = ContactPoint.rank
   Card. = 0..1
   Type = positiveInt
-  Short Label = Specify preferred order of use (1 = highest)
+  Short Name = Specify preferred order of use (1 = highest)
   Definition = Specifies a preferred order in which to use a set of contacts. Contacts are ranked with lower values coming before higher values
   Comments = Note that rank does not necessarily follow the order in which the contacts are represented in the instance
   v2 Mapping = n/a
@@ -166,7 +166,7 @@
   Element = ContactPoint.period
   Card. = 0..1
   Type = Period
-  Short Label = Time period when the contact point was/is in use
+  Short Name = Time period when the contact point was/is in use
   Definition = Time period when the contact point was/is in use
   v2 Mapping = N/A
   RIM Mapping = ./useablePeriod[type=\"IVL<TS>\"]

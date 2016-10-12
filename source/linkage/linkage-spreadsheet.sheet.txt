@@ -35,7 +35,7 @@
  -- Row 1 -----------------------------------
   Element = Linkage
   Type = DomainResource
-  Short Label = Links records for \'same\' item
+  Short Name = Links records for \'same\' item
   Definition = Identifies two or more records (resource instances) that are referring to the same real-world \"occurrence\"
   RIM Mapping = N/A - RIM doesn\'t know how to do this
   w5 = infrastructure.structure
@@ -44,7 +44,7 @@
   Element = Linkage.author
   Card. = 0..1
   Type = Reference(Practitioner|Organization)
-  Short Label = Who is responsible for linkages
+  Short Name = Who is responsible for linkages
   Definition = Identifies the user or organization responsible for asserting the linkages and who establishes the context for evaluating the nature of each linkage.
   Requirements = \"Primary\" for the same set of linked resources may be different from different user\'s/organization\'s perspectives
   w5 = who.author
@@ -52,7 +52,7 @@
  -- Row 3 -----------------------------------
   Element = Linkage.item
   Card. = 1..*
-  Short Label = Item to be linked
+  Short Name = Item to be linked
   Definition = Identifies one of the records that is considered to refer to the same real-world occurrence as well as how the items hould be evaluated within the collection of linked items.
   To Do = Make this 2..*
 
@@ -61,14 +61,14 @@
   Card. = 1..1
   Type = code
   Binding = LinkageType
-  Short Label = source | alternate | historical
+  Short Name = source | alternate | historical
   Definition = Distinguishes which item is \"source of truth\" (if any) and which items are no longer considered to be current representations
 
  -- Row 5 -----------------------------------
   Element = Linkage.item.resource
   Card. = 1..1
   Type = Reference
-  Short Label = Resource being linked
+  Short Name = Resource being linked
   Definition = The resource instance being linked as part of the group
 
 === Sheet Search =====================================

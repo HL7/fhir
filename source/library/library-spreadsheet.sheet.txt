@@ -143,10 +143,10 @@
   Element = Library.relatedArtifact
   Card. = 0..*
   Type = RelatedArtifact
-  Short Name = Related resources for the library
-  Definition = Related resources such as additional documentation, justification, or bibliographic references
+  Short Name = Related artifacts for the library
+  Definition = Related artifacts such as additional documentation, justification, or bibliographic references
   Requirements = Libraries must be able to provide enough information for consumers of the content (and/or interventions or results produced by the content) to be able to determine and understand the justification for and evidence in support of the content
-  Comments = Each related resource is either an attachment, or a reference to another resource, but not both
+  Comments = Each related artifact is either an attachment, or a reference to another resource, but not both
 
  -- Row 25 -----------------------------------
   Element = Library.parameter

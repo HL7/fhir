@@ -44,7 +44,7 @@
  -- Row 1 -----------------------------------
   Element = EnrollmentResponse
   Type = DomainResource
-  Short Label = EnrollmentResponse resource
+  Short Name = EnrollmentResponse resource
   Definition = This resource provides enrollment and plan details from the processing of an Enrollment resource.
   w5 = financial.support
 
@@ -55,7 +55,7 @@
   Element = EnrollmentResponse.identifier
   Card. = 0..*
   Type = Identifier
-  Short Label = Business Identifier
+  Short Name = Business Identifier
   Definition = The Response business identifier
 
  -- Row 4 -----------------------------------
@@ -65,14 +65,14 @@
   Summary = Y
   Type = code
   Binding = EnrollmentResponseStatus
-  Short Label = active | cancelled | draft | entered-in-error
+  Short Name = active | cancelled | draft | entered-in-error
   Definition = The status of the resource instance.
 
  -- Row 5 -----------------------------------
   Element = EnrollmentResponse.request[x]
   Card. = 0..1
   Type = Identifier|Reference(EnrollmentRequest)
-  Short Label = Claim reference
+  Short Name = Claim reference
   Definition = Original request resource reference
   CDAnet v4 Mapping = A02|G01
 
@@ -81,14 +81,14 @@
   Card. = 0..1
   Type = code
   Binding = RemittanceOutcome
-  Short Label = complete | error | partial
+  Short Name = complete | error | partial
   Definition = Processing status: error, complete
 
  -- Row 7 -----------------------------------
   Element = EnrollmentResponse.disposition
   Card. = 0..1
   Type = string
-  Short Label = Disposition Message
+  Short Name = Disposition Message
   Definition = A description of the status of the adjudication.
 
  -- Row 8 -----------------------------------
@@ -96,7 +96,7 @@
   Card. = 0..1
   Type = Coding
   Binding = Ruleset
-  Short Label = Resource version
+  Short Name = Resource version
   Definition = The version of the style of resource contents. This should be mapped to the allowable profiles for this and supporting resources.
 
  -- Row 9 -----------------------------------
@@ -104,7 +104,7 @@
   Card. = 0..1
   Type = Coding
   Binding = Ruleset
-  Short Label = Original version
+  Short Name = Original version
   Definition = The style (standard) and version of the original material which was converted into this resource.
   Requirements = Knowledge of the original version can inform the processing of this instance so that information which is processable by the originating system may be generated.
 
@@ -112,21 +112,21 @@
   Element = EnrollmentResponse.created
   Card. = 0..1
   Type = dateTime
-  Short Label = Creation date
+  Short Name = Creation date
   Definition = The date when the enclosed suite of services were performed or completed
 
  -- Row 11 -----------------------------------
   Element = EnrollmentResponse.organization[x]
   Card. = 0..1
   Type = Identifier|Reference(Organization)
-  Short Label = Insurer
+  Short Name = Insurer
   Definition = The Insurer who produced this adjudicated response.
 
  -- Row 12 -----------------------------------
   Element = EnrollmentResponse.requestProvider[x]
   Card. = 0..1
   Type = Identifier|Reference(Practitioner)
-  Short Label = Responsible practitioner
+  Short Name = Responsible practitioner
   Definition = The practitioner who is responsible for the services rendered to the patient.
   CDAnet v4 Mapping = B01
 
@@ -134,7 +134,7 @@
   Element = EnrollmentResponse.requestOrganization[x]
   Card. = 0..1
   Type = Identifier|Reference(Organization)
-  Short Label = Responsible organization
+  Short Name = Responsible organization
   Definition = The organization which is responsible for the services rendered to the patient.
 
 === Sheet Search =====================================

@@ -143,7 +143,7 @@
  -- Row 1 -----------------------------------
   Element = Consent
   Type = DomainResource
-  Short Label = A healthcare consumer’s policy choices to permits or denies recipients or roles to perform actions for specific purposes and periods of time
+  Short Name = A healthcare consumer’s policy choices to permits or denies recipients or roles to perform actions for specific purposes and periods of time
   Definition = A record of a healthcare consumer’s policy choices, which permits or denies identified recipient(s) or recipient role(s) to perform one or more actions within a given policy context, for specific purposes and periods of time
   Comments = Broadly, there are 3 key areas of consent for patients: Consent around sharing information (aka Privacy Consent Directive - Authorization to Collect, Use, or Disclose information), consent for specific treatment, or kinds of treatment, and general advance care directives
   RIM Mapping = FinancialConsent
@@ -154,7 +154,7 @@
   Card. = 0..1
   Summary = Y
   Type = Identifier
-  Short Label = Identifier for this record (external references)
+  Short Name = Identifier for this record (external references)
   Definition = Unique identifier for this copy of the Consent Statement
   Comments = This identifier is identifies this copy of the consent. Where this identifier is also used elsewhere as the identifier for a consent record (e.g. a CDA consent document) then the consent details are expected to be the same
   RIM Mapping = .id
@@ -168,7 +168,7 @@
   Summary = Y
   Type = code
   Binding = ConsentStatus
-  Short Label = draft | proposed | active | rejected | inactive | entered-in-error
+  Short Name = draft | proposed | active | rejected | inactive | entered-in-error
   Definition = Indicates the current state of this consent
   Requirements = The Consent Directive that is pointed to might be in various lifecycle states, e.g., a revoked Consent Directive
   Comments = This is the status of this consent at the time it was issued / created / indexed
@@ -182,7 +182,7 @@
   Summary = Y
   Type = CodeableConcept
   Binding = ConsentCategory
-  Short Label = Classification of the consent statement - for indexing/retrieval
+  Short Name = Classification of the consent statement - for indexing/retrieval
   Definition = A classification of the type of consents found in the statement. This element supports indexing and retrieval of consent statements
   RIM Mapping = CNTRCT
   w5 = class
@@ -192,7 +192,7 @@
   Card. = 0..1
   Summary = Y
   Type = dateTime
-  Short Label = When this Consent was created or indexed
+  Short Name = When this Consent was created or indexed
   Definition = When this  Consent was issued / created / indexed
   Comments = This is not the time of the original consent, but the time that this statement was made or derived
   RIM Mapping = FinancialConsent effectiveTime
@@ -203,7 +203,7 @@
   Card. = 0..1
   Summary = Y
   Type = Period
-  Short Label = Period that this consent applies
+  Short Name = Period that this consent applies
   Definition = Relevant time or time-period when this Consent is applicable
   Comments = This can be a subset of the period of the original statement
   RIM Mapping = FinancialConsent activityTime
@@ -215,7 +215,7 @@
   Card. = 1..1
   Summary = Y
   Type = Reference(Patient)
-  Short Label = Who the consent applies to
+  Short Name = Who the consent applies to
   Definition = The patient/healthcare consumer to whom this consent applies.
   Comments = Commonly, the patient the consent pertains to is the author, but for young and old people, it may be some other person
   RIM Mapping = Role
@@ -226,7 +226,7 @@
   Card. = 0..*
   Summary = Y
   Type = Reference(Organization|Patient|Practitioner|RelatedPerson)
-  Short Label = Who is agreeing to the policy and exceptions
+  Short Name = Who is agreeing to the policy and exceptions
   Definition = The patient/consumer that is responsible for agreeing to the consent represented by this resource. This is the person (usually) that agreed to the policy, along with the exceptions, e.g. the persion who takes responsibility for the agreement. In the signature this corresponds to the role \"Consent Signature\"
   Comments = Commonly, the patient the consent pertains to is the consentor, but particularly for young and old people, it may be some other person - e.g. a legal guardian
   w5 = who.actor
@@ -237,7 +237,7 @@
   Aliases = custodian
   Summary = Y
   Type = Reference(Organization)
-  Short Label = Organization that manages the consent
+  Short Name = Organization that manages the consent
   Definition = The organization that manages the consent, and the framework within which it is executed
   w5 = who.witness
 
@@ -246,7 +246,7 @@
   Card. = 0..1
   Summary = Y
   Type = Attachment|Identifier|Reference(Consent | DocumentReference | Contract | QuestionnaireResponse)
-  Short Label = Source from which this consent is taken
+  Short Name = Source from which this consent is taken
   Definition = The source on which this consent statement is based. The source might be a scanned original paper form, or a reference to a consent that links back to such a source, a reference to a document repository (e.g. XDS) that stores the original consent document
   Comments = The source can be contained inline (Attachment), referenced directly (Consent), referenced in a consent repository (DocumentReference), or simply by an identifier (Identifier), e.g. a CDA document id
 
@@ -255,7 +255,7 @@
   Card. = 1..1
   Summary = Y
   Type = uri
-  Short Label = Policy that this consents to
+  Short Name = Policy that this consents to
   Definition = A reference to the policy that this consents to. Policies may be organizational, but are often defined jurisdictionally, or in law
   Comments = If the policy reference is not known, the resource cannot be processed. Where the reference is absent, there is no particular policy other than what is expressed directly in the consent resource
 
@@ -264,7 +264,7 @@
   Card. = 0..*
   Summary = Y
   Type = Reference(Device|Group|Organization|Patient|Practitioner|RelatedPerson|CareTeam)
-  Short Label = Whose access is controlled by the policy
+  Short Name = Whose access is controlled by the policy
   Definition = Actor whose access is controlled by this consent under the terms of the policy and exceptions
   Comments = The Consent recipient is the person/organization who is being granted or denied permission according to the stated policy
   Missing Meaning = There is no specific actor who is the focus of the consent
@@ -276,7 +276,7 @@
   Summary = Y
   Type = Coding
   Binding = PurposeOfUse
-  Short Label = Context of activities for which the agreement is made
+  Short Name = Context of activities for which the agreement is made
   Definition = The context of the activities a user is taking - why the user is accessing the data - that are controlled by this consent.
   Comments = This element is for discoverability / documentation, and does not modify or qualify the policy (e.g. the policy itself describes the purposes for which it applies)
 
@@ -286,7 +286,7 @@
   Summary = Y
   UML = right
   Type = =Except
-  Short Label = Additional rule -  addition or removal of permissions
+  Short Name = Additional rule -  addition or removal of permissions
   Definition = An exception to the base policy of this consent. An exception can be an addition or removal of access permissions.
 
  -- Row 15 -----------------------------------
@@ -295,7 +295,7 @@
   Summary = Y
   Type = code
   Binding = ConsentExceptType
-  Short Label = deny | permit
+  Short Name = deny | permit
   Definition = Action  to take - permit or deny - when the exception conditions are met
 
  -- Row 16 -----------------------------------
@@ -303,7 +303,7 @@
   Card. = 0..1
   Summary = Y
   Type = Period
-  Short Label = Timeframe for data controlled by this exception
+  Short Name = Timeframe for data controlled by this exception
   Definition = The timeframe in which data is controlled by this exception
   Comments = This has a different sense to the Consent.period - that is when the consent agreement holds. This is the time period of the data that is controlled by the agreement
 
@@ -312,7 +312,7 @@
   Card. = 0..*
   Summary = Y
   UML = up
-  Short Label = Who|what controlled by this exception (or group, by role)
+  Short Name = Who|what controlled by this exception (or group, by role)
   Definition = Who or what is controlled by this Exception. Use group to identify a set of actors by some property they share (e.g. \'admitting officers\')
   Missing Meaning = There is no specific actor associated with the exception
 
@@ -321,14 +321,14 @@
   Card. = 1..1
   Type = CodeableConcept
   Binding = ConsentActorRole
-  Short Label = How the actor is/was involved
+  Short Name = How the actor is/was involved
   Definition = How the individual is or was involved in the resourcescontent that is described in the exception
 
  -- Row 19 -----------------------------------
   Element = Consent.except.actor.reference
   Card. = 1..1
   Type = Reference(Device|Group|CareTeam|Organization|Patient|Practitioner|RelatedPerson)
-  Short Label = Resource for the actor (or group, by role)
+  Short Name = Resource for the actor (or group, by role)
   Definition = The resource that identifies the actor. To identify a actors by type, use group to identify a set of actors by some property they share (e.g. \'admitting officers\')
 
  -- Row 20 -----------------------------------
@@ -337,7 +337,7 @@
   Summary = Y
   Type = CodeableConcept
   Binding = ConsentAction
-  Short Label = Actions controlled by this exception
+  Short Name = Actions controlled by this exception
   Definition = Actions controlled by this Exception
   Comments = Note that this is the direct action (not the grounds for the action covered in the purpose element). At present, the only action in the understood and tested scope of this resource is \'read\'
   Missing Meaning = all actions
@@ -348,7 +348,7 @@
   Summary = Y
   Type = Coding
   Binding = SecurityLabels
-  Short Label = Security Labels that define affected resources
+  Short Name = Security Labels that define affected resources
   Definition = A set of security labels that define which resources are controlled by this exception. If more than one label is specified, all resources must have all the specified labels
   Comments = If the consent specifies a security label of \"R\" then it applies to all resources that are labelled \"R\" or lower. E.g. for Confidentiality, it\'s a high water mark. For other kinds of security labels, subsumption logic applies. Not all of the security labels make sense for use in this element (may define a narrower value set?)
 
@@ -358,7 +358,7 @@
   Summary = Y
   Type = Coding
   Binding = PurposeOfUse
-  Short Label = Context of activities covered by this exception
+  Short Name = Context of activities covered by this exception
   Definition = The context of the activities a user is taking - why the user is accessing the data - that are controlled by this exception
   Comments = E.g. if the purpose is \'research\', then the operational context must be research, in order for the consent to apply. Not all of the security labels make sense for use in this element (may define a narrower value set?)
 
@@ -368,7 +368,7 @@
   Summary = Y
   Type = Coding
   Binding = ConsentContentClass
-  Short Label = e.g. Resource Type, Profile, or CDA etc
+  Short Name = e.g. Resource Type, Profile, or CDA etc
   Definition = The class of information covered by this exception. The type can be a FHIR resource type, a profile on a type, or a CDA document, or some other type that indicates what sort of information the consent relates to
   Comments = Multiple types are or\'ed together. The intention of the contentType element is that the codes refer to profiles or document types defined in a standard or an implementation guide somewhere
 
@@ -378,7 +378,7 @@
   Summary = Y
   Type = Coding
   Binding = ConsentContentCode
-  Short Label = e.g. LOINC or SNOMED CT code, etc in the content
+  Short Name = e.g. LOINC or SNOMED CT code, etc in the content
   Definition = If this code is found in an instance, then the exception applies. TODO: where do you not have to look? This is a problematic element
   Comments = Typical use of this is a Document code with class = CDA
 
@@ -387,7 +387,7 @@
   Card. = 0..*
   Summary = Y
   UML = down
-  Short Label = Data controlled by this exception
+  Short Name = Data controlled by this exception
   Definition = The resources controlled by this exception, if specific resources are referenced
   RIM Mapping = Role
   Missing Meaning = all data
@@ -398,7 +398,7 @@
   Summary = Y
   Type = code
   Binding = ConsentDataMeaning
-  Short Label = instance | related | dependents
+  Short Name = instance | related | dependents
   Definition = How the resource reference is interpreted when testing consent restrictions
 
  -- Row 27 -----------------------------------
@@ -406,7 +406,7 @@
   Card. = 1..1
   Summary = Y
   Type = Reference(Any)
-  Short Label = The actual data reference
+  Short Name = The actual data reference
   Definition = A reference to a specific resource that defines which resources are covered by this consent
 
 === Sheet Search =====================================

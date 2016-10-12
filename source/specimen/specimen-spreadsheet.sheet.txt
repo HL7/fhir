@@ -89,7 +89,7 @@
  -- Row 1 -----------------------------------
   Element = Specimen
   Type = DomainResource
-  Short Label = Sample for analysis
+  Short Name = Sample for analysis
   Definition = A sample to be used for analysis.
   RIM Mapping = Role[classCode=SPEC]
   w5 = clinical.diagnostics
@@ -99,7 +99,7 @@
   Card. = 0..*
   Summary = Y
   Type = Identifier
-  Short Label = External Identifier
+  Short Name = External Identifier
   Definition = Id for specimen
   v2 Mapping = SPM-2
   RIM Mapping = .id
@@ -110,7 +110,7 @@
   Card. = 0..1
   Summary = Y
   Type = Identifier
-  Short Label = Identifier assigned by the lab
+  Short Name = Identifier assigned by the lab
   Definition = The identifier assigned by the lab when accessioning specimen(s). This is not necessarily the same as the specimen identifier, depending on local lab procedures.
   v2 Mapping = SPM-30 (v2.7+)
   RIM Mapping = .participation[typeCode=SBJ].act[classCode=ACSN, moodCode=EVN].id
@@ -123,7 +123,7 @@
   Summary = Y
   Type = code
   Binding = SpecimenStatus
-  Short Label = available | unavailable | unsatisfactory | entered-in-error
+  Short Name = available | unavailable | unsatisfactory | entered-in-error
   Definition = The availability of the specimen
   v2 Mapping = SPM-20
   RIM Mapping = status
@@ -136,7 +136,7 @@
   Summary = Y
   Type = CodeableConcept
   Binding = SpecimenType
-  Short Label = Kind of material that forms the specimen
+  Short Name = Kind of material that forms the specimen
   Definition = The kind of material that forms the specimen
   Comments = The type can change the way that a specimen is handled, and drives what kind of analyses can properly be performed on the specimen. It is frequently used in diagnostic work flow decision making systems.
   v2 Mapping = SPM-4 and possibly SPM-5
@@ -148,7 +148,7 @@
   Card. = 1..1
   Summary = Y
   Type = Reference(Patient|Group|Device|Substance)
-  Short Label = Where the specimen came from. This may be from the patient(s) or from the environment or a device
+  Short Name = Where the specimen came from. This may be from the patient(s) or from the environment or a device
   Requirements = Must know the subject context
   RIM Mapping = .scoper  or  .scoper.playsRole
   w5 = who.focus
@@ -158,7 +158,7 @@
   Card. = 0..1
   Summary = Y
   Type = dateTime
-  Short Label = The time when specimen was received for processing
+  Short Name = The time when specimen was received for processing
   Definition = Time when specimen was received for processing or testing
   v2 Mapping = SPM-18
   RIM Mapping = .participation[typeCode=SBJ].act[code=SPCREC, moodCode=EVN].effectiveTime
@@ -168,7 +168,7 @@
   Element = Specimen.parent
   Card. = 0..*
   Type = Reference(Specimen)
-  Short Label = Specimen from which this specimen originated
+  Short Name = Specimen from which this specimen originated
   Definition = Reference to the parent (source) specimen which is used when the specimen was either derived from or a component of another specimen.
   Comments = The parent specimen could be the source from which the current specimen is derived by some processing step (e.g. an aliquot or isolate or extracted nucleic acids from clinical samples) or one of many specimens that were combined to create a pooled sample.
   RIM Mapping = .scoper (if parent) .player.scopesRole[classCode=SPEC].player (if child)
@@ -179,7 +179,7 @@
   Card. = 1..1
   Type = code
   Binding = HierarchicalRelationshipType
-  Short Label = parent | child
+  Short Name = parent | child
   Definition = Whether this relationship is to a parent or to a child
   v2 Mapping = not explicit in v2.x SPM segment, but can be derived as child,if SPM-3 Specimen parent ID is filled in
   RIM Mapping = as above
@@ -188,7 +188,7 @@
   Element = !Specimen.source.target
   Card. = 0..*
   Type = Reference(Specimen)
-  Short Label = The subject of the relationship
+  Short Name = The subject of the relationship
   Definition = The specimen resource that is the target of this relationship
   RIM Mapping = [self]
 
@@ -196,7 +196,7 @@
   Element = Specimen.request
   Card. = 0..*
   Type = Reference(DiagnosticRequest|ProcedureRequest)
-  Short Label = Why the specimen was collected
+  Short Name = Why the specimen was collected
   Definition = Details concerning a test or procedure request that required a specimen to be collected.
   Comments = The request may be explicit or implied such with a DiagnosticRequest that requires a blood draw.
   v2 Mapping = ORC? OBR-2/3?
@@ -208,7 +208,7 @@
   Element = Specimen.collection
   Card. = 0..1
   UML = up
-  Short Label = Collection details
+  Short Name = Collection details
   Definition = Details concerning the specimen collection
   v2 Mapping = SPM-14
   RIM Mapping = .participation[typeCode=SBJ].act[classCode=SPECCOLLECT, moodCode=EVN]
@@ -218,7 +218,7 @@
   Card. = 0..1
   Summary = Y
   Type = Reference(Practitioner)
-  Short Label = Who collected the specimen
+  Short Name = Who collected the specimen
   Definition = Person who collected the specimen
   v2 Mapping = PRT
   RIM Mapping = .participation[typeCode=PFM].role
@@ -228,7 +228,7 @@
   Element = !Specimen.collection.comment
   Card. = 0..1
   Type = string
-  Short Label = Collector comments
+  Short Name = Collector comments
   Definition = To communicate any details or issues encountered during the specimen collection procedure.
   v2 Mapping = OBX
   RIM Mapping = .inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=\"annotation\"].value
@@ -238,7 +238,7 @@
   Card. = 0..1
   Summary = Y
   Type = dateTime|Period
-  Short Label = Collection time
+  Short Name = Collection time
   Definition = Time when specimen was collected from subject - the physiologically relevant time
   v2 Mapping = SPM-17
   RIM Mapping = .effectiveTime
@@ -248,7 +248,7 @@
   Element = Specimen.collection.quantity
   Card. = 0..1
   Type = SimpleQuantity
-  Short Label = The quantity of specimen collected
+  Short Name = The quantity of specimen collected
   Definition = The quantity of specimen collected; for instance the volume of a blood sample, or the physical measurement of an anatomic pathology sample.
   v2 Mapping = SPM-12
   RIM Mapping = .participation[typeCode=SBJ].role[classCode=SPEC].player.quantity
@@ -258,7 +258,7 @@
   Card. = 0..1
   Type = CodeableConcept
   Binding = SpecimenCollectionMethod
-  Short Label = Technique used to perform collection
+  Short Name = Technique used to perform collection
   Definition = A coded value specifying the technique that is used to perform the procedure
   v2 Mapping = SPM-7
   RIM Mapping = .methodCode
@@ -268,7 +268,7 @@
   Card. = 0..1
   Type = CodeableConcept
   Binding = BodySite
-  Short Label = Anatomical collection site
+  Short Name = Anatomical collection site
   Definition = Anatomical location from which the specimen was collected (if subject is a patient). This is the target site.  This element is not used for environmental specimens.
   Comments = If the use case requires  BodySite to be handled as a separate resource instead of an inline coded element (e.g. to identify and track separately)  then use the standard extension [body-site-instance](extension-body-site-instance.html).
   v2 Mapping = SPM-8 and SPM-9
@@ -279,7 +279,7 @@
   Element = Specimen.treatment
   Card. = 0..*
   UML = down
-  Short Label = Treatment and processing step details
+  Short Name = Treatment and processing step details
   Definition = Details concerning treatment and processing steps for the specimen
   RIM Mapping = .participation[typeCode=SBJ].act[code=SPCTRT, moodCode=EVN]
 
@@ -287,7 +287,7 @@
   Element = Specimen.treatment.description
   Card. = 0..1
   Type = string
-  Short Label = Textual description of procedure
+  Short Name = Textual description of procedure
   RIM Mapping = .text
 
  -- Row 21 -----------------------------------
@@ -295,7 +295,7 @@
   Card. = 0..1
   Type = CodeableConcept
   Binding = SpecimenTreatmentProcedure
-  Short Label = Indicates the treatment or processing step  applied to the specimen
+  Short Name = Indicates the treatment or processing step  applied to the specimen
   Definition = A coded value specifying the procedure used to process the specimen
   RIM Mapping = .code
 
@@ -303,7 +303,7 @@
   Element = Specimen.treatment.additive
   Card. = 0..*
   Type = Reference(Substance)
-  Short Label = Material used in the processing step
+  Short Name = Material used in the processing step
   v2 Mapping = SPM-6
   RIM Mapping = .participation[typeCode=CSM].role[classCode=ADTV].code
 
@@ -311,14 +311,14 @@
   Element = Specimen.treatment.time[x]
   Card. = 0..1
   Type = dateTime|Period
-  Short Label = Date and time of specimen treatment
+  Short Name = Date and time of specimen treatment
   Definition = A record of the time or period when the specimen treatment occurred.  For example the time of sample fixation or the period of time the sample was in formalin.
 
  -- Row 24 -----------------------------------
   Element = Specimen.container
   Card. = 0..*
   UML = right
-  Short Label = Direct container of specimen (tube/slide, etc.)
+  Short Name = Direct container of specimen (tube/slide, etc.)
   Definition = The container holding the specimen.  The recursive nature of containers; i.e. blood in tube in tray in rack is not addressed here.
   RIM Mapping = .player.scopingRole[classCode=CONT].scoper
 
@@ -327,7 +327,7 @@
   Card. = 0..*
   Summary = Y
   Type = Identifier
-  Short Label = Id for the container
+  Short Name = Id for the container
   Definition = Id for container. There may be multiple; a manufacturer\'s bar code, lab assigned identifier, etc. The container ID may differ from the specimen id in some circumstances.
   v2 Mapping = SAC-3
   RIM Mapping = .id
@@ -336,7 +336,7 @@
   Element = Specimen.container.description
   Card. = 0..1
   Type = string
-  Short Label = Textual description of the container
+  Short Name = Textual description of the container
   RIM Mapping = .desc
 
  -- Row 27 -----------------------------------
@@ -344,7 +344,7 @@
   Card. = 0..1
   Type = CodeableConcept
   Binding = SpecimenContainerType
-  Short Label = Kind of container directly associated with specimen
+  Short Name = Kind of container directly associated with specimen
   Definition = The type of container associated with the specimen (e.g. slide, aliquot, etc.)
   v2 Mapping = SPM-27
   RIM Mapping = .code
@@ -353,7 +353,7 @@
   Element = Specimen.container.capacity
   Card. = 0..1
   Type = SimpleQuantity
-  Short Label = Container volume or size
+  Short Name = Container volume or size
   Definition = The capacity (volume or other measure) the container may contain.
   v2 Mapping = one of: SAC 16, SAC17 and SAC 20, or SAC 21 and SAC 20
   RIM Mapping = .quantity
@@ -362,7 +362,7 @@
   Element = Specimen.container.specimenQuantity
   Card. = 0..1
   Type = SimpleQuantity
-  Short Label = Quantity of specimen within container
+  Short Name = Quantity of specimen within container
   Definition = The quantity of specimen in the container; may be volume, dimensions, or other appropriate measurements, depending on the specimen type.
   v2 Mapping = SAC-23 (value) SAC-24 (units
   RIM Mapping = .playedRole[classCode=CONT].quantity
@@ -372,7 +372,7 @@
   Card. = 0..1
   Type = CodeableConcept|Reference(Substance)
   Binding = SpecimenContainerAdditive
-  Short Label = Additive associated with container
+  Short Name = Additive associated with container
   Definition = Introduced substance to preserve, maintain or enhance the specimen. Examples: Formalin, Citrate, EDTA
   v2 Mapping = SAC-27
   RIM Mapping = .scopesRole[classCode=ADTV].player
@@ -382,7 +382,7 @@
   Element = Specimen.note
   Card. = 0..*
   Type = Annotation
-  Short Label = Comments
+  Short Name = Comments
   Definition = To communicate any details or issues about the specimen or during the specimen collection. (for example: broken vial, sent with patient, frozen)
   v2 Mapping = OBX
   RIM Mapping = .inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=\"annotation\"].value

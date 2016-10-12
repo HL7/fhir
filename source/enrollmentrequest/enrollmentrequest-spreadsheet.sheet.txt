@@ -44,7 +44,7 @@
  -- Row 1 -----------------------------------
   Element = EnrollmentRequest
   Type = DomainResource
-  Short Label = Enrollment request
+  Short Name = Enrollment request
   Definition = This resource provides the insurance enrollment details to the insurer regarding a specified coverage.
   w5 = financial.support
 
@@ -55,7 +55,7 @@
   Element = EnrollmentRequest.identifier
   Card. = 0..*
   Type = Identifier
-  Short Label = Business Identifier
+  Short Name = Business Identifier
   Definition = The Response business identifier
 
  -- Row 4 -----------------------------------
@@ -65,7 +65,7 @@
   Summary = Y
   Type = code
   Binding = EnrollmentRequestStatus
-  Short Label = active | cancelled | draft | entered-in-error
+  Short Name = active | cancelled | draft | entered-in-error
   Definition = The status of the resource instance.
 
  -- Row 5 -----------------------------------
@@ -73,7 +73,7 @@
   Card. = 0..1
   Type = Coding
   Binding = Ruleset
-  Short Label = Resource version
+  Short Name = Resource version
   Definition = The version of the style of resource contents. This should be mapped to the allowable profiles for this and supporting resources.
 
  -- Row 6 -----------------------------------
@@ -81,7 +81,7 @@
   Card. = 0..1
   Type = Coding
   Binding = Ruleset
-  Short Label = Original version
+  Short Name = Original version
   Definition = The style (standard) and version of the original material which was converted into this resource.
   Requirements = Knowledge of the original version can inform the processing of this instance so that information which is processable by the originating system may be generated.
 
@@ -89,21 +89,21 @@
   Element = EnrollmentRequest.created
   Card. = 0..1
   Type = dateTime
-  Short Label = Creation date
+  Short Name = Creation date
   Definition = The date when this resource was created.
 
  -- Row 8 -----------------------------------
   Element = EnrollmentRequest.insurer[x]
   Card. = 0..1
   Type = Identifier|Reference(Organization)
-  Short Label = Target
+  Short Name = Target
   Definition = The Insurer who is target  of the request.
 
  -- Row 9 -----------------------------------
   Element = EnrollmentRequest.provider[x]
   Card. = 0..1
   Type = Identifier|Reference(Practitioner)
-  Short Label = Responsible practitioner
+  Short Name = Responsible practitioner
   Definition = The practitioner who is responsible for the services rendered to the patient.
   CDAnet v4 Mapping = B01
 
@@ -111,7 +111,7 @@
   Element = EnrollmentRequest.organization[x]
   Card. = 0..1
   Type = Identifier|Reference(Organization)
-  Short Label = Responsible organization
+  Short Name = Responsible organization
   Definition = The organization which is responsible for the services rendered to the patient.
 
  -- Row 11 -----------------------------------
@@ -121,7 +121,7 @@
   Element = EnrollmentRequest.subject[x]
   Card. = 1..1
   Type = Identifier|Reference(Patient)
-  Short Label = The subject of the Products and Services
+  Short Name = The subject of the Products and Services
   Definition = Patient Resource
   CDAnet v4 Mapping = C06,C07,C08, C05, C04
 
@@ -132,7 +132,7 @@
   Element = EnrollmentRequest.coverage
   Card. = 1..1
   Type = Reference(Coverage)
-  Short Label = Insurance information
+  Short Name = Insurance information
   Definition = Reference to the program or plan identification, underwriter or payor.
   Requirements = Need to identify the issuer to target for processing and for coordination of benefit processing.
 

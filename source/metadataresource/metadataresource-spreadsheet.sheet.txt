@@ -20,7 +20,7 @@
   Summary = y
   Type = uri
   Short Name = Logical uri to reference this {{title}} (globally unique)
-  Definition = An absolute URL that is used to identify this {{title}} when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this capability statement is (or will be) published
+  Definition = An absolute URL that is used to identify this {{title}} when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this {{title}} is (or will be) published. The URL SHOULD include the major version of the {{title}}. For more information see [Technical and Business Versions](resource.html#versions)
   Requirements = Allows the {{title}} to be referenced by a single globally unique identifier
   Comments = Can be a urn:uuid: or a urn:oid:, but real http: addresses are preferred
   w5 = id
@@ -42,8 +42,8 @@
   Card. = 0..1
   Summary = y
   Type = string
-  Short Name = Logical id for this version of the {{title}}
-  Definition = The identifier that is used to identify this version of the {{title}} when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the {{title}} author manually and the value should be a timestamp
+  Short Name = Business version of the {{title}}
+  Definition = The identifier that is used to identify this version of the {{title}} when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the {{title}} author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions are orderable
   Comments = There may be multiple different instances of a {{title}} that have the same identifier but different versions
   w5 = id.version
 

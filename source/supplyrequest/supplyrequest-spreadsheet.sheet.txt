@@ -84,7 +84,7 @@
   Element = SupplyRequest
   UML = 0;0
   Type = DomainResource
-  Short Label = Request for a medication, substance or device
+  Short Name = Request for a medication, substance or device
   Definition = A record of a request for a medication, substance or device used in the healthcare setting.
   RIM Mapping = Supply[moodCode=RQO]
   To Do = should there be an element for supply requester?
@@ -94,7 +94,7 @@
   Element = SupplyRequest.patient
   Card. = 0..1
   Type = Reference(Patient)
-  Short Label = Patient for whom the item is supplied
+  Short Name = Patient for whom the item is supplied
   Definition = A link to a resource representing the person whom the ordered item is for
   RIM Mapping = .participation[typeCode=SBJ].role
 
@@ -102,21 +102,21 @@
   Element = SupplyRequest.source
   Card. = 0..1
   Type = Reference(Practitioner|Organization|Patient)
-  Short Label = Who initiated this order
+  Short Name = Who initiated this order
   Definition = The Practitioner , Organization or Patient who initiated this order for the supply
 
  -- Row 4 -----------------------------------
   Element = SupplyRequest.date
   Card. = 0..1
   Type = dateTime
-  Short Label = When the request was made
+  Short Name = When the request was made
   Definition = When the request was made
 
  -- Row 5 -----------------------------------
   Element = SupplyRequest.identifier
   Card. = 0..1
   Type = Identifier
-  Short Label = Unique identifier
+  Short Name = Unique identifier
   Definition = Unique identifier for this supply request
   Comments = This is assigned by the orderer, and used to refer to this order in other external standards
   RIM Mapping = .id
@@ -127,7 +127,7 @@
   Is Modifier = Y
   Type = code
   Binding = SupplyRequestStatus
-  Short Label = requested | completed | failed | cancelled
+  Short Name = requested | completed | failed | cancelled
   Definition = Status of the supply request
   RIM Mapping = .statusCode, also existence of fulfillment events
 
@@ -136,7 +136,7 @@
   Card. = 0..1
   Type = CodeableConcept
   Binding = SupplyRequestKind
-  Short Label = The kind of supply (central, non-stock, etc.)
+  Short Name = The kind of supply (central, non-stock, etc.)
   Definition = Category of supply, e.g.  central, non-stock, etc. This is used to support work flows associated with the supply process
   RIM Mapping = .code
   Committee Notes = [3417]
@@ -146,7 +146,7 @@
   Card. = 0..1
   Type = CodeableConcept|Reference(Medication|Substance|Device)
   Binding = SupplyRequestItem
-  Short Label = Medication, Substance, or Device requested to be supplied
+  Short Name = Medication, Substance, or Device requested to be supplied
   Definition = The item that is requested to be supplied. This is either a link to a resource representing the details of the item or a code that identifies the item from a known list.
   Comments = Note that there\'s a difference between a prescription - an instruction to take a medication, along with a (sometimes) implicit supply, and an explicit request to supply, with no explicit instructions.
   RIM Mapping = .participation[typeCode=PRD].role
@@ -155,7 +155,7 @@
   Element = SupplyRequest.supplier
   Card. = 0..*
   Type = Reference(Organization)
-  Short Label = Who is intended to fulfill the request
+  Short Name = Who is intended to fulfill the request
   Definition = Who is intended to fulfill the request
 
  -- Row 10 -----------------------------------
@@ -163,14 +163,14 @@
   Card. = 0..1
   Type = CodeableConcept|Reference(Any)
   Binding = SupplyRequestReason
-  Short Label = Why the supply item was requested
+  Short Name = Why the supply item was requested
   Definition = Why the supply item was requested
 
  -- Row 11 -----------------------------------
   Element = SupplyRequest.when
   Card. = 0..1
   UML = 400;30
-  Short Label = When the request should be fulfilled
+  Short Name = When the request should be fulfilled
   Definition = When the request should be fulfilled
 
  -- Row 12 -----------------------------------
@@ -178,7 +178,7 @@
   Card. = 0..1
   Type = CodeableConcept
   Binding = SupplyRequestWhen
-  Short Label = Fulfilment code
+  Short Name = Fulfilment code
   Definition = Code indicating when the request should be fulfilled.
   Comments = Code may simply be a priority code
 
@@ -186,7 +186,7 @@
   Element = SupplyRequest.when.schedule
   Card. = 0..1
   Type = Timing
-  Short Label = Formal fulfillment schedule
+  Short Name = Formal fulfillment schedule
   Definition = Formal fulfillment schedule
 
 === Sheet Search =====================================

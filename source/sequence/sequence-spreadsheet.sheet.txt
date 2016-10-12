@@ -424,7 +424,7 @@
  -- Row 1 -----------------------------------
   Element = Sequence
   Type = DomainResource
-  Short Label = Information about a biological sequence
+  Short Name = Information about a biological sequence
   Definition = Raw data describing a biological sequence.
   w5 = clinical.diagnostics
 
@@ -432,7 +432,7 @@
   Element = Sequence.identifier
   Card. = 0..*
   Type = Identifier
-  Short Label = Unique ID for this particular sequence
+  Short Name = Unique ID for this particular sequence
   Definition = A unique identifier for this particular sequence instance.
   Requirements = Allows sequences to be distinguished and referenced
   w5 = id
@@ -442,49 +442,49 @@
   Card. = 1..1
   Type = code
   Binding = sequenceType
-  Short Label = AA | DNA | RNA
+  Short Name = AA | DNA | RNA
   Definition = Amino acid / cDNA transcript / RNA variant.
 
  -- Row 4 -----------------------------------
   Element = Sequence.coordinateSystem
   Card. = 1..1
   Type = integer
-  Short Label = Numbering used for sequence (0-based or 1-based)
+  Short Name = Numbering used for sequence (0-based or 1-based)
   Definition = Whether the sequence is numbered starting at 0 (0-based numbering or coordinates) or starting at 1 (1-based numbering). Values are \"0\" for 0-based numbering and \"1\" for one-based.
 
  -- Row 5 -----------------------------------
   Element = Sequence.patient
   Card. = 0..1
   Type = Reference(Patient)
-  Short Label = Who and/or what this is about
+  Short Name = Who and/or what this is about
   Definition = The patient whose sequencing results are described by this resource.
 
  -- Row 6 -----------------------------------
   Element = Sequence.specimen
   Card. = 0..1
   Type = Reference(Specimen)
-  Short Label = Specimen used for sequencing
+  Short Name = Specimen used for sequencing
   Definition = Specimen used for sequencing
 
  -- Row 7 -----------------------------------
   Element = Sequence.device
   Card. = 0..1
   Type = Reference(Device)
-  Short Label = The method for sequencing
+  Short Name = The method for sequencing
   Definition = The method for sequencing, for example, chip information.
 
  -- Row 8 -----------------------------------
   Element = Sequence.quantity
   Card. = 0..1
   Type = Quantity
-  Short Label = Quantity of the sequence
+  Short Name = Quantity of the sequence
   Definition = Quantity of the sequence.
 
  -- Row 9 -----------------------------------
   Element = Sequence.referenceSeq
   Card. = 0..1
   UML = up
-  Short Label = Reference sequence
+  Short Name = Reference sequence
   Definition = A reference sequence is a sequence that is used to represent an allele or variant.
 
  -- Row 10 -----------------------------------
@@ -492,14 +492,14 @@
   Card. = 0..1
   Type = CodeableConcept
   Binding = chromosome-human
-  Short Label = Chromosome containing genetic finding
+  Short Name = Chromosome containing genetic finding
   Definition = Structural unit composed of a nucleic acid molecule which controls its own replication through the interaction of specific proteins at one or more origins of replication ([SO:0000340](http://www.sequenceontology.org/browser/current_svn/term/SO:0000340)).
 
  -- Row 11 -----------------------------------
   Element = Sequence.referenceSeq.genomeBuild
   Card. = 0..1
   Type = string
-  Short Label = The Genome Build used for reference, following GRCh build versions e.g. \'GRCh 37\'
+  Short Name = The Genome Build used for reference, following GRCh build versions e.g. \'GRCh 37\'
   Definition = The Genome Build used for reference, following GRCh build versions e.g. \'GRCh 37\'.  Version number must be included if a versioned release of a primary build was used.
 
  -- Row 12 -----------------------------------
@@ -507,35 +507,35 @@
   Card. = 1..1
   Type = CodeableConcept
   Binding = sequenceReference
-  Short Label = Reference identifier
+  Short Name = Reference identifier
   Definition = Reference identifier of reference sequence submitted to NCBI. It must match the type in the Sequence.type field. For example, the prefix, “NG_” identifies reference sequence for genes, “NM_” for messenger RNA transcripts, and “NP_” for amino acid sequences.
 
  -- Row 13 -----------------------------------
   Element = Sequence.referenceSeq.referenceSeqPointer
   Card. = 0..1
   Type = Reference(Sequence)
-  Short Label = A Pointer to another Sequence entity as refence sequence
+  Short Name = A Pointer to another Sequence entity as refence sequence
   Definition = A Pointer to another Sequence entity as refence sequence.
 
  -- Row 14 -----------------------------------
   Element = Sequence.referenceSeq.referenceSeqString
   Card. = 0..1
   Type = string
-  Short Label = A Reference Sequence string
+  Short Name = A Reference Sequence string
   Definition = A Reference Sequence string.
 
  -- Row 15 -----------------------------------
   Element = Sequence.referenceSeq.strand
   Card. = 1..1
   Type = integer
-  Short Label = Strand of DNA
+  Short Name = Strand of DNA
   Definition = Strand of DNA. Available values are \"1\" for the plus strand and \"-1\" for the minus strand.
 
  -- Row 16 -----------------------------------
   Element = Sequence.referenceSeq.windowStart
   Card. = 1..1
   Type = integer
-  Short Label = Start position (inclusive) of the window on the  reference sequence
+  Short Name = Start position (inclusive) of the window on the  reference sequence
   Definition = Start position (inclusive) of the window on the reference sequence.
 
  -- Row 17 -----------------------------------
@@ -543,209 +543,209 @@
   Card. = 1..1
   UML = down
   Type = integer
-  Short Label = End position (exclusive) of the window on the reference sequence
+  Short Name = End position (exclusive) of the window on the reference sequence
   Definition = End position (exclusive) of the window on the reference sequence.
 
  -- Row 18 -----------------------------------
   Element = Sequence.variant
   Card. = 0..*
-  Short Label = Sequence variant
+  Short Name = Sequence variant
   Definition = A\' is a variant (mutation) of A = definition every instance of A\' is either an immediate mutation of some instance of A, or there is a chain of immediate mutation processes linking A\' to some instance of A ([variant_of](http://www.sequenceontology.org/browser/current_svn/term/variant_of)).
 
  -- Row 19 -----------------------------------
   Element = Sequence.variant.start
   Card. = 0..1
   Type = integer
-  Short Label = Start position (inclusive) of the variant on the  reference sequence
+  Short Name = Start position (inclusive) of the variant on the  reference sequence
   Definition = Start position (inclusive) of the variant on the  reference sequence.
 
  -- Row 20 -----------------------------------
   Element = Sequence.variant.end
   Card. = 0..1
   Type = integer
-  Short Label = End position (exclusive) of the variant on the reference sequence
+  Short Name = End position (exclusive) of the variant on the reference sequence
   Definition = End position (exclusive) of the variant on the reference sequence.
 
  -- Row 21 -----------------------------------
   Element = Sequence.variant.observedAllele
   Card. = 0..1
   Type = string
-  Short Label = Allele that was observed
+  Short Name = Allele that was observed
   Definition = An allele is one of a set of coexisting sequence variants of a gene ([SO:0001023](http://www.sequenceontology.org/browser/current_svn/term/SO:0001023)). Nucleotide(s)/amino acids from start position of sequence to stop position of sequence on the positive (+) strand of the observed sequence. When the sequence  type is DNA, it should be the sequence on the positive (+) strand.
 
  -- Row 22 -----------------------------------
   Element = Sequence.variant.referenceAllele
   Card. = 0..1
   Type = string
-  Short Label = Allele of reference sequence
+  Short Name = Allele of reference sequence
   Definition = An allele is one of a set of coexisting sequence variants of a gene ([SO:0001023](http://www.sequenceontology.org/browser/current_svn/term/SO:0001023)). Nucleotide(s)/amino acids from start position of sequence to stop position of sequence on the positive (+) strand of the reference sequence. When the sequence  type is DNA, it should be the sequence on the positive (+) strand.
 
  -- Row 23 -----------------------------------
   Element = Sequence.variant.cigar
   Card. = 0..1
   Type = string
-  Short Label = Extended CIGAR string for aligning the sequence with reference bases
+  Short Name = Extended CIGAR string for aligning the sequence with reference bases
   Definition = Extended CIGAR string for aligning the sequence with reference bases. See detailed documentation [here](http://support.illumina.com/help/SequencingAnalysisWorkflow/Content/Vault/Informatics/Sequencing_Analysis/CASAVA/swSEQ_mCA_ExtendedCIGARFormat.htm).
 
  -- Row 24 -----------------------------------
   Element = Sequence.variant.variantPointer
   Card. = 0..1
   Type = Reference(Observation)
-  Short Label = Pointer to observed variant information
+  Short Name = Pointer to observed variant information
   Definition = A pointer to an Observation containing variant information.
 
  -- Row 25 -----------------------------------
   Element = Sequence.observedSeq
   Card. = 0..1
   Type = string
-  Short Label = Observed sequence
+  Short Name = Observed sequence
   Definition = Sequence that was observed.
 
  -- Row 26 -----------------------------------
   Element = Sequence.quality
   Card. = 0..*
   UML = left
-  Short Label = Sequence quality
+  Short Name = Sequence quality
   Definition = An experimental feature attribute that defines the quality of the feature in a quantitative way, such as a phred quality score ([SO:0001686](http://www.sequenceontology.org/browser/current_svn/term/SO:0001686)).
 
  -- Row 27 -----------------------------------
   Element = Sequence.quality.standardSequence
   Card. = 0..1
   Type = CodeableConcept
-  Short Label = Standard sequence for comparison
+  Short Name = Standard sequence for comparison
   Definition = Gold standard sequence used for comparing against.
 
  -- Row 28 -----------------------------------
   Element = Sequence.quality.start
   Card. = 0..1
   Type = integer
-  Short Label = Start position (inclusive) of the sequence
+  Short Name = Start position (inclusive) of the sequence
   Definition = Start position (inclusive) of the sequence.
 
  -- Row 29 -----------------------------------
   Element = Sequence.quality.end
   Card. = 0..1
   Type = integer
-  Short Label = End position (exclusive) of the sequence
+  Short Name = End position (exclusive) of the sequence
   Definition = End position (exclusive) of the sequence.
 
  -- Row 30 -----------------------------------
   Element = Sequence.quality.score
   Card. = 0..1
   Type = Quantity
-  Short Label = Quality score
+  Short Name = Quality score
   Definition = The score of an experimentally derived feature such as a p-value ([SO:0001685](http://www.sequenceontology.org/browser/current_svn/term/SO:0001685)).
 
  -- Row 31 -----------------------------------
   Element = Sequence.quality.method
   Card. = 0..1
   Type = CodeableConcept
-  Short Label = Method for quality
+  Short Name = Method for quality
   Definition = Method for quality.
 
  -- Row 32 -----------------------------------
   Element = Sequence.quality.truthTP
   Card. = 0..1
   Type = decimal
-  Short Label = True positives from the perspective of the truth data
+  Short Name = True positives from the perspective of the truth data
   Definition = True positives, from the perspective of the truth data, i.e. the number of sites in the Truth Call Set for which there are paths through the Query Call Set that are consistent with all of the alleles at this site, and for which there is an accurate genotype call for the event.
 
  -- Row 33 -----------------------------------
   Element = Sequence.quality.queryTP
   Card. = 0..1
   Type = decimal
-  Short Label = True positives from the perspective of the query data
+  Short Name = True positives from the perspective of the query data
   Definition = True positives, from the perspective of the query data, i.e. the number of sites in the Query Call Set for which there are paths through the Truth Call Set that are consistent with all of the alleles at this site, and for which there is an accurate genotype call for the event.
 
  -- Row 34 -----------------------------------
   Element = Sequence.quality.truthFN
   Card. = 0..1
   Type = decimal
-  Short Label = False negatives
+  Short Name = False negatives
   Definition = False negatives, i.e. the number of sites in the Truth Call Set for which there is no path through the Query Call Set that is consistent with all of the alleles at this site, or sites for which there is an inaccurate genotype call for the event. Sites with correct variant but incorrect genotype are counted here.
 
  -- Row 35 -----------------------------------
   Element = Sequence.quality.queryFP
   Card. = 0..1
   Type = decimal
-  Short Label = False positives
+  Short Name = False positives
   Definition = False positives, i.e. the number of sites in the Query Call Set for which there is no path through the Truth Call Set that is consistent with this site. Sites with correct variant but incorrect genotype are counted here.
 
  -- Row 36 -----------------------------------
   Element = Sequence.quality.gtFP
   Card. = 0..1
   Type = decimal
-  Short Label = False positives where the non-REF alleles in the Truth and Query Call Sets match
+  Short Name = False positives where the non-REF alleles in the Truth and Query Call Sets match
   Definition = The number of false positives where the non-REF alleles in the Truth and Query Call Sets match (i.e. cases where the truth is 1/1 and the query is 0/1 or similar).
 
  -- Row 37 -----------------------------------
   Element = Sequence.quality.precision
   Card. = 0..1
   Type = decimal
-  Short Label = Precision
+  Short Name = Precision
   Definition = QUERY.TP / (QUERY.TP + QUERY.FP)
 
  -- Row 38 -----------------------------------
   Element = Sequence.quality.recall
   Card. = 0..1
   Type = decimal
-  Short Label = Recall
+  Short Name = Recall
   Definition = TRUTH.TP / (TRUTH.TP + TRUTH.FN)
 
  -- Row 39 -----------------------------------
   Element = Sequence.quality.fScore
   Card. = 0..1
   Type = decimal
-  Short Label = F-score
+  Short Name = F-score
   Definition = Harmonic mean of Recall and Precision, computed as: 2 * precision * recall / (precision + recall)
 
  -- Row 40 -----------------------------------
   Element = Sequence.readCoverage
   Card. = 0..1
   Type = integer
-  Short Label = Average number of reads representing a given nucleotide in the reconstructed sequence
+  Short Name = Average number of reads representing a given nucleotide in the reconstructed sequence
   Definition = Coverage (read depth or depth) is the average number of reads representing a given nucleotide in the reconstructed sequence.
 
  -- Row 41 -----------------------------------
   Element = Sequence.repository
   Card. = 0..*
   UML = right
-  Short Label = External repository
+  Short Name = External repository
   Definition = Configurations of the external repository.
 
  -- Row 42 -----------------------------------
   Element = Sequence.repository.url
   Card. = 0..1
   Type = uri
-  Short Label = URI of the repository
+  Short Name = URI of the repository
   Definition = URI of an external repository which contains further details about the genetics data.
 
  -- Row 43 -----------------------------------
   Element = Sequence.repository.name
   Card. = 0..1
   Type = string
-  Short Label = Name of the repository
+  Short Name = Name of the repository
   Definition = URI of an external repository which contains further details about the genetics data.
 
  -- Row 44 -----------------------------------
   Element = Sequence.repository.variantId
   Card. = 0..1
   Type = string
-  Short Label = Id of the variant
+  Short Name = Id of the variant
   Definition = Id of the variant in this external repository.
 
  -- Row 45 -----------------------------------
   Element = Sequence.repository.readId
   Card. = 0..1
   Type = string
-  Short Label = Id of the read
+  Short Name = Id of the read
   Definition = Id of the read in this external repository.
 
  -- Row 46 -----------------------------------
   Element = Sequence.pointer
   Card. = 0..*
   Type = Reference(Sequence)
-  Short Label = Pointer to next atomic sequence
+  Short Name = Pointer to next atomic sequence
   Definition = Pointer to next atomic sequence which at most contains one variant.
 
  -- Row 47 -----------------------------------
@@ -758,21 +758,21 @@
   Element = Sequence.structureVariant.precisionOfBoundaries
   Card. = 0..1
   Type = string
-  Short Label = Precision of boundaries
+  Short Name = Precision of boundaries
   Definition = Precision of boundaries.
 
  -- Row 49 -----------------------------------
   Element = Sequence.structureVariant.reportedaCGHRatio
   Card. = 0..1
   Type = decimal
-  Short Label = Structural Variant reported aCGH ratio
+  Short Name = Structural Variant reported aCGH ratio
   Definition = Structural Variant reported aCGH ratio.
 
  -- Row 50 -----------------------------------
   Element = Sequence.structureVariant.length
   Card. = 0..1
   Type = integer
-  Short Label = Structural Variant Length
+  Short Name = Structural Variant Length
   Definition = Structural Variant Length.
 
  -- Row 51 -----------------------------------
@@ -785,14 +785,14 @@
   Element = Sequence.structureVariant.outer.start
   Card. = 0..1
   Type = integer
-  Short Label = Structural Variant Outer Start-End
+  Short Name = Structural Variant Outer Start-End
   Definition = Structural Variant Outer Start-End.
 
  -- Row 53 -----------------------------------
   Element = Sequence.structureVariant.outer.end
   Card. = 0..1
   Type = integer
-  Short Label = Structural Variant Outer Start-End
+  Short Name = Structural Variant Outer Start-End
   Definition = Structural Variant Outer Start-End.
 
  -- Row 54 -----------------------------------
@@ -805,14 +805,14 @@
   Element = Sequence.structureVariant.inner.start
   Card. = 0..1
   Type = integer
-  Short Label = Structural Variant Inner Start-End
+  Short Name = Structural Variant Inner Start-End
   Definition = Structural Variant Inner Start-End.
 
  -- Row 56 -----------------------------------
   Element = Sequence.structureVariant.inner.end
   Card. = 0..1
   Type = integer
-  Short Label = Structural Variant Inner Start-End
+  Short Name = Structural Variant Inner Start-End
   Definition = Structural Variant Inner Start-End.
 
 === Sheet Search =====================================

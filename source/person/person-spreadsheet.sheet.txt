@@ -41,7 +41,7 @@
   Element = Person
   UML = 0;0
   Type = DomainResource
-  Short Label = A generic person record
+  Short Name = A generic person record
   Definition = Demographics and administrative information about a person independent of a specific health-related context.
   Requirements = Need to track persons potentially across multiple roles
   Comments = The Person resource does justice to person registries that keep track of persons regardless of their role. The Person resource is also a primary resource to point to for people acting in a particular role such as SubjectofCare, Practitioner, and Agent. Very few attributes are specific to any role and so Person is kept lean. Most attributes are expected to be tied to the role the Person plays rather than the Person himself. Examples of that are Guardian (SubjectofCare), ContactParty (SubjectOfCare, Practitioner), and multipleBirthInd (SubjectofCare)
@@ -52,7 +52,7 @@
   Element = Person.identifier
   Card. = 0..*
   Type = Identifier
-  Short Label = A human identifier for this person
+  Short Name = A human identifier for this person
   Definition = Identifier for a person within a particular scope.
   Requirements = People are known by a variety of ids. Some institutions maintain several, and most collect identifiers for exchange with other organizations concerning the person. Examples are national person identifier and local identifier
   v2 Mapping = PID-3
@@ -65,7 +65,7 @@
   Card. = 0..*
   Summary = Y
   Type = HumanName
-  Short Label = A name associated with the person
+  Short Name = A name associated with the person
   Definition = A name associated with the person
   Requirements = Need to be able to track the person by multiple names. Examples are your official name and a partner name.
   Comments = Person may have multiple names with different uses or applicable periods.
@@ -78,7 +78,7 @@
   Card. = 0..*
   Summary = Y
   Type = ContactPoint
-  Short Label = A contact detail for the person
+  Short Name = A contact detail for the person
   Definition = A contact detail for the person, e.g. a telephone number or an email address.
   Requirements = People have (primary) ways to contact them in some way such as phone, email.
   Comments = Person may have multiple ways to be contacted with different uses or applicable periods.  May need to have options for contacting the person urgently, and also to help with identification
@@ -92,7 +92,7 @@
   Summary = Y
   Type = code
   Binding = AdministrativeGender
-  Short Label = male | female | other | unknown
+  Short Name = male | female | other | unknown
   Definition = Administrative Gender
   Requirements = Needed for identification of the person, in combination with (at least) name and birth date. Gender of person drives many clinical processes.
   Comments = The gender may not match the biological sex as determined by genetics, or the individual\'s preferred identification. Note that for both humans and particularly animals, there are other legitimate possibilities than M and F, though the vast majority of systems and contexts only support M and F
@@ -105,7 +105,7 @@
   Card. = 0..1
   Summary = Y
   Type = date
-  Short Label = The date on which the person was born
+  Short Name = The date on which the person was born
   Definition = The birth date for the person.
   Requirements = Age of person drives many clinical processes, and is often used in performing identification of the person. Times are not included so as to not confuse things with potential timezone issues.
   Comments = At least an estimated year should be provided as a guess if the real DOB is unknown
@@ -118,7 +118,7 @@
   Card. = 0..1
   Is Modifier = Y
   Type = boolean
-  Short Label = Indicates if the Person is deceased or not
+  Short Name = Indicates if the Person is deceased or not
   Definition = Indicates if the Person is deceased or not
   Comments = If there\'s no value in the instance it means there is no statement on whether or not the person deceased. Most systems will interpret the absence of a value as a sign of the person being alive.
   v2 Mapping = PID-30
@@ -129,7 +129,7 @@
   Element = Person.address
   Card. = 0..*
   Type = Address
-  Short Label = One or more addresses for the person
+  Short Name = One or more addresses for the person
   Definition = One or more addresses for the person
   Requirements = May need to keep track of person\'s addresses for contacting, billing or reporting requirements and also to help with identification
   Comments = Person may have multiple addresses with different uses or applicable periods
@@ -140,7 +140,7 @@
   Element = Person.photo
   Card. = 0..1
   Type = Attachment
-  Short Label = Image of the person
+  Short Name = Image of the person
   Definition = An image that can be displayed as a thumbnail of the person to enhance the identification of the individual
   v2 Mapping = OBX-5 - needs a profile
   RIM Mapping = player[classCode=PSN|ANM and determinerCode=INSTANCE]/desc
@@ -149,7 +149,7 @@
   Element = !Person.language
   Card. = 0..*
   UML = right
-  Short Label = The person\'s  proficiency level of a language
+  Short Name = The person\'s  proficiency level of a language
   Definition = A language spoken by the person, with proficiency
   Requirements = If a patient does not speak the local language, interpreters may be required, so languages spoken and proficiency is an important things to keep track of both for patient and other persons of interest
   Comments = If no language is specified, this *implies* that the default local language is spoken. If you need to convey proficiency for multiple modes than you need multiple Person.language associations.
@@ -161,7 +161,7 @@
   Card. = 1..1
   Type = CodeableConcept
   Binding = Language
-  Short Label = Language with optional region
+  Short Name = Language with optional region
   Definition = The ISO-639-1 alpha 2 code in lower case for the language, optionally followed by a hyphen and the ISO-3166-1 alpha 2 code for the region in upper case; e.g. \"en\" for English, or \"en-US\" for American English versus \"en-EN\" for England English
   Requirements = Most systems in multilingual countries will want to convey language. Not all systems actually need the regional dialect.
   Comments = The structure aa-BB with this exact casing is one the most widely used notations for locale. However not all systems actually code this but instead have it as free text. Hence CodeableConcept instead of code as the data type
@@ -174,7 +174,7 @@
   Card. = 0..1
   Type = CodeableConcept
   Binding = LanguageAbilityMode
-  Short Label = Language method of expression
+  Short Name = Language method of expression
   Definition = A value representing the person\'s method of expression of this language. Examples: expressed spoken, expressed written, expressed signed, received spoken, received written, received signed
   Requirements = A Person that can write English fairly well, but is not capable to understand
   Comments = It\'s expected that modeCode and proficiencyLevelCode work in conjunction. It makes less sense to convey modeCode unless you want to distinctly denote someone proficiency for a particular mode. It\'s however perfectly acceptable to have a proficiencyLevelCode without a modeCode
@@ -186,7 +186,7 @@
   Card. = 0..1
   Type = CodeableConcept
   Binding = LanguageAbilityProficiency
-  Short Label = Proficiency level of the language
+  Short Name = Proficiency level of the language
   Definition = A code that describes how well the language is spoken
   Comments = See comments for Person.language.modeCode
   v2 Mapping = LAN-4
@@ -196,7 +196,7 @@
   Element = !Person.language.preference
   Card. = 0..1
   Type = boolean
-  Short Label = Language preference indicator
+  Short Name = Language preference indicator
   Definition = Indicates whether or not the Person prefers this language (over other languages he masters up a certain level)
   Requirements = People that master multiple languages up to certain level may prefer one or more, i.e. feel more confident in communicating in a particular language making other languages sort of a fallback method
   v2 Mapping = PID-15, NK1-20
@@ -207,7 +207,7 @@
   Card. = 0..1
   Summary = Y
   Type = Reference(Organization)
-  Short Label = The organization that is the custodian of the person record
+  Short Name = The organization that is the custodian of the person record
   Definition = The organization that is the custodian of the person record
   Requirements = Need to know who recognizes this person record, manages and updates it
   RIM Mapping = scoper
@@ -218,7 +218,7 @@
   Is Modifier = Y
   Summary = Y
   Type = boolean
-  Short Label = This person\'s record is in active use
+  Short Name = This person\'s record is in active use
   Definition = Whether this person\'s record is in active use
   Requirements = Need to be able to mark a person record as not to be used because it was created in error
   RIM Mapping = statusCode
@@ -228,14 +228,14 @@
   Element = Person.link
   Card. = 0..*
   UML = 350;40
-  Short Label = Link to a resource that concerns the same actual person
+  Short Name = Link to a resource that concerns the same actual person
   RIM Mapping = outboundLink
 
  -- Row 18 -----------------------------------
   Element = Person.link.target
   Card. = 1..1
   Type = Reference(Patient|Practitioner|RelatedPerson|Person)
-  Short Label = The resource to which this actual person is associated
+  Short Name = The resource to which this actual person is associated
   RIM Mapping = id
 
  -- Row 19 -----------------------------------
@@ -243,7 +243,7 @@
   Card. = 0..1
   Type = code
   Binding = IdentityAssuranceLevel
-  Short Label = level1 | level2 | level3 | level4
+  Short Name = level1 | level2 | level3 | level4
   Definition = Level of assurance that this link is actually associated with the target resource
   RIM Mapping = priorityNumber?
 

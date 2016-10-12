@@ -4,59 +4,59 @@
  -- Row 1 -----------------------------------
   Binding Name = RelatedArtifactType
   Binding = code list
-  Reference = #related-resource-type
-  Definition = The type of related resource for the module
+  Reference = #related-artifact-type
+  Definition = The type of relationship to the related artifact
   Conformance = required
 
-=== Sheet related-resource-type =====================================
+=== Sheet related-artifact-type =====================================
 
  -- Row 1 -----------------------------------
   Id = 1
   Code = documentation
   Display = Documentation
-  Definition = Additional documentation for the module. This would include additional instructions on usage as well as additional information on clinical context or appropriateness
+  Definition = Additional documentation for the knowledge resource. This would include additional instructions on usage as well as additional information on clinical context or appropriateness
 
  -- Row 2 -----------------------------------
   Id = 2
   Code = justification
   Display = Justification
-  Definition = A summary of the justification for the artifact including supporting evidence, relevant guidelines, or other clinically important information. This information is intended to provide a way to make the justification for the module available to the consumer of interventions or results produced by the artifact
+  Definition = A summary of the justification for the knowledge resource including supporting evidence, relevant guidelines, or other clinically important information. This information is intended to provide a way to make the justification for the knowledge resource available to the consumer of interventions or results produced by the knowledge resource
 
  -- Row 3 -----------------------------------
   Id = 3
   Code = citation
   Display = Citation
-  Definition = Bibliographic citation for papers, references, or other relevant material for the module. This is intended to allow for citation of related material, but that was not necessarily specifically prepared in connection with this module
+  Definition = Bibliographic citation for papers, references, or other relevant material for the knowledge resource. This is intended to allow for citation of related material, but that was not necessarily specifically prepared in connection with this knowledge resource
 
  -- Row 4 -----------------------------------
   Id = 4
   Code = predecessor
   Display = Predecessor
-  Definition = The previous version of the module
+  Definition = The previous version of the knowledge resource
 
  -- Row 5 -----------------------------------
   Id = 5
   Code = successor
   Display = Successor
-  Definition = The next version of the module
+  Definition = The next version of the knowledge resource
 
  -- Row 6 -----------------------------------
   Id = 6
   Code = derived-from
   Display = Derived From
-  Definition = The module is derived from the resource. This is intended to capture the relationship when a particular module is based on the content of another module, but is modified to capture either a different set of overall requirements, or a more specific set of requirements such as those involved in a particular institution or clinical setting
+  Definition = The knowledge resource is derived from the related artifact. This is intended to capture the relationship in which a particular knowledge resource is based on the content of another artifact, but is modified to capture either a different set of overall requirements, or a more specific set of requirements such as those involved in a particular institution or clinical setting
 
  -- Row 7 -----------------------------------
   Id = 7
   Code = depends-on
   Display = Depends On
-  Definition = The module depends on the given resource
+  Definition = The knowledge resource depends on the given related artifact
 
  -- Row 8 -----------------------------------
   Id = 8
   Code = composed-of
   Display = Composed Of
-  Definition = The module is composed of the given resource
+  Definition = The knowledge resource is composed of the given related artifact
 
 === Sheet Invariants =====================================
 
@@ -65,10 +65,10 @@
  -- Row 1 -----------------------------------
   Element = RelatedArtifact
   Type = Structure
-  Short Name = Related resources for the module
-  Definition = Related resources such as additional documentation, justification, or bibliographic references
-  Requirements = Modules must be able to provide enough information for consumers of the content (and/or interventions or results produced by the content) to be able to determine and understand the justification for and evidence in support of the content
-  Comments = Each related resource is either an attachment, or a reference to another resource, but not both
+  Short Name = Related artifacts for a knowledge resource
+  Definition = Related artifacts such as additional documentation, justification, or bibliographic references
+  Requirements = Knowledge resources must be able to provide enough information for consumers of the content (and/or interventions or results produced by the content) to be able to determine and understand the justification for and evidence in support of the content
+  Comments = Each related artifact is either an attachment, or a reference to another knowledge resource, but not both
   Committee Notes = This data type was defined to support reuse of the pattern of contributor elements across multiple conformance and knowledge asset resources
 
  -- Row 2 -----------------------------------
@@ -77,29 +77,29 @@
   Type = code
   Binding = RelatedArtifactType
   Short Name = documentation | justification | citation | predecessor | successor | derived-from | depends-on | composed-of
-  Definition = The type of related resource
+  Definition = The type of relationship to the related artifact
 
  -- Row 3 -----------------------------------
   Element = RelatedArtifact.display
   Card. = 0..1
   Type = string
-  Short Name = Brief description of the related resource
-  Definition = A brief description of the document or resource being referenced, suitable for display to a consumer
+  Short Name = Brief description of the related artifact
+  Definition = A brief description of the document or knowledge resource being referenced, suitable for display to a consumer
 
  -- Row 4 -----------------------------------
   Element = RelatedArtifact.citation
   Card. = 0..1
   Type = string
-  Short Name = Bibliographic citation for the resource
-  Definition = A bibliographic citation for the related resource. This text SHOULD be formatted according to an accepted citation format
+  Short Name = Bibliographic citation for the artifact
+  Definition = A bibliographic citation for the related artifact. This text SHOULD be formatted according to an accepted citation format
   Comments = Additional structured information about citations should be captured as extensions
 
  -- Row 5 -----------------------------------
   Element = RelatedArtifact.url
   Card. = 0..1
   Type = uri
-  Short Name = Url for the related resource
-  Definition = A url for the resource that can be followed to access the actual content
+  Short Name = Url for the related artifact
+  Definition = A url for the artifact that can be followed to access the actual content
   Comments = If a document or resource element is present, this element SHALL NOT be provided (use the url or reference in the Attachment or resource reference)
 
  -- Row 6 -----------------------------------
@@ -114,5 +114,5 @@
   Card. = 0..1
   Type = Reference(Any)
   Short Name = The related resource
-  Definition = The related resource, such as a library, value set, profile, or other module
-  Comments = If the type is predecessor, this is a reference to the succeeding module. If the type is successor, this is a reference to the prior module
+  Definition = The related resource, such as a library, value set, profile, or other knowledge resource
+  Comments = If the type is predecessor, this is a reference to the succeeding knowledge resource. If the type is successor, this is a reference to the prior knowledge resource

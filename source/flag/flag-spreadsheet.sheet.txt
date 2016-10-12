@@ -50,7 +50,7 @@
   Element = Flag
   Aliases = Barriers to Care, Alert, Warning
   Type = DomainResource
-  Short Label = Key information to flag to healthcare providers
+  Short Name = Key information to flag to healthcare providers
   Definition = Prospective warnings of potential issues when providing care to the patient.
   RIM Mapping = Observation[classCode=ISSUE, moodCode=EVN]
   w5 = workflow.encounter
@@ -60,7 +60,7 @@
   Card. = 0..*
   Summary = Y
   Type = Identifier
-  Short Label = Business identifier
+  Short Name = Business identifier
   Definition = Identifier assigned to the flag for external use (outside the FHIR environment)
   RIM Mapping = .id
   w5 = id
@@ -71,7 +71,7 @@
   Summary = Y
   Type = CodeableConcept
   Binding = FlagCategory
-  Short Label = Clinical, administrative, etc.
+  Short Name = Clinical, administrative, etc.
   Definition = Allows an flag to be divided into different categories like clinical, administrative etc. Intended to be used as a means of filtering which flags are displayed to particular user or in a given context.
   RIM Mapping = .code
   w5 = class
@@ -83,7 +83,7 @@
   Summary = Y
   Type = code
   Binding = FlagStatus
-  Short Label = active | inactive | entered-in-error
+  Short Name = active | inactive | entered-in-error
   Definition = Supports basic workflow
   RIM Mapping = .status
   w5 = status
@@ -93,7 +93,7 @@
   Card. = 0..1
   Summary = Y
   Type = Period
-  Short Label = Time period when flag is active
+  Short Name = Time period when flag is active
   Definition = The period of time from the activation of the flag to inactivation of the flag. If the flag is active, the end of the period should be unspecified.
   w5 = context
 
@@ -102,7 +102,7 @@
   Card. = 1..1
   Summary = Y
   Type = Reference(Patient|Location|Group|Organization|Practitioner|PlanDefinition| Medication|Procedure)
-  Short Label = Who/What is flag about?
+  Short Name = Who/What is flag about?
   Definition = The patient, location, group , organization , or practitioner, etc. this is about record this flag is associated with
   RIM Mapping = .participation[typeCode=SBJ].role[classCode=PAT | LOCE | ASSIGNED]
   w5 = who.focus
@@ -112,7 +112,7 @@
   Card. = 0..1
   Summary = y
   Type = Reference(Encounter)
-  Short Label = Alert relevant during encounter
+  Short Name = Alert relevant during encounter
   Definition = This alert is only relevant during the encounter
   w5 = context
 
@@ -121,7 +121,7 @@
   Card. = 0..1
   Summary = Y
   Type = Reference(Device | Organization | Patient | Practitioner)
-  Short Label = Flag creator
+  Short Name = Flag creator
   Definition = The person, organization or device that created the flag
   RIM Mapping = .participation[typeCode=AUT].role
   w5 = who.author
@@ -132,7 +132,7 @@
   Summary = Y
   Type = CodeableConcept
   Binding = FlagCode
-  Short Label = Message to display to user
+  Short Name = Message to display to user
   Definition = The coded value or textual component of the flag to display to the user
   Comments = If non coded, use CodeableConcept.text.  This element should always be included in the narrative
   RIM Mapping = .value

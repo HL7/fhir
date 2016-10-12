@@ -238,7 +238,7 @@
   Element = Questionnaire
   Aliases = Form, CRF, Survey
   Type = DomainResource
-  Short Label = A structured set of questions
+  Short Name = A structured set of questions
   Definition = A structured set of questions intended to guide the collection of answers. The questions are ordered and grouped into coherent subsets, corresponding to the structure of the grouping of the underlying questions
   Requirements = To support structured, hierarchical registration of data gathered using digital forms and other questionnaires.
   RIM Mapping = Observation[moodCode=DEF]
@@ -249,7 +249,7 @@
   Card. = 0..1
   Summary = y
   Type = uri
-  Short Label = Globally unique logical identifier for  questionnaire
+  Short Name = Globally unique logical identifier for  questionnaire
   Definition = An absolute URL that is used to identify this questionnaire when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this questionnaire is (or will be) published
   RIM Mapping = .id[use=BUSN, reliability=ISS, extension is a URI]
   w5 = id
@@ -259,7 +259,7 @@
   Card. = 0..*
   Summary = y
   Type = Identifier
-  Short Label = External identifiers for this questionnaire
+  Short Name = External identifiers for this questionnaire
   Definition = This records identifiers associated with this question set that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation)
   Requirements = Need to allow connection to a wider workflow
   RIM Mapping = .id[use=BUSN]
@@ -272,7 +272,7 @@
   Aliases = N/A - MIF rather than RIM level
   Summary = y
   Type = string
-  Short Label = Logical identifier for this version of Questionnaire
+  Short Name = Logical identifier for this version of Questionnaire
   Definition = The version number assigned by the publisher for business reasons.  It may remain the same when the resource is updated
   Requirements = In some cases, separate resource instances might be created for each version (if an older version can be maintained once a new version exists)
   RIM Mapping = .id[use=VER]
@@ -285,7 +285,7 @@
   Summary = y
   Type = code
   Binding = QuestionnaireStatus
-  Short Label = draft | published | retired
+  Short Name = draft | published | retired
   Definition = The lifecycle status of the questionnaire as a whole.
   RIM Mapping = .statusCode (also whether there\'s a revisionControlAct - and possibly mood to distinguish \"in-progress\" from \"published)
   w5 = status
@@ -296,7 +296,7 @@
   Aliases = Date created, Date published, Date issued, Date updated
   Summary = y
   Type = dateTime
-  Short Label = Date this version was authored
+  Short Name = Date this version was authored
   Definition = The date that this questionnaire was last changed
   RIM Mapping = .participation[typeCode=AUT].time
   w5 = when.recorded
@@ -306,7 +306,7 @@
   Card. = 0..1
   Summary = y
   Type = string
-  Short Label = Organization/individual who designed the questionnaire
+  Short Name = Organization/individual who designed the questionnaire
   Definition = Organization or person responsible for developing and maintaining the questionnaire
   Requirements = Conveys responsibility for the questions and their organization and also helps evaluate the questionnaire\'s \"authority\"
   RIM Mapping = .participation[typeCode=AUT].role
@@ -317,7 +317,7 @@
   Card. = 0..*
   Summary = Y
   Type = ContactPoint
-  Short Label = Contact information of the publisher
+  Short Name = Contact information of the publisher
   Definition = Contact details to assist a user in finding and communicating with the publisher
   RIM Mapping = .participation[typeCode=AUT].role.telecom
 
@@ -327,7 +327,7 @@
   Summary = y
   Type = CodeableConcept
   Binding = ConformanceUseContext
-  Short Label = Questionnaire intends to support these contexts
+  Short Name = Questionnaire intends to support these contexts
   Definition = A code that identifies the questionnaire as falling into a particular group of like questionnaires; e.g. \"Pediatric\", \"Admissions\", \"Research\", \"Demographic\", \"Opinion Survey\", etc.
   Requirements = Allows discovery of questionnaires.  Also allows organization of lists of questionnaires into groups for presentation
 
@@ -336,7 +336,7 @@
   Card. = 0..1
   Summary = Y
   Type = string
-  Short Label = Name for the questionnaire
+  Short Name = Name for the questionnaire
   Definition = The name or label associated with this questionnaire
   Requirements = Used for display, searching
   RIM Mapping = .title
@@ -347,7 +347,7 @@
   Summary = Y
   Type = Coding
   Binding = QuestionnaireConcept
-  Short Label = Concept that represents the overall questionnaire
+  Short Name = Concept that represents the overall questionnaire
   Definition = Identifies a how this question or group of questions is known in a particular terminology such as LOINC.
   Requirements = Allows linking of the complete Questionnaire resources to formal terminologies.  It\'s common for \"pannels\" of questions to be identified by a code.
   RIM Mapping = .code
@@ -358,7 +358,7 @@
   Summary = y
   Type = code
   Binding = ResourceType
-  Short Label = Resource that can be subject of QuestionnaireResponse
+  Short Name = Resource that can be subject of QuestionnaireResponse
   Definition = Identifies the types of subjects that can be the subject of the questionnaire.
   Comments = If none are specified, then the subject is unlimited
   RIM Mapping = .outboundRelationship[typeCode=META].target[classCode=OBS, moodCode=DEFN, isCriterion=true].participation.role.classCode
@@ -368,7 +368,7 @@
   Card. = 0..*
   UML = right
   Inv. = 3
-  Short Label = Questions and sections within the Questionnaire
+  Short Name = Questions and sections within the Questionnaire
   Definition = The questions and groupings of questions that make up the questionnaire
   RIM Mapping = .outboundRelationship[typeCode=COMP].target[classCode=OBS, moodCode=DEF]
 
@@ -376,7 +376,7 @@
   Element = Questionnaire.item.linkId
   Card. = 0..1
   Type = string
-  Short Label = To link questionnaire with questionnaire response
+  Short Name = To link questionnaire with questionnaire response
   Definition = An identifier that is unique within the Questionnaire allowing linkage to the equivalent item in a QuestionnaireResponse resource.
   Requirements = [[[QuestionnaireResponse]]] does not require omitted items to be included and may have some items that repeat, so linkage based on position alone is not sufficient.
   Comments = May be omitted if there is no expectation to link answers back to a Questionnaire.  This \'\'can\'\' be a meaningful identifier (e.g. a LOINC code) but is not intended to have any meaning.  GUIDs or sequential numbers are appropriate here.
@@ -389,7 +389,7 @@
   Inv. = 3
   Type = Coding
   Binding = QuestionnaireConcept
-  Short Label = Concept that represents this item within in a questionnaire
+  Short Name = Concept that represents this item within in a questionnaire
   Definition = Identifies a how this group of questions is known in a particular terminology such as LOINC.
   Requirements = Allows linking of groups of questions (and complete Questionnaire resources) to formal terminologies
   Comments = The code(s) for the \"root\" group apply to the questionnaire as a whole.
@@ -400,7 +400,7 @@
   Card. = 0..1
   Aliases = label
   Type = string
-  Short Label = E.g. \"1(a)\", \"2.5.3\"
+  Short Name = E.g. \"1(a)\", \"2.5.3\"
   Definition = A short label for a particular group, question or set of display text within the questionnaire
   Requirements = Separating the label from the question text allows improved rendering.  Also, instructions will often refer to specific prefixes, so there\'s a need for the questionnaire design to have control over what labels are used.
   Comments = These are generally unique within a questionnaire, though this is not guaranteed. Some questionnaires may have multiple questions with the same label with logic to control which gets exposed.\n\nTypically these won\'t be used for \"text\" items, though such use is not prohibited.\n\nSystems SHOULD NOT generate their own prefixes if prefixes are defined for any items within a Questionnaire.
@@ -411,7 +411,7 @@
   Card. = 0..1
   Summary = Y
   Type = string
-  Short Label = Primary text for the item
+  Short Name = Primary text for the item
   Definition = The name of a section, the text of a question or text content for a text item
   RIM Mapping = .text
 
@@ -420,7 +420,7 @@
   Card. = 1..1
   Type = code
   Binding = QuestionnaireItemType
-  Short Label = group | display | question | boolean | decimal | integer | date | dateTime +
+  Short Name = group | display | question | boolean | decimal | integer | date | dateTime +
   Definition = Identifies the type of questionnaire item this is - whether text for display, a grouping of other items or a particular type of data to be captured (string, integer, coded choice, etc.)
   Requirements = Defines the format in which the user is to be prompted for the answer
   Comments = Additional constraints on the type of answer can be conveyed by extensions
@@ -432,7 +432,7 @@
   Is Modifier = Y
   Summary = Y
   UML = down
-  Short Label = Only allow data when:
+  Short Name = Only allow data when:
   Definition = If present, indicates that this item should only be enabled (displayed/allow answers to be captured) when the specified condition is true
   Requirements = Allows questionnaires to adapt based on answers to other questions; e.g. If physical gender is specified as a male, no need to capture pregnancy history.  Also allows conditional display of instructions or groups of questions
   Comments = If multiple repetitions of this extension are present, the item should be enabled when the condition for *any* of the repetitions is true.  I.e. Treat \"enableWhen\"s as being joined by an \"or\" clause.\n\nIf enableWhen is present for an item, \"required\" is ignored unless one of the enableWhen conditions is met.
@@ -442,7 +442,7 @@
   Element = Questionnaire.item.enableWhen.question
   Card. = 1..1
   Type = string
-  Short Label = Question that determines whether item is enabled
+  Short Name = Question that determines whether item is enabled
   Definition = The linkId for the question whose answer (or lack of answer) governs whether this item is enabled
   Comments = If multiple question occurrences are present for the same question (same linkId), then this refers to the nearest question occurrence reachable by tracing first the \"ancestor\" axis and then the \"preceding\" axis and then the \"following\" axis
   RIM Mapping = N/A - MIF rather than RIM level
@@ -452,7 +452,7 @@
   Card. = 0..1
   Inv. = 7
   Type = boolean
-  Short Label = Enable when answered or not
+  Short Name = Enable when answered or not
   Definition = If present, indicates that this item should be enabled only if the specified question is answered or not answered
   Comments = If answered=false and answer values are also provided, then they are treated as \"or\".  I.e. \"Enable if the question is unanswered or the answer is one of the specified values\".  If answered=true and answers are present, one of the specified answers must be met. (So there\'s little reason to specify answered=true if answers are present.)
   RIM Mapping = N/A - MIF rather than RIM level
@@ -462,7 +462,7 @@
   Card. = 0..1
   Inv. = 7
   Type = boolean | decimal | integer | date | dateTime | instant | time | string | uri | Attachment | Coding | Quantity | Reference(Any)
-  Short Label = Value question must have
+  Short Name = Value question must have
   Definition = If present, then the answer for the referenced question must match this answer for all components present in the enableWhen.answer
   Comments = Components not specified in the answer do not need to match.  For example, if enableWhen specifies code + system for a Coding, it\'s ok if the answer has a \"display\" element.\n\nThe dataType of this element must be the same as the data type of the question being referenced.
   RIM Mapping = N/A - MIF rather than RIM level
@@ -472,7 +472,7 @@
   Card. = 0..1
   Inv. = 6
   Type = boolean
-  Short Label = Whether the item must be included in data results
+  Short Name = Whether the item must be included in data results
   Definition = If true, indicates that the item must be present in a \"completed\" QuestionnaireResponse.  If false, the item may be skipped when answering the questionnaire.
   Comments = If an item that contains other items is marked as required, that does not automatically make the contained elements required (though required groups must contain at least one child element).
   RIM Mapping = N/A - MIF rather than RIM level
@@ -483,7 +483,7 @@
   Card. = 0..1
   Inv. = 6
   Type = boolean
-  Short Label = Whether the item may repeat
+  Short Name = Whether the item may repeat
   Definition = Whether the item may occur multiple times in the instance, containing multiple sets of answers
   Requirements = Items may be used to create set of (related) questions that can be repeated to give multiple answers to such a set
   RIM Mapping = N/A - MIF rather than RIM level
@@ -494,7 +494,7 @@
   Card. = 0..1
   Inv. = 9
   Type = boolean
-  Short Label = Don\'t allow human editing
+  Short Name = Don\'t allow human editing
   Definition = If true, the value cannot be changed by a human respondent to the Questionnaire.
   Requirements = Allows certain information to be phrased (and rendered) as a question and an answer, while keeping users from changing it.  May also be useful for preventing changes to pre-populated portions of a questionnaire, for calculated values, etc.
   Comments = The value of readOnly elements can be established by asserting  extensions for defaultValues, linkages that support pre-population and/or extensions that support calculation based on other answers.
@@ -505,7 +505,7 @@
   Card. = 0..1
   Inv. = 10
   Type = integer
-  Short Label = No more than this many characters
+  Short Name = No more than this many characters
   Definition = The maximum number of characters that are permitted in the answer to be considered a \"valid\" QuestionnaireResponse.
   Comments = For base64binary, reflects the number of characters representing the encoded data, not the number of bytes of the binary data.
   v2 Mapping = N/A
@@ -516,7 +516,7 @@
   Card. = 0..1
   Inv. = 4,5
   Type = Reference(ValueSet)
-  Short Label = Valueset containing permitted answers
+  Short Name = Valueset containing permitted answers
   Definition = Reference to a value set containing a list of codes representing permitted answers for the question
   Comments = LOINC defines many useful value sets for questionnaire response. See [LOINC Answer Lists](loinc.html#alist)
   RIM Mapping = N/A - MIF rather than RIM level
@@ -527,7 +527,7 @@
   UML = 100;400
   Inv. = 4,5
   Type = Coding
-  Short Label = Permitted answer
+  Short Name = Permitted answer
   Definition = For a \"choice\" question, identifies one of the permitted answers for the question.
   RIM Mapping = N/A - MIF rather than RIM level
 
@@ -536,7 +536,7 @@
   Card. = 1..1
   Type = integer | date | time | string | Coding
   Binding = QuestionnaireQuestionOption
-  Short Label = Answer value
+  Short Name = Answer value
   Definition = Identifies a specific answer that\'s allowed as the answer to a question
   RIM Mapping = N/A - MIF rather than RIM level
 
@@ -545,7 +545,7 @@
   Card. = 0..1
   Inv. = 8
   Type = boolean | decimal | integer | date | dateTime | instant | time | string | uri | Attachment | Coding | Quantity | Reference(Any)
-  Short Label = Initial presumed answer for question
+  Short Name = Initial presumed answer for question
   Definition = The value that should be pre-populated when rendering the questionnaire for user input.
   Requirements = In some workflows, having defaults saves time.
   RIM Mapping = N/A - MIF rather than RIM level
@@ -555,7 +555,7 @@
   Card. = 0..*
   Inv. = 1
   Type = @Questionnaire.item
-  Short Label = Nested questionnaire items
+  Short Name = Nested questionnaire items
   Definition = Allows text, questions and other groups to be nested beneath a question or group
   Requirements = Reports can consist of complex nested groups
   RIM Mapping = .outboundRelationship[typeCode=COMP].target

@@ -74,7 +74,7 @@
  -- Row 1 -----------------------------------
   Element = HumanName
   Type = Structure
-  Short Label = Name of a human - parts and usage
+  Short Name = Name of a human - parts and usage
   Definition = A human\'s name with the ability to identify parts and usage
   Requirements = Need to be able to record names, along with notes about their use
   Comments = Names may be changed, or repudiated, or people may have different names in different contexts. Names may be divided into parts of different type that have variable significance depending on context, though the division into parts does not always matter. With personal names, the different parts may or may not be imbued with some implicit meaning; various cultures associate different importance with the name parts and the degree to which systems must care about name parts around the world varies widely.
@@ -88,7 +88,7 @@
   Is Modifier = Y
   Type = code
   Binding = NameUse
-  Short Label = usual | official | temp | nickname | anonymous | old | maiden
+  Short Name = usual | official | temp | nickname | anonymous | old | maiden
   Definition = Identifies the purpose for this name
   Requirements = Allows the appropriate name for a particular context of use to be selected from among a set of names
   Comments = This is labeled as \"Is Modifier\" because applications should not mistake a temporary or old name etc.for a current/permanent one. Applications can assume that a name is current unless it explicitly says that it is temporary or old
@@ -100,7 +100,7 @@
   Element = HumanName.text
   Card. = 0..1
   Type = string
-  Short Label = Text representation of the full name
+  Short Name = Text representation of the full name
   Definition = A full text representation of the name
   Requirements = A renderable, unencoded form
   Comments = Can provide both a text representation and structured parts.
@@ -112,7 +112,7 @@
   Card. = 0..*
   Aliases = surname
   Type = string
-  Short Label = Family name (often called \'Surname\')
+  Short Name = Family name (often called \'Surname\')
   Definition = The part of a name that links to the genealogy. In some cultures (e.g. Eritrea) the family name of a son is the first name of his father.
   Comments = For family name, hyphenated names such as \"Smith-Jones\" are a single name, but names with spaces such as \"Smith Jones\" are broken into multiple parts
   v2 Mapping = XPN.1
@@ -124,7 +124,7 @@
   Card. = 0..*
   Aliases = first name; middle name
   Type = string
-  Short Label = Given names (not always \'first\'). Includes middle names
+  Short Name = Given names (not always \'first\'). Includes middle names
   Definition = Given name
   Comments = If only initials are recorded, they may be used in place of the full name.  Not called \"first name\" since given names do not always come first.
   v2 Mapping = XPN.2 + XPN.3
@@ -135,7 +135,7 @@
   Element = HumanName.prefix
   Card. = 0..*
   Type = string
-  Short Label = Parts that come before the name
+  Short Name = Parts that come before the name
   Definition = Part of the name that is acquired as a title due to academic, legal, employment or nobility status, etc. and that appears at the start of the name
   v2 Mapping = XPN.5
   RIM Mapping = ./part[partType = PFX]
@@ -145,7 +145,7 @@
   Element = HumanName.suffix
   Card. = 0..*
   Type = string
-  Short Label = Parts that come after the name
+  Short Name = Parts that come after the name
   Definition = Part of the name that is acquired as a title due to academic, legal, employment or nobility status, etc. and that appears at the end of the name
   v2 Mapping = XPN/4
   RIM Mapping = ./part[partType = SFX]
@@ -154,7 +154,7 @@
   Element = HumanName.period
   Card. = 0..1
   Type = Period
-  Short Label = Time period when name was/is in use
+  Short Name = Time period when name was/is in use
   Definition = Indicates the period of time when this name was valid for the named person.
   Requirements = Allows names to be placed in historical context
   v2 Mapping = XPN.13 + XPN.14

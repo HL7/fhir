@@ -43,7 +43,7 @@
   Element = MessageHeader
   UML = 0;0
   Type = DomainResource
-  Short Label = A resource that describes a message that is exchanged between systems
+  Short Name = A resource that describes a message that is exchanged between systems
   Definition = The header for a message exchange that is either requesting or responding to an action.  The reference(s) that are the subject of the action as well as other information related to the action are typically transmitted in a bundle in which the MessageHeader resource instance is the first resource in the bundle.
   Requirements = Many implementations are not prepared to use REST and need a messaging based infrastructure
   v2 Mapping = MSH / MSA / ERR
@@ -54,7 +54,7 @@
   Element = !MessageHeader.identifier
   Card. = 1..1
   Type = id
-  Short Label = Id of this message
+  Short Name = Id of this message
   Definition = The identifier of this message
   Comments = This SHALL be unique within the scope of this stream of messages
   v2 Mapping = MSH-10
@@ -65,7 +65,7 @@
   Element = MessageHeader.timestamp
   Card. = 1..1
   Type = instant
-  Short Label = Time that the message was sent
+  Short Name = Time that the message was sent
   Definition = The time that the message was sent
   Requirements = Allows limited detection of out-of-order and delayed transmission.  Also supports audit.
   v2 Mapping = MSH-7
@@ -78,7 +78,7 @@
   Is Modifier = y
   Type = Coding
   Binding = MessageEvent
-  Short Label = Code for the event this message represents
+  Short Name = Code for the event this message represents
   Definition = Code that identifies the event this message represents and connects it with its definition. Events defined as part of the FHIR specification have the system value \"http://hl7.org/fhir/message-events\"
   Requirements = Drives the behavior associated with this message
   v2 Mapping = MSH-9.2
@@ -90,7 +90,7 @@
   Card. = 0..1
   Is Modifier = y
   UML = 380;220
-  Short Label = If this is a reply to prior message
+  Short Name = If this is a reply to prior message
   Definition = Information about the message that this message is a response to.  Only present if this message is a response.
   v2 Mapping = MSA
   RIM Mapping = ./conveyedAcknowledgement
@@ -99,7 +99,7 @@
   Element = MessageHeader.response.identifier
   Card. = 1..1
   Type = id
-  Short Label = Id of original message
+  Short Name = Id of original message
   Definition = The id of the message that this message is a response to
   Requirements = Allows receiver to know what message is being responded to
   v2 Mapping = MSA-2
@@ -111,7 +111,7 @@
   Is Modifier = y
   Type = code
   Binding = ResponseType
-  Short Label = ok | transient-error | fatal-error
+  Short Name = ok | transient-error | fatal-error
   Definition = Code that identifies the type of response to the message - whether it was successful or not, and whether it should be resent or not
   Requirements = Allows the sender of the acknowledge message to know if the request was successful or if action is needed.
   Comments = This is a generic response to the request message. Specific data for the response will be found in MessageHeader.data
@@ -122,7 +122,7 @@
   Element = MessageHeader.response.details
   Card. = 0..1
   Type = Reference(OperationOutcome)
-  Short Label = Specific list of hints/warnings/errors
+  Short Name = Specific list of hints/warnings/errors
   Definition = Full details of any issues found in the message
   Requirements = Allows the sender of the message to determine what the specific issues are
   Comments = This SHALL be contained in the bundle. If any of the issues are errors, the response code SHALL be an error
@@ -134,7 +134,7 @@
   Card. = 1..1
   UML = 420;95
   Type = =MessageSource
-  Short Label = Message Source Application
+  Short Name = Message Source Application
   Definition = The source application from which this message originated
   Requirements = Allows replies, supports audit.
   RIM Mapping = unique(./communicationFunction[typeCode=\"SND\"])
@@ -144,7 +144,7 @@
   Element = MessageHeader.source.name
   Card. = 0..1
   Type = string
-  Short Label = Name of system
+  Short Name = Name of system
   Definition = Human-readable name for the source system
   Requirements = May be used to support audit
   v2 Mapping = MSH-3
@@ -154,7 +154,7 @@
   Element = MessageHeader.source.software
   Card. = 0..1
   Type = string
-  Short Label = Name of software running the system
+  Short Name = Name of software running the system
   Definition = May include configuration or other information useful in debugging.
   Requirements = Supports audit and possibly interface engine behavior
   v2 Mapping = SFT-3 ( +SFT-1)
@@ -164,7 +164,7 @@
   Element = MessageHeader.source.version
   Card. = 0..1
   Type = string
-  Short Label = Version of software running
+  Short Name = Version of software running
   Definition = Can convey versions of multiple systems in situations where a message passes through multiple hands.
   Requirements = Supports audit and possibly interface engine behavior
   v2 Mapping = SFT-2
@@ -175,7 +175,7 @@
   Element = MessageHeader.source.contact
   Card. = 0..1
   Type = ContactPoint
-  Short Label = Human contact for problems
+  Short Name = Human contact for problems
   Definition = An e-mail, phone, website or other contact point to use to resolve issues with message communications.
   Requirements = Allows escalation of technical issues.
   v2 Mapping = (MSH-22?)
@@ -186,7 +186,7 @@
   Element = MessageHeader.source.endpoint
   Card. = 1..1
   Type = uri
-  Short Label = Actual message source address or id
+  Short Name = Actual message source address or id
   Definition = Identifies the routing target to send acknowledgements to.
   Requirements = Identifies where to send responses, may influence security permissions
   Comments = The id may be a non-resolvable URI for systems that do not use standard network-based addresses
@@ -198,7 +198,7 @@
   Card. = 0..*
   UML = 400;0
   Type = =MessageDestination
-  Short Label = Message Destination Application(s)
+  Short Name = Message Destination Application(s)
   Definition = The destination application which the message is intended for
   Requirements = Indicates where message is to be sent for routing purposes.  Allows verification of \"am I the intended recipient\"
   Comments = There SHOULD be at least one destination, but in some circumstances, the source system is unaware of any particular destination system
@@ -209,7 +209,7 @@
   Element = MessageHeader.destination.name
   Card. = 0..1
   Type = string
-  Short Label = Name of system
+  Short Name = Name of system
   Definition = Human-readable name for the target system
   Requirements = May be used for routing of response and/or to support audit
   v2 Mapping = MSH-5
@@ -219,7 +219,7 @@
   Element = MessageHeader.destination.target
   Card. = 0..1
   Type = Reference(Device)
-  Short Label = Particular delivery destination within the destination
+  Short Name = Particular delivery destination within the destination
   Definition = Identifies the target end system in situations where the initial message transmission is to an intermediary system.
   Requirements = Supports multi-hop routing
   RIM Mapping = unique(./entity[determinerCode=\"INST\" and (classCode=(\"DEV\", \"PSN\", \"ORG\"]
@@ -228,7 +228,7 @@
   Element = MessageHeader.destination.endpoint
   Card. = 1..1
   Type = uri
-  Short Label = Actual destination address or id
+  Short Name = Actual destination address or id
   Definition = Indicates where the message should be routed to.
   Requirements = Identifies where to route the message
   Comments = The id may be a non-resolvable URI for systems that do not use standard network-based addresses
@@ -239,7 +239,7 @@
   Element = MessageHeader.enterer
   Card. = 0..1
   Type = Reference(Practitioner)
-  Short Label = The source of the data entry
+  Short Name = The source of the data entry
   Definition = The person or device that performed the data entry leading to this message. Where there is more than one candidate, pick the most proximal to the message. Can provide other enterers in extensions
   Requirements = Need to know for audit/traceback requirements and possibly for authorization.
   Comments = Usually only for the request, but can be used in a response
@@ -251,7 +251,7 @@
   Element = MessageHeader.author
   Card. = 0..1
   Type = Reference(Practitioner)
-  Short Label = The source of the decision
+  Short Name = The source of the decision
   Definition = The logical author of the message - the person or device that decided the described event should happen. Where there is more than one candidate, pick the most proximal to the MessageHeader. Can provide other authors in extensions
   Requirements = Need to know for audit/traceback requirements and possibly for authorization.
   Comments = Usually only for the request, but can be used in a response
@@ -263,7 +263,7 @@
   Element = MessageHeader.receiver
   Card. = 0..1
   Type = Reference(Practitioner | Organization)
-  Short Label = Intended \"real-world\" recipient for the data
+  Short Name = Intended \"real-world\" recipient for the data
   Definition = Allows data conveyed by a message to be addressed to a particular person or department when routing to a specific application isn\'t sufficient.
   Requirements = Allows routing beyond just the application level
   v2 Mapping = PRT-5:PRT-4=\'WAYR\' / PRT-8:PRT-4=\'WAYR\'
@@ -275,7 +275,7 @@
   Element = MessageHeader.responsible
   Card. = 0..1
   Type = Reference(Practitioner|Organization)
-  Short Label = Final responsibility for event
+  Short Name = Final responsibility for event
   Definition = The person or organization that accepts overall responsibility for the contents of the message. The implication is that the message event happened under the policies of the responsible party
   Requirements = Need to know for audit/traceback requirements and possibly for authorization.
   Comments = Usually only for the request, but can be used in a response
@@ -288,7 +288,7 @@
   Card. = 0..1
   Type = CodeableConcept
   Binding = EventReason
-  Short Label = Cause of event
+  Short Name = Cause of event
   Definition = Coded indication of the cause for the event - indicates  a reason for the occurrence of the event that is a focus of this message
   Requirements = Need to be able to track why resources are being changed and report in the audit log/history of the resource.  May affect authorization.
   v2 Mapping = EVN.4 / ORC.16 / OBR-31-reason for study / BPO-13-BP indication for use / RXO-20-indication / RXE-27-give indication / RXD-21-indication / RXG-22-indication / RXA-19-indication
@@ -299,7 +299,7 @@
   Element = MessageHeader.data
   Card. = 0..*
   Type = Reference(Any)
-  Short Label = The actual content of the message
+  Short Name = The actual content of the message
   Definition = The actual data of the message - a reference to the root/focus class of the event.
   Requirements = Every message event is about actual data, a single resource, that is identified in the definition of the event, and perhaps some or all linked resources
   Comments = The data is defined where the transaction type is defined. The transaction data is always included in the bundle that is the full message.  Only the root resource is specified.  The resources it references should be contained in the bundle but are not also listed here.  Multiple repetitions are allowed to cater for merges and other situations with multiple focal targets

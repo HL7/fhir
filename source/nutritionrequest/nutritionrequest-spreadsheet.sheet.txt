@@ -157,7 +157,7 @@
   Element = NutritionRequest
   Aliases = Nutrition Order, Diet Order, Diet, Nutritional Supplement, Enteral Nutrition
   Type = DomainResource
-  Short Label = Diet, formula or nutritional supplement request
+  Short Name = Diet, formula or nutritional supplement request
   Definition = A request to supply a diet, formula feeding (enteral) or oral nutritional supplement to a patient/resident.
   Comments = Referenced by an Order Request (workflow)
   RIM Mapping = SupplyRequest
@@ -167,7 +167,7 @@
   Element = NutritionRequest.identifier
   Card. = 0..*
   Type = Identifier
-  Short Label = Identifiers assigned to this order
+  Short Name = Identifiers assigned to this order
   Definition = Identifiers assigned to this order by the order sender or by the order receiver
   Comments = The Identifier.type element can be to indicate filler vs placer if needed.  This is explained in further detail [here](diagnosticrequest.html#notes)
   RIM Mapping = .id
@@ -180,7 +180,7 @@
   Summary = Y
   Type = code
   Binding = NutritionOrderStatus
-  Short Label = proposed | draft | planned | requested | active | on-hold | completed | cancelled | entered-in-error
+  Short Name = proposed | draft | planned | requested | active | on-hold | completed | cancelled | entered-in-error
   Definition = The workflow status of the nutrition order/request.
   Comments = Typically the system placing the order sets the status to \"requested\". Thereafter, the order is maintained by the receiver that updates the status as the request is handled.
   RIM Mapping = .statusCode
@@ -192,7 +192,7 @@
   Card. = 1..1
   Summary = Y
   Type = Reference(Patient)
-  Short Label = The person who requires the diet, formula or nutritional supplement
+  Short Name = The person who requires the diet, formula or nutritional supplement
   Definition = The person (patient) who needs the nutrition order for an oral diet, nutritional supplement and/or enteral or formula feeding.
   RIM Mapping = .participation[typeCode=SBJ].role
   Committee Notes = 2/4/2015 EH: [#3707] change subject to patient
@@ -202,7 +202,7 @@
   Element = NutritionRequest.encounter
   Card. = 0..1
   Type = Reference(Encounter)
-  Short Label = The encounter associated with this nutrition order
+  Short Name = The encounter associated with this nutrition order
   Definition = An encounter that provides additional information about the healthcare context in which this request is made
   RIM Mapping = .inboundRelationship[typeCode=COMP].source[classCode=ENC, moodCode=EVN]
   w5 = context
@@ -212,7 +212,7 @@
   Card. = 1..1
   Summary = Y
   Type = dateTime
-  Short Label = Date and time the nutrition order was requested
+  Short Name = Date and time the nutrition order was requested
   Definition = The date and time that this nutrition order was requested.
   RIM Mapping = author.time
   w5 = when.recorded
@@ -222,7 +222,7 @@
   Card. = 0..1
   Summary = Y
   Type = Reference(Practitioner)
-  Short Label = Who ordered the diet, formula or nutritional supplement
+  Short Name = Who ordered the diet, formula or nutritional supplement
   Definition = The practitioner that holds legal responsibility for ordering the diet, nutritional supplement, or formula feedings.
   RIM Mapping = .participation[typeCode=AUT].role
   w5 = who.author
@@ -231,7 +231,7 @@
   Element = NutritionRequest.allergyIntolerance
   Card. = 0..*
   Type = Reference(AllergyIntolerance)
-  Short Label = List of the patient\'s food and nutrition-related allergies and intolerances
+  Short Name = List of the patient\'s food and nutrition-related allergies and intolerances
   Definition = A link to a record of allergies or intolerances  which should be included in the nutrition order.
   Comments = Information on a patient\'s food allergies and intolerances, inform healthcare personnel about the type of foods that the patient should receive or consume.
   RIM Mapping = .outboundRelationship[typeCode=RSON].target[classCode=OBS, moodCode=EVN]
@@ -242,7 +242,7 @@
   Card. = 0..*
   Type = CodeableConcept
   Binding = PatientDiet
-  Short Label = Order-specific modifier about the type of food that should be given
+  Short Name = Order-specific modifier about the type of food that should be given
   Definition = This modifier is used to convey order-specific modifiers about the type of food that should be given. These can be derived from patient allergies, intolerances, or preferences such as Halal, Vegan or Kosher. This modifier applies to the entire nutrition order inclusive of the oral diet, nutritional supplements and enteral formula feedings.
   Comments = Information on a patient\'s food preferences that inform healthcare personnel about the food that the patient should receive or consume.
   RIM Mapping = .outboundRelationship [typeCode =COMP], target [classCode=PROC, moodCode=EVN, code=NutritionModificationType]
@@ -253,7 +253,7 @@
   Card. = 0..*
   Type = CodeableConcept
   Binding = FoodType
-  Short Label = Order-specific modifier about the type of food that should not be given
+  Short Name = Order-specific modifier about the type of food that should not be given
   Definition = This modifier is used to convey order-specific modifiers about the type of food that should NOT be given. These can be derived from patient allergies, intolerances, or preferences such as No Red Meat, No Soy or No Wheat or  Gluten-Free.  While it should not be necessary to repeat allergy or intolerance information captured in the referenced allergyIntolerance resource in the excludeFoodModifier, this element may be used to convey additional specificity related to foods that should be eliminated from the patient’s diet for any reason.  This modifier applies to the entire nutrition order inclusive of the oral diet, nutritional supplements and enteral formula feedings.
   Comments = Information on a patient\'s food allergies and intolerances, and preferences inform healthcare personnel about the type  of foods that the patient should receive or consume.
   RIM Mapping = N/A
@@ -263,7 +263,7 @@
   Element = !NutritionRequest.item
   Card. = 0..*
   UML = down
-  Short Label = Set of nutrition items or components that comprise the nutrition order
+  Short Name = Set of nutrition items or components that comprise the nutrition order
   Definition = Different items that combine to make a complete description of the nutrition to be provided via oral diet, nutritional supplement and/or formula order.
   Committee Notes = use either HL7 Supply code that represents Nutrition Order Item or SNOMED CT/LOINC (i.e. parent concept for the diet regimes/therapies - figure out what to use for supplements and tube feedings).  reasons we may need a type - query for specific part of the order Per WGM Mon Q3 - remove this and move attributes to each instance 2/4/2015 EH: [#3996] deprecate
 
@@ -272,7 +272,7 @@
   Card. = 0..1
   Aliases = frequency
   Type = Timing|Period
-  Short Label = Frequency to offer nutrition item
+  Short Name = Frequency to offer nutrition item
   Definition = The frequency at which the diet, oral supplement or enteral formula should be given
   Committee Notes = (not sure where we include the elements such as start date - time, start meal, meal or timing schedule(this is like administration instructions) - date-time, a period, or a schedule interval) Per WGM MonQ3 - you need a schedule for each order component oralDiet.schedule, supplement.schedule, enteral.schedule 2/4/2015 EH: [#3996] deprecate
 
@@ -280,7 +280,7 @@
   Element = !NutritionRequest.item.isInEffect
   Card. = 1..1
   Type = boolean
-  Short Label = Indicates whether the nutrition item is  currently in effect
+  Short Name = Indicates whether the nutrition item is  currently in effect
   Definition = Indicates whether the nutrition item is  currently in effect for the patient.
   Committee Notes = Per WGM Mon Q3 - may not need if status provides same info 2/4/2015 EH: [#3996] deprecate
 
@@ -289,7 +289,7 @@
   Card. = 0..1
   UML = down
   Inv. = 1
-  Short Label = Oral diet components
+  Short Name = Oral diet components
   Definition = Diet given orally in contrast to enteral (tube) feeding.
   RIM Mapping = oralDiet .outboundRelationship [typeCode =COMP], target [classCode=SPLY, moodCode=RQO, code=OralDietSupplyType]
 
@@ -299,7 +299,7 @@
   Summary = Y
   Type = CodeableConcept
   Binding = OralDiet
-  Short Label = Type of oral diet or diet restrictions that describe what can be consumed orally
+  Short Name = Type of oral diet or diet restrictions that describe what can be consumed orally
   Definition = The kind of diet or dietary restriction such as fiber restricted diet or diabetic diet.
   RIM Mapping = .code
   Committee Notes = renamed from .code to .type for consistency
@@ -310,7 +310,7 @@
   Card. = 0..*
   Aliases = frequency
   Type = Timing
-  Short Label = Scheduled frequency of diet
+  Short Name = Scheduled frequency of diet
   Definition = The time period and frequency at which the diet should be given
   RIM Mapping = .expectedUseTime
   Committee Notes = 2/4/2015 EH: [#3996] Remove NutritionRequest.Item and push schedule/timing down into each type  #8181
@@ -319,7 +319,7 @@
   Element = NutritionRequest.oralDiet.nutrient
   Card. = 0..*
   UML = down
-  Short Label = Required  nutrient modifications
+  Short Name = Required  nutrient modifications
   Definition = Class that defines the quantity and type of nutrient modifications (for example carbohydrate, fiber or sodium) required for the oral diet.
   RIM Mapping = .participation{typeCode=PRD].role{classCode=MANU), manufacturedFoodKind
 
@@ -328,7 +328,7 @@
   Card. = 0..1
   Type = CodeableConcept
   Binding = NutrientModifier
-  Short Label = Type of nutrient that is being modified
+  Short Name = Type of nutrient that is being modified
   Definition = The nutrient that is being modified such as carbohydrate or sodium.
   RIM Mapping = .code
   w5 = what
@@ -337,7 +337,7 @@
   Element = NutritionRequest.oralDiet.nutrient.amount
   Card. = 0..1
   Type = SimpleQuantity
-  Short Label = Quantity of the specified nutrient
+  Short Name = Quantity of the specified nutrient
   Definition = The quantity of the specified nutrient to include in diet.
   RIM Mapping = .quantity
   Committee Notes = 2/4/2015 EH: [#4004] remove choice from .nutient.amount
@@ -346,7 +346,7 @@
   Element = NutritionRequest.oralDiet.texture
   Card. = 0..*
   UML = down
-  Short Label = Required  texture modifications
+  Short Name = Required  texture modifications
   Definition = Class that describes any texture modifications required for the patient to safely consume various types of solid foods.
   RIM Mapping = .inboundRelationship [typeCode =COMP], target [classCode=PROC, moodCode=EVN, code=DietTextureModificationType]
 
@@ -355,7 +355,7 @@
   Card. = 0..1
   Type = CodeableConcept
   Binding = TextureModifier
-  Short Label = Code to indicate how to alter the texture of the foods, e.g. pureed
+  Short Name = Code to indicate how to alter the texture of the foods, e.g. pureed
   Definition = Any texture modifications (for solid foods) that should be made, e.g. easy to chew, chopped, ground, and pureed.
   Comments = Coupled with the foodType (Meat)
   RIM Mapping = .code
@@ -365,7 +365,7 @@
   Card. = 0..1
   Type = CodeableConcept
   Binding = TextureModifiedFoodType
-  Short Label = Concepts that are used to identify an entity that is ingested for nutritional purposes
+  Short Name = Concepts that are used to identify an entity that is ingested for nutritional purposes
   Definition = The food type(s) (e.g. meats, all foods)  that the texture modification applies to.  This could be all foods types.
   Comments = Coupled with the textureModifier; could be (All Foods)
   RIM Mapping = .participation{typeCode=PRD].role{classCode=MANU), manufacturedFoodKind; .code
@@ -375,7 +375,7 @@
   Card. = 0..*
   Type = CodeableConcept
   Binding = FluidConsistencyType
-  Short Label = The required consistency of fluids and liquids provided to the patient
+  Short Name = The required consistency of fluids and liquids provided to the patient
   Definition = The required consistency (e.g. honey-thick, nectar-thick, thin, thickened.) of liquids or fluids served to the patient.
   RIM Mapping = .code  (Not differentiated from dietTextureModificationType in HL7 v3)
 
@@ -384,7 +384,7 @@
   Card. = 0..1
   Summary = Y
   Type = string
-  Short Label = Instructions or additional information about the oral diet
+  Short Name = Instructions or additional information about the oral diet
   Definition = Free text or additional instructions or information pertaining to the oral diet.
   Comments = Free text dosage instructions can be used for cases where the instructions are too complex to code.
   RIM Mapping = .text
@@ -394,7 +394,7 @@
   Card. = 0..*
   UML = down
   Inv. = 1
-  Short Label = Supplement components
+  Short Name = Supplement components
   Definition = Oral nutritional products given in order to add further nutritional value to the patient\'s diet.
   RIM Mapping = .outboundRelationship [typeCode =COMP], target [classCode=SPLY, moodCode=RQO, code=SUPPLEMENT]
 
@@ -404,7 +404,7 @@
   Summary = Y
   Type = CodeableConcept
   Binding = SupplementType
-  Short Label = Type of supplement product requested
+  Short Name = Type of supplement product requested
   Definition = The kind of nutritional supplement product required such as a high protein or pediatric clear liquid supplement
   RIM Mapping = .participation{typeCode=PRD].role{classCode=MANU), manufacturedFoodKind; .code (NutritionalSupplementType)
   w5 = what
@@ -413,7 +413,7 @@
   Element = NutritionRequest.supplement.productName
   Card. = 0..1
   Type = string
-  Short Label = Product or brand name of the nutritional supplement
+  Short Name = Product or brand name of the nutritional supplement
   Definition = The product or brand name of the nutritional supplement such as \"Acme Protein Shake\".
   RIM Mapping = .id
   Committee Notes = 2/4/2015 EH: [#4000][#4001][#4002] change ...name to ...productName
@@ -423,7 +423,7 @@
   Card. = 0..*
   Aliases = frequency
   Type = Timing
-  Short Label = Scheduled frequency of supplement
+  Short Name = Scheduled frequency of supplement
   Definition = The time period and frequency at which the supplement(s) should be given
   RIM Mapping = .effectiveTime
   Committee Notes = 2/4/2015 EH: [#3996] Remove NutritionRequest.Item and push schedule/timing down into each type.  #8181
@@ -432,7 +432,7 @@
   Element = NutritionRequest.supplement.quantity
   Card. = 0..1
   Type = SimpleQuantity
-  Short Label = Amount of the nutritional supplement
+  Short Name = Amount of the nutritional supplement
   Definition = The amount of the nutritional supplement to be given
   RIM Mapping = .quantity
 
@@ -441,7 +441,7 @@
   Card. = 0..1
   Summary = Y
   Type = string
-  Short Label = Instructions or additional information about the oral supplement
+  Short Name = Instructions or additional information about the oral supplement
   Definition = Free text or additional instructions or information pertaining to the oral supplement.
   Comments = Free text dosage instructions can be used for cases where the instructions are too complex to code.
   RIM Mapping = .text
@@ -452,7 +452,7 @@
   Card. = 0..1
   UML = right
   Inv. = 1
-  Short Label = Enteral formula components
+  Short Name = Enteral formula components
   Definition = Feeding provided through the gastrointestinal tract via a tube, catheter, or stoma that delivers nutrition distal to the oral cavity.
   RIM Mapping = .outboundRelationship [typeCode =COMP], target [classCode=SPLY, moodCode=RQO, code=FORMULA]
 
@@ -462,7 +462,7 @@
   Summary = Y
   Type = CodeableConcept
   Binding = EnteralFormulaType
-  Short Label = Type of enteral or infant formula
+  Short Name = Type of enteral or infant formula
   Definition = The type of enteral or infant formula such as an adult standard formula with fiber or a soy-based infant formula.
   RIM Mapping = .participation{typeCode=PRD].role{classCode=MANU), manufacturedFoodKind; .code (NutritionalFormulaType)
   w5 = what
@@ -471,7 +471,7 @@
   Element = NutritionRequest.enteralFormula.baseFormulaProductName
   Card. = 0..1
   Type = string
-  Short Label = Product or brand name of the enteral or infant formula
+  Short Name = Product or brand name of the enteral or infant formula
   Definition = The product or brand name of the enteral or infant formula product such as \"ACME Adult Standard Formula\".
   RIM Mapping = .id
   Committee Notes = 2/4/2015 EH: [#4000][#4001][#4002] change ...name to ...productName
@@ -481,7 +481,7 @@
   Card. = 0..1
   Type = CodeableConcept
   Binding = EnteralFormulaAdditiveType
-  Short Label = Type of modular component to add to the feeding
+  Short Name = Type of modular component to add to the feeding
   Definition = Indicates the type of modular component such as protein, carbohydrate, fat or fiber to be provided in addition to or mixed with the base formula.
   RIM Mapping = N/A (not differentiated from NutritionalFormulaType in HL7 v3)
   w5 = what
@@ -490,7 +490,7 @@
   Element = NutritionRequest.enteralFormula.additiveProductName
   Card. = 0..1
   Type = string
-  Short Label = Product or brand name of the modular additive
+  Short Name = Product or brand name of the modular additive
   Definition = The product or brand name of the type of modular component to be added to the formula.
   RIM Mapping = N/A
   Committee Notes = 2/4/2015 EH: [#4000][#4001][#4002] change ...name to ...productName
@@ -499,7 +499,7 @@
   Element = NutritionRequest.enteralFormula.caloricDensity
   Card. = 0..1
   Type = SimpleQuantity
-  Short Label = Amount of energy per specified volume that is required
+  Short Name = Amount of energy per specified volume that is required
   Definition = The amount of energy (Calories) that the formula should provide per specified volume, typically per mL or fluid oz.  For example, an infant may require a formula that provides 24 Calories per fluid ounce or an adult may require an enteral formula that provides 1.5 Calorie/mL.
   RIM Mapping = .quantity (caloricDensity)
 
@@ -508,7 +508,7 @@
   Card. = 0..1
   Type = CodeableConcept
   Binding = EnteralRouteOfAdministration
-  Short Label = How the formula should enter the patient\'s gastrointestinal tract
+  Short Name = How the formula should enter the patient\'s gastrointestinal tract
   Definition = The route or physiological path of administration into the patient\'s gastrointestinal  tract for purposes of providing the formula feeding, e.g. nasogastric tube.
   RIM Mapping = .routeCode
 
@@ -516,7 +516,7 @@
   Element = NutritionRequest.enteralFormula.administration
   Card. = 0..*
   UML = down
-  Short Label = Formula feeding instruction as structured data
+  Short Name = Formula feeding instruction as structured data
   Definition = Formula administration instructions as structured data.  This repeating structure allows for changing the administration rate or volume over time for both bolus and continuous feeding.  An example of this would be an instruction to increase the rate of continuous feeding every 2 hours.
   Comments = See implementation notes below for further discussion on how to order continuous vs bolus enteral feeding using this resource.
   RIM Mapping = .outboundRelationship [typeCode =COMP], target [classCode=SBADM, moodCode=RQO]
@@ -527,7 +527,7 @@
   Card. = 0..1
   Aliases = frequency
   Type = Timing
-  Short Label = Scheduled frequency of enteral feeding
+  Short Name = Scheduled frequency of enteral feeding
   Definition = The time period and frequency at which the enteral formula should be delivered to the patient
   RIM Mapping = .effectiveUseTime
   Committee Notes = 2/4/2015 EH: [#3996] Remove NutritionRequest.Item and push schedule/timing down into each type, #6101,#6100, 6111
@@ -536,7 +536,7 @@
   Element = NutritionRequest.enteralFormula.administration.quantity
   Card. = 0..1
   Type = SimpleQuantity
-  Short Label = The volume of formula to provide
+  Short Name = The volume of formula to provide
   Definition = The volume of formula to provide to the patient per the specified administration schedule.
   RIM Mapping = .doseQuantity
   Committee Notes = #6100, 6111
@@ -545,7 +545,7 @@
   Element = NutritionRequest.enteralFormula.administration.rate[x]
   Card. = 0..1
   Type = SimpleQuantity|Ratio
-  Short Label = Speed with which the formula is provided per period of time
+  Short Name = Speed with which the formula is provided per period of time
   Definition = The rate of administration of formula via a feeding pump, e.g. 60 mL per hour, according to the specified schedule.
   Comments = Ratio is used when the quantity value in the denominator is not \"1\", otherwise use Quantity. For example, the Ratio datatype is used for \"200 mL/4 hrs\" versus the Quantity datatype for \"50 mL/hr\".
   RIM Mapping = .rateQuantity
@@ -555,7 +555,7 @@
   Element = !NutritionRequest.enteralFormula.rateAdjustment
   Card. = 0..1
   Type = Ratio
-  Short Label = Change in the rate of administration over a given time
+  Short Name = Change in the rate of administration over a given time
   Definition = The change in the rate of administration over a given time, e.g. increase by 10 mL/hour every 4 hours.
   RIM Mapping = N/A
   Committee Notes = 4/15/2015 EH:  #6111
@@ -564,7 +564,7 @@
   Element = NutritionRequest.enteralFormula.maxVolumeToDeliver
   Card. = 0..1
   Type = SimpleQuantity
-  Short Label = Upper limit on formula volume per unit of time
+  Short Name = Upper limit on formula volume per unit of time
   Definition = The maximum total quantity of formula that may be administered to a subject over the period of time, e.g. 1440 mL over 24 hours.
   RIM Mapping = .maxDoseQuantity
 
@@ -573,7 +573,7 @@
   Card. = 0..1
   Summary = Y
   Type = string
-  Short Label = Formula feeding instructions expressed as text
+  Short Name = Formula feeding instructions expressed as text
   Definition = Free text formula administration, feeding instructions or additional instructions or information.
   Comments = Free text dosage instructions can be used for cases where the instructions are too complex to code.
   RIM Mapping = N/A

@@ -15,7 +15,7 @@
  -- Row 1 -----------------------------------
   Element = RelatedPerson
   Type = DomainResource
-  Short Label = An person that is related to a patient, but who is not a direct target of care
+  Short Name = An person that is related to a patient, but who is not a direct target of care
   Definition = Information about a person that is involved in the care for a patient, but who is not the target of healthcare, nor has a formal responsibility in the care process.
   Requirements = Need to track persons related to the patient or the healthcare process.
   RIM Mapping = role
@@ -27,7 +27,7 @@
   Card. = 0..*
   Summary = y
   Type = Identifier
-  Short Label = A human identifier for this person
+  Short Name = A human identifier for this person
   Definition = Identifier for a person within a particular scope.
   Requirements = People are known by a variety of ids. Some institutions maintain several, and most collect identifiers for exchange with other organizations concerning the patient. Examples are national person identifier and local identifier
   v2 Mapping = NK1-33
@@ -41,7 +41,7 @@
   Is Modifier = y
   Summary = y
   Type = boolean
-  Short Label = Whether this related person\'s record is in active use
+  Short Name = Whether this related person\'s record is in active use
   Definition = Whether this related person record is in active use
   Requirements = Need to be able to mark a related person record as not to be used, such as if it was created in error
   RIM Mapping = .statusCode
@@ -53,7 +53,7 @@
   Card. = 1..1
   Summary = y
   Type = Reference(Patient)
-  Short Label = The patient this person is related to
+  Short Name = The patient this person is related to
   Definition = The patient this person is related to
   Requirements = We need to know which patient this RelatedPerson is related to.
   v2 Mapping = PID-3
@@ -66,7 +66,7 @@
   Summary = y
   Type = CodeableConcept
   Binding = PatientRelationshipType
-  Short Label = The nature of the relationship
+  Short Name = The nature of the relationship
   Definition = The nature of the relationship between a patient and the related person
   Requirements = We need to know the relationship with the patient since it influences the interpretation of the information attributed to this person.
   v2 Mapping = NK1-3
@@ -78,7 +78,7 @@
   Card. = 0..*
   Summary = y
   Type = HumanName
-  Short Label = A name associated with the person
+  Short Name = A name associated with the person
   Definition = A name associated with the person
   Requirements = Related persons need to be identified by name, but it is uncommon to need details about multiple other names for that person
   v2 Mapping = NK1-2
@@ -89,7 +89,7 @@
   Card. = 0..*
   Summary = y
   Type = ContactPoint
-  Short Label = A contact detail for the person
+  Short Name = A contact detail for the person
   Definition = A contact detail for the person, e.g. a telephone number or an email address.
   Requirements = People have (primary) ways to contact them in some way such as phone, email.
   Comments = Person may have multiple ways to be contacted with different uses or applicable periods.  May need to have options for contacting the person urgently, and also to help with identification
@@ -102,7 +102,7 @@
   Summary = y
   Type = code
   Binding = AdministrativeGender
-  Short Label = male | female | other | unknown
+  Short Name = male | female | other | unknown
   Definition = Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes.
   Requirements = Needed for identification of the person, in combination with (at least) name and birth date.
   v2 Mapping = NK1-15
@@ -113,7 +113,7 @@
   Card. = 0..1
   Summary = Y
   Type = date
-  Short Label = The date on which the related person was born
+  Short Name = The date on which the related person was born
   RIM Mapping = player.birthTime
 
  -- Row 10 -----------------------------------
@@ -121,7 +121,7 @@
   Card. = 0..*
   Summary = y
   Type = Address
-  Short Label = Address where the related person can be contacted or visited
+  Short Name = Address where the related person can be contacted or visited
   Definition = Address where the related person can be contacted or visited
   Requirements = Need to keep track where the related person can be contacted per postal mail or visited
   v2 Mapping = NK1-4
@@ -131,7 +131,7 @@
   Element = RelatedPerson.photo
   Card. = 0..*
   Type = Attachment
-  Short Label = Image of the person
+  Short Name = Image of the person
   Definition = Image of the person
   Requirements = Many EHR systems have the capability to capture an image of persons. Fits with newer social media usage too.
   v2 Mapping = OBX-5 - needs a profile
@@ -141,7 +141,7 @@
   Element = RelatedPerson.period
   Card. = 0..1
   Type = Period
-  Short Label = Period of time that this relationship is considered valid
+  Short Name = Period of time that this relationship is considered valid
   Definition = The period of time that this relationship is considered to be valid. If there are no dates defined, then the interval is unknown.
   RIM Mapping = .effectiveTime
   w5 = when.done

@@ -107,7 +107,7 @@
   Element = ReferralRequest
   Aliases = ReferralRequest TransferOfCare Request
   Type = DomainResource
-  Short Label = A request for referral or transfer of care
+  Short Name = A request for referral or transfer of care
   Definition = Used to record and send details about a request for referral service or transfer of a patient to the care of another provider or provider organization.
   w5 = clinical.careprovision
 
@@ -116,7 +116,7 @@
   Card. = 0..*
   Is Modifier = N
   Type = Identifier
-  Short Label = Business identifier
+  Short Name = Business identifier
   Definition = Business identifier that uniquely identifies the referral/care transfer request instance
   v2 Mapping = RF1-6 / RF1-11
   w5 = id
@@ -126,7 +126,7 @@
   Card. = 0..*
   Is Modifier = N
   Type = Reference(ReferralRequest|CarePlan|DiagnosticRequest|ProcedureRequest)
-  Short Label = Request fulfilled by this request
+  Short Name = Request fulfilled by this request
   Definition = Indicates any plans, proposals or orders that this request is intended to satisfy - in whole or in part.
 
  -- Row 4 -----------------------------------
@@ -135,7 +135,7 @@
   Is Modifier = N
   Summary = Y
   Type = Identifier
-  Short Label = Composite request this is part of
+  Short Name = Composite request this is part of
   Definition = The business identifier of the logical \"grouping\" request/order that this referral is a part of
   Requirements = Allows multiple orders to be collected as part of a single requisition
 
@@ -146,7 +146,7 @@
   Summary = Y
   Type = code
   Binding = ReferralStatus
-  Short Label = draft | active | cancelled | completed | entered-in-error
+  Short Name = draft | active | cancelled | completed | entered-in-error
   Definition = The status of the authorization/intention reflected by the referral request record
   Requirements = Workflow status is handled by the Task resource
   v2 Mapping = RF1-1
@@ -159,7 +159,7 @@
   Summary = Y
   Type = code
   Binding = ReferralCategory
-  Short Label = proposal | plan | request
+  Short Name = proposal | plan | request
   Definition = Distinguishes the \"level\" of authorization/demand implicit in this request.
   Requirements = The same resource structure is used when capturing proposals/recommendations, plans and actual requests.
   w5 = class
@@ -171,7 +171,7 @@
   Summary = Y
   Type = CodeableConcept
   Binding = ReferralType
-  Short Label = Referral/Transition of care request type
+  Short Name = Referral/Transition of care request type
   Definition = An indication of the type of referral (or where applicable the type of transfer of care) request
   Comments = Examples of referral type: - consultation;         second opinion;          third opinion - Assume management - Request for procedure(s)  HL7 v2.8 Example - Table 0336: S = second opinion p = patient preference o = provider ordered w = work load
   v2 Mapping = RF1-10
@@ -184,7 +184,7 @@
   Summary = Y
   Type = CodeableConcept
   Binding = ReferralPriority
-  Short Label = Urgency of referral / transfer of care request
+  Short Name = Urgency of referral / transfer of care request
   Definition = An indication of the urgency of referral (or where applicable the type of transfer of care) request
   v2 Mapping = RF1-2
   w5 = grade
@@ -195,7 +195,7 @@
   Is Modifier = N
   Summary = Y
   Type = Reference(Patient)
-  Short Label = Patient referred to care or transfer
+  Short Name = Patient referred to care or transfer
   Definition = The patient who is the subject of a referral or transfer of care request
   Comments = Referral of family, group or community is to be catered for by profiles
   v2 Mapping = PID-3
@@ -207,7 +207,7 @@
   Card. = 0..1
   Is Modifier = N
   Type = Reference(Encounter|EpisodeOfCare)
-  Short Label = Originating encounter
+  Short Name = Originating encounter
   Definition = The encounter at which the request for referral or transfer of care is initiated
   v2 Mapping = PV1-19
   w5 = context
@@ -219,7 +219,7 @@
   Is Modifier = N
   Summary = Y
   Type = Period
-  Short Label = Requested service(s) fulfillment time
+  Short Name = Requested service(s) fulfillment time
   Definition = The period of time within which the services identified in the referral/transfer of care is specified or required to occur
   Requirements = Use cases: (1) to indicate that the requested service is not to happen before a specified date, and saving the start date in Period.start; (2) to indicate that the requested service must happen before a specified date, and saving the end date in Period.end; (3) to indicate that the requested service must happen during the specified dates (\"start\" and \"end\" values).
   v2 Mapping = OBR-7/OBR-8
@@ -231,7 +231,7 @@
   Is Modifier = N
   Summary = Y
   Type = dateTime
-  Short Label = Date of creation/activation
+  Short Name = Date of creation/activation
   Definition = Date/DateTime of creation for draft requests and date of activation for active requests
   v2 Mapping = RF1-7 / RF1-9?
   w5 = when.init
@@ -242,7 +242,7 @@
   Is Modifier = N
   Summary = Y
   Type = Reference(Practitioner | Organization | Patient)
-  Short Label = Requester of referral / transfer of care
+  Short Name = Requester of referral / transfer of care
   Definition = The healthcare provider or provider organization who/which initiated the referral/transfer of care request. Can also be  Patient (a self referral)
   v2 Mapping = Practitioner: PRD-2/PRD-7 where PRD-3 = RP; Organization: PRD-10 where PRD-3 = RP
   w5 = who.author
@@ -253,7 +253,7 @@
   Is Modifier = N
   Type = CodeableConcept
   Binding = ReferralSpecialty
-  Short Label = The clinical specialty (discipline) that the referral is requested for
+  Short Name = The clinical specialty (discipline) that the referral is requested for
   Definition = Indication of the clinical domain or discipline to which the referral or transfer of care request is sent.  For example: Cardiology Gastroenterology Diabetology
   v2 Mapping = RF1-3
 
@@ -263,7 +263,7 @@
   Is Modifier = N
   Summary = Y
   Type = Reference(Practitioner | Organization)
-  Short Label = Receiver of referral / transfer of care request
+  Short Name = Receiver of referral / transfer of care request
   Definition = The healthcare provider(s) or provider organization(s) who/which is to receive the referral/transfer of care request
   Comments = There will be a primary receiver. But the request can be received by any number of \"copied to\" providers or organizations
   v2 Mapping = Practitioner: PRD-2/PRD-7 where PRD-3 = RT; Organization: PRD-10 where PRD-3 = RT
@@ -275,7 +275,7 @@
   Is Modifier = N
   Summary = Y
   Type = dateTime
-  Short Label = Date referral/transfer of care request is sent
+  Short Name = Date referral/transfer of care request is sent
   Definition = Date/DateTime the request for referral or transfer of care is sent by the author
   v2 Mapping = RF1-7 / RF1-9?
   w5 = when.init
@@ -287,7 +287,7 @@
   Summary = Y
   Type = CodeableConcept
   Binding = ReferralReason
-  Short Label = Reason for referral / transfer of care request
+  Short Name = Reason for referral / transfer of care request
   Definition = Description of clinical condition indicating why referral/transfer of care is requested.  For example:  Pathological Anomalies, Disabled (physical or mental),  Behavioral Management
   v2 Mapping = RF1-10
   w5 = why
@@ -297,7 +297,7 @@
   Card. = 0..1
   Is Modifier = N
   Type = string
-  Short Label = A textual description of the referral
+  Short Name = A textual description of the referral
   Definition = The reason element gives a short description of why the referral is being made, the description expands on this to support a more complete clinical summary
   To Do = This would be a good candidate for a \'markdown\' data type
 
@@ -308,7 +308,7 @@
   Summary = Y
   Type = CodeableConcept
   Binding = RequestedService
-  Short Label = Actions requested as part of the referral
+  Short Name = Actions requested as part of the referral
   Definition = The service(s) that is/are requested to be provided to the patient.  For example: cardiac pacemaker insertion
   v2 Mapping = PR1-3 / OBR-4
   w5 = what
@@ -319,7 +319,7 @@
   Is Modifier = N
   Summary = Y
   Type = Reference (Any)
-  Short Label = Additonal information to support referral or transfer of care request
+  Short Name = Additonal information to support referral or transfer of care request
   Definition = Any additional (administrative, financial or clinical) information required to support request for referral or transfer of care.  For example: Presenting problems/chief complaints Medical History Family History Alerts Allergy/Intolerance and Adverse Reactions Medications Observations/Assessments (may include cognitive and fundtional assessments) Diagnostic Reports Care Plan
 
 === Sheet Search =====================================

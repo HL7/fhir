@@ -77,7 +77,7 @@
   Element = ProcessRequest
   UML = 0;0
   Type = DomainResource
-  Short Label = Process request
+  Short Name = Process request
   Definition = This resource provides the target, request and response, and action details for an action to be performed by the target on or about existing resources.
   w5 = workflow.order
 
@@ -88,7 +88,7 @@
   Element = ProcessRequest.identifier
   Card. = 0..*
   Type = Identifier
-  Short Label = Business Identifier
+  Short Name = Business Identifier
   Definition = The ProcessRequest business identifier
   w5 = id
 
@@ -99,7 +99,7 @@
   Summary = Y
   Type = code
   Binding = ProcessRequestStatus
-  Short Label = active | cancelled | draft | entered-in-error
+  Short Name = active | cancelled | draft | entered-in-error
   Definition = The status of the resource instance.
   w5 = status
 
@@ -108,7 +108,7 @@
   Card. = 0..1
   Type = Coding
   Binding = Ruleset
-  Short Label = Resource version
+  Short Name = Resource version
   Definition = The version of the style of resource contents. This should be mapped to the allowable profiles for this and supporting resources.
   w5 = id.version
 
@@ -117,7 +117,7 @@
   Card. = 0..1
   Type = Coding
   Binding = Ruleset
-  Short Label = Original version
+  Short Name = Original version
   Definition = The style (standard) and version of the original material which was converted into this resource.
   Requirements = Knowledge of the original version can inform the processing of this instance so that information which is processable by the originating system may be generated.
 
@@ -126,7 +126,7 @@
   Card. = 1..1
   Type = code
   Binding = ActionList
-  Short Label = cancel | poll | reprocess | status
+  Short Name = cancel | poll | reprocess | status
   Definition = The type of processing action being requested, for example Reversal, Readjudication, StatusRequest,PendedRequest
   w5 = class
 
@@ -134,7 +134,7 @@
   Element = ProcessRequest.created
   Card. = 0..1
   Type = dateTime
-  Short Label = Creation date
+  Short Name = Creation date
   Definition = The date when this resource was created.
   w5 = when.recorded
 
@@ -142,7 +142,7 @@
   Element = ProcessRequest.target
   Card. = 0..1
   Type = Reference(Organization)
-  Short Label = Target of the request
+  Short Name = Target of the request
   Definition = The organization which is the target of the request.
   w5 = who.focus
 
@@ -150,7 +150,7 @@
   Element = ProcessRequest.provider
   Card. = 0..1
   Type = Reference(Practitioner)
-  Short Label = Responsible practitioner
+  Short Name = Responsible practitioner
   Definition = The practitioner who is responsible for the action specified in this request.
   CDAnet v4 Mapping = B01
   w5 = who.source
@@ -159,7 +159,7 @@
   Element = ProcessRequest.organization
   Card. = 0..1
   Type = Reference(Organization)
-  Short Label = Responsible organization
+  Short Name = Responsible organization
   Definition = The organization which is responsible for the action speccified in this request.
   w5 = who.source
 
@@ -167,21 +167,21 @@
   Element = ProcessRequest.request
   Card. = 0..1
   Type = Reference(Any)
-  Short Label = Request reference
+  Short Name = Request reference
   Definition = Reference of resource which is the target or subject of this action.
 
  -- Row 13 -----------------------------------
   Element = ProcessRequest.response
   Card. = 0..1
   Type = Reference(Any)
-  Short Label = Response reference
+  Short Name = Response reference
   Definition = Reference of a prior response to resource which is the target or subject of this action.
 
  -- Row 14 -----------------------------------
   Element = ProcessRequest.nullify
   Card. = 0..1
   Type = boolean
-  Short Label = Nullify
+  Short Name = Nullify
   Definition = If true remove all history excluding audit.
   Requirements = Some resources must not simply be reversed in a processing or accounting sense but rather must have all history removed, such as the accidental submission of sensitive and/or wrong information. If the receiver cannot comply with a Nullify request then they must reject the request.
 
@@ -189,7 +189,7 @@
   Element = ProcessRequest.reference
   Card. = 0..1
   Type = string
-  Short Label = Reference number/string
+  Short Name = Reference number/string
   Definition = A reference to supply which authenticates the process.
 
  -- Row 16 -----------------------------------
@@ -197,35 +197,35 @@
   Card. = 0..*
   UML = 420;50
   Type = =Items
-  Short Label = Items to re-adjudicate
+  Short Name = Items to re-adjudicate
   Definition = List of top level items to be re-adjudicated, if none specified then the entire submission is re-adjudicated.
 
  -- Row 17 -----------------------------------
   Element = ProcessRequest.item.sequenceLinkId
   Card. = 1..1
   Type = integer
-  Short Label = Service instance
+  Short Name = Service instance
   Definition = A service line number.
 
  -- Row 18 -----------------------------------
   Element = ProcessRequest.include
   Card. = 0..*
   Type = string
-  Short Label = Resource type(s) to include
+  Short Name = Resource type(s) to include
   Definition = Names of resource types to include
 
  -- Row 19 -----------------------------------
   Element = ProcessRequest.exclude
   Card. = 0..*
   Type = string
-  Short Label = Resource type(s) to exclude
+  Short Name = Resource type(s) to exclude
   Definition = Names of resource types to exclude
 
  -- Row 20 -----------------------------------
   Element = ProcessRequest.period
   Card. = 0..1
   Type = Period
-  Short Label = Period
+  Short Name = Period
   Definition = A period of time during which the fulfilling resources would have been created.
 
 === Sheet Search =====================================

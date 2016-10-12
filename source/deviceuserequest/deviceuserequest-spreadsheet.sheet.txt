@@ -43,7 +43,7 @@
  -- Row 1 -----------------------------------
   Element = DeviceUseRequest
   Type = DomainResource
-  Short Label = Medical device request
+  Short Name = Medical device request
   Definition = Represents a request for a patient to employ a medical device. The device may be an implantable device, or an external assistive device, such as a walker.
   Committee Notes = no map to dstu element: orderedON,priority
   w5 = workflow.order
@@ -53,7 +53,7 @@
   Card. = 0..*
   Summary = Y
   Type = Identifier
-  Short Label = Request identifier
+  Short Name = Request identifier
   Definition = Identifiers assigned to this order by the orderer or by the receiver.
   QUICK mapping = ClinicalStatement.identifier
   Committee Notes = DeviceUseRequest.DeviceUseRequest.identifier
@@ -64,7 +64,7 @@
   Card. = 0..*
   Summary = Y
   Type = Reference(Any)
-  Short Label = Protocol or definition
+  Short Name = Protocol or definition
   Definition = Protocol or definition followed by this request. For example: The proposed act must be performed if the indicated conditions occur, e.g.., shortness of breath, SpO2 less than x%.
 
  -- Row 4 -----------------------------------
@@ -72,7 +72,7 @@
   Card. = 0..*
   Summary = Y
   Type = Reference(Any)
-  Short Label = What request fulfills
+  Short Name = What request fulfills
   Definition = Plan/proposal/order fulfilled by this request
   QUICK mapping = Proposal.prnReason.reason
   Committee Notes = DeviceUseRequest.prnReason
@@ -82,7 +82,7 @@
   Card. = 0..*
   Summary = Y
   Type = Reference(Any)
-  Short Label = What request replaces
+  Short Name = What request replaces
   Definition = The request takes the place of the referenced completed or terminated request(s)
 
  -- Row 6 -----------------------------------
@@ -90,7 +90,7 @@
   Card. = 0..1
   Summary = Y
   Type = Identifier
-  Short Label = Identifier of composite request
+  Short Name = Identifier of composite request
   Definition = Composite request this is part of
 
  -- Row 7 -----------------------------------
@@ -100,7 +100,7 @@
   Summary = Y
   Type = code
   Binding = DeviceUseRequestStatus
-  Short Label = draft | active | suspended | completed | entered-in-error | cancelled
+  Short Name = draft | active | suspended | completed | entered-in-error | cancelled
   Definition = The status of the request.
   QUICK mapping = Action.currentStatus
   Committee Notes = DeviceUseRequest.status
@@ -113,7 +113,7 @@
   Summary = Y
   Type = CodeableConcept
   Binding = DeviceUseRequestStage
-  Short Label = proposal | plan | original-order | encoded | reflex-order
+  Short Name = proposal | plan | original-order | encoded | reflex-order
   Definition = Whether the request is a proposal, plan, an original order or a reflex order.
   w5 = class
 
@@ -123,7 +123,7 @@
   Summary = Y
   Type = Reference(Device) | CodeableConcept
   Binding = DeviceUseRequestCode
-  Short Label = Device requested
+  Short Name = Device requested
   Definition = The details of the device to be used.
   QUICK mapping = DeviceUse.device
   Committee Notes = DeviceUseRequest.device
@@ -134,7 +134,7 @@
   Card. = 1..1
   Summary = Y
   Type = Reference(Patient|Group|Location|Device)
-  Short Label = Focus of request
+  Short Name = Focus of request
   Definition = The patient who will use the device.
   QUICK mapping = ClinicalStatement.subject
   Committee Notes = DeviceUseRequest.subject
@@ -145,7 +145,7 @@
   Card. = 0..1
   Summary = Y
   Type = Reference(Encounter|EpisodeOfCare)
-  Short Label = Encounter or Episode motivating request
+  Short Name = Encounter or Episode motivating request
   Definition = An encounter that provides additional context in which this request is made.
   QUICK mapping = ClinicalStatement.encounter
   Committee Notes = DeviceUseRequest.encounter
@@ -156,7 +156,7 @@
   Card. = 0..1
   Summary = Y
   Type = dateTime| Period| Timing
-  Short Label = Desired time or schedule for use
+  Short Name = Desired time or schedule for use
   Definition = The timing schedule for the use of the device. The Schedule data type allows many different expressions, for example. \"Every 8 hours\"; \"Three times a day\"; \"1/2 an hour before breakfast for 10 days from 23-Dec 2011:\"; \"15 Oct 2013, 17 Oct 2013 and 1 Nov 2013\".
   QUICK mapping = DeviceUse.applicationSchedule
   Committee Notes = DeviceUseRequest.timing[x]
@@ -167,7 +167,7 @@
   Card. = 0..1
   Summary = Y
   Type = dateTime
-  Short Label = When recorded
+  Short Name = When recorded
   Definition = When the request transitioned to being actionable
   QUICK mapping = ClinicalStatement.statementDateTime
   Committee Notes = DeviceUseRequest.recordedOn
@@ -178,7 +178,7 @@
   Card. = 0..1
   Summary = Y
   Type = Reference(Device|Practitioner|Organization)
-  Short Label = Who/what is requesting diagnostics
+  Short Name = Who/what is requesting diagnostics
   Definition = Who/what is requesting diagnostics.  The practitioner that holds legal responsibility for ordering the investigation.
   w5 = who.author
 
@@ -188,7 +188,7 @@
   Summary = Y
   Type = CodeableConcept
   Binding = DeviceUseRequestParticipantRole
-  Short Label = Fille role
+  Short Name = Fille role
   Definition = Desired type of performer for doing the diagnostic testing.
   w5 = who.actor
 
@@ -197,7 +197,7 @@
   Card. = 0..1
   Summary = Y
   Type = Reference(Practitioner | Organization | Patient | Device | RelatedPerson)
-  Short Label = Requested Filler
+  Short Name = Requested Filler
   Definition = The desired perfomer for doing the diagnostic testing.
   w5 = who.actor
 
@@ -207,7 +207,7 @@
   Summary = Y
   Type = CodeableConcept
   Binding = DeviceUseRequestReason
-  Short Label = Coded Reason for request
+  Short Name = Coded Reason for request
   Definition = Reason or justification for the use of this device.
   QUICK mapping = Action.indication.reason
   Committee Notes = DeviceUseRequest.indication
@@ -218,7 +218,7 @@
   Card. = 0..*
   Summary = Y
   Type = Reference(Any)
-  Short Label = Linked Reason for request
+  Short Name = Linked Reason for request
   Definition = Reason or justification for the use of this device.
   w5 = why
 
@@ -226,7 +226,7 @@
   Element = DeviceUseRequest.supportingInfo
   Card. = 0..*
   Type = Reference(Any)
-  Short Label = Additional clinical information
+  Short Name = Additional clinical information
   Definition = Additional clinical information about the patient that may influence the request fulfilment.  For example, this may includes body where on the subject\'s the device will be used ( i.e. the target site).
   Requirements = Knowing where the device is targeted is important for tracking if multiple sites are possible.
 
@@ -234,7 +234,7 @@
   Element = DeviceUseRequest.note
   Card. = 0..*
   Type = Annotation
-  Short Label = Notes or comments
+  Short Name = Notes or comments
   Definition = Details about this request that were not represented at all or sufficiently in one of the attributes provided in a class. These may include for example a comment, an instruction, or a note associated with the statement.
   QUICK mapping = ClinicalStatement.additionalText
   Committee Notes = DeviceUseRequest.notes
@@ -243,7 +243,7 @@
   Element = DeviceUseRequest.relevantHistory
   Card. = 0..*
   Type = Reference(Provenance)
-  Short Label = Request provenance
+  Short Name = Request provenance
   Definition = Key events in the history of the request.
   Comments = This may not include provenances for all versions of the request – only those deemed “relevant” or important.\rThis SHALL NOT include the Provenance associated with this current version of the resource.  (If that provenance is deemed to be a “relevant” change, it will need to be added as part of a later update.  Until then, it can be queried directly as the Provenance that points to this version using _revinclude\rAll Provenances should have some historical version of this Request as their subject.
 

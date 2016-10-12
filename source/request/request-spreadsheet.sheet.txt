@@ -101,7 +101,7 @@
  -- Row 1 -----------------------------------
   Element = Request
   Type = Logical
-  Short Label = Request Pattern
+  Short Name = Request Pattern
   Definition = A pattern to be followed by resources that represent a specific proposal, plan and/or order for some sort of action or service
   RIM Mapping = Act[moodCode<=INT]
 
@@ -110,7 +110,7 @@
   Card. = 0..1
   Summary = Y
   Type = Identifier
-  Short Label = Business Identifer for request/order
+  Short Name = Business Identifer for request/order
   Definition = Identifiers assigned to this request by the requester, performer and other systems
   Requirements = Allows identification of the request as it is known by various participating systems and in a way that remains consistent across servers
   Comments = The identifier.type element is used to distinguish between the identifiers assigned by the requester/placer and the performer/filler.
@@ -122,7 +122,7 @@
   Card. = 0..*
   Summary = Y
   Type = Reference(Definition)
-  Short Label = Instantiates protocol or definition
+  Short Name = Instantiates protocol or definition
   Definition = A protocol, guideline, orderset or other definition that is adhered to in whole or in part by this request
   Comments = [The allowed reference resources may be adjusted as appropriate for the request resource]
   RIM Mapping = .outboundRelationship[typeCode=DEFN].target
@@ -133,7 +133,7 @@
   Aliases = fufills
   Summary = Y
   Type = Reference(Request)
-  Short Label = Fulfills plan, proposal or order
+  Short Name = Fulfills plan, proposal or order
   Definition = A plan, proposal or order that is fulfilled in whole or in part by this request
   Requirements = Allows tracing of authorization for the request and tracking whether proposals/recommendations were acted upon
   Comments = [The allowed reference resources may be adjusted as appropriate for the request resource]
@@ -145,7 +145,7 @@
   Aliases = supersedes, prior, renewed order
   Summary = Y
   Type = Reference(Request)
-  Short Label = Request(s) replaced by this request
+  Short Name = Request(s) replaced by this request
   Definition = Completed or terminated request(s) whose function is taken by this new request
   Requirements = Allows tracing the continuation of a therapy or administrative process instantiated through multiple requests
   Comments = The replacement could be because the initial request was immediately rejected (due to an issue) or because the previous request was completed, but the need for the action described by the request remains ongoing.
@@ -157,7 +157,7 @@
   Aliases = grouperId
   Summary = Y
   Type = Identifier
-  Short Label = Composite request this is part of
+  Short Name = Composite request this is part of
   Definition = A shared identifier common to all requests that were authorized more or less simultaneously by a single author, representing the identifier of the requisition, prescription or similar form.
   Requirements = Some business processes need to know if multiple items were ordered as part of the same \"prescription\" or \"requisition\" for billing or other purposes.
   Comments = Requests are linked either by a \"basedOn\" relationship (i.e. one request is fulfilling another) or by having a common requisition.  Requests that are part of the same requisition are generally treated independently from the perspective of changing their state or maintaining them after initial creation.
@@ -170,7 +170,7 @@
   Summary = Y
   Type = code
   Binding = RequestStatus
-  Short Label = draft | active | suspended | cancelled | completed | entered-in-error
+  Short Name = draft | active | suspended | cancelled | completed | entered-in-error
   Definition = The current state of the request
   Comments = The status is generally fully in the control of the requester - they determine whether the order is competed, cancelled, etc. after it has been activated.  States relating to the activities of the performer are reflected on either the corresponding [[[Event]]](s) or using the [[[Task]]] resource
   RIM Mapping = .status
@@ -185,7 +185,7 @@
   Summary = Y
   Type = CodeableConcept
   Binding = RequestStage
-  Short Label = proposal | plan | order +
+  Short Name = proposal | plan | order +
   Definition = Indicates the level of authority/intentionality associated with the request and where the request fits into the workflow chain.
   Requirements = Proposals/recommendations, plans and orders all use the same structure and can exist in the same fulfillment chain.
   Comments = The stage of a request is immutable.  I.e. proposals don\'t change to plans or plans change to orders.  Instead, a new instance of the appropriate stage is created \"basedOn\" the instance with the prior stage.\n\n[The value set is extensible to allow inclusion of additional order layers.  For example Encoded orders and MARs for pharmacy, Reflex orders for lab, etc.
@@ -200,7 +200,7 @@
   Summary = Y
   Type = CodeableConcept
   Binding = RequestCode
-  Short Label = What\'s being requested/ordered
+  Short Name = What\'s being requested/ordered
   Definition = A code that identifies the specific service or action being requested
   RIM Mapping = .code
   w5 = what
@@ -211,7 +211,7 @@
   Aliases = patient
   Summary = Y
   Type = Reference(Patient|Group)
-  Short Label = Individual the service is ordered for
+  Short Name = Individual the service is ordered for
   Definition = The individual or set of individuals the action is to be performed on or for.
   Requirements = Links the request to the Patient context
   Comments = [For resources that aren\'t patient-specific, the set of allowed resources may be extended to include other things.  Group should generally be retained unless there\'s certainty this resource won\'t be used for veterinary, research or public health settings where Group may be necessary (e.g. this cage of rats/crate of chickens, group of people in a 5 mile radious of the incident, etc.)]
@@ -225,7 +225,7 @@
   Aliases = encounter
   Summary = Y
   Type = Reference(Encounter|EpisodeOfCare)
-  Short Label = Encounter / Episode associated with request
+  Short Name = Encounter / Episode associated with request
   Definition = The encounter or episode of care that establishes the context for making this request
   Requirements = Links the request to the Encounter context
   Comments = This will typically be the encounter the request was created during, but some requests may be initiated prior to or after the official completion of an encounter or episode but still be tied to the context of the encounter or episode (e.g. pre-admission lab tests).
@@ -238,7 +238,7 @@
   Aliases = timing
   Summary = Y
   Type = dateTime|Period|Timing
-  Short Label = When service should occur
+  Short Name = When service should occur
   Definition = The date or time(s) at which the activity or service is desired to occur.
   Comments = [The list of types may be constrained as appropriate for the type of event]
   RIM Mapping = .effectiveTime
@@ -250,7 +250,7 @@
   Aliases = created
   Summary = Y
   Type = dateTime
-  Short Label = When request transitioned to being actionable
+  Short Name = When request transitioned to being actionable
   Definition = For draft requests, indicates the date of initial creation.  For requests with other statuses, indicates the date of activation.
   RIM Mapping = .participation[typeCode=AUT].time
   To Do = Do we need a \"status date\" too (for when the request was suspended, cancelled, etc.)
@@ -262,7 +262,7 @@
   Aliases = author
   Summary = Y
   Type = Reference(Practitioner|Organization|Patient|RelatedPerson|Device)
-  Short Label = Who/what is requesting service
+  Short Name = Who/what is requesting service
   Definition = The individual who initiated the request and has responsibility for its activation
   RIM Mapping = .participation[typeCode=AUT].role
   w5 = who.author
@@ -273,7 +273,7 @@
   Summary = Y
   Type = CodeableConcept
   Binding = PerformerType
-  Short Label = Desired kind of service performer
+  Short Name = Desired kind of service performer
   Definition = The type of individual that is desired to act upon the request
   Comments = If performer is also specified, this indicates what type of performer is desired in the event the requested performer is not available.
   RIM Mapping = .participation[typeCode=PRF].role[scoper.determinerCode=KIND].code
@@ -285,7 +285,7 @@
   Card. = 0..1
   Summary = Y
   Type = Reference(Practitioner|Organization|Patient|Device|RelatedPerson)
-  Short Label = Specific desired performer
+  Short Name = Specific desired performer
   Definition = Indicates who or what is being asked to perform the request
   RIM Mapping = .participation[typeCode=PRF].role[scoper.determinerCode=INSTANCE]
   w5 = who.actor
@@ -296,7 +296,7 @@
   Summary = Y
   Type = CodeableConcept
   Binding = RequestReason
-  Short Label = Why is service needed?
+  Short Name = Why is service needed?
   Definition = Describes why the request is being made in coded or textual form.
   Comments = Textual reasons can be caprued using reasonCode.text
   RIM Mapping = .reasonCode
@@ -307,7 +307,7 @@
   Card. = 0..*
   Summary = Y
   Type = Reference(Condition|Observation)
-  Short Label = Why is service needed?
+  Short Name = Why is service needed?
   Definition = Indicates another resource whose existence justifies this request
   Comments = [Additional resources may be added as appropriate]
   RIM Mapping = .outboundRelationship[typeCode=RSON].target
@@ -317,7 +317,7 @@
   Element = Request.supportingInfo
   Card. = 0..1
   Type = Reference(Any)
-  Short Label = Extra information to use in performing request
+  Short Name = Extra information to use in performing request
   Definition = Information that may be needed by/relevant to the performer in their execution of this request
   RIM Mapping = .outboundRelationship[typeCode=PERT].target
 
@@ -325,7 +325,7 @@
   Element = Request.note
   Card. = 0..*
   Type = Annotation
-  Short Label = Comments made about service request
+  Short Name = Comments made about service request
   Definition = Comments made about the request by the requester, performer, subject or other participants.
   RIM Mapping = .inboundRelationship(typeCode=SUBJ].source[classCode=ANNGEN, moodCode=EVN].value[xsi:type=ST]
 
@@ -334,7 +334,7 @@
   Card. = 0..*
   Aliases = eventHistory
   Type = Reference(Provenance)
-  Short Label = Key events in history of request
+  Short Name = Key events in history of request
   Definition = Links to Provenance records for past versions of this resource or fulfilling request or event resources that identify key state transitions or updates that are likely to be relevant to a user looking at the current version of the resource.
   Comments = This element does not point to the Provenance associated with the *current* version of the resource - as it would be created after this version existed.  The Provenance for the current version can be retrieved with a _revinclude.
   RIM Mapping = .inboundRelationship(typeCode=SUBJ].source[classCode=CACT, moodCode=EVN]

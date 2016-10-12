@@ -15,7 +15,7 @@
  -- Row 1 -----------------------------------
   Element = Ratio
   Type = Type
-  Short Label = A ratio of two Quantity values - a numerator and a denominator
+  Short Name = A ratio of two Quantity values - a numerator and a denominator
   Definition = A relationship of two Quantity values - expressed as a numerator and a denominator.
   Requirements = Need to able to capture ratios for some measurements (titers) and some rates (costs)
   v2 Mapping = N/A
@@ -25,7 +25,7 @@
   Element = Ratio.numerator
   Card. = 0..1
   Type = Quantity
-  Short Label = Numerator value
+  Short Name = Numerator value
   Definition = The value of the numerator
   RIM Mapping = .numerator
 
@@ -33,6 +33,6 @@
   Element = Ratio.denominator
   Card. = 0..1
   Type = Quantity
-  Short Label = Denominator value
+  Short Name = Denominator value
   Definition = The value of the denominator
   RIM Mapping = .denominator

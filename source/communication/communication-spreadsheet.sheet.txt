@@ -66,7 +66,7 @@
   Element = Communication
   UML = 0;0
   Type = DomainResource
-  Short Label = A record of information transmitted from a sender to a receiver
+  Short Name = A record of information transmitted from a sender to a receiver
   Definition = An occurrence of information being transmitted; e.g. an alert that was sent to a responsible provider, a public health agency was notified about a reportable condition.
   w5 = workflow.encounter
 
@@ -74,7 +74,7 @@
   Element = Communication.identifier
   Card. = 0..*
   Type = Identifier
-  Short Label = Unique identifier
+  Short Name = Unique identifier
   Definition = Identifiers associated with this Communication that are defined by business processes and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).
   w5 = id
 
@@ -82,7 +82,7 @@
   Element = Communication.basedOn
   Card. = 0..*
   Type = Reference(Any)
-  Short Label = Request fulfilled by this communication
+  Short Name = Request fulfilled by this communication
   Definition = An order, proposal or plan fulfilled in whole or in part by this Communication
   Comments = This must point to some sort of a \'Request\' resource, such as CarePlan, CommunicationRequest, ReferralRequest, MedicationOrder, etc.
 
@@ -90,7 +90,7 @@
   Element = Communication.parent
   Card. = 0..*
   Type = Reference(Any)
-  Short Label = Part of this action
+  Short Name = Part of this action
   Comments = This must point to some sort of an \'Event\' resource such as Communication, Procedure, MedicationAdministration, etc.
 
  -- Row 5 -----------------------------------
@@ -99,7 +99,7 @@
   Is Modifier = Y
   Type = code
   Binding = CommunicationStatus
-  Short Label = in-progress | completed | suspended | rejected | failed
+  Short Name = in-progress | completed | suspended | rejected | failed
   Definition = The status of the transmission.
   w5 = status
 
@@ -108,7 +108,7 @@
   Card. = 0..1
   Type = CodeableConcept
   Binding = CommunicationCategory
-  Short Label = Message category
+  Short Name = Message category
   Definition = The type of message conveyed such as alert, notification, reminder, instruction, etc.
   w5 = class
 
@@ -117,14 +117,14 @@
   Card. = 0..*
   Type = CodeableConcept
   Binding = CommunicationMedium
-  Short Label = A channel of communication
+  Short Name = A channel of communication
   Definition = A channel that was used for this communication (e.g. email, fax).
 
  -- Row 8 -----------------------------------
   Element = Communication.subject
   Card. = 0..1
   Type = Reference(Patient|Group)
-  Short Label = Focus of message
+  Short Name = Focus of message
   Definition = The patient who was the focus of this communication.
   w5 = who.focus
 
@@ -132,7 +132,7 @@
   Element = Communication.topic
   Card. = 0..*
   Type = Reference(Any)
-  Short Label = Focal resources
+  Short Name = Focal resources
   Definition = The resources which were responsible for or related to producing this communication.
   w5 = context
 
@@ -140,7 +140,7 @@
   Element = Communication.context
   Card. = 0..1
   Type = Reference(Encounter|EpisodeOfCare)
-  Short Label = Encounter or episode leading to message
+  Short Name = Encounter or episode leading to message
   Definition = The encounter within which the communication was sent.
   w5 = context
 
@@ -148,7 +148,7 @@
   Element = Communication.sent
   Card. = 0..1
   Type = dateTime
-  Short Label = When sent
+  Short Name = When sent
   Definition = The time when this communication was sent.
   w5 = when.init
 
@@ -156,7 +156,7 @@
   Element = Communication.received
   Card. = 0..1
   Type = dateTime
-  Short Label = When received
+  Short Name = When received
   Definition = The time when this communication arrived at the destination.
   w5 = when.done
 
@@ -164,7 +164,7 @@
   Element = Communication.sender
   Card. = 0..1
   Type = Reference(Device|Organization|Patient|Practitioner|RelatedPerson)
-  Short Label = Message sender
+  Short Name = Message sender
   Definition = The entity (e.g. person, organization, clinical information system, or device) which was the source of the communication.
   w5 = who.actor
 
@@ -172,7 +172,7 @@
   Element = Communication.recipient
   Card. = 0..*
   Type = Reference(Device|Organization|Patient|Practitioner|RelatedPerson|Group)
-  Short Label = Message recipient
+  Short Name = Message recipient
   Definition = The entity (e.g. person, organization, clinical information system, or device) which was the target of the communication. If receipts need to be tracked by individual, a separate resource instance will need to be created for each recipient.  Multiple recipient communications are intended where either a receipt(s) is not tracked (e.g. a mass mail-out) or is captured in aggregate (all emails confirmed received by a particular time).
   w5 = who.focus
 
@@ -181,7 +181,7 @@
   Card. = 0..*
   Type = CodeableConcept
   Binding = CommunicationReason
-  Short Label = Indication for message
+  Short Name = Indication for message
   Definition = The reason or justification for the communication.
   w5 = why
 
@@ -189,21 +189,21 @@
   Element = Communication.payload
   Card. = 0..*
   UML = 380;50
-  Short Label = Message payload
+  Short Name = Message payload
   Definition = Text, attachment(s), or resource(s) that was communicated to the recipient.
 
  -- Row 17 -----------------------------------
   Element = Communication.payload.content[x]
   Card. = 1..1
   Type = string|Attachment|Reference(Any)
-  Short Label = Message part content
+  Short Name = Message part content
   Definition = A communicated content (or for multi-part communications, one portion of the communication)
 
  -- Row 18 -----------------------------------
   Element = Communication.note
   Card. = 0..*
   Type = Annotation
-  Short Label = Comments made about the communication
+  Short Name = Comments made about the communication
   Definition = Additional notes or commentary about the communication by the sender, receiver or other interested parties.
 
 === Sheet Search =====================================

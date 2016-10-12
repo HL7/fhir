@@ -17,7 +17,7 @@
   Element = Basic
   Aliases = Z-resource, Extension-resource, Custom-resource
   Type = DomainResource
-  Short Label = Resource for non-supported content
+  Short Name = Resource for non-supported content
   Definition = Basic is used for handling concepts not yet defined in FHIR, narrative-only resources that don\'t map to an existing resource, and custom resources not appropriate for inclusion in the FHIR specification.
   Requirements = Need some way to safely (without breaking interoperability) allow implementers to exchange content not supported by the initial set of declared resources.
   RIM Mapping = Act, Entity or Role
@@ -27,7 +27,7 @@
   Element = Basic.identifier
   Card. = 0..*
   Type = Identifier
-  Short Label = Business identifier
+  Short Name = Business identifier
   Definition = Identifier assigned to the resource for business purposes, outside the context of FHIR
   RIM Mapping = ./identifier
   w5 = id
@@ -38,7 +38,7 @@
   Is Modifier = Y
   Type = CodeableConcept
   Binding = BasicResourceType
-  Short Label = Kind of Resource
+  Short Name = Kind of Resource
   Definition = Identifies the \'type\' of resource - equivalent to the resource name for other resources.
   Requirements = Must be able to distinguish different types of \"basic\" resources.
   Comments = Because resource references will only be able to indicate \'Basic\', the type of reference will need to be specified in a Profile identified as part of the resource.  Refer to the resource notes section for information on appropriate terminologies for this code.
@@ -49,7 +49,7 @@
   Element = Basic.subject
   Card. = 0..1
   Type = Reference(Any)
-  Short Label = Identifies the focus of this resource
+  Short Name = Identifies the focus of this resource
   Definition = Identifies the patient, practitioner, device or any other resource that is the \"focus\" of this resource.
   Requirements = Needed for partitioning the resource by Patient.
   Comments = Optional as not all resources potential resources will have subjects.  Resources associated with multiple subjects can handle this via extension.
@@ -60,7 +60,7 @@
   Element = Basic.created
   Card. = 0..1
   Type = date
-  Short Label = When created
+  Short Name = When created
   Definition = Identifies when the resource was first created
   Requirements = Allows ordering resource instances by time
   RIM Mapping = ./participation[typeCode=\'AUT\']/time (possibly through a ControlAct and Role)
@@ -70,7 +70,7 @@
   Element = Basic.author
   Card. = 0..1
   Type = Reference(Practitioner|Patient|RelatedPerson)
-  Short Label = Who created
+  Short Name = Who created
   Definition = Indicates who was responsible for creating the resource instance
   Requirements = Needed for partitioning the resource
   RIM Mapping = ./participation[typeCode=\'SUB\'] (possibly through a ControlAct and Role)

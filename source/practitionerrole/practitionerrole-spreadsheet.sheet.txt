@@ -30,7 +30,7 @@
   Element = PractitionerRole
   UML = 0;0
   Type = DomainResource
-  Short Label = Roles/organizations the practitioner is associated with
+  Short Name = Roles/organizations the practitioner is associated with
   Definition = A specific set of Roles/Locations/specialties/services that a practitioner may perform at an organization for a period of time
   Requirements = Need to track services that a healthcare provider is able to provide at an organization\'s location, and the services that they can perform there
   v2 Mapping = PRD (as one example)
@@ -43,7 +43,7 @@
   Card. = 0..*
   Summary = y
   Type = Identifier
-  Short Label = Business Identifiers that are specific to a role/location
+  Short Name = Business Identifiers that are specific to a role/location
   Requirements = Often, specific identities are assigned for the agent
   v2 Mapping = PRD-7 (or XCN.1)
   RIM Mapping = ./id
@@ -56,7 +56,7 @@
   Card. = 0..1
   Summary = y
   Type = boolean
-  Short Label = Whether this practitioner\'s record is in active use
+  Short Name = Whether this practitioner\'s record is in active use
   Definition = Whether this practitioner\'s record is in active use
   Requirements = Need to be able to mark a practitioner record as not to be used because it was created in error
   Comments = Default is true. \n\nIf the practitioner is not in use by one organization, then it should mark the period on the PractitonerRole with an end date (even if they are active) as they may be active in another role.
@@ -69,7 +69,7 @@
   Card. = 0..1
   Summary = y
   Type = Reference(Practitioner)
-  Short Label = Practitioner that is able to provide the defined services for the organation
+  Short Name = Practitioner that is able to provide the defined services for the organation
   RIM Mapping = .player
 
  -- Row 5 -----------------------------------
@@ -77,7 +77,7 @@
   Card. = 0..1
   Summary = y
   Type = Reference(Organization)
-  Short Label = Organization where the roles are available
+  Short Name = Organization where the roles are available
   Definition = The organization where the Practitioner performs the roles associated
   RIM Mapping = scopingOrganization
 
@@ -87,7 +87,7 @@
   Summary = y
   Type = CodeableConcept
   Binding = PractitionerRole
-  Short Label = Roles which this practitioner may perform
+  Short Name = Roles which this practitioner may perform
   Definition = Roles which this practitioner is authorized to perform for the organization
   Requirements = Need to know what authority the practitioner has - what can they do?
   Comments = A person may have more than one role. At least one role is required.
@@ -101,7 +101,7 @@
   Summary = y
   Type = CodeableConcept
   Binding = PractitionerSpecialty
-  Short Label = Specific specialty of the practitioner
+  Short Name = Specific specialty of the practitioner
   Definition = Specific specialty of the practitioner
   v2 Mapping = PRA-5
   RIM Mapping = indirectAuthority/QualifiedEntity[code < Speciality]/code
@@ -112,7 +112,7 @@
   Card. = 0..*
   Summary = y
   Type = Reference(Location)
-  Short Label = The location(s) at which this practitioner provides care
+  Short Name = The location(s) at which this practitioner provides care
   Definition = The location(s) at which this practitioner provides care
   RIM Mapping = ./target[classCode=\"indirectAuthority].source[classCode=SDLOC]
   ServD Mapping = (ServD maps Practitioners and Organizations via another entity, so this concept is not available)<br/> However these are accessed via the Site.ServiceSite.ServiceSiteProvider record. (The Site has the location)
@@ -122,7 +122,7 @@
   Element = PractitionerRole.healthcareService
   Card. = 0..*
   Type = Reference(HealthcareService)
-  Short Label = The list of healthcare services that this worker provides for this role\'s Organization/Location(s)
+  Short Name = The list of healthcare services that this worker provides for this role\'s Organization/Location(s)
   RIM Mapping = ./target[classCode=\"indirectAuthority].id?
 
  -- Row 10 -----------------------------------
@@ -130,7 +130,7 @@
   Card. = 0..*
   Summary = y
   Type = ContactPoint
-  Short Label = Contact details that are specific to the role/location/service
+  Short Name = Contact details that are specific to the role/location/service
   Requirements = Often practitioners have a dedicated line for each location (or service) that they work at, and need to be able to define separate contact details for each of these.
   RIM Mapping = .telecom
 
@@ -139,7 +139,7 @@
   Card. = 0..1
   Summary = y
   Type = Period
-  Short Label = The period during which the practitioner is authorized to perform in these role(s)
+  Short Name = The period during which the practitioner is authorized to perform in these role(s)
   Definition = The period during which the person is authorized to act as a practitioner in these role(s) for the organization
   Requirements = Even after the agencies is revoked, the fact that it existed must still be recorded
   v2 Mapping = PRD-8/9 / PRA-5.4
@@ -152,7 +152,7 @@
   Element = PractitionerRole.availableTime
   Card. = 0..*
   UML = 390;0
-  Short Label = Times the Service Site is available
+  Short Name = Times the Service Site is available
   Definition = A collection of times that the Service Site is available
   Comments = More detailed availability information may be provided in associated Schedule/Slot resources.
   RIM Mapping = ./effectiveTime
@@ -162,7 +162,7 @@
   Card. = 0..*
   Type = code
   Binding = DaysOfWeek
-  Short Label = mon | tue | wed | thu | fri | sat | sun
+  Short Name = mon | tue | wed | thu | fri | sat | sun
   Definition = Indicates which days of the week are available between the start and end Times
   RIM Mapping = ./effectiveTime
 
@@ -170,7 +170,7 @@
   Element = PractitionerRole.availableTime.allDay
   Card. = 0..1
   Type = boolean
-  Short Label = Always available? e.g. 24 hour service
+  Short Name = Always available? e.g. 24 hour service
   Definition = Is this always available? (hence times are irrelevant) e.g. 24 hour service
   RIM Mapping = ./effectiveTime
 
@@ -178,7 +178,7 @@
   Element = PractitionerRole.availableTime.availableStartTime
   Card. = 0..1
   Type = time
-  Short Label = Opening time of day (ignored if allDay = true)
+  Short Name = Opening time of day (ignored if allDay = true)
   Definition = The opening time of day. Note: If the AllDay flag is set, then this time is ignored
   Comments = The timezone is expected to be for where this HealthcareService is provided at.
   RIM Mapping = ./effectiveTime
@@ -187,7 +187,7 @@
   Element = PractitionerRole.availableTime.availableEndTime
   Card. = 0..1
   Type = time
-  Short Label = Closing time of day (ignored if allDay = true)
+  Short Name = Closing time of day (ignored if allDay = true)
   Definition = The closing time of day. Note: If the AllDay flag is set, then this time is ignored
   Comments = The timezone is expected to be for where this HealthcareService is provided at.
   RIM Mapping = ./effectiveTime
@@ -196,7 +196,7 @@
   Element = PractitionerRole.notAvailable
   Card. = 0..*
   UML = 390;150
-  Short Label = Not available during this time due to provided reason
+  Short Name = Not available during this time due to provided reason
   Definition = The HealthcareService is not available during this period of time due to the provided reason
   RIM Mapping = ./effectiveTime
 
@@ -204,7 +204,7 @@
   Element = PractitionerRole.notAvailable.description
   Card. = 1..1
   Type = string
-  Short Label = Reason presented to the user explaining why time not available
+  Short Name = Reason presented to the user explaining why time not available
   Definition = The reason that can be presented to the user as to why this time is not available
   RIM Mapping = n/a
 
@@ -212,7 +212,7 @@
   Element = PractitionerRole.notAvailable.during
   Card. = 0..1
   Type = Period
-  Short Label = Service not availablefrom this date
+  Short Name = Service not availablefrom this date
   Definition = Service is not available (seasonally or for a public holiday) from this date
   RIM Mapping = ./effectiveTime
 
@@ -220,7 +220,7 @@
   Element = PractitionerRole.availabilityExceptions
   Card. = 0..1
   Type = string
-  Short Label = Description of availability exceptions
+  Short Name = Description of availability exceptions
   Definition = A description of site availability exceptions, e.g. public holiday availability. Succinctly describing all possible exceptions to normal site availability as details in the available Times and not available Times
   RIM Mapping = ./effectiveTime
 
@@ -228,7 +228,7 @@
   Element = PractitionerRole.endpoint
   Card. = 0..*
   Type = Reference(Endpoint)
-  Short Label = Technical endpoints providing access to services operated for the practitioner with this role
+  Short Name = Technical endpoints providing access to services operated for the practitioner with this role
   Requirements = Organizations have multiple systems that provide various services and ,ay also be different for practitioners too.\n\nSo the endpoint satisfies the need to be able to define the technical connection details for how to connect to them, and for what purpose.
   RIM Mapping = n/a
 

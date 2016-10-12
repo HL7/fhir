@@ -45,7 +45,7 @@
  -- Row 1 -----------------------------------
   Element = DiagnosticRequest
   Type = DomainResource
-  Short Label = A request for a diagnostic service
+  Short Name = A request for a diagnostic service
   Definition = A record of a request for a diagnostic investigation service to be performed.
   RIM Mapping = Observation[classCode=OBS, moodCode=RQO, code<\"diagnostic order\"]
   Committee Notes = [#5279]
@@ -56,7 +56,7 @@
   Card. = 0..*
   Summary = Y
   Type = Identifier
-  Short Label = Identifiers assigned to this order
+  Short Name = Identifiers assigned to this order
   Definition = Identifiers assigned to this order instance by the orderer and/or  the receiver and/or order fulfiller.
   Comments = The identifier.type element is used to distinguish between the identifiers assigned by the orderer (known as the \'Placer\' in HL7 v2) and the producer of the observations in response to the order (known as the \'Filler\' in HL7 v2). For further discussion and examples see the [notes section](diagnosticrequest.html#4.22.4) below.
   RIM Mapping = .id
@@ -68,7 +68,7 @@
   Card. = 0..*
   Summary = Y
   Type = Reference(Any)
-  Short Label = Protocol or definition
+  Short Name = Protocol or definition
   Definition = Protocol or definition followed by this request
   Committee Notes = [#10296]
 
@@ -77,7 +77,7 @@
   Card. = 0..*
   Summary = Y
   Type = Reference(Any)
-  Short Label = What request fulfills
+  Short Name = What request fulfills
   Definition = Plan/proposal/order fulfilled by this request
   Committee Notes = [#10296]
 
@@ -86,7 +86,7 @@
   Card. = 0..*
   Summary = Y
   Type = Reference(Any)
-  Short Label = What request replaces
+  Short Name = What request replaces
   Definition = The request takes the place of the referenced completed or terminated request(s)
   Committee Notes = [#10296]
 
@@ -95,7 +95,7 @@
   Card. = 0..1
   Summary = Y
   Type = Identifier
-  Short Label = Identifier of composite request
+  Short Name = Identifier of composite request
   Definition = Composite request this is part of
   Committee Notes = [#10296]
 
@@ -106,7 +106,7 @@
   Summary = Y
   Type = code
   Binding = DiagnosticRequestStatus
-  Short Label = draft | active | suspended | completed | entered-in-error | cancelled
+  Short Name = draft | active | suspended | completed | entered-in-error | cancelled
   Definition = The status of the order
   Comments = Typically the system placing the order sets the status to \"requested\". Thereafter, the order is maintained by the receiver that updates the status as the request is handled
   RIM Mapping = .statusCode also influenced by whether a ControlAct fulfillment requeste exists, whether a promise exists, status of the review component, whether a fulfilling observation exists, whether a refusal exists
@@ -120,7 +120,7 @@
   Summary = Y
   Type = CodeableConcept
   Binding = DiagnosticRequestStage
-  Short Label = proposal | plan | original-order | reflex-order
+  Short Name = proposal | plan | original-order | reflex-order
   Definition = Whether the request is a proposal, plan, an original order or a reflex order.
   Committee Notes = [#3720][#10296]
   w5 = class
@@ -131,7 +131,7 @@
   Summary = Y
   Type = CodeableConcept
   Binding = DiagnosticRequests
-  Short Label = What’s being requested/ordered
+  Short Name = What’s being requested/ordered
   Definition = A code that identifies a particular diagnostic investigation, or panel of investigations, that have been requested
   Comments = Many laboratory tests and radiology tests embed the specimen/organ system in the test name, for example,  serum or serum/plasma glucose, or a chest xray. The specimen may not be recorded separately from the test code.
   v2 Mapping = OBX-4
@@ -144,7 +144,7 @@
   Card. = 1..1
   Summary = Y
   Type = Reference(Patient|Group|Location|Device)
-  Short Label = Individual the test is ordered for
+  Short Name = Individual the test is ordered for
   Definition = On whom or what the investigation is to be performed. This is usually a human patient, but diagnostic tests can also be requested on animals, groups of humans or animals, devices such as dialysis machines, or even locations (typically for environmental scans)
   RIM Mapping = .participation[typeCode=SBJ].role
   Committee Notes = [#10296]
@@ -155,7 +155,7 @@
   Card. = 0..1
   Summary = Y
   Type = Reference(Encounter|EpisodeOfCare)
-  Short Label = Encounter or Episode during which request was created
+  Short Name = Encounter or Episode during which request was created
   Definition = An encounter or episode of care that provides additional information about the healthcare context in which this request is made
   RIM Mapping = .inboundRelationship[typeCode=COMP].source[classCode=ENC, moodCode=EVN]
   Committee Notes = [#10296]
@@ -166,7 +166,7 @@
   Card. = 0..1
   Summary = Y
   Type = dateTime| Period| Timing
-  Short Label = When testing should occur
+  Short Name = When testing should occur
   Definition = The date/time at which the diagnostic testing should occur.
   RIM Mapping = .effectiveTime
   Committee Notes = [#10296]
@@ -177,7 +177,7 @@
   Card. = 0..1
   Summary = Y
   Type = dateTime
-  Short Label = Date request signed
+  Short Name = Date request signed
   Definition = When the request transitioned to being actionable
   Committee Notes = [#10296]
   w5 = when.recorded
@@ -187,7 +187,7 @@
   Card. = 0..1
   Summary = Y
   Type = Reference(Device|Practitioner|Organization)
-  Short Label = Who/what is requesting diagnostics
+  Short Name = Who/what is requesting diagnostics
   Definition = Who/what is requesting diagnostics.  The practitioner that holds legal responsibility for ordering the investigation.
   Comments = This not the dispatcher, but rather who is authorizing
   RIM Mapping = .participation[typeCode=AUT].role
@@ -200,7 +200,7 @@
   Summary = Y
   Type = CodeableConcept
   Binding = DiagnosticRequestParticipantRole
-  Short Label = Performer role
+  Short Name = Performer role
   Definition = Desired type of performer for doing the diagnostic testing. (
   Comments = this is a  role, not  aparticipation type.  I.e. doesn’t describe the task, describes the capacity.  Examples “compounding pharmacy” or “psychiatrist” or “internal referral”
   Committee Notes = [#10296]
@@ -211,7 +211,7 @@
   Card. = 0..1
   Summary = Y
   Type = Reference(Practitioner | Organization | Patient | Device | RelatedPerson)
-  Short Label = Requested perfomer
+  Short Name = Requested perfomer
   Definition = The desired perfomer for doing the diagnostic testing.
   Comments = Use an [extension] (extensibility.html) or listing alternative alternative performers and/or roles and/or preference.
   RIM Mapping = .participation[AUT or PFM]
@@ -224,7 +224,7 @@
   Summary = Y
   Type = CodeableConcept
   Binding = DiagnosticRequestReason
-  Short Label = Explanation/Justification for test
+  Short Name = Explanation/Justification for test
   Definition = An explanation or justification for why this diagnostic investigation is being requested.   This is often for billing purposes.  May relate to the resources referred to in supportingInformation.
   Comments = This may be used to decide how the diagnostic investigation will be performed, or even if it will be performed at all.   Use CodeableConcept text element if the data is free (uncoded) text as shown in the [CT Scan example](diagnosticrequest-example-di.html).
   RIM Mapping = .reasonCode
@@ -236,7 +236,7 @@
   Card. = 0..*
   Aliases = Ask at order entry question, AOE
   Type = Reference(Any)
-  Short Label = Additional clinical information
+  Short Name = Additional clinical information
   Definition = Additional clinical information about the patient or specimen that may influence test interpretations.  This includes observations explicitly requested by the producer(filler) to provide context or supporting information needed to complete the order.
   Comments = This information includes diagnosis, clinical findings and other observations.  In laboratory ordering these are typically referred to as \"ask at order entry questions (AOEs)\". Examples include reporting the amount of inspired oxygen for blood gasses, the point in the menstrual cycle for cervical pap tests, and other conditions that influence test interpretations.
   v2 Mapping = OBR-13
@@ -247,7 +247,7 @@
   Element = DiagnosticRequest.note
   Card. = 0..*
   Type = Annotation
-  Short Label = Comments
+  Short Name = Comments
   Definition = Any other notes and comments made about the service request. (e.g. \"patient hates needles\")
   RIM Mapping = .inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=\"annotation\"].value
   Committee Notes = 7134,8147,[#10296]
@@ -256,7 +256,7 @@
   Element = DiagnosticRequest.relevantHistory
   Card. = 0..*
   Type = Reference(Provenance)
-  Short Label = Request provenance
+  Short Name = Request provenance
   Definition = Key events in the history of the request.
   Comments = This may not include provenances for all versions of the request – only those deemed “relevant” or important.\nThis SHALL NOT include the Provenance associated with this current version of the resource.  (If that provenance is deemed to be a “relevant” change, it will need to be added as part of a later update.  Until then, it can be queried directly as the Provenance that points to this version using _revinclude\nAll Provenances should have some historical version of this Request as their subject.
   Committee Notes = [#10296]

@@ -54,7 +54,7 @@
   Element = DetectedIssue
   Aliases = DDI, drug-drug interaction, Contraindication, Alert
   Type = DomainResource
-  Short Label = Clinical issue with action
+  Short Name = Clinical issue with action
   Definition = Indicates an actual or potential clinical issue with or between one or more active or proposed clinical actions for a patient; e.g. Drug-drug interaction, Ineffective treatment frequency, Procedure-condition conflict, etc.
   v2 Mapping = Partial mapping from messages containing the AL1 or IAM segment, such as the ADT^A01, ADT^A08, and ADT^A60.
   RIM Mapping = Observation[classCode=ALRT, moodCode=EVN)
@@ -65,7 +65,7 @@
   Card. = 0..1
   Summary = y
   Type = Reference(Patient)
-  Short Label = Associated patient
+  Short Name = Associated patient
   Definition = Indicates the patient whose record the detected issue is associated with.
   Requirements = While the subject could be inferred by tracing the subject of the implicated resources, it\'s useful to have a direct link for query purposes.
   v2 Mapping = PID-3
@@ -79,7 +79,7 @@
   Summary = y
   Type = CodeableConcept
   Binding = DetectedIssueCategory
-  Short Label = Issue Category, e.g. drug-drug, duplicate therapy, etc.
+  Short Name = Issue Category, e.g. drug-drug, duplicate therapy, etc.
   Definition = Identifies the general type of issue identified.
   v2 Mapping = AL1-2 / IAM-9
   RIM Mapping = .code
@@ -92,7 +92,7 @@
   Summary = y
   Type = code
   Binding = DetectedIssueSeverity
-  Short Label = high | moderate | low
+  Short Name = high | moderate | low
   Definition = Indicates the degree of importance associated with the identified issue based on the potential impact on the patient
   v2 Mapping = AL1-4/ IAR-2
   RIM Mapping = .inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=SEV].value
@@ -104,7 +104,7 @@
   Aliases = cause
   Summary = y
   Type = Reference(Any)
-  Short Label = Problem resource
+  Short Name = Problem resource
   Definition = Indicates the resource representing the current activity or proposed activity that is potentially problematic
   Comments = There\'s an implicit constraint on the number of implicated resources based on DetectedIssue.type; e.g. For drug-drug, there would be more than one.  For timing, there would typically only be one.
   RIM Mapping = .outboundRelationship[typeCode=SUBJ].target[moodCode=EVN, INT]
@@ -113,7 +113,7 @@
   Element = DetectedIssue.detail
   Card. = 0..1
   Type = string
-  Short Label = Description and context
+  Short Name = Description and context
   Definition = A textual explanation of the detected issue
   Comments = Should focus on information not covered elsewhere as discrete data - no need to duplicate the narrative.
   v2 Mapping = AL1-5 / IAM-8
@@ -124,7 +124,7 @@
   Card. = 0..1
   Summary = y
   Type = dateTime
-  Short Label = When identified
+  Short Name = When identified
   Definition = The date or date-time when the detected issue was initially identified.
   Requirements = No-one can be responsible for mitigation prior to the issue being identified
   v2 Mapping = ALI-6 / IAM-11
@@ -136,7 +136,7 @@
   Card. = 0..1
   Summary = y
   Type = Reference(Practitioner|Device)
-  Short Label = The provider or device that identified the issue
+  Short Name = The provider or device that identified the issue
   Definition = Individual or device responsible for the issue being raised.  For example, a decision support application or a pharmacist conducting a medication review
   v2 Mapping = IAM-14 / IAM-16
   RIM Mapping = .participation[typeCode=AUT].role[classCode=ASSIGNED]
@@ -148,7 +148,7 @@
   Card. = 0..1
   Summary = y
   Type = Identifier
-  Short Label = Unique id for the detected issue
+  Short Name = Unique id for the detected issue
   Definition = Business identifier associated with the detected issue record
   Requirements = Allows linking instances of the same detected issue found on different servers
   v2 Mapping = IAM-7
@@ -159,7 +159,7 @@
   Element = DetectedIssue.reference
   Card. = 0..1
   Type = uri
-  Short Label = Authority for issue
+  Short Name = Authority for issue
   Definition = The literature, knowledge-base or similar reference that describes the propensity for the detected issue identified
   RIM Mapping = .outboundRelationship[typeCode=INST].target[classCode=ALRT, moodCode=DEFN].text.uri
   To Do = Is this in the 80%?
@@ -168,7 +168,7 @@
   Element = DetectedIssue.mitigation
   Card. = 0..*
   UML = 350;0
-  Short Label = Step taken to address
+  Short Name = Step taken to address
   Definition = Indicates an action that has been taken or is committed to to reduce or eliminate the likelihood of the risk identified by the detected issue from manifesting.  Can also reflect an observation of known mitigating factors that may reduce/eliminate the need for any action.
   RIM Mapping = .outboundRelationship[typeCode=MITG].target[classCode=ACT, moodCode=EVN]
   To Do = How much, if any of this is in the 80%?
@@ -178,7 +178,7 @@
   Card. = 1..1
   Type = CodeableConcept
   Binding = DetectedIssueMitigationAction
-  Short Label = What mitigation?
+  Short Name = What mitigation?
   Definition = Describes the action that was taken or the observation that was made that reduces/eliminates the risk associated with the identified issue
   Comments = The \"text\" component can be used for detail or when no appropriate code exists.
   RIM Mapping = .code
@@ -187,7 +187,7 @@
   Element = DetectedIssue.mitigation.date
   Card. = 0..1
   Type = dateTime
-  Short Label = Date committed
+  Short Name = Date committed
   Definition = Indicates when the mitigating action was documented
   Comments = This may not be the same as when the mitigating step was actually taken
   RIM Mapping = .effectiveTime
@@ -196,7 +196,7 @@
   Element = DetectedIssue.mitigation.author
   Card. = 0..1
   Type = Reference(Practitioner)
-  Short Label = Who is committing?
+  Short Name = Who is committing?
   Definition = Identifies the practitioner who determined the mitigation and takes responsibility for the mitigation step occurring
   RIM Mapping = .participation[typeCode=AUT].role[classCode=ASSIGNED]
 

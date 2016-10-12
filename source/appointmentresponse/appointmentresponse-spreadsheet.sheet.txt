@@ -29,7 +29,7 @@
  -- Row 1 -----------------------------------
   Element = AppointmentResponse
   Type = DomainResource
-  Short Label = A reply to an appointment request for a patient and/or practitioner(s), such as a confirmation or rejection
+  Short Name = A reply to an appointment request for a patient and/or practitioner(s), such as a confirmation or rejection
   Definition = A reply to an appointment request for a patient and/or practitioner(s), such as a confirmation or rejection.
   RIM Mapping = Appointment[@moodCode &lt;= \'PRMS\']
   iCal Mapping = VEVENT
@@ -40,7 +40,7 @@
   Card. = 0..*
   Summary = Y
   Type = Identifier
-  Short Label = External Ids for this item
+  Short Name = External Ids for this item
   Definition = This records identifiers associated with this appointment response concern that are defined by business processes and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate
   RIM Mapping = .id
   iCal Mapping = UID
@@ -51,7 +51,7 @@
   Card. = 1..1
   Summary = Y
   Type = Reference(Appointment)
-  Short Label = Appointment this response relates to
+  Short Name = Appointment this response relates to
   Definition = Appointment that this response is replying to
   RIM Mapping = scheduleRequest.Appointment[@moodCode &lt;= \'RQO\']
 
@@ -59,7 +59,7 @@
   Element = AppointmentResponse.start
   Card. = 0..1
   Type = instant
-  Short Label = Time from appointment, or requested new start time
+  Short Name = Time from appointment, or requested new start time
   Definition = Date/Time that the appointment is to take place, or requested new start time
   Comments = This may be either the same as the appointment request to confirm the details of the appointment, or alternately a new time to request a re-negotiation of the start time.
   RIM Mapping = .effectiveTime.low
@@ -70,7 +70,7 @@
   Element = AppointmentResponse.end
   Card. = 0..1
   Type = instant
-  Short Label = Time from appointment, or requested new end time
+  Short Name = Time from appointment, or requested new end time
   Definition = This may be either the same as the appointment request to confirm the details of the appointment, or alternately a new time to request a re-negotiation of the end time.
   RIM Mapping = .effectiveTime.high
   Committee Notes = Should we include the existing times, or rely on resource histories. Decision to wait for implementer feedback to see if these are used.
@@ -82,7 +82,7 @@
   Summary = Y
   Type = CodeableConcept
   Binding = ParticipantType
-  Short Label = Role of participant in the appointment
+  Short Name = Role of participant in the appointment
   Definition = Role of participant in the appointment
   Comments = The role of the participant can be used to declare what the actor will be doing in the scope of the referenced appointment.\n\nIf the actor is not specified, then it is expected that the actor will be filled in at a later stage of planning.\n\nThis value MUST be the same as specified on the referenced Appointment so that they can be matched, and subsequently updated.
   RIM Mapping = performer.person.@classCode | reusableDevice.manufacturedDevice.@classCode | subject.patient.@classCode | location.serviceDeliveryLocation.@classCode
@@ -93,7 +93,7 @@
   Card. = 0..1
   Summary = Y
   Type = Reference(Patient|Practitioner|RelatedPerson|Device|HealthcareService|Location)
-  Short Label = Person, Location/HealthcareService or Device
+  Short Name = Person, Location/HealthcareService or Device
   Definition = A Person, Location/HealthcareService or Device that is participating in the appointment
   v2 Mapping = PID-3-Patient ID List
   RIM Mapping = performer.person | reusableDevice.manufacturedDevice | subject.patient | location.serviceDeliveryLocation
@@ -107,7 +107,7 @@
   Summary = Y
   Type = code
   Binding = ParticipantStatus
-  Short Label = accepted | declined | tentative | in-process | completed | needs-action | entered-in-error
+  Short Name = accepted | declined | tentative | in-process | completed | needs-action | entered-in-error
   Definition = Participation status of the participant. When the status is declined or tentative if the start/end times are different to the appointment, then these times should be interpreted as a requested time change. When the status is accepted, the times can either be the time of the appointment (as a confirmation of the time) or can be empty.
   RIM Mapping = n/a
   iCal Mapping = ATTENDEE;CN=\"Brian Postlethwaite\";RSVP=TRUE:mailto:BPostlethwaite@data.com (rsvpparam | partstatparam)
@@ -116,7 +116,7 @@
   Element = AppointmentResponse.comment
   Card. = 0..1
   Type = string
-  Short Label = Additional comments
+  Short Name = Additional comments
   Definition = Additional comments about the appointment
   Comments = This comment is particularly important when the responder is declining, tentatively accepting or requesting another time to indicate the reasons why.
   RIM Mapping = .subjectOf.observationEvent[code=\"annotation\"].value
@@ -126,14 +126,14 @@
   Element = !AppointmentResponse.schedule
   Card. = 0..1
   Type = Schedule
-  Short Label = When (if) appointment repeats
+  Short Name = When (if) appointment repeats
   Definition = The recurrence schedule for the appointment. The end date in the schedule marks the end of the recurrence(s), not the end of an individual appointment
 
  -- Row 11 -----------------------------------
   Element = !AppointmentResponse.timezone
   Card. = 0..1
   Type = string
-  Short Label = For when schedule crosses a daylight saving boundary
+  Short Name = For when schedule crosses a daylight saving boundary
   Definition = The timezone that the times are to be converted to. Required for recurring appointments to remain accurate where the schedule makes the appointment cross a daylight saving boundary
   Comments = The timezone should be a value referenced from a timezone database
   RIM Mapping = .effectiveTime
@@ -142,7 +142,7 @@
   Element = !AppointmentResponse.lastModifiedBy
   Card. = 0..1
   Type = Reference(Practitioner|Patient|RelatedPerson)
-  Short Label = Who recorded the appointment response
+  Short Name = Who recorded the appointment response
   v2 Mapping = IAM-14-Reported By (if patient) / IAM-18-Statused By Person (if practitioner)
   RIM Mapping = .author.AssignedPerson
   w5 = who.author
@@ -151,7 +151,7 @@
   Element = !AppointmentResponse.lastModified
   Card. = 0..1
   Type = dateTime
-  Short Label = Date when the response was recorded or last updated
+  Short Name = Date when the response was recorded or last updated
   v2 Mapping = IAM-20-Statused at Date/Time
   RIM Mapping = .author.time
   iCal Mapping = DTSTAMP

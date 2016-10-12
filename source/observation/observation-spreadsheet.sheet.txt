@@ -216,7 +216,7 @@
   Element = Observation
   Aliases = Vital Signs, Measurement, Results, Tests
   Type = DomainResource
-  Short Label = Measurements and simple assertions
+  Short Name = Measurements and simple assertions
   Definition = Measurements and simple assertions made about a patient, device or other subject.
   Requirements = Observations are a key aspect of healthcare.  This resource is used to capture those that do not require more sophisticated mechanisms.
   Comments = Used for simple observations such as device measurements, laboratory atomic results, vital signs, height, weight, smoking status, comments, etc.  Other resources are used to provide context for observations such as lab reports, etc.
@@ -228,7 +228,7 @@
   Element = Observation.identifier
   Card. = 0..*
   Type = Identifier
-  Short Label = Unique Id for this particular observation
+  Short Name = Unique Id for this particular observation
   Definition = A unique identifier for the simple observation instance.
   Requirements = Allows observations to be distinguished and referenced
   v2 Mapping = OBX.21  For OBX segments from systems without OBX-21 support a combination of ORC/OBR and OBX must be negotiated between trading partners to uniquely identify the OBX segment. Depending on how V2 has been implemented each of these may be an option: 1) OBR-3 + OBX-3 + OBX-4 or 2) OBR-3 + OBR-4 + OBX-3 + OBX-4 or 2) some other way to uniquely ID the OBR/ORC + OBX-3 + OBX-4.
@@ -243,7 +243,7 @@
   Summary = Y
   Type = code
   Binding = ObservationStatus
-  Short Label = registered | preliminary | final | amended +
+  Short Name = registered | preliminary | final | amended +
   Definition = The status of the result value
   Requirements = Need to track the status of individual results. Some results are finalized before the whole report is finalized
   v2 Mapping = OBX-11
@@ -256,7 +256,7 @@
   Card. = 0..*
   Type = CodeableConcept
   Binding = ObservationCategory
-  Short Label = Classification of  type of observation
+  Short Name = Classification of  type of observation
   Definition = A code that classifies the general type of observation being made.
   Requirements = Used for filtering what observations are retreived and displayed.
   Comments = There may be multiple axis of categoriization depending on the context or use case for retrieving or displaying the resource.  The level of granularity is defined by the category concepts in the value set.   More fine-grained filtering can be performed using the metadata and/or terminology hierarchy in Observation.code.
@@ -270,7 +270,7 @@
   Summary = Y
   Type = CodeableConcept
   Binding = ObservationCode
-  Short Label = Type of observation (code / type)
+  Short Name = Type of observation (code / type)
   Definition = Describes what was observed. Sometimes this is called the observation \"name\"
   Requirements = Knowing what kind of observation is being made is essential to understanding the observation.
   v2 Mapping = OBX-3
@@ -282,7 +282,7 @@
   Card. = 0..1
   Summary = Y
   Type = Reference(Patient|Group|Device|Location)
-  Short Label = Who and/or what this is about
+  Short Name = Who and/or what this is about
   Definition = The patient, or group of patients, location, or device whose characteristics (direct or indirect) are described by the observation and into whose record the observation is placed.  Comments: Indirect characteristics may be those of a specimen, fetus, donor,  other observer (for example a relative or EMT), or any observation made about the subject.
   Requirements = Observations have no value if you don\'t know who or what they\'re about.
   Comments = One would expect this element to be a cardinality  of 1..1.  The only circumstance in which the subject can be missing is when the observation is made by a device that does not know the patient. In this case, the observation SHALL be matched to a patient through some context/channel matching technique, and at this point, the observation should be updated.\r\rIf the target of the observation is different than the subject, the general extension [observation-focal-subject](extension-observation-focal-subject.html).  may be used.  However, the distinction between the patient\'s own value for an observation versus that of the fetus, or the donor or blood product unit, etc., are often specified in the observation code.
@@ -295,7 +295,7 @@
   Element = Observation.encounter
   Card. = 0..1
   Type = Reference(Encounter)
-  Short Label = Healthcare event during which this observation is made
+  Short Name = Healthcare event during which this observation is made
   Definition = The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made
   Requirements = For some observations it may be important to know the link between an observation and a particular encounter.
   v2 Mapping = PV1
@@ -308,7 +308,7 @@
   Card. = 0..1
   Summary = Y
   Type = dateTime | Period
-  Short Label = Clinically relevant time/time-period for observation
+  Short Name = Clinically relevant time/time-period for observation
   Definition = The time or time-period the observed value is asserted as being true. For biological subjects - e.g. human patients - this is usually called the \"physiologically relevant time\". This is usually either the time of the procedure or of specimen collection, but very often the source of the date/time is not known, only the date/time itself
   Requirements = Knowing when an observation was deemed true is important to its relevance as well as determining trends
   Comments = At least a date should be present unless this observation is a historical report
@@ -321,7 +321,7 @@
   Card. = 0..1
   Summary = Y
   Type = instant
-  Short Label = Date/Time this was made available
+  Short Name = Date/Time this was made available
   Definition = The date and time this observation was made available to providers, typically after the results have been reviewed and verified.
   Comments = Updated when the result is updated.
   v2 Mapping = OBR.22 (or MSH.7), or perhaps OBX-19 (depends on who observation made)
@@ -333,7 +333,7 @@
   Card. = 0..*
   Summary = Y
   Type = Reference(Practitioner|Organization|Patient|RelatedPerson)
-  Short Label = Who is responsible for the observation
+  Short Name = Who is responsible for the observation
   Definition = Who was responsible for asserting the observed value as \"true\"
   Requirements = May give a degree of confidence in the observation and also indicates where follow-up questions should be directed.
   v2 Mapping = OBX.15 / (Practitioner)  OBX-16,  PRT-5:PRT-4=\'RO\' /  (Device)  OBX-18 , PRT-10:PRT-4=\'EQUIP\' / (Organization)  OBX-23,  PRT-8:PRT-4=\'PO\'
@@ -347,7 +347,7 @@
   Summary = Y
   Inv. = 7
   Type = Quantity|CodeableConcept|string|Range|Ratio|SampledData|Attachment|time|dateTime|Period
-  Short Label = Actual result
+  Short Name = Actual result
   Definition = The information determined as a result of making the observation, if the information has a simple value
   Requirements = An observation exists to have a value, though it may not if it is in error, or it represents a group of observations
   Comments = Normally, an observation will have either a value or a set of related observations. A few observations (e.g. Apgar score) may have both a value and related observations (for an Apgar score, the observations from which the measure is derived). If a value is present, the datatype for this element should be determined by Observation.code. This element has a variable name depending on the type as follows: valueQuantity, valueCodeableConcept, valueString, valueRange, valueRatio, valueSampledData, valueAttachment, valueTime, valueDateTime, or valuePeriod. (The name format is \"\'value\' + the type name\" with a capital on the first letter of the type).\r\r\rIf the data element is usually coded or if the type associated with the Observation.value defines a coded value, use CodeableConcept instead of string datatype even if the value is uncoded text.  A value set is bound to the ValueCodeableConcept element.  For boolean values use valueCodeableConcept and select codes from [HL7 Version 2 Table 0136](v2/0136/index.html). These \"yes/no\" concepts can be mapped to the display name \"true/false\" or other mutually exclusive terms that may be needed.   For further discussion and examples see the  [notes section](observation.html#4.20.4) below.
@@ -362,7 +362,7 @@
   Inv. = 6
   Type = CodeableConcept
   Binding = ObservationValueAbsentReason
-  Short Label = Why the result is missing
+  Short Name = Why the result is missing
   Definition = Provides a reason why the expected value in the element Observation.value[x] is missing.
   Requirements = For many results it is necessary to handle exceptional values in measurements.
   Comments = Null or exceptional values can be represented two ways in FHIR Observations.  One way is to simply include them in the value set and represent the exceptions in the value.  For example, measurement values for a serology test could be  \"detected\", \"not detected\", \"inconclusive\", or  \"specimen unsatisfactory\".   The alternate way is to use the value element for actual observations and use the explicit dataAbsentReason element to record exceptional values.  For example, the dataAbsentReason code \"error\" could be used when the measurement was not completed.  Because of these options, use-case agreements are required to interpret general observations for exceptional values.
@@ -376,7 +376,7 @@
   Aliases = Abnormal Flag
   Type = CodeableConcept
   Binding = ObservationInterpretation
-  Short Label = High, low, normal, etc.
+  Short Name = High, low, normal, etc.
   Definition = The assessment made based on the result of the observation.  Intended as a simple compact code often placed adjacent to the result value in reports and flow sheets to signal the meaning/normalcy status of the result. Otherwise known as abnormal flag.
   Requirements = For some results, particularly numeric results, an interpretation is necessary to fully understand the significance of a result.
   v2 Mapping = OBX-8
@@ -386,7 +386,7 @@
   Element = Observation.comment
   Card. = 0..1
   Type = string
-  Short Label = Comments about result
+  Short Name = Comments about result
   Definition = May include statements about significant, unexpected or unreliable values, or information about the source of the value where this may be relevant to the interpretation of the result.
   Requirements = Need to be able to provide free text additional information
   v2 Mapping = NTE.3 (partner NTE to OBX, or sometimes another (child?) OBX)
@@ -398,7 +398,7 @@
   Is Modifier = y
   Type = code
   Binding = ObservationReliability
-  Short Label = ok | ongoing | early | questionable | calibrating | error +
+  Short Name = ok | ongoing | early | questionable | calibrating | error +
   Definition = An estimate of the degree to which quality issues have impacted on the value reported
   Requirements = Not all results are completely reliable, and some are still reported anyway.
   Comments = Note that in most contexts, unreliable results are not recorded, deleted, or otherwise excluded, but it\'s not always possible to exclude them from the record.  If the reliability indicator is present, interpreters of a result, whether human or machine, should always either be aware of the status or prevented from using the observation without being unaware that the reliability is not \"ok\".
@@ -412,7 +412,7 @@
   Card. = 0..1
   Type = CodeableConcept
   Binding = BodySite
-  Short Label = Observed body part
+  Short Name = Observed body part
   Definition = Indicates the site on the subject\'s body where the observation was made (i.e. the target site).
   Requirements = Knowing where the observation is made is important for tracking if multiple sites are possible.
   Comments = Only used if not implicit in code found in Observation.code.  In many systems, this may be represented as a related observation instead of an inline component.   If the use case requires BodySite to be handled as a separate resource (e.g. to identify and track separately) then use The standard extension[ body-site-instance](extension-body-site-instance.html).
@@ -425,7 +425,7 @@
   Card. = 0..1
   Type = CodeableConcept
   Binding = ObservationMethod
-  Short Label = How it was done
+  Short Name = How it was done
   Definition = Indicates the mechanism used to perform the observation
   Requirements = In some cases, method can impact results and is thus used for determining whether results can be compared or determining significance of results
   Comments = Only used if not implicit in code for Observation.code
@@ -437,7 +437,7 @@
   Element = Observation.specimen
   Card. = 0..1
   Type = Reference(Specimen)
-  Short Label = Specimen used for this observation
+  Short Name = Specimen used for this observation
   Definition = The specimen that was used when this observation was made
   Comments = Observations are not made on specimens themselves; they are made on a subject, but usually by the means of a specimen. Note that although specimens are often involved, they are not always tracked and reported explicitly. Also note that observation resources may be used in contexts that track the specimen explicitly (e.g. Diagnostic Report)
   v2 Mapping = SPM segment
@@ -448,7 +448,7 @@
   Element = Observation.device
   Card. = 0..1
   Type = Reference(Device|DeviceMetric)
-  Short Label = (Measurement) Device
+  Short Name = (Measurement) Device
   Definition = The device used to generate the observation data.
   Comments = An extension should be used if further typing of the device is needed.  Devices used to support obtaining an observation can be represented using either extension or through the Observation.related element.
   v2 Mapping = OBX-17 / PRT -10
@@ -459,7 +459,7 @@
   Element = !Observation.normalValue[x]
   Card. = 0..1
   Type = Range|string
-  Short Label = Expected value range - guide for interpretation
+  Short Name = Expected value range - guide for interpretation
   Comments = This
   v2 Mapping = OBX.7
   RIM Mapping = outboundRelationship[typeCode=REFV]/target[classCode=OBS, moodCode=EVN,  interpretationCode=ObservationInterpretationNormality:N].value
@@ -468,7 +468,7 @@
   Element = Observation.referenceRange
   Card. = 0..*
   UML = 400;00
-  Short Label = Provides guide for interpretation
+  Short Name = Provides guide for interpretation
   Definition = Guidance on how to interpret the value by comparison to a normal or recommended range
   Requirements = Knowing what values are considered \"normal\" can help evaluate the significance of a particular result. Need to be able to provide multiple reference ranges for different contexts
   Comments = Most observations only have one generic reference range. Systems MAY choose to restrict to only supplying the relevant reference range based on knowledge about the patient (e.g. specific to the patient\'s age, gender, weight and other factors), but this may not be possible or appropriate. Whenever more than one reference range is supplied, the differences between them SHOULD be provided in the reference range and/or age properties
@@ -480,7 +480,7 @@
   Card. = 0..1
   Inv. = 3
   Type = SimpleQuantity
-  Short Label = Low Range, if relevant
+  Short Name = Low Range, if relevant
   Definition = The value of the low bound of the reference range.  The low bound of the reference range endpoint is inclusive of the value (e.g.  reference range is >=5 - <=9).   If the low bound is omitted,  it is assumed to be meaningless (e.g. reference range is <=2.3).
   v2 Mapping = OBX-7
   RIM Mapping = value:IVL_PQ.low
@@ -491,7 +491,7 @@
   Card. = 0..1
   Inv. = 3
   Type = SimpleQuantity
-  Short Label = High Range, if relevant
+  Short Name = High Range, if relevant
   Definition = The value of the high bound of the reference range.  The high bound of the reference range endpoint is inclusive of the value (e.g.  reference range is >=5 - <=9).   If the high bound is omitted,  it is assumed to be meaningless (e.g. reference range is >= 2.3).
   v2 Mapping = OBX-7
   RIM Mapping = value:IVL_PQ.high
@@ -501,7 +501,7 @@
   Card. = 0..*
   Type = CodeableConcept
   Binding = ObservationRangeMeaning
-  Short Label = Reference range qualifier
+  Short Name = Reference range qualifier
   Definition = Codes to indicate the the target population this reference range applies to.  For example, a reference range may be based on the normal population or a particular sex, race, therapeutic status, or endocrine or reproductive status.
   Requirements = Need to be able to say what kind of reference range this is - normal, recommended, therapeutic, etc  - for proper interpretation.
   Comments = This SHOULD be populated if there is more than one range.  If this element is not present then the norma population is assumed.
@@ -513,7 +513,7 @@
   Element = Observation.referenceRange.age
   Card. = 0..1
   Type = Range
-  Short Label = Applicable age range, if relevant
+  Short Name = Applicable age range, if relevant
   Definition = The age at which this reference range is applicable. This is a neonatal age (e.g. number of weeks at term) if the meaning says so
   Requirements = Some analytes vary greatly over age
   RIM Mapping = outboundRelationship[typeCode=PRCN].targetObservationCriterion[code=\"age\"].value
@@ -522,7 +522,7 @@
   Element = Observation.referenceRange.text
   Card. = 0..1
   Type = string
-  Short Label = Text based reference range in an observation
+  Short Name = Text based reference range in an observation
   Definition = Text based reference range in an observation which may be used when a quantitative range is not appropriate for an observation.  An example would be a reference value of \"Negative\" or a list or table of \'normals\'.
   v2 Mapping = OBX-7
   RIM Mapping = value:ST
@@ -532,7 +532,7 @@
   Card. = 0..*
   Summary = Y
   Type = Reference(AllergyIntolerance|Condition|FamilyMemberHistory|ImagingStudy|Immunization|MedicationStatement|Procedure|QuestionnaireResponse|Observation)
-  Short Label = The resource from which an observation is derived
+  Short Name = The resource from which an observation is derived
   Definition = A reference to a resource from which this observation value is derived. For example an Observation resource for a calculated anion gap or Apgar score Observation or a QuestionnaireAnswer resource for an Assessment Tool Observation.( 5/18/2015 EH: TODO need to get a specific example /use cases for example using something other than Observation)
   Comments = Observations that are a group of observations should be separate resources referenced using the related element with type \"has-member\" or as component observation(s).
   RIM Mapping = .targetObservation
@@ -542,7 +542,7 @@
   Card. = 0..*
   Summary = Y
   UML = 400;310
-  Short Label = Resource related to this observation
+  Short Name = Resource related to this observation
   Definition = A  reference to another resource (usually another Observation) whose relationship is defined by the relationship type code.
   Requirements = Normally, an observation will have either a value or a set of related observations. A few observations (e.g. Apgar score) may have both a value and a set of related observations or sometimes QuestionnaireResponse  from which the measure is derived.
   Comments = For a discussion on the ways Observations can assembled in groups together see [Notes below](observation.html#4.20.4).
@@ -554,7 +554,7 @@
   Card. = 0..1
   Type = code
   Binding = ObservationRelationshipType
-  Short Label = has-member | derived-from | sequel-to | replaces | qualified-by | interfered-by
+  Short Name = has-member | derived-from | sequel-to | replaces | qualified-by | interfered-by
   Definition = A code specifying the kind of relationship that exists with the target resource
   Requirements = A relationship type SHOULD be provided.
   Comments = \"derived-from\" is only logical choice when referencing QuestionnaireAnswer resource.
@@ -566,7 +566,7 @@
   Element = Observation.related.target
   Card. = 1..1
   Type = Reference(Observation|QuestionnaireResponse|Sequence)
-  Short Label = Resource that is related to this one
+  Short Name = Resource that is related to this one
   Definition = A reference to the observation or [[[QuestionnaireResponse]]] resource that is related to this observation
   RIM Mapping = .targetObservation
   Committee Notes = can an invariant be made to limit code when referencing a resource type? [#10117]
@@ -576,7 +576,7 @@
   Card. = 0..*
   Summary = Y
   UML = 400;150
-  Short Label = Component results
+  Short Name = Component results
   Definition = Some observations have multiple component observations.  These component observations are expressed as separate code value pairs that share the same attributes.  Examples include systolic and diastolic component observations for blood pressure measurement and multiple component observations for genetics observations.
   Requirements = Component observations share the same attributes in the Observation resource as the primary observation and are always treated a part of a single observation (they are not separable).   However, the reference range for the primary observation value is not inherited by the component values and is required when appropriate for each component observation.
   Comments = For a discussion on the ways Observations can assembled in groups together see [Notes](observation.html#notes) below.
@@ -590,7 +590,7 @@
   Summary = Y
   Type = CodeableConcept
   Binding = ObservationCode
-  Short Label = Type of component observation (code / type)
+  Short Name = Type of component observation (code / type)
   Definition = Describes what was observed. Sometimes this is called the observation \"code\"
   Requirements = Knowing what kind of observation is being made is essential to understanding the observation.
   v2 Mapping = OBX-3
@@ -602,7 +602,7 @@
   Card. = 0..1
   Summary = Y
   Type = Quantity|CodeableConcept|string|Range|Ratio|SampledData|Attachment|time|dateTime|Period
-  Short Label = Actual component result
+  Short Name = Actual component result
   Definition = The information determined as a result of making the observation, if the information has a simple value
   Requirements = An observation exists to have a value, though it may not if it is in error, or it represents a group of observations
   Comments = Normally, an observation will have either a value or a set of related observations. A few observations (e.g. Apgar score) may have both a value and related observations (for an Apgar score, the observations from which the measure is derived). If a value is present, the datatype for this element should be determined by Observation.code. A CodeableConcept with just a text would be used instead of a string if the field was usually coded, or if the type associated with the Observation.code defines a coded value.   For boolean values use valueCodeableConcept and select codes from <http://hl7.org/fhir/ValueSet/v2-0136> (These \"yes/no\" concepts can be mapped to the display name \"true/false\" or other mutually exclusive terms that may be needed\").  The element, Observation.value[x], has a variable name depending on the type as follows: valueQuantity, valueCodeableConcept, valueRatio, valueChoice, valuePeriod, valueSampleData, or valueString (The name format is \"\'value\' + the type name\" with a capital on the first letter of the type).
@@ -616,7 +616,7 @@
   Inv. = 6
   Type = CodeableConcept
   Binding = ObservationValueAbsentReason
-  Short Label = Why the component result is missing
+  Short Name = Why the component result is missing
   Definition = Provides a reason why the expected value in the element Observation.value[x] is missing.
   Requirements = For many results it is necessary to handle exceptional values in measurements.
   Comments = \"Null\" or exceptional values can be represented two ways in FHIR Observations.  One way is to simply include them in the value set and represent the exceptions in the value.  For example, measurement values for a serology test could be  \"detected\", \"not detected\", \"inconclusive\", or  \"test not done\".   The alternate way is to use the value element for actual observations and use the explicit dataAbsentReason element to record exceptional values.  For example, the dataAbsentReason code \"error\" could be used when the measurement was not completed.  Because of these options, use-case agreements are required to interpret general observations for exceptional values.
@@ -630,7 +630,7 @@
   Aliases = Abnormal Flag
   Type = CodeableConcept
   Binding = ObservationInterpretation
-  Short Label = High, low, normal, etc.
+  Short Name = High, low, normal, etc.
   Definition = The assessment made based on the result of the observation.  Intended as a simple compact code often placed adjacent to the result value in reports and flow sheets to signal the meaning/normalcy status of the result. Otherwise known as abnormal flag.
   Requirements = For some results, particularly numeric results, an interpretation is necessary to fully understand the significance of a result.
   Comments = The component interpretation is applies only to the indivual component value.  For an overall interpretation all components together use Observation.interpretation element.
@@ -642,7 +642,7 @@
   Element = Observation.component.referenceRange
   Card. = 0..*
   Type = @Observation.referenceRange
-  Short Label = Provides guide for interpretation of component result
+  Short Name = Provides guide for interpretation of component result
   Definition = Guidance on how to interpret the value by comparison to a normal or recommended range
   Requirements = Knowing what values are considered \"normal\" can help evaluate the significance of a particular result. Need to be able to provide multiple reference ranges for different contexts
   Comments = Most observations only have one generic reference range. Systems MAY choose to restrict to only supplying the relevant reference range based on knowledge about the patient (e.g. specific to the patient\'s age, gender, weight and other factors), but this may not be possible or appropriate. Whenever more than one reference range is supplied, the differences between them SHOULD be provided in the reference range and/or age properties

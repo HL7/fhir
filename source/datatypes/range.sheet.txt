@@ -15,7 +15,7 @@
  -- Row 1 -----------------------------------
   Element = Range
   Type = Type
-  Short Label = Set of values bounded by low and high
+  Short Name = Set of values bounded by low and high
   Definition = A set of ordered Quantities defined by a low and high limit.
   Requirements = Need to be able to specify ranges of values
   Comments = The stated low and high value are assumed to have arbitrarily high precision when it comes to determining which values are in the range. I.e. 1.99 is not in the range 2 -> 3
@@ -27,7 +27,7 @@
   Card. = 0..1
   Inv. = 2
   Type = SimpleQuantity
-  Short Label = Low limit
+  Short Name = Low limit
   Definition = The low limit. The boundary is inclusive.
   Comments = If the low element is missing, the low boundary is not known.
   v2 Mapping = NR.1
@@ -38,7 +38,7 @@
   Card. = 0..1
   Inv. = 2
   Type = SimpleQuantity
-  Short Label = High limit
+  Short Name = High limit
   Definition = The high limit. The boundary is inclusive.
   Comments = If the high element is missing, the high boundary is not known.
   v2 Mapping = NR.2

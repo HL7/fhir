@@ -15,5 +15,5 @@
  -- Row 1 -----------------------------------
   Element = Age
   Type = Quantity
-  Short Label = A duration of time during which an organism (or a process) has existed
+  Short Name = A duration of time during which an organism (or a process) has existed
   RIM Mapping = PQ

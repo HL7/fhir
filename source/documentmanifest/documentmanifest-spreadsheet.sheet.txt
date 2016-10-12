@@ -15,7 +15,7 @@
  -- Row 1 -----------------------------------
   Element = DocumentManifest
   Type = DomainResource
-  Short Label = A manifest that defines a set of documents
+  Short Name = A manifest that defines a set of documents
   Definition = A manifest that defines a set of documents.
   RIM Mapping = Act[classCode=FOLDER, moodCode=EVN]
   w5 = infrastructure.documents
@@ -24,7 +24,7 @@
   Element = DocumentManifest.masterIdentifier
   Card. = 0..1
   Type = Identifier
-  Short Label = Unique Identifier for the set of documents
+  Short Name = Unique Identifier for the set of documents
   Definition = A single identifier that uniquely identifies this manifest. Principally used to refer to the manifest in non-FHIR contexts
   RIM Mapping = id [need a list semantic to indicate order matters]
   XDS Mapping = SubmissionSet.uniqueId
@@ -34,7 +34,7 @@
   Element = DocumentManifest.identifier
   Card. = 0..*
   Type = Identifier
-  Short Label = Other identifiers for the manifest
+  Short Name = Other identifiers for the manifest
   Definition = Other identifiers associated with the document manifest, including version independent  identifiers
   v2 Mapping = TXA-16-Unique Document File Name?
   RIM Mapping = .id / .setId
@@ -45,7 +45,7 @@
   Element = DocumentManifest.subject
   Card. = 0..1
   Type = Reference(Patient|Practitioner|Group|Device)
-  Short Label = The subject of the set of documents
+  Short Name = The subject of the set of documents
   Definition = Who or what the set of documents is about. The documents can be about a person, (patient or healthcare practitioner), a device (i.e. machine) or even a group of subjects (such as a document about a herd of farm animals, or a set of patients that share a common exposure). If the documents cross more than one subject, then more than one subject is allowed here (unusual use case)
   RIM Mapping = .participation[typeCode=SBJ].role
   XDS Mapping = SubmissionSet.patientId
@@ -55,7 +55,7 @@
   Element = DocumentManifest.recipient
   Card. = 0..*
   Type = Reference(Patient|Practitioner|RelatedPerson|Organization)
-  Short Label = Intended to get notified about this set of documents
+  Short Name = Intended to get notified about this set of documents
   Definition = A patient, practitioner, or organization for which this set of documents is intended
   Comments = How the recipient receives the document set or is notified of it is up to the implementation. This element is just a statement of intent. If the recipient is a person, and it is not known whether the person is a patient or a practitioner, RelatedPerson would be the default choice
   RIM Mapping = .participation[typeCode=IRCP].role
@@ -67,7 +67,7 @@
   Card. = 0..1
   Type = CodeableConcept
   Binding = DocumentC80Type
-  Short Label = Kind of document set
+  Short Name = Kind of document set
   Definition = Specifies the kind of this set of documents (e.g. Patient Summary, Discharge Summary, Prescription, etc.). The type of a set of documents may be the same as one of the documents in it - especially if there is only one - but it may be wider
   RIM Mapping = .code
   XDS Mapping = SubmissionSet.contentTypeCode
@@ -77,7 +77,7 @@
   Element = DocumentManifest.author
   Card. = 0..*
   Type = Reference(Practitioner|Organization|Device|Patient|RelatedPerson)
-  Short Label = Who and/or what authored the manifest
+  Short Name = Who and/or what authored the manifest
   Definition = Identifies who is responsible for creating the manifest, and adding  documents to it
   Comments = Not necessarily who did the actual data entry (i.e. typist) or who was the source (informant)
   RIM Mapping = .participation[typeCode=AUT].role
@@ -88,7 +88,7 @@
   Element = DocumentManifest.created
   Card. = 0..1
   Type = dateTime
-  Short Label = When this document manifest created
+  Short Name = When this document manifest created
   Definition = When the document manifest was created for submission to the server (not necessarily the same thing as the actual resource last modified time, since it may be modified, replicated, etc.)
   Comments = Creation time is used for tracking, organizing versions and searching. This is the creation time of the document set, not the documents on which it is based
   RIM Mapping = .participation[typeCode=AUT].time
@@ -99,7 +99,7 @@
   Element = DocumentManifest.source
   Card. = 0..1
   Type = uri
-  Short Label = The source system/application/software
+  Short Name = The source system/application/software
   Definition = Identifies the source system, application, or software that produced the document manifest
   RIM Mapping = .participation[typeCode=PFM].time
   XDS Mapping = SubmissionSet.sourceId
@@ -110,7 +110,7 @@
   Is Modifier = Y
   Type = code
   Binding = DocumentReferenceStatus
-  Short Label = current | superseded | entered-in-error
+  Short Name = current | superseded | entered-in-error
   Definition = The status of this document manifest
   RIM Mapping = .statusCode
   XDS Mapping = SubmissionSet status
@@ -121,7 +121,7 @@
   Card. = 0..1
   Is Modifier = Y
   Type = Reference(DocumentManifest)
-  Short Label = If this document manifest replaces another
+  Short Name = If this document manifest replaces another
   Definition = Whether this document manifest replaces another
   RIM Mapping = .outboundRelationship[typeCode=RPLC].target
   To Do = is this 80%? Specifically how is this to be used? How is it different than normal resource versioning?
@@ -130,7 +130,7 @@
   Element = DocumentManifest.description
   Card. = 0..1
   Type = string
-  Short Label = Human-readable description (title)
+  Short Name = Human-readable description (title)
   Definition = Human-readable description of the source document. This is sometimes known as the \"title\"
   Requirements = Helps humans to assess whether the document is of interest
   Comments = What the document is about, rather than a terse summary of the document. It is commonly the case that records do not have a title and are collectively referred to by the display name of Record code (e.g. a \"consultation\" or \"progress note\").
@@ -143,7 +143,7 @@
   Is Modifier = Y
   Type = CodeableConcept
   Binding = DocumentConfidentiality
-  Short Label = Sensitivity of set of documents
+  Short Name = Sensitivity of set of documents
   Definition = A code specifying the level of confidentiality of this set of Documents
   Comments = The document set is at least as confidential as the most confidential of the documents in it
   RIM Mapping = .confidentialityCode
@@ -153,7 +153,7 @@
   Element = DocumentManifest.content
   Card. = 1..*
   UML = right
-  Short Label = The items included
+  Short Name = The items included
   Definition = The list of Documents included in the manifest.
   RIM Mapping = n/a
 
@@ -161,7 +161,7 @@
   Element = DocumentManifest.content.p[x]
   Card. = 1..1
   Type = Attachment|Reference(Any)
-  Short Label = Contents of this set of documents
+  Short Name = Contents of this set of documents
   Definition = The list of references to document content, or Attachment that consist of the parts of this document manifest. Usually, these would be document references, but direct references to Media or Attachments are also allowed
   Comments = The intended focus of the DocumentManifest is for the reference to target either DocumentReference or Media Resources, and most implementation guides will restrict to these resources. The reference is to \"Any\" to support EN 13606 usage, where an extract is DocumentManifest that references  List and Composition resources
   RIM Mapping = .outboundRelationship[typeCode=COMP].target
@@ -171,7 +171,7 @@
   Element = DocumentManifest.related
   Card. = 0..*
   UML = right
-  Short Label = Related things
+  Short Name = Related things
   Definition = Related identifiers or resources associated with the DocumentManifest.
   Comments = May be identifiers or resources that caused the DocumentManifest to be created.
   RIM Mapping = n/a
@@ -180,7 +180,7 @@
   Element = DocumentManifest.related.identifier
   Card. = 0..1
   Type = Identifier
-  Short Label = Identifiers of things that are related
+  Short Name = Identifiers of things that are related
   Definition = Related identifier to this DocumentManifest.  For example, Order numbers, accession numbers, XDW workflow numbers.
   Comments = If both identifier and ref elements are present they shall refer to the same thing.
 
@@ -188,7 +188,7 @@
   Element = DocumentManifest.related.ref
   Card. = 0..1
   Type = Reference(Any)
-  Short Label = Related Resource
+  Short Name = Related Resource
   Definition = Related Resource to this DocumentManifest. For example, Order, DiagnosticRequest,  Procedure, EligibilityRequest, etc.
   Comments = If both identifier and ref elements are present they shall refer to the same thing.
 

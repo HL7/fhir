@@ -47,7 +47,7 @@
   Element = RiskAssessment
   Aliases = Prognosis
   Type = DomainResource
-  Short Label = Potential outcomes for a subject with likelihood
+  Short Name = Potential outcomes for a subject with likelihood
   Definition = An assessment of the likely outcome(s) for a patient or other subject as well as the likelihood of each outcome.
   v2 Mapping = N/A
   RIM Mapping = Observation[classCode=OBS, moodCode=EVN, code=\"Risk Assessment\"]
@@ -59,7 +59,7 @@
   Card. = 0..1
   Summary = y
   Type = Identifier
-  Short Label = Unique identifier for the assessment
+  Short Name = Unique identifier for the assessment
   Definition = Business identifier assigned to the risk assessment
   RIM Mapping = .id
   OpenEHR mapping = Workflow Identifier
@@ -69,14 +69,14 @@
   Element = RiskAssessment.basedOn
   Card. = 0..1
   Type = Reference(Any)
-  Short Label = Request fulfilled by this assessment
+  Short Name = Request fulfilled by this assessment
   Definition = A reference to the request that is fulfilled by this risk assessment
 
  -- Row 4 -----------------------------------
   Element = RiskAssessment.parent
   Card. = 0..1
   Type = Reference(Any)
-  Short Label = Part of this occurrence
+  Short Name = Part of this occurrence
   Definition = A reference to a resource that this risk assessment is part of, such as a Procedure
 
  -- Row 5 -----------------------------------
@@ -84,7 +84,7 @@
   Card. = 1..1
   Type = code
   Binding = RiskAssessmentStatus
-  Short Label = registered | preliminary | final | amended +
+  Short Name = registered | preliminary | final | amended +
   Definition = The status of the RiskAssessment, using the same statuses as an Observation
   w5 = status
 
@@ -93,7 +93,7 @@
   Card. = 0..1
   Summary = y
   Type = CodeableConcept
-  Short Label = Type of assessment
+  Short Name = Type of assessment
   Definition = The type of the risk assessment performed
   w5 = what
 
@@ -102,7 +102,7 @@
   Card. = 0..1
   Summary = y
   Type = Reference(Patient|Group)
-  Short Label = Who/what does assessment apply to?
+  Short Name = Who/what does assessment apply to?
   Definition = The patient or group the risk assessment applies to
   RIM Mapping = .participation[typeCode=SBJ].role
   OpenEHR mapping = Subject of Care
@@ -114,7 +114,7 @@
   Card. = 0..1
   Summary = y
   Type = Reference(Encounter | EpisodeOfCare)
-  Short Label = Where was assessment performed?
+  Short Name = Where was assessment performed?
   Definition = The encounter where the assessment was performed
   RIM Mapping = .inboundRelationship[typeCode=COMP].source[classCode=ENC, moodCode=EVN]
   w5 = context
@@ -124,7 +124,7 @@
   Card. = 0..1
   Summary = y
   Type = dateTime | Period
-  Short Label = When was assessment made?
+  Short Name = When was assessment made?
   Definition = The date (and possibly time) the risk assessment was performed
   Requirements = The assessment results lose validity the more time elapses from when they are first made
   RIM Mapping = .effectiveTime
@@ -135,7 +135,7 @@
   Card. = 0..1
   Summary = y
   Type = Reference(Condition)
-  Short Label = Condition assessed
+  Short Name = Condition assessed
   Definition = For assessments or prognosis specific to a particular condition, indicates the condition being assessed.
   RIM Mapping = .outboundRelationship[typeCode=SUBJ].target[classCode=OBS, moodCode=EVN]
 
@@ -144,7 +144,7 @@
   Card. = 0..1
   Summary = y
   Type = Reference(Practitioner | Device)
-  Short Label = Who did assessment?
+  Short Name = Who did assessment?
   Definition = The provider or software application that performed the assessment
   RIM Mapping = .participation[typeCode=PFM].role[classCode=ASSIGNED]
   OpenEHR mapping = Information Provider
@@ -154,7 +154,7 @@
   Element = RiskAssessment.reason[x]
   Card. = 0..1
   Type = CodeableConcept | Reference(Any)
-  Short Label = Why the assessment was necessary?
+  Short Name = Why the assessment was necessary?
   Definition = The reason the risk assessment was performed
   w5 = why
 
@@ -164,7 +164,7 @@
   Summary = y
   Type = CodeableConcept
   Binding = RiskAssessmentMethod
-  Short Label = Evaluation mechanism
+  Short Name = Evaluation mechanism
   Definition = The algorithm, process or mechanism used to evaluate the risk
   Requirements = The method can influence the results of the assessment
   RIM Mapping = .methodCode
@@ -175,7 +175,7 @@
   Element = RiskAssessment.basis
   Card. = 0..*
   Type = Reference(Any)
-  Short Label = Information used in assessment
+  Short Name = Information used in assessment
   Definition = Indicates the source data considered as part of the assessment (FamilyHistory, Observations, Procedures, Conditions, etc.)
   RIM Mapping = .outboundRelationship[typeCode=DRIV].target
   OpenEHR mapping = Risk Factor; Link to Evidence
@@ -184,7 +184,7 @@
   Element = RiskAssessment.prediction
   Card. = 0..*
   UML = 320;0
-  Short Label = Outcome predicted
+  Short Name = Outcome predicted
   Definition = Describes the expected outcome for the subject
   Comments = Multiple repetitions can be used to identify the same type of outcome in different timeframes as well as different types of outcomes
   RIM Mapping = .outboundRelationship[typeCode=VALUE].target[classCod=OBS, moodCode=RISK]
@@ -194,7 +194,7 @@
   Card. = 1..1
   Type = CodeableConcept
   Binding = RiskAssessmentOutcome
-  Short Label = Possible outcome for the subject
+  Short Name = Possible outcome for the subject
   Definition = One of the potential outcomes for the patient (e.g. remission, death,  a particular condition)
   RIM Mapping = .value
   OpenEHR mapping = Risk
@@ -204,7 +204,7 @@
   Card. = 0..1
   Type = decimal | Range | CodeableConcept
   Binding = RiskAssessmentProbability
-  Short Label = Likelihood of specified outcome
+  Short Name = Likelihood of specified outcome
   Definition = How likely is the outcome (in the specified timeframe)
   Comments = If range is used, it represents the lower and upper bounds of certainty; e.g. 40-60%  Decimal values are expressed as percentages as well (max = 100)
   RIM Mapping = .inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=\"probability\"].value
@@ -214,7 +214,7 @@
   Element = RiskAssessment.prediction.relativeRisk
   Card. = 0..1
   Type = decimal
-  Short Label = Relative likelihood
+  Short Name = Relative likelihood
   Definition = Indicates the risk for this particular subject (with their specific characteristics) divided by the risk of the population in general.  (Numbers greater than 1 = higher risk than the population, numbers less than 1 = lower risk.)
   Requirements = Absolute risk is less meaningful than relative risk
   RIM Mapping = .inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=\"relative risk\"].value
@@ -224,7 +224,7 @@
   Element = RiskAssessment.prediction.when[x]
   Card. = 0..1
   Type = Period | Range
-  Short Label = Timeframe or age range
+  Short Name = Timeframe or age range
   Definition = Indicates the period of time or age range of the subject to which the specified probability applies
   Comments = If not specified, the risk applies \"over the subject\'s lifespan\"
   RIM Mapping = .effectiveTime or .inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=\"age\"].value
@@ -233,7 +233,7 @@
   Element = RiskAssessment.prediction.rationale
   Card. = 0..1
   Type = string
-  Short Label = Explanation of prediction
+  Short Name = Explanation of prediction
   Definition = Additional information explaining the basis for the prediction
   RIM Mapping = .reasonCode.text
   OpenEHR mapping = Rationale
@@ -242,7 +242,7 @@
   Element = RiskAssessment.mitigation
   Card. = 0..1
   Type = string
-  Short Label = How to reduce risk
+  Short Name = How to reduce risk
   Definition = A description of the steps that might be taken to reduce the identified risk(s).
   Requirements = One of the main reasons for assessing risks is to identify whether interventional steps are needed to reduce risk
   RIM Mapping = .outboundRelationship[typeCode=MTGT].target[classCode=ACT, moodCode=EVN].text
@@ -251,7 +251,7 @@
   Element = RiskAssessment.note
   Card. = 0..1
   Type = Annotation
-  Short Label = Comments on the risk assessment
+  Short Name = Comments on the risk assessment
   Definition = Additional comments about the risk assessment
 
 === Sheet Search =====================================

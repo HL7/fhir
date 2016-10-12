@@ -148,7 +148,7 @@
   Element = Procedure
   UML = 0;0
   Type = DomainResource
-  Short Label = An action that is being or was performed on a patient
+  Short Name = An action that is being or was performed on a patient
   Definition = An action that is or was performed on a patient. This can be a physical intervention like an operation, or less invasive like counseling or hypnotherapy.
   RIM Mapping = Procedure[moodCode=EVN]
   w5 = clinical.general
@@ -158,7 +158,7 @@
   Card. = 0..*
   Summary = y
   Type = Identifier
-  Short Label = External Identifiers for this procedure
+  Short Name = External Identifiers for this procedure
   Definition = This records identifiers associated with this procedure that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation)
   Requirements = Need to allow connection to a wider workflow
   v2 Mapping = Some combination of ORC-2 / ORC-3 / OBR-2 / OBR-3 / IPC-1 / IPC-2 / IPC-3 / IPC-4
@@ -170,7 +170,7 @@
   Card. = 1..1
   Summary = y
   Type = Reference(Patient|Group)
-  Short Label = Who the procedure was performed on
+  Short Name = Who the procedure was performed on
   Definition = The person, animal or group on which the procedure was performed
   v2 Mapping = PID-3
   RIM Mapping = .participation[typeCode=SBJ].role
@@ -184,7 +184,7 @@
   Summary = Y
   Type = code
   Binding = ProcedureStatus
-  Short Label = in-progress | aborted | completed | entered-in-error
+  Short Name = in-progress | aborted | completed | entered-in-error
   Definition = A code specifying the state of the procedure. Generally this will be in-progress or completed state.
 
  -- Row 5 -----------------------------------
@@ -193,7 +193,7 @@
   Summary = Y
   Type = CodeableConcept
   Binding = ProcedureCategory
-  Short Label = Classification of the procedure
+  Short Name = Classification of the procedure
   Definition = A code that classifies the procedure for searching, sorting and display purposes (e.g. \"Surgical Procedure\")
   RIM Mapping = .outboundRelationship[typeCode=\"COMP].target[classCode=\"LIST\", moodCode=\"EVN\"].code
 
@@ -203,7 +203,7 @@
   Summary = y
   Type = CodeableConcept
   Binding = ProcedureCode
-  Short Label = Identification of the procedure
+  Short Name = Identification of the procedure
   Definition = The specific procedure that is performed. Use text if the exact nature of the procedure cannot be coded (e.g. \"Laparoscopic Appendectomy\")
   v2 Mapping = OBR-44/OBR-45
   RIM Mapping = .code
@@ -215,7 +215,7 @@
   Is Modifier = Y
   Summary = y
   Type = boolean
-  Short Label = True if procedure was not performed as scheduled
+  Short Name = True if procedure was not performed as scheduled
   Definition = Set this to true if the record is saying that the procedure was NOT performed
   RIM Mapping = .actionNegationInd
   Default Value = false
@@ -226,7 +226,7 @@
   Inv. = 1
   Type = CodeableConcept
   Binding = ProcedureNegationReason
-  Short Label = Reason procedure was not performed
+  Short Name = Reason procedure was not performed
   Definition = A code indicating why the procedure was not performed.
   RIM Mapping = .reason.Observation.value
 
@@ -236,7 +236,7 @@
   Summary = y
   Type = CodeableConcept
   Binding = BodySite
-  Short Label = Target body sites
+  Short Name = Target body sites
   Definition = Detailed and structured anatomical location information. Multiple locations are allowed - e.g. multiple punch biopsies of a lesion
   v2 Mapping = OBX-20
   RIM Mapping = .targetSiteCode
@@ -248,7 +248,7 @@
   Summary = Y
   Type = CodeableConcept|Reference(BodySite)
   Binding = BodySite
-  Short Label = Precise location details
+  Short Name = Precise location details
   Definition = Detailed and structured anatomical location information. Multiple locations are allowed - e.g. multiple punch biopsies of a lesion
 
  -- Row 11 -----------------------------------
@@ -256,7 +256,7 @@
   Card. = 0..*
   Summary = y
   Type = Reference(Condition)
-  Short Label = Condition that is the reason the procedure performed
+  Short Name = Condition that is the reason the procedure performed
   Definition = The condition that is the reason why the procedure was performed.
   Comments = e.g. endoscopy for dilatation and biopsy, combination diagnosis and therapeutic
   RIM Mapping = .reasonCode
@@ -267,7 +267,7 @@
   Summary = y
   Type = CodeableConcept
   Binding = ProcedureReason
-  Short Label = Coded reason procedure performed
+  Short Name = Coded reason procedure performed
   Definition = The coded reason why the procedure was performed. This may be coded entity of some type, or may simply be present as text
   RIM Mapping = .reasonCode
 
@@ -276,7 +276,7 @@
   Card. = 0..*
   Summary = y
   UML = 400;80
-  Short Label = The people who performed the procedure
+  Short Name = The people who performed the procedure
   Definition = Limited to \'real\' people rather than equipment
   RIM Mapping = .participation[typeCode=PFM]
 
@@ -285,7 +285,7 @@
   Card. = 0..1
   Summary = y
   Type = Reference(Practitioner|Organization|Patient|RelatedPerson)
-  Short Label = The reference to the practitioner
+  Short Name = The reference to the practitioner
   Definition = The practitioner who was involved in the procedure
   v2 Mapping = ORC-19/PRT-5
   RIM Mapping = .role
@@ -297,7 +297,7 @@
   Summary = y
   Type = CodeableConcept
   Binding = ProcedurePerformerRole
-  Short Label = The role the actor was in
+  Short Name = The role the actor was in
   Definition = For example: surgeon, anaethetist, endoscopist
   v2 Mapping = Some combination of STF-18 / PRA-3 / PRT-4 / ROL-3 / ORC-12 / OBR-16 / PV1-7 / PV1-8 / PV1-9 / PV1-17 / OBX-25
   RIM Mapping = .functionCode
@@ -307,7 +307,7 @@
   Card. = 0..1
   Summary = y
   Type = dateTime | Period
-  Short Label = Date/Period the procedure was performed
+  Short Name = Date/Period the procedure was performed
   Definition = The date(time)/period over which the procedure was performed. Allows a period to support complex procedures that span more than one date, and also allows for the length of the procedure to be captured.
   v2 Mapping = OBR-7
   RIM Mapping = .effectiveTime
@@ -318,7 +318,7 @@
   Card. = 0..1
   Summary = y
   Type = Reference(Encounter)
-  Short Label = The encounter associated with the procedure
+  Short Name = The encounter associated with the procedure
   Definition = The encounter during which the procedure was performed
   v2 Mapping = PV1-19
   RIM Mapping = .inboundRelationship[typeCode=COMP].source[classCode=ENC, moodCode=EVN]
@@ -329,7 +329,7 @@
   Card. = 0..1
   Summary = Y
   Type = Reference(Location)
-  Short Label = Where the procedure happened
+  Short Name = Where the procedure happened
   Definition = The location where the procedure actually happened.  E.g. a newborn at home, a tracheostomy at a restaurant
   Requirements = Ties a procedure to where the records are likely kept
   w5 = where
@@ -340,7 +340,7 @@
   Summary = y
   Type = CodeableConcept
   Binding = ProcedureOutcome
-  Short Label = The result of procedure
+  Short Name = The result of procedure
   Definition = The outcome of the procedure - did it resolve reasons for the procedure being performed?
   Comments = If outcome contains narrative text only, it can be captured using the CodeableConcept.text.
   RIM Mapping = .outboundRelationship[typeCode=OUT].target.text
@@ -349,7 +349,7 @@
   Element = Procedure.report
   Card. = 0..*
   Type = Reference(DiagnosticReport)
-  Short Label = Any report resulting from the procedure
+  Short Name = Any report resulting from the procedure
   Definition = This could be a histology result, pathology report, surgical report, etc..
   Comments = There could potentially be multiple reports - e.g. if this was a procedure which took multiple biopsies resulting in a number of anatomical pathology reports.
   RIM Mapping = .inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN]
@@ -359,7 +359,7 @@
   Card. = 0..*
   Type = CodeableConcept
   Binding = ProcedureComplication
-  Short Label = Complication following the procedure
+  Short Name = Complication following the procedure
   Definition = Any complications that occurred during the procedure, or in the immediate post-performance period. These are generally tracked separately from the notes, which will typically describe the procedure itself rather than any \'post procedure\' issues
   Comments = If complications are only expressed by the narrative text, they can be captured using the CodeableConcept.text.
   RIM Mapping = Need specialization of OUT for this.
@@ -370,14 +370,14 @@
   Card. = 0..*
   Type = CodeableConcept
   Binding = ProcedureFollowUp
-  Short Label = Instructions for follow up
+  Short Name = Instructions for follow up
   Definition = If the procedure required specific follow up - e.g. removal of sutures. The followup may be represented as a simple note, or could potentially be more complex in which case the CarePlan resource can be used
   RIM Mapping = .outboundRelationship[typeCode=COMP].target[classCode=ACT, moodCode=INT].code
 
  -- Row 23 -----------------------------------
   Element = !Procedure.relatedItem
   Card. = 0..*
-  Short Label = A procedure that is related to this one
+  Short Name = A procedure that is related to this one
   Definition = Procedures may be related to other items such as procedures or medications. For example treating wound dehiscence following a previous procedure
   RIM Mapping = .outboundRelationship[typeCode=TRIG and target[classCode=PROC, moodCode=EVN]]
 
@@ -386,7 +386,7 @@
   Card. = 0..1
   Type = code
   Binding = ProcedureRelationshipType
-  Short Label = caused-by | because-of
+  Short Name = caused-by | because-of
   Definition = The nature of the relationship
   RIM Mapping = .inversionInd
   To Do = Existing codes sound like synonyms.  Suggest caused-by and caused
@@ -395,21 +395,21 @@
   Element = !Procedure.relatedItem.target
   Card. = 0..1
   Type = Reference(AllergyIntolerance | CarePlan | Condition | DiagnosticReport | FamilyMemberHistory | ImagingStudy | Immunization | ImmunizationRecommendation | MedicationAdministration | MedicationDispense | MedicationOrder | MedicationStatement | Observation | Procedure)
-  Short Label = The related item - e.g. a procedure
+  Short Name = The related item - e.g. a procedure
   RIM Mapping = .target
 
  -- Row 26 -----------------------------------
   Element = Procedure.request
   Card. = 0..1
   Type = Reference(CarePlan|DiagnosticRequest|ProcedureRequest|ReferralRequest)
-  Short Label = A request for this procedure
+  Short Name = A request for this procedure
   Definition = A reference to a resource that contains details of the request for this procedure.
 
  -- Row 27 -----------------------------------
   Element = Procedure.notes
   Card. = 0..*
   Type = Annotation
-  Short Label = Additional information about the procedure
+  Short Name = Additional information about the procedure
   Definition = Any other notes about the procedure.  E.g. the operative notes
   v2 Mapping = NTE
   RIM Mapping = .inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=\"annotation\"].value
@@ -418,7 +418,7 @@
   Element = Procedure.focalDevice
   Card. = 0..*
   UML = 420;180
-  Short Label = Device changed in procedure
+  Short Name = Device changed in procedure
   Definition = A device that is implanted, removed or otherwise manipulated (calibration, battery replacement, fitting a prosthesis, attaching a wound-vac, etc.) as a focal portion of the Procedure.
 
  -- Row 29 -----------------------------------
@@ -426,21 +426,21 @@
   Card. = 0..1
   Type = CodeableConcept
   Binding = DeviceActionKind
-  Short Label = Kind of change to device
+  Short Name = Kind of change to device
   Definition = The kind of change that happened to the device during the procedure
 
  -- Row 30 -----------------------------------
   Element = Procedure.focalDevice.manipulated
   Card. = 1..1
   Type = Reference(Device)
-  Short Label = Device that was changed
+  Short Name = Device that was changed
   Definition = The device that was manipulated (changed) during the procedure
 
  -- Row 31 -----------------------------------
   Element = Procedure.usedReference
   Card. = 0..*
   Type = Reference(Device|Medication|Substance)
-  Short Label = Items used during procedure
+  Short Name = Items used during procedure
   Definition = Identifies medications, devices and any other substance used as part of the procedure
   Requirements = Used for tracking contamination, etc.
   Comments = For devices actually implanted or removed, use Procedure.device
@@ -450,7 +450,7 @@
   Card. = 0..*
   Type = CodeableConcept
   Binding = ProcedureUsed
-  Short Label = Coded items used during the procedure
+  Short Name = Coded items used during the procedure
   Definition = Identifies coded items that were used as part of the procedure
   Comments = For devices actually implanted or removed, use Procedure.device
 
@@ -458,7 +458,7 @@
   Element = Procedure.component
   Card. = 0..*
   Type = Reference(MedicationAdministration | Procedure | Observation)
-  Short Label = Events related to the procedure
+  Short Name = Events related to the procedure
   Definition = Identifies medication administrations, other procedures or observations that are related to this procedure.
 
 === Sheet Search =====================================

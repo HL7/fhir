@@ -15,5 +15,5 @@
  -- Row 1 -----------------------------------
   Element = Money
   Type = Quantity
-  Short Label = An amount of economic utility in some recognised currency
+  Short Name = An amount of economic utility in some recognised currency
   RIM Mapping = MO

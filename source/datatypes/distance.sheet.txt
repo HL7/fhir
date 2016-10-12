@@ -15,5 +15,5 @@
  -- Row 1 -----------------------------------
   Element = Distance
   Type = Quantity
-  Short Label = A length - a value with a unit that is a physical distance
+  Short Name = A length - a value with a unit that is a physical distance
   RIM Mapping = PQ

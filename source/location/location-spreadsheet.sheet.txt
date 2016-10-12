@@ -70,7 +70,7 @@
  -- Row 1 -----------------------------------
   Element = Location
   Type = DomainResource
-  Short Label = Details and position information for a physical place
+  Short Name = Details and position information for a physical place
   Definition = Details and position information for a physical place where services are provided  and resources and participants may be stored, found, contained or accommodated.
   RIM Mapping = .Role[classCode=SDLC]
   w5 = administrative.entity
@@ -80,7 +80,7 @@
   Card. = 0..*
   Summary = Y
   Type = Identifier
-  Short Label = Unique code or number identifying the location to its users
+  Short Name = Unique code or number identifying the location to its users
   Definition = Unique code or number identifying the location to its users
   Requirements = Organization label locations in registries, need to keep track of those
   RIM Mapping = .id
@@ -93,7 +93,7 @@
   Summary = Y
   Type = code
   Binding = LocationStatus
-  Short Label = active | suspended | inactive
+  Short Name = active | suspended | inactive
   RIM Mapping = .statusCode
   w5 = status
 
@@ -102,7 +102,7 @@
   Card. = 0..1
   Summary = Y
   Type = string
-  Short Label = Name of the location as used by humans
+  Short Name = Name of the location as used by humans
   Definition = Name of the location as used by humans. Does not need to be unique.
   Comments = If the name of an location changes, consider putting the old name in the alias column so that it can still be located through searches.
   RIM Mapping = .name
@@ -111,7 +111,7 @@
   Element = Location.alias
   Card. = 0..*
   Type = string
-  Short Label = A list of alternate names that the location is known as, or was known as in the past
+  Short Name = A list of alternate names that the location is known as, or was known as in the past
   Requirements = Over time locations and organizations go through many changes and can be known by different names.\n\nFor searching knowing previous names that the location was known by can be very useful.
   Comments = There are no dates associated with the alias/historic names, as this is not intended to track when names were used, but to assist in searching so that older names can still result in identifying the location
   RIM Mapping = .name
@@ -122,7 +122,7 @@
   Card. = 0..1
   Summary = Y
   Type = string
-  Short Label = Additional details about the location that could be displayed as further information to identify the location beyond its name
+  Short Name = Additional details about the location that could be displayed as further information to identify the location beyond its name
   Definition = Description of the Location, which helps in finding or referencing the place
   Requirements = Humans need additional information to verify a correct location has been identified
   RIM Mapping = .playingEntity[classCode=PLC determinerCode=INSTANCE].desc
@@ -134,7 +134,7 @@
   Summary = Y
   Type = code
   Binding = LocationMode
-  Short Label = instance | kind
+  Short Name = instance | kind
   Definition = Indicates whether a resource instance represents a specific location or a class of locations
   Requirements = When using a Location resource for scheduling or orders, we need to be able to refer to a class of Locations instead of a specific Location
   RIM Mapping = .playingEntity[classCode=PLC].determinerCode
@@ -146,7 +146,7 @@
   Summary = Y
   Type = CodeableConcept
   Binding = LocationType
-  Short Label = Type of function performed
+  Short Name = Type of function performed
   Definition = Indicates the type of function performed at the location
   RIM Mapping = .code
   w5 = class
@@ -155,7 +155,7 @@
   Element = Location.telecom
   Card. = 0..*
   Type = ContactPoint
-  Short Label = Contact details of the location
+  Short Name = Contact details of the location
   Definition = The contact details of communication devices available at the location. This can include phone numbers, fax numbers, mobile numbers, email addresses and web sites
   RIM Mapping = .telecom
 
@@ -163,7 +163,7 @@
   Element = Location.address
   Card. = 0..1
   Type = Address
-  Short Label = Physical location
+  Short Name = Physical location
   Requirements = If locations can be visited, we need to keep track of their address
   Comments = This was kept as 0..1 as there is no use property on the address, so wouldn\'t be able to identify different address types
   RIM Mapping = .addr
@@ -174,7 +174,7 @@
   Summary = Y
   Type = CodeableConcept
   Binding = PhysicalType
-  Short Label = Physical form of the location
+  Short Name = Physical form of the location
   Definition = Physical form of the location, e.g. building, room, vehicle, road
   Requirements = For purposes of showing relevant locations in queries, we need to categorize locations
   RIM Mapping = .playingEntity [classCode=PLC].code
@@ -184,7 +184,7 @@
   Element = Location.position
   Card. = 0..1
   UML = right
-  Short Label = The absolute geographic location
+  Short Name = The absolute geographic location
   Definition = The absolute geographic location of the Location, expressed using the WGS84 datum (This is the same co-ordinate system used in KML)
   Requirements = For mobile applications and automated route-finding knowing the exact location of the Location is required
   RIM Mapping = .playingEntity [classCode=PLC determinerCode=INSTANCE].positionText
@@ -193,7 +193,7 @@
   Element = Location.position.longitude
   Card. = 1..1
   Type = decimal
-  Short Label = Longitude with WGS84 datum
+  Short Name = Longitude with WGS84 datum
   Definition = Longitude. The value domain and the interpretation are the same as for the text of the longitude element in KML (see notes below)
   RIM Mapping = (RIM Opted not to map the sub-elements of GPS location, is now an OBS)
 
@@ -201,7 +201,7 @@
   Element = Location.position.latitude
   Card. = 1..1
   Type = decimal
-  Short Label = Latitude with WGS84 datum
+  Short Name = Latitude with WGS84 datum
   Definition = Latitude. The value domain and the interpretation are the same as for the text of the latitude element in KML (see notes below)
   RIM Mapping = (RIM Opted not to map the sub-elements of GPS location, is now an OBS)
 
@@ -209,7 +209,7 @@
   Element = Location.position.altitude
   Card. = 0..1
   Type = decimal
-  Short Label = Altitude with WGS84 datum
+  Short Name = Altitude with WGS84 datum
   Definition = Altitude. The value domain and the interpretation are the same as for the text of the altitude element in KML (see notes below)
   RIM Mapping = (RIM Opted not to map the sub-elements of GPS location, is now an OBS)
 
@@ -218,7 +218,7 @@
   Card. = 0..1
   Summary = Y
   Type = Reference(Organization)
-  Short Label = Organization responsible for provisioning and upkeep
+  Short Name = Organization responsible for provisioning and upkeep
   Definition = The organization responsible for the provisioning and upkeep of the location
   Requirements = Need to know who manages the location
   Comments = This can also be used as the part of the organization hierarchy where this location provides services. These services can be defined through the HealthcareService resource.
@@ -228,7 +228,7 @@
   Element = Location.partOf
   Card. = 0..1
   Type = Reference(Location)
-  Short Label = Another Location this one is physically part of
+  Short Name = Another Location this one is physically part of
   Definition = Another Location which this Location is physically part of
   Requirements = For purposes of location, display and identification, knowing which locations are located within other locations is important
   RIM Mapping = .inboundLink[typeCode=PART].source[classCode=SDLC]
@@ -237,7 +237,7 @@
   Element = Location.endpoint
   Card. = 0..*
   Type = Reference(Endpoint)
-  Short Label = Technical endpoints providing access to services operated for the location
+  Short Name = Technical endpoints providing access to services operated for the location
   Requirements = Organizations may have different systems at different locations that provide various services and need to be able to define the technical connection details for how to connect to them, and for what purpose.
   RIM Mapping = n/a
 

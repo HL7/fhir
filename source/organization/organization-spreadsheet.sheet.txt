@@ -48,7 +48,7 @@
  -- Row 1 -----------------------------------
   Element = Organization
   Type = DomainResource
-  Short Label = A grouping of people or organizations with a common purpose
+  Short Name = A grouping of people or organizations with a common purpose
   Definition = A formally or informally recognized grouping of people or organizations formed for the purpose of achieving some form of collective action.  Includes companies, institutions, corporations, departments, community groups, healthcare practice groups, etc.
   v2 Mapping = (also see master files messages)
   RIM Mapping = Organization(classCode=ORG, determinerCode=INST)
@@ -61,7 +61,7 @@
   Summary = Y
   Inv. = 1
   Type = Identifier
-  Short Label = Identifies this organization  across multiple systems
+  Short Name = Identifies this organization  across multiple systems
   Definition = Identifier for the organization that is used to identify the organization across multiple disparate systems
   Requirements = Organizations are known by a variety of ids. Some institutions maintain several, and most collect identifiers for exchange with other organizations concerning the organization.
   v2 Mapping = XON.10 / XON.3
@@ -75,7 +75,7 @@
   Is Modifier = y
   Summary = Y
   Type = boolean
-  Short Label = Whether the organization\'s record is still in active use
+  Short Name = Whether the organization\'s record is still in active use
   Definition = Whether the organization\'s record is still in active use
   Requirements = Need a flag to indicate a record is no longer to be used and should generally be hidden for the user in the UI.
   Comments = Default is true.\n\nThis active flag is not intended to be used to mark an organizations as temporarily closed or under construction. Instead the Location(s) within the Organization should have the suspended status. If further details of the reason for the suspension are required, then an extension on this element should be used.
@@ -92,7 +92,7 @@
   Summary = Y
   Type = CodeableConcept
   Binding = OrganizationType
-  Short Label = Kind of organization
+  Short Name = Kind of organization
   Definition = The kind of organization that this is
   Requirements = Need to be able to track the kind of organization that this is - different organization types have different uses
   Comments = Organizations can be corporations, wards, sections, clinical teams, government departments, etc. Note that code is generally a classifier of the type of organization; in many applications, codes are used to identity a particular organization (say, ward) as opposed to another of the same type - these are identifiers, not codes
@@ -107,7 +107,7 @@
   Summary = Y
   Inv. = 1
   Type = string
-  Short Label = Name used for the organization
+  Short Name = Name used for the organization
   Definition = A name associated with the organization
   Requirements = Need to use the name as the label of the organization.
   Comments = If the name of an organization changes, consider putting the old name in the alias column so that it can still be located through searches.
@@ -120,7 +120,7 @@
   Element = Organization.alias
   Card. = 0..*
   Type = string
-  Short Label = A list of alternate names that the organization is known as, or was known as in the past
+  Short Name = A list of alternate names that the organization is known as, or was known as in the past
   Requirements = Over time locations and organizations go through many changes and can be known by different names.\n\nFor searching knowing previous names that the location was known by can be very useful.
   Comments = There are no dates associated with the alias/historic names, as this is not intended to track when names were used, but to assist in searching so that older names can still result in identifying the organization
   RIM Mapping = .name
@@ -131,7 +131,7 @@
   Card. = 0..*
   Inv. = 3
   Type = ContactPoint
-  Short Label = A contact detail for the organization
+  Short Name = A contact detail for the organization
   Definition = A contact detail for the organization
   Requirements = Human contact for the organization
   Comments = The use code home is not to be used. Note that these contacts are not the contact details of people who are employed by or represent the organization, but official contacts for the organization itself
@@ -144,7 +144,7 @@
   Card. = 0..*
   Inv. = 2
   Type = Address
-  Short Label = An address for the organization
+  Short Name = An address for the organization
   Definition = An address for the organization
   Requirements = May need to keep track of the organization\'s addresses for contacting, billing or reporting requirements
   Comments = Organization may have multiple addresses with different uses or applicable periods. The use code home is not to be used
@@ -156,7 +156,7 @@
   Element = !Organization.accreditation
   Card. = 0..*
   UML = right
-  Short Label = Formal certifications that convey authority
+  Short Name = Formal certifications that convey authority
   Definition = The qualifications/certifications an organization has, including format educational achievements, accreditations and current certifications. All these qualifications may be used to determine what roles the organization may play in a healthcare environment
   Requirements = For many organizations in healthcare, it is necessary to track the qualifications an organization has
   v2 Mapping = Roughly analogous to person-specific CER segment in HL7 v2
@@ -168,7 +168,7 @@
   Element = !Organization.accreditation.identifier
   Card. = 0..1
   Type = Identifier
-  Short Label = Identifier for the accreditation
+  Short Name = Identifier for the accreditation
   Definition = The identifier of the accreditation
   Requirements = Allows a link back to a accreditation registry, if one exists
   RIM Mapping = .identifier
@@ -178,7 +178,7 @@
   Card. = 0..1
   Type = CodeableConcept
   Binding = OrganizationAccreditation
-  Short Label = What kind of accreditation
+  Short Name = What kind of accreditation
   Definition = The type of the accreditation
   Requirements = commonly used to determine the roles an organization may perform
   RIM Mapping = .code
@@ -187,7 +187,7 @@
   Element = !Organization.accreditation.issuer
   Card. = 0..1
   Type = Reference(Organization)
-  Short Label = Who conferred accreditation
+  Short Name = Who conferred accreditation
   Definition = The organization that conferred/confers the accreditation
   Requirements = May determine the significance of the qualification, and allows a link back to a qualification registry, if one exists
   RIM Mapping = .scopedBy[Organization]
@@ -197,7 +197,7 @@
   Element = !Organization.accreditation.period
   Card. = 0..1
   Type = Period
-  Short Label = When the accreditation is valid (date only)
+  Short Name = When the accreditation is valid (date only)
   Definition = The period for which the accreditation is held
   Requirements = Most accreditations are only conferred for a limited time period and SHALL be re-acquired or forfeited
   RIM Mapping = .effectiveTime[IVL<TS>]
@@ -207,7 +207,7 @@
   Card. = 0..1
   Summary = Y
   Type = Reference(Organization)
-  Short Label = The organization of which this organization forms a part
+  Short Name = The organization of which this organization forms a part
   Definition = The organization of which this organization forms a part
   Requirements = Need to be able to track the hierarchy of organizations within an organization
   v2 Mapping = No equivalent in HL7 v2
@@ -218,7 +218,7 @@
   Element = Organization.contact
   Card. = 0..*
   UML = right
-  Short Label = Contact for the organization for a certain purpose
+  Short Name = Contact for the organization for a certain purpose
   Requirements = Need to keep track of assigned contact points within bigger organization
   Comments = Where multiple contacts for the same purpose are provided there is a standard extension that can be used to determine which one is the preferred contact to use.
   RIM Mapping = .contactParty
@@ -228,7 +228,7 @@
   Card. = 0..1
   Type = CodeableConcept
   Binding = ContactPartyType
-  Short Label = The type of contact
+  Short Name = The type of contact
   Definition = Indicates a purpose for which the contact can be reached
   Requirements = Need to distinguish between multiple contact persons.
   RIM Mapping = ./type
@@ -237,7 +237,7 @@
   Element = Organization.contact.name
   Card. = 0..1
   Type = HumanName
-  Short Label = A name associated with the contact
+  Short Name = A name associated with the contact
   Definition = A name associated with the contact
   Requirements = Need to be able to track the person by name.
   v2 Mapping = PID-5, PID-9
@@ -247,7 +247,7 @@
   Element = Organization.contact.telecom
   Card. = 0..*
   Type = ContactPoint
-  Short Label = Contact details (telephone, email, etc.)  for a contact
+  Short Name = Contact details (telephone, email, etc.)  for a contact
   Definition = A contact detail (e.g. a telephone number or an email address) by which the party may be contacted.
   Requirements = People have (primary) ways to contact them in some way such as phone, email.
   v2 Mapping = PID-13, PID-14
@@ -257,7 +257,7 @@
   Element = Organization.contact.address
   Card. = 0..1
   Type = Address
-  Short Label = Visiting or postal addresses for the contact
+  Short Name = Visiting or postal addresses for the contact
   Definition = Visiting or postal addresses for the contact
   Requirements = May need to keep track of a contact party\'s address for contacting, billing or reporting requirements
   v2 Mapping = PID-11
@@ -268,7 +268,7 @@
   Card. = 0..1
   Type = code
   Binding = AdministrativeGender
-  Short Label = male | female | other | unknown
+  Short Name = male | female | other | unknown
   Definition = Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes.
   Requirements = Needed to address the person correctly
   v2 Mapping = PID-8
@@ -278,7 +278,7 @@
   Element = !Organization.location
   Card. = 0..*
   Type = Reference(Location)
-  Short Label = Location(s) the organization uses to provide services
+  Short Name = Location(s) the organization uses to provide services
   Definition = Location(s) the organization uses to provide services
   RIM Mapping = .scopedBy[classCode=LocatedEntity].scoper
   ServD Mapping = ./Sites
@@ -288,7 +288,7 @@
   Element = Organization.endpoint
   Card. = 0..*
   Type = Reference(Endpoint)
-  Short Label = Technical endpoints providing access to services operated for the organization
+  Short Name = Technical endpoints providing access to services operated for the organization
   Requirements = Organizations have multiple systems that provide various services and need to be able to define the technical connection details for how to connect to them, and for what purpose.
   RIM Mapping = n/a
 
