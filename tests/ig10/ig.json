@@ -1,0 +1,34 @@
+{
+  "tool" : "jekyll",
+  "paths" : {
+    "resources" : "resources",
+    "pages" : "pages",
+    "temp" : "temp",
+    "qa" : "qa",
+    "output" : "output",
+    "specification" : "http://hl7.org/fhir/2016May"
+  },
+	"canonicalBase": "http://hl7.org/fhir/test-ig-14",
+  "version" : "1.0.1",
+	"spreadsheets": [
+		"diagnosticorder-daf-profile-spreadsheet.xml"
+	],  
+	"defaults": {
+		"Any": {
+	  	"template-format" : "format.html",
+      "template-base" : "base.html"
+		},
+		"ValueSet": {
+      "template-base" : "vs.html"
+		},
+		"ConceptMap": {
+      "template-base" : "cm.html"
+		},
+		"StructureDefinition": {
+      "template-base" : "sd.html"
+		}
+	},
+	"source": "ig.xml",
+  "resources" : {
+  }
+}
