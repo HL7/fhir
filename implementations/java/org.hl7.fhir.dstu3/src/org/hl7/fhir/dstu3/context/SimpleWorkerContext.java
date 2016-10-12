@@ -323,13 +323,17 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
 	@SuppressWarnings("unchecked")
 	@Override
 	public <T extends Resource> T fetchResourceWithException(Class<T> class_, String uri) throws FHIRException {
+    if (class_ == null) {
+      return null;      
+    }
+
 	  if (class_ == Questionnaire.class)
 	    return (T) questionnaire;
 	  
 		if (class_ == StructureDefinition.class && !uri.contains("/"))
 			uri = "http://hl7.org/fhir/StructureDefinition/"+uri;
 
-		if (uri.startsWith("http:")) {
+		if (uri.startsWith("http:") || uri.startsWith("urn:") ) {
 			if (uri.contains("#"))
 				uri = uri.substring(0, uri.indexOf("#"));
 			if (class_ == StructureDefinition.class) {
@@ -359,10 +363,6 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
           return null;      
 			}
 		}
-		if (class_ == null && uri.contains("/")) {
-			return null;      
-		}
-
 		
 		throw new FHIRException("fetching "+class_.getName()+" not done yet for URI '"+uri+"'");
 	}
