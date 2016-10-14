@@ -423,7 +423,7 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
 
   @Override
   public boolean compile(String rootDir, List<String> errors, Logger logger, List<ValidationMessage> issues) throws Exception {
-    logger.log(" .... build jars", LogMessageType.Process);
+    logger.log(" .... build validator", LogMessageType.Process);
     // now, we pack a jar with what we need for testing:
     Manifest manifest = new Manifest();
     manifest.getMainAttributes().put(Attributes.Name.MANIFEST_VERSION, "1.0");
@@ -451,10 +451,11 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
     AddJarToJar(jar, Utilities.path(importsDir, "hapi-fhir-base-1.6.jar"), names);
 
     // by adding source first, we add all the newly built classes, and these are not updated when the older stuff is included
-    AddToJar(jar, new File(Utilities.path(rootDir+"implementations", "java", "org.hl7.fhir.dstu3", "src")), Utilities.path(rootDir,"implementations", "java", "org.hl7.fhir.dstu3", "src", "").length(), names);
-    AddToJar(jar, new File(Utilities.path(rootDir+"implementations", "java", "org.hl7.fhir.dstu2016may", "src")), Utilities.path(rootDir,"implementations", "java", "org.hl7.fhir.dstu2016may", "src", "").length(), names);
-    AddToJar(jar, new File(Utilities.path(rootDir+"implementations", "java", "org.hl7.fhir.convertors", "src")), Utilities.path(rootDir,"implementations", "java", "org.hl7.fhir.convertors", "src", "").length(), names);
-    AddToJar(jar, new File(Utilities.path(rootDir+"implementations", "java", "org.hl7.fhir.utilities", "src")), Utilities.path(rootDir,"implementations", "java", "org.hl7.fhir.utilities", "src", "").length(), names);
+    AddToJar(jar, new File(Utilities.path(rootDir+"implementations", "java", "org.hl7.fhir.dstu3", "bin")), Utilities.path(rootDir,"implementations", "java", "org.hl7.fhir.dstu3", "bin", "").length(), names);
+    AddToJar(jar, new File(Utilities.path(rootDir+"implementations", "java", "org.hl7.fhir.dstu2", "bin")), Utilities.path(rootDir,"implementations", "java", "org.hl7.fhir.dstu2", "bin", "").length(), names);
+    AddToJar(jar, new File(Utilities.path(rootDir+"implementations", "java", "org.hl7.fhir.dstu2016may", "bin")), Utilities.path(rootDir,"implementations", "java", "org.hl7.fhir.dstu2016may", "bin", "").length(), names);
+    AddToJar(jar, new File(Utilities.path(rootDir+"implementations", "java", "org.hl7.fhir.convertors", "bin")), Utilities.path(rootDir,"implementations", "java", "org.hl7.fhir.convertors", "bin", "").length(), names);
+    AddToJar(jar, new File(Utilities.path(rootDir+"implementations", "java", "org.hl7.fhir.utilities", "bin")), Utilities.path(rootDir,"implementations", "java", "org.hl7.fhir.utilities", "bin", "").length(), names);
     jar.close();
 
     // now, we pack a jar with what we need for testing:
@@ -463,28 +464,28 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
     manifest.getMainAttributes().put(Attributes.Name.CLASS_PATH, ".");
     manifest.getMainAttributes().put(Attributes.Name.MAIN_CLASS, "org.hl7.fhir.dstu3.test.ToolsHelper");
 
-    jar = new JarOutputStream(new FileOutputStream(Utilities.path(folders.dstDir, "org.hl7.fhir.tools.jar")), manifest);
-    names = new ArrayList<String>();
-    names.add("META-INF/");
-    names.add("META-INF/MANIFEST.MF");
-
-    importsDir = Utilities.path(rootDir, "tools", "java", "imports");
-    AddJarToJar(jar, Utilities.path(importsDir, "xpp3-1.1.4c.jar"), names);
-    AddJarToJar(jar, Utilities.path(importsDir, "gson-2.3.jar"), names);
-    AddJarToJar(jar, Utilities.path(importsDir, "commons-codec-1.9.jar"), names);
-    AddJarToJar(jar, Utilities.path(importsDir, "commons-io-1.2.jar"), names);
-    AddJarToJar(jar, Utilities.path(importsDir, "Saxon-HE-9.5.1-5.jar"), names);
-    AddJarToJar(jar, Utilities.path(importsDir, "commons-lang3-3.3.2.jar"), names);
-    AddJarToJar(jar, Utilities.path(importsDir, "commons-logging-1.1.1.jar"), names);
-    AddJarToJar(jar, Utilities.path(importsDir, "commons-logging-api-1.1.jar"), names);
-    AddJarToJar(jar, Utilities.path(importsDir, "httpclient-4.2.3.jar"), names);
-    AddJarToJar(jar, Utilities.path(importsDir, "httpcore-4.2.2.jar"), names);
-    AddJarToJar(jar, Utilities.path(importsDir, "hapi-fhir-base-1.6.jar"), names);
-
-    // by adding source first, we add all the newly built classes, and these are not updated when the older stuff is included
-    AddToJar(jar, new File(Utilities.path(rootDir+"implementations", "java", "org.hl7.fhir.dstu3", "src")), Utilities.path(rootDir+"implementations", "java", "org.hl7.fhir.dstu3", "src","").length(), names);
-    AddToJar(jar, new File(Utilities.path(rootDir+"implementations", "java", "org.hl7.fhir.utilities", "src")), Utilities.path(rootDir+"implementations", "java", "org.hl7.fhir.utilities", "src","").length(), names);
-    jar.close();
+//    jar = new JarOutputStream(new FileOutputStream(Utilities.path(folders.dstDir, "org.hl7.fhir.tools.jar")), manifest);
+//    names = new ArrayList<String>();
+//    names.add("META-INF/");
+//    names.add("META-INF/MANIFEST.MF");
+//
+//    importsDir = Utilities.path(rootDir, "tools", "java", "imports");
+//    AddJarToJar(jar, Utilities.path(importsDir, "xpp3-1.1.4c.jar"), names);
+//    AddJarToJar(jar, Utilities.path(importsDir, "gson-2.3.jar"), names);
+//    AddJarToJar(jar, Utilities.path(importsDir, "commons-codec-1.9.jar"), names);
+//    AddJarToJar(jar, Utilities.path(importsDir, "commons-io-1.2.jar"), names);
+//    AddJarToJar(jar, Utilities.path(importsDir, "Saxon-HE-9.5.1-5.jar"), names);
+//    AddJarToJar(jar, Utilities.path(importsDir, "commons-lang3-3.3.2.jar"), names);
+//    AddJarToJar(jar, Utilities.path(importsDir, "commons-logging-1.1.1.jar"), names);
+//    AddJarToJar(jar, Utilities.path(importsDir, "commons-logging-api-1.1.jar"), names);
+//    AddJarToJar(jar, Utilities.path(importsDir, "httpclient-4.2.3.jar"), names);
+//    AddJarToJar(jar, Utilities.path(importsDir, "httpcore-4.2.2.jar"), names);
+//    AddJarToJar(jar, Utilities.path(importsDir, "hapi-fhir-base-1.6.jar"), names);
+//
+//    // by adding source first, we add all the newly built classes, and these are not updated when the older stuff is included
+//    AddToJar(jar, new File(Utilities.path(rootDir+"implementations", "java", "org.hl7.fhir.dstu3", "src")), Utilities.path(rootDir+"implementations", "java", "org.hl7.fhir.dstu3", "src","").length(), names);
+//    AddToJar(jar, new File(Utilities.path(rootDir+"implementations", "java", "org.hl7.fhir.utilities", "src")), Utilities.path(rootDir+"implementations", "java", "org.hl7.fhir.utilities", "src","").length(), names);
+//    jar.close();
 
     return true;
   }
