@@ -14,9 +14,9 @@
 <table class="cols"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="resource.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="help.html#status">Ballot Status</a>: <a href="history.html#pubs">Draft</a></td></tr></table>
 
 <p>
-The FHIR specification defines a set of resources, and an infrastructure for handling resources. 
-In order to use FHIR to create solutions for integration requirements, implementers must map their 
-problems to resources and their content. 
+The FHIR specification defines a set of resources, and an infrastructure for handling resources.
+In order to use FHIR to create solutions for integration requirements, implementers must map their
+problems to resources and their content.
 </p>
 <p>
 The resources are classified into 6 sections:
@@ -30,7 +30,7 @@ The resources are classified into 6 sections:
  <li><a href="#infrastructure"><b>Infrastructure</b></a>: General functionality, and resources for internal FHIR requirements</li>
 </ol>
 <p>
-This page describes the resources and their functional intent in more detail to assist implementers to 
+This page describes the resources and their functional intent in more detail to assist implementers to
 understand their purpose and scope, and their supporting classifications.
 </p>
 
@@ -43,7 +43,7 @@ Where to find common concepts in this specification:
   <td><b>Example</b></td>
   <td><b>Where to find</b></td>
  </tr>
- 
+
  <tr><td colspan="3"><b>Clinical Findings</b></td></tr>
  <tr><td>Laboratory Results</td><td>Blood panels such as CBC with Differential, Liver Panel, etc.</td><td><a href="diagnosticreport.html">DiagnosticReport</a> with <a href="observation.html">Observations</a></td></tr>
  <tr><td>Imaging Study Findings</td><td>CT Scans, MRI, Plain Radiographs, Ultrasounds)</td><td><a href="diagnosticreport.html">DiagnosticReport</a> (some with <a href="observation.html">Observations</a>)</td></tr>
@@ -51,12 +51,12 @@ Where to find common concepts in this specification:
  <tr><td>Vital Signs</td><td>Temperature, Blood Pressure, Heart Rate, Respiratory Rate</td><td><a href="observation.html">Observation</a></td></tr>
  <tr><td>Other Physical Exam Findings</td><td>Auscultation findings</td><td><a href="observation.html">Observation</a></td></tr>
  <tr><td>Pulmonary Artery Catheter readings</td><td>Pulmonary artery pressure</td><td><a href="observation.html">Observation</a></td></tr>
- 
- <tr><td colspan="3"><b>Patient Problems, Allergies and Adverse Events</b></td></tr> 
+
+ <tr><td colspan="3"><b>Patient Problems, Allergies and Adverse Events</b></td></tr>
  <tr><td>Allergy</td><td>Food or drug allergies</td><td><a href="allergyintolerance.html">AllergyIntolerance</a> </td></tr>
  <tr><td>Clinical Diagnosis</td><td>Diabetes, Congestive Heart Failure</td><td><a href="condition.html">Condition</a> </td></tr>
  <tr><td>Adverse Event / Reaction</td><td>Adverse reaction to an agent, falls, adverse surgical events, hospital infections</td><td>(not done yet)</td></tr>
- 
+
  <tr><td colspan="3"><b>Patient History</b></td></tr>
  <tr><td>Chief Complaint</td><td>Cough, Pain, Fever, Fatigue</td><td><a href="condition.html">Condition</a> </td></tr>
  <tr><td>Past Surgical History</td><td>Appendectomy, Hernia repair</td><td><a href="procedure.html">Procedure</a> </td></tr>
@@ -74,7 +74,7 @@ Where to find common concepts in this specification:
  <tr><td>Proposed respiratory order</td><td>Oxygen delivery</td><td>Not done yet</td></tr>
  <tr><td>Proposed Medications</td><td>Aspirin, Lisinopril</td><td><a href="medicationorder.html">MedicationOrder</a> </td></tr>
  <tr><td>Proposed Supply</td><td>Wheel Chair, Food Tray</td><td><a href="supplyrequest.html">SupplyRequest</a> </td></tr>
- 
+
  <tr><td colspan="3"><b>Interdisciplinary Care Planning</b></td></tr>
  <tr><td>Patient Goal</td><td>Reduce risk of falls, lose weight</td><td><a href="goal.html">Goal</a> (as part of a <a href="careplan.html">CarePlan</a>)</td></tr>
  <tr><td>Intervention</td><td>Patient assessments</td><td><a href="procedurerequest.html">ProcedureRequest</a> </td></tr>
@@ -88,8 +88,8 @@ In addition, to the information on this page, see also <a href="usecases.html">C
 <h3>Resource Classification</h3>
 
 <p>
-In addition to the overall classification above, Resources and the data elements in them are 
-tapped into an overall ontology that provides consistent meaning across the resources. 
+In addition to the overall classification above, Resources and the data elements in them are
+tapped into an overall ontology that provides consistent meaning across the resources.
 </p>
 
 <p>
@@ -98,34 +98,34 @@ into the time line. Some resources are records of past events, some are plans fo
 the future, etc. This table summarizes the categories:
 </p>
 <table>
- <tr> 
+ <tr>
   <td><b>Type</b></td>
   <td><b>Description</b></td>
  </tr>
- <tr> 
+ <tr>
   <td><a name="Record"> </a>Past</td>
   <td>A record of an event that has happened</td>
  </tr>
- <tr> 
+ <tr>
   <td><a name="Warning"> </a>Present</td>
   <td>A record that serves an exchange in real time</td>
  </tr>
- <tr> 
+ <tr>
   <td><a name="Plan"> </a>Future</td>
   <td>A record that describes a future intent</td>
  </tr>
- <tr> 
+ <tr>
   <td><a name="Thing"> </a>Ongoing</td>
   <td>A record that is maintained over time that tracks the state of a patient</td>
  </tr>
- <tr> 
+ <tr>
   <td><a name="Thing"> </a>Unrelated</td>
   <td>A record that doesn't relate to time (e.g. a fixed entity)</td>
  </tr>
 </table>
 <p>
-Note that even future records end up in the past after 
-the event they are concerned with passes. 
+Note that even future records end up in the past after
+the event they are concerned with passes.
 </p>
 
 <h3>Clinical</h3>
@@ -133,21 +133,21 @@ the event they are concerned with passes.
 <h4>General</h4>
 
 <p>
-  <code>AllergyIntolerance</code>, <code>Condition</code>, and <code>Procedure</code> are common resources that appear throughout 
-  the patient record - summaries of the patient status or history. 
-  
+  <code>AllergyIntolerance</code>, <code>Condition</code>, and <code>Procedure</code> are common resources that appear throughout
+  the patient record - summaries of the patient status or history.
+
   <code>FamilyMemberHistory</code> tracks significant health issues for relatives of the patient, since these are significant risk factors for the patient.
-  
+
   These resources may be found in patient, episode, discharge summaries, and consultation records.
 </p>
 <p>
   <code>ClinicalImpression</code> (aka ClinicalAssessment) records the core of a clinical consultation/assessment/impression.
-  When a single text note is inserted directly in the patient record, this is typically a 
-  ClinicalImpression.summary. A <code>RiskAssessment</code> is an assessment - usually, but not necessarily, by 
-  a decision support engine of the likely outcomes of some course of action for a patient. 
-</p>  
+  When a single text note is inserted directly in the patient record, this is typically a
+  ClinicalImpression.summary. A <code>RiskAssessment</code> is an assessment - usually, but not necessarily, by
+  a decision support engine of the likely outcomes of some course of action for a patient.
+</p>
 <p>
-  A <code>DetectedIssue</code> is an active alert that there is a clinical issue with/between one or more active or 
+  A <code>DetectedIssue</code> is an active alert that there is a clinical issue with/between one or more active or
   proposed clinical actions for a patient. One way it may be used is as part of an error message in response
   to an attempted operation.
 </p>
@@ -170,14 +170,14 @@ These resources support planning of care provision - care and treatment plans.
 </p>
 <p>
 <code>CarePlan</code> and <code>Goal</code> are the primary structures around which future planning for the patient
-is based. These are used to define care and treatement planned for a patient in the future, and may be 
+is based. These are used to define care and treatement planned for a patient in the future, and may be
 updated and adjusted as ongoing care is provided.
 </p>
 <p>
 <code>ReferralRequest</code> is the basis for a proposed/requested transfer of care from
-one clinician to another. Typically, these are associated with a transfer 
-of records, and a physical relocation of the patient, but neither of these 
-are required. A <code>ProcedureRequest</code> records a request for a procedure to be carried out. 
+one clinician to another. Typically, these are associated with a transfer
+of records, and a physical relocation of the patient, but neither of these
+are required. A <code>ProcedureRequest</code> records a request for a procedure to be carried out.
 </p>
 <p>
 <code>NutritionRequest</code> is a request to supply a diet, formula feeding (enteral) or oral nutritional supplement to a patient
@@ -205,7 +205,7 @@ Supports the medication and immunization processes. Some points of note:
  <li>A medication chart (or variants) will use multiple different types of medication resources</li>
  <li>When prescribing is done by an external system (e.g. most ambulatory e-prescribing), the <code>Medication</code> resource is not used. It is generally used to represent information in formularies and to describe custom formulations</li>
 </ul>
- 
+
 <table class="grid">
 <tr><td><b>Resource</b></td><td><b>Category</b></td><td><b>RIM</b></td><td><b>Lifecycle</b></td></tr>
 <tr><td><a href="medication.html">Medication</a></td><td><a href="#unrelated">Unrelated</a></td><td>Role</td><td></td></tr>
@@ -220,7 +220,7 @@ Supports the medication and immunization processes. Some points of note:
 <h4>Diagnostics</h4>
 
 <p>
-Resources concerned with observing the patient, and the diagnostic service process built around this. 
+Resources concerned with observing the patient, and the diagnostic service process built around this.
 The <code>Observation</code> resource is a widely used general purpose tool. Typical uses include
 recording the following kinds of data:
 </p>
@@ -231,20 +231,20 @@ recording the following kinds of data:
  <li>Social history (e.g. Smoking History)</li>
 </ul>
 <p>
-and many more things beside. Note that 'everything is an observation', but implementations should not 
-use Observation where <a href="condition.html">Condition</a> is more appropriate. 
+and many more things beside. Note that 'everything is an observation', but implementations should not
+use Observation where <a href="condition.html">Condition</a> is more appropriate.
 </p>
 <p>
-<code>DiagnosticRequest</code> and <code>DiagnosticReport</code> support the overall diagnostic process. 
-A DiagnosticReport connects the process of 'reporting', linking process identifiers, visual 
+<code>DiagnosticRequest</code> and <code>DiagnosticReport</code> support the overall diagnostic process.
+A DiagnosticReport connects the process of 'reporting', linking process identifiers, visual
 presentations of a report, and conclusions/interpretations with the Observations. DiagnosticRequests capture the request from an authorized clinician to initiate the diagnostic process.
 <code>Specimen</code> and <code>BodySite</code> are used to record the details of specimen collection
 although BodySite can also be used with other resources (e.g. Operation location details on a Procedure).
 </p>
 <p>
 The resources <code>ImagingManifest</code> and <code>ImagingStudy</code> are provided to make links to diagnostic
-images available within the clinical record, where the actual images will be provided by 
-dedicated systems (the <a href="media.html">Media</a> resource is intended for sharing 
+images available within the clinical record, where the actual images will be provided by
+dedicated systems (the <a href="media.html">Media</a> resource is intended for sharing
 actual images directly, which is not generally suitable for high resolution, high volume
 diagnostic images).
 </p>
@@ -265,7 +265,7 @@ diagnostic images).
 
 <p>
 These resources provide support for identifying
-the various entities involved in healthcare: 
+the various entities involved in healthcare:
 people, organizations, substances, devices, etc.
 </p>
 
@@ -274,20 +274,20 @@ people, organizations, substances, devices, etc.
 <p>
 The <code>Patient</code> resource represents the recipient of healthcare. This concept
 is not always referred to as a 'patient' - other words such as client, customer, resident,
-etc. are commonly used, but in this specification, the recipient of healthcare is 
-simply known as the patient. The patient resource includes basic demographics and 
+etc. are commonly used, but in this specification, the recipient of healthcare is
+simply known as the patient. The patient resource includes basic demographics and
 next of kin information.
 </p>
 <p>
 The <code>Practitioner</code> resource is used to identify and describe any person
-(or even animal) involved in the provision of care, including doctors, nurses, 
-clerical staff, specialist support staff, etc. 
+(or even animal) involved in the provision of care, including doctors, nurses,
+clerical staff, specialist support staff, etc.
 </p>
 <p>
-<code>RelatedPerson</code> is used to describe individuals who are related 
-to the patient who are involved in the healthcare process, beyond merely 
-being next of kin - they may sign documents, administer medications, be the 
-source of information, or simply provide care by chance at an accident. 
+<code>RelatedPerson</code> is used to describe individuals who are related
+to the patient who are involved in the healthcare process, beyond merely
+being next of kin - they may sign documents, administer medications, be the
+source of information, or simply provide care by chance at an accident.
 </p>
 
 <table class="grid">
@@ -301,7 +301,7 @@ source of information, or simply provide care by chance at an accident.
 
 <p>
 In most provision of healthcare, some <code>Organization</code> is responsible and accountable
-for the care, and references appear throughout the clinical record. The organization is 
+for the care, and references appear throughout the clinical record. The organization is
 a legal entity that may operate at multiple locations. A <code>HealthcareService</code>
 represents the services offered by one or more organizations at a single location.
 </p>
@@ -322,16 +322,16 @@ procedures, public health procedures, herds of cattle, etc.).
 <h4>Entities</h4>
 
 <p>
-<code>Location</code> - for where things happen. Locations are either by instance (e.g. 
+<code>Location</code> - for where things happen. Locations are either by instance (e.g.
 this particular room at a given address or GPS coordinates) or by kind (e.g. the back
-of some ambulance). The same applies to <code>Substance</code>, for some kind of 
-material (e.g. chemical) used in healthcare - it may refer to an identified instance 
-(e.g. bottle) or a kind of chemical. 
+of some ambulance). The same applies to <code>Substance</code>, for some kind of
+material (e.g. chemical) used in healthcare - it may refer to an identified instance
+(e.g. bottle) or a kind of chemical.
 </p>
 <p>
 The <code>Person</code> resource is used to track associations between different
 patient records across the provision of healthcare (e.g. "master patient indexes").
-Person resources are not referred directly from other resources; their use is for 
+Person resources are not referred directly from other resources; their use is for
 dedicated person registries.
 </p>
 
@@ -353,8 +353,8 @@ including stock control, locating devices, and tracking implants.
 </p>
 <p>
 <code>DeviceComponent</code> and <code>DeviceMetric</code> are used to report the status
-and characteristics of the kinds of medical devices that produce a stream of one or 
-more data points (<a href="observation.html">Observations</a>), usually about a patient. 
+and characteristics of the kinds of medical devices that produce a stream of one or
+more data points (<a href="observation.html">Observations</a>), usually about a patient.
 </p>
 
 <table class="grid">
@@ -371,8 +371,8 @@ more data points (<a href="observation.html">Observations</a>), usually about a 
 <p>
 <code>Encounter</code> tracks an interaction between a patient and healthcare provider(s).
 Specifically, this resource tracks the administrative details of the interaction, not the
-clinical details (though these usual link to it). Aliases for this include 
-'admission', 'consultation', and sometimes 'appointment'. Encounters may be nested - e.g. 
+clinical details (though these usual link to it). Aliases for this include
+'admission', 'consultation', and sometimes 'appointment'. Encounters may be nested - e.g.
 when the patient goes to physiotherapy as part of a hospital admission.
 </p>
 <p>
@@ -381,8 +381,8 @@ that may last over several encounters. The purpose of EpisodeOfCare is track a p
 (person or organization) that has an interest in the ongoing care of the patient.
 </p>
 <p>
-A <code>Communication</code> is a record of a formal communication with a 
-patient or another party with an interest in their care - a letter, email, phone call etc. 
+A <code>Communication</code> is a record of a formal communication with a
+patient or another party with an interest in their care - a letter, email, phone call etc.
 </p>
 <p>
 A <code>Flag</code> is warning maintained in the system that alerts care providers to potential
@@ -440,8 +440,8 @@ Todo: these resources are all draft. Bringing them to maturity and testing their
 <h3>Infrastructure</h3>
 
 <p>
-These resources provide generally useful functionality, and/or are referenced directly from the 
-base FHIR framework (<a href="http.html">RESTful API</a>, <a href="messaging.html">messaging</a>, 
+These resources provide generally useful functionality, and/or are referenced directly from the
+base FHIR framework (<a href="http.html">RESTful API</a>, <a href="messaging.html">messaging</a>,
 <a href="documents.html">documents</a>).
 </p>
 
@@ -454,20 +454,20 @@ resources. It is anticipated that the data will be processed into other kinds of
 usage and exchange.
 </p>
 <p>
-The <code>Provenance</code> resource is used to make statements about where 
-a resource came from - that is, who, what, why, when and where for its creation. 
+The <code>Provenance</code> resource is used to make statements about where
+a resource came from - that is, who, what, why, when and where for its creation.
 This may be used in assessing the integrity, reliability and usefulness of a resource
 or the data in it. Note that many resources contain some limited amount of this
 information directly, because it is deemed essential to using/finding/filtering/understanding
-the resource directly. Whenever information is found in both a resource, and in the 
+the resource directly. Whenever information is found in both a resource, and in the
 provenance statements for the resource, it is expected to be the same.
 </p>
 <p>
-An <code>AuditEvent</code> is an observation by a system that a record was altered (created, 
+An <code>AuditEvent</code> is an observation by a system that a record was altered (created,
 updated, deleted) or otherwise accessed (queried, transferred, copied), with audit information about the event. Typically, the provenance record
-is created before the resource is altered, by the (sub)system causing the change to the 
+is created before the resource is altered, by the (sub)system causing the change to the
 resource, while the audit record is created after the change by the (sub)system responsible
-for storing it. 
+for storing it.
 </p>
 
 <table class="grid">
@@ -490,8 +490,8 @@ provides two different kinds of support for creating and exchanging documents:
  <li><code>DocumentReference</code> and <code>DocumentManifest</code> are used for referring to and/or exchanging external documents (<a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=7">CDA</a>, PDF, other kinds of records, etc.) either as single documents or groups of documents respectively</li>
 </ul>
 <p>
-The <code>List</code> resource is used to link a set of other kinds of resources into a single list. This might 
-be done for many reasons - maintaining a list of work to do, of patients of interest, or of a set of current problems for a patient. 
+The <code>List</code> resource is used to link a set of other kinds of resources into a single list. This might
+be done for many reasons - maintaining a list of work to do, of patients of interest, or of a set of current problems for a patient.
 </p>
 
 <table class="grid">
@@ -545,10 +545,10 @@ These resources support the exchange process directly:
 <h3>Conformance</h3>
 
 <p>
-This specification is a base platform specification that defines a set of 
-general capabilities. Specific systems build on top of that to create 
-interoperable solutions by <a href="profiling.html">making a set of 
-conformance rules</a>. These conformance rules are supported by a 
+This specification is a base platform specification that defines a set of
+general capabilities. Specific systems build on top of that to create
+interoperable solutions by <a href="profiling.html">making a set of
+conformance rules</a>. These conformance rules are supported by a
 this set of "conformance" resources.
 </p>
 
@@ -560,7 +560,7 @@ that are used for validation, lookup etc. A <code>ConceptMap</code> maps value s
 code systems.
 </p>
 <p>
-A <code>NamingSystem</code> resource represents an external provider of codes 
+A <code>NamingSystem</code> resource represents an external provider of codes
 or identifiers (e.g. an external code system such as SNOMED CT, or an identification system such
 as an institution MRN). The naming system resource exists to share the identification and registration
 of these systems, to foster consistency in their identification.
@@ -577,7 +577,7 @@ of these systems, to foster consistency in their identification.
 
 <p>
 <code>StructureDefinition</code> and <code>DataElement</code> both describe a
-set of data elements that can represent data for the purposes of collection, 
+set of data elements that can represent data for the purposes of collection,
 analysis and exchange. They have slightly different purposes:
 </p>
 <ul>
@@ -599,12 +599,12 @@ from one structure to another.
 <h4>Behavior</h4>
 
 <p>
-A <code>Conformance</code> is a statement of a set of system capabilities 
+A <code>Conformance</code> is a statement of a set of system capabilities
 for use as system discovery, or conformance expectations.
 </p>
 <p>
-An <code>OperationDefinition</code> describes an operation that can be 
-executed on a server, and a <code>SearchParameter</code> defines 
+An <code>OperationDefinition</code> describes an operation that can be
+executed on a server, and a <code>SearchParameter</code> defines
 a search parameter that can be used on a server. <code>CompartmentDefinition</code>
 provides information about how resources are associated on a server.
 </p>
@@ -622,28 +622,36 @@ provides information about how resources are associated on a server.
 
 <p>
 <code>ImplementationGuide</code> is used to gather all the other resources
-into a single package for publication, and also to define the bounds of 
+into a single package for publication, and also to define the bounds of
 an interoperability solution.
 </p>
 
 <p>
 A <code>TestScript</code> specifies a series of operations and outcomes
-that a system is expected to meet. Test Scripts are for development and
+that a system is expected to meet. TestScripts are for development and
 acceptance testing, but may also be considered for use with production
 systems, if the tests are carefully constructed and vetted.
+</p>
+
+<p>
+A <code>TestReport</code> contains the test execution results of a TestScript
+against a series of operations and outcomes that a system is expected to meet.
+TestReports provide a static recording of TestScript results for subsequent
+retrieval and review..
 </p>
 
 <table class="grid">
 <tr><td><b>Resource</b></td><td><b>Category</b></td><td><b>RIM</b></td><td><b>Lifecycle</b></td></tr>
 <tr><td><a href="implementationguide.html">ImplementationGuide</a></td><td><a href="#unrelated">Unrelated</a></td><td></td><td></td></tr>
 <tr><td><a href="testscript.html">TestScript</a></td><td><a href="#unrelated">Unrelated</a></td><td></td><td></td></tr>
+<tr><td><a href="testreport.html">TestReport</a></td><td><a href="#unrelated">Unrelated</a></td><td></td><td></td></tr>
 </table>
 
 <h3>Financial</h3>
 
 <p>
-These resources are all in draft 
-status and more details will be 
+These resources are all in draft
+status and more details will be
 provided here in due course.
 </p>
 

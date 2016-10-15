@@ -9,8 +9,8 @@
   <Author>Grahame</Author>
   <LastAuthor>Richard J. Ettema (AEGIS.net)</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2016-09-26T21:03:30Z</LastSaved>
-  <Version>16.00</Version>
+  <LastSaved>2016-10-15T15:51:45Z</LastSaved>
+  <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -899,9 +899,9 @@
  <Worksheet ss:Name="Data Elements">
   <Names>
    <NamedRange ss:Name="_FilterDatabase"
-    ss:RefersTo="='Data Elements'!R1C1:R189C24" ss:Hidden="1"/>
+    ss:RefersTo="='Data Elements'!R1C1:R192C24" ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="27" ss:ExpandedRowCount="189" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="27" ss:ExpandedRowCount="192" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s68" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="294.75"/>
@@ -2282,6 +2282,38 @@
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="135">
+    <Cell ss:StyleID="s86"><Data ss:Type="String">TestScript.variable.expression</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">0..1</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">string</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">The fhirpath expression against the fixture body</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">The fhirpath expression to evaluate against the fixture body. When variables are defined, only one of either expression, headerField or path must be specified.</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">If headerField is defined, then the variable will be evaluated against the headers that sourceId is pointing to.  If expression or path is defined, then the variable will be evaluated against the fixture body that sourceId is pointing to.  It is an error to define any combination of expression, headerField and path.</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
    <Row ss:AutoFitHeight="0" ss:Height="165">
     <Cell ss:StyleID="s86"><Data ss:Type="String">TestScript.variable.headerField</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2332,10 +2364,10 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">XPath or JSONPath against the fixture body</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">XPath or JSONPath against the fixture body.  When variables are defined, either headerField must be specified or path, but not both.</Data><NamedCell
+    <Cell><Data ss:Type="String">XPath or JSONPath to evaluate against the fixture body.  When variables are defined, only one of either expression, headerField or path must be specified.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">If headerField is defined, then the variable will be evaluated against the headers that sourceId is pointing to.  If path is defined, then the variable will be evaluated against the fixture body that sourceId is pointing to.  It is an error to define both headerField and path.</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">If headerField is defined, then the variable will be evaluated against the headers that sourceId is pointing to.  If expression or path is defined, then the variable will be evaluated against the fixture body that sourceId is pointing to.  It is an error to define any combination of expression, headerField and path.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3550,7 +3582,8 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">The direction to use for the assertion.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">If the direction is specified as &quot;response&quot; (the default), then the processing of this assert is against the received response message. If the direction is specified as &quot;request&quot;, then the processing of this assert is against the sent request message.</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3560,7 +3593,7 @@
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
+   <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell ss:StyleID="s86"><Data ss:Type="String">TestScript.setup.action.assert.compareToSourceId</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3576,12 +3609,43 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Id of fixture used to compare the &quot;sourceId/path&quot; evaluations to</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Id of the source fixture to be evaluated</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s98"><Data ss:Type="String">Id of fixture used to compare the &quot;sourceId/path&quot; evaluations to.</Data><NamedCell
+    <Cell ss:StyleID="s98"><Data ss:Type="String">Id of the source fixture used as the contents to be evaluated by either the &quot;source/expression&quot; or &quot;sourceId/path&quot; definition.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s98"><Data ss:Type="String">The id of the fixture used to make comparisons to</Data><NamedCell
+    <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="120">
+    <Cell ss:StyleID="s86"><Data ss:Type="String">TestScript.setup.action.assert.compareToSourceExpression</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">0..1</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">string</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">The fhirpath expression to evaluate against the source fixture</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s98"><Data ss:Type="String">The fhirpath expression to evaluate against the source fixture. When compareToSourceId is defined, either compareToSourceExpression or compareToSourcePath must be defined, but not both.</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s98"><Data ss:Type="String">Thefhirpath expression to be evaluated against the expected fixture to compare to. Ignored if &quot;assert.value&quot; is used. The evaluation will be done before the assertion is evaluated.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3608,9 +3672,9 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">XPath or JSONPath expression against fixture used to compare the &quot;sourceId/path&quot; evaluations to</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">XPath or JSONPath expression to evaluate against the source fixture</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s98"><Data ss:Type="String">XPath or JSONPath expression against fixture used to compare the &quot;sourceId/path&quot; evaluations to.</Data><NamedCell
+    <Cell ss:StyleID="s98"><Data ss:Type="String">XPath or JSONPath expression to evaluate against the source fixture. When compareToSourceId is defined, either compareToSourceExpression or compareToSourcePath must be defined, but not both.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><Data ss:Type="String">The XPath or JSONPath expression to be evaluated against the expected fixture to compare to. Ignored if &quot;assert.value&quot; is used. The evaluation will be done before the assertion is evaluated.</Data><NamedCell
@@ -3648,6 +3712,38 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s101"><Data ss:Type="String">If this is specified, then test engine shall confirm that the content-type of the last operation's headers is set to this value.  If &quot;assert.sourceId&quot; element is specified, then the evaluation will be done against the headers mapped to that sourceId (and not the last operation's headers).    If 'xml' is specified, then 'Content-Type' header of 'application/fhir+xml' will be confirmed. If 'json' is specified, then 'application/fhir+json' will be used. If you'd like to have more control over the string, then use 'assert.headerField' instead.</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="330">
+    <Cell ss:StyleID="s99"><Data ss:Type="String">TestScript.setup.action.assert.expression</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s98"><Data ss:Type="String">0..1</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s98"><Data ss:Type="String">string</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s98"><Data ss:Type="String">The fhirpath expression to be evaluated</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s98"><Data ss:Type="String">The fhirpath expression to be evaluated against the request or response message contents - HTTP headers and payload.</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s101"><Data ss:Type="String">If both &quot;expression&quot; and a &quot;fixtureId&quot; are specified, then the expression will be evaluated against the request or response body mapped to the fixtureId.  If &quot;expression&quot; is specified and a &quot;fixtureId&quot; is not, then the expression will be evaluated against the response body of the last operation.  Test engines are to store the request and response body and headers of the last operation at all times for subsequent assertions.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3808,7 +3904,7 @@
     <Cell ss:StyleID="s98"><Data ss:Type="String">The XPath or JSONPath expression to be evaluated against the fixture representing the response received from server. </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">If both &quot;path&quot; and &quot;fixtureId&quot; are specified, then the path will be evaluated against the responseBody mapped to the fixtureId.  If &quot;path&quot; is specified and &quot;fixtureId&quot; is not, then the path will be evaluated against the responseBody of the last operation.  Test engines are to store the response body and headers of the last operation at all times for subsequent assertions.</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">If both &quot;path&quot; and a &quot;fixtureId&quot; are specified, then the path will be evaluated against the request or response body mapped to the fixtureId.  If &quot;path&quot; is specified and a &quot;fixtureId&quot; is not, then the path will be evaluated against the response body of the last operation.  Test engines are to store the request and response body and headers of the last operation at all times for subsequent assertions.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -6554,7 +6650,7 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>13</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -6562,14 +6658,12 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>15</ActiveRow>
      <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
@@ -6625,7 +6719,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s115"><Data ss:Type="Number">1</Data><NamedCell
       ss:Name="Invariantids"/></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">operation or assert</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">setup action operation or assert</Data></Cell>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"><Data ss:Type="String">TestScript.setup.action</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Setup action SHALL contain either an operation or assert but not both.</Data></Cell>
@@ -6635,7 +6729,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s115"><Data ss:Type="Number">2</Data><NamedCell
       ss:Name="Invariantids"/></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">operation or assert</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">test action operation or assert</Data></Cell>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"><Data ss:Type="String">TestScript.test.action</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Test action SHALL contain either an operation or assert but not both.</Data></Cell>
@@ -6645,17 +6739,17 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s115"><Data ss:Type="Number">3</Data><NamedCell
       ss:Name="Invariantids"/></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">headerField or path</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">variable expression or headerField or path</Data></Cell>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"><Data ss:Type="String">TestScript.variable</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">Variable cannot contain both headerField and path.</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">headerField.empty() or path.empty()</Data></Cell>
-    <Cell ss:StyleID="s116"><Data ss:Type="String">not(f:headerField and f:path)</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">Variable can only contain one of expression, headerField or path.</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">expression.empty() or headerField.empty() or path.empty()</Data></Cell>
+    <Cell ss:StyleID="s116"><Data ss:Type="String">not(f:expression and f:headerField and f:path)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s115"><Data ss:Type="Number">4</Data><NamedCell
       ss:Name="Invariantids"/></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">required or validated</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">metadata required or validated</Data></Cell>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"><Data ss:Type="String">TestScript.metadata</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">TestScript metadata capability SHALL contain required or validated or both.</Data></Cell>
@@ -6665,27 +6759,27 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s115"><Data ss:Type="Number">5</Data><NamedCell
       ss:Name="Invariantids"/></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">single assertion</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">setup action single assertion</Data></Cell>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"><Data ss:Type="String">TestScript.setup.action.assert</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Only a single assertion SHALL be present within setup action assert element.</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">contentType.count() + headerField.count() + minimumId.count() + navigationLinks.count() + path.count() + resource.count() + responseCode.count() + response.count() + rule.count() + ruleset.count() + validateProfileId.count() &lt;=1</Data></Cell>
-    <Cell ss:StyleID="s116"><Data ss:Type="String">count(f:contentType) + count(f:headerField) + count(f:minimumId) + count(f:navigationLinks) + count(f:path) + count(f:resource) + count(f:responseCode) + count(f:response) + count(f:rule) + count(f:ruleset) + count(f:validateProfileId)  &lt;=1</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">contentType.count() + expression.count() + headerField.count() + minimumId.count() + navigationLinks.count() + path.count() + resource.count() + responseCode.count() + response.count() + rule.count() + ruleset.count() + validateProfileId.count() &lt;=1</Data></Cell>
+    <Cell ss:StyleID="s116"><Data ss:Type="String">count(f:contentType) + count(f:expression) + count(f:headerField) + count(f:minimumId) + count(f:navigationLinks) + count(f:path) + count(f:resource) + count(f:responseCode) + count(f:response) + count(f:rule) + count(f:ruleset) + count(f:validateProfileId)  &lt;=1</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s115"><Data ss:Type="Number">6</Data><NamedCell
       ss:Name="Invariantids"/></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">single assertion</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">test action single assertion</Data></Cell>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"><Data ss:Type="String">TestScript.test.action.assert</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Only a single assertion SHALL be present within test action assert element.</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">contentType.count() + headerField.count() + minimumId.count() + navigationLinks.count() + path.count() + resource.count() + responseCode.count() + response.count() + rule.count() + ruleset.count() + validateProfileId.count() &lt;=1</Data></Cell>
-    <Cell ss:StyleID="s116"><Data ss:Type="String">count(f:contentType) + count(f:headerField) + count(f:minimumId) + count(f:navigationLinks) + count(f:path) + count(f:resource) + count(f:responseCode) + count(f:response) + count(f:rule) + count(f:ruleset) + count(f:validateProfileId)  &lt;=1</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">contentType.count() + expression.count() + headerField.count() + minimumId.count() + navigationLinks.count() + path.count() + resource.count() + responseCode.count() + response.count() + rule.count() + ruleset.count() + validateProfileId.count() &lt;=1</Data></Cell>
+    <Cell ss:StyleID="s116"><Data ss:Type="String">count(f:contentType) + count(f:expression) + count(f:headerField) + count(f:minimumId) + count(f:navigationLinks) + count(f:path) + count(f:resource) + count(f:responseCode) + count(f:response) + count(f:rule) + count(f:ruleset) + count(f:validateProfileId)  &lt;=1</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s115"><Data ss:Type="Number">7</Data><NamedCell
       ss:Name="Invariantids"/></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">sourceId or targetId or params or url</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">setup action operation sourceId or targetId or params or url</Data></Cell>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"><Data ss:Type="String">TestScript.setup.action.operation</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Setup operation SHALL contain either sourceId or targetId or params or url.</Data></Cell>
@@ -6695,7 +6789,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s115"><Data ss:Type="Number">8</Data><NamedCell
       ss:Name="Invariantids"/></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">sourceId or targetId or params or url</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">test action operation sourceId or targetId or params or url</Data></Cell>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"><Data ss:Type="String">TestScript.test.action.operation</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Test operation SHALL contain either sourceId or targetId or params or url.</Data></Cell>
@@ -6705,7 +6799,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s115"><Data ss:Type="Number">9</Data><NamedCell
       ss:Name="Invariantids"/></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">sourceId or targetId or params or url</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">teardown action operation sourceId or targetId or params or url</Data></Cell>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"><Data ss:Type="String">TestScript.teardown.action.operation</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Teardown operation SHALL contain either sourceId or targetId or params or url.</Data></Cell>
@@ -6715,22 +6809,22 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s115"><Data ss:Type="Number">10</Data><NamedCell
       ss:Name="Invariantids"/></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">compareToSourceId and compareToSourcePath </Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">setup action assert compareToSourceId and compareToSourceExpression or compareToSourcePath</Data></Cell>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"><Data ss:Type="String">TestScript.setup.action.assert</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">Setup action assert shall contain both compareToSourceId and compareToSourcePath or neither.</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">compareToSourceId.empty() xor compareToSourcePath.exists()</Data></Cell>
-    <Cell ss:StyleID="s116"><Data ss:Type="String">(f:compareToSourceId and f:compareToSourcePath) or not(f:compareToSourceId or f:compareToSourcePath)</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">Setup action assert SHALL contain either compareToSourceId and compareToSourceExpression, compareToSourceId and compareToSourcePath or neither.</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">compareToSourceId.empty() xor (compareToSourceExpression.exists() or compareToSourcePath.exists())</Data></Cell>
+    <Cell ss:StyleID="s116"><Data ss:Type="String">(f:compareToSourceId and f:compareToSourceExpression) or (f:compareToSourceId and f:compareToSourcePath) or not(f:compareToSourceId or f:compareToSourceExpression or f:compareToSourcePath)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s115"><Data ss:Type="Number">11</Data><NamedCell
       ss:Name="Invariantids"/></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">compareToSourceId and compareToSourcePath </Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">test action assert compareToSourceId and compareToSourceExpression or compareToSourcePath</Data></Cell>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"><Data ss:Type="String">TestScript.test.action.assert</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">Test action assert shall contain both compareToSourceId and compareToSourcePath or neither.</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">compareToSourceId.empty() xor compareToSourcePath.exists()</Data></Cell>
-    <Cell ss:StyleID="s116"><Data ss:Type="String">(f:compareToSourceId and f:compareToSourcePath) or not(f:compareToSourceId or f:compareToSourcePath)</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">Test action assert SHALL contain either compareToSourceId and compareToSourceExpression, compareToSourceId and compareToSourcePath or neither.</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">compareToSourceId.empty() xor (compareToSourceExpression.exists() or compareToSourcePath.exists())</Data></Cell>
+    <Cell ss:StyleID="s116"><Data ss:Type="String">(f:compareToSourceId and f:compareToSourceExpression) or (f:compareToSourceId and f:compareToSourcePath) or not(f:compareToSourceId or f:compareToSourceExpression or f:compareToSourcePath)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s115"><NamedCell ss:Name="Invariantids"/></Cell>
@@ -6886,7 +6980,7 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>2</SplitVertical>
-   <LeftColumnRightPane>2</LeftColumnRightPane>
+   <LeftColumnRightPane>4</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -6894,6 +6988,7 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>2</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
