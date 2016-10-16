@@ -7,7 +7,7 @@
 	<publisher value="HL7 (FHIR Project)"/>
 	<date value="2016-08-10"/>
 	<description value="The DAF Condition Category Codes support the separate concepts of problems and health concerns in Condition.category in order for API consumers to be able to separate health concerns and problems. However this is not mandatory for 2015 certification"/>
-	<requirements value="So API consumers can separate health concerns and problems."/>
+	<purpose value="So API consumers can separate health concerns and problems."/>
 	<compose>
 		<include>
 			<system value="http://hl7.org/fhir/condition-category"/>

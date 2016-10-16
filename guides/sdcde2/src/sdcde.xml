@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ImplementationGuide xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../schema/fhir-single.xsd">
 	<id value="sdcde"/>
-	<url value="http://hl7.org/fhir/us/sdcde"/>
+	<url value="http://hl7.org/fhir/us/sdcde/ImplementationGuide/sdcde"/>
 	<name value="Structured Data Capture - Data Element Exchange"/>
 	<status value="draft"/>
 	<experimental value="false"/>
@@ -13,12 +13,12 @@
 		</telecom>
 	</contact>
 	<description value="This implementation guide is a supplement to the base Structured Data Capture (SDC) implementation guide.  It defines expectations for Data Element registries, as well as those systems that are responsible for the creation and maintenance of data elements within those registries.  This capability is documented as a distinct implementation guide because the expectations for systems creating and maintaining data elements are higher than for those systems that are merely responsible for referencing data elements when creating forms or configuring their systems to support pre-population or auto-population."/>
-	<useContext>
+	<jurisdiction>
 		<coding>
 			<system value="urn:iso:std:iso:3166"/>
 			<code value="US"/>
 		</coding>
-	</useContext>
+	</jurisdiction>
 	<package>
 		<extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
 			<valueUri value="dataelement-sdc-de-profile-spreadsheet.xml"/>

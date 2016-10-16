@@ -37,7 +37,7 @@
     </telecom>
   </contact>
   <description value="Immunization codes constrained from the STU core to include only 'completed' and 'enter-in-error'  which are the only two clinically relevent values."/>
-  <requirements value="Codes that may be used for implementation of the Argonaut Immunization IG and MU2015 certification."/>
+  <purpose value="Codes that may be used for implementation of the Argonaut Immunization IG and MU2015 certification."/>
   <compose>
     <include>
       <system value="http://hl7.org/fhir/medication-admin-status"/>

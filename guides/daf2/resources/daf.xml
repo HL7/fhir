@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ImplementationGuide xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<id value="daf"/>
-	<url value="http://hl7.org/fhir/us/daf"/>
+	<url value="http://hl7.org/fhir/us/daf/ImplementationGuide/daf"/>
 	<version value="1"/>
 	<name value="Data Access Framework"/>
 	<status value="draft"/>
 	<experimental value="false"/>
 	<publisher value="ONC"/>
-	<useContext>
+	<jurisdiction>
 		<coding>
 			<system value="urn:iso:std:iso:3166"/>
 			<code value="US"/>
 		</coding>
-	</useContext>
+	</jurisdiction>
 	<dependency>
 		<type value="reference"/>
 		<uri value="http://hl7.org/fhir/uslab"/>
