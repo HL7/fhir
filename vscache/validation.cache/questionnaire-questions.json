@@ -214,12 +214,12 @@
     {
       "hash": "|http://snomed.info/sct|null|194828000|Angina (disorder)",
       "severity": "error",
-      "message": "The code provided (http://snomed.info/sct#194828000) is not  valid in the value set Questionnaire Question Codes"
+      "message": "Unable to provide support for code system http://snomed.info/sct version http://snomed.info/sct/900000000000207008"
     },
     {
       "hash": "|http://snomed.info/sct|null|22298006|Myocardial infarction (disorder)",
       "severity": "error",
-      "message": "The code provided (http://snomed.info/sct#22298006) is not  valid in the value set Questionnaire Question Codes"
+      "message": "Unable to provide support for code system http://snomed.info/sct version http://snomed.info/sct/900000000000207008"
     }
   ]
 }

@@ -3102,7 +3102,14 @@ public class NarrativeGenerator implements INarrativeGenerator {
             XhtmlNode a = li.addTag("a");
             a.addText(f.getValue());
             a.setAttribute("href", prefix+getCsRef(e)+"#"+Utilities.nmtokenize(f.getValue()));
-          } else
+          } else if ("concept".equals(f.getProperty()) && inc.hasSystem()) {
+            li.addText(f.getValue());
+            ValidationResult vr = context.validateCode(inc.getSystem(), f.getValue(), null);
+            if (vr.isOk()) {
+              li.addText(" ("+vr.getDisplay()+")");
+            }
+          }
+          else
             li.addText(f.getValue());
           String disp = ToolingExtensions.getDisplayHint(f);
           if (disp != null)

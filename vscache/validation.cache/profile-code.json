@@ -3,14 +3,8 @@
   "outcomes": [
     {
       "hash": "|http://snomed.info/sct|null|314079002|314079002",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Hyperlipidaemia screening test"
-      }
+      "severity": "error",
+      "message": "Unable to provide support for code system http://snomed.info/sct version http://snomed.info/sct/900000000000207008"
     }
   ]
 }
