@@ -83,7 +83,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
   protected String cache;
   private int expandCodesLimit = 10000;
   private ILoggingService logger;
-  private ExpansionProfile expProfile;
+  protected ExpansionProfile expProfile;
 
   @Override
   public CodeSystem fetchCodeSystem(String system) {
@@ -251,9 +251,8 @@ public abstract class BaseWorkerContext implements IWorkerContext {
       Map<String, String> params = new HashMap<String, String>();
       params.put("_limit", Integer.toString(expandCodesLimit ));
       params.put("_incomplete", "true");
-      params.put("profile", "http://www.healthintersections.com.au/fhir/expansion/no-details");
       log("Terminology Server: $expand on "+getVSSummary(vs));
-      ValueSet result = txServer.expandValueset(vs, params);
+      ValueSet result = txServer.expandValueset(vs, expProfile.setIncludeDefinition(false), params);
       return new ValueSetExpansionOutcome(result);  
     } catch (Exception e) {
       return new ValueSetExpansionOutcome("Error expanding ValueSet \""+vs.getUrl()+": "+e.getMessage(), TerminologyServiceErrorClass.UNKNOWN);
@@ -403,18 +402,23 @@ public abstract class BaseWorkerContext implements IWorkerContext {
     if (res != null)
       return res;
     log("Terminology Server: $validate-code "+describeValidationParameters(pin));
-  Parameters pout = txServer.operateType(ValueSet.class, "validate-code", pin);
-  boolean ok = false;
-  String message = "No Message returned";
-  String display = null;
+    for (ParametersParameterComponent pp : pin.getParameter())
+      if (pp.getName().equals("profile"))
+        throw new Error("Can only specify profile in the context");
+    pin.addParameter().setName("profile").setResource(expProfile);
+
+    Parameters pout = txServer.operateType(ValueSet.class, "validate-code", pin);
+    boolean ok = false;
+    String message = "No Message returned";
+    String display = null;
     TerminologyServiceErrorClass err = TerminologyServiceErrorClass.UNKNOWN;
-  for (ParametersParameterComponent p : pout.getParameter()) {
-    if (p.getName().equals("result"))
-      ok = ((BooleanType) p.getValue()).getValue().booleanValue();
-    else if (p.getName().equals("message"))
-      message = ((StringType) p.getValue()).getValue();
-    else if (p.getName().equals("display"))
-      display = ((StringType) p.getValue()).getValue();
+    for (ParametersParameterComponent p : pout.getParameter()) {
+      if (p.getName().equals("result"))
+        ok = ((BooleanType) p.getValue()).getValue().booleanValue();
+      else if (p.getName().equals("message"))
+        message = ((StringType) p.getValue()).getValue();
+      else if (p.getName().equals("display"))
+        display = ((StringType) p.getValue()).getValue();
       else if (p.getName().equals("cause")) {
         try {
           IssueType it = IssueType.fromCode(((StringType) p.getValue()).getValue());
@@ -425,18 +429,18 @@ public abstract class BaseWorkerContext implements IWorkerContext {
         } catch (FHIRException e) {
         }
       }
-  }
-  if (!ok)
+    }
+    if (!ok)
       res = new ValidationResult(IssueSeverity.ERROR, message, err);
-  else if (display != null)
+    else if (display != null)
       res = new ValidationResult(new ConceptDefinitionComponent().setDisplay(display));
-  else
+    else
       res = new ValidationResult(null);
     saveToCache(res, cacheName);
     return res;
   }
 
-  
+
   @SuppressWarnings("rawtypes")
   private String describeValidationParameters(Parameters pin) {
     CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();

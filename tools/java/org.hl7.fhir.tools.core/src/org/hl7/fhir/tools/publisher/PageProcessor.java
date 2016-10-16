@@ -155,7 +155,9 @@ import org.hl7.fhir.dstu3.model.Type;
 import org.hl7.fhir.dstu3.model.TypeDetails;
 import org.hl7.fhir.dstu3.model.UriType;
 import org.hl7.fhir.dstu3.model.ValueSet;
+import org.hl7.fhir.dstu3.model.ValueSet.ConceptReferenceComponent;
 import org.hl7.fhir.dstu3.model.ValueSet.ConceptSetComponent;
+import org.hl7.fhir.dstu3.model.ValueSet.ConceptSetFilterComponent;
 import org.hl7.fhir.dstu3.terminologies.CodeSystemUtilities;
 import org.hl7.fhir.dstu3.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
 import org.hl7.fhir.dstu3.terminologies.ValueSetUtilities;
@@ -178,6 +180,7 @@ import org.hl7.fhir.igtools.spreadsheets.TypeParser;
 import org.hl7.fhir.igtools.spreadsheets.TypeRef;
 import org.hl7.fhir.tools.converters.ValueSetImporterV2;
 import org.hl7.fhir.tools.publisher.PageProcessor.PageEvaluationContext;
+import org.hl7.fhir.tools.publisher.PageProcessor.SnomedConceptUsage;
 import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.CSFileInputStream;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
@@ -611,6 +614,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
 //        src = s1+resourcesHeader(name, com.length > 1 ? com[1] : null)+s3;
       else if (com[0].equals("txheader"))
         src = s1+txHeader(name, com.length > 1 ? com[1] : null)+s3;
+      else if (com[0].equals("sct-vs-list"))
+        src = s1+getSnomedCTVsList()+s3;
+      else if (com[0].equals("sct-concept-list"))
+        src = s1+getSnomedCTConceptList()+s3;
       else if (com[0].equals("txheader0"))
         src = s1+(level > 0 ? "" : txHeader(name, com.length > 1 ? com[1] : null))+s3;
       else if (com[0].equals("fmtheader"))
@@ -3921,6 +3928,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+codelist((CodeSystem) resource, com.length > 1 ? com[1] : null, false, false)+s3;
       else if (com[0].equals("linkcodelist"))
         src = s1+codelist((CodeSystem) resource, com.length > 1 ? com[1] : null, true, false)+s3;
+      else if (com[0].equals("sct-vs-list"))
+        src = s1+getSnomedCTVsList()+s3;
+      else if (com[0].equals("sct-concept-list"))
+        src = s1+getSnomedCTConceptList()+s3;
       else if (com[0].equals("codetoc"))
         src = s1+codetoc(com.length > 1 ? com[1] : null)+s3;
       else if (com[0].equals("res-category")) {
@@ -4320,6 +4331,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1 + genOtherTabs(com[1], tabs) + s3;
       else if (com[0].equals("dtmappings"))
         src = s1 + genDataTypeMappings(com[1]) + s3;
+      else if (com[0].equals("sct-vs-list"))
+        src = s1+getSnomedCTVsList()+s3;
+      else if (com[0].equals("sct-concept-list"))
+        src = s1+getSnomedCTConceptList()+s3;
       else if (com[0].equals("dtusage")) 
         src = s1 + genDataTypeUsage(com[1]) + s3;
       else if (com[0].equals("w5"))
@@ -4629,6 +4644,115 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     }
     return src;
   } 
+
+  public class SnomedConceptUsage {
+    private String code;
+    private String display;
+    private List<ValueSet> valueSets = new ArrayList<ValueSet>();
+
+    public SnomedConceptUsage(String code, String display, ValueSet vs) {
+      this.code = code;
+      this.display = display;
+      valueSets.add(vs);
+    }
+
+    public String getDisplay() {
+      return display;
+    }
+
+    public List<ValueSet> getValueSets() {
+      return valueSets;
+    }
+
+    public void update(String display, ValueSet vs) {
+      if (Utilities.noString(this.display))      
+        this.display = display;
+      if (valueSets.contains(vs))
+        valueSets.add(vs);
+    }
+  }
+
+  private String getSnomedCTConceptList() throws Exception {
+    Map<String, SnomedConceptUsage> concepts = new HashMap<String, SnomedConceptUsage>();
+    for (ValueSet vs : definitions.getValuesets().values()) {
+      for (ConceptSetComponent cc : vs.getCompose().getInclude())
+        if (cc.hasSystem() && cc.getSystem().equals("http://snomed.info/sct")) {
+          for (ConceptReferenceComponent c : cc.getConcept()) {
+            String d = c.hasDisplay() ? c.getDisplay() : workerContext.getCodeDefinition("http://snomed.info/sct", c.getCode()).getDisplay();
+            if (concepts.containsKey(c.getCode()))
+              concepts.get(c.getCode()).update(d, vs);
+            else  
+              concepts.put(c.getCode(), new SnomedConceptUsage(c.getCode(), d, vs));
+          }
+          for (ConceptSetFilterComponent c : cc.getFilter()) {
+            if (c.getProperty().equals("concept")) {
+              String d = workerContext.getCodeDefinition("http://snomed.info/sct", c.getValue()).getDisplay();
+              if (concepts.containsKey(c.getValue()))
+                concepts.get(c.getValue()).update(d, vs);
+              else  
+                concepts.put(c.getValue(), new SnomedConceptUsage(c.getValue(), d, vs));
+            }
+          }
+        }
+    }
+    List<String> sorts = new ArrayList<String>();
+    for (String s : concepts.keySet())
+      sorts.add(s);
+    Collections.sort(sorts);
+    StringBuilder b = new StringBuilder();
+    b.append("<table class=\"codes\">\r\n");
+    b.append(" <tr><td><b>Code</b></td><td><b>Display</b></td><td>ValueSets</td></tr>\r\n");
+    for (String s : sorts) {
+      SnomedConceptUsage usage = concepts.get(s);
+      b.append(" <tr>\r\n   <td>"+s+"</td>\r\n    <td>"+Utilities.escapeXml(usage.getDisplay())+"</td>\r\n    <td>");
+      boolean first = true;
+      for (ValueSet vs : usage.getValueSets()) {
+        if (first)
+          first = false;
+        else
+          b.append("<br/>");
+        String path = (String) vs.getUserData("path");
+        b.append(" <a href=\""+pathTail(Utilities.changeFileExt(path, ".html"))+"\">"+Utilities.escapeXml(vs.getName())+"</a>");
+      }
+      b.append("</td>\r\n  </tr>\r\n");
+    }
+    b.append("</table>\r\n");
+    return b.toString();
+  }
+
+
+  private String getSnomedCTVsList() throws Exception {
+    StringBuilder s = new StringBuilder();
+    s.append("<table class=\"codes\">\r\n");
+    s.append(" <tr><td><b>Name</b></td><td><b>Definition</b></td><td>Usage</td></tr>\r\n");
+    
+    List<String> sorts = new ArrayList<String>();
+    for (ValueSet vs : definitions.getValuesets().values()) {
+      if (referencesSnomed(vs))
+        sorts.add(vs.getUrl());
+    }
+    Collections.sort(sorts);
+    
+    for (String sn : sorts) {      
+      ValueSet vs = definitions.getValuesets().get(sn);
+      String path = (String) vs.getUserData("path");
+      s.append(" <tr>\r\n  <td><a href=\""+pathTail(Utilities.changeFileExt(path, ".html"))+"\">"+Utilities.escapeXml(vs.getName())+"</a></td>\r\n  <td>"+Utilities.escapeXml(vs.getDescription())+"</td>\r\n");
+      s.append("  <td>"+generateValueSetUsage(vs, "")+"</td>\r\n");
+      s.append(" </tr>\r\n");
+    }
+    s.append("</table>\r\n");
+    return s.toString();
+  }
+
+  private boolean referencesSnomed(ValueSet vs) {
+    for (ConceptSetComponent cc : vs.getCompose().getInclude())
+      if (cc.hasSystem() && cc.getSystem().equals("http://snomed.info/sct"))
+        return true;
+    for (ConceptSetComponent cc : vs.getCompose().getExclude())
+      if (cc.hasSystem() && cc.getSystem().equals("http://snomed.info/sct"))
+        return true;
+    return false;
+  }
 
   private String searchFooter(int level) {
     return "<a style=\"color: #81BEF7\" href=\"http://hl7.org/fhir/search.cfm\">Search</a>";

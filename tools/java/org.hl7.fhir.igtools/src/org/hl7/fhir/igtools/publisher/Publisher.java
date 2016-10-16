@@ -51,6 +51,7 @@ import org.hl7.fhir.dstu3.context.IWorkerContext.ILoggingService;
 import org.hl7.fhir.dstu3.context.SimpleWorkerContext;
 import org.hl7.fhir.dstu3.elementmodel.Element;
 import org.hl7.fhir.dstu3.elementmodel.Manager.FhirFormat;
+import org.hl7.fhir.dstu3.elementmodel.ObjectConverter;
 import org.hl7.fhir.dstu3.elementmodel.ParserBase.ValidationPolicy;
 import org.hl7.fhir.dstu3.formats.IParser.OutputStyle;
 import org.hl7.fhir.dstu3.formats.JsonParser;
@@ -294,8 +295,13 @@ public class Publisher implements IWorkerContext.ILoggingService {
       for (FetchedResource r : f.getResources()) {
         dlog("narrative for "+f.getName()+" : "+r.getId());
         if (r.getResource() != null) {
+          boolean regen = false;
           if (r.getResource() instanceof DomainResource && !((DomainResource) r.getResource()).getText().hasDiv())
-            gen.generate((DomainResource) r.getResource());
+            regen = gen.generate((DomainResource) r.getResource());
+          if (r.getResource() instanceof Bundle)
+            regen = gen.generate((Bundle) r.getResource());
+          if (regen)
+            r.setElement(new ObjectConverter(context).convert(r.getResource()));
         } else {
           if ("http://hl7.org/fhir/StructureDefinition/DomainResource".equals(r.getElement().getProperty().getStructure().getBaseDefinition()) && !hasNarrative(r.getElement())) {
             gen.generate(r.getElement(), true);
@@ -598,6 +604,11 @@ public class Publisher implements IWorkerContext.ILoggingService {
     log("Connect to Terminology Server at "+txServer);
     context.setExpansionProfile(makeExpProfile());
     context.initTS(vsCache, txServer);
+    String sct = str(configuration, "sct-edition", "");
+    if (Utilities.noString(sct))
+      throw new Exception("Must specify which SNOMED CT edition ('sct-edition') to use in the confix file");
+    context.getExpansionProfile().getCodeSystem().getInclude().addCodeSystem().setSystem("http://snomed.info/sct").setVersion("http://snomed.info/sct/");
+    context.getExpansionProfile().setIncludeInactive(!"true".equals(ostr(configuration, "no-inactive-codes")));
     context.connectToTSServer(txServer);
     // ;
     validator = new InstanceValidator(context);
@@ -703,6 +714,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
             "    \"output\" : \"output\",\r\n"+
             "    \"specification\" : \"http://hl7-fhir.github.io/\"\r\n"+
             "  },\r\n"+
+            "  \"sct-edition\": \"http://snomed.info/sct/900000000000207008\",\r\n"+
             "  \"source\": \"ig.xml\"\r\n"+
             "}\r\n", configFile, false);
     Utilities.createDirectory(Utilities.path(adHocTmpDir, "resources"));
@@ -2773,6 +2785,16 @@ public class Publisher implements IWorkerContext.ILoggingService {
         return dr.getText().getDiv();
       else
         return null;
+    }
+    if (r.getResource() != null && r.getResource() instanceof Bundle) {
+      Bundle b = (Bundle) r.getResource();
+      if (b.hasEntry() && b.getEntryFirstRep().hasResource() && b.getEntryFirstRep().getResource() instanceof DomainResource) {
+        DomainResource dr = (DomainResource) b.getEntryFirstRep().getResource();
+        if ( dr.getText().hasDiv())
+          return dr.getText().getDiv();
+        else
+          return null;
+      }
     }
     Element text = r.getElement().getNamedChild("text");
     if (text == null)

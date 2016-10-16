@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+
+
+[%settitle Using SNOMED CT with FHIR%]
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+[%file newheader%]
+</head>
+<body>
+[%file newnavbar%]
+
+<div class="col-9">
+
+<%txheader%>
+
+<h3>SNOMED CT in FHIR</h3>
+
+<p>
+This page summarises the use of SNOMED CT in FHIR. It is used 
+by HL7 and IHTSDO to help with SNOMED CT licensing management. 
+Note that this page only lists those codes used by the international
+FHIR specification; FHIR implementation guides that use SNOMED CT 
+are generaly published by HL7 Affiliates under agreements with 
+National distribution centers.
+</p>
+
+<a name="valuesets"> </a>
+<h4>Value Sets</h4>
+
+<p>
+The following value sets reference SNOMED CT. The table lists the value sets, and then the places they are used from, and includes the binding strengths
+</p>
+
+[%sct-vs-list%]
+
+<a name="explicit"> </a>
+<h4>Concept References</h4>
+
+<p>
+The value sets that reference SNOMED CT explicitly reference the following SNOMED CT concepts. 
+The table lists the concepts, and then the value sets and places they are used from, and includes the binding strengths.
+The table does not include codes published in the expansions. 
+</p>
+
+[%sct-concept-list%]
+
+
+</div>
+
+[%file newfooter%]
+    
+</body>
+</html>

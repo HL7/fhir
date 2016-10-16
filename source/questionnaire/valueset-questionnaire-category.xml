@@ -32,7 +32,7 @@
         <display value="Consumer satisfaction questionnaire"/>
       </concept>
       <concept>
-        <code value="304794009"/>
+        <code value="304784009"/>
         <display value="Administrative form"/>
       </concept>
     </include>

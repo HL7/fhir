@@ -1,51 +1,102 @@
+<!--
+SNOMED CT is a poly-versioned code system for which multiple 
+releases exist. This CodeSystem resource describes 'all of SCT'.
+For the relevent elements, there are notes about how they would 
+change to describe specific editions, or specific versions.
+
+In addition to this general canonical SNOMED CT definition, 
+servers generate variants of this to describe how they 
+support a particular edition/version 
+-->
+
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="snomedct"/>
-  <url value="http://snomed.info/sct"/>
+  
+  <!-- this url is unchanged for all editions and versions of SCT. There
+    can only be one correct Code System resource for each value of the
+    version attribute (at least, only one per server) -->
+  <url value="http://snomed.info/sct"/> 
+  
+  <!-- the HL7 v3 OID assigned to SNOMED CT -->
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.6.96"/>
   </identifier>
-<!--  <version value="[snomed edition would go here]"/> -->
-  <name value="SNOMED CT"/>
+  
+  <!--  
+    this resource - for all snomed versions - has no version. For 
+    version specific variants:
+  <version value="[snomed edition+version]"/> 
+  
+  e.g. for the US edition (not version specific):
+    <version value="http://snomed.info/sct/731000124108"/>
+  for the 30 Sept 2016 Australian release:  
+    <version value="http://snomed.info/sct/32506021000036107/version/20160930"/>
+  -->
+
+  <!-- if a specific edition+version is specified, the name should carry this information should be in the name and title -->
+  <name value="SNOMED_CT"/> 
+  <title value="SNOMED CT (all versions)"/>
   <status value="active"/>
   <experimental value="false"/>
-  <publisher value="IHTSDO">
+  
+  <!-- publisher may change for specific editions / version (national policy decision) -->
+  <publisher value="IHTSDO"/>
   <contact>
     <telecom>
       <value value="http://ihtsdo.org"/>
     </telecom>
   </contact>
-<!--  <date value=[date for this edition]"/> -->
+  
+  <!--  
+  <date value=[date for this edition+version]"/> 
+  -->
   <description value="SNOMED CT is the most comprehensive and precise clinical health terminology product in the world, owned and distributed around the world by The International Health Terminology Standards Development Organisation (IHTSDO)."/>
   <copyright value="© 2002-2016 International Health Terminology Standards Development Organisation (IHTSDO). All rights reserved. SNOMED CT®, was originally created by The College of American Pathologists. &quot;SNOMED&quot; and &quot;SNOMED CT&quot; are registered trademarks of the IHTSDO http://www.ihtsdo.org/snomed-ct/get-snomed-ct"/>
   <caseSensitive  value="false"/>
-  <valueSet value="http://snomed.info/sct?fhir_vs"/>
   
-  <!-- it's at the discretion of servers whether to present fragments of SNOMED heirarchically or not, when using code systems, but if they are heirarchical, the heirarchy SHALL be based on the is-a relationship -->
+   <!--
+   fill out as appropriate:
+  <valueSet value="http://snomed.info/sct/[edition]?fhir_vs"/>
+  <valueSet value="http://snomed.info/sct/[edition]/version/[date]?fhir_vs"/>
+  -->
+            
+  <!-- it's at the discretion of servers whether to present fragments of SNOMED heirarchically or not, when 
+    using the code system resource, but if they are heirarchical, the heirarchy SHALL be based on the is-a relationship -->
   <heirarchyMeaning value="subsumes"/> 
-  <compositional value="true"/>
+  <compositional value="true"/> <!-- servers that do not support post-coordination may report this has flse -->
   <versionNeeded value="false"/>
+  
+  <!-- this canonical definition of SNOMED CT does not include the content. 
+    Servers may choose to include fragments (but not, due to size constraints, all of SNOMED) -->
   <content value="not-present"/>
   
-<!-- <count value="400000"/>... if working with a specific edition, you could nominate a count -->  
+<!-- <count value="400000"/>... if working with a specific edition+version, you could nominate a count -->  
 
-  <!-- filters -->
+  <!-- 
+    generally defined filters for specifying value sets
+    
+    servers should only include filters if they support the filter. 
+    servers are allowed to define additional filters, but they should consult 
+    the FHIR community on the terminology stream at chat.fhir.org before 
+    doing so
+  -->
   <filter>
     <code value="concept"/> 
-    <description value="Filter that includes concepts based on their logical definition. e.g. [concept] [is-a] [x] - include all concepts with an is-a relationship to concept x, or [concept] [in] [x]- include all concepts in the reference set identified by concept x",
+    <description value="Filter that includes concepts based on their logical definition. e.g. [concept] [is-a] [x] - include all concepts with an is-a relationship to concept x, or [concept] [in] [x]- include all concepts in the reference set identified by concept x"/>
     <operator value="is-a"/>
     <operator value="in"/>
     <value value="A SNOMED CT code"/>
   </filter>
   <filter>
     <code value="expression"/> 
-    <description value="The result of the filter is the result of executing the given SNOMED CT Expression Constraint",
+    <description value="The result of the filter is the result of executing the given SNOMED CT Expression Constraint"/>
     <operator value="="/>
-    <value value="A SNOMED CT code"/>
+    <value value="A SNOMED CT ECL expression (see...?)"/>
   </filter>
   <filter>
     <code value="expressions"/> 
-    <description value="Whether post-coordinated expressions are allowed",
+    <description value="Whether post-coordinated expressions are included in the value set"/>
     <operator value="="/>
     <value value="true or false"/>
   </filter>
@@ -59,31 +110,31 @@
   <!-- first, the infrastructural properties -->
   <property>
     <code value="inactive"/>
-    <uri value="http://.........?"/>
+    <uri value="http://snomed.info/field/Concept.active"/>
     <description value="Whether the code is active or not (defaults to false)"/>
     <type value="boolean"/>
   </property>
   <property>
-    <code value="sufficientlyDefined"/>
+    <code value="sufficientlyDefined"/> <!--  mjl- Tricky, as this is inverse of primitive. gdg: should we invert this to primitive then? -->
     <uri value="http://.........?"/>
     <description value="True if the description logic definition of the concept includes sufficient conditions (i.e., if the concept is not primitive)."/>
     <type value="boolean"/>
   </property>
   <property>
     <code value="parent"/>
-    <uri value="http://.........?"/>
+    <uri value="http://.........?"/> <!-- mjl- no idea what this could be in SCT. gdg: so we make something up? -->
     <description value="A SNOMED CT concept id that has the target of a direct is-a relationship from the concept"/>
     <type value=""/>
   </property>
   <property>
     <code value="child"/>
-    <uri value="http://.........?"/>
+    <uri value="http://.........?"/> <!-- mjl- no idea what this could be in SCT. gdg: so we make something up? -->
     <description value="A SNOMED CT concept id that has a direct is-a relationship to the concept"/>
     <type value=""/>
   </property>
   <property>
     <code value="moduleId"/>
-    <uri value="http://.........?"/>
+    <uri value="http://snomed.info/field/Concept.moduleId"/>
     <description value="The SNOMED CT concept id of the module that the concept belongs to."/>
     <type value="code"/>
   </property>
@@ -97,7 +148,7 @@
   -->
   <property>
     <code value="Laterality"/>
-    <uri value="http://snomed.info/sct#272741003"/>
+    <uri value="http://snomed.info/id/272741003"/>
     <type value="code"/>
   </property>
   

@@ -109,7 +109,10 @@ import com.google.gson.stream.JsonWriter;
  */
 public class BuildWorkerContext extends BaseWorkerContext implements IWorkerContext {
 
-//  private Map<String, ValueSet> codeSystems = new HashMap<String, ValueSet>();
+  private static final String SNOMED_EDITION = "900000000000207008"; // international
+//  private static final String SNOMED_EDITION = "731000124108"; // us edition
+
+  //  private Map<String, ValueSet> codeSystems = new HashMap<String, ValueSet>();
 //  private Map<String, ValueSet> valueSets = new HashMap<String, ValueSet>();
 //  private Map<String, ConceptMap> maps = new HashMap<String, ConceptMap>();
   private Map<String, DataElement> dataElements = new HashMap<String, DataElement>();
@@ -145,6 +148,8 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
     res.setUrl("urn:uuid:"+UUID.randomUUID().toString().toLowerCase());
     res.setExcludeNested(false);
     res.setIncludeDesignations(true);
+    res.setIncludeInactive(false);
+    res.getCodeSystem().getInclude().addCodeSystem().setSystem("http://snomed.info/sct").setVersion("http://snomed.info/sct/"+SNOMED_EDITION);
     return res;
   }
 
@@ -457,8 +462,8 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
     if (!triedServer || serverOk) {
       triedServer = true;
       HttpClient httpclient = new DefaultHttpClient();
-       HttpGet httpget = new HttpGet("http://fhir2.healthintersections.com.au/snomed/tool/"+URLEncoder.encode(code, "UTF-8").replace("+", "%20"));
-//      HttpGet httpget = new HttpGet("http://localhost:960/snomed/tool/"+URLEncoder.encode(code, "UTF-8").replace("+", "%20")); // don't like the url encoded this way
+       HttpGet httpget = new HttpGet("http://fhir3.healthintersections.com.au/snomed/tool/"+SNOMED_EDITION+"/"+URLEncoder.encode(code, "UTF-8").replace("+", "%20"));
+//      HttpGet httpget = new HttpGet("http://local.healthintersections.com.au:960/snomed/tool/"+SNOMED_EDITION+"/"+URLEncoder.encode(code, "UTF-8").replace("+", "%20")); // don't like the url encoded this way
       HttpResponse response = httpclient.execute(httpget);
       HttpEntity entity = response.getEntity();
       InputStream instream = entity.getContent();
@@ -468,6 +473,7 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
         Document xdoc = builder.parse(instream);
         // we always get back a version, and a type. What we do depends on the type 
         String t = xdoc.getDocumentElement().getAttribute("type");
+        serverOk = true;
         if (t.equals("error")) 
           throw new Exception(xdoc.getDocumentElement().getAttribute("message"));
         if (t.equals("description"))
@@ -742,9 +748,8 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
         Map<String, String> params = new HashMap<String, String>();
         params.put("_limit", PageProcessor.CODE_LIMIT_EXPANSION);
         params.put("_incomplete", "true");
-        params.put("profile", "http://www.healthintersections.com.au/fhir/expansion/no-details");
         System.out.println("Use Tx Server from BWS for value set "+(vs.hasUrl() ? vs.getUrl() : "??")+" on "+systems(vs));
-        ValueSet result = txServer.expandValueset(vs, params);
+        ValueSet result = txServer.expandValueset(vs, expProfile.setIncludeDefinition(false), params);
         serverOk = true;
         FileOutputStream s = new FileOutputStream(cacheFn);
         parser.compose(s, result);

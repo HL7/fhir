@@ -124,7 +124,9 @@ signatures.html
     <page title="Terminology" filename="terminology-module.html" icon="terminology.png">
       <page title="Using Codes" filename="terminologies.html"/>
       <page title="Code Systems" filename="terminologies-systems.html">
-        <page title="SNOMED CT" filename="snomedct.html"/>
+        <page title="SNOMED CT" filename="snomedct.html">
+          <page title="SNOMED CT Usage Report" filename="snomedct-usage.html"/>
+        </page>  
         <page title="RxNorm" filename="rxnorm.html"/>
         <page title="LOINC" filename="loinc.html"/>
         <page title="UCUM" filename="ucum.html"/>
