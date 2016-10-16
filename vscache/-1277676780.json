@@ -1,1 +1,1 @@
-{"resourceType":"ValueSet","compose":{"include":[{"system":"http://snomed.info/sct"}]}}
+{"resourceType":"ValueSet","status":"draft","expansion":{"extension":[{"url":"http://hl7.org/fhir/StructureDefinition/valueset-toocostly","valueBoolean":true}],"identifier":"urn:uuid:9b56a205-a88f-4b12-8c71-939131a498c3","timestamp":"2016-10-16T10:58:06Z","parameter":[{"name":"expansion-profile","valueString":"urn:uuid:2d8a923c-9f14-49d5-8320-3f7c800a0193"},{"name":"limitedExpansion","valueBoolean":true},{"name":"includeDesignations","valueBoolean":true}]}}

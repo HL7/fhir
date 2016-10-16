@@ -3,8 +3,8 @@
   "outcomes": [
     {
       "hash": "|http://hl7.org/fhir/sid/icd-10|null|123457|null",
-      "severity": null,
-      "message": null
+      "severity": "error",
+      "message": "Unable to provide support for code system http://hl7.org/fhir/sid/icd-10"
     }
   ]
 }

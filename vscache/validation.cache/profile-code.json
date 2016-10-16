@@ -3,8 +3,14 @@
   "outcomes": [
     {
       "hash": "|http://snomed.info/sct|null|314079002|314079002",
-      "severity": "error",
-      "message": "Unknown Code 314079002 in http://hl7.org/fhir/ValueSet/profile-code"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Hyperlipidaemia screening test"
+      }
     }
   ]
 }

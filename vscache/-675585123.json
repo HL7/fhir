@@ -1,1 +1,1 @@
-{"resourceType":"ValueSet","compose":{"include":[{"system":"http://hl7.org/fhir/sid/cvx"}]}}
+{"resourceType":"ValueSet","status":"draft","expansion":{"identifier":"urn:uuid:3b729cfc-2b1e-4e6c-8cb6-afadf074d453","timestamp":"2016-10-16T11:03:50Z","parameter":[{"name":"expansion-profile","valueString":"urn:uuid:2d8a923c-9f14-49d5-8320-3f7c800a0193"},{"name":"limitedExpansion","valueBoolean":true},{"name":"includeDesignations","valueBoolean":true}]}}
