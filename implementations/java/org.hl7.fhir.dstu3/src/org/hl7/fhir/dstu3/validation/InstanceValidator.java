@@ -164,7 +164,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
   /*
    * Keeps track of all profiles associated with a resource element and whether the resource has been checked against those profiles yet
    */
-  private class ResourceProfiles {
+  public class ResourceProfiles {
     private Element resource;
     private HashMap<StructureDefinition, ProfileUsage> profiles;
     private boolean processed;
@@ -702,7 +702,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 
   }
 
-  private void checkDeclaredProfiles(ResourceProfiles resourceProfiles, List<ValidationMessage> errors, Element resource, Element element, NodeStack stack) throws FHIRException {
+  protected void checkDeclaredProfiles(ResourceProfiles resourceProfiles, List<ValidationMessage> errors, Element resource, Element element, NodeStack stack) throws FHIRException {
     Element meta = element.getNamedChild("meta");
     if (meta != null) {
       List<Element> profiles = new ArrayList<Element>();
@@ -994,7 +994,11 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
           .matches("-?[0-9]{4}(-(0[1-9]|1[0-2])(-(0[0-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\\.[0-9]+)?(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))?)?)?)?"),
           "Not a valid date time");
       rule(errors, IssueType.INVALID, e.line(), e.col(), path, !hasTime(e.primitiveValue()) || hasTimeZone(e.primitiveValue()), "if a date has a time, it must have a timezone");
-
+    }
+    if (type.equals("date")) {
+        rule(errors, IssueType.INVALID, e.line(), e.col(), path, yearIsValid(e.primitiveValue()), "The value '" + e.primitiveValue() + "' does not have a valid year");
+        rule(errors, IssueType.INVALID, e.line(), e.col(), path, e.primitiveValue().matches("-?[0-9]{4}(-(0[1-9]|1[0-2])(-(0[0-9]|[1-2][0-9]|3[0-1])?)?)"),
+            "Not a valid date");
     }
     if (type.equals("instant")) {
       rule(errors, IssueType.INVALID, e.line(), e.col(), path,
@@ -1073,9 +1077,9 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     }	
   }
 
-  // note that we don't check the type here; it could be string, uri or code.
   private void checkPrimitiveBinding(List<ValidationMessage> errors, String path, String type, ElementDefinition elementContext, Element element, StructureDefinition profile) {
-    if (!isPrimitiveType(type)) {
+    // We ignore bindings that aren't on string, uri or code
+    if (!element.hasPrimitiveValue() || !("code".equals(type) || "string".equals(type) || "uri".equals(type))) {
       return;
     }
 
@@ -1283,7 +1287,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     return b.toString();
   }
 
-  private ElementDefinition findElement(StructureDefinition profile, String name) {
+  protected ElementDefinition findElement(StructureDefinition profile, String name) {
     for (ElementDefinition c : profile.getSnapshot().getElement()) {
       if (c.getPath().equals(name)) {
         return c;
@@ -3042,7 +3046,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     }
   }
 
-  private class NodeStack {
+  public class NodeStack {
     private ElementDefinition definition;
     private Element element;
     private ElementDefinition extension;
@@ -3083,7 +3087,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
       return element;
     }
 
-    private String getLiteralPath() {
+    protected String getLiteralPath() {
       return literalPath == null ? "" : literalPath;
     }
 
