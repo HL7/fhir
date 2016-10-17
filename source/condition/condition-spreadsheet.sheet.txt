@@ -128,6 +128,7 @@
   Type = DomainResource
   Short Name = Detailed information about conditions, problems or diagnoses
   Definition = Use to record detailed information about conditions, problems or diagnoses recognized by a clinician. There are many uses including: recording a diagnosis during an encounter; populating a problem list or a summary statement, such as a discharge summary.
+  SNOMED CT Concept Domain = < 243796009 |Situation with explicit context|:\n246090004 |Associated finding| =\n((< 404684003 |Clinical finding| MINUS\n<< 420134006 |Propensity to adverse reactions| MINUS \n<< 473010000 |Hypersensitivity condition| MINUS \n<< 79899007 |Drug interaction| MINUS\n<< 69449002 |Drug action| MINUS \n<< 441742003 |Evaluation finding| MINUS \n<< 307824009 |Administrative status| MINUS \n<< 385356007 |Tumor stage finding|) OR\n< 272379006 |Event|)
   v2 Mapping = PPR message
   RIM Mapping = Observation[classCode=OBS, moodCode=EVN, code=ASSERTION, value<Diagnosis]
   To Do = * Age is questionable, you might well need a range of Age or even (in practice)  a text like \"in their teens\". => new ballot comment.  * Todo: discuss the applicability of assessing stages  * Change the description: it is circular
@@ -153,6 +154,7 @@
   Binding = ConditionClinicalStatus
   Short Name = active | relapse | remission | resolved
   Definition = The clinical status of the condition.
+  SNOMED CT Concept Domain = < 303105007 |Disease phases|
   v2 Mapping = PRB-14 / DG1-6
   w5 = status
 
@@ -165,8 +167,10 @@
   Binding = ConditionVerificationStatus
   Short Name = provisional | differential | confirmed | refuted | entered-in-error | unknown
   Definition = The verification status to support the clinical status of the condition.
+  SNOMED CT Concept Domain = < 410514004 |Finding context value|
   v2 Mapping = PRB-13
   RIM Mapping = .code (pre or post-coordinated in)  Can use valueNegationInd for refuted
+  SNOMED CT Attribute = 408729009
   w5 = status
 
  -- Row 5 -----------------------------------
@@ -177,6 +181,7 @@
   Short Name = problem-list-item | encounter-diagnosis
   Definition = A category assigned to the condition.
   Comments = The categorization is often highly contextual and may appear poorly differentiated or not very useful in other contexts
+  SNOMED CT Concept Domain = < 404684003 |Clinical finding|
   v2 Mapping = \'problem\' if from PRB-3. \'diagnosis\' if from DG1 segment in PV1 message
   RIM Mapping = .code
   w5 = class
@@ -189,8 +194,10 @@
   Short Name = Subjective severity of condition
   Definition = A subjective assessment of the severity of the condition as evaluated by the clinician.
   Comments = Coding of the severity with a terminology is preferred, where possible
+  SNOMED CT Concept Domain = < 272141005 |Severities|
   v2 Mapping = PRB-26 / ABS-3
   RIM Mapping = Can be pre/post-coordinated into value.  Or ./inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=\"severity\"].value
+  SNOMED CT Attribute = 246112005
   w5 = grade
 
  -- Row 7 -----------------------------------
@@ -214,8 +221,10 @@
   Binding = ConditionKind
   Short Name = Identification of the condition, problem or diagnosis
   Definition = Identification of the condition, problem or diagnosis.
+  SNOMED CT Concept Domain = code 246090004 |Associated finding| (< 404684003 |Clinical finding| MINUS\n<< 420134006 |Propensity to adverse reactions| MINUS \n<< 473010000 |Hypersensitivity condition| MINUS \n<< 79899007 |Drug interaction| MINUS\n<< 69449002 |Drug action| MINUS \n<< 441742003 |Evaluation finding| MINUS \n<< 307824009 |Administrative status| MINUS \n<< 385356007 |Tumor stage finding|) \nOR < 413350009 |Finding with explicit context|\nOR < 272379006 |Event|
   v2 Mapping = PRB-3
   RIM Mapping = .value
+  SNOMED CT Attribute = 246090004
   w5 = what
 
  -- Row 9 -----------------------------------
@@ -227,7 +236,9 @@
   Short Name = Anatomical location, if relevant
   Definition = The anatomical location where this condition manifests itself
   Comments = May be a summary code, or a reference to a very precise definition of the location, or both
+  SNOMED CT Concept Domain = < 442083009  |Anatomical or acquired body structure|
   RIM Mapping = .targetBodySiteCode
+  SNOMED CT Attribute = 363698007
 
  -- Row 10 -----------------------------------
   Element = Condition.subject
@@ -314,6 +325,7 @@
   Binding = ConditionStage
   Short Name = Simple summary (disease specific)
   Definition = A simple summary of the stage such as \"Stage 3\". The determination of the stage is disease-specific
+  SNOMED CT Concept Domain = < 254291000 |Staging and scales|
   v2 Mapping = PRB-14
   RIM Mapping = .value
 
@@ -344,6 +356,7 @@
   Binding = ManifestationOrSymptom
   Short Name = Manifestation/symptom
   Definition = A manifestation or symptom that led to the recording of this condition
+  SNOMED CT Concept Domain = < 404684003 |Clinical finding|
   RIM Mapping = [code=\"diagnosis\"].value
 
  -- Row 21 -----------------------------------

@@ -1881,7 +1881,10 @@ public class SpreadsheetParser {
 		  else
 		    e.setComments(Utilities.appendPeriod(sheet.getColumn(row, "Comments")));
 		for (String n : mappings.keySet()) {
-		  e.addMapping(n, sheet.getColumn(row, mappings.get(n).getColumnName()));
+		  String ms = sheet.getColumn(row, mappings.get(n).getColumnName());
+		  if (mappings.get(n).getColumnName().equals("Snomed Code") && !Utilities.noString(ms))
+		    System.out.println("!!");
+		  e.addMapping(n, ms);
 		}
     if (pack != null) {
       for (String n : pack.getMappingSpaces().keySet()) {

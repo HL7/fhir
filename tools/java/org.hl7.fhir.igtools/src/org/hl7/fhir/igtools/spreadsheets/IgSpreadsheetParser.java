@@ -85,6 +85,7 @@ import org.hl7.fhir.igtools.publisher.FetchedFile;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.XLSXmlParser;
 import org.hl7.fhir.utilities.XLSXmlParser.Sheet;
+import org.hl7.fhir.utilities.xhtml.XhtmlParser;
 import org.hl7.fhir.utilities.xml.XMLUtil;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -135,7 +136,7 @@ public class IgSpreadsheetParser {
         mappings.put(XMLUtil.getNamedChild(e, "url").getTextContent(), m);
         Element p = XMLUtil.getNamedChild(e, "preamble");
         if (p != null)
-          m.setPreamble(XMLUtil.elementToString(XMLUtil.getFirstChild(p)));
+          m.setPreamble(new XhtmlParser().parseHtmlNode(p).setName("div"));
         e = XMLUtil.getNextSibling(e);
       }
     } catch (Exception e) {

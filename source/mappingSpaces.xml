@@ -26,11 +26,39 @@
     <publish>true</publish>
 	</space>
 	<space>
-		<url>http://snomed.info</url>
-		<columnName>Snomed Code</columnName>
-		<title>SNOMED CT code for the element</title>
-		<id>sct</id>
+		<url>http://snomed.info/sct</url>
+		<columnName>SNOMED CT Attribute</columnName>
+		<title>SNOMED CT Attribute Binding</title>
+		<id>sct-attr</id>
+		<preamble>
+			<p>
+      Attribute bindings link coded data elements in FHIR resources to a corresponding attribute in the SNOMED CT concept model. These bindings help to support: 
+      </p>
+      <ul>
+        <li>clarifying the intended meaning of the data element</li>
+        <li>Quality checking the alignment between FHIR resource design and any coresponding SNOMED CT concept model</li>
+        <li>Composition and decomposition of data instances by indicating the SNOMED CT concept model attribute whose value may be used to decompose a precoordinated concept into this data element</li>
+      </ul>
+		</preamble>    
 		<sort>3</sort>
+    <publish>true</publish>
+	</space>
+	<space>
+		<url>http://snomed.info/conceptdomain</url>
+		<columnName>SNOMED CT Concept Domain</columnName>
+		<title>SNOMED CT Concept Domain Binding</title>
+		<id>sct-concept</id>
+		<preamble>
+			<p>
+      Concept domain bindings link a resource or an element to a set of SNOMED CT concepts that represent the intended semantics of the instances (whether or not SNOMED CT is used to encode that data element). 
+      This set of concepts is represented using a SNOMED CT expression constraint. Note that the 'Concept domain binding' may be a superset of the 'value set binding'. These bindings help to support:
+      </p>
+      <ul>
+        <li>Quality checking FHIR resources by ensuring that (a) the intended semantics of the instances matches the valid range of the corresponding SNOMED CT attribute, and (b) the intended value set is appropriate for the intended semantics of the instances</li>
+        <li>Semantic checking of data instances by helping to detect potential inconsistencies caused by overlap between the semantics incorporated in two concept domains</li>
+      </ul>
+		</preamble>
+		<sort>4</sort>
     <publish>true</publish>
 	</space>
 	<space>
@@ -38,7 +66,7 @@
 		<columnName>CDA Mapping</columnName>
 		<title>CDA (R2)</title>
 		<id>cda</id>
-		<sort>4</sort>
+		<sort>5</sort>
     <publish>true</publish>
 	</space>
 	<space>
@@ -46,7 +74,7 @@
 		<columnName>v2 Mapping</columnName>
 		<title>HL7 v2 Mapping</title>
 		<id>v2</id>
-		<sort>5</sort>
+		<sort>6</sort>
     <publish>true</publish>
 	</space>
 	<space>
@@ -54,7 +82,7 @@
 		<columnName>DICOM Mapping</columnName>
 		<title>DICOM Tag Mapping</title>
 		<id>dicom</id>
-		<sort>6</sort>
+		<sort>7</sort>
     <publish>true</publish>
 	</space>
 	<space>
@@ -62,7 +90,7 @@
 		<columnName>vCard Mapping</columnName>
 		<title>vCard Mapping</title>
 		<id>vcard</id>
-		<sort>7</sort>
+		<sort>8</sort>
     <publish>true</publish>
 	</space>
 	<space>
@@ -70,7 +98,7 @@
 		<columnName>XDS Mapping</columnName>
 		<title>XDS metadata equivalent</title>
 		<id>xds</id>
-		<sort>8</sort>
+		<sort>9</sort>
     <publish>true</publish>
 	</space>
 	<space>
@@ -92,7 +120,7 @@
       PROV equivalent.
      </p>
 		</preamble>
-		<sort>9</sort>
+		<sort>10</sort>
     <publish>true</publish>
 	</space>
 	<space>
@@ -100,14 +128,14 @@
 		<columnName>iCal Mapping</columnName>
 		<title>iCalendar</title>
 		<id>ical</id>
-		<sort>10</sort>
+		<sort>11</sort>
 	</space>
 	<space>
 		<url>http://www.omg.org/spec/ServD/1.0/</url>
 		<columnName>ServD Mapping</columnName>
 		<title>ServD</title>
 		<id>servd</id>
-		<sort>11</sort>
+		<sort>12</sort>
 	</space>
 	<space>
 		<url>http://metadata-standards.org/11179/</url>
@@ -163,77 +191,77 @@
 		<columnName>CDISC Define.xml 2.0 Mapping</columnName>
 		<title>CDISC Define XML 2.0 metadata standard</title>
 		<id>define.xml2.0</id>
-		<sort>18</sort>
+		<sort>19</sort>
 	</space>
 	<space>
 		<url>http://www.cda-adc.ca/en/services/cdanet/</url>
 		<columnName>CDAnet v4 Mapping</columnName>
 		<title>Canadian Dental Association eclaims standard</title>
 		<id>cdanetv4</id>
-		<sort>19</sort>
+		<sort>20</sort>
 	</space>
 	<space>
 		<url>http://www.pharmacists.ca/</url>
 		<columnName>CPhA3 (Pharmacy) Mapping</columnName>
 		<title>Canadian Pharmacy Associaiton eclaims standard</title>
 		<id>cpha3pharm</id>
-		<sort>20</sort>
+		<sort>21</sort>
 	</space>
 	<space>
 		<url>http://www.healthit.gov/quality-data-model</url>
 		<columnName>QDM Mapping</columnName>
 		<title>Quality Data Model</title>
 		<id>qdm</id>
-		<sort>21</sort>
+		<sort>22</sort>
 	</space>
 	<space>
 		<url>http://hl7.org/orim</url>
 		<columnName>ORIM Mapping</columnName>
 		<title>Ontological RIM Mapping</title>
 		<id>orim</id>
-		<sort>22</sort>
+		<sort>23</sort>
 	</space>
 	<space>
 		<url>http://hl7.org/fhir/w5</url>
 		<columnName>...don't use...</columnName>
 		<title>W5 Mapping</title>
 		<id>w5</id>
-		<sort>23</sort>
+		<sort>24</sort>
 	</space>
 	<space>
 		<url>http://hl7.org/fhir/logical</url>
 		<columnName>Logical Mapping</columnName>
 		<title>Logical Mapping</title>
 		<id>logical</id>
-		<sort>24</sort>
+		<sort>25</sort>
 	</space>
 	<space>
 		<url>http://hl7.org/fhir/auditevent</url>
 		<columnName>Auditevent Mapping</columnName>
 		<title>FHIR AuditEvent</title>
 		<id>fhirauditevent</id>
-		<sort>25</sort>
+		<sort>26</sort>
 	</space>
 	<space>
 		<url>http://hl7.org/fhir/provenance</url>
 		<columnName>Provenance Mapping</columnName>
 		<title>FHIR Provenance</title>
 		<id>fhirprovenance</id>
-		<sort>26</sort>
+		<sort>27</sort>
 	</space>
 	<space>
 		<url>http://www.hl7.org/implement/standards/product_brief.cfm?product_id=378</url>
 		<columnName>QIDAM Mapping</columnName>
 		<title>Quality Improvement Domain Analysis Model</title>
 		<id>qidam</id>
-		<sort>27</sort>
+		<sort>28</sort>
 	</space>
 	<space>
 		<url>http://cap.org/ecc</url>
 		<columnName>CAP Code</columnName>
 		<title>CAP Code</title>
 		<id>cap</id>
-		<sort>28</sort>
+		<sort>29</sort>
 	</space>
 	<space>
 		<url>http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/UniqueDeviceIdentification/default.htm</url>
@@ -247,21 +275,21 @@
 		 (2a) the lot or batch number within which a device was manufactured; (2b) the serial number of a specific device; (2c) the expiration date of a specific device; (2d) the date a specific device was manufactured; (2e) the distinct identification code required by §1271.290(c) for a human cell, tissue, or cellular and tissue-based product (HCT/P) regulated as a device.
 	</p>
 		</preamble>
-		<sort>29</sort>
+		<sort>30</sort>
 	</space>
 	<space>
 		<url>http://hl7.org/fhir/object-implementation</url>
 		<columnName>Object Impl</columnName>
 		<title>Object Implementation Information</title>
 		<id>objimpl</id>
-		<sort>30</sort>
+		<sort>31</sort>
 	</space>
 	<space>
 		<url>http://github.com/MDMI/ReferentIndexContent</url>
 		<columnName>MDMI Referent</columnName>
 		<title>MDMI Referent Index</title>
 		<id>mdmi</id>
-		<sort>31</sort>
+		<sort>32</sort>
     <publish>true</publish>
 	</space>
 	<space>
@@ -269,7 +297,7 @@
 		<columnName>SCRIPT 10.6 Mapping</columnName>
 		<title>Mapping to NCPDP SCRIPT 10.6</title>
 		<id>script10.6</id>
-		<sort>32</sort>
+		<sort>33</sort>
 		<publish>true</publish>
 	</space>
 </mappingSpaces>

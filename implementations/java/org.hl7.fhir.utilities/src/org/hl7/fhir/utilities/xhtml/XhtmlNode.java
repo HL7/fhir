@@ -101,9 +101,10 @@ public class XhtmlNode implements IBaseXhtml {
     return name;
   }
 
-  public void setName(String name) {
+  public XhtmlNode setName(String name) {
     assert name.contains(":") == false : "Name should not contain any : but was " + name;
     this.name = name;
+    return this;
   }
 
   public Map<String, String> getAttributes() {

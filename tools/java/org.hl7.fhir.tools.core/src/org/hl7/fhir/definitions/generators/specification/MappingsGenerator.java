@@ -28,6 +28,7 @@ POSSIBILITY OF SUCH DAMAGE.
 */
 package org.hl7.fhir.definitions.generators.specification;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -42,6 +43,8 @@ import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionMappingCompon
 import org.hl7.fhir.dstu3.model.StructureDefinition;
 import org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionMappingComponent;
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
+import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 
 public class MappingsGenerator {
 
@@ -73,7 +76,7 @@ public class MappingsGenerator {
   }
 
 
-  public void generate(StructureDefinition profile) {
+  public void generate(StructureDefinition profile) throws IOException {
     if (profile.getMapping().isEmpty())
       mappings = "<p>No Mappings</p>";
     else {
@@ -83,8 +86,11 @@ public class MappingsGenerator {
         s.append("<a name=\""+map.getIdentity() +"\"> </a><h3>Mappings for "+map.getName()+" ("+map.getUri()+")</h3>");
         if (map.hasComments())
           s.append("<p>"+Utilities.escapeXml(map.getComments())+"</p>");
-        else if (definitions.getMapTypes().containsKey(map.getUri()))   
-          s.append(definitions.getMapTypes().get(map.getUri()).getPreamble());
+        else if (definitions.getMapTypes().containsKey(map.getUri())) {   
+          XhtmlNode pre = definitions.getMapTypes().get(map.getUri()).getPreamble();
+          if (pre != null)
+            s.append(new XhtmlComposer().compose(pre));
+        }
 
         s.append("<table class=\"grid\">\r\n");
         
@@ -105,7 +111,7 @@ public class MappingsGenerator {
     }
   }
   
-  public void generateExtension(StructureDefinition ed) {
+  public void generateExtension(StructureDefinition ed) throws IOException {
     if (ed.getMapping().isEmpty())
       mappings = "<p>No Mappings</p>";
     else {
@@ -115,8 +121,11 @@ public class MappingsGenerator {
         s.append("<a name=\""+map.getIdentity() +"\"> </a><h3>Mappings for "+map.getName()+" ("+map.getUri()+")</h3>");
         if (map.hasComments())
           s.append("<p>"+Utilities.escapeXml(map.getComments())+"</p>");
-        else if (definitions.getMapTypes().containsKey(map.getUri()))   
-          s.append(definitions.getMapTypes().get(map.getUri()).getPreamble());
+        else if (definitions.getMapTypes().containsKey(map.getUri())) {  
+          XhtmlNode pre = definitions.getMapTypes().get(map.getUri()).getPreamble();
+          if (pre != null)
+            s.append(new XhtmlComposer().compose(pre));
+        }
 
         s.append("<table class=\"grid\">\r\n");
 
@@ -176,7 +185,7 @@ public class MappingsGenerator {
   }
 
 
-  public void generate(ResourceDefn resource) {
+  public void generate(ResourceDefn resource) throws IOException {
 		StringBuilder s = new StringBuilder();
 		List<String> maps = new ArrayList<String>();
 		listKnownMappings(resource.getRoot(), maps);
@@ -186,7 +195,10 @@ public class MappingsGenerator {
 			list.append("|"+definitions.getMapTypes().get(m).getTitle() + "#"+definitions.getMapTypes().get(m).getId());
 
 			s.append("<a name=\""+m+"\"> </a><a name=\""+definitions.getMapTypes().get(m).getId()+"\"> </a><h3>Mappings for "+definitions.getMapTypes().get(m).getTitle()+" ("+m+")</h3>");
-			s.append(definitions.getMapTypes().get(m).getPreamble());
+			
+			XhtmlNode pre = definitions.getMapTypes().get(m).getPreamble();
+			if (pre != null)
+			  s.append(new XhtmlComposer().compose(pre));
 			s.append("<table class=\"grid\">\r\n");
       genElement(s, 0, resource.getRoot(), m, ROOT_ONLY);
 			genInherited(s, resource, m);

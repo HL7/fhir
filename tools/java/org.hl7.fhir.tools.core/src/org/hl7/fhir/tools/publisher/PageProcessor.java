@@ -6743,13 +6743,13 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   }
   */
   
-  private String mappingsProfile(StructureDefinition source) {
+  private String mappingsProfile(StructureDefinition source) throws IOException {
     MappingsGenerator m = new MappingsGenerator(definitions);
     m.generate(source);
     return m.getMappings();
   }
 
-  private String mappingsExtension(StructureDefinition ed) {
+  private String mappingsExtension(StructureDefinition ed) throws IOException {
     MappingsGenerator m = new MappingsGenerator(definitions);
     m.generate(ed);
     return m.getMappings();

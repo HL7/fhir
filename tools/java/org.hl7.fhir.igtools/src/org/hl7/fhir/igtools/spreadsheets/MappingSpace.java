@@ -1,10 +1,12 @@
 package org.hl7.fhir.igtools.spreadsheets;
 
+import org.hl7.fhir.utilities.xhtml.XhtmlNode;
+
 public class MappingSpace {
 
   private String columnName; // in the spreadsheets
   private String title; // in the specification
-  private String preamble; // html to go in spec
+  private XhtmlNode preamble; // html to go in spec
   private String id; // internal page reference
   private int sortOrder; 
   private boolean publish;
@@ -15,7 +17,7 @@ public class MappingSpace {
     this.title = title;
     this.id = id;
     this.sortOrder = sortOrder;
-    this.preamble = "";
+    this.preamble = null;
     this.publish = publish;
   }
 
@@ -35,11 +37,11 @@ public class MappingSpace {
     this.title = title;
   }
 
-  public String getPreamble() {
+  public XhtmlNode getPreamble() {
     return preamble;
   }
 
-  public void setPreamble(String preamble) {
+  public void setPreamble(XhtmlNode preamble) {
     this.preamble = preamble;
   }
 
