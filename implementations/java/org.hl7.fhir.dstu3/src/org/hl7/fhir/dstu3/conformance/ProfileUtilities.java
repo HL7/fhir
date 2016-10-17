@@ -2946,7 +2946,8 @@ public class ProfileUtilities {
   private List<String> listReferenceProfiles(ElementDefinition ed) {
     List<String> res = new ArrayList<String>();
     for (TypeRefComponent tr : ed.getType()) {
-      if ("Reference".equals(tr.getCode()))
+      // code is null if we're dealing with "value" and profile is null if we just have Reference()
+      if (tr.getCode()!= null && "Reference".equals(tr.getCode()) && tr.getProfile() != null)
         res.add(tr.getProfile());
     }
     return res ;
