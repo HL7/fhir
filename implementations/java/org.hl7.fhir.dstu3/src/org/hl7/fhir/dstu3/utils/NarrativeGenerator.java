@@ -3,6 +3,8 @@ package org.hl7.fhir.dstu3.utils;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 /*
 Copyright (c) 2011+, HL7, Inc
@@ -35,6 +37,7 @@ Copyright (c) 2011+, HL7, Inc
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -129,6 +132,7 @@ import org.hl7.fhir.dstu3.model.ValueSet.ConceptSetFilterComponent;
 import org.hl7.fhir.dstu3.model.ValueSet.FilterOperator;
 import org.hl7.fhir.dstu3.model.ValueSet.ValueSetExpansionComponent;
 import org.hl7.fhir.dstu3.model.ValueSet.ValueSetExpansionContainsComponent;
+import org.hl7.fhir.dstu3.model.ValueSet.ValueSetExpansionParameterComponent;
 import org.hl7.fhir.dstu3.terminologies.CodeSystemUtilities;
 import org.hl7.fhir.dstu3.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
 import org.hl7.fhir.dstu3.utils.NarrativeGenerator.ObservationNode;
@@ -2468,6 +2472,8 @@ public class NarrativeGenerator implements INarrativeGenerator {
         x.addTag("p").addText("This value set contains "+count.toString()+" concepts");
     }
 
+    generateVersionNotice(x, vs.getExpansion());
+    
     CodeSystem allCS = null;
     boolean doSystem = true; // checkDoSystem(vs, src);
     boolean doDefinition = checkDoDefinition(vs.getExpansion().getContains());
@@ -2514,6 +2520,83 @@ public class NarrativeGenerator implements INarrativeGenerator {
     }
     
     return hasExtensions;
+  }
+
+  @SuppressWarnings("rawtypes")
+  private void generateVersionNotice(XhtmlNode x, ValueSetExpansionComponent expansion) {
+    Map<String, String> versions = new HashMap<String, String>();
+    for (ValueSetExpansionParameterComponent p : expansion.getParameter()) {
+      if (p.getName().equals("version")) {
+        String[] parts = ((PrimitiveType) p.getValue()).asStringValue().split("\\?version\\=");
+        if (parts.length == 2)
+          versions.put(parts[0], parts[1]);
+      }
+    }
+    if (!versions.isEmpty()) {
+      StringBuilder b = new StringBuilder();
+      b.append("Expansion based on ");
+      boolean first = true;
+      for (String s : versions.keySet()) {
+        if (first)
+          first = false;
+        else
+          b.append(", ");
+        if (!s.equals("http://snomed.info/sct"))
+          b.append(describeSystem(s)+" version "+versions.get(s)); 
+        else {
+          String[] parts = versions.get(s).split("\\/");
+          if (parts.length >= 5) {
+            String m = describeModule(parts[4]);
+            if (parts.length == 7)
+              b.append("SNOMED CT "+m+" edition "+formatSCTDate(parts[6]));
+            else
+              b.append("SNOMED CT "+m+" edition");
+          } else 
+            b.append(describeSystem(s)+" version "+versions.get(s));
+        }
+      }
+      
+      x.addTag("p").setAttribute("style", "border: black 1px dotted; background-color: #EEEEEE; padding: 8px").addText(b.toString());
+    }
+  }
+
+  private String formatSCTDate(String ds) {
+    SimpleDateFormat format = new SimpleDateFormat("yyyyMMdd");
+    Date date;
+    try {
+      date = format.parse(ds);
+    } catch (ParseException e) {
+      return ds;
+    }
+    return new SimpleDateFormat("dd-MMM yyyy").format(date);
+  }
+
+  private String describeModule(String module) {
+    if ("900000000000207008".equals(module))
+      return "International";
+    if ("731000124108".equals(module))
+      return "United States";
+    if ("32506021000036107".equals(module))
+      return "Australian";
+    if ("449081005".equals(module))
+      return "Spanish";
+    if ("554471000005108".equals(module))
+      return "Danish";
+    if ("11000146104".equals(module))
+      return "Dutch";
+    if ("45991000052106".equals(module))
+      return "Swedish";
+    if ("999000041000000102".equals(module))
+      return "United Kingdon";
+    return module;
+  }
+
+  private boolean hasVersionParameter(ValueSetExpansionComponent expansion) {
+    for (ValueSetExpansionParameterComponent p : expansion.getParameter()) {
+      if (p.getName().equals("version"))
+        return true;
+    }
+    return false;
   }
 
   private void addLanguageRow(ValueSetExpansionContainsComponent c, XhtmlNode t, List<String> langs) {
