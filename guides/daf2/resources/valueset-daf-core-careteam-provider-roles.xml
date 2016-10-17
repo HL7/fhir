@@ -1,4 +1,4 @@
-<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../schema/fhir-single.xsd">
+<ValueSet xmlns="http://hl7.org/fhir">
   <id value="daf-core-careteam-provider-roles"/>
   <url
        value="http://hl7.org/fhir/us/daf/ValueSet/daf-core-careteam-provider-roles"/>
