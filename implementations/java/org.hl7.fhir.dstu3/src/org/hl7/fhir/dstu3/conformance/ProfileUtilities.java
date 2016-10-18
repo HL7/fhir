@@ -2537,8 +2537,8 @@ public class ProfileUtilities {
         paths.remove(paths.size() - 1);
       
       String t = ed.hasSliceName() ? tail+":"+checkName(ed.getSliceName()) : name != null ? tail + ":"+checkName(name) : tail;
-      if (isExtension(ed))
-        t = t + describeExtension(ed);
+//      if (isExtension(ed))
+//        t = t + describeExtension(ed);
       name = null;
       StringBuilder b = new StringBuilder();
       for (String s : paths) {
@@ -2554,6 +2554,7 @@ public class ProfileUtilities {
         String s = ed.getContentReference().substring(1);
         if (idMap.containsKey(s))
           ed.setContentReference("#"+idMap.get(s));
+        
       }
     }  
     // second path - fix up any broken path based id references

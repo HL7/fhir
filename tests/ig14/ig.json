@@ -10,6 +10,7 @@
   },
 	"canonicalBase": "http://hl7.org/fhir/test-ig-14",
   "version" : "1.4.0",
+  "sct-edition" :  "http://snomed.info/sct/900000000000207008",
 	"spreadsheets": [
 		"diagnosticorder-daf-profile-spreadsheet.xml"
 	],  

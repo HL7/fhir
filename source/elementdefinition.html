@@ -23,7 +23,7 @@
 The definition of an element in a resource or extension. The definition includes:
 </p>
 <ul>
- <li>Name, Cardinality, and data type</li>
+ <li>Path (name), Cardinality, and data type</li>
  <li>Definitions, usage notes, requirements</li>
  <li>Default or fixed values</li>
  <li>Constraints, Length limits, and other usage rules</li><li>Terminology Binding</li>
@@ -64,10 +64,9 @@ definition for each path (that is, an element definition with no base element). 
 other definitions with the same path must conform. 
 </p>
 <p>
-StructureDefinitions of type constraint (e.g. Resource and Data Type profiles) are not allowed to include ElementDefinitions 
-with a new path not defined within the FHIR specification. However Logical Models and new custom resource definitions (see 
-<a href="http://wiki.hl7.org/index.php?title=FHIR_Custom_Resources">Custom Resource Policy</a>) are allowed to define 
-new elements. When new Elements are defined, the following rules apply:
+All elements defined wihin the FHIR specification itself are defined within a <a href="structuredefinition.html">StructureDefinition</a>
+that defines a resource, or a datatype. This defines the identity of the element amnd provides the context in which the meaning of 
+the element is understood. When Elements are defined, the following rules apply:
 </p>
 <ul>
  <li>Element names (the parts of a path delineated by the '.' character) SHALL not conain whitespace (i.e. unicode characters marked as whitespace)</li>
@@ -75,8 +74,39 @@ new elements. When new Elements are defined, the following rules apply:
  <li>Element names SHOULD not contain non-ASCII characters</li>
  <li>Element paths SHALL not exceed 64 characters in length</li>
  <li>Element paths cannot imply elements that are not explicitly defined i.e. a.b.c.d cannot be defined unless a.b.c is explicitly defined</li>
- <li>By convention, the paths starts with an uppercase letter (type) but all the element names that follow this are lowercase (not type names). All resources and data types follow this convention, but logical models are not required to do so</li>
+ <li>By convention, the paths starts with an uppercase letter (type) but all the element names that follow this are lowercase (not type names). All resources and data types (except for Primitive data types) follow this convention, but logical models are not required to do so</li>
 </ul>
+<p>
+Elements may be defined in: 
+</p>
+<ul>
+  <li>StructureDefinitions of <a href="structuredefinition-definitions.html#StructureDefinition.kind">kind</a> = <code>resource</code>, <code>complex-type</code> or <code>primitive-type</code>, 
+   where <a href="structuredefinition-definitions.html#StructureDefinition.derivation">derivation</a> = <code>specialization</code>. These are either Resources or Data types
+   defined in the specification, or in custom resource definitions (see <a href="http://wiki.hl7.org/index.php?title=FHIR_Custom_Resources">Custom Resource Policy</a>)</li>
+  <li>StructureDefinitions of <a href="structuredefinition-definitions.html#StructureDefinition.kind">kind</a> = <code>logical</code></li>
+  <li>Data Elements</li>
+</ul>
+<p>
+StructureDefinitions with <a href="structuredefinition-definitions.html#StructureDefinition.derivation">derivation</a> = <code>constraint</code> 
+(i.e. Resource and Data Type profiles) are not allowed to define or include ElementDefinitions with a path not defined within the 
+base resource definition from which they derive (e.g. in the FHIR specification). 
+</p>
+
+<a name="id"> </a>
+<h2>ElementDefinition.id</h2>
+<p>
+In addition to the path, every ElementDefinition SHALL have a populated <a href="element.html#table">id</a>, and the <code>id</code> SHALL
+have a unique value populated by following this algorithm:
+</p>
+<ul>
+ <li>The id will be constructed as a dot separated string, each part corresponding to a token in the path</li>
+ <li>For each token in the path, use the syntax <code>pathpart:slicename/reslicename</code></li>
+</ul>
+<p>
+Note that in a profile with no slices, this id will match the path exactly and entirely.
+<code>id</code> values constructed in this fashion are unique, and persistent, and may
+be used as the target of external references into the definition, where necessary.
+</p>
 
 <a name="interpretation"> </a>
 <h2>Interpretation of ElementDefinition in different contexts</h2>
@@ -85,7 +115,7 @@ new elements. When new Elements are defined, the following rules apply:
 
 <table class="grid">
  <tr> <td><b>ElementDefinition field</b></td> <td><b>DataElement</b></td> <td><b>Type definition, first element</b></td> <td><b>Type definition, following elements</b></td> <td><b>Constraint Definition, first element</b></td> <td><b>Constraint Definition, following elements</b></td> </tr>
- <tr> <td>name</td> <td>prohibited</td> <td>prohibited</td> <td>prohibited</td> <td>prohibited</td> <td>optional, for profile re-use</td> </tr>
+ <tr> <td>sliceName</td> <td>prohibited</td> <td>prohibited</td> <td>prohibited</td> <td>prohibited</td> <td>required for slices, else prohibited</td> </tr>
  <tr> <td>label</td> <td>optional</td> <td>optional</td> <td>optional</td> <td>recommended</td> <td>recommended</td> </tr>
  <tr> <td>code</td> <td>optional</td> <td>optional</td> <td>optional</td> <td>optional</td> <td>optional</td> </tr>
  <tr> <td>slicing</td> <td>prohibited</td> <td>prohibited</td> <td>prohibited</td> <td>prohibited</td> <td>optional</td> </tr>
@@ -146,10 +176,13 @@ There are additional notes about the use of <code>ElementDefinition</code> when 
 
 <a name="slicing"> </a>
 <h3>Rules about Slicing</h3>
-
+<p>
+For a description of slicing, see <a href="profiling.html#slicing">Slicing</a>
+</p>
 <ul>
  <li>Slicing is only allowed when constraining an existing structure</li>
  <li><code>slicing</code> can only be used on the first repeat of an element, this element is considered the slicing entry</li>
+ <li>All elements following the first repeat that has a slicing SHALL have a <code>sliceName</code></li>
  <li>The first entry (the one having the <code>slicing</code> information) is understood to be the set of constraints to be used for the &quot;open&quot; slice. i.e. when the slice is open, this definition is used as a constraint on elements in the instance that are not part of a slice and belong to the open portion of the slice. Its use follows the &quot;normal case&quot;, except:
     <ul>
       <li><code>slicing</code> must be present</li>
