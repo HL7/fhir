@@ -533,11 +533,11 @@
  -- Row 25 -----------------------------------
   Element = ElementDefinition.type.code
   Card. = 1..1
-  Type = code
+  Type = uri
   Binding = FHIRDefinedTypeExt
-  Short Name = Name of Data type or Resource
-  Definition = Name of Data type or Resource that is a(or the) type used for this element
-  Comments = If the element is a reference to another resource, this element contains \"Reference\", and the profile element refers to the profile of the allowed target of the resource, which may be a reference to the general definition of a resource (e.g. http://hl7.org/fhir/StructureDefinition/Patient). There would be one pair of type/code for each allowed target resource type
+  Short Name = Data type or Resource (reference to definition)
+  Definition = URL of Data type or Resource that is a(or the) type used for this element. References are URLs that are relative to http://hl7.org/fhir/StructureDefinition e.g. \"string\" is a reference to http://hl7.org/fhir/StructureDefinition/string. Absolute URLs are only allowed in logical models
+  Comments = If the element is a reference to another resource, this element contains \"Reference\", and the targetProfile element defines what resources can be referenced. The targetProfile may be a reference to the general definition of a resource (e.g. http://hl7.org/fhir/StructureDefinition/Patient). There would be one pair of type/code for each allowed target resource type
   v2 Mapping = OM1.3
   RIM Mapping = N/A (MIF territory)
   11179 Mapping = .domain.data+Q14type

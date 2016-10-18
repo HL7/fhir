@@ -9020,7 +9020,7 @@ public class VersionConvertor_10_20 {
       tgt.addDerivedFrom(convertReference(t));
     if (src.hasDateAsserted())
       tgt.setDateAsserted(src.getDateAsserted());
-    tgt.setNotTaken(src.getWasNotTaken());
+    tgt.getNotTakenElement().setValueAsString(src.getWasNotTaken() ? "Y" : "N");
     for (org.hl7.fhir.dstu2.model.CodeableConcept t : src.getReasonNotTaken())
       tgt.addReasonNotTaken(convertCodeableConcept(t));
 //    tgt.setReasonForUse(convertType(src.getReasonForUse()));
@@ -9047,7 +9047,7 @@ public class VersionConvertor_10_20 {
       tgt.addSupportingInformation(convertReference(t));
     if (src.hasDateAsserted())
       tgt.setDateAsserted(src.getDateAsserted());
-    tgt.setWasNotTaken(src.getNotTaken());
+    tgt.setWasNotTaken("Y".equals(src.getNotTakenElement().getValueAsString()));
     for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getReasonNotTaken())
       tgt.addReasonNotTaken(convertCodeableConcept(t));
 //    tgt.setReasonForUse(convertType(src.getReasonForUse()));

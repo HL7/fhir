@@ -15,7 +15,7 @@
   <compose>
     <include>
       <system value="http://snomed.info/sct"/>
-      <version value="http://snomed.info/sct/US1000124/version/20140901"/>
+      <version value="http://snomed.info/sct/731000124108"/> <!-- these use US SCT codes for now -->
       <concept>
         <code value="442901000124106"/>
         <display value="Adult clear liquid supplement"/>

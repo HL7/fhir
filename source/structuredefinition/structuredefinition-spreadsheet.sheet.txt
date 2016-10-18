@@ -235,6 +235,14 @@
   XPath = not(exists(f:contextInvariant)) or (f:type/@value = \'Extension\')
   Expression = contextInvariant.exists() implies type = \'Extension\'
 
+ -- Row 19 -----------------------------------
+  Id = 19
+  Requirements = custom types only in logical models
+  Context = StructureDefinition
+  English = Custom types can only be used in logical models
+  XPath = (f:kind/@value = \'logical\') or (true)
+  Expression = kind = \'logical\' or (differential.element.type.code.all(hasValue() implies matches(\'[a-zA-Z0-9]+\')) and snapshot.element.type.code.all(hasValue() implies matches(\'[a-zA-Z0-9]+\')))
+
 === Sheet Data Elements =====================================
 
  -- Row 1 -----------------------------------

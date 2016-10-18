@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Oct 11, 2016 12:41+1100 for FHIR v1.7.0
+// Generated on Tue, Oct 18, 2016 10:55+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -198,6 +198,112 @@ public class MedicationStatement extends DomainResource {
       return "?";
       }
     public String toSystem(MedicationStatementStatus code) {
+      return code.getSystem();
+      }
+    }
+
+    public enum MedicationStatementNotTaken {
+        /**
+         * Positive assertion that patient has taken medication
+         */
+        Y, 
+        /**
+         * Negative assertion that patient has not taken medication
+         */
+        N, 
+        /**
+         * Unknown assertion if patient has taken medication
+         */
+        UNK, 
+        /**
+         * added to help the parsers with the generic types
+         */
+        NULL;
+        public static MedicationStatementNotTaken fromCode(String codeString) throws FHIRException {
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("Y".equals(codeString))
+          return Y;
+        if ("N".equals(codeString))
+          return N;
+        if ("UNK".equals(codeString))
+          return UNK;
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown MedicationStatementNotTaken code '"+codeString+"'");
+        }
+        public String toCode() {
+          switch (this) {
+            case Y: return "Y";
+            case N: return "N";
+            case UNK: return "UNK";
+            default: return "?";
+          }
+        }
+        public String getSystem() {
+          switch (this) {
+            case Y: return "http://hl7.org/fhir/medication-statement-nottaken";
+            case N: return "http://hl7.org/fhir/medication-statement-nottaken";
+            case UNK: return "http://hl7.org/fhir/medication-statement-nottaken";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case Y: return "Positive assertion that patient has taken medication";
+            case N: return "Negative assertion that patient has not taken medication";
+            case UNK: return "Unknown assertion if patient has taken medication";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case Y: return "Yes";
+            case N: return "No";
+            case UNK: return "Unknown";
+            default: return "?";
+          }
+        }
+    }
+
+  public static class MedicationStatementNotTakenEnumFactory implements EnumFactory<MedicationStatementNotTaken> {
+    public MedicationStatementNotTaken fromCode(String codeString) throws IllegalArgumentException {
+      if (codeString == null || "".equals(codeString))
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("Y".equals(codeString))
+          return MedicationStatementNotTaken.Y;
+        if ("N".equals(codeString))
+          return MedicationStatementNotTaken.N;
+        if ("UNK".equals(codeString))
+          return MedicationStatementNotTaken.UNK;
+        throw new IllegalArgumentException("Unknown MedicationStatementNotTaken code '"+codeString+"'");
+        }
+        public Enumeration<MedicationStatementNotTaken> fromType(Base code) throws FHIRException {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("Y".equals(codeString))
+          return new Enumeration<MedicationStatementNotTaken>(this, MedicationStatementNotTaken.Y);
+        if ("N".equals(codeString))
+          return new Enumeration<MedicationStatementNotTaken>(this, MedicationStatementNotTaken.N);
+        if ("UNK".equals(codeString))
+          return new Enumeration<MedicationStatementNotTaken>(this, MedicationStatementNotTaken.UNK);
+        throw new FHIRException("Unknown MedicationStatementNotTaken code '"+codeString+"'");
+        }
+    public String toCode(MedicationStatementNotTaken code) {
+      if (code == MedicationStatementNotTaken.Y)
+        return "Y";
+      if (code == MedicationStatementNotTaken.N)
+        return "N";
+      if (code == MedicationStatementNotTaken.UNK)
+        return "UNK";
+      return "?";
+      }
+    public String toSystem(MedicationStatementNotTaken code) {
       return code.getSystem();
       }
     }
@@ -1108,11 +1214,12 @@ public class MedicationStatement extends DomainResource {
     protected DateTimeType dateAsserted;
 
     /**
-     * Set this to true if the record is saying that the medication was NOT taken.
+     * Indicator of the certainty of whether the medication was taken by the patient.
      */
-    @Child(name = "notTaken", type = {BooleanType.class}, order=8, min=0, max=1, modifier=true, summary=true)
-    @Description(shortDefinition="True if medication is/was not being taken", formalDefinition="Set this to true if the record is saying that the medication was NOT taken." )
-    protected BooleanType notTaken;
+    @Child(name = "notTaken", type = {CodeType.class}, order=8, min=0, max=1, modifier=true, summary=true)
+    @Description(shortDefinition="Y | N | UNK", formalDefinition="Indicator of the certainty of whether the medication was taken by the patient." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/medication-statement-nottaken")
+    protected Enumeration<MedicationStatementNotTaken> notTaken;
 
     /**
      * A code indicating why the medication was not taken.
@@ -1163,7 +1270,7 @@ public class MedicationStatement extends DomainResource {
     @Description(shortDefinition="Details of how medication was taken", formalDefinition="Indicates how the medication is/was used by the patient." )
     protected List<MedicationStatementDosageComponent> dosage;
 
-    private static final long serialVersionUID = 873267951L;
+    private static final long serialVersionUID = 1932484632L;
 
   /**
    * Constructor
@@ -1566,14 +1673,14 @@ public class MedicationStatement extends DomainResource {
     }
 
     /**
-     * @return {@link #notTaken} (Set this to true if the record is saying that the medication was NOT taken.). This is the underlying object with id, value and extensions. The accessor "getNotTaken" gives direct access to the value
+     * @return {@link #notTaken} (Indicator of the certainty of whether the medication was taken by the patient.). This is the underlying object with id, value and extensions. The accessor "getNotTaken" gives direct access to the value
      */
-    public BooleanType getNotTakenElement() { 
+    public Enumeration<MedicationStatementNotTaken> getNotTakenElement() { 
       if (this.notTaken == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create MedicationStatement.notTaken");
         else if (Configuration.doAutoCreate())
-          this.notTaken = new BooleanType(); // bb
+          this.notTaken = new Enumeration<MedicationStatementNotTaken>(new MedicationStatementNotTakenEnumFactory()); // bb
       return this.notTaken;
     }
 
@@ -1586,27 +1693,31 @@ public class MedicationStatement extends DomainResource {
     }
 
     /**
-     * @param value {@link #notTaken} (Set this to true if the record is saying that the medication was NOT taken.). This is the underlying object with id, value and extensions. The accessor "getNotTaken" gives direct access to the value
+     * @param value {@link #notTaken} (Indicator of the certainty of whether the medication was taken by the patient.). This is the underlying object with id, value and extensions. The accessor "getNotTaken" gives direct access to the value
      */
-    public MedicationStatement setNotTakenElement(BooleanType value) { 
+    public MedicationStatement setNotTakenElement(Enumeration<MedicationStatementNotTaken> value) { 
       this.notTaken = value;
       return this;
     }
 
     /**
-     * @return Set this to true if the record is saying that the medication was NOT taken.
+     * @return Indicator of the certainty of whether the medication was taken by the patient.
      */
-    public boolean getNotTaken() { 
-      return this.notTaken == null || this.notTaken.isEmpty() ? false : this.notTaken.getValue();
+    public MedicationStatementNotTaken getNotTaken() { 
+      return this.notTaken == null ? null : this.notTaken.getValue();
     }
 
     /**
-     * @param value Set this to true if the record is saying that the medication was NOT taken.
+     * @param value Indicator of the certainty of whether the medication was taken by the patient.
      */
-    public MedicationStatement setNotTaken(boolean value) { 
+    public MedicationStatement setNotTaken(MedicationStatementNotTaken value) { 
+      if (value == null)
+        this.notTaken = null;
+      else {
         if (this.notTaken == null)
-          this.notTaken = new BooleanType();
+          this.notTaken = new Enumeration<MedicationStatementNotTaken>(new MedicationStatementNotTakenEnumFactory());
         this.notTaken.setValue(value);
+      }
       return this;
     }
 
@@ -1956,7 +2067,7 @@ public class MedicationStatement extends DomainResource {
         childrenList.add(new Property("informationSource", "Reference(Patient|Practitioner|RelatedPerson|Organization)", "The person or organization that provided the information about the taking of this medication. Note: Use derivedFrom when a MedicationStatement is derived from other resources, e.g Claim or MedicationOrder.", 0, java.lang.Integer.MAX_VALUE, informationSource));
         childrenList.add(new Property("derivedFrom", "Reference(Any)", "Allows linking the MedicationStatement to the underlying MedicationOrder, or to other information that supports or is used to derive the MedicationStatement.", 0, java.lang.Integer.MAX_VALUE, derivedFrom));
         childrenList.add(new Property("dateAsserted", "dateTime", "The date when the medication statement was asserted by the information source.", 0, java.lang.Integer.MAX_VALUE, dateAsserted));
-        childrenList.add(new Property("notTaken", "boolean", "Set this to true if the record is saying that the medication was NOT taken.", 0, java.lang.Integer.MAX_VALUE, notTaken));
+        childrenList.add(new Property("notTaken", "code", "Indicator of the certainty of whether the medication was taken by the patient.", 0, java.lang.Integer.MAX_VALUE, notTaken));
         childrenList.add(new Property("reasonNotTaken", "CodeableConcept", "A code indicating why the medication was not taken.", 0, java.lang.Integer.MAX_VALUE, reasonNotTaken));
         childrenList.add(new Property("reasonForUseCode", "CodeableConcept", "A reason for why the medication is being/was taken.", 0, java.lang.Integer.MAX_VALUE, reasonForUseCode));
         childrenList.add(new Property("reasonForUseReference", "Reference(Condition)", "Condition that supports why the medication is being/was taken.", 0, java.lang.Integer.MAX_VALUE, reasonForUseReference));
@@ -1976,7 +2087,7 @@ public class MedicationStatement extends DomainResource {
         case -2123220889: /*informationSource*/ return this.informationSource == null ? new Base[0] : new Base[] {this.informationSource}; // Reference
         case 1077922663: /*derivedFrom*/ return this.derivedFrom == null ? new Base[0] : this.derivedFrom.toArray(new Base[this.derivedFrom.size()]); // Reference
         case -1980855245: /*dateAsserted*/ return this.dateAsserted == null ? new Base[0] : new Base[] {this.dateAsserted}; // DateTimeType
-        case 1565822388: /*notTaken*/ return this.notTaken == null ? new Base[0] : new Base[] {this.notTaken}; // BooleanType
+        case 1565822388: /*notTaken*/ return this.notTaken == null ? new Base[0] : new Base[] {this.notTaken}; // Enumeration<MedicationStatementNotTaken>
         case 2112880664: /*reasonNotTaken*/ return this.reasonNotTaken == null ? new Base[0] : this.reasonNotTaken.toArray(new Base[this.reasonNotTaken.size()]); // CodeableConcept
         case -1558446993: /*reasonForUseCode*/ return this.reasonForUseCode == null ? new Base[0] : this.reasonForUseCode.toArray(new Base[this.reasonForUseCode.size()]); // CodeableConcept
         case -370888183: /*reasonForUseReference*/ return this.reasonForUseReference == null ? new Base[0] : this.reasonForUseReference.toArray(new Base[this.reasonForUseReference.size()]); // Reference
@@ -2016,7 +2127,7 @@ public class MedicationStatement extends DomainResource {
           this.dateAsserted = castToDateTime(value); // DateTimeType
           break;
         case 1565822388: // notTaken
-          this.notTaken = castToBoolean(value); // BooleanType
+          this.notTaken = new MedicationStatementNotTakenEnumFactory().fromType(value); // Enumeration<MedicationStatementNotTaken>
           break;
         case 2112880664: // reasonNotTaken
           this.getReasonNotTaken().add(castToCodeableConcept(value)); // CodeableConcept
@@ -2060,7 +2171,7 @@ public class MedicationStatement extends DomainResource {
         else if (name.equals("dateAsserted"))
           this.dateAsserted = castToDateTime(value); // DateTimeType
         else if (name.equals("notTaken"))
-          this.notTaken = castToBoolean(value); // BooleanType
+          this.notTaken = new MedicationStatementNotTakenEnumFactory().fromType(value); // Enumeration<MedicationStatementNotTaken>
         else if (name.equals("reasonNotTaken"))
           this.getReasonNotTaken().add(castToCodeableConcept(value));
         else if (name.equals("reasonForUseCode"))
@@ -2088,7 +2199,7 @@ public class MedicationStatement extends DomainResource {
         case -2123220889:  return getInformationSource(); // Reference
         case 1077922663:  return addDerivedFrom(); // Reference
         case -1980855245: throw new FHIRException("Cannot make property dateAsserted as it is not a complex type"); // DateTimeType
-        case 1565822388: throw new FHIRException("Cannot make property notTaken as it is not a complex type"); // BooleanType
+        case 1565822388: throw new FHIRException("Cannot make property notTaken as it is not a complex type"); // Enumeration<MedicationStatementNotTaken>
         case 2112880664:  return addReasonNotTaken(); // CodeableConcept
         case -1558446993:  return addReasonForUseCode(); // CodeableConcept
         case -370888183:  return addReasonForUseReference(); // Reference

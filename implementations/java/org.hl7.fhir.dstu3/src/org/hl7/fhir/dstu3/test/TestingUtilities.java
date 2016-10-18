@@ -1,5 +1,6 @@
 package org.hl7.fhir.dstu3.test;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -32,8 +33,21 @@ public class TestingUtilities {
   
 	static public IWorkerContext context;
 	static public boolean silent;
-	static public String path;
 
+	static public String fixedpath;
+
+  public static String home() {
+    if (fixedpath != null)
+     return fixedpath;
+    String s = System.getenv("FHIR_HOME");
+    if (!Utilities.noString(s))
+      return s;
+    s = "C:\\work\\org.hl7.fhir\\build";
+    if (new File(s).exists())
+      return s;
+    throw new Error("FHIR Home directory not configured");
+  }
+	
 	public static String checkXMLIsSame(String f1, String f2) throws Exception {
 		String result = compareXml(f1, f2);
 		if (result != null && SHOW_DIFF) {
@@ -243,5 +257,6 @@ public class TestingUtilities {
 	    return "unhandled property "+n1.getClass().getName();
 		return null;
 	}
+
 
 }

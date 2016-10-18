@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Tue, Oct 11, 2016 12:41+1100 for FHIR v1.7.0
+// Generated on Tue, Oct 18, 2016 10:55+1100 for FHIR v1.7.0
 
 import org.hl7.fhir.dstu3.model.DateType;
 import org.hl7.fhir.dstu3.model.DateTimeType;
@@ -1007,7 +1007,7 @@ public class RdfParser extends RdfParserBase {
     }
     composeElement(t, "type", name, element, index);
     if (element.hasCodeElement())
-      composeCode(t, "ElementDefinition", "code", element.getCodeElement(), -1);
+      composeUri(t, "ElementDefinition", "code", element.getCodeElement(), -1);
     if (element.hasProfileElement())
       composeUri(t, "ElementDefinition", "profile", element.getProfileElement(), -1);
     if (element.hasTargetProfileElement())
@@ -8104,7 +8104,7 @@ public class RdfParser extends RdfParserBase {
     if (element.hasDateAssertedElement())
       composeDateTime(t, "MedicationStatement", "dateAsserted", element.getDateAssertedElement(), -1);
     if (element.hasNotTakenElement())
-      composeBoolean(t, "MedicationStatement", "notTaken", element.getNotTakenElement(), -1);
+      composeEnum(t, "MedicationStatement", "notTaken", element.getNotTakenElement(), -1);
     for (int i = 0; i < element.getReasonNotTaken().size(); i++)
       composeCodeableConcept(t, "MedicationStatement", "reasonNotTaken", element.getReasonNotTaken().get(i), i);
     for (int i = 0; i < element.getReasonForUseCode().size(); i++)
@@ -11203,6 +11203,186 @@ public class RdfParser extends RdfParserBase {
       composeType(t, "Task", "value", element.getValue(), -1);
   }
 
+  protected void composeTestReport(Complex parent, String parentType, String name, TestReport element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeDomainResource(t, "TestReport", name, element, index);
+    if (element.hasIdentifier())
+      composeIdentifier(t, "TestReport", "identifier", element.getIdentifier(), -1);
+    if (element.hasNameElement())
+      composeString(t, "TestReport", "name", element.getNameElement(), -1);
+    if (element.hasStatusElement())
+      composeEnum(t, "TestReport", "status", element.getStatusElement(), -1);
+    if (element.hasScoreElement())
+      composeDecimal(t, "TestReport", "score", element.getScoreElement(), -1);
+    if (element.hasTesterElement())
+      composeString(t, "TestReport", "tester", element.getTesterElement(), -1);
+    if (element.hasTestScript())
+      composeReference(t, "TestReport", "testScript", element.getTestScript(), -1);
+    if (element.hasIssuedElement())
+      composeDateTime(t, "TestReport", "issued", element.getIssuedElement(), -1);
+    for (int i = 0; i < element.getParticipant().size(); i++)
+      composeTestReportTestReportParticipantComponent(t, "TestReport", "participant", element.getParticipant().get(i), i);
+    if (element.hasSetup())
+      composeTestReportTestReportSetupComponent(t, "TestReport", "setup", element.getSetup(), -1);
+    for (int i = 0; i < element.getTest().size(); i++)
+      composeTestReportTestReportTestComponent(t, "TestReport", "test", element.getTest().get(i), i);
+    if (element.hasTeardown())
+      composeTestReportTestReportTeardownComponent(t, "TestReport", "teardown", element.getTeardown(), -1);
+  }
+
+  protected void composeTestReportTestReportParticipantComponent(Complex parent, String parentType, String name, TestReport.TestReportParticipantComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeBackboneElement(t, "participant", name, element, index);
+    if (element.hasTypeElement())
+      composeEnum(t, "TestReport", "type", element.getTypeElement(), -1);
+    if (element.hasUriElement())
+      composeUri(t, "TestReport", "uri", element.getUriElement(), -1);
+    if (element.hasDisplayElement())
+      composeString(t, "TestReport", "display", element.getDisplayElement(), -1);
+  }
+
+  protected void composeTestReportTestReportSetupComponent(Complex parent, String parentType, String name, TestReport.TestReportSetupComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeBackboneElement(t, "setup", name, element, index);
+    for (int i = 0; i < element.getAction().size(); i++)
+      composeTestReportSetupActionComponent(t, "TestReport", "action", element.getAction().get(i), i);
+  }
+
+  protected void composeTestReportSetupActionComponent(Complex parent, String parentType, String name, TestReport.SetupActionComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeBackboneElement(t, "action", name, element, index);
+    if (element.hasOperation())
+      composeTestReportSetupActionOperationComponent(t, "TestReport", "operation", element.getOperation(), -1);
+    if (element.hasAssert())
+      composeTestReportSetupActionAssertComponent(t, "TestReport", "assert", element.getAssert(), -1);
+  }
+
+  protected void composeTestReportSetupActionOperationComponent(Complex parent, String parentType, String name, TestReport.SetupActionOperationComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeBackboneElement(t, "operation", name, element, index);
+    if (element.hasResultElement())
+      composeEnum(t, "TestReport", "result", element.getResultElement(), -1);
+    if (element.hasMessageElement())
+      composeMarkdown(t, "TestReport", "message", element.getMessageElement(), -1);
+    if (element.hasDetailElement())
+      composeUri(t, "TestReport", "detail", element.getDetailElement(), -1);
+  }
+
+  protected void composeTestReportSetupActionAssertComponent(Complex parent, String parentType, String name, TestReport.SetupActionAssertComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeBackboneElement(t, "assert", name, element, index);
+    if (element.hasResultElement())
+      composeEnum(t, "TestReport", "result", element.getResultElement(), -1);
+    if (element.hasMessageElement())
+      composeMarkdown(t, "TestReport", "message", element.getMessageElement(), -1);
+    if (element.hasDetailElement())
+      composeString(t, "TestReport", "detail", element.getDetailElement(), -1);
+  }
+
+  protected void composeTestReportTestReportTestComponent(Complex parent, String parentType, String name, TestReport.TestReportTestComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeBackboneElement(t, "test", name, element, index);
+    if (element.hasNameElement())
+      composeString(t, "TestReport", "name", element.getNameElement(), -1);
+    if (element.hasDescriptionElement())
+      composeString(t, "TestReport", "description", element.getDescriptionElement(), -1);
+    for (int i = 0; i < element.getAction().size(); i++)
+      composeTestReportTestActionComponent(t, "TestReport", "action", element.getAction().get(i), i);
+  }
+
+  protected void composeTestReportTestActionComponent(Complex parent, String parentType, String name, TestReport.TestActionComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeBackboneElement(t, "action", name, element, index);
+    if (element.hasOperation())
+      composeTestReportSetupActionOperationComponent(t, "TestReport", "operation", element.getOperation(), -1);
+    if (element.hasAssert())
+      composeTestReportSetupActionAssertComponent(t, "TestReport", "assert", element.getAssert(), -1);
+  }
+
+  protected void composeTestReportTestReportTeardownComponent(Complex parent, String parentType, String name, TestReport.TestReportTeardownComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeBackboneElement(t, "teardown", name, element, index);
+    for (int i = 0; i < element.getAction().size(); i++)
+      composeTestReportTeardownActionComponent(t, "TestReport", "action", element.getAction().get(i), i);
+  }
+
+  protected void composeTestReportTeardownActionComponent(Complex parent, String parentType, String name, TestReport.TeardownActionComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeBackboneElement(t, "action", name, element, index);
+    if (element.hasOperation())
+      composeTestReportSetupActionOperationComponent(t, "TestReport", "operation", element.getOperation(), -1);
+  }
+
   protected void composeTestScript(Complex parent, String parentType, String name, TestScript element, int index) {
     if (element == null) 
       return;
@@ -11389,6 +11569,8 @@ public class RdfParser extends RdfParserBase {
       composeString(t, "TestScript", "name", element.getNameElement(), -1);
     if (element.hasDefaultValueElement())
       composeString(t, "TestScript", "defaultValue", element.getDefaultValueElement(), -1);
+    if (element.hasExpressionElement())
+      composeString(t, "TestScript", "expression", element.getExpressionElement(), -1);
     if (element.hasHeaderFieldElement())
       composeString(t, "TestScript", "headerField", element.getHeaderFieldElement(), -1);
     if (element.hasPathElement())
@@ -11585,10 +11767,14 @@ public class RdfParser extends RdfParserBase {
       composeEnum(t, "TestScript", "direction", element.getDirectionElement(), -1);
     if (element.hasCompareToSourceIdElement())
       composeString(t, "TestScript", "compareToSourceId", element.getCompareToSourceIdElement(), -1);
+    if (element.hasCompareToSourceExpressionElement())
+      composeString(t, "TestScript", "compareToSourceExpression", element.getCompareToSourceExpressionElement(), -1);
     if (element.hasCompareToSourcePathElement())
       composeString(t, "TestScript", "compareToSourcePath", element.getCompareToSourcePathElement(), -1);
     if (element.hasContentTypeElement())
       composeEnum(t, "TestScript", "contentType", element.getContentTypeElement(), -1);
+    if (element.hasExpressionElement())
+      composeString(t, "TestScript", "expression", element.getExpressionElement(), -1);
     if (element.hasHeaderFieldElement())
       composeString(t, "TestScript", "headerField", element.getHeaderFieldElement(), -1);
     if (element.hasMinimumIdElement())
@@ -12263,6 +12449,8 @@ public class RdfParser extends RdfParserBase {
       composeSupplyRequest(parent, null, "SupplyRequest", (SupplyRequest)resource, -1);
     else if (resource instanceof Task)
       composeTask(parent, null, "Task", (Task)resource, -1);
+    else if (resource instanceof TestReport)
+      composeTestReport(parent, null, "TestReport", (TestReport)resource, -1);
     else if (resource instanceof TestScript)
       composeTestScript(parent, null, "TestScript", (TestScript)resource, -1);
     else if (resource instanceof ValueSet)

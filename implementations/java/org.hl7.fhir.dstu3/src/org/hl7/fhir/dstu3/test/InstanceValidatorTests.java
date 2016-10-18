@@ -34,16 +34,14 @@ public class InstanceValidatorTests {
 	}
 		
 	private void validate(String path, int errorCount, boolean json) throws Exception {
-	  if (TestingUtilities.path == null)
-	    TestingUtilities.path = "C:\\work\\org.hl7.fhir\\build";
-    if (TestingUtilities.context == null) {
-    	TestingUtilities.context = SimpleWorkerContext.fromPack(Utilities.path(TestingUtilities.path, "publish", "igpack.zip"));
+	  if (TestingUtilities.context == null) {
+    	TestingUtilities.context = SimpleWorkerContext.fromPack(Utilities.path(TestingUtilities.home(), "publish", "igpack.zip"));
       ((SimpleWorkerContext) TestingUtilities.context).connectToTSServer("http://fhir3.healthintersections.com.au/open");
     }
 
     if (!TestingUtilities.silent)
     System.out.println("Test "+path);
-    FileInputStream file = new FileInputStream(Utilities.path(TestingUtilities.path, path));
+    FileInputStream file = new FileInputStream(Utilities.path(TestingUtilities.home(), path));
 		InstanceValidator val = new InstanceValidator(TestingUtilities.context);
 		List<ValidationMessage> errors = new ArrayList<ValidationMessage>();
 		val.validate(null, errors, file, json ? FhirFormat.JSON : FhirFormat.XML);
@@ -61,10 +59,8 @@ public class InstanceValidatorTests {
   }
 		
   private void validateCnt(String cnt, int errorCount, boolean json) throws Exception {
-    if (TestingUtilities.path == null)
-      TestingUtilities.path = "C:\\work\\org.hl7.fhir\\build";
     if (TestingUtilities.context == null) {
-      TestingUtilities.context = SimpleWorkerContext.fromPack(Utilities.path(TestingUtilities.path, "publish", "igpack.zip"));
+      TestingUtilities.context = SimpleWorkerContext.fromPack(Utilities.path(TestingUtilities.home(), "publish", "igpack.zip"));
       ((SimpleWorkerContext) TestingUtilities.context).connectToTSServer("http://fhir3.healthintersections.com.au/open");
     }
 

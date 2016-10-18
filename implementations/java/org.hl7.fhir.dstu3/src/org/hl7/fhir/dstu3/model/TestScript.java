@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Oct 11, 2016 12:41+1100 for FHIR v1.7.0
+// Generated on Tue, Oct 18, 2016 10:55+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -2507,27 +2507,34 @@ public class TestScript extends MetadataResource {
         protected StringType defaultValue;
 
         /**
+         * The fhirpath expression to evaluate against the fixture body. When variables are defined, only one of either expression, headerField or path must be specified.
+         */
+        @Child(name = "expression", type = {StringType.class}, order=3, min=0, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="The fhirpath expression against the fixture body", formalDefinition="The fhirpath expression to evaluate against the fixture body. When variables are defined, only one of either expression, headerField or path must be specified." )
+        protected StringType expression;
+
+        /**
          * Will be used to grab the HTTP header field value from the headers that sourceId is pointing to.
          */
-        @Child(name = "headerField", type = {StringType.class}, order=3, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "headerField", type = {StringType.class}, order=4, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="HTTP header field name for source", formalDefinition="Will be used to grab the HTTP header field value from the headers that sourceId is pointing to." )
         protected StringType headerField;
 
         /**
-         * XPath or JSONPath against the fixture body.  When variables are defined, either headerField must be specified or path, but not both.
+         * XPath or JSONPath to evaluate against the fixture body.  When variables are defined, only one of either expression, headerField or path must be specified.
          */
-        @Child(name = "path", type = {StringType.class}, order=4, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="XPath or JSONPath against the fixture body", formalDefinition="XPath or JSONPath against the fixture body.  When variables are defined, either headerField must be specified or path, but not both." )
+        @Child(name = "path", type = {StringType.class}, order=5, min=0, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="XPath or JSONPath against the fixture body", formalDefinition="XPath or JSONPath to evaluate against the fixture body.  When variables are defined, only one of either expression, headerField or path must be specified." )
         protected StringType path;
 
         /**
          * Fixture to evaluate the XPath/JSONPath expression or the headerField  against within this variable.
          */
-        @Child(name = "sourceId", type = {IdType.class}, order=5, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "sourceId", type = {IdType.class}, order=6, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Fixture Id of source expression or headerField within this variable", formalDefinition="Fixture to evaluate the XPath/JSONPath expression or the headerField  against within this variable." )
         protected IdType sourceId;
 
-        private static final long serialVersionUID = 1821729272L;
+        private static final long serialVersionUID = -413422533L;
 
     /**
      * Constructor
@@ -2639,6 +2646,55 @@ public class TestScript extends MetadataResource {
         }
 
         /**
+         * @return {@link #expression} (The fhirpath expression to evaluate against the fixture body. When variables are defined, only one of either expression, headerField or path must be specified.). This is the underlying object with id, value and extensions. The accessor "getExpression" gives direct access to the value
+         */
+        public StringType getExpressionElement() { 
+          if (this.expression == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create TestScriptVariableComponent.expression");
+            else if (Configuration.doAutoCreate())
+              this.expression = new StringType(); // bb
+          return this.expression;
+        }
+
+        public boolean hasExpressionElement() { 
+          return this.expression != null && !this.expression.isEmpty();
+        }
+
+        public boolean hasExpression() { 
+          return this.expression != null && !this.expression.isEmpty();
+        }
+
+        /**
+         * @param value {@link #expression} (The fhirpath expression to evaluate against the fixture body. When variables are defined, only one of either expression, headerField or path must be specified.). This is the underlying object with id, value and extensions. The accessor "getExpression" gives direct access to the value
+         */
+        public TestScriptVariableComponent setExpressionElement(StringType value) { 
+          this.expression = value;
+          return this;
+        }
+
+        /**
+         * @return The fhirpath expression to evaluate against the fixture body. When variables are defined, only one of either expression, headerField or path must be specified.
+         */
+        public String getExpression() { 
+          return this.expression == null ? null : this.expression.getValue();
+        }
+
+        /**
+         * @param value The fhirpath expression to evaluate against the fixture body. When variables are defined, only one of either expression, headerField or path must be specified.
+         */
+        public TestScriptVariableComponent setExpression(String value) { 
+          if (Utilities.noString(value))
+            this.expression = null;
+          else {
+            if (this.expression == null)
+              this.expression = new StringType();
+            this.expression.setValue(value);
+          }
+          return this;
+        }
+
+        /**
          * @return {@link #headerField} (Will be used to grab the HTTP header field value from the headers that sourceId is pointing to.). This is the underlying object with id, value and extensions. The accessor "getHeaderField" gives direct access to the value
          */
         public StringType getHeaderFieldElement() { 
@@ -2688,7 +2744,7 @@ public class TestScript extends MetadataResource {
         }
 
         /**
-         * @return {@link #path} (XPath or JSONPath against the fixture body.  When variables are defined, either headerField must be specified or path, but not both.). This is the underlying object with id, value and extensions. The accessor "getPath" gives direct access to the value
+         * @return {@link #path} (XPath or JSONPath to evaluate against the fixture body.  When variables are defined, only one of either expression, headerField or path must be specified.). This is the underlying object with id, value and extensions. The accessor "getPath" gives direct access to the value
          */
         public StringType getPathElement() { 
           if (this.path == null)
@@ -2708,7 +2764,7 @@ public class TestScript extends MetadataResource {
         }
 
         /**
-         * @param value {@link #path} (XPath or JSONPath against the fixture body.  When variables are defined, either headerField must be specified or path, but not both.). This is the underlying object with id, value and extensions. The accessor "getPath" gives direct access to the value
+         * @param value {@link #path} (XPath or JSONPath to evaluate against the fixture body.  When variables are defined, only one of either expression, headerField or path must be specified.). This is the underlying object with id, value and extensions. The accessor "getPath" gives direct access to the value
          */
         public TestScriptVariableComponent setPathElement(StringType value) { 
           this.path = value;
@@ -2716,14 +2772,14 @@ public class TestScript extends MetadataResource {
         }
 
         /**
-         * @return XPath or JSONPath against the fixture body.  When variables are defined, either headerField must be specified or path, but not both.
+         * @return XPath or JSONPath to evaluate against the fixture body.  When variables are defined, only one of either expression, headerField or path must be specified.
          */
         public String getPath() { 
           return this.path == null ? null : this.path.getValue();
         }
 
         /**
-         * @param value XPath or JSONPath against the fixture body.  When variables are defined, either headerField must be specified or path, but not both.
+         * @param value XPath or JSONPath to evaluate against the fixture body.  When variables are defined, only one of either expression, headerField or path must be specified.
          */
         public TestScriptVariableComponent setPath(String value) { 
           if (Utilities.noString(value))
@@ -2789,8 +2845,9 @@ public class TestScript extends MetadataResource {
           super.listChildren(childrenList);
           childrenList.add(new Property("name", "string", "Descriptive name for this variable.", 0, java.lang.Integer.MAX_VALUE, name));
           childrenList.add(new Property("defaultValue", "string", "A default, hard-coded, or user-defined value for this variable.", 0, java.lang.Integer.MAX_VALUE, defaultValue));
+          childrenList.add(new Property("expression", "string", "The fhirpath expression to evaluate against the fixture body. When variables are defined, only one of either expression, headerField or path must be specified.", 0, java.lang.Integer.MAX_VALUE, expression));
           childrenList.add(new Property("headerField", "string", "Will be used to grab the HTTP header field value from the headers that sourceId is pointing to.", 0, java.lang.Integer.MAX_VALUE, headerField));
-          childrenList.add(new Property("path", "string", "XPath or JSONPath against the fixture body.  When variables are defined, either headerField must be specified or path, but not both.", 0, java.lang.Integer.MAX_VALUE, path));
+          childrenList.add(new Property("path", "string", "XPath or JSONPath to evaluate against the fixture body.  When variables are defined, only one of either expression, headerField or path must be specified.", 0, java.lang.Integer.MAX_VALUE, path));
           childrenList.add(new Property("sourceId", "id", "Fixture to evaluate the XPath/JSONPath expression or the headerField  against within this variable.", 0, java.lang.Integer.MAX_VALUE, sourceId));
         }
 
@@ -2799,6 +2856,7 @@ public class TestScript extends MetadataResource {
         switch (hash) {
         case 3373707: /*name*/ return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
         case -659125328: /*defaultValue*/ return this.defaultValue == null ? new Base[0] : new Base[] {this.defaultValue}; // StringType
+        case -1795452264: /*expression*/ return this.expression == null ? new Base[0] : new Base[] {this.expression}; // StringType
         case 1160732269: /*headerField*/ return this.headerField == null ? new Base[0] : new Base[] {this.headerField}; // StringType
         case 3433509: /*path*/ return this.path == null ? new Base[0] : new Base[] {this.path}; // StringType
         case 1746327190: /*sourceId*/ return this.sourceId == null ? new Base[0] : new Base[] {this.sourceId}; // IdType
@@ -2815,6 +2873,9 @@ public class TestScript extends MetadataResource {
           break;
         case -659125328: // defaultValue
           this.defaultValue = castToString(value); // StringType
+          break;
+        case -1795452264: // expression
+          this.expression = castToString(value); // StringType
           break;
         case 1160732269: // headerField
           this.headerField = castToString(value); // StringType
@@ -2836,6 +2897,8 @@ public class TestScript extends MetadataResource {
           this.name = castToString(value); // StringType
         else if (name.equals("defaultValue"))
           this.defaultValue = castToString(value); // StringType
+        else if (name.equals("expression"))
+          this.expression = castToString(value); // StringType
         else if (name.equals("headerField"))
           this.headerField = castToString(value); // StringType
         else if (name.equals("path"))
@@ -2851,6 +2914,7 @@ public class TestScript extends MetadataResource {
         switch (hash) {
         case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
         case -659125328: throw new FHIRException("Cannot make property defaultValue as it is not a complex type"); // StringType
+        case -1795452264: throw new FHIRException("Cannot make property expression as it is not a complex type"); // StringType
         case 1160732269: throw new FHIRException("Cannot make property headerField as it is not a complex type"); // StringType
         case 3433509: throw new FHIRException("Cannot make property path as it is not a complex type"); // StringType
         case 1746327190: throw new FHIRException("Cannot make property sourceId as it is not a complex type"); // IdType
@@ -2866,6 +2930,9 @@ public class TestScript extends MetadataResource {
         }
         else if (name.equals("defaultValue")) {
           throw new FHIRException("Cannot call addChild on a primitive type TestScript.defaultValue");
+        }
+        else if (name.equals("expression")) {
+          throw new FHIRException("Cannot call addChild on a primitive type TestScript.expression");
         }
         else if (name.equals("headerField")) {
           throw new FHIRException("Cannot call addChild on a primitive type TestScript.headerField");
@@ -2885,6 +2952,7 @@ public class TestScript extends MetadataResource {
         copyValues(dst);
         dst.name = name == null ? null : name.copy();
         dst.defaultValue = defaultValue == null ? null : defaultValue.copy();
+        dst.expression = expression == null ? null : expression.copy();
         dst.headerField = headerField == null ? null : headerField.copy();
         dst.path = path == null ? null : path.copy();
         dst.sourceId = sourceId == null ? null : sourceId.copy();
@@ -2898,8 +2966,9 @@ public class TestScript extends MetadataResource {
         if (!(other instanceof TestScriptVariableComponent))
           return false;
         TestScriptVariableComponent o = (TestScriptVariableComponent) other;
-        return compareDeep(name, o.name, true) && compareDeep(defaultValue, o.defaultValue, true) && compareDeep(headerField, o.headerField, true)
-           && compareDeep(path, o.path, true) && compareDeep(sourceId, o.sourceId, true);
+        return compareDeep(name, o.name, true) && compareDeep(defaultValue, o.defaultValue, true) && compareDeep(expression, o.expression, true)
+           && compareDeep(headerField, o.headerField, true) && compareDeep(path, o.path, true) && compareDeep(sourceId, o.sourceId, true)
+          ;
       }
 
       @Override
@@ -2909,13 +2978,14 @@ public class TestScript extends MetadataResource {
         if (!(other instanceof TestScriptVariableComponent))
           return false;
         TestScriptVariableComponent o = (TestScriptVariableComponent) other;
-        return compareValues(name, o.name, true) && compareValues(defaultValue, o.defaultValue, true) && compareValues(headerField, o.headerField, true)
-           && compareValues(path, o.path, true) && compareValues(sourceId, o.sourceId, true);
+        return compareValues(name, o.name, true) && compareValues(defaultValue, o.defaultValue, true) && compareValues(expression, o.expression, true)
+           && compareValues(headerField, o.headerField, true) && compareValues(path, o.path, true) && compareValues(sourceId, o.sourceId, true)
+          ;
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(name, defaultValue, headerField
-          , path, sourceId);
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(name, defaultValue, expression
+          , headerField, path, sourceId);
       }
 
   public String fhirType() {
@@ -5843,52 +5913,66 @@ public class TestScript extends MetadataResource {
         protected Enumeration<AssertionDirectionType> direction;
 
         /**
-         * Id of fixture used to compare the "sourceId/path" evaluations to.
+         * Id of the source fixture used as the contents to be evaluated by either the "source/expression" or "sourceId/path" definition.
          */
         @Child(name = "compareToSourceId", type = {StringType.class}, order=4, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Id of fixture used to compare the \"sourceId/path\" evaluations to", formalDefinition="Id of fixture used to compare the \"sourceId/path\" evaluations to." )
+        @Description(shortDefinition="Id of the source fixture to be evaluated", formalDefinition="Id of the source fixture used as the contents to be evaluated by either the \"source/expression\" or \"sourceId/path\" definition." )
         protected StringType compareToSourceId;
 
         /**
-         * XPath or JSONPath expression against fixture used to compare the "sourceId/path" evaluations to.
+         * The fhirpath expression to evaluate against the source fixture. When compareToSourceId is defined, either compareToSourceExpression or compareToSourcePath must be defined, but not both.
          */
-        @Child(name = "compareToSourcePath", type = {StringType.class}, order=5, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="XPath or JSONPath expression against fixture used to compare the \"sourceId/path\" evaluations to", formalDefinition="XPath or JSONPath expression against fixture used to compare the \"sourceId/path\" evaluations to." )
+        @Child(name = "compareToSourceExpression", type = {StringType.class}, order=5, min=0, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="The fhirpath expression to evaluate against the source fixture", formalDefinition="The fhirpath expression to evaluate against the source fixture. When compareToSourceId is defined, either compareToSourceExpression or compareToSourcePath must be defined, but not both." )
+        protected StringType compareToSourceExpression;
+
+        /**
+         * XPath or JSONPath expression to evaluate against the source fixture. When compareToSourceId is defined, either compareToSourceExpression or compareToSourcePath must be defined, but not both.
+         */
+        @Child(name = "compareToSourcePath", type = {StringType.class}, order=6, min=0, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="XPath or JSONPath expression to evaluate against the source fixture", formalDefinition="XPath or JSONPath expression to evaluate against the source fixture. When compareToSourceId is defined, either compareToSourceExpression or compareToSourcePath must be defined, but not both." )
         protected StringType compareToSourcePath;
 
         /**
          * The content-type or mime-type to use for RESTful operation in the 'Content-Type' header.
          */
-        @Child(name = "contentType", type = {CodeType.class}, order=6, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "contentType", type = {CodeType.class}, order=7, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="xml | json | ttl | none", formalDefinition="The content-type or mime-type to use for RESTful operation in the 'Content-Type' header." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/content-type")
         protected Enumeration<ContentType> contentType;
 
         /**
+         * The fhirpath expression to be evaluated against the request or response message contents - HTTP headers and payload.
+         */
+        @Child(name = "expression", type = {StringType.class}, order=8, min=0, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="The fhirpath expression to be evaluated", formalDefinition="The fhirpath expression to be evaluated against the request or response message contents - HTTP headers and payload." )
+        protected StringType expression;
+
+        /**
          * The HTTP header field name e.g. 'Location'.
          */
-        @Child(name = "headerField", type = {StringType.class}, order=7, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "headerField", type = {StringType.class}, order=9, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="HTTP header field name", formalDefinition="The HTTP header field name e.g. 'Location'." )
         protected StringType headerField;
 
         /**
          * The ID of a fixture.  Asserts that the response contains at a minimum the fixture specified by minimumId.
          */
-        @Child(name = "minimumId", type = {StringType.class}, order=8, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "minimumId", type = {StringType.class}, order=10, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Fixture Id of minimum content resource", formalDefinition="The ID of a fixture.  Asserts that the response contains at a minimum the fixture specified by minimumId." )
         protected StringType minimumId;
 
         /**
          * Whether or not the test execution performs validation on the bundle navigation links.
          */
-        @Child(name = "navigationLinks", type = {BooleanType.class}, order=9, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "navigationLinks", type = {BooleanType.class}, order=11, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Perform validation on navigation links?", formalDefinition="Whether or not the test execution performs validation on the bundle navigation links." )
         protected BooleanType navigationLinks;
 
         /**
          * The operator type.
          */
-        @Child(name = "operator", type = {CodeType.class}, order=10, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "operator", type = {CodeType.class}, order=12, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="equals | notEquals | in | notIn | greaterThan | lessThan | empty | notEmpty | contains | notContains", formalDefinition="The operator type." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/assert-operator-codes")
         protected Enumeration<AssertionOperatorType> operator;
@@ -5896,21 +5980,21 @@ public class TestScript extends MetadataResource {
         /**
          * The XPath or JSONPath expression to be evaluated against the fixture representing the response received from server.
          */
-        @Child(name = "path", type = {StringType.class}, order=11, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "path", type = {StringType.class}, order=13, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="XPath or JSONPath expression", formalDefinition="The XPath or JSONPath expression to be evaluated against the fixture representing the response received from server." )
         protected StringType path;
 
         /**
          * The value to use in a comparison against the request URL path string.
          */
-        @Child(name = "requestURL", type = {StringType.class}, order=12, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "requestURL", type = {StringType.class}, order=14, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Request URL comparison value", formalDefinition="The value to use in a comparison against the request URL path string." )
         protected StringType requestURL;
 
         /**
          * The type of the resource.  See http://hl7-fhir.github.io/resourcelist.html.
          */
-        @Child(name = "resource", type = {CodeType.class}, order=13, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "resource", type = {CodeType.class}, order=15, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Resource type", formalDefinition="The type of the resource.  See http://hl7-fhir.github.io/resourcelist.html." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/defined-types")
         protected CodeType resource;
@@ -5918,7 +6002,7 @@ public class TestScript extends MetadataResource {
         /**
          * okay | created | noContent | notModified | bad | forbidden | notFound | methodNotAllowed | conflict | gone | preconditionFailed | unprocessable.
          */
-        @Child(name = "response", type = {CodeType.class}, order=14, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "response", type = {CodeType.class}, order=16, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="okay | created | noContent | notModified | bad | forbidden | notFound | methodNotAllowed | conflict | gone | preconditionFailed | unprocessable", formalDefinition="okay | created | noContent | notModified | bad | forbidden | notFound | methodNotAllowed | conflict | gone | preconditionFailed | unprocessable." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/assert-response-code-types")
         protected Enumeration<AssertionResponseTypes> response;
@@ -5926,53 +6010,53 @@ public class TestScript extends MetadataResource {
         /**
          * The value of the HTTP response code to be tested.
          */
-        @Child(name = "responseCode", type = {StringType.class}, order=15, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "responseCode", type = {StringType.class}, order=17, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="HTTP response code to test", formalDefinition="The value of the HTTP response code to be tested." )
         protected StringType responseCode;
 
         /**
          * The TestScript.rule this assert will evaluate.
          */
-        @Child(name = "rule", type = {}, order=16, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "rule", type = {}, order=18, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="The reference to a TestScript.rule", formalDefinition="The TestScript.rule this assert will evaluate." )
         protected ActionAssertRuleComponent rule;
 
         /**
          * The TestScript.ruleset this assert will evaluate.
          */
-        @Child(name = "ruleset", type = {}, order=17, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "ruleset", type = {}, order=19, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="The reference to a TestScript.ruleset", formalDefinition="The TestScript.ruleset this assert will evaluate." )
         protected ActionAssertRulesetComponent ruleset;
 
         /**
          * Fixture to evaluate the XPath/JSONPath expression or the headerField  against.
          */
-        @Child(name = "sourceId", type = {IdType.class}, order=18, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "sourceId", type = {IdType.class}, order=20, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Fixture Id of source expression or headerField", formalDefinition="Fixture to evaluate the XPath/JSONPath expression or the headerField  against." )
         protected IdType sourceId;
 
         /**
          * The ID of the Profile to validate against.
          */
-        @Child(name = "validateProfileId", type = {IdType.class}, order=19, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "validateProfileId", type = {IdType.class}, order=21, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Profile Id of validation profile reference", formalDefinition="The ID of the Profile to validate against." )
         protected IdType validateProfileId;
 
         /**
          * The value to compare to.
          */
-        @Child(name = "value", type = {StringType.class}, order=20, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "value", type = {StringType.class}, order=22, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="The value to compare to", formalDefinition="The value to compare to." )
         protected StringType value;
 
         /**
          * Whether or not the test execution will produce a warning only on error for this assert.
          */
-        @Child(name = "warningOnly", type = {BooleanType.class}, order=21, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "warningOnly", type = {BooleanType.class}, order=23, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Will this assert produce a warning only on error?", formalDefinition="Whether or not the test execution will produce a warning only on error for this assert." )
         protected BooleanType warningOnly;
 
-        private static final long serialVersionUID = -1496515975L;
+        private static final long serialVersionUID = -1283101988L;
 
     /**
      * Constructor
@@ -6129,7 +6213,7 @@ public class TestScript extends MetadataResource {
         }
 
         /**
-         * @return {@link #compareToSourceId} (Id of fixture used to compare the "sourceId/path" evaluations to.). This is the underlying object with id, value and extensions. The accessor "getCompareToSourceId" gives direct access to the value
+         * @return {@link #compareToSourceId} (Id of the source fixture used as the contents to be evaluated by either the "source/expression" or "sourceId/path" definition.). This is the underlying object with id, value and extensions. The accessor "getCompareToSourceId" gives direct access to the value
          */
         public StringType getCompareToSourceIdElement() { 
           if (this.compareToSourceId == null)
@@ -6149,7 +6233,7 @@ public class TestScript extends MetadataResource {
         }
 
         /**
-         * @param value {@link #compareToSourceId} (Id of fixture used to compare the "sourceId/path" evaluations to.). This is the underlying object with id, value and extensions. The accessor "getCompareToSourceId" gives direct access to the value
+         * @param value {@link #compareToSourceId} (Id of the source fixture used as the contents to be evaluated by either the "source/expression" or "sourceId/path" definition.). This is the underlying object with id, value and extensions. The accessor "getCompareToSourceId" gives direct access to the value
          */
         public SetupActionAssertComponent setCompareToSourceIdElement(StringType value) { 
           this.compareToSourceId = value;
@@ -6157,14 +6241,14 @@ public class TestScript extends MetadataResource {
         }
 
         /**
-         * @return Id of fixture used to compare the "sourceId/path" evaluations to.
+         * @return Id of the source fixture used as the contents to be evaluated by either the "source/expression" or "sourceId/path" definition.
          */
         public String getCompareToSourceId() { 
           return this.compareToSourceId == null ? null : this.compareToSourceId.getValue();
         }
 
         /**
-         * @param value Id of fixture used to compare the "sourceId/path" evaluations to.
+         * @param value Id of the source fixture used as the contents to be evaluated by either the "source/expression" or "sourceId/path" definition.
          */
         public SetupActionAssertComponent setCompareToSourceId(String value) { 
           if (Utilities.noString(value))
@@ -6178,7 +6262,56 @@ public class TestScript extends MetadataResource {
         }
 
         /**
-         * @return {@link #compareToSourcePath} (XPath or JSONPath expression against fixture used to compare the "sourceId/path" evaluations to.). This is the underlying object with id, value and extensions. The accessor "getCompareToSourcePath" gives direct access to the value
+         * @return {@link #compareToSourceExpression} (The fhirpath expression to evaluate against the source fixture. When compareToSourceId is defined, either compareToSourceExpression or compareToSourcePath must be defined, but not both.). This is the underlying object with id, value and extensions. The accessor "getCompareToSourceExpression" gives direct access to the value
+         */
+        public StringType getCompareToSourceExpressionElement() { 
+          if (this.compareToSourceExpression == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create SetupActionAssertComponent.compareToSourceExpression");
+            else if (Configuration.doAutoCreate())
+              this.compareToSourceExpression = new StringType(); // bb
+          return this.compareToSourceExpression;
+        }
+
+        public boolean hasCompareToSourceExpressionElement() { 
+          return this.compareToSourceExpression != null && !this.compareToSourceExpression.isEmpty();
+        }
+
+        public boolean hasCompareToSourceExpression() { 
+          return this.compareToSourceExpression != null && !this.compareToSourceExpression.isEmpty();
+        }
+
+        /**
+         * @param value {@link #compareToSourceExpression} (The fhirpath expression to evaluate against the source fixture. When compareToSourceId is defined, either compareToSourceExpression or compareToSourcePath must be defined, but not both.). This is the underlying object with id, value and extensions. The accessor "getCompareToSourceExpression" gives direct access to the value
+         */
+        public SetupActionAssertComponent setCompareToSourceExpressionElement(StringType value) { 
+          this.compareToSourceExpression = value;
+          return this;
+        }
+
+        /**
+         * @return The fhirpath expression to evaluate against the source fixture. When compareToSourceId is defined, either compareToSourceExpression or compareToSourcePath must be defined, but not both.
+         */
+        public String getCompareToSourceExpression() { 
+          return this.compareToSourceExpression == null ? null : this.compareToSourceExpression.getValue();
+        }
+
+        /**
+         * @param value The fhirpath expression to evaluate against the source fixture. When compareToSourceId is defined, either compareToSourceExpression or compareToSourcePath must be defined, but not both.
+         */
+        public SetupActionAssertComponent setCompareToSourceExpression(String value) { 
+          if (Utilities.noString(value))
+            this.compareToSourceExpression = null;
+          else {
+            if (this.compareToSourceExpression == null)
+              this.compareToSourceExpression = new StringType();
+            this.compareToSourceExpression.setValue(value);
+          }
+          return this;
+        }
+
+        /**
+         * @return {@link #compareToSourcePath} (XPath or JSONPath expression to evaluate against the source fixture. When compareToSourceId is defined, either compareToSourceExpression or compareToSourcePath must be defined, but not both.). This is the underlying object with id, value and extensions. The accessor "getCompareToSourcePath" gives direct access to the value
          */
         public StringType getCompareToSourcePathElement() { 
           if (this.compareToSourcePath == null)
@@ -6198,7 +6331,7 @@ public class TestScript extends MetadataResource {
         }
 
         /**
-         * @param value {@link #compareToSourcePath} (XPath or JSONPath expression against fixture used to compare the "sourceId/path" evaluations to.). This is the underlying object with id, value and extensions. The accessor "getCompareToSourcePath" gives direct access to the value
+         * @param value {@link #compareToSourcePath} (XPath or JSONPath expression to evaluate against the source fixture. When compareToSourceId is defined, either compareToSourceExpression or compareToSourcePath must be defined, but not both.). This is the underlying object with id, value and extensions. The accessor "getCompareToSourcePath" gives direct access to the value
          */
         public SetupActionAssertComponent setCompareToSourcePathElement(StringType value) { 
           this.compareToSourcePath = value;
@@ -6206,14 +6339,14 @@ public class TestScript extends MetadataResource {
         }
 
         /**
-         * @return XPath or JSONPath expression against fixture used to compare the "sourceId/path" evaluations to.
+         * @return XPath or JSONPath expression to evaluate against the source fixture. When compareToSourceId is defined, either compareToSourceExpression or compareToSourcePath must be defined, but not both.
          */
         public String getCompareToSourcePath() { 
           return this.compareToSourcePath == null ? null : this.compareToSourcePath.getValue();
         }
 
         /**
-         * @param value XPath or JSONPath expression against fixture used to compare the "sourceId/path" evaluations to.
+         * @param value XPath or JSONPath expression to evaluate against the source fixture. When compareToSourceId is defined, either compareToSourceExpression or compareToSourcePath must be defined, but not both.
          */
         public SetupActionAssertComponent setCompareToSourcePath(String value) { 
           if (Utilities.noString(value))
@@ -6271,6 +6404,55 @@ public class TestScript extends MetadataResource {
             if (this.contentType == null)
               this.contentType = new Enumeration<ContentType>(new ContentTypeEnumFactory());
             this.contentType.setValue(value);
+          }
+          return this;
+        }
+
+        /**
+         * @return {@link #expression} (The fhirpath expression to be evaluated against the request or response message contents - HTTP headers and payload.). This is the underlying object with id, value and extensions. The accessor "getExpression" gives direct access to the value
+         */
+        public StringType getExpressionElement() { 
+          if (this.expression == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create SetupActionAssertComponent.expression");
+            else if (Configuration.doAutoCreate())
+              this.expression = new StringType(); // bb
+          return this.expression;
+        }
+
+        public boolean hasExpressionElement() { 
+          return this.expression != null && !this.expression.isEmpty();
+        }
+
+        public boolean hasExpression() { 
+          return this.expression != null && !this.expression.isEmpty();
+        }
+
+        /**
+         * @param value {@link #expression} (The fhirpath expression to be evaluated against the request or response message contents - HTTP headers and payload.). This is the underlying object with id, value and extensions. The accessor "getExpression" gives direct access to the value
+         */
+        public SetupActionAssertComponent setExpressionElement(StringType value) { 
+          this.expression = value;
+          return this;
+        }
+
+        /**
+         * @return The fhirpath expression to be evaluated against the request or response message contents - HTTP headers and payload.
+         */
+        public String getExpression() { 
+          return this.expression == null ? null : this.expression.getValue();
+        }
+
+        /**
+         * @param value The fhirpath expression to be evaluated against the request or response message contents - HTTP headers and payload.
+         */
+        public SetupActionAssertComponent setExpression(String value) { 
+          if (Utilities.noString(value))
+            this.expression = null;
+          else {
+            if (this.expression == null)
+              this.expression = new StringType();
+            this.expression.setValue(value);
           }
           return this;
         }
@@ -6957,9 +7139,11 @@ public class TestScript extends MetadataResource {
           childrenList.add(new Property("label", "string", "The label would be used for tracking/logging purposes by test engines.", 0, java.lang.Integer.MAX_VALUE, label));
           childrenList.add(new Property("description", "string", "The description would be used by test engines for tracking and reporting purposes.", 0, java.lang.Integer.MAX_VALUE, description));
           childrenList.add(new Property("direction", "code", "The direction to use for the assertion.", 0, java.lang.Integer.MAX_VALUE, direction));
-          childrenList.add(new Property("compareToSourceId", "string", "Id of fixture used to compare the \"sourceId/path\" evaluations to.", 0, java.lang.Integer.MAX_VALUE, compareToSourceId));
-          childrenList.add(new Property("compareToSourcePath", "string", "XPath or JSONPath expression against fixture used to compare the \"sourceId/path\" evaluations to.", 0, java.lang.Integer.MAX_VALUE, compareToSourcePath));
+          childrenList.add(new Property("compareToSourceId", "string", "Id of the source fixture used as the contents to be evaluated by either the \"source/expression\" or \"sourceId/path\" definition.", 0, java.lang.Integer.MAX_VALUE, compareToSourceId));
+          childrenList.add(new Property("compareToSourceExpression", "string", "The fhirpath expression to evaluate against the source fixture. When compareToSourceId is defined, either compareToSourceExpression or compareToSourcePath must be defined, but not both.", 0, java.lang.Integer.MAX_VALUE, compareToSourceExpression));
+          childrenList.add(new Property("compareToSourcePath", "string", "XPath or JSONPath expression to evaluate against the source fixture. When compareToSourceId is defined, either compareToSourceExpression or compareToSourcePath must be defined, but not both.", 0, java.lang.Integer.MAX_VALUE, compareToSourcePath));
           childrenList.add(new Property("contentType", "code", "The content-type or mime-type to use for RESTful operation in the 'Content-Type' header.", 0, java.lang.Integer.MAX_VALUE, contentType));
+          childrenList.add(new Property("expression", "string", "The fhirpath expression to be evaluated against the request or response message contents - HTTP headers and payload.", 0, java.lang.Integer.MAX_VALUE, expression));
           childrenList.add(new Property("headerField", "string", "The HTTP header field name e.g. 'Location'.", 0, java.lang.Integer.MAX_VALUE, headerField));
           childrenList.add(new Property("minimumId", "string", "The ID of a fixture.  Asserts that the response contains at a minimum the fixture specified by minimumId.", 0, java.lang.Integer.MAX_VALUE, minimumId));
           childrenList.add(new Property("navigationLinks", "boolean", "Whether or not the test execution performs validation on the bundle navigation links.", 0, java.lang.Integer.MAX_VALUE, navigationLinks));
@@ -6984,8 +7168,10 @@ public class TestScript extends MetadataResource {
         case -1724546052: /*description*/ return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
         case -962590849: /*direction*/ return this.direction == null ? new Base[0] : new Base[] {this.direction}; // Enumeration<AssertionDirectionType>
         case 2081856758: /*compareToSourceId*/ return this.compareToSourceId == null ? new Base[0] : new Base[] {this.compareToSourceId}; // StringType
+        case -1415702669: /*compareToSourceExpression*/ return this.compareToSourceExpression == null ? new Base[0] : new Base[] {this.compareToSourceExpression}; // StringType
         case -790206144: /*compareToSourcePath*/ return this.compareToSourcePath == null ? new Base[0] : new Base[] {this.compareToSourcePath}; // StringType
         case -389131437: /*contentType*/ return this.contentType == null ? new Base[0] : new Base[] {this.contentType}; // Enumeration<ContentType>
+        case -1795452264: /*expression*/ return this.expression == null ? new Base[0] : new Base[] {this.expression}; // StringType
         case 1160732269: /*headerField*/ return this.headerField == null ? new Base[0] : new Base[] {this.headerField}; // StringType
         case 818925001: /*minimumId*/ return this.minimumId == null ? new Base[0] : new Base[] {this.minimumId}; // StringType
         case 1001488901: /*navigationLinks*/ return this.navigationLinks == null ? new Base[0] : new Base[] {this.navigationLinks}; // BooleanType
@@ -7021,11 +7207,17 @@ public class TestScript extends MetadataResource {
         case 2081856758: // compareToSourceId
           this.compareToSourceId = castToString(value); // StringType
           break;
+        case -1415702669: // compareToSourceExpression
+          this.compareToSourceExpression = castToString(value); // StringType
+          break;
         case -790206144: // compareToSourcePath
           this.compareToSourcePath = castToString(value); // StringType
           break;
         case -389131437: // contentType
           this.contentType = new ContentTypeEnumFactory().fromType(value); // Enumeration<ContentType>
+          break;
+        case -1795452264: // expression
+          this.expression = castToString(value); // StringType
           break;
         case 1160732269: // headerField
           this.headerField = castToString(value); // StringType
@@ -7087,10 +7279,14 @@ public class TestScript extends MetadataResource {
           this.direction = new AssertionDirectionTypeEnumFactory().fromType(value); // Enumeration<AssertionDirectionType>
         else if (name.equals("compareToSourceId"))
           this.compareToSourceId = castToString(value); // StringType
+        else if (name.equals("compareToSourceExpression"))
+          this.compareToSourceExpression = castToString(value); // StringType
         else if (name.equals("compareToSourcePath"))
           this.compareToSourcePath = castToString(value); // StringType
         else if (name.equals("contentType"))
           this.contentType = new ContentTypeEnumFactory().fromType(value); // Enumeration<ContentType>
+        else if (name.equals("expression"))
+          this.expression = castToString(value); // StringType
         else if (name.equals("headerField"))
           this.headerField = castToString(value); // StringType
         else if (name.equals("minimumId"))
@@ -7132,8 +7328,10 @@ public class TestScript extends MetadataResource {
         case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
         case -962590849: throw new FHIRException("Cannot make property direction as it is not a complex type"); // Enumeration<AssertionDirectionType>
         case 2081856758: throw new FHIRException("Cannot make property compareToSourceId as it is not a complex type"); // StringType
+        case -1415702669: throw new FHIRException("Cannot make property compareToSourceExpression as it is not a complex type"); // StringType
         case -790206144: throw new FHIRException("Cannot make property compareToSourcePath as it is not a complex type"); // StringType
         case -389131437: throw new FHIRException("Cannot make property contentType as it is not a complex type"); // Enumeration<ContentType>
+        case -1795452264: throw new FHIRException("Cannot make property expression as it is not a complex type"); // StringType
         case 1160732269: throw new FHIRException("Cannot make property headerField as it is not a complex type"); // StringType
         case 818925001: throw new FHIRException("Cannot make property minimumId as it is not a complex type"); // StringType
         case 1001488901: throw new FHIRException("Cannot make property navigationLinks as it is not a complex type"); // BooleanType
@@ -7168,11 +7366,17 @@ public class TestScript extends MetadataResource {
         else if (name.equals("compareToSourceId")) {
           throw new FHIRException("Cannot call addChild on a primitive type TestScript.compareToSourceId");
         }
+        else if (name.equals("compareToSourceExpression")) {
+          throw new FHIRException("Cannot call addChild on a primitive type TestScript.compareToSourceExpression");
+        }
         else if (name.equals("compareToSourcePath")) {
           throw new FHIRException("Cannot call addChild on a primitive type TestScript.compareToSourcePath");
         }
         else if (name.equals("contentType")) {
           throw new FHIRException("Cannot call addChild on a primitive type TestScript.contentType");
+        }
+        else if (name.equals("expression")) {
+          throw new FHIRException("Cannot call addChild on a primitive type TestScript.expression");
         }
         else if (name.equals("headerField")) {
           throw new FHIRException("Cannot call addChild on a primitive type TestScript.headerField");
@@ -7232,8 +7436,10 @@ public class TestScript extends MetadataResource {
         dst.description = description == null ? null : description.copy();
         dst.direction = direction == null ? null : direction.copy();
         dst.compareToSourceId = compareToSourceId == null ? null : compareToSourceId.copy();
+        dst.compareToSourceExpression = compareToSourceExpression == null ? null : compareToSourceExpression.copy();
         dst.compareToSourcePath = compareToSourcePath == null ? null : compareToSourcePath.copy();
         dst.contentType = contentType == null ? null : contentType.copy();
+        dst.expression = expression == null ? null : expression.copy();
         dst.headerField = headerField == null ? null : headerField.copy();
         dst.minimumId = minimumId == null ? null : minimumId.copy();
         dst.navigationLinks = navigationLinks == null ? null : navigationLinks.copy();
@@ -7260,8 +7466,9 @@ public class TestScript extends MetadataResource {
           return false;
         SetupActionAssertComponent o = (SetupActionAssertComponent) other;
         return compareDeep(label, o.label, true) && compareDeep(description, o.description, true) && compareDeep(direction, o.direction, true)
-           && compareDeep(compareToSourceId, o.compareToSourceId, true) && compareDeep(compareToSourcePath, o.compareToSourcePath, true)
-           && compareDeep(contentType, o.contentType, true) && compareDeep(headerField, o.headerField, true)
+           && compareDeep(compareToSourceId, o.compareToSourceId, true) && compareDeep(compareToSourceExpression, o.compareToSourceExpression, true)
+           && compareDeep(compareToSourcePath, o.compareToSourcePath, true) && compareDeep(contentType, o.contentType, true)
+           && compareDeep(expression, o.expression, true) && compareDeep(headerField, o.headerField, true)
            && compareDeep(minimumId, o.minimumId, true) && compareDeep(navigationLinks, o.navigationLinks, true)
            && compareDeep(operator, o.operator, true) && compareDeep(path, o.path, true) && compareDeep(requestURL, o.requestURL, true)
            && compareDeep(resource, o.resource, true) && compareDeep(response, o.response, true) && compareDeep(responseCode, o.responseCode, true)
@@ -7278,8 +7485,9 @@ public class TestScript extends MetadataResource {
           return false;
         SetupActionAssertComponent o = (SetupActionAssertComponent) other;
         return compareValues(label, o.label, true) && compareValues(description, o.description, true) && compareValues(direction, o.direction, true)
-           && compareValues(compareToSourceId, o.compareToSourceId, true) && compareValues(compareToSourcePath, o.compareToSourcePath, true)
-           && compareValues(contentType, o.contentType, true) && compareValues(headerField, o.headerField, true)
+           && compareValues(compareToSourceId, o.compareToSourceId, true) && compareValues(compareToSourceExpression, o.compareToSourceExpression, true)
+           && compareValues(compareToSourcePath, o.compareToSourcePath, true) && compareValues(contentType, o.contentType, true)
+           && compareValues(expression, o.expression, true) && compareValues(headerField, o.headerField, true)
            && compareValues(minimumId, o.minimumId, true) && compareValues(navigationLinks, o.navigationLinks, true)
            && compareValues(operator, o.operator, true) && compareValues(path, o.path, true) && compareValues(requestURL, o.requestURL, true)
            && compareValues(resource, o.resource, true) && compareValues(response, o.response, true) && compareValues(responseCode, o.responseCode, true)
@@ -7289,9 +7497,10 @@ public class TestScript extends MetadataResource {
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(label, description, direction
-          , compareToSourceId, compareToSourcePath, contentType, headerField, minimumId, navigationLinks
-          , operator, path, requestURL, resource, response, responseCode, rule, ruleset
-          , sourceId, validateProfileId, value, warningOnly);
+          , compareToSourceId, compareToSourceExpression, compareToSourcePath, contentType, expression
+          , headerField, minimumId, navigationLinks, operator, path, requestURL, resource
+          , response, responseCode, rule, ruleset, sourceId, validateProfileId, value, warningOnly
+          );
       }
 
   public String fhirType() {
@@ -9364,7 +9573,7 @@ public class TestScript extends MetadataResource {
     }
 
     /**
-     * @return {@link #url} (An absolute URL that is used to identify this test script when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this capability statement is (or will be) published.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
+     * @return {@link #url} (An absolute URL that is used to identify this test script when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this test script is (or will be) published. The URL SHOULD include the major version of the test script. For more information see [Technical and Business Versions](resource.html#versions).). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
      */
     public UriType getUrlElement() { 
       if (this.url == null)
@@ -9384,7 +9593,7 @@ public class TestScript extends MetadataResource {
     }
 
     /**
-     * @param value {@link #url} (An absolute URL that is used to identify this test script when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this capability statement is (or will be) published.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
+     * @param value {@link #url} (An absolute URL that is used to identify this test script when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this test script is (or will be) published. The URL SHOULD include the major version of the test script. For more information see [Technical and Business Versions](resource.html#versions).). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
      */
     public TestScript setUrlElement(UriType value) { 
       this.url = value;
@@ -9392,14 +9601,14 @@ public class TestScript extends MetadataResource {
     }
 
     /**
-     * @return An absolute URL that is used to identify this test script when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this capability statement is (or will be) published.
+     * @return An absolute URL that is used to identify this test script when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this test script is (or will be) published. The URL SHOULD include the major version of the test script. For more information see [Technical and Business Versions](resource.html#versions).
      */
     public String getUrl() { 
       return this.url == null ? null : this.url.getValue();
     }
 
     /**
-     * @param value An absolute URL that is used to identify this test script when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this capability statement is (or will be) published.
+     * @param value An absolute URL that is used to identify this test script when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this test script is (or will be) published. The URL SHOULD include the major version of the test script. For more information see [Technical and Business Versions](resource.html#versions).
      */
     public TestScript setUrl(String value) { 
         if (this.url == null)
@@ -9433,7 +9642,7 @@ public class TestScript extends MetadataResource {
     }
 
     /**
-     * @return {@link #version} (The identifier that is used to identify this version of the test script when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the test script author manually and the value should be a timestamp.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
+     * @return {@link #version} (The identifier that is used to identify this version of the test script when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the test script author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions are orderable.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
      */
     public StringType getVersionElement() { 
       if (this.version == null)
@@ -9453,7 +9662,7 @@ public class TestScript extends MetadataResource {
     }
 
     /**
-     * @param value {@link #version} (The identifier that is used to identify this version of the test script when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the test script author manually and the value should be a timestamp.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
+     * @param value {@link #version} (The identifier that is used to identify this version of the test script when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the test script author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions are orderable.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
      */
     public TestScript setVersionElement(StringType value) { 
       this.version = value;
@@ -9461,14 +9670,14 @@ public class TestScript extends MetadataResource {
     }
 
     /**
-     * @return The identifier that is used to identify this version of the test script when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the test script author manually and the value should be a timestamp.
+     * @return The identifier that is used to identify this version of the test script when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the test script author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions are orderable.
      */
     public String getVersion() { 
       return this.version == null ? null : this.version.getValue();
     }
 
     /**
-     * @param value The identifier that is used to identify this version of the test script when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the test script author manually and the value should be a timestamp.
+     * @param value The identifier that is used to identify this version of the test script when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the test script author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions are orderable.
      */
     public TestScript setVersion(String value) { 
       if (Utilities.noString(value))
@@ -10577,9 +10786,9 @@ public class TestScript extends MetadataResource {
 
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
-        childrenList.add(new Property("url", "uri", "An absolute URL that is used to identify this test script when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this capability statement is (or will be) published.", 0, java.lang.Integer.MAX_VALUE, url));
+        childrenList.add(new Property("url", "uri", "An absolute URL that is used to identify this test script when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this test script is (or will be) published. The URL SHOULD include the major version of the test script. For more information see [Technical and Business Versions](resource.html#versions).", 0, java.lang.Integer.MAX_VALUE, url));
         childrenList.add(new Property("identifier", "Identifier", "A formal identifier that is used to identify this test script when it is represented in other formats, or referenced in a specification, model, design or an instance.", 0, java.lang.Integer.MAX_VALUE, identifier));
-        childrenList.add(new Property("version", "string", "The identifier that is used to identify this version of the test script when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the test script author manually and the value should be a timestamp.", 0, java.lang.Integer.MAX_VALUE, version));
+        childrenList.add(new Property("version", "string", "The identifier that is used to identify this version of the test script when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the test script author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions are orderable.", 0, java.lang.Integer.MAX_VALUE, version));
         childrenList.add(new Property("name", "string", "A natural language name identifying the test script. This name should be usable as an identifier for the module by machine processing applications such as code generation.", 0, java.lang.Integer.MAX_VALUE, name));
         childrenList.add(new Property("title", "string", "A short, descriptive, user-friendly title for the test script.", 0, java.lang.Integer.MAX_VALUE, title));
         childrenList.add(new Property("status", "code", "The status of this test script. Enables tracking the life-cycle of the content.", 0, java.lang.Integer.MAX_VALUE, status));

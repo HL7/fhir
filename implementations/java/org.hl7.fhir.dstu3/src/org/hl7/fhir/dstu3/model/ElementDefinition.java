@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Oct 11, 2016 12:41+1100 for FHIR v1.7.0
+// Generated on Tue, Oct 18, 2016 10:55+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -1269,12 +1269,12 @@ public class ElementDefinition extends Type implements ICompositeType {
     @Block()
     public static class TypeRefComponent extends Element implements IBaseDatatypeElement {
         /**
-         * Name of Data type or Resource that is a(or the) type used for this element.
+         * URL of Data type or Resource that is a(or the) type used for this element. References are URLs that are relative to http://hl7.org/fhir/StructureDefinition e.g. "string" is a reference to http://hl7.org/fhir/StructureDefinition/string. Absolute URLs are only allowed in logical models.
          */
-        @Child(name = "code", type = {CodeType.class}, order=1, min=1, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Name of Data type or Resource", formalDefinition="Name of Data type or Resource that is a(or the) type used for this element." )
+        @Child(name = "code", type = {UriType.class}, order=1, min=1, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="Data type or Resource (reference to definition)", formalDefinition="URL of Data type or Resource that is a(or the) type used for this element. References are URLs that are relative to http://hl7.org/fhir/StructureDefinition e.g. \"string\" is a reference to http://hl7.org/fhir/StructureDefinition/string. Absolute URLs are only allowed in logical models." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/defined-types")
-        protected CodeType code;
+        protected UriType code;
 
         /**
          * Identifies a profile structure or implementation Guide that SHALL hold for the datatype this element refers to. Can be a local reference - to a contained StructureDefinition, or a reference to another StructureDefinition in another profile. When an implementation guide is specified, the resource SHALL conform to at least one profile defined in the implementation guide.
@@ -1306,7 +1306,7 @@ public class ElementDefinition extends Type implements ICompositeType {
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/reference-version-rules")
         protected Enumeration<ReferenceVersionRules> versioning;
 
-        private static final long serialVersionUID = 560032496L;
+        private static final long serialVersionUID = -560921355L;
 
     /**
      * Constructor
@@ -1318,20 +1318,20 @@ public class ElementDefinition extends Type implements ICompositeType {
     /**
      * Constructor
      */
-      public TypeRefComponent(CodeType code) {
+      public TypeRefComponent(UriType code) {
         super();
         this.code = code;
       }
 
         /**
-         * @return {@link #code} (Name of Data type or Resource that is a(or the) type used for this element.). This is the underlying object with id, value and extensions. The accessor "getCode" gives direct access to the value
+         * @return {@link #code} (URL of Data type or Resource that is a(or the) type used for this element. References are URLs that are relative to http://hl7.org/fhir/StructureDefinition e.g. "string" is a reference to http://hl7.org/fhir/StructureDefinition/string. Absolute URLs are only allowed in logical models.). This is the underlying object with id, value and extensions. The accessor "getCode" gives direct access to the value
          */
-        public CodeType getCodeElement() { 
+        public UriType getCodeElement() { 
           if (this.code == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create TypeRefComponent.code");
             else if (Configuration.doAutoCreate())
-              this.code = new CodeType(); // bb
+              this.code = new UriType(); // bb
           return this.code;
         }
 
@@ -1344,26 +1344,26 @@ public class ElementDefinition extends Type implements ICompositeType {
         }
 
         /**
-         * @param value {@link #code} (Name of Data type or Resource that is a(or the) type used for this element.). This is the underlying object with id, value and extensions. The accessor "getCode" gives direct access to the value
+         * @param value {@link #code} (URL of Data type or Resource that is a(or the) type used for this element. References are URLs that are relative to http://hl7.org/fhir/StructureDefinition e.g. "string" is a reference to http://hl7.org/fhir/StructureDefinition/string. Absolute URLs are only allowed in logical models.). This is the underlying object with id, value and extensions. The accessor "getCode" gives direct access to the value
          */
-        public TypeRefComponent setCodeElement(CodeType value) { 
+        public TypeRefComponent setCodeElement(UriType value) { 
           this.code = value;
           return this;
         }
 
         /**
-         * @return Name of Data type or Resource that is a(or the) type used for this element.
+         * @return URL of Data type or Resource that is a(or the) type used for this element. References are URLs that are relative to http://hl7.org/fhir/StructureDefinition e.g. "string" is a reference to http://hl7.org/fhir/StructureDefinition/string. Absolute URLs are only allowed in logical models.
          */
         public String getCode() { 
           return this.code == null ? null : this.code.getValue();
         }
 
         /**
-         * @param value Name of Data type or Resource that is a(or the) type used for this element.
+         * @param value URL of Data type or Resource that is a(or the) type used for this element. References are URLs that are relative to http://hl7.org/fhir/StructureDefinition e.g. "string" is a reference to http://hl7.org/fhir/StructureDefinition/string. Absolute URLs are only allowed in logical models.
          */
         public TypeRefComponent setCode(String value) { 
             if (this.code == null)
-              this.code = new CodeType();
+              this.code = new UriType();
             this.code.setValue(value);
           return this;
         }
@@ -1578,7 +1578,7 @@ public class ElementDefinition extends Type implements ICompositeType {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("code", "code", "Name of Data type or Resource that is a(or the) type used for this element.", 0, java.lang.Integer.MAX_VALUE, code));
+          childrenList.add(new Property("code", "uri", "URL of Data type or Resource that is a(or the) type used for this element. References are URLs that are relative to http://hl7.org/fhir/StructureDefinition e.g. \"string\" is a reference to http://hl7.org/fhir/StructureDefinition/string. Absolute URLs are only allowed in logical models.", 0, java.lang.Integer.MAX_VALUE, code));
           childrenList.add(new Property("profile", "uri", "Identifies a profile structure or implementation Guide that SHALL hold for the datatype this element refers to. Can be a local reference - to a contained StructureDefinition, or a reference to another StructureDefinition in another profile. When an implementation guide is specified, the resource SHALL conform to at least one profile defined in the implementation guide.", 0, java.lang.Integer.MAX_VALUE, profile));
           childrenList.add(new Property("targetProfile", "uri", "Identifies a profile structure or implementation Guide that SHALL hold for the target of the reference this element refers to. Can be a local reference - to a contained StructureDefinition, or a reference to another StructureDefinition in another profile. When an implementation guide is specified, the resource SHALL conform to at least one profile defined in the implementation guide.", 0, java.lang.Integer.MAX_VALUE, targetProfile));
           childrenList.add(new Property("aggregation", "code", "If the type is a reference to another resource, how the resource is or can be aggregated - is it a contained resource, or a reference, and if the context is a bundle, is it included in the bundle.", 0, java.lang.Integer.MAX_VALUE, aggregation));
@@ -1588,7 +1588,7 @@ public class ElementDefinition extends Type implements ICompositeType {
       @Override
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case 3059181: /*code*/ return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeType
+        case 3059181: /*code*/ return this.code == null ? new Base[0] : new Base[] {this.code}; // UriType
         case -309425751: /*profile*/ return this.profile == null ? new Base[0] : new Base[] {this.profile}; // UriType
         case 1994521304: /*targetProfile*/ return this.targetProfile == null ? new Base[0] : new Base[] {this.targetProfile}; // UriType
         case 841524962: /*aggregation*/ return this.aggregation == null ? new Base[0] : this.aggregation.toArray(new Base[this.aggregation.size()]); // Enumeration<AggregationMode>
@@ -1602,7 +1602,7 @@ public class ElementDefinition extends Type implements ICompositeType {
       public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 3059181: // code
-          this.code = castToCode(value); // CodeType
+          this.code = castToUri(value); // UriType
           break;
         case -309425751: // profile
           this.profile = castToUri(value); // UriType
@@ -1624,7 +1624,7 @@ public class ElementDefinition extends Type implements ICompositeType {
       @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("code"))
-          this.code = castToCode(value); // CodeType
+          this.code = castToUri(value); // UriType
         else if (name.equals("profile"))
           this.profile = castToUri(value); // UriType
         else if (name.equals("targetProfile"))
@@ -1640,7 +1640,7 @@ public class ElementDefinition extends Type implements ICompositeType {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3059181: throw new FHIRException("Cannot make property code as it is not a complex type"); // CodeType
+        case 3059181: throw new FHIRException("Cannot make property code as it is not a complex type"); // UriType
         case -309425751: throw new FHIRException("Cannot make property profile as it is not a complex type"); // UriType
         case 1994521304: throw new FHIRException("Cannot make property targetProfile as it is not a complex type"); // UriType
         case 841524962: throw new FHIRException("Cannot make property aggregation as it is not a complex type"); // Enumeration<AggregationMode>

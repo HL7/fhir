@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Oct 11, 2016 12:41+1100 for FHIR v1.7.0
+// Generated on Tue, Oct 18, 2016 10:55+1100 for FHIR v1.7.0
 
 import org.hl7.fhir.exceptions.FHIRException;
 
@@ -204,6 +204,8 @@ public class ResourceFactory extends Factory {
             return new TestScript();
         if ("Basic".equals(name))
             return new Basic();
+        if ("TestReport".equals(name))
+            return new TestReport();
         if ("ClaimResponse".equals(name))
             return new ClaimResponse();
         if ("EligibilityRequest".equals(name))
@@ -504,6 +506,8 @@ public class ResourceFactory extends Factory {
             return new TestScript();
         if ("Basic".equals(name))
             return new Basic();
+        if ("TestReport".equals(name))
+            return new TestReport();
         if ("ClaimResponse".equals(name))
             return new ClaimResponse();
         if ("EligibilityRequest".equals(name))

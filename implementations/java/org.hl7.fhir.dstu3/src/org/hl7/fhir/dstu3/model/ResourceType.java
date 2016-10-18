@@ -2,7 +2,7 @@ package org.hl7.fhir.dstu3.model;
 
 import org.hl7.fhir.exceptions.FHIRException;
 
-// Generated on Tue, Oct 11, 2016 12:41+1100 for FHIR v1.7.0
+// Generated on Tue, Oct 18, 2016 10:55+1100 for FHIR v1.7.0
 
 public enum ResourceType {
     Account,
@@ -114,6 +114,7 @@ public enum ResourceType {
     SupplyDelivery,
     SupplyRequest,
     Task,
+    TestReport,
     TestScript,
     ValueSet,
     VisionPrescription;
@@ -339,6 +340,8 @@ public enum ResourceType {
       return "supplyrequest";
     case Task:
       return "task";
+    case TestReport:
+      return "testreport";
     case TestScript:
       return "testscript";
     case ValueSet:
@@ -569,6 +572,8 @@ public enum ResourceType {
       return SupplyRequest;
     if ("Task".equals(code))
       return Task;
+    if ("TestReport".equals(code))
+      return TestReport;
     if ("TestScript".equals(code))
       return TestScript;
     if ("ValueSet".equals(code))

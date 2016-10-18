@@ -858,10 +858,9 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     }
     if (type.equals("dateTime")) {
       rule(errors, IssueType.INVALID, e.line(), e.col(), path, yearIsValid(e.getAttribute("value")), "The value '" + e.getAttribute("value") + "' does not have a valid year");
-      rule(errors, IssueType.INVALID, e.line(), e.col(), path,
-          e.getAttribute("value")
-          .matches("-?[0-9]{4}(-(0[1-9]|1[0-2])(-(0[0-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\\.[0-9]+)?(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))?)?)?)?"),
-          "Not a valid date time");
+      boolean ok = e.getAttribute("value").matches("-?[0-9]{4}(-(0[1-9]|1[0-2])(-(0[0-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\\.[0-9]+)?(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))?)?)?)?");
+      if (!ok)
+        rule(errors, IssueType.INVALID, e.line(), e.col(), path,ok, "'"+e.getAttribute("value")+"' is not a valid date time");
       rule(errors, IssueType.INVALID, e.line(), e.col(), path, !hasTime(e.getAttribute("value")) || hasTimeZone(e.getAttribute("value")), "if a date has a time, it must have a timezone");
 
     }

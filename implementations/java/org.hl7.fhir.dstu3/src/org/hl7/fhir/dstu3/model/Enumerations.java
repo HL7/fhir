@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Oct 11, 2016 12:41+1100 for FHIR v1.7.0
+// Generated on Tue, Oct 18, 2016 10:55+1100 for FHIR v1.7.0
 
 
 import org.hl7.fhir.instance.model.api.*;
@@ -1077,7 +1077,7 @@ public class Enumerations {
          */
         REFERENCE, 
         /**
-         * Related resources such as additional documentation, justification, or bibliographic references.
+         * Related artifacts such as additional documentation, justification, or bibliographic references.
          */
         RELATEDARTIFACT, 
         /**
@@ -1437,7 +1437,7 @@ public class Enumerations {
             case RANGE: return "A set of ordered Quantities defined by a low and high limit.";
             case RATIO: return "A relationship of two Quantity values - expressed as a numerator and a denominator.";
             case REFERENCE: return "A reference from one resource to another.";
-            case RELATEDARTIFACT: return "Related resources such as additional documentation, justification, or bibliographic references.";
+            case RELATEDARTIFACT: return "Related artifacts such as additional documentation, justification, or bibliographic references.";
             case SAMPLEDDATA: return "A series of measurements taken by a device, with upper and lower limits. There may be more than one dimension in the data.";
             case SIGNATURE: return "A digital signature along with supporting context. The signature may be electronic/cryptographic in nature, or a graphical image representing a hand-written signature, or a signature process. Different Signature approaches have different utilities.";
             case SIMPLEQUANTITY: return "";
@@ -2083,7 +2083,7 @@ public class Enumerations {
          */
         REFERENCE, 
         /**
-         * Related resources such as additional documentation, justification, or bibliographic references.
+         * Related artifacts such as additional documentation, justification, or bibliographic references.
          */
         RELATEDARTIFACT, 
         /**
@@ -2626,6 +2626,10 @@ public class Enumerations {
          * A task to be performed.
          */
         TASK, 
+        /**
+         * TestReport is a resource that includes summary information on the results of executing a TestScript.
+         */
+        TESTREPORT, 
         /**
          * TestScript is a resource that specifies a suite of tests against a FHIR server implementation to determine compliance against the FHIR specification.
          */
@@ -2981,6 +2985,8 @@ public class Enumerations {
           return SUPPLYREQUEST;
         if ("Task".equals(codeString))
           return TASK;
+        if ("TestReport".equals(codeString))
+          return TESTREPORT;
         if ("TestScript".equals(codeString))
           return TESTSCRIPT;
         if ("ValueSet".equals(codeString))
@@ -3159,6 +3165,7 @@ public class Enumerations {
             case SUPPLYDELIVERY: return "SupplyDelivery";
             case SUPPLYREQUEST: return "SupplyRequest";
             case TASK: return "Task";
+            case TESTREPORT: return "TestReport";
             case TESTSCRIPT: return "TestScript";
             case VALUESET: return "ValueSet";
             case VISIONPRESCRIPTION: return "VisionPrescription";
@@ -3333,6 +3340,7 @@ public class Enumerations {
             case SUPPLYDELIVERY: return "http://hl7.org/fhir/resource-types";
             case SUPPLYREQUEST: return "http://hl7.org/fhir/resource-types";
             case TASK: return "http://hl7.org/fhir/resource-types";
+            case TESTREPORT: return "http://hl7.org/fhir/resource-types";
             case TESTSCRIPT: return "http://hl7.org/fhir/resource-types";
             case VALUESET: return "http://hl7.org/fhir/resource-types";
             case VISIONPRESCRIPTION: return "http://hl7.org/fhir/resource-types";
@@ -3371,7 +3379,7 @@ public class Enumerations {
             case RANGE: return "A set of ordered Quantities defined by a low and high limit.";
             case RATIO: return "A relationship of two Quantity values - expressed as a numerator and a denominator.";
             case REFERENCE: return "A reference from one resource to another.";
-            case RELATEDARTIFACT: return "Related resources such as additional documentation, justification, or bibliographic references.";
+            case RELATEDARTIFACT: return "Related artifacts such as additional documentation, justification, or bibliographic references.";
             case SAMPLEDDATA: return "A series of measurements taken by a device, with upper and lower limits. There may be more than one dimension in the data.";
             case SIGNATURE: return "A digital signature along with supporting context. The signature may be electronic/cryptographic in nature, or a graphical image representing a hand-written signature, or a signature process. Different Signature approaches have different utilities.";
             case SIMPLEQUANTITY: return "";
@@ -3507,6 +3515,7 @@ public class Enumerations {
             case SUPPLYDELIVERY: return "Record of delivery of what is supplied.";
             case SUPPLYREQUEST: return "A record of a request for a medication, substance or device used in the healthcare setting.";
             case TASK: return "A task to be performed.";
+            case TESTREPORT: return "TestReport is a resource that includes summary information on the results of executing a TestScript.";
             case TESTSCRIPT: return "TestScript is a resource that specifies a suite of tests against a FHIR server implementation to determine compliance against the FHIR specification.";
             case VALUESET: return "A value set specifies a set of codes drawn from one or more code systems.";
             case VISIONPRESCRIPTION: return "An authorization for the supply of glasses and/or contact lenses to a patient.";
@@ -3681,6 +3690,7 @@ public class Enumerations {
             case SUPPLYDELIVERY: return "SupplyDelivery";
             case SUPPLYREQUEST: return "SupplyRequest";
             case TASK: return "Task";
+            case TESTREPORT: return "TestReport";
             case TESTSCRIPT: return "TestScript";
             case VALUESET: return "ValueSet";
             case VISIONPRESCRIPTION: return "VisionPrescription";
@@ -4024,6 +4034,8 @@ public class Enumerations {
           return FHIRAllTypes.SUPPLYREQUEST;
         if ("Task".equals(codeString))
           return FHIRAllTypes.TASK;
+        if ("TestReport".equals(codeString))
+          return FHIRAllTypes.TESTREPORT;
         if ("TestScript".equals(codeString))
           return FHIRAllTypes.TESTSCRIPT;
         if ("ValueSet".equals(codeString))
@@ -4370,6 +4382,8 @@ public class Enumerations {
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.SUPPLYREQUEST);
         if ("Task".equals(codeString))
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.TASK);
+        if ("TestReport".equals(codeString))
+          return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.TESTREPORT);
         if ("TestScript".equals(codeString))
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.TESTSCRIPT);
         if ("ValueSet".equals(codeString))
@@ -4711,6 +4725,8 @@ public class Enumerations {
         return "SupplyRequest";
       if (code == FHIRAllTypes.TASK)
         return "Task";
+      if (code == FHIRAllTypes.TESTREPORT)
+        return "TestReport";
       if (code == FHIRAllTypes.TESTSCRIPT)
         return "TestScript";
       if (code == FHIRAllTypes.VALUESET)
@@ -4842,7 +4858,7 @@ public class Enumerations {
          */
         REFERENCE, 
         /**
-         * Related resources such as additional documentation, justification, or bibliographic references.
+         * Related artifacts such as additional documentation, justification, or bibliographic references.
          */
         RELATEDARTIFACT, 
         /**
@@ -5386,6 +5402,10 @@ public class Enumerations {
          */
         TASK, 
         /**
+         * TestReport is a resource that includes summary information on the results of executing a TestScript.
+         */
+        TESTREPORT, 
+        /**
          * TestScript is a resource that specifies a suite of tests against a FHIR server implementation to determine compliance against the FHIR specification.
          */
         TESTSCRIPT, 
@@ -5732,6 +5752,8 @@ public class Enumerations {
           return SUPPLYREQUEST;
         if ("Task".equals(codeString))
           return TASK;
+        if ("TestReport".equals(codeString))
+          return TESTREPORT;
         if ("TestScript".equals(codeString))
           return TESTSCRIPT;
         if ("ValueSet".equals(codeString))
@@ -5906,6 +5928,7 @@ public class Enumerations {
             case SUPPLYDELIVERY: return "SupplyDelivery";
             case SUPPLYREQUEST: return "SupplyRequest";
             case TASK: return "Task";
+            case TESTREPORT: return "TestReport";
             case TESTSCRIPT: return "TestScript";
             case VALUESET: return "ValueSet";
             case VISIONPRESCRIPTION: return "VisionPrescription";
@@ -6078,6 +6101,7 @@ public class Enumerations {
             case SUPPLYDELIVERY: return "http://hl7.org/fhir/resource-types";
             case SUPPLYREQUEST: return "http://hl7.org/fhir/resource-types";
             case TASK: return "http://hl7.org/fhir/resource-types";
+            case TESTREPORT: return "http://hl7.org/fhir/resource-types";
             case TESTSCRIPT: return "http://hl7.org/fhir/resource-types";
             case VALUESET: return "http://hl7.org/fhir/resource-types";
             case VISIONPRESCRIPTION: return "http://hl7.org/fhir/resource-types";
@@ -6114,7 +6138,7 @@ public class Enumerations {
             case RANGE: return "A set of ordered Quantities defined by a low and high limit.";
             case RATIO: return "A relationship of two Quantity values - expressed as a numerator and a denominator.";
             case REFERENCE: return "A reference from one resource to another.";
-            case RELATEDARTIFACT: return "Related resources such as additional documentation, justification, or bibliographic references.";
+            case RELATEDARTIFACT: return "Related artifacts such as additional documentation, justification, or bibliographic references.";
             case SAMPLEDDATA: return "A series of measurements taken by a device, with upper and lower limits. There may be more than one dimension in the data.";
             case SIGNATURE: return "A digital signature along with supporting context. The signature may be electronic/cryptographic in nature, or a graphical image representing a hand-written signature, or a signature process. Different Signature approaches have different utilities.";
             case SIMPLEQUANTITY: return "";
@@ -6250,6 +6274,7 @@ public class Enumerations {
             case SUPPLYDELIVERY: return "Record of delivery of what is supplied.";
             case SUPPLYREQUEST: return "A record of a request for a medication, substance or device used in the healthcare setting.";
             case TASK: return "A task to be performed.";
+            case TESTREPORT: return "TestReport is a resource that includes summary information on the results of executing a TestScript.";
             case TESTSCRIPT: return "TestScript is a resource that specifies a suite of tests against a FHIR server implementation to determine compliance against the FHIR specification.";
             case VALUESET: return "A value set specifies a set of codes drawn from one or more code systems.";
             case VISIONPRESCRIPTION: return "An authorization for the supply of glasses and/or contact lenses to a patient.";
@@ -6422,6 +6447,7 @@ public class Enumerations {
             case SUPPLYDELIVERY: return "SupplyDelivery";
             case SUPPLYREQUEST: return "SupplyRequest";
             case TASK: return "Task";
+            case TESTREPORT: return "TestReport";
             case TESTSCRIPT: return "TestScript";
             case VALUESET: return "ValueSet";
             case VISIONPRESCRIPTION: return "VisionPrescription";
@@ -6763,6 +6789,8 @@ public class Enumerations {
           return FHIRDefinedType.SUPPLYREQUEST;
         if ("Task".equals(codeString))
           return FHIRDefinedType.TASK;
+        if ("TestReport".equals(codeString))
+          return FHIRDefinedType.TESTREPORT;
         if ("TestScript".equals(codeString))
           return FHIRDefinedType.TESTSCRIPT;
         if ("ValueSet".equals(codeString))
@@ -7105,6 +7133,8 @@ public class Enumerations {
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.SUPPLYREQUEST);
         if ("Task".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.TASK);
+        if ("TestReport".equals(codeString))
+          return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.TESTREPORT);
         if ("TestScript".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.TESTSCRIPT);
         if ("ValueSet".equals(codeString))
@@ -7442,6 +7472,8 @@ public class Enumerations {
         return "SupplyRequest";
       if (code == FHIRDefinedType.TASK)
         return "Task";
+      if (code == FHIRDefinedType.TESTREPORT)
+        return "TestReport";
       if (code == FHIRDefinedType.TESTSCRIPT)
         return "TestScript";
       if (code == FHIRDefinedType.VALUESET)
@@ -7827,9 +7859,9 @@ public class Enumerations {
         }
         public String getSystem() {
           switch (this) {
-            case DRAFT: return "http://hl7.org/fhir/conformance-resource-status";
-            case ACTIVE: return "http://hl7.org/fhir/conformance-resource-status";
-            case RETIRED: return "http://hl7.org/fhir/conformance-resource-status";
+            case DRAFT: return "http://hl7.org/fhir/publication-status";
+            case ACTIVE: return "http://hl7.org/fhir/publication-status";
+            case RETIRED: return "http://hl7.org/fhir/publication-status";
             default: return "?";
           }
         }
@@ -8441,6 +8473,10 @@ public class Enumerations {
          */
         TASK, 
         /**
+         * TestReport is a resource that includes summary information on the results of executing a TestScript.
+         */
+        TESTREPORT, 
+        /**
          * TestScript is a resource that specifies a suite of tests against a FHIR server implementation to determine compliance against the FHIR specification.
          */
         TESTSCRIPT, 
@@ -8681,6 +8717,8 @@ public class Enumerations {
           return SUPPLYREQUEST;
         if ("Task".equals(codeString))
           return TASK;
+        if ("TestReport".equals(codeString))
+          return TESTREPORT;
         if ("TestScript".equals(codeString))
           return TESTSCRIPT;
         if ("ValueSet".equals(codeString))
@@ -8802,6 +8840,7 @@ public class Enumerations {
             case SUPPLYDELIVERY: return "SupplyDelivery";
             case SUPPLYREQUEST: return "SupplyRequest";
             case TASK: return "Task";
+            case TESTREPORT: return "TestReport";
             case TESTSCRIPT: return "TestScript";
             case VALUESET: return "ValueSet";
             case VISIONPRESCRIPTION: return "VisionPrescription";
@@ -8921,6 +8960,7 @@ public class Enumerations {
             case SUPPLYDELIVERY: return "http://hl7.org/fhir/resource-types";
             case SUPPLYREQUEST: return "http://hl7.org/fhir/resource-types";
             case TASK: return "http://hl7.org/fhir/resource-types";
+            case TESTREPORT: return "http://hl7.org/fhir/resource-types";
             case TESTSCRIPT: return "http://hl7.org/fhir/resource-types";
             case VALUESET: return "http://hl7.org/fhir/resource-types";
             case VISIONPRESCRIPTION: return "http://hl7.org/fhir/resource-types";
@@ -9040,6 +9080,7 @@ public class Enumerations {
             case SUPPLYDELIVERY: return "Record of delivery of what is supplied.";
             case SUPPLYREQUEST: return "A record of a request for a medication, substance or device used in the healthcare setting.";
             case TASK: return "A task to be performed.";
+            case TESTREPORT: return "TestReport is a resource that includes summary information on the results of executing a TestScript.";
             case TESTSCRIPT: return "TestScript is a resource that specifies a suite of tests against a FHIR server implementation to determine compliance against the FHIR specification.";
             case VALUESET: return "A value set specifies a set of codes drawn from one or more code systems.";
             case VISIONPRESCRIPTION: return "An authorization for the supply of glasses and/or contact lenses to a patient.";
@@ -9159,6 +9200,7 @@ public class Enumerations {
             case SUPPLYDELIVERY: return "SupplyDelivery";
             case SUPPLYREQUEST: return "SupplyRequest";
             case TASK: return "Task";
+            case TESTREPORT: return "TestReport";
             case TESTSCRIPT: return "TestScript";
             case VALUESET: return "ValueSet";
             case VISIONPRESCRIPTION: return "VisionPrescription";
@@ -9394,6 +9436,8 @@ public class Enumerations {
           return ResourceType.SUPPLYREQUEST;
         if ("Task".equals(codeString))
           return ResourceType.TASK;
+        if ("TestReport".equals(codeString))
+          return ResourceType.TESTREPORT;
         if ("TestScript".equals(codeString))
           return ResourceType.TESTSCRIPT;
         if ("ValueSet".equals(codeString))
@@ -9630,6 +9674,8 @@ public class Enumerations {
           return new Enumeration<ResourceType>(this, ResourceType.SUPPLYREQUEST);
         if ("Task".equals(codeString))
           return new Enumeration<ResourceType>(this, ResourceType.TASK);
+        if ("TestReport".equals(codeString))
+          return new Enumeration<ResourceType>(this, ResourceType.TESTREPORT);
         if ("TestScript".equals(codeString))
           return new Enumeration<ResourceType>(this, ResourceType.TESTSCRIPT);
         if ("ValueSet".equals(codeString))
@@ -9861,6 +9907,8 @@ public class Enumerations {
         return "SupplyRequest";
       if (code == ResourceType.TASK)
         return "Task";
+      if (code == ResourceType.TESTREPORT)
+        return "TestReport";
       if (code == ResourceType.TESTSCRIPT)
         return "TestScript";
       if (code == ResourceType.VALUESET)

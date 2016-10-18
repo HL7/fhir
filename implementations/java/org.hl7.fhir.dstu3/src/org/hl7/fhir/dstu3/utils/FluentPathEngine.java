@@ -824,6 +824,7 @@ public class FluentPathEngine {
     case Now: return checkParamCount(lexer, location, exp, 0);
     case Resolve: return checkParamCount(lexer, location, exp, 0);
     case Extension: return checkParamCount(lexer, location, exp, 1);
+    case HasValue: return checkParamCount(lexer, location, exp, 0);
     case Custom: return checkParamCount(lexer, location, exp, details.getMinParameters(), details.getMaxParameters());
     }
     return false;
@@ -1918,6 +1919,8 @@ public class FluentPathEngine {
       checkParamTypes(exp.getFunction().toCode(), paramTypes, new TypeDetails(CollectionStatus.SINGLETON, "string")); 
       return new TypeDetails(CollectionStatus.SINGLETON, "Extension"); 
     }
+    case HasValue : 
+      return new TypeDetails(CollectionStatus.SINGLETON, "boolean");
     case Custom : {
       return hostServices.checkFunction(context.appInfo, exp.getName(), paramTypes);
     }
@@ -2029,6 +2032,7 @@ public class FluentPathEngine {
     case Now : return funcNow(context, focus, exp);
     case Resolve : return funcResolve(context, focus, exp);
     case Extension : return funcExtension(context, focus, exp);
+    case HasValue : return funcHasValue(context, focus, exp);
     case Custom: { 
       List<List<Base>> params = new ArrayList<List<Base>>();
       for (ExpressionNode p : exp.getParameters()) 
@@ -2377,9 +2381,13 @@ public class FluentPathEngine {
     List<Base> result = new ArrayList<Base>();
     String sw = convertToString(execute(context, focus, exp.getParameters().get(0), true));
 
-    if (focus.size() == 1 && !Utilities.noString(sw))
-      result.add(new BooleanType(convertToString(focus.get(0)).matches(sw)));
-    else
+    if (focus.size() == 1 && !Utilities.noString(sw)) {
+      String st = convertToString(focus.get(0));
+      if (Utilities.noString(st))
+        result.add(new BooleanType(false));
+      else
+        result.add(new BooleanType(st.matches(sw)));
+    } else
       result.add(new BooleanType(false));
     return result;
   }
@@ -2388,9 +2396,13 @@ public class FluentPathEngine {
     List<Base> result = new ArrayList<Base>();
     String sw = convertToString(execute(context, focus, exp.getParameters().get(0), true));
 
-    if (focus.size() == 1 && !Utilities.noString(sw))
-      result.add(new BooleanType(convertToString(focus.get(0)).contains(sw)));
-    else
+    if (focus.size() == 1 && !Utilities.noString(sw)) {
+      String st = convertToString(focus.get(0));
+      if (Utilities.noString(st))
+        result.add(new BooleanType(false));
+      else
+        result.add(new BooleanType(st.contains(sw)));
+    }  else
       result.add(new BooleanType(false));
     return result;
   }
@@ -2400,6 +2412,15 @@ public class FluentPathEngine {
     if (focus.size() == 1) {
       String s = convertToString(focus.get(0));
       result.add(new IntegerType(s.length()));
+    }
+    return result;
+  }
+
+  private List<Base> funcHasValue(ExecutionContext context, List<Base> focus, ExpressionNode exp) {
+    List<Base> result = new ArrayList<Base>();
+    if (focus.size() == 1) {
+      String s = convertToString(focus.get(0));
+      result.add(new BooleanType(!Utilities.noString(s)));
     }
     return result;
   }

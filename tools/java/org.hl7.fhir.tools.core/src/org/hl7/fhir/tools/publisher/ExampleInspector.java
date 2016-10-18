@@ -150,6 +150,7 @@ public class ExampleInspector {
       
       checkSearchParameters(xe, e);
     } catch (Exception e) {
+      e.printStackTrace();
       errorsInt.add(new ValidationMessage(Source.InstanceValidator, IssueType.STRUCTURE, -1, -1, n, e.getMessage(), IssueSeverity.ERROR));
     }
     

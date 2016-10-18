@@ -545,6 +545,8 @@ public class XSDBaseGenerator {
     write("    <xs:restriction base=\"code-primitive\">\r\n");
     bs.getValueSet().setUserData(ToolResourceUtilities.NAME_VS_USE_MARKER, true);
     ValueSet ex = workerContext.expandVS(bs.getValueSet(), true, false).getValueset();
+    if (ex.getExpansion().getContains().isEmpty())
+      throw new Error("The expansion for "+bs.getName()+" is empty");
     for (ValueSetExpansionContainsComponent cc : ex.getExpansion().getContains()) {
       genIncludedCode(cc);
     }

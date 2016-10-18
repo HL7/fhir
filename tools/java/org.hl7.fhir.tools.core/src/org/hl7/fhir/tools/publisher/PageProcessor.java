@@ -883,9 +883,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       else if (com[0].equals("vsdesc"))
         src = s1 + (resource != null ? new XhtmlComposer().compose(((ValueSet) resource).getText().getDiv()) :  generateVSDesc(Utilities.fileTitle(file))) + s3;
       else if (com[0].equals("txusage"))
-        src = s1 + generateValueSetUsage((ValueSet) resource, genlevel(level)) + s3;
+        src = s1 + generateValueSetUsage((ValueSet) resource, genlevel(level), true) + s3;
       else if (com[0].equals("vsusage"))
-        src = s1 + generateValueSetUsage((ValueSet) resource, genlevel(level)) + s3;
+        src = s1 + generateValueSetUsage((ValueSet) resource, genlevel(level), true) + s3;
       else if (com[0].equals("csusage"))
         src = s1 + generateCSUsage((CodeSystem) resource, genlevel(level)) + s3;
       else if (com[0].equals("vssummary"))
@@ -2578,7 +2578,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       return "<p>\r\nThis Code system is used in the following value sets:\r\n</p>\r\n<ul>\r\n"+b.toString()+"</ul>\r\n";
   }
   
-  private String generateValueSetUsage(ValueSet vs, String prefix) throws Exception {        
+  private String generateValueSetUsage(ValueSet vs, String prefix, boolean addTitle) throws Exception {        
     StringBuilder b = new StringBuilder();
     if (vs.hasUrl()) {
       for (CodeSystem cs : getCodeSystems().values()) {
@@ -2682,7 +2682,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     if (b.length() == 0)
       return "<p>\r\nThis value set is not currently used\r\n</p>\r\n";
     else
-      return "<p>\r\nThis value set is used in the following places:\r\n</p>\r\n<ul>\r\n"+b.toString()+"</ul>\r\n";
+      return (addTitle ? "<p>\r\nThis value set is used in the following places:\r\n</p>\r\n" : "")+"<ul>\r\n"+b.toString()+"</ul>\r\n";
   }
 
   private void scanForUsage(StringBuilder b, ValueSet vs, StructureDefinition exd, String path, String prefix) {
@@ -4055,9 +4055,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         else
           src = s1 + Utilities.escapeXml(((ValueSet) resource).getDescription()) + s3;
       else if (com[0].equals("txusage"))
-        src = s1 + generateValueSetUsage((ValueSet) resource, genlevel(0)) + s3;
+        src = s1 + generateValueSetUsage((ValueSet) resource, genlevel(0), true) + s3;
       else if (com[0].equals("vsusage"))
-        src = s1 + generateValueSetUsage((ValueSet) resource, genlevel(0)) + s3;
+        src = s1 + generateValueSetUsage((ValueSet) resource, genlevel(0), true) + s3;
       else if (com[0].equals("csusage"))
         src = s1 + generateCSUsage((CodeSystem) resource, genlevel(0)) + s3;
       else if (com[0].equals("vssummary"))
@@ -4539,9 +4539,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       else if (com[0].equals("vsdesc"))
         src = s1 + (resource != null ? Utilities.escapeXml(((ValueSet) resource).getDescription()) :  generateVSDesc(Utilities.fileTitle(file))) + s3;
       else if (com[0].equals("txusage"))
-        src = s1 + generateValueSetUsage((ValueSet) resource, genlevel(level)) + s3;
+        src = s1 + generateValueSetUsage((ValueSet) resource, genlevel(level), true) + s3;
       else if (com[0].equals("vsusage"))
-        src = s1 + generateValueSetUsage((ValueSet) resource, genlevel(level)) + s3;
+        src = s1 + generateValueSetUsage((ValueSet) resource, genlevel(level), true) + s3;
       else if (com[0].equals("csusage"))
         src = s1 + generateCSUsage((CodeSystem) resource, genlevel(level)) + s3;
       else if (com[0].equals("v2Index"))
@@ -4737,7 +4737,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       ValueSet vs = definitions.getValuesets().get(sn);
       String path = (String) vs.getUserData("path");
       s.append(" <tr>\r\n  <td><a href=\""+pathTail(Utilities.changeFileExt(path, ".html"))+"\">"+Utilities.escapeXml(vs.getName())+"</a></td>\r\n  <td>"+Utilities.escapeXml(vs.getDescription())+"</td>\r\n");
-      s.append("  <td>"+generateValueSetUsage(vs, "")+"</td>\r\n");
+      s.append("  <td>"+generateValueSetUsage(vs, "", false)+"</td>\r\n");
       s.append(" </tr>\r\n");
     }
     s.append("</table>\r\n");

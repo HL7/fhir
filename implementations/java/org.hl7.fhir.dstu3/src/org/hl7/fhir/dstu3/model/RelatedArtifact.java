@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Oct 11, 2016 12:41+1100 for FHIR v1.7.0
+// Generated on Tue, Oct 18, 2016 10:55+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -42,42 +42,42 @@ import ca.uhn.fhir.model.api.annotation.Block;
 import org.hl7.fhir.instance.model.api.*;
 import org.hl7.fhir.exceptions.FHIRException;
 /**
- * Related resources such as additional documentation, justification, or bibliographic references.
+ * Related artifacts such as additional documentation, justification, or bibliographic references.
  */
 @DatatypeDef(name="RelatedArtifact")
 public class RelatedArtifact extends Type implements ICompositeType {
 
     public enum RelatedArtifactType {
         /**
-         * Additional documentation for the module. This would include additional instructions on usage as well as additional information on clinical context or appropriateness
+         * Additional documentation for the knowledge resource. This would include additional instructions on usage as well as additional information on clinical context or appropriateness
          */
         DOCUMENTATION, 
         /**
-         * A summary of the justification for the artifact including supporting evidence, relevant guidelines, or other clinically important information. This information is intended to provide a way to make the justification for the module available to the consumer of interventions or results produced by the artifact
+         * A summary of the justification for the knowledge resource including supporting evidence, relevant guidelines, or other clinically important information. This information is intended to provide a way to make the justification for the knowledge resource available to the consumer of interventions or results produced by the knowledge resource
          */
         JUSTIFICATION, 
         /**
-         * Bibliographic citation for papers, references, or other relevant material for the module. This is intended to allow for citation of related material, but that was not necessarily specifically prepared in connection with this module
+         * Bibliographic citation for papers, references, or other relevant material for the knowledge resource. This is intended to allow for citation of related material, but that was not necessarily specifically prepared in connection with this knowledge resource
          */
         CITATION, 
         /**
-         * The previous version of the module
+         * The previous version of the knowledge resource
          */
         PREDECESSOR, 
         /**
-         * The next version of the module
+         * The next version of the knowledge resource
          */
         SUCCESSOR, 
         /**
-         * The module is derived from the resource. This is intended to capture the relationship when a particular module is based on the content of another module, but is modified to capture either a different set of overall requirements, or a more specific set of requirements such as those involved in a particular institution or clinical setting
+         * The knowledge resource is derived from the related artifact. This is intended to capture the relationship in which a particular knowledge resource is based on the content of another artifact, but is modified to capture either a different set of overall requirements, or a more specific set of requirements such as those involved in a particular institution or clinical setting
          */
         DERIVEDFROM, 
         /**
-         * The module depends on the given resource
+         * The knowledge resource depends on the given related artifact
          */
         DEPENDSON, 
         /**
-         * The module is composed of the given resource
+         * The knowledge resource is composed of the given related artifact
          */
         COMPOSEDOF, 
         /**
@@ -123,27 +123,27 @@ public class RelatedArtifact extends Type implements ICompositeType {
         }
         public String getSystem() {
           switch (this) {
-            case DOCUMENTATION: return "http://hl7.org/fhir/related-resource-type";
-            case JUSTIFICATION: return "http://hl7.org/fhir/related-resource-type";
-            case CITATION: return "http://hl7.org/fhir/related-resource-type";
-            case PREDECESSOR: return "http://hl7.org/fhir/related-resource-type";
-            case SUCCESSOR: return "http://hl7.org/fhir/related-resource-type";
-            case DERIVEDFROM: return "http://hl7.org/fhir/related-resource-type";
-            case DEPENDSON: return "http://hl7.org/fhir/related-resource-type";
-            case COMPOSEDOF: return "http://hl7.org/fhir/related-resource-type";
+            case DOCUMENTATION: return "http://hl7.org/fhir/related-artifact-type";
+            case JUSTIFICATION: return "http://hl7.org/fhir/related-artifact-type";
+            case CITATION: return "http://hl7.org/fhir/related-artifact-type";
+            case PREDECESSOR: return "http://hl7.org/fhir/related-artifact-type";
+            case SUCCESSOR: return "http://hl7.org/fhir/related-artifact-type";
+            case DERIVEDFROM: return "http://hl7.org/fhir/related-artifact-type";
+            case DEPENDSON: return "http://hl7.org/fhir/related-artifact-type";
+            case COMPOSEDOF: return "http://hl7.org/fhir/related-artifact-type";
             default: return "?";
           }
         }
         public String getDefinition() {
           switch (this) {
-            case DOCUMENTATION: return "Additional documentation for the module. This would include additional instructions on usage as well as additional information on clinical context or appropriateness";
-            case JUSTIFICATION: return "A summary of the justification for the artifact including supporting evidence, relevant guidelines, or other clinically important information. This information is intended to provide a way to make the justification for the module available to the consumer of interventions or results produced by the artifact";
-            case CITATION: return "Bibliographic citation for papers, references, or other relevant material for the module. This is intended to allow for citation of related material, but that was not necessarily specifically prepared in connection with this module";
-            case PREDECESSOR: return "The previous version of the module";
-            case SUCCESSOR: return "The next version of the module";
-            case DERIVEDFROM: return "The module is derived from the resource. This is intended to capture the relationship when a particular module is based on the content of another module, but is modified to capture either a different set of overall requirements, or a more specific set of requirements such as those involved in a particular institution or clinical setting";
-            case DEPENDSON: return "The module depends on the given resource";
-            case COMPOSEDOF: return "The module is composed of the given resource";
+            case DOCUMENTATION: return "Additional documentation for the knowledge resource. This would include additional instructions on usage as well as additional information on clinical context or appropriateness";
+            case JUSTIFICATION: return "A summary of the justification for the knowledge resource including supporting evidence, relevant guidelines, or other clinically important information. This information is intended to provide a way to make the justification for the knowledge resource available to the consumer of interventions or results produced by the knowledge resource";
+            case CITATION: return "Bibliographic citation for papers, references, or other relevant material for the knowledge resource. This is intended to allow for citation of related material, but that was not necessarily specifically prepared in connection with this knowledge resource";
+            case PREDECESSOR: return "The previous version of the knowledge resource";
+            case SUCCESSOR: return "The next version of the knowledge resource";
+            case DERIVEDFROM: return "The knowledge resource is derived from the related artifact. This is intended to capture the relationship in which a particular knowledge resource is based on the content of another artifact, but is modified to capture either a different set of overall requirements, or a more specific set of requirements such as those involved in a particular institution or clinical setting";
+            case DEPENDSON: return "The knowledge resource depends on the given related artifact";
+            case COMPOSEDOF: return "The knowledge resource is composed of the given related artifact";
             default: return "?";
           }
         }
@@ -234,32 +234,32 @@ public class RelatedArtifact extends Type implements ICompositeType {
     }
 
     /**
-     * The type of related resource.
+     * The type of relationship to the related artifact.
      */
     @Child(name = "type", type = {CodeType.class}, order=0, min=1, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="documentation | justification | citation | predecessor | successor | derived-from | depends-on | composed-of", formalDefinition="The type of related resource." )
-    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/related-resource-type")
+    @Description(shortDefinition="documentation | justification | citation | predecessor | successor | derived-from | depends-on | composed-of", formalDefinition="The type of relationship to the related artifact." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/related-artifact-type")
     protected Enumeration<RelatedArtifactType> type;
 
     /**
-     * A brief description of the document or resource being referenced, suitable for display to a consumer.
+     * A brief description of the document or knowledge resource being referenced, suitable for display to a consumer.
      */
     @Child(name = "display", type = {StringType.class}, order=1, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Brief description of the related resource", formalDefinition="A brief description of the document or resource being referenced, suitable for display to a consumer." )
+    @Description(shortDefinition="Brief description of the related artifact", formalDefinition="A brief description of the document or knowledge resource being referenced, suitable for display to a consumer." )
     protected StringType display;
 
     /**
-     * A bibliographic citation for the related resource. This text SHOULD be formatted according to an accepted citation format.
+     * A bibliographic citation for the related artifact. This text SHOULD be formatted according to an accepted citation format.
      */
     @Child(name = "citation", type = {StringType.class}, order=2, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Bibliographic citation for the resource", formalDefinition="A bibliographic citation for the related resource. This text SHOULD be formatted according to an accepted citation format." )
+    @Description(shortDefinition="Bibliographic citation for the artifact", formalDefinition="A bibliographic citation for the related artifact. This text SHOULD be formatted according to an accepted citation format." )
     protected StringType citation;
 
     /**
-     * A url for the resource that can be followed to access the actual content.
+     * A url for the artifact that can be followed to access the actual content.
      */
     @Child(name = "url", type = {UriType.class}, order=3, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Url for the related resource", formalDefinition="A url for the resource that can be followed to access the actual content." )
+    @Description(shortDefinition="Url for the related artifact", formalDefinition="A url for the artifact that can be followed to access the actual content." )
     protected UriType url;
 
     /**
@@ -270,14 +270,14 @@ public class RelatedArtifact extends Type implements ICompositeType {
     protected Attachment document;
 
     /**
-     * The related resource, such as a library, value set, profile, or other module.
+     * The related resource, such as a library, value set, profile, or other knowledge resource.
      */
     @Child(name = "resource", type = {Reference.class}, order=5, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="The related resource", formalDefinition="The related resource, such as a library, value set, profile, or other module." )
+    @Description(shortDefinition="The related resource", formalDefinition="The related resource, such as a library, value set, profile, or other knowledge resource." )
     protected Reference resource;
 
     /**
-     * The actual object that is the target of the reference (The related resource, such as a library, value set, profile, or other module.)
+     * The actual object that is the target of the reference (The related resource, such as a library, value set, profile, or other knowledge resource.)
      */
     protected Resource resourceTarget;
 
@@ -299,7 +299,7 @@ public class RelatedArtifact extends Type implements ICompositeType {
     }
 
     /**
-     * @return {@link #type} (The type of related resource.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
+     * @return {@link #type} (The type of relationship to the related artifact.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
      */
     public Enumeration<RelatedArtifactType> getTypeElement() { 
       if (this.type == null)
@@ -319,7 +319,7 @@ public class RelatedArtifact extends Type implements ICompositeType {
     }
 
     /**
-     * @param value {@link #type} (The type of related resource.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
+     * @param value {@link #type} (The type of relationship to the related artifact.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
      */
     public RelatedArtifact setTypeElement(Enumeration<RelatedArtifactType> value) { 
       this.type = value;
@@ -327,14 +327,14 @@ public class RelatedArtifact extends Type implements ICompositeType {
     }
 
     /**
-     * @return The type of related resource.
+     * @return The type of relationship to the related artifact.
      */
     public RelatedArtifactType getType() { 
       return this.type == null ? null : this.type.getValue();
     }
 
     /**
-     * @param value The type of related resource.
+     * @param value The type of relationship to the related artifact.
      */
     public RelatedArtifact setType(RelatedArtifactType value) { 
         if (this.type == null)
@@ -344,7 +344,7 @@ public class RelatedArtifact extends Type implements ICompositeType {
     }
 
     /**
-     * @return {@link #display} (A brief description of the document or resource being referenced, suitable for display to a consumer.). This is the underlying object with id, value and extensions. The accessor "getDisplay" gives direct access to the value
+     * @return {@link #display} (A brief description of the document or knowledge resource being referenced, suitable for display to a consumer.). This is the underlying object with id, value and extensions. The accessor "getDisplay" gives direct access to the value
      */
     public StringType getDisplayElement() { 
       if (this.display == null)
@@ -364,7 +364,7 @@ public class RelatedArtifact extends Type implements ICompositeType {
     }
 
     /**
-     * @param value {@link #display} (A brief description of the document or resource being referenced, suitable for display to a consumer.). This is the underlying object with id, value and extensions. The accessor "getDisplay" gives direct access to the value
+     * @param value {@link #display} (A brief description of the document or knowledge resource being referenced, suitable for display to a consumer.). This is the underlying object with id, value and extensions. The accessor "getDisplay" gives direct access to the value
      */
     public RelatedArtifact setDisplayElement(StringType value) { 
       this.display = value;
@@ -372,14 +372,14 @@ public class RelatedArtifact extends Type implements ICompositeType {
     }
 
     /**
-     * @return A brief description of the document or resource being referenced, suitable for display to a consumer.
+     * @return A brief description of the document or knowledge resource being referenced, suitable for display to a consumer.
      */
     public String getDisplay() { 
       return this.display == null ? null : this.display.getValue();
     }
 
     /**
-     * @param value A brief description of the document or resource being referenced, suitable for display to a consumer.
+     * @param value A brief description of the document or knowledge resource being referenced, suitable for display to a consumer.
      */
     public RelatedArtifact setDisplay(String value) { 
       if (Utilities.noString(value))
@@ -393,7 +393,7 @@ public class RelatedArtifact extends Type implements ICompositeType {
     }
 
     /**
-     * @return {@link #citation} (A bibliographic citation for the related resource. This text SHOULD be formatted according to an accepted citation format.). This is the underlying object with id, value and extensions. The accessor "getCitation" gives direct access to the value
+     * @return {@link #citation} (A bibliographic citation for the related artifact. This text SHOULD be formatted according to an accepted citation format.). This is the underlying object with id, value and extensions. The accessor "getCitation" gives direct access to the value
      */
     public StringType getCitationElement() { 
       if (this.citation == null)
@@ -413,7 +413,7 @@ public class RelatedArtifact extends Type implements ICompositeType {
     }
 
     /**
-     * @param value {@link #citation} (A bibliographic citation for the related resource. This text SHOULD be formatted according to an accepted citation format.). This is the underlying object with id, value and extensions. The accessor "getCitation" gives direct access to the value
+     * @param value {@link #citation} (A bibliographic citation for the related artifact. This text SHOULD be formatted according to an accepted citation format.). This is the underlying object with id, value and extensions. The accessor "getCitation" gives direct access to the value
      */
     public RelatedArtifact setCitationElement(StringType value) { 
       this.citation = value;
@@ -421,14 +421,14 @@ public class RelatedArtifact extends Type implements ICompositeType {
     }
 
     /**
-     * @return A bibliographic citation for the related resource. This text SHOULD be formatted according to an accepted citation format.
+     * @return A bibliographic citation for the related artifact. This text SHOULD be formatted according to an accepted citation format.
      */
     public String getCitation() { 
       return this.citation == null ? null : this.citation.getValue();
     }
 
     /**
-     * @param value A bibliographic citation for the related resource. This text SHOULD be formatted according to an accepted citation format.
+     * @param value A bibliographic citation for the related artifact. This text SHOULD be formatted according to an accepted citation format.
      */
     public RelatedArtifact setCitation(String value) { 
       if (Utilities.noString(value))
@@ -442,7 +442,7 @@ public class RelatedArtifact extends Type implements ICompositeType {
     }
 
     /**
-     * @return {@link #url} (A url for the resource that can be followed to access the actual content.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
+     * @return {@link #url} (A url for the artifact that can be followed to access the actual content.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
      */
     public UriType getUrlElement() { 
       if (this.url == null)
@@ -462,7 +462,7 @@ public class RelatedArtifact extends Type implements ICompositeType {
     }
 
     /**
-     * @param value {@link #url} (A url for the resource that can be followed to access the actual content.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
+     * @param value {@link #url} (A url for the artifact that can be followed to access the actual content.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
      */
     public RelatedArtifact setUrlElement(UriType value) { 
       this.url = value;
@@ -470,14 +470,14 @@ public class RelatedArtifact extends Type implements ICompositeType {
     }
 
     /**
-     * @return A url for the resource that can be followed to access the actual content.
+     * @return A url for the artifact that can be followed to access the actual content.
      */
     public String getUrl() { 
       return this.url == null ? null : this.url.getValue();
     }
 
     /**
-     * @param value A url for the resource that can be followed to access the actual content.
+     * @param value A url for the artifact that can be followed to access the actual content.
      */
     public RelatedArtifact setUrl(String value) { 
       if (Utilities.noString(value))
@@ -515,7 +515,7 @@ public class RelatedArtifact extends Type implements ICompositeType {
     }
 
     /**
-     * @return {@link #resource} (The related resource, such as a library, value set, profile, or other module.)
+     * @return {@link #resource} (The related resource, such as a library, value set, profile, or other knowledge resource.)
      */
     public Reference getResource() { 
       if (this.resource == null)
@@ -531,7 +531,7 @@ public class RelatedArtifact extends Type implements ICompositeType {
     }
 
     /**
-     * @param value {@link #resource} (The related resource, such as a library, value set, profile, or other module.)
+     * @param value {@link #resource} (The related resource, such as a library, value set, profile, or other knowledge resource.)
      */
     public RelatedArtifact setResource(Reference value) { 
       this.resource = value;
@@ -539,14 +539,14 @@ public class RelatedArtifact extends Type implements ICompositeType {
     }
 
     /**
-     * @return {@link #resource} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The related resource, such as a library, value set, profile, or other module.)
+     * @return {@link #resource} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The related resource, such as a library, value set, profile, or other knowledge resource.)
      */
     public Resource getResourceTarget() { 
       return this.resourceTarget;
     }
 
     /**
-     * @param value {@link #resource} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The related resource, such as a library, value set, profile, or other module.)
+     * @param value {@link #resource} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The related resource, such as a library, value set, profile, or other knowledge resource.)
      */
     public RelatedArtifact setResourceTarget(Resource value) { 
       this.resourceTarget = value;
@@ -555,12 +555,12 @@ public class RelatedArtifact extends Type implements ICompositeType {
 
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
-        childrenList.add(new Property("type", "code", "The type of related resource.", 0, java.lang.Integer.MAX_VALUE, type));
-        childrenList.add(new Property("display", "string", "A brief description of the document or resource being referenced, suitable for display to a consumer.", 0, java.lang.Integer.MAX_VALUE, display));
-        childrenList.add(new Property("citation", "string", "A bibliographic citation for the related resource. This text SHOULD be formatted according to an accepted citation format.", 0, java.lang.Integer.MAX_VALUE, citation));
-        childrenList.add(new Property("url", "uri", "A url for the resource that can be followed to access the actual content.", 0, java.lang.Integer.MAX_VALUE, url));
+        childrenList.add(new Property("type", "code", "The type of relationship to the related artifact.", 0, java.lang.Integer.MAX_VALUE, type));
+        childrenList.add(new Property("display", "string", "A brief description of the document or knowledge resource being referenced, suitable for display to a consumer.", 0, java.lang.Integer.MAX_VALUE, display));
+        childrenList.add(new Property("citation", "string", "A bibliographic citation for the related artifact. This text SHOULD be formatted according to an accepted citation format.", 0, java.lang.Integer.MAX_VALUE, citation));
+        childrenList.add(new Property("url", "uri", "A url for the artifact that can be followed to access the actual content.", 0, java.lang.Integer.MAX_VALUE, url));
         childrenList.add(new Property("document", "Attachment", "The document being referenced, represented as an attachment. This is exclusive with the resource element.", 0, java.lang.Integer.MAX_VALUE, document));
-        childrenList.add(new Property("resource", "Reference(Any)", "The related resource, such as a library, value set, profile, or other module.", 0, java.lang.Integer.MAX_VALUE, resource));
+        childrenList.add(new Property("resource", "Reference(Any)", "The related resource, such as a library, value set, profile, or other knowledge resource.", 0, java.lang.Integer.MAX_VALUE, resource));
       }
 
       @Override

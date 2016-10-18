@@ -15,6 +15,7 @@
   <compose>
     <include>
       <system value="http://snomed.info/sct"/>
+      <version value="http://snomed.info/sct/731000124108"/> <!-- these use US SCT codes for now -->
     <!--  SNOMED CT - Children of SCTID: 435681000124103 "Dietary liquid consistency diet (regime/therapy) since only four are expanded by hand"
 			<filter>
 				<property value="concept"/>
