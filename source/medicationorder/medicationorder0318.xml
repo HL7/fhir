@@ -47,6 +47,7 @@
         <text value="culture expected back in 12 hours - may switch depending on results"/>
     </note>
     <dosageInstruction>
+        <sequence value="1"/>
         <text value="500mg IV q6h x 3 days" />
         <timing>
             <repeat>

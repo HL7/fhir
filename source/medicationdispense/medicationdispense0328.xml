@@ -42,6 +42,7 @@
     </daysSupply>
     <whenPrepared value="2015-01-15T10:20:00Z"/>
     <dosageInstruction>
+        <sequence value="1"/>
         <text value="Use two sprays twice daily"/>
         <additionalInstructions>
             <text value="Shake Well"/>

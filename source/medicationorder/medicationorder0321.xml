@@ -105,6 +105,7 @@
         <text value="Check blood sugar levels before taking insulin"/>
     </note>
     <dosageInstruction>
+        <sequence value="2"/>
         <text value="inject 10 units subcut before breakfast"/>
         <additionalInstructions>
             <text value="Before Breakfast"/>
@@ -124,6 +125,7 @@
         </doseQuantity>
     </dosageInstruction>
     <dosageInstruction>
+        <sequence value="2"/>
         <text value="15 units before lunch"/>
         <additionalInstructions>
             <text value="Before Lunch"/>
@@ -143,6 +145,7 @@
         </doseQuantity>
     </dosageInstruction>
     <dosageInstruction>
+        <sequence value="1"/>
         <text value="20 units before dinner"/>
         <additionalInstructions>
             <text value="Before Dinner"/>

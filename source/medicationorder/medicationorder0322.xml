@@ -86,6 +86,7 @@
         </coding>
     </reasonCode>
     <dosageInstruction>
+        <sequence value="1"/>
         <text value="KCl 20 mEq in 1 L 0.9%NS IV at 100 ml/hr" />
         <timing>
             <repeat>

@@ -52,6 +52,7 @@
     </daysSupply>
     <whenPrepared value="2015-01-15T10:20:00Z"/>
     <dosageInstruction>
+        <sequence value="1"/>
         <text value="7mg (=one 5mg tablet PLUS one 2mg tablet) once daily"/>
         <additionalInstructions>
             <text value="Take along with one 2mg Coumadin tablet for a total daily dose of 7mg as prescribed by physician"></text>

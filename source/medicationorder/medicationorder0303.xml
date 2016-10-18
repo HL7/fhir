@@ -40,6 +40,7 @@
         <text value="Patient told to take with food"/>
     </note>
     <dosageInstruction>
+        <sequence value="1"/>
         <text value="Take 4 tablets daily for 7 days starting January 16, 2015" />
         <timing>
             <repeat>
@@ -74,6 +75,7 @@
         </doseQuantity>
     </dosageInstruction>
     <dosageInstruction>
+        <sequence value="2"/>
         <text value="Take 2 tablets daily for 7 days starting January 23, 2015" />
         <timing>
             <repeat>
@@ -108,6 +110,7 @@
         </doseQuantity>
     </dosageInstruction>
     <dosageInstruction>
+        <sequence value="3"/>
         <text value="Take 1 tablets daily for 7 days starting January 31, 2015" />
         <timing>
             <repeat>

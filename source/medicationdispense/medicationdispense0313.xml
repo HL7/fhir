@@ -98,6 +98,7 @@
     <whenPrepared value="2016-04-28T07:13:00+05:00"/>
     <whenHandedOver value="2016-04-28T07:13:00+05:00"/>
     <dosageInstruction>
+        <sequence value="1"/>
         <text value="KCl 20 mEq in 1 L 0.9%NS IV at 100 ml/hr" />
         <timing>
             <repeat>

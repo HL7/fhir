@@ -118,6 +118,7 @@
     <whenPrepared value="2015-01-15T10:20:00Z"/>
     <whenHandedOver value="2015-01-15T16:20:00Z"/>   
     <dosageInstruction>
+        <sequence value="1"/>
         <text value="Apply twice daily to affected area on left arm"/>
         <additionalInstructions>
             <text value="Apply sparingly"></text>

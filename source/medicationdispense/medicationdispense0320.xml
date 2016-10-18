@@ -88,6 +88,7 @@
     <whenPrepared value="2015-03-16T17:13:00+05:00"/>
     <whenHandedOver value="2015-03-17T17:13:00+05:00"/>
     <dosageInstruction>
+        <sequence value="1"/>
         <text value="1000mL infused at 50ml/hour for 4 hours - hang at 2200 hours" />
         <timing>
             <event value="2015-01-15T22:00:00+11:00"/>

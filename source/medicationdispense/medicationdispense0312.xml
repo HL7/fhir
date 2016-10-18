@@ -53,6 +53,7 @@
     <whenPrepared value="2015-01-15T10:20:00Z"/>
     <whenHandedOver value="2015-01-15T16:20:00Z"/>
     <dosageInstruction>
+        <sequence value="1"/>
         <text value="Take 1-2 tablets once daily at bedtime as needed for restless legs" />
         <additionalInstructions>
             <text value="Take at bedtime"/>

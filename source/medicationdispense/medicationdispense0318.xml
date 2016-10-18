@@ -42,6 +42,7 @@
     </daysSupply>
     <whenPrepared value="2015-03-16T17:13:00+05:00"/>
     <dosageInstruction>
+        <sequence value="1"/>
         <text value="75mcg daily daily" />
         <timing>
             <repeat>

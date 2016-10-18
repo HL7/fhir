@@ -32,6 +32,7 @@
         </coding>
     </reasonCode>
     <dosageInstruction>
+        <sequence value="1"/>
         <text value="75mcg daily" />
         <timing>
             <repeat>

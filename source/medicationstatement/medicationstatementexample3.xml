@@ -22,6 +22,7 @@
     <text value="Patient can not remember the name of the tablet, but takes it every day in the morning for water retention"/>
   </note>
   <dosage>
+    <sequence value="1"/>
     <text value="1 tablet per day" />
     <asNeededBoolean value="false" />
     <route>

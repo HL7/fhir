@@ -37,6 +37,7 @@
         <display value="Patrick Pump"/>
     </prescriber>
     <dosageInstruction>
+        <sequence value="1"/>
         <text value="Instil one drop in each eye twice daily" />
         <timing>
             <repeat>

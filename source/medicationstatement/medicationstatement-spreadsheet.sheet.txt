@@ -194,7 +194,7 @@
  -- Row 1 -----------------------------------
   Element = MedicationStatement
   Type = DomainResource
-  Short Label = Record of medication being taken by a patient
+  Short Name = Record of medication being taken by a patient
   Definition = A record of a medication that is being consumed by a patient.   A MedicationStatement may indicate that the patient may be taking the medication now, or has taken the medication in the past or will be taking the medication in the future.  The source of this information can be the patient, significant other (such as a family member or spouse), or a clinician.  A common scenario where this information is captured is during the history taking process during a patient visit or stay.   The medication information may come from e.g. the patient\'s memory, from a prescription bottle,  or from a list of medications the patient, clinician or other party maintains \r\rThe primary difference between a medication statement and a medication administration is that the medication administration has complete administration information and is based on actual administration information from the person who administered the medication.  A medication statement is often, if not always, less specific.  There is no required date/time when the medication was administered, in fact we only know that a source has reported the patient is taking this medication, where details such as time, quantity, or rate or even medication product may be incomplete or missing or less precise.  As stated earlier, the medication statement information may come from the patient\'s memory, from a prescription bottle or from a list of medications the patient, clinician or other party maintains.  Medication administration is more formal and is not missing detailed information.
   Comments = The WG will be updating the MedicationStatement resource  to adjust each affected resource to align with the workflow pattern (see workflow.html).
   RIM Mapping = SubstanceAdministration
@@ -204,7 +204,7 @@
   Element = MedicationStatement.identifier
   Card. = 0..*
   Type = Identifier
-  Short Label = External identifier
+  Short Name = External identifier
   Definition = External identifier - FHIR will generate its own internal identifiers (probably URLs) which do not need to be explicitly managed by the resource.  The identifier here is one that would be used by another non-FHIR system - for example an automated medication pump would provide a record each time it operated; an administration while the patient was off the ward might be made with a different system and entered after the event.  Particularly important if these records have to be updated.
   RIM Mapping = SubstanceAdministration.id
   w5 = id
@@ -216,7 +216,7 @@
   Summary = y
   Type = code
   Binding = MedicationStatementStatus
-  Short Label = active | completed | entered-in-error | intended | stopped | on-hold
+  Short Name = active | completed | entered-in-error | intended | stopped | on-hold
   Definition = A code representing the patient or other source\'s judgment about the state of the medication used that this statement is about.  Generally this will be active or completed.
   Comments = MedicationStatement is a statement at a point in time.  The status is only representative at the point when it was asserted.
   RIM Mapping = .statusCode
@@ -228,7 +228,7 @@
   Summary = y
   Type = CodeableConcept|Reference(Medication)
   Binding = MedicationCode
-  Short Label = What medication was taken
+  Short Name = What medication was taken
   Definition = Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.
   Comments = If only a code is specified, then it needs to be a code for a specific product.  If more information is required, then the use of the medication resource is recommended.  Note: do not use Medication.name to describe the medication this statement concerns. When the only available information is a text description of the medication, Medication.code.text should be used
   RIM Mapping = SubstanceAdministration>Component>SubstanceAdministrationRequest.consumable
@@ -239,7 +239,7 @@
   Card. = 1..1
   Summary = y
   Type = Reference(Patient)
-  Short Label = Who is/was taking  the medication
+  Short Name = Who is/was taking  the medication
   Definition = The person or animal who is/was taking the medication.
   v2 Mapping = PID-3-Patient ID List
   RIM Mapping = SubstanceAdministration->subject->Patient
@@ -250,7 +250,7 @@
   Card. = 0..1
   Summary = y
   Type = dateTime | Period
-  Short Label = Over what period was medication consumed?
+  Short Name = Over what period was medication consumed?
   Definition = The interval of time during which it is being asserted that the patient was taking the medication (or was not taking, when the wasNotGiven element is true).
   Comments = If the medication is still being taken at the time the statement is recorded, the \"end\" date will be omitted.
   RIM Mapping = SubstanceAdministration.effectiveTime
@@ -260,7 +260,7 @@
   Element = MedicationStatement.informationSource
   Card. = 0..1
   Type = Reference(Patient | Practitioner | RelatedPerson |Organization)
-  Short Label = Person or organization that provided the information about the taking of this medication
+  Short Name = Person or organization that provided the information about the taking of this medication
   Definition = The person or organization that provided the information about the taking of this medication. Note: Use derivedFrom when a MedicationStatement is derived from other resources, e.g Claim or MedicationOrder.
   RIM Mapping = .participation[typeCode=INF].role[classCode=PAT, or  codes for Practioner or Related Person (if PAT is the informer, then syntax for self-reported =true)
   w5 = who.source
@@ -269,7 +269,7 @@
   Element = MedicationStatement.derivedFrom
   Card. = 0..*
   Type = Reference(Any)
-  Short Label = Additional supporting information
+  Short Name = Additional supporting information
   Definition = Allows linking the MedicationStatement to the underlying MedicationOrder, or to other information that supports or is used to derive the MedicationStatement.
   Comments = Likely references would be to MedicationOrder, MedicationDispense, Claim, Observation or QuestionnaireAnswers.
   RIM Mapping = .outboundRelationship[typeCode=SPRT]/target[classCode=ACT,moodCode=EVN]
@@ -279,7 +279,7 @@
   Card. = 0..1
   Summary = y
   Type = dateTime
-  Short Label = When the statement was asserted?
+  Short Name = When the statement was asserted?
   Definition = The date when the medication statement was asserted by the information source.
   RIM Mapping = .participation[typeCode=AUT].time
 
@@ -290,7 +290,7 @@
   Summary = y
   Type = code
   Binding = MedicationStatementNotTaken
-  Short Label = Y | N | UNK
+  Short Name = Y | N | UNK
   Definition = Indicator of the certainty of whether the medication was taken by the patient
 
  -- Row 11 -----------------------------------
@@ -299,7 +299,7 @@
   Inv. = 1
   Type = CodeableConcept
   Binding = MedicationAdministrationNegationReason
-  Short Label = True if asserting medication was not given
+  Short Name = True if asserting medication was not given
   Definition = A code indicating why the medication was not taken.
   RIM Mapping = SubstanceAdministration->Reason->Observation->Value
 
@@ -308,7 +308,7 @@
   Card. = 0..*
   Type = CodeableConcept
   Binding = MedicationReason
-  Short Label = Reason for why the medication is being/was taken
+  Short Name = Reason for why the medication is being/was taken
   Definition = A reason for why the medication is being/was taken.
   Comments = This could be a diagnosis code. If a full condition record exists or additional detail is needed, use reasonForUseReference.
   RIM Mapping = .reasonCode
@@ -317,7 +317,7 @@
   Element = MedicationStatement.reasonForUseReference
   Card. = 0..*
   Type = Reference(Condition)
-  Short Label = Condition that supports why the medication is being/was taken
+  Short Name = Condition that supports why the medication is being/was taken
   Definition = Condition that supports why the medication is being/was taken.
   Comments = This is a reference to a condition that is the reason why the medication is being/was taken.  If only a code exists, use reasonForUseCode.
   RIM Mapping = not mapped
@@ -326,7 +326,7 @@
   Element = MedicationStatement.note
   Card. = 0..*
   Type = Annotation
-  Short Label = Further information about the statement
+  Short Name = Further information about the statement
   Definition = Provides extra information about the medication statement that is not conveyed by the other attributes.
   RIM Mapping = .inboundRelationship[typeCode=SUBJ]/source[classCode=OBS,moodCode=EVN,code=\"annotation\"].value
 
@@ -335,7 +335,7 @@
   Card. = 0..1
   Type = code
   Binding = MedicationStatementCategory
-  Short Label = Type of medication usage
+  Short Name = Type of medication usage
   Definition = Indicates where type of medication statement and where the medication is expected to be consumed or administered
   RIM Mapping = not mapped
 
@@ -343,96 +343,11 @@
   Element = MedicationStatement.dosage
   Card. = 0..*
   UML = right
-  Short Label = Details of how medication was taken
+  Type = DosageInstruction
+  Short Name = Details of how medication was taken
   Definition = Indicates how the medication is/was used by the patient
   RIM Mapping = SubstanceAdministration>Component>SubstanceAdministrationRequest
   Committee Notes = The RMIM has priority code on the act relationship.  How do we handle this?
-
- -- Row 17 -----------------------------------
-  Element = MedicationStatement.dosage.text
-  Card. = 0..1
-  Type = string
-  Short Label = Free text dosage instructions as reported by the information source
-  Definition = Free text dosage information as reported about a patient\'s medication use. When coded dosage information is present, the free text may still be present for display to humans.
-  RIM Mapping = .text
-
- -- Row 18 -----------------------------------
-  Element = MedicationStatement.dosage.additionalInstructions
-  Card. = 0..*
-  Type = CodeableConcept
-  Binding = AdditionalInstructions
-  Short Label = Supplemental instructions - e.g. \"with meals\"
-  Definition = Additional instructions such as \"Swallow with plenty of water\" which may or may not be coded.
-  RIM Mapping = .text
-
- -- Row 19 -----------------------------------
-  Element = MedicationStatement.dosage.timing
-  Card. = 0..1
-  Type = Timing
-  Short Label = When/how often was medication taken
-  Definition = The timing schedule for giving the medication to the patient.  The Schedule data type allows many different expressions, for example.  \"Every  8 hours\"; \"Three times a day\"; \"1/2 an hour before breakfast for 10 days from 23-Dec 2011:\";  \"15 Oct 2013, 17 Oct 2013 and 1 Nov 2013\".  Sometimes, a rate can imply duration when expressed as total volume / duration (e.g.  500mL/2 hours implies a duration of 2 hours).  However, when rate doesn\'t imply duration (e.g. 250mL/hour), then the timing.repeat.duration is needed to convey the infuse over time period.
-  RIM Mapping = .effectiveTime
-
- -- Row 20 -----------------------------------
-  Element = MedicationStatement.dosage.asNeeded[x]
-  Card. = 0..1
-  Type = boolean | CodeableConcept
-  Binding = MedicationAsNeededReason
-  Short Label = Take \"as needed\" (for x)
-  Definition = Indicates whether the Medication is only taken when needed within a specific dosing schedule (Boolean option), or it indicates the precondition for taking the Medication (CodeableConcept).  \r\rSpecifically if \'boolean\' datatype is selected, then the following logic applies:  If set to True, this indicates that the medication is only taken when needed, within the specified schedule.
-  RIM Mapping = boolean: .outboundRelationship[typeCode=PRCN].negationInd (inversed - so negationInd = true means asNeeded=false  CodeableConcept: .outboundRelationship[typCode=PRCN].target[classCode=OBS, moodCode=EVN, isCriterionInd=true, code=\"Assertion\"].value
-
- -- Row 21 -----------------------------------
-  Element = MedicationStatement.dosage.site[x]
-  Card. = 0..1
-  Type = CodeableConcept | Reference(BodySite)
-  Binding = MedicationAdministrationSite
-  Short Label = Where (on body) medication is/was administered
-  Definition = A coded specification of or a reference to the anatomic site where the medication first enters the body
-  RIM Mapping = .approachSiteCode
-
- -- Row 22 -----------------------------------
-  Element = MedicationStatement.dosage.route
-  Card. = 0..1
-  Type = CodeableConcept
-  Binding = RouteOfAdministration
-  Short Label = How the medication entered the body
-  Definition = A code specifying the route or physiological path of administration of a therapeutic agent into or onto a subject.
-  RIM Mapping = .routeCode
-
- -- Row 23 -----------------------------------
-  Element = MedicationStatement.dosage.method
-  Card. = 0..1
-  Type = CodeableConcept
-  Binding = MedicationAdministrationMethod
-  Short Label = Technique used to administer medication
-  Definition = A coded value indicating the method by which the medication is intended to be or was introduced into or on the body.  This attribute will most often NOT be populated.  It is most commonly used for injections.  For example, Slow Push, Deep IV.
-  Comments = One of the reasons this attribute is not used often, is that the method is often pre-coordinated with the route and/or form of administration.  This means the codes used in route or form may pre-coordinate the method in the route code or the form code.  The implementation decision about what coding system to use for route or form code will determine how frequently the method code will be populated e.g. if route or form code pre-coordinate method code, then this attribute will not be populated often; if there is no pre-coordination then method code may  be used frequently.
-  RIM Mapping = .methodCode
-
- -- Row 24 -----------------------------------
-  Element = MedicationStatement.dosage.dose[x]
-  Card. = 0..1
-  Type = SimpleQuantity | Range
-  Short Label = Amount of medication per dose
-  Definition = The amount of therapeutic or other substance given at one administration event.
-  RIM Mapping = .doseQuantity
-
- -- Row 25 -----------------------------------
-  Element = MedicationStatement.dosage.rate[x]
-  Card. = 0..1
-  Type = Ratio|Range| SimpleQuantity
-  Short Label = Dose quantity per unit of time
-  Definition = Identifies the speed with which the medication was or will be introduced into the patient. Typically the rate for an infusion e.g. 100 ml per 1 hour or 100 ml/hr.  May also be expressed as a rate per unit of time e.g. 500 ml per 2 hours.   Other examples: 200 mcg/min or 200 mcg/1 minute; 1 liter/8 hours.  Sometimes, a rate can imply duration when expressed as total volume / duration (e.g.  500mL/2 hours implies a duration of 2 hours).  However, when rate doesn\'t imply duration (e.g. 250mL/hour), then the timing.repeat.duration is needed to convey the infuse over time period.
-  RIM Mapping = .rateQuantity
-
- -- Row 26 -----------------------------------
-  Element = MedicationStatement.dosage.maxDosePerPeriod
-  Card. = 0..1
-  Type = Ratio
-  Short Label = Maximum dose that was consumed per unit of time
-  Definition = The maximum total quantity of a therapeutic substance that may be administered to a subject over the period of time.  For example, 1000mg in 24 hours.
-  RIM Mapping = .maxDoseQuantity
 
 === Sheet Search =====================================
 

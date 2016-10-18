@@ -55,6 +55,7 @@
         <text value="Patient told to take with food"/>
     </note>
     <dosageInstruction>
+        <sequence value="1"/>
         <text value="Two tablets at once" />
         <additionalInstructions>
             <coding>
@@ -92,6 +93,7 @@
         </doseQuantity>
     </dosageInstruction>
     <dosageInstruction>
+        <sequence value="2"/>
         <text value="One tablet daily for 4 days" />
         <additionalInstructions>
             <coding>

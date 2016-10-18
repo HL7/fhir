@@ -38,6 +38,7 @@
 		</coding>
 	</reasonCode>
 	<dosageInstruction>
+		<sequence value="1"/>
 		<text value="Take one tablet daily as directed"/>
 	</dosageInstruction>
 </MedicationOrder>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <MedicationOrder xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://hl7.org/fhir ../schema/medicationorder.xsd" xmlns="http://hl7.org/fhir">
+ xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationorder.xsd"
+ xmlns="http://hl7.org/fhir">
     <id value="medrx0302"/>
     <contained>
       <Medication>
@@ -47,6 +48,7 @@
         <text value="Patient told to take with food"/>
     </note>
     <dosageInstruction>
+        <sequence value="1"/>
         <text value="Two tablets at once" />
         <additionalInstructions>
             <coding>
@@ -84,6 +86,7 @@
         </doseQuantity>
     </dosageInstruction>
     <dosageInstruction>
+        <sequence value="2"/>
         <text value="One tablet daily for 4 days" />
         <additionalInstructions>
             <coding>

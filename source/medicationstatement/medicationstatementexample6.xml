@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- This example is a fully populated example where a care giver reports they are taking a certain medication and has the bottle  -->
 <MedicationStatement xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://hl7.org/fhir ../schema/medicationstatement.xsd"
+ xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationstatement.xsd"
  xmlns="http://hl7.org/fhir">
   <id value="example006"/>
   <status value="active" />
@@ -27,6 +27,7 @@
     <text value="Father indicates they miss the occasional dose"/>
   </note>
   <dosage>
+    <sequence value="1"/>
     <text value="5ml three times daily" />
     <asNeededBoolean value="false" />
     <route>

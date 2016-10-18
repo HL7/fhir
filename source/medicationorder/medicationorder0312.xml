@@ -36,6 +36,7 @@
         <text value="Patient should be counselled to ensure good dental hygiene"/>
     </note>
     <dosageInstruction>
+        <sequence value="1"/>
         <text value="100mg (4ml) three times daily" />
         <timing>
             <repeat>

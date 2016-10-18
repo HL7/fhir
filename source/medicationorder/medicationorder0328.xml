@@ -46,6 +46,7 @@
         <display value="Patrick Pump"/>
     </prescriber>
     <dosageInstruction>
+        <sequence value="1"/>
         <text value="Use 1 spray twice daily"/>
         <timing>
             <repeat>

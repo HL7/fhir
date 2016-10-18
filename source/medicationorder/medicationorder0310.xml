@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <MedicationOrder xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://hl7.org/fhir ../schema/medicationorder.xsd" xmlns="http://hl7.org/fhir">
+ xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationorder.xsd"
+ xmlns="http://hl7.org/fhir">
     <id value="medrx0310"/>
     <contained>
         <Medication>
@@ -37,6 +38,7 @@
         <display value="Patrick Pump"/>
     </prescriber>
     <dosageInstruction>
+        <sequence value="1"/>
         <text value="Take 1-2 tablets once daily at bedtime as needed for restless legs" />
         <additionalInstructions>
             <text value="Take at bedtime"/>

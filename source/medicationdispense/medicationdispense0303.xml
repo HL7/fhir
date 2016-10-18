@@ -52,6 +52,7 @@
     <whenPrepared value="2016-04-15T07:14:00+05:00"/>
     <whenHandedOver value="2016-04-15T07:14:00+05:00"/>
     <dosageInstruction>
+        <sequence value="1"/>
         <text value="one to two tablets every 4-6 hours as needed for rib pain" />
         <additionalInstructions>
             <coding>

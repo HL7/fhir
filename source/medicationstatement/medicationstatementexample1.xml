@@ -98,6 +98,7 @@
     <text value="Patient indicates they miss the occasional dose" />
   </note>
   <dosage>
+    <sequence value="1"/>
     <text value="1-2 tablets once daily at bedtime as needed for restless legs" />
     <additionalInstructions>
       <text value="Taking at bedtime"/>

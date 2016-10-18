@@ -28,6 +28,7 @@
         <display value="Patrick Pump"/>
     </prescriber>
     <dosageInstruction>
+        <sequence value="1"/>
         <text value="Use two sprays twice daily"/>
         <additionalInstructions>
             <text value="Shake Well"/>

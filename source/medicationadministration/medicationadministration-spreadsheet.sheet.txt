@@ -189,6 +189,25 @@
   w5 = context
 
  -- Row 7 -----------------------------------
+  Element = MedicationAdministration.supportingInformation
+  Card. = 0..*
+  Type = Reference(Any)
+  Short Name = Additional information to support administration
+  Definition = Additional information (for example, patient height and weight) that supports the administration of the medication.
+  w5 = context
+
+ -- Row 8 -----------------------------------
+  Element = MedicationAdministration.reasonReference
+  Card. = 0..*
+  Type = Reference(Condition |Observation)
+  Short Name = Condition or Observation that supports why the medication was administered
+  Definition = Condition or observation that supports why the medication was administered
+  Comments = This is a reference to a condition that is the reason for the medication order.  If only a code exists, use reasonCode.
+  RIM Mapping = reason.observation[code=ASSERTION].value
+  Prov Mapping = no mapping
+  w5 = why
+
+ -- Row 9 -----------------------------------
   Element = MedicationAdministration.effectiveTime[x]
   Card. = 1..1
   Summary = y
@@ -200,7 +219,7 @@
   Committee Notes = 2014-0917 HG: Chjanged name from whenGiven to effectiveTime and made datatype choice of period or dataTime
   w5 = when.done
 
- -- Row 8 -----------------------------------
+ -- Row 10 -----------------------------------
   Element = MedicationAdministration.performer
   Card. = 0..1
   Type = Reference(Practitioner | Patient | RelatedPerson)
@@ -210,7 +229,7 @@
   RIM Mapping = performer->Role
   w5 = who.actor
 
- -- Row 9 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = MedicationAdministration.prescription
   Card. = 0..1
   Type = Reference(MedicationOrder)
@@ -219,7 +238,7 @@
   v2 Mapping = ORC-2-Placer Order Number / ORC-3-Filler Order Number
   RIM Mapping = InFullfillmentOf->SubstanceAdministration
 
- -- Row 10 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = MedicationAdministration.notGiven
   Card. = 0..1
   Is Modifier = Y
@@ -231,7 +250,7 @@
   RIM Mapping = actionNegationInd
   Missing Meaning = If this is missing, then the medication was administered
 
- -- Row 11 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = MedicationAdministration.reasonNotGiven
   Card. = 0..*
   Inv. = 2
@@ -242,7 +261,7 @@
   v2 Mapping = RXA-9-Administration Notes / RXA-18 Substance/Treatment Refusal Reason
   RIM Mapping = Reason->Observation->Value
 
- -- Row 12 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = MedicationAdministration.reasonGiven
   Card. = 0..*
   Inv. = 3
@@ -253,7 +272,7 @@
   v2 Mapping = RXE-27 Give Indication
   RIM Mapping = . reasonCode
 
- -- Row 13 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = MedicationAdministration.device
   Card. = 0..*
   Type = Reference(Device)
@@ -262,7 +281,7 @@
   v2 Mapping = PRT-10 Participation Device / RXR-3 Administrative Device
   RIM Mapping = device->Access  OR device->AssignedDevice
 
- -- Row 14 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = MedicationAdministration.note
   Card. = 0..*
   Type = Annotation
@@ -270,7 +289,7 @@
   Definition = Extra information about the medication administration that is not conveyed by the other attributes.
   RIM Mapping = .inboundRelationship[typeCode=SUBJ]/source[classCode=OBS,moodCode=EVN,code=\"annotation\"].value
 
- -- Row 15 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = MedicationAdministration.dosage
   Card. = 0..1
   UML = right
@@ -278,7 +297,7 @@
   Definition = Describes the medication dosage information details e.g. dose, rate, site, route, etc.
   RIM Mapping = component->SubstanceAdministrationEvent
 
- -- Row 16 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = MedicationAdministration.dosage.text
   Card. = 0..1
   Type = string
@@ -286,7 +305,7 @@
   Definition = Free text dosage can be used for cases where the dosage administered is too complex to code. When coded dosage is present, the free text dosage may still be present for display to humans.\r\rThe dosage instructions should reflect the dosage of the medication that was administered.
   RIM Mapping = .text
 
- -- Row 17 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = MedicationAdministration.dosage.site[x]
   Card. = 0..1
   Type = CodeableConcept | Reference(BodySite)
@@ -296,7 +315,7 @@
   v2 Mapping = RXR-2 Administration Site / RXR-6 Administration Site Modifier
   RIM Mapping = approachSiteCode
 
- -- Row 18 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = MedicationAdministration.dosage.route
   Card. = 0..1
   Type = CodeableConcept
@@ -306,7 +325,7 @@
   v2 Mapping = RXR-1-Route
   RIM Mapping = routeCode
 
- -- Row 19 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = MedicationAdministration.dosage.method
   Card. = 0..1
   Type = CodeableConcept
@@ -317,7 +336,7 @@
   v2 Mapping = RXR-4-Administration Method
   RIM Mapping = methodCode
 
- -- Row 20 -----------------------------------
+ -- Row 22 -----------------------------------
   Element = MedicationAdministration.dosage.dose
   Card. = 0..1
   Type = SimpleQuantity
@@ -327,7 +346,7 @@
   v2 Mapping = RXA-6 Administered Amount / RXA-7 Administered Units
   RIM Mapping = doseQuantity
 
- -- Row 21 -----------------------------------
+ -- Row 23 -----------------------------------
   Element = MedicationAdministration.dosage.rate[x]
   Card. = 0..1
   Type = Ratio| SimpleQuantity
@@ -337,7 +356,7 @@
   v2 Mapping = RXA-12-Administered Per (Time Unit)
   RIM Mapping = rateQuantity
 
- -- Row 22 -----------------------------------
+ -- Row 24 -----------------------------------
   Element = MedicationAdministration.eventHistory
   Card. = 0..*
   Type = Reference(Provenance)

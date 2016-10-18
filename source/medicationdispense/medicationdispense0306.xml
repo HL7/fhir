@@ -52,6 +52,7 @@
     </daysSupply>
     <whenPrepared value="2015-01-15T10:20:00Z"/>
     <dosageInstruction>
+        <sequence value="1"/>
         <text value="Rapid daily-dose escalation, until tolerated, from 3 mg/d, and then 10 mg/d, to the recommended maintenance dose of 30 mg IV over 120 min, 3 times per wk on alternate days for up to 12 wk"/>
         <additionalInstructions>
             <text value="Rapidly increase dose until tolerated"></text>
@@ -90,6 +91,7 @@
         </doseQuantity>
     </dosageInstruction>
     <dosageInstruction>
+        <sequence value="2"/>
         <text
             value="Rapid daily-dose escalation, until tolerated, from 3 mg/d, and then 10 mg/d, to the recommended maintenance dose of 30 mg IV over 120 min, 3 times per wk on alternate days for up to 12 wk"/>
         <additionalInstructions>
@@ -129,6 +131,7 @@
         </doseQuantity>
     </dosageInstruction>  
     <dosageInstruction>
+        <sequence value="3"/>
         <text
             value="Rapid daily-dose escalation, until tolerated, from 3 mg/d, and then 10 mg/d, to the recommended maintenance dose of 30 mg IV over 120 min, 3 times per wk on alternate days for up to 12 wk"/>
         <additionalInstructions>

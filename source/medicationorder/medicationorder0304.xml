@@ -37,6 +37,7 @@
         <display value="Patrick Pump"/>
     </prescriber>
     <dosageInstruction>
+        <sequence value="1"/>
         <text value="10 drops four times daily - apply in mouth using cotton swab or finger"/>
         <timing>
             <repeat>

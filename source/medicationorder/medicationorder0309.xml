@@ -37,6 +37,7 @@
         <display value="Patrick Pump"/>
     </prescriber>
     <dosageInstruction>
+        <sequence value="1"/>
         <text value="1000 mg/m2 orally twice daily from days 1-14 of cycle" />
         <timing>
             <repeat>

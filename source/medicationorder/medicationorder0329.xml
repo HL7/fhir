@@ -103,6 +103,7 @@
         <display value="Patrick Pump"/>
     </prescriber>
     <dosageInstruction>
+        <sequence value="1"/>
         <text value="Apply twice daily to affected area on left arm"/>
         <additionalInstructions>
             <text value="Apply sparingly"></text>

@@ -52,6 +52,7 @@
         <display value="Patrick Pump"/>
     </prescriber>
     <dosageInstruction>
+        <sequence value="1"/>
         <text value="1.8 mg/kg IV infusion over 30 minutes every 3 weeks for 16 cycles" />
         <timing>
             <repeat>
