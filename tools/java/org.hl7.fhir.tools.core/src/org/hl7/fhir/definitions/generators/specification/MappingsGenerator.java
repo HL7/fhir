@@ -161,7 +161,7 @@ public class MappingsGenerator {
         s.append(e.getPath());
       else
         s.append(tail(e.getPath()));
-      s.append("</td><td>"+Utilities.escapeXml(e.getName())+"</td>");
+      s.append("</td><td>"+Utilities.escapeXml(e.getSliceName())+"</td>");
       ElementDefinitionMappingComponent m = getMap(e, id);
       if (m == null)
         s.append("<td></td>");

@@ -894,7 +894,7 @@ public class VersionConvertor_10_20 {
     for (org.hl7.fhir.dstu2.model.Enumeration<org.hl7.fhir.dstu2.model.ElementDefinition.PropertyRepresentation> t : src.getRepresentation())
       tgt.addRepresentation(convertPropertyRepresentation(t.getValue()));
     if (src.hasName()) {
-      tgt.setName(src.getName());
+      tgt.setSliceName(src.getName());
       tgt.setId(src.getName());
     }
     if (src.hasLabel()) 
@@ -964,7 +964,10 @@ public class VersionConvertor_10_20 {
     tgt.setPath(src.getPath());
     for (org.hl7.fhir.dstu3.model.Enumeration<org.hl7.fhir.dstu3.model.ElementDefinition.PropertyRepresentation> t : src.getRepresentation())
       tgt.addRepresentation(convertPropertyRepresentation(t.getValue()));
-    tgt.setName(src.getId());
+    if (src.hasSliceName())
+      tgt.setName(src.getSliceName());
+    else
+      tgt.setName(src.getId());
     tgt.setLabel(src.getLabel());
     for (org.hl7.fhir.dstu3.model.Coding t : src.getCode())
       tgt.addCode(convertCoding(t));

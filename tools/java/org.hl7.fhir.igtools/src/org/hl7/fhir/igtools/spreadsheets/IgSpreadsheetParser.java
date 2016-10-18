@@ -663,7 +663,7 @@ public class IgSpreadsheetParser {
       e.setMin(Integer.parseInt(card[0]));
       e.setMax("*".equals(card[1]) ? "*" : card[1]);
     }
-    e.setName(profileName);
+    e.setSliceName(profileName);
     if (!Utilities.noString(discriminator)) {
       e.getSlicing().setRules(SlicingRules.OPEN);
       for (String d : discriminator.split("\\,"))
@@ -1010,7 +1010,7 @@ public class IgSpreadsheetParser {
     ex.setTitle(sheet.getColumn(row, "Display"));
     ElementDefinition exe = ex.getDifferential().addElement();
     exe.setPath("Extension");
-    exe.setName(sheet.getColumn(row, "Code"));
+    exe.setSliceName(sheet.getColumn(row, "Code"));
     
     ElementDefinition exu = ex.getDifferential().addElement();
     exu.setPath("Extension.url");
@@ -1052,7 +1052,7 @@ public class IgSpreadsheetParser {
       String n = sheet.getColumn(row, "Code");
       ElementDefinition child = ex.getDifferential().addElement();
       child.setPath("Extension.extension");
-      child.setName(n.substring(n.lastIndexOf(".")+1));
+      child.setSliceName(n.substring(n.lastIndexOf(".")+1));
       parseExtensionElement(sheet, row, ex, child, true);
       if (invariants != null) {
         for (ElementDefinitionConstraintComponent inv : invariants.values()) {

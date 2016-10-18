@@ -105,7 +105,7 @@ public class ReviewSpreadsheetGenerator {
       if (ed.getType().size() == 0) {
         cell = row.createCell(c++);
         cell.setCellStyle(style);
-        cell.setCellValue(ed.getName());
+        cell.setCellValue(ed.getSliceName());
         
         cell = row.createCell(c++);
         cell.setCellStyle(style);
@@ -125,7 +125,7 @@ public class ReviewSpreadsheetGenerator {
       } else {
         cell = row.createCell(c++);
         cell.setCellStyle(style);
-        cell.setCellValue(ed.getName());
+        cell.setCellValue(ed.getSliceName());
         cell = row.createCell(c++);
         cell.setCellStyle(style);
         cell.setCellValue(describeBinding(profile, ed));

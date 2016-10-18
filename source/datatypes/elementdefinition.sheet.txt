@@ -259,9 +259,11 @@
   Expression = defaultValue.empty() or meaningWhenMissing.empty()
 
  -- Row 15 -----------------------------------
-  Id = !16
+  Id = 16
   Context = ElementDefinition
-  English = min[x] and max[x] only when the type is appropriate
+  English = sliceName must be a proper token
+  XPath = not(exists(f:/sliceName/@value)) or matches(f:/sliceName/@value, \'^[a-zA-Z0-9\\\\-\\\\_]+$\')
+  Expression = sliceName.empty() or sliceName.matches(\'^[a-zA-Z0-9\\\\-\\\\_]+$\')
 
 === Sheet Data Elements =====================================
 
@@ -300,11 +302,11 @@
   11179 Mapping = n/a
 
  -- Row 4 -----------------------------------
-  Element = ElementDefinition.name
+  Element = ElementDefinition.sliceName
   Card. = 0..1
   Type = string
-  Short Name = Name for this particular element definition (reference target)
-  Definition = The name of this element definition. This is a unique name referring to a specific set of constraints applied to this element, used to provide a name to different slices of the same element
+  Short Name = Name for this particular element (in a set of slices)
+  Definition = The name of this element definition slice, when slicing is working. The name must be a token with no dots or spaces. This is a unique name referring to a specific set of constraints applied to this element, used to provide a name to different slices of the same element
   Requirements = May also be used for code generation purposes
   Comments = The name SHALL be unique within the structure within the context of the constrained resource element.  (Though to avoid confusion, uniqueness across all elements is recommended.)
   v2 Mapping = N/A

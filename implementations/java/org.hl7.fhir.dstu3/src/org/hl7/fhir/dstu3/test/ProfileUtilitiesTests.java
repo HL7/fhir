@@ -576,7 +576,7 @@ public class ProfileUtilitiesTests {
     // first slice: 
     id = focus.getDifferential().addElement();
     id.setPath("Patient.identifier");
-    id.setName("name1");
+    id.setSliceName("name1");
     id = focus.getDifferential().addElement();
     id.setPath("Patient.identifier.use");
     id.setFixed(new CodeType("usual"));
@@ -584,7 +584,7 @@ public class ProfileUtilitiesTests {
     // second slice:
     id = focus.getDifferential().addElement();
     id.setPath("Patient.identifier");
-    id.setName("name2");
+    id.setSliceName("name2");
     id = focus.getDifferential().addElement();
     id.setPath("Patient.identifier.use");
     id.setFixed(new CodeType("official"));
@@ -625,10 +625,10 @@ public class ProfileUtilitiesTests {
           }
         }
         if (d1.getPath().equals("Patient.identifier")) {
-          ok = d1.hasName() && d2.hasName() && !Base.compareDeep(d1.getNameElement(), d2.getNameElement(), true);
+          ok = d1.hasSliceName() && d2.hasSliceName() && !Base.compareDeep(d1.getSliceNameElement(), d2.getSliceNameElement(), true);
           if (ok) {
-            d1.setName(null);
-            d2.setName(null);
+            d1.setSliceName(null);
+            d2.setSliceName(null);
           }
         }
         ok = Base.compareDeep(d1, d2, true);
@@ -669,14 +669,14 @@ public class ProfileUtilitiesTests {
     // first slice: 
     id = focus.getDifferential().addElement();
     id.setPath("Patient.extension");
-    id.setName("name1");
+    id.setSliceName("name1");
     id.addType().setCode("Extension").setProfile("http://hl7.org/fhir/StructureDefinition/patient-birthTime");
     id.setMin(1);
     
     // second slice:
     id = focus.getDifferential().addElement();
     id.setPath("Patient.extension");
-    id.setName("name2");
+    id.setSliceName("name2");
     id.addType().setCode("Extension").setProfile("http://hl7.org/fhir/StructureDefinition/patient-mothersMaidenName");    
     
     List<ValidationMessage> messages = new ArrayList<ValidationMessage>();
@@ -714,8 +714,8 @@ public class ProfileUtilitiesTests {
       if (ok) {
         d1.getType().clear();
         d2.getType().clear();
-        d1.setName("x");
-        d2.setName("x");
+        d1.setSliceName("x");
+        d2.setSliceName("x");
         d1.setMin(0);
       }
       ok = Base.compareDeep(d1, d2, true);
@@ -754,14 +754,14 @@ public class ProfileUtilitiesTests {
     // first slice  - a simple one to get us going: 
     id = focus.getDifferential().addElement();
     id.setPath("Patient.extension");
-    id.setName("simple");
+    id.setSliceName("simple");
     id.addType().setCode("Extension").setProfile("http://hl7.org/fhir/StructureDefinition/patient-birthTime");
     
     // second slice - the complex one
     // we walk into this and fix properties on the inner extensions
     id = focus.getDifferential().addElement();
     id.setPath("Patient.extension");
-    id.setName("complex");
+    id.setSliceName("complex");
     id.addType().setCode("Extension").setProfile("http://hl7.org/fhir/StructureDefinition/patient-nationality");
     if (!implicit) {
       id = focus.getDifferential().addElement();
@@ -770,13 +770,13 @@ public class ProfileUtilitiesTests {
     }
     id = focus.getDifferential().addElement();
     id.setPath("Patient.extension.extension");
-    id.setName("code");
+    id.setSliceName("code");
     id.setMustSupport(true);
     id.addType().setCode("Extension").setProfile("http://hl7.org/fhir/StructureDefinition/patient-nationality#code");
     
     id = focus.getDifferential().addElement();
     id.setPath("Patient.extension.extension");
-    id.setName("period");
+    id.setSliceName("period");
     id.addType().setCode("Extension").setProfile("http://hl7.org/fhir/StructureDefinition/patient-nationality#period");
     id.setMax("0"); // prohibit this one....
         
@@ -790,10 +790,10 @@ public class ProfileUtilitiesTests {
     ok = ok && rule(focus.getSnapshot().getElement().get(7).getPath().equals("Patient.extension"), "element 7 (base) path");
     ok = ok && rule(focus.getSnapshot().getElement().get(7).hasSlicing(), "element 7 slicing");
     ok = ok && rule(focus.getSnapshot().getElement().get(8).getPath().equals("Patient.extension"), "element 8 (1st slice) path");
-    ok = ok && rule(focus.getSnapshot().getElement().get(8).getName().equals("simple"), "element 8 (1st slice) name");
+    ok = ok && rule(focus.getSnapshot().getElement().get(8).getSliceName().equals("simple"), "element 8 (1st slice) name");
     ok = ok && rule(focus.getSnapshot().getElement().get(8).getType().get(0).getProfile().equals("http://hl7.org/fhir/StructureDefinition/patient-birthTime"), "element 9 (2nd slice) profile name");
     ok = ok && rule(focus.getSnapshot().getElement().get(9).getPath().equals("Patient.extension"), "element 9 (2nd slice) path");
-    ok = ok && rule(focus.getSnapshot().getElement().get(9).getName().equals("complex"), "element 8 (1st slice) name");
+    ok = ok && rule(focus.getSnapshot().getElement().get(9).getSliceName().equals("complex"), "element 8 (1st slice) name");
     ok = ok && rule(focus.getSnapshot().getElement().get(9).getType().get(0).getProfile().equals("http://hl7.org/fhir/StructureDefinition/patient-nationality"), "element 9 (2nd slice) profile name");
     ok = ok && rule(focus.getSnapshot().getElement().get(10).getPath().equals("Patient.extension.id"), "element 10 (2nd slice).id path");
     ok = ok && rule(focus.getSnapshot().getElement().get(11).getPath().equals("Patient.extension.extension"), "element 11 (2nd slice).extension path");
@@ -854,7 +854,7 @@ public class ProfileUtilitiesTests {
         
     id = focus.getDifferential().addElement();
     id.setPath("Organization.address.extension");
-    id.setName("USLabCountycodes");
+    id.setSliceName("USLabCountycodes");
     id.getSlicing().setOrdered(false).setRules(SlicingRules.OPEN).addDiscriminator("url");
     id.setShort("County/Parish FIPS codes");
     id.setDefinition("County/Parish FIPS codes.");

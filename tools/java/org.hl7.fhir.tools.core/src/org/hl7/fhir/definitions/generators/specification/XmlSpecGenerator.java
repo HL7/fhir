@@ -120,7 +120,7 @@ public class XmlSpecGenerator extends OutputStreamWriter {
       write("<span title=\"" + Utilities.escapeXml(root.getDefinition())
           + "\"><b>");
     else
-      write("<a href=\"" + (defPage + "#" + root.getName()) + "\" title=\""
+      write("<a href=\"" + (defPage + "#" + root.getSliceName()) + "\" title=\""
           + Utilities.escapeXml(root.getDefinition())
           + "\" class=\"dict\"><b>");
     write(rn);

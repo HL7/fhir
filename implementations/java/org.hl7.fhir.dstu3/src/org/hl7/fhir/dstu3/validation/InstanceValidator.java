@@ -1032,7 +1032,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     }
 
     if (context.hasFixed())
-      checkFixedValue(errors,path,e, context.getFixed(), context.getName(), null);
+      checkFixedValue(errors,path,e, context.getFixed(), context.getSliceName(), null);
 
     // for nothing to check
   }
@@ -2536,7 +2536,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     //		time = System.nanoTime();
     checkInvariants(errors, stack.getLiteralPath(), profile, definition, null, null, resource, element);
     if (definition.getFixed()!=null)
-      checkFixedValue(errors, stack.getLiteralPath(), element, definition.getFixed(), definition.getName(), null);
+      checkFixedValue(errors, stack.getLiteralPath(), element, definition.getFixed(), definition.getSliceName(), null);
 
 
     // get the list of direct defined children, including slices
@@ -2663,7 +2663,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
         for (ElementInfo ei : children)
           if (ei.definition == ed)
             count++;
-        String location = "Profile " + profile.getUrl() + ", Element '" + stack.getLiteralPath() + "." + tail(ed.getPath()) + (ed.hasName()? "[" + ed.getName() + "]": "");
+        String location = "Profile " + profile.getUrl() + ", Element '" + stack.getLiteralPath() + "." + tail(ed.getPath()) + (ed.hasSliceName()? "[" + ed.getSliceName() + "]": "");
         if (ed.getMin() > 0) {
           if (problematicPaths.contains(ed.getPath()))
             hint(errors, IssueType.NOTSUPPORTED, element.line(), element.col(), stack.getLiteralPath(), count >= ed.getMin(),

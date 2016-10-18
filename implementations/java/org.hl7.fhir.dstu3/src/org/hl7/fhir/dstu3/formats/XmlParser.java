@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Tue, Oct 18, 2016 10:55+1100 for FHIR v1.7.0
+// Generated on Tue, Oct 18, 2016 15:43+1100 for FHIR v1.7.0
 
 import org.hl7.fhir.dstu3.model.DateType;
 import org.hl7.fhir.dstu3.model.DateTimeType;
@@ -1355,8 +1355,8 @@ public class XmlParser extends XmlParserBase {
         res.setPathElement(parseString(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("representation")) {
         res.getRepresentation().add(parseEnumeration(xpp, ElementDefinition.PropertyRepresentation.NULL, new ElementDefinition.PropertyRepresentationEnumFactory()));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("name")) {
-        res.setNameElement(parseString(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("sliceName")) {
+        res.setSliceNameElement(parseString(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("label")) {
         res.setLabelElement(parseString(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("code")) {
@@ -18828,8 +18828,8 @@ public class XmlParser extends XmlParserBase {
         if (element.hasRepresentation()) 
           for (Enumeration<ElementDefinition.PropertyRepresentation> e : element.getRepresentation()) 
             composeEnumeration("representation", e, new ElementDefinition.PropertyRepresentationEnumFactory());
-      if (element.hasNameElement()) {
-        composeString("name", element.getNameElement());
+      if (element.hasSliceNameElement()) {
+        composeString("sliceName", element.getSliceNameElement());
       }
       if (element.hasLabelElement()) {
         composeString("label", element.getLabelElement());

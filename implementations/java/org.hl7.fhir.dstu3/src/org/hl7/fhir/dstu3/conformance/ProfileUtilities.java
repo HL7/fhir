@@ -111,7 +111,7 @@ public class ProfileUtilities {
       if (element == defn.getSnapshot().getElement().get(0))
         return defn.getUrl();
       else
-        return element.getName();
+        return element.getSliceName();
     }
 
     public ElementDefinition getExtensionValueDefinition() {
@@ -348,7 +348,7 @@ public class ProfileUtilities {
             throw new DefinitionException("Adding wrong path");
           result.getElement().add(outcome);
           baseCursor++;
-        } else if (diffMatches.size() == 1 && (slicingDone || (!diffMatches.get(0).hasSlicing() && !(isExtension(diffMatches.get(0)) && !diffMatches.get(0).hasName())))) {// one matching element in the differential
+        } else if (diffMatches.size() == 1 && (slicingDone || (!diffMatches.get(0).hasSlicing() && !(isExtension(diffMatches.get(0)) && !diffMatches.get(0).hasSliceName())))) {// one matching element in the differential
           ElementDefinition template = null;
           if (diffMatches.get(0).hasType() && diffMatches.get(0).getType().size() == 1 && diffMatches.get(0).getType().get(0).hasProfile() && !diffMatches.get(0).getType().get(0).getCode().equals("Reference")) {
             String p = diffMatches.get(0).getType().get(0).getProfile();
@@ -361,7 +361,7 @@ public class ProfileUtilities {
                 generateSnapshot(sdb, sd, sd.getUrl(), sd.getName());
               }
               template = sd.getSnapshot().getElement().get(0).copy().setPath(currentBase.getPath());
-              template.setName(null);
+              template.setSliceName(null);
               // temporary work around
               if (!diffMatches.get(0).getType().get(0).getCode().equals("Extension")) {
                 template.setMin(currentBase.getMin());
@@ -377,8 +377,8 @@ public class ProfileUtilities {
           ElementDefinition outcome = updateURLs(url, template);
           outcome.setPath(fixedPath(contextPathDst, outcome.getPath()));
           updateFromBase(outcome, currentBase);
-          if (diffMatches.get(0).hasName())
-          outcome.setName(diffMatches.get(0).getName());
+          if (diffMatches.get(0).hasSliceName())
+          outcome.setSliceName(diffMatches.get(0).getSliceName());
           outcome.setSlicing(null);
           updateFromDefinition(outcome, diffMatches.get(0), profileName, trimDifferential, url);
           if (outcome.getPath().endsWith("[x]") && outcome.getType().size() == 1 && !outcome.getType().get(0).getCode().equals("*")) // if the base profile allows multiple types, but the profile only allows one, rename it
@@ -410,7 +410,7 @@ public class ProfileUtilities {
           if (!unbounded(currentBase) && !isSlicedToOneOnly(diffMatches.get(0)))
             // you can only slice an element that doesn't repeat if the sum total of your slices is limited to 1
             // (but you might do that in order to split up constraints by type)
-            throw new DefinitionException("Attempt to a slice an element that does not repeat: "+currentBase.getPath()+"/"+currentBase.getName()+" from "+contextName+" in "+url);
+            throw new DefinitionException("Attempt to a slice an element that does not repeat: "+currentBase.getPath()+"/"+currentBase.getSliceName()+" from "+contextName+" in "+url);
           if (!diffMatches.get(0).hasSlicing() && !isExtension(currentBase)) // well, the diff has set up a slice, but hasn't defined it. this is an error
             throw new DefinitionException("differential does not have a slice: "+currentBase.getPath()+" in profile "+url);
 
@@ -430,7 +430,7 @@ public class ProfileUtilities {
 
           // differential - if the first one in the list has a name, we'll process it. Else we'll treat it as the base definition of the slice.
           int start = 0;
-          if (!diffMatches.get(0).hasName()) {
+          if (!diffMatches.get(0).hasSliceName()) {
             updateFromDefinition(outcome, diffMatches.get(0), profileName, trimDifferential, url);
             if (!outcome.hasType()) {
               throw new DefinitionException("not done yet");
@@ -501,7 +501,7 @@ public class ProfileUtilities {
             updateFromSlicing(outcome.getSlicing(), diffMatches.get(0).getSlicing());
             updateFromDefinition(outcome, diffMatches.get(0), profileName, closed, url); // if there's no slice, we don't want to update the unsliced description
           }
-          if (diffMatches.get(0).hasSlicing() && !diffMatches.get(0).hasName())
+          if (diffMatches.get(0).hasSlicing() && !diffMatches.get(0).hasSliceName())
             diffpos++;
             
           result.getElement().add(outcome);
@@ -516,7 +516,7 @@ public class ProfileUtilities {
             outcome.setSlicing(null);
             if (!outcome.getPath().startsWith(resultPathBase))
               throw new DefinitionException("Adding wrong path");
-            if (diffpos < diffMatches.size() && diffMatches.get(diffpos).getName().equals(outcome.getName())) {
+            if (diffpos < diffMatches.size() && diffMatches.get(diffpos).getSliceName().equals(outcome.getSliceName())) {
               // if there's a diff, we update the outcome with diff
               // no? updateFromDefinition(outcome, diffMatches.get(diffpos), profileName, closed, url);
               //then process any children
@@ -549,7 +549,7 @@ public class ProfileUtilities {
           while (diffpos < diffMatches.size()) {
             ElementDefinition diffItem = diffMatches.get(diffpos);
             for (ElementDefinition baseItem : baseMatches)
-              if (baseItem.getName().equals(diffItem.getName()))
+              if (baseItem.getSliceName().equals(diffItem.getSliceName()))
                 throw new DefinitionException("Named items are out of order in the slice");
             outcome = updateURLs(url, original.copy());
             outcome.setPath(fixedPath(contextPathDst, outcome.getPath()));
@@ -609,8 +609,8 @@ public class ProfileUtilities {
 
   private ElementDefinition overWriteWithCurrent(ElementDefinition profile, ElementDefinition usage) {
     ElementDefinition res = profile.copy();
-    if (usage.hasName())
-      res.setName(usage.getName());
+    if (usage.hasSliceName())
+      res.setSliceName(usage.getSliceName());
     if (usage.hasLabel())
       res.setLabel(usage.getLabel());
     for (Coding c : usage.getCode())
@@ -939,8 +939,8 @@ public class ProfileUtilities {
     if (derived != null) {
       boolean isExtension = checkExtensionDoco(base);
 
-      if (derived.hasName()) {
-        base.setName(derived.getName());
+      if (derived.hasSliceName()) {
+        base.setSliceName(derived.getSliceName());
       }
       
       if (derived.hasShortElement()) {
@@ -1581,7 +1581,7 @@ public class ProfileUtilities {
 
   private ElementDefinition getElementByName(List<ElementDefinition> elements, String contentReference) {
     for (ElementDefinition ed : elements)
-      if (ed.hasName() && ("#"+ed.getName()).equals(contentReference))
+      if (ed.hasSliceName() && ("#"+ed.getSliceName()).equals(contentReference))
         return ed;
     return null;
   }
@@ -1824,7 +1824,7 @@ public class ProfileUtilities {
       String tail = value.substring(value.indexOf("#")+1);
       ElementDefinition ed = null;
       for (ElementDefinition ted : ext.getSnapshot().getElement()) {
-        if (tail.equals(ted.getName())) {
+        if (tail.equals(ted.getSliceName())) {
           ed = ted;
           return new ExtensionContext(ext, ed);
         }
@@ -1848,7 +1848,7 @@ public class ProfileUtilities {
       String tail = value.substring(value.indexOf("#")+1);
       ElementDefinition ed = null;
       for (ElementDefinition ted : ext.getSnapshot().getElement()) {
-        if (tail.equals(ted.getName())) {
+        if (tail.equals(ted.getSliceName())) {
           ed = ted;
           break;
         }
@@ -2043,7 +2043,7 @@ public class ProfileUtilities {
   }
 
   private boolean onlyInformationIsMapping(List<ElementDefinition> list, ElementDefinition e) {
-    return (!e.hasName() && !e.hasSlicing() && (onlyInformationIsMapping(e))) &&
+    return (!e.hasSliceName() && !e.hasSlicing() && (onlyInformationIsMapping(e))) &&
         getChildren(list, e).isEmpty();
   }
 
@@ -2168,8 +2168,8 @@ public class ProfileUtilities {
 
     @Override
     public String toString() {
-      if (self.hasName())
-        return self.getPath()+"("+self.getName()+")";
+      if (self.hasSliceName())
+        return self.getPath()+"("+self.getSliceName()+")";
       else
         return self.getPath();
     }
@@ -2350,8 +2350,8 @@ public class ProfileUtilities {
       String path2 = normalizePath(o2);
       int cmp = path1.compareTo(path2);
       if (cmp == 0) {
-        String name1 = o1.hasName() ? o1.getName() : "";
-        String name2 = o2.hasName() ? o2.getName() : "";
+        String name1 = o1.hasSliceName() ? o1.getSliceName() : "";
+        String name2 = o2.hasSliceName() ? o2.getSliceName() : "";
         cmp = name1.compareTo(name2);
       }
       return cmp;
@@ -2516,7 +2516,7 @@ public class ProfileUtilities {
       while (depth < paths.size() && paths.size() > 0)
         paths.remove(paths.size() - 1);
       
-      String t = ed.hasName() ? tail+":"+checkName(ed.getName()) : name != null ? tail + ":"+checkName(name) : tail;
+      String t = ed.hasSliceName() ? tail+":"+checkName(ed.getSliceName()) : name != null ? tail + ":"+checkName(name) : tail;
       if (isExtension(ed))
         t = t + describeExtension(ed);
       name = null;
@@ -2534,7 +2534,6 @@ public class ProfileUtilities {
         String s = ed.getContentReference().substring(1);
         if (idMap.containsKey(s))
           ed.setContentReference("#"+idMap.get(s));
-        
       }
     }  
     // second path - fix up any broken path based id references
@@ -2787,10 +2786,10 @@ public class ProfileUtilities {
     int i = 0;
     for (ElementDefinition ed : slices) {
       if (ed.hasUserData("slice-name")) {
-        ed.setName(ed.getUserString("slice-name"));
+        ed.setSliceName(ed.getUserString("slice-name"));
       } else {
         i++;
-        ed.setName("slice-"+Integer.toString(i));
+        ed.setSliceName("slice-"+Integer.toString(i));
       }
     }
     // now, the hard bit, how are they differentiated? 

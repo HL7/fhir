@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Tue, Oct 18, 2016 10:55+1100 for FHIR v1.7.0
+// Generated on Tue, Oct 18, 2016 15:43+1100 for FHIR v1.7.0
 
 import org.hl7.fhir.dstu3.model.DateType;
 import org.hl7.fhir.dstu3.model.DateTimeType;
@@ -1145,10 +1145,10 @@ public class JsonParser extends JsonParserBase {
           parseElementProperties(array.get(i).getAsJsonObject(), res.getRepresentation().get(i));
       }
     };
-    if (json.has("name"))
-      res.setNameElement(parseString(json.get("name").getAsString()));
-    if (json.has("_name"))
-      parseElementProperties(json.getAsJsonObject("_name"), res.getNameElement());
+    if (json.has("sliceName"))
+      res.setSliceNameElement(parseString(json.get("sliceName").getAsString()));
+    if (json.has("_sliceName"))
+      parseElementProperties(json.getAsJsonObject("_sliceName"), res.getSliceNameElement());
     if (json.has("label"))
       res.setLabelElement(parseString(json.get("label").getAsString()));
     if (json.has("_label"))
@@ -20203,9 +20203,9 @@ public class JsonParser extends JsonParserBase {
           closeArray();
         }
       };
-      if (element.hasNameElement()) {
-        composeStringCore("name", element.getNameElement(), false);
-        composeStringExtras("name", element.getNameElement(), false);
+      if (element.hasSliceNameElement()) {
+        composeStringCore("sliceName", element.getSliceNameElement(), false);
+        composeStringExtras("sliceName", element.getSliceNameElement(), false);
       }
       if (element.hasLabelElement()) {
         composeStringCore("label", element.getLabelElement(), false);

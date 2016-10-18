@@ -96,7 +96,7 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
 	      }
 	    } else {
 	      String name = profile.getId()+"."+ makePathLink(ec);
-	      String title = ec.getPath() + (!ec.hasName() ? "" : "(" +ec.getName() +")");
+	      String title = ec.getPath() + (!ec.hasSliceName() ? "" : "(" +ec.getSliceName() +")");
 	      write("  <tr><td colspan=\"2\" class=\"structure\"><a name=\""+name+"\"> </a><b>"+title+"</b></td></tr>\r\n");
 	      generateElementInner(profile, ec, 1, null);
 	      if (ec.hasSlicing())
@@ -136,7 +136,7 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
         }
       } else {
         String name = makePathLink(ec);
-        String title = ec.getPath() + (!ec.hasName() ? "" : "(" +ec.getName() +")");
+        String title = ec.getPath() + (!ec.hasSliceName() ? "" : "(" +ec.getSliceName() +")");
         write("  <tr><td colspan=\"2\" class=\"structure\"><a name=\""+name+"\"> </a><b>"+title+"</b></td></tr>\r\n");
         generateElementInner(ed, ec, 1, null);
         //          if (ec.hasSlicing())

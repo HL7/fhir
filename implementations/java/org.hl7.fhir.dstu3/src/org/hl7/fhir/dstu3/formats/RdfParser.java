@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Tue, Oct 18, 2016 10:55+1100 for FHIR v1.7.0
+// Generated on Tue, Oct 18, 2016 15:43+1100 for FHIR v1.7.0
 
 import org.hl7.fhir.dstu3.model.DateType;
 import org.hl7.fhir.dstu3.model.DateTimeType;
@@ -898,8 +898,8 @@ public class RdfParser extends RdfParserBase {
       composeString(t, "ElementDefinition", "path", element.getPathElement(), -1);
     for (int i = 0; i < element.getRepresentation().size(); i++)
       composeEnum(t, "ElementDefinition", "representation", element.getRepresentation().get(i), i);
-    if (element.hasNameElement())
-      composeString(t, "ElementDefinition", "name", element.getNameElement(), -1);
+    if (element.hasSliceNameElement())
+      composeString(t, "ElementDefinition", "sliceName", element.getSliceNameElement(), -1);
     if (element.hasLabelElement())
       composeString(t, "ElementDefinition", "label", element.getLabelElement(), -1);
     for (int i = 0; i < element.getCode().size(); i++)

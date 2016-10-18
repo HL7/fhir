@@ -169,7 +169,6 @@ will use this resource, a StructureDefinition on the patient resource is used:
       with changes for slicing  --&gt;
     &lt;element&gt;
       &lt;path value=&quot;Patient.extension&quot;/&gt;
-      &lt;name value=&quot;base extension&quot;/&gt;
       &lt;!-- we're going to slice the extension element, and 
         one of the extensions is one we have defined --&gt;
       &lt;slicing&gt;
@@ -186,6 +185,7 @@ will use this resource, a StructureDefinition on the patient resource is used:
     &lt;!-- now, the slice that contains our extension --&gt;    
     &lt;element&gt;
       &lt;path value=&quot;Patient.extension&quot;/&gt;
+      &lt;sliceName value=&quot;base-extension&quot;/&gt;
       &lt;!-- clone information from the extension definition. 
         duplicative, but this duplication makes it over all simpler --&gt;
       &lt;short value=&quot;Agreed agreement/policy&quot;/&gt;
@@ -281,7 +281,8 @@ and their associated bindings. In this case, the definition looks like this:
 <pre class="xml" fragment="StructureDefinition">
 &lt;StructureDefinition xmlns="http://hl7.org/fhir">
   &lt;url value="http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier" /&gt;
-  &lt;name value="iso-21090 Name Qualifier" /&gt;
+  &lt;name value="Iso21090NameQualifier" /&gt;
+  &lt;title value="iso-21090 Name Qualifier" /&gt;
   &lt;!-- snip other metadata, including definition of RIM Mapping -->
   &lt;kind value="datatype" /&gt;
   &lt;contextType value="datatype" /&gt;
@@ -386,7 +387,8 @@ Here's the relevant parts of the definition of this extension:
 &lt;StructureDefinition xmlns=&quot;http://hl7.org/fhir&quot;&gt;
   &lt;!-- metadata - setting up the base definition --&gt;
   &lt;url value=&quot;http://hl7.org/fhir/StructureDefinition/patient-clinicalTrial&quot;/&gt;
-  &lt;name value=&quot;The patient's participation in clinical trials&quot;/&gt;
+  &lt;name value=&quot;ClinicalTrialParticipation&quot;/&gt;
+  &lt;title value=&quot;The patient's participation in clinical trials&quot;/&gt;
   &lt;contextType value=&quot;resource&quot;/&gt;
   &lt;context value=&quot;Patient&quot;/&gt;
   &lt;type value="Extension" /&gt;
@@ -411,7 +413,7 @@ Here's the relevant parts of the definition of this extension:
     &lt;!-- first slice, NCT --&gt;
     &lt;element&gt;
       &lt;path value=&quot;Extension.extension&quot;/&gt;
-      &lt;name value=&quot;NCT&quot;/&gt;
+      &lt;sliceName value=&quot;NCT&quot;/&gt;
       &lt;short value=&quot;National Clinical Trial number&quot;/&gt;
       &lt;min value=&quot;1&quot;/&gt;
       &lt;max value=&quot;1&quot;/&gt;
@@ -439,7 +441,7 @@ Here's the relevant parts of the definition of this extension:
     &lt;!-- second slice, period --&gt;
     &lt;element&gt;
       &lt;path value=&quot;Extension.extension&quot;/&gt;
-      &lt;name value=&quot;period&quot;/&gt;
+      &lt;sliceName value=&quot;period&quot;/&gt;
       &lt;short value=&quot;The period of participation in the clinical trial&quot;/&gt;
       &lt;min value=&quot;0&quot;/&gt;
       &lt;max value=&quot;1&quot;/&gt;
@@ -465,7 +467,7 @@ Here's the relevant parts of the definition of this extension:
     &lt;!-- third slice, reason --&gt;
     &lt;element&gt;
       &lt;path value=&quot;Extension.extension&quot;/&gt;
-      &lt;name value=&quot;reason&quot;/&gt;
+      &lt;sliceName value=&quot;reason&quot;/&gt;
       &lt;short value=&quot;The reason for participation in the clinical trial&quot;/&gt;
       &lt;min value=&quot;0&quot;/&gt;
       &lt;max value=&quot;1&quot;/&gt;

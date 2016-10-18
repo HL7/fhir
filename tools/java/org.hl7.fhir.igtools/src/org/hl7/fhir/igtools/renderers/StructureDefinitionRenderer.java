@@ -447,7 +447,7 @@ public class StructureDefinitionRenderer extends BaseRenderer {
           generateElementInner(b, extDefn, extDefn.getSnapshot().getElement().get(0), valueDefn == null ? 2 : 3, valueDefn);
         }
       } else {
-        String title = ec.getPath() + (!ec.hasName() ? "" : "(" +ec.getName() +")");
+        String title = ec.getPath() + (!ec.hasSliceName() ? "" : "(" +ec.getSliceName() +")");
         b.append("  <tr><td colspan=\"2\" class=\"structure\"><a name=\""+ec.getId()+"\"> </a>");
         if (ec.getId().endsWith("[x]")) {
           Set<String> tl = new HashSet<String>();
@@ -876,7 +876,7 @@ public class StructureDefinitionRenderer extends BaseRenderer {
       s.append(e.getPath());
     else
       s.append(tail(e.getPath()));
-    s.append("</td><td>"+Utilities.escapeXml(e.getName())+"</td>");
+    s.append("</td><td>"+Utilities.escapeXml(e.getSliceName())+"</td>");
     ElementDefinitionMappingComponent m = getMap(e, id);
     if (m == null)
       s.append("<td></td>");

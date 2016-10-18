@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Oct 18, 2016 10:55+1100 for FHIR v1.7.0
+// Generated on Tue, Oct 18, 2016 15:43+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -2832,11 +2832,11 @@ public class ElementDefinition extends Type implements ICompositeType {
     protected List<Enumeration<PropertyRepresentation>> representation;
 
     /**
-     * The name of this element definition. This is a unique name referring to a specific set of constraints applied to this element, used to provide a name to different slices of the same element.
+     * The name of this element definition slice, when slicing is working. The name must be a token with no dots or spaces. This is a unique name referring to a specific set of constraints applied to this element, used to provide a name to different slices of the same element.
      */
-    @Child(name = "name", type = {StringType.class}, order=2, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Name for this particular element definition (reference target)", formalDefinition="The name of this element definition. This is a unique name referring to a specific set of constraints applied to this element, used to provide a name to different slices of the same element." )
-    protected StringType name;
+    @Child(name = "sliceName", type = {StringType.class}, order=2, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="Name for this particular element (in a set of slices)", formalDefinition="The name of this element definition slice, when slicing is working. The name must be a token with no dots or spaces. This is a unique name referring to a specific set of constraints applied to this element, used to provide a name to different slices of the same element." )
+    protected StringType sliceName;
 
     /**
      * The text to display beside the element indicating its meaning or to use to prompt for the element in a user display or form.
@@ -3035,7 +3035,7 @@ public class ElementDefinition extends Type implements ICompositeType {
     @Description(shortDefinition="Map element to another set of definitions", formalDefinition="Identifies a concept from an external specification that roughly corresponds to this element." )
     protected List<ElementDefinitionMappingComponent> mapping;
 
-    private static final long serialVersionUID = -1939038023L;
+    private static final long serialVersionUID = 1950918913L;
 
   /**
    * Constructor
@@ -3159,50 +3159,50 @@ public class ElementDefinition extends Type implements ICompositeType {
     }
 
     /**
-     * @return {@link #name} (The name of this element definition. This is a unique name referring to a specific set of constraints applied to this element, used to provide a name to different slices of the same element.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
+     * @return {@link #sliceName} (The name of this element definition slice, when slicing is working. The name must be a token with no dots or spaces. This is a unique name referring to a specific set of constraints applied to this element, used to provide a name to different slices of the same element.). This is the underlying object with id, value and extensions. The accessor "getSliceName" gives direct access to the value
      */
-    public StringType getNameElement() { 
-      if (this.name == null)
+    public StringType getSliceNameElement() { 
+      if (this.sliceName == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ElementDefinition.name");
+          throw new Error("Attempt to auto-create ElementDefinition.sliceName");
         else if (Configuration.doAutoCreate())
-          this.name = new StringType(); // bb
-      return this.name;
+          this.sliceName = new StringType(); // bb
+      return this.sliceName;
     }
 
-    public boolean hasNameElement() { 
-      return this.name != null && !this.name.isEmpty();
+    public boolean hasSliceNameElement() { 
+      return this.sliceName != null && !this.sliceName.isEmpty();
     }
 
-    public boolean hasName() { 
-      return this.name != null && !this.name.isEmpty();
+    public boolean hasSliceName() { 
+      return this.sliceName != null && !this.sliceName.isEmpty();
     }
 
     /**
-     * @param value {@link #name} (The name of this element definition. This is a unique name referring to a specific set of constraints applied to this element, used to provide a name to different slices of the same element.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
+     * @param value {@link #sliceName} (The name of this element definition slice, when slicing is working. The name must be a token with no dots or spaces. This is a unique name referring to a specific set of constraints applied to this element, used to provide a name to different slices of the same element.). This is the underlying object with id, value and extensions. The accessor "getSliceName" gives direct access to the value
      */
-    public ElementDefinition setNameElement(StringType value) { 
-      this.name = value;
+    public ElementDefinition setSliceNameElement(StringType value) { 
+      this.sliceName = value;
       return this;
     }
 
     /**
-     * @return The name of this element definition. This is a unique name referring to a specific set of constraints applied to this element, used to provide a name to different slices of the same element.
+     * @return The name of this element definition slice, when slicing is working. The name must be a token with no dots or spaces. This is a unique name referring to a specific set of constraints applied to this element, used to provide a name to different slices of the same element.
      */
-    public String getName() { 
-      return this.name == null ? null : this.name.getValue();
+    public String getSliceName() { 
+      return this.sliceName == null ? null : this.sliceName.getValue();
     }
 
     /**
-     * @param value The name of this element definition. This is a unique name referring to a specific set of constraints applied to this element, used to provide a name to different slices of the same element.
+     * @param value The name of this element definition slice, when slicing is working. The name must be a token with no dots or spaces. This is a unique name referring to a specific set of constraints applied to this element, used to provide a name to different slices of the same element.
      */
-    public ElementDefinition setName(String value) { 
+    public ElementDefinition setSliceName(String value) { 
       if (Utilities.noString(value))
-        this.name = null;
+        this.sliceName = null;
       else {
-        if (this.name == null)
-          this.name = new StringType();
-        this.name.setValue(value);
+        if (this.sliceName == null)
+          this.sliceName = new StringType();
+        this.sliceName.setValue(value);
       }
       return this;
     }
@@ -4582,7 +4582,7 @@ public class ElementDefinition extends Type implements ICompositeType {
         super.listChildren(childrenList);
         childrenList.add(new Property("path", "string", "The path identifies the element and is expressed as a \".\"-separated list of ancestor elements, beginning with the name of the resource or extension.", 0, java.lang.Integer.MAX_VALUE, path));
         childrenList.add(new Property("representation", "code", "Codes that define how this element is represented in instances, when the deviation varies from the normal case.", 0, java.lang.Integer.MAX_VALUE, representation));
-        childrenList.add(new Property("name", "string", "The name of this element definition. This is a unique name referring to a specific set of constraints applied to this element, used to provide a name to different slices of the same element.", 0, java.lang.Integer.MAX_VALUE, name));
+        childrenList.add(new Property("sliceName", "string", "The name of this element definition slice, when slicing is working. The name must be a token with no dots or spaces. This is a unique name referring to a specific set of constraints applied to this element, used to provide a name to different slices of the same element.", 0, java.lang.Integer.MAX_VALUE, sliceName));
         childrenList.add(new Property("label", "string", "The text to display beside the element indicating its meaning or to use to prompt for the element in a user display or form.", 0, java.lang.Integer.MAX_VALUE, label));
         childrenList.add(new Property("code", "Coding", "A code that provides the meaning for the element according to a particular terminology.", 0, java.lang.Integer.MAX_VALUE, code));
         childrenList.add(new Property("slicing", "", "Indicates that the element is sliced into a set of alternative definitions (i.e. in a structure definition, there are multiple different constraints on a single element in the base resource). Slicing can be used in any resource that has cardinality ..* on the base resource, or any resource with a choice of types. The set of slices is any elements that come after this in the element sequence that have the same path, until a shorter path occurs (the shorter path terminates the set).", 0, java.lang.Integer.MAX_VALUE, slicing));
@@ -4618,7 +4618,7 @@ public class ElementDefinition extends Type implements ICompositeType {
         switch (hash) {
         case 3433509: /*path*/ return this.path == null ? new Base[0] : new Base[] {this.path}; // StringType
         case -671065907: /*representation*/ return this.representation == null ? new Base[0] : this.representation.toArray(new Base[this.representation.size()]); // Enumeration<PropertyRepresentation>
-        case 3373707: /*name*/ return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
+        case -825289923: /*sliceName*/ return this.sliceName == null ? new Base[0] : new Base[] {this.sliceName}; // StringType
         case 102727412: /*label*/ return this.label == null ? new Base[0] : new Base[] {this.label}; // StringType
         case 3059181: /*code*/ return this.code == null ? new Base[0] : this.code.toArray(new Base[this.code.size()]); // Coding
         case -2119287345: /*slicing*/ return this.slicing == null ? new Base[0] : new Base[] {this.slicing}; // ElementDefinitionSlicingComponent
@@ -4661,8 +4661,8 @@ public class ElementDefinition extends Type implements ICompositeType {
         case -671065907: // representation
           this.getRepresentation().add(new PropertyRepresentationEnumFactory().fromType(value)); // Enumeration<PropertyRepresentation>
           break;
-        case 3373707: // name
-          this.name = castToString(value); // StringType
+        case -825289923: // sliceName
+          this.sliceName = castToString(value); // StringType
           break;
         case 102727412: // label
           this.label = castToString(value); // StringType
@@ -4759,8 +4759,8 @@ public class ElementDefinition extends Type implements ICompositeType {
           this.path = castToString(value); // StringType
         else if (name.equals("representation"))
           this.getRepresentation().add(new PropertyRepresentationEnumFactory().fromType(value));
-        else if (name.equals("name"))
-          this.name = castToString(value); // StringType
+        else if (name.equals("sliceName"))
+          this.sliceName = castToString(value); // StringType
         else if (name.equals("label"))
           this.label = castToString(value); // StringType
         else if (name.equals("code"))
@@ -4826,7 +4826,7 @@ public class ElementDefinition extends Type implements ICompositeType {
         switch (hash) {
         case 3433509: throw new FHIRException("Cannot make property path as it is not a complex type"); // StringType
         case -671065907: throw new FHIRException("Cannot make property representation as it is not a complex type"); // Enumeration<PropertyRepresentation>
-        case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
+        case -825289923: throw new FHIRException("Cannot make property sliceName as it is not a complex type"); // StringType
         case 102727412: throw new FHIRException("Cannot make property label as it is not a complex type"); // StringType
         case 3059181:  return addCode(); // Coding
         case -2119287345:  return getSlicing(); // ElementDefinitionSlicingComponent
@@ -4868,8 +4868,8 @@ public class ElementDefinition extends Type implements ICompositeType {
         else if (name.equals("representation")) {
           throw new FHIRException("Cannot call addChild on a primitive type ElementDefinition.representation");
         }
-        else if (name.equals("name")) {
-          throw new FHIRException("Cannot call addChild on a primitive type ElementDefinition.name");
+        else if (name.equals("sliceName")) {
+          throw new FHIRException("Cannot call addChild on a primitive type ElementDefinition.sliceName");
         }
         else if (name.equals("label")) {
           throw new FHIRException("Cannot call addChild on a primitive type ElementDefinition.label");
@@ -5558,7 +5558,7 @@ public class ElementDefinition extends Type implements ICompositeType {
           for (Enumeration<PropertyRepresentation> i : representation)
             dst.representation.add(i.copy());
         };
-        dst.name = name == null ? null : name.copy();
+        dst.sliceName = sliceName == null ? null : sliceName.copy();
         dst.label = label == null ? null : label.copy();
         if (code != null) {
           dst.code = new ArrayList<Coding>();
@@ -5625,7 +5625,7 @@ public class ElementDefinition extends Type implements ICompositeType {
         if (!(other instanceof ElementDefinition))
           return false;
         ElementDefinition o = (ElementDefinition) other;
-        return compareDeep(path, o.path, true) && compareDeep(representation, o.representation, true) && compareDeep(name, o.name, true)
+        return compareDeep(path, o.path, true) && compareDeep(representation, o.representation, true) && compareDeep(sliceName, o.sliceName, true)
            && compareDeep(label, o.label, true) && compareDeep(code, o.code, true) && compareDeep(slicing, o.slicing, true)
            && compareDeep(short_, o.short_, true) && compareDeep(definition, o.definition, true) && compareDeep(comments, o.comments, true)
            && compareDeep(requirements, o.requirements, true) && compareDeep(alias, o.alias, true) && compareDeep(min, o.min, true)
@@ -5645,7 +5645,7 @@ public class ElementDefinition extends Type implements ICompositeType {
         if (!(other instanceof ElementDefinition))
           return false;
         ElementDefinition o = (ElementDefinition) other;
-        return compareValues(path, o.path, true) && compareValues(representation, o.representation, true) && compareValues(name, o.name, true)
+        return compareValues(path, o.path, true) && compareValues(representation, o.representation, true) && compareValues(sliceName, o.sliceName, true)
            && compareValues(label, o.label, true) && compareValues(short_, o.short_, true) && compareValues(definition, o.definition, true)
            && compareValues(comments, o.comments, true) && compareValues(requirements, o.requirements, true) && compareValues(alias, o.alias, true)
            && compareValues(min, o.min, true) && compareValues(max, o.max, true) && compareValues(contentReference, o.contentReference, true)
@@ -5655,7 +5655,7 @@ public class ElementDefinition extends Type implements ICompositeType {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(path, representation, name
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(path, representation, sliceName
           , label, code, slicing, short_, definition, comments, requirements, alias, min
           , max, base, contentReference, type, defaultValue, meaningWhenMissing, fixed, pattern
           , example, minValue, maxValue, maxLength, condition, constraint, mustSupport, isModifier
@@ -5665,8 +5665,8 @@ public class ElementDefinition extends Type implements ICompositeType {
 // added from java-adornments.txt:
   
   public String toString() {
-    if (hasName())
-      return getPath()+":"+getName();
+    if (hasSliceName())
+      return getPath()+":"+getSliceName();
     else
       return getPath();
   }

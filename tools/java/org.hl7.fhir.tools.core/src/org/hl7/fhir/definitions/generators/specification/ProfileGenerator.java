@@ -187,7 +187,7 @@ public class ProfileGenerator {
       throw new Exception("attempt to add derived element to data elements");
       
     de.getMeta().setLastUpdatedElement(new InstantType(genDate));
-    de.setName(ed.getName());
+    de.setName(ed.getSliceName());
     de.setStatus(PublicationStatus.DRAFT);
     de.setExperimental(true);
     de.setStringency(DataElementStringency.FULLYSPECIFIED);
@@ -646,7 +646,7 @@ public class ProfileGenerator {
     ElementDefinition e = new ElementDefinition();
     String idroot = e.getId();
     e.setPath(pt.getBaseType());
-    e.setName(pt.getName());
+    e.setSliceName(pt.getName());
     e.setShort(pt.getDefinition());
     e.setDefinition(pt.getDescription());
     e.setMin(0);
@@ -1117,7 +1117,7 @@ public class ProfileGenerator {
       SliceHandle hnd = new SliceHandle();
       hnd.name = path; // though this it not used?
       myParents.add(hnd);
-      ce.setName(e.getProfileName());
+      ce.setSliceName(e.getProfileName());
     }
 
     if (!Utilities.noString(inheritedType) && snapshot != SnapShotMode.None) {
@@ -1500,7 +1500,7 @@ public class ProfileGenerator {
     dst.setId(thisPath);
     dst.setPath(thisPath);
     if (dst.getPath().endsWith(".extension"))
-      dst.setName(src.getName());
+      dst.setSliceName(src.getName());
 
     dst.setShort(src.getShortDefn());
     dst.setDefinition(src.getDefinition());

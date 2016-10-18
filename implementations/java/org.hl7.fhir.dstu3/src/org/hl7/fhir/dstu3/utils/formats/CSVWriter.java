@@ -130,7 +130,7 @@ public class CSVWriter  extends TextStreamWriter  {
     CSVLine line = new CSVLine();
     lines.add(line);
     line.addString(ed.getPath());
-    line.addString(ed.getName());
+    line.addString(ed.getSliceName());
     line.addString(itemList(ed.getAlias()));
     line.addString(ed.getLabel());
     line.addValue(ed.getMin());
