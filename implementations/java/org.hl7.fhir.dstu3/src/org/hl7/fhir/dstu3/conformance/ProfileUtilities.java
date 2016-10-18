@@ -215,6 +215,26 @@ public class ProfileUtilities {
   }
 
 
+  public static List<ElementDefinition> getSliceList(StructureDefinition profile, ElementDefinition element) throws DefinitionException {
+    if (!element.hasSlicing())
+      throw new Error("getSliceList should only be called when the element has slicing");
+
+    List<ElementDefinition> res = new ArrayList<ElementDefinition>();
+    List<ElementDefinition> elements = profile.getSnapshot().getElement();
+    String path = element.getPath();
+    for (int index = elements.indexOf(element) + 1; index < elements.size(); index++) {
+      ElementDefinition e = elements.get(index);
+      if (e.getPath().startsWith(path + ".") || e.getPath().equals(path)) {
+        // We want elements with the same path (until we hit an element that doesn't start with the same path)
+        if (e.getPath().equals(element.getPath()))
+          res.add(e);
+      } else
+        break;
+    }
+    return res;
+  }
+
+
   /**
    * Given a Structure, navigate to the element given by the path and return the direct children of that element
    *

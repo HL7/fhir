@@ -1372,7 +1372,10 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
   private ElementDefinition getCriteriaForDiscriminator(String path, ElementDefinition element, String discriminator, StructureDefinition profile) throws DefinitionException {
     StructureDefinition sd = profile;
     ElementDefinition ed = element;
-
+    
+    if ("value".equals(discriminator) && element.hasFixed())
+      return element;
+    
     String[] dlist = discriminator.split("\\.");
     for (String d : dlist) {
       // get the children of element
@@ -1384,6 +1387,22 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
           throw new DefinitionException("Error in profile for " + path + " no children, no type");
         if (ed.getType().size() > 1)
           throw new DefinitionException("Error in profile for " + path + " multiple types defined in slice discriminator");
+        if (ed.hasSlicing()) {
+          List<ElementDefinition> slices = ProfileUtilities.getSliceList(profile, ed);
+          boolean found = false;
+          for (ElementDefinition sed: slices) {
+            childDefinitions = ProfileUtilities.getChildMap(sd, sed);
+            for (ElementDefinition t : childDefinitions) {
+              if (tailMatches(t, d)) {
+                found = true;
+                ed = t;
+                break;
+              }
+            }
+          }
+          if (found)
+            continue;
+        }
         if (ed.getType().get(0).hasProfile() && ed.getType().get(0).getCode().equals("Reference") && d.equals("reference")) {
           long t1 = System.nanoTime();
           sd = context.fetchResource(StructureDefinition.class, ed.getType().get(0).getProfile());
