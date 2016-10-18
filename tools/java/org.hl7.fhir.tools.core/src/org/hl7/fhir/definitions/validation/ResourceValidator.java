@@ -73,6 +73,13 @@ import org.hl7.fhir.utilities.Utilities;
  */
 public class ResourceValidator extends BaseValidator {
 
+  public static class SearchParameterGroup {
+    private String name;
+    private String type;
+    private List<String> resources = new ArrayList<String>();
+     
+  }
+  
   public static class Usage {
     public Set<SearchParameterDefn.SearchType> usage = new HashSet<SearchParameterDefn.SearchType>();
   }
@@ -85,6 +92,7 @@ public class ResourceValidator extends BaseValidator {
   private final Map<String, Usage> usages = new HashMap<String, Usage>();
   private final Map<String, Integer> names = new HashMap<String, Integer>();
   private final Map<SearchType, UsageT> usagest = new HashMap<SearchType, UsageT>();
+  private final Map<String, SearchParameterGroup> spgroups = new HashMap<String, SearchParameterGroup>();
   private Translations translations;
   private final Map<String, CodeSystem> codeSystems;
   private SpellChecker speller;
@@ -231,6 +239,14 @@ public class ResourceValidator extends BaseValidator {
       usages.get(p.getCode()).usage.add(p.getType());
       if (!usagest.containsKey(p.getType()))
         usagest.put(p.getType(), new UsageT());
+      String spgn = p.getCode()+"||"+p.getType().toString();
+      if (!spgroups.containsKey(spgn)) {
+        SearchParameterGroup spg = new SearchParameterGroup();
+        spg.name = p.getCode();
+        spg.type = p.getType().toString();
+        spgroups.put(spgn, spg);
+      }
+      spgroups.get(spgn).resources.add(rd.getName());
       rule(errors, IssueType.STRUCTURE, rd.getName(), !p.getCode().equals("filter"), "Search Parameter Name cannot be 'filter')");
       rule(errors, IssueType.STRUCTURE, rd.getName(), !p.getCode().contains("."), "Search Parameter Names cannot contain a '.' (\""+p.getCode()+"\")");
       rule(errors, IssueType.STRUCTURE, rd.getName(), !p.getCode().equalsIgnoreCase("id"), "Search Parameter Names cannot be named 'id' (\""+p.getCode()+"\")");
@@ -902,5 +918,21 @@ public class ResourceValidator extends BaseValidator {
 
   public void close() throws Exception {
     speller.close();
+  }
+
+  public String searchParamGroups() {
+    StringBuilder b = new StringBuilder();
+    for (SearchParameterGroup spg : spgroups.values()) {
+      if (spg.resources.size() > 1) {
+        b.append(spg.name);
+        b.append(" : ");
+        b.append(spg.type);
+        b.append(" = ");
+        b.append(spg.resources.toString());
+        b.append("\r\n");
+      }
+    }
+    
+    return b.toString();
   }
 }
