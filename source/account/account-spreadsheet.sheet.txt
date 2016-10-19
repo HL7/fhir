@@ -51,7 +51,8 @@
   Element = Account
   Aliases = Cost center, Record
   Type = DomainResource
-  Definition = A financial tool for tracking value accrued for a particular purpose.  In the healthcare field, used to track charges for a patient, cost centres, etc.
+  Short Name = Tracks balance, charges, for patient or cost center
+  Definition = A financial tool for tracking value accrued for a particular purpose.  In the healthcare field, used to track charges for a patient, cost centers, etc.
   RIM Mapping = Account
   w5 = financial.support
 

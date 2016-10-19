@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Oct 18, 2016 15:43+1100 for FHIR v1.7.0
+// Generated on Wed, Oct 19, 2016 11:03+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -666,16 +666,40 @@ public class MedicationAdministration extends DomainResource {
     protected Encounter encounterTarget;
 
     /**
+     * Additional information (for example, patient height and weight) that supports the administration of the medication.
+     */
+    @Child(name = "supportingInformation", type = {Reference.class}, order=5, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Description(shortDefinition="Additional information to support administration", formalDefinition="Additional information (for example, patient height and weight) that supports the administration of the medication." )
+    protected List<Reference> supportingInformation;
+    /**
+     * The actual objects that are the target of the reference (Additional information (for example, patient height and weight) that supports the administration of the medication.)
+     */
+    protected List<Resource> supportingInformationTarget;
+
+
+    /**
+     * Condition or observation that supports why the medication was administered.
+     */
+    @Child(name = "reasonReference", type = {Condition.class, Observation.class}, order=6, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Description(shortDefinition="Condition or Observation that supports why the medication was administered", formalDefinition="Condition or observation that supports why the medication was administered." )
+    protected List<Reference> reasonReference;
+    /**
+     * The actual objects that are the target of the reference (Condition or observation that supports why the medication was administered.)
+     */
+    protected List<Resource> reasonReferenceTarget;
+
+
+    /**
      * A specific date/time or interval of time during which the administration took place (or did not take place, when the 'notGiven' attribute is true). For many administrations, such as swallowing a tablet the use of dateTime is more appropriate.
      */
-    @Child(name = "effectiveTime", type = {DateTimeType.class, Period.class}, order=5, min=1, max=1, modifier=false, summary=true)
+    @Child(name = "effectiveTime", type = {DateTimeType.class, Period.class}, order=7, min=1, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Start and end time of administration", formalDefinition="A specific date/time or interval of time during which the administration took place (or did not take place, when the 'notGiven' attribute is true). For many administrations, such as swallowing a tablet the use of dateTime is more appropriate." )
     protected Type effectiveTime;
 
     /**
      * The individual who was responsible for giving the medication to the patient.
      */
-    @Child(name = "performer", type = {Practitioner.class, Patient.class, RelatedPerson.class}, order=6, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "performer", type = {Practitioner.class, Patient.class, RelatedPerson.class}, order=8, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Who administered substance", formalDefinition="The individual who was responsible for giving the medication to the patient." )
     protected Reference performer;
 
@@ -687,7 +711,7 @@ public class MedicationAdministration extends DomainResource {
     /**
      * The original request, instruction or authority to perform the administration.
      */
-    @Child(name = "prescription", type = {MedicationOrder.class}, order=7, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "prescription", type = {MedicationOrder.class}, order=9, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Order administration performed against", formalDefinition="The original request, instruction or authority to perform the administration." )
     protected Reference prescription;
 
@@ -699,14 +723,14 @@ public class MedicationAdministration extends DomainResource {
     /**
      * Set this to true if the record is saying that the medication was NOT administered.
      */
-    @Child(name = "notGiven", type = {BooleanType.class}, order=8, min=0, max=1, modifier=true, summary=true)
+    @Child(name = "notGiven", type = {BooleanType.class}, order=10, min=0, max=1, modifier=true, summary=true)
     @Description(shortDefinition="True if medication not administered", formalDefinition="Set this to true if the record is saying that the medication was NOT administered." )
     protected BooleanType notGiven;
 
     /**
      * A code indicating why the administration was not performed.
      */
-    @Child(name = "reasonNotGiven", type = {CodeableConcept.class}, order=9, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "reasonNotGiven", type = {CodeableConcept.class}, order=11, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Reason administration not performed", formalDefinition="A code indicating why the administration was not performed." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/reason-medication-not-given-codes")
     protected List<CodeableConcept> reasonNotGiven;
@@ -714,7 +738,7 @@ public class MedicationAdministration extends DomainResource {
     /**
      * A code indicating why the medication was given.
      */
-    @Child(name = "reasonGiven", type = {CodeableConcept.class}, order=10, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "reasonGiven", type = {CodeableConcept.class}, order=12, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Reason administration performed", formalDefinition="A code indicating why the medication was given." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/reason-medication-given-codes")
     protected List<CodeableConcept> reasonGiven;
@@ -722,7 +746,7 @@ public class MedicationAdministration extends DomainResource {
     /**
      * The device used in administering the medication to the patient.  For example, a particular infusion pump.
      */
-    @Child(name = "device", type = {Device.class}, order=11, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "device", type = {Device.class}, order=13, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Device used to administer", formalDefinition="The device used in administering the medication to the patient.  For example, a particular infusion pump." )
     protected List<Reference> device;
     /**
@@ -734,21 +758,21 @@ public class MedicationAdministration extends DomainResource {
     /**
      * Extra information about the medication administration that is not conveyed by the other attributes.
      */
-    @Child(name = "note", type = {Annotation.class}, order=12, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "note", type = {Annotation.class}, order=14, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Information about the administration", formalDefinition="Extra information about the medication administration that is not conveyed by the other attributes." )
     protected List<Annotation> note;
 
     /**
      * Describes the medication dosage information details e.g. dose, rate, site, route, etc.
      */
-    @Child(name = "dosage", type = {}, order=13, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "dosage", type = {}, order=15, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Details of how medication was taken", formalDefinition="Describes the medication dosage information details e.g. dose, rate, site, route, etc." )
     protected MedicationAdministrationDosageComponent dosage;
 
     /**
      * A summary of the events of interest that have occurred, such as when the administration was verified.
      */
-    @Child(name = "eventHistory", type = {Provenance.class}, order=14, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "eventHistory", type = {Provenance.class}, order=16, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="A list of events of interest in the lifecycle", formalDefinition="A summary of the events of interest that have occurred, such as when the administration was verified." )
     protected List<Reference> eventHistory;
     /**
@@ -757,7 +781,7 @@ public class MedicationAdministration extends DomainResource {
     protected List<Provenance> eventHistoryTarget;
 
 
-    private static final long serialVersionUID = 1287082377L;
+    private static final long serialVersionUID = 1187911049L;
 
   /**
    * Constructor
@@ -1006,6 +1030,132 @@ public class MedicationAdministration extends DomainResource {
     public MedicationAdministration setEncounterTarget(Encounter value) { 
       this.encounterTarget = value;
       return this;
+    }
+
+    /**
+     * @return {@link #supportingInformation} (Additional information (for example, patient height and weight) that supports the administration of the medication.)
+     */
+    public List<Reference> getSupportingInformation() { 
+      if (this.supportingInformation == null)
+        this.supportingInformation = new ArrayList<Reference>();
+      return this.supportingInformation;
+    }
+
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public MedicationAdministration setSupportingInformation(List<Reference> theSupportingInformation) { 
+      this.supportingInformation = theSupportingInformation;
+      return this;
+    }
+
+    public boolean hasSupportingInformation() { 
+      if (this.supportingInformation == null)
+        return false;
+      for (Reference item : this.supportingInformation)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    public Reference addSupportingInformation() { //3
+      Reference t = new Reference();
+      if (this.supportingInformation == null)
+        this.supportingInformation = new ArrayList<Reference>();
+      this.supportingInformation.add(t);
+      return t;
+    }
+
+    public MedicationAdministration addSupportingInformation(Reference t) { //3
+      if (t == null)
+        return this;
+      if (this.supportingInformation == null)
+        this.supportingInformation = new ArrayList<Reference>();
+      this.supportingInformation.add(t);
+      return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #supportingInformation}, creating it if it does not already exist
+     */
+    public Reference getSupportingInformationFirstRep() { 
+      if (getSupportingInformation().isEmpty()) {
+        addSupportingInformation();
+      }
+      return getSupportingInformation().get(0);
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
+    public List<Resource> getSupportingInformationTarget() { 
+      if (this.supportingInformationTarget == null)
+        this.supportingInformationTarget = new ArrayList<Resource>();
+      return this.supportingInformationTarget;
+    }
+
+    /**
+     * @return {@link #reasonReference} (Condition or observation that supports why the medication was administered.)
+     */
+    public List<Reference> getReasonReference() { 
+      if (this.reasonReference == null)
+        this.reasonReference = new ArrayList<Reference>();
+      return this.reasonReference;
+    }
+
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public MedicationAdministration setReasonReference(List<Reference> theReasonReference) { 
+      this.reasonReference = theReasonReference;
+      return this;
+    }
+
+    public boolean hasReasonReference() { 
+      if (this.reasonReference == null)
+        return false;
+      for (Reference item : this.reasonReference)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    public Reference addReasonReference() { //3
+      Reference t = new Reference();
+      if (this.reasonReference == null)
+        this.reasonReference = new ArrayList<Reference>();
+      this.reasonReference.add(t);
+      return t;
+    }
+
+    public MedicationAdministration addReasonReference(Reference t) { //3
+      if (t == null)
+        return this;
+      if (this.reasonReference == null)
+        this.reasonReference = new ArrayList<Reference>();
+      this.reasonReference.add(t);
+      return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #reasonReference}, creating it if it does not already exist
+     */
+    public Reference getReasonReferenceFirstRep() { 
+      if (getReasonReference().isEmpty()) {
+        addReasonReference();
+      }
+      return getReasonReference().get(0);
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
+    public List<Resource> getReasonReferenceTarget() { 
+      if (this.reasonReferenceTarget == null)
+        this.reasonReferenceTarget = new ArrayList<Resource>();
+      return this.reasonReferenceTarget;
     }
 
     /**
@@ -1521,6 +1671,8 @@ public class MedicationAdministration extends DomainResource {
         childrenList.add(new Property("medication[x]", "CodeableConcept|Reference(Medication)", "Identifies the medication that was administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.", 0, java.lang.Integer.MAX_VALUE, medication));
         childrenList.add(new Property("patient", "Reference(Patient)", "The person or animal receiving the medication.", 0, java.lang.Integer.MAX_VALUE, patient));
         childrenList.add(new Property("encounter", "Reference(Encounter)", "The visit, admission or other contact between patient and health care provider the medication administration was performed as part of.", 0, java.lang.Integer.MAX_VALUE, encounter));
+        childrenList.add(new Property("supportingInformation", "Reference(Any)", "Additional information (for example, patient height and weight) that supports the administration of the medication.", 0, java.lang.Integer.MAX_VALUE, supportingInformation));
+        childrenList.add(new Property("reasonReference", "Reference(Condition|Observation)", "Condition or observation that supports why the medication was administered.", 0, java.lang.Integer.MAX_VALUE, reasonReference));
         childrenList.add(new Property("effectiveTime[x]", "dateTime|Period", "A specific date/time or interval of time during which the administration took place (or did not take place, when the 'notGiven' attribute is true). For many administrations, such as swallowing a tablet the use of dateTime is more appropriate.", 0, java.lang.Integer.MAX_VALUE, effectiveTime));
         childrenList.add(new Property("performer", "Reference(Practitioner|Patient|RelatedPerson)", "The individual who was responsible for giving the medication to the patient.", 0, java.lang.Integer.MAX_VALUE, performer));
         childrenList.add(new Property("prescription", "Reference(MedicationOrder)", "The original request, instruction or authority to perform the administration.", 0, java.lang.Integer.MAX_VALUE, prescription));
@@ -1541,6 +1693,8 @@ public class MedicationAdministration extends DomainResource {
         case 1998965455: /*medication*/ return this.medication == null ? new Base[0] : new Base[] {this.medication}; // Type
         case -791418107: /*patient*/ return this.patient == null ? new Base[0] : new Base[] {this.patient}; // Reference
         case 1524132147: /*encounter*/ return this.encounter == null ? new Base[0] : new Base[] {this.encounter}; // Reference
+        case -1248768647: /*supportingInformation*/ return this.supportingInformation == null ? new Base[0] : this.supportingInformation.toArray(new Base[this.supportingInformation.size()]); // Reference
+        case -1146218137: /*reasonReference*/ return this.reasonReference == null ? new Base[0] : this.reasonReference.toArray(new Base[this.reasonReference.size()]); // Reference
         case -929905388: /*effectiveTime*/ return this.effectiveTime == null ? new Base[0] : new Base[] {this.effectiveTime}; // Type
         case 481140686: /*performer*/ return this.performer == null ? new Base[0] : new Base[] {this.performer}; // Reference
         case 460301338: /*prescription*/ return this.prescription == null ? new Base[0] : new Base[] {this.prescription}; // Reference
@@ -1573,6 +1727,12 @@ public class MedicationAdministration extends DomainResource {
           break;
         case 1524132147: // encounter
           this.encounter = castToReference(value); // Reference
+          break;
+        case -1248768647: // supportingInformation
+          this.getSupportingInformation().add(castToReference(value)); // Reference
+          break;
+        case -1146218137: // reasonReference
+          this.getReasonReference().add(castToReference(value)); // Reference
           break;
         case -929905388: // effectiveTime
           this.effectiveTime = castToType(value); // Type
@@ -1621,6 +1781,10 @@ public class MedicationAdministration extends DomainResource {
           this.patient = castToReference(value); // Reference
         else if (name.equals("encounter"))
           this.encounter = castToReference(value); // Reference
+        else if (name.equals("supportingInformation"))
+          this.getSupportingInformation().add(castToReference(value));
+        else if (name.equals("reasonReference"))
+          this.getReasonReference().add(castToReference(value));
         else if (name.equals("effectiveTime[x]"))
           this.effectiveTime = castToType(value); // Type
         else if (name.equals("performer"))
@@ -1653,6 +1817,8 @@ public class MedicationAdministration extends DomainResource {
         case 1458402129:  return getMedication(); // Type
         case -791418107:  return getPatient(); // Reference
         case 1524132147:  return getEncounter(); // Reference
+        case -1248768647:  return addSupportingInformation(); // Reference
+        case -1146218137:  return addReasonReference(); // Reference
         case -272263444:  return getEffectiveTime(); // Type
         case 481140686:  return getPerformer(); // Reference
         case 460301338:  return getPrescription(); // Reference
@@ -1691,6 +1857,12 @@ public class MedicationAdministration extends DomainResource {
         else if (name.equals("encounter")) {
           this.encounter = new Reference();
           return this.encounter;
+        }
+        else if (name.equals("supportingInformation")) {
+          return addSupportingInformation();
+        }
+        else if (name.equals("reasonReference")) {
+          return addReasonReference();
         }
         else if (name.equals("effectiveTimeDateTime")) {
           this.effectiveTime = new DateTimeType();
@@ -1751,6 +1923,16 @@ public class MedicationAdministration extends DomainResource {
         dst.medication = medication == null ? null : medication.copy();
         dst.patient = patient == null ? null : patient.copy();
         dst.encounter = encounter == null ? null : encounter.copy();
+        if (supportingInformation != null) {
+          dst.supportingInformation = new ArrayList<Reference>();
+          for (Reference i : supportingInformation)
+            dst.supportingInformation.add(i.copy());
+        };
+        if (reasonReference != null) {
+          dst.reasonReference = new ArrayList<Reference>();
+          for (Reference i : reasonReference)
+            dst.reasonReference.add(i.copy());
+        };
         dst.effectiveTime = effectiveTime == null ? null : effectiveTime.copy();
         dst.performer = performer == null ? null : performer.copy();
         dst.prescription = prescription == null ? null : prescription.copy();
@@ -1796,7 +1978,8 @@ public class MedicationAdministration extends DomainResource {
           return false;
         MedicationAdministration o = (MedicationAdministration) other;
         return compareDeep(identifier, o.identifier, true) && compareDeep(status, o.status, true) && compareDeep(medication, o.medication, true)
-           && compareDeep(patient, o.patient, true) && compareDeep(encounter, o.encounter, true) && compareDeep(effectiveTime, o.effectiveTime, true)
+           && compareDeep(patient, o.patient, true) && compareDeep(encounter, o.encounter, true) && compareDeep(supportingInformation, o.supportingInformation, true)
+           && compareDeep(reasonReference, o.reasonReference, true) && compareDeep(effectiveTime, o.effectiveTime, true)
            && compareDeep(performer, o.performer, true) && compareDeep(prescription, o.prescription, true)
            && compareDeep(notGiven, o.notGiven, true) && compareDeep(reasonNotGiven, o.reasonNotGiven, true)
            && compareDeep(reasonGiven, o.reasonGiven, true) && compareDeep(device, o.device, true) && compareDeep(note, o.note, true)
@@ -1815,8 +1998,9 @@ public class MedicationAdministration extends DomainResource {
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, status, medication
-          , patient, encounter, effectiveTime, performer, prescription, notGiven, reasonNotGiven
-          , reasonGiven, device, note, dosage, eventHistory);
+          , patient, encounter, supportingInformation, reasonReference, effectiveTime, performer
+          , prescription, notGiven, reasonNotGiven, reasonGiven, device, note, dosage, eventHistory
+          );
       }
 
   @Override

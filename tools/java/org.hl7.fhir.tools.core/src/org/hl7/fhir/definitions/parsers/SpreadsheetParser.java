@@ -1854,9 +1854,8 @@ public class SpreadsheetParser {
         e.setShortDefn(e.getShortDefn() + sheet.getColumn(row, "Short Name").substring(1));
       else
         e.setShortDefn(sheet.getColumn(row, "Short Name"));
-    if (e.getShortDefn() == null)
-      e.setShortDefn("(todo");
-//      throw new Exception("A short definition is required "+ getLocation(row));
+    if (!isProfile && e.getShortDefn() == null)
+      throw new Exception("A short definition is required "+ getLocation(row));
     
     if (sheet.hasColumn(row, "Definition"))
       if (sheet.getColumn(row, "Definition").startsWith("&"))

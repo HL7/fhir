@@ -595,6 +595,7 @@
   Card. = 0..1
   UML = 620;170
   Type = =Payment
+  Short Name = Payment details, if paid
   Definition = Payment details for the claim if the claim has been paid.
 
  -- Row 67 -----------------------------------

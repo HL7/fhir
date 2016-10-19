@@ -14,6 +14,7 @@ import org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionDesignationComponent
 import org.hl7.fhir.dstu3.model.ConceptMap;
 import org.hl7.fhir.dstu3.model.ConceptMap.ConceptMapGroupComponent;
 import org.hl7.fhir.dstu3.model.ConceptMap.SourceElementComponent;
+import org.hl7.fhir.dstu3.model.DosageInstruction;
 import org.hl7.fhir.dstu3.model.NutritionRequest.NutritionOrderStatus;
 import org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionKind;
 import org.hl7.fhir.dstu3.model.StructureDefinition.TypeDerivationRule;
@@ -8743,7 +8744,7 @@ public class VersionConvertor_10_20 {
       tgt.addReceiver(convertReference(t));
     for (org.hl7.fhir.dstu3.model.Annotation t : src.getNote())
       tgt.setNote(t.getText());
-    for (org.hl7.fhir.dstu3.model.MedicationDispense.MedicationDispenseDosageInstructionComponent t : src.getDosageInstruction())
+    for (org.hl7.fhir.dstu3.model.DosageInstruction t : src.getDosageInstruction())
       tgt.addDosageInstruction(convertMedicationDispenseDosageInstructionComponent(t));
     tgt.setSubstitution(convertMedicationDispenseSubstitutionComponent(src.getSubstitution()));
     return tgt;
@@ -8775,10 +8776,10 @@ public class VersionConvertor_10_20 {
     }
   }
 
-  public org.hl7.fhir.dstu3.model.MedicationDispense.MedicationDispenseDosageInstructionComponent convertMedicationDispenseDosageInstructionComponent(org.hl7.fhir.dstu2.model.MedicationDispense.MedicationDispenseDosageInstructionComponent src) throws FHIRException {
+  public org.hl7.fhir.dstu3.model.DosageInstruction convertMedicationDispenseDosageInstructionComponent(org.hl7.fhir.dstu2.model.MedicationDispense.MedicationDispenseDosageInstructionComponent src) throws FHIRException {
     if (src == null || src.isEmpty())
       return null;
-    org.hl7.fhir.dstu3.model.MedicationDispense.MedicationDispenseDosageInstructionComponent tgt = new org.hl7.fhir.dstu3.model.MedicationDispense.MedicationDispenseDosageInstructionComponent();
+    org.hl7.fhir.dstu3.model.DosageInstruction tgt = new org.hl7.fhir.dstu3.model.DosageInstruction();
     copyElement(src, tgt);
     tgt.setText(src.getText());
 //    tgt.setAdditionalInstructions(convertCodeableConcept(src.getAdditionalInstructions()));
@@ -8793,7 +8794,7 @@ public class VersionConvertor_10_20 {
     return tgt;
   }
 
-  public org.hl7.fhir.dstu2.model.MedicationDispense.MedicationDispenseDosageInstructionComponent convertMedicationDispenseDosageInstructionComponent(org.hl7.fhir.dstu3.model.MedicationDispense.MedicationDispenseDosageInstructionComponent src) throws FHIRException {
+  public org.hl7.fhir.dstu2.model.MedicationDispense.MedicationDispenseDosageInstructionComponent convertMedicationDispenseDosageInstructionComponent(DosageInstruction src) throws FHIRException {
     if (src == null || src.isEmpty())
       return null;
     org.hl7.fhir.dstu2.model.MedicationDispense.MedicationDispenseDosageInstructionComponent tgt = new org.hl7.fhir.dstu2.model.MedicationDispense.MedicationDispenseDosageInstructionComponent();
@@ -8889,7 +8890,7 @@ public class VersionConvertor_10_20 {
 //    tgt.setReasonEnded(convertCodeableConcept(src.getReasonEnded()));
     for (org.hl7.fhir.dstu3.model.Annotation t : src.getNote())
       tgt.setNote(t.getText());
-    for (org.hl7.fhir.dstu3.model.MedicationOrder.MedicationOrderDosageInstructionComponent t : src.getDosageInstruction())
+    for (org.hl7.fhir.dstu3.model.DosageInstruction t : src.getDosageInstruction())
       tgt.addDosageInstruction(convertMedicationOrderDosageInstructionComponent(t));
     tgt.setDispenseRequest(convertMedicationOrderDispenseRequestComponent(src.getDispenseRequest()));
     tgt.setSubstitution(convertMedicationOrderSubstitutionComponent(src.getSubstitution()));
@@ -8925,10 +8926,10 @@ public class VersionConvertor_10_20 {
     }
   }
 
-  public org.hl7.fhir.dstu3.model.MedicationOrder.MedicationOrderDosageInstructionComponent convertMedicationOrderDosageInstructionComponent(org.hl7.fhir.dstu2.model.MedicationOrder.MedicationOrderDosageInstructionComponent src) throws FHIRException {
+  public org.hl7.fhir.dstu3.model.DosageInstruction convertMedicationOrderDosageInstructionComponent(org.hl7.fhir.dstu2.model.MedicationOrder.MedicationOrderDosageInstructionComponent src) throws FHIRException {
     if (src == null || src.isEmpty())
       return null;
-    org.hl7.fhir.dstu3.model.MedicationOrder.MedicationOrderDosageInstructionComponent tgt = new org.hl7.fhir.dstu3.model.MedicationOrder.MedicationOrderDosageInstructionComponent();
+    org.hl7.fhir.dstu3.model.DosageInstruction tgt = new org.hl7.fhir.dstu3.model.DosageInstruction();
     copyElement(src, tgt);
     tgt.setText(src.getText());
 //    tgt.setAdditionalInstructions(convertCodeableConcept(src.getAdditionalInstructions()));
@@ -8943,7 +8944,7 @@ public class VersionConvertor_10_20 {
     return tgt;
   }
 
-  public org.hl7.fhir.dstu2.model.MedicationOrder.MedicationOrderDosageInstructionComponent convertMedicationOrderDosageInstructionComponent(org.hl7.fhir.dstu3.model.MedicationOrder.MedicationOrderDosageInstructionComponent src) throws FHIRException {
+  public org.hl7.fhir.dstu2.model.MedicationOrder.MedicationOrderDosageInstructionComponent convertMedicationOrderDosageInstructionComponent(org.hl7.fhir.dstu3.model.DosageInstruction src) throws FHIRException {
     if (src == null || src.isEmpty())
       return null;
     org.hl7.fhir.dstu2.model.MedicationOrder.MedicationOrderDosageInstructionComponent tgt = new org.hl7.fhir.dstu2.model.MedicationOrder.MedicationOrderDosageInstructionComponent();
@@ -9056,7 +9057,7 @@ public class VersionConvertor_10_20 {
 //    tgt.setReasonForUse(convertType(src.getReasonForUse()));
     for (org.hl7.fhir.dstu3.model.Annotation t : src.getNote())
       tgt.setNote(t.getText());
-    for (org.hl7.fhir.dstu3.model.MedicationStatement.MedicationStatementDosageComponent t : src.getDosage())
+    for (org.hl7.fhir.dstu3.model.DosageInstruction t : src.getDosage())
       tgt.addDosage(convertMedicationStatementDosageComponent(t));
     return tgt;
   }
@@ -9085,10 +9086,10 @@ public class VersionConvertor_10_20 {
     }
   }
 
-  public org.hl7.fhir.dstu3.model.MedicationStatement.MedicationStatementDosageComponent convertMedicationStatementDosageComponent(org.hl7.fhir.dstu2.model.MedicationStatement.MedicationStatementDosageComponent src) throws FHIRException {
+  public org.hl7.fhir.dstu3.model.DosageInstruction convertMedicationStatementDosageComponent(org.hl7.fhir.dstu2.model.MedicationStatement.MedicationStatementDosageComponent src) throws FHIRException {
     if (src == null || src.isEmpty())
       return null;
-    org.hl7.fhir.dstu3.model.MedicationStatement.MedicationStatementDosageComponent tgt = new org.hl7.fhir.dstu3.model.MedicationStatement.MedicationStatementDosageComponent();
+    org.hl7.fhir.dstu3.model.DosageInstruction tgt = new org.hl7.fhir.dstu3.model.DosageInstruction();
     copyElement(src, tgt);
     tgt.setText(src.getText());
     tgt.setTiming(convertTiming(src.getTiming()));
@@ -9102,7 +9103,7 @@ public class VersionConvertor_10_20 {
     return tgt;
   }
 
-  public org.hl7.fhir.dstu2.model.MedicationStatement.MedicationStatementDosageComponent convertMedicationStatementDosageComponent(org.hl7.fhir.dstu3.model.MedicationStatement.MedicationStatementDosageComponent src) throws FHIRException {
+  public org.hl7.fhir.dstu2.model.MedicationStatement.MedicationStatementDosageComponent convertMedicationStatementDosageComponent(org.hl7.fhir.dstu3.model.DosageInstruction src) throws FHIRException {
     if (src == null || src.isEmpty())
       return null;
     org.hl7.fhir.dstu2.model.MedicationStatement.MedicationStatementDosageComponent tgt = new org.hl7.fhir.dstu2.model.MedicationStatement.MedicationStatementDosageComponent();

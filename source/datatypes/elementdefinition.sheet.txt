@@ -734,6 +734,14 @@
   Comments = Elements SHALL use \"f\" as the namespace prefix for the FHIR namespace, and \"x\" for the xhtml namespace, and SHALL NOT use any other prefixes. \n\nNote: we are considering deprecating the xpath element. Implementer feedback is welcome
 
  -- Row 46 -----------------------------------
+  Element = ElementDefinition.constraint.source
+  Card. = 0..1
+  Type = uri
+  Short Name = Reference to original source of constraint
+  Definition = A reference to the original source of the constraint, for traceability purposes
+  Comments = This is used when, e.g. rendering, where it is not useful to present inherited constraints when rendering the snapshot
+
+ -- Row 47 -----------------------------------
   Element = ElementDefinition.mustSupport
   Card. = 0..1
   Type = boolean
@@ -744,7 +752,7 @@
   11179 Mapping = ??
   Default Value = False
 
- -- Row 47 -----------------------------------
+ -- Row 48 -----------------------------------
   Element = ElementDefinition.isModifier
   Card. = 0..1
   Type = boolean
@@ -755,7 +763,7 @@
   11179 Mapping = ??
   Default Value = False
 
- -- Row 48 -----------------------------------
+ -- Row 49 -----------------------------------
   Element = ElementDefinition.isSummary
   Card. = 0..1
   Type = boolean
@@ -766,7 +774,7 @@
   11179 Mapping = ??
   Default Value = False
 
- -- Row 49 -----------------------------------
+ -- Row 50 -----------------------------------
   Element = ElementDefinition.binding
   Card. = 0..1
   UML = 480;390
@@ -779,7 +787,7 @@
   11179 Mapping = .domain
   LOINC Code = ANSWER LIST, NORMATIVE ANSWER LIST
 
- -- Row 50 -----------------------------------
+ -- Row 51 -----------------------------------
   Element = ElementDefinition.binding.strength
   Card. = 1..1
   Aliases = conformance; extensibility
@@ -792,7 +800,7 @@
   RIM Mapping = N/A (MIF territory)
   LOINC Code = N/A
 
- -- Row 51 -----------------------------------
+ -- Row 52 -----------------------------------
   Element = ElementDefinition.binding.description
   Card. = 0..1
   Inv. = 10
@@ -802,7 +810,7 @@
   RIM Mapping = N/A (MIF territory)
   11179 Mapping = .domain.description
 
- -- Row 52 -----------------------------------
+ -- Row 53 -----------------------------------
   Element = ElementDefinition.binding.valueSet[x]
   Card. = 0..1
   Inv. = 10,12
@@ -815,7 +823,7 @@
   11179 Mapping = points to explicit list or expression that evaluates to list of (Enumerated_Value_Domain).member
   LOINC Code = CODE_TABLE
 
- -- Row 53 -----------------------------------
+ -- Row 54 -----------------------------------
   Element = ElementDefinition.mapping
   Card. = 0..*
   UML = 480;540
@@ -827,7 +835,7 @@
   RIM Mapping = N/A (MIF territory)
   11179 Mapping = Registered_item).document_reference[document_type=mapping]  Also, .meaning linkage to Data_Element_Concept is done as a mapping to a reference model.  (Data_Element_Concepts are all defined in some sort of reference model, be that Object_Class and Property or some other mechanism)
 
- -- Row 54 -----------------------------------
+ -- Row 55 -----------------------------------
   Element = ElementDefinition.mapping.identity
   Card. = 1..1
   Type = id
@@ -835,7 +843,7 @@
   Definition = An internal reference to the definition of a mapping
   RIM Mapping = N/A (MIF territory)
 
- -- Row 55 -----------------------------------
+ -- Row 56 -----------------------------------
   Element = ElementDefinition.mapping.language
   Card. = 0..1
   Type = code
@@ -845,7 +853,7 @@
   Comments = If omitted, then there can be no expectation of computational interpretation of the mapping
   RIM Mapping = N/A (MIF territory)
 
- -- Row 56 -----------------------------------
+ -- Row 57 -----------------------------------
   Element = ElementDefinition.mapping.map
   Card. = 1..1
   Type = string

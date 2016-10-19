@@ -752,6 +752,7 @@
   Element = Sequence.structureVariant
   Card. = 0..*
   UML = down
+  Short Name = Structural variant
   Definition = Structural variant.
 
  -- Row 48 -----------------------------------
@@ -779,6 +780,7 @@
   Element = Sequence.structureVariant.outer
   Card. = 0..1
   UML = left
+  Short Name = Structural variant outer
   Definition = Structural variant outer.
 
  -- Row 52 -----------------------------------
@@ -799,6 +801,7 @@
   Element = Sequence.structureVariant.inner
   Card. = 0..1
   UML = right
+  Short Name = Structural variant inner
   Definition = Structural variant inner.
 
  -- Row 55 -----------------------------------

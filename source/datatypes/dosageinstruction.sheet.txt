@@ -59,6 +59,7 @@
   Element = DosageInstruction.text
   Card. = 0..1
   Type = string
+  Short Name = Free text dosage instructions e.g. SIG
   Definition = Free text dosage instructions e.g. SIG
   Requirements = Free text dosage instructions can be used for cases where the instructions are too complex to code.  The content of this attribute does not include the name or description of the medication. When coded instructions are present, the free text instructions may still be present for display to humans taking or administering the medication. It is expected that the text instructions will always be populated.  If the dosage.timing attribute is also populated, then the dosage.text should reflect the same information as the timing.
   v2 Mapping = text
@@ -69,6 +70,7 @@
   UML = //element(*,SIGType)/Timing
   Type = CodeableConcept
   Binding = AdditionalInstructions
+  Short Name = Supplemental instructions - e.g. \"with meals\"
   Definition = Supplemental instructions - e.g. \"with meals\"
   Requirements = Additional instructions such as \"Swallow with plenty of water\" which may or may not be coded.
   v2 Mapping = component.substanceAdministrationRequest.text
@@ -78,6 +80,7 @@
   Card. = 0..1
   UML = //element(*,SIGType)/SiteofAdministration
   Type = Timing
+  Short Name = When medication should be administered
   Definition = When medication should be administered
   Requirements = The timing schedule for giving the medication to the patient. The Schedule data type allows many different expressions. For example: \"Every 8 hours\"; \"Three times a day\"; \"1/2 an hour before breakfast for 10 days from 23-Dec 2011:\"; \"15 Oct 2013, 17 Oct 2013 and 1 Nov 2013\".  Sometimes, a rate can imply duration when expressed as total volume / duration (e.g.  500mL/2 hours implies a duration of 2 hours).  However, when rate doesn\'t imply duration (e.g. 250mL/hour), then the timing.repeat.duration is needed to convey the infuse over time period.
   v2 Mapping = effectiveTime
@@ -89,6 +92,7 @@
   UML = Message/Body/NewRx/MedicationPrescribed/StructuredSIG/SiteofAdministration
   Type = boolean | CodeableConcept
   Binding = MedicationAsNeededReason
+  Short Name = Take \"as needed\" (for x)
   Definition = Take \"as needed\" (for x)
   Requirements = Indicates whether the Medication is only taken when needed within a specific dosing schedule (Boolean option), or it indicates the precondition for taking the Medication (CodeableConcept).
   v2 Mapping = boolean: precondition.negationInd (inversed - so negationInd = true means asNeeded=false  CodeableConcept: precondition.observationEventCriterion[code=\"Assertion\"].value
@@ -100,6 +104,7 @@
   UML = //element(*,SIGType)/RouteofAdministration
   Type = CodeableConcept | Reference(BodySite)
   Binding = MedicationAdministrationSite
+  Short Name = Body site to administer to
   Definition = Body site to administer to
   Requirements = A coded specification of the anatomic site where the medication first enters the body
   v2 Mapping = approachSiteCode
@@ -110,6 +115,7 @@
   UML = //element(*,SIGType)/Dose/DoseDeliveryMethodCode
   Type = CodeableConcept
   Binding = RouteOfAdministration
+  Short Name = How drug should enter body
   Definition = How drug should enter body
   Requirements = A code specifying the route or physiological path of administration of a therapeutic agent into or onto a patient\'s body.
   v2 Mapping = routeCode
@@ -120,6 +126,7 @@
   UML = //element(*,SIGType)/Dose
   Type = CodeableConcept
   Binding = MedicationAdministrationMethod
+  Short Name = Technique for administering medication
   Definition = Technique for administering medication
   Requirements = A coded value indicating the method by which the medication is introduced into or onto the body. Most commonly used for injections.  For examples, Slow Push; Deep IV.
   v2 Mapping = methodCode
@@ -130,6 +137,7 @@
   Card. = 0..1
   UML = //element(*,SIGType)/MaximumDoseRestriction
   Type = Range | SimpleQuantity
+  Short Name = Amount of medication per dose
   Definition = Amount of medication per dose
   Requirements = The amount of therapeutic or other substance given at one administration event.
   v2 Mapping = doseQuantity
@@ -140,6 +148,7 @@
   Card. = 0..1
   UML = //element(*,SIGType)/MaximumDoseRestriction
   Type = Ratio
+  Short Name = Upper limit on medication per unit of time
   Definition = Upper limit on medication per unit of time
   Requirements = The maximum total quantity of a therapeutic substance that may be administered to a subject over the period of time.  For example, 1000mg in 24 hours.
   v2 Mapping = maxDoseQuantity
@@ -150,6 +159,7 @@
   Card. = 0..1
   UML = //element(*,SIGType)/MaximumDoseRestriction
   Type = SimpleQuantity
+  Short Name = Upper limit on medication per administration
   Definition = Upper limit on medication per administration
   Requirements = The maximum total quantity of a therapeutic substance that may be administered to a subject per administration.
   v2 Mapping = no mapping
@@ -159,6 +169,7 @@
   Element = DosageInstruction.maxDosePerLifetime
   Card. = 0..1
   Type = SimpleQuantity
+  Short Name = Upper limit on medication per lifetime of the patient
   Definition = Upper limit on medication per lifetime of the patient
   Requirements = The maximum total quantity of a therapeutic substance that may be administered per lifetime of the subject.
   v2 Mapping = no mapping
@@ -168,6 +179,7 @@
   Card. = 0..1
   UML = no mapping
   Type = Ratio|Range | SimpleQuantity
+  Short Name = Amount of medication per unit of time
   Definition = Amount of medication per unit of time
   Requirements = Identifies the speed with which the medication was or will be introduced into the patient. Typically the rate for an infusion e.g. 100 ml per 1 hour or 100 ml/hr.  May also be expressed as a rate per unit of time e.g. 500 ml per 2 hours.   Other examples: 200 mcg/min or 200 mcg/1 minute; 1 liter/8 hours.  Sometimes, a rate can imply duration when expressed as total volume / duration (e.g.  500mL/2 hours implies a duration of 2 hours).  However, when rate doesn\'t imply duration (e.g. 250mL/hour), then the timing.repeat.duration is needed to convey the infuse over time period.
   v2 Mapping = rateQuantity

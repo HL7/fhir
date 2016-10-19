@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Oct 18, 2016 15:43+1100 for FHIR v1.7.0
+// Generated on Wed, Oct 19, 2016 11:03+1100 for FHIR v1.7.0
 
 import org.hl7.fhir.exceptions.FHIRException;
 
@@ -301,6 +301,8 @@ public class ResourceFactory extends Factory {
             return new Distance();
         if ("Age".equals(name))
             return new Age();
+        if ("DosageInstruction".equals(name))
+            return new DosageInstruction();
         if ("Reference".equals(name))
             return new Reference();
         if ("TriggerDefinition".equals(name))
@@ -598,6 +600,8 @@ public class ResourceFactory extends Factory {
             return new Distance();
         if ("Age".equals(name))
             return new Age();
+        if ("DosageInstruction".equals(name))
+            return new DosageInstruction();
         if ("Reference".equals(name))
             return new Reference();
         if ("TriggerDefinition".equals(name))

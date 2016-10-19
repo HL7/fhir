@@ -646,6 +646,7 @@
   Card. = 0..*
   UML = 740;0
   Type = =SpecialCondition
+  Short Name = Exceptions, special considerations, the condition, situation, prior or concurrent issues
   Definition = Additional information codes regarding exceptions, special considerations, the condition, situation, prior or concurrent issues. Often there are mutiple jurisdiction specific valuesets which are required.
   Requirements = Typically these information codes are required to support the services rendered or the adjudication of the services rendered.
 
@@ -853,6 +854,7 @@
   Card. = 0..1
   UML = 740;370
   Type = =Accident
+  Short Name = Details about an accident
   Definition = An accident which resulted in the need for healthcare services.
 
  -- Row 61 -----------------------------------
@@ -918,6 +920,7 @@
   Card. = 0..*
   UML = 0;500
   Type = =CareTeam
+  Short Name = Members of the care team
   Definition = The members of the team who provided the overall service as well as their role and whether responsible and qualifications.
   Requirements = Role and Responsible may not be required when there is only a single provider listed.
 

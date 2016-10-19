@@ -383,12 +383,20 @@ private Map<String, Object> userData;
 			throw new FHIRException("Unable to convert a "+b.getClass().getName()+" to a Markdown");
 	}
 		
-	public Annotation castToAnnotation(Base b) throws FHIRException {
-		if (b instanceof Annotation)
-			return (Annotation) b;
-		else
-			throw new FHIRException("Unable to convert a "+b.getClass().getName()+" to an Annotation");
-	}
+  public Annotation castToAnnotation(Base b) throws FHIRException {
+    if (b instanceof Annotation)
+      return (Annotation) b;
+    else
+      throw new FHIRException("Unable to convert a "+b.getClass().getName()+" to an Annotation");
+  }
+  
+  public DosageInstruction castToDosageInstruction(Base b) throws FHIRException {
+    if (b instanceof DosageInstruction)
+      return (DosageInstruction) b;
+    else
+      throw new FHIRException("Unable to convert a "+b.getClass().getName()+" to an DosageInstruction");
+  }
+  
 	
 	public Attachment castToAttachment(Base b) throws FHIRException {
 		if (b instanceof Attachment)

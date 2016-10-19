@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Oct 18, 2016 15:43+1100 for FHIR v1.7.0
+// Generated on Wed, Oct 19, 2016 11:03+1100 for FHIR v1.7.0
 
 
 import org.hl7.fhir.instance.model.api.*;
@@ -1017,6 +1017,10 @@ public class Enumerations {
          */
         DISTANCE, 
         /**
+         * Indicates how the medication is to be used by the patient.
+         */
+        DOSAGEINSTRUCTION, 
+        /**
          * A length of time.
          */
         DURATION, 
@@ -1209,6 +1213,8 @@ public class Enumerations {
           return DATAREQUIREMENT;
         if ("Distance".equals(codeString))
           return DISTANCE;
+        if ("DosageInstruction".equals(codeString))
+          return DOSAGEINSTRUCTION;
         if ("Duration".equals(codeString))
           return DURATION;
         if ("Element".equals(codeString))
@@ -1306,6 +1312,7 @@ public class Enumerations {
             case COUNT: return "Count";
             case DATAREQUIREMENT: return "DataRequirement";
             case DISTANCE: return "Distance";
+            case DOSAGEINSTRUCTION: return "DosageInstruction";
             case DURATION: return "Duration";
             case ELEMENT: return "Element";
             case ELEMENTDEFINITION: return "ElementDefinition";
@@ -1364,6 +1371,7 @@ public class Enumerations {
             case COUNT: return "http://hl7.org/fhir/data-types";
             case DATAREQUIREMENT: return "http://hl7.org/fhir/data-types";
             case DISTANCE: return "http://hl7.org/fhir/data-types";
+            case DOSAGEINSTRUCTION: return "http://hl7.org/fhir/data-types";
             case DURATION: return "http://hl7.org/fhir/data-types";
             case ELEMENT: return "http://hl7.org/fhir/data-types";
             case ELEMENTDEFINITION: return "http://hl7.org/fhir/data-types";
@@ -1422,6 +1430,7 @@ public class Enumerations {
             case COUNT: return "A measured amount (or an amount that can potentially be measured). Note that measured amounts include amounts that are not precisely quantified, including amounts involving arbitrary units and floating currencies.";
             case DATAREQUIREMENT: return "Describes a required data item for evaluation in terms of the type of data, and optional code- or date-based filters of the data.";
             case DISTANCE: return "A length - a value with a unit that is a physical distance.";
+            case DOSAGEINSTRUCTION: return "Indicates how the medication is to be used by the patient.";
             case DURATION: return "A length of time.";
             case ELEMENT: return "Base definition for all elements in a resource.";
             case ELEMENTDEFINITION: return "Captures constraints on each element within the resource, profile, or extension.";
@@ -1480,6 +1489,7 @@ public class Enumerations {
             case COUNT: return "Count";
             case DATAREQUIREMENT: return "DataRequirement";
             case DISTANCE: return "Distance";
+            case DOSAGEINSTRUCTION: return "DosageInstruction";
             case DURATION: return "Duration";
             case ELEMENT: return "Element";
             case ELEMENTDEFINITION: return "ElementDefinition";
@@ -1556,6 +1566,8 @@ public class Enumerations {
           return DataType.DATAREQUIREMENT;
         if ("Distance".equals(codeString))
           return DataType.DISTANCE;
+        if ("DosageInstruction".equals(codeString))
+          return DataType.DOSAGEINSTRUCTION;
         if ("Duration".equals(codeString))
           return DataType.DURATION;
         if ("Element".equals(codeString))
@@ -1670,6 +1682,8 @@ public class Enumerations {
           return new Enumeration<DataType>(this, DataType.DATAREQUIREMENT);
         if ("Distance".equals(codeString))
           return new Enumeration<DataType>(this, DataType.DISTANCE);
+        if ("DosageInstruction".equals(codeString))
+          return new Enumeration<DataType>(this, DataType.DOSAGEINSTRUCTION);
         if ("Duration".equals(codeString))
           return new Enumeration<DataType>(this, DataType.DURATION);
         if ("Element".equals(codeString))
@@ -1779,6 +1793,8 @@ public class Enumerations {
         return "DataRequirement";
       if (code == DataType.DISTANCE)
         return "Distance";
+      if (code == DataType.DOSAGEINSTRUCTION)
+        return "DosageInstruction";
       if (code == DataType.DURATION)
         return "Duration";
       if (code == DataType.ELEMENT)
@@ -2022,6 +2038,10 @@ public class Enumerations {
          * A length - a value with a unit that is a physical distance.
          */
         DISTANCE, 
+        /**
+         * Indicates how the medication is to be used by the patient.
+         */
+        DOSAGEINSTRUCTION, 
         /**
          * A length of time.
          */
@@ -2683,6 +2703,8 @@ public class Enumerations {
           return DATAREQUIREMENT;
         if ("Distance".equals(codeString))
           return DISTANCE;
+        if ("DosageInstruction".equals(codeString))
+          return DOSAGEINSTRUCTION;
         if ("Duration".equals(codeString))
           return DURATION;
         if ("Element".equals(codeString))
@@ -3014,6 +3036,7 @@ public class Enumerations {
             case COUNT: return "Count";
             case DATAREQUIREMENT: return "DataRequirement";
             case DISTANCE: return "Distance";
+            case DOSAGEINSTRUCTION: return "DosageInstruction";
             case DURATION: return "Duration";
             case ELEMENT: return "Element";
             case ELEMENTDEFINITION: return "ElementDefinition";
@@ -3189,6 +3212,7 @@ public class Enumerations {
             case COUNT: return "http://hl7.org/fhir/data-types";
             case DATAREQUIREMENT: return "http://hl7.org/fhir/data-types";
             case DISTANCE: return "http://hl7.org/fhir/data-types";
+            case DOSAGEINSTRUCTION: return "http://hl7.org/fhir/data-types";
             case DURATION: return "http://hl7.org/fhir/data-types";
             case ELEMENT: return "http://hl7.org/fhir/data-types";
             case ELEMENTDEFINITION: return "http://hl7.org/fhir/data-types";
@@ -3364,6 +3388,7 @@ public class Enumerations {
             case COUNT: return "A measured amount (or an amount that can potentially be measured). Note that measured amounts include amounts that are not precisely quantified, including amounts involving arbitrary units and floating currencies.";
             case DATAREQUIREMENT: return "Describes a required data item for evaluation in terms of the type of data, and optional code- or date-based filters of the data.";
             case DISTANCE: return "A length - a value with a unit that is a physical distance.";
+            case DOSAGEINSTRUCTION: return "Indicates how the medication is to be used by the patient.";
             case DURATION: return "A length of time.";
             case ELEMENT: return "Base definition for all elements in a resource.";
             case ELEMENTDEFINITION: return "Captures constraints on each element within the resource, profile, or extension.";
@@ -3539,6 +3564,7 @@ public class Enumerations {
             case COUNT: return "Count";
             case DATAREQUIREMENT: return "DataRequirement";
             case DISTANCE: return "Distance";
+            case DOSAGEINSTRUCTION: return "DosageInstruction";
             case DURATION: return "Duration";
             case ELEMENT: return "Element";
             case ELEMENTDEFINITION: return "ElementDefinition";
@@ -3732,6 +3758,8 @@ public class Enumerations {
           return FHIRAllTypes.DATAREQUIREMENT;
         if ("Distance".equals(codeString))
           return FHIRAllTypes.DISTANCE;
+        if ("DosageInstruction".equals(codeString))
+          return FHIRAllTypes.DOSAGEINSTRUCTION;
         if ("Duration".equals(codeString))
           return FHIRAllTypes.DURATION;
         if ("Element".equals(codeString))
@@ -4080,6 +4108,8 @@ public class Enumerations {
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.DATAREQUIREMENT);
         if ("Distance".equals(codeString))
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.DISTANCE);
+        if ("DosageInstruction".equals(codeString))
+          return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.DOSAGEINSTRUCTION);
         if ("Duration".equals(codeString))
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.DURATION);
         if ("Element".equals(codeString))
@@ -4423,6 +4453,8 @@ public class Enumerations {
         return "DataRequirement";
       if (code == FHIRAllTypes.DISTANCE)
         return "Distance";
+      if (code == FHIRAllTypes.DOSAGEINSTRUCTION)
+        return "DosageInstruction";
       if (code == FHIRAllTypes.DURATION)
         return "Duration";
       if (code == FHIRAllTypes.ELEMENT)
@@ -4797,6 +4829,10 @@ public class Enumerations {
          * A length - a value with a unit that is a physical distance.
          */
         DISTANCE, 
+        /**
+         * Indicates how the medication is to be used by the patient.
+         */
+        DOSAGEINSTRUCTION, 
         /**
          * A length of time.
          */
@@ -5450,6 +5486,8 @@ public class Enumerations {
           return DATAREQUIREMENT;
         if ("Distance".equals(codeString))
           return DISTANCE;
+        if ("DosageInstruction".equals(codeString))
+          return DOSAGEINSTRUCTION;
         if ("Duration".equals(codeString))
           return DURATION;
         if ("Element".equals(codeString))
@@ -5777,6 +5815,7 @@ public class Enumerations {
             case COUNT: return "Count";
             case DATAREQUIREMENT: return "DataRequirement";
             case DISTANCE: return "Distance";
+            case DOSAGEINSTRUCTION: return "DosageInstruction";
             case DURATION: return "Duration";
             case ELEMENT: return "Element";
             case ELEMENTDEFINITION: return "ElementDefinition";
@@ -5950,6 +5989,7 @@ public class Enumerations {
             case COUNT: return "http://hl7.org/fhir/data-types";
             case DATAREQUIREMENT: return "http://hl7.org/fhir/data-types";
             case DISTANCE: return "http://hl7.org/fhir/data-types";
+            case DOSAGEINSTRUCTION: return "http://hl7.org/fhir/data-types";
             case DURATION: return "http://hl7.org/fhir/data-types";
             case ELEMENT: return "http://hl7.org/fhir/data-types";
             case ELEMENTDEFINITION: return "http://hl7.org/fhir/data-types";
@@ -6123,6 +6163,7 @@ public class Enumerations {
             case COUNT: return "A measured amount (or an amount that can potentially be measured). Note that measured amounts include amounts that are not precisely quantified, including amounts involving arbitrary units and floating currencies.";
             case DATAREQUIREMENT: return "Describes a required data item for evaluation in terms of the type of data, and optional code- or date-based filters of the data.";
             case DISTANCE: return "A length - a value with a unit that is a physical distance.";
+            case DOSAGEINSTRUCTION: return "Indicates how the medication is to be used by the patient.";
             case DURATION: return "A length of time.";
             case ELEMENT: return "Base definition for all elements in a resource.";
             case ELEMENTDEFINITION: return "Captures constraints on each element within the resource, profile, or extension.";
@@ -6296,6 +6337,7 @@ public class Enumerations {
             case COUNT: return "Count";
             case DATAREQUIREMENT: return "DataRequirement";
             case DISTANCE: return "Distance";
+            case DOSAGEINSTRUCTION: return "DosageInstruction";
             case DURATION: return "Duration";
             case ELEMENT: return "Element";
             case ELEMENTDEFINITION: return "ElementDefinition";
@@ -6487,6 +6529,8 @@ public class Enumerations {
           return FHIRDefinedType.DATAREQUIREMENT;
         if ("Distance".equals(codeString))
           return FHIRDefinedType.DISTANCE;
+        if ("DosageInstruction".equals(codeString))
+          return FHIRDefinedType.DOSAGEINSTRUCTION;
         if ("Duration".equals(codeString))
           return FHIRDefinedType.DURATION;
         if ("Element".equals(codeString))
@@ -6831,6 +6875,8 @@ public class Enumerations {
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.DATAREQUIREMENT);
         if ("Distance".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.DISTANCE);
+        if ("DosageInstruction".equals(codeString))
+          return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.DOSAGEINSTRUCTION);
         if ("Duration".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.DURATION);
         if ("Element".equals(codeString))
@@ -7170,6 +7216,8 @@ public class Enumerations {
         return "DataRequirement";
       if (code == FHIRDefinedType.DISTANCE)
         return "Distance";
+      if (code == FHIRDefinedType.DOSAGEINSTRUCTION)
+        return "DosageInstruction";
       if (code == FHIRDefinedType.DURATION)
         return "Duration";
       if (code == FHIRDefinedType.ELEMENT)

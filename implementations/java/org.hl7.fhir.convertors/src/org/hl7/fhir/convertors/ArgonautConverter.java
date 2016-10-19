@@ -33,6 +33,7 @@ import org.hl7.fhir.dstu3.model.DocumentReference;
 import org.hl7.fhir.dstu3.model.DocumentReference.DocumentReferenceContentComponent;
 import org.hl7.fhir.dstu3.model.DocumentReference.DocumentReferenceContextComponent;
 import org.hl7.fhir.dstu3.model.DomainResource;
+import org.hl7.fhir.dstu3.model.DosageInstruction;
 import org.hl7.fhir.dstu3.model.Encounter;
 import org.hl7.fhir.dstu3.model.Encounter.EncounterHospitalizationComponent;
 import org.hl7.fhir.dstu3.model.Encounter.EncounterStatus;
@@ -51,7 +52,6 @@ import org.hl7.fhir.dstu3.model.ListResource.ListStatus;
 import org.hl7.fhir.dstu3.model.Location;
 import org.hl7.fhir.dstu3.model.Medication;
 import org.hl7.fhir.dstu3.model.MedicationStatement;
-import org.hl7.fhir.dstu3.model.MedicationStatement.MedicationStatementDosageComponent;
 import org.hl7.fhir.dstu3.model.MedicationStatement.MedicationStatementStatus;
 import org.hl7.fhir.dstu3.model.Narrative;
 import org.hl7.fhir.dstu3.model.Narrative.NarrativeStatus;
@@ -1118,7 +1118,7 @@ public class ArgonautConverter extends ConverterBase {
 				med.setId("med");
 				med.setCode(inspectCode(convert.makeCodeableConceptFromCD(cda.getChild(mm, "code")), null));
 				ms.getContained().add(med);
-				MedicationStatementDosageComponent dosage = ms.addDosage();
+				DosageInstruction dosage = ms.addDosage();
 				Element qty = cda.getChild(sa, "doseQuantity"); // allergy observation
 				try {
 					if (cda.getChild(qty, "low") != null) {

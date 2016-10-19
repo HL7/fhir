@@ -1355,7 +1355,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   private String genCompModel(StructureDefinition sd, String name, String base, String prefix) throws Exception {
     if (sd == null)
       return "<p style=\"color: maroon\">No "+name+" could be generated</p>\r\n";
-    return new XhtmlComposer().compose(new ProfileUtilities(workerContext, null, this).generateTable("??", sd, false, folders.dstDir, false, base, true, prefix, prefix, false)); 
+    return new XhtmlComposer().compose(new ProfileUtilities(workerContext, null, this).generateTable("??", sd, false, folders.dstDir, false, base, true, prefix, prefix, false, false)); 
   }
 
   private String genCmpMessages(ProfileComparison cmp) {
@@ -6677,8 +6677,16 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     Map<String, List<ElementDefinitionConstraintComponent>> txmap = new HashMap<String, List<ElementDefinitionConstraintComponent>>();
     for (ElementDefinition ed : profile.getSnapshot().getElement()) {
       if (!"0".equals(ed.getMax())) {
-        txlist.add(ed.getPath());
-        txmap.put(ed.getPath(), ed.getConstraint());
+        List<ElementDefinitionConstraintComponent> list = new ArrayList<ElementDefinition.ElementDefinitionConstraintComponent>();
+        for (ElementDefinitionConstraintComponent t : ed.getConstraint()) {
+          if (!t.hasSource()) {
+            list.add(t);
+          }
+        }
+        if (!list.isEmpty()) {
+          txlist.add(ed.getPath());
+          txmap.put(ed.getPath(), list);
+        }
       }
     }
     if (txlist.isEmpty())
@@ -6816,7 +6824,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   private String generateProfileStructureTable(ConstraintStructure profile, boolean diff, String filename, String baseName, String prefix) throws Exception {
     String fn = filename.contains(".") ? filename.substring(0, filename.indexOf('.')) : filename;
     String deffile = fn+"-definitions.html";
-    return new XhtmlComposer().compose(new ProfileUtilities(workerContext, null, this).generateTable(deffile, profile.getResource(), diff, folders.dstDir, false, baseName, !diff, prefix, prefix, false));
+    return new XhtmlComposer().compose(new ProfileUtilities(workerContext, null, this).generateTable(deffile, profile.getResource(), diff, folders.dstDir, false, baseName, !diff, prefix, prefix, false, false));
   }
 
   private boolean isAggregationEndpoint(String name) {

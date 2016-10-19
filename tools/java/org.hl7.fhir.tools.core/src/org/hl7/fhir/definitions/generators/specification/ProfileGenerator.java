@@ -279,6 +279,7 @@ public class ProfileGenerator {
     ec1.setComments(type.getComment());
     ec1.setMin(0);
     ec1.setMax("*");
+    addElementConstraints("Element", ec1);
     generateElementDefinition(ec1, null);
 
     ElementDefinition ec2 = new ElementDefinition();
@@ -292,6 +293,9 @@ public class ProfileGenerator {
     ec2.setShort("xml:id (or equivalent in JSON)");
     ec2.getType().add(new TypeRefComponent().setCode("id"));
     generateElementDefinition(ec2, ec1);
+    ec2.getBase().setPath("Element.id");
+    ec2.getBase().setMin(0);
+    ec2.getBase().setMax("1");
 
     makeExtensionSlice("extension", p, p.getSnapshot(), null, type.getCode());
 
@@ -325,6 +329,17 @@ public class ProfileGenerator {
     return p;
   }
 
+  private void addElementConstraints(String name, ElementDefinition ed) throws Exception {
+    if (definitions.hasPrimitiveType(name) || name.equals("Type") || name.equals("Structure") || name.equals("Logical"))
+      addElementConstraints("Element", ed);
+    else {
+      ElementDefn element = definitions.getElementDefn(name);
+      if (!Utilities.noString(element.typeCode()))
+        addElementConstraints(element.typeCode(), ed);
+      convertConstraints(element, ed, name);
+    }
+  }
+  
   private void addSpecificDetails(PrimitiveType type, ElementDefinition ed) {
     if (type.getCode().equals("integer")) {
       ed.setMinValue(new IntegerType(-2147483648));
@@ -414,6 +429,9 @@ public class ProfileGenerator {
     ec2.setShort("xml:id (or equivalent in JSON)");
     ec2.getType().add(new TypeRefComponent().setCode("id"));
     generateElementDefinition(ec2, ec1);
+    ec2.getBase().setPath("Element.id");
+    ec2.getBase().setMin(0);
+    ec2.getBase().setMax("1");
 
     ElementDefinition ex = makeExtensionSlice("extension", p, p.getSnapshot(), null, "xhtml");
     ex.setMax("0");
@@ -525,6 +543,8 @@ public class ProfileGenerator {
     ecA.getBase().setPath(type.getCode());
     ecA.getBase().setMin(0);
     ecA.getBase().setMax("*");
+    addElementConstraints("Element", ecA);
+
 //    generateElementDefinition(ecA, null);
 
     makeExtensionSlice("extension", p, p.getSnapshot(), null, type.getCode());
@@ -1122,9 +1142,10 @@ public class ProfileGenerator {
 
     if (!Utilities.noString(inheritedType) && snapshot != SnapShotMode.None) {
       ElementDefn inh = definitions.getElementDefn(inheritedType);
-      buildDefinitionFromElement(path, ce, inh, ap, p);
-    }
-    buildDefinitionFromElement(path, ce, e, ap, p);
+      buildDefinitionFromElement(path, ce, inh, ap, p, inheritedType);
+    } else if (path.contains(".") && Utilities.noString(e.typeCode()) && snapshot != SnapShotMode.None)
+      addElementConstraints(defType, ce);
+    buildDefinitionFromElement(path, ce, e, ap, p, null);
     if (!Utilities.noString(e.getStatedType()))
       ToolingExtensions.addStringExtension(ce, "http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name", e.getStatedType());
 
@@ -1243,7 +1264,7 @@ public class ProfileGenerator {
     return ce;
   }
 
-  private void buildDefinitionFromElement(String path, ElementDefinition ce, ElementDefn e, Profile ap, StructureDefinition p) throws FHIRException, org.hl7.fhir.exceptions.FHIRException {
+  private void buildDefinitionFromElement(String path, ElementDefinition ce, ElementDefn e, Profile ap, StructureDefinition p, String inheritedType) throws Exception {
     if (!Utilities.noString(e.getComments()))
       ce.setComments(e.getComments());
     if (!Utilities.noString(e.getShortDefn()))
@@ -1302,6 +1323,11 @@ public class ProfileGenerator {
     }
     ToolingExtensions.addDisplayHint(ce, e.getDisplayHint());
 
+    convertConstraints(e, ce, inheritedType);
+    // we don't have anything to say about constraints on resources
+  }
+
+  private void convertConstraints(ElementDefn e, ElementDefinition ce, String source) throws FHIRException {
     for (String in : e.getInvariants().keySet()) {
       ElementDefinitionConstraintComponent con = new ElementDefinitionConstraintComponent();
       Invariant inv = e.getInvariants().get(in);
@@ -1317,11 +1343,11 @@ public class ProfileGenerator {
         con.setSeverity(ConstraintSeverity.fromCode(inv.getSeverity()));
       con.setHuman(inv.getEnglish());
       con.setXpath(inv.getXpath());
+      con.setSource(source);
       if (!"n/a".equals(inv.getExpression()))
         con.setExpression(inv.getExpression());
       ce.getConstraint().add(con);
     }
-    // we don't have anything to say about constraints on resources
   }
 
   private String getIdForPath(List<ElementDefinition> list, String path) throws Exception {
@@ -1413,7 +1439,7 @@ public class ProfileGenerator {
   private ElementDefinition makeExtensionSlice(String extensionName, StructureDefinition p, StructureDefinitionSnapshotComponent c, ElementDefn e, String path) throws URISyntaxException, Exception {
     ElementDefinition ex = createBaseDefinition(p, path, definitions.getBaseResources().get("DomainResource").getRoot().getElementByName(definitions, extensionName, false, false));
     c.getElement().add(ex);
-    ex.getBase().setPath(path+".extension");
+    ex.getBase().setPath("Element.extension");
     ex.getBase().setMin(0);
     ex.getBase().setMax("*");
     return ex;

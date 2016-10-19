@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Oct 18, 2016 15:43+1100 for FHIR v1.7.0
+// Generated on Wed, Oct 19, 2016 11:03+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -1767,7 +1767,14 @@ public class ElementDefinition extends Type implements ICompositeType {
         @Description(shortDefinition="XPath expression of constraint", formalDefinition="An XPath expression of constraint that can be executed to see if this constraint is met." )
         protected StringType xpath;
 
-        private static final long serialVersionUID = -1412249932L;
+        /**
+         * A reference to the original source of the constraint, for traceability purposes.
+         */
+        @Child(name = "source", type = {UriType.class}, order=7, min=0, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="Reference to original source of constraint", formalDefinition="A reference to the original source of the constraint, for traceability purposes." )
+        protected UriType source;
+
+        private static final long serialVersionUID = 1860862205L;
 
     /**
      * Constructor
@@ -2065,6 +2072,55 @@ public class ElementDefinition extends Type implements ICompositeType {
           return this;
         }
 
+        /**
+         * @return {@link #source} (A reference to the original source of the constraint, for traceability purposes.). This is the underlying object with id, value and extensions. The accessor "getSource" gives direct access to the value
+         */
+        public UriType getSourceElement() { 
+          if (this.source == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ElementDefinitionConstraintComponent.source");
+            else if (Configuration.doAutoCreate())
+              this.source = new UriType(); // bb
+          return this.source;
+        }
+
+        public boolean hasSourceElement() { 
+          return this.source != null && !this.source.isEmpty();
+        }
+
+        public boolean hasSource() { 
+          return this.source != null && !this.source.isEmpty();
+        }
+
+        /**
+         * @param value {@link #source} (A reference to the original source of the constraint, for traceability purposes.). This is the underlying object with id, value and extensions. The accessor "getSource" gives direct access to the value
+         */
+        public ElementDefinitionConstraintComponent setSourceElement(UriType value) { 
+          this.source = value;
+          return this;
+        }
+
+        /**
+         * @return A reference to the original source of the constraint, for traceability purposes.
+         */
+        public String getSource() { 
+          return this.source == null ? null : this.source.getValue();
+        }
+
+        /**
+         * @param value A reference to the original source of the constraint, for traceability purposes.
+         */
+        public ElementDefinitionConstraintComponent setSource(String value) { 
+          if (Utilities.noString(value))
+            this.source = null;
+          else {
+            if (this.source == null)
+              this.source = new UriType();
+            this.source.setValue(value);
+          }
+          return this;
+        }
+
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("key", "id", "Allows identification of which elements have their cardinalities impacted by the constraint.  Will not be referenced for constraints that do not affect cardinality.", 0, java.lang.Integer.MAX_VALUE, key));
@@ -2073,6 +2129,7 @@ public class ElementDefinition extends Type implements ICompositeType {
           childrenList.add(new Property("human", "string", "Text that can be used to describe the constraint in messages identifying that the constraint has been violated.", 0, java.lang.Integer.MAX_VALUE, human));
           childrenList.add(new Property("expression", "string", "A [FluentPath](http://hl7.org/fluentpath) expression of constraint that can be executed to see if this constraint is met.", 0, java.lang.Integer.MAX_VALUE, expression));
           childrenList.add(new Property("xpath", "string", "An XPath expression of constraint that can be executed to see if this constraint is met.", 0, java.lang.Integer.MAX_VALUE, xpath));
+          childrenList.add(new Property("source", "uri", "A reference to the original source of the constraint, for traceability purposes.", 0, java.lang.Integer.MAX_VALUE, source));
         }
 
       @Override
@@ -2084,6 +2141,7 @@ public class ElementDefinition extends Type implements ICompositeType {
         case 99639597: /*human*/ return this.human == null ? new Base[0] : new Base[] {this.human}; // StringType
         case -1795452264: /*expression*/ return this.expression == null ? new Base[0] : new Base[] {this.expression}; // StringType
         case 114256029: /*xpath*/ return this.xpath == null ? new Base[0] : new Base[] {this.xpath}; // StringType
+        case -896505829: /*source*/ return this.source == null ? new Base[0] : new Base[] {this.source}; // UriType
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -2110,6 +2168,9 @@ public class ElementDefinition extends Type implements ICompositeType {
         case 114256029: // xpath
           this.xpath = castToString(value); // StringType
           break;
+        case -896505829: // source
+          this.source = castToUri(value); // UriType
+          break;
         default: super.setProperty(hash, name, value);
         }
 
@@ -2129,6 +2190,8 @@ public class ElementDefinition extends Type implements ICompositeType {
           this.expression = castToString(value); // StringType
         else if (name.equals("xpath"))
           this.xpath = castToString(value); // StringType
+        else if (name.equals("source"))
+          this.source = castToUri(value); // UriType
         else
           super.setProperty(name, value);
       }
@@ -2142,6 +2205,7 @@ public class ElementDefinition extends Type implements ICompositeType {
         case 99639597: throw new FHIRException("Cannot make property human as it is not a complex type"); // StringType
         case -1795452264: throw new FHIRException("Cannot make property expression as it is not a complex type"); // StringType
         case 114256029: throw new FHIRException("Cannot make property xpath as it is not a complex type"); // StringType
+        case -896505829: throw new FHIRException("Cannot make property source as it is not a complex type"); // UriType
         default: return super.makeProperty(hash, name);
         }
 
@@ -2167,6 +2231,9 @@ public class ElementDefinition extends Type implements ICompositeType {
         else if (name.equals("xpath")) {
           throw new FHIRException("Cannot call addChild on a primitive type ElementDefinition.xpath");
         }
+        else if (name.equals("source")) {
+          throw new FHIRException("Cannot call addChild on a primitive type ElementDefinition.source");
+        }
         else
           return super.addChild(name);
       }
@@ -2180,6 +2247,7 @@ public class ElementDefinition extends Type implements ICompositeType {
         dst.human = human == null ? null : human.copy();
         dst.expression = expression == null ? null : expression.copy();
         dst.xpath = xpath == null ? null : xpath.copy();
+        dst.source = source == null ? null : source.copy();
         return dst;
       }
 
@@ -2192,7 +2260,7 @@ public class ElementDefinition extends Type implements ICompositeType {
         ElementDefinitionConstraintComponent o = (ElementDefinitionConstraintComponent) other;
         return compareDeep(key, o.key, true) && compareDeep(requirements, o.requirements, true) && compareDeep(severity, o.severity, true)
            && compareDeep(human, o.human, true) && compareDeep(expression, o.expression, true) && compareDeep(xpath, o.xpath, true)
-          ;
+           && compareDeep(source, o.source, true);
       }
 
       @Override
@@ -2204,12 +2272,12 @@ public class ElementDefinition extends Type implements ICompositeType {
         ElementDefinitionConstraintComponent o = (ElementDefinitionConstraintComponent) other;
         return compareValues(key, o.key, true) && compareValues(requirements, o.requirements, true) && compareValues(severity, o.severity, true)
            && compareValues(human, o.human, true) && compareValues(expression, o.expression, true) && compareValues(xpath, o.xpath, true)
-          ;
+           && compareValues(source, o.source, true);
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(key, requirements, severity
-          , human, expression, xpath);
+          , human, expression, xpath, source);
       }
 
   public String fhirType() {
@@ -5665,6 +5733,8 @@ public class ElementDefinition extends Type implements ICompositeType {
 // added from java-adornments.txt:
   
   public String toString() {
+    if (hasId())
+      return getId();
     if (hasSliceName())
       return getPath()+":"+getSliceName();
     else
