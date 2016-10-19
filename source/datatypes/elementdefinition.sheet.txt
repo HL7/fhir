@@ -242,7 +242,7 @@
   Context = ElementDefinition
   English = Types must be unique by the combination of code and profile
   XPath = not(exists(for $type in f:type return $type/preceding-sibling::f:type[f:code/@value=$type/f:code/@value and f:profile/@value = $type/f:profile/@value]))
-  Expression = type.select(code&profile).isDistinct()
+  Expression = type.select(code&profile&targetProfile).isDistinct()
 
  -- Row 13 -----------------------------------
   Id = 14

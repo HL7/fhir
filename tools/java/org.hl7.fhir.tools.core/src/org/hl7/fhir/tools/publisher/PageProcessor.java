@@ -6276,6 +6276,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
               else
                 tryAdd(refs, describeProfile(t.getProfile(), prefix));
             }
+            if (t.hasTargetProfile()) {
+              tryAdd(refs, describeProfile(t.getTargetProfile(), prefix));
+            }
           }
 
           if (ed.hasSlicing() && !ed.getPath().endsWith(".extension") && !ed.getPath().endsWith(".modifierExtension"))

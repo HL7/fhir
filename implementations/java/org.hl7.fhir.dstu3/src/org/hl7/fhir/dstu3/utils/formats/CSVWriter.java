@@ -210,7 +210,7 @@ public class CSVWriter  extends TextStreamWriter  {
         val = o.toString();
       } else if (o instanceof TypeRefComponent) {
         TypeRefComponent t = (TypeRefComponent)o;
-    	  val = t.getCode() + (t.getProfile() == null ? "" : " {" + t.getProfile() + "}") + (t.getAggregation() == null || t.getAggregation().isEmpty() ? "" : " (" + itemList(t.getAggregation()) + ")");
+    	  val = t.getCode() + (t.getProfile() == null ? "" : " {" + t.getProfile() + "}") +(t.getTargetProfile() == null ? "" : " {" + t.getTargetProfile() + "}")  + (t.getAggregation() == null || t.getAggregation().isEmpty() ? "" : " (" + itemList(t.getAggregation()) + ")");
       } else if (o instanceof Coding) {
         Coding t = (Coding)o;
         val = (t.getSystem()==null ? "" : t.getSystem()) + (t.getCode()==null ? "" : "#" + t.getCode()) + (t.getDisplay()==null ? "" : " (" + t.getDisplay() + ")");

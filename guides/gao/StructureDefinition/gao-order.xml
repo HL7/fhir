@@ -83,8 +83,8 @@
       <min value="1"></min>
       <max value="1"></max>
       <type>
-        <code value="Reference"></code>
-        <profile value="http://hl7.org/fhir/StructureDefinition/gao-patient"></profile>
+        <code value="Reference" />
+         <targetProfile value="http://hl7.org/fhir/StructureDefinition/gao-patient"/>
         <aggregation value="contained"></aggregation>
       </type>
       <isSummary value="true"></isSummary>
@@ -103,8 +103,8 @@
       <min value="1"></min>
       <max value="1"></max>
       <type>
-        <code value="Reference"></code>
-        <profile value="http://hl7.org/fhir/StructureDefinition/gao-practitioner"></profile>
+        <code value="Reference" />
+         <targetProfile value="http://hl7.org/fhir/StructureDefinition/gao-practitioner"/>
         <aggregation value="contained"></aggregation>
       </type>
       <isSummary value="true"></isSummary>
@@ -124,8 +124,8 @@
         <code value="CodeableConcept"></code>
       </type>
       <type>
-        <code value="Reference"></code>
-        <profile value="http://hl7.org/fhir/StructureDefinition/Resource"></profile>
+        <code value="Reference" />
+         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
         <aggregation value="contained"></aggregation>
       </type>
       <isSummary value="true"></isSummary>
@@ -146,23 +146,23 @@
       <min value="1"></min>
       <max value="1"></max>
       <type>
-        <code value="Reference"></code>
-        <profile value="http://hl7.org/fhir/StructureDefinition/gao-diagnosticorder"></profile>
+        <code value="Reference" />
+         <targetProfile value="http://hl7.org/fhir/StructureDefinition/gao-diagnosticorder"/>
         <aggregation value="contained"></aggregation>
       </type>
       <type>
-        <code value="Reference"></code>
-        <profile value="http://hl7.org/fhir/StructureDefinition/gao-medicationorder"></profile>
+        <code value="Reference" />
+         <targetProfile value="http://hl7.org/fhir/StructureDefinition/gao-medicationorder"/>
         <aggregation value="contained"></aggregation>
       </type>
       <type>
-        <code value="Reference"></code>
-        <profile value="http://hl7.org/fhir/StructureDefinition/gao-procedurerequest"></profile>
+        <code value="Reference" />
+         <targetProfile value="http://hl7.org/fhir/StructureDefinition/gao-procedurerequest"/>
         <aggregation value="contained"></aggregation>
       </type>
       <type>
-        <code value="Reference"></code>
-        <profile value="http://hl7.org/fhir/StructureDefinition/gao-referralrequest"></profile>
+        <code value="Reference" />
+         <targetProfile value="http://hl7.org/fhir/StructureDefinition/gao-referralrequest"/>
         <aggregation value="contained"></aggregation>
       </type>
       <isSummary value="true"></isSummary>

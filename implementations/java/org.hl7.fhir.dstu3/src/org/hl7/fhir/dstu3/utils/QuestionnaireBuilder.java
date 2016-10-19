@@ -434,18 +434,20 @@ public class QuestionnaireBuilder {
     vs.getExpansion().setTimestampElement(DateTimeType.now());
     for (TypeRefComponent t : types) {
       ValueSetExpansionContainsComponent cc = vs.getExpansion().addContains();
-	    if (t.getCode().equals("Reference") && (t.hasProfile() && t.getProfile().startsWith("http://hl7.org/fhir/StructureDefinition/"))) { 
-	      cc.setCode(t.getProfile().substring(40));
+	    if (t.getCode().equals("Reference") && (t.hasTargetProfile() && t.getTargetProfile().startsWith("http://hl7.org/fhir/StructureDefinition/"))) { 
+	      cc.setCode(t.getTargetProfile().substring(40));
         cc.setSystem("http://hl7.org/fhir/resource-types");
 	      cc.setDisplay(cc.getCode());
       } else {
         ProfileUtilities pu = new ProfileUtilities(context, null, null);
         StructureDefinition ps = null;
-	      if (t.hasProfile()) 
+        if (t.hasTargetProfile()) 
+          ps = pu.getProfile(profile, t.getTargetProfile());
+        else if (t.hasProfile()) 
           ps = pu.getProfile(profile, t.getProfile());
         
         if (ps != null) {
-	        cc.setCode(t.getProfile());
+	        cc.setCode(t.getTargetProfile());
           cc.setDisplay(ps.getType());
           cc.setSystem("http://hl7.org/fhir/resource-types");
         } else {
@@ -454,7 +456,7 @@ public class QuestionnaireBuilder {
           cc.setSystem("http://hl7.org/fhir/data-types");
         }
       }
-      t.setUserData("text", cc.getCode());
+	    t.setUserData("text", cc.getCode());
     }
 
     return vs;
@@ -478,13 +480,15 @@ public class QuestionnaireBuilder {
       Coding cc = new Coding();
       QuestionnaireResponseItemAnswerComponent a = q.addAnswer();
       a.setValue(cc);
-      if (t.getCode().equals("Reference") && t.hasProfile() && t.getProfile().startsWith("http://hl7.org/fhir/StructureDefinition/")) {
-        cc.setCode(t.getProfile().substring(40));
+      if (t.getCode().equals("Reference") && t.hasTargetProfile() && t.getTargetProfile().startsWith("http://hl7.org/fhir/StructureDefinition/")) {
+        cc.setCode(t.getTargetProfile().substring(40));
         cc.setSystem("http://hl7.org/fhir/resource-types");
       } else {
         ProfileUtilities pu = new ProfileUtilities(context, null, null);
         StructureDefinition ps = null;
-        if (t.hasProfile())
+        if (t.hasTargetProfile())
+          ps = pu.getProfile(profile, t.getTargetProfile());
+        else if (t.hasProfile())
           ps = pu.getProfile(profile, t.getProfile());
 
         if (ps != null) {
@@ -723,7 +727,7 @@ public class QuestionnaireBuilder {
     else if (t.getCode().equals("Money"))
       addMoneyQuestions(group, element, path, answerGroups);
     else if (t.getCode().equals("Reference"))
-      addReferenceQuestions(group, element, path, t.hasProfile() ? t.getProfile() : null, answerGroups);
+      addReferenceQuestions(group, element, path, t.hasTargetProfile() ? t.getTargetProfile() : null, answerGroups);
     else if (t.getCode().equals("Duration"))
       addDurationQuestions(group, element, path, answerGroups);
     else if (t.getCode().equals("base64Binary"))

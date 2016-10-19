@@ -118,6 +118,8 @@ public class ReviewSpreadsheetGenerator {
         cell.setCellStyle(style);
         if (ed.getType().get(0).hasProfile())
           cell.setCellValue(ed.getType().get(0).getProfile());
+        if (ed.getType().get(0).hasTargetProfile())
+          cell.setCellValue(ed.getType().get(0).getTargetProfile());
         cell = row.createCell(c++);
         cell.setCellStyle(style);
         cell.setCellValue(describeBinding(profile, ed));

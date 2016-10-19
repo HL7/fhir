@@ -55,7 +55,7 @@
             <max value="1" />
             <type>
                 <code value="Reference" />
-                <profile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-encounter" />
+                <targetProfile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-encounter" />
             </type>
         </element>
         <element id="6965-00002">
@@ -163,7 +163,7 @@
             <max value="*" />
             <type>
                 <code value="Reference" />
-                <profile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-allergyintolerance" />
+                <targetProfile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-allergyintolerance" />
             </type>
         </element>
         <element id="105498">
@@ -395,7 +395,7 @@
             <max value="*" />
             <type>
                 <code value="Reference" />
-                <profile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-familyMemberHistory" />
+                <targetProfile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-familyMemberHistory" />
             </type>
         </element>
         <element id="105503">
@@ -539,7 +539,7 @@
             <max value="*" />
             <type>
                 <code value="Reference" />
-                <profile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-condition" />
+                <targetProfile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-condition" />
             </type>
         </element>
         <element id="105506">
@@ -639,7 +639,7 @@
             <max value="*" />
             <type>
                 <code value="Reference" />
-                <profile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-immunization" />
+                <targetProfile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-immunization" />
             </type>
         </element>
         <element id="105508">
@@ -739,7 +739,7 @@
             <max value="*" />
             <type>
                 <code value="Reference" />
-                <profile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-medicationstatement" />
+                <targetProfile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-medicationstatement" />
             </type>
         </element>
         <element id="105510">
@@ -971,7 +971,7 @@
             <max value="*" />
             <type>
                 <code value="Reference" />
-                <profile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-condition" />
+                <targetProfile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-condition" />
             </type>
         </element>
         <element id="105515">
@@ -1027,7 +1027,7 @@
             <max value="*" />
             <type>
                 <code value="Reference" />
-                <profile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-procedure" />
+                <targetProfile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-procedure" />
             </type>
         </element>
         <element id="105516">
@@ -1127,7 +1127,7 @@
             <max value="*" />
             <type>
                 <code value="Reference" />
-                <profile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-resultobs" />
+                <targetProfile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-resultobs" />
             </type>
         </element>
         <element id="105518">
@@ -1226,7 +1226,7 @@
             <max value="*" />
             <type>
                 <code value="Reference" />
-                <profile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-smokingstatus" />
+                <targetProfile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-smokingstatus" />
             </type>
         </element>
         <element id="105520">
@@ -1282,7 +1282,7 @@
             <max value="*" />
             <type>
                 <code value="Reference" />
-                <profile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-vitalsigns" />
+                <targetProfile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-vitalsigns" />
             </type>
         </element>
     </differential>

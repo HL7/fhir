@@ -295,21 +295,17 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
       b.append(t.getCode());
       b.append("</a>");
     }
-    if (t.hasProfile()) {
+    if (t.hasProfile() || t.hasTargetProfile()) {
       b.append("(");
       boolean first = true;
-      StructureDefinition p = page.getWorkerContext().getProfiles().get(t.getProfile());
-      if (p == null)
-        b.append(t.getProfile());
-      else {
-        if (p.hasBaseDefinition() )
-          b.append("<a href=\""+prefix+p.getUserString("path")+"\" title=\""+t.getProfile()+"\">");
-        else if (p.getKind() == StructureDefinitionKind.COMPLEXTYPE || p.getKind() == StructureDefinitionKind.PRIMITIVETYPE)
-          b.append("<a href=\""+prefix+definitions.getSrcFile(p.getName())+ ".html#" + p.getName()+"\" title=\""+p.getName()+"\">");
-        else // if (p.getKind() == StructureDefinitionType.RESOURCE)
-          b.append("<a href=\""+prefix+p.getName().toLowerCase()+".html\">");
-        b.append(p.getName());
-        b.append("</a>");
+      if (t.hasProfile()) {
+        first = false;
+        addProfileReference(b, t.getProfile());
+      }
+      if (t.hasTargetProfile()) {
+        if (!first)
+          b.append(", ");
+        addProfileReference(b, t.getTargetProfile());
       }
       if (!t.getAggregation().isEmpty()) {
         b.append(" : ");
@@ -322,6 +318,22 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
         }
       }
       b.append(")");
+    }
+  }
+
+  private void addProfileReference(StringBuilder b, String s) {
+    StructureDefinition p = page.getWorkerContext().getProfiles().get(s);
+    if (p == null)
+      b.append(s);
+    else {
+      if (p.hasBaseDefinition() )
+        b.append("<a href=\""+prefix+p.getUserString("path")+"\" title=\""+s+"\">");
+      else if (p.getKind() == StructureDefinitionKind.COMPLEXTYPE || p.getKind() == StructureDefinitionKind.PRIMITIVETYPE)
+        b.append("<a href=\""+prefix+definitions.getSrcFile(p.getName())+ ".html#" + p.getName()+"\" title=\""+p.getName()+"\">");
+      else // if (p.getKind() == StructureDefinitionType.RESOURCE)
+        b.append("<a href=\""+prefix+p.getName().toLowerCase()+".html\">");
+      b.append(p.getName());
+      b.append("</a>");
     }
   }
 

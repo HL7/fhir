@@ -343,7 +343,7 @@
       <max value="1" />
       <type>
         <code value="Reference" />
-        <profile value="http://hl7.org/fhir/StructureDefinition/Organization" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization" />
       </type>
       <mapping>
         <identity value="v2" />
@@ -420,20 +420,20 @@
       <max value="1" />
       <type>
         <code value="Reference" />
-        <profile value="http://hl7.org/fhir/StructureDefinition/Patient" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient" />
         <aggregation value="contained" />
       </type>
       <type>
         <code value="Reference" />
-        <profile value="http://hl7.org/fhir/StructureDefinition/Group" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group" />
       </type>
       <type>
         <code value="Reference" />
-        <profile value="http://hl7.org/fhir/StructureDefinition/Device" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device" />
       </type>
       <type>
         <code value="Reference" />
-        <profile value="http://hl7.org/fhir/StructureDefinition/Substance" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Substance" />
       </type>
       <mapping>
         <identity value="v2" />
@@ -456,7 +456,7 @@
       <max value="1" />
       <type>
         <code value="Reference" />
-        <profile value="http://hl7.org/fhir/StructureDefinition/Practitioner" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner" />
         <aggregation value="contained" />
       </type>
       <mapping>
@@ -507,15 +507,15 @@
       <max value="1" />
       <type>
         <code value="Reference" />
-        <profile value="http://hl7.org/fhir/StructureDefinition/Organization" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization" />
       </type>
       <type>
         <code value="Reference" />
-        <profile value="http://hl7.org/fhir/StructureDefinition/Device" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device" />
       </type>
       <type>
         <code value="Reference" />
-        <profile value="http://hl7.org/fhir/StructureDefinition/Practitioner" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner" />
       </type>
       <mapping>
         <identity value="v2" />
@@ -539,7 +539,7 @@
       </type>
       <type>
         <code value="Reference" />
-        <profile value="http://hl7.org/fhir/StructureDefinition/Resource" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource" />
         <aggregation value="contained" />
       </type>
       <mapping>
@@ -560,7 +560,7 @@
       <max value="1" />
       <type>
         <code value="Reference" />
-        <profile value="http://hl7.org/fhir/StructureDefinition/Resource" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource" />
       </type>
       <mapping>
         <identity value="v2" />
@@ -1251,7 +1251,7 @@
       <max value="1" />
       <type>
         <code value="Reference" />
-        <profile value="http://hl7.org/fhir/StructureDefinition/Resource" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource" />
         <aggregation value="contained" />
       </type>
       <mapping>

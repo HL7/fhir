@@ -1215,10 +1215,15 @@ public class ProfileGenerator {
               if (!srcMod && tgtMod)
                 throw new Exception("The extension '"+profile+"' is not a modifier extension, but is being used as if it is a modifier extension");
             }
+            String pr;
             if (profile.startsWith("http:") || profile.startsWith("#")) {
-              type.setProfile(profile);
+              pr = profile;
             } else 
-              type.setProfile("http://hl7.org/fhir/StructureDefinition/" + (profile.equals("Any") ? "Resource" : profile));
+              pr = "http://hl7.org/fhir/StructureDefinition/" + (profile.equals("Any") ? "Resource" : profile);
+            if (type.getCode().equals("Reference"))
+              type.setTargetProfile(pr);
+            else
+              type.setProfile(pr);
           }
 
           for (String aggregation : t.getAggregations()) {
@@ -1501,8 +1506,10 @@ public class ProfileGenerator {
     ce.getType().add(new TypeRefComponent());
     ce.getType().get(0).setCode(src.typeCode());
     // this one should never be used
-    if (!Utilities.noString(src.getTypes().get(0).getProfile()))
+    if (!Utilities.noString(src.getTypes().get(0).getProfile())) {
+      if (ce.getType().equals("Reference")) throw new Error("Should not happen");
       ce.getType().get(0).setProfile(src.getTypes().get(0).getProfile());
+    }
     // todo? conditions, constraints, binding, mapping
     if (src.hasModifier())
       ce.setIsModifier(src.isModifier());
@@ -1556,10 +1563,13 @@ public class ProfileGenerator {
         for (String tp : t.getParams()) {
           ElementDefinition.TypeRefComponent type = new ElementDefinition.TypeRefComponent();
           type.setCode(t.getName());
-          if (t.hasProfile())
-            type.setProfile(t.getProfile()); // this should only happen if t.getParams().size() == 1
+          String pr = t.hasProfile() ? t.getProfile() :
+             // this should only happen if t.getParams().size() == 1
+            "http://hl7.org/fhir/StructureDefinition/"+(tp.equals("Any") ? "Resource" : tp);
+          if (type.getCode().equals("Reference"))
+            type.setTargetProfile(pr); 
           else
-            type.setProfile("http://hl7.org/fhir/StructureDefinition/"+(tp.equals("Any") ? "Resource" : tp));
+            type.setProfile(pr);
           dst.getType().add(type);
         }
       } else if (t.isWildcardType()) {
@@ -1574,7 +1584,10 @@ public class ProfileGenerator {
         } else {
           type.setCode(t.getName());
           if (t.hasProfile())
-            type.setProfile(t.getProfile());
+            if (type.getCode().equals("Reference"))
+              type.setTargetProfile(t.getProfile()); 
+            else
+              type.setProfile(t.getProfile());
         }
         dst.getType().add(type);
       }

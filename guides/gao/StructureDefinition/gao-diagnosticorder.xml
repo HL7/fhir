@@ -50,20 +50,20 @@
       <min value="0"/>
       <max value="*"/>
       <type>
-        <code value="Reference"/>
-        <profile value="http://hl7.org/fhir/StructureDefinition/Observation"/>
+        <code value="Reference" />
+         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Observation"/>
         <aggregation value="contained"/>
         <aggregation value="bundled"/>
       </type>
       <type>
-        <code value="Reference"/>
-        <profile value="http://hl7.org/fhir/StructureDefinition/Condition"/>
+        <code value="Reference" />
+         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Condition"/>
         <aggregation value="contained"/>
         <aggregation value="bundled"/>
       </type>
       <type>
-        <code value="Reference"/>
-        <profile value="http://hl7.org/fhir/StructureDefinition/DocumentReference"/>
+        <code value="Reference" />
+         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DocumentReference"/>
         <aggregation value="contained"/>
         <aggregation value="bundled"/>
       </type>

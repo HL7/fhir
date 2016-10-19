@@ -59,7 +59,7 @@
       <max value="*"></max>
       <type>
         <code value="Extension"></code>
-        <profile value="http://hl7.org/fhir/StructureDefinition/gao-extension-score"></profile>
+        <profile value="http://hl7.org/fhir/StructureDefinition/gao-extension-score"/>
       </type>
       <mustSupport value="true"></mustSupport>
     </element>
@@ -74,7 +74,7 @@
       <max value="*"></max>
       <type>
         <code value="Extension"></code>
-        <profile value="http://hl7.org/fhir/StructureDefinition/gao-extension-item"></profile>
+        <profile value="http://hl7.org/fhir/StructureDefinition/gao-extension-item"/>
       </type>
     </element>
     <element>
@@ -88,7 +88,7 @@
       <max value="1"></max>
       <type>
         <code value="Extension"></code>
-        <profile value="http://hl7.org/fhir/StructureDefinition/gao-extension-period"></profile>
+        <profile value="http://hl7.org/fhir/StructureDefinition/gao-extension-period"/>
       </type>
       <mustSupport value="true"></mustSupport>
     </element>
@@ -103,7 +103,7 @@
       <max value="*"></max>
       <type>
         <code value="Extension"></code>
-        <profile value="http://hl7.org/fhir/StructureDefinition/gao-extension-guideline"></profile>
+        <profile value="http://hl7.org/fhir/StructureDefinition/gao-extension-guideline"/>
       </type>
       <mustSupport value="true"></mustSupport>
     </element>
@@ -118,7 +118,7 @@
       <max value="1"></max>
       <type>
         <code value="Extension"></code>
-        <profile value="http://hl7.org/fhir/StructureDefinition/gao-extension-device"></profile>
+        <profile value="http://hl7.org/fhir/StructureDefinition/gao-extension-device"/>
       </type>
       <mustSupport value="true"></mustSupport>
     </element>
@@ -133,7 +133,7 @@
       <max value="1"></max>
       <type>
         <code value="Extension"></code>
-        <profile value="http://hl7.org/fhir/StructureDefinition/gao-extension-practitioner"></profile>
+        <profile value="http://hl7.org/fhir/StructureDefinition/gao-extension-practitioner"/>
       </type>
       <mustSupport value="true"></mustSupport>
     </element>
@@ -148,7 +148,7 @@
       <max value="1"></max>
       <type>
         <code value="Extension"></code>
-        <profile value="http://hl7.org/fhir/StructureDefinition/gao-extension-signature"></profile>
+        <profile value="http://hl7.org/fhir/StructureDefinition/gao-extension-signature"/>
       </type>
     </element>
     <element>
@@ -197,8 +197,8 @@
       <min value="0"></min>
       <max value="1"></max>
       <type>
-        <code value="Reference"></code>
-        <profile value="http://hl7.org/fhir/StructureDefinition/gao-order"></profile>
+        <code value="Reference" />
+         <targetProfile value="http://hl7.org/fhir/StructureDefinition/gao-order"/>
       </type>
       <isSummary value="true"></isSummary>
       

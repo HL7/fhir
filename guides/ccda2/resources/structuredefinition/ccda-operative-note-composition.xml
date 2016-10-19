@@ -107,7 +107,7 @@
             <max value="*" />
             <type>
                 <code value="Reference" />
-                <profile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-procedure" />
+                <targetProfile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-procedure" />
             </type>
         </element>-->
         <element id="112583">
@@ -119,11 +119,11 @@
             <max value="*" />
 		<type>
 			<code value="Reference" />
-			<profile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-medicationstatement" />
+			<targetProfile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-medicationstatement" />
 		</type>
 		<type>
 		    <code value="Reference" />
-		    <profile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-procedure" />
+		    <targetProfile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-procedure" />
 		</type>
         </element>
         <element id="111050">
@@ -179,7 +179,7 @@
             <max value="*" />
             <type>
                 <code value="Reference" />
-                <profile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-condition" />
+                <targetProfile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-condition" />
             </type>
         </element>
         <element id="111051">
@@ -323,7 +323,7 @@
             <max value="*" />
             <type>
                 <code value="Reference" />
-                <profile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-condition" />
+                <targetProfile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-condition" />
             </type>
         </element>
         <element id="111054">

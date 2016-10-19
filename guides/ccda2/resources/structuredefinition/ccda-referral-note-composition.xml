@@ -104,7 +104,7 @@
             <max value="*" />
             <type>
                 <code value="Reference" />
-                <profile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-allergyintolerance" />
+                <targetProfile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-allergyintolerance" />
             </type>
         </element>
         <element id="107705">
@@ -158,7 +158,7 @@
             <max value="*" />
             <type>
                 <code value="Reference" />
-                <profile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-medicationstatement" />
+                <targetProfile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-medicationstatement" />
             </type>
         </element>
         <element id="107706">
@@ -254,7 +254,7 @@
             <max value="*" />
             <type>
                 <code value="Reference" />
-                <profile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-condition" />
+                <targetProfile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-condition" />
             </type>
         </element>
         <element id="107717">
@@ -434,7 +434,7 @@
             <max value="*" />
             <type>
                 <code value="Reference" />
-                <profile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-resultobs" />
+                <targetProfile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-resultobs" />
             </type>
         </element>
         <element id="111194">
@@ -782,7 +782,7 @@
             <max value="*" />
             <type>
                 <code value="Reference" />
-                <profile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-familyMemberHistory" />
+                <targetProfile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-familyMemberHistory" />
             </type>
         </element>
         <element id="111228">
@@ -836,7 +836,7 @@
             <max value="*" />
             <type>
                 <code value="Reference" />
-                <profile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-immunization" />
+                <targetProfile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-immunization" />
             </type>
         </element>
         <element id="111229">
@@ -890,7 +890,7 @@
             <max value="*" />
             <type>
                 <code value="Reference" />
-                <profile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-vitalsigns" />
+                <targetProfile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-vitalsigns" />
             </type>
         </element>
         <element id="111230">
@@ -944,7 +944,7 @@
             <max value="*" />
             <type>
                 <code value="Reference" />
-                <profile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-smokingstatus" />
+                <targetProfile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-smokingstatus" />
             </type>
         </element>
         <element id="111231">
@@ -1040,7 +1040,7 @@
             <max value="*" />
             <type>
                 <code value="Reference" />
-                <profile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-procedure" />
+                <targetProfile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-procedure" />
             </type>
         </element>
         <element id="111233">

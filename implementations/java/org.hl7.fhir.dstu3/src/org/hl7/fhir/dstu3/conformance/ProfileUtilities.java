@@ -776,7 +776,9 @@ public class ProfileUtilities {
     for (TypeRefComponent type : types) {
       if (first) first = false; else b.append(", ");
       b.append(type.getCode());
-      if (type.hasProfile())
+      if (type.hasTargetProfile())
+        b.append("{"+type.getTargetProfile()+"}");
+      else if (type.hasProfile())
         b.append("{"+type.getProfile()+"}");
     }
     return b.toString();
@@ -808,8 +810,12 @@ public class ProfileUtilities {
         ((Reference)defn.getBinding().getValueSet()).setReference(url+((Reference)defn.getBinding().getValueSet()).getReference());
       for (TypeRefComponent t : defn.getType()) {
         if (t.hasProfile()) {
-        	if (t.getProfile().startsWith("#"))
+          if (t.getProfile().startsWith("#"))
             t.setProfile(url+t.getProfile());
+        }
+        if (t.hasTargetProfile()) {
+          if (t.getTargetProfile().startsWith("#"))
+            t.setTargetProfile(url+t.getTargetProfile());
         }
       }
     }
@@ -1508,22 +1514,22 @@ public class ProfileUtilities {
       else
         c.addPiece(checkForNoChange(tl, gen.new Piece(null,", ", null)));
       tl = t;
-      if (t.getCode().equals("Reference") || (t.getCode().equals("Resource") && t.hasProfile())) {
+      if (t.getCode().equals("Reference")) {
         if (!allReference) {
           c.getPieces().add(gen.new Piece(corePath+"references.html", "Reference", null));
           c.getPieces().add(gen.new Piece(null, "(", null));
         }
-        if (t.hasProfile() && t.getProfile().startsWith("http://hl7.org/fhir/StructureDefinition/")) {
-          StructureDefinition sd = context.fetchResource(StructureDefinition.class, t.getProfile());
+        if (t.hasTargetProfile() && t.getTargetProfile().startsWith("http://hl7.org/fhir/StructureDefinition/")) {
+          StructureDefinition sd = context.fetchResource(StructureDefinition.class, t.getTargetProfile());
           if (sd != null) {
             String disp = sd.hasTitle() ? sd.getTitle() : sd.getName();
             c.addPiece(checkForNoChange(t, gen.new Piece(checkPrepend(corePath, sd.getUserString("path")), disp, null)));
           } else {
-            String rn = t.getProfile().substring(40);
+            String rn = t.getTargetProfile().substring(40);
             c.addPiece(checkForNoChange(t, gen.new Piece(pkp.getLinkFor(corePath, rn), rn, null)));
           }
-        } else if (t.hasProfile() && Utilities.isAbsoluteUrl(t.getProfile())) {
-          StructureDefinition sd = context.fetchResource(StructureDefinition.class, t.getProfile());
+        } else if (t.hasTargetProfile() && Utilities.isAbsoluteUrl(t.getTargetProfile())) {
+          StructureDefinition sd = context.fetchResource(StructureDefinition.class, t.getTargetProfile());
           if (sd != null) {
             String disp = sd.hasTitle() ? sd.getTitle() : sd.getName();
             String ref = pkp.getLinkForProfile(null, sd.getUrl());
@@ -1531,11 +1537,11 @@ public class ProfileUtilities {
               ref = ref.substring(0,  ref.indexOf("|"));
             c.addPiece(checkForNoChange(t, gen.new Piece(ref, disp, null)));
           } else
-            c.addPiece(checkForNoChange(t, gen.new Piece(null, t.getProfile(), null)));
-        } else if (t.hasProfile() && t.getProfile().startsWith("#"))
-          c.addPiece(checkForNoChange(t, gen.new Piece(corePath+profileBaseFileName+"."+t.getProfile().substring(1).toLowerCase()+".html", t.getProfile(), null)));
-        else if (t.hasProfile())
-          c.addPiece(checkForNoChange(t, gen.new Piece(corePath+t.getProfile(), t.getProfile(), null)));
+            c.addPiece(checkForNoChange(t, gen.new Piece(null, t.getTargetProfile(), null)));
+        } else if (t.hasProfile() && t.getTargetProfile().startsWith("#"))
+          c.addPiece(checkForNoChange(t, gen.new Piece(corePath+profileBaseFileName+"."+t.getTargetProfile().substring(1).toLowerCase()+".html", t.getTargetProfile(), null)));
+        else if (t.hasTargetProfile())
+          c.addPiece(checkForNoChange(t, gen.new Piece(corePath+t.getTargetProfile(), t.getTargetProfile(), null)));
         if (!allReference) {
           c.getPieces().add(gen.new Piece(null, ")", null));
           if (t.getAggregation().size() > 0) {
@@ -2569,12 +2575,12 @@ public class ProfileUtilities {
   }
 
 
-  private String describeExtension(ElementDefinition ed) {
-    if (!ed.hasType() || !ed.getTypeFirstRep().hasProfile())
-      return "";
-    return "$"+urlTail(ed.getTypeFirstRep().getProfile());
-  }
-
+//  private String describeExtension(ElementDefinition ed) {
+//    if (!ed.hasType() || !ed.getTypeFirstRep().hasProfile())
+//      return "";
+//    return "$"+urlTail(ed.getTypeFirstRep().getProfile());
+//  }
+//
 
   private String urlTail(String profile) {
     return profile.contains("/") ? profile.substring(profile.lastIndexOf("/")+1) : profile;
@@ -2974,8 +2980,8 @@ public class ProfileUtilities {
     List<String> res = new ArrayList<String>();
     for (TypeRefComponent tr : ed.getType()) {
       // code is null if we're dealing with "value" and profile is null if we just have Reference()
-      if (tr.getCode()!= null && "Reference".equals(tr.getCode()) && tr.getProfile() != null)
-        res.add(tr.getProfile());
+      if (tr.getCode()!= null && "Reference".equals(tr.getCode()) && tr.getTargetProfile() != null)
+        res.add(tr.getTargetProfile());
     }
     return res ;
   }

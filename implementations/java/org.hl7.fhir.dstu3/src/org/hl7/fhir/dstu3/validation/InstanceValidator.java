@@ -1153,10 +1153,10 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
       for (TypeRefComponent type : container.getType()) {
         if (!ok && type.getCode().equals("Reference")) {
           // we validate as much as we can. First, can we infer a type from the profile?  (Need to change this to targetProfile when Grahame's ready)
-          if (!type.hasProfile() || type.getProfile().equals("http://hl7.org/fhir/StructureDefinition/Resource"))
+          if (!type.hasProfile() || type.getTargetProfile().equals("http://hl7.org/fhir/StructureDefinition/Resource"))
             ok = true;
           else {
-            String pr = type.getProfile(); // Need to change to targetProfile when Grahame's ready
+            String pr = type.getTargetProfile(); // Need to change to targetProfile when Grahame's ready
 
             String bt = getBaseType(profile, pr);
             StructureDefinition sd = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/" + bt);
@@ -1405,7 +1405,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
         }
         if (ed.getType().get(0).hasProfile() && ed.getType().get(0).getCode().equals("Reference") && d.equals("reference")) {
           long t1 = System.nanoTime();
-          sd = context.fetchResource(StructureDefinition.class, ed.getType().get(0).getProfile());
+          sd = context.fetchResource(StructureDefinition.class, ed.getType().get(0).getTargetProfile());
           sdTime = sdTime + (System.nanoTime() - t1);
           // we've skipped the reference.
           ed = sd.getSnapshot().getElementFirstRep();

@@ -545,17 +545,20 @@ public class SpecDifferenceEvaluator {
   private boolean hasType(List<TypeRefComponent> types, TypeRefComponent tr) {
     for (TypeRefComponent t : types) {
       if (t.getCode().equals(tr.getCode())) {
-        if ((!t.hasProfile() && !tr.hasProfile()) || (t.getProfile().equals(tr.getProfile())))
+        if (((!t.hasProfile() && !tr.hasProfile()) || (t.getProfile().equals(tr.getProfile()))) &&
+            ((!t.hasTargetProfile() && !tr.hasTargetProfile()) || (t.getTargetProfile().equals(tr.getTargetProfile()))))
           return true;
       }
     }
     return false;
   }
   private String describeType(TypeRefComponent tr) {
-    if (!tr.hasProfile()) 
+    if (!tr.hasProfile() && !tr.hasTargetProfile()) 
       return tr.getCode();
-    else if (tr.getCode().equals("Reference") && tr.getProfile().startsWith("http://hl7.org/fhir/StructureDefinition/"))
-      return tr.getCode()+"("+tr.getProfile().substring(40)+")";
+    else if (tr.getCode().equals("Reference") && tr.getTargetProfile().startsWith("http://hl7.org/fhir/StructureDefinition/"))
+      return tr.getCode()+"("+tr.getTargetProfile().substring(40)+")";
+    else if (tr.hasTargetProfile())
+      return tr.getCode()+"{"+tr.getTargetProfile()+"}";
     else
       return tr.getCode()+"{"+tr.getProfile()+"}";
   }

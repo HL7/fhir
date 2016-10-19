@@ -89,8 +89,8 @@
       <min value="1"></min>
       <max value="*"></max>
       <type>
-        <code value="Reference"></code>
-        <profile value="http://hl7.org/fhir/StructureDefinition/Resource"></profile>
+        <code value="Reference" />
+         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
       </type>
       <isModifier value="false"></isModifier>
       <isSummary value="true"></isSummary>

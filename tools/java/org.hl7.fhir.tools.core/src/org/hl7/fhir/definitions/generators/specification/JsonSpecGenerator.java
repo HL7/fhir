@@ -530,6 +530,18 @@ public class JsonSpecGenerator extends OutputStreamWriter {
         } else
           write("("+type.getProfile()+")");
       }
+      if (type.hasTargetProfile()) {
+        if (type.getTargetProfile().startsWith("http://hl7.org/fhir/StructureDefinition/")) {
+          String t = type.getTargetProfile().substring(40);
+          if (definitions.hasType(t))
+            write("(<span style=\"color: darkgreen\"><a href=\"" + prefix+(dtRoot + definitions.getSrcFile(t)+ ".html#" + t) + "\">" + t+ "</a></span>)");
+          else if (definitions.hasResource(t))
+            write("(<span style=\"color: darkgreen\"><a href=\"" + prefix+dtRoot + t.toLowerCase()+ ".html\">" + t+ "</a></span>)");
+          else
+            write("("+t+")");
+        } else
+          write("("+type.getTargetProfile()+")");
+      }
       write(" }");
     } 
 

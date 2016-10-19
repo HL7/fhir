@@ -65,8 +65,8 @@
         <code value="CodeableConcept"></code>
       </type>
       <type>
-        <code value="Reference"></code>
-        <profile value="http://hl7.org/fhir/StructureDefinition/Condition"></profile>
+        <code value="Reference" />
+         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Condition"/>
       </type>
       <isSummary value="true"></isSummary>
       <binding>

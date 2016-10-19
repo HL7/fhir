@@ -50,7 +50,7 @@
       <max value="1" />
       <type>
         <code value="Reference"/>
-        <profile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-relatedperson"/>
+        <targetProfile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-relatedperson"/>
       </type>
     </element>
   </differential>

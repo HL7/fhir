@@ -267,8 +267,8 @@ public class IgSpreadsheetParser {
       sd.setAbstract(false);
       sd.setId(n.toLowerCase());
       sd.setType(sd.getDifferential().getElementFirstRep().getPath());
-      if (sd.getDifferential().getElementFirstRep().getType().size() == 1 && sd.getDifferential().getElementFirstRep().getType().get(0).hasProfile())
-        sd.setBaseDefinition(sd.getDifferential().getElementFirstRep().getType().get(0).getProfile());
+      if (sd.getDifferential().getElementFirstRep().getType().size() == 1 && sd.getDifferential().getElementFirstRep().getType().get(0).hasTargetProfile())
+        sd.setBaseDefinition(sd.getDifferential().getElementFirstRep().getType().get(0).getTargetProfile());
       else
         sd.setBaseDefinition("http://hl7.org/fhir/StructureDefinition/"+sd.getType());
       if (!context.getResourceNames().contains(sd.getType()))

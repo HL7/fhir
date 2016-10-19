@@ -181,15 +181,15 @@
       </base>
       <type>
         <code value="Reference"/>
-        <profile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
       </type>
       <type>
         <code value="Reference"/>
-        <profile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
       </type>
       <type>
         <code value="Reference"/>
-        <profile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
       </type>
       <isModifier value="false"/>
     </element>
@@ -207,7 +207,7 @@
       </base>
       <type>
         <code value="Reference"/>
-        <profile value="http://hl7.org/fhir/StructureDefinition/Observation"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Observation"/>
       </type>
       <isModifier value="false"/>
     </element>
@@ -241,7 +241,7 @@
       </base>
       <type>
         <code value="Reference"/>
-        <profile value="http://hl7.org/fhir/StructureDefinition/DiagnosticRequest"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DiagnosticRequest"/>
       </type>
       <isModifier value="false"/>
     </element>
@@ -302,7 +302,7 @@
       </base>
       <type>
         <code value="Reference"/>
-        <profile value="http://hl7.org/fhir/StructureDefinition/Observation"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Observation"/>
       </type>
       <isModifier value="false"/>
     </element>
@@ -320,7 +320,7 @@
       </base>
       <type>
         <code value="Reference"/>
-        <profile value="http://hl7.org/fhir/StructureDefinition/cholesterol"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/cholesterol"/>
       </type>
       <isModifier value="false"/>
     </element>
@@ -338,7 +338,7 @@
       </base>
       <type>
         <code value="Reference"/>
-        <profile value="http://hl7.org/fhir/StructureDefinition/triglyceride"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/triglyceride"/>
       </type>
       <isModifier value="false"/>
     </element>
@@ -356,7 +356,7 @@
       </base>
       <type>
         <code value="Reference"/>
-        <profile value="http://hl7.org/fhir/StructureDefinition/hdlcholesterol"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/hdlcholesterol"/>
       </type>
       <isModifier value="false"/>
     </element>
@@ -374,7 +374,7 @@
       </base>
       <type>
         <code value="Reference"/>
-        <profile value="http://hl7.org/fhir/StructureDefinition/ldlcholesterol"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ldlcholesterol"/>
       </type>
       <isModifier value="false"/>
     </element>

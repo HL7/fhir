@@ -718,7 +718,10 @@ public class ShExGenerator {
      */
   private String getTypeName(ElementDefinition.TypeRefComponent typ) {
     // TODO: This is brittle. There has to be a utility to do this...
-    if(typ.hasProfile()) {
+    if (typ.hasTargetProfile()) {
+      String[] els = typ.getTargetProfile().split("/");
+      return els[els.length - 1];
+    } else if (typ.hasProfile()) {
       String[] els = typ.getProfile().split("/");
       return els[els.length - 1];
     } else {

@@ -211,7 +211,7 @@
       <max value="1"/>
       <type>
         <code value="Reference"/>
-        <profile value="http://hl7.org/fhir/StructureDefinition/gao-order"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/gao-order"/>
         <aggregation value="contained"/>
       </type>
       <isSummary value="true"/>

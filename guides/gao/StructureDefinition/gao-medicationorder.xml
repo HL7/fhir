@@ -74,8 +74,8 @@
         <code value="CodeableConcept"></code>
       </type>
       <type>
-        <code value="Reference"></code>
-        <profile value="http://hl7.org/fhir/StructureDefinition/Medication"></profile>
+        <code value="Reference" />
+         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Medication"/>
       </type>
       <isSummary value="true"></isSummary>
       

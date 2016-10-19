@@ -778,40 +778,68 @@ public class ProfileComparer {
     for (TypeRefComponent l : left) {
       if (l.hasAggregation())
         throw new DefinitionException("Aggregation not supported: "+path);
-      boolean found = false;
+      boolean pfound = false;
+      boolean tfound = false;
       TypeRefComponent c = l.copy();
       for (TypeRefComponent r : right) {
         if (r.hasAggregation())
           throw new DefinitionException("Aggregation not supported: "+path);
         if (!l.hasProfile() && !r.hasProfile()) {
-          found = true;    
+          pfound = true;    
         } else if (!r.hasProfile()) {
-          found = true; 
+          pfound = true; 
         } else if (!l.hasProfile()) {
-          found = true;
+          pfound = true;
           c.setProfile(r.getProfile());
         } else {
           StructureDefinition sdl = resolveProfile(ed, outcome, path, l.getProfile(), outcome.leftName());
           StructureDefinition sdr = resolveProfile(ed, outcome, path, r.getProfile(), outcome.rightName());
           if (sdl != null && sdr != null) {
             if (sdl == sdr) {
-              found = true;
+              pfound = true;
             } else if (derivesFrom(sdl, sdr)) {
-              found = true;
+              pfound = true;
             } else if (derivesFrom(sdr, sdl)) {
               c.setProfile(r.getProfile());
-              found = true;
+              pfound = true;
             } else if (sdl.getType().equals(sdr.getType())) {
               ProfileComparison comp = compareProfiles(sdl, sdr);
               if (comp.getSubset() != null) {
-                found = true;
+                pfound = true;
                 c.setProfile("#"+comp.id);
               }
             }
           }
         }
+        if (!l.hasTargetProfile() && !r.hasTargetProfile()) {
+          tfound = true;    
+        } else if (!r.hasTargetProfile()) {
+          tfound = true; 
+        } else if (!l.hasTargetProfile()) {
+          tfound = true;
+          c.setProfile(r.getTargetProfile());
+        } else {
+          StructureDefinition sdl = resolveProfile(ed, outcome, path, l.getProfile(), outcome.leftName());
+          StructureDefinition sdr = resolveProfile(ed, outcome, path, r.getProfile(), outcome.rightName());
+          if (sdl != null && sdr != null) {
+            if (sdl == sdr) {
+              tfound = true;
+            } else if (derivesFrom(sdl, sdr)) {
+              tfound = true;
+            } else if (derivesFrom(sdr, sdl)) {
+              c.setTargetProfile(r.getTargetProfile());
+              tfound = true;
+            } else if (sdl.getType().equals(sdr.getType())) {
+              ProfileComparison comp = compareProfiles(sdl, sdr);
+              if (comp.getSubset() != null) {
+                tfound = true;
+                c.setTargetProfile("#"+comp.id);
+              }
+            }
+          }
+        }
       }
-      if (found)
+      if (pfound && tfound)
         result.add(c);
     }
     return result;
@@ -836,18 +864,19 @@ public class ProfileComparer {
   }    
     
   private void checkAddTypeUnion(String path, List<TypeRefComponent> results, TypeRefComponent nw) throws DefinitionException, IOException {
-    boolean found = false;
+    boolean pfound = false;
+    boolean tfound = false;
     nw = nw.copy();
     if (nw.hasAggregation())
       throw new DefinitionException("Aggregation not supported: "+path);
     for (TypeRefComponent ex : results) {
       if (Utilities.equals(ex.getCode(), nw.getCode())) {
         if (!ex.hasProfile() && !nw.hasProfile())
-          found = true;
+          pfound = true;
         else if (!ex.hasProfile()) {
-          found = true; 
+          pfound = true; 
         } else if (!nw.hasProfile()) {
-          found = true;
+          pfound = true;
           ex.setProfile(null);
         } else {
           // both have profiles. Is one derived from the other? 
@@ -855,24 +884,52 @@ public class ProfileComparer {
           StructureDefinition sdnw = context.fetchResource(StructureDefinition.class, nw.getProfile());
           if (sdex != null && sdnw != null) {
             if (sdex == sdnw) {
-              found = true;
+              pfound = true;
             } else if (derivesFrom(sdex, sdnw)) {
               ex.setProfile(nw.getProfile());
-              found = true;
+              pfound = true;
             } else if (derivesFrom(sdnw, sdex)) {
-              found = true;
+              pfound = true;
             } else if (sdnw.getSnapshot().getElement().get(0).getPath().equals(sdex.getSnapshot().getElement().get(0).getPath())) {
               ProfileComparison comp = compareProfiles(sdex, sdnw);
               if (comp.getSuperset() != null) {
-                found = true;
+                pfound = true;
                 ex.setProfile("#"+comp.id);
+              }
+            }
+          }
+        }        
+        if (!ex.hasTargetProfile() && !nw.hasTargetProfile())
+          tfound = true;
+        else if (!ex.hasTargetProfile()) {
+          tfound = true; 
+        } else if (!nw.hasTargetProfile()) {
+          tfound = true;
+          ex.setTargetProfile(null);
+        } else {
+          // both have profiles. Is one derived from the other? 
+          StructureDefinition sdex = context.fetchResource(StructureDefinition.class, ex.getTargetProfile());
+          StructureDefinition sdnw = context.fetchResource(StructureDefinition.class, nw.getTargetProfile());
+          if (sdex != null && sdnw != null) {
+            if (sdex == sdnw) {
+              tfound = true;
+            } else if (derivesFrom(sdex, sdnw)) {
+              ex.setTargetProfile(nw.getTargetProfile());
+              tfound = true;
+            } else if (derivesFrom(sdnw, sdex)) {
+              tfound = true;
+            } else if (sdnw.getSnapshot().getElement().get(0).getPath().equals(sdex.getSnapshot().getElement().get(0).getPath())) {
+              ProfileComparison comp = compareProfiles(sdex, sdnw);
+              if (comp.getSuperset() != null) {
+                tfound = true;
+                ex.setTargetProfile("#"+comp.id);
               }
             }
           }
         }        
       }
     }
-    if (!found)
+    if (!tfound || !pfound)
       results.add(nw);      
   }
 
@@ -1013,7 +1070,7 @@ public class ProfileComparer {
   private String typeCode(DefinitionNavigator defn) {
     CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
     for (TypeRefComponent t : defn.current().getType())
-      b.append(t.getCode()+(t.hasProfile() ? "("+t.getProfile()+")" : "")); // todo: other properties
+      b.append(t.getCode()+(t.hasProfile() ? "("+t.getProfile()+")" : "")+(t.hasTargetProfile() ? "("+t.getTargetProfile()+")" : "")); // todo: other properties
     return b.toString();
   }
 

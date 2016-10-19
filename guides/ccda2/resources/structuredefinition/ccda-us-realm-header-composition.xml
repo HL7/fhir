@@ -186,7 +186,7 @@
             <max value="1" />
             <type>
                 <code value="Reference" />
-                <profile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-patient" />
+                <targetProfile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-patient" />
             </type>
         </element>
         <element id="101458">
@@ -199,11 +199,11 @@
             <max value="*" />
             <type>
                 <code value="Reference" />
-                <profile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-pract" />
+                <targetProfile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-pract" />
             </type>
             <type>
                 <code value="Reference" />
-                <profile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-core-device" />
+                <targetProfile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-core-device" />
             </type>
         </element>
         <element id="6865-00002-1">
@@ -244,7 +244,7 @@
             <max value="1" />
             <type>
                 <code value="Reference" />
-                <profile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-pract" />
+                <targetProfile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-pract" />
             </type>
         </element>
         <element id="111260">
@@ -273,7 +273,7 @@
             <max value="1" />
             <type>
                 <code value="Reference" />
-                <profile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-pract" />
+                <targetProfile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-pract" />
             </type>
         </element>
         <element id="101459">
@@ -286,7 +286,7 @@
             <max value="1" />
             <type>
                 <code value="Reference" />
-                <profile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-organization" />
+                <targetProfile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-organization" />
             </type>
         </element>
         <element id="101449">
@@ -321,7 +321,7 @@
             <max value="1" />
             <type>
                 <code value="Reference" />
-                <profile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-encounter" />
+                <targetProfile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-encounter" />
             </type>
         </element>
     </differential>

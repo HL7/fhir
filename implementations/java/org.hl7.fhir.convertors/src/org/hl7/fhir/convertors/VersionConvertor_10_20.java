@@ -149,6 +149,18 @@ public class VersionConvertor_10_20 {
     return tgt;
   }
 
+  public org.hl7.fhir.dstu3.model.UriType convertCodeToUri(org.hl7.fhir.dstu2.model.CodeType src) throws FHIRException {
+    org.hl7.fhir.dstu3.model.UriType tgt = new org.hl7.fhir.dstu3.model.UriType(src.getValue());
+    copyElement(src, tgt);
+    return tgt;
+  }
+
+  public org.hl7.fhir.dstu2.model.CodeType convertUriToCode(org.hl7.fhir.dstu3.model.UriType src) throws FHIRException {
+    org.hl7.fhir.dstu2.model.CodeType tgt = new org.hl7.fhir.dstu2.model.CodeType(src.getValue());
+    copyElement(src, tgt);
+    return tgt;
+  }
+
   public org.hl7.fhir.dstu3.model.DateType convertDate(org.hl7.fhir.dstu2.model.DateType src) throws FHIRException {
     org.hl7.fhir.dstu3.model.DateType tgt = new org.hl7.fhir.dstu3.model.DateType(src.getValue());
     copyElement(src, tgt);
@@ -482,6 +494,8 @@ public class VersionConvertor_10_20 {
     tgt.setUserSelected(src.getUserSelected());
     return tgt;
   }
+
+
 
   public org.hl7.fhir.dstu3.model.Identifier convertIdentifier(org.hl7.fhir.dstu2.model.Identifier src) throws FHIRException {
     if (src == null || src.isEmpty())
@@ -1100,9 +1114,12 @@ public class VersionConvertor_10_20 {
       return null;
     org.hl7.fhir.dstu3.model.ElementDefinition.TypeRefComponent tgt = new org.hl7.fhir.dstu3.model.ElementDefinition.TypeRefComponent();
     copyElement(src, tgt);
-    tgt.setCode(src.getCode());
+    tgt.setCodeElement(convertCodeToUri(src.getCodeElement()));
     for (org.hl7.fhir.dstu2.model.UriType t : src.getProfile())
-      tgt.setProfile(t.getValue());
+      if (src.hasCode() && "Reference".equals(src.getCode()))
+        tgt.setTargetProfile(t.getValueAsString());
+      else
+        tgt.setProfile(t.getValue());
     for (org.hl7.fhir.dstu2.model.Enumeration<org.hl7.fhir.dstu2.model.ElementDefinition.AggregationMode> t : src.getAggregation())
       tgt.addAggregation(convertAggregationMode(t.getValue()));
     return tgt;
@@ -1113,8 +1130,11 @@ public class VersionConvertor_10_20 {
       return null;
     org.hl7.fhir.dstu2.model.ElementDefinition.TypeRefComponent tgt = new org.hl7.fhir.dstu2.model.ElementDefinition.TypeRefComponent();
     copyElement(src, tgt);
-    tgt.setCode(src.getCode());
-    if (src.hasProfile())
+    tgt.setCodeElement(convertUriToCode(src.getCodeElement()));
+    if (src.hasCode() && "Reference".equals(src.getCode())) {
+      if (src.hasTargetProfile())
+        tgt.addProfile(src.getTargetProfile());
+    } else if (src.hasProfile())
       tgt.addProfile(src.getProfile());
     for (org.hl7.fhir.dstu3.model.Enumeration<org.hl7.fhir.dstu3.model.ElementDefinition.AggregationMode> t : src.getAggregation())
       tgt.addAggregation(convertAggregationMode(t.getValue()));

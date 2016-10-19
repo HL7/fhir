@@ -2703,6 +2703,24 @@ public class Publisher implements URIResolver, SectionNumberer {
           check((page.getWorkerContext().getProfiles().containsKey(pt) || page.getWorkerContext().getExtensionDefinitions().containsKey(pt))
           || isStringPattern(tail(pt)), sd, ed.getPath()+": profile '"+pt+"' is not valid (d)");
       }
+      if (tr.hasTargetProfile()) {
+        String pt = tr.getTargetProfile();
+        if (pt.contains("#")) {
+          String[] parts = pt.split("\\#");
+          StructureDefinition exd = page.getWorkerContext().getExtensionDefinitions().get(parts[0]);
+          if (exd == null)
+            check(false, sd, ed.getPath()+": profile '"+pt+"' is not valid (definition not found)");
+          else {
+            ElementDefinition ex = null;
+            for (ElementDefinition et : exd.getSnapshot().getElement())
+              if (et.hasFixed() && et.getFixed() instanceof UriType && ((UriType)et.getFixed()).asStringValue().equals(parts[1]))
+                  ex = et;
+              check(ex != null, sd, ed.getPath()+": profile '"+pt+"' is not valid (inner path not found)");
+          }
+        } else
+          check((page.getWorkerContext().getProfiles().containsKey(pt) || page.getWorkerContext().getExtensionDefinitions().containsKey(pt))
+          || isStringPattern(tail(pt)), sd, ed.getPath()+": profile '"+pt+"' is not valid (d)");
+      }
     }
   }
 
