@@ -7,9 +7,8 @@
 		"output": "output",
 		"qa": "qa",
 		"txCache": "txCache",
-		"specification": "http://hl7.org/fhir/2016Sep/"
-	},
-	"sct-edition": "http://snomed.info/sct/731000124108",
+		"specification": "http://hl7-fhir.github.io/"
+},
 	"defaults": {
 		"Any": {
 			"template-format": "instance-template-format.html",
