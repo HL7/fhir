@@ -38,8 +38,6 @@ after_success:
   - git remote add origin git@github.com:hl7-fhir/hl7-fhir.github.io.git
   - cp -r ../publish/* .
 
-  - echo -e "Host build.fhir.org\n  Compression yes\n  StrictHostKeyChecking no\n  User fhir_upload\n  IdentityFile ~/deploy.build.fhir.org" > ~/.ssh/config
-  - tar czf - * | ssh build.fhir.org "cd /var/www/build.fhir.org && tar xvzf -"
 
   - echo -e "Host github.com\n  IdentityFile ~/deploy_fhir_docs" > ~/.ssh/config
   - ../remove_files_larger_than_100mg_for_gh_pages_compatibility.sh
