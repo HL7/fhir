@@ -818,7 +818,7 @@ public class ProfileGenerator {
     defineElement(null, p, p.getDifferential().getElement(), r.getRoot(), r.getRoot().getName(), containedSlices, new ArrayList<ProfileGenerator.SliceHandle>(), SnapShotMode.None, true, "BackboneElement", r.getRoot().typeCode());
 
     reset();
-    // now. the snapshot
+    // now. the snapshot'
     p.setSnapshot(new StructureDefinitionSnapshotComponent());
     defineElement(null, p, p.getSnapshot().getElement(), r.getRoot(), r.getRoot().getName(), containedSlices, new ArrayList<ProfileGenerator.SliceHandle>(), SnapShotMode.Resource, true, "BackboneElement", r.getRoot().typeCode());
     for (ElementDefinition ed : p.getSnapshot().getElement())
@@ -1400,9 +1400,9 @@ public class ProfileGenerator {
       ElementDefinition ed = defineElement(null, p, elements, child, path+"."+child.getName(), containedSlices, new ArrayList<ProfileGenerator.SliceHandle>(), snapshot, false, dt, null);
       ed.getBase().setPath(e.getName()+"."+child.getName());
       if (child.getMinCardinality() != null)
-        ed.getBase().setMin(e.getMinCardinality());
+        ed.getBase().setMin(child.getMinCardinality());
       if (child.getMaxCardinality() != null)
-        ed.getBase().setMax(e.getMaxCardinality() == Integer.MAX_VALUE ? "*" : e.getMaxCardinality().toString());
+        ed.getBase().setMax(child.getMaxCardinality() == Integer.MAX_VALUE ? "*" : child.getMaxCardinality().toString());
     }
   }
 
