@@ -1415,7 +1415,10 @@ public class Publisher implements IWorkerContext.ILoggingService {
     org.hl7.fhir.dstu3.elementmodel.XmlParser xp = new org.hl7.fhir.dstu3.elementmodel.XmlParser(context);
     xp.setAllowXsiLocation(true);
     xp.setupValidation(ValidationPolicy.EVERYTHING, file.getErrors());
-    return xp.parse(new ByteArrayInputStream(file.getSource()));
+    Element res = xp.parse(new ByteArrayInputStream(file.getSource()));
+    if (res == null)
+      throw new Exception("Unable to parse XML for "+file.getName());
+    return res;
   }
 
   private Element loadFromJson(FetchedFile file) throws Exception {

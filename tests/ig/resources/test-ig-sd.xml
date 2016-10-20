@@ -2,7 +2,7 @@
  <id value="test-ig-sd"/>
  <url value="http://hl7.org/fhir/test/StructureDefinition/test-ig-sd"/>
  <name value="Test Profile"/>
- <display value="Test Patient"/>
+ <title value="Test Patient"/>
  <status value="draft"/>
  <experimental value="true"/>
  <publisher value="FHIR Project"/>

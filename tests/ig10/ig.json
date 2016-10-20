@@ -9,6 +9,7 @@
     "specification" : "http://hl7.org/fhir/2016May"
   },
 	"canonicalBase": "http://hl7.org/fhir/test-ig-10",
+  "sct-edition" :  "http://snomed.info/sct/900000000000207008",
   "version" : "1.0.2",
 	"spreadsheets": [
 		"diagnosticorder-daf-profile-spreadsheet.xml"
