@@ -567,6 +567,8 @@ public class Publisher implements IWorkerContext.ILoggingService {
       Utilities.clearDirectory(vsCache);
     } else
       log("Terminology Cache is at "+vsCache);
+    if (!new File(vsCache).exists())
+      throw new Exception("Unable to access or create the cache directory at "+vsCache);
     
     if (version.equals(Constants.VERSION)) {
       try {

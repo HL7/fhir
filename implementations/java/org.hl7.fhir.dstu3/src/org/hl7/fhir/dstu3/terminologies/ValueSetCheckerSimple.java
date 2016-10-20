@@ -5,6 +5,7 @@ import java.util.List;
 import org.hl7.fhir.dstu3.context.IWorkerContext;
 import org.hl7.fhir.dstu3.context.IWorkerContext.ValidationResult;
 import org.hl7.fhir.dstu3.model.CodeSystem;
+import org.hl7.fhir.dstu3.model.CodeSystem.CodeSystemContentMode;
 import org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionComponent;
 import org.hl7.fhir.dstu3.model.UriType;
 import org.hl7.fhir.dstu3.model.ValueSet;
@@ -94,7 +95,7 @@ public class ValueSetCheckerSimple implements ValueSetChecker {
       }
       
     CodeSystem def = context.fetchCodeSystem(system);
-    if (def != null) {
+    if (def != null && def.getContent() == CodeSystemContentMode.COMPLETE) {
       if (!def.getCaseSensitive()) {
         // well, ok, it's not case sensitive - we'll check that too now
         for (ConceptReferenceComponent cc : vsi.getConcept())

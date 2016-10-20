@@ -40,7 +40,8 @@
  <tr><td>Filter Properties</td><td>Several properties are defined as described below</td></tr>
 </table>
 <p>
-See also the <a href="snomedct-usage.html">SNOMED CT Usage Summary</a>.
+This specification publishes a <a href="codesystem-snomedct.html">canonical SNOMED CT</a> <a href="codesystem.html">code system</a> 
+resource. See also the <a href="snomedct-usage.html">SNOMED CT Usage Summary</a>.
 </p>
 <!-- add note about usage of SNOMED 3 legacy codes - should be replaced with SNOMED CT identifiers, may change in future versions of FHIR -->
 
@@ -90,7 +91,32 @@ http://snomed.info/id/[concept-id]. Expressions are represented the same way, ex
 that for this use, expressions SHALL not contain whitespace, terms, or comments.
 </p>
 
-<h3>SNOMED CT Filter Properties</h3>
+<a name="props"> </a>
+<h3>SNOMED CT Properties</h3>
+<p>
+In addition to the <a href="terminology-service.html#standard-props">standard properties</a>, the following properties are defined for SNOMED CT:
+</p>
+<table class="grid">
+<tr><td>inactive</td><td>boolean</td><td>Whether the code is active or not (defaults to false)</td></tr>
+<tr><td>sufficientlyDefined"</td><td>boolean</td><td>True if the description logic definition of the concept includes sufficient conditions (i.e., if the concept is not primitive).</td></tr>
+<tr><td>moduleId</td><td>code</td><td>The SNOMED CT concept id of the module that the concept belongs to.</td></tr>
+<tr><td>normalForm</td><td>string</td><td>Generated Normal form expression for the provided code or expression, with terms</td></tr>
+<tr><td>normalFormTerse</td><td>string</td><td>Generated Normal form expression for the provided code or expression, conceptIds only</td></tr>
+</table>
+<p>
+In addition, any SNOMED CT relationships where the relationship type is subsumed by Attribute (246061005)
+automatically become properties. For example, laterality:
+</p>
+<table class="grid">
+<tr><td>Laterality</td><td>code</td><td>In this case, the URI (See the <a href="codesystem-snomedct.html">code system definition</a>) is <code>http://snomed.info/id/272741003</code>, which can be used to unambiguously map to the underlying concept</td></tr>
+</table>
+<p>
+Note that when a <a href="codesystem-operations.html#lookup">$lookup</a> operation is performed on a SNOMED CT concept, 
+servers SHALL return the full URI for the edition and version being used (see above) in the <code>version</code> property. 
+Other properties are at the discretion of the server and the client.
+</p>
+
+<h3>SNOMED CT Filters</h3>
 
 <p>
 This section documents the property filters that can be used with the SNOMED CT
@@ -168,6 +194,8 @@ of the <a href="http://www.ihtsdo.org/fileadmin/user_upload/Docs_01/News/SNOMED_
  <tr><td>Example</td><td><a href="valueset-administration-method-codes.html">Administation Methods</a></td></tr>
  <tr><td><a href="http://snomed.org/expressionconstraints.pdf">SCT ECL</a></td><td><pre>n/a</pre></td></tr>
 </table>
+
+
 
 <a name="implicit"> </a>
 <h3>Implicit Value Sets</h3>

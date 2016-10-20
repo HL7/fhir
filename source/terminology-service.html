@@ -23,11 +23,11 @@ terminology services in their Capability statement:
 </p>
 <div class="example">
 <pre class="xml">
-&lt;Conformance xmlns=&quot;http://hl7.org/fhir&quot;&gt;
+&lt;CapabilityStatement xmlns=&quot;http://hl7.org/fhir&quot;&gt;
   &lt;!-- snip --&gt;
-  &lt;instantiates value=&quot;http://hl7.org/fhir/Conformance/terminology-server&quot;/&gt;  
+  &lt;instantiates value=&quot;http://hl7.org/fhir/CapabilityStatement/terminology-server&quot;/&gt;  
   &lt;!-- snip --&gt;
-&lt;/Conformance&gt;
+&lt;/CapabilityStatement&gt;
 </pre>
 </div>
 
@@ -36,7 +36,7 @@ terminology services in their Capability statement:
 <p>
 Generally, SSL SHOULD be used for all production health care data exchange.
 Even though terminology servers do not generally handle patient information directly,
-hackers may still be able to infer information about patients by observing
+observers may still be able to infer information about patients by observing
 the codes and concepts that the terminology service is asked about, so
 encryption is still recommended.
 </p>
@@ -266,7 +266,7 @@ HTTP/1.1 200 OK
 </pre>
 </div>
 
-<h3>Concept Lookup</h3>
+<h3>Concept Lookup / Decomposition</h3>
 <p>
 A system can ask a terminology server to return a set of information about a particular system/code
 combination using <a href="codesystem-operations.html#lookup">the lookup operation</a>. The server returns information for both display and processing
@@ -284,10 +284,10 @@ The server returns some or all of the following information:
 <ul>
  <li> a human description of the system</li>
  <li> a recommended display for the code </li>
- <li> properties of the code</li>
+ <li> properties of the code (e.g. status) </li>
  <li> other designations for the code (a value, optionally with language and/or a use code)</li>
- <li> relationships between this code and other codes (parent/child properties)</li>
- <li> Component properties of the specified code (e.g. to support reasoning)</li>
+ <li> relationships between this code and other codes (parent/child properties, etc)</li>
+ <li> Component properties of the specified code (e.g. to support reasoning) (e.g. decomposition)</li>
 </ul>
 <p>
 The recommended display for the code is a text representation of the code that the 
@@ -296,7 +296,8 @@ client may choose out of the other designations if it has reason to.
 </p>
 <p>
 If the client does not ask for any particular properties to be returned, it is at the discretion
-of the server to decide which properties to return.
+of the server to decide which properties to return (though note that the "version" property is always 
+returned if the code system has a version).
 </p>
 
 
@@ -348,7 +349,7 @@ HTTP/1.1 200 OK
   },
   {
     "name" : "version",
-    "valueString" : "2.48"
+    "valueString" : "2.56"
   },
   {
     "name" : "display",
@@ -361,9 +362,12 @@ HTTP/1.1 200 OK
   ]
 }
 </pre>
+</div>
 
+<a name="standard-props"> </a>
+<h4>Standard Properties</h4>
 <p>
-The following properties are defined:
+The following properties are defined for all code systems:
 </p>
 <table class="grid">
  <tr>
@@ -404,10 +408,9 @@ The following properties are defined:
  </tr>
 </table>
 <p>
-In addition, any property codes defined by the code system (CodeSysem.property.code) can be used.
+In addition, any property codes defined by the code system (CodeSysem.property.code) can be used (and see the definitions for <a href="snomedct.html#props">SNOMED CT</a>, <a href="loinc.html#props">LOINC</a>, and <a href="rxnorm.html#props">RxNorm</a>).
 </p>
 
-</div>
 
 <h3>Value Set Validation</h3>
 <p>

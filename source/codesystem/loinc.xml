@@ -1,0 +1,218 @@
+<!--
+LOINC is a well maintained, version independent code system
+
+This CodeSystem resource describes 'LOINC' independent of 
+any particular version. There are notes about changes for
+version specific LOINC code system resources. 
+
+Note that the following set of codes constitute the 
+LOINC code systems:
+ - the main LOINC codes
+ - the LOINC answer codes
+ - the Part codes in the Multi-Axial Heirarchy
+ - the part codes for the properties. 
+    Note: there are license restrictions on the use of LOINC Part codes
+    Note: LOINC does not yet publish all of these part codes
+ 
+Servers may generate variants of this for the LOINC version(s)
+they support
+-->
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="loinc"/>
+  
+  <!-- this url is unchanged for all editions and versions of SCT. There
+    can only be one correct Code System resource for each value of the
+    version attribute (at least, only one per server) -->
+  <url value="http://loinc.org"/> 
+  
+  <!-- the HL7 v3 OID assigned to LOINC -->
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.6.1"/>
+  </identifier>
+  
+  <!--  
+  // if a version is specified:
+  <version value="2.56"/> 
+  -->
+
+  <!-- if a specific version is specified, the name should carry this information should be in the name (e.g. LOINC_256) and title -->
+  <name value="LOINC"/> 
+  <title value="LOINC Code System"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  
+  <!-- publisher may change for specific editions / version (national policy decision) -->
+  <publisher value="Regenstrief"/>
+  <contact>
+    <telecom>
+      <value value="http://loinc.org"/>
+    </telecom>
+  </contact>
+  
+  <!--  
+  <date value=[date for this version]"/> 
+  -->
+  <description value="LOINC is a universal code system for tests, measurements, and observations"/>
+  <copyright value="This content LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use"/>
+  <caseSensitive  value="false"/>
+  
+  <valueSet value=" http://loinc.org/vs"/>
+   <!--
+    for a version specific reference:
+    <valueSet value=" http://loinc.org/vs?ver=2.56"/>  ?? check
+  -->
+            
+  <!-- 
+    it's at the discretion of servers whether to present fragments of LOINC heirarchically or not, when 
+    using the code system resource, but if they are heirarchical, the heirarchy SHALL be based on the is-a relationship
+    The only place where this applies is the Document Heirarchy
+    -->
+  <heirarchyMeaning value="subsumes"/> 
+  <compositional value="false"/> <!-- no compositional grammar in LOINC -->
+  <versionNeeded value="false"/>
+  
+  <!-- this canonical definition of LOINC does not include the content. 
+    Servers may choose to include fragments (but not, due to size constraints, all of LOINC) -->
+  <content value="not-present"/>
+  
+<!-- <count value="65000"/>... if working with a specific version, you could nominate a count of the total number of concepts (including the answers, heirarchy etc -->  
+
+  <!-- 
+    generally defined filters for specifying value sets
+
+    in LOINC, all the properties can be used as filters too, but they are not defined explicitly as well    
+  -->
+  <filter>
+    <code value="parent"/> 
+    <description value="Allows for the selection of a set of codes base on their appearance in the LOINC multi-axial hierarchy. parent selects immediate children only. For example, the code '44022-2' has the parent 'LP52960-9'"/>
+    <operator value="="/>
+    <value value="A part code"/>
+  </filter>
+  <filter>
+    <code value="parent"/> 
+    <description value="Allows for the selection of a set of codes base on their appearance in the LOINC multi-axial hierarchy. parent selects immediate children only. For example, the code '44022-2' has the parent 'LP52960-9'"/>
+    <operator value="in"/>
+    <value value="A comma separated list of part codes"/>
+  </filter>
+  <filter>
+    <code value="ancestor"/> 
+    <description value="Allows for the selection of a set of codes base on their appearance in the LOINC multi-axial hierarchy. ancestor includes children transitively, e.g. 'LP52960-9' eventually has an ancestor 'LP31755-9', so the code '44022-2' is in the set of codes that have ancestor=LP31755-9"/>
+    <operator value="="/>
+    <value value="A part code"/>
+  </filter>
+  <filter>
+    <code value="ancestor"/> 
+    <description value="Allows for the selection of a set of codes base on their appearance in the LOINC multi-axial hierarchy. ancestor includes children transitively, e.g. 'LP52960-9' eventually has an ancestor 'LP31755-9', so the code '44022-2' is in the set of codes that have ancestor=LP31755-9"/>
+    <operator value="in"/>
+    <value value="A comma separated list of part codes"/>
+  </filter>
+  <filter>
+    <code value="copyright"/> 
+    <description value="Allows for the inclusion or exclusion of LOINC codes that include 3rd party copyright notices. LOINC = only codes with a sole copyright by Regenstrief. 3rdParty = only codes with a 3rd party copyright in addition to the one from Regenstrief"/>
+    <operator value="="/>
+    <value value="LOINC | 3rdParty"/>
+  </filter>
+
+
+  <!-- properties. There are 3 kinds of properties:
+    fhir: display, designation; these are not described here since they are inherent in the specification
+    infrastructural: defined by the structure of LOINC itself
+    concept model: defined by the LOINC directly heirarchy 
+  -->
+  <!-- first, the infrastructural properties -->
+  <property>
+    <code value="STATUS"/>
+    <uri value="http://loinc.org/property/STATUS"/>
+    <description value="Status of the term. For the purposes of LOINC, codes with Property ACTIVE=DEPRECATED are considered inactive"/>
+    <type value="boolean"/>
+  </property>
+  <property>
+    <code value="parent"/>
+    <uri value="http://loinc.org/property/parent"/> 
+    <description value="A parent code in the document Multi-Axial Heirarchy"/>
+    <type value=""/>
+  </property>
+  <property>
+    <code value="child"/>
+    <uri value="http://loinc.org/property/child"/>
+    <description value="A child code in the document Multi-Axial Heirarchy"/>
+    <type value=""/>
+  </property>
+  <!-- LOINC properties -->
+  <property>
+    <code value="COMPONENT"/>
+    <uri value="http://loinc.org/property/COMPONENT"/>
+    <description value="First major axis-component or analyte: Analyte Name, Analyte sub-class, Challenge"/>
+    <type value="code"/>
+  </property>
+  <property>
+    <code value="PROPERTY"/>
+    <uri value="http://loinc.org/property/PROPERTY"/>
+    <description value="Second major axis-property observed: Kind of Property (also called kind of quantity)"/>
+    <type value="code"/>
+  </property>
+  <property>
+    <code value="TIME_ASPCT"/>
+    <uri value="http://loinc.org/property/TIME_ASPCT"/>
+    <description value="Third major axis-timing of the measurement: Time Aspect (Point or moment in time vs. time interval)"/>
+    <type value="code"/>
+  </property>
+  <property>
+    <code value="SYSTEM"/>
+    <uri value="http://loinc.org/property/SYSTEM"/>
+    <description value="Fourth major axis-type of specimen or system: System (Sample) Type"/>
+    <type value="code"/>
+  </property>
+  <property>
+    <code value="SCALE_TYP"/>
+    <uri value="http://loinc.org/property/SCALE_TYP"/>
+    <description value="Fifth major axis-scale of measurement: Type of Scale"/>
+    <type value="code"/>
+  </property>
+  <property>
+    <code value="METHOD_TYP"/>
+    <uri value="http://loinc.org/property/METHOD_TYP"/>
+    <description value="Sixth major axis-method of measurement: Type of Method"/>
+    <type value="code"/>
+  </property>
+  <property>
+    <code value="CLASS"/>
+    <uri value="http://loinc.org/property/CLASS"/>
+    <description value="An arbitrary classification of the terms for grouping related observations together"/>
+    <type value="string"/>
+  </property>
+  <property>
+    <code value="CONSUMER_NAME"/>
+    <uri value="http://loinc.org/property/CONSUMER_NAME"/>
+    <description value="An experimental (beta) consumer friendly name for this item. The intent is to provide a test name that health care consumers will recognize; it will be similar to the names that might appear on a lab report"/>
+    <type value="string"/>
+  </property>
+  <property>
+    <code value="CLASSTYPE"/>
+    <uri value="http://loinc.org/property/CLASSTYPE"/>
+    <description value="1=Laboratory class; 2=Clinical class; 3=Claims attachments; 4=Surveys"/>
+    <type value="string"/>
+  </property>
+  <property>
+    <code value="ORDER_OBS"/>
+    <uri value="http://loinc.org/property/ORDER_OBS"/>
+    <description value="??"/>
+    <type value="string"/>
+  </property>
+  <!-- SHORTNAME	= display -->
+  <property>
+    <code value="ORDER_OBS"/>
+    <uri value="http://loinc.org/property/ORDER_OBS"/>
+    <description value="Provides users with an idea of the intended use of the term by categorizing it as an order only, observation only, or both"/>
+    <type value="string"/>
+  </property>
+  <!-- LONG_COMMON_NAME = definition -->
+  <property>
+    <code value="DOCUMENT_SECTION"/>
+    <uri value="http://loinc.org/property/DOCUMENT_SECTION"/>
+    <description value="Classification of whether this LOINC code can be used a full document, a section of a document, or both"/>
+    <type value="string"/>
+  </property>
+</CodeSystem>

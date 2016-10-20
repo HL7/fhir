@@ -1,3 +1,5 @@
+<CodeSystem xmlns="http://hl7.org/fhir">
+
 <!--
 SNOMED CT is a poly-versioned code system for which multiple 
 releases exist. This CodeSystem resource describes 'all of SCT'.
@@ -9,7 +11,6 @@ servers generate variants of this to describe how they
 support a particular edition/version 
 -->
 
-<CodeSystem xmlns="http://hl7.org/fhir">
   <id value="snomedct"/>
   
   <!-- this url is unchanged for all editions and versions of SCT. There
@@ -44,6 +45,7 @@ support a particular edition/version
   <publisher value="IHTSDO"/>
   <contact>
     <telecom>
+      <system value="other"/>
       <value value="http://ihtsdo.org"/>
     </telecom>
   </contact>
@@ -63,7 +65,7 @@ support a particular edition/version
             
   <!-- it's at the discretion of servers whether to present fragments of SNOMED heirarchically or not, when 
     using the code system resource, but if they are heirarchical, the heirarchy SHALL be based on the is-a relationship -->
-  <heirarchyMeaning value="subsumes"/> 
+  <hierarchyMeaning value="subsumes"/> 
   <compositional value="true"/> <!-- servers that do not support post-coordination may report this has flse -->
   <versionNeeded value="false"/>
   
@@ -124,13 +126,13 @@ support a particular edition/version
     <code value="parent"/>
     <uri value="http://.........?"/> <!-- mjl- no idea what this could be in SCT. gdg: so we make something up? -->
     <description value="A SNOMED CT concept id that has the target of a direct is-a relationship from the concept"/>
-    <type value=""/>
+    <type value="code"/>
   </property>
   <property>
     <code value="child"/>
     <uri value="http://.........?"/> <!-- mjl- no idea what this could be in SCT. gdg: so we make something up? -->
     <description value="A SNOMED CT concept id that has a direct is-a relationship to the concept"/>
-    <type value=""/>
+    <type value="code"/>
   </property>
   <property>
     <code value="moduleId"/>
@@ -138,6 +140,20 @@ support a particular edition/version
     <description value="The SNOMED CT concept id of the module that the concept belongs to."/>
     <type value="code"/>
   </property>
+  <property>
+    <code value="normalForm"/>
+    <uri value="http://.........?"/> <!-- mjl- no idea what this could be in SCT. gdg: so we make something up? -->
+    <description value="Generated Normal form expression for the provided code or expression, with terms"/>
+    <type value="string"/>
+  </property>
+  <property>
+    <code value="normalFormTerse"/>
+    <uri value="http://.........?"/> <!-- mjl- no idea what this could be in SCT. gdg: so we make something up? -->
+    <description value="Generated Normal form expression for the provided code or expression, conceptIds only"/>
+    <type value="string"/>
+  </property>
+ 
+ 
  
   <!-- 
     SCT relationships also surface as properties. So any attribute code surfaces as a property of SCT as well.

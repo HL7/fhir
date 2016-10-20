@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Set;
 
 import org.hl7.fhir.dstu3.model.CodeSystem;
+import org.hl7.fhir.dstu3.model.CodeSystem.CodeSystemContentMode;
 import org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionComponent;
 import org.hl7.fhir.dstu3.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.dstu3.model.OperationOutcome.IssueType;
@@ -206,8 +207,8 @@ public class ValueSetValidator extends BaseValidator {
               suppressedwarning(errors, IssueType.BUSINESSRULE, vs.getUserString("committee")+":ValueSet["+vs.getId()+"].compose.include["+Integer.toString(i)+"]", isValidCode(cc.getCode(), inc.getSystem()), 
                   "The code '"+cc.getCode()+"' is not valid in the system "+inc.getSystem()+" (1)",
                   "<a href=\""+vs.getUserString("path")+"\">Value set "+nameForErrors+" ("+vs.getName()+")</a>: The code '"+cc.getCode()+"' is not valid in the system "+inc.getSystem()+" (1)");             
-            else
-              rule(errors, IssueType.BUSINESSRULE, vs.getUserString("committee")+":ValueSet["+vs.getId()+"].compose.include["+Integer.toString(i)+"]", isValidCode(cc.getCode(), inc.getSystem()), 
+            else if (!isValidCode(cc.getCode(), inc.getSystem()))
+              rule(errors, IssueType.BUSINESSRULE, vs.getUserString("committee")+":ValueSet["+vs.getId()+"].compose.include["+Integer.toString(i)+"]", false, 
                 "The code '"+cc.getCode()+"' is not valid in the system "+inc.getSystem()+" (2)");
             
           }
@@ -332,7 +333,7 @@ public class ValueSetValidator extends BaseValidator {
 
   private boolean isValidCode(String code, String system) {
     CodeSystem cs = context.getCodeSystems().get(system);
-    if (cs == null) 
+    if (cs == null || cs.getContent() != CodeSystemContentMode.COMPLETE) 
       return context.validateCode(system, code, null).isOk();
     else {
       if (hasCode(code, cs.getConcept()))

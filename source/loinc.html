@@ -90,7 +90,34 @@ where the system is http://loinc.org, to the <a href="rdf.html">RDF ontological 
 the representation is http://loinc.org/owl#[code].
 </p>
 
-<h3>LOINC Filter Properties</h3>
+<a name="props"> </a>
+<h3>LOINC Properties</h3>
+<p>
+In addition to the <a href="terminology-service.html#standard-props">standard properties</a>, the following properties are defined for LOINC:
+</p>
+<table class="grid">
+<tr><td>STATUS</td><td>boolean</td><td>Status of the term. For the purposes of LOINC, codes with Property ACTIVE=DEPRECATED are considered inactive</td></tr>
+<tr><td>COMPONENT</td><td>code</td><td>First major axis-component or analyte: Analyte Name, Analyte sub-class, Challenge</td></tr>
+<tr><td>PROPERTY</td><td>code</td><td>Second major axis-property observed: Kind of Property (also called kind of quantity)</td></tr>
+<tr><td>TIME_ASPCT</td><td>code</td><td>Third major axis-timing of the measurement: Time Aspect (Point or moment in time vs. time interval)</td></tr>
+<tr><td>SYSTEM</td><td>code</td><td>Fourth major axis-type of specimen or system: System (Sample) Type</td></tr>
+<tr><td>SCALE_TYP</td><td>code</td><td>Fifth major axis-scale of measurement: Type of Scale</td></tr>
+<tr><td>METHOD_TYP</td><td>code</td><td>Sixth major axis-method of measurement: Type of Method</td></tr>
+<tr><td>CLASS</td><td>string</td><td>An arbitrary classification of the terms for grouping related observations together</td></tr>
+<tr><td>CONSUMER_NAME</td><td>string</td><td>An experimental (beta) consumer friendly name for this item. The intent is to provide a test name that health care consumers will recognize; it will be similar to the names that might appear on a lab report</td></tr>
+<tr><td>CLASSTYPE</td><td>string</td><td>1=Laboratory class; 2=Clinical class; 3=Claims attachments; 4=Surveys</td></tr>
+<tr><td>ORDER_OBS</td><td>string</td><td>??</td></tr>
+<tr><td>ORDER_OBS</td><td>string</td><td>Provides users with an idea of the intended use of the term by categorizing it as an order only, observation only, or both</td></tr>
+<tr><td>DOCUMENT_SECTION</td><td>string</td><td>Classification of whether this LOINC code can be used a full document, a section of a document, or both</td></tr>
+</table>
+
+<p>
+Note that when a <a href="codesystem-operations.html#lookup">$lookup</a> operation is performed on a LOINC code, 
+servers SHALL return the version being used (see above) in the <code>version</code> property. 
+Other properties are at the discretion of the server and the client.
+</p>
+
+<h3>LOINC Filters</h3>
 
 <p>
 This section documents the property filters that can be used with the LOINC 
@@ -100,7 +127,7 @@ code system in value set composition statements.
 <h4>LOINC Property filter</h4>
 
 <table class="grid">
- <tr><td>Description</td><td>Allows the selection of a set of LOINC codes with a common property value</td></tr>
+ <tr><td>Description</td><td>Allows the selection of a set of LOINC codes with a common property value (see list above)</td></tr>
  <tr><td>Property Name</td><td>One of the names listed in the "Field Name" column in LOINC Database Structure (Appendix A of the LOINC manual)</td></tr>
  <tr><td>Operations Allowed</td><td>= / regex</td></tr>
  <tr><td>Values Allowed</td><td>[string value]</td></tr>
@@ -132,6 +159,7 @@ code system in value set composition statements.
 Document.Kind, Document.TypeOfService, Document.Setting, Document.Role, and Document.SubjectMatterDomain
 -->
 
+<a name="implicit"> </a>
 <h3>Implicit Value Sets</h3>
 
 <p>

@@ -26,7 +26,7 @@
 		<reference value="http://hl7.org/fhir/ValueSet/v2-0487"/>
 	</sourceReference>
 	<targetReference>
-		<reference value="http://snomed.info/id"/>
+		<reference value="http://snomed.info/id?fhir_vs"/>
 	</targetReference>
   <group>
     <source value="http://hl7.org/fhir/v2/0487"/>
