@@ -14,7 +14,7 @@
 -- ElementDefinition --
   
   public String toString() {
-    if (hasId)
+    if (hasId())
       return getId();
     if (hasSliceName())
       return getPath()+":"+getSliceName();

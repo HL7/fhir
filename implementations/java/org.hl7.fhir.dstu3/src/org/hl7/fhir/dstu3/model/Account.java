@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Oct 19, 2016 11:03+1100 for FHIR v1.7.0
+// Generated on Fri, Oct 21, 2016 09:09+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -43,7 +43,7 @@ import ca.uhn.fhir.model.api.annotation.Block;
 import org.hl7.fhir.instance.model.api.*;
 import org.hl7.fhir.exceptions.FHIRException;
 /**
- * A financial tool for tracking value accrued for a particular purpose.  In the healthcare field, used to track charges for a patient, cost centres, etc.
+ * A financial tool for tracking value accrued for a particular purpose.  In the healthcare field, used to track charges for a patient, cost centers, etc.
  */
 @ResourceDef(name="Account", profile="http://hl7.org/fhir/Profile/Account")
 public class Account extends DomainResource {

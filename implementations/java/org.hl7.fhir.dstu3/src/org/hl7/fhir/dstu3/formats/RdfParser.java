@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Wed, Oct 19, 2016 11:03+1100 for FHIR v1.7.0
+// Generated on Fri, Oct 21, 2016 09:09+1100 for FHIR v1.7.0
 
 import org.hl7.fhir.dstu3.model.DateType;
 import org.hl7.fhir.dstu3.model.DateTimeType;
@@ -5401,16 +5401,18 @@ public class RdfParser extends RdfParserBase {
       composeUsageContext(t, "ExpansionProfile", "useContext", element.getUseContext().get(i), i);
     for (int i = 0; i < element.getJurisdiction().size(); i++)
       composeCodeableConcept(t, "ExpansionProfile", "jurisdiction", element.getJurisdiction().get(i), i);
-    if (element.hasCodeSystem())
-      composeExpansionProfileExpansionProfileCodeSystemComponent(t, "ExpansionProfile", "codeSystem", element.getCodeSystem(), -1);
+    for (int i = 0; i < element.getFixedVersion().size(); i++)
+      composeExpansionProfileExpansionProfileFixedVersionComponent(t, "ExpansionProfile", "fixedVersion", element.getFixedVersion().get(i), i);
+    if (element.hasExcludedSystem())
+      composeExpansionProfileExpansionProfileExcludedSystemComponent(t, "ExpansionProfile", "excludedSystem", element.getExcludedSystem(), -1);
     if (element.hasIncludeDesignationsElement())
       composeBoolean(t, "ExpansionProfile", "includeDesignations", element.getIncludeDesignationsElement(), -1);
     if (element.hasDesignation())
       composeExpansionProfileExpansionProfileDesignationComponent(t, "ExpansionProfile", "designation", element.getDesignation(), -1);
     if (element.hasIncludeDefinitionElement())
       composeBoolean(t, "ExpansionProfile", "includeDefinition", element.getIncludeDefinitionElement(), -1);
-    if (element.hasIncludeInactiveElement())
-      composeBoolean(t, "ExpansionProfile", "includeInactive", element.getIncludeInactiveElement(), -1);
+    if (element.hasActiveOnlyElement())
+      composeBoolean(t, "ExpansionProfile", "activeOnly", element.getActiveOnlyElement(), -1);
     if (element.hasExcludeNestedElement())
       composeBoolean(t, "ExpansionProfile", "excludeNested", element.getExcludeNestedElement(), -1);
     if (element.hasExcludeNotForUIElement())
@@ -5423,7 +5425,7 @@ public class RdfParser extends RdfParserBase {
       composeBoolean(t, "ExpansionProfile", "limitedExpansion", element.getLimitedExpansionElement(), -1);
   }
 
-  protected void composeExpansionProfileExpansionProfileCodeSystemComponent(Complex parent, String parentType, String name, ExpansionProfile.ExpansionProfileCodeSystemComponent element, int index) {
+  protected void composeExpansionProfileExpansionProfileFixedVersionComponent(Complex parent, String parentType, String name, ExpansionProfile.ExpansionProfileFixedVersionComponent element, int index) {
     if (element == null) 
       return;
     Complex t;
@@ -5432,44 +5434,16 @@ public class RdfParser extends RdfParserBase {
     else {
       t = parent.predicate("fhir:"+parentType+'.'+name);
     }
-    composeBackboneElement(t, "codeSystem", name, element, index);
-    if (element.hasInclude())
-      composeExpansionProfileCodeSystemIncludeComponent(t, "ExpansionProfile", "include", element.getInclude(), -1);
-    if (element.hasExclude())
-      composeExpansionProfileCodeSystemExcludeComponent(t, "ExpansionProfile", "exclude", element.getExclude(), -1);
-  }
-
-  protected void composeExpansionProfileCodeSystemIncludeComponent(Complex parent, String parentType, String name, ExpansionProfile.CodeSystemIncludeComponent element, int index) {
-    if (element == null) 
-      return;
-    Complex t;
-    if (Utilities.noString(parentType))
-      t = parent;
-    else {
-      t = parent.predicate("fhir:"+parentType+'.'+name);
-    }
-    composeBackboneElement(t, "include", name, element, index);
-    for (int i = 0; i < element.getCodeSystem().size(); i++)
-      composeExpansionProfileCodeSystemIncludeCodeSystemComponent(t, "ExpansionProfile", "codeSystem", element.getCodeSystem().get(i), i);
-  }
-
-  protected void composeExpansionProfileCodeSystemIncludeCodeSystemComponent(Complex parent, String parentType, String name, ExpansionProfile.CodeSystemIncludeCodeSystemComponent element, int index) {
-    if (element == null) 
-      return;
-    Complex t;
-    if (Utilities.noString(parentType))
-      t = parent;
-    else {
-      t = parent.predicate("fhir:"+parentType+'.'+name);
-    }
-    composeBackboneElement(t, "codeSystem", name, element, index);
+    composeBackboneElement(t, "fixedVersion", name, element, index);
     if (element.hasSystemElement())
       composeUri(t, "ExpansionProfile", "system", element.getSystemElement(), -1);
     if (element.hasVersionElement())
       composeString(t, "ExpansionProfile", "version", element.getVersionElement(), -1);
+    if (element.hasModeElement())
+      composeEnum(t, "ExpansionProfile", "mode", element.getModeElement(), -1);
   }
 
-  protected void composeExpansionProfileCodeSystemExcludeComponent(Complex parent, String parentType, String name, ExpansionProfile.CodeSystemExcludeComponent element, int index) {
+  protected void composeExpansionProfileExpansionProfileExcludedSystemComponent(Complex parent, String parentType, String name, ExpansionProfile.ExpansionProfileExcludedSystemComponent element, int index) {
     if (element == null) 
       return;
     Complex t;
@@ -5478,21 +5452,7 @@ public class RdfParser extends RdfParserBase {
     else {
       t = parent.predicate("fhir:"+parentType+'.'+name);
     }
-    composeBackboneElement(t, "exclude", name, element, index);
-    for (int i = 0; i < element.getCodeSystem().size(); i++)
-      composeExpansionProfileCodeSystemExcludeCodeSystemComponent(t, "ExpansionProfile", "codeSystem", element.getCodeSystem().get(i), i);
-  }
-
-  protected void composeExpansionProfileCodeSystemExcludeCodeSystemComponent(Complex parent, String parentType, String name, ExpansionProfile.CodeSystemExcludeCodeSystemComponent element, int index) {
-    if (element == null) 
-      return;
-    Complex t;
-    if (Utilities.noString(parentType))
-      t = parent;
-    else {
-      t = parent.predicate("fhir:"+parentType+'.'+name);
-    }
-    composeBackboneElement(t, "codeSystem", name, element, index);
+    composeBackboneElement(t, "excludedSystem", name, element, index);
     if (element.hasSystemElement())
       composeUri(t, "ExpansionProfile", "system", element.getSystemElement(), -1);
     if (element.hasVersionElement())

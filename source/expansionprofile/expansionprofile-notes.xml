@@ -1,5 +1,38 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <!-- insert xhtml content here -->
+<a name="overrides"> </a>
+<h3>Overriding Versions</h3>
+<p>
+The ExpansionProfile resources allows a client to specify a particular version to use for a given code system,
+and that this version is used <b>irrespective</b> of any version stated in any value set. This has obvious 
+safety issues, in that it may result in a value set expansion giving a different list of codes that is both 
+wrong and unsafe, and implementers should only use this capability reluctantly. This feature is primarily defined
+to allow implementers to deal with situations where specifications have fallen into decay as time passes, and 
+the specified versions of code systems can no longer be used at all.
+</p>
+<p>
+In principle, well designed specifications should not be authored in a fashion that allows them
+to decay in this fashion, but the technical infrastructure, eco-system, and community are not yet
+in a position to make this a reality. For this reason, clients are allowed to override versions. 
+Clients setting the <code>ExpansionProfile.fixedVersion.mode</code> to override need to ensure that this 
+action is not unsafe in their context.
+</p>
+
+<a name="overrides"> </a>
+<h3>Excluding Codes</h3>
+<p>
+Some fields in the ExpansionProfile can result in the return of an expansion that contains 
+a reduced set of information in the expansion. if any of these fields may alter the expansion,
+terminology servers SHALL mark their use in the <code>ValueSet.expansion.parameters</code>
+with the matching parameter name:
+</p>
+<table class="grid">
+ <tr><td><code>ExpansionProfile.fixedVersion</code></td><td>fixedVersion (in addition to the normal 'version' parameter)</td></tr>
+ <tr><td><code>ExpansionProfile.activeOnly</code></td><td>activeOnly</td></tr>
+ <tr><td><code>ExpansionProfile.excludeNotForUI</code></td><td>excludeNotForUI</td></tr>
+ <tr><td><code>ExpansionProfile.excludePostCoordinated</code></td><td>excludePostCoordinated</td></tr>
+ <tr><td><code>ExpansionProfile.limitedExpansion</code></td><td>limitedExpansion (in addition to the the extension <a href="extension-valueset-toocostly.html">http://hl7.org/fhir/StructureDefinition/valueset-toocostly</a>)</td></tr>
+</table>
 
 </div>

@@ -609,8 +609,8 @@ public class Publisher implements IWorkerContext.ILoggingService {
     String sct = str(configuration, "sct-edition", "");
     if (Utilities.noString(sct))
       throw new Exception("Must specify which SNOMED CT edition ('sct-edition') to use in the config file");
-    context.getExpansionProfile().getCodeSystem().getInclude().addCodeSystem().setSystem("http://snomed.info/sct").setVersion("http://snomed.info/sct/");
-    context.getExpansionProfile().setIncludeInactive(!"true".equals(ostr(configuration, "no-inactive-codes")));
+    context.getExpansionProfile().addFixedVersion().setSystem("http://snomed.info/sct").setVersion(sct);
+    context.getExpansionProfile().setActiveOnly("true".equals(ostr(configuration, "activeOnly")));
     context.connectToTSServer(txServer);
     // ;
     validator = new InstanceValidator(context);

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Oct 19, 2016 11:03+1100 for FHIR v1.7.0
+// Generated on Fri, Oct 21, 2016 09:09+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -69,7 +69,7 @@ public class Medication extends DomainResource {
          * Information about a group of medication produced or packaged from one production run.
          */
         @Child(name = "batch", type = {}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-        @Description(shortDefinition="(todo", formalDefinition="Information about a group of medication produced or packaged from one production run." )
+        @Description(shortDefinition="Identifies a single production run", formalDefinition="Information about a group of medication produced or packaged from one production run." )
         protected List<MedicationProductBatchComponent> batch;
 
         private static final long serialVersionUID = 1132853671L;
@@ -550,14 +550,14 @@ public class Medication extends DomainResource {
          * The assigned lot number of a batch of the specified product.
          */
         @Child(name = "lotNumber", type = {StringType.class}, order=1, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="(todo", formalDefinition="The assigned lot number of a batch of the specified product." )
+        @Description(shortDefinition="Identifier assigned to batch", formalDefinition="The assigned lot number of a batch of the specified product." )
         protected StringType lotNumber;
 
         /**
          * When this specific batch of product will expire.
          */
         @Child(name = "expirationDate", type = {DateTimeType.class}, order=2, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="(todo", formalDefinition="When this specific batch of product will expire." )
+        @Description(shortDefinition="When batch will expire", formalDefinition="When this specific batch of product will expire." )
         protected DateTimeType expirationDate;
 
         private static final long serialVersionUID = 1982738755L;

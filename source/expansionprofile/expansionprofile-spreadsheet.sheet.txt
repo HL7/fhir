@@ -7,42 +7,54 @@
   Reference = valueset-designation-use
   Definition = Details of how a designation would be used.
 
-=== Sheet Invariants =====================================
+ -- Row 2 -----------------------------------
+  Binding Name = SystemVersionProcessingMode
+  Binding = code list
+  Reference = #system-version-processing-mode
+  Definition = How to manage the intersection between a fixed version in a value set, and a fixed version of the system in the expansion profile
+
+=== Sheet system-version-processing-mode =====================================
 
  -- Row 1 -----------------------------------
   Id = 1
-  Context = ExpansionProfile.codeSystem
-  English = SHALL NOT have include and exclude
-  XPath = not(exists(f:include)) or not(exists(f:exclude))
-  Expression = include.empty() or exclude.empty()
+  Code = default
+  Display = Default Version
+  Definition = Use this version of the code system if a value set doesn\'t specify a version
 
  -- Row 2 -----------------------------------
   Id = 2
-  Context = ExpansionProfile.designation
-  English = SHALL NOT have include and exclude
-  XPath = not(exists(f:include)) or not(exists(f:exclude))
-  Expression = include.empty() or exclude.empty()
+  Code = check
+  Display = Check ValueSet Version
+  Definition = Use this version of the code system. If a value set specifies a different version, the expansion operation should fail
 
  -- Row 3 -----------------------------------
+  Id = 3
+  Code = override
+  Display = Override ValueSet Version
+  Definition = Use this version of the code system irrespective of which version is specified by a value set. Note that this has obvious safety issues, in that it may result in a value set expansion giving a different list of codes that is both wrong and unsafe, and implementers should only use this capability reluctantly. It primarily exists to deal with situations where specifications have fallen into decay as time passes
+
+=== Sheet Invariants =====================================
+
+ -- Row 1 -----------------------------------
   Id = 3
   Context = ExpansionProfile.designation.include.designation
   English = SHALL have at least one of language or use
   XPath = exists(f:language) or exists(f:use)
-  Expression = language.empty().not() or use.empty().not()
+  Expression = language.exists() or use.exists()
 
- -- Row 4 -----------------------------------
+ -- Row 2 -----------------------------------
   Id = 4
   Context = ExpansionProfile.designation.exclude.designation
   English = SHALL have at least one of language or use
   XPath = exists(f:language) or exists(f:use)
-  Expression = language.empty().not() or use.empty().not()
+  Expression = language.exists() or use.exists()
 
- -- Row 5 -----------------------------------
+ -- Row 3 -----------------------------------
   Id = !5
   Context = ExpansionProfile
-  English = SHALL have at least one of\r– codeSystems.include\r– codeSystems.exclude\r– includeDesignations (as true)\r– includeInactive (as true)\r– excludeNested\r– excludeNotForUI\r– excludePostCoordinated\r– displayLanguage\r– limitedExpansion
-  XPath = exists(f:codeSystems.include) or exists(f:codeSystems.exclude) or \r(exists(f:includeInactive) and f:includeInactive=\'true\')\r(exists(f:includeDesignations) and f:includeDesignations=\'true\') or\rexists(f:codeSystems.excludeNested) or\rexists(f:codeSystems.excludeNotForUI) or\rexists(f:codeSystems.excludePostCoordinated) or\rexists(f:codeSystems.displayLanguage) or\rexists(f:codeSystems.limitedExpansion)
-  Expression = codeSystem.include\r.empty().not() or  codeSystem.exclude.empty().not()  or includeDesignations = true or includeInactive = true or excludeNested.empty().not() or excludeNotForUI.empty().not() or excludePostCoordinated\r.empty().not() or displayLanguage\r.empty().not() or  limitedExpansion.empty().not()
+  English = SHALL have at least one of\r– codeSystems.include\r– codeSystems.exclude\r– includeDesignations (as true)\r– activeOnly (as true)\r– excludeNested\r– excludeNotForUI\r– excludePostCoordinated\r– displayLanguage\r– limitedExpansion
+  XPath = exists(f:fixedVersion) or exists(f:excludedSystem) or \r(exists(f:activeOnly) and f:activeOnly=\'true\')\r(exists(f:includeDesignations) and f:includeDesignations=\'true\') or\rexists(f:codeSystems.excludeNested) or\rexists(f:codeSystems.excludeNotForUI) or\rexists(f:codeSystems.excludePostCoordinated) or\rexists(f:codeSystems.displayLanguage) or\rexists(f:codeSystems.limitedExpansion)
+  Expression = fixedVersion.exists() or  excludedSystem.exists()  or includeDesignations = true or activeOnly = true or excludeNested.exists() or excludeNotForUI.exists() or excludePostCoordinated\r.exists() or displayLanguage\r.exists() or  limitedExpansion.exists()
 
 === Sheet Data Elements =====================================
 
@@ -93,69 +105,51 @@
   Element = ExpansionProfile.jurisdiction
 
  -- Row 14 -----------------------------------
-  Element = ExpansionProfile.codeSystem
-  Card. = 0..1
+  Element = ExpansionProfile.fixedVersion
+  Card. = 0..*
   Summary = y
   UML = left
-  Short Name = When the expansion profile imposes code system contraints
-  Definition = A set of criteria that provide the constraints imposed on the value set expansion by including or excluding codes from specific code systems (or versions)
+  Short Name = Fix use of a code system to a particular version
+  Definition = Fix use of a particular code system to a particular version
 
  -- Row 15 -----------------------------------
-  Element = ExpansionProfile.codeSystem.include
-  Card. = 0..1
-  Summary = y
-  UML = up
-  Type = =CodeSystemInclude
-  Short Name = Code systems to be included
-  Definition = Code systems to be included in value set expansions
-
- -- Row 16 -----------------------------------
-  Element = ExpansionProfile.codeSystem.include.codeSystem
-  Card. = 1..*
-  Summary = y
-  UML = up
-  Type = =CodeSystemIncludeCodeSystem
-  Short Name = The code systems to be included
-  Definition = A data group for each code system to be included
-
- -- Row 17 -----------------------------------
-  Element = ExpansionProfile.codeSystem.include.codeSystem.system
+  Element = ExpansionProfile.fixedVersion.system
   Card. = 1..1
   Summary = y
+  UML = up
   Type = uri
-  Short Name = The specific code system to be included
-  Definition = An absolute URI which is the code system to be included
+  Short Name = System to have it\'s version fixed
+  Definition = The specific system for which to fix the version
   Comments = See \'\'Coding.system\'\' for further documentation
 
- -- Row 18 -----------------------------------
-  Element = ExpansionProfile.codeSystem.include.codeSystem.version
-  Card. = 0..1
+ -- Row 16 -----------------------------------
+  Element = ExpansionProfile.fixedVersion.version
+  Card. = 1..1
   Summary = y
   Type = string
   Short Name = Specific version of the code system referred to
   Definition = The version of the code system from which codes in the expansion should be included
-  Comments = This is used to apply version specifc inclusion contraints. If no version is specified, then all codes from the code system present in the expansion (prior to application of the expansion profile) will be retained
 
- -- Row 19 -----------------------------------
-  Element = ExpansionProfile.codeSystem.exclude
+ -- Row 17 -----------------------------------
+  Element = ExpansionProfile.fixedVersion.mode
+  Card. = 1..1
+  Summary = y
+  Type = code
+  Binding = SystemVersionProcessingMode
+  Short Name = default | check | override
+  Definition = How to manage the intersection between a fixed version in a value set, and this fixed version of the system in the expansion profile
+
+ -- Row 18 -----------------------------------
+  Element = ExpansionProfile.excludedSystem
   Card. = 0..1
   Summary = y
   UML = down
-  Type = =CodeSystemExclude
-  Short Name = Code systems to be excluded
-  Definition = Code systems to be excluded from value set expansions
+  Short Name = Systems/Versions to be exclude
+  Definition = Code system, or a particular version of a code system to be excluded from value set expansions
+  Comments = When a system is excluded, and this makes a material difference to the expansion, the exclusion SHALL  be noted in the expansion parameters using a parameter \'excluded\'
 
- -- Row 20 -----------------------------------
-  Element = ExpansionProfile.codeSystem.exclude.codeSystem
-  Card. = 1..*
-  Summary = y
-  UML = down
-  Type = =CodeSystemExcludeCodeSystem
-  Short Name = The code systems to be excluded
-  Definition = A data group for each code system to be excluded
-
- -- Row 21 -----------------------------------
-  Element = ExpansionProfile.codeSystem.exclude.codeSystem.system
+ -- Row 19 -----------------------------------
+  Element = ExpansionProfile.excludedSystem.system
   Card. = 1..1
   Summary = y
   Type = uri
@@ -163,16 +157,17 @@
   Definition = An absolute URI which is the code system to be excluded
   Comments = See \'\'Coding.system\'\' for further documentation
 
- -- Row 22 -----------------------------------
-  Element = ExpansionProfile.codeSystem.exclude.codeSystem.version
+ -- Row 20 -----------------------------------
+  Element = ExpansionProfile.excludedSystem.version
   Card. = 0..1
   Summary = y
   Type = string
   Short Name = Specific version of the code system referred to
   Definition = The version of the code system from which codes in the expansion should be excluded
   Comments = This is used to apply version specifc exclusion contraints. If no version is specified, then all codes from the code system present in the expansion (prior to application of the expansion profile) will be excluded
+  Missing Meaning = Exclusion is not version specific
 
- -- Row 23 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = ExpansionProfile.includeDesignations
   Card. = 0..1
   Summary = y
@@ -181,7 +176,7 @@
   Definition = Controls whether concept designations are to be included or excluded in value set expansions.
   Comments = ExpansionProfile.designation.include and ExpansionProfile.designation.exclude are only evaluated if includeDesignations is present and set to \"true\". If includeDesignations is present with a value of \"true\" and both ExpansionProfile.designation.include and ExpansionProfile.designation.exclude are absent, then all designations are returned in the expansion.
 
- -- Row 24 -----------------------------------
+ -- Row 22 -----------------------------------
   Element = ExpansionProfile.designation
   Card. = 0..1
   Summary = y
@@ -189,7 +184,7 @@
   Short Name = When the expansion profile imposes designation contraints
   Definition = A set of criteria that provide the constraints imposed on the value set expansion by including or excluding designations
 
- -- Row 25 -----------------------------------
+ -- Row 23 -----------------------------------
   Element = ExpansionProfile.designation.include
   Card. = 0..1
   Summary = y
@@ -198,7 +193,7 @@
   Short Name = Designations to be included
   Definition = Designations to be included
 
- -- Row 26 -----------------------------------
+ -- Row 24 -----------------------------------
   Element = ExpansionProfile.designation.include.designation
   Card. = 0..*
   Summary = y
@@ -208,7 +203,7 @@
   Definition = A data group for each designation to be included
   Comments = At least one of designation.language or designation.use must be provided for each include.designation element
 
- -- Row 27 -----------------------------------
+ -- Row 25 -----------------------------------
   Element = ExpansionProfile.designation.include.designation.language
   Card. = 0..1
   Summary = y
@@ -218,7 +213,7 @@
   Definition = The language this designation is defined for
   Comments = In the absence of a language, all designations are retained which match the designation.use parameter for this include.designation
 
- -- Row 28 -----------------------------------
+ -- Row 26 -----------------------------------
   Element = ExpansionProfile.designation.include.designation.use
   Card. = 0..1
   Summary = y
@@ -228,7 +223,7 @@
   Definition = Designation uses for inclusion in the expansion
   Comments = In the absence of a use, all designations are retained which match the designation.language parameter for this include.designation element
 
- -- Row 29 -----------------------------------
+ -- Row 27 -----------------------------------
   Element = ExpansionProfile.designation.exclude
   Card. = 0..1
   Summary = y
@@ -237,7 +232,7 @@
   Short Name = Designations to be excluded
   Definition = Designations to be excluded
 
- -- Row 30 -----------------------------------
+ -- Row 28 -----------------------------------
   Element = ExpansionProfile.designation.exclude.designation
   Card. = 0..*
   Summary = y
@@ -247,7 +242,7 @@
   Definition = A data group for each designation to be excluded
   Comments = At least one of designation.language or designation.use must be provided for each exclude.designation element
 
- -- Row 31 -----------------------------------
+ -- Row 29 -----------------------------------
   Element = ExpansionProfile.designation.exclude.designation.language
   Card. = 0..1
   Summary = y
@@ -257,7 +252,7 @@
   Definition = The language this designation is defined for
   Comments = In the absence of a language, all designations are excluded which match the designation.use parameter for this exclude.designation element
 
- -- Row 32 -----------------------------------
+ -- Row 30 -----------------------------------
   Element = ExpansionProfile.designation.exclude.designation.use
   Card. = 0..1
   Summary = y
@@ -267,7 +262,7 @@
   Definition = Designation uses for exclusion in the expansion
   Comments = In the absence of a use, all designations are retained which match the designation.language parameter for this exclude.designation element
 
- -- Row 33 -----------------------------------
+ -- Row 31 -----------------------------------
   Element = ExpansionProfile.includeDefinition
   Card. = 0..1
   Summary = y
@@ -275,17 +270,19 @@
   Short Name = Include or exclude the value set definition in the expansion
   Definition = Controls whether the value set definition is included or excluded in value set expansions.
   Comments = The ValueSet defintion refers to all fields in the ValueSet definition apart from  ValueSet.contains. The definition is only included if includeDefinition is present and has a value of \"true\".
+  Default Value = False
 
- -- Row 34 -----------------------------------
-  Element = ExpansionProfile.includeInactive
+ -- Row 32 -----------------------------------
+  Element = ExpansionProfile.activeOnly
   Card. = 0..1
   Summary = y
   Type = boolean
   Short Name = Include or exclude inactive concepts in the expansion
   Definition = Controls whether inactive concepts are included or excluded in value set expansions.
-  Comments = Inactive codes are included if includeInactive is present and has a value of \"true\".
+  Comments = Inactive codes are included if activeOnly is present and has a value of \"true\".
+  Default Value = False
 
- -- Row 35 -----------------------------------
+ -- Row 33 -----------------------------------
   Element = ExpansionProfile.excludeNested
   Card. = 0..1
   Summary = y
@@ -294,7 +291,7 @@
   Definition = Controls whether or not the value set expansion includes nested codes (i.e. ValueSet.expansion.contains.contains).
   Comments = Nested codes excluded if excludeNested is present and has a value of \"true\".
 
- -- Row 36 -----------------------------------
+ -- Row 34 -----------------------------------
   Element = ExpansionProfile.excludeNotForUI
   Card. = 0..1
   Summary = y
@@ -303,7 +300,7 @@
   Definition = Controls whether or not the value set expansion includes codes which cannot be displayed in user interfaces.
   Comments = Codes which cannot be used in user interfaces will be excluded if excludeNotForUI is present and has a value of \"true\".
 
- -- Row 37 -----------------------------------
+ -- Row 35 -----------------------------------
   Element = ExpansionProfile.excludePostCoordinated
   Card. = 0..1
   Summary = y
@@ -312,7 +309,7 @@
   Definition = Controls whether or not the value set expansion includes post coordinated codes.
   Comments = Post coordinated codes are excluded if excludePostCoordinated is present and has a value of \"true\".
 
- -- Row 38 -----------------------------------
+ -- Row 36 -----------------------------------
   Element = ExpansionProfile.displayLanguage
   Card. = 0..1
   Summary = y
@@ -321,14 +318,14 @@
   Short Name = Specify the language for the display element of codes in the value set expansion
   Definition = Specifies the language to be used for description in the expansions i.e. the language to be used for ValueSet.expansion.contains.display
 
- -- Row 39 -----------------------------------
+ -- Row 37 -----------------------------------
   Element = ExpansionProfile.limitedExpansion
   Card. = 0..1
   Summary = y
   Type = boolean
   Short Name = Controls behaviour of the value set expand operation when value sets are too large to be completely expanded
-  Definition = If the value set being expanded is incomplete (because it is too big to expand), return a limited expansion (a subset) with an indicator that expansion is incomplete.
-  Comments = This field overides the default behaviour (which is to return an error). This does not apply to expansions which are unbounded.
+  Definition = If the value set being expanded is incomplete (because it is too big to expand), return a limited expansion (a subset) with an indicator that expansion is incomplete, using the extension [http://hl7.org/fhir/StructureDefinition/valueset-toocostly](extension-valueset-toocostly.html).
+  Comments = This field overides the default behaviour (which is to return an error). This does not apply to expansions which are unbounded. Clients SHALL process the extension [http://hl7.org/fhir/StructureDefinition/valueset-toocostly](extension-valueset-toocostly.html) correctly if limitedExpansion = true
 
 === Sheet Search =====================================
 

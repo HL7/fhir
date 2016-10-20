@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Wed, Oct 19, 2016 11:03+1100 for FHIR v1.7.0
+// Generated on Fri, Oct 21, 2016 09:09+1100 for FHIR v1.7.0
 
 import org.hl7.fhir.dstu3.model.DateType;
 import org.hl7.fhir.dstu3.model.DateTimeType;
@@ -8001,8 +8001,14 @@ public class JsonParser extends JsonParserBase {
         res.getJurisdiction().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
       }
     };
-    if (json.has("codeSystem"))
-      res.setCodeSystem(parseExpansionProfileExpansionProfileCodeSystemComponent(json.getAsJsonObject("codeSystem"), res));
+    if (json.has("fixedVersion")) {
+      JsonArray array = json.getAsJsonArray("fixedVersion");
+      for (int i = 0; i < array.size(); i++) {
+        res.getFixedVersion().add(parseExpansionProfileExpansionProfileFixedVersionComponent(array.get(i).getAsJsonObject(), res));
+      }
+    };
+    if (json.has("excludedSystem"))
+      res.setExcludedSystem(parseExpansionProfileExpansionProfileExcludedSystemComponent(json.getAsJsonObject("excludedSystem"), res));
     if (json.has("includeDesignations"))
       res.setIncludeDesignationsElement(parseBoolean(json.get("includeDesignations").getAsBoolean()));
     if (json.has("_includeDesignations"))
@@ -8013,10 +8019,10 @@ public class JsonParser extends JsonParserBase {
       res.setIncludeDefinitionElement(parseBoolean(json.get("includeDefinition").getAsBoolean()));
     if (json.has("_includeDefinition"))
       parseElementProperties(json.getAsJsonObject("_includeDefinition"), res.getIncludeDefinitionElement());
-    if (json.has("includeInactive"))
-      res.setIncludeInactiveElement(parseBoolean(json.get("includeInactive").getAsBoolean()));
-    if (json.has("_includeInactive"))
-      parseElementProperties(json.getAsJsonObject("_includeInactive"), res.getIncludeInactiveElement());
+    if (json.has("activeOnly"))
+      res.setActiveOnlyElement(parseBoolean(json.get("activeOnly").getAsBoolean()));
+    if (json.has("_activeOnly"))
+      parseElementProperties(json.getAsJsonObject("_activeOnly"), res.getActiveOnlyElement());
     if (json.has("excludeNested"))
       res.setExcludeNestedElement(parseBoolean(json.get("excludeNested").getAsBoolean()));
     if (json.has("_excludeNested"))
@@ -8039,43 +8045,13 @@ public class JsonParser extends JsonParserBase {
       parseElementProperties(json.getAsJsonObject("_limitedExpansion"), res.getLimitedExpansionElement());
   }
 
-  protected ExpansionProfile.ExpansionProfileCodeSystemComponent parseExpansionProfileExpansionProfileCodeSystemComponent(JsonObject json, ExpansionProfile owner) throws IOException, FHIRFormatError {
-    ExpansionProfile.ExpansionProfileCodeSystemComponent res = new ExpansionProfile.ExpansionProfileCodeSystemComponent();
-    parseExpansionProfileExpansionProfileCodeSystemComponentProperties(json, owner, res);
+  protected ExpansionProfile.ExpansionProfileFixedVersionComponent parseExpansionProfileExpansionProfileFixedVersionComponent(JsonObject json, ExpansionProfile owner) throws IOException, FHIRFormatError {
+    ExpansionProfile.ExpansionProfileFixedVersionComponent res = new ExpansionProfile.ExpansionProfileFixedVersionComponent();
+    parseExpansionProfileExpansionProfileFixedVersionComponentProperties(json, owner, res);
     return res;
   }
 
-  protected void parseExpansionProfileExpansionProfileCodeSystemComponentProperties(JsonObject json, ExpansionProfile owner, ExpansionProfile.ExpansionProfileCodeSystemComponent res) throws IOException, FHIRFormatError {
-    parseBackboneProperties(json, res);
-    if (json.has("include"))
-      res.setInclude(parseExpansionProfileCodeSystemIncludeComponent(json.getAsJsonObject("include"), owner));
-    if (json.has("exclude"))
-      res.setExclude(parseExpansionProfileCodeSystemExcludeComponent(json.getAsJsonObject("exclude"), owner));
-  }
-
-  protected ExpansionProfile.CodeSystemIncludeComponent parseExpansionProfileCodeSystemIncludeComponent(JsonObject json, ExpansionProfile owner) throws IOException, FHIRFormatError {
-    ExpansionProfile.CodeSystemIncludeComponent res = new ExpansionProfile.CodeSystemIncludeComponent();
-    parseExpansionProfileCodeSystemIncludeComponentProperties(json, owner, res);
-    return res;
-  }
-
-  protected void parseExpansionProfileCodeSystemIncludeComponentProperties(JsonObject json, ExpansionProfile owner, ExpansionProfile.CodeSystemIncludeComponent res) throws IOException, FHIRFormatError {
-    parseBackboneProperties(json, res);
-    if (json.has("codeSystem")) {
-      JsonArray array = json.getAsJsonArray("codeSystem");
-      for (int i = 0; i < array.size(); i++) {
-        res.getCodeSystem().add(parseExpansionProfileCodeSystemIncludeCodeSystemComponent(array.get(i).getAsJsonObject(), owner));
-      }
-    };
-  }
-
-  protected ExpansionProfile.CodeSystemIncludeCodeSystemComponent parseExpansionProfileCodeSystemIncludeCodeSystemComponent(JsonObject json, ExpansionProfile owner) throws IOException, FHIRFormatError {
-    ExpansionProfile.CodeSystemIncludeCodeSystemComponent res = new ExpansionProfile.CodeSystemIncludeCodeSystemComponent();
-    parseExpansionProfileCodeSystemIncludeCodeSystemComponentProperties(json, owner, res);
-    return res;
-  }
-
-  protected void parseExpansionProfileCodeSystemIncludeCodeSystemComponentProperties(JsonObject json, ExpansionProfile owner, ExpansionProfile.CodeSystemIncludeCodeSystemComponent res) throws IOException, FHIRFormatError {
+  protected void parseExpansionProfileExpansionProfileFixedVersionComponentProperties(JsonObject json, ExpansionProfile owner, ExpansionProfile.ExpansionProfileFixedVersionComponent res) throws IOException, FHIRFormatError {
     parseBackboneProperties(json, res);
     if (json.has("system"))
       res.setSystemElement(parseUri(json.get("system").getAsString()));
@@ -8085,31 +8061,19 @@ public class JsonParser extends JsonParserBase {
       res.setVersionElement(parseString(json.get("version").getAsString()));
     if (json.has("_version"))
       parseElementProperties(json.getAsJsonObject("_version"), res.getVersionElement());
+    if (json.has("mode"))
+      res.setModeElement(parseEnumeration(json.get("mode").getAsString(), ExpansionProfile.SystemVersionProcessingMode.NULL, new ExpansionProfile.SystemVersionProcessingModeEnumFactory()));
+    if (json.has("_mode"))
+      parseElementProperties(json.getAsJsonObject("_mode"), res.getModeElement());
   }
 
-  protected ExpansionProfile.CodeSystemExcludeComponent parseExpansionProfileCodeSystemExcludeComponent(JsonObject json, ExpansionProfile owner) throws IOException, FHIRFormatError {
-    ExpansionProfile.CodeSystemExcludeComponent res = new ExpansionProfile.CodeSystemExcludeComponent();
-    parseExpansionProfileCodeSystemExcludeComponentProperties(json, owner, res);
+  protected ExpansionProfile.ExpansionProfileExcludedSystemComponent parseExpansionProfileExpansionProfileExcludedSystemComponent(JsonObject json, ExpansionProfile owner) throws IOException, FHIRFormatError {
+    ExpansionProfile.ExpansionProfileExcludedSystemComponent res = new ExpansionProfile.ExpansionProfileExcludedSystemComponent();
+    parseExpansionProfileExpansionProfileExcludedSystemComponentProperties(json, owner, res);
     return res;
   }
 
-  protected void parseExpansionProfileCodeSystemExcludeComponentProperties(JsonObject json, ExpansionProfile owner, ExpansionProfile.CodeSystemExcludeComponent res) throws IOException, FHIRFormatError {
-    parseBackboneProperties(json, res);
-    if (json.has("codeSystem")) {
-      JsonArray array = json.getAsJsonArray("codeSystem");
-      for (int i = 0; i < array.size(); i++) {
-        res.getCodeSystem().add(parseExpansionProfileCodeSystemExcludeCodeSystemComponent(array.get(i).getAsJsonObject(), owner));
-      }
-    };
-  }
-
-  protected ExpansionProfile.CodeSystemExcludeCodeSystemComponent parseExpansionProfileCodeSystemExcludeCodeSystemComponent(JsonObject json, ExpansionProfile owner) throws IOException, FHIRFormatError {
-    ExpansionProfile.CodeSystemExcludeCodeSystemComponent res = new ExpansionProfile.CodeSystemExcludeCodeSystemComponent();
-    parseExpansionProfileCodeSystemExcludeCodeSystemComponentProperties(json, owner, res);
-    return res;
-  }
-
-  protected void parseExpansionProfileCodeSystemExcludeCodeSystemComponentProperties(JsonObject json, ExpansionProfile owner, ExpansionProfile.CodeSystemExcludeCodeSystemComponent res) throws IOException, FHIRFormatError {
+  protected void parseExpansionProfileExpansionProfileExcludedSystemComponentProperties(JsonObject json, ExpansionProfile owner, ExpansionProfile.ExpansionProfileExcludedSystemComponent res) throws IOException, FHIRFormatError {
     parseBackboneProperties(json, res);
     if (json.has("system"))
       res.setSystemElement(parseUri(json.get("system").getAsString()));
@@ -27612,8 +27576,14 @@ public class JsonParser extends JsonParserBase {
           composeCodeableConcept(null, e);
         closeArray();
       };
-      if (element.hasCodeSystem()) {
-        composeExpansionProfileExpansionProfileCodeSystemComponent("codeSystem", element.getCodeSystem());
+      if (element.hasFixedVersion()) {
+        openArray("fixedVersion");
+        for (ExpansionProfile.ExpansionProfileFixedVersionComponent e : element.getFixedVersion()) 
+          composeExpansionProfileExpansionProfileFixedVersionComponent(null, e);
+        closeArray();
+      };
+      if (element.hasExcludedSystem()) {
+        composeExpansionProfileExpansionProfileExcludedSystemComponent("excludedSystem", element.getExcludedSystem());
       }
       if (element.hasIncludeDesignationsElement()) {
         composeBooleanCore("includeDesignations", element.getIncludeDesignationsElement(), false);
@@ -27626,9 +27596,9 @@ public class JsonParser extends JsonParserBase {
         composeBooleanCore("includeDefinition", element.getIncludeDefinitionElement(), false);
         composeBooleanExtras("includeDefinition", element.getIncludeDefinitionElement(), false);
       }
-      if (element.hasIncludeInactiveElement()) {
-        composeBooleanCore("includeInactive", element.getIncludeInactiveElement(), false);
-        composeBooleanExtras("includeInactive", element.getIncludeInactiveElement(), false);
+      if (element.hasActiveOnlyElement()) {
+        composeBooleanCore("activeOnly", element.getActiveOnlyElement(), false);
+        composeBooleanExtras("activeOnly", element.getActiveOnlyElement(), false);
       }
       if (element.hasExcludeNestedElement()) {
         composeBooleanCore("excludeNested", element.getExcludeNestedElement(), false);
@@ -27652,51 +27622,15 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  protected void composeExpansionProfileExpansionProfileCodeSystemComponent(String name, ExpansionProfile.ExpansionProfileCodeSystemComponent element) throws IOException {
+  protected void composeExpansionProfileExpansionProfileFixedVersionComponent(String name, ExpansionProfile.ExpansionProfileFixedVersionComponent element) throws IOException {
     if (element != null) {
       open(name);
-      composeExpansionProfileExpansionProfileCodeSystemComponentInner(element);
+      composeExpansionProfileExpansionProfileFixedVersionComponentInner(element);
       close();
     }
   }
 
-  protected void composeExpansionProfileExpansionProfileCodeSystemComponentInner(ExpansionProfile.ExpansionProfileCodeSystemComponent element) throws IOException {
-      composeBackbone(element);
-      if (element.hasInclude()) {
-        composeExpansionProfileCodeSystemIncludeComponent("include", element.getInclude());
-      }
-      if (element.hasExclude()) {
-        composeExpansionProfileCodeSystemExcludeComponent("exclude", element.getExclude());
-      }
-  }
-
-  protected void composeExpansionProfileCodeSystemIncludeComponent(String name, ExpansionProfile.CodeSystemIncludeComponent element) throws IOException {
-    if (element != null) {
-      open(name);
-      composeExpansionProfileCodeSystemIncludeComponentInner(element);
-      close();
-    }
-  }
-
-  protected void composeExpansionProfileCodeSystemIncludeComponentInner(ExpansionProfile.CodeSystemIncludeComponent element) throws IOException {
-      composeBackbone(element);
-      if (element.hasCodeSystem()) {
-        openArray("codeSystem");
-        for (ExpansionProfile.CodeSystemIncludeCodeSystemComponent e : element.getCodeSystem()) 
-          composeExpansionProfileCodeSystemIncludeCodeSystemComponent(null, e);
-        closeArray();
-      };
-  }
-
-  protected void composeExpansionProfileCodeSystemIncludeCodeSystemComponent(String name, ExpansionProfile.CodeSystemIncludeCodeSystemComponent element) throws IOException {
-    if (element != null) {
-      open(name);
-      composeExpansionProfileCodeSystemIncludeCodeSystemComponentInner(element);
-      close();
-    }
-  }
-
-  protected void composeExpansionProfileCodeSystemIncludeCodeSystemComponentInner(ExpansionProfile.CodeSystemIncludeCodeSystemComponent element) throws IOException {
+  protected void composeExpansionProfileExpansionProfileFixedVersionComponentInner(ExpansionProfile.ExpansionProfileFixedVersionComponent element) throws IOException {
       composeBackbone(element);
       if (element.hasSystemElement()) {
         composeUriCore("system", element.getSystemElement(), false);
@@ -27706,35 +27640,21 @@ public class JsonParser extends JsonParserBase {
         composeStringCore("version", element.getVersionElement(), false);
         composeStringExtras("version", element.getVersionElement(), false);
       }
+      if (element.hasModeElement()) {
+        composeEnumerationCore("mode", element.getModeElement(), new ExpansionProfile.SystemVersionProcessingModeEnumFactory(), false);
+        composeEnumerationExtras("mode", element.getModeElement(), new ExpansionProfile.SystemVersionProcessingModeEnumFactory(), false);
+      }
   }
 
-  protected void composeExpansionProfileCodeSystemExcludeComponent(String name, ExpansionProfile.CodeSystemExcludeComponent element) throws IOException {
+  protected void composeExpansionProfileExpansionProfileExcludedSystemComponent(String name, ExpansionProfile.ExpansionProfileExcludedSystemComponent element) throws IOException {
     if (element != null) {
       open(name);
-      composeExpansionProfileCodeSystemExcludeComponentInner(element);
+      composeExpansionProfileExpansionProfileExcludedSystemComponentInner(element);
       close();
     }
   }
 
-  protected void composeExpansionProfileCodeSystemExcludeComponentInner(ExpansionProfile.CodeSystemExcludeComponent element) throws IOException {
-      composeBackbone(element);
-      if (element.hasCodeSystem()) {
-        openArray("codeSystem");
-        for (ExpansionProfile.CodeSystemExcludeCodeSystemComponent e : element.getCodeSystem()) 
-          composeExpansionProfileCodeSystemExcludeCodeSystemComponent(null, e);
-        closeArray();
-      };
-  }
-
-  protected void composeExpansionProfileCodeSystemExcludeCodeSystemComponent(String name, ExpansionProfile.CodeSystemExcludeCodeSystemComponent element) throws IOException {
-    if (element != null) {
-      open(name);
-      composeExpansionProfileCodeSystemExcludeCodeSystemComponentInner(element);
-      close();
-    }
-  }
-
-  protected void composeExpansionProfileCodeSystemExcludeCodeSystemComponentInner(ExpansionProfile.CodeSystemExcludeCodeSystemComponent element) throws IOException {
+  protected void composeExpansionProfileExpansionProfileExcludedSystemComponentInner(ExpansionProfile.ExpansionProfileExcludedSystemComponent element) throws IOException {
       composeBackbone(element);
       if (element.hasSystemElement()) {
         composeUriCore("system", element.getSystemElement(), false);

@@ -4,27 +4,35 @@
 <a name="bnc"> </a>
 <h2>Scope and Usage</h2>
 <p>
-Todo
-<!-- Describes some of the situations/use cases intended to be managed with the resource. May include a child div for "Storyboards" and "Related Specifications". The purpose of this section is to help implementers understand why the resource is needed and how it might be used. -->
+The purpose of the expansion profile is to allow a client that is using a terminology
+service to configure the behaviour of the terminology server in regard to how it 
+builds expansions - and, in a similar manner, how it validates codes in value set.
+ExpansionProfiles are used for the following operations:
+</p>
+<ul>
+<li><a href="valueset-operations.html#expand">Value Set Expansion</a></li>
+<li><a href="valueset-operations.html#validate-code">Value Set based Validation</a></li>
+</ul>
+<p>
+The ExpansionProfile can be passed either directly, or as a reference by it's canonical URL.
 </p>
 </div>
 
-<!-- (recommended): 
 <div>
 <h2>Boundaries and Relationships</h2>
 <p>
-Explains how this resource relates to others. Particularly important is to differentiate between appropriate usages for related resources when an implementer might be confused about what to reference when.
+The ExpansionProfile is used to configure the behaviour of a terminology server
+when it processes <a href="valueset.html">ValueSet</a> resources. As such, there
+is a tight relationship between the two resources; ValueSets specify what codes
+are in the value set, while ExpansionProfile affect run time behaviour. 
 </p>
-</div>
--->
-
-<!-- (optional):
-<div>
-<h2>Background and Context</h2>
 <p>
-Provides additional detail on exactly how the resource is to be used
+ExpansionProfiles do not change what codes are in a defined value set. 
+They can never add codes to the value set. They can be used to reduce
+the number of codes returned in an expansion, but this is a reduced
+view of the value set, not a change in the value set itself. Note, though,
+the <a href="#overrides">discussion about overriding versions below</a>.
 </p>
 </div>
--->
 
 </div>

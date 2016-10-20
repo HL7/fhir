@@ -39,6 +39,7 @@ import org.hl7.fhir.dstu3.model.ConceptMap;
 import org.hl7.fhir.dstu3.model.DataElement;
 import org.hl7.fhir.dstu3.model.ElementDefinition.TypeRefComponent;
 import org.hl7.fhir.dstu3.model.ExpansionProfile;
+import org.hl7.fhir.dstu3.model.ExpansionProfile.SystemVersionProcessingMode;
 import org.hl7.fhir.dstu3.model.NamingSystem;
 import org.hl7.fhir.dstu3.model.NamingSystem.NamingSystemIdentifierType;
 import org.hl7.fhir.dstu3.model.NamingSystem.NamingSystemUniqueIdComponent;
@@ -148,8 +149,8 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
     res.setUrl("urn:uuid:"+UUID.randomUUID().toString().toLowerCase());
     res.setExcludeNested(false);
     res.setIncludeDesignations(true);
-    res.setIncludeInactive(false);
-    res.getCodeSystem().getInclude().addCodeSystem().setSystem("http://snomed.info/sct").setVersion("http://snomed.info/sct/"+SNOMED_EDITION);
+    // res.setActiveOnly(true);
+    res.addFixedVersion().setSystem("http://snomed.info/sct").setVersion("http://snomed.info/sct/"+SNOMED_EDITION).setMode(SystemVersionProcessingMode.DEFAULT); // value sets are allowed to override this. for now
     return res;
   }
 

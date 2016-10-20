@@ -4910,7 +4910,7 @@
     <Cell ss:StyleID="s92"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:StyleID="s68">
-    <Cell ss:StyleID="s138"><Data ss:Type="String">expand.includeInactive</Data></Cell>
+    <Cell ss:StyleID="s138"><Data ss:Type="String">expand.activeOnly</Data></Cell>
     <Cell ss:StyleID="s120"><Data ss:Type="String">in</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="Number">0</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="Number">1</Data></Cell>

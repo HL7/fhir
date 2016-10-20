@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Oct 19, 2016 11:03+1100 for FHIR v1.7.0
+// Generated on Fri, Oct 21, 2016 09:09+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -58,14 +58,14 @@ public class DosageInstruction extends Type implements ICompositeType {
      * Free text dosage instructions e.g. SIG.
      */
     @Child(name = "text", type = {StringType.class}, order=1, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="(todo", formalDefinition="Free text dosage instructions e.g. SIG." )
+    @Description(shortDefinition="Free text dosage instructions e.g. SIG", formalDefinition="Free text dosage instructions e.g. SIG." )
     protected StringType text;
 
     /**
      * Supplemental instructions - e.g. "with meals".
      */
     @Child(name = "additionalInstructions", type = {CodeableConcept.class}, order=2, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-    @Description(shortDefinition="(todo", formalDefinition="Supplemental instructions - e.g. \"with meals\"." )
+    @Description(shortDefinition="Supplemental instructions - e.g. \"with meals\"", formalDefinition="Supplemental instructions - e.g. \"with meals\"." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/additional-instructions-codes")
     protected List<CodeableConcept> additionalInstructions;
 
@@ -73,14 +73,14 @@ public class DosageInstruction extends Type implements ICompositeType {
      * When medication should be administered.
      */
     @Child(name = "timing", type = {Timing.class}, order=3, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="(todo", formalDefinition="When medication should be administered." )
+    @Description(shortDefinition="When medication should be administered", formalDefinition="When medication should be administered." )
     protected Timing timing;
 
     /**
      * Take "as needed" (for x).
      */
     @Child(name = "asNeeded", type = {BooleanType.class, CodeableConcept.class}, order=4, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="(todo", formalDefinition="Take \"as needed\" (for x)." )
+    @Description(shortDefinition="Take \"as needed\" (for x)", formalDefinition="Take \"as needed\" (for x)." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/medication-as-needed-reason")
     protected Type asNeeded;
 
@@ -88,7 +88,7 @@ public class DosageInstruction extends Type implements ICompositeType {
      * Body site to administer to.
      */
     @Child(name = "site", type = {CodeableConcept.class, BodySite.class}, order=5, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="(todo", formalDefinition="Body site to administer to." )
+    @Description(shortDefinition="Body site to administer to", formalDefinition="Body site to administer to." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/approach-site-codes")
     protected Type site;
 
@@ -96,7 +96,7 @@ public class DosageInstruction extends Type implements ICompositeType {
      * How drug should enter body.
      */
     @Child(name = "route", type = {CodeableConcept.class}, order=6, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="(todo", formalDefinition="How drug should enter body." )
+    @Description(shortDefinition="How drug should enter body", formalDefinition="How drug should enter body." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/route-codes")
     protected CodeableConcept route;
 
@@ -104,7 +104,7 @@ public class DosageInstruction extends Type implements ICompositeType {
      * Technique for administering medication.
      */
     @Child(name = "method", type = {CodeableConcept.class}, order=7, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="(todo", formalDefinition="Technique for administering medication." )
+    @Description(shortDefinition="Technique for administering medication", formalDefinition="Technique for administering medication." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/administration-method-codes")
     protected CodeableConcept method;
 
@@ -112,35 +112,35 @@ public class DosageInstruction extends Type implements ICompositeType {
      * Amount of medication per dose.
      */
     @Child(name = "dose", type = {Range.class, SimpleQuantity.class}, order=8, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="(todo", formalDefinition="Amount of medication per dose." )
+    @Description(shortDefinition="Amount of medication per dose", formalDefinition="Amount of medication per dose." )
     protected Type dose;
 
     /**
      * Upper limit on medication per unit of time.
      */
     @Child(name = "maxDosePerPeriod", type = {Ratio.class}, order=9, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="(todo", formalDefinition="Upper limit on medication per unit of time." )
+    @Description(shortDefinition="Upper limit on medication per unit of time", formalDefinition="Upper limit on medication per unit of time." )
     protected Ratio maxDosePerPeriod;
 
     /**
      * Upper limit on medication per administration.
      */
     @Child(name = "maxDosePerAdministration", type = {SimpleQuantity.class}, order=10, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="(todo", formalDefinition="Upper limit on medication per administration." )
+    @Description(shortDefinition="Upper limit on medication per administration", formalDefinition="Upper limit on medication per administration." )
     protected SimpleQuantity maxDosePerAdministration;
 
     /**
      * Upper limit on medication per lifetime of the patient.
      */
     @Child(name = "maxDosePerLifetime", type = {SimpleQuantity.class}, order=11, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="(todo", formalDefinition="Upper limit on medication per lifetime of the patient." )
+    @Description(shortDefinition="Upper limit on medication per lifetime of the patient", formalDefinition="Upper limit on medication per lifetime of the patient." )
     protected SimpleQuantity maxDosePerLifetime;
 
     /**
      * Amount of medication per unit of time.
      */
     @Child(name = "rate", type = {Ratio.class, Range.class, SimpleQuantity.class}, order=12, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="(todo", formalDefinition="Amount of medication per unit of time." )
+    @Description(shortDefinition="Amount of medication per unit of time", formalDefinition="Amount of medication per unit of time." )
     protected Type rate;
 
     private static final long serialVersionUID = -1392288530L;

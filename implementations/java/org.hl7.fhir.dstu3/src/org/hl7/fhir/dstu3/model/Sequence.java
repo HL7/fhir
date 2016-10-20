@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Oct 19, 2016 11:03+1100 for FHIR v1.7.0
+// Generated on Fri, Oct 21, 2016 09:09+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -2675,14 +2675,14 @@ public class Sequence extends DomainResource {
          * Structural variant outer.
          */
         @Child(name = "outer", type = {}, order=4, min=0, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="(todo", formalDefinition="Structural variant outer." )
+        @Description(shortDefinition="Structural variant outer", formalDefinition="Structural variant outer." )
         protected SequenceStructureVariantOuterComponent outer;
 
         /**
          * Structural variant inner.
          */
         @Child(name = "inner", type = {}, order=5, min=0, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="(todo", formalDefinition="Structural variant inner." )
+        @Description(shortDefinition="Structural variant inner", formalDefinition="Structural variant inner." )
         protected SequenceStructureVariantInnerComponent inner;
 
         private static final long serialVersionUID = 1705627760L;
@@ -3601,7 +3601,7 @@ public class Sequence extends DomainResource {
      * Structural variant.
      */
     @Child(name = "structureVariant", type = {}, order=14, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-    @Description(shortDefinition="(todo", formalDefinition="Structural variant." )
+    @Description(shortDefinition="Structural variant", formalDefinition="Structural variant." )
     protected List<SequenceStructureVariantComponent> structureVariant;
 
     private static final long serialVersionUID = -1713460757L;

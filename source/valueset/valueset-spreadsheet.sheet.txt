@@ -688,7 +688,7 @@
   Max = 1
 
  -- Row 12 -----------------------------------
-  Name = expand.includeInactive
+  Name = expand.activeOnly
   Use = in
   Documentation = Controls whether inactive concepts are included or excluded in value set expansions. Overrides the value in the expansion profile if there is one
   Type = boolean

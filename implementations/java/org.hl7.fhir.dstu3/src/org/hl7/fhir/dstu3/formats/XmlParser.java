@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Wed, Oct 19, 2016 11:03+1100 for FHIR v1.7.0
+// Generated on Fri, Oct 21, 2016 09:09+1100 for FHIR v1.7.0
 
 import org.hl7.fhir.dstu3.model.DateType;
 import org.hl7.fhir.dstu3.model.DateTimeType;
@@ -7341,16 +7341,18 @@ public class XmlParser extends XmlParserBase {
         res.getUseContext().add(parseUsageContext(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("jurisdiction")) {
         res.getJurisdiction().add(parseCodeableConcept(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("codeSystem")) {
-        res.setCodeSystem(parseExpansionProfileExpansionProfileCodeSystemComponent(xpp, res));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("fixedVersion")) {
+        res.getFixedVersion().add(parseExpansionProfileExpansionProfileFixedVersionComponent(xpp, res));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("excludedSystem")) {
+        res.setExcludedSystem(parseExpansionProfileExpansionProfileExcludedSystemComponent(xpp, res));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("includeDesignations")) {
         res.setIncludeDesignationsElement(parseBoolean(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("designation")) {
         res.setDesignation(parseExpansionProfileExpansionProfileDesignationComponent(xpp, res));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("includeDefinition")) {
         res.setIncludeDefinitionElement(parseBoolean(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("includeInactive")) {
-        res.setIncludeInactiveElement(parseBoolean(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("activeOnly")) {
+        res.setActiveOnlyElement(parseBoolean(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("excludeNested")) {
         res.setExcludeNestedElement(parseBoolean(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("excludeNotForUI")) {
@@ -7366,13 +7368,13 @@ public class XmlParser extends XmlParserBase {
     return true;
   }
 
-  protected ExpansionProfile.ExpansionProfileCodeSystemComponent parseExpansionProfileExpansionProfileCodeSystemComponent(XmlPullParser xpp, ExpansionProfile owner) throws XmlPullParserException, IOException, FHIRFormatError {
-    ExpansionProfile.ExpansionProfileCodeSystemComponent res = new ExpansionProfile.ExpansionProfileCodeSystemComponent();
+  protected ExpansionProfile.ExpansionProfileFixedVersionComponent parseExpansionProfileExpansionProfileFixedVersionComponent(XmlPullParser xpp, ExpansionProfile owner) throws XmlPullParserException, IOException, FHIRFormatError {
+    ExpansionProfile.ExpansionProfileFixedVersionComponent res = new ExpansionProfile.ExpansionProfileFixedVersionComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
     int eventType = nextNoWhitespace(xpp);
     while (eventType != XmlPullParser.END_TAG) {
-  if (!parseExpansionProfileExpansionProfileCodeSystemComponentContent(eventType, xpp, owner, res))
+  if (!parseExpansionProfileExpansionProfileFixedVersionComponentContent(eventType, xpp, owner, res))
         unknownContent(xpp);
       eventType = nextNoWhitespace(xpp);
     }
@@ -7381,71 +7383,25 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  protected boolean parseExpansionProfileExpansionProfileCodeSystemComponentContent(int eventType, XmlPullParser xpp, ExpansionProfile owner, ExpansionProfile.ExpansionProfileCodeSystemComponent res) throws XmlPullParserException, IOException, FHIRFormatError {
-      if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("include")) {
-        res.setInclude(parseExpansionProfileCodeSystemIncludeComponent(xpp, owner));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("exclude")) {
-        res.setExclude(parseExpansionProfileCodeSystemExcludeComponent(xpp, owner));
-      } else if (!parseBackboneContent(eventType, xpp, res))
-        return false;
-    return true;
-  }
-
-  protected ExpansionProfile.CodeSystemIncludeComponent parseExpansionProfileCodeSystemIncludeComponent(XmlPullParser xpp, ExpansionProfile owner) throws XmlPullParserException, IOException, FHIRFormatError {
-    ExpansionProfile.CodeSystemIncludeComponent res = new ExpansionProfile.CodeSystemIncludeComponent();
-    parseBackboneAttributes(xpp, res);
-    next(xpp);
-    int eventType = nextNoWhitespace(xpp);
-    while (eventType != XmlPullParser.END_TAG) {
-  if (!parseExpansionProfileCodeSystemIncludeComponentContent(eventType, xpp, owner, res))
-        unknownContent(xpp);
-      eventType = nextNoWhitespace(xpp);
-    }
-    next(xpp);
-    parseElementClose(res);
-    return res;
-  }
-
-  protected boolean parseExpansionProfileCodeSystemIncludeComponentContent(int eventType, XmlPullParser xpp, ExpansionProfile owner, ExpansionProfile.CodeSystemIncludeComponent res) throws XmlPullParserException, IOException, FHIRFormatError {
-      if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("codeSystem")) {
-        res.getCodeSystem().add(parseExpansionProfileCodeSystemIncludeCodeSystemComponent(xpp, owner));
-      } else if (!parseBackboneContent(eventType, xpp, res))
-        return false;
-    return true;
-  }
-
-  protected ExpansionProfile.CodeSystemIncludeCodeSystemComponent parseExpansionProfileCodeSystemIncludeCodeSystemComponent(XmlPullParser xpp, ExpansionProfile owner) throws XmlPullParserException, IOException, FHIRFormatError {
-    ExpansionProfile.CodeSystemIncludeCodeSystemComponent res = new ExpansionProfile.CodeSystemIncludeCodeSystemComponent();
-    parseBackboneAttributes(xpp, res);
-    next(xpp);
-    int eventType = nextNoWhitespace(xpp);
-    while (eventType != XmlPullParser.END_TAG) {
-  if (!parseExpansionProfileCodeSystemIncludeCodeSystemComponentContent(eventType, xpp, owner, res))
-        unknownContent(xpp);
-      eventType = nextNoWhitespace(xpp);
-    }
-    next(xpp);
-    parseElementClose(res);
-    return res;
-  }
-
-  protected boolean parseExpansionProfileCodeSystemIncludeCodeSystemComponentContent(int eventType, XmlPullParser xpp, ExpansionProfile owner, ExpansionProfile.CodeSystemIncludeCodeSystemComponent res) throws XmlPullParserException, IOException, FHIRFormatError {
+  protected boolean parseExpansionProfileExpansionProfileFixedVersionComponentContent(int eventType, XmlPullParser xpp, ExpansionProfile owner, ExpansionProfile.ExpansionProfileFixedVersionComponent res) throws XmlPullParserException, IOException, FHIRFormatError {
       if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("system")) {
         res.setSystemElement(parseUri(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("version")) {
         res.setVersionElement(parseString(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("mode")) {
+        res.setModeElement(parseEnumeration(xpp, ExpansionProfile.SystemVersionProcessingMode.NULL, new ExpansionProfile.SystemVersionProcessingModeEnumFactory()));
       } else if (!parseBackboneContent(eventType, xpp, res))
         return false;
     return true;
   }
 
-  protected ExpansionProfile.CodeSystemExcludeComponent parseExpansionProfileCodeSystemExcludeComponent(XmlPullParser xpp, ExpansionProfile owner) throws XmlPullParserException, IOException, FHIRFormatError {
-    ExpansionProfile.CodeSystemExcludeComponent res = new ExpansionProfile.CodeSystemExcludeComponent();
+  protected ExpansionProfile.ExpansionProfileExcludedSystemComponent parseExpansionProfileExpansionProfileExcludedSystemComponent(XmlPullParser xpp, ExpansionProfile owner) throws XmlPullParserException, IOException, FHIRFormatError {
+    ExpansionProfile.ExpansionProfileExcludedSystemComponent res = new ExpansionProfile.ExpansionProfileExcludedSystemComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
     int eventType = nextNoWhitespace(xpp);
     while (eventType != XmlPullParser.END_TAG) {
-  if (!parseExpansionProfileCodeSystemExcludeComponentContent(eventType, xpp, owner, res))
+  if (!parseExpansionProfileExpansionProfileExcludedSystemComponentContent(eventType, xpp, owner, res))
         unknownContent(xpp);
       eventType = nextNoWhitespace(xpp);
     }
@@ -7454,30 +7410,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  protected boolean parseExpansionProfileCodeSystemExcludeComponentContent(int eventType, XmlPullParser xpp, ExpansionProfile owner, ExpansionProfile.CodeSystemExcludeComponent res) throws XmlPullParserException, IOException, FHIRFormatError {
-      if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("codeSystem")) {
-        res.getCodeSystem().add(parseExpansionProfileCodeSystemExcludeCodeSystemComponent(xpp, owner));
-      } else if (!parseBackboneContent(eventType, xpp, res))
-        return false;
-    return true;
-  }
-
-  protected ExpansionProfile.CodeSystemExcludeCodeSystemComponent parseExpansionProfileCodeSystemExcludeCodeSystemComponent(XmlPullParser xpp, ExpansionProfile owner) throws XmlPullParserException, IOException, FHIRFormatError {
-    ExpansionProfile.CodeSystemExcludeCodeSystemComponent res = new ExpansionProfile.CodeSystemExcludeCodeSystemComponent();
-    parseBackboneAttributes(xpp, res);
-    next(xpp);
-    int eventType = nextNoWhitespace(xpp);
-    while (eventType != XmlPullParser.END_TAG) {
-  if (!parseExpansionProfileCodeSystemExcludeCodeSystemComponentContent(eventType, xpp, owner, res))
-        unknownContent(xpp);
-      eventType = nextNoWhitespace(xpp);
-    }
-    next(xpp);
-    parseElementClose(res);
-    return res;
-  }
-
-  protected boolean parseExpansionProfileCodeSystemExcludeCodeSystemComponentContent(int eventType, XmlPullParser xpp, ExpansionProfile owner, ExpansionProfile.CodeSystemExcludeCodeSystemComponent res) throws XmlPullParserException, IOException, FHIRFormatError {
+  protected boolean parseExpansionProfileExpansionProfileExcludedSystemComponentContent(int eventType, XmlPullParser xpp, ExpansionProfile owner, ExpansionProfile.ExpansionProfileExcludedSystemComponent res) throws XmlPullParserException, IOException, FHIRFormatError {
       if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("system")) {
         res.setSystemElement(parseUri(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("version")) {
@@ -25079,8 +25012,12 @@ public class XmlParser extends XmlParserBase {
         for (CodeableConcept e : element.getJurisdiction()) 
           composeCodeableConcept("jurisdiction", e);
       }
-      if (element.hasCodeSystem()) {
-        composeExpansionProfileExpansionProfileCodeSystemComponent("codeSystem", element.getCodeSystem());
+      if (element.hasFixedVersion()) { 
+        for (ExpansionProfile.ExpansionProfileFixedVersionComponent e : element.getFixedVersion()) 
+          composeExpansionProfileExpansionProfileFixedVersionComponent("fixedVersion", e);
+      }
+      if (element.hasExcludedSystem()) {
+        composeExpansionProfileExpansionProfileExcludedSystemComponent("excludedSystem", element.getExcludedSystem());
       }
       if (element.hasIncludeDesignationsElement()) {
         composeBoolean("includeDesignations", element.getIncludeDesignationsElement());
@@ -25091,8 +25028,8 @@ public class XmlParser extends XmlParserBase {
       if (element.hasIncludeDefinitionElement()) {
         composeBoolean("includeDefinition", element.getIncludeDefinitionElement());
       }
-      if (element.hasIncludeInactiveElement()) {
-        composeBoolean("includeInactive", element.getIncludeInactiveElement());
+      if (element.hasActiveOnlyElement()) {
+        composeBoolean("activeOnly", element.getActiveOnlyElement());
       }
       if (element.hasExcludeNestedElement()) {
         composeBoolean("excludeNested", element.getExcludeNestedElement());
@@ -25111,55 +25048,17 @@ public class XmlParser extends XmlParserBase {
       }
   }
 
-  protected void composeExpansionProfileExpansionProfileCodeSystemComponent(String name, ExpansionProfile.ExpansionProfileCodeSystemComponent element) throws IOException {
+  protected void composeExpansionProfileExpansionProfileFixedVersionComponent(String name, ExpansionProfile.ExpansionProfileFixedVersionComponent element) throws IOException {
     if (element != null) {
       composeElementAttributes(element);
       xml.enter(FHIR_NS, name);
-      composeExpansionProfileExpansionProfileCodeSystemComponentElements(element);
+      composeExpansionProfileExpansionProfileFixedVersionComponentElements(element);
       composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
 
-  protected void composeExpansionProfileExpansionProfileCodeSystemComponentElements(ExpansionProfile.ExpansionProfileCodeSystemComponent element) throws IOException {
-      composeBackboneElements(element);
-      if (element.hasInclude()) {
-        composeExpansionProfileCodeSystemIncludeComponent("include", element.getInclude());
-      }
-      if (element.hasExclude()) {
-        composeExpansionProfileCodeSystemExcludeComponent("exclude", element.getExclude());
-      }
-  }
-
-  protected void composeExpansionProfileCodeSystemIncludeComponent(String name, ExpansionProfile.CodeSystemIncludeComponent element) throws IOException {
-    if (element != null) {
-      composeElementAttributes(element);
-      xml.enter(FHIR_NS, name);
-      composeExpansionProfileCodeSystemIncludeComponentElements(element);
-      composeElementClose(element);
-      xml.exit(FHIR_NS, name);
-    }
-  }
-
-  protected void composeExpansionProfileCodeSystemIncludeComponentElements(ExpansionProfile.CodeSystemIncludeComponent element) throws IOException {
-      composeBackboneElements(element);
-      if (element.hasCodeSystem()) { 
-        for (ExpansionProfile.CodeSystemIncludeCodeSystemComponent e : element.getCodeSystem()) 
-          composeExpansionProfileCodeSystemIncludeCodeSystemComponent("codeSystem", e);
-      }
-  }
-
-  protected void composeExpansionProfileCodeSystemIncludeCodeSystemComponent(String name, ExpansionProfile.CodeSystemIncludeCodeSystemComponent element) throws IOException {
-    if (element != null) {
-      composeElementAttributes(element);
-      xml.enter(FHIR_NS, name);
-      composeExpansionProfileCodeSystemIncludeCodeSystemComponentElements(element);
-      composeElementClose(element);
-      xml.exit(FHIR_NS, name);
-    }
-  }
-
-  protected void composeExpansionProfileCodeSystemIncludeCodeSystemComponentElements(ExpansionProfile.CodeSystemIncludeCodeSystemComponent element) throws IOException {
+  protected void composeExpansionProfileExpansionProfileFixedVersionComponentElements(ExpansionProfile.ExpansionProfileFixedVersionComponent element) throws IOException {
       composeBackboneElements(element);
       if (element.hasSystemElement()) {
         composeUri("system", element.getSystemElement());
@@ -25167,37 +25066,21 @@ public class XmlParser extends XmlParserBase {
       if (element.hasVersionElement()) {
         composeString("version", element.getVersionElement());
       }
+      if (element.hasModeElement())
+        composeEnumeration("mode", element.getModeElement(), new ExpansionProfile.SystemVersionProcessingModeEnumFactory());
   }
 
-  protected void composeExpansionProfileCodeSystemExcludeComponent(String name, ExpansionProfile.CodeSystemExcludeComponent element) throws IOException {
+  protected void composeExpansionProfileExpansionProfileExcludedSystemComponent(String name, ExpansionProfile.ExpansionProfileExcludedSystemComponent element) throws IOException {
     if (element != null) {
       composeElementAttributes(element);
       xml.enter(FHIR_NS, name);
-      composeExpansionProfileCodeSystemExcludeComponentElements(element);
+      composeExpansionProfileExpansionProfileExcludedSystemComponentElements(element);
       composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
   }
 
-  protected void composeExpansionProfileCodeSystemExcludeComponentElements(ExpansionProfile.CodeSystemExcludeComponent element) throws IOException {
-      composeBackboneElements(element);
-      if (element.hasCodeSystem()) { 
-        for (ExpansionProfile.CodeSystemExcludeCodeSystemComponent e : element.getCodeSystem()) 
-          composeExpansionProfileCodeSystemExcludeCodeSystemComponent("codeSystem", e);
-      }
-  }
-
-  protected void composeExpansionProfileCodeSystemExcludeCodeSystemComponent(String name, ExpansionProfile.CodeSystemExcludeCodeSystemComponent element) throws IOException {
-    if (element != null) {
-      composeElementAttributes(element);
-      xml.enter(FHIR_NS, name);
-      composeExpansionProfileCodeSystemExcludeCodeSystemComponentElements(element);
-      composeElementClose(element);
-      xml.exit(FHIR_NS, name);
-    }
-  }
-
-  protected void composeExpansionProfileCodeSystemExcludeCodeSystemComponentElements(ExpansionProfile.CodeSystemExcludeCodeSystemComponent element) throws IOException {
+  protected void composeExpansionProfileExpansionProfileExcludedSystemComponentElements(ExpansionProfile.ExpansionProfileExcludedSystemComponent element) throws IOException {
       composeBackboneElements(element);
       if (element.hasSystemElement()) {
         composeUri("system", element.getSystemElement());

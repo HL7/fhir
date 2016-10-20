@@ -440,7 +440,7 @@
         <ns4:element name="includeDesignations" type="FHIR.boolean"/>
         <ns4:element name="designation" type="FHIR.ExpansionProfile.Designation"/>
         <ns4:element name="includeDefinition" type="FHIR.boolean"/>
-        <ns4:element name="includeInactive" type="FHIR.boolean"/>
+        <ns4:element name="activeOnly" type="FHIR.boolean"/>
         <ns4:element name="excludeNested" type="FHIR.boolean"/>
         <ns4:element name="excludeNotForUI" type="FHIR.boolean"/>
         <ns4:element name="excludePostCoordinated" type="FHIR.boolean"/>

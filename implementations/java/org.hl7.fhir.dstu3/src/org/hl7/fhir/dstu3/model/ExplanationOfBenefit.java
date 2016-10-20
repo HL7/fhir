@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Oct 19, 2016 11:03+1100 for FHIR v1.7.0
+// Generated on Fri, Oct 21, 2016 09:09+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -2151,7 +2151,7 @@ public class ExplanationOfBenefit extends DomainResource {
          * The members of the team who provided the overall service as well as their role and whether responsible and qualifications.
          */
         @Child(name = "careTeam", type = {}, order=2, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-        @Description(shortDefinition="(todo", formalDefinition="The members of the team who provided the overall service as well as their role and whether responsible and qualifications." )
+        @Description(shortDefinition="Care Team members", formalDefinition="The members of the team who provided the overall service as well as their role and whether responsible and qualifications." )
         protected List<CareTeamComponent> careTeam;
 
         /**
@@ -3730,7 +3730,7 @@ public class ExplanationOfBenefit extends DomainResource {
          * The members of the team who provided the overall service.
          */
         @Child(name = "provider", type = {Practitioner.class, Organization.class}, order=1, min=1, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="(todo", formalDefinition="The members of the team who provided the overall service." )
+        @Description(shortDefinition="Member of the Care Team", formalDefinition="The members of the team who provided the overall service." )
         protected Reference provider;
 
         /**
@@ -10003,7 +10003,7 @@ public class ExplanationOfBenefit extends DomainResource {
      * Additional information codes regarding exceptions, special considerations, the condition, situation, prior or concurrent issues. Often there are mutiple jurisdiction specific valuesets which are required.
      */
     @Child(name = "information", type = {}, order=21, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-    @Description(shortDefinition="(todo", formalDefinition="Additional information codes regarding exceptions, special considerations, the condition, situation, prior or concurrent issues. Often there are mutiple jurisdiction specific valuesets which are required." )
+    @Description(shortDefinition="Exceptions, special considerations, the condition, situation, prior or concurrent issues", formalDefinition="Additional information codes regarding exceptions, special considerations, the condition, situation, prior or concurrent issues. Often there are mutiple jurisdiction specific valuesets which are required." )
     protected List<SpecialConditionComponent> information;
 
     /**
@@ -10050,7 +10050,7 @@ public class ExplanationOfBenefit extends DomainResource {
      * An accident which resulted in the need for healthcare services.
      */
     @Child(name = "accident", type = {}, order=27, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="(todo", formalDefinition="An accident which resulted in the need for healthcare services." )
+    @Description(shortDefinition="Details of an accident", formalDefinition="An accident which resulted in the need for healthcare services." )
     protected AccidentComponent accident;
 
     /**
@@ -10113,7 +10113,7 @@ public class ExplanationOfBenefit extends DomainResource {
      * Payment details for the claim if the claim has been paid.
      */
     @Child(name = "payment", type = {}, order=36, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="(todo", formalDefinition="Payment details for the claim if the claim has been paid." )
+    @Description(shortDefinition="Payment (if paid)", formalDefinition="Payment details for the claim if the claim has been paid." )
     protected PaymentComponent payment;
 
     /**
