@@ -43,7 +43,7 @@ after_success:
   - git commit -m "Travis docs build"
   - git push -f origin master
   - echo -e "Host build.fhir.org\n  StrictHostKeyChecking no\n  User fhir_upload\n  IdentityFile ~/deploy.build.fhir.org" > ~/.ssh/config
-  - rsync -az --force --delete --progress ./ build.fhir.org:/var/www/build.fhir.org
+  - rsync -az --force --delete ./ build.fhir.org:/var/www/build.fhir.org
 
 
 env:
