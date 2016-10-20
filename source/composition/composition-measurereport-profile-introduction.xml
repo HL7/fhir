@@ -8,12 +8,13 @@
 <p>The project aims to target implementers who may not use QRDA for exchanging data on measure reports.</p>
 <p>This profile also aims to accomplish the following:</p>
 
-<ul>Explore representing measure reports using FHIR</ul>
-<ul>Represent aggregate measure scores with break downs</ul>
-<ul>Explore different levels of drill down</ul>
-<ul>Provide examples of components in this profile and QRDA</ul>
-<ul>Document improvements with QRDA</ul>
-<ul>Benefits of being able to RESTfully query measure reports using FHIR</ul>
-
+<ul>
+<li>Explore representing measure reports using FHIR</li>
+<li>Represent aggregate measure scores with break downs</li>
+<li>Explore different levels of drill down</li>
+<li>Provide examples of components in this profile and QRDA</li>
+<li>Document improvements with QRDA</li>
+<li>Benefits of being able to RESTfully query measure reports using FHIR</li>
+</ul>
 
 </div>

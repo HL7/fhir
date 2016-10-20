@@ -4,10 +4,10 @@
 
   <text>
     <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">The following scenario is based on existing jurisdictional policy and are realized in existing systems in Canada. 
+    <div xmlns="http://www.w3.org/1999/xhtml"><p>The following scenario is based on existing jurisdictional policy and are realized in existing systems in Canada. 
 	The default policy is one of implied consent for the provision of care, so these scenarios all deal with withdrawal or withholding consent for that purpose. 
 	In other jurisdictions, where an express consent model is used (Opt-In), these would examples would contain the phrase "consent to" rather 
-	than "withhold" or "withdraw" consent for.
+	than "withhold" or "withdraw" consent for.</p>
     <p>
 	specific to use-case 1. Withhold or withdraw consent for disclosure of records related to specific domain (e.g. DI, LAB, etc.)
 	</p><p>
