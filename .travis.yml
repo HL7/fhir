@@ -22,6 +22,9 @@ notifications:
   webhooks:
     - https://chat.fhir.org/api/v1/external/travis?stream=committers&topic=ci-notifications&api_key=IelOy1KhccEy3QpRIeOrtQUTqw98Kvr8
 
+before_install:
+  - openssl aes-256-cbc -K $encrypted_7d142fa10e4e_key -iv $encrypted_7d142fa10e4e_iv -in deploy.build.fhir.org.enc -out ~/deploy.build.fhir.org -d
+
 after_success:
   - echo -e "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\nKJX4VB3SkmaxQuMgaNUcNA==\n" | openssl aes-256-cbc -k "$password" -d -a -out ~/deploy_fhir_docs
   - chmod 600 ~/deploy_fhir_docs
@@ -38,6 +41,8 @@ after_success:
   - git add -A .
   - git commit -m "Travis docs build"
   - git push -f origin master
+  - echo -e "Host build.fhir.org\n  User fhir_upload\n  IdentityFile ~/deploy.build.fhir.org" > ~/.ssh/config
+  - rsync -az --force --delete --progress ./ build.fhir.org:/var/www/build.fhir.org
 
 
 env:
