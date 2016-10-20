@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<Sequence xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ..\..\schema\sequence.xsd">
+<Sequence xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/sequence.xsd">
   <id value="consensus-sequence-block-example-2"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/sequence-consensus-sequence-blockPhaseSet">
       <valueInteger value="2"/>
@@ -14,17 +14,16 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/sequence-consensus-sequence-blockStrand">
       <valueInteger value="1"/>
   </extension>
-  
   <type value="DNA"/>
+  <coordinateSystem value="0"/>
   <referenceSeq>
-      <referenceSeqId>
-          <valueCodeableConcept>
-              <coding>
-                  <system value="http://www.ncbi.nlm.nih.gov/projects/genome/assembly/grc/human/"/>
-                  <code value="ref1"/>
-              </coding>
-          </valueCodeableConcept>
-      </referenceSeqId>
+        <referenceSeqId>
+            <coding>
+                <system value="http://www.ncbi.nlm.nih.gov/projects/genome/assembly/grc/human/"/>
+                <code value="ref1"/>
+            </coding>
+        </referenceSeqId>
+      <strand value="1"/>
       <windowStart value="29942412"/>
       <windowEnd value="29945809"/>
   </referenceSeq>

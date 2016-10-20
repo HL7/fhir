@@ -5,7 +5,7 @@ Typically, in these cases, there won't be must descriptive content
 about the group - just that some user made a selection. The group will
 be referred to from one or more Observations
 -->
-<Group xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ..\..\schema\Group.xsd">
+<Group xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/Group.xsd">
   <id value="102"/>
   <text>
     <status value="additional"/>

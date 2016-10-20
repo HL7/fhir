@@ -16,7 +16,7 @@
                 <system value="http://www.ensembl.org/"/>
                 <code value="ENSP00000252486"/>
             </coding>
-        <referenceSeqId/>
+        </referenceSeqId>
         <windowStart value="40"/>
         <windowEnd value="52"/>
     </referenceSeq>
