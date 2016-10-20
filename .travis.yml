@@ -31,21 +31,21 @@ after_success:
   - chmod 600 ~/deploy_fhir_docs
   - git config --global user.email "latest@fhir.me"
   - git config --global user.name "FHIR Build"
-  - echo -e "Host github.com\n  IdentityFile ~/deploy_fhir_docs" > ~/.ssh/config
   - echo "github.com ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAq2A7hRGmdnm9tUDbO9IDSwBK6TbQa+PXYPCPy6rbTrTtw7PHkccKrpp0yVhp5HdEIcKr6pLlVDBfOLX9QUsyCOV0wzfjIJNlGEYsdlLJizHhbn2mUjvSAHQqZETYP81eFzLQNnPHt4EVVUh7VfDESU84KezmD5QlWpXLmvU31/yMf+Se8xhHTvKSCZIFImWwoG6mbUoWf9nzpIoaSjB+weqqUUmpaaasXVal72J+UX2B+2RPW3RcT0eOzQgqlJL3RKrTJvdsjE3JEAvGq3lGHSZXy28G3skua2SmVi/w4yCE6gbODqnTWlg7+wC604ydGXA8VJiS5ap43JXiUFFAaQ==" > ~/.ssh/known_hosts
   - mkdir hl7-fhir.github.io
   - cd hl7-fhir.github.io
   - git init
   - git remote add origin git@github.com:hl7-fhir/hl7-fhir.github.io.git
   - cp -r ../publish/* .
+
+  - echo -e "Host build.fhir.org\n  Compression yes\n  StrictHostKeyChecking no\n  User fhir_upload\n  IdentityFile ~/deploy.build.fhir.org" > ~/.ssh/config
+  - tar czf - * | ssh build.fhir.org "cd /var/www/build.fhir.org && tar xvzf -"
+
+  - echo -e "Host github.com\n  IdentityFile ~/deploy_fhir_docs" > ~/.ssh/config
   - ../remove_files_larger_than_100mg_for_gh_pages_compatibility.sh
   - git add -A .
   - git commit -m "Travis docs build"
   - git push -f origin master
-  - echo -e "Host build.fhir.org\n  StrictHostKeyChecking no\n  User fhir_upload\n  IdentityFile ~/deploy.build.fhir.org" > ~/.ssh/config
-  - rsync -az --force --delete ./ build.fhir.org:/var/www/build.fhir.org
-
-
 env:
   global:
     secure: "MV6r5LHUxQns93+NuKCv+iJPDLoSRSXpJ5YNq36mlO7pKIiHxWOYkrdxaXFyZU7lJzYMuJuFFpPPmzBNN8AqGo+3GY/ge6cODbYyAyS+PPUnazKNSyha7Hu9XQh1px44NBgnwE3wbltXYYvwQbHe8vXhDwBLXYZe9xj0g4YY4ms="
