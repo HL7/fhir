@@ -1538,7 +1538,7 @@ public class ProfileUtilities {
             c.addPiece(checkForNoChange(t, gen.new Piece(ref, disp, null)));
           } else
             c.addPiece(checkForNoChange(t, gen.new Piece(null, t.getTargetProfile(), null)));
-        } else if (t.hasProfile() && t.getTargetProfile().startsWith("#"))
+        } else if (t.hasTargetProfile() && t.getTargetProfile().startsWith("#"))
           c.addPiece(checkForNoChange(t, gen.new Piece(corePath+profileBaseFileName+"."+t.getTargetProfile().substring(1).toLowerCase()+".html", t.getTargetProfile(), null)));
         else if (t.hasTargetProfile())
           c.addPiece(checkForNoChange(t, gen.new Piece(corePath+t.getTargetProfile(), t.getTargetProfile(), null)));
