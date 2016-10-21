@@ -91,6 +91,9 @@ This approach is preferred over referencing the full null flavor specification. 
     </ul>
   </li>
 </ul>
+<p>
+These additional elements of Address will be ignored by applications that do not support them, so any information in them should also be duplicated in the Address.line to which they are attached.
+</p>
 </div>
 
 <div>
