@@ -2092,13 +2092,15 @@ public class Publisher implements IWorkerContext.ILoggingService {
     String json = gson.toJson(data);
     TextFile.stringToFile(json, Utilities.path(tempDir, "_data", "structuredefinitions.json"));
 
-    JsonObject pages = new JsonObject();
-    addPageDataRow(pages, "toc.html", "Table of Contents", "#", breadCrumbForPage(sourceIg.getPage(), true), examples);
-    addPageData(pages, sourceIg.getPage(), "0", "", true);
- //   gson = new GsonBuilder().setPrettyPrinting().create();
- //   json = gson.toJson(pages);
-    json = pages.toString();
-    TextFile.stringToFile(json, Utilities.path(tempDir, "_data", "pages.json"));
+    if (sourceIg.hasPage()) {
+      JsonObject pages = new JsonObject();
+      addPageDataRow(pages, "toc.html", "Table of Contents", "#", breadCrumbForPage(sourceIg.getPage(), true), examples);
+      addPageData(pages, sourceIg.getPage(), "0", "", true);
+      //   gson = new GsonBuilder().setPrettyPrinting().create();
+      //   json = gson.toJson(pages);
+      json = pages.toString();
+      TextFile.stringToFile(json, Utilities.path(tempDir, "_data", "pages.json"));
+    }
   }
 
   private String breadCrumbForPage(ImplementationGuidePageComponent page, boolean withLink) {
