@@ -174,6 +174,30 @@
   w5 = id
 
  -- Row 3 -----------------------------------
+  Element = MedicationOrder.definition
+  Card. = 0..*
+  Summary = y
+  Type = Reference(Definition)
+  Short Name = Protocol or definition
+  Definition = Protocol or definition followed by this request.
+
+ -- Row 4 -----------------------------------
+  Element = MedicationOrder.basedOn
+  Card. = 0..*
+  Summary = y
+  Type = Reference(Request)
+  Short Name = What request fulfills
+  Definition = Plan/proposal/order fulfilled by this request
+
+ -- Row 5 -----------------------------------
+  Element = MedicationOrder.requisition
+  Card. = 0..1
+  Summary = y
+  Type = Identifier
+  Short Name = Identifier of composite
+  Definition = Composite request this is part of
+
+ -- Row 6 -----------------------------------
   Element = MedicationOrder.status
   Card. = 0..1
   Is Modifier = Y
@@ -186,7 +210,7 @@
   RIM Mapping = statusCode
   w5 = status
 
- -- Row 4 -----------------------------------
+ -- Row 7 -----------------------------------
   Element = MedicationOrder.medication[x]
   Card. = 1..1
   Summary = y
@@ -200,7 +224,7 @@
   RIM Mapping = consumable.administrableMedication
   w5 = what
 
- -- Row 5 -----------------------------------
+ -- Row 8 -----------------------------------
   Element = MedicationOrder.patient
   Card. = 0..1
   Summary = y
@@ -213,7 +237,7 @@
   RIM Mapping = subject.role
   w5 = who.focus
 
- -- Row 6 -----------------------------------
+ -- Row 9 -----------------------------------
   Element = MedicationOrder.encounter
   Card. = 0..1
   Type = Reference(Encounter)
@@ -225,7 +249,7 @@
   RIM Mapping = componentOf.patientEncounter
   w5 = context
 
- -- Row 7 -----------------------------------
+ -- Row 10 -----------------------------------
   Element = MedicationOrder.supportingInformation
   Card. = 0..*
   Type = Reference(Any)
@@ -233,7 +257,7 @@
   Definition = Include additional information (for example, patient height and weight) that supports the ordering of the medication.
   w5 = context
 
- -- Row 8 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = MedicationOrder.dateWritten
   Card. = 0..1
   Summary = y
@@ -245,7 +269,7 @@
   RIM Mapping = author.time
   w5 = when.recorded
 
- -- Row 9 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = MedicationOrder.prescriber
   Card. = 0..1
   Summary = y
@@ -257,7 +281,7 @@
   RIM Mapping = author.role
   w5 = who.actor
 
- -- Row 10 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = MedicationOrder.reasonCode
   Card. = 0..*
   Type = CodeableConcept
@@ -270,7 +294,7 @@
   RIM Mapping = reason.observation.reasonCode
   w5 = why
 
- -- Row 11 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = MedicationOrder.reasonReference
   Card. = 0..*
   Type = Reference(Condition |Observation)
@@ -281,7 +305,7 @@
   RIM Mapping = reason.observation[code=ASSERTION].value
   w5 = why
 
- -- Row 12 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = MedicationOrder.note
   Card. = 0..*
   Type = Annotation
@@ -290,7 +314,7 @@
   SCRIPT 10.6 Mapping = Message/Body/NewRx/MedicationPrescribed/Note
   RIM Mapping = .inboundRelationship[typeCode=SUBJ]/source[classCode=OBS,moodCode=EVN,code=\"annotation\"].value
 
- -- Row 13 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = MedicationOrder.category
   Card. = 0..1
   Type = code
@@ -300,14 +324,14 @@
   SCRIPT 10.6 Mapping = Message/Body/NewRx/MedicationPrescribed/Directions\n\nor \n\nMessage/Body/NewRx/MedicationPrescribed/StructuredSIG
   RIM Mapping = not mapped
 
- -- Row 14 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = MedicationOrder.dosageInstruction
   Card. = 0..*
   Type = DosageInstruction
   Short Name = How the medication should be taken
   Definition = Indicates how the medication is to be used by the patient.
 
- -- Row 15 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = MedicationOrder.dispenseRequest
   Card. = 0..1
   UML = 250;300
@@ -316,7 +340,7 @@
   SCRIPT 10.6 Mapping = Message/Body/NewRx/MedicationPrescribed/ExpirationDate
   RIM Mapping = component.supplyEvent
 
- -- Row 16 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = MedicationOrder.dispenseRequest.validityPeriod
   Card. = 0..1
   Type = Period
@@ -327,7 +351,7 @@
   SCRIPT 10.6 Mapping = Message/Body/NewRx/MedicationPrescribed/Refills
   RIM Mapping = effectiveTime
 
- -- Row 17 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = MedicationOrder.dispenseRequest.numberOfRepeatsAllowed
   Card. = 0..1
   Type = positiveInt
@@ -338,7 +362,7 @@
   v2 Mapping = RXE-12-Number of Refills
   RIM Mapping = repeatNumber
 
- -- Row 18 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = MedicationOrder.dispenseRequest.quantity
   Card. = 0..1
   Type = SimpleQuantity
@@ -348,7 +372,7 @@
   v2 Mapping = RXD-4-Actual Dispense Amount / RXD-5.1-Actual Dispense Units.code / RXD-5.3-Actual Dispense Units.name of coding system
   RIM Mapping = quantity
 
- -- Row 19 -----------------------------------
+ -- Row 22 -----------------------------------
   Element = MedicationOrder.dispenseRequest.expectedSupplyDuration
   Card. = 0..1
   Type = Duration
@@ -358,7 +382,7 @@
   SCRIPT 10.6 Mapping = Message/Body/NewRx/MedicationPrescribed/Substitutions
   RIM Mapping = expectedUseTime
 
- -- Row 20 -----------------------------------
+ -- Row 23 -----------------------------------
   Element = MedicationOrder.substitution
   Card. = 0..1
   UML = -60;260
@@ -367,7 +391,7 @@
   SCRIPT 10.6 Mapping = specific values within Message/Body/NewRx/MedicationPrescribed/Substitutions
   RIM Mapping = subjectOf.substitutionPersmission
 
- -- Row 21 -----------------------------------
+ -- Row 24 -----------------------------------
   Element = MedicationOrder.substitution.allowed
   Card. = 1..1
   Type = boolean
@@ -377,7 +401,7 @@
   v2 Mapping = RXO-9-Allow Substitutions / RXE-9-Substitution Status
   RIM Mapping = code
 
- -- Row 22 -----------------------------------
+ -- Row 25 -----------------------------------
   Element = MedicationOrder.substitution.reason
   Card. = 0..1
   Type = CodeableConcept
@@ -388,7 +412,7 @@
   v2 Mapping = RXE-9 Substition status
   RIM Mapping = reasonCode
 
- -- Row 23 -----------------------------------
+ -- Row 26 -----------------------------------
   Element = MedicationOrder.priorPrescription
   Card. = 0..1
   Type = Reference(MedicationOrder)
@@ -397,7 +421,7 @@
   SCRIPT 10.6 Mapping = not mapped
   RIM Mapping = .outboundRelationship[typeCode=?RPLC or ?SUCC]/target[classCode=SBADM,moodCode=RQO]
 
- -- Row 24 -----------------------------------
+ -- Row 27 -----------------------------------
   Element = MedicationOrder.eventHistory
   Card. = 0..*
   Type = Reference(Provenance)
