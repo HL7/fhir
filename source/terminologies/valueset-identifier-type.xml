@@ -55,6 +55,9 @@
       <concept>
         <code value="DR"/>
       </concept>
+      <concept>
+        <code value="ACSN"/>
+      </concept>
     </include>
     <include>
       <system value="http://hl7.org/fhir/identifier-type"/>
