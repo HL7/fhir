@@ -657,7 +657,7 @@
  -- Row 2 -----------------------------------
   Name = document.persist
   Use = in
-  Documentation = Whether to store the document at the binary end-point (/Binary) or not once it is generated. Value = true or false (default is for the server to decide)
+  Documentation = Whether to store the document at the bundle end-point (/Bundle) or not once it is generated. Value = true or false (default is for the server to decide). If the document is stored, it\'s location can be inferred from the Bundle.id, but it SHOULD be provided explicitly in the HTTP Location header in the response
   Type = boolean
   Title = Whether to store the document once it is generated
   Min = 0
