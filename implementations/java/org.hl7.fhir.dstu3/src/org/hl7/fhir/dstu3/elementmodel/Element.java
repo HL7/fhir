@@ -435,4 +435,11 @@ public class Element extends Base {
   public boolean isMetadataBased() {
     return true;
   }
+
+  public boolean isList() {
+    if (elementProperty != null)
+      return elementProperty.isList();
+    else
+      return property.isList();
+  }
 }
