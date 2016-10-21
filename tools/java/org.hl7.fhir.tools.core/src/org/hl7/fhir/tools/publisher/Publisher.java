@@ -1902,6 +1902,8 @@ public class Publisher implements URIResolver, SectionNumberer {
         page.getFolders().srcDir, page.getVersion(), Config.DATE_FORMAT().format(page.getGenDate().getTime()), false, page.getWorkerContext());
     new org.hl7.fhir.definitions.generators.specification.json.SchemaGenerator().generate(page.getDefinitions(), page.getIni(), page.getFolders().tmpResDir, page.getFolders().xsdDir, page.getFolders().dstDir,
         page.getFolders().srcDir, page.getVersion(), Config.DATE_FORMAT().format(page.getGenDate().getTime()), page.getWorkerContext());
+    new org.hl7.fhir.definitions.generators.specification.json.JsonLDDefinitionsGenerator().generate(page.getDefinitions(), page.getIni(), page.getFolders().tmpResDir, page.getFolders().dstDir,
+        page.getFolders().srcDir, page.getVersion(), Config.DATE_FORMAT().format(page.getGenDate().getTime()), page.getWorkerContext());
 
     List<StructureDefinition> list = new ArrayList<StructureDefinition>();
     for (StructureDefinition sd : page.getWorkerContext().allStructures()) {

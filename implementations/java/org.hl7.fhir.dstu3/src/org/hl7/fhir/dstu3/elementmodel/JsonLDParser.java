@@ -71,6 +71,13 @@ public class JsonLDParser extends ParserBase {
 		json.setIndent(style == OutputStyle.PRETTY ? "  " : "");
 		json.beginObject();
     prop("@context", jsonLDBase+e.getType()+".jsonld");
+    String id = e.getChildValue("id");
+    if (base != null && id != null) {
+       if (base.endsWith("#"))
+         prop("@context", base + e.getType() + "-" + id + ">");
+      else
+        prop("@context", Utilities.pathReverse(base, e.getType(), id));
+    }
 		Set<String> done = new HashSet<String>();
 		for (Element child : e.getChildren()) {
 			compose(e.getName(), e, done, child);
@@ -149,7 +156,7 @@ public class JsonLDParser extends ParserBase {
 			open(en);
       if (element.getProperty().isResource()) {
 	      prop("@context", jsonLDBase+element.getType()+".jsonld");
-        element = element.getChildren().get(0);
+//        element = element.getChildren().get(0);
       }
 	    if (element.isPrimitive() || isPrimitive(element.getType())) {
 	      if (element.hasValue())
