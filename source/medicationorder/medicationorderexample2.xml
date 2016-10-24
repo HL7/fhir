@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- This example is an example of text only dosage instruction  -->
 <MedicationOrder xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://hl7.org/fhir ../schema/medicationorder.xsd" xmlns="http://hl7.org/fhir">
+ xsi:schemaLocation="http://hl7.org/fhir ../../schema/medication.xsd http://hl7.org/fhir ../../schema/medicationorder.xsd"
+ xmlns="http://hl7.org/fhir">
 	<id value="medrx002"/>
 	<identifier>
 		<use value="official"/>
@@ -9,6 +10,11 @@
 		<value value="12345"/>
 	</identifier>
 	<status value="active"/>
+	<stage>
+		<coding>
+			<code value="original-order"/>
+		</coding>
+	</stage>
 	<medicationReference>
 		<!-- Linked to a RESOURCE Medication -->
 		<reference value="Medication/med0316"/>

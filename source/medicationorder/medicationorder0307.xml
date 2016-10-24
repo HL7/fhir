@@ -20,6 +20,11 @@
         <value value="12345689"/>
     </identifier>
     <status value="completed"/>
+    <stage>
+        <coding>
+            <code value="original-order"/>
+        </coding>
+    </stage>
     <medicationReference> <!-- Linked to a RESOURCE Medication -->
            <reference value="#med0308"/>
     </medicationReference> 

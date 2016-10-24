@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Bundle xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/bundle.xsd">
+<Bundle xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://hl7.org/fhir ../../schema/medication.xsd http://hl7.org/fhir ../../schema/bundle.xsd http://hl7.org/fhir ../../schema/medicationorder.xsd"
+ xmlns="http://hl7.org/fhir">
   <id value="bundle-example"/>
   <!-- this example bundle is a search set -->
   <meta>
@@ -37,6 +39,11 @@
       <MedicationOrder>
         <id value="3123"/>
         <!-- snip -->
+        <stage>
+          <coding>
+            <code value="original-order"/>
+          </coding>
+        </stage>
 	<medicationReference>
           <reference value="Medication/example"/>
         </medicationReference>

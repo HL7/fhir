@@ -20,6 +20,11 @@
         <value value="12345689"/>
     </identifier>
     <status value="active"/>
+    <stage>
+        <coding>
+            <code value="original-order"/>
+        </coding>
+    </stage>
     <medicationReference>
         <reference value="#med0321"/>
     </medicationReference>

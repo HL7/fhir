@@ -51,6 +51,11 @@
         <value value="12345689"/>
     </identifier>
     <status value="active"/>
+    <stage>
+        <coding>
+            <code value="original-order"/>
+        </coding>
+    </stage>
     <medicationReference> <!-- Linked to a RESOURCE Medication -->
         <reference value="#med0313"/>
     </medicationReference> 

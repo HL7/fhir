@@ -9,6 +9,11 @@
         <value value="12345689"/>
     </identifier>
     <status value="active"/>
+    <stage>
+        <coding>
+            <code value="original-order"/>
+        </coding>
+    </stage>
     <medicationCodeableConcept>
         <coding>
             <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
