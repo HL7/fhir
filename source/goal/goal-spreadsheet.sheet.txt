@@ -120,6 +120,12 @@
   Display = Behind Target
   Definition = The goal is behind the planned timelines
 
+ -- Row 13 -----------------------------------
+  Id = 10
+  Code = entered-in-error
+  Display = Entered In Error
+  Definition = The goal was entered in error and voided.
+
 === Sheet Invariants =====================================
 
 === Sheet Data Elements =====================================
@@ -151,7 +157,7 @@
   Summary = Y
   Type = code
   Binding = GoalStatus
-  Short Name = proposed | planned | accepted | rejected | in-progress | achieved | sustaining | on-hold | cancelled | on-target | ahead-of-target | behind-target
+  Short Name = proposed | planned | accepted | rejected | in-progress | achieved | sustaining | on-hold | cancelled | on-target | ahead-of-target | behind-target | entered-in-error
   Definition = Indicates whether the goal has been reached and is still considered relevant
   Requirements = Allows measuring outcome and whether goal needs to be further tracked.
   v2 Mapping = GOL-18-goal life cycle status
@@ -283,7 +289,7 @@
   Element = Goal.outcome
   Card. = 0..*
   UML = 400;100
-  Short Name = What was end result of goal?
+  Short Name = What result was achieved regarding the goal?
   Definition = Identifies the change (or lack of change) at the point where the goal was deemed to be cancelled or achieved.
   Requirements = Outcome tracking is a key aspect of care planning
   Comments = Note that this should not duplicate the goal status.

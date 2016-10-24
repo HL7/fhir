@@ -37,20 +37,10 @@ Decision support-generated plans following specific practice guidelines (e.g. st
 diabetes plan, falls prevention, etc.)
 </li>
 <li>
-Definition and management of a care team, including roles associated with a particular condition 
-or set of conditions.
-</li>
-<li>
 Self-maintained patient or care-giver authored plans identifying their goals and an integrated
 understanding of actions to be taken
 </li>
 </ul>
-<p>
-Note that this resource represents a specific plan instance for a particular patient or group.
-It is not intended to be used to define generic plans or protocols that are independent of a
-specific individual or group.  I.e. It represents a specific intent, not a general definition.
-Protocols and order sets will be supported through future resources.
-</p>
 <p>
 This resource can be used to represent both proposed plans (for example, recommendations from
 a decision support engine or returned as part of a consult report) as well as active plans.  The
@@ -79,6 +69,10 @@ or the care delivered by a particular practitioner or group of practitioners.
 An <a href="immunizationrecommendation.html">ImmunizationRecommendation</a> can be interpreted as a narrow
 type of Care Plan dealing only with immunization events.  Where such information could appear in either
 resource, the immunization-specific resource is preferred.
+</p>
+<p>
+CarePlans represent a specific plan instance for a particular patient or group.  It is not intended to be used to define generic plans or protocols that are independent of a
+specific individual or group.  CarePlan represents a specific intent, not a general definition.  Protocols and order sets are supported through <a href="plandefinition.html">PlanDefinition</a>.
 </p>
 <p>
 <b>PLANNED CHANGE:</b>

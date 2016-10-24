@@ -3,20 +3,14 @@
 <a name="open"> </a>
 <h2>Open Issues</h2>
 
-<blockquote>
-</blockquote>
-<ul>
-  <li></li>
-</ul>
 <!-- insert xhtml content here -->
 
 <blockquote class="dstu-note">
 <a name="dstu"> </a>
 <p>
-<b>DSTU Note:</b>  During the Trial use period, feedback is welcome on two issues:
+<b>DSTU Note:</b>  During the Trial use period, feedback is welcome on the following issue:
 </p>
 <ul>
- <li>This resource combines the concepts of "Care Plan" and "Care Team" into a single resource.  Is this appropriate?</li>
  <li>At present, the patient element is optional to allow experimentation with care plan templates, though the resource was not designed for this use</li>
 </ul>
 <p>

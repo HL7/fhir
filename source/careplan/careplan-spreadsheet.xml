@@ -22,7 +22,6 @@
   <WindowTopY>0</WindowTopY>
   <TabRatio>777</TabRatio>
   <ActiveSheet>1</ActiveSheet>
-  <FirstVisibleSheet>1</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -789,9 +788,10 @@
   <NamedRange ss:Name="Invariantids" ss:RefersTo="=Invariants!R2C1:R48C1"/>
  </Names>
  <Worksheet ss:Name="Instructions">
-  <Table ss:ExpandedColumnCount="2" ss:ExpandedRowCount="4" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="2" ss:ExpandedRowCount="5" x:FullColumns="1"
    x:FullRows="1" ss:DefaultColumnWidth="64.5" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="411"/>
+   <Column ss:Width="125.25"/>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s64"><Data ss:Type="String">FHIR Resource-authoring Spreadsheet</Data></Cell>
    </Row>
@@ -806,6 +806,10 @@
     <Cell><Data ss:Type="String">fmm</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">entered-in-error-status</Data></Cell>
+    <Cell><Data ss:Type="String">.status = entered-in-error</Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -817,8 +821,7 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>2</ActiveRow>
-     <ActiveCol>1</ActiveCol>
+     <ActiveRow>8</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1037,7 +1040,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">proposed | draft | active | completed | cancelled</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">proposed | draft | active | suspended | completed | entered-in-error | cancelled</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Indicates whether the plan is currently being acted upon, represents future intentions or is now a historical record.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1177,7 +1180,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Created in context of</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Identifies the context in which this particular CarePlan is defined.</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Identifies the original context in which this particular CarePlan was created.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Activities conducted as a result of the care plan may well occur as part of other encounters/episodes</Data><NamedCell
@@ -1677,7 +1680,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">Details in a form consistent with other applications and contexts of use</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Standard extension exists (http://hl7-fhir.github.io/extension-goal-pertainstogoal.html) that allows goals to be referenced from any of the referenced resources in CarePlan.activity.reference&#13;The goal should be visible when the resource referenced by CarePlan.activity.reference is viewed indepedently from the CarePlan.</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Standard extension exists ([goal-pertainstogoal](extension-goal-pertainstogoal.html)) that allows goals to be referenced from any of the referenced resources in CarePlan.activity.reference&#13;The goal should be visible when the resource referenced by CarePlan.activity.reference is viewed indepedently from the CarePlan.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">.outboundRelationship[typeCode=COMP].target</Data><NamedCell
@@ -1988,7 +1991,7 @@
     <Cell ss:StyleID="s86"><Data ss:Type="String">CarePlan.activity.detail.prohibited</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">1..1</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">boolean</Data><NamedCell
@@ -1998,7 +2001,8 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="Boolean">0</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Do NOT do</Data><NamedCell
@@ -3951,7 +3955,7 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>20</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>11</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -3959,6 +3963,7 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -3966,8 +3971,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>23</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>22</ActiveRow>
+     <ActiveCol>15</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -7010,8 +7015,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>11</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -7027,10 +7031,10 @@
    <NamedRange ss:Name="_FilterDatabase"
     ss:RefersTo="='care-plan-status'!R1C1:R1C9" ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="52" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="54" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s136" ss:DefaultColumnWidth="64.5"
    ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s136" ss:Width="79.5"/>
+   <Column ss:StyleID="s136" ss:AutoFitWidth="0" ss:Width="121.5"/>
    <Column ss:StyleID="s136" ss:AutoFitWidth="0" ss:Width="34.5"/>
    <Column ss:StyleID="s136" ss:AutoFitWidth="0" ss:Width="154.5"/>
    <Column ss:StyleID="s136" ss:AutoFitWidth="0" ss:Width="79.5" ss:Span="1"/>
@@ -7109,8 +7113,19 @@
     <Cell ss:StyleID="s141"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s140"><Data ss:Type="String">completed</Data></Cell>
+    <Cell ss:StyleID="s140"><Data ss:Type="String">suspended</Data></Cell>
     <Cell ss:StyleID="s129"><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:StyleID="s116"/>
+    <Cell ss:StyleID="s150"/>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">Suspended</Data></Cell>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">The plan has been temporarily stopped but is expected to resume in the future.</Data></Cell>
+    <Cell ss:StyleID="s129"/>
+    <Cell ss:StyleID="s129"/>
+    <Cell ss:StyleID="s141"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="30">
+    <Cell ss:StyleID="s140"><Data ss:Type="String">completed</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="Number">4</Data></Cell>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s150"/>
     <Cell ss:StyleID="s150"><Data ss:Type="String">Completed</Data></Cell>
@@ -7119,9 +7134,20 @@
     <Cell ss:StyleID="s129"/>
     <Cell ss:StyleID="s141"/>
    </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s140"><Data ss:Type="String">entered-in-error</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:StyleID="s116"/>
+    <Cell ss:StyleID="s150"/>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">Entered In Error</Data></Cell>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">The plan was entered in error and voided.</Data></Cell>
+    <Cell ss:StyleID="s129"/>
+    <Cell ss:StyleID="s129"/>
+    <Cell ss:StyleID="s141"/>
+   </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell ss:StyleID="s140"><Data ss:Type="String">cancelled</Data></Cell>
-    <Cell ss:StyleID="s129"><Data ss:Type="Number">4</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="Number">6</Data></Cell>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s150"/>
     <Cell ss:StyleID="s150"><Data ss:Type="String">Cancelled</Data></Cell>
@@ -7130,29 +7156,7 @@
     <Cell ss:StyleID="s129"/>
     <Cell ss:StyleID="s141"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s140"/>
-    <Cell ss:StyleID="s129"/>
-    <Cell ss:StyleID="s116"/>
-    <Cell ss:StyleID="s150"/>
-    <Cell ss:StyleID="s150"/>
-    <Cell ss:StyleID="s150"/>
-    <Cell ss:StyleID="s129"/>
-    <Cell ss:StyleID="s129"/>
-    <Cell ss:StyleID="s141"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s140"/>
-    <Cell ss:StyleID="s129"/>
-    <Cell ss:StyleID="s116"/>
-    <Cell ss:StyleID="s150"/>
-    <Cell ss:StyleID="s150"/>
-    <Cell ss:StyleID="s150"/>
-    <Cell ss:StyleID="s129"/>
-    <Cell ss:StyleID="s129"/>
-    <Cell ss:StyleID="s141"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Index="11" ss:AutoFitHeight="0">
     <Cell ss:StyleID="s140"/>
     <Cell ss:StyleID="s129"/>
     <Cell ss:StyleID="s116"/>
@@ -7658,7 +7662,6 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

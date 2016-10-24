@@ -35,11 +35,6 @@ Organizational goals are typically not health state specific but may instead ide
 management, patient satisfaction, etc.
 </p>
 
-<p>
-Note that this resource represents a specific goal instance for a particular patient, group, etc.
-It is not intended to be used to define types of "potential" goals as part of an order set
-or protocol.  These requirements will be supported as part of future resources.
-</p>
 </div>
 
 <div>
@@ -49,6 +44,10 @@ or protocol.  These requirements will be supported as part of future resources.
 Goals are typically established in the context of a <a href="careplan.html">CarePlan</a>.  However, goals may also be directly
     referenced by request-type resources (e.g. <a href="medicationorder.html">MedicationOrder</a> or <a href="referralrequest.html">ReferralRequest</a>)
 by using an extension.
+</p>
+<p>
+A goal represents a specific goal instance for a particular patient, group, etc.  It is not intended to be used to define types of potential goals as part of an order set
+or protocol.  Protocols and order sets are supported through <a href="plandefinition.html">PlanDefinition</a>.
 </p>
 <p>
 Goals are often evaluated using <a href="observation.html">Observations</a>.

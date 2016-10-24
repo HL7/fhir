@@ -21,7 +21,6 @@
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ActiveSheet>1</ActiveSheet>
-  <FirstVisibleSheet>1</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -764,9 +763,10 @@
   <NamedRange ss:Name="Invariantids" ss:RefersTo="=Invariants!R2C1:R47C1"/>
  </Names>
  <Worksheet ss:Name="Instructions">
-  <Table ss:ExpandedColumnCount="3" ss:ExpandedRowCount="5" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="3" ss:ExpandedRowCount="6" x:FullColumns="1"
    x:FullRows="1" ss:DefaultColumnWidth="64.5" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="411"/>
+   <Column ss:AutoFitWidth="0" ss:Width="124.5"/>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s64"><Data ss:Type="String">FHIR Resource-authoring Spreadsheet</Data></Cell>
    </Row>
@@ -786,6 +786,10 @@
     <Cell><Data ss:Type="String">fmm-no-warnings</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">entered-in-error-status</Data></Cell>
+    <Cell><Data ss:Type="String">.status = entered-in-error</Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -803,7 +807,7 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>4</ActiveRow>
+     <ActiveRow>6</ActiveRow>
      <ActiveCol>1</ActiveCol>
     </Pane>
    </Panes>
@@ -1026,7 +1030,7 @@
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">proposed | planned | accepted | rejected | in-progress | achieved | sustaining | on-hold | cancelled | on-target | ahead-of-target | behind-target</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">proposed | planned | accepted | rejected | in-progress | achieved | sustaining | on-hold | cancelled | on-target | ahead-of-target | behind-target | entered-in-error</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Indicates whether the goal has been reached and is still considered relevant</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1444,7 +1448,7 @@
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">What was end result of goal?</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">What result was achieved regarding the goal?</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Identifies the change (or lack of change) at the point where the goal was deemed to be cancelled or achieved.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -3126,7 +3130,7 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>12</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>5</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -3134,6 +3138,7 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -3141,8 +3146,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>17</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>15</ActiveRow>
+     <ActiveCol>13</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -5940,8 +5945,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>5</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -5960,7 +5964,7 @@
   <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="51" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s135" ss:DefaultColumnWidth="64.5"
    ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s135" ss:Width="79.5"/>
+   <Column ss:StyleID="s135" ss:AutoFitWidth="0" ss:Width="113.25"/>
    <Column ss:StyleID="s135" ss:AutoFitWidth="0" ss:Width="34.5"/>
    <Column ss:StyleID="s135" ss:AutoFitWidth="0" ss:Width="154.5"/>
    <Column ss:StyleID="s135" ss:AutoFitWidth="0" ss:Width="79.5" ss:Span="1"/>
@@ -6138,12 +6142,12 @@
     <Cell ss:StyleID="s140"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s139"/>
-    <Cell ss:StyleID="s129"/>
+    <Cell ss:StyleID="s139"><Data ss:Type="String">entered-in-error</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="Number">10</Data></Cell>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s147"/>
-    <Cell ss:StyleID="s147"/>
-    <Cell ss:StyleID="s147"/>
+    <Cell ss:StyleID="s147"><Data ss:Type="String">Entered In Error</Data></Cell>
+    <Cell ss:StyleID="s147"><Data ss:Type="String">The goal was entered in error and voided.&#10;</Data></Cell>
     <Cell ss:StyleID="s129"/>
     <Cell ss:StyleID="s129"/>
     <Cell ss:StyleID="s140"/>
@@ -6577,8 +6581,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>0</ActiveCol>
-     <RangeSelection>R2C1:R13C1</RangeSelection>
+     <ActiveRow>13</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

@@ -559,7 +559,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">CarePlan.status</Data></Cell>
-    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">entered-in-error</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">proposed</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"><Data ss:Type="String">draft</Data></Cell>
@@ -569,7 +569,7 @@
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s68"><Data ss:Type="String">active</Data></Cell>
-    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">suspended</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s68"><Data ss:Type="String">completed</Data></Cell>
@@ -1325,7 +1325,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Goal.status</Data></Cell>
-    <Cell ss:StyleID="s86"/>
+    <Cell ss:StyleID="s86"><Data ss:Type="String">entered-in-error</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">proposed</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">planned</Data></Cell>
     <Cell ss:StyleID="s62"/>
