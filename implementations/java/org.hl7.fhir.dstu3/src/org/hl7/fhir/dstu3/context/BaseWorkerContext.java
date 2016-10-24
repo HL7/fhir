@@ -143,7 +143,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
       }
       String cacheFn = null;
       if (cache != null) {
-        cacheFn = Utilities.path(cache, determineCacheId(vs, heirarchical));
+        cacheFn = Utilities.path(cache, determineCacheId(vs, heirarchical)+".json");
         if (new File(cacheFn).exists())
           return loadFromCache(vs.copy(), cacheFn);
       }
