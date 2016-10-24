@@ -35,6 +35,12 @@
   Display = Amended
   Definition = This QuestionnaireResponse has been filled out with answers, then marked as complete, yet changes or additions have been made to it afterwards.
 
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = entered-in-error
+  Display = Entered In Error
+  Definition = This QuestionnaireResponse was entered in error and voided.
+
 === Sheet Invariants =====================================
 
 === Sheet Data Elements =====================================
@@ -98,7 +104,7 @@
   Summary = y
   Type = code
   Binding = QuestionnaireResponseStatus
-  Short Name = in-progress | completed | amended
+  Short Name = in-progress | completed | amended | entered-in-error
   Definition = The lifecycle status of the questionnaire response as a whole.
   Requirements = The information on Questionnaire resources  may possibly be gathered during multiple sessions and altered after considered being finished. Questionnaire resources with just questions may serve as template forms, with the applicable publication statuses
   RIM Mapping = .statusCode (also whether there\'s a revisionControlAct - and possibly mood to distinguish \"in-progress\" from \"published)

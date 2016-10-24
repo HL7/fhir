@@ -13,7 +13,7 @@
   <problem>
     <display value="MVA"/> <!-- todo: reference to condition with snomed code 418399005 : Motor vehicle accident (event) -->
   </problem>
-  <investigations>
+  <investigation>
     <code>
       <text value="Initial Examination"/>
     </code>
@@ -30,7 +30,7 @@
     <item>
       <display value="restless"/>
     </item>
-  </investigations>
+  </investigation>
   <summary value="provisional diagnoses of laceration of head and traumatic brain injury (TBI)"/>
   <finding>
     <itemCodeableConcept>

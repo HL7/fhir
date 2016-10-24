@@ -184,14 +184,14 @@
   w5 = why
 
  -- Row 13 -----------------------------------
-  Element = ClinicalImpression.investigations
+  Element = ClinicalImpression.investigation
   Card. = 0..*
   UML = 400;0
   Short Name = One or more sets of investigations (signs, symptions, etc.)
   Definition = One or more sets of investigations (signs, symptions, etc.). The actual grouping of investigations vary greatly depending on the type and context of the assessment. These investigations may include data generated during the assessment process, or data previously generated and recorded that is pertinent to the outcomes
 
  -- Row 14 -----------------------------------
-  Element = ClinicalImpression.investigations.code
+  Element = ClinicalImpression.investigation.code
   Card. = 1..1
   Type = CodeableConcept
   Binding = InvestigationGroupType
@@ -199,7 +199,7 @@
   Definition = A name/code for the group (\"set\") of investigations. Typically, this will be something like \"signs\", \"symptoms\", \"clinical\", \"diagnostic\", but the list is not constrained, and others such groups such as (exposure|family|travel|nutitirional) history may be used
 
  -- Row 15 -----------------------------------
-  Element = ClinicalImpression.investigations.item
+  Element = ClinicalImpression.investigation.item
   Card. = 0..*
   Type = Reference(Observation| QuestionnaireResponse | FamilyMemberHistory | DiagnosticReport|RiskAssessment | ImagingStudy)
   Short Name = Record of a specific investigation
@@ -298,7 +298,7 @@
  -- Row 3 -----------------------------------
   Name = investigation
   Type = reference
-  Path = ClinicalImpression.investigations.item
+  Path = ClinicalImpression.investigation.item
 
  -- Row 4 -----------------------------------
   Name = finding-code
