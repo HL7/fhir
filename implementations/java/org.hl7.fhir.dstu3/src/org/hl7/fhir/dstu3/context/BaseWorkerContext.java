@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import org.apache.commons.codec.Charsets;
 import org.hl7.fhir.dstu3.formats.IParser.OutputStyle;
 import org.hl7.fhir.dstu3.formats.JsonParser;
 import org.hl7.fhir.dstu3.model.BooleanType;
@@ -142,9 +143,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
       }
       String cacheFn = null;
       if (cache != null) {
-        cacheFn = Utilities.path(cache, determineCacheId(vs, heirarchical)+".json");
-        if (vs.getName().equals("UnitsOfTime")) 
-          System.out.println(cacheFn);
+        cacheFn = Utilities.path(cache, determineCacheId(vs, heirarchical));
         if (new File(cacheFn).exists())
           return loadFromCache(vs.copy(), cacheFn);
       }
@@ -205,12 +204,14 @@ public abstract class BaseWorkerContext implements IWorkerContext {
     ByteArrayOutputStream b = new  ByteArrayOutputStream();
     parser.compose(b, vsid);
     b.close();
-    String s = new String(b.toByteArray());
+    String s = new String(b.toByteArray(), Charsets.UTF_8);
     // any code systems we can find, we add these too. 
     for (ConceptSetComponent inc : vs.getCompose().getInclude()) {
       CodeSystem cs = fetchCodeSystem(inc.getSystem());
-      if (cs != null) 
-        s = s + cacheValue(cs);
+      if (cs != null) {
+        String css = cacheValue(cs);
+        s = s + css;
+      }
     }
     s = s + "-"+Boolean.toString(heirarchical);
     String r = Integer.toString(s.hashCode());
@@ -232,7 +233,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
     ByteArrayOutputStream b = new  ByteArrayOutputStream();
     parser.compose(b, csid);
     b.close();
-    return new String(b.toByteArray());
+    return new String(b.toByteArray(), Charsets.UTF_8);
   }
 
 
