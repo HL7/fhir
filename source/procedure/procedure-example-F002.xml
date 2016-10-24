@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Procedure xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir  ../../schema/procedure.xsd">
   <id value="f002"/>
-    <subject>
-        <reference value="Patient/F001"/>
-        <display value="P. van de Heuvel"/>
-    </subject>
     <status value="completed"/>
     <code>
         <coding>
@@ -13,17 +9,18 @@
             <display value="Partial lobectomy of lung"/>
         </coding>
     </code>
-    <bodySite>
-            <coding>
-                <system value="http://snomed.info/sct"/>
-                <code value="39607008"/>
-                <display value="Lung structure"/>
-            </coding>
-    </bodySite>
-    <reasonCodeableConcept>
-      <text value="Malignant tumor of lung"/>
-    </reasonCodeableConcept>
-    <performer>
+	<subject>
+        <reference value="Patient/F001"/>
+        <display value="P. van de Heuvel"/>
+    </subject>
+	<encounter>
+        <reference value="Encounter/F002"/>
+    </encounter>
+	<performedPeriod>
+        <start value="2013-03-08T09:00:10+01:00"/>
+        <end value="2013-03-08T09:30:10+01:00"/>
+    </performedPeriod>
+	<performer>
         <actor>
             <reference value="Practitioner/F003"/>
             <display value="M.I.M. Versteegh"/>
@@ -37,13 +34,16 @@
             <text value="Care role"/>
         </role>
     </performer>
-    <performedPeriod>
-        <start value="2013-03-08T09:00:10+01:00"/>
-        <end value="2013-03-08T09:30:10+01:00"/>
-    </performedPeriod>
-    <encounter>
-        <reference value="Encounter/F002"/>
-    </encounter>
+    <reasonCodeableConcept>
+      <text value="Malignant tumor of lung"/>
+    </reasonCodeableConcept>
+    <bodySite>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="39607008"/>
+                <display value="Lung structure"/>
+            </coding>
+    </bodySite>
     <outcome>
       <text value="improved blood circulation"/>
     </outcome>

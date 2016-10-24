@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Procedure xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/procedure.xsd">
   <id value="f001"/>
-    <subject>
-        <reference value="Patient/F001"/>
-        <display value="P. van de Heuvel"/>
-    </subject>
     <status value="completed"/>
     <code>
         <coding>
@@ -13,16 +9,17 @@
             <display value="Heart valve replacement"/>
         </coding>
     </code>
-    <bodySite>
-            <coding>
-                <system value="http://snomed.info/sct"/>
-                <code value="17401000"/>
-                <display value="Heart valve structure"/>
-            </coding>
-    </bodySite>
-    <reasonCodeableConcept>
-      <text value="Heart valve disorder"/>
-    </reasonCodeableConcept>
+	<subject>
+        <reference value="Patient/F001"/>
+        <display value="P. van de Heuvel"/>
+    </subject>
+	<encounter>
+        <reference value="Encounter/F001"/>
+    </encounter>
+    <performedPeriod>
+        <start value="2011-06-26"/>
+        <end value="2011-06-27"/>
+    </performedPeriod>
     <performer>
         <actor>
             <reference value="Practitioner/F002"/>
@@ -37,13 +34,16 @@
             <text value="Care role"/>
         </role>
     </performer>
-    <performedPeriod>
-        <start value="2011-06-26"/>
-        <end value="2011-06-27"/>
-    </performedPeriod>
-    <encounter>
-        <reference value="Encounter/F001"/>
-    </encounter>
+	<reasonCodeableConcept>
+      <text value="Heart valve disorder"/>
+    </reasonCodeableConcept>
+    <bodySite>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="17401000"/>
+                <display value="Heart valve structure"/>
+            </coding>
+    </bodySite>
     <outcome>
       <text value="improved blood circulation"/>
     </outcome>

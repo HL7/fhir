@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Procedure xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/procedure.xsd">
   <id value="example-implant"/>
-  <subject>
-    <reference value="Patient/example"/>
-  </subject>
   <status value="completed"/>
   <code>
     <coding>
@@ -13,16 +10,19 @@
     </coding>
     <text value="Implant Pacemaker"/>
   </code>
-  <reasonCode>
-    <text value="Bradycardia"/>
-  </reasonCode> 
+  <subject>
+    <reference value="Patient/example"/>
+  </subject>
+  <performedDateTime value="2015-04-05"/>
   <performer>
     <actor>
       <reference value="Practitioner/example"/>
       <display value="Dr Cecil Surgeon"/>
     </actor>
   </performer>
-  <performedDateTime value="2015-04-05"/>
+  <reasonCode>
+    <text value="Bradycardia"/>
+  </reasonCode> 
   <followUp>
       <text value="ROS 5 days  - 2013-04-10"/>
   </followUp>

@@ -112,7 +112,6 @@
   Display = Entered In Error
   Definition = The statement was entered in error and is not valid.
   v3 = ActStatus.nullified
-  Parent = #2
 
 === Sheet allergy-intolerance-criticality =====================================
 
@@ -197,6 +196,12 @@
   Code = confirmed
   Display = Confirmed
   Definition = There is a very high level of clinical certainty that the reaction was due to the identified substance, which may include clinical evidence by testing or rechallenge.
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = unknown
+  Display = Unknown
+  Definition = The clinical certainty that the reaction was caused by the identified substance is unknown.
 
 === Sheet reaction-event-severity =====================================
 
@@ -328,6 +333,15 @@
   w5 = who.focus
 
  -- Row 9 -----------------------------------
+  Element = AllergyIntolerance.onset
+  Card. = 0..1
+  Type = dateTime
+  Short Name = Date(/time) when manifestations showed
+  Definition = Record of the date and/or time of the onset of the Allergy or Intolerance
+  RIM Mapping = effectiveTime.low
+  w5 = when.init
+
+ -- Row 10 -----------------------------------
   Element = AllergyIntolerance.attestedDate
   Card. = 0..1
   Type = dateTime
@@ -338,7 +352,7 @@
   RIM Mapping = .participation[typeCode=AUT].time
   w5 = when.recorded
 
- -- Row 10 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = AllergyIntolerance.recorder
   Card. = 0..1
   Aliases = Author
@@ -348,7 +362,7 @@
   RIM Mapping = .participation[typeCode=AUT].role
   w5 = who.author
 
- -- Row 11 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = AllergyIntolerance.reporter
   Card. = 0..1
   Aliases = Source; Informant
@@ -360,14 +374,6 @@
   v2 Mapping = IAM-14 (if patient) / IAM-18 (if practitioner)
   RIM Mapping = .participation[typeCode=INF].role
   w5 = who.source
-
- -- Row 12 -----------------------------------
-  Element = AllergyIntolerance.onset
-  Card. = 0..1
-  Type = dateTime
-  Short Name = Date(/time) when manifestations showed
-  Definition = Record of the date and/or time of the onset of the Allergy or Intolerance
-  RIM Mapping = effectiveTime.low
 
  -- Row 13 -----------------------------------
   Element = AllergyIntolerance.lastOccurrence
@@ -411,7 +417,7 @@
   Aliases = Cause;
   Type = code
   Binding = AllergyIntoleranceCertainty
-  Short Name = unlikely | likely | confirmed - clinical certainty about the specific substance
+  Short Name = unlikely | likely | confirmed | unknown
   Definition = Statement about the degree of clinical certainty that the specific substance was the cause of the manifestation in this reaction event
   RIM Mapping = uncertaintyCode
 

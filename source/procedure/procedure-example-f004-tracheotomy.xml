@@ -1,30 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Procedure xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/procedure.xsd">
   <id value="f004"/>
-    <subject>
+    <status value="completed"/>
+    <code>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="48387007"/>
+            <display value="Tracheotomy"/>
+        </coding>
+    </code>
+	<subject>
         <reference value="Patient/f001"/>
         <display value="P. van de Heuvel"/>
     </subject>
-    <status value="completed"/>
-        <code>
-            <coding>
-                <system value="http://snomed.info/sct"/>
-                <code value="48387007"/>
-                <display value="Tracheotomy"/>
-            </coding>
-        </code>
-        <bodySite>
-            
-                <coding>
-                    <system value="http://snomed.info/sct"/>
-                    <code value="83030008"/>
-                    <display value="Retropharyngeal area"/>
-                </coding>
-            
-        </bodySite>
-    <reasonCode>
-      <text value="ensure breathing during surgery"/>
-    </reasonCode>
+	<encounter>
+        <reference value="Encounter/f003"/>
+    </encounter>
+    <performedPeriod>
+        <start value="2013-03-22T09:30:10+01:00"/>
+        <end value="2013-03-22T10:30:10+01:00"/>
+    </performedPeriod>
     <performer>
         <actor>
             <reference value="Practitioner/f005"/>
@@ -39,13 +34,16 @@
             <text value="Care role"/>
         </role>
     </performer>
-    <performedPeriod>
-        <start value="2013-03-22T09:30:10+01:00"/>
-        <end value="2013-03-22T10:30:10+01:00"/>
-    </performedPeriod>
-    <encounter>
-        <reference value="Encounter/f003"/>
-    </encounter>
+    <reasonCode>
+      <text value="ensure breathing during surgery"/>
+    </reasonCode>
+    <bodySite>        
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="83030008"/>
+            <display value="Retropharyngeal area"/>
+        </coding>    
+    </bodySite>
     <outcome>
       <text value="removal of the retropharyngeal abscess"/>
     </outcome>

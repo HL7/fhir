@@ -39,6 +39,9 @@
     <reference value="Patient/example"/>
   </patient>
 
+  <!-- when the allergy was first noted (in this case the same as reaction.onset of the first occurrence) --> 
+  <onset value="2004"/>
+
   <!-- the date that this entry was recorded -->  
   <attestedDate value="2014-10-09T14:58:00+11:00"/>
   
@@ -51,9 +54,6 @@
   <reporter>
     <reference value="Patient/example"/>
   </reporter>
-
-  <!-- when the allergy was first noted (in this case the same as reaction.onset of the first occurrence) --> 
-  <onset value="2004"/>
 
   <!-- last happened June 2012. Typically, systems either track lastOccurrence,
      or a list of events. -->

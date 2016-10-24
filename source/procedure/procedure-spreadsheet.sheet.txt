@@ -166,6 +166,40 @@
   w5 = id
 
  -- Row 3 -----------------------------------
+  Element = Procedure.status
+  Card. = 1..1
+  Is Modifier = Y
+  Summary = Y
+  Type = code
+  Binding = ProcedureStatus
+  Short Name = in-progress | aborted | completed | entered-in-error
+  Definition = A code specifying the state of the procedure. Generally this will be in-progress or completed state.
+  w5 = status
+
+ -- Row 4 -----------------------------------
+  Element = Procedure.category
+  Card. = 0..1
+  Summary = Y
+  Type = CodeableConcept
+  Binding = ProcedureCategory
+  Short Name = Classification of the procedure
+  Definition = A code that classifies the procedure for searching, sorting and display purposes (e.g. \"Surgical Procedure\")
+  RIM Mapping = .outboundRelationship[typeCode=\"COMP].target[classCode=\"LIST\", moodCode=\"EVN\"].code
+  w5 = class
+
+ -- Row 5 -----------------------------------
+  Element = Procedure.code
+  Card. = 1..1
+  Summary = y
+  Type = CodeableConcept
+  Binding = ProcedureCode
+  Short Name = Identification of the procedure
+  Definition = The specific procedure that is performed. Use text if the exact nature of the procedure cannot be coded (e.g. \"Laparoscopic Appendectomy\")
+  v2 Mapping = OBR-44/OBR-45
+  RIM Mapping = .code
+  w5 = what
+
+ -- Row 6 -----------------------------------
   Element = Procedure.subject
   Card. = 1..1
   Summary = y
@@ -177,39 +211,92 @@
   Committee Notes = [#3709]
   w5 = who.focus
 
- -- Row 4 -----------------------------------
-  Element = Procedure.status
-  Card. = 1..1
-  Is Modifier = Y
-  Summary = Y
-  Type = code
-  Binding = ProcedureStatus
-  Short Name = in-progress | aborted | completed | entered-in-error
-  Definition = A code specifying the state of the procedure. Generally this will be in-progress or completed state.
-
- -- Row 5 -----------------------------------
-  Element = Procedure.category
+ -- Row 7 -----------------------------------
+  Element = Procedure.encounter
   Card. = 0..1
-  Summary = Y
-  Type = CodeableConcept
-  Binding = ProcedureCategory
-  Short Name = Classification of the procedure
-  Definition = A code that classifies the procedure for searching, sorting and display purposes (e.g. \"Surgical Procedure\")
-  RIM Mapping = .outboundRelationship[typeCode=\"COMP].target[classCode=\"LIST\", moodCode=\"EVN\"].code
+  Summary = y
+  Type = Reference(Encounter)
+  Short Name = The encounter associated with the procedure
+  Definition = The encounter during which the procedure was performed
+  v2 Mapping = PV1-19
+  RIM Mapping = .inboundRelationship[typeCode=COMP].source[classCode=ENC, moodCode=EVN]
+  w5 = context
 
- -- Row 6 -----------------------------------
-  Element = Procedure.code
-  Card. = 1..1
+ -- Row 8 -----------------------------------
+  Element = Procedure.performed[x]
+  Card. = 0..1
+  Summary = y
+  Type = dateTime | Period
+  Short Name = Date/Period the procedure was performed
+  Definition = The date(time)/period over which the procedure was performed. Allows a period to support complex procedures that span more than one date, and also allows for the length of the procedure to be captured.
+  v2 Mapping = OBR-7
+  RIM Mapping = .effectiveTime
+  w5 = when.done
+
+ -- Row 9 -----------------------------------
+  Element = Procedure.performer
+  Card. = 0..*
+  Summary = y
+  UML = 400;80
+  Short Name = The people who performed the procedure
+  Definition = Limited to \'real\' people rather than equipment
+  RIM Mapping = .participation[typeCode=PFM]
+
+ -- Row 10 -----------------------------------
+  Element = Procedure.performer.actor
+  Card. = 0..1
+  Summary = y
+  Type = Reference(Practitioner|Organization|Patient|RelatedPerson)
+  Short Name = The reference to the practitioner
+  Definition = The practitioner who was involved in the procedure
+  v2 Mapping = ORC-19/PRT-5
+  RIM Mapping = .role
+  w5 = who.actor
+
+ -- Row 11 -----------------------------------
+  Element = Procedure.performer.role
+  Card. = 0..1
   Summary = y
   Type = CodeableConcept
-  Binding = ProcedureCode
-  Short Name = Identification of the procedure
-  Definition = The specific procedure that is performed. Use text if the exact nature of the procedure cannot be coded (e.g. \"Laparoscopic Appendectomy\")
-  v2 Mapping = OBR-44/OBR-45
-  RIM Mapping = .code
-  w5 = class
+  Binding = ProcedurePerformerRole
+  Short Name = The role the actor was in
+  Definition = For example: surgeon, anaethetist, endoscopist
+  v2 Mapping = Some combination of STF-18 / PRA-3 / PRT-4 / ROL-3 / ORC-12 / OBR-16 / PV1-7 / PV1-8 / PV1-9 / PV1-17 / OBX-25
+  RIM Mapping = .functionCode
 
- -- Row 7 -----------------------------------
+ -- Row 12 -----------------------------------
+  Element = Procedure.location
+  Card. = 0..1
+  Summary = Y
+  Type = Reference(Location)
+  Short Name = Where the procedure happened
+  Definition = The location where the procedure actually happened.  E.g. a newborn at home, a tracheostomy at a restaurant
+  Requirements = Ties a procedure to where the records are likely kept
+  w5 = where
+
+ -- Row 13 -----------------------------------
+  Element = Procedure.reasonReference
+  Card. = 0..*
+  Summary = y
+  Type = Reference(Condition)
+  Short Name = Condition that is the reason the procedure performed
+  Definition = The condition that is the reason why the procedure was performed.
+  Comments = e.g. endoscopy for dilatation and biopsy, combination diagnosis and therapeutic
+  RIM Mapping = .reasonCode
+  w5 = why
+
+ -- Row 14 -----------------------------------
+  Element = Procedure.reasonCode
+  Card. = 0..*
+  Summary = y
+  Type = CodeableConcept
+  Binding = ProcedureReason
+  Short Name = Coded reason procedure performed
+  Definition = The coded reason why the procedure was performed. This may be coded entity of some type, or may simply be present as text
+  RIM Mapping = .reasonCode
+  w5 = why
+
+ -- Row 15 -----------------------------------
   Element = Procedure.notPerformed
   Card. = 0..1
   Is Modifier = Y
@@ -220,7 +307,7 @@
   RIM Mapping = .actionNegationInd
   Default Value = false
 
- -- Row 8 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = Procedure.reasonNotPerformed
   Card. = 0..*
   Inv. = 1
@@ -230,7 +317,7 @@
   Definition = A code indicating why the procedure was not performed.
   RIM Mapping = .reason.Observation.value
 
- -- Row 9 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = Procedure.bodySite
   Card. = 0..*
   Summary = y
@@ -242,7 +329,7 @@
   RIM Mapping = .targetSiteCode
   To Do = Is this approach or target site? RIM mapping inconsistent with ProcedureRequest which lists target site. Recommend calling field targetBodySite or targetSite.
 
- -- Row 10 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = !Procedure.bodySite.site[x]
   Card. = 1..1
   Summary = Y
@@ -250,89 +337,6 @@
   Binding = BodySite
   Short Name = Precise location details
   Definition = Detailed and structured anatomical location information. Multiple locations are allowed - e.g. multiple punch biopsies of a lesion
-
- -- Row 11 -----------------------------------
-  Element = Procedure.reasonReference
-  Card. = 0..*
-  Summary = y
-  Type = Reference(Condition)
-  Short Name = Condition that is the reason the procedure performed
-  Definition = The condition that is the reason why the procedure was performed.
-  Comments = e.g. endoscopy for dilatation and biopsy, combination diagnosis and therapeutic
-  RIM Mapping = .reasonCode
-
- -- Row 12 -----------------------------------
-  Element = Procedure.reasonCode
-  Card. = 0..*
-  Summary = y
-  Type = CodeableConcept
-  Binding = ProcedureReason
-  Short Name = Coded reason procedure performed
-  Definition = The coded reason why the procedure was performed. This may be coded entity of some type, or may simply be present as text
-  RIM Mapping = .reasonCode
-
- -- Row 13 -----------------------------------
-  Element = Procedure.performer
-  Card. = 0..*
-  Summary = y
-  UML = 400;80
-  Short Name = The people who performed the procedure
-  Definition = Limited to \'real\' people rather than equipment
-  RIM Mapping = .participation[typeCode=PFM]
-
- -- Row 14 -----------------------------------
-  Element = Procedure.performer.actor
-  Card. = 0..1
-  Summary = y
-  Type = Reference(Practitioner|Organization|Patient|RelatedPerson)
-  Short Name = The reference to the practitioner
-  Definition = The practitioner who was involved in the procedure
-  v2 Mapping = ORC-19/PRT-5
-  RIM Mapping = .role
-  w5 = who.actor
-
- -- Row 15 -----------------------------------
-  Element = Procedure.performer.role
-  Card. = 0..1
-  Summary = y
-  Type = CodeableConcept
-  Binding = ProcedurePerformerRole
-  Short Name = The role the actor was in
-  Definition = For example: surgeon, anaethetist, endoscopist
-  v2 Mapping = Some combination of STF-18 / PRA-3 / PRT-4 / ROL-3 / ORC-12 / OBR-16 / PV1-7 / PV1-8 / PV1-9 / PV1-17 / OBX-25
-  RIM Mapping = .functionCode
-
- -- Row 16 -----------------------------------
-  Element = Procedure.performed[x]
-  Card. = 0..1
-  Summary = y
-  Type = dateTime | Period
-  Short Name = Date/Period the procedure was performed
-  Definition = The date(time)/period over which the procedure was performed. Allows a period to support complex procedures that span more than one date, and also allows for the length of the procedure to be captured.
-  v2 Mapping = OBR-7
-  RIM Mapping = .effectiveTime
-  w5 = when.done
-
- -- Row 17 -----------------------------------
-  Element = Procedure.encounter
-  Card. = 0..1
-  Summary = y
-  Type = Reference(Encounter)
-  Short Name = The encounter associated with the procedure
-  Definition = The encounter during which the procedure was performed
-  v2 Mapping = PV1-19
-  RIM Mapping = .inboundRelationship[typeCode=COMP].source[classCode=ENC, moodCode=EVN]
-  w5 = context
-
- -- Row 18 -----------------------------------
-  Element = Procedure.location
-  Card. = 0..1
-  Summary = Y
-  Type = Reference(Location)
-  Short Name = Where the procedure happened
-  Definition = The location where the procedure actually happened.  E.g. a newborn at home, a tracheostomy at a restaurant
-  Requirements = Ties a procedure to where the records are likely kept
-  w5 = where
 
  -- Row 19 -----------------------------------
   Element = Procedure.outcome

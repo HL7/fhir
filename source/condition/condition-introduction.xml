@@ -17,6 +17,7 @@ It is intended for use to record information about a disease/illness identified 
 pathophysiologic findings (diagnosis), or identification of health issues/situations that require ongoing monitoring and/or management (health issue/concern), 
 or identification of health issues/situations considered harmful, potentially harmful and required to be investigated and managed (problems).
 </p>
+<p>The condition resource may be used to record a condition following a procedure, such as the condition of Amputee-BKA following an amputation procedure.</p>
 <p>
 The condition resource may also be used to record certain health state of a patient which does not normally present negative outcome (until complications 
 are predicted or detected), e.g. pregnancy. Examples of complications of pregnancy include: hyperemesis gravidarum, preeclampsia, eclampsia - which are 
