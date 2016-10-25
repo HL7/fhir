@@ -16,8 +16,8 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>17310</WindowHeight>
-  <WindowWidth>-27136</WindowWidth>
+  <WindowHeight>11445</WindowHeight>
+  <WindowWidth>24690</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>893</TabRatio>
@@ -5443,7 +5443,7 @@
     <Cell ss:StyleID="s129"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
-    <Cell ss:StyleID="s116"><Data ss:Type="String">lookup.property.property</Data></Cell>
+    <Cell ss:StyleID="s116"><Data ss:Type="String">lookup.property.subproperty</Data></Cell>
     <Cell ss:Index="3"><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="String">*</Data></Cell>
     <Cell><Data ss:Type="String">Tuple</Data></Cell>
@@ -5453,7 +5453,7 @@
     <Cell ss:StyleID="s129"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
-    <Cell ss:StyleID="s116"><Data ss:Type="String">lookup.property.property.code</Data></Cell>
+    <Cell ss:StyleID="s116"><Data ss:Type="String">lookup.property.subproperty.code</Data></Cell>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s127"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s127"><Data ss:Type="Number">1</Data></Cell>
@@ -5464,7 +5464,7 @@
     <Cell ss:StyleID="s129"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s116"><Data ss:Type="String">lookup.property.property.value</Data></Cell>
+    <Cell ss:StyleID="s116"><Data ss:Type="String">lookup.property.subproperty.value</Data></Cell>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s127"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s127"><Data ss:Type="Number">1</Data></Cell>
@@ -5475,7 +5475,7 @@
     <Cell ss:StyleID="s129"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s116"><Data ss:Type="String">lookup.property.property.description</Data></Cell>
+    <Cell ss:StyleID="s116"><Data ss:Type="String">lookup.property.subproperty.description</Data></Cell>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s127"><Data ss:Type="Number">0</Data></Cell>
     <Cell ss:StyleID="s127"><Data ss:Type="Number">1</Data></Cell>
@@ -5644,7 +5644,7 @@
     <Cell ss:StyleID="s129"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
-    <Cell ss:StyleID="s116"><Data ss:Type="String">compose.property.property</Data></Cell>
+    <Cell ss:StyleID="s116"><Data ss:Type="String">compose.property.subproperty</Data></Cell>
     <Cell ss:Index="3"><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="String">*</Data></Cell>
     <Cell><Data ss:Type="String">Tuple</Data></Cell>
@@ -5654,7 +5654,7 @@
     <Cell ss:StyleID="s129"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
-    <Cell ss:StyleID="s116"><Data ss:Type="String">compose.property.property.code</Data></Cell>
+    <Cell ss:StyleID="s116"><Data ss:Type="String">compose.property.subproperty.code</Data></Cell>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s127"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s127"><Data ss:Type="Number">1</Data></Cell>
@@ -5665,7 +5665,7 @@
     <Cell ss:StyleID="s129"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s116"><Data ss:Type="String">compose.property.property.value</Data></Cell>
+    <Cell ss:StyleID="s116"><Data ss:Type="String">compose.property.subproperty.value</Data></Cell>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s127"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s127"><Data ss:Type="Number">1</Data></Cell>
@@ -6144,7 +6144,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>30</TopRowBottomPane>
+   <TopRowBottomPane>34</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -6161,8 +6161,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>31</ActiveRow>
-     <ActiveCol>8</ActiveCol>
+     <ActiveRow>37</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

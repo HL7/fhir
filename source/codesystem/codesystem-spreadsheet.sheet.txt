@@ -440,3 +440,451 @@
   Type = @CodeSystem.concept
   Short Name = Child Concepts (is-a/contains/categorizes)
   Definition = Defines children of a concept to produce a hierarchy of concepts. The nature of the relationships is variable (is-a/contains/categorizes) and can only be determined by examining the definitions of the concepts
+
+=== Sheet Search =====================================
+
+ -- Row 1 -----------------------------------
+  Name = system
+  Type = uri
+  Description = The system for any codes defined by this code system (same as \'url\')
+  Path = CodeSystem.url
+
+ -- Row 2 -----------------------------------
+  Name = code
+  Type = token
+  Description = A code defined in the code system
+  Path = CodeSystem.concept.code
+
+ -- Row 3 -----------------------------------
+  Name = language
+  Type = token
+  Description = A language in which a designation is provided
+  Path = CodeSystem.concept.designation.language
+
+ -- Row 4 -----------------------------------
+  Name = content
+  Type = token
+  Path = CodeSystem.content
+
+=== Sheet Profiles =====================================
+
+ -- Row 1 -----------------------------------
+  Name = CodeSystem Extensions
+  IG Name = core
+  Filename = codesystem-extensions.xml
+  Type = spreadsheet
+
+ -- Row 2 -----------------------------------
+  Name = Shareable Code System
+  IG Name = core
+  Filename = codesystem-shareable.xml
+  Type = spreadsheet
+
+=== Sheet Examples =====================================
+
+ -- Row 1 -----------------------------------
+  Name = Simple
+  Identity = example
+  Description = Simple Code System
+  Filename = codesystem-example.xml
+
+ -- Row 2 -----------------------------------
+  Name = DICOM DICM
+  Identity = dicom-dcim
+  Description = Codes defined by DICOM
+  Filename = codesystem-dicom-dcim.xml
+
+ -- Row 3 -----------------------------------
+  Name = NHIN PurposeOfUse
+  Identity = nhin-purposeofuse
+  Description = NHIN Purpose of Use
+  Filename = codesystem-nhin-purposeofuse.xml
+
+ -- Row 4 -----------------------------------
+  Name = SNOMED CT
+  Identity = snomedct
+  Description = Canonical Definition for SNOMED CT
+  Filename = codesystem-snomedct.xml
+
+=== Sheet Examples =====================================
+
+ -- Row 1 -----------------------------------
+  Name = lookup
+  Use = Resource
+  Documentation = Given a code/system, or a Coding, get additional details about the concept, including definition, status, designations, and properties. One of the products of this operation is a full decomposition of a code from a structure terminology
+  Type = operation
+  Example.Request = $lookup-request.txt
+  Example.Response = $lookup-response.txt
+  Title = Concept Look Up & Decomposition
+  Footer = Note that the $lookup operation is more than just a code system search  - the server finds the concept, and gathers the return information from the underlying code system definitions.
+
+ -- Row 2 -----------------------------------
+  Name = lookup.code
+  Use = in
+  Documentation = The code that is to be located. If a code is provided, a system must be provided
+  Type = code
+  Min = 0
+  Max = 1
+
+ -- Row 3 -----------------------------------
+  Name = lookup.system
+  Use = in
+  Documentation = The system for the code that is to be located
+  Type = uri
+  Min = 0
+  Max = 1
+
+ -- Row 4 -----------------------------------
+  Name = lookup.version
+  Use = in
+  Documentation = The version of the system, if one was provided in the source data
+  Type = string
+  Min = 0
+  Max = 1
+
+ -- Row 5 -----------------------------------
+  Name = lookup.coding
+  Use = in
+  Documentation = A coding to look up
+  Type = Coding
+  Min = 0
+  Max = 1
+
+ -- Row 6 -----------------------------------
+  Name = lookup.date
+  Use = in
+  Documentation = The date for which the information should be returned. Normally, this is the current conditions (which is the default value) but under some circumstances, systems need to acccess this information as it would have been in the past. A typical example of this would be where code selection is constrained to the set of codes that were available when the patient was treated, not when the record is being edited. Note that which date is appropriate is a matter for implementation policy.
+  Type = dateTime
+  Min = 0
+  Max = 1
+
+ -- Row 7 -----------------------------------
+  Name = lookup.property
+  Use = in
+  Documentation = A property that the client wishes to be returned in the output. If no properties are specified, the server chooses what to return. The following properties are defined for all code systems: system, version, display, definition, designation, parent, child, and lang.X where X is a language code in a designation. These properties refer to the directly return parameters documented for the operation
+  Type = code
+  Min = 0
+  Max = *
+
+ -- Row 8 -----------------------------------
+  Name = lookup.name
+  Use = out
+  Documentation = A display name for the code system
+  Type = string
+  Min = 1
+  Max = 1
+
+ -- Row 9 -----------------------------------
+  Name = lookup.version
+  Use = out
+  Documentation = The version that these details are based on
+  Type = string
+  Min = 0
+  Max = 1
+
+ -- Row 10 -----------------------------------
+  Name = lookup.display
+  Use = out
+  Documentation = The preferred display for this concept
+  Type = string
+  Min = 1
+  Max = 1
+
+ -- Row 11 -----------------------------------
+  Name = lookup.designation
+  Use = out
+  Documentation = Additional representations for this concept
+  Type = Tuple
+  Min = 0
+  Max = *
+
+ -- Row 12 -----------------------------------
+  Name = lookup.designation.language
+  Documentation = The language this designation is defined for
+  Type = code
+  Min = 0
+  Max = 1
+
+ -- Row 13 -----------------------------------
+  Name = lookup.designation.use
+  Documentation = A code that details how this designation would be used
+  Type = Coding
+  Min = 0
+  Max = 1
+
+ -- Row 14 -----------------------------------
+  Name = lookup.designation.value
+  Documentation = The text value for this designation
+  Type = string
+  Min = 1
+  Max = 1
+
+ -- Row 15 -----------------------------------
+  Name = lookup.property
+  Use = out
+  Documentation = One or more properties that contain additional information about the code, including status. For complex terminologies (e.g. SNOMED CT, LOINC, medications), these properties serve to decompose the code
+  Type = Tuple
+  Min = 0
+  Max = *
+
+ -- Row 16 -----------------------------------
+  Name = lookup.property.code
+  Documentation = Identifies the property returned
+  Type = code
+  Min = 1
+  Max = 1
+
+ -- Row 17 -----------------------------------
+  Name = lookup.property.value
+  Documentation = The value of the property returned
+  Type = code | Coding | string | integer | boolean | dateTime
+  Min = 1
+  Max = 1
+
+ -- Row 18 -----------------------------------
+  Name = lookup.property.description
+  Documentation = Human Readable representation of the property value (e.g. display for a code)
+  Type = string
+  Min = 0
+  Max = 1
+
+ -- Row 19 -----------------------------------
+  Name = lookup.property.subproperty
+  Documentation = Nested Properties (mainly used for SNOMED CT decomposition, for relationship Groups)
+  Type = Tuple
+  Min = 0
+  Max = *
+
+ -- Row 20 -----------------------------------
+  Name = lookup.property.subproperty.code
+  Documentation = Identifies the sub-property returned
+  Type = code
+  Min = 1
+  Max = 1
+
+ -- Row 21 -----------------------------------
+  Name = lookup.property.subproperty.value
+  Documentation = The value of the sub-property returned
+  Type = code | Coding | string | integer | boolean | dateTime
+  Min = 1
+  Max = 1
+
+ -- Row 22 -----------------------------------
+  Name = lookup.property.subproperty.description
+  Documentation = Human Readable representation of the property value (e.g. display for a code)
+  Type = string
+  Min = 0
+  Max = 1
+
+ -- Row 23 -----------------------------------
+  Name = subsumes
+  Use = Resource | Instance
+  Documentation = Test whether code \"sub\" is subsumed by code \"super\" given the semantics of subsumption in the underlying code system
+  Type = operation
+  Example.Request = $subsumes-request.txt
+  Example.Response = $subsumes-response.txt
+  Title = Subsumption Testing
+
+ -- Row 24 -----------------------------------
+  Name = subsumes.codeA
+  Use = in
+  Documentation = The \"sub\" code that is to be tested. If a code is provided, a system must be provided
+  Type = code
+  Min = 0
+  Max = 1
+
+ -- Row 25 -----------------------------------
+  Name = subsumes.codeB
+  Use = in
+  Documentation = The \"super\" code that is to be validated. If a code is provided, a system must be provided
+  Type = code
+  Min = 0
+  Max = 1
+
+ -- Row 26 -----------------------------------
+  Name = subsumes.system
+  Use = in
+  Documentation = The system in which subsumption testing is to be performed. This must be provided unless the operation is invoked on a code system instance
+  Type = uri
+  Min = 0
+  Max = 1
+
+ -- Row 27 -----------------------------------
+  Name = subsumes.version
+  Use = in
+  Documentation = The version of the system, if one was provided in the source data
+  Type = string
+  Min = 0
+  Max = 1
+
+ -- Row 28 -----------------------------------
+  Name = subsumes.codingA
+  Use = in
+  Documentation = The \"sub\" coding to test. The coding system does not have to match the specified subsumption system, but the relationships between the systems must be well established
+  Type = Coding
+  Min = 0
+  Max = 1
+
+ -- Row 29 -----------------------------------
+  Name = subsumes.codingB
+  Use = in
+  Documentation = The \"super\" coding to test. The coding system does not have to match the specified subsumption system, but the relationships between the systems must be well established
+  Type = Coding
+  Min = 0
+  Max = 1
+
+ -- Row 30 -----------------------------------
+  Name = subsumes.outcome
+  Use = out
+  Documentation = Whether \"sub\" is subsumed by \"super\". There are 4 possible codes to be returned: equivalent, subsumes, subsumed-by, and not-subsumed. If the server is unable to determine the relationship between the codes, then it returns an error (i.e. an OperationOutcome)
+  Type = code
+  Min = 1
+  Max = 1
+
+ -- Row 31 -----------------------------------
+  Name = compose
+  Use = Resource | Instance
+  Documentation = Given a set of properties, return one or more possible matching codes\n\nThis operation takes a set of properties, and examines the code system looking for codes in the code system that match a set of known properties. \n\nWhen looking for matches, there are 3 possible types of match:\n* a complete match - a code that represents all the provided properties correctly\n* a partial match - a code that represents some of the provided properties correctly, and not others \n* a possible match - a code that may represent the provided properties closely, but may capture less or more precise informationfor some of the properties\n\nThe $compose operation can be called in one of 2 modes:\n* By a human, looking for the best match for a set of properties. In this mode, the server returns a list of complete, possible or partial matches (possibly with comments), so that the user can choose (or not) the most appropriate code\n* By a machine (typically in a system interface performing a transformation). In this mode, the server returns only a list of complete and partial matches, but no possible matches. The machine can choose a code from the list (or not) based on what properties are not coded\n\nThe compose operation is still preliminary. The interface can be expected to change as more experience is gained from implementations.
+  Type = operation
+  Example.Request = $compose-request.txt
+  Example.Response = $compose-response.txt
+  Title = Code Composition based on supplied properties
+
+ -- Row 32 -----------------------------------
+  Name = compose.system
+  Use = in
+  Documentation = The system in which composition is to be performed. This must be provided unless the operation is invoked on a code system instance
+  Type = uri
+  Min = 0
+  Max = 1
+
+ -- Row 33 -----------------------------------
+  Name = compose.version
+  Use = in
+  Documentation = The version of the system for the inferencing to be performed
+  Type = string
+  Min = 0
+  Max = 1
+
+ -- Row 34 -----------------------------------
+  Name = compose.property
+  Use = in
+  Documentation = One or more properties that contain information to be composed into the code
+  Type = Tuple
+  Min = 0
+  Max = *
+
+ -- Row 35 -----------------------------------
+  Name = compose.property.code
+  Documentation = Identifies the property provided
+  Type = code
+  Min = 1
+  Max = 1
+
+ -- Row 36 -----------------------------------
+  Name = compose.property.value
+  Documentation = The value of the property provided
+  Type = code | Coding | string | integer | boolean | dateTime
+  Min = 1
+  Max = 1
+
+ -- Row 37 -----------------------------------
+  Name = compose.property.subproperty
+  Documentation = Nested Properties (mainly used for SNOMED CT composition, for relationship Groups)
+  Type = Tuple
+  Min = 0
+  Max = *
+
+ -- Row 38 -----------------------------------
+  Name = compose.property.subproperty.code
+  Documentation = Identifies the sub-property provided
+  Type = code
+  Min = 1
+  Max = 1
+
+ -- Row 39 -----------------------------------
+  Name = compose.property.subproperty.value
+  Documentation = The value of the sub-property provided
+  Type = code | Coding | string | integer | boolean | dateTime
+  Min = 1
+  Max = 1
+
+ -- Row 40 -----------------------------------
+  Name = compose.mode
+  Use = in
+  Documentation = Whether the operation is being used by a human, or a machine. If the operation is being used by a human, the terminology server can return a list of possible matches, with commentary. For a machine, the server returns sure matches, or none at all
+  Type = code
+  Min = 1
+  Max = 1
+
+ -- Row 41 -----------------------------------
+  Name = compose.compositional
+  Use = in
+  Documentation = Post-coordinated expressions are allowed to be returned in the matching codes (mainly for SNOMED CT). Default = false
+  Type = boolean
+  Min = 0
+  Max = 1
+
+ -- Row 42 -----------------------------------
+  Name = compose.match
+  Use = out
+  Documentation = Concepts returned by the server as a result of the inferencing operation
+  Type = Tuple
+  Min = 0
+  Max = *
+
+ -- Row 43 -----------------------------------
+  Name = compose.match.code
+  Documentation = A code that matches the properties provided
+  Type = Coding
+  Min = 1
+  Max = 1
+
+ -- Row 44 -----------------------------------
+  Name = compose.match.unmatched
+  Documentation = One or more properties that contain properties that could not be matched into the code
+  Type = Tuple
+  Min = 1
+  Max = 1
+
+ -- Row 45 -----------------------------------
+  Name = compose.match.unmatched.code
+  Documentation = Identifies the property provided
+  Type = code
+  Min = 1
+  Max = 1
+
+ -- Row 46 -----------------------------------
+  Name = compose.match.unmatched.value
+  Documentation = The value of the property provided
+  Type = code | Coding | string | integer | boolean | dateTime
+  Min = 1
+  Max = 1
+
+ -- Row 47 -----------------------------------
+  Name = compose.match.unmatched.property
+  Documentation = Nested Properties (mainly used for SNOMED CT composition, for relationship Groups)
+  Type = Tuple
+  Min = 0
+  Max = *
+
+ -- Row 48 -----------------------------------
+  Name = compose.match.unmatched.property.code
+  Documentation = Identifies the sub-property provided
+  Type = code
+  Min = 1
+  Max = 1
+
+ -- Row 49 -----------------------------------
+  Name = compose.match.unmatched.property.value
+  Documentation = The value of the sub-property provided
+  Type = code | Coding | string | integer | boolean | dateTime
+  Min = 1
+  Max = 1
+
+ -- Row 50 -----------------------------------
+  Name = compose.match.comment
+  Documentation = Information about the quality of the match, if operation is for a human
+  Type = string
+  Min = 0
+  Max = 1
