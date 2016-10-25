@@ -74,14 +74,15 @@ public class JsonLDGenerator  {
 
 		JsonObject schema = new JsonObject();
 		JsonObject context = new JsonObject();
-  	schema.add("@context", context);
+    schema.add("@context", context);
+    schema.addProperty("@id", "http://hl7.org/fhir/"+root.getName());
     
-//		scanTypes(root, root);
+		scanTypes(root, root);
 		
 		generateType(root, root.getName(), root, true, context);
-		for (ElementDefn e : structures) {
-			generateType(root, types.get(e), e, false, context);
-		}
+//		for (ElementDefn e : structures) {
+//			generateType(root, types.get(e), e, false, context);
+//		}
 
 		return schema;
 	}
@@ -123,12 +124,12 @@ public class JsonLDGenerator  {
 //      required.add("resourceType");
 //    }
 //    
-//		for (ElementDefn e : struc.getElements()) {
+		for (ElementDefn e : struc.getElements()) {
 //			if (e.getName().equals("[type]"))
 //				generateAny(root, e, "", props, relative);
 //			else 
-//				generateElement(root, e, required, props, relative);
-//		}
+				generateElement(root, name, e, base);
+		}
 //		if (required.size() > 0) {
 //		  JsonArray req = new JsonArray();
 //		  self.add("required", req);
@@ -170,8 +171,8 @@ public class JsonLDGenerator  {
 //		}
 	}
 
-	private void generateElement(ElementDefn root, ElementDefn e, Set<String> required, JsonObject props, boolean relative) throws Exception {
-//		if (e.getTypes().size() > 1 || (e.getTypes().size() == 1 && e.getTypes().get(0).isWildcardType())) {
+	private void generateElement(ElementDefn root, String name, ElementDefn e, JsonObject base) throws Exception {
+		if (e.getTypes().size() > 1 || (e.getTypes().size() == 1 && e.getTypes().get(0).isWildcardType())) {
 //			if (!e.getName().contains("[x]"))
 //				throw new Exception("Element "+e.getName()+" in "+root.getName()+" has multiple types as a choice doesn't have a [x] in the element name");
 //			if (e.getTypes().size() == 1)
@@ -206,10 +207,11 @@ public class JsonLDGenerator  {
 //					}
 //				}
 //			}
-//		} else {
-//			JsonObject property = new JsonObject();
-//			JsonObject property_ = null;
-//			props.add(e.getName(), property);
+		} else {
+			JsonObject property = new JsonObject();
+			base.add(name+"."+e.getName(), property);
+      property.addProperty("@id", "http://hl7.org/fhir/"+e.getPath());
+      property.addProperty("@type", "http://hl7.org/fhir/"+e.typeCode());
 //			property.addProperty("description", e.getDefinition());
 //			String tref = null;
 //			String type = null;
@@ -293,8 +295,8 @@ public class JsonLDGenerator  {
 //			}
 //			if (e.getMinCardinality() > 0 && property_ == null)
 //			  required.add(e.getName());
-//		}
-//	}
+		}
+	}
 //
 //	private CharSequence nameForType(String type) {
 //	  if (definitions.getConstraints().containsKey(type))
@@ -302,28 +304,28 @@ public class JsonLDGenerator  {
 //    else 
 //      return Utilities.capitalize(type);
 //	 }
-//
-//  private void scanTypes(ElementDefn root, ElementDefn focus) {
-//	  for (ElementDefn e : focus.getElements()) {
-//	    if (e.getTypes().size() == 0 && e.getElements().size() > 0) {
-//        int i = 0;
-//        String tn = root.getName()+"."+upFirst(e.getName())+ (i == 0 ? "" : Integer.toString(i));
-//        while (typenames.contains(tn)) {
-//          i++;
-//          tn = root.getName()+"."+upFirst(e.getName())+ (i == 0 ? "" : Integer.toString(i));
-//        }
-//        structures.add(e);
-//        typenames.add(tn);
-//        types.put(e, tn);
-//        scanTypes(root, e);
-//	    }
-//	  }
+
+  private void scanTypes(ElementDefn root, ElementDefn focus) {
+	  for (ElementDefn e : focus.getElements()) {
+	    if (e.getTypes().size() == 0 && e.getElements().size() > 0) {
+        int i = 0;
+        String tn = root.getName()+"."+upFirst(e.getName())+ (i == 0 ? "" : Integer.toString(i));
+        while (typenames.contains(tn)) {
+          i++;
+          tn = root.getName()+"."+upFirst(e.getName())+ (i == 0 ? "" : Integer.toString(i));
+        }
+        structures.add(e);
+        typenames.add(tn);
+        types.put(e, tn);
+        scanTypes(root, e);
+	    }
+	  }
 	}
 
-//	private String upFirst(String name) {
-//		return name.toUpperCase().charAt(0)+name.substring(1);
-//	}
-//
+	private String upFirst(String name) {
+		return name.toUpperCase().charAt(0)+name.substring(1);
+	}
+
 //	private String encodeType(ElementDefn e, TypeRef type, boolean params) throws Exception {
 //		if (type.isResourceReference())
 //			return "Reference";
