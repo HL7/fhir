@@ -184,7 +184,7 @@
   Element = MedicationOrder.definition
   Card. = 0..*
   Summary = y
-  Type = Reference(Definition)
+  Type = Reference(Any)
   Short Name = Protocol or definition
   Definition = Protocol or definition followed by this request
 
@@ -192,7 +192,7 @@
   Element = MedicationOrder.basedOn
   Card. = 0..*
   Summary = y
-  Type = Reference(Request)
+  Type = Reference(Any)
   Short Name = What request fulfills
   Definition = Plan/proposal/order fulfilled by this request
 
