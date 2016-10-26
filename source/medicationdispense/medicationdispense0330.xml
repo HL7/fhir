@@ -30,7 +30,7 @@
         <display value="Rob van den Berk"/>
     </dispenser>
     <authorizingPrescription>
-        <reference value="MedicationOrder/medrx0331"/>
+        <reference value="MedicationRequest/medrx0331"/>
     </authorizingPrescription>
     <type>
         <coding>

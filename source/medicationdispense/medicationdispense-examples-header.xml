@@ -23,7 +23,7 @@
         <li><a href="medicationdispense0321.html">Dispense for Vicodin - in progress - PRN with pre-condition</a></li>
     </ul>
     <p>INJECTABLE DOSAGE FORMS</p>
-    <p>The following examples of MedicationOrder resources for Injectable Dosage Forms that reference a Medication Resource for a manufactured product:
+    <p>The following examples of MedicationDispense resources for Injectable Dosage Forms that reference a Medication Resource for a manufactured product:
     </p>
     <ul>
         <li><a href="medicationdispense0301.html">Dispense for IV Antibiotic - in progress - Vancomycin IV (NDC Code) - in-progress</a></li>

@@ -261,7 +261,7 @@
   Card. = 0..1
   Type = Reference(Patient | Practitioner | RelatedPerson |Organization)
   Short Name = Person or organization that provided the information about the taking of this medication
-  Definition = The person or organization that provided the information about the taking of this medication. Note: Use derivedFrom when a MedicationStatement is derived from other resources, e.g Claim or MedicationOrder.
+  Definition = The person or organization that provided the information about the taking of this medication. Note: Use derivedFrom when a MedicationStatement is derived from other resources, e.g Claim or MedicationRequest.
   RIM Mapping = .participation[typeCode=INF].role[classCode=PAT, or  codes for Practioner or Related Person (if PAT is the informer, then syntax for self-reported =true)
   w5 = who.source
 
@@ -270,8 +270,8 @@
   Card. = 0..*
   Type = Reference(Any)
   Short Name = Additional supporting information
-  Definition = Allows linking the MedicationStatement to the underlying MedicationOrder, or to other information that supports or is used to derive the MedicationStatement.
-  Comments = Likely references would be to MedicationOrder, MedicationDispense, Claim, Observation or QuestionnaireAnswers.
+  Definition = Allows linking the MedicationStatement to the underlying MedicationRequest, or to other information that supports or is used to derive the MedicationStatement.
+  Comments = Likely references would be to MedicationRequest, MedicationDispense, Claim, Observation or QuestionnaireAnswers.
   RIM Mapping = .outboundRelationship[typeCode=SPRT]/target[classCode=ACT,moodCode=EVN]
 
  -- Row 9 -----------------------------------

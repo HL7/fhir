@@ -78,7 +78,7 @@
   </contained>
   <!-- The sliding scale of steroids -->
   <contained>
-    <MedicationOrder>
+    <MedicationRequest>
       <id value="rx1"/>
       <text>
         <status value="generated"/>
@@ -169,7 +169,7 @@
           <value value="1"/>
         </doseQuantity>
       </dosageInstruction>
-    </MedicationOrder>
+    </MedicationRequest>
   </contained>
   <contained>
     <Goal>

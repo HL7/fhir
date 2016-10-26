@@ -54,7 +54,7 @@
     <display value="Patrick Pump"/>
   </performer>
   <prescription>
-    <reference value="MedicationOrder/medrx0316"/>
+    <reference value="MedicationRequest/medrx0316"/>
   </prescription>
   <dosage>
     <text value="1.8 mg/kg IV infusion over 30 minutes" />

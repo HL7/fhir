@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MedicationRequest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationrequest.xsd"
+ xmlns="http://hl7.org/fhir">
+    <id value="medrx0330"/>
+    <contained>
+      <Medication>
+          <id value="med0305"/>
+          <code>
+              <coding>
+                  <system value="http://hl7.org/fhir/sid/ndc"/>
+                  <code value="2501-813-16"/>
+                  <display value="Timoptic 5mg/ml solution"/>
+              </coding>
+          </code>
+      </Medication>
+  </contained>
+    <identifier>
+        <use value="official"/>
+        <system value="http://www.bmc.nl/portal/prescriptions"/>
+        <value value="12345689"/>
+    </identifier>
+    <status value="active"/>
+    <stage>
+        <coding>
+            <code value="original-order"/>
+        </coding>
+    </stage>
+    <medicationReference> <!-- Linked to a RESOURCE Medication -->
+           <reference value="#med0305"/>
+    </medicationReference> 
+    <patient> <!-- Linked to the resource patient who needs the medication -->
+        <reference value="Patient/pat1"/>
+        <display value="Donald Duck"/>        
+    </patient>
+    <encounter> <!-- Linked to a resource Encounter between patient and practitioner-->
+        <reference value="Encounter/f002"/>
+        <display value="encounter who leads to this prescription"/>
+    </encounter>
+    <dateWritten value="2015-01-15"/>
+    <prescriber> <!-- Linked to the practitioner who treats patient -->
+        <reference value="Practitioner/f007"/>
+        <display value="Patrick Pump"/>
+    </prescriber>
+    <dosageInstruction>
+        <sequence value="1"/>
+        <text value="Instil one drop in each eye twice daily" />
+        <timing>
+            <repeat>
+                <frequency value="2"/>
+                <period value="1"/>
+                <periodUnit value="d"/>
+            </repeat>
+        </timing>
+        <route>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="54485002"/>
+                <display value="Ophthalmic route (qualifier value)"/>
+            </coding>
+        </route>
+        <method>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="421538008"/>
+                <display value="Instill - dosing instruction imperative (qualifier value)"/>
+            </coding>
+        </method>
+        <doseQuantity>
+            <value value="1"/>
+            <unit value="OPDROP"/>
+            <system value="http://hl7.org/fhir/ValueSet/v3-orderableDrugForm"/>
+            <code value="OPDROP"/> 
+        </doseQuantity>
+    </dosageInstruction>
+    <dispenseRequest>
+        <validityPeriod>
+            <start value="2015-01-15"/>
+            <end value="2016-01-15"/>
+        </validityPeriod>
+        <numberOfRepeatsAllowed value="1"></numberOfRepeatsAllowed>
+        <quantity>
+            <value value="10"/>
+            <unit value="mL"/>
+            <system value="http://unitsofmeasure.org"/>
+            <code value="mL"/> 
+        </quantity>
+        <expectedSupplyDuration>
+            <value value="30"></value>
+            <unit value="days"/>
+            <system value="http://unitsofmeasure.org"/>
+            <code value="d"/> 
+        </expectedSupplyDuration>
+    </dispenseRequest>   
+    <substitution>
+        <allowed value="false"></allowed>
+        <reason>
+            <coding>
+                <system value="http://hl7.org/fhir"/>
+                <code value="FP"/>
+                <display value="formulary policy"/>             
+            </coding>
+        </reason>
+    </substitution>
+</MedicationRequest>

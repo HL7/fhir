@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MedicationRequest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationrequest.xsd"
+ xmlns="http://hl7.org/fhir">
+    <id value="medrx0309"/>
+    <contained>
+        <Medication>
+            <id value="med0321"/>
+            <code>
+                <coding>
+                    <system value="http://snomed.info/sct"/>
+                    <code value="108761006"/>
+                    <display value="Capecitabine (product)"/>
+                </coding>
+            </code>
+        </Medication>
+    </contained>
+    <identifier>
+        <use value="official"/>
+        <system value="http://www.bmc.nl/portal/prescriptions"/>
+        <value value="12345689"/>
+    </identifier>
+    <status value="active"/>
+    <stage>
+        <coding>
+            <code value="original-order"/>
+        </coding>
+    </stage>
+    <medicationReference>
+        <reference value="#med0321"/>
+    </medicationReference>
+    <patient> <!-- Linked to the resource patient who needs the medication -->
+        <reference value="Patient/pat1"/>
+        <display value="Donald Duck"/>        
+    </patient>
+    <encounter> <!-- Linked to a resource Encounter between patient and practitioner-->
+        <reference value="Encounter/f001"/>
+        <display value="encounter who leads to this prescription"/>
+    </encounter>
+    <dateWritten value="2015-01-15"/>
+    <prescriber> <!-- Linked to the practitioner who treats patient -->
+        <reference value="Practitioner/f007"/>
+        <display value="Patrick Pump"/>
+    </prescriber>
+    <dosageInstruction>
+        <sequence value="1"/>
+        <text value="1000 mg/m2 orally twice daily from days 1-14 of cycle" />
+        <timing>
+            <repeat>
+                <boundsPeriod>
+                    <start value="2016-01-22"></start>
+                    <end value="2016-02-04"></end>
+                </boundsPeriod>
+                <frequency value="1"/>
+                <period value="2"/>
+                <periodUnit value="d"/>
+            </repeat>
+        </timing>
+        <route>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="26643006"/>
+                <display value="Oral Route"/>
+            </coding>
+        </route>
+        <doseQuantity>
+            <value value="1000"/>
+            <unit value="mg/m2"/>
+            <system value="http://unitsofmeasure.org"/>
+            <code value="mg/m2"/> 
+        </doseQuantity>
+    </dosageInstruction>
+</MedicationRequest>

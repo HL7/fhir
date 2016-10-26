@@ -255,7 +255,7 @@ signatures.html
 
     <page title="Medications" filename="medications-module.html" icon="medication.png">
       <page type="resource" resource="Medication"/>
-      <page type="resource" resource="MedicationOrder"/>
+      <page type="resource" resource="MedicationRequest"/>
       <page type="resource" resource="MedicationAdministration"/>
       <page type="resource" resource="MedicationDispense"/>
       <page type="resource" resource="MedicationStatement"/>

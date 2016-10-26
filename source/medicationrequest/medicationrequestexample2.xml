@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This example is an example of text only dosage instruction  -->
+<MedicationRequest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationrequest.xsd"
+ xmlns="http://hl7.org/fhir">
+	<id value="medrx002"/>
+	<identifier>
+		<use value="official"/>
+		<system value="http://www.bmc.nl/portal/prescriptions"/>
+		<value value="12345"/>
+	</identifier>
+	<status value="active"/>
+	<stage>
+		<coding>
+			<code value="original-order"/>
+		</coding>
+	</stage>
+	<medicationReference>
+		<!-- Linked to a RESOURCE Medication -->
+		<reference value="Medication/med0316"/>
+		<display value="prescribed medication"/>
+	</medicationReference>
+	<patient>
+		<!-- Linked to the resource patient who needs the medication -->
+		<reference value="Patient/pat1"/>
+		<display value="Donald Duck"/>   
+	</patient>
+	<encounter>
+		<!-- Linked to a resource Encounter between patient and practitioner-->
+		<reference value="Encounter/f001"/>
+		<display value="encounter that leads to this prescription"/>
+	</encounter>
+	<dateWritten value="2015-03-01"/>
+	<prescriber>
+		<!-- Linked to the practitioner who treats patient -->
+		<reference value="Practitioner/f007"/>
+		<display value="Patricia Primary"/>
+	</prescriber>	
+	<reasonCode>
+		<coding>
+			<system value="http://snomed.info/sct"/>
+			<code value="59621000"/>
+			<display value="Essential hypertension (disorder)"/>
+		</coding>
+	</reasonCode>
+	<dosageInstruction>
+		<sequence value="1"/>
+		<text value="Take one tablet daily as directed"/>
+	</dosageInstruction>
+</MedicationRequest>

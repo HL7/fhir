@@ -1204,7 +1204,7 @@ is searching on a clinical resource, but for every such resource returned, the c
 the subject (patient) resource that the clinical resource refers to. The client can use the 
 <code>_include</code> parameter to indicate that the subject resources be included in the results. 
 An alternative scenario is where the client wishes to fetch a particular resource, and any resources 
-that refer to it. For example, the client may wish to fetch a MedicationOrder, and any provenance 
+that refer to it. For example, the client may wish to fetch a MedicationRequest, and any provenance 
 resources that refer to the prescription. This is known as a reverse include, and is specified by 
 providing a <code>_revinclude</code> parameter.
 </p>
@@ -1217,11 +1217,11 @@ search parameter.
 Each <code>_include</code> parameter specifies a search parameter to join on:
 </p>
 <pre>
- GET [base]/MedicationOrder?_include=MedicationOrder:patient&amp;criteria...
- GET [base]/MedicationOrder?_revinclude=Provenance:target&amp;criteria...
+ GET [base]/MedicationRequest?_include=MedicationRequest:patient&amp;criteria...
+ GET [base]/MedicationRequest?_revinclude=Provenance:target&amp;criteria...
 </pre>
 <p>
-The first search requests all matching MedicationOrders, to include 
+The first search requests all matching MedicationRequests, to include 
 any patient that the medication prescriptions in the result set refer to. 
 The second search requests all matching prescriptions, return all 
 the provenance resources that refer to them. 
@@ -1247,13 +1247,13 @@ matches, and which are includes).
 </p>
 <p>
 The inclusion process can be recursive, if the modifier <code>:recurse</code> is included. 
-  For example, this search returns all <a href="medicationorder.html">Medication
-Prescription</a> resources and their <a href="practitioner.html">prescribing Practitioner</a> Resources
+  For example, this search returns all <a href="medicationrequest.html">Medication
+Request</a> resources and their <a href="practitioner.html">prescribing Practitioner</a> Resources
 for the matching <a href="medicationdispense.html">Medication Dispense</a> resources:
 </p>
 <pre>
 GET [base]/MedicationDispense?_include=MedicationDispense:authorizingPrescription
-    &amp;_include:recurse=MedicationOrder:prescriber&amp;criteria...
+    &amp;_include:recurse=MedicationRequest:prescriber&amp;criteria...
 </pre>
 <p>
 This technique applies to circular relationships as well. For example, 
@@ -1298,15 +1298,15 @@ alone as a coherent package.
 <p>
 By default, search results only include resources that are not contained in other resources. 
 A chained condition will be evaluated inside contained resources. To illustrate this, consider
-a MedicationOrder resource that has a contained Medication resource specifying 
+a MedicationRequest resource that has a contained Medication resource specifying 
 a custom formulation that has ingredient with a <code>itemCodeableConcept</code> "abc" in "htp://acme.com./medications". 
 In this case, a search:
 </p>
 <pre>
-GET MedicationOrder?medication.ingredient-code=abc
+GET MedicationRequest?medication.ingredient-code=abc
 </pre>
 <p>
-  will include the MedicationOrder resource in the results. However, this search:
+  will include the MedicationRequest resource in the results. However, this search:
 </p>
 <pre>
 GET Medication?ingredient-code=abc
@@ -1344,7 +1344,7 @@ search results:
   ...
   &lt;entry&gt;
     &lt;resource&gt;
-      &lt;MedicationOrder&gt;
+      &lt;MedicationRequest&gt;
         &lt;id value=&quot;23&quot;&gt;
         ....
         &lt;contained&gt;
@@ -1354,7 +1354,7 @@ search results:
           &lt;/Medication&gt;
         &lt;contained&gt;
 
-      &lt;/MedicationOrder&gt;
+      &lt;/MedicationRequest&gt;
     &lt;/resource&gt;
     &lt;search&gt;
       &lt;mode value=&quot;match&quot;/&gt;
@@ -1375,7 +1375,7 @@ differently:
 &lt;Bundle&gt;
   ...
   &lt;entry&gt;
-    &lt;fullUrl value=&quot;http://example.com/fhir/MedicationOrder/23#m1&quot;/&gt;
+    &lt;fullUrl value=&quot;http://example.com/fhir/MedicationRequest/23#m1&quot;/&gt;
     &lt;resource&gt;
       &lt;Medication&gt;
         &lt;id value=&quot;m1&quot;&gt;

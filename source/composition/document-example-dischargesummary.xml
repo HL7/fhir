@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <Bundle xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://hl7.org/fhir ../../schema/bundle.xsd http://hl7.org/fhir ../../schema/medicationorder.xsd"
+ xsi:schemaLocation="http://hl7.org/fhir ../../schema/bundle.xsd http://hl7.org/fhir ../../schema/medicationrequest.xsd"
  xmlns="http://hl7.org/fhir">
 
   <id value="father"/>
@@ -145,7 +145,7 @@
             </div>
           </text>
           <mode value="working"/>
-          <!--   This is an entry that refers to a MedicationOrder resource in this document.
+          <!--   This is an entry that refers to a MedicationRequest resource in this document.
                 It is a new medication (as indicated by the flag)  -->
           <entry>
             <reference value="urn:uuid:124a6916-5d84-4b8c-b250-10cefb8e6e86"/>
@@ -356,7 +356,7 @@
   <entry>
     <fullUrl value="urn:uuid:124a6916-5d84-4b8c-b250-10cefb8e6e86"/>
     <resource>
-      <MedicationOrder>
+      <MedicationRequest>
         <meta>
           <lastUpdated value="2013-05-05T16:13:03Z"/>
         </meta>
@@ -424,7 +424,7 @@
             <code value="tbl"/>
           </doseQuantity>
         </dosageInstruction>
-      </MedicationOrder>
+      </MedicationRequest>
     </resource>
   </entry>
 <!--   The second medication in the medications list   -->

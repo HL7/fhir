@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MedicationRequest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationrequest.xsd"
+ xmlns="http://hl7.org/fhir">
+    <id value="medrx0324"/>
+    <identifier>
+        <use value="official"/>
+        <system value="http://www.bmc.nl/portal/prescriptions"/>
+        <value value="12345689"/>
+    </identifier>
+    <status value="completed"/>
+    <stage>
+        <coding>
+            <code value="original-order"/>
+        </coding>
+    </stage>
+    <medicationCodeableConcept>
+        <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="322254008"/>
+        <display value="Paracetamol 240mg suppository (product)"/>
+        </coding>
+    </medicationCodeableConcept>
+    <patient>
+        <!-- Linked to the resource patient who needs the medication -->
+        <reference value="Patient/pat1"/>
+        <display value="Donald Duck"/> 
+    </patient>
+    <dateWritten value="2015-01-15"/>
+    <prescriber>
+        <!-- Linked to the practitioner who treats patient -->
+        <reference value="Practitioner/f007"/>
+        <display value="Patrick Pump"/>
+    </prescriber>
+    <reasonCode>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="30242009"/>
+            <display value="Scarlet Fever (disorder)"/>
+        </coding>
+    </reasonCode>
+    <dosageInstruction>
+        <sequence value="1"/>
+        <text value="Insert one suppository rectally twice daily as needed for fever to a maximim of 3 per day"/>
+        <additionalInstructions>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="418637003"/>
+                <display value="Do not take with any other paracetamol products (qualifier value)"/>
+            </coding>
+        </additionalInstructions>
+        <timing>
+            <repeat>
+                <frequency value="2"/>
+                <period value="1"/>
+                <periodUnit value="d"/>
+            </repeat>
+        </timing>
+    <asNeededCodeableConcept>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="386661006"/>
+            <display value="Fever (finding)"/>
+        </coding>
+    </asNeededCodeableConcept>
+        <doseQuantity>
+            <value value="240"/>
+            <unit value="mg"/>
+            <system value="http://unitsofmeasure.org"/>
+            <code value="mg"/>
+        </doseQuantity>
+        <maxDosePerPeriod>
+            <numerator>
+                <value value="720"/>
+                <system value="http://unitsofmeasure.org"/>
+                <code value="mg"/>
+            </numerator>
+            <denominator>
+                <value value="1"/>
+                <system value="http://unitsofmeasure.org"></system>
+                <code value="d"></code>
+            </denominator>
+        </maxDosePerPeriod>
+    </dosageInstruction>
+    <dispenseRequest>
+        <validityPeriod>
+            <start value="2015-01-15"/>
+            <end value="2016-01-15"/>
+        </validityPeriod>
+        <numberOfRepeatsAllowed value="3"></numberOfRepeatsAllowed>
+        <quantity>
+            <value value="30"/>
+            <unit value="RECSUPP"/>
+            <system value="http://hl7.org/fhir/ValueSet/v3-orderableDrugForm"/>
+            <code value="RECSUPP"/> 
+        </quantity>
+        <expectedSupplyDuration>
+            <value value="10"></value>
+            <unit value="days"/>
+            <system value="http://unitsofmeasure.org"/>
+            <code value="d"/> 
+        </expectedSupplyDuration>
+    </dispenseRequest>   
+    <substitution>
+        <allowed value="true"></allowed>
+        <reason>
+            <coding>
+                <system value="http://hl7.org/fhir"/>
+                <code value="FP"/>
+                <display value="formulary policy"/>             
+            </coding>
+        </reason>
+    </substitution>
+</MedicationRequest>

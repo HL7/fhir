@@ -6,19 +6,19 @@
  xmlns:html="http://www.w3.org/TR/REC-html40">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>Claude Nanjo</LastAuthor>
+  <LastAuthor>Melva Peters</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2015-02-24T09:00:53Z</LastSaved>
-  <Version>14.0</Version>
+  <LastSaved>2016-10-25T20:31:00Z</LastSaved>
+  <Version>15.0</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>7420</WindowHeight>
-  <WindowWidth>28020</WindowWidth>
+  <WindowHeight>16680</WindowHeight>
+  <WindowWidth>28800</WindowWidth>
   <WindowTopX>0</WindowTopX>
-  <WindowTopY>0</WindowTopY>
+  <WindowTopY>460</WindowTopY>
   <TabRatio>677</TabRatio>
   <ActiveSheet>4</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
@@ -806,6 +806,8 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Print>
+   </Print>
    <PageLayoutZoom>0</PageLayoutZoom>
    <TopRowVisible>1</TopRowVisible>
    <Panes>
@@ -3867,7 +3869,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><Data ss:Type="String">Resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><Data ss:Type="String">MedicationOrder.dosageInstruction;MedicationDispense.dosageInstruction</Data><NamedCell
+    <Cell ss:StyleID="s93"><Data ss:Type="String">MedicationRequest.dosageInstruction;MedicationDispense.dosageInstruction</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><Data ss:Type="String">doseType</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -3900,7 +3902,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><Data ss:Type="String">Resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><Data ss:Type="String">MedicationOrder.dosageInstruction;MedicationDispense.dosageInstruction</Data><NamedCell
+    <Cell ss:StyleID="s93"><Data ss:Type="String">MedicationRequest.dosageInstruction;MedicationDispense.dosageInstruction</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><Data ss:Type="String">infuseOver</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -3933,7 +3935,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><Data ss:Type="String">Resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><Data ss:Type="String">MedicationOrder.dosageInstruction;MedicationDispense.dosageInstruction</Data><NamedCell
+    <Cell ss:StyleID="s93"><Data ss:Type="String">MedicationRequest.dosageInstruction;MedicationDispense.dosageInstruction</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><Data ss:Type="String">rateIncrement</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -3966,7 +3968,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><Data ss:Type="String">Resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><Data ss:Type="String">MedicationOrder.dosageInstruction;MedicationDispense.dosageInstruction</Data><NamedCell
+    <Cell ss:StyleID="s93"><Data ss:Type="String">MedicationRequest.dosageInstruction;MedicationDispense.dosageInstruction</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><Data ss:Type="String">rateIncrementInterval</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -3999,7 +4001,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><Data ss:Type="String">Resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><Data ss:Type="String">MedicationOrder.dosageInstruction;MedicationDispense.dosageInstruction</Data><NamedCell
+    <Cell ss:StyleID="s93"><Data ss:Type="String">MedicationRequest.dosageInstruction;MedicationDispense.dosageInstruction</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><Data ss:Type="String">rateGoal</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -4032,7 +4034,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><Data ss:Type="String">Resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><Data ss:Type="String">MedicationOrder.dosageInstruction;MedicationDispense.dosageInstruction</Data><NamedCell
+    <Cell ss:StyleID="s93"><Data ss:Type="String">MedicationRequest.dosageInstruction;MedicationDispense.dosageInstruction</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><Data ss:Type="String">minDosePerPeriod</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -4065,7 +4067,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><Data ss:Type="String">Resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><Data ss:Type="String">MedicationOrder.dosageInstruction;MedicationDispense.dosageInstruction</Data><NamedCell
+    <Cell ss:StyleID="s93"><Data ss:Type="String">MedicationRequest.dosageInstruction;MedicationDispense.dosageInstruction</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><Data ss:Type="String">maxDeliveryRate</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -4098,7 +4100,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><Data ss:Type="String">Resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><Data ss:Type="String">MedicationOrder.dosageInstruction;MedicationDispense.dosageInstruction</Data><NamedCell
+    <Cell ss:StyleID="s93"><Data ss:Type="String">MedicationRequest.dosageInstruction;MedicationDispense.dosageInstruction</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><Data ss:Type="String">maxDeliveryVolume</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -4131,7 +4133,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><Data ss:Type="String">Resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><Data ss:Type="String">MedicationOrder.dosageInstruction;MedicationDispense.dosageInstruction</Data><NamedCell
+    <Cell ss:StyleID="s93"><Data ss:Type="String">MedicationRequest.dosageInstruction;MedicationDispense.dosageInstruction</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><Data ss:Type="String">specialDosing</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -4164,7 +4166,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><Data ss:Type="String">Resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><Data ss:Type="String">MedicationDispense;MedicationOrder.dispenseRequest</Data><NamedCell
+    <Cell ss:StyleID="s93"><Data ss:Type="String">MedicationDispense;MedicationRequest.dispenseRequest</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><Data ss:Type="String">refillsRemaining</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -4853,7 +4855,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>7</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -4866,9 +4868,11 @@
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
+     <ActiveRow>8</ActiveRow>
      <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
@@ -5751,6 +5755,8 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Print>
+   </Print>
    <PageLayoutZoom>0</PageLayoutZoom>
    <FreezePanes/>
    <FrozenNoSplit/>
@@ -6959,6 +6965,8 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Print>
+   </Print>
    <PageLayoutZoom>0</PageLayoutZoom>
    <FreezePanes/>
    <FrozenNoSplit/>

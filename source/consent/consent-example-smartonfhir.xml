@@ -60,7 +60,7 @@
 
   <!-- each scope that relates to FHIR resource access is represented as an exception -->
   <except>  
-    <!-- this except corresponds to MedicationOrder/read -->
+    <!-- this except corresponds to MedicationRequest/read -->
     <type value="permit"/>
     <!-- no actors here, or anything, just read/write and the resource type -->
     <action> 
@@ -71,7 +71,7 @@
     </action>
     <class>
       <system value="http://hl7.org/fhir/resource-types"/>
-      <code value="MedicationOrder"/>
+      <code value="MedicationRequest"/>
     </class>
   </except>
 </Consent>

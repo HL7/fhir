@@ -398,7 +398,7 @@
  -- Row 25 -----------------------------------
   Element = !Procedure.relatedItem.target
   Card. = 0..1
-  Type = Reference(AllergyIntolerance | CarePlan | Condition | DiagnosticReport | FamilyMemberHistory | ImagingStudy | Immunization | ImmunizationRecommendation | MedicationAdministration | MedicationDispense | MedicationOrder | MedicationStatement | Observation | Procedure)
+  Type = Reference(AllergyIntolerance | CarePlan | Condition | DiagnosticReport | FamilyMemberHistory | ImagingStudy | Immunization | ImmunizationRecommendation | MedicationAdministration | MedicationDispense | MedicationRequest | MedicationStatement | Observation | Procedure)
   Short Name = The related item - e.g. a procedure
   RIM Mapping = .target
 

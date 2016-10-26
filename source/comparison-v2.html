@@ -57,9 +57,9 @@ The HL7 v2 approach to granularity emphasizes re-use of "patterns" of informatio
 route information are not useful on their own, but they are useful in many circumstances.  Due to the 
 3-level nesting limit, separate segments are also required for data structures that would otherwise nest 
 too deeply.  FHIR takes a different approach to reusability, focusing on objects that can be maintained 
-independently.  The <a href="medicationorder.html">MedicationOrder</a> resource encompasses 
+independently.  The <a href="medicationrequest.html">MedicationRequest</a> resource encompasses 
 all of the aspects of the above segments, with the exception of some of the workflow aspects of ORC which 
-is handled by the <a href="task.html">Task</a> resource.  The <a href="medicationorder.html">MedicationOrder</a> 
+is handled by the <a href="task.html">Task</a> resource.  The <a href="medicationrequest.html">MedicationRequest</a> 
 resource is itself complex, having nested structures for dosage instructions, dispensing instructions, etc. 
 that are not simple data types.
 </p>

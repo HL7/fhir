@@ -202,7 +202,7 @@
   Type = Reference(Condition |Observation)
   Short Name = Condition or Observation that supports why the medication was administered
   Definition = Condition or observation that supports why the medication was administered
-  Comments = This is a reference to a condition that is the reason for the medication order.  If only a code exists, use reasonCode.
+  Comments = This is a reference to a condition that is the reason for the medication request.  If only a code exists, use reasonCode.
   RIM Mapping = reason.observation[code=ASSERTION].value
   Prov Mapping = no mapping
   w5 = why
@@ -232,8 +232,8 @@
  -- Row 11 -----------------------------------
   Element = MedicationAdministration.prescription
   Card. = 0..1
-  Type = Reference(MedicationOrder)
-  Short Name = Order administration performed against
+  Type = Reference(MedicationRequest)
+  Short Name = Request administration performed against
   Definition = The original request, instruction or authority to perform the administration.
   v2 Mapping = ORC-2-Placer Order Number / ORC-3-Filler Order Number
   RIM Mapping = InFullfillmentOf->SubstanceAdministration

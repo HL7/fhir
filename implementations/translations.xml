@@ -403,8 +403,8 @@
         <translation lang="es">DispensaciónMedicación</translation>
         <translation lang="fr">DispensationMédicaments</translation>
     </item>
-    <item id="MedicationOrder">
-        <translation lang="en">MedicationOrder</translation>
+    <item id="MedicationRequest">
+        <translation lang="en">MedicationRequest</translation>
         <translation lang="zh">药方TODO</translation>
         <translation lang="es">PrescripciónMedicaciónTODO</translation>
         <translation lang="fr">PrescriptionMédicamenteuseTODO</translation>

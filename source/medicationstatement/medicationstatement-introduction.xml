@@ -12,7 +12,7 @@ Common usage includes:
  <li>the summarization of a patient's "active medications" in a patient profile</li>
 </ul>
 <p>
-This resource does not produce a medication list, but it does produce individual medication statements that may be used in the List resource to construct various types of medication lists.  Note that other medication lists can also be constructed from the other Pharmacy resources (e.g., MedicationOrder, MedicationAdministration).  
+This resource does not produce a medication list, but it does produce individual medication statements that may be used in the List resource to construct various types of medication lists.  Note that other medication lists can also be constructed from the other Pharmacy resources (e.g., MedicationRequest, MedicationAdministration).  
 </p><p>
 A medication statement is not a part of the prescribe -> dispense -> administer sequence, but is a report by a patient, significant other or a clinician that one or more of the prescribe, dispense or administer actions has occurred, resulting is a belief that the patient is, has, or will be using a particular medication.
 </p>
@@ -27,7 +27,7 @@ A medication statement is not a part of the prescribe -> dispense -> administer 
 </p>
 <table border="1" cellpadding="1" cellspacing="2" frame="box">
     <tr>
-        <td><a href="medicationorder.html">MedicationOrder</a></td>
+        <td><a href="medicationrequest.html">MedicationRequest</a></td>
         <td>An order for both supply of the medication and the instructions for administration of the medicine to a patient.</td>
     </tr>
     <tr>
@@ -47,7 +47,7 @@ A medication statement is not a part of the prescribe -> dispense -> administer 
 </table>
 
 <p>
-    This resource is distinct from <a href="medicationorder.html">MedicationOrder</a>, <a href="medicationdispense.html">MedicationDispense</a> 
+    This resource is distinct from <a href="medicationrequest.html">MedicationRequest</a>, <a href="medicationdispense.html">MedicationDispense</a> 
 and <a href="medicationadministration.html">MedicationAdministration</a>.  Each of those resources refer to specific events - an individual 
 order, an individual provisioning of medication or an individual dosing.  MedicationStatement is a broader assertion covering a wider 
 timespan and is independent of specific events.  The existence of resource instances of any of the preceding three types may be used to infer 

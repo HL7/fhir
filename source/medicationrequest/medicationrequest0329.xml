@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MedicationRequest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationrequest.xsd"
+ xmlns="http://hl7.org/fhir">
+    <id value="medrx0329"/>
+    <contained>
+        <Medication>
+            <id value="med0319"/>
+            <isBrand value="false"/>
+            <product>
+                <form>
+                    <coding>
+                        <system value="http://snomed.info/sct"/>
+                        <code value="385101003"/>
+                        <display value="Ointment"/>
+                    </coding>
+                    <text value="Ointment"/>
+                </form>
+                <ingredient>
+                    <itemCodeableConcept>
+                        <coding>
+                            <system value="http://snomed.info/sct"/>
+                            <code value="387253001"/>
+                            <display value="Salicyclic Acid (substance)"/>
+                        </coding>
+                    </itemCodeableConcept>
+                    <amount>
+                        <numerator>
+                            <value value="5"/>
+                            <system value="http://unitsofmeasure.org"/>
+                            <code value="g"/>
+                        </numerator>
+                        <denominator>
+                            <value value="100"/>
+                            <system value="http://unitsofmeasure.org"/>
+                            <code value="g"/>
+                        </denominator>
+                    </amount>
+                </ingredient>
+                <ingredient>
+                    <itemCodeableConcept>
+                        <coding>
+                            <system value="http://snomed.info/sct"/>
+                            <code value="396458002"/>
+                            <display value="Salicyclic Acid (substance)"/>
+                        </coding>
+                    </itemCodeableConcept>
+                    <amount>
+                        <numerator>
+                            <value value="1"/>
+                            <system value="http://unitsofmeasure.org"/>
+                            <code value="g"/>
+                        </numerator>
+                        <denominator>
+                            <value value="100"/>
+                            <system value="http://unitsofmeasure.org"/>
+                            <code value="g"/>
+                        </denominator>
+                    </amount>
+                </ingredient>
+                <ingredient>
+                    <itemCodeableConcept>
+                        <coding>
+                            <system value="http://snomed.info/sct"/>
+                            <code value="126066007"/>
+                            <display value="White Petrolatum (substance)"/>
+                        </coding>
+                    </itemCodeableConcept>
+                    <amount>
+                        <numerator>
+                            <value value="94"/>
+                            <system value="http://unitsofmeasure.org"/>
+                            <code value="g"/>
+                        </numerator>
+                        <denominator>
+                            <value value="100"/>
+                            <system value="http://unitsofmeasure.org"/>
+                            <code value="g"/>
+                        </denominator>
+                    </amount>
+                </ingredient>
+            </product>
+        </Medication>
+    </contained>
+    <identifier>
+        <use value="official"/>
+        <system value="http://www.bmc.nl/portal/prescriptions"/>
+        <value value="12345689"/>
+    </identifier>
+    <status value="on-hold"/>
+    <stage>
+        <coding>
+            <code value="original-order"/>
+        </coding>
+    </stage>
+   <medicationReference>
+       <reference value="#med0319"/>
+   </medicationReference>
+    <patient>
+        <!-- Linked to the resource patient who needs the medication -->
+        <reference value="Patient/pat1"/>
+        <display value="Donald Duck"/>
+    </patient>
+    <dateWritten value="2015-01-15"/>
+    <prescriber>
+        <!-- Linked to the practitioner who treats patient -->
+        <reference value="Practitioner/f007"/>
+        <display value="Patrick Pump"/>
+    </prescriber>
+    <dosageInstruction>
+        <sequence value="1"/>
+        <text value="Apply twice daily to affected area on left arm"/>
+        <additionalInstructions>
+            <text value="Apply sparingly"></text>
+        </additionalInstructions>
+        <timing>
+            <repeat>
+                <frequency value="2"/>
+                <period value="1"/>
+                <periodUnit value="d"/>
+            </repeat>
+        </timing>
+        <siteCodeableConcept>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="72098002"/>
+                <display value="Entire left upper arm (body structure)"/>
+            </coding>
+        </siteCodeableConcept>
+        <route>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="359540000"/>
+                <display value="Topical (qualifier value)"/>
+            </coding>
+        </route>
+        <doseQuantity>
+            <value value="1"/>
+            <unit value="ea"/>
+            <system value="http://unitsofmeasure.org"/>
+            <code value="ea"/>
+        </doseQuantity>
+    </dosageInstruction>
+    <dispenseRequest>
+        <validityPeriod>
+            <start value="2015-01-15"/>
+            <end value="2016-01-15"/>
+        </validityPeriod>
+        <numberOfRepeatsAllowed value="3"></numberOfRepeatsAllowed>
+        <quantity>
+            <value value="30"/>
+            <unit value="g"/>
+            <system value="http://unitsofmeasure.org"/>
+            <code value="g"/> 
+        </quantity>
+        <expectedSupplyDuration>
+            <value value="10"></value>
+            <unit value="days"/>
+            <system value="http://unitsofmeasure.org"/>
+            <code value="d"/> 
+        </expectedSupplyDuration>
+    </dispenseRequest>   
+</MedicationRequest>

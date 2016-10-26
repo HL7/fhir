@@ -102,7 +102,7 @@ summarizes the list of workflow-relevant resources:</p>
       </td>
       <td>
         <ul>
-          <li><a href="medicationorder.html">MedicationOrder</a></li>
+          <li><a href="medicationrequest.html">MedicationRequest</a></li>
           <li><a href="nutritionrequest.html">NutritionRequest</a></li>
           <li><a href="procedurerequest.html">ProcedureRequest</a></li>
           <li><a href="processrequest.html">ProcessRequest</a><sup><a href="#listnotes">&#8224;</a></sup></li>
@@ -421,9 +421,9 @@ more sophisticated patterns.
 <h4>Option B: Direct POST of request to fulfiller's system</h4>
 <h5>Steps</h5>
 <ol>
-  <li>Placer system invokes a <a href="http.html#create">create</a> by POSTing a 'request' resource (e.g. <a href="medicationorder.html">MedicationOrder</a>, 
+  <li>Placer system invokes a <a href="http.html#create">create</a> by POSTing a 'request' resource (e.g. <a href="medicationrequest.html">MedicationRequest</a>, 
   <a href="diagnosticrequest.html">DiagnosticRequest</a>, <a href="referralrequest.html">ReferralRequest</a>, etc.) to the appropriate RESTful resource 
-  endpoint (e.g. [base]/MedicationOrder) on the filler system and places an <a href="codesystem-common-tags.html#common-tags-actionable">actionable</a> 
+  endpoint (e.g. [base]/MedicationRequest) on the filler system and places an <a href="codesystem-common-tags.html#common-tags-actionable">actionable</a> 
   <a href="resource.html#simple-tags">tag</a> on the resource that indicates the request is intended to be acted upon, not merely stored.</li>
   <li>The filler synchronously responds with a "201" indicating that that they have received and stored (created) the resource on their system</li>
   <li>At some later point, the filler POSTs an 'event' resource (e.g. <a href="medicationdispense.html">MedicationDispense</a>, 
@@ -454,8 +454,8 @@ the filler to say "no").  This is a pseudo-messaging architecture that doesn't a
 <h4>Option C: POST of request to placer/intermediary system, receiver uses polling</h4>
 <h5>Steps</h5>
 <ol>
-  <li>Placer system invokes a "create" action by POSTing a 'request' resource (e.g. MedicationOrder, DiagnosticOrder, ReferralRequest, etc.) to the appropriate RESTful resource 
-  endpoint (e.g. [base]/MedicationOrder) on either its own system or a third party intermediary system and sets a "flag" on the resource that indicates the request is 
+  <li>Placer system invokes a "create" action by POSTing a 'request' resource (e.g. MedicationRequest, DiagnosticOrder, ReferralRequest, etc.) to the appropriate RESTful resource 
+  endpoint (e.g. [base]/MedicationRequest) on either its own system or a third party intermediary system and sets a "flag" on the resource that indicates the request is 
   "actionable".  The request explicitly identifies the intended fullfiller</li>
   <li>The filler system, at some agreed frequency, RESTfully queries the placer or intermediary system to see if there are any "new" requests that: are tagged as "actionable", 
   have the filler identified as the intended performer, and are a type of request "of interest" to the filler.  (The queries could be initiated by the filler system 
@@ -604,8 +604,8 @@ choose what to take on and negotiate what work they perform.
 <h4>Option G: POST of "request" resource for filler system, response via Task</h4>
 <h5>Steps</h5>
 <ol>
-  <li>Placer system invokes a "create" action by POSTing a 'request' resource (e.g. MedicationOrder, DiagnosticOrder, ReferralRequest, etc.) to the appropriate RESTful resource 
-  endpoint (e.g. [base]/MedicationOrder) on the filler, placer or intermediary system and sets a "tag" on the resource that indicates the request is "actionable"</li>
+  <li>Placer system invokes a "create" action by POSTing a 'request' resource (e.g. MedicationRequest, DiagnosticOrder, ReferralRequest, etc.) to the appropriate RESTful resource 
+  endpoint (e.g. [base]/MedicationRequest) on the filler, placer or intermediary system and sets a "tag" on the resource that indicates the request is "actionable"</li>
   <li>Filler POSTs a Task resource to its own system or an intermediary system, pointing to the request resource and indicating intent to fulfill or refusal to fulfill</li>
   <li>Placer system uses either polling or pub/sub to become aware of the existence of the task and fulfillment intent</li>
   <li>Fulfiller may update the Task to indicate interim progress notes</li>

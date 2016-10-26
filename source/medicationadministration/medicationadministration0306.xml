@@ -36,7 +36,7 @@
     <display value="Patrick Pump"/>
   </performer>
   <prescription>
-    <reference value="MedicationOrder/medrx0302"/>
+    <reference value="MedicationRequest/medrx0302"/>
   </prescription>
   <dosage>
     <text value="Two tablets at once" />

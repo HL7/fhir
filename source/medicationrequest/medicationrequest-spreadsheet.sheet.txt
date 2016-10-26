@@ -1,0 +1,708 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = MedicationIntendedSubstitutionReason
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/v3-SubstanceAdminSubstitutionReason
+  Definition = A coded concept describing the reason that a different medication should (or should not) be substituted from what was prescribed.
+  Description = SubstanceAdminSubstitutionReason
+  Conformance = example
+
+ -- Row 2 -----------------------------------
+  Binding Name = MedicationAsNeededReason
+  Binding = value set
+  Reference = valueset-medication-as-needed-reason
+  Definition = A coded concept identifying the precondition that should be met or evaluated prior to consuming or administering a medication dose.  For example \"pain\", \"30 minutes prior to sexual intercourse\", \"on flare-up\" etc.
+  Conformance = example
+
+ -- Row 3 -----------------------------------
+  Binding Name = MedicationAdministrationSite
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/approach-site-codes
+  Definition = A coded concept describing the site location the medicine enters into or onto the body.
+  Conformance = example
+
+ -- Row 4 -----------------------------------
+  Binding Name = MedicationAdministrationMethod
+  Binding = value set
+  Reference = valueset-administration-method-codes
+  Definition = A coded concept describing the technique by which the medicine is administered.
+  Conformance = example
+
+ -- Row 5 -----------------------------------
+  Binding Name = MedicationRequestStatus
+  Binding = code list
+  Reference = #medication-request-status
+  Definition = A coded concept specifying the state of the prescribing event. Describes the lifecycle of the prescription
+  Conformance = required
+  v3 = ActStatus
+
+ -- Row 6 -----------------------------------
+  Binding Name = RouteOfAdministration
+  Binding = value set
+  Reference = valueset-route-codes
+  Definition = A coded concept describing the route or physiological path of administration of a therapeutic agent into or onto the body of a subject.
+  Conformance = example
+
+ -- Row 7 -----------------------------------
+  Binding Name = MedicationRequestStage
+  Binding = value set
+  Reference = valueset-medication-request-stage
+  Definition = The kind of medication order
+  Conformance = example
+
+ -- Row 8 -----------------------------------
+  Binding Name = MedicationRequestReason
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/condition-code
+  Definition = A coded concept indicating why the medication was ordered.
+  Conformance = example
+
+ -- Row 9 -----------------------------------
+  Binding Name = MedicationCode
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/medication-codes
+  Definition = A coded concept identifying substance or product that can be ordered.
+  Conformance = example
+
+ -- Row 10 -----------------------------------
+  Binding Name = AdditionalInstructions
+  Binding = value set
+  Reference = valueset-additional-instructions-codes
+  Definition = A coded concept identifying additional instructions such as \"take with water\" or \"avoid operating heavy machinery\".
+  Conformance = example
+
+ -- Row 11 -----------------------------------
+  Binding Name = MedicationRequestAction
+  Binding = unbound
+  Definition = A coded concept describing an action taken on a medication order.
+
+ -- Row 12 -----------------------------------
+  Binding Name = MedicationRequestActionReason
+  Binding = unbound
+  Definition = A coded concept describing the reason for an action taken on a medication order.
+
+ -- Row 13 -----------------------------------
+  Binding Name = MedicationRequestCategory
+  Binding = code list
+  Reference = #medication-request-category
+  Definition = A coded concept identifying where the medication ordered is expected to be consumed or administered
+  Conformance = example
+
+=== Sheet medication-request-status =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = active
+  Display = Active
+  Definition = The prescription is \'actionable\', but not all actions that are implied by it have occurred yet.
+  v3 = ActStatus.active
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = on-hold
+  Display = On Hold
+  Definition = Actions implied by the prescription are to be temporarily halted, but are expected to continue later.  May also be called \"suspended\".
+  v3 = ActStatus.suspended
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = cancelled
+  Display = Cancelled
+  Definition = The prescription has been withdrawn.
+  v3 = ActStatus.cancelled
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = completed
+  Display = Completed
+  Definition = All actions that are implied by the prescription have occurred.
+  v3 = ActStatus.completed
+
+ -- Row 5 -----------------------------------
+  Id = 5
+  Code = entered-in-error
+  Display = Entered In Error
+  Definition = The prescription was entered in error.
+  v3 = ActStatus.nullified
+
+ -- Row 6 -----------------------------------
+  Id = 6
+  Code = stopped
+  Display = Stopped
+  Definition = Actions implied by the prescription are to be permanently halted, before all of them occurred.
+  v3 = ActStatus.aborted
+
+ -- Row 7 -----------------------------------
+  Id = 7
+  Code = draft
+  Display = Draft
+  Definition = The prescription is not yet \'actionable\', i.e. it is a work in progress, requires sign-off or verification, and needs to be run through decision support process.
+  v3 = ActStatus.new
+
+=== Sheet medication-request-category =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = inpatient
+  Display = Inpatient
+  Definition = Includes orders for medications to be administered or consumed in an inpatient or acute care setting
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = outpatient
+  Display = Outpatient
+  Definition = Includes orders for medications to be administered or consumed in an outpatient setting (for example, Emergency Department, Outpatient Clinic, Outpatient Surgery, Doctor\'s office)
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = community
+  Display = Community
+  Definition = Includes orders for medications to be administered or consumed by the patient in their home (this would include long term care or nursing homes, hospices, etc)
+
+=== Sheet Invariants =====================================
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = MedicationRequest
+  Aliases = Prescription; Order
+  Type = DomainResource
+  Short Name = Prescription of medication to for patient
+  Definition = An order for both supply of the medication and the instructions for administration of the medication to a patient. The resource is called \"MedicationRequest\" rather than \"MedicationPrescription\" or \"MedicationOrder\" to generalize the use across inpatient and outpatient settings as well as for care plans, etc and to harmonize with workflow patterns.
+  SCRIPT 10.6 Mapping = Message/Body/NewRx
+  RIM Mapping = CombinedMedicationRequest
+  w5 = clinical.medication
+
+ -- Row 2 -----------------------------------
+  Element = MedicationRequest.identifier
+  Card. = 0..*
+  Type = Identifier
+  Short Name = External identifier
+  Definition = External identifier - one that would be used by another non-FHIR system - for example a re-imbursement system might issue its own id for each prescription that is created.  This is particularly important where FHIR only provides part of an entire workflow process where records have to be tracked through an entire system.
+  SCRIPT 10.6 Mapping = Message/Header/PrescriberOrderNumber
+  v2 Mapping = ORC-2-Placer Order Number / ORC-3-Filler Order Number
+  RIM Mapping = id
+  w5 = id
+
+ -- Row 3 -----------------------------------
+  Element = MedicationRequest.definition
+  Card. = 0..*
+  Summary = y
+  Type = Reference(Any)
+  Short Name = Protocol or definition
+  Definition = Protocol or definition followed by this request
+
+ -- Row 4 -----------------------------------
+  Element = MedicationRequest.basedOn
+  Card. = 0..*
+  Summary = y
+  Type = Reference(Any)
+  Short Name = What request fulfills
+  Definition = Plan/proposal/order fulfilled by this request
+
+ -- Row 5 -----------------------------------
+  Element = MedicationRequest.requisition
+  Card. = 0..1
+  Summary = y
+  Type = Identifier
+  Short Name = Identifier of composite
+  Definition = Composite request this is part of
+
+ -- Row 6 -----------------------------------
+  Element = MedicationRequest.status
+  Card. = 0..1
+  Is Modifier = Y
+  Summary = y
+  Type = code
+  Binding = MedicationRequestStatus
+  Short Name = active | on-hold | cancelled | completed | entered-in-error | stopped | draft
+  Definition = A code specifying the state of the order.  Generally this will be active or completed state
+  SCRIPT 10.6 Mapping = no mapping
+  RIM Mapping = statusCode
+  w5 = status
+
+ -- Row 7 -----------------------------------
+  Element = MedicationRequest.stage
+  Card. = 1..1
+  Is Modifier = y
+  Summary = y
+  Type = CodeableConcept
+  Binding = MedicationRequestStage
+  Short Name = proposal | plan | original-order
+  Definition = Whether the request is a proposal, plan, or an original order
+  w5 = class
+
+ -- Row 8 -----------------------------------
+  Element = MedicationRequest.medication[x]
+  Card. = 1..1
+  Summary = y
+  Type = CodeableConcept|Reference(Medication)
+  Binding = MedicationCode
+  Short Name = Medication to be taken
+  Definition = Identifies the medication being administered. This is a link to a resource that represents the medication which may be the details of the medication or simply an attribute carrying a code that identifies the medication from a known list of medications.
+  Comments = If only a code is specified, then it needs to be a code for a specific product.  If more information is required, then the use of the medication resource is recommended.  Note: do not use Medication.name to describe the prescribed medication. When the only available information is a text description of the medication, Medication.code.text should be used
+  SCRIPT 10.6 Mapping = Message/Body/NewRx/MedicationPrescribed\n\nMedication.code.coding.code = Message/Body/NewRx/MedicationPrescribed/DrugCoded/ProductCode\n\nMedication.code.coding.system = Message/Body/NewRx/MedicationPrescribed/DrugCoded/ProductCodeQualifier\n\nMedication.code.coding.display = Message/Body/NewRx/MedicationPrescribed/DrugDescription
+  v2 Mapping = RXE-2-Give Code / RXO-1-Requested Give Code / RXC-2-Component Code
+  RIM Mapping = consumable.administrableMedication
+  w5 = what
+
+ -- Row 9 -----------------------------------
+  Element = MedicationRequest.patient
+  Card. = 0..1
+  Summary = y
+  Type = Reference(Patient)
+  Short Name = Who prescription is for
+  Definition = A link to a resource representing the person to whom the medication will be given
+  Comments = SubstanceAdministration->subject->Patient
+  SCRIPT 10.6 Mapping = Message/Body/NewRx/Patient\n\n(need detail to link to specific patient … Patient.Identification in SCRIPT)
+  v2 Mapping = PID-3-Patient ID List
+  RIM Mapping = subject.role
+  w5 = who.focus
+
+ -- Row 10 -----------------------------------
+  Element = MedicationRequest.encounter
+  Card. = 0..1
+  Type = Reference(Encounter)
+  Short Name = Created during encounter/admission/stay
+  Definition = A link to a resource that identifies the particular occurrence of contact between patient and health care provider
+  Comments = SubstanceAdministration->component->EncounterEvent
+  SCRIPT 10.6 Mapping = no mapping
+  v2 Mapping = PV1-19-Visit Number
+  RIM Mapping = componentOf.patientEncounter
+  w5 = context
+
+ -- Row 11 -----------------------------------
+  Element = MedicationRequest.supportingInformation
+  Card. = 0..*
+  Type = Reference(Any)
+  Short Name = Information to support ordering of the medication
+  Definition = Include additional information (for example, patient height and weight) that supports the ordering of the medication
+  w5 = context
+
+ -- Row 12 -----------------------------------
+  Element = MedicationRequest.dateWritten
+  Card. = 0..1
+  Summary = y
+  Type = dateTime
+  Short Name = When prescription was initially authorized
+  Definition = The date (and perhaps time) when the prescription was initially written
+  SCRIPT 10.6 Mapping = Message/Body/NewRx/MedicationPrescribed/WrittenDate
+  v2 Mapping = RXE-32-Original Order Date/Time / ORC-9-Date/Time of Transaction
+  RIM Mapping = author.time
+  w5 = when.recorded
+
+ -- Row 13 -----------------------------------
+  Element = MedicationRequest.prescriber
+  Card. = 0..1
+  Summary = y
+  Type = Reference(Practitioner)
+  Short Name = Who ordered the initial medication(s)
+  Definition = The healthcare professional responsible for authorizing the initial prescription.
+  SCRIPT 10.6 Mapping = Message/Body/NewRx/Prescriber\n\n(need detail to link to specific prescriber … Prescriber.Identification in SCRIPT)
+  v2 Mapping = RXE-13-Ordering Provider\'s DEA Number / RXO-14-Ordering Provider\'s DEA Number / RXE-14-Pharmacist/Treatment Supplier\'s Verifier ID / RXO-15-Pharmacist/Treatment Supplier\'s Verifier ID / ORC-12-Ordering Provider / PRT-5-Participation Person: PRT-4-Participation=\'OP\' (all but last deprecated)
+  RIM Mapping = author.role
+  w5 = who.actor
+
+ -- Row 14 -----------------------------------
+  Element = MedicationRequest.reasonCode
+  Card. = 0..*
+  Type = CodeableConcept
+  Binding = MedicationRequestReason
+  Short Name = Reason or indication for writing the prescription
+  Definition = Can be the reason or the indication for writing the prescription.
+  Comments = This could be a diagnosis code. If a full condition record exists or additional detail is needed, use reasonReference.
+  SCRIPT 10.6 Mapping = Message/Body/NewRx/MedicationPrescribed/Diagnosis/Primary/Value
+  v2 Mapping = ORC-16-Order Control Code Reason /RXE-27-Give Indication/RXO-20-Indication / RXD-21-Indication / RXG-22-Indication / RXA-19-Indication
+  RIM Mapping = reason.observation.reasonCode
+  w5 = why
+
+ -- Row 15 -----------------------------------
+  Element = MedicationRequest.reasonReference
+  Card. = 0..*
+  Type = Reference(Condition |Observation)
+  Short Name = Condition or Observation that supports why the prescription is being written
+  Definition = Condition or observation that supports why the prescription is being written
+  Comments = This is a reference to a condition that is the reason for the medication order.  If only a code exists, use reasonCode.
+  SCRIPT 10.6 Mapping = no mapping
+  RIM Mapping = reason.observation[code=ASSERTION].value
+  w5 = why
+
+ -- Row 16 -----------------------------------
+  Element = MedicationRequest.note
+  Card. = 0..*
+  Type = Annotation
+  Short Name = Information about the prescription
+  Definition = Extra information about the prescription that could not be conveyed by the other attributes.
+  SCRIPT 10.6 Mapping = Message/Body/NewRx/MedicationPrescribed/Note
+  RIM Mapping = .inboundRelationship[typeCode=SUBJ]/source[classCode=OBS,moodCode=EVN,code=\"annotation\"].value
+
+ -- Row 17 -----------------------------------
+  Element = MedicationRequest.category
+  Card. = 0..1
+  Type = CodeableConcept
+  Binding = MedicationRequestCategory
+  Short Name = Type of medication usage
+  Definition = Indicates where type of medication order and where the medication is expected to be consumed or administered
+  SCRIPT 10.6 Mapping = Message/Body/NewRx/MedicationPrescribed/Directions\n\nor \n\nMessage/Body/NewRx/MedicationPrescribed/StructuredSIG
+  RIM Mapping = not mapped
+
+ -- Row 18 -----------------------------------
+  Element = MedicationRequest.dosageInstruction
+  Card. = 0..*
+  Type = DosageInstruction
+  Short Name = How the medication should be taken
+  Definition = Indicates how the medication is to be used by the patient.
+
+ -- Row 19 -----------------------------------
+  Element = MedicationRequest.dispenseRequest
+  Card. = 0..1
+  UML = 250;300
+  Short Name = Medication supply authorization
+  Definition = Indicates the specific details for the dispense or medication supply part of a medication order (also known as a Medication Prescription).  Note that this information is NOT always sent with the order.  There may be in some settings (e.g. hospitals) institutional or system support for completing the dispense details in the pharmacy department.
+  SCRIPT 10.6 Mapping = Message/Body/NewRx/MedicationPrescribed/ExpirationDate
+  RIM Mapping = component.supplyEvent
+
+ -- Row 20 -----------------------------------
+  Element = MedicationRequest.dispenseRequest.validityPeriod
+  Card. = 0..1
+  Type = Period
+  Short Name = Time period supply is authorized for
+  Definition = This indicates the validity period of a prescription (stale dating the Prescription)
+  Requirements = Indicates when the Prescription becomes valid, and when it ceases to be a dispensable Prescription.
+  Comments = It reflects the prescriber perspective for the validity of the prescription. Dispenses must not be made against the prescription outside of this period. The lower-bound of the Dispensing Window signifies the earliest date that the prescription can be filled for the first time. If an upper-bound is not specified then the Prescription is open-ended or will default to a stale-date based on regulations.
+  SCRIPT 10.6 Mapping = Message/Body/NewRx/MedicationPrescribed/Refills
+  RIM Mapping = effectiveTime
+
+ -- Row 21 -----------------------------------
+  Element = MedicationRequest.dispenseRequest.numberOfRepeatsAllowed
+  Card. = 0..1
+  Type = positiveInt
+  Short Name = Number of refills authorized
+  Definition = An integer indicating the number of times, in addition to the original dispense, (aka refills or repeats) that the patient can receive the prescribed medication. Usage Notes: This integer does NOT include the original order dispense. This means that if an order indicates dispense 30 tablets plus \"3 repeats\", then the order can be dispensed a total of 4 times and the patient can receive a total of 120 tablets.
+  Comments = If displaying \"number of authorized fills\", add 1 to this number.
+  SCRIPT 10.6 Mapping = Message/Body/NewRx/MedicationPrescribed/Quantity
+  v2 Mapping = RXE-12-Number of Refills
+  RIM Mapping = repeatNumber
+
+ -- Row 22 -----------------------------------
+  Element = MedicationRequest.dispenseRequest.quantity
+  Card. = 0..1
+  Type = SimpleQuantity
+  Short Name = Amount of medication to supply per dispense
+  Definition = The amount that is to be dispensed for one fill.
+  SCRIPT 10.6 Mapping = Message/Body/NewRx/MedicationPrescribed/DaysSupply
+  v2 Mapping = RXD-4-Actual Dispense Amount / RXD-5.1-Actual Dispense Units.code / RXD-5.3-Actual Dispense Units.name of coding system
+  RIM Mapping = quantity
+
+ -- Row 23 -----------------------------------
+  Element = MedicationRequest.dispenseRequest.expectedSupplyDuration
+  Card. = 0..1
+  Type = Duration
+  Short Name = Number of days supply per dispense
+  Definition = Identifies the period time over which the supplied product is expected to be used, or the length of time the dispense is expected to last.
+  Comments = In some situations, this attribute may be used instead of quantity to identify the amount supplied by how long it is expected to last, rather than the physical quantity issued, e.g. 90 days supply of medication (based on an ordered dosage) When possible, it is always better to specify quantity, as this tends to be more precise. expectedSupplyDuration will always be an estimate that can be influenced by external factors.
+  SCRIPT 10.6 Mapping = Message/Body/NewRx/MedicationPrescribed/Substitutions
+  RIM Mapping = expectedUseTime
+
+ -- Row 24 -----------------------------------
+  Element = MedicationRequest.substitution
+  Card. = 0..1
+  UML = -60;260
+  Short Name = Any restrictions on medication substitution
+  Definition = Indicates whether or not substitution can or should be part of the dispense. In some cases substitution must happen, in other cases substitution must not happen, and in others it does not matter. This block explains the prescriber\'s intent. If nothing is specified substitution may be done.
+  SCRIPT 10.6 Mapping = specific values within Message/Body/NewRx/MedicationPrescribed/Substitutions
+  RIM Mapping = subjectOf.substitutionPersmission
+
+ -- Row 25 -----------------------------------
+  Element = MedicationRequest.substitution.allowed
+  Card. = 1..1
+  Type = boolean
+  Short Name = Whether substitution is allowed or not
+  Definition = True if the prescriber allows a different drug to be dispensed from what was prescribed.
+  SCRIPT 10.6 Mapping = specific values within Message/Body/NewRx/MedicationPrescribed/Substitutions
+  v2 Mapping = RXO-9-Allow Substitutions / RXE-9-Substitution Status
+  RIM Mapping = code
+
+ -- Row 26 -----------------------------------
+  Element = MedicationRequest.substitution.reason
+  Card. = 0..1
+  Type = CodeableConcept
+  Binding = MedicationIntendedSubstitutionReason
+  Short Name = Why should (not) substitution be made
+  Definition = Indicates the reason for the substitution, or why substitution must or must not be performed.
+  SCRIPT 10.6 Mapping = not mapped
+  v2 Mapping = RXE-9 Substition status
+  RIM Mapping = reasonCode
+
+ -- Row 27 -----------------------------------
+  Element = MedicationRequest.priorPrescription
+  Card. = 0..1
+  Type = Reference(MedicationRequest)
+  Short Name = An order/prescription that this supersedes
+  Definition = A link to a resource representing an earlier order related order or prescription.
+  SCRIPT 10.6 Mapping = not mapped
+  RIM Mapping = .outboundRelationship[typeCode=?RPLC or ?SUCC]/target[classCode=SBADM,moodCode=RQO]
+
+ -- Row 28 -----------------------------------
+  Element = MedicationRequest.eventHistory
+  Card. = 0..*
+  Type = Reference(Provenance)
+  Short Name = A list of events of interest in the lifecycle
+  Definition = A summary of the events of interest that have occurred as the request is processed; e.g. when the order was verified or when it was completed.
+  Comments = See usage notes in Request pattern in request history
+
+=== Sheet Search =====================================
+
+ -- Row 1 -----------------------------------
+  Name = datewritten
+  Type = date
+  Description = Return prescriptions written on this date
+  Path = MedicationRequest.dateWritten
+
+ -- Row 2 -----------------------------------
+  Name = encounter
+  Type = reference
+  Description = Return prescriptions with this encounter identifier
+  Path = MedicationRequest.encounter
+
+ -- Row 3 -----------------------------------
+  Name = identifier
+  Type = token
+  Description = Return prescriptions with this external identifier
+  Path = MedicationRequest.identifier
+
+ -- Row 4 -----------------------------------
+  Name = medication
+  Type = reference
+  Description = Return prescriptions of this medication reference
+  Path = MedicationRequest.medicationReference
+
+ -- Row 5 -----------------------------------
+  Name = code
+  Type = token
+  Description = Return prescriptions of this medication code
+  Path = MedicationRequest.medicationCodeableConcept
+
+ -- Row 6 -----------------------------------
+  Name = patient
+  Type = reference
+  Description = The identity of a patient to list orders  for
+  Path = MedicationRequest.patient
+
+ -- Row 7 -----------------------------------
+  Name = status
+  Type = token
+  Description = Status of the prescription
+  Path = MedicationRequest.status
+
+ -- Row 8 -----------------------------------
+  Name = prescriber
+  Type = reference
+  Description = Returns prescriptions prescribed by this prescriber
+  Path = MedicationRequest.prescriber
+
+=== Sheet Profiles =====================================
+
+ -- Row 1 -----------------------------------
+  Name = medicationrequest-extensions
+  IG Name = core
+  Filename = medicationrequest-extensions.xml
+  Type = spreadsheet
+
+=== Sheet Examples =====================================
+
+ -- Row 1 -----------------------------------
+  Name = Text Dose
+  Identity = medrx002
+  Description = Order for a medication that includes the dosage of a prescription in text
+  Filename = medicationrequestexample2.xml
+
+ -- Row 2 -----------------------------------
+  Name = Multiple dosage lines
+  Identity = medrx0302
+  Description = Active Order with link to encounter, reasonCode, note multiple dosage lines, dispenseRequest and substitution - Azithromycin
+  Filename = medicationrequest0302.xml
+
+ -- Row 3 -----------------------------------
+  Name = PRN dose
+  Identity = medrx0301
+  Description = Order with as needed (PRN) dosage with pre-condition - Oxycodone - active with reasonCode, note, dispenseRequest and substitution
+  Filename = medicationrequest0301.xml
+
+ -- Row 4 -----------------------------------
+  Name = Tapering dose
+  Identity = medrx0303
+  Description = Order for Tapering Dose - Prednisone - active with note and multiple DosageInstructions with boundsPeriod
+  Filename = medicationrequest0303.xml
+
+ -- Row 5 -----------------------------------
+  Name = Oral Drops
+  Identity = medrx0304
+  Description = Order for Oral Drops - Nystatin Suspension - completed - with Dispense Request
+  Filename = medicationrequest0304.xml
+
+ -- Row 6 -----------------------------------
+  Name = Pre Condition
+  Identity = medrx0305
+  Description = Order with Dosage with a Pre-Condition - Alprazolam - dosageInstructions includes boundsPeriod with periodMax and asNeededCodeableConcept
+  Filename = medicationrequest0305.xml
+
+ -- Row 7 -----------------------------------
+  Name = Oral Chemo
+  Identity = medrx0306
+  Description = Oral Chemotherapy Order - Myleran - completed - with reasonCode
+  Filename = medicationrequest0306.xml
+
+ -- Row 8 -----------------------------------
+  Name = PRN dose
+  Identity = medrx0307
+  Description = Order with as needed (PRN) dosage - Percocet - completed with link to encounter, dispenseRequest and substitution
+  Filename = medicationrequest0307.xml
+
+ -- Row 9 -----------------------------------
+  Name = PRN dose
+  Identity = medrx0308
+  Description = Order for as needed (PRN) dosage - Vicodin - completed with dosageInstruction with additionalInstruction (coded) and as needed with reason, dispenseRequest and substitution
+  Filename = medicationrequest0308.xml
+
+ -- Row 10 -----------------------------------
+  Name = Oral Chemo
+  Identity = medrx0309
+  Description = Oral Chemotherapy Order - Capecitabine - active medication with dosing by Body Surface Area (BSA) (mg/m2)
+  Filename = medicationrequest0309.xml
+
+ -- Row 11 -----------------------------------
+  Name = OTC
+  Identity = medrx0310
+  Description = Order for Over the Counter Medication - Tylenol PM - with dosage range as needed with pre-condition for use
+  Filename = medicationrequest0310.xml
+
+ -- Row 12 -----------------------------------
+  Name = Fully populated
+  Identity = medrx0311
+  Description = Fully populated example of a MedicationRequest - Chlorthalidone - active - with link to encounter, reasonReference, note, dispenseRequest, substitution and eventHistory
+  Filename = medicationrequestexample1.xml
+
+ -- Row 13 -----------------------------------
+  Name = Liquid
+  Identity = medrx0312
+  Description = Liquid Medication - Phenytoin with link to prior prescription
+  Filename = medicationrequest0312.xml
+
+ -- Row 14 -----------------------------------
+  Name = Single Dosage line
+  Identity = medrx0313
+  Description = Order with a single dosage line - Azithromycin - completed - with link to prior prescription and reason code
+  Filename = medicationrequest0313.xml
+
+ -- Row 15 -----------------------------------
+  Name = Multiple dosage lines
+  Identity = medrx0314
+  Description = Order - Levothyroxine - completed with reasonCode, dosageInstructions and dispenseRequest
+  Filename = medicationrequest0314.xml
+
+ -- Row 16 -----------------------------------
+  Name = Injectable
+  Identity = medrx0315
+  Description = Order for an injectable medication - Lorazepam - active - with link to encounter, reasonCode and dosageInstruction
+  Filename = medicationrequest0315.xml
+
+ -- Row 17 -----------------------------------
+  Name = Fully populated
+  Identity = medrx0316
+  Description = Order for Intravenous Chemotherapy (inpatient order) - Brentuximab Vedotin - completed
+  Filename = medicationrequest0316.xml
+
+ -- Row 18 -----------------------------------
+  Name = IV Chemo
+  Identity = medrx0317
+  Description = Order for Intravenous Chemotherapy (inpatient order) - Alemtuzumab - completed with multiple dosageInstruction lines
+  Filename = medicationrequest0317.xml
+
+ -- Row 19 -----------------------------------
+  Name = IV Antibiotic
+  Identity = medrx0318
+  Description = Order for Intravenous Antibiotic - Vancomycin - active - with link to encounter, reasonCode, and note
+  Filename = medicationrequest0318.xml
+
+ -- Row 20 -----------------------------------
+  Name = IV with rate
+  Identity = medrx0319
+  Description = Order for Intravenous Antibiotic with a Dosage Rate - Piperacillin - completed with reason code
+  Filename = medicationrequest0319.xml
+
+ -- Row 21 -----------------------------------
+  Name = SC Injection
+  Identity = medrx0320
+  Description = Order for Subcutaneous injection - Insulin - Lantus - completed, with reason code and dispense request
+  Filename = medicationrequest0320.xml
+
+ -- Row 22 -----------------------------------
+  Name = SC Injection
+  Identity = medrx0321
+  Description = Order for Subcutaneous injection with multiple dosage lines - Insulin - Novolog - active - includes reasonCode and note.  DosageInstruction includes additionalInstructions as text
+  Filename = medicationrequest0321.xml
+
+ -- Row 23 -----------------------------------
+  Name = IV admixture
+  Identity = medrx0322
+  Description = Order for Intravenous Admixture - Potassium Chloride in D5W - completed with reason code
+  Filename = medicationrequest0322.xml
+
+ -- Row 24 -----------------------------------
+  Name = TPN
+  Identity = medrx0323
+  Description = Order for TPN Solution - completed
+  Filename = medicationrequest0323.xml
+
+ -- Row 25 -----------------------------------
+  Name = Suppository
+  Identity = medrx0324
+  Description = Order using Medication Code for Rectal Suppository - Acetaminophen - completed with reasonCode, dispenseRequest and substitution
+  Filename = medicationrequest0324.xml
+
+ -- Row 26 -----------------------------------
+  Name = Topical
+  Identity = medrx0325
+  Description = Order using Medication Code for Topical Ointment - Nystatin - on hold and with dispense request
+  Filename = medicationrequest0325.xml
+
+ -- Row 27 -----------------------------------
+  Name = Inhaler
+  Identity = medrx0326
+  Description = Order using Medication Code for Inhaler - Proventil - on hold with dispenseRequest and substitution
+  Filename = medicationrequest0326.xml
+
+ -- Row 28 -----------------------------------
+  Name = Patch
+  Identity = medrx0327
+  Description = Order using Medication Code for Patch - Fentanyl - active, with dispense request
+  Filename = medicationrequest0327.xml
+
+ -- Row 29 -----------------------------------
+  Name = Spray
+  Identity = medrx0328
+  Description = Order referencing Medication Resource for Nasal Spray - Nasonex
+  Filename = medicationrequest0328.xml
+
+ -- Row 30 -----------------------------------
+  Name = Compound
+  Identity = medrx0329
+  Description = Order referencing Medication Resource for Compounded Product - HC 1%, Salicylic Acid 5% in Glaxal Base - on hold with dispenseRequest
+  Filename = medicationrequest0329.xml
+
+ -- Row 31 -----------------------------------
+  Name = Eye Drop
+  Identity = medrx0330
+  Description = Order referencing Medication Resource for Eye Drops - Timoptic - active - with link to encounter, dispenseRequest and substitution flag
+  Filename = medicationrequest0330.xml
+
+ -- Row 32 -----------------------------------
+  Name = Warfarin
+  Identity = medrx0331
+  Description = Order for a Dosage that needs to be dispensed as different strength tablets - Warfarin - active
+  Filename = medicationrequest0331.xml
+
+=== Sheet Examples =====================================

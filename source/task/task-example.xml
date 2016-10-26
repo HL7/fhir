@@ -16,7 +16,7 @@
     <text value="Refill Request"/>
   </code>
   <focus>
-    <reference value="MedicationOrder/medrx001"/>
+    <reference value="MedicationRequest/medrx001"/>
   </focus>
   <for>
     <reference value="Patient/f001"/>

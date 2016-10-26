@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MedicationRequest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationrequest.xsd"
+ xmlns="http://hl7.org/fhir">
+  <id value="example"/>
+  <contained>
+    <Medication>
+      <id value="med0320"/>
+      <code>
+        <coding>
+          <system value="http://snomed.info/sct"/>
+          <code value="324252006"/>
+          <display value="Azithromycin 250mg capsule (product)"/>
+        </coding>
+      </code>
+    </Medication>
+  </contained>
+  <status value="active" />
+  <stage>
+    <coding>
+      <code value="original-order"/>
+    </coding>
+  </stage>
+  <medicationReference>
+    <reference value="#med0320"/>
+  </medicationReference>
+  <patient>
+    <reference value="Patient/example"/>
+  </patient>
+  <prescriber>
+    <reference value="Practitioner/example"/>
+  </prescriber>
+
+
+
+  <dosageInstruction>
+    <sequence value="1"/>
+    <text value="5ml three times daily" />
+    <additionalInstructions>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="311504000"/>
+        <display value="With or after food"/>
+      </coding>
+    </additionalInstructions>
+    <timing>
+      <repeat>
+        <frequency value="3"/>
+        <period value="1"/>
+        <periodUnit value="d"/>
+      </repeat>
+    </timing>
+    <route>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="394899003"/>
+        <display value="oral administration of treatment"/>
+      </coding>
+    </route>
+    <doseQuantity>
+      <value value="5"/>
+      <unit value="ml"/>
+      <system value="http://unitsofmeasure.org"/>
+      <code value="ml"/>
+    </doseQuantity>
+  </dosageInstruction>
+
+  <dispenseRequest>
+    <quantity>
+      <value value="100"/>
+      <unit value="ml"/>
+      <system value="http://unitsofmeasure.org"/>
+      <code value="ml"/>
+    </quantity>
+  </dispenseRequest>
+
+</MedicationRequest>

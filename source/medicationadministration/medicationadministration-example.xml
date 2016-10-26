@@ -18,7 +18,7 @@
     <reference value="Practitioner/example"/>
   </practitioner>
   <prescription>
-    <reference value="MedicationOrder/example"/>
+    <reference value="MedicationRequest/example"/>
   </prescription>
   <effectiveTimePeriod>
   <start value="2012-06-01T14:30:00+01:00"/>

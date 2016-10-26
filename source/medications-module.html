@@ -37,7 +37,7 @@ This module is concerned with resources and functionality in 2 main domains:
 
 	<tr><td colspan="2"><strong>Medications</strong></td></tr>
 	<tr>
-		<td valign="top"><a href="medicationorder.html">MedicationOrder</a></td>
+		<td valign="top"><a href="medicationrequest.html">MedicationRequest</a></td>
 		<td>
 		<p>Represents an instruction for the administration of medication to a patient - both in the inpatient (hospital) and
 		community setting. It can also include instructions for the dispensing, the reasons why the administration should
@@ -45,7 +45,7 @@ This module is concerned with resources and functionality in 2 main domains:
 		<p>It is called an 'Order' to be consistent with other FHIR resources, but a common alias for this resource is a 'Prescription'.
 		The Order itself represents the content of the instruction and is not, by itself, actionable. The workflow process
 		around 'fulfilling' the order is part of the <a href="workflow-module.html">generic FHIR workflow</a> (see below),
-			with the MedicationOrder representing the contents.</p>
+			with the MedicationRequest representing the contents.</p>
 
 	</td></tr>
 	<tr>
@@ -99,7 +99,7 @@ This module is concerned with resources and functionality in 2 main domains:
 <a name="uses"> </a>
 <h3>Common Use Cases</h3>
 <ul>
-	<li>Placing a Medication Order (aka Prescription). The MedicationOrder resource represents the details of
+	<li>Placing a Medication Request (aka Prescription or Order). The MedicationRequest resource represents the details of
 		what medication the prescriber intends the patient to receive and other details such as the dose, timing and route.
 		However, while it represents that order, the actual workflow around the supply (dispensing) and administration
 		of that medication is
@@ -124,7 +124,7 @@ This module is concerned with resources and functionality in 2 main domains:
 		part of <a href="clinicalreasoning-module.html">Decision Support</a>, with the actual immunization schedule being represented by a generic
 		<a href="plandefinition.html">Plan Definition</a>, individual <a href="careplan.html">Care Plan</a> or some other record.
 	</li>
-	<li>Dispensing a medication based on a Medication Order (aka Prescription).  The MedicationDispense resource represents the details of the dispensing event including the actual product provided to the patient and the dosage to be administered or consumed.</li>
+	<li>Dispensing a medication based on a Medication Request (aka Prescription or Order).  The MedicationDispense resource represents the details of the dispensing event including the actual product provided to the patient and the dosage to be administered or consumed.</li>
 	<li>Retrieving the planned medication therapy for specific patient at a poin in time.  The intended medication therapy may be represented by an individual <a href="careplan.html">Care Plan</a>. </li>
 
 
@@ -134,7 +134,7 @@ This module is concerned with resources and functionality in 2 main domains:
 	There are other resources that are of particular interest in the medication domain.
 	<ul>
 		<li> <a href="supplyrequest.html">SupplyRequest</a> and <a href="supplydelivery.html">SupplyDelivery</a> which,
-		like MedicationOrder, are 'detail' resources used as part of <a href="workflow-module.html">workflow</a>workflow. They are concerned with
+		like MedicationRequest, are 'detail' resources used as part of <a href="workflow-module.html">workflow</a>workflow. They are concerned with
 			the request of supplies used in the healthcare process. This includes supplies specifically used in the
 			treatment of patients as well as supply movement within an institution
 			(transport a set of supplies from materials management to a service unit (nurse station).</li>

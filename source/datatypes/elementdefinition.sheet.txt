@@ -234,7 +234,7 @@
   Id = 12
   Context = ElementDefinition.binding
   English = ValueSet as a URI SHALL start with http:// or https:// urn:
-  XPath = not(exists(f:valueSetUri)) or (starts-with(string(f:valueSetUri/@value), \'http:\') or starts-with(string(f:valueSetUri/@value), \'https:\') or starts-with(string(f:valueSetUri/@value), \'urn:\')
+  XPath = not(exists(f:valueSetUri)) or (starts-with(string(f:valueSetUri/@value), \'http:\') or starts-with(string(f:valueSetUri/@value), \'https:\') or starts-with(string(f:valueSetUri/@value), \'urn:\'))
   Expression = valueSet.is(uri).not() or valueSet.as(uri).startsWith(\'http:\') or valueSet.as(uri).startsWith(\'https\') or valueSet.as(uri).startsWith(\'urn:\')
 
  -- Row 12 -----------------------------------
@@ -262,7 +262,7 @@
   Id = 16
   Context = ElementDefinition
   English = sliceName must be a proper token
-  XPath = not(exists(f:/sliceName/@value)) or matches(f:/sliceName/@value, \'^[a-zA-Z0-9\\\\-\\\\_]+$\')
+  XPath = not(exists(f:sliceName/@value)) or matches(f:sliceName/@value, \'^[a-zA-Z0-9\\\\-\\\\_]+$\')
   Expression = sliceName.empty() or sliceName.matches(\'^[a-zA-Z0-9\\\\-\\\\_]+$\')
 
 === Sheet Data Elements =====================================

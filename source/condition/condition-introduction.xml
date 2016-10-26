@@ -29,7 +29,7 @@ captured as problems/diagnoses.
 <a name="bnr"> </a>
 <h2>Boundaries and Relationships</h2>
 <p>
-    The condition resource may be referenced by other resources as "reasons" for an action (e.g. <a href="medicationorder.html">MedicationOrder</a>,
+    The condition resource may be referenced by other resources as "reasons" for an action (e.g. <a href="medicationrequest.html">MedicationRequest</a>,
 <a href="procedure.html">Procedure</a>, <a href="diagnosticrequest.html">DiagnosticRequest</a>, etc.)
 </p>
 <p>

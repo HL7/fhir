@@ -31,7 +31,7 @@
   <end value="2015-01-15T14:30:00+01:00"/>
 </effectiveTimePeriod>
   <prescription>
-    <reference value="MedicationOrder/medrx0317"/>
+    <reference value="MedicationRequest/medrx0317"/>
   </prescription>
   <note>
     <text value="Patient started Bupropion this morning - will administer in a reduced dose tomorrow"/>

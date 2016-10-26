@@ -213,7 +213,7 @@
  -- Row 8 -----------------------------------
   Element = MedicationDispense.authorizingPrescription
   Card. = 0..*
-  Type = Reference(MedicationOrder)
+  Type = Reference(MedicationRequest)
   Short Name = Medication order that authorizes the dispense
   Definition = Indicates the medication order that is being dispensed against.
   v2 Mapping = ORC-2 Placer Order Number

@@ -37,7 +37,7 @@
 		</ReferralRequest>
 	</contained>
 	<contained>
-		<MedicationOrder>
+		<MedicationRequest>
 			<id value="citalopramPrescription"/>
 			<medicationReference>
 				<reference value="#citalopramMedication"/>
@@ -72,7 +72,7 @@
 					<unit value="{tbl}"/>
 				</quantity>
 			</dispenseRequest>
-		</MedicationOrder>
+		</MedicationRequest>
 	</contained>
 	<contained>
 		<Medication>

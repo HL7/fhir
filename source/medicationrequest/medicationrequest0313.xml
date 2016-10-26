@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MedicationRequest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationrequest.xsd"
+ xmlns="http://hl7.org/fhir">
+  <id value="medrx0313"/>
+    <identifier>
+        <use value="official"/>
+        <system value="http://www.bmc.nl/portal/prescriptions"/>
+        <value value="12345689"/>
+    </identifier>
+    <status value="completed"/>
+    <stage>
+        <coding>
+            <code value="original-order"/>
+        </coding>
+    </stage>
+    <medicationCodeableConcept>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="324252006"/>
+            <display value="Azithromycin 250mg capsule (product)"/>
+        </coding>
+    </medicationCodeableConcept>
+    <patient> <!-- Linked to the resource patient who needs the medication -->
+        <reference value="Patient/pat1"/>
+        <display value="Donald Duck"/>           
+    </patient>
+    <dateWritten value="2015-01-15"/>
+    <prescriber> <!-- Linked to the practitioner who treats patient -->
+        <reference value="Practitioner/f007"/>
+        <display value="Patrick Pump"/>
+    </prescriber>
+    <reasonCode>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="11840006"/>
+            <display value="Traveller's Diarrhea (disorder)"/>
+        </coding>
+    </reasonCode>
+    <dosageInstruction>
+        <sequence value="1"/>
+        <text value="500mg daily for 5 days" />
+        <additionalInstructions>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="421984009"/>
+                <display value="Until finished - dosing instruction fragment (qualifier value)"/>
+            </coding>
+        </additionalInstructions>
+        <timing>
+            <repeat>
+                <frequency value="1"/>
+                <period value="1"/>
+                <periodUnit value="d"/>
+            </repeat>
+        </timing>
+        <route>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="26643006"/>
+                <display value="Oral Route (qualifier value)"/>
+            </coding>
+        </route>
+        <doseQuantity>
+            <value value="500"/>
+            <unit value="mg"/>
+            <system value="http://unitsofmeasure.org"/>
+            <code value="mg"/>
+        </doseQuantity>
+    </dosageInstruction> 
+    <dispenseRequest>
+        <validityPeriod>
+            <start value="2015-01-15"/>
+            <end value="2016-01-15"/> 
+        </validityPeriod>
+        <quantity>
+            <value value="5"/>
+            <unit value="Tab"/>
+            <system value="http://hl7.org/fhir/ValueSet/v3-orderableDrugForm"/>
+            <code value="Tab"/> 
+        </quantity>
+        <expectedSupplyDuration>
+            <value value="5"/>
+            <unit value="days"/>
+            <system value="http://unitsofmeasure.org"/>
+            <code value="d"/>
+        </expectedSupplyDuration>
+    </dispenseRequest>
+    <priorPrescription>
+        <reference value="MedicationRequest/medrx0318"/>
+            <display value="Vancomycin IV"/>
+    </priorPrescription>
+</MedicationRequest>

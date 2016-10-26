@@ -339,26 +339,26 @@ In XML, these modifier elements are represented using an element named "modifier
 </p>
 <div class="example">
 <p>
-  Example: There's no element on <a href="medicationorder.html">MedicationOrder</a> 
+  Example: There's no element on <a href="medicationrequest.html">MedicationRequest</a> 
 to write an "anti-prescription" - an instruction not to take a medication for a particular time.
 Classical clinical recording systems do not record this as a prescription - but one particular
 system does, and these "anti-prescription" records need to be shared within the institution 
 where this happens, as they are an important part of the workflow.  Hence, applications are allowed to extend a resource with data like this: 
 </p>
 <pre class="xml">
-&lt;MedicationOrder&gt;
+&lt;MedicationRequest&gt;
   &lt;modifierExtension url=&quot;http://example.org/fhir/StructureDefinition/anti-prescription&quot;&gt;
     &lt;valueBoolean value="true"/&gt;
   &lt;/modifierExtension&gt;
   &lt;!-- ... other content ... --&gt;
-&lt;/MedicationOrder&gt;
+&lt;/MedicationRequest&gt;
 </pre>
 <p>
 Or in JSON:
 </p>
 <pre class="json">
 {
-  "resourceType" : "MedicationOrder",
+  "resourceType" : "MedicationRequest",
   "modifierExtension" : [{
     "url" : "http://example.org/fhir/StructureDefinition/anti-prescription",
     "valueBoolean" : "true"
@@ -431,7 +431,7 @@ offer the user the choice to see the original narrative.
 Here is the prescription example from above with narrative:
 </p>
 <pre class="xml">
-&lt;MedicationOrder xmlns=&quot;http://hl7.org/fhir&quot;&gt;
+&lt;MedicationRequest xmlns=&quot;http://hl7.org/fhir&quot;&gt;
   &lt;text&gt;
     &lt;status value=&quot;generated&quot;/&gt;
     &lt;div xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
@@ -444,7 +444,7 @@ Here is the prescription example from above with narrative:
     &lt;valueBoolean value="true"/&gt;
   &lt;/modifierExtension&gt;
   &lt;!-- ...data... --&gt;
-&lt;/MedicationOrder&gt;
+&lt;/MedicationRequest&gt;
 </pre>
 </div>
 <p>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MedicationRequest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationrequest.xsd"
+ xmlns="http://hl7.org/fhir">
+    <id value="medrx0310"/>
+    <contained>
+        <Medication>
+            <id value="med0309"/>
+            <code>
+                <coding>
+                    <system value="http://hl7.org/fhir/sid/ndc"/>
+                    <code value="50580-506-02"/>
+                    <display value="Tylenol PM"/>
+                </coding>
+            </code>
+        </Medication>
+    </contained>
+    <identifier>
+        <use value="official"/>
+        <system value="http://www.bmc.nl/portal/prescriptions"/>
+        <value value="12345689"/>
+    </identifier>
+    <status value="active"/>
+    <stage>
+        <coding>
+            <code value="original-order"/>
+        </coding>
+    </stage>
+    <medicationReference>
+        <reference value="#med0309"/>
+    </medicationReference>
+    <patient> <!-- Linked to the resource patient who needs the medication -->
+        <reference value="Patient/pat1"/>
+        <display value="Donald Duck"/>        
+    </patient>
+    <encounter> <!-- Linked to a resource Encounter between patient and practitioner-->
+        <reference value="Encounter/f001"/>
+        <display value="encounter who leads to this prescription"/>
+    </encounter>
+    <dateWritten value="2015-01-15"/>
+    <prescriber> <!-- Linked to the practitioner who treats patient -->
+        <reference value="Practitioner/f007"/>
+        <display value="Patrick Pump"/>
+    </prescriber>
+    <dosageInstruction>
+        <sequence value="1"/>
+        <text value="Take 1-2 tablets once daily at bedtime as needed for restless legs" />
+        <additionalInstructions>
+            <text value="Take at bedtime"/>
+        </additionalInstructions>
+        <timing>
+            <repeat>
+                <frequency value="1"/>
+                <period value="1"/>
+                <periodUnit value="d"/>
+            </repeat>
+        </timing>
+        <asNeededCodeableConcept>
+                <coding>
+                    <system value="http://snomed.info/sct"/>
+                    <code value="32914008"/>
+                    <display value="Restless Legs"/>
+                </coding>
+        </asNeededCodeableConcept>
+        <route>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="26643006"/>
+                <display value="Oral Route"/>
+            </coding>
+        </route>
+        <doseRange>
+            <low>
+                <value value="1"/>
+                <unit value="TAB"/>
+                <system value="http://hl7.org/fhir/ValueSet/v3-orderableDrugForm"/>
+                <code value="TAB"/>
+            </low>
+            <high>
+                <value value="2"/>
+                <unit value="TAB"/>
+                <system value="http://hl7.org/fhir/ValueSet/v3-orderableDrugForm"/>
+                <code value="TAB"/>
+            </high>
+        </doseRange>
+    </dosageInstruction>
+</MedicationRequest>

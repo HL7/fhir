@@ -31,7 +31,7 @@
     <display value="Patrick Pump"/>
   </performer>
   <prescription>
-    <reference value="MedicationOrder/medrx0306"/>
+    <reference value="MedicationRequest/medrx0306"/>
   </prescription>
   <dosage>
     <text value="6 mg PO daily for remission induction; adjust dosage to white blood cell (WBC) count.  With hold treatment if WBC is less than 15,000/µL; resume when WBC is greater than 50,000/µL"/>

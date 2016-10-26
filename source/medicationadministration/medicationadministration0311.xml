@@ -32,7 +32,7 @@
     <display value="Patrick Pump"/>
   </performer>
   <prescription>
-    <reference value="MedicationOrder/medrx0305"/>
+    <reference value="MedicationRequest/medrx0305"/>
   </prescription>
   <reasonGiven>
     <coding>

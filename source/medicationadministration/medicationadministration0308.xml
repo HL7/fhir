@@ -24,7 +24,7 @@
     <display value="Patrick Pump"/>
   </performer>
   <prescription>
-    <reference value="MedicationOrder/medrx0320"/>
+    <reference value="MedicationRequest/medrx0320"/>
   </prescription>
   <dosage>
     <text value="20 Units SC before breakfast" />

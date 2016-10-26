@@ -264,14 +264,14 @@
  -- Row 23 -----------------------------------
   Element = ClinicalImpression.plan
   Card. = 0..*
-  Type = Reference(CarePlan|Appointment|CommunicationRequest|DeviceUseRequest|DiagnosticRequest|MedicationOrder|NutritionRequest|ProcedureRequest|ProcessRequest|ReferralRequest|VisionPrescription)
+  Type = Reference(CarePlan|Appointment|CommunicationRequest|DeviceUseRequest|DiagnosticRequest|MedicationRequest|NutritionRequest|ProcedureRequest|ProcessRequest|ReferralRequest|VisionPrescription)
   Short Name = Plan of action after assessment
   Definition = Plan of action after assessment
 
  -- Row 24 -----------------------------------
   Element = ClinicalImpression.action
   Card. = 0..*
-  Type = Reference(ReferralRequest | ProcedureRequest | Procedure | MedicationOrder | DiagnosticRequest | NutritionRequest | DeviceUseRequest | Appointment)
+  Type = Reference(ReferralRequest | ProcedureRequest | Procedure | MedicationRequest | DiagnosticRequest | NutritionRequest | DeviceUseRequest | Appointment)
   Short Name = Actions taken during assessment
   Definition = Actions taken during assessment
 

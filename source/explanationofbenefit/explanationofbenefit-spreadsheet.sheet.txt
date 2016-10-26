@@ -585,7 +585,7 @@
  -- Row 23 -----------------------------------
   Element = ExplanationOfBenefit.prescription
   Card. = 0..1
-  Type = Reference(MedicationOrder|VisionPrescription)
+  Type = Reference(MedicationRequest|VisionPrescription)
   Short Name = Prescription
   Definition = Prescription to support the dispensing of Pharmacy or Vision products.
   Requirements = For type=Pharmacy and Vision only.
@@ -593,7 +593,7 @@
  -- Row 24 -----------------------------------
   Element = ExplanationOfBenefit.originalPrescription
   Card. = 0..1
-  Type = Reference(MedicationOrder)
+  Type = Reference(MedicationRequest)
   Short Name = Original Prescription
   Definition = Original prescription which has been superceded by this prescription to support the dispensing of pharmacy services, medications or products.
 
