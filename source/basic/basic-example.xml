@@ -5,7 +5,7 @@ problem lists, allergy lists, etc.
 Note: ReferralRequest has been incorporated in the specification; this example will be rewritten 
 in a future version (todo).
 -->
-<Basic xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/basic">
+<Basic xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/basic.xsd">
   <id value="referral"/>
   <text>
     <status value="generated" />
