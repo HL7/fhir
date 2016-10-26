@@ -4750,7 +4750,7 @@
     <Cell ss:StyleID="s91"><Data ss:Type="String">ValueSet as a URI SHALL start with http:// or https:// urn:</Data></Cell>
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s91"><Data ss:Type="String">valueSet.is(uri).not() or valueSet.as(uri).startsWith('http:') or valueSet.as(uri).startsWith('https') or valueSet.as(uri).startsWith('urn:')</Data></Cell>
-    <Cell ss:StyleID="s109"><Data ss:Type="String">not(exists(f:valueSetUri)) or (starts-with(string(f:valueSetUri/@value), 'http:') or starts-with(string(f:valueSetUri/@value), 'https:') or starts-with(string(f:valueSetUri/@value), 'urn:')</Data></Cell>
+    <Cell ss:StyleID="s109"><Data ss:Type="String">not(exists(f:valueSetUri)) or (starts-with(string(f:valueSetUri/@value), 'http:') or starts-with(string(f:valueSetUri/@value), 'https:') or starts-with(string(f:valueSetUri/@value), 'urn:'))</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell ss:StyleID="s108"><Data ss:Type="Number">13</Data><NamedCell
@@ -4794,7 +4794,7 @@
     <Cell ss:StyleID="s91"><Data ss:Type="String">sliceName must be a proper token</Data></Cell>
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s91"><Data ss:Type="String">sliceName.empty() or sliceName.matches('^[a-zA-Z0-9\\-\\_]+$')</Data></Cell>
-    <Cell ss:StyleID="s110"><Data ss:Type="String">not(exists(f:/sliceName/@value)) or matches(f:/sliceName/@value, '^[a-zA-Z0-9\\-\\_]+$')</Data></Cell>
+    <Cell ss:StyleID="s110"><Data ss:Type="String">not(exists(f:sliceName/@value)) or matches(f:sliceName/@value, '^[a-zA-Z0-9\\-\\_]+$')</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s108"><NamedCell ss:Name="Invariantids"/></Cell>
