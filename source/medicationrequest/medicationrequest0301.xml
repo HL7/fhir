@@ -37,6 +37,9 @@
         <reference value="Encounter/f001"/>
         <display value="encounter who leads to this prescription"/>
     </encounter>
+    <supportingInformation>
+        <reference value="Procedure/biopsy"></reference>
+    </supportingInformation>
     <dateWritten value="2015-01-15"/>
     <prescriber> <!-- Linked to the practitioner who treats patient -->
         <reference value="Practitioner/f007"/>
@@ -52,6 +55,13 @@
     <note>
         <text value="Patient told to take with food"/>
     </note>
+    <category>
+        <coding>
+            <system value="http://hl7.org/fhir/medication-request-category"/>
+            <code value="inpatient"/>
+            <display value="Inpatient"/>
+        </coding>
+    </category>
     <dosageInstruction>
         <sequence value="1"/>
         <text value="one to two tablets every 4-6 hours as needed for rib pain" />
