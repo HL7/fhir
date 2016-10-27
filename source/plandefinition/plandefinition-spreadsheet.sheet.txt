@@ -64,13 +64,6 @@
   Definition = Defines the types of relationships between actions
   Conformance = required
 
- -- Row 10 -----------------------------------
-  Binding Name = PlanActionRelationshipAnchor
-  Binding = code list
-  Reference = #action-relationship-anchor
-  Definition = Defines possible anchors for the relationship between actions
-  Conformance = required
-
 === Sheet plan-definition-type =====================================
 
  -- Row 1 -----------------------------------
@@ -247,35 +240,57 @@
 
  -- Row 1 -----------------------------------
   Id = 1
+  Code = before-start
+  Display = Before Start
+  Definition = The action must be performed before the start of the related action
+
+ -- Row 2 -----------------------------------
+  Id = 1
   Code = before
   Display = Before
   Definition = The action must be performed before the related action
 
- -- Row 2 -----------------------------------
-  Id = 2
-  Code = after
-  Display = After
-  Definition = The action must be performed after the related action
-
  -- Row 3 -----------------------------------
+  Id = 1
+  Code = before-end
+  Display = Before End
+  Definition = The action must be performed before the end of the related action
+
+ -- Row 4 -----------------------------------
+  Id = 3
+  Code = concurrent-with-start
+  Display = Concurrent With Start
+  Definition = The action must be performed concurrent with the start of the related action
+
+ -- Row 5 -----------------------------------
   Id = 3
   Code = concurrent
   Display = Concurrent
   Definition = The action must be performed concurrent with the related action
 
-=== Sheet action-relationship-anchor =====================================
+ -- Row 6 -----------------------------------
+  Id = 3
+  Code = concurrent-with-end
+  Display = Concurrent With End
+  Definition = The action must be performed concurrent with the end of the related action
 
- -- Row 1 -----------------------------------
-  Id = 1
-  Code = start
-  Display = Start
-  Definition = The action relationship is anchored to the start of the related action
-
- -- Row 2 -----------------------------------
+ -- Row 7 -----------------------------------
   Id = 2
-  Code = end
-  Display = End
-  Definition = The action relationship is anchored to the end of the related action
+  Code = after-start
+  Display = After Start
+  Definition = The action must be performed after the start of the related action
+
+ -- Row 8 -----------------------------------
+  Id = 2
+  Code = after
+  Display = After
+  Definition = The action must be performed after the related action
+
+ -- Row 9 -----------------------------------
+  Id = 2
+  Code = after-end
+  Display = After End
+  Definition = The action must be performed after the end of the related action
 
 === Sheet Invariants =====================================
 
@@ -510,7 +525,7 @@
   Card. = 1..1
   Type = code
   Binding = PlanActionRelationshipType
-  Short Name = before | after | concurrent
+  Short Name = before-start | before | before-end | concurrent-with-start | concurrent | concurrent-with-end | after-start | after | after-end
   Definition = The relationship of this action to the related action
 
  -- Row 42 -----------------------------------
@@ -521,21 +536,13 @@
   Definition = A duration or range of durations to apply to the relationship. For example, 30-60 minutes before
 
  -- Row 43 -----------------------------------
-  Element = PlanDefinition.actionDefinition.relatedAction.anchor
-  Card. = 0..1
-  Type = code
-  Binding = PlanActionRelationshipAnchor
-  Short Name = start | end
-  Definition = An optional indicator for how the relationship is anchored to the related action. For example \"before the start\" or \"before the end\" of the related action
-
- -- Row 44 -----------------------------------
   Element = PlanDefinition.actionDefinition.timing[x]
   Card. = 0..1
   Type = dateTime|Period|Duration|Range|Timing
   Short Name = When the action should take place
   Definition = An optional value describing when the action should be performed
 
- -- Row 45 -----------------------------------
+ -- Row 44 -----------------------------------
   Element = PlanDefinition.actionDefinition.participantType
   Card. = 0..*
   Type = code
@@ -543,7 +550,7 @@
   Short Name = patient | practitioner | related-person
   Definition = The type of participant in the action
 
- -- Row 46 -----------------------------------
+ -- Row 45 -----------------------------------
   Element = PlanDefinition.actionDefinition.type
   Card. = 0..1
   Type = Coding
@@ -551,7 +558,7 @@
   Short Name = create | update | remove | fire-event
   Definition = The type of action to perform (create, update, remove)
 
- -- Row 47 -----------------------------------
+ -- Row 46 -----------------------------------
   Element = PlanDefinition.actionDefinition.groupingBehavior
   Card. = 0..1
   Type = code
@@ -559,7 +566,7 @@
   Short Name = visual-group | logical-group | sentence-group
   Definition = Defines the grouping behavior for the action and its children
 
- -- Row 48 -----------------------------------
+ -- Row 47 -----------------------------------
   Element = PlanDefinition.actionDefinition.selectionBehavior
   Card. = 0..1
   Type = code
@@ -567,7 +574,7 @@
   Short Name = any | all | all-or-none | exactly-one | at-most-one | one-or-more
   Definition = Defines the selection behavior for the action and its children
 
- -- Row 49 -----------------------------------
+ -- Row 48 -----------------------------------
   Element = PlanDefinition.actionDefinition.requiredBehavior
   Card. = 0..1
   Type = code
@@ -575,7 +582,7 @@
   Short Name = must | could | must-unless-documented
   Definition = Defines the requiredness behavior for the action
 
- -- Row 50 -----------------------------------
+ -- Row 49 -----------------------------------
   Element = PlanDefinition.actionDefinition.precheckBehavior
   Card. = 0..1
   Type = code
@@ -583,7 +590,7 @@
   Short Name = yes | no
   Definition = Defines whether the action should usually be preselected
 
- -- Row 51 -----------------------------------
+ -- Row 50 -----------------------------------
   Element = PlanDefinition.actionDefinition.cardinalityBehavior
   Card. = 0..1
   Type = code
@@ -591,7 +598,7 @@
   Short Name = single | multiple
   Definition = Defines whether the action can be selected multiple times
 
- -- Row 52 -----------------------------------
+ -- Row 51 -----------------------------------
   Element = PlanDefinition.actionDefinition.activityDefinition
   Card. = 0..1
   Type = Reference(ActivityDefinition)
@@ -599,42 +606,42 @@
   Definition = A reference to an ActivityDefinition that describes the action to be taken in detail
   Comments = Note that the resource is optional, and if no resource is specified, a dynamicValue with a root (/) path can be used to define the entire resource dynamically
 
- -- Row 53 -----------------------------------
+ -- Row 52 -----------------------------------
   Element = PlanDefinition.actionDefinition.transform
   Card. = 0..1
   Type = Reference(StructureMap)
   Short Name = Transform to apply the template
   Definition = A reference to a StructureMap resource that defines a transform that can be executed to produce the intent resource using the ActivityDefinition instance as the input
 
- -- Row 54 -----------------------------------
+ -- Row 53 -----------------------------------
   Element = PlanDefinition.actionDefinition.dynamicValue
   Card. = 0..*
   UML = 650;200
   Short Name = Dynamic aspects of the definition
   Definition = Customizations that should be applied to the statically defined resource. For example, if the dosage of a medication must be computed based on the patient\'s weight, a customization would be used to specify an expression that calculated the weight, and the path on the resource that would contain the result
 
- -- Row 55 -----------------------------------
+ -- Row 54 -----------------------------------
   Element = PlanDefinition.actionDefinition.dynamicValue.description
   Card. = 0..1
   Type = string
   Short Name = Natural language description of the dynamic value
   Definition = A brief, natural language description of the intended semantics of the dynamic value
 
- -- Row 56 -----------------------------------
+ -- Row 55 -----------------------------------
   Element = PlanDefinition.actionDefinition.dynamicValue.path
   Card. = 0..1
   Type = string
   Short Name = The path to the element to be set dynamically
   Definition = The path to the element to be customized. This is the path on the resource that will hold the result of the calculation defined by the expression
 
- -- Row 57 -----------------------------------
+ -- Row 56 -----------------------------------
   Element = PlanDefinition.actionDefinition.dynamicValue.language
   Card. = 0..1
   Type = string
   Short Name = Language of the expression
   Definition = The media type of the language for the expression
 
- -- Row 58 -----------------------------------
+ -- Row 57 -----------------------------------
   Element = PlanDefinition.actionDefinition.dynamicValue.expression
   Card. = 0..1
   Type = string
@@ -642,7 +649,7 @@
   Definition = An expression specifying the value of the customized element
   Comments = The expression may be inlined, or may be a reference to a named expression within a logic library referenced by the library element
 
- -- Row 59 -----------------------------------
+ -- Row 58 -----------------------------------
   Element = PlanDefinition.actionDefinition.actionDefinition
   Card. = 0..*
   Type = @PlanDefinition.actionDefinition

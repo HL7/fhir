@@ -23,41 +23,34 @@
   Conformance = required
 
  -- Row 4 -----------------------------------
-  Binding Name = ActionRelationshipAnchor
-  Binding = value set
-  Reference = http://hl7.org/fhir/ValueSet/action-relationship-anchor
-  Definition = Defines possible anchors for the relationship between actions
-  Conformance = required
-
- -- Row 5 -----------------------------------
   Binding Name = ActionGroupingBehavior
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/action-grouping-behavior
   Definition = Defines organization behavior of a group
   Conformance = required
 
- -- Row 6 -----------------------------------
+ -- Row 5 -----------------------------------
   Binding Name = ActionSelectionBehavior
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/action-selection-behavior
   Definition = Defines selection behavior of a group
   Conformance = required
 
- -- Row 7 -----------------------------------
+ -- Row 6 -----------------------------------
   Binding Name = ActionRequiredBehavior
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/action-required-behavior
   Definition = Defines requiredness behavior for selecting an action or an action group
   Conformance = required
 
- -- Row 8 -----------------------------------
+ -- Row 7 -----------------------------------
   Binding Name = ActionPrecheckBehavior
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/action-precheck-behavior
   Definition = Defines selection frequency behavior for an action or group
   Conformance = required
 
- -- Row 9 -----------------------------------
+ -- Row 8 -----------------------------------
   Binding Name = ActionCardinalityBehavior
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/action-cardinality-behavior
@@ -237,7 +230,7 @@
   Card. = 1..1
   Type = code
   Binding = ActionRelationshipType
-  Short Name = before | after
+  Short Name = before-start | before | before-end | concurrent-with-start | concurrent | concurrent-with-end | after-start | after | after-end
   Definition = The relationship of this action to the related action
 
  -- Row 20 -----------------------------------
@@ -248,21 +241,13 @@
   Definition = A duration or range of durations to apply to the relationship. For example, 30-60 minutes before
 
  -- Row 21 -----------------------------------
-  Element = ActivityGroup.action.relatedAction.anchor
-  Card. = 0..1
-  Type = code
-  Binding = ActionRelationshipAnchor
-  Short Name = start | end
-  Definition = An optional indicator for how the relationship is anchored to the related action. For example \"before the start\" or \"before the end\" of the related action
-
- -- Row 22 -----------------------------------
   Element = ActivityGroup.action.timing[x]
   Card. = 0..1
   Type = dateTime|Period|Duration|Range
   Short Name = When the action should take place
   Definition = An optional value describing when the action should be performed
 
- -- Row 23 -----------------------------------
+ -- Row 22 -----------------------------------
   Element = ActivityGroup.action.participant
   Card. = 0..*
   Type = Reference(Patient|Person|Practitioner | RelatedPerson)
@@ -270,7 +255,7 @@
   Definition = The participant in the action
   w5 = who.actor
 
- -- Row 24 -----------------------------------
+ -- Row 23 -----------------------------------
   Element = ActivityGroup.action.type
   Card. = 0..1
   Type = Coding
@@ -278,7 +263,7 @@
   Short Name = create | update | remove | fire-event
   Definition = The type of action to perform (create, update, remove)
 
- -- Row 25 -----------------------------------
+ -- Row 24 -----------------------------------
   Element = ActivityGroup.action.groupingBehavior
   Card. = 0..1
   Type = code
@@ -286,7 +271,7 @@
   Short Name = visual-group | logical-group | sentence-group
   Definition = Defines the grouping behavior for the action and its children
 
- -- Row 26 -----------------------------------
+ -- Row 25 -----------------------------------
   Element = ActivityGroup.action.selectionBehavior
   Card. = 0..1
   Type = code
@@ -294,7 +279,7 @@
   Short Name = any | all | all-or-none | exactly-one | at-most-one | one-or-more
   Definition = Defines the selection behavior for the action and its children
 
- -- Row 27 -----------------------------------
+ -- Row 26 -----------------------------------
   Element = ActivityGroup.action.requiredBehavior
   Card. = 0..1
   Type = code
@@ -302,7 +287,7 @@
   Short Name = must | could | must-unless-documented
   Definition = Defines the requiredness behavior for the action
 
- -- Row 28 -----------------------------------
+ -- Row 27 -----------------------------------
   Element = ActivityGroup.action.precheckBehavior
   Card. = 0..1
   Type = code
@@ -310,7 +295,7 @@
   Short Name = yes | no
   Definition = Defines whether the action should usually be preselected
 
- -- Row 29 -----------------------------------
+ -- Row 28 -----------------------------------
   Element = ActivityGroup.action.cardinalityBehavior
   Card. = 0..1
   Type = code
@@ -318,14 +303,14 @@
   Short Name = single | multiple
   Definition = Defines whether the action can be selected multiple times
 
- -- Row 30 -----------------------------------
+ -- Row 29 -----------------------------------
   Element = ActivityGroup.action.resource
   Card. = 0..1
   Type = Reference(Any)
   Short Name = The target of the action
   Definition = The resource that is the target of the action (e.g. CommunicationRequest)
 
- -- Row 31 -----------------------------------
+ -- Row 30 -----------------------------------
   Element = ActivityGroup.action.action
   Card. = 0..*
   Type = @ActivityGroup.action
