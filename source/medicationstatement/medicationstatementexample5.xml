@@ -22,7 +22,7 @@
     <display value="Donald Duck"/> 
   </informationSource>
   <dateAsserted value="2015-02-22"/>
-  <notTaken value="Y"/>
+  <notTaken value="y"/>
   <note>
     <text value="Patient indicated that they thought it was Amoxicillin they were taking but it was really Erythromycin" />
   </note>

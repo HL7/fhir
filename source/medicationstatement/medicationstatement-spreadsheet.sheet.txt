@@ -150,19 +150,19 @@
 
  -- Row 1 -----------------------------------
   Id = 1
-  Code = Y
+  Code = y
   Display = Yes
   Definition = Positive assertion that patient has taken medication
 
  -- Row 2 -----------------------------------
   Id = 2
-  Code = N
+  Code = n
   Display = No
   Definition = Negative assertion that patient has not taken medication
 
  -- Row 3 -----------------------------------
   Id = 3
-  Code = UNK
+  Code = unk
   Display = Unknown
   Definition = Unknown assertion if patient has taken medication
 
@@ -172,8 +172,8 @@
   Id = 1
   Context = MedicationStatement
   English = Reason not taken is only permitted if notTaken is Yes
-  XPath = not(exists(f:reasonNotTaken) and (f:notTaken/@value=\'N\' or f:notTaken/@value=\'UNK\'))
-  Expression = reasonNotTaken.empty() or notTaken=\'Y\'
+  XPath = not(exists(f:reasonNotTaken) and (f:notTaken/@value=\'n\' or f:notTaken/@value=\'unk\'))
+  Expression = reasonNotTaken.empty() or notTaken=\'y\'
 
 === Sheet Data Elements =====================================
 
@@ -272,11 +272,11 @@
  -- Row 10 -----------------------------------
   Element = MedicationStatement.notTaken
   Card. = 0..1
-  Is Modifier = Y
+  Is Modifier = y
   Summary = y
   Type = code
   Binding = MedicationStatementNotTaken
-  Short Name = Y | N | UNK
+  Short Name = y | n | unk
   Definition = Indicator of the certainty of whether the medication was taken by the patient
 
  -- Row 11 -----------------------------------
