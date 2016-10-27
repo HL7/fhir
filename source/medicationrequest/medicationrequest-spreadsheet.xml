@@ -6,10 +6,10 @@
  xmlns:html="http://www.w3.org/TR/REC-html40">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>Marla Albitz</LastAuthor>
+  <LastAuthor>Melva Peters</LastAuthor>
   <LastPrinted>2016-01-26T17:36:52Z</LastPrinted>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2016-10-21T21:12:54Z</LastSaved>
+  <LastSaved>2016-10-27T16:20:23Z</LastSaved>
   <Version>15.0</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -21,7 +21,7 @@
   <WindowTopX>0</WindowTopX>
   <WindowTopY>460</WindowTopY>
   <TabRatio>732</TabRatio>
-  <ActiveSheet>8</ActiveSheet>
+  <ActiveSheet>1</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -1342,7 +1342,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">RXE-2-Give Code / RXO-1-Requested Give Code / RXC-2-Component Code</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">Message/Body/NewRx/MedicationPrescribed&#10;&#10;Medication.code.coding.code = Message/Body/NewRx/MedicationPrescribed/DrugCoded/ProductCode&#10;&#10;Medication.code.coding.system = Message/Body/NewRx/MedicationPrescribed/DrugCoded/ProductCodeQualifier&#10;&#10;Medication.code.coding.display = Message/Body/NewRx/MedicationPrescribed/DrugDescription</Data><NamedCell
+    <Cell ss:StyleID="s91"><Data ss:Type="String">Message/Body/NewRx/MedicationPrescribed&#13;&#13;Medication.code.coding.code = Message/Body/NewRx/MedicationPrescribed/DrugCoded/ProductCode&#13;&#13;Medication.code.coding.system = Message/Body/NewRx/MedicationPrescribed/DrugCoded/ProductCodeQualifier&#13;&#13;Medication.code.coding.display = Message/Body/NewRx/MedicationPrescribed/DrugDescription</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1379,7 +1379,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">PID-3-Patient ID List</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">Message/Body/NewRx/Patient&#10;&#10;(need detail to link to specific patient … Patient.Identification in SCRIPT)</Data><NamedCell
+    <Cell ss:StyleID="s91"><Data ss:Type="String">Message/Body/NewRx/Patient&#13;&#13;(need detail to link to specific patient … Patient.Identification in SCRIPT)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1519,7 +1519,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">RXE-13-Ordering Provider's DEA Number / RXO-14-Ordering Provider's DEA Number / RXE-14-Pharmacist/Treatment Supplier's Verifier ID / RXO-15-Pharmacist/Treatment Supplier's Verifier ID / ORC-12-Ordering Provider / PRT-5-Participation Person: PRT-4-Participation='OP' (all but last deprecated) </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">Message/Body/NewRx/Prescriber&#10;&#10;(need detail to link to specific prescriber … Prescriber.Identification in SCRIPT)</Data><NamedCell
+    <Cell ss:StyleID="s91"><Data ss:Type="String">Message/Body/NewRx/Prescriber&#13;&#13;(need detail to link to specific prescriber … Prescriber.Identification in SCRIPT)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1658,7 +1658,7 @@
     <Cell ss:StyleID="s91"><Data ss:Type="String">not mapped</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">Message/Body/NewRx/MedicationPrescribed/Directions&#10;&#10;or &#10;&#10;Message/Body/NewRx/MedicationPrescribed/StructuredSIG</Data><NamedCell
+    <Cell ss:StyleID="s91"><Data ss:Type="String">Message/Body/NewRx/MedicationPrescribed/Directions&#13;&#13;or &#13;&#13;Message/Body/NewRx/MedicationPrescribed/StructuredSIG</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1908,7 +1908,8 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">boolean</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Y</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3687,10 +3688,11 @@
    </Print>
    <Zoom>91</Zoom>
    <PageLayoutZoom>0</PageLayoutZoom>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>15</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -3703,11 +3705,10 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>8</ActiveCol>
+     <ActiveCol>14</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -5200,6 +5201,8 @@
    <x:Print>    </x:Print>
    <x:Print>    </x:Print>
    <x:Print>    </x:Print>
+   <x:Print>    </x:Print>
+   <x:Print>    </x:Print>
   </WorksheetOptions>
   <AutoFilter x:Range="R1C1:R2C9" xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
@@ -6274,9 +6277,10 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Print>
+   </Print>
    <TabColorIndex>9</TabColorIndex>
    <PageLayoutZoom>0</PageLayoutZoom>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
@@ -7502,6 +7506,8 @@
    <x:Print>    </x:Print>
    <x:Print>    </x:Print>
    <x:Print>    </x:Print>
+   <x:Print>    </x:Print>
+   <x:Print>    </x:Print>
   </WorksheetOptions>
   <AutoFilter x:Range="R1C1:R1C9" xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
@@ -8140,6 +8146,8 @@
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
+   <x:Print>    </x:Print>
+   <x:Print>    </x:Print>
    <x:Print>    </x:Print>
    <x:Print>    </x:Print>
    <x:Print>    </x:Print>

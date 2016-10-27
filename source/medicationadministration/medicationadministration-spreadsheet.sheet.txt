@@ -197,17 +197,6 @@
   w5 = context
 
  -- Row 8 -----------------------------------
-  Element = MedicationAdministration.reasonReference
-  Card. = 0..*
-  Type = Reference(Condition |Observation)
-  Short Name = Condition or Observation that supports why the medication was administered
-  Definition = Condition or observation that supports why the medication was administered
-  Comments = This is a reference to a condition that is the reason for the medication request.  If only a code exists, use reasonCode.
-  RIM Mapping = reason.observation[code=ASSERTION].value
-  Prov Mapping = no mapping
-  w5 = why
-
- -- Row 9 -----------------------------------
   Element = MedicationAdministration.effectiveTime[x]
   Card. = 1..1
   Summary = y
@@ -219,7 +208,7 @@
   Committee Notes = 2014-0917 HG: Chjanged name from whenGiven to effectiveTime and made datatype choice of period or dataTime
   w5 = when.done
 
- -- Row 10 -----------------------------------
+ -- Row 9 -----------------------------------
   Element = MedicationAdministration.performer
   Card. = 0..1
   Type = Reference(Practitioner | Patient | RelatedPerson)
@@ -228,6 +217,17 @@
   v2 Mapping = RXA-10-Administering Provider / PRT-5-Participation Person: PRT-4-Participation=\'AP\' (RXA-10 is deprecated)
   RIM Mapping = performer->Role
   w5 = who.actor
+
+ -- Row 10 -----------------------------------
+  Element = MedicationAdministration.reasonReference
+  Card. = 0..*
+  Type = Reference(Condition |Observation)
+  Short Name = Condition or Observation that supports why the medication was administered
+  Definition = Condition or observation that supports why the medication was administered
+  Comments = This is a reference to a condition that is the reason for the medication request.  If only a code exists, use reasonCode.
+  RIM Mapping = reason.observation[code=ASSERTION].value
+  Prov Mapping = no mapping
+  w5 = why
 
  -- Row 11 -----------------------------------
   Element = MedicationAdministration.prescription

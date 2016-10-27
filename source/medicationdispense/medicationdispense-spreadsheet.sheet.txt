@@ -192,6 +192,14 @@
   w5 = who.focus
 
  -- Row 6 -----------------------------------
+  Element = MedicationDispense.supportingInformation
+  Card. = 0..*
+  Type = Reference(Any)
+  Short Name = Information that supports the dispensing of the medication
+  Definition = Additional information that supports the medication being dispensed.
+  w5 = context
+
+ -- Row 7 -----------------------------------
   Element = MedicationDispense.dispenser
   Card. = 0..1
   Type = Reference(Practitioner)
@@ -201,7 +209,7 @@
   RIM Mapping = .participation[typeCode=PFM].role[classCode=ASSIGN]
   w5 = who.actor
 
- -- Row 7 -----------------------------------
+ -- Row 8 -----------------------------------
   Element = MedicationDispense.dispensingOrganization
   Card. = 0..1
   Type = Reference(Organization)
@@ -210,7 +218,7 @@
   RIM Mapping = .participation[typeCode=RESP].role[classCode=ASSIGNED]
   w5 = who.actor
 
- -- Row 8 -----------------------------------
+ -- Row 9 -----------------------------------
   Element = MedicationDispense.authorizingPrescription
   Card. = 0..*
   Type = Reference(MedicationRequest)
@@ -219,7 +227,7 @@
   v2 Mapping = ORC-2 Placer Order Number
   RIM Mapping = .outboundRelationship[typeCode=FLFS].target[moodCode=RQO]
 
- -- Row 9 -----------------------------------
+ -- Row 10 -----------------------------------
   Element = MedicationDispense.type
   Card. = 0..1
   Type = CodeableConcept
@@ -228,14 +236,6 @@
   Definition = Indicates the type of dispensing event that is performed. For example, Trial Fill, Completion of Trial, Partial Fill, Emergency Fill, Samples, etc.
   v2 Mapping = RXD-33-Dispense Type
   RIM Mapping = .code
-
- -- Row 10 -----------------------------------
-  Element = MedicationDispense.supportingInformation
-  Card. = 0..*
-  Type = Reference(Any)
-  Short Name = Information that supports the dispensing of the medication
-  Definition = Additional information that supports the medication being dispensed.
-  w5 = context
 
  -- Row 11 -----------------------------------
   Element = MedicationDispense.quantity

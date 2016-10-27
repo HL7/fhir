@@ -243,7 +243,7 @@
   Short Name = Medication to be taken
   Definition = Identifies the medication being administered. This is a link to a resource that represents the medication which may be the details of the medication or simply an attribute carrying a code that identifies the medication from a known list of medications.
   Comments = If only a code is specified, then it needs to be a code for a specific product.  If more information is required, then the use of the medication resource is recommended.  Note: do not use Medication.name to describe the prescribed medication. When the only available information is a text description of the medication, Medication.code.text should be used
-  SCRIPT 10.6 Mapping = Message/Body/NewRx/MedicationPrescribed\n\nMedication.code.coding.code = Message/Body/NewRx/MedicationPrescribed/DrugCoded/ProductCode\n\nMedication.code.coding.system = Message/Body/NewRx/MedicationPrescribed/DrugCoded/ProductCodeQualifier\n\nMedication.code.coding.display = Message/Body/NewRx/MedicationPrescribed/DrugDescription
+  SCRIPT 10.6 Mapping = Message/Body/NewRx/MedicationPrescribed\r\rMedication.code.coding.code = Message/Body/NewRx/MedicationPrescribed/DrugCoded/ProductCode\r\rMedication.code.coding.system = Message/Body/NewRx/MedicationPrescribed/DrugCoded/ProductCodeQualifier\r\rMedication.code.coding.display = Message/Body/NewRx/MedicationPrescribed/DrugDescription
   v2 Mapping = RXE-2-Give Code / RXO-1-Requested Give Code / RXC-2-Component Code
   RIM Mapping = consumable.administrableMedication
   w5 = what
@@ -256,7 +256,7 @@
   Short Name = Who prescription is for
   Definition = A link to a resource representing the person to whom the medication will be given
   Comments = SubstanceAdministration->subject->Patient
-  SCRIPT 10.6 Mapping = Message/Body/NewRx/Patient\n\n(need detail to link to specific patient … Patient.Identification in SCRIPT)
+  SCRIPT 10.6 Mapping = Message/Body/NewRx/Patient\r\r(need detail to link to specific patient … Patient.Identification in SCRIPT)
   v2 Mapping = PID-3-Patient ID List
   RIM Mapping = subject.role
   w5 = who.focus
@@ -300,7 +300,7 @@
   Type = Reference(Practitioner)
   Short Name = Who ordered the initial medication(s)
   Definition = The healthcare professional responsible for authorizing the initial prescription.
-  SCRIPT 10.6 Mapping = Message/Body/NewRx/Prescriber\n\n(need detail to link to specific prescriber … Prescriber.Identification in SCRIPT)
+  SCRIPT 10.6 Mapping = Message/Body/NewRx/Prescriber\r\r(need detail to link to specific prescriber … Prescriber.Identification in SCRIPT)
   v2 Mapping = RXE-13-Ordering Provider\'s DEA Number / RXO-14-Ordering Provider\'s DEA Number / RXE-14-Pharmacist/Treatment Supplier\'s Verifier ID / RXO-15-Pharmacist/Treatment Supplier\'s Verifier ID / ORC-12-Ordering Provider / PRT-5-Participation Person: PRT-4-Participation=\'OP\' (all but last deprecated)
   RIM Mapping = author.role
   w5 = who.actor
@@ -345,7 +345,7 @@
   Binding = MedicationRequestCategory
   Short Name = Type of medication usage
   Definition = Indicates where type of medication order and where the medication is expected to be consumed or administered
-  SCRIPT 10.6 Mapping = Message/Body/NewRx/MedicationPrescribed/Directions\n\nor \n\nMessage/Body/NewRx/MedicationPrescribed/StructuredSIG
+  SCRIPT 10.6 Mapping = Message/Body/NewRx/MedicationPrescribed/Directions\r\ror \r\rMessage/Body/NewRx/MedicationPrescribed/StructuredSIG
   RIM Mapping = not mapped
 
  -- Row 18 -----------------------------------
@@ -418,6 +418,7 @@
  -- Row 25 -----------------------------------
   Element = MedicationRequest.substitution.allowed
   Card. = 1..1
+  Is Modifier = Y
   Type = boolean
   Short Name = Whether substitution is allowed or not
   Definition = True if the prescriber allows a different drug to be dispensed from what was prescribed.
