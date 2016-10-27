@@ -247,7 +247,7 @@
   Definition = A text equivalent of the action to be performed. This provides a human-interpretable description of the action when the definition is consumed by a system that may not be capable of interpreting it dynamically
 
  -- Row 20 -----------------------------------
-  Element = GuidanceResponse.action.concept
+  Element = GuidanceResponse.action.code
   Card. = 0..*
   Type = CodeableConcept
   Short Name = The meaning of the action or its sub-actions
