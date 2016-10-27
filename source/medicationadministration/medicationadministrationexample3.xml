@@ -26,6 +26,9 @@
 <encounter>
   <reference value="Encounter/f001"></reference>
 </encounter>
+<supportingInformation>
+  <reference value ="Condition/f204"></reference>
+</supportingInformation>
  <effectiveTimePeriod>
   <start value="2015-01-15T14:30:00+01:00"/>
   <end value="2015-01-15T14:30:00+01:00"/>
@@ -33,6 +36,14 @@
   <prescription>
     <reference value="MedicationRequest/medrx0317"/>
   </prescription>
+  <notGiven value="true"></notGiven>
+  <reasonNotGiven>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="373147003"/>
+      <display value="Administration of medication not done due to a contraindication (situation)"/>
+    </coding>
+  </reasonNotGiven>
   <note>
     <text value="Patient started Bupropion this morning - will administer in a reduced dose tomorrow"/>
   </note>
