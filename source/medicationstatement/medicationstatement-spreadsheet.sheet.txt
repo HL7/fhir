@@ -175,20 +175,6 @@
   XPath = not(exists(f:reasonNotTaken) and (f:notTaken/@value=\'N\' or f:notTaken/@value=\'UNK\'))
   Expression = reasonNotTaken.empty() or notTaken=\'Y\'
 
- -- Row 2 -----------------------------------
-  Id = 2
-  Context = MedicationStatement
-  English = Reason for use code is only permitted if notTaken is No
-  XPath = not(exists(*[starts-with(local-name(.), \'reasonForUseCode\')]) and (f:notTaken/@value=\'Y\' or f:notTaken/@value=\'UNK\'))
-  Expression = reasonForUseCode.empty() or notTaken = \'N\'
-
- -- Row 3 -----------------------------------
-  Id = 3
-  Context = MedicationStatement
-  English = Reason for use reference is only permitted if notTaken is No
-  XPath = not(exists(*[starts-with(local-name(.), \'reasonForUseReference\')]) and (f:notTaken/@value=\'Y\' or f:notTaken/@value=\'UNK\'))
-  Expression = reasonForUseReference.empty() or notTaken = \'N\'
-
 === Sheet Data Elements =====================================
 
  -- Row 1 -----------------------------------
