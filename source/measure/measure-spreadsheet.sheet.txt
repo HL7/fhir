@@ -81,9 +81,9 @@
 
  -- Row 9 -----------------------------------
   Id = 9
-  Code = measure-score
-  Display = Measure Score
-  Definition = The measure score for the measure
+  Code = measure-observation
+  Display = Measure Observation
+  Definition = The measure observation for the measure
 
 === Sheet measure-scoring =====================================
 
