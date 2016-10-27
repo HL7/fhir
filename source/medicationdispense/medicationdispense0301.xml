@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <MedicationDispense xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://hl7.org/fhir ../schema/medicationdispense.xsd"
+ xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationdispense.xsd"
  xmlns="http://hl7.org/fhir">
     <id value="meddisp0301"/>
     <contained>
@@ -25,10 +25,16 @@
         <reference value="Patient/pat1"/>
         <display value="Donald Duck"/> 
     </patient>
+    <supportingInformation>
+        <reference value="Condition/f203"></reference>
+    </supportingInformation>
     <dispenser>
         <reference value="Practitioner/f006"/>
         <display value="Rob van den Berk"/>
     </dispenser>
+    <dispensingOrganization>
+        <reference value="Organization/f201"></reference>
+    </dispensingOrganization>
     <authorizingPrescription>
         <reference value="MedicationRequest/medrx0318"/>
     </authorizingPrescription>
@@ -52,6 +58,13 @@
         <code value="d"/>
     </daysSupply>
     <whenPrepared value="2015-01-15T10:20:00Z"/>
+    <destination>
+        <reference value="Location/ph"></reference>
+    </destination>
+    <receiver>
+        <reference value="Patient/pat1"/>
+        <display value="Donald Duck"/> 
+    </receiver>
     <dosageInstruction>
         <sequence value="1"/>
         <text value="500mg IV q6h x 3 days" />

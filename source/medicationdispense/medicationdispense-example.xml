@@ -14,6 +14,9 @@
 		</div>
 	</text>
 	<status value="completed"/>
+	<medicationReference>
+		<reference value="Medication/example"/>
+	</medicationReference>
 	<patient>
 		<reference value="Patient/example"/>
 	</patient>
@@ -29,9 +32,7 @@
 		<system value="http://unitsofmeasure.org"/>
 		<code value="ml"/>
 	</quantity>
-	<medicationReference>
-		<reference value="Medication/example"/>
-	</medicationReference>
+
 	<whenPrepared value="2012-05-30T16:20:00+00:00"/>
 	<whenHandedOver value="2012-05-31T10:20:00+00:00"/>
 	<substitution>

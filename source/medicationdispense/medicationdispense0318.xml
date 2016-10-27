@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <MedicationDispense xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://hl7.org/fhir ../schema/medicationdispense.xsd"
-    xmlns="http://hl7.org/fhir">
+ xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationdispense.xsd"
+ xmlns="http://hl7.org/fhir">
     <id value="meddisp0318"/>
     <status value="in-progress"/>
     <medicationCodeableConcept>
@@ -65,6 +65,25 @@
             <code value="mcg"/>
         </doseQuantity>
     </dosageInstruction> 
+<substitution>
+    <type>
+        <coding>
+            <system value="http://hl7.org/fhir/ValueSet/v3-ActSubstanceAdminSubstitutionCode"/>
+            <code value="F"/>
+            <display value="Formulary"/>
+        </coding>
+    </type>
+    <reason>
+        <coding>
+            <system value="http://hl7.org/fhir/ValueSet/v3-ActSubstanceAdminSubstitutionCode"/>
+            <code value="FP"/>
+            <display value="Formulary Policy"/>
+        </coding>
+    </reason>
+    <responsibleParty>
+        <reference value="Practitioner/f006"></reference>
+    </responsibleParty>
+</substitution>
 </MedicationDispense>
 
 
