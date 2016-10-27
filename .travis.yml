@@ -34,13 +34,7 @@ after_success:
   - echo "github.com ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAq2A7hRGmdnm9tUDbO9IDSwBK6TbQa+PXYPCPy6rbTrTtw7PHkccKrpp0yVhp5HdEIcKr6pLlVDBfOLX9QUsyCOV0wzfjIJNlGEYsdlLJizHhbn2mUjvSAHQqZETYP81eFzLQNnPHt4EVVUh7VfDESU84KezmD5QlWpXLmvU31/yMf+Se8xhHTvKSCZIFImWwoG6mbUoWf9nzpIoaSjB+weqqUUmpaaasXVal72J+UX2B+2RPW3RcT0eOzQgqlJL3RKrTJvdsjE3JEAvGq3lGHSZXy28G3skua2SmVi/w4yCE6gbODqnTWlg7+wC604ydGXA8VJiS5ap43JXiUFFAaQ==" > ~/.ssh/known_hosts
   - mkdir hl7-fhir.github.io
   - cd hl7-fhir.github.io
-  - git init
-  - git remote add origin git@github.com:hl7-fhir/hl7-fhir.github.io.git
   - cp -r ../publish/* .
-  - echo -e "Host github.com\n  IdentityFile ~/deploy_fhir_docs" > ~/.ssh/config
-  - ../remove_files_larger_than_100mg_for_gh_pages_compatibility.sh
-  - git add -A .
-  - git commit -m "Travis docs build" # SKIP THE PUSH FOR NOW - git push -f origin master
   - echo -e "Host build.fhir.org\n  Compression yes\n  StrictHostKeyChecking no\n  User fhir_upload\n  IdentityFile ~/deploy.build.fhir.org" > ~/.ssh/config
   - tar czf - * | ssh build.fhir.org "mkdir /var/www/uploading; cd /var/www/uploading && tar xvzf -; mv /var/www/build.fhir.org /tmp; mv /var/www/uploading /var/www/build.fhir.org; rm -rf /tmp/build.fhir.org"
 
