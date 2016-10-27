@@ -40,8 +40,7 @@ after_success:
   - echo -e "Host github.com\n  IdentityFile ~/deploy_fhir_docs" > ~/.ssh/config
   - ../remove_files_larger_than_100mg_for_gh_pages_compatibility.sh
   - git add -A .
-  - git commit -m "Travis docs build"
-  - git push -f origin master
+  - git commit -m "Travis docs build" # SKIP THE PUSH FOR NOW - git push -f origin master
   - echo -e "Host build.fhir.org\n  Compression yes\n  StrictHostKeyChecking no\n  User fhir_upload\n  IdentityFile ~/deploy.build.fhir.org" > ~/.ssh/config
   - tar czf - * | ssh build.fhir.org "mkdir /var/www/uploading; cd /var/www/uploading && tar xvzf -; mv /var/www/build.fhir.org /tmp; mv /var/www/uploading /var/www/build.fhir.org; rm -rf /tmp/build.fhir.org"
 
