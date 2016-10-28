@@ -46,8 +46,7 @@ Goals are typically established in the context of a <a href="careplan.html">Care
 by using an extension.
 </p>
 <p>
-A goal represents a specific goal instance for a particular patient, group, etc.  It is not intended to be used to define types of potential goals as part of an order set
-or protocol.  Protocols and order sets are supported through <a href="plandefinition.html">PlanDefinition</a>.
+A goal represents a specific goal instance for a particular patient, group, etc.  It is not intended to be used to define types of potential goals as part of an order set or protocol definition.  Protocol definitions and order sets are supported through <a href="plandefinition.html">PlanDefinition</a>.  The Goal resource is intended to be used once an order set is instantiated or assigned to a patient, which is when the potential goals become the actual goals, if not changed or deleted.
 </p>
 <p>
 Goals are often evaluated using <a href="observation.html">Observations</a>.

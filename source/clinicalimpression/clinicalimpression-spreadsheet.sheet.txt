@@ -102,8 +102,8 @@
   Summary = Y
   Type = CodeableConcept
   Binding = ClinicalImpressionCode
-  Short Name = Kind of impression performed
-  Definition = Categorizes the type of clinical impression performed
+  Short Name = Kind of assessment performed
+  Definition = Categorizes the type of clinical assessment performed
   Comments = This is present as a place-holder only and may be removed based on feedback/work group opinion
   w5 = what
 
@@ -239,7 +239,7 @@
   v2 Mapping = OBX
 
  -- Row 20 -----------------------------------
-  Element = ClinicalImpression.finding.cause
+  Element = ClinicalImpression.finding.basis
   Card. = 0..1
   Type = string
   Short Name = Which investigations support finding
@@ -262,11 +262,12 @@
   Definition = RiskAssessment expressing likely outcome
 
  -- Row 23 -----------------------------------
-  Element = ClinicalImpression.plan
+  Element = !ClinicalImpression.plan
   Card. = 0..*
   Type = Reference(CarePlan|Appointment|CommunicationRequest|DeviceUseRequest|DiagnosticRequest|MedicationRequest|NutritionRequest|ProcedureRequest|ProcessRequest|ReferralRequest|VisionPrescription)
   Short Name = Plan of action after assessment
   Definition = Plan of action after assessment
+  Committee Notes = Removed per GF#11167
 
  -- Row 24 -----------------------------------
   Element = ClinicalImpression.action
@@ -311,42 +312,37 @@
   Path = ClinicalImpression.finding.item[x]
 
  -- Row 6 -----------------------------------
-  Name = plan
-  Type = reference
-  Path = ClinicalImpression.plan
-
- -- Row 7 -----------------------------------
   Name = action
   Type = reference
   Path = ClinicalImpression.action
 
- -- Row 8 -----------------------------------
+ -- Row 7 -----------------------------------
   Name = patient
   Type = reference
   Path = ClinicalImpression.subject
   Target Types = Patient
 
- -- Row 9 -----------------------------------
+ -- Row 8 -----------------------------------
   Name = assessor
   Type = reference
   Path = ClinicalImpression.assessor
 
- -- Row 10 -----------------------------------
+ -- Row 9 -----------------------------------
   Name = date
   Type = date
   Path = ClinicalImpression.date
 
- -- Row 11 -----------------------------------
+ -- Row 10 -----------------------------------
   Name = status
   Type = token
   Path = ClinicalImpression.status
 
- -- Row 12 -----------------------------------
+ -- Row 11 -----------------------------------
   Name = context
   Type = reference
   Path = ClinicalImpression.context
 
- -- Row 13 -----------------------------------
+ -- Row 12 -----------------------------------
   Name = subject
   Type = reference
   Path = ClinicalImpression.subject

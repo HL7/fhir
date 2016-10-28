@@ -40,8 +40,4 @@
       </coding>
     </itemCodeableConcept>
   </finding>
-  <plan>
-    <!-- in real life, this would be a reference -->
-    <display value="hospital standard closed head injury management protocol "/>
-  </plan>
 </ClinicalImpression>

@@ -114,6 +114,7 @@
   Type = Reference(Encounter)
   Short Name = Alert relevant during encounter
   Definition = This alert is only relevant during the encounter
+  Comments = If both Flag.encounter and Flag.period are valued, then Flag.period.start shall not be before Encounter.period.start and Flag.period.end shall not be after Encounter.period.end.
   w5 = context
 
  -- Row 8 -----------------------------------
@@ -132,7 +133,7 @@
   Summary = Y
   Type = CodeableConcept
   Binding = FlagCode
-  Short Name = Message to display to user
+  Short Name = Coded or textual message to display to user
   Definition = The coded value or textual component of the flag to display to the user
   Comments = If non coded, use CodeableConcept.text.  This element should always be included in the narrative
   RIM Mapping = .value

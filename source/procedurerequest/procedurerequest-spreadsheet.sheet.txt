@@ -134,7 +134,7 @@
  -- Row 1 -----------------------------------
   Element = ProcedureRequest
   Type = DomainResource
-  Short Label = A request for a procedure to be performed
+  Short Name = A request for a procedure to be performed
   Definition = A request for a procedure to be performed. May be a proposal or an order.
   w5 = clinical.general
 
@@ -142,7 +142,7 @@
   Element = ProcedureRequest.identifier
   Card. = 0..*
   Type = Identifier
-  Short Label = Unique identifier for the request
+  Short Name = Unique identifier for the request
   Definition = Identifiers assigned to this order by the order or by the receiver.
   QUICK mapping = ClinicalStatement.identifier
   w5 = id
@@ -151,7 +151,7 @@
   Element = ProcedureRequest.subject
   Card. = 1..1
   Type = Reference(Patient|Group)
-  Short Label = Who the procedure should be done to
+  Short Name = Who the procedure should be done to
   Definition = The person, animal or group that should receive the procedure.
   QUICK mapping = ClinicalStatement.subject
   w5 = who.focus
@@ -161,7 +161,7 @@
   Card. = 1..1
   Type = CodeableConcept
   Binding = ProcedureCode
-  Short Label = What procedure to perform
+  Short Name = What procedure to perform
   Definition = The specific procedure that is ordered. Use text if the exact nature of the procedure cannot be coded.
   QUICK mapping = Procedure.procedureCode
   w5 = class
@@ -171,7 +171,7 @@
   Card. = 0..*
   Type = CodeableConcept
   Binding = BodySite
-  Short Label = What part of body to perform on
+  Short Name = What part of body to perform on
   Definition = Indicates the sites on the subject\'s body where the procedure should be performed (I.e. the target sites).
   Requirements = Knowing where the procedure is made is important for tracking if multiple sites are possible.
   Comments = Only used if not implicit in the code found in ProcedureRequest.type
@@ -182,7 +182,7 @@
   Element = !ProcedureRequest.bodySite.site[x]
   Card. = 1..1
   Type = CodeableConcept|Reference(BodySite)
-  Short Label = Target body site
+  Short Name = Target body site
   Definition = Indicates the site on the subject\'s body where the procedure should be performed ( i.e. the target sites).
   Requirements = Knowing where the procedure is made is important for tracking if multiple site are possible.
   Comments = Only used if not implicit in code found in ProcedureRequest.type
@@ -192,7 +192,7 @@
   Card. = 0..1
   Type = CodeableConcept|Reference(Condition)
   Binding = ProcedureReason
-  Short Label = Why procedure should occur
+  Short Name = Why procedure should occur
   Definition = The reason why the procedure is being proposed or ordered. This procedure request may be motivated by a Condition for instance.
   QUICK mapping = Action.indication.reason
 
@@ -200,7 +200,7 @@
   Element = ProcedureRequest.scheduled[x]
   Card. = 0..1
   Type = dateTime|Period|Timing
-  Short Label = When procedure should occur
+  Short Name = When procedure should occur
   Definition = The timing schedule for the proposed or ordered procedure. The Schedule data type allows many different expressions.  E.g. \"Every 8 hours\"; \"Three times a day\"; \"1/2 an hour before breakfast for 10 days from 23-Dec 2011:\"; \"15 Oct 2013, 17 Oct 2013 and 1 Nov 2013\".
   QUICK mapping = Procedure.procedureSchedule
   w5 = when.planned
@@ -209,7 +209,7 @@
   Element = ProcedureRequest.encounter
   Card. = 0..1
   Type = Reference(Encounter)
-  Short Label = Encounter request created during
+  Short Name = Encounter request created during
   Definition = The encounter within which the procedure proposal or request was created.
   QUICK mapping = ClinicalStatement.encounter
   w5 = context
@@ -218,7 +218,7 @@
   Element = ProcedureRequest.performer
   Card. = 0..1
   Type = Reference(Practitioner|Organization|Patient|RelatedPerson)
-  Short Label = Who should perform the procedure
+  Short Name = Who should perform the procedure
   Definition = For example, the surgeon, anaethetist, endoscopist, etc.
   w5 = who.actor
 
@@ -228,7 +228,7 @@
   Is Modifier = Y
   Type = code
   Binding = ProcedureRequestStatus
-  Short Label = proposed | draft | requested | received | accepted | in-progress | completed | suspended | rejected | aborted
+  Short Name = proposed | draft | requested | received | accepted | in-progress | completed | suspended | rejected | aborted
   Definition = The status of the order.
   QUICK mapping = Action.currentStatus
   w5 = status
@@ -237,7 +237,7 @@
   Element = ProcedureRequest.notes
   Card. = 0..*
   Type = Annotation
-  Short Label = Additional information about desired procedure
+  Short Name = Additional information about desired procedure
   Definition = Any other notes associated with this proposal or order - e.g. provider instructions.
   QUICK mapping = ClinicalStatement.additionalText
 
@@ -246,7 +246,7 @@
   Card. = 0..1
   Type = boolean|CodeableConcept
   Binding = ProcedureAsNeededReason
-  Short Label = Preconditions for procedure
+  Short Name = Preconditions for procedure
   Definition = If a CodeableConcept is present, it indicates the pre-condition for performing the procedure.
   QUICK mapping = Proposal.prnReason.reason
 
@@ -254,7 +254,7 @@
   Element = ProcedureRequest.orderedOn
   Card. = 0..1
   Type = dateTime
-  Short Label = When request was created
+  Short Name = When request was created
   Definition = The time when the request was made.
   QUICK mapping = Proposal.proposedAtTime
   w5 = when.recorded
@@ -263,7 +263,7 @@
   Element = ProcedureRequest.orderer
   Card. = 0..1
   Type = Reference(Practitioner|Patient|RelatedPerson|Device)
-  Short Label = Who made request
+  Short Name = Who made request
   Definition = The healthcare professional responsible for proposing or ordering the procedure.
   QUICK mapping = ClinicalStatement.statementAuthor
   w5 = who.author
@@ -273,7 +273,7 @@
   Card. = 0..1
   Type = code
   Binding = ProcedureRequestPriority
-  Short Label = routine | urgent | stat | asap
+  Short Name = routine | urgent | stat | asap
   Definition = The clinical priority associated with this order.
   QUICK mapping = Proposal.urgency
   w5 = grade
@@ -313,6 +313,21 @@
   Name = encounter
   Type = reference
   Path = ProcedureRequest.encounter
+
+ -- Row 7 -----------------------------------
+  Name = status
+  Type = token
+  Path = ProcedureRequest.status
+
+ -- Row 8 -----------------------------------
+  Name = code
+  Type = token
+  Path = ProcedureRequest.code
+
+ -- Row 9 -----------------------------------
+  Name = body-site
+  Type = token
+  Path = ProcedureRequest.bodySite
 
 === Sheet Profiles =====================================
 
