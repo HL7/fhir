@@ -1,9 +1,0 @@
-<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
-
-<p>The examples provided here illustrate the use of the DecisionSupportRule artifact to share Event-Condition-Action rule definitions.</p>
-
-<p>The first example is based on the Chlamydia Screening quality measure, and uses the logic that is developed as part of the CQL Author's Guide in the Clinical Quality Language specification to demonstrate the use of CQL libraries to share logic between quality measures and decision support rules.</p>
-
-<p>The next four examples are all based on the Exclusive Breastmilk Feeding measure, but demonstrating that all four of the ECA rule definitions use logic from the same underlying library.</p>
-
-</div>
