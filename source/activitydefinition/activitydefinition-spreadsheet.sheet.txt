@@ -269,47 +269,55 @@
   Definition = Identifies the quantity expected to be consumed at once (per dose, per meal, etc.)
 
  -- Row 32 -----------------------------------
+  Element = ActivityDefinition.dosageInstruction
+  Card. = 0..*
+  Type = DosageInstruction
+  Short Name = Detailed dosage instructions
+  Definition = Provides detailed dosage instructions in the same way that they are described for MedicationRequest resources
+  Comments = If a dosage instruction is used, the definition should not specify timing or quantity
+
+ -- Row 33 -----------------------------------
   Element = !ActivityDefinition.description
   Card. = 0..1
   Type = string
   Short Name = Extra info on activity occurrence
   Definition = This provides a textual description of constraints on the activity occurrence, including relation to other activities.  It may also include objectives, pre-conditions and end-conditions.  Finally, it may convey specifics about the activity such as body site, method, route, etc.
 
- -- Row 33 -----------------------------------
+ -- Row 34 -----------------------------------
   Element = ActivityDefinition.transform
   Card. = 0..1
   Type = Reference(StructureMap)
   Short Name = Transform to apply the template
   Definition = A reference to a StructureMap resource that defines a transform that can be executed to produce the intent resource using the ActivityDefinition instance as the input
 
- -- Row 34 -----------------------------------
+ -- Row 35 -----------------------------------
   Element = ActivityDefinition.dynamicValue
   Card. = 0..*
   Short Name = Dynamic aspects of the definition
   Definition = Dynamic values that will be evaluated to produce values for elements of the resulting resource. For example, if the dosage of a medication must be computed based on the patient\'s weight, a dynamic value would be used to specify an expression that calculated the weight, and the path on the intent resource that would contain the result
 
- -- Row 35 -----------------------------------
+ -- Row 36 -----------------------------------
   Element = ActivityDefinition.dynamicValue.description
   Card. = 0..1
   Type = string
   Short Name = Natural language description of the dynamic value
   Definition = A brief, natural language description of the intended semantics of the dynamic value
 
- -- Row 36 -----------------------------------
+ -- Row 37 -----------------------------------
   Element = ActivityDefinition.dynamicValue.path
   Card. = 0..1
   Type = string
   Short Name = The path to the element to be set dynamically
   Definition = The path to the element to be customized. This is the path on the resource that will hold the result of the calculation defined by the expression
 
- -- Row 37 -----------------------------------
+ -- Row 38 -----------------------------------
   Element = ActivityDefinition.dynamicValue.language
   Card. = 0..1
   Type = string
   Short Name = Language of the expression
   Definition = The media type of the language for the expression
 
- -- Row 38 -----------------------------------
+ -- Row 39 -----------------------------------
   Element = ActivityDefinition.dynamicValue.expression
   Card. = 0..1
   Type = string
