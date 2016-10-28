@@ -23,6 +23,9 @@
   </informationSource>
   <dateAsserted value="2014-02-22"/>
   <notTaken value="n"/>
+  <reasonForUseReference>
+    <reference value="Condition/f201"></reference>
+  </reasonForUseReference>
   <note>
     <text value="Father indicates they miss the occasional dose"/>
   </note>

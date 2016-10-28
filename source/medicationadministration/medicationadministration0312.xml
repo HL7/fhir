@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <MedicationAdministration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationadministration.xsd"
+ xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationrequest.xsd"
  xmlns="http://hl7.org/fhir"> 
   <id value="medadmin0312"/>
+  <identifier>
+      <use value="official"/>
+      <system value="http://www.bmc.nl/portal/administrations"/>
+      <value value="12345689"/>
+  </identifier>
   <status value="completed" />
   <medicationCodeableConcept>
     <coding>

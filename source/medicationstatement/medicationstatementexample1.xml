@@ -72,6 +72,11 @@
     </product>
     </Medication>
   </contained>
+  <identifier>
+    <use value="official"/>
+    <system value="http://www.bmc.nl/portal/medstatements"/>
+    <value value="12345689"/>
+  </identifier>
   <status value="active" />  
   <medicationReference> <!-- Linked to a RESOURCE Medication -->
     <reference value="#med0309"/>
@@ -85,6 +90,9 @@
     <reference value="Patient/pat1"/>
     <display value="Donald Duck"/> 
   </informationSource>
+  <derivedFrom>
+    <reference value="MedicationRequest/medrx002"></reference>
+  </derivedFrom>
   <dateAsserted value="2015-02-22"/>
   <notTaken value="n"/>
   <reasonForUseCode>
@@ -97,6 +105,8 @@
   <note>
     <text value="Patient indicates they miss the occasional dose" />
   </note>
+  <category value="community">
+  </category>
   <dosage>
     <sequence value="1"/>
     <text value="1-2 tablets once daily at bedtime as needed for restless legs" />

@@ -3,6 +3,11 @@
  xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationdispense.xsd"
  xmlns="http://hl7.org/fhir">
     <id value="meddisp0318"/>
+    <identifier>
+        <use value="official"/>
+        <system value="http://www.bmc.nl/portal/dispenses"/>
+        <value value="12345689"/>
+    </identifier>
     <status value="in-progress"/>
     <medicationCodeableConcept>
         <coding>

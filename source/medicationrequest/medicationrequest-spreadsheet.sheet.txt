@@ -250,12 +250,12 @@
 
  -- Row 9 -----------------------------------
   Element = MedicationRequest.patient
-  Card. = 0..1
+  Card. = 1..1
   Summary = y
   Type = Reference(Patient)
   Short Name = Who prescription is for
   Definition = A link to a resource representing the person to whom the medication will be given
-  Comments = SubstanceAdministration->subject->Patient
+  Comments = The patient on a medicationRequest is mandatory.  For the secondary use case where the actual patient is not provided, there still must be an anonymyzed patient specified.
   SCRIPT 10.6 Mapping = Message/Body/NewRx/Patient\r\r(need detail to link to specific patient … Patient.Identification in SCRIPT)
   v2 Mapping = PID-3-Patient ID List
   RIM Mapping = subject.role

@@ -16,8 +16,8 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>16680</WindowHeight>
-  <WindowWidth>28800</WindowWidth>
+  <WindowHeight>15960</WindowHeight>
+  <WindowWidth>28160</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>460</WindowTopY>
   <TabRatio>732</TabRatio>
@@ -1352,7 +1352,7 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">MedicationRequest.patient</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">1..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Reference(Patient)</Data><NamedCell
@@ -1372,7 +1372,7 @@
     <Cell ss:StyleID="s89"><Data ss:Type="String">A link to a resource representing the person to whom the medication will be given</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">SubstanceAdministration-&gt;subject-&gt;Patient</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">The patient on a medicationRequest is mandatory.  For the secondary use case where the actual patient is not provided, there still must be an anonymyzed patient specified.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">subject.role</Data><NamedCell
@@ -3692,9 +3692,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>7</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>10</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -3702,13 +3702,16 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>14</ActiveCol>
+     <ActiveRow>9</ActiveRow>
+     <ActiveCol>17</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -5203,6 +5206,7 @@
    <x:Print>    </x:Print>
    <x:Print>    </x:Print>
    <x:Print>    </x:Print>
+   <x:Print>    </x:Print>
   </WorksheetOptions>
   <AutoFilter x:Range="R1C1:R2C9" xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
@@ -6277,8 +6281,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Print>
-   </Print>
    <TabColorIndex>9</TabColorIndex>
    <PageLayoutZoom>0</PageLayoutZoom>
    <Panes>
@@ -6290,6 +6292,7 @@
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
+   <x:Print>    </x:Print>
    <x:Print>    </x:Print>
    <x:Print>    </x:Print>
   </WorksheetOptions>
@@ -7508,6 +7511,7 @@
    <x:Print>    </x:Print>
    <x:Print>    </x:Print>
    <x:Print>    </x:Print>
+   <x:Print>    </x:Print>
   </WorksheetOptions>
   <AutoFilter x:Range="R1C1:R1C9" xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
@@ -8146,6 +8150,7 @@
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
+   <x:Print>    </x:Print>
    <x:Print>    </x:Print>
    <x:Print>    </x:Print>
    <x:Print>    </x:Print>
