@@ -314,6 +314,7 @@ signatures.html
       <page type="resource" resource="DecisionSupportServiceModule"/>
       <page type="resource" resource="ServiceDefinition"/>
       <page type="resource" resource="GuidanceResponse"/>
+      <page type="resource" resource="RequestGroup"/>
       <page type="resource" resource="Measure"/>
       <page type="resource" resource="MeasureReport"/>
       <page title="ContactDetail" filename="contactdetail.html">

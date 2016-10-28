@@ -596,6 +596,9 @@
         <translation lang="es">Remesa</translation>
         <translation lang="fr">Remise</translation>
     </item>
+    <item id="RequestGroup">
+ 		<translation lang="en">RequestGroup</translation>
+	</item>
     <item id="RiskAssessment">
         <translation lang="en">RiskAssessment</translation>
         <translation lang="fr">ÉvaluationRisques</translation>
