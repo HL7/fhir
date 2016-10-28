@@ -168,7 +168,7 @@
   Id = 3
   Code = environment
   Display = Environment
-  Definition = Substances that are encountered in the environment.
+  Definition = Any substances that are encountered in the environment, including any substance not already classified as food, medication, or biologic.
 
  -- Row 4 -----------------------------------
   Id = 4
@@ -280,7 +280,7 @@
 
  -- Row 5 -----------------------------------
   Element = AllergyIntolerance.category
-  Card. = 0..1
+  Card. = 0..*
   Aliases = Category; Type; Reaction Type; Class
   Summary = Y
   Type = code
@@ -290,6 +290,7 @@
   Comments = This data element has been included because it is currently being captured in some clinical systems. This data can be derived from the substance where coding systems are used, and is effectively redundant in that situation.
   v2 Mapping = AL1-2
   RIM Mapping = value < IntoleranceValue (Agent)
+  Committee Notes = GF#11352 - to address examples like bee pollen that may fit into multiple categories
   w5 = class
 
  -- Row 6 -----------------------------------
