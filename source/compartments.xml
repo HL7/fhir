@@ -135,7 +135,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="resources">
-  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="120" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="115" x:FullColumns="1"
    x:FullRows="1" ss:DefaultColumnWidth="65.25" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="156.75"/>
    <Column ss:AutoFitWidth="0" ss:Width="198"/>
@@ -652,22 +652,7 @@
     <Cell><Data ss:Type="String">GuidanceResponse</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">!ModuleMetadata</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">!ModuleDefinition</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Library</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">DecisionSupportServiceModule</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">!DecisionSupportRule</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">!OrderSet</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Measure</Data></Cell>
@@ -725,8 +710,8 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>118</ActiveRow>
-     <RangeSelection>R119</RangeSelection>
+     <ActiveRow>107</ActiveRow>
+     <RangeSelection>R108</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

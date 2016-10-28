@@ -14,16 +14,16 @@
 <h3>Clinical Decision Support</h3>
 <p>This section of the clinical reasoning module discusses the evaluation use case for clinical decision support and how the various knowledge artifacts can be integrated into clinical workflow.</p>
 
-<a name="service-modules"></a>
-<h4>Decision Support Service Modules</h4>
+<a name="service-definitions"></a>
+<h4>Service Definitions</h4>
 
-<p>The <a href="[%fhir-path%]decisionsupportservicemodule.html">DecisionSupportServiceModule</a> resource provides a mechanism for describing the functionality made available by a particular service. For example, a service may provide an immunization forecasting module, or drug-drug interaction checking. From the perspective of the consumer, how this functionality is performed is irrelevant, the only aspect of interest is a description of what the service module does, and the inputs and outputs it requires.</p>
+<p>The <a href="[%fhir-path%]servicedefinition.html">ServiceDefinition</a> resource provides a mechanism for describing the functionality made available by a particular service. For example, a service may provide an immunization forecasting module, or drug-drug interaction checking. From the perspective of the consumer, how this functionality is performed is irrelevant, the only aspect of interest is a description of what the service module does, and the inputs and outputs it requires.</p>
 
 <p>As such, this resource uses the same metadata elements to define the common information relevant to all knowledge artifacts, and then defines the input and output parameters as well as any data requirements for the service module in the same way that parameters and data requirements are defined for expression logic in general.</p>
 
-<p>As an example, the functionality defined by the <!--a href="[%fhir-path%]gao/gao.html"-->Guideline Appropriate Ordering IG<!--/a--> can be expressed as a DecisionSupportServiceModule: <a href="[%fhir-path%]decisionsupportservicemodule-example.html">Decision Support Service Module Example</a>.</p>
+<p>As an example, the functionality defined by the <!--a href="[%fhir-path%]gao/gao.html"-->Guideline Appropriate Ordering IG<!--/a--> can be expressed as a ServiceDefinition: <a href="[%fhir-path%]servicedefinition-example.html">Service Definition Example</a>.</p>
 
-<pre><code>&lt;DecisionSupportServiceModule&gt;
+<pre><code>&lt;ServiceDefinition&gt;
   &lt;id value=&quot;example&quot;/&gt;
   &lt;text&gt;
   &lt;status value=&quot;generated&quot; /&gt;
@@ -86,17 +86,17 @@
     &lt;/profile&gt;
   &lt;/parameter&gt;
     
-&lt;/DecisionSupportServiceModule&gt;
+&lt;/ServiceDefinition&gt;
 </code></pre>
 
 <a name="guidance-request"/>
 <h4>Guidance Request</h4>
 
-<p>The DecisionSupportServiceModule resource defines an <a href="[%fhir-path%]decisionsupportservicemodule-operations.html#evaluate">$evaluate</a> operation that allows for consistent invocation of decision support functionality across a broad range of decision support artifacts. This consistency enables consumers to implement the request/response pipeline once to enable access to any decision support functionality provided by the service.</p>
+<p>The ServiceDefinition resource defines an <a href="[%fhir-path%]servicedefinition-operations.html#evaluate">$evaluate</a> operation that allows for consistent invocation of decision support functionality across a broad range of decision support artifacts. This consistency enables consumers to implement the request/response pipeline once to enable access to any decision support functionality provided by the service.</p>
 
 <p>The <a href="[%fhir-path%]guidanceresponse.html">GuidanceResponse</a> structure provides a general mechanism for representing the actions to be performed in response to a guidance evaluation request.</p>
 
-<p>The $evaluate operation provides a complete example of a request and response using the Guideline Appropriate Ordering decision support service module: <a href="[%fhir-path%]decisionsupportservicemodule-operations.html#4.10.8.1.1">$evaluate operation example</a>:</p>
+<p>The $evaluate operation provides a complete example of a request and response using the Guideline Appropriate Ordering decision support service module: <a href="[%fhir-path%]servicedefinition-operations.html#4.10.8.1.1">$evaluate operation example</a>:</p>
 
 <p>In the simplest case, an application requests guidance from a decision support service as part of a particular trigger, usually a specific point in a clinical workflow.</p>
 
@@ -106,11 +106,11 @@
 
 <img alt="EHR Radiology Workflow Example" src="cqif-integrating-decision-support-radiology-request.png"/>
 
-<pre><code>POST [base]/DecisionSupportServiceModule/example/$evaluate
+<pre><code>POST [base]/ServiceDefinition/example/$evaluate
   
 &lt;Parameters&gt;
   &lt;id value=&quot;evaluate-operation-request-example&quot;/&gt;
-  &lt;!--  This example demonstrates the $evaluate operation against a DecisionSupportServiceModule resource. --&gt;
+  &lt;!--  This example demonstrates the $evaluate operation against a ServiceDefinition resource. --&gt;
   &lt;parameter&gt;
     &lt;name value=&quot;requestId&quot;/&gt;
     &lt;valueString value=&quot;guidanceRequest1&quot;/&gt;
@@ -259,7 +259,7 @@
   &lt;/contained&gt;
   &lt;requestId value=&quot;guidanceRequest1&quot;/&gt;
   &lt;module&gt;
-    &lt;reference value=&quot;DecisionSupportServiceModule/example&quot;/&gt;
+    &lt;reference value=&quot;ServiceDefinition/example&quot;/&gt;
   &lt;/module&gt;
   &lt;status value=&quot;success&quot;/&gt;
   &lt;outputParameters&gt;
@@ -286,7 +286,7 @@
 <a name="evaluation-context-contextual-information"/>
 <h5>Contextual Information</h5>
 
-<p>Contextual information for every decision support service module is defined by the parameters on the base <a href="[%fhir-path%]decisionsupportservicemodule-operations.html#evaluate">$evaluate</a> operation. This contextual information includes the patient, the encounter, and workflow information.</p>
+<p>Contextual information for every decision support service module is defined by the parameters on the base <a href="[%fhir-path%]servicedefinition-operations.html#evaluate">$evaluate</a> operation. This contextual information includes the patient, the encounter, and workflow information.</p>
 
 <p>The client provides this information using the normal mechanism for passing parameters using the <a href="[%fhir-path%]parameters.html">Parameters</a> resource.</p>
 

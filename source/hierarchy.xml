@@ -310,7 +310,6 @@ signatures.html
       <page type="resource" resource="ActivityDefinition"/>
       <page type="resource" resource="PlanDefinition"/>
       <page type="resource" resource="Library"/>
-      <page type="resource" resource="DecisionSupportServiceModule"/>
       <page type="resource" resource="ServiceDefinition"/>
       <page type="resource" resource="GuidanceResponse"/>
       <page type="resource" resource="RequestGroup"/>

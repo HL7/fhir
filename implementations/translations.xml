@@ -167,12 +167,6 @@
         <translation lang="es">ElementoDatos</translation>
         <translation lang="fr">ElementDonnées</translation>
     </item>
-    <item id="DecisionSupportServiceModule">
-        <translation lang="en">DecisionSupportServiceModule</translation>
-    </item>
-    <!--item id="DecisionSupportRule">
-        <translation lang="en">DecisionSupportRule</translation>
-    </item-->
     <item id="DetectedIssue">
         <translation lang="en">DetectedIssue</translation>
         <translation lang="es">Problema-Detectado</translation>
@@ -424,12 +418,6 @@
         <translation lang="es">Microarray</translation>
         <translation lang="fr">Microarray</translation>
     </item>
-<!--    <item id="ModuleMetadata">
-        <translation lang="en">ModuleMetadata</translation>
-    </item> -->
-    <item id="ModuleDefinition">
-        <translation lang="en">ModuleDefinition</translation>
-    </item>
     <item id="NamingSystem">
         <translation lang="en">NamingSystem</translation>
         <translation lang="fr">SystèmeDeNommage</translation>
@@ -472,9 +460,6 @@
         <translation lang="es">RespuestaOrden</translation>
         <translation lang="fr">RéponseOrdre</translation>
     </item>
-    <!--item id="OrderSet">
-        <translation lang="en">OrderSet</translation>
-    </item-->
     <item id="Organization">
         <translation lang="en">Organization</translation>
         <translation lang="zh">机构</translation>

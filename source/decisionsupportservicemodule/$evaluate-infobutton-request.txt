@@ -1,5 +1,0 @@
-// Request InfoButton content
-POST [base]/DecisionSupportServiceModule/infobutton/$evaluate
-
-$include infobutton-evaluate-request.xml
-
