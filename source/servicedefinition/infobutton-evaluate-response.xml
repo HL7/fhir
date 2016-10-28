@@ -3585,11 +3585,8 @@
       </content>
     </DocumentReference>
   </contained>
-  <requestId value="InfoButtonRequest2"/>
-  <module>
-    <reference value="DecisionSupportServiceModule/infobutton"/>
-  </module>
-  <status value="success"/>
+  <contained>
+	<RequestGroup>
   <action>
     <title value="Asthma in Teens and Adults"/>
     <description value="Covers causes and symptoms of asthma in teens and adults. Includes info on avoiding triggers and treating attacks. Looks at treatment with controller medicine. Covers delivery systems that include metered-dose and dry powder inhalers and nebulizers."/>
@@ -4170,4 +4167,11 @@
       </resource>
     </documentation>
   </action>
+	</RequestGroup>
+  </contained>
+  <requestId value="InfoButtonRequest2"/>
+  <module>
+    <reference value="ServiceDefinition/infobutton"/>
+  </module>
+  <status value="success"/>
 </GuidanceResponse>

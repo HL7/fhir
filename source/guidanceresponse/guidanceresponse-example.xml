@@ -7,7 +7,7 @@
   </text>
   
   <module>
-	  <reference value="DecisionSupportServiceModule/example"/>
+	  <reference value="ServiceDefinition/example"/>
   </module>
   
   <status value="success"/>

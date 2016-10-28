@@ -45,17 +45,21 @@
         </content>
       </DocumentReference>
   </contained>
+  <contained>
+	<RequestGroup>
+		  <action>
+			<title value="Healthwise Search Results"/>
+			<!-- NOTE: This is commented out until the structures are changed to accommodate this (see tracker #10257)
+			<documentation>
+			  <reference value="DocumentReference/#InfoButtonResponse1"/>
+			</documentation>
+			-->
+		  </action>
+	</RequestGroup>
+  </contained>
   <requestId value="InfoButtonRequest2"/>
   <module>
     <reference value="DecisionSupportServiceModule/infobutton"/>
   </module>
   <status value="success"/>
-  <action>
-    <title value="Healthwise Search Results"/>
-    <!-- NOTE: This is commented out until the structures are changed to accommodate this (see tracker #10257)
-    <documentation>
-      <reference value="DocumentReference/#InfoButtonResponse1"/>
-    </documentation>
-    -->
-  </action>
 </GuidanceResponse>
