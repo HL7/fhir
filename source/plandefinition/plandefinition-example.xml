@@ -37,7 +37,6 @@
       <productReference>
         <reference value="#citalopramMedication"/>
       </productReference>
-      <!-- Need a DosageInstruction type
       <dosageInstruction>
         <text value="1 tablet oral 1 time daily"/>
         <timing>
@@ -59,7 +58,6 @@
           <unit value="{tbl}"/>
         </doseQuantity>
       </dosageInstruction>
-      -->
       <!-- Need a DispenseRequest type
       <dispenseRequest>
         <numberOfRepeatsAllowed value="3"/>
@@ -69,30 +67,6 @@
         </quantity>
       </dispenseRequest>
       -->
-      <dynamicValue>
-        <path value="dosageInstruction.text"/>
-        <expression value="'1 tablet oral 1 time daily'"/>
-      </dynamicValue>
-      <dynamicValue>
-        <path value="dosageInstruction.timing.repeat.frequency"/>
-        <expression value="1"/>
-      </dynamicValue>
-      <dynamicValue>
-        <path value="dosageInstruction.timing.repeat.period"/>
-        <expression value="1"/>
-      </dynamicValue>
-      <dynamicValue>
-        <path value="dosageInstruction.timing.repeat.periodUnit"/>
-        <expression value="'d'"/>
-      </dynamicValue>
-      <dynamicValue>
-        <path value="dosageInstruction.route.coding"/>
-        <expression value="code '26643006' from &quot;http://snomed.info/sct&quot; display 'Oral route (qualifier value)'"/>
-      </dynamicValue>
-      <dynamicValue>
-        <path value="dosageInstruction.doseQuantity"/>
-        <expression value="1 '{tbl}'"/>
-      </dynamicValue>
       <dynamicValue>
         <path value="dispenseRequest.numberOfRepeatsAllowed"/>
         <expression value="3"/>

@@ -722,6 +722,12 @@
   Description = Study Protocol
   Filename = plandefinition-protocol-study-example.xml
 
+ -- Row 9 -----------------------------------
+  Name = KDN5
+  Identity = KDN5
+  Description = Chemotherapy Regimen
+  Filename = plandefinition-example-kdn5-simplified.xml
+
 === Sheet Examples =====================================
 
  -- Row 1 -----------------------------------
