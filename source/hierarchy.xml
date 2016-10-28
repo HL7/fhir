@@ -308,7 +308,6 @@ signatures.html
 
     <page title="Clinical Reasoning" filename="clinicalreasoning-module.html" icon="reasoning.png">
       <page type="resource" resource="ActivityDefinition"/>
-      <page type="resource" resource="ActivityGroup"/>
       <page type="resource" resource="PlanDefinition"/>
       <page type="resource" resource="Library"/>
       <page type="resource" resource="DecisionSupportServiceModule"/>

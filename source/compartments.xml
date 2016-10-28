@@ -135,7 +135,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="resources">
-  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="121" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="120" x:FullColumns="1"
    x:FullRows="1" ss:DefaultColumnWidth="65.25" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="156.75"/>
    <Column ss:AutoFitWidth="0" ss:Width="198"/>
@@ -689,14 +689,6 @@
     <Cell><Data ss:Type="String">PlanDefinition</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">ActivityGroup</Data></Cell>
-    <Cell><Data ss:Type="String">subject | participant</Data></Cell>
-    <Cell><Data ss:Type="String">encounter</Data></Cell>
-    <Cell><Data ss:Type="String">participant</Data></Cell>
-    <Cell><Data ss:Type="String">participant | author</Data></Cell>
-    <Cell><Data ss:Type="String">author</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ServiceDefinition</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -733,7 +725,8 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>120</ActiveRow>
+     <ActiveRow>118</ActiveRow>
+     <RangeSelection>R119</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
