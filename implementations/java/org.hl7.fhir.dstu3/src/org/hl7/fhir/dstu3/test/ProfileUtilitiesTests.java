@@ -109,7 +109,7 @@ public class ProfileUtilitiesTests {
   
   public void testSnapshotGeneration() throws EOperationOutcome, Exception {
     System.out.println("Loading");
-    context = SimpleWorkerContext.fromPack(Utilities.path(root, "validation.xml.zip"));
+    context = SimpleWorkerContext.fromPack(Utilities.path(root, "definitions.xml.zip"));
     System.out.println("Loaded "+Integer.toString(context.totalCount())+" resources"); 
     
     // simple tests
