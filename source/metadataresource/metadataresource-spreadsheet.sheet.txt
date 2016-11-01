@@ -127,7 +127,7 @@
   Short Name = Content intends to support these contexts
   Definition = The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of code system definitions.
   Requirements = Assist in searching for appropriate content
-  Comments = When multiple usageContexts are specified, this means that all the contexts are applicable to this context. For example, if a gender and age group is specified, a patient must match the specified gender and age group for the asset to be considered applicable
+  Comments = When multiple usageContexts are specified, there is no expectation for whether all or any of the contexts apply
 
  -- Row 13 -----------------------------------
   Element = MetadataResource.jurisdiction

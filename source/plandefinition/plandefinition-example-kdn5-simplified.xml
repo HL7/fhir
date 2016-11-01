@@ -162,32 +162,78 @@
   <approvalDate value="2016-07-27" />
   <lastReviewDate value="2016-07-27" />
   <!-- Indications -->
-  <!-- Still working out how to represent this
-  <useContext>
-      <extension url="http://nccn.org/fhir/treatmentSetting-or-diseaseStatus">
-        <valueCodeableConcept>
-          <text value="Metastatic" />
-        </valueCodeableConcept>
-      </extension>
-      <extension url="http://nccn.org/fhir/disease-or-histology">
-        <valueCodeableConcept>
-          <text value="Collecting Duct/Medullary Subtypes" />
-        </valueCodeableConcept>
-      </extension>
-  </useContext>
-  <useContext>
-      <extension url="http://nccn.org/fhir/treatmentSetting-or-diseaseStatus">
-        <valueCodeableConcept>
-          <text value="Relapsed" />
-        </valueCodeableConcept>
-      </extension>
-      <extension url="http://nccn.org/fhir/disease-or-histology">
-        <valueCodeableConcept>
-          <text value="Collecting Duct/Medullary Subtypes" />
-        </valueCodeableConcept>
-      </extension>
-  </useContext>
-  -->
+	<useContext>
+		<extension url="http://hl7.org/fhir/StructureDefinition/usagecontext-group">
+			<valueString value="A"/>
+		</extension>
+		<code>
+			<system value="http://nccn.org/fhir/CodeSystem/indications"/>
+			<code value="treamentSetting-or-diseaseStatus"/>
+		</code>
+		<valueCodeableConcept>
+			<text value="Metastatic"/>
+		</valueCodeableConcept>
+	</useContext>
+	<useContext>
+		<extension url="http://hl7.org/fhir/StructureDefinition/usagecontext-group">
+			<valueString value="A"/>
+		</extension>
+		<code>
+			<system value="http://nccn.org/fhir/CodeSystem/indications"/>
+			<code value="disease-or-histology"/>
+		</code>
+		<valueCodeableConcept>
+			<text value="Collecting Duct/Medullary Subtypes"/>
+		</valueCodeableConcept>
+	</useContext>
+	<useContext>
+		<extension url="http://hl7.org/fhir/StructureDefinition/usagecontext-group">
+			<valueString value="A"/>
+		</extension>
+		<code>
+			<system value="http://hl7.org/fhir/usage-context-type"/>
+			<code value="focus"/>
+		</code>
+		<valueCodeableConcept>
+			<text value="Kidney Cancer"/>
+		</valueCodeableConcept>
+	</useContext>
+	<useContext>
+		<extension url="http://hl7.org/fhir/StructureDefinition/usagecontext-group">
+			<valueString value="B"/>
+		</extension>
+		<code>
+			<system value="http://nccn.org/fhir/CodeSystem/indications"/>
+			<code value="treatmentSetting-or-diseaseStatus"/>
+		</code>
+		<valueCodeableConcept>
+			<text value="Relapsed"/>
+		</valueCodeableConcept>
+	</useContext>
+	<useContext>
+		<extension url="http://hl7.org/fhir/StructureDefinition/usagecontext-group">
+			<valueString value="B"/>
+		</extension>
+		<code>
+			<system value="http://nccn.org/fhir/CodeSystem/indications"/>
+			<code value="disease-or-histology"/>
+		</code>
+		<valueCodeableConcept>
+			<text value="Collecting Duct/Medullary Subtypes"/>
+		</valueCodeableConcept>
+	</useContext>
+	<useContext>
+		<extension url="http://hl7.org/fhir/StructureDefinition/usagecontext-group">
+			<valueString value="B"/>
+		</extension>
+		<code>
+			<system value="http://hl7.org/fhir/usage-context-type"/>
+			<code value="focus"/>
+		</code>
+		<valueCodeableConcept>
+			<text value="Kidney Cancer – Collecting Duct/Medullary Subtypes - Metastatic"/>
+		</valueCodeableConcept>
+	</useContext>
   <contributor>
     <type value="author" />
     <name value="Lee Surprenant" />
