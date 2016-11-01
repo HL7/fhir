@@ -262,11 +262,11 @@
   w5 = who.focus
 
  -- Row 10 -----------------------------------
-  Element = MedicationRequest.encounter
+  Element = MedicationRequest.context
   Card. = 0..1
-  Type = Reference(Encounter)
+  Type = Reference(Encounter|EpisodeofCare)
   Short Name = Created during encounter/admission/stay
-  Definition = A link to a resource that identifies the particular occurrence of contact between patient and health care provider
+  Definition = A link to a resource that identifies the particular occurrence or set oc occurences of contact between patient and health care provider
   Comments = SubstanceAdministration->component->EncounterEvent
   SCRIPT 10.6 Mapping = no mapping
   v2 Mapping = PV1-19-Visit Number
@@ -358,7 +358,7 @@
  -- Row 19 -----------------------------------
   Element = MedicationRequest.dispenseRequest
   Card. = 0..1
-  UML = 250;300
+  UML = 300;350
   Short Name = Medication supply authorization
   Definition = Indicates the specific details for the dispense or medication supply part of a medication order (also known as a Medication Prescription).  Note that this information is NOT always sent with the order.  There may be in some settings (e.g. hospitals) institutional or system support for completing the dispense details in the pharmacy department.
   SCRIPT 10.6 Mapping = Message/Body/NewRx/MedicationPrescribed/ExpirationDate
@@ -407,6 +407,14 @@
   RIM Mapping = expectedUseTime
 
  -- Row 24 -----------------------------------
+  Element = MedicationRequest.dispenseRequest.performer
+  Card. = 0..1
+  Type = Reference(Organization)
+  Short Name = Intended dispenser
+  Definition = Indicates the intended dispensing Organization specified by the prescriber.
+  w5 = who
+
+ -- Row 25 -----------------------------------
   Element = MedicationRequest.substitution
   Card. = 0..1
   UML = -60;260
@@ -415,7 +423,7 @@
   SCRIPT 10.6 Mapping = specific values within Message/Body/NewRx/MedicationPrescribed/Substitutions
   RIM Mapping = subjectOf.substitutionPersmission
 
- -- Row 25 -----------------------------------
+ -- Row 26 -----------------------------------
   Element = MedicationRequest.substitution.allowed
   Card. = 1..1
   Is Modifier = Y
@@ -426,7 +434,7 @@
   v2 Mapping = RXO-9-Allow Substitutions / RXE-9-Substitution Status
   RIM Mapping = code
 
- -- Row 26 -----------------------------------
+ -- Row 27 -----------------------------------
   Element = MedicationRequest.substitution.reason
   Card. = 0..1
   Type = CodeableConcept
@@ -437,7 +445,7 @@
   v2 Mapping = RXE-9 Substition status
   RIM Mapping = reasonCode
 
- -- Row 27 -----------------------------------
+ -- Row 28 -----------------------------------
   Element = MedicationRequest.priorPrescription
   Card. = 0..1
   Type = Reference(MedicationRequest)
@@ -446,7 +454,7 @@
   SCRIPT 10.6 Mapping = not mapped
   RIM Mapping = .outboundRelationship[typeCode=?RPLC or ?SUCC]/target[classCode=SBADM,moodCode=RQO]
 
- -- Row 28 -----------------------------------
+ -- Row 29 -----------------------------------
   Element = MedicationRequest.eventHistory
   Card. = 0..*
   Type = Reference(Provenance)
@@ -463,10 +471,10 @@
   Path = MedicationRequest.dateWritten
 
  -- Row 2 -----------------------------------
-  Name = encounter
+  Name = context
   Type = reference
-  Description = Return prescriptions with this encounter identifier
-  Path = MedicationRequest.encounter
+  Description = Return prescriptions with this encounter or episode of care identifier
+  Path = MedicationRequest.context
 
  -- Row 3 -----------------------------------
   Name = identifier
@@ -503,6 +511,12 @@
   Type = reference
   Description = Returns prescriptions prescribed by this prescriber
   Path = MedicationRequest.prescriber
+
+ -- Row 9 -----------------------------------
+  Name = intendeddispenser
+  Type = reference
+  Description = Returns prescriptions intended to be dispensed by this Organization
+  Path = MedicationRequest.dispenseRequest.performer
 
 === Sheet Profiles =====================================
 

@@ -33,10 +33,10 @@
         <reference value="Patient/pat1"/>
         <display value="Donald Duck"/>           
     </patient>
-    <encounter> <!-- Linked to a resource Encounter between patient and practitioner-->
+    <context> <!-- Linked to a resource Encounter between patient and practitioner-->
         <reference value="Encounter/f001"/>
         <display value="encounter who leads to this prescription"/>
-    </encounter>
+    </context>
     <supportingInformation>
         <reference value="Procedure/biopsy"></reference>
     </supportingInformation>

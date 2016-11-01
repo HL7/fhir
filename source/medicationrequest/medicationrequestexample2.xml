@@ -25,11 +25,11 @@
 		<reference value="Patient/pat1"/>
 		<display value="Donald Duck"/>   
 	</patient>
-	<encounter>
+	<context>
 		<!-- Linked to a resource Encounter between patient and practitioner-->
 		<reference value="Encounter/f001"/>
 		<display value="encounter that leads to this prescription"/>
-	</encounter>
+	</context>
 	<dateWritten value="2015-03-01"/>
 	<prescriber>
 		<!-- Linked to the practitioner who treats patient -->
