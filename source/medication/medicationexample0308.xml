@@ -2,6 +2,23 @@
  xsi:schemaLocation="http://hl7.org/fhir ../../schema/medication.xsd" xmlns="http://hl7.org/fhir">
   <id value="med0308"/>
   <contained>
+    <Medication>
+      <id value="med500"></id>
+      <isBrand value="false"></isBrand>
+      <product>
+      <ingredient>
+        <itemCodeableConcept>
+          <coding>
+            <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
+            <code value="1049221"/>
+            <display value="Acetaminophen 325mg/Oxycodone Hydrochloride 5mg Oral Tablet"/>
+          </coding>
+        </itemCodeableConcept>
+      </ingredient>
+      </product>
+    </Medication>
+  </contained>
+  <contained>
     <Organization>
       <id value="org1"/>
       <name value="Stat Rx USA LLC" />
@@ -82,13 +99,9 @@
       </coding>
     </container>
     <content>
-      <itemCodeableConcept>
-        <coding>
-          <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
-          <code value="1049221"/>
-          <display value="Acetaminophen 325mg/Oxycodone Hydrochloride 5mg Oral Tablet"/>
-        </coding>
-      </itemCodeableConcept>
+      <itemReference>
+        <reference value="#med500"></reference>
+      </itemReference>
       <amount>
         <value value="100"/>
         <system value="http://hl7.org/fhir/ValueSet/v3-orderableDrugForm"/>
