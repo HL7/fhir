@@ -912,57 +912,57 @@ public class VersionConvertor_10_20 {
       tgt.setSliceName(src.getName());
       tgt.setId(src.getName());
     }
-    if (src.hasLabel()) 
+    if (src.hasLabel())
       tgt.setLabel(src.getLabel());
     for (org.hl7.fhir.dstu2.model.Coding t : src.getCode())
       tgt.addCode(convertCoding(t));
     if (src.hasSlicing())
       tgt.setSlicing(convertElementDefinitionSlicingComponent(src.getSlicing()));
-    if (src.hasShort()) 
+    if (src.hasShort())
       tgt.setShort(src.getShort());
-    if (src.hasDefinition()) 
+    if (src.hasDefinition())
       tgt.setDefinition(src.getDefinition());
-    if (src.hasComments()) 
+    if (src.hasComments())
       tgt.setComments(src.getComments());
-    if (src.hasRequirements()) 
+    if (src.hasRequirements())
       tgt.setRequirements(src.getRequirements());
     for (org.hl7.fhir.dstu2.model.StringType t : src.getAlias())
       tgt.addAlias(t.getValue());
-    if (src.hasMin()) 
+    if (src.hasMin())
       tgt.setMin(src.getMin());
-    if (src.hasMax()) 
+    if (src.hasMax())
       tgt.setMax(src.getMax());
     if (src.hasBase())
       tgt.setBase(convertElementDefinitionBaseComponent(src.getBase()));
-    if (src.hasNameReference()) 
+    if (src.hasNameReference())
       tgt.setContentReference("#"+src.getNameReference());
     for (org.hl7.fhir.dstu2.model.ElementDefinition.TypeRefComponent t : src.getType())
       tgt.addType(convertTypeRefComponent(t));
-    if (src.hasDefaultValue()) 
+    if (src.hasDefaultValue())
       tgt.setDefaultValue(convertType(src.getDefaultValue()));
-    if (src.hasMeaningWhenMissing()) 
+    if (src.hasMeaningWhenMissing())
       tgt.setMeaningWhenMissing(src.getMeaningWhenMissing());
-    if (src.hasFixed()) 
+    if (src.hasFixed())
       tgt.setFixed(convertType(src.getFixed()));
     if (src.hasPattern())
       tgt.setPattern(convertType(src.getPattern()));
-    if (src.hasExample()) 
+    if (src.hasExample())
       tgt.setExample(convertType(src.getExample()));
-    if (src.hasMinValue()) 
+    if (src.hasMinValue())
       tgt.setMinValue(convertType(src.getMinValue()));
-    if (src.hasMaxValue()) 
+    if (src.hasMaxValue())
       tgt.setMaxValue(convertType(src.getMaxValue()));
-    if (src.hasMaxLength()) 
+    if (src.hasMaxLength())
       tgt.setMaxLength(src.getMaxLength());
     for (org.hl7.fhir.dstu2.model.IdType t : src.getCondition())
       tgt.addCondition(t.getValue());
     for (org.hl7.fhir.dstu2.model.ElementDefinition.ElementDefinitionConstraintComponent t : src.getConstraint())
       tgt.addConstraint(convertElementDefinitionConstraintComponent(t));
-    if (src.hasMustSupport()) 
+    if (src.hasMustSupport())
       tgt.setMustSupport(src.getMustSupport());
-    if (src.hasIsModifier()) 
+    if (src.hasIsModifier())
       tgt.setIsModifier(src.getIsModifier());
-    if (src.hasIsSummary()) 
+    if (src.hasIsSummary())
       tgt.setIsSummary(src.getIsSummary());
     if (src.hasBinding())
       tgt.setBinding(convertElementDefinitionBindingComponent(src.getBinding()));
@@ -2061,7 +2061,7 @@ public class VersionConvertor_10_20 {
       tgt.addIdentifier(convertIdentifier(t));
     tgt.setStatus(convertAllergyIntoleranceStatus(src.getStatus()));
     tgt.setType(convertAllergyIntoleranceType(src.getType()));
-    tgt.setCategory(convertAllergyIntoleranceCategory(src.getCategory()));
+//    tgt.setCategory(convertAllergyIntoleranceCategory(src.getCategory()));
     tgt.setCriticality(convertAllergyIntoleranceCriticality(src.getCriticality()));
     tgt.setCode(convertCodeableConcept(src.getSubstance()));
     tgt.setPatient(convertReference(src.getPatient()));
@@ -2086,7 +2086,7 @@ public class VersionConvertor_10_20 {
       tgt.addIdentifier(convertIdentifier(t));
     tgt.setStatus(convertAllergyIntoleranceStatus(src.getStatus()));
     tgt.setType(convertAllergyIntoleranceType(src.getType()));
-    tgt.setCategory(convertAllergyIntoleranceCategory(src.getCategory()));
+//    tgt.setCategory(convertAllergyIntoleranceCategory(src.getCategory()));
     tgt.setCriticality(convertAllergyIntoleranceCriticality(src.getCriticality()));
     tgt.setSubstance(convertCodeableConcept(src.getCode()));
     tgt.setPatient(convertReference(src.getPatient()));
@@ -3358,16 +3358,16 @@ public class VersionConvertor_10_20 {
     tgt.setPrevious(convertReference(src.getPrevious()));
     for (org.hl7.fhir.dstu2.model.Reference t : src.getProblem())
       tgt.addProblem(convertReference(t));
-    for (org.hl7.fhir.dstu2.model.ClinicalImpression.ClinicalImpressionInvestigationsComponent t : src.getInvestigations())
-      tgt.addInvestigations(convertClinicalImpressionInvestigationsComponent(t));
+//    for (org.hl7.fhir.dstu2.model.ClinicalImpression.ClinicalImpressionInvestigationsComponent t : src.getInvestigations())
+//      tgt.addInvestigations(convertClinicalImpressionInvestigationsComponent(t));
     tgt.addProtocol(src.getProtocol());
     tgt.setSummary(src.getSummary());
     for (org.hl7.fhir.dstu2.model.ClinicalImpression.ClinicalImpressionFindingComponent t : src.getFinding())
       tgt.addFinding(convertClinicalImpressionFindingComponent(t));
     if (src.hasPrognosis())
       tgt.addPrognosisCodeableConcept ().setText(src.getPrognosis());
-    for (org.hl7.fhir.dstu2.model.Reference t : src.getPlan())
-      tgt.addPlan(convertReference(t));
+//    for (org.hl7.fhir.dstu2.model.Reference t : src.getPlan())
+//      tgt.addPlan(convertReference(t));
     for (org.hl7.fhir.dstu2.model.Reference t : src.getAction())
       tgt.addAction(convertReference(t));
     return tgt;
@@ -3387,16 +3387,16 @@ public class VersionConvertor_10_20 {
     tgt.setPrevious(convertReference(src.getPrevious()));
     for (org.hl7.fhir.dstu3.model.Reference t : src.getProblem())
       tgt.addProblem(convertReference(t));
-    for (org.hl7.fhir.dstu3.model.ClinicalImpression.ClinicalImpressionInvestigationsComponent t : src.getInvestigations())
-      tgt.addInvestigations(convertClinicalImpressionInvestigationsComponent(t));
+//    for (org.hl7.fhir.dstu3.model.ClinicalImpression.ClinicalImpressionInvestigationsComponent t : src.getInvestigations())
+//      tgt.addInvestigations(convertClinicalImpressionInvestigationsComponent(t));
     for (UriType t : src.getProtocol())
       tgt.setProtocol(t.asStringValue());
     tgt.setSummary(src.getSummary());
     for (org.hl7.fhir.dstu3.model.ClinicalImpression.ClinicalImpressionFindingComponent t : src.getFinding())
       tgt.addFinding(convertClinicalImpressionFindingComponent(t));
     tgt.setPrognosis(src.getPrognosisCodeableConceptFirstRep().getText());
-    for (org.hl7.fhir.dstu3.model.Reference t : src.getPlan())
-      tgt.addPlan(convertReference(t));
+//    for (org.hl7.fhir.dstu3.model.Reference t : src.getPlan())
+//      tgt.addPlan(convertReference(t));
     for (org.hl7.fhir.dstu3.model.Reference t : src.getAction())
       tgt.addAction(convertReference(t));
     return tgt;
@@ -3424,27 +3424,27 @@ public class VersionConvertor_10_20 {
     }
   }
 
-  public org.hl7.fhir.dstu3.model.ClinicalImpression.ClinicalImpressionInvestigationsComponent convertClinicalImpressionInvestigationsComponent(org.hl7.fhir.dstu2.model.ClinicalImpression.ClinicalImpressionInvestigationsComponent src) throws FHIRException {
-    if (src == null || src.isEmpty())
-      return null;
-    org.hl7.fhir.dstu3.model.ClinicalImpression.ClinicalImpressionInvestigationsComponent tgt = new org.hl7.fhir.dstu3.model.ClinicalImpression.ClinicalImpressionInvestigationsComponent();
-    copyElement(src, tgt);
-    tgt.setCode(convertCodeableConcept(src.getCode()));
-    for (org.hl7.fhir.dstu2.model.Reference t : src.getItem())
-      tgt.addItem(convertReference(t));
-    return tgt;
-  }
-
-  public org.hl7.fhir.dstu2.model.ClinicalImpression.ClinicalImpressionInvestigationsComponent convertClinicalImpressionInvestigationsComponent(org.hl7.fhir.dstu3.model.ClinicalImpression.ClinicalImpressionInvestigationsComponent src) throws FHIRException {
-    if (src == null || src.isEmpty())
-      return null;
-    org.hl7.fhir.dstu2.model.ClinicalImpression.ClinicalImpressionInvestigationsComponent tgt = new org.hl7.fhir.dstu2.model.ClinicalImpression.ClinicalImpressionInvestigationsComponent();
-    copyElement(src, tgt);
-    tgt.setCode(convertCodeableConcept(src.getCode()));
-    for (org.hl7.fhir.dstu3.model.Reference t : src.getItem())
-      tgt.addItem(convertReference(t));
-    return tgt;
-  }
+//  public org.hl7.fhir.dstu3.model.ClinicalImpression.ClinicalImpressionInvestigationsComponent convertClinicalImpressionInvestigationsComponent(org.hl7.fhir.dstu2.model.ClinicalImpression.ClinicalImpressionInvestigationsComponent src) throws FHIRException {
+//    if (src == null || src.isEmpty())
+//      return null;
+//    org.hl7.fhir.dstu3.model.ClinicalImpression.ClinicalImpressionInvestigationsComponent tgt = new org.hl7.fhir.dstu3.model.ClinicalImpression.ClinicalImpressionInvestigationsComponent();
+//    copyElement(src, tgt);
+//    tgt.setCode(convertCodeableConcept(src.getCode()));
+//    for (org.hl7.fhir.dstu2.model.Reference t : src.getItem())
+//      tgt.addItem(convertReference(t));
+//    return tgt;
+//  }
+//
+//  public org.hl7.fhir.dstu2.model.ClinicalImpression.ClinicalImpressionInvestigationsComponent convertClinicalImpressionInvestigationsComponent(org.hl7.fhir.dstu3.model.ClinicalImpression.ClinicalImpressionInvestigationsComponent src) throws FHIRException {
+//    if (src == null || src.isEmpty())
+//      return null;
+//    org.hl7.fhir.dstu2.model.ClinicalImpression.ClinicalImpressionInvestigationsComponent tgt = new org.hl7.fhir.dstu2.model.ClinicalImpression.ClinicalImpressionInvestigationsComponent();
+//    copyElement(src, tgt);
+//    tgt.setCode(convertCodeableConcept(src.getCode()));
+//    for (org.hl7.fhir.dstu3.model.Reference t : src.getItem())
+//      tgt.addItem(convertReference(t));
+//    return tgt;
+//  }
 
   public org.hl7.fhir.dstu3.model.ClinicalImpression.ClinicalImpressionFindingComponent convertClinicalImpressionFindingComponent(org.hl7.fhir.dstu2.model.ClinicalImpression.ClinicalImpressionFindingComponent src) throws FHIRException {
     if (src == null || src.isEmpty())
@@ -3452,7 +3452,7 @@ public class VersionConvertor_10_20 {
     org.hl7.fhir.dstu3.model.ClinicalImpression.ClinicalImpressionFindingComponent tgt = new org.hl7.fhir.dstu3.model.ClinicalImpression.ClinicalImpressionFindingComponent();
     copyElement(src, tgt);
     tgt.setItem(convertCodeableConcept(src.getItem()));
-    tgt.setCause(src.getCause());
+//    tgt.setCause(src.getCause());
     return tgt;
   }
 
@@ -3466,7 +3466,7 @@ public class VersionConvertor_10_20 {
         tgt.setItem(convertCodeableConcept(src.getItemCodeableConcept()));
       } catch (org.hl7.fhir.exceptions.FHIRException e) {
       }
-    tgt.setCause(src.getCause());
+//    tgt.setCause(src.getCause());
     return tgt;
   }
 
@@ -3920,7 +3920,7 @@ public class VersionConvertor_10_20 {
     org.hl7.fhir.dstu3.model.UsageContext result = new org.hl7.fhir.dstu3.model.UsageContext();
     // todo: set type..
     result.setValue(convertCodeableConcept(t));
-    return result;  
+    return result;
   }
 
 
@@ -6512,7 +6512,7 @@ public class VersionConvertor_10_20 {
     return tgt;
   }
 
- 
+
   public org.hl7.fhir.dstu3.model.Encounter convertEncounter(org.hl7.fhir.dstu2.model.Encounter src) throws FHIRException {
     if (src == null || src.isEmpty())
       return null;
@@ -6952,7 +6952,7 @@ public class VersionConvertor_10_20 {
     return tgt;
   }
 
- 
+
   public org.hl7.fhir.dstu3.model.FamilyMemberHistory convertFamilyMemberHistory(org.hl7.fhir.dstu2.model.FamilyMemberHistory src) throws FHIRException {
     if (src == null || src.isEmpty())
       return null;
@@ -8858,93 +8858,93 @@ public class VersionConvertor_10_20 {
     return tgt;
   }
 
-  public org.hl7.fhir.dstu3.model.MedicationOrder convertMedicationOrder(org.hl7.fhir.dstu2.model.MedicationOrder src) throws FHIRException {
-    if (src == null || src.isEmpty())
-      return null;
-    org.hl7.fhir.dstu3.model.MedicationOrder tgt = new org.hl7.fhir.dstu3.model.MedicationOrder();
-    copyDomainResource(src, tgt);
-    for (org.hl7.fhir.dstu2.model.Identifier t : src.getIdentifier())
-      tgt.addIdentifier(convertIdentifier(t));
-    tgt.setStatus(convertMedicationOrderStatus(src.getStatus()));
-    tgt.setMedication(convertType(src.getMedication()));
-    tgt.setPatient(convertReference(src.getPatient()));
-    tgt.setEncounter(convertReference(src.getEncounter()));
-    if (src.hasDateWritten())
-      tgt.setDateWritten(src.getDateWritten());
-    tgt.setPrescriber(convertReference(src.getPrescriber()));
-    if (src.hasReasonCodeableConcept())
-      tgt.addReasonCode(convertCodeableConcept(src.getReasonCodeableConcept()));
-    if (src.hasReasonReference())
-      tgt.addReasonReference(convertReference(src.getReasonReference()));
-//    tgt.setDateEnded(src.getDateEnded());
-//    tgt.setReasonEnded(convertCodeableConcept(src.getReasonEnded()));
-    if (src.hasNote())
-      tgt.addNote().setText(src.getNote());
-    for (org.hl7.fhir.dstu2.model.MedicationOrder.MedicationOrderDosageInstructionComponent t : src.getDosageInstruction())
-      tgt.addDosageInstruction(convertMedicationOrderDosageInstructionComponent(t));
-    tgt.setDispenseRequest(convertMedicationOrderDispenseRequestComponent(src.getDispenseRequest()));
-    tgt.setSubstitution(convertMedicationOrderSubstitutionComponent(src.getSubstitution()));
-    tgt.setPriorPrescription(convertReference(src.getPriorPrescription()));
-    return tgt;
-  }
-
-  public org.hl7.fhir.dstu2.model.MedicationOrder convertMedicationOrder(org.hl7.fhir.dstu3.model.MedicationOrder src) throws FHIRException {
-    if (src == null || src.isEmpty())
-      return null;
-    org.hl7.fhir.dstu2.model.MedicationOrder tgt = new org.hl7.fhir.dstu2.model.MedicationOrder();
-    copyDomainResource(src, tgt);
-    for (org.hl7.fhir.dstu3.model.Identifier t : src.getIdentifier())
-      tgt.addIdentifier(convertIdentifier(t));
-    tgt.setStatus(convertMedicationOrderStatus(src.getStatus()));
-    tgt.setMedication(convertType(src.getMedication()));
-    tgt.setPatient(convertReference(src.getPatient()));
-    tgt.setEncounter(convertReference(src.getEncounter()));
-    if (src.hasDateWritten())
-      tgt.setDateWritten(src.getDateWritten());
-    tgt.setPrescriber(convertReference(src.getPrescriber()));
-    for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getReasonCode())
-      tgt.setReason(convertCodeableConcept(t));
-    for (org.hl7.fhir.dstu3.model.Reference t : src.getReasonReference())
-      tgt.setReason(convertReference(t));
-//    tgt.setDateEnded(src.getDateEnded());
-//    tgt.setReasonEnded(convertCodeableConcept(src.getReasonEnded()));
-    for (org.hl7.fhir.dstu3.model.Annotation t : src.getNote())
-      tgt.setNote(t.getText());
-    for (org.hl7.fhir.dstu3.model.DosageInstruction t : src.getDosageInstruction())
-      tgt.addDosageInstruction(convertMedicationOrderDosageInstructionComponent(t));
-    tgt.setDispenseRequest(convertMedicationOrderDispenseRequestComponent(src.getDispenseRequest()));
-    tgt.setSubstitution(convertMedicationOrderSubstitutionComponent(src.getSubstitution()));
-    tgt.setPriorPrescription(convertReference(src.getPriorPrescription()));
-    return tgt;
-  }
-
-  public org.hl7.fhir.dstu3.model.MedicationOrder.MedicationOrderStatus convertMedicationOrderStatus(org.hl7.fhir.dstu2.model.MedicationOrder.MedicationOrderStatus src) throws FHIRException {
-    if (src == null)
-      return null;
-    switch (src) {
-    case ACTIVE: return org.hl7.fhir.dstu3.model.MedicationOrder.MedicationOrderStatus.ACTIVE;
-    case ONHOLD: return org.hl7.fhir.dstu3.model.MedicationOrder.MedicationOrderStatus.ONHOLD;
-    case COMPLETED: return org.hl7.fhir.dstu3.model.MedicationOrder.MedicationOrderStatus.COMPLETED;
-    case ENTEREDINERROR: return org.hl7.fhir.dstu3.model.MedicationOrder.MedicationOrderStatus.ENTEREDINERROR;
-    case STOPPED: return org.hl7.fhir.dstu3.model.MedicationOrder.MedicationOrderStatus.STOPPED;
-    case DRAFT: return org.hl7.fhir.dstu3.model.MedicationOrder.MedicationOrderStatus.DRAFT;
-    default: return org.hl7.fhir.dstu3.model.MedicationOrder.MedicationOrderStatus.NULL;
-    }
-  }
-
-  public org.hl7.fhir.dstu2.model.MedicationOrder.MedicationOrderStatus convertMedicationOrderStatus(org.hl7.fhir.dstu3.model.MedicationOrder.MedicationOrderStatus src) throws FHIRException {
-    if (src == null)
-      return null;
-    switch (src) {
-    case ACTIVE: return org.hl7.fhir.dstu2.model.MedicationOrder.MedicationOrderStatus.ACTIVE;
-    case ONHOLD: return org.hl7.fhir.dstu2.model.MedicationOrder.MedicationOrderStatus.ONHOLD;
-    case COMPLETED: return org.hl7.fhir.dstu2.model.MedicationOrder.MedicationOrderStatus.COMPLETED;
-    case ENTEREDINERROR: return org.hl7.fhir.dstu2.model.MedicationOrder.MedicationOrderStatus.ENTEREDINERROR;
-    case STOPPED: return org.hl7.fhir.dstu2.model.MedicationOrder.MedicationOrderStatus.STOPPED;
-    case DRAFT: return org.hl7.fhir.dstu2.model.MedicationOrder.MedicationOrderStatus.DRAFT;
-    default: return org.hl7.fhir.dstu2.model.MedicationOrder.MedicationOrderStatus.NULL;
-    }
-  }
+//  public org.hl7.fhir.dstu3.model.MedicationOrder convertMedicationOrder(org.hl7.fhir.dstu2.model.MedicationOrder src) throws FHIRException {
+//    if (src == null || src.isEmpty())
+//      return null;
+//    org.hl7.fhir.dstu3.model.MedicationOrder tgt = new org.hl7.fhir.dstu3.model.MedicationOrder();
+//    copyDomainResource(src, tgt);
+//    for (org.hl7.fhir.dstu2.model.Identifier t : src.getIdentifier())
+//      tgt.addIdentifier(convertIdentifier(t));
+//    tgt.setStatus(convertMedicationOrderStatus(src.getStatus()));
+//    tgt.setMedication(convertType(src.getMedication()));
+//    tgt.setPatient(convertReference(src.getPatient()));
+//    tgt.setEncounter(convertReference(src.getEncounter()));
+//    if (src.hasDateWritten())
+//      tgt.setDateWritten(src.getDateWritten());
+//    tgt.setPrescriber(convertReference(src.getPrescriber()));
+//    if (src.hasReasonCodeableConcept())
+//      tgt.addReasonCode(convertCodeableConcept(src.getReasonCodeableConcept()));
+//    if (src.hasReasonReference())
+//      tgt.addReasonReference(convertReference(src.getReasonReference()));
+////    tgt.setDateEnded(src.getDateEnded());
+////    tgt.setReasonEnded(convertCodeableConcept(src.getReasonEnded()));
+//    if (src.hasNote())
+//      tgt.addNote().setText(src.getNote());
+//    for (org.hl7.fhir.dstu2.model.MedicationOrder.MedicationOrderDosageInstructionComponent t : src.getDosageInstruction())
+//      tgt.addDosageInstruction(convertMedicationOrderDosageInstructionComponent(t));
+//    tgt.setDispenseRequest(convertMedicationOrderDispenseRequestComponent(src.getDispenseRequest()));
+//    tgt.setSubstitution(convertMedicationOrderSubstitutionComponent(src.getSubstitution()));
+//    tgt.setPriorPrescription(convertReference(src.getPriorPrescription()));
+//    return tgt;
+//  }
+//
+//  public org.hl7.fhir.dstu2.model.MedicationOrder convertMedicationOrder(org.hl7.fhir.dstu3.model.MedicationOrder src) throws FHIRException {
+//    if (src == null || src.isEmpty())
+//      return null;
+//    org.hl7.fhir.dstu2.model.MedicationOrder tgt = new org.hl7.fhir.dstu2.model.MedicationOrder();
+//    copyDomainResource(src, tgt);
+//    for (org.hl7.fhir.dstu3.model.Identifier t : src.getIdentifier())
+//      tgt.addIdentifier(convertIdentifier(t));
+//    tgt.setStatus(convertMedicationOrderStatus(src.getStatus()));
+//    tgt.setMedication(convertType(src.getMedication()));
+//    tgt.setPatient(convertReference(src.getPatient()));
+//    tgt.setEncounter(convertReference(src.getEncounter()));
+//    if (src.hasDateWritten())
+//      tgt.setDateWritten(src.getDateWritten());
+//    tgt.setPrescriber(convertReference(src.getPrescriber()));
+//    for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getReasonCode())
+//      tgt.setReason(convertCodeableConcept(t));
+//    for (org.hl7.fhir.dstu3.model.Reference t : src.getReasonReference())
+//      tgt.setReason(convertReference(t));
+////    tgt.setDateEnded(src.getDateEnded());
+////    tgt.setReasonEnded(convertCodeableConcept(src.getReasonEnded()));
+//    for (org.hl7.fhir.dstu3.model.Annotation t : src.getNote())
+//      tgt.setNote(t.getText());
+//    for (org.hl7.fhir.dstu3.model.DosageInstruction t : src.getDosageInstruction())
+//      tgt.addDosageInstruction(convertMedicationOrderDosageInstructionComponent(t));
+//    tgt.setDispenseRequest(convertMedicationOrderDispenseRequestComponent(src.getDispenseRequest()));
+//    tgt.setSubstitution(convertMedicationOrderSubstitutionComponent(src.getSubstitution()));
+//    tgt.setPriorPrescription(convertReference(src.getPriorPrescription()));
+//    return tgt;
+//  }
+//
+//  public org.hl7.fhir.dstu3.model.MedicationOrder.MedicationOrderStatus convertMedicationOrderStatus(org.hl7.fhir.dstu2.model.MedicationOrder.MedicationOrderStatus src) throws FHIRException {
+//    if (src == null)
+//      return null;
+//    switch (src) {
+//    case ACTIVE: return org.hl7.fhir.dstu3.model.MedicationOrder.MedicationOrderStatus.ACTIVE;
+//    case ONHOLD: return org.hl7.fhir.dstu3.model.MedicationOrder.MedicationOrderStatus.ONHOLD;
+//    case COMPLETED: return org.hl7.fhir.dstu3.model.MedicationOrder.MedicationOrderStatus.COMPLETED;
+//    case ENTEREDINERROR: return org.hl7.fhir.dstu3.model.MedicationOrder.MedicationOrderStatus.ENTEREDINERROR;
+//    case STOPPED: return org.hl7.fhir.dstu3.model.MedicationOrder.MedicationOrderStatus.STOPPED;
+//    case DRAFT: return org.hl7.fhir.dstu3.model.MedicationOrder.MedicationOrderStatus.DRAFT;
+//    default: return org.hl7.fhir.dstu3.model.MedicationOrder.MedicationOrderStatus.NULL;
+//    }
+//  }
+//
+//  public org.hl7.fhir.dstu2.model.MedicationOrder.MedicationOrderStatus convertMedicationOrderStatus(org.hl7.fhir.dstu3.model.MedicationOrder.MedicationOrderStatus src) throws FHIRException {
+//    if (src == null)
+//      return null;
+//    switch (src) {
+//    case ACTIVE: return org.hl7.fhir.dstu2.model.MedicationOrder.MedicationOrderStatus.ACTIVE;
+//    case ONHOLD: return org.hl7.fhir.dstu2.model.MedicationOrder.MedicationOrderStatus.ONHOLD;
+//    case COMPLETED: return org.hl7.fhir.dstu2.model.MedicationOrder.MedicationOrderStatus.COMPLETED;
+//    case ENTEREDINERROR: return org.hl7.fhir.dstu2.model.MedicationOrder.MedicationOrderStatus.ENTEREDINERROR;
+//    case STOPPED: return org.hl7.fhir.dstu2.model.MedicationOrder.MedicationOrderStatus.STOPPED;
+//    case DRAFT: return org.hl7.fhir.dstu2.model.MedicationOrder.MedicationOrderStatus.DRAFT;
+//    default: return org.hl7.fhir.dstu2.model.MedicationOrder.MedicationOrderStatus.NULL;
+//    }
+//  }
 
   public org.hl7.fhir.dstu3.model.DosageInstruction convertMedicationOrderDosageInstructionComponent(org.hl7.fhir.dstu2.model.MedicationOrder.MedicationOrderDosageInstructionComponent src) throws FHIRException {
     if (src == null || src.isEmpty())
@@ -8982,51 +8982,51 @@ public class VersionConvertor_10_20 {
     return tgt;
   }
 
-  public org.hl7.fhir.dstu3.model.MedicationOrder.MedicationOrderDispenseRequestComponent convertMedicationOrderDispenseRequestComponent(org.hl7.fhir.dstu2.model.MedicationOrder.MedicationOrderDispenseRequestComponent src) throws FHIRException {
-    if (src == null || src.isEmpty())
-      return null;
-    org.hl7.fhir.dstu3.model.MedicationOrder.MedicationOrderDispenseRequestComponent tgt = new org.hl7.fhir.dstu3.model.MedicationOrder.MedicationOrderDispenseRequestComponent();
-    copyElement(src, tgt);
-//    tgt.setMedication(convertType(src.getMedication()));
-    tgt.setValidityPeriod(convertPeriod(src.getValidityPeriod()));
-    tgt.setNumberOfRepeatsAllowed(src.getNumberOfRepeatsAllowed());
-    tgt.setQuantity(convertSimpleQuantity(src.getQuantity()));
-    tgt.setExpectedSupplyDuration(convertDuration(src.getExpectedSupplyDuration()));
-    return tgt;
-  }
-
-  public org.hl7.fhir.dstu2.model.MedicationOrder.MedicationOrderDispenseRequestComponent convertMedicationOrderDispenseRequestComponent(org.hl7.fhir.dstu3.model.MedicationOrder.MedicationOrderDispenseRequestComponent src) throws FHIRException {
-    if (src == null || src.isEmpty())
-      return null;
-    org.hl7.fhir.dstu2.model.MedicationOrder.MedicationOrderDispenseRequestComponent tgt = new org.hl7.fhir.dstu2.model.MedicationOrder.MedicationOrderDispenseRequestComponent();
-    copyElement(src, tgt);
-//    tgt.setMedication(convertType(src.getMedication()));
-    tgt.setValidityPeriod(convertPeriod(src.getValidityPeriod()));
-    tgt.setNumberOfRepeatsAllowed(src.getNumberOfRepeatsAllowed());
-    tgt.setQuantity(convertSimpleQuantity(src.getQuantity()));
-    tgt.setExpectedSupplyDuration(convertDuration(src.getExpectedSupplyDuration()));
-    return tgt;
-  }
-
-  public org.hl7.fhir.dstu3.model.MedicationOrder.MedicationOrderSubstitutionComponent convertMedicationOrderSubstitutionComponent(org.hl7.fhir.dstu2.model.MedicationOrder.MedicationOrderSubstitutionComponent src) throws FHIRException {
-    if (src == null || src.isEmpty())
-      return null;
-    org.hl7.fhir.dstu3.model.MedicationOrder.MedicationOrderSubstitutionComponent tgt = new org.hl7.fhir.dstu3.model.MedicationOrder.MedicationOrderSubstitutionComponent();
-    copyElement(src, tgt);
-//    tgt.setType(convertCodeableConcept(src.getType()));
-    tgt.setReason(convertCodeableConcept(src.getReason()));
-    return tgt;
-  }
-
-  public org.hl7.fhir.dstu2.model.MedicationOrder.MedicationOrderSubstitutionComponent convertMedicationOrderSubstitutionComponent(org.hl7.fhir.dstu3.model.MedicationOrder.MedicationOrderSubstitutionComponent src) throws FHIRException {
-    if (src == null || src.isEmpty())
-      return null;
-    org.hl7.fhir.dstu2.model.MedicationOrder.MedicationOrderSubstitutionComponent tgt = new org.hl7.fhir.dstu2.model.MedicationOrder.MedicationOrderSubstitutionComponent();
-    copyElement(src, tgt);
-//    tgt.setType(convertCodeableConcept(src.getType()));
-    tgt.setReason(convertCodeableConcept(src.getReason()));
-    return tgt;
-  }
+//  public org.hl7.fhir.dstu3.model.MedicationOrder.MedicationOrderDispenseRequestComponent convertMedicationOrderDispenseRequestComponent(org.hl7.fhir.dstu2.model.MedicationOrder.MedicationOrderDispenseRequestComponent src) throws FHIRException {
+//    if (src == null || src.isEmpty())
+//      return null;
+//    org.hl7.fhir.dstu3.model.MedicationOrder.MedicationOrderDispenseRequestComponent tgt = new org.hl7.fhir.dstu3.model.MedicationOrder.MedicationOrderDispenseRequestComponent();
+//    copyElement(src, tgt);
+////    tgt.setMedication(convertType(src.getMedication()));
+//    tgt.setValidityPeriod(convertPeriod(src.getValidityPeriod()));
+//    tgt.setNumberOfRepeatsAllowed(src.getNumberOfRepeatsAllowed());
+//    tgt.setQuantity(convertSimpleQuantity(src.getQuantity()));
+//    tgt.setExpectedSupplyDuration(convertDuration(src.getExpectedSupplyDuration()));
+//    return tgt;
+//  }
+//
+//  public org.hl7.fhir.dstu2.model.MedicationOrder.MedicationOrderDispenseRequestComponent convertMedicationOrderDispenseRequestComponent(org.hl7.fhir.dstu3.model.MedicationOrder.MedicationOrderDispenseRequestComponent src) throws FHIRException {
+//    if (src == null || src.isEmpty())
+//      return null;
+//    org.hl7.fhir.dstu2.model.MedicationOrder.MedicationOrderDispenseRequestComponent tgt = new org.hl7.fhir.dstu2.model.MedicationOrder.MedicationOrderDispenseRequestComponent();
+//    copyElement(src, tgt);
+////    tgt.setMedication(convertType(src.getMedication()));
+//    tgt.setValidityPeriod(convertPeriod(src.getValidityPeriod()));
+//    tgt.setNumberOfRepeatsAllowed(src.getNumberOfRepeatsAllowed());
+//    tgt.setQuantity(convertSimpleQuantity(src.getQuantity()));
+//    tgt.setExpectedSupplyDuration(convertDuration(src.getExpectedSupplyDuration()));
+//    return tgt;
+//  }
+//
+//  public org.hl7.fhir.dstu3.model.MedicationOrder.MedicationOrderSubstitutionComponent convertMedicationOrderSubstitutionComponent(org.hl7.fhir.dstu2.model.MedicationOrder.MedicationOrderSubstitutionComponent src) throws FHIRException {
+//    if (src == null || src.isEmpty())
+//      return null;
+//    org.hl7.fhir.dstu3.model.MedicationOrder.MedicationOrderSubstitutionComponent tgt = new org.hl7.fhir.dstu3.model.MedicationOrder.MedicationOrderSubstitutionComponent();
+//    copyElement(src, tgt);
+////    tgt.setType(convertCodeableConcept(src.getType()));
+//    tgt.setReason(convertCodeableConcept(src.getReason()));
+//    return tgt;
+//  }
+//
+//  public org.hl7.fhir.dstu2.model.MedicationOrder.MedicationOrderSubstitutionComponent convertMedicationOrderSubstitutionComponent(org.hl7.fhir.dstu3.model.MedicationOrder.MedicationOrderSubstitutionComponent src) throws FHIRException {
+//    if (src == null || src.isEmpty())
+//      return null;
+//    org.hl7.fhir.dstu2.model.MedicationOrder.MedicationOrderSubstitutionComponent tgt = new org.hl7.fhir.dstu2.model.MedicationOrder.MedicationOrderSubstitutionComponent();
+//    copyElement(src, tgt);
+////    tgt.setType(convertCodeableConcept(src.getType()));
+//    tgt.setReason(convertCodeableConcept(src.getReason()));
+//    return tgt;
+//  }
 
   public org.hl7.fhir.dstu3.model.MedicationStatement convertMedicationStatement(org.hl7.fhir.dstu2.model.MedicationStatement src) throws FHIRException {
     if (src == null || src.isEmpty())
@@ -13228,7 +13228,7 @@ public org.hl7.fhir.dstu2.model.ValueSet.ConceptDefinitionDesignationComponent c
       tgtcs.setPurpose(src.getRequirements());
       tgtcs.setCopyright(src.getCopyright());
       tgtcs.setCaseSensitive(src.getCodeSystem().getCaseSensitive());
-      for (org.hl7.fhir.dstu2.model.ValueSet.ConceptDefinitionComponent cs : src.getCodeSystem().getConcept()) 
+      for (org.hl7.fhir.dstu2.model.ValueSet.ConceptDefinitionComponent cs : src.getCodeSystem().getConcept())
         processConcept(tgtcs.getConcept(), cs, tgtcs);
       advisor.handleCodeSystem(tgtcs, tgt);
       tgt.setUserData("r2-cs", tgtcs);
@@ -13252,8 +13252,8 @@ public org.hl7.fhir.dstu2.model.ValueSet.ConceptDefinitionDesignationComponent c
       cst.setUse(convertCoding(csd.getUse()));
       cst.setValue(csd.getValue());
     }
-    
-    for (org.hl7.fhir.dstu2.model.ValueSet.ConceptDefinitionComponent csc : cs.getConcept()) 
+
+    for (org.hl7.fhir.dstu2.model.ValueSet.ConceptDefinitionComponent csc : cs.getConcept())
       processConcept(ct.getConcept(), csc, tgtcs);
   }
 
@@ -13271,8 +13271,8 @@ public org.hl7.fhir.dstu2.model.ValueSet.ConceptDefinitionDesignationComponent c
       cst.setUse(convertCoding(csd.getUse()));
       cst.setValue(csd.getValue());
     }
-    
-    for (ConceptDefinitionComponent csc : cs.getConcept()) 
+
+    for (ConceptDefinitionComponent csc : cs.getConcept())
       processConcept(ct.getConcept(), csc, srcCS);
   }
 
@@ -13312,9 +13312,9 @@ public org.hl7.fhir.dstu2.model.ValueSet.ConceptDefinitionDesignationComponent c
       tgt.getCodeSystem().setSystem(srcCS.getUrl());
       tgt.getCodeSystem().setVersion(srcCS.getVersion());
       tgt.getCodeSystem().setCaseSensitive(srcCS.getCaseSensitive());
-      for (org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionComponent cs : srcCS.getConcept()) 
+      for (org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionComponent cs : srcCS.getConcept())
         processConcept(tgt.getCodeSystem().getConcept(), cs, srcCS);
-      
+
     }
     tgt.setCompose(convertValueSetComposeComponent(src.getCompose(), srcCS == null ? null : srcCS.getUrl()));
     tgt.setExpansion(convertValueSetExpansionComponent(src.getExpansion()));
@@ -13322,7 +13322,7 @@ public org.hl7.fhir.dstu2.model.ValueSet.ConceptDefinitionDesignationComponent c
   }
 
   private static boolean isJurisdiction(CodeableConcept t) {
-    return t.hasCoding() && ("http://unstats.un.org/unsd/methods/m49/m49.htm".equals(t.getCoding().get(0).getSystem()) || "urn:iso:std:iso:3166".equals(t.getCoding().get(0).getSystem()) 
+    return t.hasCoding() && ("http://unstats.un.org/unsd/methods/m49/m49.htm".equals(t.getCoding().get(0).getSystem()) || "urn:iso:std:iso:3166".equals(t.getCoding().get(0).getSystem())
         || "https://www.usps.com/".equals(t.getCoding().get(0).getSystem()));
   }
 
@@ -13945,8 +13945,8 @@ public org.hl7.fhir.dstu2.model.ValueSet.ConceptDefinitionDesignationComponent c
       return convertMedicationAdministration((org.hl7.fhir.dstu2.model.MedicationAdministration) src);
     if (src instanceof org.hl7.fhir.dstu2.model.MedicationDispense)
       return convertMedicationDispense((org.hl7.fhir.dstu2.model.MedicationDispense) src);
-    if (src instanceof org.hl7.fhir.dstu2.model.MedicationOrder)
-      return convertMedicationOrder((org.hl7.fhir.dstu2.model.MedicationOrder) src);
+//    if (src instanceof org.hl7.fhir.dstu2.model.MedicationOrder)
+//      return convertMedicationOrder((org.hl7.fhir.dstu2.model.MedicationOrder) src);
     if (src instanceof org.hl7.fhir.dstu2.model.MedicationStatement)
       return convertMedicationStatement((org.hl7.fhir.dstu2.model.MedicationStatement) src);
     if (src instanceof org.hl7.fhir.dstu2.model.MessageHeader)
@@ -14111,8 +14111,8 @@ public org.hl7.fhir.dstu2.model.ValueSet.ConceptDefinitionDesignationComponent c
       return convertMedicationAdministration((org.hl7.fhir.dstu3.model.MedicationAdministration) src);
     if (src instanceof org.hl7.fhir.dstu3.model.MedicationDispense)
       return convertMedicationDispense((org.hl7.fhir.dstu3.model.MedicationDispense) src);
-    if (src instanceof org.hl7.fhir.dstu3.model.MedicationOrder)
-      return convertMedicationOrder((org.hl7.fhir.dstu3.model.MedicationOrder) src);
+//    if (src instanceof org.hl7.fhir.dstu3.model.MedicationOrder)
+//      return convertMedicationOrder((org.hl7.fhir.dstu3.model.MedicationOrder) src);
     if (src instanceof org.hl7.fhir.dstu3.model.MedicationStatement)
       return convertMedicationStatement((org.hl7.fhir.dstu3.model.MedicationStatement) src);
     if (src instanceof org.hl7.fhir.dstu3.model.MessageHeader)
