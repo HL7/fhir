@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Oct 21, 2016 09:09+1100 for FHIR v1.7.0
+// Generated on Tue, Nov 1, 2016 18:35-0400 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -986,9 +986,11 @@ public class Media extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, type, subtype
-          , view, subject, operator, deviceName, height, width, frames, duration, content
-          );
+        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (type == null || type.isEmpty())
+           && (subtype == null || subtype.isEmpty()) && (view == null || view.isEmpty()) && (subject == null || subject.isEmpty())
+           && (operator == null || operator.isEmpty()) && (deviceName == null || deviceName.isEmpty())
+           && (height == null || height.isEmpty()) && (width == null || width.isEmpty()) && (frames == null || frames.isEmpty())
+           && (duration == null || duration.isEmpty()) && (content == null || content.isEmpty());
       }
 
   @Override

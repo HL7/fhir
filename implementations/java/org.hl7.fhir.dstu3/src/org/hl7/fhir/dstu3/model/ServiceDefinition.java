@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Oct 21, 2016 09:09+1100 for FHIR v1.7.0
+// Generated on Tue, Nov 1, 2016 18:35-0400 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -1806,9 +1806,13 @@ public class ServiceDefinition extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, purpose, usage
-          , approvalDate, lastReviewDate, effectivePeriod, topic, contributor, copyright, relatedArtifact
-          , trigger, dataRequirement, operationDefinition);
+        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (purpose == null || purpose.isEmpty())
+           && (usage == null || usage.isEmpty()) && (approvalDate == null || approvalDate.isEmpty())
+           && (lastReviewDate == null || lastReviewDate.isEmpty()) && (effectivePeriod == null || effectivePeriod.isEmpty())
+           && (topic == null || topic.isEmpty()) && (contributor == null || contributor.isEmpty()) && (copyright == null || copyright.isEmpty())
+           && (relatedArtifact == null || relatedArtifact.isEmpty()) && (trigger == null || trigger.isEmpty())
+           && (dataRequirement == null || dataRequirement.isEmpty()) && (operationDefinition == null || operationDefinition.isEmpty())
+          ;
       }
 
   @Override

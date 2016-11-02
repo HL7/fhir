@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Oct 21, 2016 09:09+1100 for FHIR v1.7.0
+// Generated on Tue, Nov 1, 2016 18:35-0400 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -1017,9 +1017,12 @@ public class PaymentNotice extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, status, ruleset
-          , originalRuleset, created, target, provider, organization, request, response
-          , paymentStatus, statusDate);
+        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (status == null || status.isEmpty())
+           && (ruleset == null || ruleset.isEmpty()) && (originalRuleset == null || originalRuleset.isEmpty())
+           && (created == null || created.isEmpty()) && (target == null || target.isEmpty()) && (provider == null || provider.isEmpty())
+           && (organization == null || organization.isEmpty()) && (request == null || request.isEmpty())
+           && (response == null || response.isEmpty()) && (paymentStatus == null || paymentStatus.isEmpty())
+           && (statusDate == null || statusDate.isEmpty());
       }
 
   @Override

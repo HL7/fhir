@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Oct 21, 2016 09:09+1100 for FHIR v1.7.0
+// Generated on Tue, Nov 1, 2016 18:35-0400 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -1241,8 +1241,11 @@ public class AuditEvent extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(role, reference, userId
-          , altId, name, requestor, location, policy, media, network, purposeOfUse);
+        return super.isEmpty() && (role == null || role.isEmpty()) && (reference == null || reference.isEmpty())
+           && (userId == null || userId.isEmpty()) && (altId == null || altId.isEmpty()) && (name == null || name.isEmpty())
+           && (requestor == null || requestor.isEmpty()) && (location == null || location.isEmpty())
+           && (policy == null || policy.isEmpty()) && (media == null || media.isEmpty()) && (network == null || network.isEmpty())
+           && (purposeOfUse == null || purposeOfUse.isEmpty());
       }
 
   public String fhirType() {
@@ -1467,7 +1470,8 @@ public class AuditEvent extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(address, type);
+        return super.isEmpty() && (address == null || address.isEmpty()) && (type == null || type.isEmpty())
+          ;
       }
 
   public String fhirType() {
@@ -1753,7 +1757,8 @@ public class AuditEvent extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(site, identifier, type);
+        return super.isEmpty() && (site == null || site.isEmpty()) && (identifier == null || identifier.isEmpty())
+           && (type == null || type.isEmpty());
       }
 
   public String fhirType() {
@@ -2445,8 +2450,11 @@ public class AuditEvent extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, reference, type
-          , role, lifecycle, securityLabel, name, description, query, detail);
+        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (reference == null || reference.isEmpty())
+           && (type == null || type.isEmpty()) && (role == null || role.isEmpty()) && (lifecycle == null || lifecycle.isEmpty())
+           && (securityLabel == null || securityLabel.isEmpty()) && (name == null || name.isEmpty())
+           && (description == null || description.isEmpty()) && (query == null || query.isEmpty()) && (detail == null || detail.isEmpty())
+          ;
       }
 
   public String fhirType() {
@@ -2671,7 +2679,8 @@ public class AuditEvent extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(type, value);
+        return super.isEmpty() && (type == null || type.isEmpty()) && (value == null || value.isEmpty())
+          ;
       }
 
   public String fhirType() {
@@ -3445,8 +3454,11 @@ public class AuditEvent extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(type, subtype, action, recorded
-          , outcome, outcomeDesc, purposeOfEvent, agent, source, entity);
+        return super.isEmpty() && (type == null || type.isEmpty()) && (subtype == null || subtype.isEmpty())
+           && (action == null || action.isEmpty()) && (recorded == null || recorded.isEmpty()) && (outcome == null || outcome.isEmpty())
+           && (outcomeDesc == null || outcomeDesc.isEmpty()) && (purposeOfEvent == null || purposeOfEvent.isEmpty())
+           && (agent == null || agent.isEmpty()) && (source == null || source.isEmpty()) && (entity == null || entity.isEmpty())
+          ;
       }
 
   @Override

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Oct 21, 2016 09:09+1100 for FHIR v1.7.0
+// Generated on Tue, Nov 1, 2016 18:35-0400 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -1748,9 +1748,12 @@ public class Questionnaire extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(linkId, concept, prefix
-          , text, type, enableWhen, required, repeats, readOnly, maxLength, options, option
-          , initial, item);
+        return super.isEmpty() && (linkId == null || linkId.isEmpty()) && (concept == null || concept.isEmpty())
+           && (prefix == null || prefix.isEmpty()) && (text == null || text.isEmpty()) && (type == null || type.isEmpty())
+           && (enableWhen == null || enableWhen.isEmpty()) && (required == null || required.isEmpty())
+           && (repeats == null || repeats.isEmpty()) && (readOnly == null || readOnly.isEmpty()) && (maxLength == null || maxLength.isEmpty())
+           && (options == null || options.isEmpty()) && (option == null || option.isEmpty()) && (initial == null || initial.isEmpty())
+           && (item == null || item.isEmpty());
       }
 
   public String fhirType() {
@@ -2231,8 +2234,8 @@ public class Questionnaire extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(question, hasAnswer, answer
-          );
+        return super.isEmpty() && (question == null || question.isEmpty()) && (hasAnswer == null || hasAnswer.isEmpty())
+           && (answer == null || answer.isEmpty());
       }
 
   public String fhirType() {
@@ -2449,7 +2452,7 @@ public class Questionnaire extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(value);
+        return super.isEmpty() && (value == null || value.isEmpty());
       }
 
   public String fhirType() {
@@ -3430,9 +3433,11 @@ public class Questionnaire extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(url, identifier, version
-          , status, date, publisher, telecom, useContext, title, concept, subjectType
-          , item);
+        return super.isEmpty() && (url == null || url.isEmpty()) && (identifier == null || identifier.isEmpty())
+           && (version == null || version.isEmpty()) && (status == null || status.isEmpty()) && (date == null || date.isEmpty())
+           && (publisher == null || publisher.isEmpty()) && (telecom == null || telecom.isEmpty()) && (useContext == null || useContext.isEmpty())
+           && (title == null || title.isEmpty()) && (concept == null || concept.isEmpty()) && (subjectType == null || subjectType.isEmpty())
+           && (item == null || item.isEmpty());
       }
 
   @Override

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Oct 21, 2016 09:09+1100 for FHIR v1.7.0
+// Generated on Tue, Nov 1, 2016 18:35-0400 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -659,8 +659,10 @@ public class Schedule extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, active, serviceCategory
-          , serviceType, specialty, actor, planningHorizon, comment);
+        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (active == null || active.isEmpty())
+           && (serviceCategory == null || serviceCategory.isEmpty()) && (serviceType == null || serviceType.isEmpty())
+           && (specialty == null || specialty.isEmpty()) && (actor == null || actor.isEmpty()) && (planningHorizon == null || planningHorizon.isEmpty())
+           && (comment == null || comment.isEmpty());
       }
 
   @Override

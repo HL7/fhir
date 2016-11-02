@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Oct 21, 2016 09:09+1100 for FHIR v1.7.0
+// Generated on Tue, Nov 1, 2016 18:35-0400 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -62,9 +62,17 @@ public class CarePlan extends DomainResource {
          */
         ACTIVE, 
         /**
+         * The plan has been temporarily stopped but is expected to resume in the future.
+         */
+        SUSPENDED, 
+        /**
          * The plan is no longer in use and is not expected to be followed or used in patient care.
          */
         COMPLETED, 
+        /**
+         * The plan was entered in error and voided.
+         */
+        ENTEREDINERROR, 
         /**
          * The plan has been terminated prior to reaching completion (though it may have been replaced by a new plan).
          */
@@ -82,8 +90,12 @@ public class CarePlan extends DomainResource {
           return DRAFT;
         if ("active".equals(codeString))
           return ACTIVE;
+        if ("suspended".equals(codeString))
+          return SUSPENDED;
         if ("completed".equals(codeString))
           return COMPLETED;
+        if ("entered-in-error".equals(codeString))
+          return ENTEREDINERROR;
         if ("cancelled".equals(codeString))
           return CANCELLED;
         if (Configuration.isAcceptInvalidEnums())
@@ -96,7 +108,9 @@ public class CarePlan extends DomainResource {
             case PROPOSED: return "proposed";
             case DRAFT: return "draft";
             case ACTIVE: return "active";
+            case SUSPENDED: return "suspended";
             case COMPLETED: return "completed";
+            case ENTEREDINERROR: return "entered-in-error";
             case CANCELLED: return "cancelled";
             default: return "?";
           }
@@ -106,7 +120,9 @@ public class CarePlan extends DomainResource {
             case PROPOSED: return "http://hl7.org/fhir/care-plan-status";
             case DRAFT: return "http://hl7.org/fhir/care-plan-status";
             case ACTIVE: return "http://hl7.org/fhir/care-plan-status";
+            case SUSPENDED: return "http://hl7.org/fhir/care-plan-status";
             case COMPLETED: return "http://hl7.org/fhir/care-plan-status";
+            case ENTEREDINERROR: return "http://hl7.org/fhir/care-plan-status";
             case CANCELLED: return "http://hl7.org/fhir/care-plan-status";
             default: return "?";
           }
@@ -116,7 +132,9 @@ public class CarePlan extends DomainResource {
             case PROPOSED: return "The plan has been suggested but no commitment to it has yet been made.";
             case DRAFT: return "The plan is in development or awaiting use but is not yet intended to be acted upon.";
             case ACTIVE: return "The plan is intended to be followed and used as part of patient care.";
+            case SUSPENDED: return "The plan has been temporarily stopped but is expected to resume in the future.";
             case COMPLETED: return "The plan is no longer in use and is not expected to be followed or used in patient care.";
+            case ENTEREDINERROR: return "The plan was entered in error and voided.";
             case CANCELLED: return "The plan has been terminated prior to reaching completion (though it may have been replaced by a new plan).";
             default: return "?";
           }
@@ -126,7 +144,9 @@ public class CarePlan extends DomainResource {
             case PROPOSED: return "Proposed";
             case DRAFT: return "Pending";
             case ACTIVE: return "Active";
+            case SUSPENDED: return "Suspended";
             case COMPLETED: return "Completed";
+            case ENTEREDINERROR: return "Entered In Error";
             case CANCELLED: return "Cancelled";
             default: return "?";
           }
@@ -144,8 +164,12 @@ public class CarePlan extends DomainResource {
           return CarePlanStatus.DRAFT;
         if ("active".equals(codeString))
           return CarePlanStatus.ACTIVE;
+        if ("suspended".equals(codeString))
+          return CarePlanStatus.SUSPENDED;
         if ("completed".equals(codeString))
           return CarePlanStatus.COMPLETED;
+        if ("entered-in-error".equals(codeString))
+          return CarePlanStatus.ENTEREDINERROR;
         if ("cancelled".equals(codeString))
           return CarePlanStatus.CANCELLED;
         throw new IllegalArgumentException("Unknown CarePlanStatus code '"+codeString+"'");
@@ -162,8 +186,12 @@ public class CarePlan extends DomainResource {
           return new Enumeration<CarePlanStatus>(this, CarePlanStatus.DRAFT);
         if ("active".equals(codeString))
           return new Enumeration<CarePlanStatus>(this, CarePlanStatus.ACTIVE);
+        if ("suspended".equals(codeString))
+          return new Enumeration<CarePlanStatus>(this, CarePlanStatus.SUSPENDED);
         if ("completed".equals(codeString))
           return new Enumeration<CarePlanStatus>(this, CarePlanStatus.COMPLETED);
+        if ("entered-in-error".equals(codeString))
+          return new Enumeration<CarePlanStatus>(this, CarePlanStatus.ENTEREDINERROR);
         if ("cancelled".equals(codeString))
           return new Enumeration<CarePlanStatus>(this, CarePlanStatus.CANCELLED);
         throw new FHIRException("Unknown CarePlanStatus code '"+codeString+"'");
@@ -175,8 +203,12 @@ public class CarePlan extends DomainResource {
         return "draft";
       if (code == CarePlanStatus.ACTIVE)
         return "active";
+      if (code == CarePlanStatus.SUSPENDED)
+        return "suspended";
       if (code == CarePlanStatus.COMPLETED)
         return "completed";
+      if (code == CarePlanStatus.ENTEREDINERROR)
+        return "entered-in-error";
       if (code == CarePlanStatus.CANCELLED)
         return "cancelled";
       return "?";
@@ -670,7 +702,8 @@ public class CarePlan extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(code, plan);
+        return super.isEmpty() && (code == null || code.isEmpty()) && (plan == null || plan.isEmpty())
+          ;
       }
 
   public String fhirType() {
@@ -711,7 +744,7 @@ public class CarePlan extends DomainResource {
         /**
          * The details of the proposed activity represented in a specific resource.
          */
-        @Child(name = "reference", type = {Appointment.class, CommunicationRequest.class, DeviceUseRequest.class, DiagnosticRequest.class, MedicationOrder.class, NutritionRequest.class, ProcedureRequest.class, ProcessRequest.class, ReferralRequest.class, VisionPrescription.class}, order=4, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "reference", type = {Appointment.class, CommunicationRequest.class, DeviceUseRequest.class, DiagnosticRequest.class, MedicationRequest.class, NutritionRequest.class, ProcedureRequest.class, ProcessRequest.class, ReferralRequest.class, VisionPrescription.class}, order=4, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Activity details defined in specific resource", formalDefinition="The details of the proposed activity represented in a specific resource." )
         protected Reference reference;
 
@@ -944,7 +977,7 @@ public class CarePlan extends DomainResource {
           childrenList.add(new Property("actionResulting", "Reference(Any)", "Resources that describe follow-on actions resulting from the plan, such as drug prescriptions, encounter records, appointments, etc.", 0, java.lang.Integer.MAX_VALUE, actionResulting));
           childrenList.add(new Property("outcome", "CodeableConcept", "Results of the careplan activity.", 0, java.lang.Integer.MAX_VALUE, outcome));
           childrenList.add(new Property("progress", "Annotation", "Notes about the adherence/status/progress of the activity.", 0, java.lang.Integer.MAX_VALUE, progress));
-          childrenList.add(new Property("reference", "Reference(Appointment|CommunicationRequest|DeviceUseRequest|DiagnosticRequest|MedicationOrder|NutritionRequest|ProcedureRequest|ProcessRequest|ReferralRequest|VisionPrescription)", "The details of the proposed activity represented in a specific resource.", 0, java.lang.Integer.MAX_VALUE, reference));
+          childrenList.add(new Property("reference", "Reference(Appointment|CommunicationRequest|DeviceUseRequest|DiagnosticRequest|MedicationRequest|NutritionRequest|ProcedureRequest|ProcessRequest|ReferralRequest|VisionPrescription)", "The details of the proposed activity represented in a specific resource.", 0, java.lang.Integer.MAX_VALUE, reference));
           childrenList.add(new Property("detail", "", "A simple summary of a planned activity suitable for a general care plan system (e.g. form driven) that doesn't know about specific resources such as procedure etc.", 0, java.lang.Integer.MAX_VALUE, detail));
         }
 
@@ -1079,8 +1112,9 @@ public class CarePlan extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(actionResulting, outcome, progress
-          , reference, detail);
+        return super.isEmpty() && (actionResulting == null || actionResulting.isEmpty()) && (outcome == null || outcome.isEmpty())
+           && (progress == null || progress.isEmpty()) && (reference == null || reference.isEmpty())
+           && (detail == null || detail.isEmpty());
       }
 
   public String fhirType() {
@@ -1121,10 +1155,10 @@ public class CarePlan extends DomainResource {
         protected CodeableConcept code;
 
         /**
-         * Provides the rationale that drove the inclusion of this particular activity as part of the plan.
+         * Provides the rationale that drove the inclusion of this particular activity as part of the plan or the reason why the activity was prohibited.
          */
         @Child(name = "reasonCode", type = {CodeableConcept.class}, order=4, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-        @Description(shortDefinition="Why activity should be done", formalDefinition="Provides the rationale that drove the inclusion of this particular activity as part of the plan." )
+        @Description(shortDefinition="Why activity should be done or why activity was prohibited", formalDefinition="Provides the rationale that drove the inclusion of this particular activity as part of the plan or the reason why the activity was prohibited." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/activity-reason")
         protected List<CodeableConcept> reasonCode;
 
@@ -1169,10 +1203,10 @@ public class CarePlan extends DomainResource {
         protected CodeableConcept statusReason;
 
         /**
-         * If true, indicates that the described activity is one that must NOT be engaged in when following the plan.
+         * If true, indicates that the described activity is one that must NOT be engaged in when following the plan.  If false, indicates that the described activity is one that should be engaged in when following the plan.
          */
-        @Child(name = "prohibited", type = {BooleanType.class}, order=9, min=1, max=1, modifier=true, summary=false)
-        @Description(shortDefinition="Do NOT do", formalDefinition="If true, indicates that the described activity is one that must NOT be engaged in when following the plan." )
+        @Child(name = "prohibited", type = {BooleanType.class}, order=9, min=0, max=1, modifier=true, summary=false)
+        @Description(shortDefinition="Do NOT do", formalDefinition="If true, indicates that the described activity is one that must NOT be engaged in when following the plan.  If false, indicates that the described activity is one that should be engaged in when following the plan." )
         protected BooleanType prohibited;
 
         /**
@@ -1242,14 +1276,6 @@ public class CarePlan extends DomainResource {
      */
       public CarePlanActivityDetailComponent() {
         super();
-      }
-
-    /**
-     * Constructor
-     */
-      public CarePlanActivityDetailComponent(BooleanType prohibited) {
-        super();
-        this.prohibited = prohibited;
       }
 
         /**
@@ -1340,7 +1366,7 @@ public class CarePlan extends DomainResource {
         }
 
         /**
-         * @return {@link #reasonCode} (Provides the rationale that drove the inclusion of this particular activity as part of the plan.)
+         * @return {@link #reasonCode} (Provides the rationale that drove the inclusion of this particular activity as part of the plan or the reason why the activity was prohibited.)
          */
         public List<CodeableConcept> getReasonCode() { 
           if (this.reasonCode == null)
@@ -1616,7 +1642,7 @@ public class CarePlan extends DomainResource {
         }
 
         /**
-         * @return {@link #prohibited} (If true, indicates that the described activity is one that must NOT be engaged in when following the plan.). This is the underlying object with id, value and extensions. The accessor "getProhibited" gives direct access to the value
+         * @return {@link #prohibited} (If true, indicates that the described activity is one that must NOT be engaged in when following the plan.  If false, indicates that the described activity is one that should be engaged in when following the plan.). This is the underlying object with id, value and extensions. The accessor "getProhibited" gives direct access to the value
          */
         public BooleanType getProhibitedElement() { 
           if (this.prohibited == null)
@@ -1636,7 +1662,7 @@ public class CarePlan extends DomainResource {
         }
 
         /**
-         * @param value {@link #prohibited} (If true, indicates that the described activity is one that must NOT be engaged in when following the plan.). This is the underlying object with id, value and extensions. The accessor "getProhibited" gives direct access to the value
+         * @param value {@link #prohibited} (If true, indicates that the described activity is one that must NOT be engaged in when following the plan.  If false, indicates that the described activity is one that should be engaged in when following the plan.). This is the underlying object with id, value and extensions. The accessor "getProhibited" gives direct access to the value
          */
         public CarePlanActivityDetailComponent setProhibitedElement(BooleanType value) { 
           this.prohibited = value;
@@ -1644,14 +1670,14 @@ public class CarePlan extends DomainResource {
         }
 
         /**
-         * @return If true, indicates that the described activity is one that must NOT be engaged in when following the plan.
+         * @return If true, indicates that the described activity is one that must NOT be engaged in when following the plan.  If false, indicates that the described activity is one that should be engaged in when following the plan.
          */
         public boolean getProhibited() { 
           return this.prohibited == null || this.prohibited.isEmpty() ? false : this.prohibited.getValue();
         }
 
         /**
-         * @param value If true, indicates that the described activity is one that must NOT be engaged in when following the plan.
+         * @param value If true, indicates that the described activity is one that must NOT be engaged in when following the plan.  If false, indicates that the described activity is one that should be engaged in when following the plan.
          */
         public CarePlanActivityDetailComponent setProhibited(boolean value) { 
             if (this.prohibited == null)
@@ -1972,12 +1998,12 @@ public class CarePlan extends DomainResource {
           childrenList.add(new Property("category", "CodeableConcept", "High-level categorization of the type of activity in a care plan.", 0, java.lang.Integer.MAX_VALUE, category));
           childrenList.add(new Property("definition", "Reference(PlanDefinition|Questionnaire)", "Identifies the protocol, questionnaire, guideline or other specification the planned activity should be conducted in accordance with.", 0, java.lang.Integer.MAX_VALUE, definition));
           childrenList.add(new Property("code", "CodeableConcept", "Detailed description of the type of planned activity; e.g. What lab test, what procedure, what kind of encounter.", 0, java.lang.Integer.MAX_VALUE, code));
-          childrenList.add(new Property("reasonCode", "CodeableConcept", "Provides the rationale that drove the inclusion of this particular activity as part of the plan.", 0, java.lang.Integer.MAX_VALUE, reasonCode));
+          childrenList.add(new Property("reasonCode", "CodeableConcept", "Provides the rationale that drove the inclusion of this particular activity as part of the plan or the reason why the activity was prohibited.", 0, java.lang.Integer.MAX_VALUE, reasonCode));
           childrenList.add(new Property("reasonReference", "Reference(Condition)", "Provides the health condition(s) that drove the inclusion of this particular activity as part of the plan.", 0, java.lang.Integer.MAX_VALUE, reasonReference));
           childrenList.add(new Property("goal", "Reference(Goal)", "Internal reference that identifies the goals that this activity is intended to contribute towards meeting.", 0, java.lang.Integer.MAX_VALUE, goal));
           childrenList.add(new Property("status", "code", "Identifies what progress is being made for the specific activity.", 0, java.lang.Integer.MAX_VALUE, status));
           childrenList.add(new Property("statusReason", "CodeableConcept", "Provides reason why the activity isn't yet started, is on hold, was cancelled, etc.", 0, java.lang.Integer.MAX_VALUE, statusReason));
-          childrenList.add(new Property("prohibited", "boolean", "If true, indicates that the described activity is one that must NOT be engaged in when following the plan.", 0, java.lang.Integer.MAX_VALUE, prohibited));
+          childrenList.add(new Property("prohibited", "boolean", "If true, indicates that the described activity is one that must NOT be engaged in when following the plan.  If false, indicates that the described activity is one that should be engaged in when following the plan.", 0, java.lang.Integer.MAX_VALUE, prohibited));
           childrenList.add(new Property("scheduled[x]", "Timing|Period|string", "The period, timing or frequency upon which the described activity is to occur.", 0, java.lang.Integer.MAX_VALUE, scheduled));
           childrenList.add(new Property("location", "Reference(Location)", "Identifies the facility where the activity will occur; e.g. home, hospital, specific clinic, etc.", 0, java.lang.Integer.MAX_VALUE, location));
           childrenList.add(new Property("performer", "Reference(Practitioner|Organization|RelatedPerson|Patient)", "Identifies who's expected to be involved in the activity.", 0, java.lang.Integer.MAX_VALUE, performer));
@@ -2269,9 +2295,14 @@ public class CarePlan extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(category, definition, code
-          , reasonCode, reasonReference, goal, status, statusReason, prohibited, scheduled
-          , location, performer, product, dailyAmount, quantity, description);
+        return super.isEmpty() && (category == null || category.isEmpty()) && (definition == null || definition.isEmpty())
+           && (code == null || code.isEmpty()) && (reasonCode == null || reasonCode.isEmpty()) && (reasonReference == null || reasonReference.isEmpty())
+           && (goal == null || goal.isEmpty()) && (status == null || status.isEmpty()) && (statusReason == null || statusReason.isEmpty())
+           && (prohibited == null || prohibited.isEmpty()) && (scheduled == null || scheduled.isEmpty())
+           && (location == null || location.isEmpty()) && (performer == null || performer.isEmpty())
+           && (product == null || product.isEmpty()) && (dailyAmount == null || dailyAmount.isEmpty())
+           && (quantity == null || quantity.isEmpty()) && (description == null || description.isEmpty())
+          ;
       }
 
   public String fhirType() {
@@ -2292,7 +2323,7 @@ public class CarePlan extends DomainResource {
      * Indicates whether the plan is currently being acted upon, represents future intentions or is now a historical record.
      */
     @Child(name = "status", type = {CodeType.class}, order=1, min=1, max=1, modifier=true, summary=true)
-    @Description(shortDefinition="proposed | draft | active | completed | cancelled", formalDefinition="Indicates whether the plan is currently being acted upon, represents future intentions or is now a historical record." )
+    @Description(shortDefinition="proposed | draft | active | suspended | completed | entered-in-error | cancelled", formalDefinition="Indicates whether the plan is currently being acted upon, represents future intentions or is now a historical record." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/care-plan-status")
     protected Enumeration<CarePlanStatus> status;
 
@@ -2324,14 +2355,14 @@ public class CarePlan extends DomainResource {
     protected Resource subjectTarget;
 
     /**
-     * Identifies the context in which this particular CarePlan is defined.
+     * Identifies the original context in which this particular CarePlan was created.
      */
     @Child(name = "context", type = {Encounter.class, EpisodeOfCare.class}, order=5, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Created in context of", formalDefinition="Identifies the context in which this particular CarePlan is defined." )
+    @Description(shortDefinition="Created in context of", formalDefinition="Identifies the original context in which this particular CarePlan was created." )
     protected Reference context;
 
     /**
-     * The actual object that is the target of the reference (Identifies the context in which this particular CarePlan is defined.)
+     * The actual object that is the target of the reference (Identifies the original context in which this particular CarePlan was created.)
      */
     protected Resource contextTarget;
 
@@ -2687,7 +2718,7 @@ public class CarePlan extends DomainResource {
     }
 
     /**
-     * @return {@link #context} (Identifies the context in which this particular CarePlan is defined.)
+     * @return {@link #context} (Identifies the original context in which this particular CarePlan was created.)
      */
     public Reference getContext() { 
       if (this.context == null)
@@ -2703,7 +2734,7 @@ public class CarePlan extends DomainResource {
     }
 
     /**
-     * @param value {@link #context} (Identifies the context in which this particular CarePlan is defined.)
+     * @param value {@link #context} (Identifies the original context in which this particular CarePlan was created.)
      */
     public CarePlan setContext(Reference value) { 
       this.context = value;
@@ -2711,14 +2742,14 @@ public class CarePlan extends DomainResource {
     }
 
     /**
-     * @return {@link #context} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Identifies the context in which this particular CarePlan is defined.)
+     * @return {@link #context} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Identifies the original context in which this particular CarePlan was created.)
      */
     public Resource getContextTarget() { 
       return this.contextTarget;
     }
 
     /**
-     * @param value {@link #context} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Identifies the context in which this particular CarePlan is defined.)
+     * @param value {@link #context} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Identifies the original context in which this particular CarePlan was created.)
      */
     public CarePlan setContextTarget(Resource value) { 
       this.contextTarget = value;
@@ -3286,7 +3317,7 @@ public class CarePlan extends DomainResource {
         childrenList.add(new Property("category", "CodeableConcept", "Identifies what \"kind\" of plan this is to support differentiation between multiple co-existing plans; e.g. \"Home health\", \"psychiatric\", \"asthma\", \"disease management\", \"wellness plan\", etc.", 0, java.lang.Integer.MAX_VALUE, category));
         childrenList.add(new Property("description", "string", "A description of the scope and nature of the plan.", 0, java.lang.Integer.MAX_VALUE, description));
         childrenList.add(new Property("subject", "Reference(Patient|Group)", "Identifies the patient or group whose intended care is described by the plan.", 0, java.lang.Integer.MAX_VALUE, subject));
-        childrenList.add(new Property("context", "Reference(Encounter|EpisodeOfCare)", "Identifies the context in which this particular CarePlan is defined.", 0, java.lang.Integer.MAX_VALUE, context));
+        childrenList.add(new Property("context", "Reference(Encounter|EpisodeOfCare)", "Identifies the original context in which this particular CarePlan was created.", 0, java.lang.Integer.MAX_VALUE, context));
         childrenList.add(new Property("period", "Period", "Indicates when the plan did (or is intended to) come into effect and end.", 0, java.lang.Integer.MAX_VALUE, period));
         childrenList.add(new Property("modified", "dateTime", "Identifies the most recent date on which the plan has been revised.", 0, java.lang.Integer.MAX_VALUE, modified));
         childrenList.add(new Property("author", "Reference(Patient|Practitioner|RelatedPerson|Organization)", "Identifies the individual(s) or ogranization who is responsible for the content of the care plan.", 0, java.lang.Integer.MAX_VALUE, author));
@@ -3593,9 +3624,13 @@ public class CarePlan extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, status, category
-          , description, subject, context, period, modified, author, careTeam, addresses
-          , support, relatedPlan, goal, activity, note);
+        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (status == null || status.isEmpty())
+           && (category == null || category.isEmpty()) && (description == null || description.isEmpty())
+           && (subject == null || subject.isEmpty()) && (context == null || context.isEmpty()) && (period == null || period.isEmpty())
+           && (modified == null || modified.isEmpty()) && (author == null || author.isEmpty()) && (careTeam == null || careTeam.isEmpty())
+           && (addresses == null || addresses.isEmpty()) && (support == null || support.isEmpty()) && (relatedPlan == null || relatedPlan.isEmpty())
+           && (goal == null || goal.isEmpty()) && (activity == null || activity.isEmpty()) && (note == null || note.isEmpty())
+          ;
       }
 
   @Override
@@ -3691,7 +3726,7 @@ public class CarePlan extends DomainResource {
    * Path: <b>CarePlan.activity.reference</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="activityreference", path="CarePlan.activity.reference", description="Activity details defined in specific resource", type="reference", target={Appointment.class, CommunicationRequest.class, DeviceUseRequest.class, DiagnosticRequest.class, MedicationOrder.class, NutritionRequest.class, ProcedureRequest.class, ProcessRequest.class, ReferralRequest.class, VisionPrescription.class } )
+  @SearchParamDefinition(name="activityreference", path="CarePlan.activity.reference", description="Activity details defined in specific resource", type="reference", target={Appointment.class, CommunicationRequest.class, DeviceUseRequest.class, DiagnosticRequest.class, MedicationRequest.class, NutritionRequest.class, ProcedureRequest.class, ProcessRequest.class, ReferralRequest.class, VisionPrescription.class } )
   public static final String SP_ACTIVITYREFERENCE = "activityreference";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>activityreference</b>

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Oct 21, 2016 09:09+1100 for FHIR v1.7.0
+// Generated on Tue, Nov 1, 2016 18:35-0400 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -350,7 +350,8 @@ public class Linkage extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(type, resource);
+        return super.isEmpty() && (type == null || type.isEmpty()) && (resource == null || resource.isEmpty())
+          ;
       }
 
   public String fhirType() {
@@ -585,7 +586,8 @@ public class Linkage extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(author, item);
+        return super.isEmpty() && (author == null || author.isEmpty()) && (item == null || item.isEmpty())
+          ;
       }
 
   @Override

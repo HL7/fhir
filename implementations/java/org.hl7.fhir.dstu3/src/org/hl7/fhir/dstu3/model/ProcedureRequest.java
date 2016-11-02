@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Oct 21, 2016 09:09+1100 for FHIR v1.7.0
+// Generated on Tue, Nov 1, 2016 18:35-0400 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -1453,9 +1453,12 @@ public class ProcedureRequest extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, subject, code
-          , bodySite, reason, scheduled, encounter, performer, status, notes, asNeeded
-          , orderedOn, orderer, priority);
+        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (subject == null || subject.isEmpty())
+           && (code == null || code.isEmpty()) && (bodySite == null || bodySite.isEmpty()) && (reason == null || reason.isEmpty())
+           && (scheduled == null || scheduled.isEmpty()) && (encounter == null || encounter.isEmpty())
+           && (performer == null || performer.isEmpty()) && (status == null || status.isEmpty()) && (notes == null || notes.isEmpty())
+           && (asNeeded == null || asNeeded.isEmpty()) && (orderedOn == null || orderedOn.isEmpty())
+           && (orderer == null || orderer.isEmpty()) && (priority == null || priority.isEmpty());
       }
 
   @Override
@@ -1508,6 +1511,26 @@ public class ProcedureRequest extends DomainResource {
    * the path value of "<b>ProcedureRequest:performer</b>".
    */
   public static final ca.uhn.fhir.model.api.Include INCLUDE_PERFORMER = new ca.uhn.fhir.model.api.Include("ProcedureRequest:performer").toLocked();
+
+ /**
+   * Search parameter: <b>code</b>
+   * <p>
+   * Description: <b>What procedure to perform</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ProcedureRequest.code</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="code", path="ProcedureRequest.code", description="What procedure to perform", type="token" )
+  public static final String SP_CODE = "code";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>code</b>
+   * <p>
+   * Description: <b>What procedure to perform</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ProcedureRequest.code</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CODE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CODE);
 
  /**
    * Search parameter: <b>subject</b>
@@ -1612,6 +1635,46 @@ public class ProcedureRequest extends DomainResource {
    * the path value of "<b>ProcedureRequest:encounter</b>".
    */
   public static final ca.uhn.fhir.model.api.Include INCLUDE_ENCOUNTER = new ca.uhn.fhir.model.api.Include("ProcedureRequest:encounter").toLocked();
+
+ /**
+   * Search parameter: <b>body-site</b>
+   * <p>
+   * Description: <b>What part of body to perform on</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ProcedureRequest.bodySite</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="body-site", path="ProcedureRequest.bodySite", description="What part of body to perform on", type="token" )
+  public static final String SP_BODY_SITE = "body-site";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>body-site</b>
+   * <p>
+   * Description: <b>What part of body to perform on</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ProcedureRequest.bodySite</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam BODY_SITE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_BODY_SITE);
+
+ /**
+   * Search parameter: <b>status</b>
+   * <p>
+   * Description: <b>proposed | draft | requested | received | accepted | in-progress | completed | suspended | rejected | aborted</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ProcedureRequest.status</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="status", path="ProcedureRequest.status", description="proposed | draft | requested | received | accepted | in-progress | completed | suspended | rejected | aborted", type="token" )
+  public static final String SP_STATUS = "status";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>status</b>
+   * <p>
+   * Description: <b>proposed | draft | requested | received | accepted | in-progress | completed | suspended | rejected | aborted</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ProcedureRequest.status</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
 
 
 }

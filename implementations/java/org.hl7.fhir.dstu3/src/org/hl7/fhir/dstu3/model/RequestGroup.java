@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Oct 21, 2016 09:09+1100 for FHIR v1.7.0
+// Generated on Tue, Nov 1, 2016 18:35-0400 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -43,24 +43,48 @@ import ca.uhn.fhir.model.api.annotation.Block;
 import org.hl7.fhir.instance.model.api.*;
 import org.hl7.fhir.exceptions.FHIRException;
 /**
- * A guidance response is the formal response to a guidance request, including any output parameters returned by the evaluation, as well as the description of any proposed actions to be taken.
+ * A group of related requests that can be used to capture intended activities that have inter-dependencies such as "give this medication after that one".
  */
-@ResourceDef(name="ActivityGroup", profile="http://hl7.org/fhir/Profile/ActivityGroup")
-public class ActivityGroup extends DomainResource {
+@ResourceDef(name="RequestGroup", profile="http://hl7.org/fhir/Profile/RequestGroup")
+public class RequestGroup extends DomainResource {
 
     public enum ActionRelationshipType {
+        /**
+         * The action must be performed before the start of the related action
+         */
+        BEFORESTART, 
         /**
          * The action must be performed before the related action
          */
         BEFORE, 
         /**
-         * The action must be performed after the related action
+         * The action must be performed before the end of the related action
          */
-        AFTER, 
+        BEFOREEND, 
+        /**
+         * The action must be performed concurrent with the start of the related action
+         */
+        CONCURRENTWITHSTART, 
         /**
          * The action must be performed concurrent with the related action
          */
         CONCURRENT, 
+        /**
+         * The action must be performed concurrent with the end of the related action
+         */
+        CONCURRENTWITHEND, 
+        /**
+         * The action must be performed after the start of the related action
+         */
+        AFTERSTART, 
+        /**
+         * The action must be performed after the related action
+         */
+        AFTER, 
+        /**
+         * The action must be performed after the end of the related action
+         */
+        AFTEREND, 
         /**
          * added to help the parsers with the generic types
          */
@@ -68,12 +92,24 @@ public class ActivityGroup extends DomainResource {
         public static ActionRelationshipType fromCode(String codeString) throws FHIRException {
             if (codeString == null || "".equals(codeString))
                 return null;
+        if ("before-start".equals(codeString))
+          return BEFORESTART;
         if ("before".equals(codeString))
           return BEFORE;
-        if ("after".equals(codeString))
-          return AFTER;
+        if ("before-end".equals(codeString))
+          return BEFOREEND;
+        if ("concurrent-with-start".equals(codeString))
+          return CONCURRENTWITHSTART;
         if ("concurrent".equals(codeString))
           return CONCURRENT;
+        if ("concurrent-with-end".equals(codeString))
+          return CONCURRENTWITHEND;
+        if ("after-start".equals(codeString))
+          return AFTERSTART;
+        if ("after".equals(codeString))
+          return AFTER;
+        if ("after-end".equals(codeString))
+          return AFTEREND;
         if (Configuration.isAcceptInvalidEnums())
           return null;
         else
@@ -81,33 +117,57 @@ public class ActivityGroup extends DomainResource {
         }
         public String toCode() {
           switch (this) {
+            case BEFORESTART: return "before-start";
             case BEFORE: return "before";
-            case AFTER: return "after";
+            case BEFOREEND: return "before-end";
+            case CONCURRENTWITHSTART: return "concurrent-with-start";
             case CONCURRENT: return "concurrent";
+            case CONCURRENTWITHEND: return "concurrent-with-end";
+            case AFTERSTART: return "after-start";
+            case AFTER: return "after";
+            case AFTEREND: return "after-end";
             default: return "?";
           }
         }
         public String getSystem() {
           switch (this) {
+            case BEFORESTART: return "http://hl7.org/fhir/action-relationship-type";
             case BEFORE: return "http://hl7.org/fhir/action-relationship-type";
-            case AFTER: return "http://hl7.org/fhir/action-relationship-type";
+            case BEFOREEND: return "http://hl7.org/fhir/action-relationship-type";
+            case CONCURRENTWITHSTART: return "http://hl7.org/fhir/action-relationship-type";
             case CONCURRENT: return "http://hl7.org/fhir/action-relationship-type";
+            case CONCURRENTWITHEND: return "http://hl7.org/fhir/action-relationship-type";
+            case AFTERSTART: return "http://hl7.org/fhir/action-relationship-type";
+            case AFTER: return "http://hl7.org/fhir/action-relationship-type";
+            case AFTEREND: return "http://hl7.org/fhir/action-relationship-type";
             default: return "?";
           }
         }
         public String getDefinition() {
           switch (this) {
+            case BEFORESTART: return "The action must be performed before the start of the related action";
             case BEFORE: return "The action must be performed before the related action";
-            case AFTER: return "The action must be performed after the related action";
+            case BEFOREEND: return "The action must be performed before the end of the related action";
+            case CONCURRENTWITHSTART: return "The action must be performed concurrent with the start of the related action";
             case CONCURRENT: return "The action must be performed concurrent with the related action";
+            case CONCURRENTWITHEND: return "The action must be performed concurrent with the end of the related action";
+            case AFTERSTART: return "The action must be performed after the start of the related action";
+            case AFTER: return "The action must be performed after the related action";
+            case AFTEREND: return "The action must be performed after the end of the related action";
             default: return "?";
           }
         }
         public String getDisplay() {
           switch (this) {
+            case BEFORESTART: return "Before Start";
             case BEFORE: return "Before";
-            case AFTER: return "After";
+            case BEFOREEND: return "Before End";
+            case CONCURRENTWITHSTART: return "Concurrent With Start";
             case CONCURRENT: return "Concurrent";
+            case CONCURRENTWITHEND: return "Concurrent With End";
+            case AFTERSTART: return "After Start";
+            case AFTER: return "After";
+            case AFTEREND: return "After End";
             default: return "?";
           }
         }
@@ -118,12 +178,24 @@ public class ActivityGroup extends DomainResource {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
+        if ("before-start".equals(codeString))
+          return ActionRelationshipType.BEFORESTART;
         if ("before".equals(codeString))
           return ActionRelationshipType.BEFORE;
-        if ("after".equals(codeString))
-          return ActionRelationshipType.AFTER;
+        if ("before-end".equals(codeString))
+          return ActionRelationshipType.BEFOREEND;
+        if ("concurrent-with-start".equals(codeString))
+          return ActionRelationshipType.CONCURRENTWITHSTART;
         if ("concurrent".equals(codeString))
           return ActionRelationshipType.CONCURRENT;
+        if ("concurrent-with-end".equals(codeString))
+          return ActionRelationshipType.CONCURRENTWITHEND;
+        if ("after-start".equals(codeString))
+          return ActionRelationshipType.AFTERSTART;
+        if ("after".equals(codeString))
+          return ActionRelationshipType.AFTER;
+        if ("after-end".equals(codeString))
+          return ActionRelationshipType.AFTEREND;
         throw new IllegalArgumentException("Unknown ActionRelationshipType code '"+codeString+"'");
         }
         public Enumeration<ActionRelationshipType> fromType(Base code) throws FHIRException {
@@ -132,114 +204,48 @@ public class ActivityGroup extends DomainResource {
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
+        if ("before-start".equals(codeString))
+          return new Enumeration<ActionRelationshipType>(this, ActionRelationshipType.BEFORESTART);
         if ("before".equals(codeString))
           return new Enumeration<ActionRelationshipType>(this, ActionRelationshipType.BEFORE);
-        if ("after".equals(codeString))
-          return new Enumeration<ActionRelationshipType>(this, ActionRelationshipType.AFTER);
+        if ("before-end".equals(codeString))
+          return new Enumeration<ActionRelationshipType>(this, ActionRelationshipType.BEFOREEND);
+        if ("concurrent-with-start".equals(codeString))
+          return new Enumeration<ActionRelationshipType>(this, ActionRelationshipType.CONCURRENTWITHSTART);
         if ("concurrent".equals(codeString))
           return new Enumeration<ActionRelationshipType>(this, ActionRelationshipType.CONCURRENT);
+        if ("concurrent-with-end".equals(codeString))
+          return new Enumeration<ActionRelationshipType>(this, ActionRelationshipType.CONCURRENTWITHEND);
+        if ("after-start".equals(codeString))
+          return new Enumeration<ActionRelationshipType>(this, ActionRelationshipType.AFTERSTART);
+        if ("after".equals(codeString))
+          return new Enumeration<ActionRelationshipType>(this, ActionRelationshipType.AFTER);
+        if ("after-end".equals(codeString))
+          return new Enumeration<ActionRelationshipType>(this, ActionRelationshipType.AFTEREND);
         throw new FHIRException("Unknown ActionRelationshipType code '"+codeString+"'");
         }
     public String toCode(ActionRelationshipType code) {
+      if (code == ActionRelationshipType.BEFORESTART)
+        return "before-start";
       if (code == ActionRelationshipType.BEFORE)
         return "before";
-      if (code == ActionRelationshipType.AFTER)
-        return "after";
+      if (code == ActionRelationshipType.BEFOREEND)
+        return "before-end";
+      if (code == ActionRelationshipType.CONCURRENTWITHSTART)
+        return "concurrent-with-start";
       if (code == ActionRelationshipType.CONCURRENT)
         return "concurrent";
+      if (code == ActionRelationshipType.CONCURRENTWITHEND)
+        return "concurrent-with-end";
+      if (code == ActionRelationshipType.AFTERSTART)
+        return "after-start";
+      if (code == ActionRelationshipType.AFTER)
+        return "after";
+      if (code == ActionRelationshipType.AFTEREND)
+        return "after-end";
       return "?";
       }
     public String toSystem(ActionRelationshipType code) {
-      return code.getSystem();
-      }
-    }
-
-    public enum ActionRelationshipAnchor {
-        /**
-         * The action relationship is anchored to the start of the related action
-         */
-        START, 
-        /**
-         * The action relationship is anchored to the end of the related action
-         */
-        END, 
-        /**
-         * added to help the parsers with the generic types
-         */
-        NULL;
-        public static ActionRelationshipAnchor fromCode(String codeString) throws FHIRException {
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("start".equals(codeString))
-          return START;
-        if ("end".equals(codeString))
-          return END;
-        if (Configuration.isAcceptInvalidEnums())
-          return null;
-        else
-          throw new FHIRException("Unknown ActionRelationshipAnchor code '"+codeString+"'");
-        }
-        public String toCode() {
-          switch (this) {
-            case START: return "start";
-            case END: return "end";
-            default: return "?";
-          }
-        }
-        public String getSystem() {
-          switch (this) {
-            case START: return "http://hl7.org/fhir/action-relationship-anchor";
-            case END: return "http://hl7.org/fhir/action-relationship-anchor";
-            default: return "?";
-          }
-        }
-        public String getDefinition() {
-          switch (this) {
-            case START: return "The action relationship is anchored to the start of the related action";
-            case END: return "The action relationship is anchored to the end of the related action";
-            default: return "?";
-          }
-        }
-        public String getDisplay() {
-          switch (this) {
-            case START: return "Start";
-            case END: return "End";
-            default: return "?";
-          }
-        }
-    }
-
-  public static class ActionRelationshipAnchorEnumFactory implements EnumFactory<ActionRelationshipAnchor> {
-    public ActionRelationshipAnchor fromCode(String codeString) throws IllegalArgumentException {
-      if (codeString == null || "".equals(codeString))
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("start".equals(codeString))
-          return ActionRelationshipAnchor.START;
-        if ("end".equals(codeString))
-          return ActionRelationshipAnchor.END;
-        throw new IllegalArgumentException("Unknown ActionRelationshipAnchor code '"+codeString+"'");
-        }
-        public Enumeration<ActionRelationshipAnchor> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
-            return null;
-          String codeString = ((PrimitiveType) code).asStringValue();
-          if (codeString == null || "".equals(codeString))
-            return null;
-        if ("start".equals(codeString))
-          return new Enumeration<ActionRelationshipAnchor>(this, ActionRelationshipAnchor.START);
-        if ("end".equals(codeString))
-          return new Enumeration<ActionRelationshipAnchor>(this, ActionRelationshipAnchor.END);
-        throw new FHIRException("Unknown ActionRelationshipAnchor code '"+codeString+"'");
-        }
-    public String toCode(ActionRelationshipAnchor code) {
-      if (code == ActionRelationshipAnchor.START)
-        return "start";
-      if (code == ActionRelationshipAnchor.END)
-        return "end";
-      return "?";
-      }
-    public String toSystem(ActionRelationshipAnchor code) {
       return code.getSystem();
       }
     }
@@ -791,7 +797,7 @@ public class ActivityGroup extends DomainResource {
     }
 
     @Block()
-    public static class ActivityGroupActionComponent extends BackboneElement implements IBaseBackboneElement {
+    public static class RequestGroupActionComponent extends BackboneElement implements IBaseBackboneElement {
         /**
          * A unique identifier for the action. The identifier SHALL be unique within the container in which it appears, and MAY be universally unique.
          */
@@ -830,9 +836,9 @@ public class ActivityGroup extends DomainResource {
         /**
          * The concept represented by this action or its sub-actions.
          */
-        @Child(name = "concept", type = {CodeableConcept.class}, order=6, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Child(name = "code", type = {CodeableConcept.class}, order=6, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="The meaning of the action or its sub-actions", formalDefinition="The concept represented by this action or its sub-actions." )
-        protected List<CodeableConcept> concept;
+        protected List<CodeableConcept> code;
 
         /**
          * Didactic or other informational resources associated with the action that can be provided to the CDS recipient. Information resources can include inline text commentary and links to web resources.
@@ -846,7 +852,7 @@ public class ActivityGroup extends DomainResource {
          */
         @Child(name = "relatedAction", type = {}, order=8, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Relationship to another action", formalDefinition="A relationship to another action such as \"before\" or \"30-60 minutes after start of\"." )
-        protected ActivityGroupActionRelatedActionComponent relatedAction;
+        protected RequestGroupActionRelatedActionComponent relatedAction;
 
         /**
          * An optional value describing when the action should be performed.
@@ -930,16 +936,16 @@ public class ActivityGroup extends DomainResource {
         /**
          * Sub actions.
          */
-        @Child(name = "action", type = {ActivityGroupActionComponent.class}, order=18, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Child(name = "action", type = {RequestGroupActionComponent.class}, order=18, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Sub action", formalDefinition="Sub actions." )
-        protected List<ActivityGroupActionComponent> action;
+        protected List<RequestGroupActionComponent> action;
 
-        private static final long serialVersionUID = 573383068L;
+        private static final long serialVersionUID = 1707056341L;
 
     /**
      * Constructor
      */
-      public ActivityGroupActionComponent() {
+      public RequestGroupActionComponent() {
         super();
       }
 
@@ -949,7 +955,7 @@ public class ActivityGroup extends DomainResource {
         public Identifier getActionIdentifier() { 
           if (this.actionIdentifier == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ActivityGroupActionComponent.actionIdentifier");
+              throw new Error("Attempt to auto-create RequestGroupActionComponent.actionIdentifier");
             else if (Configuration.doAutoCreate())
               this.actionIdentifier = new Identifier(); // cc
           return this.actionIdentifier;
@@ -962,7 +968,7 @@ public class ActivityGroup extends DomainResource {
         /**
          * @param value {@link #actionIdentifier} (A unique identifier for the action. The identifier SHALL be unique within the container in which it appears, and MAY be universally unique.)
          */
-        public ActivityGroupActionComponent setActionIdentifier(Identifier value) { 
+        public RequestGroupActionComponent setActionIdentifier(Identifier value) { 
           this.actionIdentifier = value;
           return this;
         }
@@ -973,7 +979,7 @@ public class ActivityGroup extends DomainResource {
         public StringType getLabelElement() { 
           if (this.label == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ActivityGroupActionComponent.label");
+              throw new Error("Attempt to auto-create RequestGroupActionComponent.label");
             else if (Configuration.doAutoCreate())
               this.label = new StringType(); // bb
           return this.label;
@@ -990,7 +996,7 @@ public class ActivityGroup extends DomainResource {
         /**
          * @param value {@link #label} (A user-visible label for the action.). This is the underlying object with id, value and extensions. The accessor "getLabel" gives direct access to the value
          */
-        public ActivityGroupActionComponent setLabelElement(StringType value) { 
+        public RequestGroupActionComponent setLabelElement(StringType value) { 
           this.label = value;
           return this;
         }
@@ -1005,7 +1011,7 @@ public class ActivityGroup extends DomainResource {
         /**
          * @param value A user-visible label for the action.
          */
-        public ActivityGroupActionComponent setLabel(String value) { 
+        public RequestGroupActionComponent setLabel(String value) { 
           if (Utilities.noString(value))
             this.label = null;
           else {
@@ -1022,7 +1028,7 @@ public class ActivityGroup extends DomainResource {
         public StringType getTitleElement() { 
           if (this.title == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ActivityGroupActionComponent.title");
+              throw new Error("Attempt to auto-create RequestGroupActionComponent.title");
             else if (Configuration.doAutoCreate())
               this.title = new StringType(); // bb
           return this.title;
@@ -1039,7 +1045,7 @@ public class ActivityGroup extends DomainResource {
         /**
          * @param value {@link #title} (The title of the action displayed to a user.). This is the underlying object with id, value and extensions. The accessor "getTitle" gives direct access to the value
          */
-        public ActivityGroupActionComponent setTitleElement(StringType value) { 
+        public RequestGroupActionComponent setTitleElement(StringType value) { 
           this.title = value;
           return this;
         }
@@ -1054,7 +1060,7 @@ public class ActivityGroup extends DomainResource {
         /**
          * @param value The title of the action displayed to a user.
          */
-        public ActivityGroupActionComponent setTitle(String value) { 
+        public RequestGroupActionComponent setTitle(String value) { 
           if (Utilities.noString(value))
             this.title = null;
           else {
@@ -1071,7 +1077,7 @@ public class ActivityGroup extends DomainResource {
         public StringType getDescriptionElement() { 
           if (this.description == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ActivityGroupActionComponent.description");
+              throw new Error("Attempt to auto-create RequestGroupActionComponent.description");
             else if (Configuration.doAutoCreate())
               this.description = new StringType(); // bb
           return this.description;
@@ -1088,7 +1094,7 @@ public class ActivityGroup extends DomainResource {
         /**
          * @param value {@link #description} (A short description of the action used to provide a summary to display to the user.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
-        public ActivityGroupActionComponent setDescriptionElement(StringType value) { 
+        public RequestGroupActionComponent setDescriptionElement(StringType value) { 
           this.description = value;
           return this;
         }
@@ -1103,7 +1109,7 @@ public class ActivityGroup extends DomainResource {
         /**
          * @param value A short description of the action used to provide a summary to display to the user.
          */
-        public ActivityGroupActionComponent setDescription(String value) { 
+        public RequestGroupActionComponent setDescription(String value) { 
           if (Utilities.noString(value))
             this.description = null;
           else {
@@ -1120,7 +1126,7 @@ public class ActivityGroup extends DomainResource {
         public StringType getTextEquivalentElement() { 
           if (this.textEquivalent == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ActivityGroupActionComponent.textEquivalent");
+              throw new Error("Attempt to auto-create RequestGroupActionComponent.textEquivalent");
             else if (Configuration.doAutoCreate())
               this.textEquivalent = new StringType(); // bb
           return this.textEquivalent;
@@ -1137,7 +1143,7 @@ public class ActivityGroup extends DomainResource {
         /**
          * @param value {@link #textEquivalent} (A text equivalent of the action to be performed. This provides a human-interpretable description of the action when the definition is consumed by a system that may not be capable of interpreting it dynamically.). This is the underlying object with id, value and extensions. The accessor "getTextEquivalent" gives direct access to the value
          */
-        public ActivityGroupActionComponent setTextEquivalentElement(StringType value) { 
+        public RequestGroupActionComponent setTextEquivalentElement(StringType value) { 
           this.textEquivalent = value;
           return this;
         }
@@ -1152,7 +1158,7 @@ public class ActivityGroup extends DomainResource {
         /**
          * @param value A text equivalent of the action to be performed. This provides a human-interpretable description of the action when the definition is consumed by a system that may not be capable of interpreting it dynamically.
          */
-        public ActivityGroupActionComponent setTextEquivalent(String value) { 
+        public RequestGroupActionComponent setTextEquivalent(String value) { 
           if (Utilities.noString(value))
             this.textEquivalent = null;
           else {
@@ -1164,56 +1170,56 @@ public class ActivityGroup extends DomainResource {
         }
 
         /**
-         * @return {@link #concept} (The concept represented by this action or its sub-actions.)
+         * @return {@link #code} (The concept represented by this action or its sub-actions.)
          */
-        public List<CodeableConcept> getConcept() { 
-          if (this.concept == null)
-            this.concept = new ArrayList<CodeableConcept>();
-          return this.concept;
+        public List<CodeableConcept> getCode() { 
+          if (this.code == null)
+            this.code = new ArrayList<CodeableConcept>();
+          return this.code;
         }
 
         /**
          * @return Returns a reference to <code>this</code> for easy method chaining
          */
-        public ActivityGroupActionComponent setConcept(List<CodeableConcept> theConcept) { 
-          this.concept = theConcept;
+        public RequestGroupActionComponent setCode(List<CodeableConcept> theCode) { 
+          this.code = theCode;
           return this;
         }
 
-        public boolean hasConcept() { 
-          if (this.concept == null)
+        public boolean hasCode() { 
+          if (this.code == null)
             return false;
-          for (CodeableConcept item : this.concept)
+          for (CodeableConcept item : this.code)
             if (!item.isEmpty())
               return true;
           return false;
         }
 
-        public CodeableConcept addConcept() { //3
+        public CodeableConcept addCode() { //3
           CodeableConcept t = new CodeableConcept();
-          if (this.concept == null)
-            this.concept = new ArrayList<CodeableConcept>();
-          this.concept.add(t);
+          if (this.code == null)
+            this.code = new ArrayList<CodeableConcept>();
+          this.code.add(t);
           return t;
         }
 
-        public ActivityGroupActionComponent addConcept(CodeableConcept t) { //3
+        public RequestGroupActionComponent addCode(CodeableConcept t) { //3
           if (t == null)
             return this;
-          if (this.concept == null)
-            this.concept = new ArrayList<CodeableConcept>();
-          this.concept.add(t);
+          if (this.code == null)
+            this.code = new ArrayList<CodeableConcept>();
+          this.code.add(t);
           return this;
         }
 
         /**
-         * @return The first repetition of repeating field {@link #concept}, creating it if it does not already exist
+         * @return The first repetition of repeating field {@link #code}, creating it if it does not already exist
          */
-        public CodeableConcept getConceptFirstRep() { 
-          if (getConcept().isEmpty()) {
-            addConcept();
+        public CodeableConcept getCodeFirstRep() { 
+          if (getCode().isEmpty()) {
+            addCode();
           }
-          return getConcept().get(0);
+          return getCode().get(0);
         }
 
         /**
@@ -1228,7 +1234,7 @@ public class ActivityGroup extends DomainResource {
         /**
          * @return Returns a reference to <code>this</code> for easy method chaining
          */
-        public ActivityGroupActionComponent setDocumentation(List<RelatedArtifact> theDocumentation) { 
+        public RequestGroupActionComponent setDocumentation(List<RelatedArtifact> theDocumentation) { 
           this.documentation = theDocumentation;
           return this;
         }
@@ -1250,7 +1256,7 @@ public class ActivityGroup extends DomainResource {
           return t;
         }
 
-        public ActivityGroupActionComponent addDocumentation(RelatedArtifact t) { //3
+        public RequestGroupActionComponent addDocumentation(RelatedArtifact t) { //3
           if (t == null)
             return this;
           if (this.documentation == null)
@@ -1272,12 +1278,12 @@ public class ActivityGroup extends DomainResource {
         /**
          * @return {@link #relatedAction} (A relationship to another action such as "before" or "30-60 minutes after start of".)
          */
-        public ActivityGroupActionRelatedActionComponent getRelatedAction() { 
+        public RequestGroupActionRelatedActionComponent getRelatedAction() { 
           if (this.relatedAction == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ActivityGroupActionComponent.relatedAction");
+              throw new Error("Attempt to auto-create RequestGroupActionComponent.relatedAction");
             else if (Configuration.doAutoCreate())
-              this.relatedAction = new ActivityGroupActionRelatedActionComponent(); // cc
+              this.relatedAction = new RequestGroupActionRelatedActionComponent(); // cc
           return this.relatedAction;
         }
 
@@ -1288,7 +1294,7 @@ public class ActivityGroup extends DomainResource {
         /**
          * @param value {@link #relatedAction} (A relationship to another action such as "before" or "30-60 minutes after start of".)
          */
-        public ActivityGroupActionComponent setRelatedAction(ActivityGroupActionRelatedActionComponent value) { 
+        public RequestGroupActionComponent setRelatedAction(RequestGroupActionRelatedActionComponent value) { 
           this.relatedAction = value;
           return this;
         }
@@ -1359,7 +1365,7 @@ public class ActivityGroup extends DomainResource {
         /**
          * @param value {@link #timing} (An optional value describing when the action should be performed.)
          */
-        public ActivityGroupActionComponent setTiming(Type value) { 
+        public RequestGroupActionComponent setTiming(Type value) { 
           this.timing = value;
           return this;
         }
@@ -1376,7 +1382,7 @@ public class ActivityGroup extends DomainResource {
         /**
          * @return Returns a reference to <code>this</code> for easy method chaining
          */
-        public ActivityGroupActionComponent setParticipant(List<Reference> theParticipant) { 
+        public RequestGroupActionComponent setParticipant(List<Reference> theParticipant) { 
           this.participant = theParticipant;
           return this;
         }
@@ -1398,7 +1404,7 @@ public class ActivityGroup extends DomainResource {
           return t;
         }
 
-        public ActivityGroupActionComponent addParticipant(Reference t) { //3
+        public RequestGroupActionComponent addParticipant(Reference t) { //3
           if (t == null)
             return this;
           if (this.participant == null)
@@ -1433,7 +1439,7 @@ public class ActivityGroup extends DomainResource {
         public Coding getType() { 
           if (this.type == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ActivityGroupActionComponent.type");
+              throw new Error("Attempt to auto-create RequestGroupActionComponent.type");
             else if (Configuration.doAutoCreate())
               this.type = new Coding(); // cc
           return this.type;
@@ -1446,7 +1452,7 @@ public class ActivityGroup extends DomainResource {
         /**
          * @param value {@link #type} (The type of action to perform (create, update, remove).)
          */
-        public ActivityGroupActionComponent setType(Coding value) { 
+        public RequestGroupActionComponent setType(Coding value) { 
           this.type = value;
           return this;
         }
@@ -1457,7 +1463,7 @@ public class ActivityGroup extends DomainResource {
         public Enumeration<ActionGroupingBehavior> getGroupingBehaviorElement() { 
           if (this.groupingBehavior == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ActivityGroupActionComponent.groupingBehavior");
+              throw new Error("Attempt to auto-create RequestGroupActionComponent.groupingBehavior");
             else if (Configuration.doAutoCreate())
               this.groupingBehavior = new Enumeration<ActionGroupingBehavior>(new ActionGroupingBehaviorEnumFactory()); // bb
           return this.groupingBehavior;
@@ -1474,7 +1480,7 @@ public class ActivityGroup extends DomainResource {
         /**
          * @param value {@link #groupingBehavior} (Defines the grouping behavior for the action and its children.). This is the underlying object with id, value and extensions. The accessor "getGroupingBehavior" gives direct access to the value
          */
-        public ActivityGroupActionComponent setGroupingBehaviorElement(Enumeration<ActionGroupingBehavior> value) { 
+        public RequestGroupActionComponent setGroupingBehaviorElement(Enumeration<ActionGroupingBehavior> value) { 
           this.groupingBehavior = value;
           return this;
         }
@@ -1489,7 +1495,7 @@ public class ActivityGroup extends DomainResource {
         /**
          * @param value Defines the grouping behavior for the action and its children.
          */
-        public ActivityGroupActionComponent setGroupingBehavior(ActionGroupingBehavior value) { 
+        public RequestGroupActionComponent setGroupingBehavior(ActionGroupingBehavior value) { 
           if (value == null)
             this.groupingBehavior = null;
           else {
@@ -1506,7 +1512,7 @@ public class ActivityGroup extends DomainResource {
         public Enumeration<ActionSelectionBehavior> getSelectionBehaviorElement() { 
           if (this.selectionBehavior == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ActivityGroupActionComponent.selectionBehavior");
+              throw new Error("Attempt to auto-create RequestGroupActionComponent.selectionBehavior");
             else if (Configuration.doAutoCreate())
               this.selectionBehavior = new Enumeration<ActionSelectionBehavior>(new ActionSelectionBehaviorEnumFactory()); // bb
           return this.selectionBehavior;
@@ -1523,7 +1529,7 @@ public class ActivityGroup extends DomainResource {
         /**
          * @param value {@link #selectionBehavior} (Defines the selection behavior for the action and its children.). This is the underlying object with id, value and extensions. The accessor "getSelectionBehavior" gives direct access to the value
          */
-        public ActivityGroupActionComponent setSelectionBehaviorElement(Enumeration<ActionSelectionBehavior> value) { 
+        public RequestGroupActionComponent setSelectionBehaviorElement(Enumeration<ActionSelectionBehavior> value) { 
           this.selectionBehavior = value;
           return this;
         }
@@ -1538,7 +1544,7 @@ public class ActivityGroup extends DomainResource {
         /**
          * @param value Defines the selection behavior for the action and its children.
          */
-        public ActivityGroupActionComponent setSelectionBehavior(ActionSelectionBehavior value) { 
+        public RequestGroupActionComponent setSelectionBehavior(ActionSelectionBehavior value) { 
           if (value == null)
             this.selectionBehavior = null;
           else {
@@ -1555,7 +1561,7 @@ public class ActivityGroup extends DomainResource {
         public Enumeration<ActionRequiredBehavior> getRequiredBehaviorElement() { 
           if (this.requiredBehavior == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ActivityGroupActionComponent.requiredBehavior");
+              throw new Error("Attempt to auto-create RequestGroupActionComponent.requiredBehavior");
             else if (Configuration.doAutoCreate())
               this.requiredBehavior = new Enumeration<ActionRequiredBehavior>(new ActionRequiredBehaviorEnumFactory()); // bb
           return this.requiredBehavior;
@@ -1572,7 +1578,7 @@ public class ActivityGroup extends DomainResource {
         /**
          * @param value {@link #requiredBehavior} (Defines the requiredness behavior for the action.). This is the underlying object with id, value and extensions. The accessor "getRequiredBehavior" gives direct access to the value
          */
-        public ActivityGroupActionComponent setRequiredBehaviorElement(Enumeration<ActionRequiredBehavior> value) { 
+        public RequestGroupActionComponent setRequiredBehaviorElement(Enumeration<ActionRequiredBehavior> value) { 
           this.requiredBehavior = value;
           return this;
         }
@@ -1587,7 +1593,7 @@ public class ActivityGroup extends DomainResource {
         /**
          * @param value Defines the requiredness behavior for the action.
          */
-        public ActivityGroupActionComponent setRequiredBehavior(ActionRequiredBehavior value) { 
+        public RequestGroupActionComponent setRequiredBehavior(ActionRequiredBehavior value) { 
           if (value == null)
             this.requiredBehavior = null;
           else {
@@ -1604,7 +1610,7 @@ public class ActivityGroup extends DomainResource {
         public Enumeration<ActionPrecheckBehavior> getPrecheckBehaviorElement() { 
           if (this.precheckBehavior == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ActivityGroupActionComponent.precheckBehavior");
+              throw new Error("Attempt to auto-create RequestGroupActionComponent.precheckBehavior");
             else if (Configuration.doAutoCreate())
               this.precheckBehavior = new Enumeration<ActionPrecheckBehavior>(new ActionPrecheckBehaviorEnumFactory()); // bb
           return this.precheckBehavior;
@@ -1621,7 +1627,7 @@ public class ActivityGroup extends DomainResource {
         /**
          * @param value {@link #precheckBehavior} (Defines whether the action should usually be preselected.). This is the underlying object with id, value and extensions. The accessor "getPrecheckBehavior" gives direct access to the value
          */
-        public ActivityGroupActionComponent setPrecheckBehaviorElement(Enumeration<ActionPrecheckBehavior> value) { 
+        public RequestGroupActionComponent setPrecheckBehaviorElement(Enumeration<ActionPrecheckBehavior> value) { 
           this.precheckBehavior = value;
           return this;
         }
@@ -1636,7 +1642,7 @@ public class ActivityGroup extends DomainResource {
         /**
          * @param value Defines whether the action should usually be preselected.
          */
-        public ActivityGroupActionComponent setPrecheckBehavior(ActionPrecheckBehavior value) { 
+        public RequestGroupActionComponent setPrecheckBehavior(ActionPrecheckBehavior value) { 
           if (value == null)
             this.precheckBehavior = null;
           else {
@@ -1653,7 +1659,7 @@ public class ActivityGroup extends DomainResource {
         public Enumeration<ActionCardinalityBehavior> getCardinalityBehaviorElement() { 
           if (this.cardinalityBehavior == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ActivityGroupActionComponent.cardinalityBehavior");
+              throw new Error("Attempt to auto-create RequestGroupActionComponent.cardinalityBehavior");
             else if (Configuration.doAutoCreate())
               this.cardinalityBehavior = new Enumeration<ActionCardinalityBehavior>(new ActionCardinalityBehaviorEnumFactory()); // bb
           return this.cardinalityBehavior;
@@ -1670,7 +1676,7 @@ public class ActivityGroup extends DomainResource {
         /**
          * @param value {@link #cardinalityBehavior} (Defines whether the action can be selected multiple times.). This is the underlying object with id, value and extensions. The accessor "getCardinalityBehavior" gives direct access to the value
          */
-        public ActivityGroupActionComponent setCardinalityBehaviorElement(Enumeration<ActionCardinalityBehavior> value) { 
+        public RequestGroupActionComponent setCardinalityBehaviorElement(Enumeration<ActionCardinalityBehavior> value) { 
           this.cardinalityBehavior = value;
           return this;
         }
@@ -1685,7 +1691,7 @@ public class ActivityGroup extends DomainResource {
         /**
          * @param value Defines whether the action can be selected multiple times.
          */
-        public ActivityGroupActionComponent setCardinalityBehavior(ActionCardinalityBehavior value) { 
+        public RequestGroupActionComponent setCardinalityBehavior(ActionCardinalityBehavior value) { 
           if (value == null)
             this.cardinalityBehavior = null;
           else {
@@ -1702,7 +1708,7 @@ public class ActivityGroup extends DomainResource {
         public Reference getResource() { 
           if (this.resource == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ActivityGroupActionComponent.resource");
+              throw new Error("Attempt to auto-create RequestGroupActionComponent.resource");
             else if (Configuration.doAutoCreate())
               this.resource = new Reference(); // cc
           return this.resource;
@@ -1715,7 +1721,7 @@ public class ActivityGroup extends DomainResource {
         /**
          * @param value {@link #resource} (The resource that is the target of the action (e.g. CommunicationRequest).)
          */
-        public ActivityGroupActionComponent setResource(Reference value) { 
+        public RequestGroupActionComponent setResource(Reference value) { 
           this.resource = value;
           return this;
         }
@@ -1730,7 +1736,7 @@ public class ActivityGroup extends DomainResource {
         /**
          * @param value {@link #resource} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The resource that is the target of the action (e.g. CommunicationRequest).)
          */
-        public ActivityGroupActionComponent setResourceTarget(Resource value) { 
+        public RequestGroupActionComponent setResourceTarget(Resource value) { 
           this.resourceTarget = value;
           return this;
         }
@@ -1738,16 +1744,16 @@ public class ActivityGroup extends DomainResource {
         /**
          * @return {@link #action} (Sub actions.)
          */
-        public List<ActivityGroupActionComponent> getAction() { 
+        public List<RequestGroupActionComponent> getAction() { 
           if (this.action == null)
-            this.action = new ArrayList<ActivityGroupActionComponent>();
+            this.action = new ArrayList<RequestGroupActionComponent>();
           return this.action;
         }
 
         /**
          * @return Returns a reference to <code>this</code> for easy method chaining
          */
-        public ActivityGroupActionComponent setAction(List<ActivityGroupActionComponent> theAction) { 
+        public RequestGroupActionComponent setAction(List<RequestGroupActionComponent> theAction) { 
           this.action = theAction;
           return this;
         }
@@ -1755,25 +1761,25 @@ public class ActivityGroup extends DomainResource {
         public boolean hasAction() { 
           if (this.action == null)
             return false;
-          for (ActivityGroupActionComponent item : this.action)
+          for (RequestGroupActionComponent item : this.action)
             if (!item.isEmpty())
               return true;
           return false;
         }
 
-        public ActivityGroupActionComponent addAction() { //3
-          ActivityGroupActionComponent t = new ActivityGroupActionComponent();
+        public RequestGroupActionComponent addAction() { //3
+          RequestGroupActionComponent t = new RequestGroupActionComponent();
           if (this.action == null)
-            this.action = new ArrayList<ActivityGroupActionComponent>();
+            this.action = new ArrayList<RequestGroupActionComponent>();
           this.action.add(t);
           return t;
         }
 
-        public ActivityGroupActionComponent addAction(ActivityGroupActionComponent t) { //3
+        public RequestGroupActionComponent addAction(RequestGroupActionComponent t) { //3
           if (t == null)
             return this;
           if (this.action == null)
-            this.action = new ArrayList<ActivityGroupActionComponent>();
+            this.action = new ArrayList<RequestGroupActionComponent>();
           this.action.add(t);
           return this;
         }
@@ -1781,7 +1787,7 @@ public class ActivityGroup extends DomainResource {
         /**
          * @return The first repetition of repeating field {@link #action}, creating it if it does not already exist
          */
-        public ActivityGroupActionComponent getActionFirstRep() { 
+        public RequestGroupActionComponent getActionFirstRep() { 
           if (getAction().isEmpty()) {
             addAction();
           }
@@ -1795,7 +1801,7 @@ public class ActivityGroup extends DomainResource {
           childrenList.add(new Property("title", "string", "The title of the action displayed to a user.", 0, java.lang.Integer.MAX_VALUE, title));
           childrenList.add(new Property("description", "string", "A short description of the action used to provide a summary to display to the user.", 0, java.lang.Integer.MAX_VALUE, description));
           childrenList.add(new Property("textEquivalent", "string", "A text equivalent of the action to be performed. This provides a human-interpretable description of the action when the definition is consumed by a system that may not be capable of interpreting it dynamically.", 0, java.lang.Integer.MAX_VALUE, textEquivalent));
-          childrenList.add(new Property("concept", "CodeableConcept", "The concept represented by this action or its sub-actions.", 0, java.lang.Integer.MAX_VALUE, concept));
+          childrenList.add(new Property("code", "CodeableConcept", "The concept represented by this action or its sub-actions.", 0, java.lang.Integer.MAX_VALUE, code));
           childrenList.add(new Property("documentation", "RelatedArtifact", "Didactic or other informational resources associated with the action that can be provided to the CDS recipient. Information resources can include inline text commentary and links to web resources.", 0, java.lang.Integer.MAX_VALUE, documentation));
           childrenList.add(new Property("relatedAction", "", "A relationship to another action such as \"before\" or \"30-60 minutes after start of\".", 0, java.lang.Integer.MAX_VALUE, relatedAction));
           childrenList.add(new Property("timing[x]", "dateTime|Period|Duration|Range", "An optional value describing when the action should be performed.", 0, java.lang.Integer.MAX_VALUE, timing));
@@ -1807,7 +1813,7 @@ public class ActivityGroup extends DomainResource {
           childrenList.add(new Property("precheckBehavior", "code", "Defines whether the action should usually be preselected.", 0, java.lang.Integer.MAX_VALUE, precheckBehavior));
           childrenList.add(new Property("cardinalityBehavior", "code", "Defines whether the action can be selected multiple times.", 0, java.lang.Integer.MAX_VALUE, cardinalityBehavior));
           childrenList.add(new Property("resource", "Reference(Any)", "The resource that is the target of the action (e.g. CommunicationRequest).", 0, java.lang.Integer.MAX_VALUE, resource));
-          childrenList.add(new Property("action", "@ActivityGroup.action", "Sub actions.", 0, java.lang.Integer.MAX_VALUE, action));
+          childrenList.add(new Property("action", "@RequestGroup.action", "Sub actions.", 0, java.lang.Integer.MAX_VALUE, action));
         }
 
       @Override
@@ -1818,9 +1824,9 @@ public class ActivityGroup extends DomainResource {
         case 110371416: /*title*/ return this.title == null ? new Base[0] : new Base[] {this.title}; // StringType
         case -1724546052: /*description*/ return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
         case -900391049: /*textEquivalent*/ return this.textEquivalent == null ? new Base[0] : new Base[] {this.textEquivalent}; // StringType
-        case 951024232: /*concept*/ return this.concept == null ? new Base[0] : this.concept.toArray(new Base[this.concept.size()]); // CodeableConcept
+        case 3059181: /*code*/ return this.code == null ? new Base[0] : this.code.toArray(new Base[this.code.size()]); // CodeableConcept
         case 1587405498: /*documentation*/ return this.documentation == null ? new Base[0] : this.documentation.toArray(new Base[this.documentation.size()]); // RelatedArtifact
-        case -384107967: /*relatedAction*/ return this.relatedAction == null ? new Base[0] : new Base[] {this.relatedAction}; // ActivityGroupActionRelatedActionComponent
+        case -384107967: /*relatedAction*/ return this.relatedAction == null ? new Base[0] : new Base[] {this.relatedAction}; // RequestGroupActionRelatedActionComponent
         case -873664438: /*timing*/ return this.timing == null ? new Base[0] : new Base[] {this.timing}; // Type
         case 767422259: /*participant*/ return this.participant == null ? new Base[0] : this.participant.toArray(new Base[this.participant.size()]); // Reference
         case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // Coding
@@ -1830,7 +1836,7 @@ public class ActivityGroup extends DomainResource {
         case -1174249033: /*precheckBehavior*/ return this.precheckBehavior == null ? new Base[0] : new Base[] {this.precheckBehavior}; // Enumeration<ActionPrecheckBehavior>
         case -922577408: /*cardinalityBehavior*/ return this.cardinalityBehavior == null ? new Base[0] : new Base[] {this.cardinalityBehavior}; // Enumeration<ActionCardinalityBehavior>
         case -341064690: /*resource*/ return this.resource == null ? new Base[0] : new Base[] {this.resource}; // Reference
-        case -1422950858: /*action*/ return this.action == null ? new Base[0] : this.action.toArray(new Base[this.action.size()]); // ActivityGroupActionComponent
+        case -1422950858: /*action*/ return this.action == null ? new Base[0] : this.action.toArray(new Base[this.action.size()]); // RequestGroupActionComponent
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -1854,14 +1860,14 @@ public class ActivityGroup extends DomainResource {
         case -900391049: // textEquivalent
           this.textEquivalent = castToString(value); // StringType
           break;
-        case 951024232: // concept
-          this.getConcept().add(castToCodeableConcept(value)); // CodeableConcept
+        case 3059181: // code
+          this.getCode().add(castToCodeableConcept(value)); // CodeableConcept
           break;
         case 1587405498: // documentation
           this.getDocumentation().add(castToRelatedArtifact(value)); // RelatedArtifact
           break;
         case -384107967: // relatedAction
-          this.relatedAction = (ActivityGroupActionRelatedActionComponent) value; // ActivityGroupActionRelatedActionComponent
+          this.relatedAction = (RequestGroupActionRelatedActionComponent) value; // RequestGroupActionRelatedActionComponent
           break;
         case -873664438: // timing
           this.timing = castToType(value); // Type
@@ -1891,7 +1897,7 @@ public class ActivityGroup extends DomainResource {
           this.resource = castToReference(value); // Reference
           break;
         case -1422950858: // action
-          this.getAction().add((ActivityGroupActionComponent) value); // ActivityGroupActionComponent
+          this.getAction().add((RequestGroupActionComponent) value); // RequestGroupActionComponent
           break;
         default: super.setProperty(hash, name, value);
         }
@@ -1910,12 +1916,12 @@ public class ActivityGroup extends DomainResource {
           this.description = castToString(value); // StringType
         else if (name.equals("textEquivalent"))
           this.textEquivalent = castToString(value); // StringType
-        else if (name.equals("concept"))
-          this.getConcept().add(castToCodeableConcept(value));
+        else if (name.equals("code"))
+          this.getCode().add(castToCodeableConcept(value));
         else if (name.equals("documentation"))
           this.getDocumentation().add(castToRelatedArtifact(value));
         else if (name.equals("relatedAction"))
-          this.relatedAction = (ActivityGroupActionRelatedActionComponent) value; // ActivityGroupActionRelatedActionComponent
+          this.relatedAction = (RequestGroupActionRelatedActionComponent) value; // RequestGroupActionRelatedActionComponent
         else if (name.equals("timing[x]"))
           this.timing = castToType(value); // Type
         else if (name.equals("participant"))
@@ -1935,7 +1941,7 @@ public class ActivityGroup extends DomainResource {
         else if (name.equals("resource"))
           this.resource = castToReference(value); // Reference
         else if (name.equals("action"))
-          this.getAction().add((ActivityGroupActionComponent) value);
+          this.getAction().add((RequestGroupActionComponent) value);
         else
           super.setProperty(name, value);
       }
@@ -1948,9 +1954,9 @@ public class ActivityGroup extends DomainResource {
         case 110371416: throw new FHIRException("Cannot make property title as it is not a complex type"); // StringType
         case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
         case -900391049: throw new FHIRException("Cannot make property textEquivalent as it is not a complex type"); // StringType
-        case 951024232:  return addConcept(); // CodeableConcept
+        case 3059181:  return addCode(); // CodeableConcept
         case 1587405498:  return addDocumentation(); // RelatedArtifact
-        case -384107967:  return getRelatedAction(); // ActivityGroupActionRelatedActionComponent
+        case -384107967:  return getRelatedAction(); // RequestGroupActionRelatedActionComponent
         case 164632566:  return getTiming(); // Type
         case 767422259:  return addParticipant(); // Reference
         case 3575610:  return getType(); // Coding
@@ -1960,7 +1966,7 @@ public class ActivityGroup extends DomainResource {
         case -1174249033: throw new FHIRException("Cannot make property precheckBehavior as it is not a complex type"); // Enumeration<ActionPrecheckBehavior>
         case -922577408: throw new FHIRException("Cannot make property cardinalityBehavior as it is not a complex type"); // Enumeration<ActionCardinalityBehavior>
         case -341064690:  return getResource(); // Reference
-        case -1422950858:  return addAction(); // ActivityGroupActionComponent
+        case -1422950858:  return addAction(); // RequestGroupActionComponent
         default: return super.makeProperty(hash, name);
         }
 
@@ -1973,25 +1979,25 @@ public class ActivityGroup extends DomainResource {
           return this.actionIdentifier;
         }
         else if (name.equals("label")) {
-          throw new FHIRException("Cannot call addChild on a primitive type ActivityGroup.label");
+          throw new FHIRException("Cannot call addChild on a primitive type RequestGroup.label");
         }
         else if (name.equals("title")) {
-          throw new FHIRException("Cannot call addChild on a primitive type ActivityGroup.title");
+          throw new FHIRException("Cannot call addChild on a primitive type RequestGroup.title");
         }
         else if (name.equals("description")) {
-          throw new FHIRException("Cannot call addChild on a primitive type ActivityGroup.description");
+          throw new FHIRException("Cannot call addChild on a primitive type RequestGroup.description");
         }
         else if (name.equals("textEquivalent")) {
-          throw new FHIRException("Cannot call addChild on a primitive type ActivityGroup.textEquivalent");
+          throw new FHIRException("Cannot call addChild on a primitive type RequestGroup.textEquivalent");
         }
-        else if (name.equals("concept")) {
-          return addConcept();
+        else if (name.equals("code")) {
+          return addCode();
         }
         else if (name.equals("documentation")) {
           return addDocumentation();
         }
         else if (name.equals("relatedAction")) {
-          this.relatedAction = new ActivityGroupActionRelatedActionComponent();
+          this.relatedAction = new RequestGroupActionRelatedActionComponent();
           return this.relatedAction;
         }
         else if (name.equals("timingDateTime")) {
@@ -2018,19 +2024,19 @@ public class ActivityGroup extends DomainResource {
           return this.type;
         }
         else if (name.equals("groupingBehavior")) {
-          throw new FHIRException("Cannot call addChild on a primitive type ActivityGroup.groupingBehavior");
+          throw new FHIRException("Cannot call addChild on a primitive type RequestGroup.groupingBehavior");
         }
         else if (name.equals("selectionBehavior")) {
-          throw new FHIRException("Cannot call addChild on a primitive type ActivityGroup.selectionBehavior");
+          throw new FHIRException("Cannot call addChild on a primitive type RequestGroup.selectionBehavior");
         }
         else if (name.equals("requiredBehavior")) {
-          throw new FHIRException("Cannot call addChild on a primitive type ActivityGroup.requiredBehavior");
+          throw new FHIRException("Cannot call addChild on a primitive type RequestGroup.requiredBehavior");
         }
         else if (name.equals("precheckBehavior")) {
-          throw new FHIRException("Cannot call addChild on a primitive type ActivityGroup.precheckBehavior");
+          throw new FHIRException("Cannot call addChild on a primitive type RequestGroup.precheckBehavior");
         }
         else if (name.equals("cardinalityBehavior")) {
-          throw new FHIRException("Cannot call addChild on a primitive type ActivityGroup.cardinalityBehavior");
+          throw new FHIRException("Cannot call addChild on a primitive type RequestGroup.cardinalityBehavior");
         }
         else if (name.equals("resource")) {
           this.resource = new Reference();
@@ -2043,18 +2049,18 @@ public class ActivityGroup extends DomainResource {
           return super.addChild(name);
       }
 
-      public ActivityGroupActionComponent copy() {
-        ActivityGroupActionComponent dst = new ActivityGroupActionComponent();
+      public RequestGroupActionComponent copy() {
+        RequestGroupActionComponent dst = new RequestGroupActionComponent();
         copyValues(dst);
         dst.actionIdentifier = actionIdentifier == null ? null : actionIdentifier.copy();
         dst.label = label == null ? null : label.copy();
         dst.title = title == null ? null : title.copy();
         dst.description = description == null ? null : description.copy();
         dst.textEquivalent = textEquivalent == null ? null : textEquivalent.copy();
-        if (concept != null) {
-          dst.concept = new ArrayList<CodeableConcept>();
-          for (CodeableConcept i : concept)
-            dst.concept.add(i.copy());
+        if (code != null) {
+          dst.code = new ArrayList<CodeableConcept>();
+          for (CodeableConcept i : code)
+            dst.code.add(i.copy());
         };
         if (documentation != null) {
           dst.documentation = new ArrayList<RelatedArtifact>();
@@ -2076,8 +2082,8 @@ public class ActivityGroup extends DomainResource {
         dst.cardinalityBehavior = cardinalityBehavior == null ? null : cardinalityBehavior.copy();
         dst.resource = resource == null ? null : resource.copy();
         if (action != null) {
-          dst.action = new ArrayList<ActivityGroupActionComponent>();
-          for (ActivityGroupActionComponent i : action)
+          dst.action = new ArrayList<RequestGroupActionComponent>();
+          for (RequestGroupActionComponent i : action)
             dst.action.add(i.copy());
         };
         return dst;
@@ -2087,12 +2093,12 @@ public class ActivityGroup extends DomainResource {
       public boolean equalsDeep(Base other) {
         if (!super.equalsDeep(other))
           return false;
-        if (!(other instanceof ActivityGroupActionComponent))
+        if (!(other instanceof RequestGroupActionComponent))
           return false;
-        ActivityGroupActionComponent o = (ActivityGroupActionComponent) other;
+        RequestGroupActionComponent o = (RequestGroupActionComponent) other;
         return compareDeep(actionIdentifier, o.actionIdentifier, true) && compareDeep(label, o.label, true)
            && compareDeep(title, o.title, true) && compareDeep(description, o.description, true) && compareDeep(textEquivalent, o.textEquivalent, true)
-           && compareDeep(concept, o.concept, true) && compareDeep(documentation, o.documentation, true) && compareDeep(relatedAction, o.relatedAction, true)
+           && compareDeep(code, o.code, true) && compareDeep(documentation, o.documentation, true) && compareDeep(relatedAction, o.relatedAction, true)
            && compareDeep(timing, o.timing, true) && compareDeep(participant, o.participant, true) && compareDeep(type, o.type, true)
            && compareDeep(groupingBehavior, o.groupingBehavior, true) && compareDeep(selectionBehavior, o.selectionBehavior, true)
            && compareDeep(requiredBehavior, o.requiredBehavior, true) && compareDeep(precheckBehavior, o.precheckBehavior, true)
@@ -2104,9 +2110,9 @@ public class ActivityGroup extends DomainResource {
       public boolean equalsShallow(Base other) {
         if (!super.equalsShallow(other))
           return false;
-        if (!(other instanceof ActivityGroupActionComponent))
+        if (!(other instanceof RequestGroupActionComponent))
           return false;
-        ActivityGroupActionComponent o = (ActivityGroupActionComponent) other;
+        RequestGroupActionComponent o = (RequestGroupActionComponent) other;
         return compareValues(label, o.label, true) && compareValues(title, o.title, true) && compareValues(description, o.description, true)
            && compareValues(textEquivalent, o.textEquivalent, true) && compareValues(groupingBehavior, o.groupingBehavior, true)
            && compareValues(selectionBehavior, o.selectionBehavior, true) && compareValues(requiredBehavior, o.requiredBehavior, true)
@@ -2115,21 +2121,25 @@ public class ActivityGroup extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(actionIdentifier, label, title
-          , description, textEquivalent, concept, documentation, relatedAction, timing, participant
-          , type, groupingBehavior, selectionBehavior, requiredBehavior, precheckBehavior, cardinalityBehavior
-          , resource, action);
+        return super.isEmpty() && (actionIdentifier == null || actionIdentifier.isEmpty()) && (label == null || label.isEmpty())
+           && (title == null || title.isEmpty()) && (description == null || description.isEmpty()) && (textEquivalent == null || textEquivalent.isEmpty())
+           && (code == null || code.isEmpty()) && (documentation == null || documentation.isEmpty())
+           && (relatedAction == null || relatedAction.isEmpty()) && (timing == null || timing.isEmpty())
+           && (participant == null || participant.isEmpty()) && (type == null || type.isEmpty()) && (groupingBehavior == null || groupingBehavior.isEmpty())
+           && (selectionBehavior == null || selectionBehavior.isEmpty()) && (requiredBehavior == null || requiredBehavior.isEmpty())
+           && (precheckBehavior == null || precheckBehavior.isEmpty()) && (cardinalityBehavior == null || cardinalityBehavior.isEmpty())
+           && (resource == null || resource.isEmpty()) && (action == null || action.isEmpty());
       }
 
   public String fhirType() {
-    return "ActivityGroup.action";
+    return "RequestGroup.action";
 
   }
 
   }
 
     @Block()
-    public static class ActivityGroupActionRelatedActionComponent extends BackboneElement implements IBaseBackboneElement {
+    public static class RequestGroupActionRelatedActionComponent extends BackboneElement implements IBaseBackboneElement {
         /**
          * The unique identifier of the related action.
          */
@@ -2141,7 +2151,7 @@ public class ActivityGroup extends DomainResource {
          * The relationship of this action to the related action.
          */
         @Child(name = "relationship", type = {CodeType.class}, order=2, min=1, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="before | after", formalDefinition="The relationship of this action to the related action." )
+        @Description(shortDefinition="before-start | before | before-end | concurrent-with-start | concurrent | concurrent-with-end | after-start | after | after-end", formalDefinition="The relationship of this action to the related action." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/action-relationship-type")
         protected Enumeration<ActionRelationshipType> relationship;
 
@@ -2152,27 +2162,19 @@ public class ActivityGroup extends DomainResource {
         @Description(shortDefinition="Time offset for the relationship", formalDefinition="A duration or range of durations to apply to the relationship. For example, 30-60 minutes before." )
         protected Type offset;
 
-        /**
-         * An optional indicator for how the relationship is anchored to the related action. For example "before the start" or "before the end" of the related action.
-         */
-        @Child(name = "anchor", type = {CodeType.class}, order=4, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="start | end", formalDefinition="An optional indicator for how the relationship is anchored to the related action. For example \"before the start\" or \"before the end\" of the related action." )
-        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/action-relationship-anchor")
-        protected Enumeration<ActionRelationshipAnchor> anchor;
-
-        private static final long serialVersionUID = 451097227L;
+        private static final long serialVersionUID = 1011239532L;
 
     /**
      * Constructor
      */
-      public ActivityGroupActionRelatedActionComponent() {
+      public RequestGroupActionRelatedActionComponent() {
         super();
       }
 
     /**
      * Constructor
      */
-      public ActivityGroupActionRelatedActionComponent(Identifier actionIdentifier, Enumeration<ActionRelationshipType> relationship) {
+      public RequestGroupActionRelatedActionComponent(Identifier actionIdentifier, Enumeration<ActionRelationshipType> relationship) {
         super();
         this.actionIdentifier = actionIdentifier;
         this.relationship = relationship;
@@ -2184,7 +2186,7 @@ public class ActivityGroup extends DomainResource {
         public Identifier getActionIdentifier() { 
           if (this.actionIdentifier == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ActivityGroupActionRelatedActionComponent.actionIdentifier");
+              throw new Error("Attempt to auto-create RequestGroupActionRelatedActionComponent.actionIdentifier");
             else if (Configuration.doAutoCreate())
               this.actionIdentifier = new Identifier(); // cc
           return this.actionIdentifier;
@@ -2197,7 +2199,7 @@ public class ActivityGroup extends DomainResource {
         /**
          * @param value {@link #actionIdentifier} (The unique identifier of the related action.)
          */
-        public ActivityGroupActionRelatedActionComponent setActionIdentifier(Identifier value) { 
+        public RequestGroupActionRelatedActionComponent setActionIdentifier(Identifier value) { 
           this.actionIdentifier = value;
           return this;
         }
@@ -2208,7 +2210,7 @@ public class ActivityGroup extends DomainResource {
         public Enumeration<ActionRelationshipType> getRelationshipElement() { 
           if (this.relationship == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ActivityGroupActionRelatedActionComponent.relationship");
+              throw new Error("Attempt to auto-create RequestGroupActionRelatedActionComponent.relationship");
             else if (Configuration.doAutoCreate())
               this.relationship = new Enumeration<ActionRelationshipType>(new ActionRelationshipTypeEnumFactory()); // bb
           return this.relationship;
@@ -2225,7 +2227,7 @@ public class ActivityGroup extends DomainResource {
         /**
          * @param value {@link #relationship} (The relationship of this action to the related action.). This is the underlying object with id, value and extensions. The accessor "getRelationship" gives direct access to the value
          */
-        public ActivityGroupActionRelatedActionComponent setRelationshipElement(Enumeration<ActionRelationshipType> value) { 
+        public RequestGroupActionRelatedActionComponent setRelationshipElement(Enumeration<ActionRelationshipType> value) { 
           this.relationship = value;
           return this;
         }
@@ -2240,7 +2242,7 @@ public class ActivityGroup extends DomainResource {
         /**
          * @param value The relationship of this action to the related action.
          */
-        public ActivityGroupActionRelatedActionComponent setRelationship(ActionRelationshipType value) { 
+        public RequestGroupActionRelatedActionComponent setRelationship(ActionRelationshipType value) { 
             if (this.relationship == null)
               this.relationship = new Enumeration<ActionRelationshipType>(new ActionRelationshipTypeEnumFactory());
             this.relationship.setValue(value);
@@ -2287,57 +2289,8 @@ public class ActivityGroup extends DomainResource {
         /**
          * @param value {@link #offset} (A duration or range of durations to apply to the relationship. For example, 30-60 minutes before.)
          */
-        public ActivityGroupActionRelatedActionComponent setOffset(Type value) { 
+        public RequestGroupActionRelatedActionComponent setOffset(Type value) { 
           this.offset = value;
-          return this;
-        }
-
-        /**
-         * @return {@link #anchor} (An optional indicator for how the relationship is anchored to the related action. For example "before the start" or "before the end" of the related action.). This is the underlying object with id, value and extensions. The accessor "getAnchor" gives direct access to the value
-         */
-        public Enumeration<ActionRelationshipAnchor> getAnchorElement() { 
-          if (this.anchor == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ActivityGroupActionRelatedActionComponent.anchor");
-            else if (Configuration.doAutoCreate())
-              this.anchor = new Enumeration<ActionRelationshipAnchor>(new ActionRelationshipAnchorEnumFactory()); // bb
-          return this.anchor;
-        }
-
-        public boolean hasAnchorElement() { 
-          return this.anchor != null && !this.anchor.isEmpty();
-        }
-
-        public boolean hasAnchor() { 
-          return this.anchor != null && !this.anchor.isEmpty();
-        }
-
-        /**
-         * @param value {@link #anchor} (An optional indicator for how the relationship is anchored to the related action. For example "before the start" or "before the end" of the related action.). This is the underlying object with id, value and extensions. The accessor "getAnchor" gives direct access to the value
-         */
-        public ActivityGroupActionRelatedActionComponent setAnchorElement(Enumeration<ActionRelationshipAnchor> value) { 
-          this.anchor = value;
-          return this;
-        }
-
-        /**
-         * @return An optional indicator for how the relationship is anchored to the related action. For example "before the start" or "before the end" of the related action.
-         */
-        public ActionRelationshipAnchor getAnchor() { 
-          return this.anchor == null ? null : this.anchor.getValue();
-        }
-
-        /**
-         * @param value An optional indicator for how the relationship is anchored to the related action. For example "before the start" or "before the end" of the related action.
-         */
-        public ActivityGroupActionRelatedActionComponent setAnchor(ActionRelationshipAnchor value) { 
-          if (value == null)
-            this.anchor = null;
-          else {
-            if (this.anchor == null)
-              this.anchor = new Enumeration<ActionRelationshipAnchor>(new ActionRelationshipAnchorEnumFactory());
-            this.anchor.setValue(value);
-          }
           return this;
         }
 
@@ -2346,7 +2299,6 @@ public class ActivityGroup extends DomainResource {
           childrenList.add(new Property("actionIdentifier", "Identifier", "The unique identifier of the related action.", 0, java.lang.Integer.MAX_VALUE, actionIdentifier));
           childrenList.add(new Property("relationship", "code", "The relationship of this action to the related action.", 0, java.lang.Integer.MAX_VALUE, relationship));
           childrenList.add(new Property("offset[x]", "Duration|Range", "A duration or range of durations to apply to the relationship. For example, 30-60 minutes before.", 0, java.lang.Integer.MAX_VALUE, offset));
-          childrenList.add(new Property("anchor", "code", "An optional indicator for how the relationship is anchored to the related action. For example \"before the start\" or \"before the end\" of the related action.", 0, java.lang.Integer.MAX_VALUE, anchor));
         }
 
       @Override
@@ -2355,7 +2307,6 @@ public class ActivityGroup extends DomainResource {
         case -889046145: /*actionIdentifier*/ return this.actionIdentifier == null ? new Base[0] : new Base[] {this.actionIdentifier}; // Identifier
         case -261851592: /*relationship*/ return this.relationship == null ? new Base[0] : new Base[] {this.relationship}; // Enumeration<ActionRelationshipType>
         case -1019779949: /*offset*/ return this.offset == null ? new Base[0] : new Base[] {this.offset}; // Type
-        case -1413299531: /*anchor*/ return this.anchor == null ? new Base[0] : new Base[] {this.anchor}; // Enumeration<ActionRelationshipAnchor>
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -2373,9 +2324,6 @@ public class ActivityGroup extends DomainResource {
         case -1019779949: // offset
           this.offset = castToType(value); // Type
           break;
-        case -1413299531: // anchor
-          this.anchor = new ActionRelationshipAnchorEnumFactory().fromType(value); // Enumeration<ActionRelationshipAnchor>
-          break;
         default: super.setProperty(hash, name, value);
         }
 
@@ -2389,8 +2337,6 @@ public class ActivityGroup extends DomainResource {
           this.relationship = new ActionRelationshipTypeEnumFactory().fromType(value); // Enumeration<ActionRelationshipType>
         else if (name.equals("offset[x]"))
           this.offset = castToType(value); // Type
-        else if (name.equals("anchor"))
-          this.anchor = new ActionRelationshipAnchorEnumFactory().fromType(value); // Enumeration<ActionRelationshipAnchor>
         else
           super.setProperty(name, value);
       }
@@ -2401,7 +2347,6 @@ public class ActivityGroup extends DomainResource {
         case -889046145:  return getActionIdentifier(); // Identifier
         case -261851592: throw new FHIRException("Cannot make property relationship as it is not a complex type"); // Enumeration<ActionRelationshipType>
         case -1960684787:  return getOffset(); // Type
-        case -1413299531: throw new FHIRException("Cannot make property anchor as it is not a complex type"); // Enumeration<ActionRelationshipAnchor>
         default: return super.makeProperty(hash, name);
         }
 
@@ -2414,7 +2359,7 @@ public class ActivityGroup extends DomainResource {
           return this.actionIdentifier;
         }
         else if (name.equals("relationship")) {
-          throw new FHIRException("Cannot call addChild on a primitive type ActivityGroup.relationship");
+          throw new FHIRException("Cannot call addChild on a primitive type RequestGroup.relationship");
         }
         else if (name.equals("offsetDuration")) {
           this.offset = new Duration();
@@ -2424,20 +2369,16 @@ public class ActivityGroup extends DomainResource {
           this.offset = new Range();
           return this.offset;
         }
-        else if (name.equals("anchor")) {
-          throw new FHIRException("Cannot call addChild on a primitive type ActivityGroup.anchor");
-        }
         else
           return super.addChild(name);
       }
 
-      public ActivityGroupActionRelatedActionComponent copy() {
-        ActivityGroupActionRelatedActionComponent dst = new ActivityGroupActionRelatedActionComponent();
+      public RequestGroupActionRelatedActionComponent copy() {
+        RequestGroupActionRelatedActionComponent dst = new RequestGroupActionRelatedActionComponent();
         copyValues(dst);
         dst.actionIdentifier = actionIdentifier == null ? null : actionIdentifier.copy();
         dst.relationship = relationship == null ? null : relationship.copy();
         dst.offset = offset == null ? null : offset.copy();
-        dst.anchor = anchor == null ? null : anchor.copy();
         return dst;
       }
 
@@ -2445,30 +2386,30 @@ public class ActivityGroup extends DomainResource {
       public boolean equalsDeep(Base other) {
         if (!super.equalsDeep(other))
           return false;
-        if (!(other instanceof ActivityGroupActionRelatedActionComponent))
+        if (!(other instanceof RequestGroupActionRelatedActionComponent))
           return false;
-        ActivityGroupActionRelatedActionComponent o = (ActivityGroupActionRelatedActionComponent) other;
+        RequestGroupActionRelatedActionComponent o = (RequestGroupActionRelatedActionComponent) other;
         return compareDeep(actionIdentifier, o.actionIdentifier, true) && compareDeep(relationship, o.relationship, true)
-           && compareDeep(offset, o.offset, true) && compareDeep(anchor, o.anchor, true);
+           && compareDeep(offset, o.offset, true);
       }
 
       @Override
       public boolean equalsShallow(Base other) {
         if (!super.equalsShallow(other))
           return false;
-        if (!(other instanceof ActivityGroupActionRelatedActionComponent))
+        if (!(other instanceof RequestGroupActionRelatedActionComponent))
           return false;
-        ActivityGroupActionRelatedActionComponent o = (ActivityGroupActionRelatedActionComponent) other;
-        return compareValues(relationship, o.relationship, true) && compareValues(anchor, o.anchor, true);
+        RequestGroupActionRelatedActionComponent o = (RequestGroupActionRelatedActionComponent) other;
+        return compareValues(relationship, o.relationship, true);
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(actionIdentifier, relationship
-          , offset, anchor);
+        return super.isEmpty() && (actionIdentifier == null || actionIdentifier.isEmpty()) && (relationship == null || relationship.isEmpty())
+           && (offset == null || offset.isEmpty());
       }
 
   public String fhirType() {
-    return "ActivityGroup.action.relatedAction";
+    return "RequestGroup.action.relatedAction";
 
   }
 
@@ -2482,53 +2423,53 @@ public class ActivityGroup extends DomainResource {
     protected Identifier identifier;
 
     /**
-     * The patient for which the request was processed.
+     * The subject for which the request group was created.
      */
     @Child(name = "subject", type = {Patient.class, Group.class}, order=1, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="Patient the request was performed for", formalDefinition="The patient for which the request was processed." )
+    @Description(shortDefinition="Subject of the request group", formalDefinition="The subject for which the request group was created." )
     protected Reference subject;
 
     /**
-     * The actual object that is the target of the reference (The patient for which the request was processed.)
+     * The actual object that is the target of the reference (The subject for which the request group was created.)
      */
     protected Resource subjectTarget;
 
     /**
-     * Allows the context of the guidance response to be provided if available. In a service context, this would likely be unavailable.
+     * Describes the context of the request group, if any.
      */
     @Child(name = "context", type = {Encounter.class, EpisodeOfCare.class}, order=2, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="Encounter or Episode during which the response was returned", formalDefinition="Allows the context of the guidance response to be provided if available. In a service context, this would likely be unavailable." )
+    @Description(shortDefinition="Encounter or Episode for the request group", formalDefinition="Describes the context of the request group, if any." )
     protected Reference context;
 
     /**
-     * The actual object that is the target of the reference (Allows the context of the guidance response to be provided if available. In a service context, this would likely be unavailable.)
+     * The actual object that is the target of the reference (Describes the context of the request group, if any.)
      */
     protected Resource contextTarget;
 
     /**
-     * Indicates when the guidance response was processed.
+     * Indicates when the request group was created.
      */
     @Child(name = "occurrenceDateTime", type = {DateTimeType.class}, order=3, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="When the guidance response was processed", formalDefinition="Indicates when the guidance response was processed." )
+    @Description(shortDefinition="When the request group was authored", formalDefinition="Indicates when the request group was created." )
     protected DateTimeType occurrenceDateTime;
 
     /**
-     * Provides a reference to the device that performed the guidance.
+     * Provides a reference to the author of the request group.
      */
     @Child(name = "author", type = {Device.class, Practitioner.class}, order=4, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="Device or practitioner that authored the activity group", formalDefinition="Provides a reference to the device that performed the guidance." )
+    @Description(shortDefinition="Device or practitioner that authored the request group", formalDefinition="Provides a reference to the author of the request group." )
     protected Reference author;
 
     /**
-     * The actual object that is the target of the reference (Provides a reference to the device that performed the guidance.)
+     * The actual object that is the target of the reference (Provides a reference to the author of the request group.)
      */
     protected Resource authorTarget;
 
     /**
-     * Indicates the reason the request was initiated. This is typically provided as a parameter to the evaluation and echoed by the service, although for some use cases, such as subscription- or event-based scenarios, it may provide an indication of the cause for the response.
+     * Indicates the reason the request group was created. This is typically provided as a parameter to the evaluation and echoed by the service, although for some use cases, such as subscription- or event-based scenarios, it may provide an indication of the cause for the response.
      */
     @Child(name = "reason", type = {CodeableConcept.class, Reference.class}, order=5, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="Reason for the response", formalDefinition="Indicates the reason the request was initiated. This is typically provided as a parameter to the evaluation and echoed by the service, although for some use cases, such as subscription- or event-based scenarios, it may provide an indication of the cause for the response." )
+    @Description(shortDefinition="Reason for the request group", formalDefinition="Indicates the reason the request group was created. This is typically provided as a parameter to the evaluation and echoed by the service, although for some use cases, such as subscription- or event-based scenarios, it may provide an indication of the cause for the response." )
     protected Type reason;
 
     /**
@@ -2543,14 +2484,14 @@ public class ActivityGroup extends DomainResource {
      */
     @Child(name = "action", type = {}, order=7, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Proposed actions, if any", formalDefinition="The actions, if any, produced by the evaluation of the artifact." )
-    protected List<ActivityGroupActionComponent> action;
+    protected List<RequestGroupActionComponent> action;
 
-    private static final long serialVersionUID = 549305707L;
+    private static final long serialVersionUID = 334451815L;
 
   /**
    * Constructor
    */
-    public ActivityGroup() {
+    public RequestGroup() {
       super();
     }
 
@@ -2560,7 +2501,7 @@ public class ActivityGroup extends DomainResource {
     public Identifier getIdentifier() { 
       if (this.identifier == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ActivityGroup.identifier");
+          throw new Error("Attempt to auto-create RequestGroup.identifier");
         else if (Configuration.doAutoCreate())
           this.identifier = new Identifier(); // cc
       return this.identifier;
@@ -2573,18 +2514,18 @@ public class ActivityGroup extends DomainResource {
     /**
      * @param value {@link #identifier} (Allows a service to provide a unique, business identifier for the response.)
      */
-    public ActivityGroup setIdentifier(Identifier value) { 
+    public RequestGroup setIdentifier(Identifier value) { 
       this.identifier = value;
       return this;
     }
 
     /**
-     * @return {@link #subject} (The patient for which the request was processed.)
+     * @return {@link #subject} (The subject for which the request group was created.)
      */
     public Reference getSubject() { 
       if (this.subject == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ActivityGroup.subject");
+          throw new Error("Attempt to auto-create RequestGroup.subject");
         else if (Configuration.doAutoCreate())
           this.subject = new Reference(); // cc
       return this.subject;
@@ -2595,35 +2536,35 @@ public class ActivityGroup extends DomainResource {
     }
 
     /**
-     * @param value {@link #subject} (The patient for which the request was processed.)
+     * @param value {@link #subject} (The subject for which the request group was created.)
      */
-    public ActivityGroup setSubject(Reference value) { 
+    public RequestGroup setSubject(Reference value) { 
       this.subject = value;
       return this;
     }
 
     /**
-     * @return {@link #subject} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The patient for which the request was processed.)
+     * @return {@link #subject} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The subject for which the request group was created.)
      */
     public Resource getSubjectTarget() { 
       return this.subjectTarget;
     }
 
     /**
-     * @param value {@link #subject} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The patient for which the request was processed.)
+     * @param value {@link #subject} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The subject for which the request group was created.)
      */
-    public ActivityGroup setSubjectTarget(Resource value) { 
+    public RequestGroup setSubjectTarget(Resource value) { 
       this.subjectTarget = value;
       return this;
     }
 
     /**
-     * @return {@link #context} (Allows the context of the guidance response to be provided if available. In a service context, this would likely be unavailable.)
+     * @return {@link #context} (Describes the context of the request group, if any.)
      */
     public Reference getContext() { 
       if (this.context == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ActivityGroup.context");
+          throw new Error("Attempt to auto-create RequestGroup.context");
         else if (Configuration.doAutoCreate())
           this.context = new Reference(); // cc
       return this.context;
@@ -2634,35 +2575,35 @@ public class ActivityGroup extends DomainResource {
     }
 
     /**
-     * @param value {@link #context} (Allows the context of the guidance response to be provided if available. In a service context, this would likely be unavailable.)
+     * @param value {@link #context} (Describes the context of the request group, if any.)
      */
-    public ActivityGroup setContext(Reference value) { 
+    public RequestGroup setContext(Reference value) { 
       this.context = value;
       return this;
     }
 
     /**
-     * @return {@link #context} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Allows the context of the guidance response to be provided if available. In a service context, this would likely be unavailable.)
+     * @return {@link #context} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Describes the context of the request group, if any.)
      */
     public Resource getContextTarget() { 
       return this.contextTarget;
     }
 
     /**
-     * @param value {@link #context} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Allows the context of the guidance response to be provided if available. In a service context, this would likely be unavailable.)
+     * @param value {@link #context} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Describes the context of the request group, if any.)
      */
-    public ActivityGroup setContextTarget(Resource value) { 
+    public RequestGroup setContextTarget(Resource value) { 
       this.contextTarget = value;
       return this;
     }
 
     /**
-     * @return {@link #occurrenceDateTime} (Indicates when the guidance response was processed.). This is the underlying object with id, value and extensions. The accessor "getOccurrenceDateTime" gives direct access to the value
+     * @return {@link #occurrenceDateTime} (Indicates when the request group was created.). This is the underlying object with id, value and extensions. The accessor "getOccurrenceDateTime" gives direct access to the value
      */
     public DateTimeType getOccurrenceDateTimeElement() { 
       if (this.occurrenceDateTime == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ActivityGroup.occurrenceDateTime");
+          throw new Error("Attempt to auto-create RequestGroup.occurrenceDateTime");
         else if (Configuration.doAutoCreate())
           this.occurrenceDateTime = new DateTimeType(); // bb
       return this.occurrenceDateTime;
@@ -2677,24 +2618,24 @@ public class ActivityGroup extends DomainResource {
     }
 
     /**
-     * @param value {@link #occurrenceDateTime} (Indicates when the guidance response was processed.). This is the underlying object with id, value and extensions. The accessor "getOccurrenceDateTime" gives direct access to the value
+     * @param value {@link #occurrenceDateTime} (Indicates when the request group was created.). This is the underlying object with id, value and extensions. The accessor "getOccurrenceDateTime" gives direct access to the value
      */
-    public ActivityGroup setOccurrenceDateTimeElement(DateTimeType value) { 
+    public RequestGroup setOccurrenceDateTimeElement(DateTimeType value) { 
       this.occurrenceDateTime = value;
       return this;
     }
 
     /**
-     * @return Indicates when the guidance response was processed.
+     * @return Indicates when the request group was created.
      */
     public Date getOccurrenceDateTime() { 
       return this.occurrenceDateTime == null ? null : this.occurrenceDateTime.getValue();
     }
 
     /**
-     * @param value Indicates when the guidance response was processed.
+     * @param value Indicates when the request group was created.
      */
-    public ActivityGroup setOccurrenceDateTime(Date value) { 
+    public RequestGroup setOccurrenceDateTime(Date value) { 
       if (value == null)
         this.occurrenceDateTime = null;
       else {
@@ -2706,12 +2647,12 @@ public class ActivityGroup extends DomainResource {
     }
 
     /**
-     * @return {@link #author} (Provides a reference to the device that performed the guidance.)
+     * @return {@link #author} (Provides a reference to the author of the request group.)
      */
     public Reference getAuthor() { 
       if (this.author == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ActivityGroup.author");
+          throw new Error("Attempt to auto-create RequestGroup.author");
         else if (Configuration.doAutoCreate())
           this.author = new Reference(); // cc
       return this.author;
@@ -2722,37 +2663,37 @@ public class ActivityGroup extends DomainResource {
     }
 
     /**
-     * @param value {@link #author} (Provides a reference to the device that performed the guidance.)
+     * @param value {@link #author} (Provides a reference to the author of the request group.)
      */
-    public ActivityGroup setAuthor(Reference value) { 
+    public RequestGroup setAuthor(Reference value) { 
       this.author = value;
       return this;
     }
 
     /**
-     * @return {@link #author} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Provides a reference to the device that performed the guidance.)
+     * @return {@link #author} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Provides a reference to the author of the request group.)
      */
     public Resource getAuthorTarget() { 
       return this.authorTarget;
     }
 
     /**
-     * @param value {@link #author} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Provides a reference to the device that performed the guidance.)
+     * @param value {@link #author} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Provides a reference to the author of the request group.)
      */
-    public ActivityGroup setAuthorTarget(Resource value) { 
+    public RequestGroup setAuthorTarget(Resource value) { 
       this.authorTarget = value;
       return this;
     }
 
     /**
-     * @return {@link #reason} (Indicates the reason the request was initiated. This is typically provided as a parameter to the evaluation and echoed by the service, although for some use cases, such as subscription- or event-based scenarios, it may provide an indication of the cause for the response.)
+     * @return {@link #reason} (Indicates the reason the request group was created. This is typically provided as a parameter to the evaluation and echoed by the service, although for some use cases, such as subscription- or event-based scenarios, it may provide an indication of the cause for the response.)
      */
     public Type getReason() { 
       return this.reason;
     }
 
     /**
-     * @return {@link #reason} (Indicates the reason the request was initiated. This is typically provided as a parameter to the evaluation and echoed by the service, although for some use cases, such as subscription- or event-based scenarios, it may provide an indication of the cause for the response.)
+     * @return {@link #reason} (Indicates the reason the request group was created. This is typically provided as a parameter to the evaluation and echoed by the service, although for some use cases, such as subscription- or event-based scenarios, it may provide an indication of the cause for the response.)
      */
     public CodeableConcept getReasonCodeableConcept() throws FHIRException { 
       if (!(this.reason instanceof CodeableConcept))
@@ -2765,7 +2706,7 @@ public class ActivityGroup extends DomainResource {
     }
 
     /**
-     * @return {@link #reason} (Indicates the reason the request was initiated. This is typically provided as a parameter to the evaluation and echoed by the service, although for some use cases, such as subscription- or event-based scenarios, it may provide an indication of the cause for the response.)
+     * @return {@link #reason} (Indicates the reason the request group was created. This is typically provided as a parameter to the evaluation and echoed by the service, although for some use cases, such as subscription- or event-based scenarios, it may provide an indication of the cause for the response.)
      */
     public Reference getReasonReference() throws FHIRException { 
       if (!(this.reason instanceof Reference))
@@ -2782,9 +2723,9 @@ public class ActivityGroup extends DomainResource {
     }
 
     /**
-     * @param value {@link #reason} (Indicates the reason the request was initiated. This is typically provided as a parameter to the evaluation and echoed by the service, although for some use cases, such as subscription- or event-based scenarios, it may provide an indication of the cause for the response.)
+     * @param value {@link #reason} (Indicates the reason the request group was created. This is typically provided as a parameter to the evaluation and echoed by the service, although for some use cases, such as subscription- or event-based scenarios, it may provide an indication of the cause for the response.)
      */
-    public ActivityGroup setReason(Type value) { 
+    public RequestGroup setReason(Type value) { 
       this.reason = value;
       return this;
     }
@@ -2801,7 +2742,7 @@ public class ActivityGroup extends DomainResource {
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public ActivityGroup setNote(List<Annotation> theNote) { 
+    public RequestGroup setNote(List<Annotation> theNote) { 
       this.note = theNote;
       return this;
     }
@@ -2823,7 +2764,7 @@ public class ActivityGroup extends DomainResource {
       return t;
     }
 
-    public ActivityGroup addNote(Annotation t) { //3
+    public RequestGroup addNote(Annotation t) { //3
       if (t == null)
         return this;
       if (this.note == null)
@@ -2845,16 +2786,16 @@ public class ActivityGroup extends DomainResource {
     /**
      * @return {@link #action} (The actions, if any, produced by the evaluation of the artifact.)
      */
-    public List<ActivityGroupActionComponent> getAction() { 
+    public List<RequestGroupActionComponent> getAction() { 
       if (this.action == null)
-        this.action = new ArrayList<ActivityGroupActionComponent>();
+        this.action = new ArrayList<RequestGroupActionComponent>();
       return this.action;
     }
 
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public ActivityGroup setAction(List<ActivityGroupActionComponent> theAction) { 
+    public RequestGroup setAction(List<RequestGroupActionComponent> theAction) { 
       this.action = theAction;
       return this;
     }
@@ -2862,25 +2803,25 @@ public class ActivityGroup extends DomainResource {
     public boolean hasAction() { 
       if (this.action == null)
         return false;
-      for (ActivityGroupActionComponent item : this.action)
+      for (RequestGroupActionComponent item : this.action)
         if (!item.isEmpty())
           return true;
       return false;
     }
 
-    public ActivityGroupActionComponent addAction() { //3
-      ActivityGroupActionComponent t = new ActivityGroupActionComponent();
+    public RequestGroupActionComponent addAction() { //3
+      RequestGroupActionComponent t = new RequestGroupActionComponent();
       if (this.action == null)
-        this.action = new ArrayList<ActivityGroupActionComponent>();
+        this.action = new ArrayList<RequestGroupActionComponent>();
       this.action.add(t);
       return t;
     }
 
-    public ActivityGroup addAction(ActivityGroupActionComponent t) { //3
+    public RequestGroup addAction(RequestGroupActionComponent t) { //3
       if (t == null)
         return this;
       if (this.action == null)
-        this.action = new ArrayList<ActivityGroupActionComponent>();
+        this.action = new ArrayList<RequestGroupActionComponent>();
       this.action.add(t);
       return this;
     }
@@ -2888,7 +2829,7 @@ public class ActivityGroup extends DomainResource {
     /**
      * @return The first repetition of repeating field {@link #action}, creating it if it does not already exist
      */
-    public ActivityGroupActionComponent getActionFirstRep() { 
+    public RequestGroupActionComponent getActionFirstRep() { 
       if (getAction().isEmpty()) {
         addAction();
       }
@@ -2898,11 +2839,11 @@ public class ActivityGroup extends DomainResource {
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "Allows a service to provide a unique, business identifier for the response.", 0, java.lang.Integer.MAX_VALUE, identifier));
-        childrenList.add(new Property("subject", "Reference(Patient|Group)", "The patient for which the request was processed.", 0, java.lang.Integer.MAX_VALUE, subject));
-        childrenList.add(new Property("context", "Reference(Encounter|EpisodeOfCare)", "Allows the context of the guidance response to be provided if available. In a service context, this would likely be unavailable.", 0, java.lang.Integer.MAX_VALUE, context));
-        childrenList.add(new Property("occurrenceDateTime", "dateTime", "Indicates when the guidance response was processed.", 0, java.lang.Integer.MAX_VALUE, occurrenceDateTime));
-        childrenList.add(new Property("author", "Reference(Device|Practitioner)", "Provides a reference to the device that performed the guidance.", 0, java.lang.Integer.MAX_VALUE, author));
-        childrenList.add(new Property("reason[x]", "CodeableConcept|Reference(Any)", "Indicates the reason the request was initiated. This is typically provided as a parameter to the evaluation and echoed by the service, although for some use cases, such as subscription- or event-based scenarios, it may provide an indication of the cause for the response.", 0, java.lang.Integer.MAX_VALUE, reason));
+        childrenList.add(new Property("subject", "Reference(Patient|Group)", "The subject for which the request group was created.", 0, java.lang.Integer.MAX_VALUE, subject));
+        childrenList.add(new Property("context", "Reference(Encounter|EpisodeOfCare)", "Describes the context of the request group, if any.", 0, java.lang.Integer.MAX_VALUE, context));
+        childrenList.add(new Property("occurrenceDateTime", "dateTime", "Indicates when the request group was created.", 0, java.lang.Integer.MAX_VALUE, occurrenceDateTime));
+        childrenList.add(new Property("author", "Reference(Device|Practitioner)", "Provides a reference to the author of the request group.", 0, java.lang.Integer.MAX_VALUE, author));
+        childrenList.add(new Property("reason[x]", "CodeableConcept|Reference(Any)", "Indicates the reason the request group was created. This is typically provided as a parameter to the evaluation and echoed by the service, although for some use cases, such as subscription- or event-based scenarios, it may provide an indication of the cause for the response.", 0, java.lang.Integer.MAX_VALUE, reason));
         childrenList.add(new Property("note", "Annotation", "Provides a mechanism to communicate additional information about the response.", 0, java.lang.Integer.MAX_VALUE, note));
         childrenList.add(new Property("action", "", "The actions, if any, produced by the evaluation of the artifact.", 0, java.lang.Integer.MAX_VALUE, action));
       }
@@ -2917,7 +2858,7 @@ public class ActivityGroup extends DomainResource {
         case -1406328437: /*author*/ return this.author == null ? new Base[0] : new Base[] {this.author}; // Reference
         case -934964668: /*reason*/ return this.reason == null ? new Base[0] : new Base[] {this.reason}; // Type
         case 3387378: /*note*/ return this.note == null ? new Base[0] : this.note.toArray(new Base[this.note.size()]); // Annotation
-        case -1422950858: /*action*/ return this.action == null ? new Base[0] : this.action.toArray(new Base[this.action.size()]); // ActivityGroupActionComponent
+        case -1422950858: /*action*/ return this.action == null ? new Base[0] : this.action.toArray(new Base[this.action.size()]); // RequestGroupActionComponent
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -2948,7 +2889,7 @@ public class ActivityGroup extends DomainResource {
           this.getNote().add(castToAnnotation(value)); // Annotation
           break;
         case -1422950858: // action
-          this.getAction().add((ActivityGroupActionComponent) value); // ActivityGroupActionComponent
+          this.getAction().add((RequestGroupActionComponent) value); // RequestGroupActionComponent
           break;
         default: super.setProperty(hash, name, value);
         }
@@ -2972,7 +2913,7 @@ public class ActivityGroup extends DomainResource {
         else if (name.equals("note"))
           this.getNote().add(castToAnnotation(value));
         else if (name.equals("action"))
-          this.getAction().add((ActivityGroupActionComponent) value);
+          this.getAction().add((RequestGroupActionComponent) value);
         else
           super.setProperty(name, value);
       }
@@ -2987,7 +2928,7 @@ public class ActivityGroup extends DomainResource {
         case -1406328437:  return getAuthor(); // Reference
         case -669418564:  return getReason(); // Type
         case 3387378:  return addNote(); // Annotation
-        case -1422950858:  return addAction(); // ActivityGroupActionComponent
+        case -1422950858:  return addAction(); // RequestGroupActionComponent
         default: return super.makeProperty(hash, name);
         }
 
@@ -3008,7 +2949,7 @@ public class ActivityGroup extends DomainResource {
           return this.context;
         }
         else if (name.equals("occurrenceDateTime")) {
-          throw new FHIRException("Cannot call addChild on a primitive type ActivityGroup.occurrenceDateTime");
+          throw new FHIRException("Cannot call addChild on a primitive type RequestGroup.occurrenceDateTime");
         }
         else if (name.equals("author")) {
           this.author = new Reference();
@@ -3033,12 +2974,12 @@ public class ActivityGroup extends DomainResource {
       }
 
   public String fhirType() {
-    return "ActivityGroup";
+    return "RequestGroup";
 
   }
 
-      public ActivityGroup copy() {
-        ActivityGroup dst = new ActivityGroup();
+      public RequestGroup copy() {
+        RequestGroup dst = new RequestGroup();
         copyValues(dst);
         dst.identifier = identifier == null ? null : identifier.copy();
         dst.subject = subject == null ? null : subject.copy();
@@ -3052,14 +2993,14 @@ public class ActivityGroup extends DomainResource {
             dst.note.add(i.copy());
         };
         if (action != null) {
-          dst.action = new ArrayList<ActivityGroupActionComponent>();
-          for (ActivityGroupActionComponent i : action)
+          dst.action = new ArrayList<RequestGroupActionComponent>();
+          for (RequestGroupActionComponent i : action)
             dst.action.add(i.copy());
         };
         return dst;
       }
 
-      protected ActivityGroup typedCopy() {
+      protected RequestGroup typedCopy() {
         return copy();
       }
 
@@ -3067,9 +3008,9 @@ public class ActivityGroup extends DomainResource {
       public boolean equalsDeep(Base other) {
         if (!super.equalsDeep(other))
           return false;
-        if (!(other instanceof ActivityGroup))
+        if (!(other instanceof RequestGroup))
           return false;
-        ActivityGroup o = (ActivityGroup) other;
+        RequestGroup o = (RequestGroup) other;
         return compareDeep(identifier, o.identifier, true) && compareDeep(subject, o.subject, true) && compareDeep(context, o.context, true)
            && compareDeep(occurrenceDateTime, o.occurrenceDateTime, true) && compareDeep(author, o.author, true)
            && compareDeep(reason, o.reason, true) && compareDeep(note, o.note, true) && compareDeep(action, o.action, true)
@@ -3080,177 +3021,179 @@ public class ActivityGroup extends DomainResource {
       public boolean equalsShallow(Base other) {
         if (!super.equalsShallow(other))
           return false;
-        if (!(other instanceof ActivityGroup))
+        if (!(other instanceof RequestGroup))
           return false;
-        ActivityGroup o = (ActivityGroup) other;
+        RequestGroup o = (RequestGroup) other;
         return compareValues(occurrenceDateTime, o.occurrenceDateTime, true);
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, subject, context
-          , occurrenceDateTime, author, reason, note, action);
+        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (subject == null || subject.isEmpty())
+           && (context == null || context.isEmpty()) && (occurrenceDateTime == null || occurrenceDateTime.isEmpty())
+           && (author == null || author.isEmpty()) && (reason == null || reason.isEmpty()) && (note == null || note.isEmpty())
+           && (action == null || action.isEmpty());
       }
 
   @Override
   public ResourceType getResourceType() {
-    return ResourceType.ActivityGroup;
+    return ResourceType.RequestGroup;
    }
 
  /**
    * Search parameter: <b>patient</b>
    * <p>
-   * Description: <b>The identity of a patient to search for activity groups</b><br>
+   * Description: <b>The identity of a patient to search for request groups</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>ActivityGroup.subject</b><br>
+   * Path: <b>RequestGroup.subject</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="patient", path="ActivityGroup.subject", description="The identity of a patient to search for activity groups", type="reference", target={Patient.class } )
+  @SearchParamDefinition(name="patient", path="RequestGroup.subject", description="The identity of a patient to search for request groups", type="reference", target={Patient.class } )
   public static final String SP_PATIENT = "patient";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>patient</b>
    * <p>
-   * Description: <b>The identity of a patient to search for activity groups</b><br>
+   * Description: <b>The identity of a patient to search for request groups</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>ActivityGroup.subject</b><br>
+   * Path: <b>RequestGroup.subject</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PATIENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PATIENT);
 
 /**
    * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>ActivityGroup:patient</b>".
+   * the path value of "<b>RequestGroup:patient</b>".
    */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("ActivityGroup:patient").toLocked();
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("RequestGroup:patient").toLocked();
 
  /**
    * Search parameter: <b>subject</b>
    * <p>
-   * Description: <b>The subject that the activity group is about</b><br>
+   * Description: <b>The subject that the request group is about</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>ActivityGroup.subject</b><br>
+   * Path: <b>RequestGroup.subject</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="subject", path="ActivityGroup.subject", description="The subject that the activity group is about", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient") }, target={Group.class, Patient.class } )
+  @SearchParamDefinition(name="subject", path="RequestGroup.subject", description="The subject that the request group is about", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient") }, target={Group.class, Patient.class } )
   public static final String SP_SUBJECT = "subject";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>subject</b>
    * <p>
-   * Description: <b>The subject that the activity group is about</b><br>
+   * Description: <b>The subject that the request group is about</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>ActivityGroup.subject</b><br>
+   * Path: <b>RequestGroup.subject</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam SUBJECT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_SUBJECT);
 
 /**
    * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>ActivityGroup:subject</b>".
+   * the path value of "<b>RequestGroup:subject</b>".
    */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_SUBJECT = new ca.uhn.fhir.model.api.Include("ActivityGroup:subject").toLocked();
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_SUBJECT = new ca.uhn.fhir.model.api.Include("RequestGroup:subject").toLocked();
 
  /**
    * Search parameter: <b>author</b>
    * <p>
-   * Description: <b>The author of the activity group</b><br>
+   * Description: <b>The author of the request group</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>ActivityGroup.author</b><br>
+   * Path: <b>RequestGroup.author</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="author", path="ActivityGroup.author", description="The author of the activity group", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Device"), @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner") }, target={Device.class, Practitioner.class } )
+  @SearchParamDefinition(name="author", path="RequestGroup.author", description="The author of the request group", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Device"), @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner") }, target={Device.class, Practitioner.class } )
   public static final String SP_AUTHOR = "author";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>author</b>
    * <p>
-   * Description: <b>The author of the activity group</b><br>
+   * Description: <b>The author of the request group</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>ActivityGroup.author</b><br>
+   * Path: <b>RequestGroup.author</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam AUTHOR = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_AUTHOR);
 
 /**
    * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>ActivityGroup:author</b>".
+   * the path value of "<b>RequestGroup:author</b>".
    */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_AUTHOR = new ca.uhn.fhir.model.api.Include("ActivityGroup:author").toLocked();
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_AUTHOR = new ca.uhn.fhir.model.api.Include("RequestGroup:author").toLocked();
 
  /**
    * Search parameter: <b>context</b>
    * <p>
-   * Description: <b>The context the activity group applies to</b><br>
+   * Description: <b>The context the request group applies to</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>ActivityGroup.context</b><br>
+   * Path: <b>RequestGroup.context</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="context", path="ActivityGroup.context", description="The context the activity group applies to", type="reference", target={Encounter.class, EpisodeOfCare.class } )
+  @SearchParamDefinition(name="context", path="RequestGroup.context", description="The context the request group applies to", type="reference", target={Encounter.class, EpisodeOfCare.class } )
   public static final String SP_CONTEXT = "context";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>context</b>
    * <p>
-   * Description: <b>The context the activity group applies to</b><br>
+   * Description: <b>The context the request group applies to</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>ActivityGroup.context</b><br>
+   * Path: <b>RequestGroup.context</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam CONTEXT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_CONTEXT);
 
 /**
    * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>ActivityGroup:context</b>".
+   * the path value of "<b>RequestGroup:context</b>".
    */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_CONTEXT = new ca.uhn.fhir.model.api.Include("ActivityGroup:context").toLocked();
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_CONTEXT = new ca.uhn.fhir.model.api.Include("RequestGroup:context").toLocked();
 
  /**
    * Search parameter: <b>encounter</b>
    * <p>
-   * Description: <b>The encounter the activity group applies to</b><br>
+   * Description: <b>The encounter the request group applies to</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>ActivityGroup.context</b><br>
+   * Path: <b>RequestGroup.context</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="encounter", path="ActivityGroup.context", description="The encounter the activity group applies to", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Encounter") }, target={Encounter.class } )
+  @SearchParamDefinition(name="encounter", path="RequestGroup.context", description="The encounter the request group applies to", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Encounter") }, target={Encounter.class } )
   public static final String SP_ENCOUNTER = "encounter";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>encounter</b>
    * <p>
-   * Description: <b>The encounter the activity group applies to</b><br>
+   * Description: <b>The encounter the request group applies to</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>ActivityGroup.context</b><br>
+   * Path: <b>RequestGroup.context</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam ENCOUNTER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_ENCOUNTER);
 
 /**
    * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>ActivityGroup:encounter</b>".
+   * the path value of "<b>RequestGroup:encounter</b>".
    */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_ENCOUNTER = new ca.uhn.fhir.model.api.Include("ActivityGroup:encounter").toLocked();
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_ENCOUNTER = new ca.uhn.fhir.model.api.Include("RequestGroup:encounter").toLocked();
 
  /**
    * Search parameter: <b>participant</b>
    * <p>
-   * Description: <b>The participant in the activities in the group</b><br>
+   * Description: <b>The participant in the requests in the group</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>ActivityGroup.action.participant</b><br>
+   * Path: <b>RequestGroup.action.participant</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="participant", path="ActivityGroup.action.participant", description="The participant in the activities in the group", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient"), @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner"), @ca.uhn.fhir.model.api.annotation.Compartment(name="RelatedPerson") }, target={Patient.class, Person.class, Practitioner.class, RelatedPerson.class } )
+  @SearchParamDefinition(name="participant", path="RequestGroup.action.participant", description="The participant in the requests in the group", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient"), @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner"), @ca.uhn.fhir.model.api.annotation.Compartment(name="RelatedPerson") }, target={Patient.class, Person.class, Practitioner.class, RelatedPerson.class } )
   public static final String SP_PARTICIPANT = "participant";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>participant</b>
    * <p>
-   * Description: <b>The participant in the activities in the group</b><br>
+   * Description: <b>The participant in the requests in the group</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>ActivityGroup.action.participant</b><br>
+   * Path: <b>RequestGroup.action.participant</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PARTICIPANT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PARTICIPANT);
 
 /**
    * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>ActivityGroup:participant</b>".
+   * the path value of "<b>RequestGroup:participant</b>".
    */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_PARTICIPANT = new ca.uhn.fhir.model.api.Include("ActivityGroup:participant").toLocked();
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_PARTICIPANT = new ca.uhn.fhir.model.api.Include("RequestGroup:participant").toLocked();
 
 
 }

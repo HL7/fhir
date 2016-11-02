@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Oct 21, 2016 09:09+1100 for FHIR v1.7.0
+// Generated on Tue, Nov 1, 2016 18:35-0400 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -538,7 +538,8 @@ public class Condition extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(summary, assessment);
+        return super.isEmpty() && (summary == null || summary.isEmpty()) && (assessment == null || assessment.isEmpty())
+          ;
       }
 
   public String fhirType() {
@@ -762,7 +763,8 @@ public class Condition extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(code, detail);
+        return super.isEmpty() && (code == null || code.isEmpty()) && (detail == null || detail.isEmpty())
+          ;
       }
 
   public String fhirType() {
@@ -2041,9 +2043,13 @@ public class Condition extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, clinicalStatus
-          , verificationStatus, category, severity, code, bodySite, subject, context, onset
-          , abatement, dateRecorded, asserter, stage, evidence, note);
+        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (clinicalStatus == null || clinicalStatus.isEmpty())
+           && (verificationStatus == null || verificationStatus.isEmpty()) && (category == null || category.isEmpty())
+           && (severity == null || severity.isEmpty()) && (code == null || code.isEmpty()) && (bodySite == null || bodySite.isEmpty())
+           && (subject == null || subject.isEmpty()) && (context == null || context.isEmpty()) && (onset == null || onset.isEmpty())
+           && (abatement == null || abatement.isEmpty()) && (dateRecorded == null || dateRecorded.isEmpty())
+           && (asserter == null || asserter.isEmpty()) && (stage == null || stage.isEmpty()) && (evidence == null || evidence.isEmpty())
+           && (note == null || note.isEmpty());
       }
 
   @Override

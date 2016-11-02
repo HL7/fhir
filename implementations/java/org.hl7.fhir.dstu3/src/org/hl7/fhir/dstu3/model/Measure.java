@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Oct 21, 2016 09:09+1100 for FHIR v1.7.0
+// Generated on Tue, Nov 1, 2016 18:35-0400 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -295,9 +295,9 @@ public class Measure extends MetadataResource {
          */
         MEASUREPOPULATIONEXCLUSION, 
         /**
-         * The measure score for the measure
+         * The measure observation for the measure
          */
-        MEASURESCORE, 
+        MEASUREOBSERVATION, 
         /**
          * added to help the parsers with the generic types
          */
@@ -321,8 +321,8 @@ public class Measure extends MetadataResource {
           return MEASUREPOPULATION;
         if ("measure-population-exclusion".equals(codeString))
           return MEASUREPOPULATIONEXCLUSION;
-        if ("measure-score".equals(codeString))
-          return MEASURESCORE;
+        if ("measure-observation".equals(codeString))
+          return MEASUREOBSERVATION;
         if (Configuration.isAcceptInvalidEnums())
           return null;
         else
@@ -338,7 +338,7 @@ public class Measure extends MetadataResource {
             case DENOMINATOREXCEPTION: return "denominator-exception";
             case MEASUREPOPULATION: return "measure-population";
             case MEASUREPOPULATIONEXCLUSION: return "measure-population-exclusion";
-            case MEASURESCORE: return "measure-score";
+            case MEASUREOBSERVATION: return "measure-observation";
             default: return "?";
           }
         }
@@ -352,7 +352,7 @@ public class Measure extends MetadataResource {
             case DENOMINATOREXCEPTION: return "http://hl7.org/fhir/measure-population";
             case MEASUREPOPULATION: return "http://hl7.org/fhir/measure-population";
             case MEASUREPOPULATIONEXCLUSION: return "http://hl7.org/fhir/measure-population";
-            case MEASURESCORE: return "http://hl7.org/fhir/measure-population";
+            case MEASUREOBSERVATION: return "http://hl7.org/fhir/measure-population";
             default: return "?";
           }
         }
@@ -366,7 +366,7 @@ public class Measure extends MetadataResource {
             case DENOMINATOREXCEPTION: return "The denominator exception for the measure";
             case MEASUREPOPULATION: return "The measure population for the measure";
             case MEASUREPOPULATIONEXCLUSION: return "The measure population exclusion for the measure";
-            case MEASURESCORE: return "The measure score for the measure";
+            case MEASUREOBSERVATION: return "The measure observation for the measure";
             default: return "?";
           }
         }
@@ -380,7 +380,7 @@ public class Measure extends MetadataResource {
             case DENOMINATOREXCEPTION: return "Denominator Exception";
             case MEASUREPOPULATION: return "Measure Population";
             case MEASUREPOPULATIONEXCLUSION: return "Measure Population Exclusion";
-            case MEASURESCORE: return "Measure Score";
+            case MEASUREOBSERVATION: return "Measure Observation";
             default: return "?";
           }
         }
@@ -407,8 +407,8 @@ public class Measure extends MetadataResource {
           return MeasurePopulationType.MEASUREPOPULATION;
         if ("measure-population-exclusion".equals(codeString))
           return MeasurePopulationType.MEASUREPOPULATIONEXCLUSION;
-        if ("measure-score".equals(codeString))
-          return MeasurePopulationType.MEASURESCORE;
+        if ("measure-observation".equals(codeString))
+          return MeasurePopulationType.MEASUREOBSERVATION;
         throw new IllegalArgumentException("Unknown MeasurePopulationType code '"+codeString+"'");
         }
         public Enumeration<MeasurePopulationType> fromType(Base code) throws FHIRException {
@@ -433,8 +433,8 @@ public class Measure extends MetadataResource {
           return new Enumeration<MeasurePopulationType>(this, MeasurePopulationType.MEASUREPOPULATION);
         if ("measure-population-exclusion".equals(codeString))
           return new Enumeration<MeasurePopulationType>(this, MeasurePopulationType.MEASUREPOPULATIONEXCLUSION);
-        if ("measure-score".equals(codeString))
-          return new Enumeration<MeasurePopulationType>(this, MeasurePopulationType.MEASURESCORE);
+        if ("measure-observation".equals(codeString))
+          return new Enumeration<MeasurePopulationType>(this, MeasurePopulationType.MEASUREOBSERVATION);
         throw new FHIRException("Unknown MeasurePopulationType code '"+codeString+"'");
         }
     public String toCode(MeasurePopulationType code) {
@@ -454,8 +454,8 @@ public class Measure extends MetadataResource {
         return "measure-population";
       if (code == MeasurePopulationType.MEASUREPOPULATIONEXCLUSION)
         return "measure-population-exclusion";
-      if (code == MeasurePopulationType.MEASURESCORE)
-        return "measure-score";
+      if (code == MeasurePopulationType.MEASUREOBSERVATION)
+        return "measure-observation";
       return "?";
       }
     public String toSystem(MeasurePopulationType code) {
@@ -972,8 +972,9 @@ public class Measure extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, name, description
-          , population, stratifier);
+        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (name == null || name.isEmpty())
+           && (description == null || description.isEmpty()) && (population == null || population.isEmpty())
+           && (stratifier == null || stratifier.isEmpty());
       }
 
   public String fhirType() {
@@ -989,7 +990,7 @@ public class Measure extends MetadataResource {
          * The type of population criteria.
          */
         @Child(name = "type", type = {CodeType.class}, order=1, min=1, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="initial-population | numerator | numerator-exclusion | denominator | denominator-exclusion | denominator-exception | measure-population | measure-population-exclusion | measure-score", formalDefinition="The type of population criteria." )
+        @Description(shortDefinition="initial-population | numerator | numerator-exclusion | denominator | denominator-exclusion | denominator-exception | measure-population | measure-population-exclusion | measure-observation", formalDefinition="The type of population criteria." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/measure-population")
         protected Enumeration<MeasurePopulationType> type;
 
@@ -1382,8 +1383,9 @@ public class Measure extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(type, identifier, name, description
-          , criteria);
+        return super.isEmpty() && (type == null || type.isEmpty()) && (identifier == null || identifier.isEmpty())
+           && (name == null || name.isEmpty()) && (description == null || description.isEmpty()) && (criteria == null || criteria.isEmpty())
+          ;
       }
 
   public String fhirType() {
@@ -1660,8 +1662,8 @@ public class Measure extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, criteria, path
-          );
+        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (criteria == null || criteria.isEmpty())
+           && (path == null || path.isEmpty());
       }
 
   public String fhirType() {
@@ -2024,8 +2026,8 @@ public class Measure extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, usage, criteria
-          , path);
+        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (usage == null || usage.isEmpty())
+           && (criteria == null || criteria.isEmpty()) && (path == null || path.isEmpty());
       }
 
   public String fhirType() {
@@ -4600,11 +4602,18 @@ public class Measure extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, purpose, usage
-          , approvalDate, lastReviewDate, effectivePeriod, topic, contributor, copyright, relatedArtifact
-          , library, disclaimer, scoring, type, riskAdjustment, rateAggregation, rationale
-          , clinicalRecommendationStatement, improvementNotation, definition, guidance, set
-          , group, supplementalData);
+        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (purpose == null || purpose.isEmpty())
+           && (usage == null || usage.isEmpty()) && (approvalDate == null || approvalDate.isEmpty())
+           && (lastReviewDate == null || lastReviewDate.isEmpty()) && (effectivePeriod == null || effectivePeriod.isEmpty())
+           && (topic == null || topic.isEmpty()) && (contributor == null || contributor.isEmpty()) && (copyright == null || copyright.isEmpty())
+           && (relatedArtifact == null || relatedArtifact.isEmpty()) && (library == null || library.isEmpty())
+           && (disclaimer == null || disclaimer.isEmpty()) && (scoring == null || scoring.isEmpty())
+           && (type == null || type.isEmpty()) && (riskAdjustment == null || riskAdjustment.isEmpty())
+           && (rateAggregation == null || rateAggregation.isEmpty()) && (rationale == null || rationale.isEmpty())
+           && (clinicalRecommendationStatement == null || clinicalRecommendationStatement.isEmpty())
+           && (improvementNotation == null || improvementNotation.isEmpty()) && (definition == null || definition.isEmpty())
+           && (guidance == null || guidance.isEmpty()) && (set == null || set.isEmpty()) && (group == null || group.isEmpty())
+           && (supplementalData == null || supplementalData.isEmpty());
       }
 
   @Override

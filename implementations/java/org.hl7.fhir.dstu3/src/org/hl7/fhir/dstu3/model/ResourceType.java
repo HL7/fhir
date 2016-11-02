@@ -2,12 +2,11 @@ package org.hl7.fhir.dstu3.model;
 
 import org.hl7.fhir.exceptions.FHIRException;
 
-// Generated on Fri, Oct 21, 2016 09:09+1100 for FHIR v1.7.0
+// Generated on Tue, Nov 1, 2016 18:35-0400 for FHIR v1.7.0
 
 public enum ResourceType {
     Account,
     ActivityDefinition,
-    ActivityGroup,
     AllergyIntolerance,
     Appointment,
     AppointmentResponse,
@@ -33,7 +32,6 @@ public enum ResourceType {
     Contract,
     Coverage,
     DataElement,
-    DecisionSupportServiceModule,
     DetectedIssue,
     Device,
     DeviceComponent,
@@ -74,7 +72,7 @@ public enum ResourceType {
     Medication,
     MedicationAdministration,
     MedicationDispense,
-    MedicationOrder,
+    MedicationRequest,
     MedicationStatement,
     MessageHeader,
     NamingSystem,
@@ -100,6 +98,7 @@ public enum ResourceType {
     QuestionnaireResponse,
     ReferralRequest,
     RelatedPerson,
+    RequestGroup,
     RiskAssessment,
     Schedule,
     SearchParameter,
@@ -126,8 +125,6 @@ public enum ResourceType {
       return "account";
     case ActivityDefinition:
       return "activitydefinition";
-    case ActivityGroup:
-      return "activitygroup";
     case AllergyIntolerance:
       return "allergyintolerance";
     case Appointment:
@@ -178,8 +175,6 @@ public enum ResourceType {
       return "coverage";
     case DataElement:
       return "dataelement";
-    case DecisionSupportServiceModule:
-      return "decisionsupportservicemodule";
     case DetectedIssue:
       return "detectedissue";
     case Device:
@@ -260,8 +255,8 @@ public enum ResourceType {
       return "medicationadministration";
     case MedicationDispense:
       return "medicationdispense";
-    case MedicationOrder:
-      return "medicationorder";
+    case MedicationRequest:
+      return "medicationrequest";
     case MedicationStatement:
       return "medicationstatement";
     case MessageHeader:
@@ -312,6 +307,8 @@ public enum ResourceType {
       return "referralrequest";
     case RelatedPerson:
       return "relatedperson";
+    case RequestGroup:
+      return "requestgroup";
     case RiskAssessment:
       return "riskassessment";
     case Schedule:
@@ -358,8 +355,6 @@ public enum ResourceType {
       return Account;
     if ("ActivityDefinition".equals(code))
       return ActivityDefinition;
-    if ("ActivityGroup".equals(code))
-      return ActivityGroup;
     if ("AllergyIntolerance".equals(code))
       return AllergyIntolerance;
     if ("Appointment".equals(code))
@@ -410,8 +405,6 @@ public enum ResourceType {
       return Coverage;
     if ("DataElement".equals(code))
       return DataElement;
-    if ("DecisionSupportServiceModule".equals(code))
-      return DecisionSupportServiceModule;
     if ("DetectedIssue".equals(code))
       return DetectedIssue;
     if ("Device".equals(code))
@@ -492,8 +485,8 @@ public enum ResourceType {
       return MedicationAdministration;
     if ("MedicationDispense".equals(code))
       return MedicationDispense;
-    if ("MedicationOrder".equals(code))
-      return MedicationOrder;
+    if ("MedicationRequest".equals(code))
+      return MedicationRequest;
     if ("MedicationStatement".equals(code))
       return MedicationStatement;
     if ("MessageHeader".equals(code))
@@ -544,6 +537,8 @@ public enum ResourceType {
       return ReferralRequest;
     if ("RelatedPerson".equals(code))
       return RelatedPerson;
+    if ("RequestGroup".equals(code))
+      return RequestGroup;
     if ("RiskAssessment".equals(code))
       return RiskAssessment;
     if ("Schedule".equals(code))

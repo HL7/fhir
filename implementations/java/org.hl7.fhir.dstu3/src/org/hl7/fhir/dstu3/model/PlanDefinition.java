@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Oct 21, 2016 09:09+1100 for FHIR v1.7.0
+// Generated on Tue, Nov 1, 2016 18:35-0400 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -51,17 +51,41 @@ public class PlanDefinition extends MetadataResource {
 
     public enum PlanActionRelationshipType {
         /**
+         * The action must be performed before the start of the related action
+         */
+        BEFORESTART, 
+        /**
          * The action must be performed before the related action
          */
         BEFORE, 
+        /**
+         * The action must be performed before the end of the related action
+         */
+        BEFOREEND, 
+        /**
+         * The action must be performed concurrent with the start of the related action
+         */
+        CONCURRENTWITHSTART, 
+        /**
+         * The action must be performed concurrent with the related action
+         */
+        CONCURRENT, 
+        /**
+         * The action must be performed concurrent with the end of the related action
+         */
+        CONCURRENTWITHEND, 
+        /**
+         * The action must be performed after the start of the related action
+         */
+        AFTERSTART, 
         /**
          * The action must be performed after the related action
          */
         AFTER, 
         /**
-         * The action must be performed concurrent with the related action
+         * The action must be performed after the end of the related action
          */
-        CONCURRENT, 
+        AFTEREND, 
         /**
          * added to help the parsers with the generic types
          */
@@ -69,12 +93,24 @@ public class PlanDefinition extends MetadataResource {
         public static PlanActionRelationshipType fromCode(String codeString) throws FHIRException {
             if (codeString == null || "".equals(codeString))
                 return null;
+        if ("before-start".equals(codeString))
+          return BEFORESTART;
         if ("before".equals(codeString))
           return BEFORE;
-        if ("after".equals(codeString))
-          return AFTER;
+        if ("before-end".equals(codeString))
+          return BEFOREEND;
+        if ("concurrent-with-start".equals(codeString))
+          return CONCURRENTWITHSTART;
         if ("concurrent".equals(codeString))
           return CONCURRENT;
+        if ("concurrent-with-end".equals(codeString))
+          return CONCURRENTWITHEND;
+        if ("after-start".equals(codeString))
+          return AFTERSTART;
+        if ("after".equals(codeString))
+          return AFTER;
+        if ("after-end".equals(codeString))
+          return AFTEREND;
         if (Configuration.isAcceptInvalidEnums())
           return null;
         else
@@ -82,33 +118,57 @@ public class PlanDefinition extends MetadataResource {
         }
         public String toCode() {
           switch (this) {
+            case BEFORESTART: return "before-start";
             case BEFORE: return "before";
-            case AFTER: return "after";
+            case BEFOREEND: return "before-end";
+            case CONCURRENTWITHSTART: return "concurrent-with-start";
             case CONCURRENT: return "concurrent";
+            case CONCURRENTWITHEND: return "concurrent-with-end";
+            case AFTERSTART: return "after-start";
+            case AFTER: return "after";
+            case AFTEREND: return "after-end";
             default: return "?";
           }
         }
         public String getSystem() {
           switch (this) {
+            case BEFORESTART: return "http://hl7.org/fhir/action-relationship-type";
             case BEFORE: return "http://hl7.org/fhir/action-relationship-type";
-            case AFTER: return "http://hl7.org/fhir/action-relationship-type";
+            case BEFOREEND: return "http://hl7.org/fhir/action-relationship-type";
+            case CONCURRENTWITHSTART: return "http://hl7.org/fhir/action-relationship-type";
             case CONCURRENT: return "http://hl7.org/fhir/action-relationship-type";
+            case CONCURRENTWITHEND: return "http://hl7.org/fhir/action-relationship-type";
+            case AFTERSTART: return "http://hl7.org/fhir/action-relationship-type";
+            case AFTER: return "http://hl7.org/fhir/action-relationship-type";
+            case AFTEREND: return "http://hl7.org/fhir/action-relationship-type";
             default: return "?";
           }
         }
         public String getDefinition() {
           switch (this) {
+            case BEFORESTART: return "The action must be performed before the start of the related action";
             case BEFORE: return "The action must be performed before the related action";
-            case AFTER: return "The action must be performed after the related action";
+            case BEFOREEND: return "The action must be performed before the end of the related action";
+            case CONCURRENTWITHSTART: return "The action must be performed concurrent with the start of the related action";
             case CONCURRENT: return "The action must be performed concurrent with the related action";
+            case CONCURRENTWITHEND: return "The action must be performed concurrent with the end of the related action";
+            case AFTERSTART: return "The action must be performed after the start of the related action";
+            case AFTER: return "The action must be performed after the related action";
+            case AFTEREND: return "The action must be performed after the end of the related action";
             default: return "?";
           }
         }
         public String getDisplay() {
           switch (this) {
+            case BEFORESTART: return "Before Start";
             case BEFORE: return "Before";
-            case AFTER: return "After";
+            case BEFOREEND: return "Before End";
+            case CONCURRENTWITHSTART: return "Concurrent With Start";
             case CONCURRENT: return "Concurrent";
+            case CONCURRENTWITHEND: return "Concurrent With End";
+            case AFTERSTART: return "After Start";
+            case AFTER: return "After";
+            case AFTEREND: return "After End";
             default: return "?";
           }
         }
@@ -119,12 +179,24 @@ public class PlanDefinition extends MetadataResource {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
+        if ("before-start".equals(codeString))
+          return PlanActionRelationshipType.BEFORESTART;
         if ("before".equals(codeString))
           return PlanActionRelationshipType.BEFORE;
-        if ("after".equals(codeString))
-          return PlanActionRelationshipType.AFTER;
+        if ("before-end".equals(codeString))
+          return PlanActionRelationshipType.BEFOREEND;
+        if ("concurrent-with-start".equals(codeString))
+          return PlanActionRelationshipType.CONCURRENTWITHSTART;
         if ("concurrent".equals(codeString))
           return PlanActionRelationshipType.CONCURRENT;
+        if ("concurrent-with-end".equals(codeString))
+          return PlanActionRelationshipType.CONCURRENTWITHEND;
+        if ("after-start".equals(codeString))
+          return PlanActionRelationshipType.AFTERSTART;
+        if ("after".equals(codeString))
+          return PlanActionRelationshipType.AFTER;
+        if ("after-end".equals(codeString))
+          return PlanActionRelationshipType.AFTEREND;
         throw new IllegalArgumentException("Unknown PlanActionRelationshipType code '"+codeString+"'");
         }
         public Enumeration<PlanActionRelationshipType> fromType(Base code) throws FHIRException {
@@ -133,114 +205,48 @@ public class PlanDefinition extends MetadataResource {
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
+        if ("before-start".equals(codeString))
+          return new Enumeration<PlanActionRelationshipType>(this, PlanActionRelationshipType.BEFORESTART);
         if ("before".equals(codeString))
           return new Enumeration<PlanActionRelationshipType>(this, PlanActionRelationshipType.BEFORE);
-        if ("after".equals(codeString))
-          return new Enumeration<PlanActionRelationshipType>(this, PlanActionRelationshipType.AFTER);
+        if ("before-end".equals(codeString))
+          return new Enumeration<PlanActionRelationshipType>(this, PlanActionRelationshipType.BEFOREEND);
+        if ("concurrent-with-start".equals(codeString))
+          return new Enumeration<PlanActionRelationshipType>(this, PlanActionRelationshipType.CONCURRENTWITHSTART);
         if ("concurrent".equals(codeString))
           return new Enumeration<PlanActionRelationshipType>(this, PlanActionRelationshipType.CONCURRENT);
+        if ("concurrent-with-end".equals(codeString))
+          return new Enumeration<PlanActionRelationshipType>(this, PlanActionRelationshipType.CONCURRENTWITHEND);
+        if ("after-start".equals(codeString))
+          return new Enumeration<PlanActionRelationshipType>(this, PlanActionRelationshipType.AFTERSTART);
+        if ("after".equals(codeString))
+          return new Enumeration<PlanActionRelationshipType>(this, PlanActionRelationshipType.AFTER);
+        if ("after-end".equals(codeString))
+          return new Enumeration<PlanActionRelationshipType>(this, PlanActionRelationshipType.AFTEREND);
         throw new FHIRException("Unknown PlanActionRelationshipType code '"+codeString+"'");
         }
     public String toCode(PlanActionRelationshipType code) {
+      if (code == PlanActionRelationshipType.BEFORESTART)
+        return "before-start";
       if (code == PlanActionRelationshipType.BEFORE)
         return "before";
-      if (code == PlanActionRelationshipType.AFTER)
-        return "after";
+      if (code == PlanActionRelationshipType.BEFOREEND)
+        return "before-end";
+      if (code == PlanActionRelationshipType.CONCURRENTWITHSTART)
+        return "concurrent-with-start";
       if (code == PlanActionRelationshipType.CONCURRENT)
         return "concurrent";
+      if (code == PlanActionRelationshipType.CONCURRENTWITHEND)
+        return "concurrent-with-end";
+      if (code == PlanActionRelationshipType.AFTERSTART)
+        return "after-start";
+      if (code == PlanActionRelationshipType.AFTER)
+        return "after";
+      if (code == PlanActionRelationshipType.AFTEREND)
+        return "after-end";
       return "?";
       }
     public String toSystem(PlanActionRelationshipType code) {
-      return code.getSystem();
-      }
-    }
-
-    public enum PlanActionRelationshipAnchor {
-        /**
-         * The action relationship is anchored to the start of the related action
-         */
-        START, 
-        /**
-         * The action relationship is anchored to the end of the related action
-         */
-        END, 
-        /**
-         * added to help the parsers with the generic types
-         */
-        NULL;
-        public static PlanActionRelationshipAnchor fromCode(String codeString) throws FHIRException {
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("start".equals(codeString))
-          return START;
-        if ("end".equals(codeString))
-          return END;
-        if (Configuration.isAcceptInvalidEnums())
-          return null;
-        else
-          throw new FHIRException("Unknown PlanActionRelationshipAnchor code '"+codeString+"'");
-        }
-        public String toCode() {
-          switch (this) {
-            case START: return "start";
-            case END: return "end";
-            default: return "?";
-          }
-        }
-        public String getSystem() {
-          switch (this) {
-            case START: return "http://hl7.org/fhir/action-relationship-anchor";
-            case END: return "http://hl7.org/fhir/action-relationship-anchor";
-            default: return "?";
-          }
-        }
-        public String getDefinition() {
-          switch (this) {
-            case START: return "The action relationship is anchored to the start of the related action";
-            case END: return "The action relationship is anchored to the end of the related action";
-            default: return "?";
-          }
-        }
-        public String getDisplay() {
-          switch (this) {
-            case START: return "Start";
-            case END: return "End";
-            default: return "?";
-          }
-        }
-    }
-
-  public static class PlanActionRelationshipAnchorEnumFactory implements EnumFactory<PlanActionRelationshipAnchor> {
-    public PlanActionRelationshipAnchor fromCode(String codeString) throws IllegalArgumentException {
-      if (codeString == null || "".equals(codeString))
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("start".equals(codeString))
-          return PlanActionRelationshipAnchor.START;
-        if ("end".equals(codeString))
-          return PlanActionRelationshipAnchor.END;
-        throw new IllegalArgumentException("Unknown PlanActionRelationshipAnchor code '"+codeString+"'");
-        }
-        public Enumeration<PlanActionRelationshipAnchor> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
-            return null;
-          String codeString = ((PrimitiveType) code).asStringValue();
-          if (codeString == null || "".equals(codeString))
-            return null;
-        if ("start".equals(codeString))
-          return new Enumeration<PlanActionRelationshipAnchor>(this, PlanActionRelationshipAnchor.START);
-        if ("end".equals(codeString))
-          return new Enumeration<PlanActionRelationshipAnchor>(this, PlanActionRelationshipAnchor.END);
-        throw new FHIRException("Unknown PlanActionRelationshipAnchor code '"+codeString+"'");
-        }
-    public String toCode(PlanActionRelationshipAnchor code) {
-      if (code == PlanActionRelationshipAnchor.START)
-        return "start";
-      if (code == PlanActionRelationshipAnchor.END)
-        return "end";
-      return "?";
-      }
-    public String toSystem(PlanActionRelationshipAnchor code) {
       return code.getSystem();
       }
     }
@@ -937,9 +943,9 @@ public class PlanDefinition extends MetadataResource {
         /**
          * The concept represented by this action or its sub-actions.
          */
-        @Child(name = "concept", type = {CodeableConcept.class}, order=6, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Child(name = "code", type = {CodeableConcept.class}, order=6, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="The meaning of the action or its sub-actions", formalDefinition="The concept represented by this action or its sub-actions." )
-        protected List<CodeableConcept> concept;
+        protected List<CodeableConcept> code;
 
         /**
          * Didactic or other informational resources associated with the action that can be provided to the CDS recipient. Information resources can include inline text commentary and links to web resources.
@@ -1070,7 +1076,7 @@ public class PlanDefinition extends MetadataResource {
         @Description(shortDefinition="A sub-action", formalDefinition="Sub actions that are contained within the action. The behavior of this action determines the functionality of the sub-actions. For example, a selection behavior of at-most-one indicates that of the sub-actions, at most one may be chosen as part of realizing the action definition." )
         protected List<PlanDefinitionActionDefinitionComponent> actionDefinition;
 
-        private static final long serialVersionUID = 1588230469L;
+        private static final long serialVersionUID = -1445789672L;
 
     /**
      * Constructor
@@ -1300,56 +1306,56 @@ public class PlanDefinition extends MetadataResource {
         }
 
         /**
-         * @return {@link #concept} (The concept represented by this action or its sub-actions.)
+         * @return {@link #code} (The concept represented by this action or its sub-actions.)
          */
-        public List<CodeableConcept> getConcept() { 
-          if (this.concept == null)
-            this.concept = new ArrayList<CodeableConcept>();
-          return this.concept;
+        public List<CodeableConcept> getCode() { 
+          if (this.code == null)
+            this.code = new ArrayList<CodeableConcept>();
+          return this.code;
         }
 
         /**
          * @return Returns a reference to <code>this</code> for easy method chaining
          */
-        public PlanDefinitionActionDefinitionComponent setConcept(List<CodeableConcept> theConcept) { 
-          this.concept = theConcept;
+        public PlanDefinitionActionDefinitionComponent setCode(List<CodeableConcept> theCode) { 
+          this.code = theCode;
           return this;
         }
 
-        public boolean hasConcept() { 
-          if (this.concept == null)
+        public boolean hasCode() { 
+          if (this.code == null)
             return false;
-          for (CodeableConcept item : this.concept)
+          for (CodeableConcept item : this.code)
             if (!item.isEmpty())
               return true;
           return false;
         }
 
-        public CodeableConcept addConcept() { //3
+        public CodeableConcept addCode() { //3
           CodeableConcept t = new CodeableConcept();
-          if (this.concept == null)
-            this.concept = new ArrayList<CodeableConcept>();
-          this.concept.add(t);
+          if (this.code == null)
+            this.code = new ArrayList<CodeableConcept>();
+          this.code.add(t);
           return t;
         }
 
-        public PlanDefinitionActionDefinitionComponent addConcept(CodeableConcept t) { //3
+        public PlanDefinitionActionDefinitionComponent addCode(CodeableConcept t) { //3
           if (t == null)
             return this;
-          if (this.concept == null)
-            this.concept = new ArrayList<CodeableConcept>();
-          this.concept.add(t);
+          if (this.code == null)
+            this.code = new ArrayList<CodeableConcept>();
+          this.code.add(t);
           return this;
         }
 
         /**
-         * @return The first repetition of repeating field {@link #concept}, creating it if it does not already exist
+         * @return The first repetition of repeating field {@link #code}, creating it if it does not already exist
          */
-        public CodeableConcept getConceptFirstRep() { 
-          if (getConcept().isEmpty()) {
-            addConcept();
+        public CodeableConcept getCodeFirstRep() { 
+          if (getCode().isEmpty()) {
+            addCode();
           }
-          return getConcept().get(0);
+          return getCode().get(0);
         }
 
         /**
@@ -2150,7 +2156,7 @@ public class PlanDefinition extends MetadataResource {
           childrenList.add(new Property("title", "string", "The title of the action displayed to a user.", 0, java.lang.Integer.MAX_VALUE, title));
           childrenList.add(new Property("description", "string", "A short description of the action used to provide a summary to display to the user.", 0, java.lang.Integer.MAX_VALUE, description));
           childrenList.add(new Property("textEquivalent", "string", "A text equivalent of the action to be performed. This provides a human-interpretable description of the action when the definition is consumed by a system that may not be capable of interpreting it dynamically.", 0, java.lang.Integer.MAX_VALUE, textEquivalent));
-          childrenList.add(new Property("concept", "CodeableConcept", "The concept represented by this action or its sub-actions.", 0, java.lang.Integer.MAX_VALUE, concept));
+          childrenList.add(new Property("code", "CodeableConcept", "The concept represented by this action or its sub-actions.", 0, java.lang.Integer.MAX_VALUE, code));
           childrenList.add(new Property("documentation", "RelatedArtifact", "Didactic or other informational resources associated with the action that can be provided to the CDS recipient. Information resources can include inline text commentary and links to web resources.", 0, java.lang.Integer.MAX_VALUE, documentation));
           childrenList.add(new Property("triggerDefinition", "TriggerDefinition", "A description of when the action should be triggered.", 0, java.lang.Integer.MAX_VALUE, triggerDefinition));
           childrenList.add(new Property("condition", "", "An expression specifying whether or not the action is applicable in a given context.", 0, java.lang.Integer.MAX_VALUE, condition));
@@ -2177,7 +2183,7 @@ public class PlanDefinition extends MetadataResource {
         case 110371416: /*title*/ return this.title == null ? new Base[0] : new Base[] {this.title}; // StringType
         case -1724546052: /*description*/ return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
         case -900391049: /*textEquivalent*/ return this.textEquivalent == null ? new Base[0] : new Base[] {this.textEquivalent}; // StringType
-        case 951024232: /*concept*/ return this.concept == null ? new Base[0] : this.concept.toArray(new Base[this.concept.size()]); // CodeableConcept
+        case 3059181: /*code*/ return this.code == null ? new Base[0] : this.code.toArray(new Base[this.code.size()]); // CodeableConcept
         case 1587405498: /*documentation*/ return this.documentation == null ? new Base[0] : this.documentation.toArray(new Base[this.documentation.size()]); // RelatedArtifact
         case 1126736171: /*triggerDefinition*/ return this.triggerDefinition == null ? new Base[0] : this.triggerDefinition.toArray(new Base[this.triggerDefinition.size()]); // TriggerDefinition
         case -861311717: /*condition*/ return this.condition == null ? new Base[0] : new Base[] {this.condition}; // PlanDefinitionActionDefinitionConditionComponent
@@ -2217,8 +2223,8 @@ public class PlanDefinition extends MetadataResource {
         case -900391049: // textEquivalent
           this.textEquivalent = castToString(value); // StringType
           break;
-        case 951024232: // concept
-          this.getConcept().add(castToCodeableConcept(value)); // CodeableConcept
+        case 3059181: // code
+          this.getCode().add(castToCodeableConcept(value)); // CodeableConcept
           break;
         case 1587405498: // documentation
           this.getDocumentation().add(castToRelatedArtifact(value)); // RelatedArtifact
@@ -2285,8 +2291,8 @@ public class PlanDefinition extends MetadataResource {
           this.description = castToString(value); // StringType
         else if (name.equals("textEquivalent"))
           this.textEquivalent = castToString(value); // StringType
-        else if (name.equals("concept"))
-          this.getConcept().add(castToCodeableConcept(value));
+        else if (name.equals("code"))
+          this.getCode().add(castToCodeableConcept(value));
         else if (name.equals("documentation"))
           this.getDocumentation().add(castToRelatedArtifact(value));
         else if (name.equals("triggerDefinition"))
@@ -2331,7 +2337,7 @@ public class PlanDefinition extends MetadataResource {
         case 110371416: throw new FHIRException("Cannot make property title as it is not a complex type"); // StringType
         case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
         case -900391049: throw new FHIRException("Cannot make property textEquivalent as it is not a complex type"); // StringType
-        case 951024232:  return addConcept(); // CodeableConcept
+        case 3059181:  return addCode(); // CodeableConcept
         case 1587405498:  return addDocumentation(); // RelatedArtifact
         case 1126736171:  return addTriggerDefinition(); // TriggerDefinition
         case -861311717:  return getCondition(); // PlanDefinitionActionDefinitionConditionComponent
@@ -2371,8 +2377,8 @@ public class PlanDefinition extends MetadataResource {
         else if (name.equals("textEquivalent")) {
           throw new FHIRException("Cannot call addChild on a primitive type PlanDefinition.textEquivalent");
         }
-        else if (name.equals("concept")) {
-          return addConcept();
+        else if (name.equals("code")) {
+          return addCode();
         }
         else if (name.equals("documentation")) {
           return addDocumentation();
@@ -2455,10 +2461,10 @@ public class PlanDefinition extends MetadataResource {
         dst.title = title == null ? null : title.copy();
         dst.description = description == null ? null : description.copy();
         dst.textEquivalent = textEquivalent == null ? null : textEquivalent.copy();
-        if (concept != null) {
-          dst.concept = new ArrayList<CodeableConcept>();
-          for (CodeableConcept i : concept)
-            dst.concept.add(i.copy());
+        if (code != null) {
+          dst.code = new ArrayList<CodeableConcept>();
+          for (CodeableConcept i : code)
+            dst.code.add(i.copy());
         };
         if (documentation != null) {
           dst.documentation = new ArrayList<RelatedArtifact>();
@@ -2512,7 +2518,7 @@ public class PlanDefinition extends MetadataResource {
         PlanDefinitionActionDefinitionComponent o = (PlanDefinitionActionDefinitionComponent) other;
         return compareDeep(actionIdentifier, o.actionIdentifier, true) && compareDeep(label, o.label, true)
            && compareDeep(title, o.title, true) && compareDeep(description, o.description, true) && compareDeep(textEquivalent, o.textEquivalent, true)
-           && compareDeep(concept, o.concept, true) && compareDeep(documentation, o.documentation, true) && compareDeep(triggerDefinition, o.triggerDefinition, true)
+           && compareDeep(code, o.code, true) && compareDeep(documentation, o.documentation, true) && compareDeep(triggerDefinition, o.triggerDefinition, true)
            && compareDeep(condition, o.condition, true) && compareDeep(relatedAction, o.relatedAction, true)
            && compareDeep(timing, o.timing, true) && compareDeep(participantType, o.participantType, true)
            && compareDeep(type, o.type, true) && compareDeep(groupingBehavior, o.groupingBehavior, true) && compareDeep(selectionBehavior, o.selectionBehavior, true)
@@ -2537,11 +2543,17 @@ public class PlanDefinition extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(actionIdentifier, label, title
-          , description, textEquivalent, concept, documentation, triggerDefinition, condition
-          , relatedAction, timing, participantType, type, groupingBehavior, selectionBehavior
-          , requiredBehavior, precheckBehavior, cardinalityBehavior, activityDefinition, transform
-          , dynamicValue, actionDefinition);
+        return super.isEmpty() && (actionIdentifier == null || actionIdentifier.isEmpty()) && (label == null || label.isEmpty())
+           && (title == null || title.isEmpty()) && (description == null || description.isEmpty()) && (textEquivalent == null || textEquivalent.isEmpty())
+           && (code == null || code.isEmpty()) && (documentation == null || documentation.isEmpty())
+           && (triggerDefinition == null || triggerDefinition.isEmpty()) && (condition == null || condition.isEmpty())
+           && (relatedAction == null || relatedAction.isEmpty()) && (timing == null || timing.isEmpty())
+           && (participantType == null || participantType.isEmpty()) && (type == null || type.isEmpty())
+           && (groupingBehavior == null || groupingBehavior.isEmpty()) && (selectionBehavior == null || selectionBehavior.isEmpty())
+           && (requiredBehavior == null || requiredBehavior.isEmpty()) && (precheckBehavior == null || precheckBehavior.isEmpty())
+           && (cardinalityBehavior == null || cardinalityBehavior.isEmpty()) && (activityDefinition == null || activityDefinition.isEmpty())
+           && (transform == null || transform.isEmpty()) && (dynamicValue == null || dynamicValue.isEmpty())
+           && (actionDefinition == null || actionDefinition.isEmpty());
       }
 
   public String fhirType() {
@@ -2835,8 +2847,8 @@ public class PlanDefinition extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(description, language, expression
-          );
+        return super.isEmpty() && (description == null || description.isEmpty()) && (language == null || language.isEmpty())
+           && (expression == null || expression.isEmpty());
       }
 
   public String fhirType() {
@@ -2859,7 +2871,7 @@ public class PlanDefinition extends MetadataResource {
          * The relationship of this action to the related action.
          */
         @Child(name = "relationship", type = {CodeType.class}, order=2, min=1, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="before | after | concurrent", formalDefinition="The relationship of this action to the related action." )
+        @Description(shortDefinition="before-start | before | before-end | concurrent-with-start | concurrent | concurrent-with-end | after-start | after | after-end", formalDefinition="The relationship of this action to the related action." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/action-relationship-type")
         protected Enumeration<PlanActionRelationshipType> relationship;
 
@@ -2870,15 +2882,7 @@ public class PlanDefinition extends MetadataResource {
         @Description(shortDefinition="Time offset for the relationship", formalDefinition="A duration or range of durations to apply to the relationship. For example, 30-60 minutes before." )
         protected Type offset;
 
-        /**
-         * An optional indicator for how the relationship is anchored to the related action. For example "before the start" or "before the end" of the related action.
-         */
-        @Child(name = "anchor", type = {CodeType.class}, order=4, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="start | end", formalDefinition="An optional indicator for how the relationship is anchored to the related action. For example \"before the start\" or \"before the end\" of the related action." )
-        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/action-relationship-anchor")
-        protected Enumeration<PlanActionRelationshipAnchor> anchor;
-
-        private static final long serialVersionUID = -2079568789L;
+        private static final long serialVersionUID = -2131606397L;
 
     /**
      * Constructor
@@ -3010,61 +3014,11 @@ public class PlanDefinition extends MetadataResource {
           return this;
         }
 
-        /**
-         * @return {@link #anchor} (An optional indicator for how the relationship is anchored to the related action. For example "before the start" or "before the end" of the related action.). This is the underlying object with id, value and extensions. The accessor "getAnchor" gives direct access to the value
-         */
-        public Enumeration<PlanActionRelationshipAnchor> getAnchorElement() { 
-          if (this.anchor == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create PlanDefinitionActionDefinitionRelatedActionComponent.anchor");
-            else if (Configuration.doAutoCreate())
-              this.anchor = new Enumeration<PlanActionRelationshipAnchor>(new PlanActionRelationshipAnchorEnumFactory()); // bb
-          return this.anchor;
-        }
-
-        public boolean hasAnchorElement() { 
-          return this.anchor != null && !this.anchor.isEmpty();
-        }
-
-        public boolean hasAnchor() { 
-          return this.anchor != null && !this.anchor.isEmpty();
-        }
-
-        /**
-         * @param value {@link #anchor} (An optional indicator for how the relationship is anchored to the related action. For example "before the start" or "before the end" of the related action.). This is the underlying object with id, value and extensions. The accessor "getAnchor" gives direct access to the value
-         */
-        public PlanDefinitionActionDefinitionRelatedActionComponent setAnchorElement(Enumeration<PlanActionRelationshipAnchor> value) { 
-          this.anchor = value;
-          return this;
-        }
-
-        /**
-         * @return An optional indicator for how the relationship is anchored to the related action. For example "before the start" or "before the end" of the related action.
-         */
-        public PlanActionRelationshipAnchor getAnchor() { 
-          return this.anchor == null ? null : this.anchor.getValue();
-        }
-
-        /**
-         * @param value An optional indicator for how the relationship is anchored to the related action. For example "before the start" or "before the end" of the related action.
-         */
-        public PlanDefinitionActionDefinitionRelatedActionComponent setAnchor(PlanActionRelationshipAnchor value) { 
-          if (value == null)
-            this.anchor = null;
-          else {
-            if (this.anchor == null)
-              this.anchor = new Enumeration<PlanActionRelationshipAnchor>(new PlanActionRelationshipAnchorEnumFactory());
-            this.anchor.setValue(value);
-          }
-          return this;
-        }
-
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("actionIdentifier", "Identifier", "The unique identifier of the related action.", 0, java.lang.Integer.MAX_VALUE, actionIdentifier));
           childrenList.add(new Property("relationship", "code", "The relationship of this action to the related action.", 0, java.lang.Integer.MAX_VALUE, relationship));
           childrenList.add(new Property("offset[x]", "Duration|Range", "A duration or range of durations to apply to the relationship. For example, 30-60 minutes before.", 0, java.lang.Integer.MAX_VALUE, offset));
-          childrenList.add(new Property("anchor", "code", "An optional indicator for how the relationship is anchored to the related action. For example \"before the start\" or \"before the end\" of the related action.", 0, java.lang.Integer.MAX_VALUE, anchor));
         }
 
       @Override
@@ -3073,7 +3027,6 @@ public class PlanDefinition extends MetadataResource {
         case -889046145: /*actionIdentifier*/ return this.actionIdentifier == null ? new Base[0] : new Base[] {this.actionIdentifier}; // Identifier
         case -261851592: /*relationship*/ return this.relationship == null ? new Base[0] : new Base[] {this.relationship}; // Enumeration<PlanActionRelationshipType>
         case -1019779949: /*offset*/ return this.offset == null ? new Base[0] : new Base[] {this.offset}; // Type
-        case -1413299531: /*anchor*/ return this.anchor == null ? new Base[0] : new Base[] {this.anchor}; // Enumeration<PlanActionRelationshipAnchor>
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -3091,9 +3044,6 @@ public class PlanDefinition extends MetadataResource {
         case -1019779949: // offset
           this.offset = castToType(value); // Type
           break;
-        case -1413299531: // anchor
-          this.anchor = new PlanActionRelationshipAnchorEnumFactory().fromType(value); // Enumeration<PlanActionRelationshipAnchor>
-          break;
         default: super.setProperty(hash, name, value);
         }
 
@@ -3107,8 +3057,6 @@ public class PlanDefinition extends MetadataResource {
           this.relationship = new PlanActionRelationshipTypeEnumFactory().fromType(value); // Enumeration<PlanActionRelationshipType>
         else if (name.equals("offset[x]"))
           this.offset = castToType(value); // Type
-        else if (name.equals("anchor"))
-          this.anchor = new PlanActionRelationshipAnchorEnumFactory().fromType(value); // Enumeration<PlanActionRelationshipAnchor>
         else
           super.setProperty(name, value);
       }
@@ -3119,7 +3067,6 @@ public class PlanDefinition extends MetadataResource {
         case -889046145:  return getActionIdentifier(); // Identifier
         case -261851592: throw new FHIRException("Cannot make property relationship as it is not a complex type"); // Enumeration<PlanActionRelationshipType>
         case -1960684787:  return getOffset(); // Type
-        case -1413299531: throw new FHIRException("Cannot make property anchor as it is not a complex type"); // Enumeration<PlanActionRelationshipAnchor>
         default: return super.makeProperty(hash, name);
         }
 
@@ -3142,9 +3089,6 @@ public class PlanDefinition extends MetadataResource {
           this.offset = new Range();
           return this.offset;
         }
-        else if (name.equals("anchor")) {
-          throw new FHIRException("Cannot call addChild on a primitive type PlanDefinition.anchor");
-        }
         else
           return super.addChild(name);
       }
@@ -3155,7 +3099,6 @@ public class PlanDefinition extends MetadataResource {
         dst.actionIdentifier = actionIdentifier == null ? null : actionIdentifier.copy();
         dst.relationship = relationship == null ? null : relationship.copy();
         dst.offset = offset == null ? null : offset.copy();
-        dst.anchor = anchor == null ? null : anchor.copy();
         return dst;
       }
 
@@ -3167,7 +3110,7 @@ public class PlanDefinition extends MetadataResource {
           return false;
         PlanDefinitionActionDefinitionRelatedActionComponent o = (PlanDefinitionActionDefinitionRelatedActionComponent) other;
         return compareDeep(actionIdentifier, o.actionIdentifier, true) && compareDeep(relationship, o.relationship, true)
-           && compareDeep(offset, o.offset, true) && compareDeep(anchor, o.anchor, true);
+           && compareDeep(offset, o.offset, true);
       }
 
       @Override
@@ -3177,12 +3120,12 @@ public class PlanDefinition extends MetadataResource {
         if (!(other instanceof PlanDefinitionActionDefinitionRelatedActionComponent))
           return false;
         PlanDefinitionActionDefinitionRelatedActionComponent o = (PlanDefinitionActionDefinitionRelatedActionComponent) other;
-        return compareValues(relationship, o.relationship, true) && compareValues(anchor, o.anchor, true);
+        return compareValues(relationship, o.relationship, true);
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(actionIdentifier, relationship
-          , offset, anchor);
+        return super.isEmpty() && (actionIdentifier == null || actionIdentifier.isEmpty()) && (relationship == null || relationship.isEmpty())
+           && (offset == null || offset.isEmpty());
       }
 
   public String fhirType() {
@@ -3544,8 +3487,9 @@ public class PlanDefinition extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(description, path, language
-          , expression);
+        return super.isEmpty() && (description == null || description.isEmpty()) && (path == null || path.isEmpty())
+           && (language == null || language.isEmpty()) && (expression == null || expression.isEmpty())
+          ;
       }
 
   public String fhirType() {
@@ -5315,9 +5259,12 @@ public class PlanDefinition extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, type, purpose
-          , usage, approvalDate, lastReviewDate, effectivePeriod, topic, contributor, copyright
-          , relatedArtifact, library, actionDefinition);
+        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (type == null || type.isEmpty())
+           && (purpose == null || purpose.isEmpty()) && (usage == null || usage.isEmpty()) && (approvalDate == null || approvalDate.isEmpty())
+           && (lastReviewDate == null || lastReviewDate.isEmpty()) && (effectivePeriod == null || effectivePeriod.isEmpty())
+           && (topic == null || topic.isEmpty()) && (contributor == null || contributor.isEmpty()) && (copyright == null || copyright.isEmpty())
+           && (relatedArtifact == null || relatedArtifact.isEmpty()) && (library == null || library.isEmpty())
+           && (actionDefinition == null || actionDefinition.isEmpty());
       }
 
   @Override

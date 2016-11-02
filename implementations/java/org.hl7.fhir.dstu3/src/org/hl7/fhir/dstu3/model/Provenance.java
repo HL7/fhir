@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Oct 21, 2016 09:09+1100 for FHIR v1.7.0
+// Generated on Tue, Nov 1, 2016 18:35-0400 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -502,8 +502,9 @@ public class Provenance extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(role, actor, userId, relatedAgent
-          );
+        return super.isEmpty() && (role == null || role.isEmpty()) && (actor == null || actor.isEmpty())
+           && (userId == null || userId.isEmpty()) && (relatedAgent == null || relatedAgent.isEmpty())
+          ;
       }
 
   public String fhirType() {
@@ -709,7 +710,8 @@ public class Provenance extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(type, target);
+        return super.isEmpty() && (type == null || type.isEmpty()) && (target == null || target.isEmpty())
+          ;
       }
 
   public String fhirType() {
@@ -1127,8 +1129,9 @@ public class Provenance extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(role, type, reference, display
-          , agent);
+        return super.isEmpty() && (role == null || role.isEmpty()) && (type == null || type.isEmpty())
+           && (reference == null || reference.isEmpty()) && (display == null || display.isEmpty()) && (agent == null || agent.isEmpty())
+          ;
       }
 
   public String fhirType() {
@@ -1936,8 +1939,10 @@ public class Provenance extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(target, period, recorded
-          , reason, activity, location, policy, agent, entity, signature);
+        return super.isEmpty() && (target == null || target.isEmpty()) && (period == null || period.isEmpty())
+           && (recorded == null || recorded.isEmpty()) && (reason == null || reason.isEmpty()) && (activity == null || activity.isEmpty())
+           && (location == null || location.isEmpty()) && (policy == null || policy.isEmpty()) && (agent == null || agent.isEmpty())
+           && (entity == null || entity.isEmpty()) && (signature == null || signature.isEmpty());
       }
 
   @Override

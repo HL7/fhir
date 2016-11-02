@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Oct 21, 2016 09:09+1100 for FHIR v1.7.0
+// Generated on Tue, Nov 1, 2016 18:35-0400 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -492,8 +492,8 @@ public class CompartmentDefinition extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(code, param, documentation
-          );
+        return super.isEmpty() && (code == null || code.isEmpty()) && (param == null || param.isEmpty())
+           && (documentation == null || documentation.isEmpty());
       }
 
   public String fhirType() {
@@ -1554,8 +1554,8 @@ public class CompartmentDefinition extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(purpose, code, search, resource
-          );
+        return super.isEmpty() && (purpose == null || purpose.isEmpty()) && (code == null || code.isEmpty())
+           && (search == null || search.isEmpty()) && (resource == null || resource.isEmpty());
       }
 
   @Override

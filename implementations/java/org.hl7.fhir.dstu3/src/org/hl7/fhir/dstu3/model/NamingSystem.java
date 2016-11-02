@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Oct 21, 2016 09:09+1100 for FHIR v1.7.0
+// Generated on Tue, Nov 1, 2016 18:35-0400 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -671,8 +671,9 @@ public class NamingSystem extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(type, value, preferred, comment
-          , period);
+        return super.isEmpty() && (type == null || type.isEmpty()) && (value == null || value.isEmpty())
+           && (preferred == null || preferred.isEmpty()) && (comment == null || comment.isEmpty()) && (period == null || period.isEmpty())
+          ;
       }
 
   public String fhirType() {
@@ -1672,8 +1673,9 @@ public class NamingSystem extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(kind, responsible, type
-          , usage, uniqueId, replacedBy);
+        return super.isEmpty() && (kind == null || kind.isEmpty()) && (responsible == null || responsible.isEmpty())
+           && (type == null || type.isEmpty()) && (usage == null || usage.isEmpty()) && (uniqueId == null || uniqueId.isEmpty())
+           && (replacedBy == null || replacedBy.isEmpty());
       }
 
   @Override

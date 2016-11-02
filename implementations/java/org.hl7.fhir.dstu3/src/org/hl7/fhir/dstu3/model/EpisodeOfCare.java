@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Oct 21, 2016 09:09+1100 for FHIR v1.7.0
+// Generated on Tue, Nov 1, 2016 18:35-0400 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -414,7 +414,8 @@ public class EpisodeOfCare extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(status, period);
+        return super.isEmpty() && (status == null || status.isEmpty()) && (period == null || period.isEmpty())
+          ;
       }
 
   public String fhirType() {
@@ -1478,9 +1479,12 @@ public class EpisodeOfCare extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, status, statusHistory
-          , type, condition, patient, managingOrganization, period, referralRequest, careManager
-          , team, account);
+        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (status == null || status.isEmpty())
+           && (statusHistory == null || statusHistory.isEmpty()) && (type == null || type.isEmpty())
+           && (condition == null || condition.isEmpty()) && (patient == null || patient.isEmpty()) && (managingOrganization == null || managingOrganization.isEmpty())
+           && (period == null || period.isEmpty()) && (referralRequest == null || referralRequest.isEmpty())
+           && (careManager == null || careManager.isEmpty()) && (team == null || team.isEmpty()) && (account == null || account.isEmpty())
+          ;
       }
 
   @Override

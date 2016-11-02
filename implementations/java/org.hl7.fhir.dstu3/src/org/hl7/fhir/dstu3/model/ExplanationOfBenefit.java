@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Oct 21, 2016 09:09+1100 for FHIR v1.7.0
+// Generated on Tue, Nov 1, 2016 18:35-0400 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -409,8 +409,8 @@ public class ExplanationOfBenefit extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(claim, relationship, reference
-          );
+        return super.isEmpty() && (claim == null || claim.isEmpty()) && (relationship == null || relationship.isEmpty())
+           && (reference == null || reference.isEmpty());
       }
 
   public String fhirType() {
@@ -658,8 +658,8 @@ public class ExplanationOfBenefit extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(type, resourceType, party
-          );
+        return super.isEmpty() && (type == null || type.isEmpty()) && (resourceType == null || resourceType.isEmpty())
+           && (party == null || party.isEmpty());
       }
 
   public String fhirType() {
@@ -984,8 +984,8 @@ public class ExplanationOfBenefit extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(category, code, timing, value
-          );
+        return super.isEmpty() && (category == null || category.isEmpty()) && (code == null || code.isEmpty())
+           && (timing == null || timing.isEmpty()) && (value == null || value.isEmpty());
       }
 
   public String fhirType() {
@@ -1314,8 +1314,8 @@ public class ExplanationOfBenefit extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(sequence, diagnosis, type
-          , drg);
+        return super.isEmpty() && (sequence == null || sequence.isEmpty()) && (diagnosis == null || diagnosis.isEmpty())
+           && (type == null || type.isEmpty()) && (drg == null || drg.isEmpty());
       }
 
   public String fhirType() {
@@ -1615,8 +1615,8 @@ public class ExplanationOfBenefit extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(sequence, date, procedure
-          );
+        return super.isEmpty() && (sequence == null || sequence.isEmpty()) && (date == null || date.isEmpty())
+           && (procedure == null || procedure.isEmpty());
       }
 
   public String fhirType() {
@@ -1857,7 +1857,8 @@ public class ExplanationOfBenefit extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(coverage, preAuthRef);
+        return super.isEmpty() && (coverage == null || coverage.isEmpty()) && (preAuthRef == null || preAuthRef.isEmpty())
+          ;
       }
 
   public String fhirType() {
@@ -2128,7 +2129,8 @@ public class ExplanationOfBenefit extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(date, type, location);
+        return super.isEmpty() && (date == null || date.isEmpty()) && (type == null || type.isEmpty())
+           && (location == null || location.isEmpty());
       }
 
   public String fhirType() {
@@ -3711,10 +3713,15 @@ public class ExplanationOfBenefit extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(sequence, careTeam, diagnosisLinkId
-          , revenue, category, service, modifier, programCode, serviced, location, quantity
-          , unitPrice, factor, points, net, udi, bodySite, subSite, noteNumber, adjudication
-          , detail, prosthesis);
+        return super.isEmpty() && (sequence == null || sequence.isEmpty()) && (careTeam == null || careTeam.isEmpty())
+           && (diagnosisLinkId == null || diagnosisLinkId.isEmpty()) && (revenue == null || revenue.isEmpty())
+           && (category == null || category.isEmpty()) && (service == null || service.isEmpty()) && (modifier == null || modifier.isEmpty())
+           && (programCode == null || programCode.isEmpty()) && (serviced == null || serviced.isEmpty())
+           && (location == null || location.isEmpty()) && (quantity == null || quantity.isEmpty()) && (unitPrice == null || unitPrice.isEmpty())
+           && (factor == null || factor.isEmpty()) && (points == null || points.isEmpty()) && (net == null || net.isEmpty())
+           && (udi == null || udi.isEmpty()) && (bodySite == null || bodySite.isEmpty()) && (subSite == null || subSite.isEmpty())
+           && (noteNumber == null || noteNumber.isEmpty()) && (adjudication == null || adjudication.isEmpty())
+           && (detail == null || detail.isEmpty()) && (prosthesis == null || prosthesis.isEmpty());
       }
 
   public String fhirType() {
@@ -4029,8 +4036,9 @@ public class ExplanationOfBenefit extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(provider, responsible, role
-          , qualification);
+        return super.isEmpty() && (provider == null || provider.isEmpty()) && (responsible == null || responsible.isEmpty())
+           && (role == null || role.isEmpty()) && (qualification == null || qualification.isEmpty())
+          ;
       }
 
   public String fhirType() {
@@ -4347,8 +4355,8 @@ public class ExplanationOfBenefit extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(category, reason, amount
-          , value);
+        return super.isEmpty() && (category == null || category.isEmpty()) && (reason == null || reason.isEmpty())
+           && (amount == null || amount.isEmpty()) && (value == null || value.isEmpty());
       }
 
   public String fhirType() {
@@ -5492,9 +5500,13 @@ public class ExplanationOfBenefit extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(sequence, type, revenue
-          , category, service, modifier, programCode, quantity, unitPrice, factor, points
-          , net, udi, noteNumber, adjudication, subDetail);
+        return super.isEmpty() && (sequence == null || sequence.isEmpty()) && (type == null || type.isEmpty())
+           && (revenue == null || revenue.isEmpty()) && (category == null || category.isEmpty()) && (service == null || service.isEmpty())
+           && (modifier == null || modifier.isEmpty()) && (programCode == null || programCode.isEmpty())
+           && (quantity == null || quantity.isEmpty()) && (unitPrice == null || unitPrice.isEmpty())
+           && (factor == null || factor.isEmpty()) && (points == null || points.isEmpty()) && (net == null || net.isEmpty())
+           && (udi == null || udi.isEmpty()) && (noteNumber == null || noteNumber.isEmpty()) && (adjudication == null || adjudication.isEmpty())
+           && (subDetail == null || subDetail.isEmpty());
       }
 
   public String fhirType() {
@@ -6562,9 +6574,13 @@ public class ExplanationOfBenefit extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(sequence, type, revenue
-          , category, service, modifier, programCode, quantity, unitPrice, factor, points
-          , net, udi, noteNumber, adjudication);
+        return super.isEmpty() && (sequence == null || sequence.isEmpty()) && (type == null || type.isEmpty())
+           && (revenue == null || revenue.isEmpty()) && (category == null || category.isEmpty()) && (service == null || service.isEmpty())
+           && (modifier == null || modifier.isEmpty()) && (programCode == null || programCode.isEmpty())
+           && (quantity == null || quantity.isEmpty()) && (unitPrice == null || unitPrice.isEmpty())
+           && (factor == null || factor.isEmpty()) && (points == null || points.isEmpty()) && (net == null || net.isEmpty())
+           && (udi == null || udi.isEmpty()) && (noteNumber == null || noteNumber.isEmpty()) && (adjudication == null || adjudication.isEmpty())
+          ;
       }
 
   public String fhirType() {
@@ -6830,8 +6846,8 @@ public class ExplanationOfBenefit extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(initial, priorDate, priorMaterial
-          );
+        return super.isEmpty() && (initial == null || initial.isEmpty()) && (priorDate == null || priorDate.isEmpty())
+           && (priorMaterial == null || priorMaterial.isEmpty());
       }
 
   public String fhirType() {
@@ -7499,8 +7515,10 @@ public class ExplanationOfBenefit extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(sequenceLinkId, revenue, category
-          , service, modifier, fee, noteNumber, adjudication, detail);
+        return super.isEmpty() && (sequenceLinkId == null || sequenceLinkId.isEmpty()) && (revenue == null || revenue.isEmpty())
+           && (category == null || category.isEmpty()) && (service == null || service.isEmpty()) && (modifier == null || modifier.isEmpty())
+           && (fee == null || fee.isEmpty()) && (noteNumber == null || noteNumber.isEmpty()) && (adjudication == null || adjudication.isEmpty())
+           && (detail == null || detail.isEmpty());
       }
 
   public String fhirType() {
@@ -8006,8 +8024,10 @@ public class ExplanationOfBenefit extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(revenue, category, service
-          , modifier, fee, noteNumber, adjudication);
+        return super.isEmpty() && (revenue == null || revenue.isEmpty()) && (category == null || category.isEmpty())
+           && (service == null || service.isEmpty()) && (modifier == null || modifier.isEmpty()) && (fee == null || fee.isEmpty())
+           && (noteNumber == null || noteNumber.isEmpty()) && (adjudication == null || adjudication.isEmpty())
+          ;
       }
 
   public String fhirType() {
@@ -8262,8 +8282,8 @@ public class ExplanationOfBenefit extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(tooth, reason, extractionDate
-          );
+        return super.isEmpty() && (tooth == null || tooth.isEmpty()) && (reason == null || reason.isEmpty())
+           && (extractionDate == null || extractionDate.isEmpty());
       }
 
   public String fhirType() {
@@ -8643,8 +8663,9 @@ public class ExplanationOfBenefit extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(type, adjustment, adjustmentReason
-          , date, amount, identifier);
+        return super.isEmpty() && (type == null || type.isEmpty()) && (adjustment == null || adjustment.isEmpty())
+           && (adjustmentReason == null || adjustmentReason.isEmpty()) && (date == null || date.isEmpty())
+           && (amount == null || amount.isEmpty()) && (identifier == null || identifier.isEmpty());
       }
 
   public String fhirType() {
@@ -8955,8 +8976,8 @@ public class ExplanationOfBenefit extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(number, type, text, language
-          );
+        return super.isEmpty() && (number == null || number.isEmpty()) && (type == null || type.isEmpty())
+           && (text == null || text.isEmpty()) && (language == null || language.isEmpty());
       }
 
   public String fhirType() {
@@ -9492,8 +9513,10 @@ public class ExplanationOfBenefit extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(category, subCategory, name
-          , description, network, unit, term, financial);
+        return super.isEmpty() && (category == null || category.isEmpty()) && (subCategory == null || subCategory.isEmpty())
+           && (name == null || name.isEmpty()) && (description == null || description.isEmpty()) && (network == null || network.isEmpty())
+           && (unit == null || unit.isEmpty()) && (term == null || term.isEmpty()) && (financial == null || financial.isEmpty())
+          ;
       }
 
   public String fhirType() {
@@ -9790,8 +9813,8 @@ public class ExplanationOfBenefit extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(type, benefit, benefitUsed
-          );
+        return super.isEmpty() && (type == null || type.isEmpty()) && (benefit == null || benefit.isEmpty())
+           && (benefitUsed == null || benefitUsed.isEmpty());
       }
 
   public String fhirType() {
@@ -9959,7 +9982,7 @@ public class ExplanationOfBenefit extends DomainResource {
     /**
      * Prescription to support the dispensing of Pharmacy or Vision products.
      */
-    @Child(name = "prescription", type = {MedicationOrder.class, VisionPrescription.class}, order=17, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "prescription", type = {MedicationRequest.class, VisionPrescription.class}, order=17, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Prescription", formalDefinition="Prescription to support the dispensing of Pharmacy or Vision products." )
     protected Reference prescription;
 
@@ -9971,14 +9994,14 @@ public class ExplanationOfBenefit extends DomainResource {
     /**
      * Original prescription which has been superceded by this prescription to support the dispensing of pharmacy services, medications or products.
      */
-    @Child(name = "originalPrescription", type = {MedicationOrder.class}, order=18, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "originalPrescription", type = {MedicationRequest.class}, order=18, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Original Prescription", formalDefinition="Original prescription which has been superceded by this prescription to support the dispensing of pharmacy services, medications or products." )
     protected Reference originalPrescription;
 
     /**
      * The actual object that is the target of the reference (Original prescription which has been superceded by this prescription to support the dispensing of pharmacy services, medications or products.)
      */
-    protected MedicationOrder originalPrescriptionTarget;
+    protected MedicationRequest originalPrescriptionTarget;
 
     /**
      * The party to be reimbursed for the services.
@@ -10138,7 +10161,7 @@ public class ExplanationOfBenefit extends DomainResource {
     @Description(shortDefinition="Balance by Benefit Category", formalDefinition="Balance by Benefit Category." )
     protected List<BenefitBalanceComponent> benefitBalance;
 
-    private static final long serialVersionUID = 1951432269L;
+    private static final long serialVersionUID = -937727986L;
 
   /**
    * Constructor
@@ -10910,19 +10933,19 @@ public class ExplanationOfBenefit extends DomainResource {
     /**
      * @return {@link #originalPrescription} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Original prescription which has been superceded by this prescription to support the dispensing of pharmacy services, medications or products.)
      */
-    public MedicationOrder getOriginalPrescriptionTarget() { 
+    public MedicationRequest getOriginalPrescriptionTarget() { 
       if (this.originalPrescriptionTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ExplanationOfBenefit.originalPrescription");
         else if (Configuration.doAutoCreate())
-          this.originalPrescriptionTarget = new MedicationOrder(); // aa
+          this.originalPrescriptionTarget = new MedicationRequest(); // aa
       return this.originalPrescriptionTarget;
     }
 
     /**
      * @param value {@link #originalPrescription} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Original prescription which has been superceded by this prescription to support the dispensing of pharmacy services, medications or products.)
      */
-    public ExplanationOfBenefit setOriginalPrescriptionTarget(MedicationOrder value) { 
+    public ExplanationOfBenefit setOriginalPrescriptionTarget(MedicationRequest value) { 
       this.originalPrescriptionTarget = value;
       return this;
     }
@@ -11743,8 +11766,8 @@ public class ExplanationOfBenefit extends DomainResource {
         childrenList.add(new Property("organization", "Reference(Organization)", "The provider which is responsible for the claim.", 0, java.lang.Integer.MAX_VALUE, organization));
         childrenList.add(new Property("facility", "Reference(Location)", "Facility where the services were provided.", 0, java.lang.Integer.MAX_VALUE, facility));
         childrenList.add(new Property("related", "", "Other claims which are related to this claim such as prior claim versions or for related services.", 0, java.lang.Integer.MAX_VALUE, related));
-        childrenList.add(new Property("prescription", "Reference(MedicationOrder|VisionPrescription)", "Prescription to support the dispensing of Pharmacy or Vision products.", 0, java.lang.Integer.MAX_VALUE, prescription));
-        childrenList.add(new Property("originalPrescription", "Reference(MedicationOrder)", "Original prescription which has been superceded by this prescription to support the dispensing of pharmacy services, medications or products.", 0, java.lang.Integer.MAX_VALUE, originalPrescription));
+        childrenList.add(new Property("prescription", "Reference(MedicationRequest|VisionPrescription)", "Prescription to support the dispensing of Pharmacy or Vision products.", 0, java.lang.Integer.MAX_VALUE, prescription));
+        childrenList.add(new Property("originalPrescription", "Reference(MedicationRequest)", "Original prescription which has been superceded by this prescription to support the dispensing of pharmacy services, medications or products.", 0, java.lang.Integer.MAX_VALUE, originalPrescription));
         childrenList.add(new Property("payee", "", "The party to be reimbursed for the services.", 0, java.lang.Integer.MAX_VALUE, payee));
         childrenList.add(new Property("referral", "Reference(ReferralRequest)", "The referral resource which lists the date, practitioner, reason and other supporting information.", 0, java.lang.Integer.MAX_VALUE, referral));
         childrenList.add(new Property("information", "", "Additional information codes regarding exceptions, special considerations, the condition, situation, prior or concurrent issues. Often there are mutiple jurisdiction specific valuesets which are required.", 0, java.lang.Integer.MAX_VALUE, information));
@@ -12364,13 +12387,25 @@ public class ExplanationOfBenefit extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, status, author
-          , claim, claimResponse, type, subType, ruleset, originalRuleset, created, billablePeriod
-          , outcome, disposition, provider, organization, facility, related, prescription
-          , originalPrescription, payee, referral, information, diagnosis, procedure, patient
-          , precedence, coverage, accident, employmentImpacted, hospitalization, item, addItem
-          , missingTeeth, totalCost, unallocDeductable, totalBenefit, payment, form, note
-          , benefitBalance);
+        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (status == null || status.isEmpty())
+           && (author == null || author.isEmpty()) && (claim == null || claim.isEmpty()) && (claimResponse == null || claimResponse.isEmpty())
+           && (type == null || type.isEmpty()) && (subType == null || subType.isEmpty()) && (ruleset == null || ruleset.isEmpty())
+           && (originalRuleset == null || originalRuleset.isEmpty()) && (created == null || created.isEmpty())
+           && (billablePeriod == null || billablePeriod.isEmpty()) && (outcome == null || outcome.isEmpty())
+           && (disposition == null || disposition.isEmpty()) && (provider == null || provider.isEmpty())
+           && (organization == null || organization.isEmpty()) && (facility == null || facility.isEmpty())
+           && (related == null || related.isEmpty()) && (prescription == null || prescription.isEmpty())
+           && (originalPrescription == null || originalPrescription.isEmpty()) && (payee == null || payee.isEmpty())
+           && (referral == null || referral.isEmpty()) && (information == null || information.isEmpty())
+           && (diagnosis == null || diagnosis.isEmpty()) && (procedure == null || procedure.isEmpty())
+           && (patient == null || patient.isEmpty()) && (precedence == null || precedence.isEmpty())
+           && (coverage == null || coverage.isEmpty()) && (accident == null || accident.isEmpty()) && (employmentImpacted == null || employmentImpacted.isEmpty())
+           && (hospitalization == null || hospitalization.isEmpty()) && (item == null || item.isEmpty())
+           && (addItem == null || addItem.isEmpty()) && (missingTeeth == null || missingTeeth.isEmpty())
+           && (totalCost == null || totalCost.isEmpty()) && (unallocDeductable == null || unallocDeductable.isEmpty())
+           && (totalBenefit == null || totalBenefit.isEmpty()) && (payment == null || payment.isEmpty())
+           && (form == null || form.isEmpty()) && (note == null || note.isEmpty()) && (benefitBalance == null || benefitBalance.isEmpty())
+          ;
       }
 
   @Override

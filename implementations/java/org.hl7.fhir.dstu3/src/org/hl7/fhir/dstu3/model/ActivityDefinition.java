@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Oct 21, 2016 09:09+1100 for FHIR v1.7.0
+// Generated on Tue, Nov 1, 2016 18:35-0400 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -773,8 +773,9 @@ public class ActivityDefinition extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(description, path, language
-          , expression);
+        return super.isEmpty() && (description == null || description.isEmpty()) && (path == null || path.isEmpty())
+           && (language == null || language.isEmpty()) && (expression == null || expression.isEmpty())
+          ;
       }
 
   public String fhirType() {
@@ -923,9 +924,16 @@ public class ActivityDefinition extends MetadataResource {
     protected SimpleQuantity quantity;
 
     /**
+     * Provides detailed dosage instructions in the same way that they are described for MedicationRequest resources.
+     */
+    @Child(name = "dosageInstruction", type = {DosageInstruction.class}, order=18, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Description(shortDefinition="Detailed dosage instructions", formalDefinition="Provides detailed dosage instructions in the same way that they are described for MedicationRequest resources." )
+    protected List<DosageInstruction> dosageInstruction;
+
+    /**
      * A reference to a StructureMap resource that defines a transform that can be executed to produce the intent resource using the ActivityDefinition instance as the input.
      */
-    @Child(name = "transform", type = {StructureMap.class}, order=18, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "transform", type = {StructureMap.class}, order=19, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Transform to apply the template", formalDefinition="A reference to a StructureMap resource that defines a transform that can be executed to produce the intent resource using the ActivityDefinition instance as the input." )
     protected Reference transform;
 
@@ -937,11 +945,11 @@ public class ActivityDefinition extends MetadataResource {
     /**
      * Dynamic values that will be evaluated to produce values for elements of the resulting resource. For example, if the dosage of a medication must be computed based on the patient's weight, a dynamic value would be used to specify an expression that calculated the weight, and the path on the intent resource that would contain the result.
      */
-    @Child(name = "dynamicValue", type = {}, order=19, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "dynamicValue", type = {}, order=20, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Dynamic aspects of the definition", formalDefinition="Dynamic values that will be evaluated to produce values for elements of the resulting resource. For example, if the dosage of a medication must be computed based on the patient's weight, a dynamic value would be used to specify an expression that calculated the weight, and the path on the intent resource that would contain the result." )
     protected List<ActivityDefinitionDynamicValueComponent> dynamicValue;
 
-    private static final long serialVersionUID = -211043047L;
+    private static final long serialVersionUID = -1095058297L;
 
   /**
    * Constructor
@@ -2399,6 +2407,59 @@ public class ActivityDefinition extends MetadataResource {
     }
 
     /**
+     * @return {@link #dosageInstruction} (Provides detailed dosage instructions in the same way that they are described for MedicationRequest resources.)
+     */
+    public List<DosageInstruction> getDosageInstruction() { 
+      if (this.dosageInstruction == null)
+        this.dosageInstruction = new ArrayList<DosageInstruction>();
+      return this.dosageInstruction;
+    }
+
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public ActivityDefinition setDosageInstruction(List<DosageInstruction> theDosageInstruction) { 
+      this.dosageInstruction = theDosageInstruction;
+      return this;
+    }
+
+    public boolean hasDosageInstruction() { 
+      if (this.dosageInstruction == null)
+        return false;
+      for (DosageInstruction item : this.dosageInstruction)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    public DosageInstruction addDosageInstruction() { //3
+      DosageInstruction t = new DosageInstruction();
+      if (this.dosageInstruction == null)
+        this.dosageInstruction = new ArrayList<DosageInstruction>();
+      this.dosageInstruction.add(t);
+      return t;
+    }
+
+    public ActivityDefinition addDosageInstruction(DosageInstruction t) { //3
+      if (t == null)
+        return this;
+      if (this.dosageInstruction == null)
+        this.dosageInstruction = new ArrayList<DosageInstruction>();
+      this.dosageInstruction.add(t);
+      return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #dosageInstruction}, creating it if it does not already exist
+     */
+    public DosageInstruction getDosageInstructionFirstRep() { 
+      if (getDosageInstruction().isEmpty()) {
+        addDosageInstruction();
+      }
+      return getDosageInstruction().get(0);
+    }
+
+    /**
      * @return {@link #transform} (A reference to a StructureMap resource that defines a transform that can be executed to produce the intent resource using the ActivityDefinition instance as the input.)
      */
     public Reference getTransform() { 
@@ -2527,6 +2588,7 @@ public class ActivityDefinition extends MetadataResource {
         childrenList.add(new Property("participantType", "code", "The type of participant in the action.", 0, java.lang.Integer.MAX_VALUE, participantType));
         childrenList.add(new Property("product[x]", "Reference(Medication|Substance)|CodeableConcept", "Identifies the food, drug or other product being consumed or supplied in the activity.", 0, java.lang.Integer.MAX_VALUE, product));
         childrenList.add(new Property("quantity", "SimpleQuantity", "Identifies the quantity expected to be consumed at once (per dose, per meal, etc.).", 0, java.lang.Integer.MAX_VALUE, quantity));
+        childrenList.add(new Property("dosageInstruction", "DosageInstruction", "Provides detailed dosage instructions in the same way that they are described for MedicationRequest resources.", 0, java.lang.Integer.MAX_VALUE, dosageInstruction));
         childrenList.add(new Property("transform", "Reference(StructureMap)", "A reference to a StructureMap resource that defines a transform that can be executed to produce the intent resource using the ActivityDefinition instance as the input.", 0, java.lang.Integer.MAX_VALUE, transform));
         childrenList.add(new Property("dynamicValue", "", "Dynamic values that will be evaluated to produce values for elements of the resulting resource. For example, if the dosage of a medication must be computed based on the patient's weight, a dynamic value would be used to specify an expression that calculated the weight, and the path on the intent resource that would contain the result.", 0, java.lang.Integer.MAX_VALUE, dynamicValue));
       }
@@ -2564,6 +2626,7 @@ public class ActivityDefinition extends MetadataResource {
         case 841294093: /*participantType*/ return this.participantType == null ? new Base[0] : this.participantType.toArray(new Base[this.participantType.size()]); // Enumeration<ActivityParticipantType>
         case -309474065: /*product*/ return this.product == null ? new Base[0] : new Base[] {this.product}; // Type
         case -1285004149: /*quantity*/ return this.quantity == null ? new Base[0] : new Base[] {this.quantity}; // SimpleQuantity
+        case -1201373865: /*dosageInstruction*/ return this.dosageInstruction == null ? new Base[0] : this.dosageInstruction.toArray(new Base[this.dosageInstruction.size()]); // DosageInstruction
         case 1052666732: /*transform*/ return this.transform == null ? new Base[0] : new Base[] {this.transform}; // Reference
         case 572625010: /*dynamicValue*/ return this.dynamicValue == null ? new Base[0] : this.dynamicValue.toArray(new Base[this.dynamicValue.size()]); // ActivityDefinitionDynamicValueComponent
         default: return super.getProperty(hash, name, checkValid);
@@ -2664,6 +2727,9 @@ public class ActivityDefinition extends MetadataResource {
         case -1285004149: // quantity
           this.quantity = castToSimpleQuantity(value); // SimpleQuantity
           break;
+        case -1201373865: // dosageInstruction
+          this.getDosageInstruction().add(castToDosageInstruction(value)); // DosageInstruction
+          break;
         case 1052666732: // transform
           this.transform = castToReference(value); // Reference
           break;
@@ -2737,6 +2803,8 @@ public class ActivityDefinition extends MetadataResource {
           this.product = castToType(value); // Type
         else if (name.equals("quantity"))
           this.quantity = castToSimpleQuantity(value); // SimpleQuantity
+        else if (name.equals("dosageInstruction"))
+          this.getDosageInstruction().add(castToDosageInstruction(value));
         else if (name.equals("transform"))
           this.transform = castToReference(value); // Reference
         else if (name.equals("dynamicValue"))
@@ -2778,6 +2846,7 @@ public class ActivityDefinition extends MetadataResource {
         case 841294093: throw new FHIRException("Cannot make property participantType as it is not a complex type"); // Enumeration<ActivityParticipantType>
         case 1753005361:  return getProduct(); // Type
         case -1285004149:  return getQuantity(); // SimpleQuantity
+        case -1201373865:  return addDosageInstruction(); // DosageInstruction
         case 1052666732:  return getTransform(); // Reference
         case 572625010:  return addDynamicValue(); // ActivityDefinitionDynamicValueComponent
         default: return super.makeProperty(hash, name);
@@ -2891,6 +2960,9 @@ public class ActivityDefinition extends MetadataResource {
           this.quantity = new SimpleQuantity();
           return this.quantity;
         }
+        else if (name.equals("dosageInstruction")) {
+          return addDosageInstruction();
+        }
         else if (name.equals("transform")) {
           this.transform = new Reference();
           return this.transform;
@@ -2976,6 +3048,11 @@ public class ActivityDefinition extends MetadataResource {
         };
         dst.product = product == null ? null : product.copy();
         dst.quantity = quantity == null ? null : quantity.copy();
+        if (dosageInstruction != null) {
+          dst.dosageInstruction = new ArrayList<DosageInstruction>();
+          for (DosageInstruction i : dosageInstruction)
+            dst.dosageInstruction.add(i.copy());
+        };
         dst.transform = transform == null ? null : transform.copy();
         if (dynamicValue != null) {
           dst.dynamicValue = new ArrayList<ActivityDefinitionDynamicValueComponent>();
@@ -3002,8 +3079,9 @@ public class ActivityDefinition extends MetadataResource {
            && compareDeep(copyright, o.copyright, true) && compareDeep(relatedArtifact, o.relatedArtifact, true)
            && compareDeep(library, o.library, true) && compareDeep(category, o.category, true) && compareDeep(code, o.code, true)
            && compareDeep(timing, o.timing, true) && compareDeep(location, o.location, true) && compareDeep(participantType, o.participantType, true)
-           && compareDeep(product, o.product, true) && compareDeep(quantity, o.quantity, true) && compareDeep(transform, o.transform, true)
-           && compareDeep(dynamicValue, o.dynamicValue, true);
+           && compareDeep(product, o.product, true) && compareDeep(quantity, o.quantity, true) && compareDeep(dosageInstruction, o.dosageInstruction, true)
+           && compareDeep(transform, o.transform, true) && compareDeep(dynamicValue, o.dynamicValue, true)
+          ;
       }
 
       @Override
@@ -3020,10 +3098,16 @@ public class ActivityDefinition extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, purpose, usage
-          , approvalDate, lastReviewDate, effectivePeriod, topic, contributor, copyright, relatedArtifact
-          , library, category, code, timing, location, participantType, product, quantity
-          , transform, dynamicValue);
+        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (purpose == null || purpose.isEmpty())
+           && (usage == null || usage.isEmpty()) && (approvalDate == null || approvalDate.isEmpty())
+           && (lastReviewDate == null || lastReviewDate.isEmpty()) && (effectivePeriod == null || effectivePeriod.isEmpty())
+           && (topic == null || topic.isEmpty()) && (contributor == null || contributor.isEmpty()) && (copyright == null || copyright.isEmpty())
+           && (relatedArtifact == null || relatedArtifact.isEmpty()) && (library == null || library.isEmpty())
+           && (category == null || category.isEmpty()) && (code == null || code.isEmpty()) && (timing == null || timing.isEmpty())
+           && (location == null || location.isEmpty()) && (participantType == null || participantType.isEmpty())
+           && (product == null || product.isEmpty()) && (quantity == null || quantity.isEmpty()) && (dosageInstruction == null || dosageInstruction.isEmpty())
+           && (transform == null || transform.isEmpty()) && (dynamicValue == null || dynamicValue.isEmpty())
+          ;
       }
 
   @Override

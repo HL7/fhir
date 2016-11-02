@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Oct 21, 2016 09:09+1100 for FHIR v1.7.0
+// Generated on Tue, Nov 1, 2016 18:35-0400 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -62,6 +62,10 @@ public class QuestionnaireResponse extends DomainResource {
          */
         AMENDED, 
         /**
+         * This QuestionnaireResponse was entered in error and voided.
+         */
+        ENTEREDINERROR, 
+        /**
          * added to help the parsers with the generic types
          */
         NULL;
@@ -74,6 +78,8 @@ public class QuestionnaireResponse extends DomainResource {
           return COMPLETED;
         if ("amended".equals(codeString))
           return AMENDED;
+        if ("entered-in-error".equals(codeString))
+          return ENTEREDINERROR;
         if (Configuration.isAcceptInvalidEnums())
           return null;
         else
@@ -84,6 +90,7 @@ public class QuestionnaireResponse extends DomainResource {
             case INPROGRESS: return "in-progress";
             case COMPLETED: return "completed";
             case AMENDED: return "amended";
+            case ENTEREDINERROR: return "entered-in-error";
             default: return "?";
           }
         }
@@ -92,6 +99,7 @@ public class QuestionnaireResponse extends DomainResource {
             case INPROGRESS: return "http://hl7.org/fhir/questionnaire-answers-status";
             case COMPLETED: return "http://hl7.org/fhir/questionnaire-answers-status";
             case AMENDED: return "http://hl7.org/fhir/questionnaire-answers-status";
+            case ENTEREDINERROR: return "http://hl7.org/fhir/questionnaire-answers-status";
             default: return "?";
           }
         }
@@ -100,6 +108,7 @@ public class QuestionnaireResponse extends DomainResource {
             case INPROGRESS: return "This QuestionnaireResponse has been partially filled out with answers, but changes or additions are still expected to be made to it.";
             case COMPLETED: return "This QuestionnaireResponse has been filled out with answers, and the current content is regarded as definitive.";
             case AMENDED: return "This QuestionnaireResponse has been filled out with answers, then marked as complete, yet changes or additions have been made to it afterwards.";
+            case ENTEREDINERROR: return "This QuestionnaireResponse was entered in error and voided.";
             default: return "?";
           }
         }
@@ -108,6 +117,7 @@ public class QuestionnaireResponse extends DomainResource {
             case INPROGRESS: return "In Progress";
             case COMPLETED: return "Completed";
             case AMENDED: return "Amended";
+            case ENTEREDINERROR: return "Entered In Error";
             default: return "?";
           }
         }
@@ -124,6 +134,8 @@ public class QuestionnaireResponse extends DomainResource {
           return QuestionnaireResponseStatus.COMPLETED;
         if ("amended".equals(codeString))
           return QuestionnaireResponseStatus.AMENDED;
+        if ("entered-in-error".equals(codeString))
+          return QuestionnaireResponseStatus.ENTEREDINERROR;
         throw new IllegalArgumentException("Unknown QuestionnaireResponseStatus code '"+codeString+"'");
         }
         public Enumeration<QuestionnaireResponseStatus> fromType(Base code) throws FHIRException {
@@ -138,6 +150,8 @@ public class QuestionnaireResponse extends DomainResource {
           return new Enumeration<QuestionnaireResponseStatus>(this, QuestionnaireResponseStatus.COMPLETED);
         if ("amended".equals(codeString))
           return new Enumeration<QuestionnaireResponseStatus>(this, QuestionnaireResponseStatus.AMENDED);
+        if ("entered-in-error".equals(codeString))
+          return new Enumeration<QuestionnaireResponseStatus>(this, QuestionnaireResponseStatus.ENTEREDINERROR);
         throw new FHIRException("Unknown QuestionnaireResponseStatus code '"+codeString+"'");
         }
     public String toCode(QuestionnaireResponseStatus code) {
@@ -147,6 +161,8 @@ public class QuestionnaireResponse extends DomainResource {
         return "completed";
       if (code == QuestionnaireResponseStatus.AMENDED)
         return "amended";
+      if (code == QuestionnaireResponseStatus.ENTEREDINERROR)
+        return "entered-in-error";
       return "?";
       }
     public String toSystem(QuestionnaireResponseStatus code) {
@@ -585,8 +601,9 @@ public class QuestionnaireResponse extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(linkId, text, subject, answer
-          , item);
+        return super.isEmpty() && (linkId == null || linkId.isEmpty()) && (text == null || text.isEmpty())
+           && (subject == null || subject.isEmpty()) && (answer == null || answer.isEmpty()) && (item == null || item.isEmpty())
+          ;
       }
 
   public String fhirType() {
@@ -1006,7 +1023,8 @@ public class QuestionnaireResponse extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(value, item);
+        return super.isEmpty() && (value == null || value.isEmpty()) && (item == null || item.isEmpty())
+          ;
       }
 
   public String fhirType() {
@@ -1063,7 +1081,7 @@ public class QuestionnaireResponse extends DomainResource {
      * The lifecycle status of the questionnaire response as a whole.
      */
     @Child(name = "status", type = {CodeType.class}, order=4, min=1, max=1, modifier=true, summary=true)
-    @Description(shortDefinition="in-progress | completed | amended", formalDefinition="The lifecycle status of the questionnaire response as a whole." )
+    @Description(shortDefinition="in-progress | completed | amended | entered-in-error", formalDefinition="The lifecycle status of the questionnaire response as a whole." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/questionnaire-answers-status")
     protected Enumeration<QuestionnaireResponseStatus> status;
 
@@ -1872,8 +1890,11 @@ public class QuestionnaireResponse extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, basedOn, parent
-          , questionnaire, status, subject, context, author, authored, source, item);
+        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (basedOn == null || basedOn.isEmpty())
+           && (parent == null || parent.isEmpty()) && (questionnaire == null || questionnaire.isEmpty())
+           && (status == null || status.isEmpty()) && (subject == null || subject.isEmpty()) && (context == null || context.isEmpty())
+           && (author == null || author.isEmpty()) && (authored == null || authored.isEmpty()) && (source == null || source.isEmpty())
+           && (item == null || item.isEmpty());
       }
 
   @Override

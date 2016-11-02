@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Oct 21, 2016 09:09+1100 for FHIR v1.7.0
+// Generated on Tue, Nov 1, 2016 18:35-0400 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -222,11 +222,11 @@ public class MedicationStatement extends DomainResource {
         public static MedicationStatementNotTaken fromCode(String codeString) throws FHIRException {
             if (codeString == null || "".equals(codeString))
                 return null;
-        if ("Y".equals(codeString))
+        if ("y".equals(codeString))
           return Y;
-        if ("N".equals(codeString))
+        if ("n".equals(codeString))
           return N;
-        if ("UNK".equals(codeString))
+        if ("unk".equals(codeString))
           return UNK;
         if (Configuration.isAcceptInvalidEnums())
           return null;
@@ -235,9 +235,9 @@ public class MedicationStatement extends DomainResource {
         }
         public String toCode() {
           switch (this) {
-            case Y: return "Y";
-            case N: return "N";
-            case UNK: return "UNK";
+            case Y: return "y";
+            case N: return "n";
+            case UNK: return "unk";
             default: return "?";
           }
         }
@@ -272,11 +272,11 @@ public class MedicationStatement extends DomainResource {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
-        if ("Y".equals(codeString))
+        if ("y".equals(codeString))
           return MedicationStatementNotTaken.Y;
-        if ("N".equals(codeString))
+        if ("n".equals(codeString))
           return MedicationStatementNotTaken.N;
-        if ("UNK".equals(codeString))
+        if ("unk".equals(codeString))
           return MedicationStatementNotTaken.UNK;
         throw new IllegalArgumentException("Unknown MedicationStatementNotTaken code '"+codeString+"'");
         }
@@ -286,21 +286,21 @@ public class MedicationStatement extends DomainResource {
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
-        if ("Y".equals(codeString))
+        if ("y".equals(codeString))
           return new Enumeration<MedicationStatementNotTaken>(this, MedicationStatementNotTaken.Y);
-        if ("N".equals(codeString))
+        if ("n".equals(codeString))
           return new Enumeration<MedicationStatementNotTaken>(this, MedicationStatementNotTaken.N);
-        if ("UNK".equals(codeString))
+        if ("unk".equals(codeString))
           return new Enumeration<MedicationStatementNotTaken>(this, MedicationStatementNotTaken.UNK);
         throw new FHIRException("Unknown MedicationStatementNotTaken code '"+codeString+"'");
         }
     public String toCode(MedicationStatementNotTaken code) {
       if (code == MedicationStatementNotTaken.Y)
-        return "Y";
+        return "y";
       if (code == MedicationStatementNotTaken.N)
-        return "N";
+        return "n";
       if (code == MedicationStatementNotTaken.UNK)
-        return "UNK";
+        return "unk";
       return "?";
       }
     public String toSystem(MedicationStatementNotTaken code) {
@@ -473,25 +473,25 @@ public class MedicationStatement extends DomainResource {
     protected Type effective;
 
     /**
-     * The person or organization that provided the information about the taking of this medication. Note: Use derivedFrom when a MedicationStatement is derived from other resources, e.g Claim or MedicationOrder.
+     * The person or organization that provided the information about the taking of this medication. Note: Use derivedFrom when a MedicationStatement is derived from other resources, e.g Claim or MedicationRequest.
      */
     @Child(name = "informationSource", type = {Patient.class, Practitioner.class, RelatedPerson.class, Organization.class}, order=5, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="Person or organization that provided the information about the taking of this medication", formalDefinition="The person or organization that provided the information about the taking of this medication. Note: Use derivedFrom when a MedicationStatement is derived from other resources, e.g Claim or MedicationOrder." )
+    @Description(shortDefinition="Person or organization that provided the information about the taking of this medication", formalDefinition="The person or organization that provided the information about the taking of this medication. Note: Use derivedFrom when a MedicationStatement is derived from other resources, e.g Claim or MedicationRequest." )
     protected Reference informationSource;
 
     /**
-     * The actual object that is the target of the reference (The person or organization that provided the information about the taking of this medication. Note: Use derivedFrom when a MedicationStatement is derived from other resources, e.g Claim or MedicationOrder.)
+     * The actual object that is the target of the reference (The person or organization that provided the information about the taking of this medication. Note: Use derivedFrom when a MedicationStatement is derived from other resources, e.g Claim or MedicationRequest.)
      */
     protected Resource informationSourceTarget;
 
     /**
-     * Allows linking the MedicationStatement to the underlying MedicationOrder, or to other information that supports or is used to derive the MedicationStatement.
+     * Allows linking the MedicationStatement to the underlying MedicationRequest, or to other information that supports or is used to derive the MedicationStatement.
      */
     @Child(name = "derivedFrom", type = {Reference.class}, order=6, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-    @Description(shortDefinition="Additional supporting information", formalDefinition="Allows linking the MedicationStatement to the underlying MedicationOrder, or to other information that supports or is used to derive the MedicationStatement." )
+    @Description(shortDefinition="Additional supporting information", formalDefinition="Allows linking the MedicationStatement to the underlying MedicationRequest, or to other information that supports or is used to derive the MedicationStatement." )
     protected List<Reference> derivedFrom;
     /**
-     * The actual objects that are the target of the reference (Allows linking the MedicationStatement to the underlying MedicationOrder, or to other information that supports or is used to derive the MedicationStatement.)
+     * The actual objects that are the target of the reference (Allows linking the MedicationStatement to the underlying MedicationRequest, or to other information that supports or is used to derive the MedicationStatement.)
      */
     protected List<Resource> derivedFromTarget;
 
@@ -507,7 +507,7 @@ public class MedicationStatement extends DomainResource {
      * Indicator of the certainty of whether the medication was taken by the patient.
      */
     @Child(name = "notTaken", type = {CodeType.class}, order=8, min=0, max=1, modifier=true, summary=true)
-    @Description(shortDefinition="Y | N | UNK", formalDefinition="Indicator of the certainty of whether the medication was taken by the patient." )
+    @Description(shortDefinition="y | n | unk", formalDefinition="Indicator of the certainty of whether the medication was taken by the patient." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/medication-statement-nottaken")
     protected Enumeration<MedicationStatementNotTaken> notTaken;
 
@@ -812,7 +812,7 @@ public class MedicationStatement extends DomainResource {
     }
 
     /**
-     * @return {@link #informationSource} (The person or organization that provided the information about the taking of this medication. Note: Use derivedFrom when a MedicationStatement is derived from other resources, e.g Claim or MedicationOrder.)
+     * @return {@link #informationSource} (The person or organization that provided the information about the taking of this medication. Note: Use derivedFrom when a MedicationStatement is derived from other resources, e.g Claim or MedicationRequest.)
      */
     public Reference getInformationSource() { 
       if (this.informationSource == null)
@@ -828,7 +828,7 @@ public class MedicationStatement extends DomainResource {
     }
 
     /**
-     * @param value {@link #informationSource} (The person or organization that provided the information about the taking of this medication. Note: Use derivedFrom when a MedicationStatement is derived from other resources, e.g Claim or MedicationOrder.)
+     * @param value {@link #informationSource} (The person or organization that provided the information about the taking of this medication. Note: Use derivedFrom when a MedicationStatement is derived from other resources, e.g Claim or MedicationRequest.)
      */
     public MedicationStatement setInformationSource(Reference value) { 
       this.informationSource = value;
@@ -836,14 +836,14 @@ public class MedicationStatement extends DomainResource {
     }
 
     /**
-     * @return {@link #informationSource} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The person or organization that provided the information about the taking of this medication. Note: Use derivedFrom when a MedicationStatement is derived from other resources, e.g Claim or MedicationOrder.)
+     * @return {@link #informationSource} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The person or organization that provided the information about the taking of this medication. Note: Use derivedFrom when a MedicationStatement is derived from other resources, e.g Claim or MedicationRequest.)
      */
     public Resource getInformationSourceTarget() { 
       return this.informationSourceTarget;
     }
 
     /**
-     * @param value {@link #informationSource} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The person or organization that provided the information about the taking of this medication. Note: Use derivedFrom when a MedicationStatement is derived from other resources, e.g Claim or MedicationOrder.)
+     * @param value {@link #informationSource} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The person or organization that provided the information about the taking of this medication. Note: Use derivedFrom when a MedicationStatement is derived from other resources, e.g Claim or MedicationRequest.)
      */
     public MedicationStatement setInformationSourceTarget(Resource value) { 
       this.informationSourceTarget = value;
@@ -851,7 +851,7 @@ public class MedicationStatement extends DomainResource {
     }
 
     /**
-     * @return {@link #derivedFrom} (Allows linking the MedicationStatement to the underlying MedicationOrder, or to other information that supports or is used to derive the MedicationStatement.)
+     * @return {@link #derivedFrom} (Allows linking the MedicationStatement to the underlying MedicationRequest, or to other information that supports or is used to derive the MedicationStatement.)
      */
     public List<Reference> getDerivedFrom() { 
       if (this.derivedFrom == null)
@@ -1354,8 +1354,8 @@ public class MedicationStatement extends DomainResource {
         childrenList.add(new Property("medication[x]", "CodeableConcept|Reference(Medication)", "Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.", 0, java.lang.Integer.MAX_VALUE, medication));
         childrenList.add(new Property("patient", "Reference(Patient)", "The person or animal who is/was taking the medication.", 0, java.lang.Integer.MAX_VALUE, patient));
         childrenList.add(new Property("effective[x]", "dateTime|Period", "The interval of time during which it is being asserted that the patient was taking the medication (or was not taking, when the wasNotGiven element is true).", 0, java.lang.Integer.MAX_VALUE, effective));
-        childrenList.add(new Property("informationSource", "Reference(Patient|Practitioner|RelatedPerson|Organization)", "The person or organization that provided the information about the taking of this medication. Note: Use derivedFrom when a MedicationStatement is derived from other resources, e.g Claim or MedicationOrder.", 0, java.lang.Integer.MAX_VALUE, informationSource));
-        childrenList.add(new Property("derivedFrom", "Reference(Any)", "Allows linking the MedicationStatement to the underlying MedicationOrder, or to other information that supports or is used to derive the MedicationStatement.", 0, java.lang.Integer.MAX_VALUE, derivedFrom));
+        childrenList.add(new Property("informationSource", "Reference(Patient|Practitioner|RelatedPerson|Organization)", "The person or organization that provided the information about the taking of this medication. Note: Use derivedFrom when a MedicationStatement is derived from other resources, e.g Claim or MedicationRequest.", 0, java.lang.Integer.MAX_VALUE, informationSource));
+        childrenList.add(new Property("derivedFrom", "Reference(Any)", "Allows linking the MedicationStatement to the underlying MedicationRequest, or to other information that supports or is used to derive the MedicationStatement.", 0, java.lang.Integer.MAX_VALUE, derivedFrom));
         childrenList.add(new Property("dateAsserted", "dateTime", "The date when the medication statement was asserted by the information source.", 0, java.lang.Integer.MAX_VALUE, dateAsserted));
         childrenList.add(new Property("notTaken", "code", "Indicator of the certainty of whether the medication was taken by the patient.", 0, java.lang.Integer.MAX_VALUE, notTaken));
         childrenList.add(new Property("reasonNotTaken", "CodeableConcept", "A code indicating why the medication was not taken.", 0, java.lang.Integer.MAX_VALUE, reasonNotTaken));
@@ -1650,9 +1650,14 @@ public class MedicationStatement extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, status, medication
-          , patient, effective, informationSource, derivedFrom, dateAsserted, notTaken, reasonNotTaken
-          , reasonForUseCode, reasonForUseReference, note, category, dosage);
+        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (status == null || status.isEmpty())
+           && (medication == null || medication.isEmpty()) && (patient == null || patient.isEmpty())
+           && (effective == null || effective.isEmpty()) && (informationSource == null || informationSource.isEmpty())
+           && (derivedFrom == null || derivedFrom.isEmpty()) && (dateAsserted == null || dateAsserted.isEmpty())
+           && (notTaken == null || notTaken.isEmpty()) && (reasonNotTaken == null || reasonNotTaken.isEmpty())
+           && (reasonForUseCode == null || reasonForUseCode.isEmpty()) && (reasonForUseReference == null || reasonForUseReference.isEmpty())
+           && (note == null || note.isEmpty()) && (category == null || category.isEmpty()) && (dosage == null || dosage.isEmpty())
+          ;
       }
 
   @Override

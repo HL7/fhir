@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Oct 21, 2016 09:09+1100 for FHIR v1.7.0
+// Generated on Tue, Nov 1, 2016 18:35-0400 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -336,8 +336,8 @@ public class Organization extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(purpose, name, telecom, address
-          );
+        return super.isEmpty() && (purpose == null || purpose.isEmpty()) && (name == null || name.isEmpty())
+           && (telecom == null || telecom.isEmpty()) && (address == null || address.isEmpty());
       }
 
   public String fhirType() {
@@ -1173,8 +1173,10 @@ public class Organization extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, active, type
-          , name, alias, telecom, address, partOf, contact, endpoint);
+        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (active == null || active.isEmpty())
+           && (type == null || type.isEmpty()) && (name == null || name.isEmpty()) && (alias == null || alias.isEmpty())
+           && (telecom == null || telecom.isEmpty()) && (address == null || address.isEmpty()) && (partOf == null || partOf.isEmpty())
+           && (contact == null || contact.isEmpty()) && (endpoint == null || endpoint.isEmpty());
       }
 
   @Override

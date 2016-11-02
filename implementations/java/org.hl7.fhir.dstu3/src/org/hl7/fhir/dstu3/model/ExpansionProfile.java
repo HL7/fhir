@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Oct 21, 2016 09:09+1100 for FHIR v1.7.0
+// Generated on Tue, Nov 1, 2016 18:35-0400 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -438,7 +438,8 @@ public class ExpansionProfile extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(system, version, mode);
+        return super.isEmpty() && (system == null || system.isEmpty()) && (version == null || version.isEmpty())
+           && (mode == null || mode.isEmpty());
       }
 
   public String fhirType() {
@@ -666,7 +667,8 @@ public class ExpansionProfile extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(system, version);
+        return super.isEmpty() && (system == null || system.isEmpty()) && (version == null || version.isEmpty())
+          ;
       }
 
   public String fhirType() {
@@ -842,7 +844,8 @@ public class ExpansionProfile extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(include, exclude);
+        return super.isEmpty() && (include == null || include.isEmpty()) && (exclude == null || exclude.isEmpty())
+          ;
       }
 
   public String fhirType() {
@@ -1006,7 +1009,7 @@ public class ExpansionProfile extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(designation);
+        return super.isEmpty() && (designation == null || designation.isEmpty());
       }
 
   public String fhirType() {
@@ -1208,7 +1211,8 @@ public class ExpansionProfile extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(language, use);
+        return super.isEmpty() && (language == null || language.isEmpty()) && (use == null || use.isEmpty())
+          ;
       }
 
   public String fhirType() {
@@ -1372,7 +1376,7 @@ public class ExpansionProfile extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(designation);
+        return super.isEmpty() && (designation == null || designation.isEmpty());
       }
 
   public String fhirType() {
@@ -1574,7 +1578,8 @@ public class ExpansionProfile extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(language, use);
+        return super.isEmpty() && (language == null || language.isEmpty()) && (use == null || use.isEmpty())
+          ;
       }
 
   public String fhirType() {
@@ -1663,10 +1668,10 @@ public class ExpansionProfile extends MetadataResource {
     protected CodeType displayLanguage;
 
     /**
-     * If the value set being expanded is incomplete (because it is too big to expand), return a limited expansion (a subset) with an indicator that expansion is incomplete.
+     * If the value set being expanded is incomplete (because it is too big to expand), return a limited expansion (a subset) with an indicator that expansion is incomplete, using the extension [http://hl7.org/fhir/StructureDefinition/valueset-toocostly](extension-valueset-toocostly.html).
      */
     @Child(name = "limitedExpansion", type = {BooleanType.class}, order=11, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Controls behaviour of the value set expand operation when value sets are too large to be completely expanded", formalDefinition="If the value set being expanded is incomplete (because it is too big to expand), return a limited expansion (a subset) with an indicator that expansion is incomplete." )
+    @Description(shortDefinition="Controls behaviour of the value set expand operation when value sets are too large to be completely expanded", formalDefinition="If the value set being expanded is incomplete (because it is too big to expand), return a limited expansion (a subset) with an indicator that expansion is incomplete, using the extension [http://hl7.org/fhir/StructureDefinition/valueset-toocostly](extension-valueset-toocostly.html)." )
     protected BooleanType limitedExpansion;
 
     private static final long serialVersionUID = 1067457001L;
@@ -2674,7 +2679,7 @@ public class ExpansionProfile extends MetadataResource {
     }
 
     /**
-     * @return {@link #limitedExpansion} (If the value set being expanded is incomplete (because it is too big to expand), return a limited expansion (a subset) with an indicator that expansion is incomplete.). This is the underlying object with id, value and extensions. The accessor "getLimitedExpansion" gives direct access to the value
+     * @return {@link #limitedExpansion} (If the value set being expanded is incomplete (because it is too big to expand), return a limited expansion (a subset) with an indicator that expansion is incomplete, using the extension [http://hl7.org/fhir/StructureDefinition/valueset-toocostly](extension-valueset-toocostly.html).). This is the underlying object with id, value and extensions. The accessor "getLimitedExpansion" gives direct access to the value
      */
     public BooleanType getLimitedExpansionElement() { 
       if (this.limitedExpansion == null)
@@ -2694,7 +2699,7 @@ public class ExpansionProfile extends MetadataResource {
     }
 
     /**
-     * @param value {@link #limitedExpansion} (If the value set being expanded is incomplete (because it is too big to expand), return a limited expansion (a subset) with an indicator that expansion is incomplete.). This is the underlying object with id, value and extensions. The accessor "getLimitedExpansion" gives direct access to the value
+     * @param value {@link #limitedExpansion} (If the value set being expanded is incomplete (because it is too big to expand), return a limited expansion (a subset) with an indicator that expansion is incomplete, using the extension [http://hl7.org/fhir/StructureDefinition/valueset-toocostly](extension-valueset-toocostly.html).). This is the underlying object with id, value and extensions. The accessor "getLimitedExpansion" gives direct access to the value
      */
     public ExpansionProfile setLimitedExpansionElement(BooleanType value) { 
       this.limitedExpansion = value;
@@ -2702,14 +2707,14 @@ public class ExpansionProfile extends MetadataResource {
     }
 
     /**
-     * @return If the value set being expanded is incomplete (because it is too big to expand), return a limited expansion (a subset) with an indicator that expansion is incomplete.
+     * @return If the value set being expanded is incomplete (because it is too big to expand), return a limited expansion (a subset) with an indicator that expansion is incomplete, using the extension [http://hl7.org/fhir/StructureDefinition/valueset-toocostly](extension-valueset-toocostly.html).
      */
     public boolean getLimitedExpansion() { 
       return this.limitedExpansion == null || this.limitedExpansion.isEmpty() ? false : this.limitedExpansion.getValue();
     }
 
     /**
-     * @param value If the value set being expanded is incomplete (because it is too big to expand), return a limited expansion (a subset) with an indicator that expansion is incomplete.
+     * @param value If the value set being expanded is incomplete (because it is too big to expand), return a limited expansion (a subset) with an indicator that expansion is incomplete, using the extension [http://hl7.org/fhir/StructureDefinition/valueset-toocostly](extension-valueset-toocostly.html).
      */
     public ExpansionProfile setLimitedExpansion(boolean value) { 
         if (this.limitedExpansion == null)
@@ -2742,7 +2747,7 @@ public class ExpansionProfile extends MetadataResource {
         childrenList.add(new Property("excludeNotForUI", "boolean", "Controls whether or not the value set expansion includes codes which cannot be displayed in user interfaces.", 0, java.lang.Integer.MAX_VALUE, excludeNotForUI));
         childrenList.add(new Property("excludePostCoordinated", "boolean", "Controls whether or not the value set expansion includes post coordinated codes.", 0, java.lang.Integer.MAX_VALUE, excludePostCoordinated));
         childrenList.add(new Property("displayLanguage", "code", "Specifies the language to be used for description in the expansions i.e. the language to be used for ValueSet.expansion.contains.display.", 0, java.lang.Integer.MAX_VALUE, displayLanguage));
-        childrenList.add(new Property("limitedExpansion", "boolean", "If the value set being expanded is incomplete (because it is too big to expand), return a limited expansion (a subset) with an indicator that expansion is incomplete.", 0, java.lang.Integer.MAX_VALUE, limitedExpansion));
+        childrenList.add(new Property("limitedExpansion", "boolean", "If the value set being expanded is incomplete (because it is too big to expand), return a limited expansion (a subset) with an indicator that expansion is incomplete, using the extension [http://hl7.org/fhir/StructureDefinition/valueset-toocostly](extension-valueset-toocostly.html).", 0, java.lang.Integer.MAX_VALUE, limitedExpansion));
       }
 
       @Override
@@ -3099,9 +3104,13 @@ public class ExpansionProfile extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, fixedVersion, excludedSystem
-          , includeDesignations, designation, includeDefinition, activeOnly, excludeNested, excludeNotForUI
-          , excludePostCoordinated, displayLanguage, limitedExpansion);
+        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (fixedVersion == null || fixedVersion.isEmpty())
+           && (excludedSystem == null || excludedSystem.isEmpty()) && (includeDesignations == null || includeDesignations.isEmpty())
+           && (designation == null || designation.isEmpty()) && (includeDefinition == null || includeDefinition.isEmpty())
+           && (activeOnly == null || activeOnly.isEmpty()) && (excludeNested == null || excludeNested.isEmpty())
+           && (excludeNotForUI == null || excludeNotForUI.isEmpty()) && (excludePostCoordinated == null || excludePostCoordinated.isEmpty())
+           && (displayLanguage == null || displayLanguage.isEmpty()) && (limitedExpansion == null || limitedExpansion.isEmpty())
+          ;
       }
 
   @Override

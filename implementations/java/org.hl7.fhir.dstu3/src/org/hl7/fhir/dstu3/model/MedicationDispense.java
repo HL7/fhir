@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Oct 21, 2016 09:09+1100 for FHIR v1.7.0
+// Generated on Tue, Nov 1, 2016 18:35-0400 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -498,8 +498,8 @@ public class MedicationDispense extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(type, reason, responsibleParty
-          );
+        return super.isEmpty() && (type == null || type.isEmpty()) && (reason == null || reason.isEmpty())
+           && (responsibleParty == null || responsibleParty.isEmpty());
       }
 
   public String fhirType() {
@@ -545,9 +545,21 @@ public class MedicationDispense extends DomainResource {
     protected Patient patientTarget;
 
     /**
+     * Additional information that supports the medication being dispensed.
+     */
+    @Child(name = "supportingInformation", type = {Reference.class}, order=4, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Description(shortDefinition="Information that supports the dispensing of the medication", formalDefinition="Additional information that supports the medication being dispensed." )
+    protected List<Reference> supportingInformation;
+    /**
+     * The actual objects that are the target of the reference (Additional information that supports the medication being dispensed.)
+     */
+    protected List<Resource> supportingInformationTarget;
+
+
+    /**
      * The individual responsible for dispensing the medication.
      */
-    @Child(name = "dispenser", type = {Practitioner.class}, order=4, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "dispenser", type = {Practitioner.class}, order=5, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Practitioner responsible for dispensing medication", formalDefinition="The individual responsible for dispensing the medication." )
     protected Reference dispenser;
 
@@ -559,7 +571,7 @@ public class MedicationDispense extends DomainResource {
     /**
      * The organizaation responsible for the dispense of the medication.
      */
-    @Child(name = "dispensingOrganization", type = {Organization.class}, order=5, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "dispensingOrganization", type = {Organization.class}, order=6, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Organization responsible for the dispense of the medication", formalDefinition="The organizaation responsible for the dispense of the medication." )
     protected Reference dispensingOrganization;
 
@@ -571,34 +583,22 @@ public class MedicationDispense extends DomainResource {
     /**
      * Indicates the medication order that is being dispensed against.
      */
-    @Child(name = "authorizingPrescription", type = {MedicationOrder.class}, order=6, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "authorizingPrescription", type = {MedicationRequest.class}, order=7, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Medication order that authorizes the dispense", formalDefinition="Indicates the medication order that is being dispensed against." )
     protected List<Reference> authorizingPrescription;
     /**
      * The actual objects that are the target of the reference (Indicates the medication order that is being dispensed against.)
      */
-    protected List<MedicationOrder> authorizingPrescriptionTarget;
+    protected List<MedicationRequest> authorizingPrescriptionTarget;
 
 
     /**
      * Indicates the type of dispensing event that is performed. For example, Trial Fill, Completion of Trial, Partial Fill, Emergency Fill, Samples, etc.
      */
-    @Child(name = "type", type = {CodeableConcept.class}, order=7, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "type", type = {CodeableConcept.class}, order=8, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Trial fill, partial fill, emergency fill, etc.", formalDefinition="Indicates the type of dispensing event that is performed. For example, Trial Fill, Completion of Trial, Partial Fill, Emergency Fill, Samples, etc." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/v3-ActPharmacySupplyType")
     protected CodeableConcept type;
-
-    /**
-     * Additional information that supports the medication being dispensed.
-     */
-    @Child(name = "supportingInformation", type = {Reference.class}, order=8, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-    @Description(shortDefinition="Information that supports the dispensing of the medication", formalDefinition="Additional information that supports the medication being dispensed." )
-    protected List<Reference> supportingInformation;
-    /**
-     * The actual objects that are the target of the reference (Additional information that supports the medication being dispensed.)
-     */
-    protected List<Resource> supportingInformationTarget;
-
 
     /**
      * The amount of medication that has been dispensed. Includes unit of measure.
@@ -685,7 +685,7 @@ public class MedicationDispense extends DomainResource {
     protected List<Provenance> eventHistoryTarget;
 
 
-    private static final long serialVersionUID = -506764052L;
+    private static final long serialVersionUID = -1649506055L;
 
   /**
    * Constructor
@@ -865,6 +865,69 @@ public class MedicationDispense extends DomainResource {
     }
 
     /**
+     * @return {@link #supportingInformation} (Additional information that supports the medication being dispensed.)
+     */
+    public List<Reference> getSupportingInformation() { 
+      if (this.supportingInformation == null)
+        this.supportingInformation = new ArrayList<Reference>();
+      return this.supportingInformation;
+    }
+
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public MedicationDispense setSupportingInformation(List<Reference> theSupportingInformation) { 
+      this.supportingInformation = theSupportingInformation;
+      return this;
+    }
+
+    public boolean hasSupportingInformation() { 
+      if (this.supportingInformation == null)
+        return false;
+      for (Reference item : this.supportingInformation)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    public Reference addSupportingInformation() { //3
+      Reference t = new Reference();
+      if (this.supportingInformation == null)
+        this.supportingInformation = new ArrayList<Reference>();
+      this.supportingInformation.add(t);
+      return t;
+    }
+
+    public MedicationDispense addSupportingInformation(Reference t) { //3
+      if (t == null)
+        return this;
+      if (this.supportingInformation == null)
+        this.supportingInformation = new ArrayList<Reference>();
+      this.supportingInformation.add(t);
+      return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #supportingInformation}, creating it if it does not already exist
+     */
+    public Reference getSupportingInformationFirstRep() { 
+      if (getSupportingInformation().isEmpty()) {
+        addSupportingInformation();
+      }
+      return getSupportingInformation().get(0);
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
+    public List<Resource> getSupportingInformationTarget() { 
+      if (this.supportingInformationTarget == null)
+        this.supportingInformationTarget = new ArrayList<Resource>();
+      return this.supportingInformationTarget;
+    }
+
+    /**
      * @return {@link #dispenser} (The individual responsible for dispensing the medication.)
      */
     public Reference getDispenser() { 
@@ -1009,9 +1072,9 @@ public class MedicationDispense extends DomainResource {
      * @deprecated Use Reference#setResource(IBaseResource) instead
      */
     @Deprecated
-    public List<MedicationOrder> getAuthorizingPrescriptionTarget() { 
+    public List<MedicationRequest> getAuthorizingPrescriptionTarget() { 
       if (this.authorizingPrescriptionTarget == null)
-        this.authorizingPrescriptionTarget = new ArrayList<MedicationOrder>();
+        this.authorizingPrescriptionTarget = new ArrayList<MedicationRequest>();
       return this.authorizingPrescriptionTarget;
     }
 
@@ -1019,10 +1082,10 @@ public class MedicationDispense extends DomainResource {
      * @deprecated Use Reference#setResource(IBaseResource) instead
      */
     @Deprecated
-    public MedicationOrder addAuthorizingPrescriptionTarget() { 
-      MedicationOrder r = new MedicationOrder();
+    public MedicationRequest addAuthorizingPrescriptionTarget() { 
+      MedicationRequest r = new MedicationRequest();
       if (this.authorizingPrescriptionTarget == null)
-        this.authorizingPrescriptionTarget = new ArrayList<MedicationOrder>();
+        this.authorizingPrescriptionTarget = new ArrayList<MedicationRequest>();
       this.authorizingPrescriptionTarget.add(r);
       return r;
     }
@@ -1049,69 +1112,6 @@ public class MedicationDispense extends DomainResource {
     public MedicationDispense setType(CodeableConcept value) { 
       this.type = value;
       return this;
-    }
-
-    /**
-     * @return {@link #supportingInformation} (Additional information that supports the medication being dispensed.)
-     */
-    public List<Reference> getSupportingInformation() { 
-      if (this.supportingInformation == null)
-        this.supportingInformation = new ArrayList<Reference>();
-      return this.supportingInformation;
-    }
-
-    /**
-     * @return Returns a reference to <code>this</code> for easy method chaining
-     */
-    public MedicationDispense setSupportingInformation(List<Reference> theSupportingInformation) { 
-      this.supportingInformation = theSupportingInformation;
-      return this;
-    }
-
-    public boolean hasSupportingInformation() { 
-      if (this.supportingInformation == null)
-        return false;
-      for (Reference item : this.supportingInformation)
-        if (!item.isEmpty())
-          return true;
-      return false;
-    }
-
-    public Reference addSupportingInformation() { //3
-      Reference t = new Reference();
-      if (this.supportingInformation == null)
-        this.supportingInformation = new ArrayList<Reference>();
-      this.supportingInformation.add(t);
-      return t;
-    }
-
-    public MedicationDispense addSupportingInformation(Reference t) { //3
-      if (t == null)
-        return this;
-      if (this.supportingInformation == null)
-        this.supportingInformation = new ArrayList<Reference>();
-      this.supportingInformation.add(t);
-      return this;
-    }
-
-    /**
-     * @return The first repetition of repeating field {@link #supportingInformation}, creating it if it does not already exist
-     */
-    public Reference getSupportingInformationFirstRep() { 
-      if (getSupportingInformation().isEmpty()) {
-        addSupportingInformation();
-      }
-      return getSupportingInformation().get(0);
-    }
-
-    /**
-     * @deprecated Use Reference#setResource(IBaseResource) instead
-     */
-    @Deprecated
-    public List<Resource> getSupportingInformationTarget() { 
-      if (this.supportingInformationTarget == null)
-        this.supportingInformationTarget = new ArrayList<Resource>();
-      return this.supportingInformationTarget;
     }
 
     /**
@@ -1578,11 +1578,11 @@ public class MedicationDispense extends DomainResource {
         childrenList.add(new Property("status", "code", "A code specifying the state of the set of dispense events.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("medication[x]", "CodeableConcept|Reference(Medication)", "Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.", 0, java.lang.Integer.MAX_VALUE, medication));
         childrenList.add(new Property("patient", "Reference(Patient)", "A link to a resource representing the person to whom the medication will be given.", 0, java.lang.Integer.MAX_VALUE, patient));
+        childrenList.add(new Property("supportingInformation", "Reference(Any)", "Additional information that supports the medication being dispensed.", 0, java.lang.Integer.MAX_VALUE, supportingInformation));
         childrenList.add(new Property("dispenser", "Reference(Practitioner)", "The individual responsible for dispensing the medication.", 0, java.lang.Integer.MAX_VALUE, dispenser));
         childrenList.add(new Property("dispensingOrganization", "Reference(Organization)", "The organizaation responsible for the dispense of the medication.", 0, java.lang.Integer.MAX_VALUE, dispensingOrganization));
-        childrenList.add(new Property("authorizingPrescription", "Reference(MedicationOrder)", "Indicates the medication order that is being dispensed against.", 0, java.lang.Integer.MAX_VALUE, authorizingPrescription));
+        childrenList.add(new Property("authorizingPrescription", "Reference(MedicationRequest)", "Indicates the medication order that is being dispensed against.", 0, java.lang.Integer.MAX_VALUE, authorizingPrescription));
         childrenList.add(new Property("type", "CodeableConcept", "Indicates the type of dispensing event that is performed. For example, Trial Fill, Completion of Trial, Partial Fill, Emergency Fill, Samples, etc.", 0, java.lang.Integer.MAX_VALUE, type));
-        childrenList.add(new Property("supportingInformation", "Reference(Any)", "Additional information that supports the medication being dispensed.", 0, java.lang.Integer.MAX_VALUE, supportingInformation));
         childrenList.add(new Property("quantity", "SimpleQuantity", "The amount of medication that has been dispensed. Includes unit of measure.", 0, java.lang.Integer.MAX_VALUE, quantity));
         childrenList.add(new Property("daysSupply", "SimpleQuantity", "The amount of medication expressed as a timing amount.", 0, java.lang.Integer.MAX_VALUE, daysSupply));
         childrenList.add(new Property("whenPrepared", "dateTime", "The time when the dispensed product was packaged and reviewed.", 0, java.lang.Integer.MAX_VALUE, whenPrepared));
@@ -1602,11 +1602,11 @@ public class MedicationDispense extends DomainResource {
         case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<MedicationDispenseStatus>
         case 1998965455: /*medication*/ return this.medication == null ? new Base[0] : new Base[] {this.medication}; // Type
         case -791418107: /*patient*/ return this.patient == null ? new Base[0] : new Base[] {this.patient}; // Reference
+        case -1248768647: /*supportingInformation*/ return this.supportingInformation == null ? new Base[0] : this.supportingInformation.toArray(new Base[this.supportingInformation.size()]); // Reference
         case 241511093: /*dispenser*/ return this.dispenser == null ? new Base[0] : new Base[] {this.dispenser}; // Reference
         case 2036139309: /*dispensingOrganization*/ return this.dispensingOrganization == null ? new Base[0] : new Base[] {this.dispensingOrganization}; // Reference
         case -1237557856: /*authorizingPrescription*/ return this.authorizingPrescription == null ? new Base[0] : this.authorizingPrescription.toArray(new Base[this.authorizingPrescription.size()]); // Reference
         case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // CodeableConcept
-        case -1248768647: /*supportingInformation*/ return this.supportingInformation == null ? new Base[0] : this.supportingInformation.toArray(new Base[this.supportingInformation.size()]); // Reference
         case -1285004149: /*quantity*/ return this.quantity == null ? new Base[0] : new Base[] {this.quantity}; // SimpleQuantity
         case 197175334: /*daysSupply*/ return this.daysSupply == null ? new Base[0] : new Base[] {this.daysSupply}; // SimpleQuantity
         case -562837097: /*whenPrepared*/ return this.whenPrepared == null ? new Base[0] : new Base[] {this.whenPrepared}; // DateTimeType
@@ -1637,6 +1637,9 @@ public class MedicationDispense extends DomainResource {
         case -791418107: // patient
           this.patient = castToReference(value); // Reference
           break;
+        case -1248768647: // supportingInformation
+          this.getSupportingInformation().add(castToReference(value)); // Reference
+          break;
         case 241511093: // dispenser
           this.dispenser = castToReference(value); // Reference
           break;
@@ -1648,9 +1651,6 @@ public class MedicationDispense extends DomainResource {
           break;
         case 3575610: // type
           this.type = castToCodeableConcept(value); // CodeableConcept
-          break;
-        case -1248768647: // supportingInformation
-          this.getSupportingInformation().add(castToReference(value)); // Reference
           break;
         case -1285004149: // quantity
           this.quantity = castToSimpleQuantity(value); // SimpleQuantity
@@ -1697,6 +1697,8 @@ public class MedicationDispense extends DomainResource {
           this.medication = castToType(value); // Type
         else if (name.equals("patient"))
           this.patient = castToReference(value); // Reference
+        else if (name.equals("supportingInformation"))
+          this.getSupportingInformation().add(castToReference(value));
         else if (name.equals("dispenser"))
           this.dispenser = castToReference(value); // Reference
         else if (name.equals("dispensingOrganization"))
@@ -1705,8 +1707,6 @@ public class MedicationDispense extends DomainResource {
           this.getAuthorizingPrescription().add(castToReference(value));
         else if (name.equals("type"))
           this.type = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("supportingInformation"))
-          this.getSupportingInformation().add(castToReference(value));
         else if (name.equals("quantity"))
           this.quantity = castToSimpleQuantity(value); // SimpleQuantity
         else if (name.equals("daysSupply"))
@@ -1738,11 +1738,11 @@ public class MedicationDispense extends DomainResource {
         case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<MedicationDispenseStatus>
         case 1458402129:  return getMedication(); // Type
         case -791418107:  return getPatient(); // Reference
+        case -1248768647:  return addSupportingInformation(); // Reference
         case 241511093:  return getDispenser(); // Reference
         case 2036139309:  return getDispensingOrganization(); // Reference
         case -1237557856:  return addAuthorizingPrescription(); // Reference
         case 3575610:  return getType(); // CodeableConcept
-        case -1248768647:  return addSupportingInformation(); // Reference
         case -1285004149:  return getQuantity(); // SimpleQuantity
         case 197175334:  return getDaysSupply(); // SimpleQuantity
         case -562837097: throw new FHIRException("Cannot make property whenPrepared as it is not a complex type"); // DateTimeType
@@ -1779,6 +1779,9 @@ public class MedicationDispense extends DomainResource {
           this.patient = new Reference();
           return this.patient;
         }
+        else if (name.equals("supportingInformation")) {
+          return addSupportingInformation();
+        }
         else if (name.equals("dispenser")) {
           this.dispenser = new Reference();
           return this.dispenser;
@@ -1793,9 +1796,6 @@ public class MedicationDispense extends DomainResource {
         else if (name.equals("type")) {
           this.type = new CodeableConcept();
           return this.type;
-        }
-        else if (name.equals("supportingInformation")) {
-          return addSupportingInformation();
         }
         else if (name.equals("quantity")) {
           this.quantity = new SimpleQuantity();
@@ -1847,6 +1847,11 @@ public class MedicationDispense extends DomainResource {
         dst.status = status == null ? null : status.copy();
         dst.medication = medication == null ? null : medication.copy();
         dst.patient = patient == null ? null : patient.copy();
+        if (supportingInformation != null) {
+          dst.supportingInformation = new ArrayList<Reference>();
+          for (Reference i : supportingInformation)
+            dst.supportingInformation.add(i.copy());
+        };
         dst.dispenser = dispenser == null ? null : dispenser.copy();
         dst.dispensingOrganization = dispensingOrganization == null ? null : dispensingOrganization.copy();
         if (authorizingPrescription != null) {
@@ -1855,11 +1860,6 @@ public class MedicationDispense extends DomainResource {
             dst.authorizingPrescription.add(i.copy());
         };
         dst.type = type == null ? null : type.copy();
-        if (supportingInformation != null) {
-          dst.supportingInformation = new ArrayList<Reference>();
-          for (Reference i : supportingInformation)
-            dst.supportingInformation.add(i.copy());
-        };
         dst.quantity = quantity == null ? null : quantity.copy();
         dst.daysSupply = daysSupply == null ? null : daysSupply.copy();
         dst.whenPrepared = whenPrepared == null ? null : whenPrepared.copy();
@@ -1901,10 +1901,10 @@ public class MedicationDispense extends DomainResource {
           return false;
         MedicationDispense o = (MedicationDispense) other;
         return compareDeep(identifier, o.identifier, true) && compareDeep(status, o.status, true) && compareDeep(medication, o.medication, true)
-           && compareDeep(patient, o.patient, true) && compareDeep(dispenser, o.dispenser, true) && compareDeep(dispensingOrganization, o.dispensingOrganization, true)
+           && compareDeep(patient, o.patient, true) && compareDeep(supportingInformation, o.supportingInformation, true)
+           && compareDeep(dispenser, o.dispenser, true) && compareDeep(dispensingOrganization, o.dispensingOrganization, true)
            && compareDeep(authorizingPrescription, o.authorizingPrescription, true) && compareDeep(type, o.type, true)
-           && compareDeep(supportingInformation, o.supportingInformation, true) && compareDeep(quantity, o.quantity, true)
-           && compareDeep(daysSupply, o.daysSupply, true) && compareDeep(whenPrepared, o.whenPrepared, true)
+           && compareDeep(quantity, o.quantity, true) && compareDeep(daysSupply, o.daysSupply, true) && compareDeep(whenPrepared, o.whenPrepared, true)
            && compareDeep(whenHandedOver, o.whenHandedOver, true) && compareDeep(destination, o.destination, true)
            && compareDeep(receiver, o.receiver, true) && compareDeep(note, o.note, true) && compareDeep(dosageInstruction, o.dosageInstruction, true)
            && compareDeep(substitution, o.substitution, true) && compareDeep(eventHistory, o.eventHistory, true)
@@ -1923,10 +1923,16 @@ public class MedicationDispense extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, status, medication
-          , patient, dispenser, dispensingOrganization, authorizingPrescription, type, supportingInformation
-          , quantity, daysSupply, whenPrepared, whenHandedOver, destination, receiver, note
-          , dosageInstruction, substitution, eventHistory);
+        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (status == null || status.isEmpty())
+           && (medication == null || medication.isEmpty()) && (patient == null || patient.isEmpty())
+           && (supportingInformation == null || supportingInformation.isEmpty()) && (dispenser == null || dispenser.isEmpty())
+           && (dispensingOrganization == null || dispensingOrganization.isEmpty()) && (authorizingPrescription == null || authorizingPrescription.isEmpty())
+           && (type == null || type.isEmpty()) && (quantity == null || quantity.isEmpty()) && (daysSupply == null || daysSupply.isEmpty())
+           && (whenPrepared == null || whenPrepared.isEmpty()) && (whenHandedOver == null || whenHandedOver.isEmpty())
+           && (destination == null || destination.isEmpty()) && (receiver == null || receiver.isEmpty())
+           && (note == null || note.isEmpty()) && (dosageInstruction == null || dosageInstruction.isEmpty())
+           && (substitution == null || substitution.isEmpty()) && (eventHistory == null || eventHistory.isEmpty())
+          ;
       }
 
   @Override
@@ -2172,7 +2178,7 @@ public class MedicationDispense extends DomainResource {
    * Path: <b>MedicationDispense.authorizingPrescription</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="prescription", path="MedicationDispense.authorizingPrescription", description="The identity of a prescription to list dispenses from", type="reference", target={MedicationOrder.class } )
+  @SearchParamDefinition(name="prescription", path="MedicationDispense.authorizingPrescription", description="The identity of a prescription to list dispenses from", type="reference", target={MedicationRequest.class } )
   public static final String SP_PRESCRIPTION = "prescription";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>prescription</b>

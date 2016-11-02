@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Oct 21, 2016 09:09+1100 for FHIR v1.7.0
+// Generated on Tue, Nov 1, 2016 18:35-0400 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -1134,8 +1134,10 @@ public class Consent extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(type, period, actor, action
-          , securityLabel, purpose, class_, code, data);
+        return super.isEmpty() && (type == null || type.isEmpty()) && (period == null || period.isEmpty())
+           && (actor == null || actor.isEmpty()) && (action == null || action.isEmpty()) && (securityLabel == null || securityLabel.isEmpty())
+           && (purpose == null || purpose.isEmpty()) && (class_ == null || class_.isEmpty()) && (code == null || code.isEmpty())
+           && (data == null || data.isEmpty());
       }
 
   public String fhirType() {
@@ -1341,7 +1343,8 @@ public class Consent extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(role, reference);
+        return super.isEmpty() && (role == null || role.isEmpty()) && (reference == null || reference.isEmpty())
+          ;
       }
 
   public String fhirType() {
@@ -1567,7 +1570,8 @@ public class Consent extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(meaning, reference);
+        return super.isEmpty() && (meaning == null || meaning.isEmpty()) && (reference == null || reference.isEmpty())
+          ;
       }
 
   public String fhirType() {
@@ -2598,9 +2602,11 @@ public class Consent extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, status, category
-          , dateTime, period, patient, consentor, organization, source, policy, recipient
-          , purpose, except);
+        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (status == null || status.isEmpty())
+           && (category == null || category.isEmpty()) && (dateTime == null || dateTime.isEmpty()) && (period == null || period.isEmpty())
+           && (patient == null || patient.isEmpty()) && (consentor == null || consentor.isEmpty()) && (organization == null || organization.isEmpty())
+           && (source == null || source.isEmpty()) && (policy == null || policy.isEmpty()) && (recipient == null || recipient.isEmpty())
+           && (purpose == null || purpose.isEmpty()) && (except == null || except.isEmpty());
       }
 
   @Override

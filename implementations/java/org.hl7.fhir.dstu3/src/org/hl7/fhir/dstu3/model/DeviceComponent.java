@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Oct 21, 2016 09:09+1100 for FHIR v1.7.0
+// Generated on Tue, Nov 1, 2016 18:35-0400 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -518,8 +518,8 @@ public class DeviceComponent extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(specType, componentId, productionSpec
-          );
+        return super.isEmpty() && (specType == null || specType.isEmpty()) && (componentId == null || componentId.isEmpty())
+           && (productionSpec == null || productionSpec.isEmpty());
       }
 
   public String fhirType() {
@@ -1229,9 +1229,12 @@ public class DeviceComponent extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(type, identifier, lastSystemChange
-          , source, parent, operationalStatus, parameterGroup, measurementPrinciple, productionSpecification
-          , languageCode);
+        return super.isEmpty() && (type == null || type.isEmpty()) && (identifier == null || identifier.isEmpty())
+           && (lastSystemChange == null || lastSystemChange.isEmpty()) && (source == null || source.isEmpty())
+           && (parent == null || parent.isEmpty()) && (operationalStatus == null || operationalStatus.isEmpty())
+           && (parameterGroup == null || parameterGroup.isEmpty()) && (measurementPrinciple == null || measurementPrinciple.isEmpty())
+           && (productionSpecification == null || productionSpecification.isEmpty()) && (languageCode == null || languageCode.isEmpty())
+          ;
       }
 
   @Override

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Oct 21, 2016 09:09+1100 for FHIR v1.7.0
+// Generated on Tue, Nov 1, 2016 18:35-0400 for FHIR v1.7.0
 
 import org.hl7.fhir.exceptions.FHIRException;
 
@@ -58,8 +58,6 @@ public class ResourceFactory extends Factory {
             return new Medication();
         if ("Measure".equals(name))
             return new Measure();
-        if ("ActivityGroup".equals(name))
-            return new ActivityGroup();
         if ("Subscription".equals(name))
             return new Subscription();
         if ("DocumentReference".equals(name))
@@ -120,6 +118,8 @@ public class ResourceFactory extends Factory {
             return new Linkage();
         if ("DeviceUseStatement".equals(name))
             return new DeviceUseStatement();
+        if ("RequestGroup".equals(name))
+            return new RequestGroup();
         if ("MessageHeader".equals(name))
             return new MessageHeader();
         if ("ImmunizationRecommendation".equals(name))
@@ -160,6 +160,8 @@ public class ResourceFactory extends Factory {
             return new DiagnosticRequest();
         if ("Immunization".equals(name))
             return new Immunization();
+        if ("MedicationRequest".equals(name))
+            return new MedicationRequest();
         if ("Device".equals(name))
             return new Device();
         if ("VisionPrescription".equals(name))
@@ -224,8 +226,6 @@ public class ResourceFactory extends Factory {
             return new NutritionRequest();
         if ("AuditEvent".equals(name))
             return new AuditEvent();
-        if ("MedicationOrder".equals(name))
-            return new MedicationOrder();
         if ("PaymentReconciliation".equals(name))
             return new PaymentReconciliation();
         if ("Condition".equals(name))
@@ -248,8 +248,6 @@ public class ResourceFactory extends Factory {
             return new ProcessResponse();
         if ("NamingSystem".equals(name))
             return new NamingSystem();
-        if ("DecisionSupportServiceModule".equals(name))
-            return new DecisionSupportServiceModule();
         if ("Schedule".equals(name))
             return new Schedule();
         if ("SupplyDelivery".equals(name))
@@ -362,8 +360,6 @@ public class ResourceFactory extends Factory {
             return new Medication();
         if ("Measure".equals(name))
             return new Measure();
-        if ("ActivityGroup".equals(name))
-            return new ActivityGroup();
         if ("Subscription".equals(name))
             return new Subscription();
         if ("DocumentReference".equals(name))
@@ -424,6 +420,8 @@ public class ResourceFactory extends Factory {
             return new Linkage();
         if ("DeviceUseStatement".equals(name))
             return new DeviceUseStatement();
+        if ("RequestGroup".equals(name))
+            return new RequestGroup();
         if ("MessageHeader".equals(name))
             return new MessageHeader();
         if ("ImmunizationRecommendation".equals(name))
@@ -464,6 +462,8 @@ public class ResourceFactory extends Factory {
             return new DiagnosticRequest();
         if ("Immunization".equals(name))
             return new Immunization();
+        if ("MedicationRequest".equals(name))
+            return new MedicationRequest();
         if ("Device".equals(name))
             return new Device();
         if ("VisionPrescription".equals(name))
@@ -528,8 +528,6 @@ public class ResourceFactory extends Factory {
             return new NutritionRequest();
         if ("AuditEvent".equals(name))
             return new AuditEvent();
-        if ("MedicationOrder".equals(name))
-            return new MedicationOrder();
         if ("PaymentReconciliation".equals(name))
             return new PaymentReconciliation();
         if ("Condition".equals(name))
@@ -552,8 +550,6 @@ public class ResourceFactory extends Factory {
             return new ProcessResponse();
         if ("NamingSystem".equals(name))
             return new NamingSystem();
-        if ("DecisionSupportServiceModule".equals(name))
-            return new DecisionSupportServiceModule();
         if ("Schedule".equals(name))
             return new Schedule();
         if ("SupplyDelivery".equals(name))

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Oct 21, 2016 09:09+1100 for FHIR v1.7.0
+// Generated on Tue, Nov 1, 2016 18:35-0400 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -925,7 +925,8 @@ public class TestScript extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(index, profile);
+        return super.isEmpty() && (index == null || index.isEmpty()) && (profile == null || profile.isEmpty())
+          ;
       }
 
   public String fhirType() {
@@ -1131,7 +1132,8 @@ public class TestScript extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(index, profile);
+        return super.isEmpty() && (index == null || index.isEmpty()) && (profile == null || profile.isEmpty())
+          ;
       }
 
   public String fhirType() {
@@ -1371,7 +1373,8 @@ public class TestScript extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(link, capability);
+        return super.isEmpty() && (link == null || link.isEmpty()) && (capability == null || capability.isEmpty())
+          ;
       }
 
   public String fhirType() {
@@ -1599,7 +1602,8 @@ public class TestScript extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(url, description);
+        return super.isEmpty() && (url == null || url.isEmpty()) && (description == null || description.isEmpty())
+          ;
       }
 
   public String fhirType() {
@@ -2196,8 +2200,10 @@ public class TestScript extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(required, validated, description
-          , origin, destination, link, capabilities);
+        return super.isEmpty() && (required == null || required.isEmpty()) && (validated == null || validated.isEmpty())
+           && (description == null || description.isEmpty()) && (origin == null || origin.isEmpty())
+           && (destination == null || destination.isEmpty()) && (link == null || link.isEmpty()) && (capabilities == null || capabilities.isEmpty())
+          ;
       }
 
   public String fhirType() {
@@ -2479,8 +2485,8 @@ public class TestScript extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(autocreate, autodelete, resource
-          );
+        return super.isEmpty() && (autocreate == null || autocreate.isEmpty()) && (autodelete == null || autodelete.isEmpty())
+           && (resource == null || resource.isEmpty());
       }
 
   public String fhirType() {
@@ -2507,34 +2513,48 @@ public class TestScript extends MetadataResource {
         protected StringType defaultValue;
 
         /**
+         * A free text natural language description of the variable and its purpose.
+         */
+        @Child(name = "description", type = {StringType.class}, order=3, min=0, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="Natural language description of the variable", formalDefinition="A free text natural language description of the variable and its purpose." )
+        protected StringType description;
+
+        /**
          * The fhirpath expression to evaluate against the fixture body. When variables are defined, only one of either expression, headerField or path must be specified.
          */
-        @Child(name = "expression", type = {StringType.class}, order=3, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "expression", type = {StringType.class}, order=4, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="The fhirpath expression against the fixture body", formalDefinition="The fhirpath expression to evaluate against the fixture body. When variables are defined, only one of either expression, headerField or path must be specified." )
         protected StringType expression;
 
         /**
          * Will be used to grab the HTTP header field value from the headers that sourceId is pointing to.
          */
-        @Child(name = "headerField", type = {StringType.class}, order=4, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "headerField", type = {StringType.class}, order=5, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="HTTP header field name for source", formalDefinition="Will be used to grab the HTTP header field value from the headers that sourceId is pointing to." )
         protected StringType headerField;
 
         /**
+         * Displayable text string with hint help information to the user when entering a default value.
+         */
+        @Child(name = "hint", type = {StringType.class}, order=6, min=0, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="Hint help text for default value to enter", formalDefinition="Displayable text string with hint help information to the user when entering a default value." )
+        protected StringType hint;
+
+        /**
          * XPath or JSONPath to evaluate against the fixture body.  When variables are defined, only one of either expression, headerField or path must be specified.
          */
-        @Child(name = "path", type = {StringType.class}, order=5, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "path", type = {StringType.class}, order=7, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="XPath or JSONPath against the fixture body", formalDefinition="XPath or JSONPath to evaluate against the fixture body.  When variables are defined, only one of either expression, headerField or path must be specified." )
         protected StringType path;
 
         /**
          * Fixture to evaluate the XPath/JSONPath expression or the headerField  against within this variable.
          */
-        @Child(name = "sourceId", type = {IdType.class}, order=6, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "sourceId", type = {IdType.class}, order=8, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Fixture Id of source expression or headerField within this variable", formalDefinition="Fixture to evaluate the XPath/JSONPath expression or the headerField  against within this variable." )
         protected IdType sourceId;
 
-        private static final long serialVersionUID = -413422533L;
+        private static final long serialVersionUID = -1592325432L;
 
     /**
      * Constructor
@@ -2646,6 +2666,55 @@ public class TestScript extends MetadataResource {
         }
 
         /**
+         * @return {@link #description} (A free text natural language description of the variable and its purpose.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
+         */
+        public StringType getDescriptionElement() { 
+          if (this.description == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create TestScriptVariableComponent.description");
+            else if (Configuration.doAutoCreate())
+              this.description = new StringType(); // bb
+          return this.description;
+        }
+
+        public boolean hasDescriptionElement() { 
+          return this.description != null && !this.description.isEmpty();
+        }
+
+        public boolean hasDescription() { 
+          return this.description != null && !this.description.isEmpty();
+        }
+
+        /**
+         * @param value {@link #description} (A free text natural language description of the variable and its purpose.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
+         */
+        public TestScriptVariableComponent setDescriptionElement(StringType value) { 
+          this.description = value;
+          return this;
+        }
+
+        /**
+         * @return A free text natural language description of the variable and its purpose.
+         */
+        public String getDescription() { 
+          return this.description == null ? null : this.description.getValue();
+        }
+
+        /**
+         * @param value A free text natural language description of the variable and its purpose.
+         */
+        public TestScriptVariableComponent setDescription(String value) { 
+          if (Utilities.noString(value))
+            this.description = null;
+          else {
+            if (this.description == null)
+              this.description = new StringType();
+            this.description.setValue(value);
+          }
+          return this;
+        }
+
+        /**
          * @return {@link #expression} (The fhirpath expression to evaluate against the fixture body. When variables are defined, only one of either expression, headerField or path must be specified.). This is the underlying object with id, value and extensions. The accessor "getExpression" gives direct access to the value
          */
         public StringType getExpressionElement() { 
@@ -2739,6 +2808,55 @@ public class TestScript extends MetadataResource {
             if (this.headerField == null)
               this.headerField = new StringType();
             this.headerField.setValue(value);
+          }
+          return this;
+        }
+
+        /**
+         * @return {@link #hint} (Displayable text string with hint help information to the user when entering a default value.). This is the underlying object with id, value and extensions. The accessor "getHint" gives direct access to the value
+         */
+        public StringType getHintElement() { 
+          if (this.hint == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create TestScriptVariableComponent.hint");
+            else if (Configuration.doAutoCreate())
+              this.hint = new StringType(); // bb
+          return this.hint;
+        }
+
+        public boolean hasHintElement() { 
+          return this.hint != null && !this.hint.isEmpty();
+        }
+
+        public boolean hasHint() { 
+          return this.hint != null && !this.hint.isEmpty();
+        }
+
+        /**
+         * @param value {@link #hint} (Displayable text string with hint help information to the user when entering a default value.). This is the underlying object with id, value and extensions. The accessor "getHint" gives direct access to the value
+         */
+        public TestScriptVariableComponent setHintElement(StringType value) { 
+          this.hint = value;
+          return this;
+        }
+
+        /**
+         * @return Displayable text string with hint help information to the user when entering a default value.
+         */
+        public String getHint() { 
+          return this.hint == null ? null : this.hint.getValue();
+        }
+
+        /**
+         * @param value Displayable text string with hint help information to the user when entering a default value.
+         */
+        public TestScriptVariableComponent setHint(String value) { 
+          if (Utilities.noString(value))
+            this.hint = null;
+          else {
+            if (this.hint == null)
+              this.hint = new StringType();
+            this.hint.setValue(value);
           }
           return this;
         }
@@ -2845,8 +2963,10 @@ public class TestScript extends MetadataResource {
           super.listChildren(childrenList);
           childrenList.add(new Property("name", "string", "Descriptive name for this variable.", 0, java.lang.Integer.MAX_VALUE, name));
           childrenList.add(new Property("defaultValue", "string", "A default, hard-coded, or user-defined value for this variable.", 0, java.lang.Integer.MAX_VALUE, defaultValue));
+          childrenList.add(new Property("description", "string", "A free text natural language description of the variable and its purpose.", 0, java.lang.Integer.MAX_VALUE, description));
           childrenList.add(new Property("expression", "string", "The fhirpath expression to evaluate against the fixture body. When variables are defined, only one of either expression, headerField or path must be specified.", 0, java.lang.Integer.MAX_VALUE, expression));
           childrenList.add(new Property("headerField", "string", "Will be used to grab the HTTP header field value from the headers that sourceId is pointing to.", 0, java.lang.Integer.MAX_VALUE, headerField));
+          childrenList.add(new Property("hint", "string", "Displayable text string with hint help information to the user when entering a default value.", 0, java.lang.Integer.MAX_VALUE, hint));
           childrenList.add(new Property("path", "string", "XPath or JSONPath to evaluate against the fixture body.  When variables are defined, only one of either expression, headerField or path must be specified.", 0, java.lang.Integer.MAX_VALUE, path));
           childrenList.add(new Property("sourceId", "id", "Fixture to evaluate the XPath/JSONPath expression or the headerField  against within this variable.", 0, java.lang.Integer.MAX_VALUE, sourceId));
         }
@@ -2856,8 +2976,10 @@ public class TestScript extends MetadataResource {
         switch (hash) {
         case 3373707: /*name*/ return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
         case -659125328: /*defaultValue*/ return this.defaultValue == null ? new Base[0] : new Base[] {this.defaultValue}; // StringType
+        case -1724546052: /*description*/ return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
         case -1795452264: /*expression*/ return this.expression == null ? new Base[0] : new Base[] {this.expression}; // StringType
         case 1160732269: /*headerField*/ return this.headerField == null ? new Base[0] : new Base[] {this.headerField}; // StringType
+        case 3202695: /*hint*/ return this.hint == null ? new Base[0] : new Base[] {this.hint}; // StringType
         case 3433509: /*path*/ return this.path == null ? new Base[0] : new Base[] {this.path}; // StringType
         case 1746327190: /*sourceId*/ return this.sourceId == null ? new Base[0] : new Base[] {this.sourceId}; // IdType
         default: return super.getProperty(hash, name, checkValid);
@@ -2874,11 +2996,17 @@ public class TestScript extends MetadataResource {
         case -659125328: // defaultValue
           this.defaultValue = castToString(value); // StringType
           break;
+        case -1724546052: // description
+          this.description = castToString(value); // StringType
+          break;
         case -1795452264: // expression
           this.expression = castToString(value); // StringType
           break;
         case 1160732269: // headerField
           this.headerField = castToString(value); // StringType
+          break;
+        case 3202695: // hint
+          this.hint = castToString(value); // StringType
           break;
         case 3433509: // path
           this.path = castToString(value); // StringType
@@ -2897,10 +3025,14 @@ public class TestScript extends MetadataResource {
           this.name = castToString(value); // StringType
         else if (name.equals("defaultValue"))
           this.defaultValue = castToString(value); // StringType
+        else if (name.equals("description"))
+          this.description = castToString(value); // StringType
         else if (name.equals("expression"))
           this.expression = castToString(value); // StringType
         else if (name.equals("headerField"))
           this.headerField = castToString(value); // StringType
+        else if (name.equals("hint"))
+          this.hint = castToString(value); // StringType
         else if (name.equals("path"))
           this.path = castToString(value); // StringType
         else if (name.equals("sourceId"))
@@ -2914,8 +3046,10 @@ public class TestScript extends MetadataResource {
         switch (hash) {
         case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
         case -659125328: throw new FHIRException("Cannot make property defaultValue as it is not a complex type"); // StringType
+        case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
         case -1795452264: throw new FHIRException("Cannot make property expression as it is not a complex type"); // StringType
         case 1160732269: throw new FHIRException("Cannot make property headerField as it is not a complex type"); // StringType
+        case 3202695: throw new FHIRException("Cannot make property hint as it is not a complex type"); // StringType
         case 3433509: throw new FHIRException("Cannot make property path as it is not a complex type"); // StringType
         case 1746327190: throw new FHIRException("Cannot make property sourceId as it is not a complex type"); // IdType
         default: return super.makeProperty(hash, name);
@@ -2931,11 +3065,17 @@ public class TestScript extends MetadataResource {
         else if (name.equals("defaultValue")) {
           throw new FHIRException("Cannot call addChild on a primitive type TestScript.defaultValue");
         }
+        else if (name.equals("description")) {
+          throw new FHIRException("Cannot call addChild on a primitive type TestScript.description");
+        }
         else if (name.equals("expression")) {
           throw new FHIRException("Cannot call addChild on a primitive type TestScript.expression");
         }
         else if (name.equals("headerField")) {
           throw new FHIRException("Cannot call addChild on a primitive type TestScript.headerField");
+        }
+        else if (name.equals("hint")) {
+          throw new FHIRException("Cannot call addChild on a primitive type TestScript.hint");
         }
         else if (name.equals("path")) {
           throw new FHIRException("Cannot call addChild on a primitive type TestScript.path");
@@ -2952,8 +3092,10 @@ public class TestScript extends MetadataResource {
         copyValues(dst);
         dst.name = name == null ? null : name.copy();
         dst.defaultValue = defaultValue == null ? null : defaultValue.copy();
+        dst.description = description == null ? null : description.copy();
         dst.expression = expression == null ? null : expression.copy();
         dst.headerField = headerField == null ? null : headerField.copy();
+        dst.hint = hint == null ? null : hint.copy();
         dst.path = path == null ? null : path.copy();
         dst.sourceId = sourceId == null ? null : sourceId.copy();
         return dst;
@@ -2966,8 +3108,9 @@ public class TestScript extends MetadataResource {
         if (!(other instanceof TestScriptVariableComponent))
           return false;
         TestScriptVariableComponent o = (TestScriptVariableComponent) other;
-        return compareDeep(name, o.name, true) && compareDeep(defaultValue, o.defaultValue, true) && compareDeep(expression, o.expression, true)
-           && compareDeep(headerField, o.headerField, true) && compareDeep(path, o.path, true) && compareDeep(sourceId, o.sourceId, true)
+        return compareDeep(name, o.name, true) && compareDeep(defaultValue, o.defaultValue, true) && compareDeep(description, o.description, true)
+           && compareDeep(expression, o.expression, true) && compareDeep(headerField, o.headerField, true)
+           && compareDeep(hint, o.hint, true) && compareDeep(path, o.path, true) && compareDeep(sourceId, o.sourceId, true)
           ;
       }
 
@@ -2978,14 +3121,17 @@ public class TestScript extends MetadataResource {
         if (!(other instanceof TestScriptVariableComponent))
           return false;
         TestScriptVariableComponent o = (TestScriptVariableComponent) other;
-        return compareValues(name, o.name, true) && compareValues(defaultValue, o.defaultValue, true) && compareValues(expression, o.expression, true)
-           && compareValues(headerField, o.headerField, true) && compareValues(path, o.path, true) && compareValues(sourceId, o.sourceId, true)
+        return compareValues(name, o.name, true) && compareValues(defaultValue, o.defaultValue, true) && compareValues(description, o.description, true)
+           && compareValues(expression, o.expression, true) && compareValues(headerField, o.headerField, true)
+           && compareValues(hint, o.hint, true) && compareValues(path, o.path, true) && compareValues(sourceId, o.sourceId, true)
           ;
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(name, defaultValue, expression
-          , headerField, path, sourceId);
+        return super.isEmpty() && (name == null || name.isEmpty()) && (defaultValue == null || defaultValue.isEmpty())
+           && (description == null || description.isEmpty()) && (expression == null || expression.isEmpty())
+           && (headerField == null || headerField.isEmpty()) && (hint == null || hint.isEmpty()) && (path == null || path.isEmpty())
+           && (sourceId == null || sourceId.isEmpty());
       }
 
   public String fhirType() {
@@ -3221,7 +3367,8 @@ public class TestScript extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(resource, param);
+        return super.isEmpty() && (resource == null || resource.isEmpty()) && (param == null || param.isEmpty())
+          ;
       }
 
   public String fhirType() {
@@ -3449,7 +3596,8 @@ public class TestScript extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(name, value);
+        return super.isEmpty() && (name == null || name.isEmpty()) && (value == null || value.isEmpty())
+          ;
       }
 
   public String fhirType() {
@@ -3685,7 +3833,8 @@ public class TestScript extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(resource, rule);
+        return super.isEmpty() && (resource == null || resource.isEmpty()) && (rule == null || rule.isEmpty())
+          ;
       }
 
   public String fhirType() {
@@ -3921,7 +4070,8 @@ public class TestScript extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(ruleId, param);
+        return super.isEmpty() && (ruleId == null || ruleId.isEmpty()) && (param == null || param.isEmpty())
+          ;
       }
 
   public String fhirType() {
@@ -4149,7 +4299,8 @@ public class TestScript extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(name, value);
+        return super.isEmpty() && (name == null || name.isEmpty()) && (value == null || value.isEmpty())
+          ;
       }
 
   public String fhirType() {
@@ -4313,7 +4464,7 @@ public class TestScript extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(action);
+        return super.isEmpty() && (action == null || action.isEmpty());
       }
 
   public String fhirType() {
@@ -4489,7 +4640,8 @@ public class TestScript extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(operation, assert_);
+        return super.isEmpty() && (operation == null || operation.isEmpty()) && (assert_ == null || assert_.isEmpty())
+          ;
       }
 
   public String fhirType() {
@@ -5651,9 +5803,14 @@ public class TestScript extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(type, resource, label, description
-          , accept, contentType, destination, encodeRequestUrl, origin, params, requestHeader
-          , requestId, responseId, sourceId, targetId, url);
+        return super.isEmpty() && (type == null || type.isEmpty()) && (resource == null || resource.isEmpty())
+           && (label == null || label.isEmpty()) && (description == null || description.isEmpty()) && (accept == null || accept.isEmpty())
+           && (contentType == null || contentType.isEmpty()) && (destination == null || destination.isEmpty())
+           && (encodeRequestUrl == null || encodeRequestUrl.isEmpty()) && (origin == null || origin.isEmpty())
+           && (params == null || params.isEmpty()) && (requestHeader == null || requestHeader.isEmpty())
+           && (requestId == null || requestId.isEmpty()) && (responseId == null || responseId.isEmpty())
+           && (sourceId == null || sourceId.isEmpty()) && (targetId == null || targetId.isEmpty()) && (url == null || url.isEmpty())
+          ;
       }
 
   public String fhirType() {
@@ -5878,7 +6035,8 @@ public class TestScript extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(field, value);
+        return super.isEmpty() && (field == null || field.isEmpty()) && (value == null || value.isEmpty())
+          ;
       }
 
   public String fhirType() {
@@ -7496,11 +7654,17 @@ public class TestScript extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(label, description, direction
-          , compareToSourceId, compareToSourceExpression, compareToSourcePath, contentType, expression
-          , headerField, minimumId, navigationLinks, operator, path, requestURL, resource
-          , response, responseCode, rule, ruleset, sourceId, validateProfileId, value, warningOnly
-          );
+        return super.isEmpty() && (label == null || label.isEmpty()) && (description == null || description.isEmpty())
+           && (direction == null || direction.isEmpty()) && (compareToSourceId == null || compareToSourceId.isEmpty())
+           && (compareToSourceExpression == null || compareToSourceExpression.isEmpty()) && (compareToSourcePath == null || compareToSourcePath.isEmpty())
+           && (contentType == null || contentType.isEmpty()) && (expression == null || expression.isEmpty())
+           && (headerField == null || headerField.isEmpty()) && (minimumId == null || minimumId.isEmpty())
+           && (navigationLinks == null || navigationLinks.isEmpty()) && (operator == null || operator.isEmpty())
+           && (path == null || path.isEmpty()) && (requestURL == null || requestURL.isEmpty()) && (resource == null || resource.isEmpty())
+           && (response == null || response.isEmpty()) && (responseCode == null || responseCode.isEmpty())
+           && (rule == null || rule.isEmpty()) && (ruleset == null || ruleset.isEmpty()) && (sourceId == null || sourceId.isEmpty())
+           && (validateProfileId == null || validateProfileId.isEmpty()) && (value == null || value.isEmpty())
+           && (warningOnly == null || warningOnly.isEmpty());
       }
 
   public String fhirType() {
@@ -7736,7 +7900,8 @@ public class TestScript extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(ruleId, param);
+        return super.isEmpty() && (ruleId == null || ruleId.isEmpty()) && (param == null || param.isEmpty())
+          ;
       }
 
   public String fhirType() {
@@ -7961,7 +8126,8 @@ public class TestScript extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(name, value);
+        return super.isEmpty() && (name == null || name.isEmpty()) && (value == null || value.isEmpty())
+          ;
       }
 
   public String fhirType() {
@@ -8197,7 +8363,8 @@ public class TestScript extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(rulesetId, rule);
+        return super.isEmpty() && (rulesetId == null || rulesetId.isEmpty()) && (rule == null || rule.isEmpty())
+          ;
       }
 
   public String fhirType() {
@@ -8433,7 +8600,8 @@ public class TestScript extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(ruleId, param);
+        return super.isEmpty() && (ruleId == null || ruleId.isEmpty()) && (param == null || param.isEmpty())
+          ;
       }
 
   public String fhirType() {
@@ -8658,7 +8826,8 @@ public class TestScript extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(name, value);
+        return super.isEmpty() && (name == null || name.isEmpty()) && (value == null || value.isEmpty())
+          ;
       }
 
   public String fhirType() {
@@ -8959,8 +9128,8 @@ public class TestScript extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(name, description, action
-          );
+        return super.isEmpty() && (name == null || name.isEmpty()) && (description == null || description.isEmpty())
+           && (action == null || action.isEmpty());
       }
 
   public String fhirType() {
@@ -9136,7 +9305,8 @@ public class TestScript extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(operation, assert_);
+        return super.isEmpty() && (operation == null || operation.isEmpty()) && (assert_ == null || assert_.isEmpty())
+          ;
       }
 
   public String fhirType() {
@@ -9300,7 +9470,7 @@ public class TestScript extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(action);
+        return super.isEmpty() && (action == null || action.isEmpty());
       }
 
   public String fhirType() {
@@ -9440,7 +9610,7 @@ public class TestScript extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(operation);
+        return super.isEmpty() && (operation == null || operation.isEmpty());
       }
 
   public String fhirType() {
@@ -11224,9 +11394,12 @@ public class TestScript extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, purpose, copyright
-          , origin, destination, metadata, fixture, profile, variable, rule, ruleset, setup
-          , test, teardown);
+        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (purpose == null || purpose.isEmpty())
+           && (copyright == null || copyright.isEmpty()) && (origin == null || origin.isEmpty()) && (destination == null || destination.isEmpty())
+           && (metadata == null || metadata.isEmpty()) && (fixture == null || fixture.isEmpty()) && (profile == null || profile.isEmpty())
+           && (variable == null || variable.isEmpty()) && (rule == null || rule.isEmpty()) && (ruleset == null || ruleset.isEmpty())
+           && (setup == null || setup.isEmpty()) && (test == null || test.isEmpty()) && (teardown == null || teardown.isEmpty())
+          ;
       }
 
   @Override

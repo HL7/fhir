@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Oct 21, 2016 09:09+1100 for FHIR v1.7.0
+// Generated on Tue, Nov 1, 2016 18:35-0400 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -98,6 +98,10 @@ public class Goal extends DomainResource {
          */
         BEHINDTARGET, 
         /**
+         * The goal was entered in error and voided.
+         */
+        ENTEREDINERROR, 
+        /**
          * added to help the parsers with the generic types
          */
         NULL;
@@ -128,6 +132,8 @@ public class Goal extends DomainResource {
           return AHEADOFTARGET;
         if ("behind-target".equals(codeString))
           return BEHINDTARGET;
+        if ("entered-in-error".equals(codeString))
+          return ENTEREDINERROR;
         if (Configuration.isAcceptInvalidEnums())
           return null;
         else
@@ -147,6 +153,7 @@ public class Goal extends DomainResource {
             case ONTARGET: return "on-target";
             case AHEADOFTARGET: return "ahead-of-target";
             case BEHINDTARGET: return "behind-target";
+            case ENTEREDINERROR: return "entered-in-error";
             default: return "?";
           }
         }
@@ -164,6 +171,7 @@ public class Goal extends DomainResource {
             case ONTARGET: return "http://hl7.org/fhir/goal-status";
             case AHEADOFTARGET: return "http://hl7.org/fhir/goal-status";
             case BEHINDTARGET: return "http://hl7.org/fhir/goal-status";
+            case ENTEREDINERROR: return "http://hl7.org/fhir/goal-status";
             default: return "?";
           }
         }
@@ -181,6 +189,7 @@ public class Goal extends DomainResource {
             case ONTARGET: return "The goal is on scheduled for the planned timelines";
             case AHEADOFTARGET: return "The goal is ahead of the planned timelines";
             case BEHINDTARGET: return "The goal is behind the planned timelines";
+            case ENTEREDINERROR: return "The goal was entered in error and voided.";
             default: return "?";
           }
         }
@@ -198,6 +207,7 @@ public class Goal extends DomainResource {
             case ONTARGET: return "On Target";
             case AHEADOFTARGET: return "Ahead of Target";
             case BEHINDTARGET: return "Behind Target";
+            case ENTEREDINERROR: return "Entered In Error";
             default: return "?";
           }
         }
@@ -232,6 +242,8 @@ public class Goal extends DomainResource {
           return GoalStatus.AHEADOFTARGET;
         if ("behind-target".equals(codeString))
           return GoalStatus.BEHINDTARGET;
+        if ("entered-in-error".equals(codeString))
+          return GoalStatus.ENTEREDINERROR;
         throw new IllegalArgumentException("Unknown GoalStatus code '"+codeString+"'");
         }
         public Enumeration<GoalStatus> fromType(Base code) throws FHIRException {
@@ -264,6 +276,8 @@ public class Goal extends DomainResource {
           return new Enumeration<GoalStatus>(this, GoalStatus.AHEADOFTARGET);
         if ("behind-target".equals(codeString))
           return new Enumeration<GoalStatus>(this, GoalStatus.BEHINDTARGET);
+        if ("entered-in-error".equals(codeString))
+          return new Enumeration<GoalStatus>(this, GoalStatus.ENTEREDINERROR);
         throw new FHIRException("Unknown GoalStatus code '"+codeString+"'");
         }
     public String toCode(GoalStatus code) {
@@ -291,6 +305,8 @@ public class Goal extends DomainResource {
         return "ahead-of-target";
       if (code == GoalStatus.BEHINDTARGET)
         return "behind-target";
+      if (code == GoalStatus.ENTEREDINERROR)
+        return "entered-in-error";
       return "?";
       }
     public String toSystem(GoalStatus code) {
@@ -445,7 +461,7 @@ public class Goal extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(result);
+        return super.isEmpty() && (result == null || result.isEmpty());
       }
 
   public String fhirType() {
@@ -466,7 +482,7 @@ public class Goal extends DomainResource {
      * Indicates whether the goal has been reached and is still considered relevant.
      */
     @Child(name = "status", type = {CodeType.class}, order=1, min=1, max=1, modifier=true, summary=true)
-    @Description(shortDefinition="proposed | planned | accepted | rejected | in-progress | achieved | sustaining | on-hold | cancelled | on-target | ahead-of-target | behind-target", formalDefinition="Indicates whether the goal has been reached and is still considered relevant." )
+    @Description(shortDefinition="proposed | planned | accepted | rejected | in-progress | achieved | sustaining | on-hold | cancelled | on-target | ahead-of-target | behind-target | entered-in-error", formalDefinition="Indicates whether the goal has been reached and is still considered relevant." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/goal-status")
     protected Enumeration<GoalStatus> status;
 
@@ -570,7 +586,7 @@ public class Goal extends DomainResource {
      * Identifies the change (or lack of change) at the point where the goal was deemed to be cancelled or achieved.
      */
     @Child(name = "outcome", type = {}, order=13, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-    @Description(shortDefinition="What was end result of goal?", formalDefinition="Identifies the change (or lack of change) at the point where the goal was deemed to be cancelled or achieved." )
+    @Description(shortDefinition="What result was achieved regarding the goal?", formalDefinition="Identifies the change (or lack of change) at the point where the goal was deemed to be cancelled or achieved." )
     protected List<GoalOutcomeComponent> outcome;
 
     private static final long serialVersionUID = -1038594160L;
@@ -1516,9 +1532,12 @@ public class Goal extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, status, category
-          , priority, description, subject, start, target, statusDate, statusReason, expressedBy
-          , addresses, note, outcome);
+        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (status == null || status.isEmpty())
+           && (category == null || category.isEmpty()) && (priority == null || priority.isEmpty()) && (description == null || description.isEmpty())
+           && (subject == null || subject.isEmpty()) && (start == null || start.isEmpty()) && (target == null || target.isEmpty())
+           && (statusDate == null || statusDate.isEmpty()) && (statusReason == null || statusReason.isEmpty())
+           && (expressedBy == null || expressedBy.isEmpty()) && (addresses == null || addresses.isEmpty())
+           && (note == null || note.isEmpty()) && (outcome == null || outcome.isEmpty());
       }
 
   @Override
@@ -1641,17 +1660,17 @@ public class Goal extends DomainResource {
  /**
    * Search parameter: <b>status</b>
    * <p>
-   * Description: <b>proposed | planned | accepted | rejected | in-progress | achieved | sustaining | on-hold | cancelled | on-target | ahead-of-target | behind-target</b><br>
+   * Description: <b>proposed | planned | accepted | rejected | in-progress | achieved | sustaining | on-hold | cancelled | on-target | ahead-of-target | behind-target | entered-in-error</b><br>
    * Type: <b>token</b><br>
    * Path: <b>Goal.status</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="status", path="Goal.status", description="proposed | planned | accepted | rejected | in-progress | achieved | sustaining | on-hold | cancelled | on-target | ahead-of-target | behind-target", type="token" )
+  @SearchParamDefinition(name="status", path="Goal.status", description="proposed | planned | accepted | rejected | in-progress | achieved | sustaining | on-hold | cancelled | on-target | ahead-of-target | behind-target | entered-in-error", type="token" )
   public static final String SP_STATUS = "status";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>status</b>
    * <p>
-   * Description: <b>proposed | planned | accepted | rejected | in-progress | achieved | sustaining | on-hold | cancelled | on-target | ahead-of-target | behind-target</b><br>
+   * Description: <b>proposed | planned | accepted | rejected | in-progress | achieved | sustaining | on-hold | cancelled | on-target | ahead-of-target | behind-target | entered-in-error</b><br>
    * Type: <b>token</b><br>
    * Path: <b>Goal.status</b><br>
    * </p>

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Oct 21, 2016 09:09+1100 for FHIR v1.7.0
+// Generated on Tue, Nov 1, 2016 18:35-0400 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -1621,8 +1621,10 @@ public class SearchParameter extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(purpose, code, base, type
-          , expression, xpath, xpathUsage, target, component);
+        return super.isEmpty() && (purpose == null || purpose.isEmpty()) && (code == null || code.isEmpty())
+           && (base == null || base.isEmpty()) && (type == null || type.isEmpty()) && (expression == null || expression.isEmpty())
+           && (xpath == null || xpath.isEmpty()) && (xpathUsage == null || xpathUsage.isEmpty()) && (target == null || target.isEmpty())
+           && (component == null || component.isEmpty());
       }
 
   @Override

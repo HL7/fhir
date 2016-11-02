@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Oct 21, 2016 09:09+1100 for FHIR v1.7.0
+// Generated on Tue, Nov 1, 2016 18:35-0400 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -583,8 +583,9 @@ public class PractitionerRole extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(daysOfWeek, allDay, availableStartTime
-          , availableEndTime);
+        return super.isEmpty() && (daysOfWeek == null || daysOfWeek.isEmpty()) && (allDay == null || allDay.isEmpty())
+           && (availableStartTime == null || availableStartTime.isEmpty()) && (availableEndTime == null || availableEndTime.isEmpty())
+          ;
       }
 
   public String fhirType() {
@@ -788,7 +789,8 @@ public class PractitionerRole extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(description, during);
+        return super.isEmpty() && (description == null || description.isEmpty()) && (during == null || during.isEmpty())
+          ;
       }
 
   public String fhirType() {
@@ -1970,9 +1972,13 @@ public class PractitionerRole extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, active, practitioner
-          , organization, code, specialty, location, healthcareService, telecom, period
-          , availableTime, notAvailable, availabilityExceptions, endpoint);
+        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (active == null || active.isEmpty())
+           && (practitioner == null || practitioner.isEmpty()) && (organization == null || organization.isEmpty())
+           && (code == null || code.isEmpty()) && (specialty == null || specialty.isEmpty()) && (location == null || location.isEmpty())
+           && (healthcareService == null || healthcareService.isEmpty()) && (telecom == null || telecom.isEmpty())
+           && (period == null || period.isEmpty()) && (availableTime == null || availableTime.isEmpty())
+           && (notAvailable == null || notAvailable.isEmpty()) && (availabilityExceptions == null || availabilityExceptions.isEmpty())
+           && (endpoint == null || endpoint.isEmpty());
       }
 
   @Override

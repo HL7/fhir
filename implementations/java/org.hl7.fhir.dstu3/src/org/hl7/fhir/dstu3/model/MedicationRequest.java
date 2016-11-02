@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Oct 21, 2016 09:09+1100 for FHIR v1.7.0
+// Generated on Tue, Nov 1, 2016 18:35-0400 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -43,12 +43,12 @@ import ca.uhn.fhir.model.api.annotation.Block;
 import org.hl7.fhir.instance.model.api.*;
 import org.hl7.fhir.exceptions.FHIRException;
 /**
- * An order for both supply of the medication and the instructions for administration of the medication to a patient. The resource is called "MedicationOrder" rather than "MedicationPrescription" to generalize the use across inpatient and outpatient settings as well as for care plans, etc.
+ * An order for both supply of the medication and the instructions for administration of the medication to a patient. The resource is called "MedicationRequest" rather than "MedicationPrescription" or "MedicationOrder" to generalize the use across inpatient and outpatient settings as well as for care plans, etc and to harmonize with workflow patterns.
  */
-@ResourceDef(name="MedicationOrder", profile="http://hl7.org/fhir/Profile/MedicationOrder")
-public class MedicationOrder extends DomainResource {
+@ResourceDef(name="MedicationRequest", profile="http://hl7.org/fhir/Profile/MedicationRequest")
+public class MedicationRequest extends DomainResource {
 
-    public enum MedicationOrderStatus {
+    public enum MedicationRequestStatus {
         /**
          * The prescription is 'actionable', but not all actions that are implied by it have occurred yet.
          */
@@ -57,6 +57,10 @@ public class MedicationOrder extends DomainResource {
          * Actions implied by the prescription are to be temporarily halted, but are expected to continue later.  May also be called "suspended".
          */
         ONHOLD, 
+        /**
+         * The prescription has been withdrawn.
+         */
+        CANCELLED, 
         /**
          * All actions that are implied by the prescription have occurred.
          */
@@ -77,13 +81,15 @@ public class MedicationOrder extends DomainResource {
          * added to help the parsers with the generic types
          */
         NULL;
-        public static MedicationOrderStatus fromCode(String codeString) throws FHIRException {
+        public static MedicationRequestStatus fromCode(String codeString) throws FHIRException {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("active".equals(codeString))
           return ACTIVE;
         if ("on-hold".equals(codeString))
           return ONHOLD;
+        if ("cancelled".equals(codeString))
+          return CANCELLED;
         if ("completed".equals(codeString))
           return COMPLETED;
         if ("entered-in-error".equals(codeString))
@@ -95,12 +101,13 @@ public class MedicationOrder extends DomainResource {
         if (Configuration.isAcceptInvalidEnums())
           return null;
         else
-          throw new FHIRException("Unknown MedicationOrderStatus code '"+codeString+"'");
+          throw new FHIRException("Unknown MedicationRequestStatus code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
             case ACTIVE: return "active";
             case ONHOLD: return "on-hold";
+            case CANCELLED: return "cancelled";
             case COMPLETED: return "completed";
             case ENTEREDINERROR: return "entered-in-error";
             case STOPPED: return "stopped";
@@ -110,12 +117,13 @@ public class MedicationOrder extends DomainResource {
         }
         public String getSystem() {
           switch (this) {
-            case ACTIVE: return "http://hl7.org/fhir/medication-order-status";
-            case ONHOLD: return "http://hl7.org/fhir/medication-order-status";
-            case COMPLETED: return "http://hl7.org/fhir/medication-order-status";
-            case ENTEREDINERROR: return "http://hl7.org/fhir/medication-order-status";
-            case STOPPED: return "http://hl7.org/fhir/medication-order-status";
-            case DRAFT: return "http://hl7.org/fhir/medication-order-status";
+            case ACTIVE: return "http://hl7.org/fhir/medication-request-status";
+            case ONHOLD: return "http://hl7.org/fhir/medication-request-status";
+            case CANCELLED: return "http://hl7.org/fhir/medication-request-status";
+            case COMPLETED: return "http://hl7.org/fhir/medication-request-status";
+            case ENTEREDINERROR: return "http://hl7.org/fhir/medication-request-status";
+            case STOPPED: return "http://hl7.org/fhir/medication-request-status";
+            case DRAFT: return "http://hl7.org/fhir/medication-request-status";
             default: return "?";
           }
         }
@@ -123,6 +131,7 @@ public class MedicationOrder extends DomainResource {
           switch (this) {
             case ACTIVE: return "The prescription is 'actionable', but not all actions that are implied by it have occurred yet.";
             case ONHOLD: return "Actions implied by the prescription are to be temporarily halted, but are expected to continue later.  May also be called \"suspended\".";
+            case CANCELLED: return "The prescription has been withdrawn.";
             case COMPLETED: return "All actions that are implied by the prescription have occurred.";
             case ENTEREDINERROR: return "The prescription was entered in error.";
             case STOPPED: return "Actions implied by the prescription are to be permanently halted, before all of them occurred.";
@@ -134,6 +143,7 @@ public class MedicationOrder extends DomainResource {
           switch (this) {
             case ACTIVE: return "Active";
             case ONHOLD: return "On Hold";
+            case CANCELLED: return "Cancelled";
             case COMPLETED: return "Completed";
             case ENTEREDINERROR: return "Entered In Error";
             case STOPPED: return "Stopped";
@@ -143,173 +153,73 @@ public class MedicationOrder extends DomainResource {
         }
     }
 
-  public static class MedicationOrderStatusEnumFactory implements EnumFactory<MedicationOrderStatus> {
-    public MedicationOrderStatus fromCode(String codeString) throws IllegalArgumentException {
+  public static class MedicationRequestStatusEnumFactory implements EnumFactory<MedicationRequestStatus> {
+    public MedicationRequestStatus fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("active".equals(codeString))
-          return MedicationOrderStatus.ACTIVE;
+          return MedicationRequestStatus.ACTIVE;
         if ("on-hold".equals(codeString))
-          return MedicationOrderStatus.ONHOLD;
+          return MedicationRequestStatus.ONHOLD;
+        if ("cancelled".equals(codeString))
+          return MedicationRequestStatus.CANCELLED;
         if ("completed".equals(codeString))
-          return MedicationOrderStatus.COMPLETED;
+          return MedicationRequestStatus.COMPLETED;
         if ("entered-in-error".equals(codeString))
-          return MedicationOrderStatus.ENTEREDINERROR;
+          return MedicationRequestStatus.ENTEREDINERROR;
         if ("stopped".equals(codeString))
-          return MedicationOrderStatus.STOPPED;
+          return MedicationRequestStatus.STOPPED;
         if ("draft".equals(codeString))
-          return MedicationOrderStatus.DRAFT;
-        throw new IllegalArgumentException("Unknown MedicationOrderStatus code '"+codeString+"'");
+          return MedicationRequestStatus.DRAFT;
+        throw new IllegalArgumentException("Unknown MedicationRequestStatus code '"+codeString+"'");
         }
-        public Enumeration<MedicationOrderStatus> fromType(Base code) throws FHIRException {
+        public Enumeration<MedicationRequestStatus> fromType(Base code) throws FHIRException {
           if (code == null || code.isEmpty())
             return null;
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
         if ("active".equals(codeString))
-          return new Enumeration<MedicationOrderStatus>(this, MedicationOrderStatus.ACTIVE);
+          return new Enumeration<MedicationRequestStatus>(this, MedicationRequestStatus.ACTIVE);
         if ("on-hold".equals(codeString))
-          return new Enumeration<MedicationOrderStatus>(this, MedicationOrderStatus.ONHOLD);
+          return new Enumeration<MedicationRequestStatus>(this, MedicationRequestStatus.ONHOLD);
+        if ("cancelled".equals(codeString))
+          return new Enumeration<MedicationRequestStatus>(this, MedicationRequestStatus.CANCELLED);
         if ("completed".equals(codeString))
-          return new Enumeration<MedicationOrderStatus>(this, MedicationOrderStatus.COMPLETED);
+          return new Enumeration<MedicationRequestStatus>(this, MedicationRequestStatus.COMPLETED);
         if ("entered-in-error".equals(codeString))
-          return new Enumeration<MedicationOrderStatus>(this, MedicationOrderStatus.ENTEREDINERROR);
+          return new Enumeration<MedicationRequestStatus>(this, MedicationRequestStatus.ENTEREDINERROR);
         if ("stopped".equals(codeString))
-          return new Enumeration<MedicationOrderStatus>(this, MedicationOrderStatus.STOPPED);
+          return new Enumeration<MedicationRequestStatus>(this, MedicationRequestStatus.STOPPED);
         if ("draft".equals(codeString))
-          return new Enumeration<MedicationOrderStatus>(this, MedicationOrderStatus.DRAFT);
-        throw new FHIRException("Unknown MedicationOrderStatus code '"+codeString+"'");
+          return new Enumeration<MedicationRequestStatus>(this, MedicationRequestStatus.DRAFT);
+        throw new FHIRException("Unknown MedicationRequestStatus code '"+codeString+"'");
         }
-    public String toCode(MedicationOrderStatus code) {
-      if (code == MedicationOrderStatus.ACTIVE)
+    public String toCode(MedicationRequestStatus code) {
+      if (code == MedicationRequestStatus.ACTIVE)
         return "active";
-      if (code == MedicationOrderStatus.ONHOLD)
+      if (code == MedicationRequestStatus.ONHOLD)
         return "on-hold";
-      if (code == MedicationOrderStatus.COMPLETED)
+      if (code == MedicationRequestStatus.CANCELLED)
+        return "cancelled";
+      if (code == MedicationRequestStatus.COMPLETED)
         return "completed";
-      if (code == MedicationOrderStatus.ENTEREDINERROR)
+      if (code == MedicationRequestStatus.ENTEREDINERROR)
         return "entered-in-error";
-      if (code == MedicationOrderStatus.STOPPED)
+      if (code == MedicationRequestStatus.STOPPED)
         return "stopped";
-      if (code == MedicationOrderStatus.DRAFT)
+      if (code == MedicationRequestStatus.DRAFT)
         return "draft";
       return "?";
       }
-    public String toSystem(MedicationOrderStatus code) {
-      return code.getSystem();
-      }
-    }
-
-    public enum MedicationOrderCategory {
-        /**
-         * Includes orders for medications to be administered or consumed in an inpatient or acute care setting
-         */
-        INPATIENT, 
-        /**
-         * Includes orders for medications to be administered or consumed in an outpatient setting (for example, Emergency Department, Outpatient Clinic, Outpatient Surgery, Doctor's office)
-         */
-        OUTPATIENT, 
-        /**
-         * Includes orders for medications to be administered or consumed by the patient in their home (this would include long term care or nursing homes, hospices, etc)
-         */
-        COMMUNITY, 
-        /**
-         * added to help the parsers with the generic types
-         */
-        NULL;
-        public static MedicationOrderCategory fromCode(String codeString) throws FHIRException {
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("inpatient".equals(codeString))
-          return INPATIENT;
-        if ("outpatient".equals(codeString))
-          return OUTPATIENT;
-        if ("community".equals(codeString))
-          return COMMUNITY;
-        if (Configuration.isAcceptInvalidEnums())
-          return null;
-        else
-          throw new FHIRException("Unknown MedicationOrderCategory code '"+codeString+"'");
-        }
-        public String toCode() {
-          switch (this) {
-            case INPATIENT: return "inpatient";
-            case OUTPATIENT: return "outpatient";
-            case COMMUNITY: return "community";
-            default: return "?";
-          }
-        }
-        public String getSystem() {
-          switch (this) {
-            case INPATIENT: return "http://hl7.org/fhir/medication-order-category";
-            case OUTPATIENT: return "http://hl7.org/fhir/medication-order-category";
-            case COMMUNITY: return "http://hl7.org/fhir/medication-order-category";
-            default: return "?";
-          }
-        }
-        public String getDefinition() {
-          switch (this) {
-            case INPATIENT: return "Includes orders for medications to be administered or consumed in an inpatient or acute care setting";
-            case OUTPATIENT: return "Includes orders for medications to be administered or consumed in an outpatient setting (for example, Emergency Department, Outpatient Clinic, Outpatient Surgery, Doctor's office)";
-            case COMMUNITY: return "Includes orders for medications to be administered or consumed by the patient in their home (this would include long term care or nursing homes, hospices, etc)";
-            default: return "?";
-          }
-        }
-        public String getDisplay() {
-          switch (this) {
-            case INPATIENT: return "Inpatient";
-            case OUTPATIENT: return "Outpatient";
-            case COMMUNITY: return "Community";
-            default: return "?";
-          }
-        }
-    }
-
-  public static class MedicationOrderCategoryEnumFactory implements EnumFactory<MedicationOrderCategory> {
-    public MedicationOrderCategory fromCode(String codeString) throws IllegalArgumentException {
-      if (codeString == null || "".equals(codeString))
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("inpatient".equals(codeString))
-          return MedicationOrderCategory.INPATIENT;
-        if ("outpatient".equals(codeString))
-          return MedicationOrderCategory.OUTPATIENT;
-        if ("community".equals(codeString))
-          return MedicationOrderCategory.COMMUNITY;
-        throw new IllegalArgumentException("Unknown MedicationOrderCategory code '"+codeString+"'");
-        }
-        public Enumeration<MedicationOrderCategory> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
-            return null;
-          String codeString = ((PrimitiveType) code).asStringValue();
-          if (codeString == null || "".equals(codeString))
-            return null;
-        if ("inpatient".equals(codeString))
-          return new Enumeration<MedicationOrderCategory>(this, MedicationOrderCategory.INPATIENT);
-        if ("outpatient".equals(codeString))
-          return new Enumeration<MedicationOrderCategory>(this, MedicationOrderCategory.OUTPATIENT);
-        if ("community".equals(codeString))
-          return new Enumeration<MedicationOrderCategory>(this, MedicationOrderCategory.COMMUNITY);
-        throw new FHIRException("Unknown MedicationOrderCategory code '"+codeString+"'");
-        }
-    public String toCode(MedicationOrderCategory code) {
-      if (code == MedicationOrderCategory.INPATIENT)
-        return "inpatient";
-      if (code == MedicationOrderCategory.OUTPATIENT)
-        return "outpatient";
-      if (code == MedicationOrderCategory.COMMUNITY)
-        return "community";
-      return "?";
-      }
-    public String toSystem(MedicationOrderCategory code) {
+    public String toSystem(MedicationRequestStatus code) {
       return code.getSystem();
       }
     }
 
     @Block()
-    public static class MedicationOrderDispenseRequestComponent extends BackboneElement implements IBaseBackboneElement {
+    public static class MedicationRequestDispenseRequestComponent extends BackboneElement implements IBaseBackboneElement {
         /**
          * This indicates the validity period of a prescription (stale dating the Prescription).
          */
@@ -338,12 +248,24 @@ public class MedicationOrder extends DomainResource {
         @Description(shortDefinition="Number of days supply per dispense", formalDefinition="Identifies the period time over which the supplied product is expected to be used, or the length of time the dispense is expected to last." )
         protected Duration expectedSupplyDuration;
 
-        private static final long serialVersionUID = 690742765L;
+        /**
+         * Indicates the intended dispensing Organization specified by the prescriber.
+         */
+        @Child(name = "performer", type = {Organization.class}, order=5, min=0, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="Intended dispenser", formalDefinition="Indicates the intended dispensing Organization specified by the prescriber." )
+        protected Reference performer;
+
+        /**
+         * The actual object that is the target of the reference (Indicates the intended dispensing Organization specified by the prescriber.)
+         */
+        protected Organization performerTarget;
+
+        private static final long serialVersionUID = 280197622L;
 
     /**
      * Constructor
      */
-      public MedicationOrderDispenseRequestComponent() {
+      public MedicationRequestDispenseRequestComponent() {
         super();
       }
 
@@ -353,7 +275,7 @@ public class MedicationOrder extends DomainResource {
         public Period getValidityPeriod() { 
           if (this.validityPeriod == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create MedicationOrderDispenseRequestComponent.validityPeriod");
+              throw new Error("Attempt to auto-create MedicationRequestDispenseRequestComponent.validityPeriod");
             else if (Configuration.doAutoCreate())
               this.validityPeriod = new Period(); // cc
           return this.validityPeriod;
@@ -366,7 +288,7 @@ public class MedicationOrder extends DomainResource {
         /**
          * @param value {@link #validityPeriod} (This indicates the validity period of a prescription (stale dating the Prescription).)
          */
-        public MedicationOrderDispenseRequestComponent setValidityPeriod(Period value) { 
+        public MedicationRequestDispenseRequestComponent setValidityPeriod(Period value) { 
           this.validityPeriod = value;
           return this;
         }
@@ -377,7 +299,7 @@ public class MedicationOrder extends DomainResource {
         public PositiveIntType getNumberOfRepeatsAllowedElement() { 
           if (this.numberOfRepeatsAllowed == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create MedicationOrderDispenseRequestComponent.numberOfRepeatsAllowed");
+              throw new Error("Attempt to auto-create MedicationRequestDispenseRequestComponent.numberOfRepeatsAllowed");
             else if (Configuration.doAutoCreate())
               this.numberOfRepeatsAllowed = new PositiveIntType(); // bb
           return this.numberOfRepeatsAllowed;
@@ -394,7 +316,7 @@ public class MedicationOrder extends DomainResource {
         /**
          * @param value {@link #numberOfRepeatsAllowed} (An integer indicating the number of times, in addition to the original dispense, (aka refills or repeats) that the patient can receive the prescribed medication. Usage Notes: This integer does NOT include the original order dispense. This means that if an order indicates dispense 30 tablets plus "3 repeats", then the order can be dispensed a total of 4 times and the patient can receive a total of 120 tablets.). This is the underlying object with id, value and extensions. The accessor "getNumberOfRepeatsAllowed" gives direct access to the value
          */
-        public MedicationOrderDispenseRequestComponent setNumberOfRepeatsAllowedElement(PositiveIntType value) { 
+        public MedicationRequestDispenseRequestComponent setNumberOfRepeatsAllowedElement(PositiveIntType value) { 
           this.numberOfRepeatsAllowed = value;
           return this;
         }
@@ -409,7 +331,7 @@ public class MedicationOrder extends DomainResource {
         /**
          * @param value An integer indicating the number of times, in addition to the original dispense, (aka refills or repeats) that the patient can receive the prescribed medication. Usage Notes: This integer does NOT include the original order dispense. This means that if an order indicates dispense 30 tablets plus "3 repeats", then the order can be dispensed a total of 4 times and the patient can receive a total of 120 tablets.
          */
-        public MedicationOrderDispenseRequestComponent setNumberOfRepeatsAllowed(int value) { 
+        public MedicationRequestDispenseRequestComponent setNumberOfRepeatsAllowed(int value) { 
             if (this.numberOfRepeatsAllowed == null)
               this.numberOfRepeatsAllowed = new PositiveIntType();
             this.numberOfRepeatsAllowed.setValue(value);
@@ -422,7 +344,7 @@ public class MedicationOrder extends DomainResource {
         public SimpleQuantity getQuantity() { 
           if (this.quantity == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create MedicationOrderDispenseRequestComponent.quantity");
+              throw new Error("Attempt to auto-create MedicationRequestDispenseRequestComponent.quantity");
             else if (Configuration.doAutoCreate())
               this.quantity = new SimpleQuantity(); // cc
           return this.quantity;
@@ -435,7 +357,7 @@ public class MedicationOrder extends DomainResource {
         /**
          * @param value {@link #quantity} (The amount that is to be dispensed for one fill.)
          */
-        public MedicationOrderDispenseRequestComponent setQuantity(SimpleQuantity value) { 
+        public MedicationRequestDispenseRequestComponent setQuantity(SimpleQuantity value) { 
           this.quantity = value;
           return this;
         }
@@ -446,7 +368,7 @@ public class MedicationOrder extends DomainResource {
         public Duration getExpectedSupplyDuration() { 
           if (this.expectedSupplyDuration == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create MedicationOrderDispenseRequestComponent.expectedSupplyDuration");
+              throw new Error("Attempt to auto-create MedicationRequestDispenseRequestComponent.expectedSupplyDuration");
             else if (Configuration.doAutoCreate())
               this.expectedSupplyDuration = new Duration(); // cc
           return this.expectedSupplyDuration;
@@ -459,8 +381,52 @@ public class MedicationOrder extends DomainResource {
         /**
          * @param value {@link #expectedSupplyDuration} (Identifies the period time over which the supplied product is expected to be used, or the length of time the dispense is expected to last.)
          */
-        public MedicationOrderDispenseRequestComponent setExpectedSupplyDuration(Duration value) { 
+        public MedicationRequestDispenseRequestComponent setExpectedSupplyDuration(Duration value) { 
           this.expectedSupplyDuration = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #performer} (Indicates the intended dispensing Organization specified by the prescriber.)
+         */
+        public Reference getPerformer() { 
+          if (this.performer == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create MedicationRequestDispenseRequestComponent.performer");
+            else if (Configuration.doAutoCreate())
+              this.performer = new Reference(); // cc
+          return this.performer;
+        }
+
+        public boolean hasPerformer() { 
+          return this.performer != null && !this.performer.isEmpty();
+        }
+
+        /**
+         * @param value {@link #performer} (Indicates the intended dispensing Organization specified by the prescriber.)
+         */
+        public MedicationRequestDispenseRequestComponent setPerformer(Reference value) { 
+          this.performer = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #performer} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Indicates the intended dispensing Organization specified by the prescriber.)
+         */
+        public Organization getPerformerTarget() { 
+          if (this.performerTarget == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create MedicationRequestDispenseRequestComponent.performer");
+            else if (Configuration.doAutoCreate())
+              this.performerTarget = new Organization(); // aa
+          return this.performerTarget;
+        }
+
+        /**
+         * @param value {@link #performer} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Indicates the intended dispensing Organization specified by the prescriber.)
+         */
+        public MedicationRequestDispenseRequestComponent setPerformerTarget(Organization value) { 
+          this.performerTarget = value;
           return this;
         }
 
@@ -470,6 +436,7 @@ public class MedicationOrder extends DomainResource {
           childrenList.add(new Property("numberOfRepeatsAllowed", "positiveInt", "An integer indicating the number of times, in addition to the original dispense, (aka refills or repeats) that the patient can receive the prescribed medication. Usage Notes: This integer does NOT include the original order dispense. This means that if an order indicates dispense 30 tablets plus \"3 repeats\", then the order can be dispensed a total of 4 times and the patient can receive a total of 120 tablets.", 0, java.lang.Integer.MAX_VALUE, numberOfRepeatsAllowed));
           childrenList.add(new Property("quantity", "SimpleQuantity", "The amount that is to be dispensed for one fill.", 0, java.lang.Integer.MAX_VALUE, quantity));
           childrenList.add(new Property("expectedSupplyDuration", "Duration", "Identifies the period time over which the supplied product is expected to be used, or the length of time the dispense is expected to last.", 0, java.lang.Integer.MAX_VALUE, expectedSupplyDuration));
+          childrenList.add(new Property("performer", "Reference(Organization)", "Indicates the intended dispensing Organization specified by the prescriber.", 0, java.lang.Integer.MAX_VALUE, performer));
         }
 
       @Override
@@ -479,6 +446,7 @@ public class MedicationOrder extends DomainResource {
         case -239736976: /*numberOfRepeatsAllowed*/ return this.numberOfRepeatsAllowed == null ? new Base[0] : new Base[] {this.numberOfRepeatsAllowed}; // PositiveIntType
         case -1285004149: /*quantity*/ return this.quantity == null ? new Base[0] : new Base[] {this.quantity}; // SimpleQuantity
         case -1910182789: /*expectedSupplyDuration*/ return this.expectedSupplyDuration == null ? new Base[0] : new Base[] {this.expectedSupplyDuration}; // Duration
+        case 481140686: /*performer*/ return this.performer == null ? new Base[0] : new Base[] {this.performer}; // Reference
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -499,6 +467,9 @@ public class MedicationOrder extends DomainResource {
         case -1910182789: // expectedSupplyDuration
           this.expectedSupplyDuration = castToDuration(value); // Duration
           break;
+        case 481140686: // performer
+          this.performer = castToReference(value); // Reference
+          break;
         default: super.setProperty(hash, name, value);
         }
 
@@ -514,6 +485,8 @@ public class MedicationOrder extends DomainResource {
           this.quantity = castToSimpleQuantity(value); // SimpleQuantity
         else if (name.equals("expectedSupplyDuration"))
           this.expectedSupplyDuration = castToDuration(value); // Duration
+        else if (name.equals("performer"))
+          this.performer = castToReference(value); // Reference
         else
           super.setProperty(name, value);
       }
@@ -525,6 +498,7 @@ public class MedicationOrder extends DomainResource {
         case -239736976: throw new FHIRException("Cannot make property numberOfRepeatsAllowed as it is not a complex type"); // PositiveIntType
         case -1285004149:  return getQuantity(); // SimpleQuantity
         case -1910182789:  return getExpectedSupplyDuration(); // Duration
+        case 481140686:  return getPerformer(); // Reference
         default: return super.makeProperty(hash, name);
         }
 
@@ -537,7 +511,7 @@ public class MedicationOrder extends DomainResource {
           return this.validityPeriod;
         }
         else if (name.equals("numberOfRepeatsAllowed")) {
-          throw new FHIRException("Cannot call addChild on a primitive type MedicationOrder.numberOfRepeatsAllowed");
+          throw new FHIRException("Cannot call addChild on a primitive type MedicationRequest.numberOfRepeatsAllowed");
         }
         else if (name.equals("quantity")) {
           this.quantity = new SimpleQuantity();
@@ -547,17 +521,22 @@ public class MedicationOrder extends DomainResource {
           this.expectedSupplyDuration = new Duration();
           return this.expectedSupplyDuration;
         }
+        else if (name.equals("performer")) {
+          this.performer = new Reference();
+          return this.performer;
+        }
         else
           return super.addChild(name);
       }
 
-      public MedicationOrderDispenseRequestComponent copy() {
-        MedicationOrderDispenseRequestComponent dst = new MedicationOrderDispenseRequestComponent();
+      public MedicationRequestDispenseRequestComponent copy() {
+        MedicationRequestDispenseRequestComponent dst = new MedicationRequestDispenseRequestComponent();
         copyValues(dst);
         dst.validityPeriod = validityPeriod == null ? null : validityPeriod.copy();
         dst.numberOfRepeatsAllowed = numberOfRepeatsAllowed == null ? null : numberOfRepeatsAllowed.copy();
         dst.quantity = quantity == null ? null : quantity.copy();
         dst.expectedSupplyDuration = expectedSupplyDuration == null ? null : expectedSupplyDuration.copy();
+        dst.performer = performer == null ? null : performer.copy();
         return dst;
       }
 
@@ -565,42 +544,43 @@ public class MedicationOrder extends DomainResource {
       public boolean equalsDeep(Base other) {
         if (!super.equalsDeep(other))
           return false;
-        if (!(other instanceof MedicationOrderDispenseRequestComponent))
+        if (!(other instanceof MedicationRequestDispenseRequestComponent))
           return false;
-        MedicationOrderDispenseRequestComponent o = (MedicationOrderDispenseRequestComponent) other;
+        MedicationRequestDispenseRequestComponent o = (MedicationRequestDispenseRequestComponent) other;
         return compareDeep(validityPeriod, o.validityPeriod, true) && compareDeep(numberOfRepeatsAllowed, o.numberOfRepeatsAllowed, true)
            && compareDeep(quantity, o.quantity, true) && compareDeep(expectedSupplyDuration, o.expectedSupplyDuration, true)
-          ;
+           && compareDeep(performer, o.performer, true);
       }
 
       @Override
       public boolean equalsShallow(Base other) {
         if (!super.equalsShallow(other))
           return false;
-        if (!(other instanceof MedicationOrderDispenseRequestComponent))
+        if (!(other instanceof MedicationRequestDispenseRequestComponent))
           return false;
-        MedicationOrderDispenseRequestComponent o = (MedicationOrderDispenseRequestComponent) other;
+        MedicationRequestDispenseRequestComponent o = (MedicationRequestDispenseRequestComponent) other;
         return compareValues(numberOfRepeatsAllowed, o.numberOfRepeatsAllowed, true);
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(validityPeriod, numberOfRepeatsAllowed
-          , quantity, expectedSupplyDuration);
+        return super.isEmpty() && (validityPeriod == null || validityPeriod.isEmpty()) && (numberOfRepeatsAllowed == null || numberOfRepeatsAllowed.isEmpty())
+           && (quantity == null || quantity.isEmpty()) && (expectedSupplyDuration == null || expectedSupplyDuration.isEmpty())
+           && (performer == null || performer.isEmpty());
       }
 
   public String fhirType() {
-    return "MedicationOrder.dispenseRequest";
+    return "MedicationRequest.dispenseRequest";
 
   }
 
   }
 
     @Block()
-    public static class MedicationOrderSubstitutionComponent extends BackboneElement implements IBaseBackboneElement {
+    public static class MedicationRequestSubstitutionComponent extends BackboneElement implements IBaseBackboneElement {
         /**
          * True if the prescriber allows a different drug to be dispensed from what was prescribed.
          */
-        @Child(name = "allowed", type = {BooleanType.class}, order=1, min=1, max=1, modifier=false, summary=false)
+        @Child(name = "allowed", type = {BooleanType.class}, order=1, min=1, max=1, modifier=true, summary=false)
         @Description(shortDefinition="Whether substitution is allowed or not", formalDefinition="True if the prescriber allows a different drug to be dispensed from what was prescribed." )
         protected BooleanType allowed;
 
@@ -617,14 +597,14 @@ public class MedicationOrder extends DomainResource {
     /**
      * Constructor
      */
-      public MedicationOrderSubstitutionComponent() {
+      public MedicationRequestSubstitutionComponent() {
         super();
       }
 
     /**
      * Constructor
      */
-      public MedicationOrderSubstitutionComponent(BooleanType allowed) {
+      public MedicationRequestSubstitutionComponent(BooleanType allowed) {
         super();
         this.allowed = allowed;
       }
@@ -635,7 +615,7 @@ public class MedicationOrder extends DomainResource {
         public BooleanType getAllowedElement() { 
           if (this.allowed == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create MedicationOrderSubstitutionComponent.allowed");
+              throw new Error("Attempt to auto-create MedicationRequestSubstitutionComponent.allowed");
             else if (Configuration.doAutoCreate())
               this.allowed = new BooleanType(); // bb
           return this.allowed;
@@ -652,7 +632,7 @@ public class MedicationOrder extends DomainResource {
         /**
          * @param value {@link #allowed} (True if the prescriber allows a different drug to be dispensed from what was prescribed.). This is the underlying object with id, value and extensions. The accessor "getAllowed" gives direct access to the value
          */
-        public MedicationOrderSubstitutionComponent setAllowedElement(BooleanType value) { 
+        public MedicationRequestSubstitutionComponent setAllowedElement(BooleanType value) { 
           this.allowed = value;
           return this;
         }
@@ -667,7 +647,7 @@ public class MedicationOrder extends DomainResource {
         /**
          * @param value True if the prescriber allows a different drug to be dispensed from what was prescribed.
          */
-        public MedicationOrderSubstitutionComponent setAllowed(boolean value) { 
+        public MedicationRequestSubstitutionComponent setAllowed(boolean value) { 
             if (this.allowed == null)
               this.allowed = new BooleanType();
             this.allowed.setValue(value);
@@ -680,7 +660,7 @@ public class MedicationOrder extends DomainResource {
         public CodeableConcept getReason() { 
           if (this.reason == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create MedicationOrderSubstitutionComponent.reason");
+              throw new Error("Attempt to auto-create MedicationRequestSubstitutionComponent.reason");
             else if (Configuration.doAutoCreate())
               this.reason = new CodeableConcept(); // cc
           return this.reason;
@@ -693,7 +673,7 @@ public class MedicationOrder extends DomainResource {
         /**
          * @param value {@link #reason} (Indicates the reason for the substitution, or why substitution must or must not be performed.)
          */
-        public MedicationOrderSubstitutionComponent setReason(CodeableConcept value) { 
+        public MedicationRequestSubstitutionComponent setReason(CodeableConcept value) { 
           this.reason = value;
           return this;
         }
@@ -751,7 +731,7 @@ public class MedicationOrder extends DomainResource {
       @Override
       public Base addChild(String name) throws FHIRException {
         if (name.equals("allowed")) {
-          throw new FHIRException("Cannot call addChild on a primitive type MedicationOrder.allowed");
+          throw new FHIRException("Cannot call addChild on a primitive type MedicationRequest.allowed");
         }
         else if (name.equals("reason")) {
           this.reason = new CodeableConcept();
@@ -761,8 +741,8 @@ public class MedicationOrder extends DomainResource {
           return super.addChild(name);
       }
 
-      public MedicationOrderSubstitutionComponent copy() {
-        MedicationOrderSubstitutionComponent dst = new MedicationOrderSubstitutionComponent();
+      public MedicationRequestSubstitutionComponent copy() {
+        MedicationRequestSubstitutionComponent dst = new MedicationRequestSubstitutionComponent();
         copyValues(dst);
         dst.allowed = allowed == null ? null : allowed.copy();
         dst.reason = reason == null ? null : reason.copy();
@@ -773,9 +753,9 @@ public class MedicationOrder extends DomainResource {
       public boolean equalsDeep(Base other) {
         if (!super.equalsDeep(other))
           return false;
-        if (!(other instanceof MedicationOrderSubstitutionComponent))
+        if (!(other instanceof MedicationRequestSubstitutionComponent))
           return false;
-        MedicationOrderSubstitutionComponent o = (MedicationOrderSubstitutionComponent) other;
+        MedicationRequestSubstitutionComponent o = (MedicationRequestSubstitutionComponent) other;
         return compareDeep(allowed, o.allowed, true) && compareDeep(reason, o.reason, true);
       }
 
@@ -783,18 +763,19 @@ public class MedicationOrder extends DomainResource {
       public boolean equalsShallow(Base other) {
         if (!super.equalsShallow(other))
           return false;
-        if (!(other instanceof MedicationOrderSubstitutionComponent))
+        if (!(other instanceof MedicationRequestSubstitutionComponent))
           return false;
-        MedicationOrderSubstitutionComponent o = (MedicationOrderSubstitutionComponent) other;
+        MedicationRequestSubstitutionComponent o = (MedicationRequestSubstitutionComponent) other;
         return compareValues(allowed, o.allowed, true);
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(allowed, reason);
+        return super.isEmpty() && (allowed == null || allowed.isEmpty()) && (reason == null || reason.isEmpty())
+          ;
       }
 
   public String fhirType() {
-    return "MedicationOrder.substitution";
+    return "MedicationRequest.substitution";
 
   }
 
@@ -808,17 +789,56 @@ public class MedicationOrder extends DomainResource {
     protected List<Identifier> identifier;
 
     /**
+     * Protocol or definition followed by this request.
+     */
+    @Child(name = "definition", type = {ActivityDefinition.class, PlanDefinition.class}, order=1, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Description(shortDefinition="Protocol or definition", formalDefinition="Protocol or definition followed by this request." )
+    protected List<Reference> definition;
+    /**
+     * The actual objects that are the target of the reference (Protocol or definition followed by this request.)
+     */
+    protected List<Resource> definitionTarget;
+
+
+    /**
+     * Plan/proposal/order fulfilled by this request.
+     */
+    @Child(name = "basedOn", type = {CarePlan.class, DiagnosticRequest.class, MedicationRequest.class, ProcedureRequest.class, ReferralRequest.class}, order=2, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Description(shortDefinition="What request fulfills", formalDefinition="Plan/proposal/order fulfilled by this request." )
+    protected List<Reference> basedOn;
+    /**
+     * The actual objects that are the target of the reference (Plan/proposal/order fulfilled by this request.)
+     */
+    protected List<Resource> basedOnTarget;
+
+
+    /**
+     * Composite request this is part of.
+     */
+    @Child(name = "requisition", type = {Identifier.class}, order=3, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="Identifier of composite", formalDefinition="Composite request this is part of." )
+    protected Identifier requisition;
+
+    /**
      * A code specifying the state of the order.  Generally this will be active or completed state.
      */
-    @Child(name = "status", type = {CodeType.class}, order=1, min=0, max=1, modifier=true, summary=true)
-    @Description(shortDefinition="active | on-hold | completed | entered-in-error | stopped | draft", formalDefinition="A code specifying the state of the order.  Generally this will be active or completed state." )
-    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/medication-order-status")
-    protected Enumeration<MedicationOrderStatus> status;
+    @Child(name = "status", type = {CodeType.class}, order=4, min=0, max=1, modifier=true, summary=true)
+    @Description(shortDefinition="active | on-hold | cancelled | completed | entered-in-error | stopped | draft", formalDefinition="A code specifying the state of the order.  Generally this will be active or completed state." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/medication-request-status")
+    protected Enumeration<MedicationRequestStatus> status;
+
+    /**
+     * Whether the request is a proposal, plan, or an original order.
+     */
+    @Child(name = "stage", type = {CodeableConcept.class}, order=5, min=1, max=1, modifier=true, summary=true)
+    @Description(shortDefinition="proposal | plan | original-order", formalDefinition="Whether the request is a proposal, plan, or an original order." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/medication-request-stage")
+    protected CodeableConcept stage;
 
     /**
      * Identifies the medication being administered. This is a link to a resource that represents the medication which may be the details of the medication or simply an attribute carrying a code that identifies the medication from a known list of medications.
      */
-    @Child(name = "medication", type = {CodeableConcept.class, Medication.class}, order=2, min=1, max=1, modifier=false, summary=true)
+    @Child(name = "medication", type = {CodeableConcept.class, Medication.class}, order=6, min=1, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Medication to be taken", formalDefinition="Identifies the medication being administered. This is a link to a resource that represents the medication which may be the details of the medication or simply an attribute carrying a code that identifies the medication from a known list of medications." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/medication-codes")
     protected Type medication;
@@ -826,7 +846,7 @@ public class MedicationOrder extends DomainResource {
     /**
      * A link to a resource representing the person to whom the medication will be given.
      */
-    @Child(name = "patient", type = {Patient.class}, order=3, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "patient", type = {Patient.class}, order=7, min=1, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Who prescription is for", formalDefinition="A link to a resource representing the person to whom the medication will be given." )
     protected Reference patient;
 
@@ -836,21 +856,21 @@ public class MedicationOrder extends DomainResource {
     protected Patient patientTarget;
 
     /**
-     * A link to a resource that identifies the particular occurrence of contact between patient and health care provider.
+     * A link to a resource that identifies the particular occurrence or set oc occurences of contact between patient and health care provider.
      */
-    @Child(name = "encounter", type = {Encounter.class}, order=4, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="Created during encounter/admission/stay", formalDefinition="A link to a resource that identifies the particular occurrence of contact between patient and health care provider." )
-    protected Reference encounter;
+    @Child(name = "context", type = {Encounter.class, EpisodeOfCare.class}, order=8, min=0, max=1, modifier=false, summary=false)
+    @Description(shortDefinition="Created during encounter/admission/stay", formalDefinition="A link to a resource that identifies the particular occurrence or set oc occurences of contact between patient and health care provider." )
+    protected Reference context;
 
     /**
-     * The actual object that is the target of the reference (A link to a resource that identifies the particular occurrence of contact between patient and health care provider.)
+     * The actual object that is the target of the reference (A link to a resource that identifies the particular occurrence or set oc occurences of contact between patient and health care provider.)
      */
-    protected Encounter encounterTarget;
+    protected Resource contextTarget;
 
     /**
      * Include additional information (for example, patient height and weight) that supports the ordering of the medication.
      */
-    @Child(name = "supportingInformation", type = {Reference.class}, order=5, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "supportingInformation", type = {Reference.class}, order=9, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Information to support ordering of the medication", formalDefinition="Include additional information (for example, patient height and weight) that supports the ordering of the medication." )
     protected List<Reference> supportingInformation;
     /**
@@ -862,14 +882,14 @@ public class MedicationOrder extends DomainResource {
     /**
      * The date (and perhaps time) when the prescription was initially written.
      */
-    @Child(name = "dateWritten", type = {DateTimeType.class}, order=6, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "dateWritten", type = {DateTimeType.class}, order=10, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="When prescription was initially authorized", formalDefinition="The date (and perhaps time) when the prescription was initially written." )
     protected DateTimeType dateWritten;
 
     /**
      * The healthcare professional responsible for authorizing the initial prescription.
      */
-    @Child(name = "prescriber", type = {Practitioner.class}, order=7, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "prescriber", type = {Practitioner.class}, order=11, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Who ordered the initial medication(s)", formalDefinition="The healthcare professional responsible for authorizing the initial prescription." )
     protected Reference prescriber;
 
@@ -881,7 +901,7 @@ public class MedicationOrder extends DomainResource {
     /**
      * Can be the reason or the indication for writing the prescription.
      */
-    @Child(name = "reasonCode", type = {CodeableConcept.class}, order=8, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "reasonCode", type = {CodeableConcept.class}, order=12, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Reason or indication for writing the prescription", formalDefinition="Can be the reason or the indication for writing the prescription." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/condition-code")
     protected List<CodeableConcept> reasonCode;
@@ -889,7 +909,7 @@ public class MedicationOrder extends DomainResource {
     /**
      * Condition or observation that supports why the prescription is being written.
      */
-    @Child(name = "reasonReference", type = {Condition.class, Observation.class}, order=9, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "reasonReference", type = {Condition.class, Observation.class}, order=13, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Condition or Observation that supports why the prescription is being written", formalDefinition="Condition or observation that supports why the prescription is being written." )
     protected List<Reference> reasonReference;
     /**
@@ -901,55 +921,55 @@ public class MedicationOrder extends DomainResource {
     /**
      * Extra information about the prescription that could not be conveyed by the other attributes.
      */
-    @Child(name = "note", type = {Annotation.class}, order=10, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "note", type = {Annotation.class}, order=14, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Information about the prescription", formalDefinition="Extra information about the prescription that could not be conveyed by the other attributes." )
     protected List<Annotation> note;
 
     /**
      * Indicates where type of medication order and where the medication is expected to be consumed or administered.
      */
-    @Child(name = "category", type = {CodeType.class}, order=11, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "category", type = {CodeableConcept.class}, order=15, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Type of medication usage", formalDefinition="Indicates where type of medication order and where the medication is expected to be consumed or administered." )
-    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/medication-order-category")
-    protected Enumeration<MedicationOrderCategory> category;
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/medication-request-category")
+    protected CodeableConcept category;
 
     /**
      * Indicates how the medication is to be used by the patient.
      */
-    @Child(name = "dosageInstruction", type = {DosageInstruction.class}, order=12, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "dosageInstruction", type = {DosageInstruction.class}, order=16, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="How the medication should be taken", formalDefinition="Indicates how the medication is to be used by the patient." )
     protected List<DosageInstruction> dosageInstruction;
 
     /**
      * Indicates the specific details for the dispense or medication supply part of a medication order (also known as a Medication Prescription).  Note that this information is NOT always sent with the order.  There may be in some settings (e.g. hospitals) institutional or system support for completing the dispense details in the pharmacy department.
      */
-    @Child(name = "dispenseRequest", type = {}, order=13, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "dispenseRequest", type = {}, order=17, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Medication supply authorization", formalDefinition="Indicates the specific details for the dispense or medication supply part of a medication order (also known as a Medication Prescription).  Note that this information is NOT always sent with the order.  There may be in some settings (e.g. hospitals) institutional or system support for completing the dispense details in the pharmacy department." )
-    protected MedicationOrderDispenseRequestComponent dispenseRequest;
+    protected MedicationRequestDispenseRequestComponent dispenseRequest;
 
     /**
      * Indicates whether or not substitution can or should be part of the dispense. In some cases substitution must happen, in other cases substitution must not happen, and in others it does not matter. This block explains the prescriber's intent. If nothing is specified substitution may be done.
      */
-    @Child(name = "substitution", type = {}, order=14, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "substitution", type = {}, order=18, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Any restrictions on medication substitution", formalDefinition="Indicates whether or not substitution can or should be part of the dispense. In some cases substitution must happen, in other cases substitution must not happen, and in others it does not matter. This block explains the prescriber's intent. If nothing is specified substitution may be done." )
-    protected MedicationOrderSubstitutionComponent substitution;
+    protected MedicationRequestSubstitutionComponent substitution;
 
     /**
      * A link to a resource representing an earlier order related order or prescription.
      */
-    @Child(name = "priorPrescription", type = {MedicationOrder.class}, order=15, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "priorPrescription", type = {MedicationRequest.class}, order=19, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="An order/prescription that this supersedes", formalDefinition="A link to a resource representing an earlier order related order or prescription." )
     protected Reference priorPrescription;
 
     /**
      * The actual object that is the target of the reference (A link to a resource representing an earlier order related order or prescription.)
      */
-    protected MedicationOrder priorPrescriptionTarget;
+    protected MedicationRequest priorPrescriptionTarget;
 
     /**
      * A summary of the events of interest that have occurred as the request is processed; e.g. when the order was verified or when it was completed.
      */
-    @Child(name = "eventHistory", type = {Provenance.class}, order=16, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "eventHistory", type = {Provenance.class}, order=20, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="A list of events of interest in the lifecycle", formalDefinition="A summary of the events of interest that have occurred as the request is processed; e.g. when the order was verified or when it was completed." )
     protected List<Reference> eventHistory;
     /**
@@ -958,21 +978,23 @@ public class MedicationOrder extends DomainResource {
     protected List<Provenance> eventHistoryTarget;
 
 
-    private static final long serialVersionUID = -293646514L;
+    private static final long serialVersionUID = 1722417294L;
 
   /**
    * Constructor
    */
-    public MedicationOrder() {
+    public MedicationRequest() {
       super();
     }
 
   /**
    * Constructor
    */
-    public MedicationOrder(Type medication) {
+    public MedicationRequest(CodeableConcept stage, Type medication, Reference patient) {
       super();
+      this.stage = stage;
       this.medication = medication;
+      this.patient = patient;
     }
 
     /**
@@ -987,7 +1009,7 @@ public class MedicationOrder extends DomainResource {
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public MedicationOrder setIdentifier(List<Identifier> theIdentifier) { 
+    public MedicationRequest setIdentifier(List<Identifier> theIdentifier) { 
       this.identifier = theIdentifier;
       return this;
     }
@@ -1009,7 +1031,7 @@ public class MedicationOrder extends DomainResource {
       return t;
     }
 
-    public MedicationOrder addIdentifier(Identifier t) { //3
+    public MedicationRequest addIdentifier(Identifier t) { //3
       if (t == null)
         return this;
       if (this.identifier == null)
@@ -1029,14 +1051,164 @@ public class MedicationOrder extends DomainResource {
     }
 
     /**
+     * @return {@link #definition} (Protocol or definition followed by this request.)
+     */
+    public List<Reference> getDefinition() { 
+      if (this.definition == null)
+        this.definition = new ArrayList<Reference>();
+      return this.definition;
+    }
+
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public MedicationRequest setDefinition(List<Reference> theDefinition) { 
+      this.definition = theDefinition;
+      return this;
+    }
+
+    public boolean hasDefinition() { 
+      if (this.definition == null)
+        return false;
+      for (Reference item : this.definition)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    public Reference addDefinition() { //3
+      Reference t = new Reference();
+      if (this.definition == null)
+        this.definition = new ArrayList<Reference>();
+      this.definition.add(t);
+      return t;
+    }
+
+    public MedicationRequest addDefinition(Reference t) { //3
+      if (t == null)
+        return this;
+      if (this.definition == null)
+        this.definition = new ArrayList<Reference>();
+      this.definition.add(t);
+      return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #definition}, creating it if it does not already exist
+     */
+    public Reference getDefinitionFirstRep() { 
+      if (getDefinition().isEmpty()) {
+        addDefinition();
+      }
+      return getDefinition().get(0);
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
+    public List<Resource> getDefinitionTarget() { 
+      if (this.definitionTarget == null)
+        this.definitionTarget = new ArrayList<Resource>();
+      return this.definitionTarget;
+    }
+
+    /**
+     * @return {@link #basedOn} (Plan/proposal/order fulfilled by this request.)
+     */
+    public List<Reference> getBasedOn() { 
+      if (this.basedOn == null)
+        this.basedOn = new ArrayList<Reference>();
+      return this.basedOn;
+    }
+
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public MedicationRequest setBasedOn(List<Reference> theBasedOn) { 
+      this.basedOn = theBasedOn;
+      return this;
+    }
+
+    public boolean hasBasedOn() { 
+      if (this.basedOn == null)
+        return false;
+      for (Reference item : this.basedOn)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    public Reference addBasedOn() { //3
+      Reference t = new Reference();
+      if (this.basedOn == null)
+        this.basedOn = new ArrayList<Reference>();
+      this.basedOn.add(t);
+      return t;
+    }
+
+    public MedicationRequest addBasedOn(Reference t) { //3
+      if (t == null)
+        return this;
+      if (this.basedOn == null)
+        this.basedOn = new ArrayList<Reference>();
+      this.basedOn.add(t);
+      return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #basedOn}, creating it if it does not already exist
+     */
+    public Reference getBasedOnFirstRep() { 
+      if (getBasedOn().isEmpty()) {
+        addBasedOn();
+      }
+      return getBasedOn().get(0);
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
+    public List<Resource> getBasedOnTarget() { 
+      if (this.basedOnTarget == null)
+        this.basedOnTarget = new ArrayList<Resource>();
+      return this.basedOnTarget;
+    }
+
+    /**
+     * @return {@link #requisition} (Composite request this is part of.)
+     */
+    public Identifier getRequisition() { 
+      if (this.requisition == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create MedicationRequest.requisition");
+        else if (Configuration.doAutoCreate())
+          this.requisition = new Identifier(); // cc
+      return this.requisition;
+    }
+
+    public boolean hasRequisition() { 
+      return this.requisition != null && !this.requisition.isEmpty();
+    }
+
+    /**
+     * @param value {@link #requisition} (Composite request this is part of.)
+     */
+    public MedicationRequest setRequisition(Identifier value) { 
+      this.requisition = value;
+      return this;
+    }
+
+    /**
      * @return {@link #status} (A code specifying the state of the order.  Generally this will be active or completed state.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<MedicationOrderStatus> getStatusElement() { 
+    public Enumeration<MedicationRequestStatus> getStatusElement() { 
       if (this.status == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create MedicationOrder.status");
+          throw new Error("Attempt to auto-create MedicationRequest.status");
         else if (Configuration.doAutoCreate())
-          this.status = new Enumeration<MedicationOrderStatus>(new MedicationOrderStatusEnumFactory()); // bb
+          this.status = new Enumeration<MedicationRequestStatus>(new MedicationRequestStatusEnumFactory()); // bb
       return this.status;
     }
 
@@ -1051,7 +1223,7 @@ public class MedicationOrder extends DomainResource {
     /**
      * @param value {@link #status} (A code specifying the state of the order.  Generally this will be active or completed state.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public MedicationOrder setStatusElement(Enumeration<MedicationOrderStatus> value) { 
+    public MedicationRequest setStatusElement(Enumeration<MedicationRequestStatus> value) { 
       this.status = value;
       return this;
     }
@@ -1059,21 +1231,45 @@ public class MedicationOrder extends DomainResource {
     /**
      * @return A code specifying the state of the order.  Generally this will be active or completed state.
      */
-    public MedicationOrderStatus getStatus() { 
+    public MedicationRequestStatus getStatus() { 
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
      * @param value A code specifying the state of the order.  Generally this will be active or completed state.
      */
-    public MedicationOrder setStatus(MedicationOrderStatus value) { 
+    public MedicationRequest setStatus(MedicationRequestStatus value) { 
       if (value == null)
         this.status = null;
       else {
         if (this.status == null)
-          this.status = new Enumeration<MedicationOrderStatus>(new MedicationOrderStatusEnumFactory());
+          this.status = new Enumeration<MedicationRequestStatus>(new MedicationRequestStatusEnumFactory());
         this.status.setValue(value);
       }
+      return this;
+    }
+
+    /**
+     * @return {@link #stage} (Whether the request is a proposal, plan, or an original order.)
+     */
+    public CodeableConcept getStage() { 
+      if (this.stage == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create MedicationRequest.stage");
+        else if (Configuration.doAutoCreate())
+          this.stage = new CodeableConcept(); // cc
+      return this.stage;
+    }
+
+    public boolean hasStage() { 
+      return this.stage != null && !this.stage.isEmpty();
+    }
+
+    /**
+     * @param value {@link #stage} (Whether the request is a proposal, plan, or an original order.)
+     */
+    public MedicationRequest setStage(CodeableConcept value) { 
+      this.stage = value;
       return this;
     }
 
@@ -1117,7 +1313,7 @@ public class MedicationOrder extends DomainResource {
     /**
      * @param value {@link #medication} (Identifies the medication being administered. This is a link to a resource that represents the medication which may be the details of the medication or simply an attribute carrying a code that identifies the medication from a known list of medications.)
      */
-    public MedicationOrder setMedication(Type value) { 
+    public MedicationRequest setMedication(Type value) { 
       this.medication = value;
       return this;
     }
@@ -1128,7 +1324,7 @@ public class MedicationOrder extends DomainResource {
     public Reference getPatient() { 
       if (this.patient == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create MedicationOrder.patient");
+          throw new Error("Attempt to auto-create MedicationRequest.patient");
         else if (Configuration.doAutoCreate())
           this.patient = new Reference(); // cc
       return this.patient;
@@ -1141,7 +1337,7 @@ public class MedicationOrder extends DomainResource {
     /**
      * @param value {@link #patient} (A link to a resource representing the person to whom the medication will be given.)
      */
-    public MedicationOrder setPatient(Reference value) { 
+    public MedicationRequest setPatient(Reference value) { 
       this.patient = value;
       return this;
     }
@@ -1152,7 +1348,7 @@ public class MedicationOrder extends DomainResource {
     public Patient getPatientTarget() { 
       if (this.patientTarget == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create MedicationOrder.patient");
+          throw new Error("Attempt to auto-create MedicationRequest.patient");
         else if (Configuration.doAutoCreate())
           this.patientTarget = new Patient(); // aa
       return this.patientTarget;
@@ -1161,52 +1357,47 @@ public class MedicationOrder extends DomainResource {
     /**
      * @param value {@link #patient} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (A link to a resource representing the person to whom the medication will be given.)
      */
-    public MedicationOrder setPatientTarget(Patient value) { 
+    public MedicationRequest setPatientTarget(Patient value) { 
       this.patientTarget = value;
       return this;
     }
 
     /**
-     * @return {@link #encounter} (A link to a resource that identifies the particular occurrence of contact between patient and health care provider.)
+     * @return {@link #context} (A link to a resource that identifies the particular occurrence or set oc occurences of contact between patient and health care provider.)
      */
-    public Reference getEncounter() { 
-      if (this.encounter == null)
+    public Reference getContext() { 
+      if (this.context == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create MedicationOrder.encounter");
+          throw new Error("Attempt to auto-create MedicationRequest.context");
         else if (Configuration.doAutoCreate())
-          this.encounter = new Reference(); // cc
-      return this.encounter;
+          this.context = new Reference(); // cc
+      return this.context;
     }
 
-    public boolean hasEncounter() { 
-      return this.encounter != null && !this.encounter.isEmpty();
+    public boolean hasContext() { 
+      return this.context != null && !this.context.isEmpty();
     }
 
     /**
-     * @param value {@link #encounter} (A link to a resource that identifies the particular occurrence of contact between patient and health care provider.)
+     * @param value {@link #context} (A link to a resource that identifies the particular occurrence or set oc occurences of contact between patient and health care provider.)
      */
-    public MedicationOrder setEncounter(Reference value) { 
-      this.encounter = value;
+    public MedicationRequest setContext(Reference value) { 
+      this.context = value;
       return this;
     }
 
     /**
-     * @return {@link #encounter} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (A link to a resource that identifies the particular occurrence of contact between patient and health care provider.)
+     * @return {@link #context} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (A link to a resource that identifies the particular occurrence or set oc occurences of contact between patient and health care provider.)
      */
-    public Encounter getEncounterTarget() { 
-      if (this.encounterTarget == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create MedicationOrder.encounter");
-        else if (Configuration.doAutoCreate())
-          this.encounterTarget = new Encounter(); // aa
-      return this.encounterTarget;
+    public Resource getContextTarget() { 
+      return this.contextTarget;
     }
 
     /**
-     * @param value {@link #encounter} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (A link to a resource that identifies the particular occurrence of contact between patient and health care provider.)
+     * @param value {@link #context} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (A link to a resource that identifies the particular occurrence or set oc occurences of contact between patient and health care provider.)
      */
-    public MedicationOrder setEncounterTarget(Encounter value) { 
-      this.encounterTarget = value;
+    public MedicationRequest setContextTarget(Resource value) { 
+      this.contextTarget = value;
       return this;
     }
 
@@ -1222,7 +1413,7 @@ public class MedicationOrder extends DomainResource {
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public MedicationOrder setSupportingInformation(List<Reference> theSupportingInformation) { 
+    public MedicationRequest setSupportingInformation(List<Reference> theSupportingInformation) { 
       this.supportingInformation = theSupportingInformation;
       return this;
     }
@@ -1244,7 +1435,7 @@ public class MedicationOrder extends DomainResource {
       return t;
     }
 
-    public MedicationOrder addSupportingInformation(Reference t) { //3
+    public MedicationRequest addSupportingInformation(Reference t) { //3
       if (t == null)
         return this;
       if (this.supportingInformation == null)
@@ -1279,7 +1470,7 @@ public class MedicationOrder extends DomainResource {
     public DateTimeType getDateWrittenElement() { 
       if (this.dateWritten == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create MedicationOrder.dateWritten");
+          throw new Error("Attempt to auto-create MedicationRequest.dateWritten");
         else if (Configuration.doAutoCreate())
           this.dateWritten = new DateTimeType(); // bb
       return this.dateWritten;
@@ -1296,7 +1487,7 @@ public class MedicationOrder extends DomainResource {
     /**
      * @param value {@link #dateWritten} (The date (and perhaps time) when the prescription was initially written.). This is the underlying object with id, value and extensions. The accessor "getDateWritten" gives direct access to the value
      */
-    public MedicationOrder setDateWrittenElement(DateTimeType value) { 
+    public MedicationRequest setDateWrittenElement(DateTimeType value) { 
       this.dateWritten = value;
       return this;
     }
@@ -1311,7 +1502,7 @@ public class MedicationOrder extends DomainResource {
     /**
      * @param value The date (and perhaps time) when the prescription was initially written.
      */
-    public MedicationOrder setDateWritten(Date value) { 
+    public MedicationRequest setDateWritten(Date value) { 
       if (value == null)
         this.dateWritten = null;
       else {
@@ -1328,7 +1519,7 @@ public class MedicationOrder extends DomainResource {
     public Reference getPrescriber() { 
       if (this.prescriber == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create MedicationOrder.prescriber");
+          throw new Error("Attempt to auto-create MedicationRequest.prescriber");
         else if (Configuration.doAutoCreate())
           this.prescriber = new Reference(); // cc
       return this.prescriber;
@@ -1341,7 +1532,7 @@ public class MedicationOrder extends DomainResource {
     /**
      * @param value {@link #prescriber} (The healthcare professional responsible for authorizing the initial prescription.)
      */
-    public MedicationOrder setPrescriber(Reference value) { 
+    public MedicationRequest setPrescriber(Reference value) { 
       this.prescriber = value;
       return this;
     }
@@ -1352,7 +1543,7 @@ public class MedicationOrder extends DomainResource {
     public Practitioner getPrescriberTarget() { 
       if (this.prescriberTarget == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create MedicationOrder.prescriber");
+          throw new Error("Attempt to auto-create MedicationRequest.prescriber");
         else if (Configuration.doAutoCreate())
           this.prescriberTarget = new Practitioner(); // aa
       return this.prescriberTarget;
@@ -1361,7 +1552,7 @@ public class MedicationOrder extends DomainResource {
     /**
      * @param value {@link #prescriber} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The healthcare professional responsible for authorizing the initial prescription.)
      */
-    public MedicationOrder setPrescriberTarget(Practitioner value) { 
+    public MedicationRequest setPrescriberTarget(Practitioner value) { 
       this.prescriberTarget = value;
       return this;
     }
@@ -1378,7 +1569,7 @@ public class MedicationOrder extends DomainResource {
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public MedicationOrder setReasonCode(List<CodeableConcept> theReasonCode) { 
+    public MedicationRequest setReasonCode(List<CodeableConcept> theReasonCode) { 
       this.reasonCode = theReasonCode;
       return this;
     }
@@ -1400,7 +1591,7 @@ public class MedicationOrder extends DomainResource {
       return t;
     }
 
-    public MedicationOrder addReasonCode(CodeableConcept t) { //3
+    public MedicationRequest addReasonCode(CodeableConcept t) { //3
       if (t == null)
         return this;
       if (this.reasonCode == null)
@@ -1431,7 +1622,7 @@ public class MedicationOrder extends DomainResource {
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public MedicationOrder setReasonReference(List<Reference> theReasonReference) { 
+    public MedicationRequest setReasonReference(List<Reference> theReasonReference) { 
       this.reasonReference = theReasonReference;
       return this;
     }
@@ -1453,7 +1644,7 @@ public class MedicationOrder extends DomainResource {
       return t;
     }
 
-    public MedicationOrder addReasonReference(Reference t) { //3
+    public MedicationRequest addReasonReference(Reference t) { //3
       if (t == null)
         return this;
       if (this.reasonReference == null)
@@ -1494,7 +1685,7 @@ public class MedicationOrder extends DomainResource {
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public MedicationOrder setNote(List<Annotation> theNote) { 
+    public MedicationRequest setNote(List<Annotation> theNote) { 
       this.note = theNote;
       return this;
     }
@@ -1516,7 +1707,7 @@ public class MedicationOrder extends DomainResource {
       return t;
     }
 
-    public MedicationOrder addNote(Annotation t) { //3
+    public MedicationRequest addNote(Annotation t) { //3
       if (t == null)
         return this;
       if (this.note == null)
@@ -1536,19 +1727,15 @@ public class MedicationOrder extends DomainResource {
     }
 
     /**
-     * @return {@link #category} (Indicates where type of medication order and where the medication is expected to be consumed or administered.). This is the underlying object with id, value and extensions. The accessor "getCategory" gives direct access to the value
+     * @return {@link #category} (Indicates where type of medication order and where the medication is expected to be consumed or administered.)
      */
-    public Enumeration<MedicationOrderCategory> getCategoryElement() { 
+    public CodeableConcept getCategory() { 
       if (this.category == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create MedicationOrder.category");
+          throw new Error("Attempt to auto-create MedicationRequest.category");
         else if (Configuration.doAutoCreate())
-          this.category = new Enumeration<MedicationOrderCategory>(new MedicationOrderCategoryEnumFactory()); // bb
+          this.category = new CodeableConcept(); // cc
       return this.category;
-    }
-
-    public boolean hasCategoryElement() { 
-      return this.category != null && !this.category.isEmpty();
     }
 
     public boolean hasCategory() { 
@@ -1556,31 +1743,10 @@ public class MedicationOrder extends DomainResource {
     }
 
     /**
-     * @param value {@link #category} (Indicates where type of medication order and where the medication is expected to be consumed or administered.). This is the underlying object with id, value and extensions. The accessor "getCategory" gives direct access to the value
+     * @param value {@link #category} (Indicates where type of medication order and where the medication is expected to be consumed or administered.)
      */
-    public MedicationOrder setCategoryElement(Enumeration<MedicationOrderCategory> value) { 
+    public MedicationRequest setCategory(CodeableConcept value) { 
       this.category = value;
-      return this;
-    }
-
-    /**
-     * @return Indicates where type of medication order and where the medication is expected to be consumed or administered.
-     */
-    public MedicationOrderCategory getCategory() { 
-      return this.category == null ? null : this.category.getValue();
-    }
-
-    /**
-     * @param value Indicates where type of medication order and where the medication is expected to be consumed or administered.
-     */
-    public MedicationOrder setCategory(MedicationOrderCategory value) { 
-      if (value == null)
-        this.category = null;
-      else {
-        if (this.category == null)
-          this.category = new Enumeration<MedicationOrderCategory>(new MedicationOrderCategoryEnumFactory());
-        this.category.setValue(value);
-      }
       return this;
     }
 
@@ -1596,7 +1762,7 @@ public class MedicationOrder extends DomainResource {
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public MedicationOrder setDosageInstruction(List<DosageInstruction> theDosageInstruction) { 
+    public MedicationRequest setDosageInstruction(List<DosageInstruction> theDosageInstruction) { 
       this.dosageInstruction = theDosageInstruction;
       return this;
     }
@@ -1618,7 +1784,7 @@ public class MedicationOrder extends DomainResource {
       return t;
     }
 
-    public MedicationOrder addDosageInstruction(DosageInstruction t) { //3
+    public MedicationRequest addDosageInstruction(DosageInstruction t) { //3
       if (t == null)
         return this;
       if (this.dosageInstruction == null)
@@ -1640,12 +1806,12 @@ public class MedicationOrder extends DomainResource {
     /**
      * @return {@link #dispenseRequest} (Indicates the specific details for the dispense or medication supply part of a medication order (also known as a Medication Prescription).  Note that this information is NOT always sent with the order.  There may be in some settings (e.g. hospitals) institutional or system support for completing the dispense details in the pharmacy department.)
      */
-    public MedicationOrderDispenseRequestComponent getDispenseRequest() { 
+    public MedicationRequestDispenseRequestComponent getDispenseRequest() { 
       if (this.dispenseRequest == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create MedicationOrder.dispenseRequest");
+          throw new Error("Attempt to auto-create MedicationRequest.dispenseRequest");
         else if (Configuration.doAutoCreate())
-          this.dispenseRequest = new MedicationOrderDispenseRequestComponent(); // cc
+          this.dispenseRequest = new MedicationRequestDispenseRequestComponent(); // cc
       return this.dispenseRequest;
     }
 
@@ -1656,7 +1822,7 @@ public class MedicationOrder extends DomainResource {
     /**
      * @param value {@link #dispenseRequest} (Indicates the specific details for the dispense or medication supply part of a medication order (also known as a Medication Prescription).  Note that this information is NOT always sent with the order.  There may be in some settings (e.g. hospitals) institutional or system support for completing the dispense details in the pharmacy department.)
      */
-    public MedicationOrder setDispenseRequest(MedicationOrderDispenseRequestComponent value) { 
+    public MedicationRequest setDispenseRequest(MedicationRequestDispenseRequestComponent value) { 
       this.dispenseRequest = value;
       return this;
     }
@@ -1664,12 +1830,12 @@ public class MedicationOrder extends DomainResource {
     /**
      * @return {@link #substitution} (Indicates whether or not substitution can or should be part of the dispense. In some cases substitution must happen, in other cases substitution must not happen, and in others it does not matter. This block explains the prescriber's intent. If nothing is specified substitution may be done.)
      */
-    public MedicationOrderSubstitutionComponent getSubstitution() { 
+    public MedicationRequestSubstitutionComponent getSubstitution() { 
       if (this.substitution == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create MedicationOrder.substitution");
+          throw new Error("Attempt to auto-create MedicationRequest.substitution");
         else if (Configuration.doAutoCreate())
-          this.substitution = new MedicationOrderSubstitutionComponent(); // cc
+          this.substitution = new MedicationRequestSubstitutionComponent(); // cc
       return this.substitution;
     }
 
@@ -1680,7 +1846,7 @@ public class MedicationOrder extends DomainResource {
     /**
      * @param value {@link #substitution} (Indicates whether or not substitution can or should be part of the dispense. In some cases substitution must happen, in other cases substitution must not happen, and in others it does not matter. This block explains the prescriber's intent. If nothing is specified substitution may be done.)
      */
-    public MedicationOrder setSubstitution(MedicationOrderSubstitutionComponent value) { 
+    public MedicationRequest setSubstitution(MedicationRequestSubstitutionComponent value) { 
       this.substitution = value;
       return this;
     }
@@ -1691,7 +1857,7 @@ public class MedicationOrder extends DomainResource {
     public Reference getPriorPrescription() { 
       if (this.priorPrescription == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create MedicationOrder.priorPrescription");
+          throw new Error("Attempt to auto-create MedicationRequest.priorPrescription");
         else if (Configuration.doAutoCreate())
           this.priorPrescription = new Reference(); // cc
       return this.priorPrescription;
@@ -1704,7 +1870,7 @@ public class MedicationOrder extends DomainResource {
     /**
      * @param value {@link #priorPrescription} (A link to a resource representing an earlier order related order or prescription.)
      */
-    public MedicationOrder setPriorPrescription(Reference value) { 
+    public MedicationRequest setPriorPrescription(Reference value) { 
       this.priorPrescription = value;
       return this;
     }
@@ -1712,19 +1878,19 @@ public class MedicationOrder extends DomainResource {
     /**
      * @return {@link #priorPrescription} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (A link to a resource representing an earlier order related order or prescription.)
      */
-    public MedicationOrder getPriorPrescriptionTarget() { 
+    public MedicationRequest getPriorPrescriptionTarget() { 
       if (this.priorPrescriptionTarget == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create MedicationOrder.priorPrescription");
+          throw new Error("Attempt to auto-create MedicationRequest.priorPrescription");
         else if (Configuration.doAutoCreate())
-          this.priorPrescriptionTarget = new MedicationOrder(); // aa
+          this.priorPrescriptionTarget = new MedicationRequest(); // aa
       return this.priorPrescriptionTarget;
     }
 
     /**
      * @param value {@link #priorPrescription} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (A link to a resource representing an earlier order related order or prescription.)
      */
-    public MedicationOrder setPriorPrescriptionTarget(MedicationOrder value) { 
+    public MedicationRequest setPriorPrescriptionTarget(MedicationRequest value) { 
       this.priorPrescriptionTarget = value;
       return this;
     }
@@ -1741,7 +1907,7 @@ public class MedicationOrder extends DomainResource {
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public MedicationOrder setEventHistory(List<Reference> theEventHistory) { 
+    public MedicationRequest setEventHistory(List<Reference> theEventHistory) { 
       this.eventHistory = theEventHistory;
       return this;
     }
@@ -1763,7 +1929,7 @@ public class MedicationOrder extends DomainResource {
       return t;
     }
 
-    public MedicationOrder addEventHistory(Reference t) { //3
+    public MedicationRequest addEventHistory(Reference t) { //3
       if (t == null)
         return this;
       if (this.eventHistory == null)
@@ -1807,21 +1973,25 @@ public class MedicationOrder extends DomainResource {
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "External identifier - one that would be used by another non-FHIR system - for example a re-imbursement system might issue its own id for each prescription that is created.  This is particularly important where FHIR only provides part of an entire workflow process where records have to be tracked through an entire system.", 0, java.lang.Integer.MAX_VALUE, identifier));
+        childrenList.add(new Property("definition", "Reference(ActivityDefinition|PlanDefinition)", "Protocol or definition followed by this request.", 0, java.lang.Integer.MAX_VALUE, definition));
+        childrenList.add(new Property("basedOn", "Reference(CarePlan|DiagnosticRequest|MedicationRequest|ProcedureRequest|ReferralRequest)", "Plan/proposal/order fulfilled by this request.", 0, java.lang.Integer.MAX_VALUE, basedOn));
+        childrenList.add(new Property("requisition", "Identifier", "Composite request this is part of.", 0, java.lang.Integer.MAX_VALUE, requisition));
         childrenList.add(new Property("status", "code", "A code specifying the state of the order.  Generally this will be active or completed state.", 0, java.lang.Integer.MAX_VALUE, status));
+        childrenList.add(new Property("stage", "CodeableConcept", "Whether the request is a proposal, plan, or an original order.", 0, java.lang.Integer.MAX_VALUE, stage));
         childrenList.add(new Property("medication[x]", "CodeableConcept|Reference(Medication)", "Identifies the medication being administered. This is a link to a resource that represents the medication which may be the details of the medication or simply an attribute carrying a code that identifies the medication from a known list of medications.", 0, java.lang.Integer.MAX_VALUE, medication));
         childrenList.add(new Property("patient", "Reference(Patient)", "A link to a resource representing the person to whom the medication will be given.", 0, java.lang.Integer.MAX_VALUE, patient));
-        childrenList.add(new Property("encounter", "Reference(Encounter)", "A link to a resource that identifies the particular occurrence of contact between patient and health care provider.", 0, java.lang.Integer.MAX_VALUE, encounter));
+        childrenList.add(new Property("context", "Reference(Encounter|EpisodeOfCare)", "A link to a resource that identifies the particular occurrence or set oc occurences of contact between patient and health care provider.", 0, java.lang.Integer.MAX_VALUE, context));
         childrenList.add(new Property("supportingInformation", "Reference(Any)", "Include additional information (for example, patient height and weight) that supports the ordering of the medication.", 0, java.lang.Integer.MAX_VALUE, supportingInformation));
         childrenList.add(new Property("dateWritten", "dateTime", "The date (and perhaps time) when the prescription was initially written.", 0, java.lang.Integer.MAX_VALUE, dateWritten));
         childrenList.add(new Property("prescriber", "Reference(Practitioner)", "The healthcare professional responsible for authorizing the initial prescription.", 0, java.lang.Integer.MAX_VALUE, prescriber));
         childrenList.add(new Property("reasonCode", "CodeableConcept", "Can be the reason or the indication for writing the prescription.", 0, java.lang.Integer.MAX_VALUE, reasonCode));
         childrenList.add(new Property("reasonReference", "Reference(Condition|Observation)", "Condition or observation that supports why the prescription is being written.", 0, java.lang.Integer.MAX_VALUE, reasonReference));
         childrenList.add(new Property("note", "Annotation", "Extra information about the prescription that could not be conveyed by the other attributes.", 0, java.lang.Integer.MAX_VALUE, note));
-        childrenList.add(new Property("category", "code", "Indicates where type of medication order and where the medication is expected to be consumed or administered.", 0, java.lang.Integer.MAX_VALUE, category));
+        childrenList.add(new Property("category", "CodeableConcept", "Indicates where type of medication order and where the medication is expected to be consumed or administered.", 0, java.lang.Integer.MAX_VALUE, category));
         childrenList.add(new Property("dosageInstruction", "DosageInstruction", "Indicates how the medication is to be used by the patient.", 0, java.lang.Integer.MAX_VALUE, dosageInstruction));
         childrenList.add(new Property("dispenseRequest", "", "Indicates the specific details for the dispense or medication supply part of a medication order (also known as a Medication Prescription).  Note that this information is NOT always sent with the order.  There may be in some settings (e.g. hospitals) institutional or system support for completing the dispense details in the pharmacy department.", 0, java.lang.Integer.MAX_VALUE, dispenseRequest));
         childrenList.add(new Property("substitution", "", "Indicates whether or not substitution can or should be part of the dispense. In some cases substitution must happen, in other cases substitution must not happen, and in others it does not matter. This block explains the prescriber's intent. If nothing is specified substitution may be done.", 0, java.lang.Integer.MAX_VALUE, substitution));
-        childrenList.add(new Property("priorPrescription", "Reference(MedicationOrder)", "A link to a resource representing an earlier order related order or prescription.", 0, java.lang.Integer.MAX_VALUE, priorPrescription));
+        childrenList.add(new Property("priorPrescription", "Reference(MedicationRequest)", "A link to a resource representing an earlier order related order or prescription.", 0, java.lang.Integer.MAX_VALUE, priorPrescription));
         childrenList.add(new Property("eventHistory", "Reference(Provenance)", "A summary of the events of interest that have occurred as the request is processed; e.g. when the order was verified or when it was completed.", 0, java.lang.Integer.MAX_VALUE, eventHistory));
       }
 
@@ -1829,20 +1999,24 @@ public class MedicationOrder extends DomainResource {
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
         case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
-        case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<MedicationOrderStatus>
+        case -1014418093: /*definition*/ return this.definition == null ? new Base[0] : this.definition.toArray(new Base[this.definition.size()]); // Reference
+        case -332612366: /*basedOn*/ return this.basedOn == null ? new Base[0] : this.basedOn.toArray(new Base[this.basedOn.size()]); // Reference
+        case 395923612: /*requisition*/ return this.requisition == null ? new Base[0] : new Base[] {this.requisition}; // Identifier
+        case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<MedicationRequestStatus>
+        case 109757182: /*stage*/ return this.stage == null ? new Base[0] : new Base[] {this.stage}; // CodeableConcept
         case 1998965455: /*medication*/ return this.medication == null ? new Base[0] : new Base[] {this.medication}; // Type
         case -791418107: /*patient*/ return this.patient == null ? new Base[0] : new Base[] {this.patient}; // Reference
-        case 1524132147: /*encounter*/ return this.encounter == null ? new Base[0] : new Base[] {this.encounter}; // Reference
+        case 951530927: /*context*/ return this.context == null ? new Base[0] : new Base[] {this.context}; // Reference
         case -1248768647: /*supportingInformation*/ return this.supportingInformation == null ? new Base[0] : this.supportingInformation.toArray(new Base[this.supportingInformation.size()]); // Reference
         case -1496880759: /*dateWritten*/ return this.dateWritten == null ? new Base[0] : new Base[] {this.dateWritten}; // DateTimeType
         case 1430631077: /*prescriber*/ return this.prescriber == null ? new Base[0] : new Base[] {this.prescriber}; // Reference
         case 722137681: /*reasonCode*/ return this.reasonCode == null ? new Base[0] : this.reasonCode.toArray(new Base[this.reasonCode.size()]); // CodeableConcept
         case -1146218137: /*reasonReference*/ return this.reasonReference == null ? new Base[0] : this.reasonReference.toArray(new Base[this.reasonReference.size()]); // Reference
         case 3387378: /*note*/ return this.note == null ? new Base[0] : this.note.toArray(new Base[this.note.size()]); // Annotation
-        case 50511102: /*category*/ return this.category == null ? new Base[0] : new Base[] {this.category}; // Enumeration<MedicationOrderCategory>
+        case 50511102: /*category*/ return this.category == null ? new Base[0] : new Base[] {this.category}; // CodeableConcept
         case -1201373865: /*dosageInstruction*/ return this.dosageInstruction == null ? new Base[0] : this.dosageInstruction.toArray(new Base[this.dosageInstruction.size()]); // DosageInstruction
-        case 824620658: /*dispenseRequest*/ return this.dispenseRequest == null ? new Base[0] : new Base[] {this.dispenseRequest}; // MedicationOrderDispenseRequestComponent
-        case 826147581: /*substitution*/ return this.substitution == null ? new Base[0] : new Base[] {this.substitution}; // MedicationOrderSubstitutionComponent
+        case 824620658: /*dispenseRequest*/ return this.dispenseRequest == null ? new Base[0] : new Base[] {this.dispenseRequest}; // MedicationRequestDispenseRequestComponent
+        case 826147581: /*substitution*/ return this.substitution == null ? new Base[0] : new Base[] {this.substitution}; // MedicationRequestSubstitutionComponent
         case -486355964: /*priorPrescription*/ return this.priorPrescription == null ? new Base[0] : new Base[] {this.priorPrescription}; // Reference
         case 1835190426: /*eventHistory*/ return this.eventHistory == null ? new Base[0] : this.eventHistory.toArray(new Base[this.eventHistory.size()]); // Reference
         default: return super.getProperty(hash, name, checkValid);
@@ -1856,8 +2030,20 @@ public class MedicationOrder extends DomainResource {
         case -1618432855: // identifier
           this.getIdentifier().add(castToIdentifier(value)); // Identifier
           break;
+        case -1014418093: // definition
+          this.getDefinition().add(castToReference(value)); // Reference
+          break;
+        case -332612366: // basedOn
+          this.getBasedOn().add(castToReference(value)); // Reference
+          break;
+        case 395923612: // requisition
+          this.requisition = castToIdentifier(value); // Identifier
+          break;
         case -892481550: // status
-          this.status = new MedicationOrderStatusEnumFactory().fromType(value); // Enumeration<MedicationOrderStatus>
+          this.status = new MedicationRequestStatusEnumFactory().fromType(value); // Enumeration<MedicationRequestStatus>
+          break;
+        case 109757182: // stage
+          this.stage = castToCodeableConcept(value); // CodeableConcept
           break;
         case 1998965455: // medication
           this.medication = castToType(value); // Type
@@ -1865,8 +2051,8 @@ public class MedicationOrder extends DomainResource {
         case -791418107: // patient
           this.patient = castToReference(value); // Reference
           break;
-        case 1524132147: // encounter
-          this.encounter = castToReference(value); // Reference
+        case 951530927: // context
+          this.context = castToReference(value); // Reference
           break;
         case -1248768647: // supportingInformation
           this.getSupportingInformation().add(castToReference(value)); // Reference
@@ -1887,16 +2073,16 @@ public class MedicationOrder extends DomainResource {
           this.getNote().add(castToAnnotation(value)); // Annotation
           break;
         case 50511102: // category
-          this.category = new MedicationOrderCategoryEnumFactory().fromType(value); // Enumeration<MedicationOrderCategory>
+          this.category = castToCodeableConcept(value); // CodeableConcept
           break;
         case -1201373865: // dosageInstruction
           this.getDosageInstruction().add(castToDosageInstruction(value)); // DosageInstruction
           break;
         case 824620658: // dispenseRequest
-          this.dispenseRequest = (MedicationOrderDispenseRequestComponent) value; // MedicationOrderDispenseRequestComponent
+          this.dispenseRequest = (MedicationRequestDispenseRequestComponent) value; // MedicationRequestDispenseRequestComponent
           break;
         case 826147581: // substitution
-          this.substitution = (MedicationOrderSubstitutionComponent) value; // MedicationOrderSubstitutionComponent
+          this.substitution = (MedicationRequestSubstitutionComponent) value; // MedicationRequestSubstitutionComponent
           break;
         case -486355964: // priorPrescription
           this.priorPrescription = castToReference(value); // Reference
@@ -1913,14 +2099,22 @@ public class MedicationOrder extends DomainResource {
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("identifier"))
           this.getIdentifier().add(castToIdentifier(value));
+        else if (name.equals("definition"))
+          this.getDefinition().add(castToReference(value));
+        else if (name.equals("basedOn"))
+          this.getBasedOn().add(castToReference(value));
+        else if (name.equals("requisition"))
+          this.requisition = castToIdentifier(value); // Identifier
         else if (name.equals("status"))
-          this.status = new MedicationOrderStatusEnumFactory().fromType(value); // Enumeration<MedicationOrderStatus>
+          this.status = new MedicationRequestStatusEnumFactory().fromType(value); // Enumeration<MedicationRequestStatus>
+        else if (name.equals("stage"))
+          this.stage = castToCodeableConcept(value); // CodeableConcept
         else if (name.equals("medication[x]"))
           this.medication = castToType(value); // Type
         else if (name.equals("patient"))
           this.patient = castToReference(value); // Reference
-        else if (name.equals("encounter"))
-          this.encounter = castToReference(value); // Reference
+        else if (name.equals("context"))
+          this.context = castToReference(value); // Reference
         else if (name.equals("supportingInformation"))
           this.getSupportingInformation().add(castToReference(value));
         else if (name.equals("dateWritten"))
@@ -1934,13 +2128,13 @@ public class MedicationOrder extends DomainResource {
         else if (name.equals("note"))
           this.getNote().add(castToAnnotation(value));
         else if (name.equals("category"))
-          this.category = new MedicationOrderCategoryEnumFactory().fromType(value); // Enumeration<MedicationOrderCategory>
+          this.category = castToCodeableConcept(value); // CodeableConcept
         else if (name.equals("dosageInstruction"))
           this.getDosageInstruction().add(castToDosageInstruction(value));
         else if (name.equals("dispenseRequest"))
-          this.dispenseRequest = (MedicationOrderDispenseRequestComponent) value; // MedicationOrderDispenseRequestComponent
+          this.dispenseRequest = (MedicationRequestDispenseRequestComponent) value; // MedicationRequestDispenseRequestComponent
         else if (name.equals("substitution"))
-          this.substitution = (MedicationOrderSubstitutionComponent) value; // MedicationOrderSubstitutionComponent
+          this.substitution = (MedicationRequestSubstitutionComponent) value; // MedicationRequestSubstitutionComponent
         else if (name.equals("priorPrescription"))
           this.priorPrescription = castToReference(value); // Reference
         else if (name.equals("eventHistory"))
@@ -1953,20 +2147,24 @@ public class MedicationOrder extends DomainResource {
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -1618432855:  return addIdentifier(); // Identifier
-        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<MedicationOrderStatus>
+        case -1014418093:  return addDefinition(); // Reference
+        case -332612366:  return addBasedOn(); // Reference
+        case 395923612:  return getRequisition(); // Identifier
+        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<MedicationRequestStatus>
+        case 109757182:  return getStage(); // CodeableConcept
         case 1458402129:  return getMedication(); // Type
         case -791418107:  return getPatient(); // Reference
-        case 1524132147:  return getEncounter(); // Reference
+        case 951530927:  return getContext(); // Reference
         case -1248768647:  return addSupportingInformation(); // Reference
         case -1496880759: throw new FHIRException("Cannot make property dateWritten as it is not a complex type"); // DateTimeType
         case 1430631077:  return getPrescriber(); // Reference
         case 722137681:  return addReasonCode(); // CodeableConcept
         case -1146218137:  return addReasonReference(); // Reference
         case 3387378:  return addNote(); // Annotation
-        case 50511102: throw new FHIRException("Cannot make property category as it is not a complex type"); // Enumeration<MedicationOrderCategory>
+        case 50511102:  return getCategory(); // CodeableConcept
         case -1201373865:  return addDosageInstruction(); // DosageInstruction
-        case 824620658:  return getDispenseRequest(); // MedicationOrderDispenseRequestComponent
-        case 826147581:  return getSubstitution(); // MedicationOrderSubstitutionComponent
+        case 824620658:  return getDispenseRequest(); // MedicationRequestDispenseRequestComponent
+        case 826147581:  return getSubstitution(); // MedicationRequestSubstitutionComponent
         case -486355964:  return getPriorPrescription(); // Reference
         case 1835190426:  return addEventHistory(); // Reference
         default: return super.makeProperty(hash, name);
@@ -1979,8 +2177,22 @@ public class MedicationOrder extends DomainResource {
         if (name.equals("identifier")) {
           return addIdentifier();
         }
+        else if (name.equals("definition")) {
+          return addDefinition();
+        }
+        else if (name.equals("basedOn")) {
+          return addBasedOn();
+        }
+        else if (name.equals("requisition")) {
+          this.requisition = new Identifier();
+          return this.requisition;
+        }
         else if (name.equals("status")) {
-          throw new FHIRException("Cannot call addChild on a primitive type MedicationOrder.status");
+          throw new FHIRException("Cannot call addChild on a primitive type MedicationRequest.status");
+        }
+        else if (name.equals("stage")) {
+          this.stage = new CodeableConcept();
+          return this.stage;
         }
         else if (name.equals("medicationCodeableConcept")) {
           this.medication = new CodeableConcept();
@@ -1994,15 +2206,15 @@ public class MedicationOrder extends DomainResource {
           this.patient = new Reference();
           return this.patient;
         }
-        else if (name.equals("encounter")) {
-          this.encounter = new Reference();
-          return this.encounter;
+        else if (name.equals("context")) {
+          this.context = new Reference();
+          return this.context;
         }
         else if (name.equals("supportingInformation")) {
           return addSupportingInformation();
         }
         else if (name.equals("dateWritten")) {
-          throw new FHIRException("Cannot call addChild on a primitive type MedicationOrder.dateWritten");
+          throw new FHIRException("Cannot call addChild on a primitive type MedicationRequest.dateWritten");
         }
         else if (name.equals("prescriber")) {
           this.prescriber = new Reference();
@@ -2018,17 +2230,18 @@ public class MedicationOrder extends DomainResource {
           return addNote();
         }
         else if (name.equals("category")) {
-          throw new FHIRException("Cannot call addChild on a primitive type MedicationOrder.category");
+          this.category = new CodeableConcept();
+          return this.category;
         }
         else if (name.equals("dosageInstruction")) {
           return addDosageInstruction();
         }
         else if (name.equals("dispenseRequest")) {
-          this.dispenseRequest = new MedicationOrderDispenseRequestComponent();
+          this.dispenseRequest = new MedicationRequestDispenseRequestComponent();
           return this.dispenseRequest;
         }
         else if (name.equals("substitution")) {
-          this.substitution = new MedicationOrderSubstitutionComponent();
+          this.substitution = new MedicationRequestSubstitutionComponent();
           return this.substitution;
         }
         else if (name.equals("priorPrescription")) {
@@ -2043,22 +2256,34 @@ public class MedicationOrder extends DomainResource {
       }
 
   public String fhirType() {
-    return "MedicationOrder";
+    return "MedicationRequest";
 
   }
 
-      public MedicationOrder copy() {
-        MedicationOrder dst = new MedicationOrder();
+      public MedicationRequest copy() {
+        MedicationRequest dst = new MedicationRequest();
         copyValues(dst);
         if (identifier != null) {
           dst.identifier = new ArrayList<Identifier>();
           for (Identifier i : identifier)
             dst.identifier.add(i.copy());
         };
+        if (definition != null) {
+          dst.definition = new ArrayList<Reference>();
+          for (Reference i : definition)
+            dst.definition.add(i.copy());
+        };
+        if (basedOn != null) {
+          dst.basedOn = new ArrayList<Reference>();
+          for (Reference i : basedOn)
+            dst.basedOn.add(i.copy());
+        };
+        dst.requisition = requisition == null ? null : requisition.copy();
         dst.status = status == null ? null : status.copy();
+        dst.stage = stage == null ? null : stage.copy();
         dst.medication = medication == null ? null : medication.copy();
         dst.patient = patient == null ? null : patient.copy();
-        dst.encounter = encounter == null ? null : encounter.copy();
+        dst.context = context == null ? null : context.copy();
         if (supportingInformation != null) {
           dst.supportingInformation = new ArrayList<Reference>();
           for (Reference i : supportingInformation)
@@ -2098,7 +2323,7 @@ public class MedicationOrder extends DomainResource {
         return dst;
       }
 
-      protected MedicationOrder typedCopy() {
+      protected MedicationRequest typedCopy() {
         return copy();
       }
 
@@ -2106,11 +2331,13 @@ public class MedicationOrder extends DomainResource {
       public boolean equalsDeep(Base other) {
         if (!super.equalsDeep(other))
           return false;
-        if (!(other instanceof MedicationOrder))
+        if (!(other instanceof MedicationRequest))
           return false;
-        MedicationOrder o = (MedicationOrder) other;
-        return compareDeep(identifier, o.identifier, true) && compareDeep(status, o.status, true) && compareDeep(medication, o.medication, true)
-           && compareDeep(patient, o.patient, true) && compareDeep(encounter, o.encounter, true) && compareDeep(supportingInformation, o.supportingInformation, true)
+        MedicationRequest o = (MedicationRequest) other;
+        return compareDeep(identifier, o.identifier, true) && compareDeep(definition, o.definition, true)
+           && compareDeep(basedOn, o.basedOn, true) && compareDeep(requisition, o.requisition, true) && compareDeep(status, o.status, true)
+           && compareDeep(stage, o.stage, true) && compareDeep(medication, o.medication, true) && compareDeep(patient, o.patient, true)
+           && compareDeep(context, o.context, true) && compareDeep(supportingInformation, o.supportingInformation, true)
            && compareDeep(dateWritten, o.dateWritten, true) && compareDeep(prescriber, o.prescriber, true)
            && compareDeep(reasonCode, o.reasonCode, true) && compareDeep(reasonReference, o.reasonReference, true)
            && compareDeep(note, o.note, true) && compareDeep(category, o.category, true) && compareDeep(dosageInstruction, o.dosageInstruction, true)
@@ -2123,23 +2350,28 @@ public class MedicationOrder extends DomainResource {
       public boolean equalsShallow(Base other) {
         if (!super.equalsShallow(other))
           return false;
-        if (!(other instanceof MedicationOrder))
+        if (!(other instanceof MedicationRequest))
           return false;
-        MedicationOrder o = (MedicationOrder) other;
-        return compareValues(status, o.status, true) && compareValues(dateWritten, o.dateWritten, true) && compareValues(category, o.category, true)
-          ;
+        MedicationRequest o = (MedicationRequest) other;
+        return compareValues(status, o.status, true) && compareValues(dateWritten, o.dateWritten, true);
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, status, medication
-          , patient, encounter, supportingInformation, dateWritten, prescriber, reasonCode
-          , reasonReference, note, category, dosageInstruction, dispenseRequest, substitution
-          , priorPrescription, eventHistory);
+        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (definition == null || definition.isEmpty())
+           && (basedOn == null || basedOn.isEmpty()) && (requisition == null || requisition.isEmpty())
+           && (status == null || status.isEmpty()) && (stage == null || stage.isEmpty()) && (medication == null || medication.isEmpty())
+           && (patient == null || patient.isEmpty()) && (context == null || context.isEmpty()) && (supportingInformation == null || supportingInformation.isEmpty())
+           && (dateWritten == null || dateWritten.isEmpty()) && (prescriber == null || prescriber.isEmpty())
+           && (reasonCode == null || reasonCode.isEmpty()) && (reasonReference == null || reasonReference.isEmpty())
+           && (note == null || note.isEmpty()) && (category == null || category.isEmpty()) && (dosageInstruction == null || dosageInstruction.isEmpty())
+           && (dispenseRequest == null || dispenseRequest.isEmpty()) && (substitution == null || substitution.isEmpty())
+           && (priorPrescription == null || priorPrescription.isEmpty()) && (eventHistory == null || eventHistory.isEmpty())
+          ;
       }
 
   @Override
   public ResourceType getResourceType() {
-    return ResourceType.MedicationOrder;
+    return ResourceType.MedicationRequest;
    }
 
  /**
@@ -2147,43 +2379,43 @@ public class MedicationOrder extends DomainResource {
    * <p>
    * Description: <b>Returns prescriptions prescribed by this prescriber</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>MedicationOrder.prescriber</b><br>
+   * Path: <b>MedicationRequest.prescriber</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="prescriber", path="MedicationOrder.prescriber", description="Returns prescriptions prescribed by this prescriber", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner") }, target={Practitioner.class } )
+  @SearchParamDefinition(name="prescriber", path="MedicationRequest.prescriber", description="Returns prescriptions prescribed by this prescriber", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner") }, target={Practitioner.class } )
   public static final String SP_PRESCRIBER = "prescriber";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>prescriber</b>
    * <p>
    * Description: <b>Returns prescriptions prescribed by this prescriber</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>MedicationOrder.prescriber</b><br>
+   * Path: <b>MedicationRequest.prescriber</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PRESCRIBER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PRESCRIBER);
 
 /**
    * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>MedicationOrder:prescriber</b>".
+   * the path value of "<b>MedicationRequest:prescriber</b>".
    */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_PRESCRIBER = new ca.uhn.fhir.model.api.Include("MedicationOrder:prescriber").toLocked();
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_PRESCRIBER = new ca.uhn.fhir.model.api.Include("MedicationRequest:prescriber").toLocked();
 
  /**
    * Search parameter: <b>identifier</b>
    * <p>
    * Description: <b>Return prescriptions with this external identifier</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>MedicationOrder.identifier</b><br>
+   * Path: <b>MedicationRequest.identifier</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="identifier", path="MedicationOrder.identifier", description="Return prescriptions with this external identifier", type="token" )
+  @SearchParamDefinition(name="identifier", path="MedicationRequest.identifier", description="Return prescriptions with this external identifier", type="token" )
   public static final String SP_IDENTIFIER = "identifier";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
    * <p>
    * Description: <b>Return prescriptions with this external identifier</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>MedicationOrder.identifier</b><br>
+   * Path: <b>MedicationRequest.identifier</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
@@ -2193,17 +2425,17 @@ public class MedicationOrder extends DomainResource {
    * <p>
    * Description: <b>Return prescriptions of this medication code</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>MedicationOrder.medicationCodeableConcept</b><br>
+   * Path: <b>MedicationRequest.medicationCodeableConcept</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="code", path="MedicationOrder.medication.as(CodeableConcept)", description="Return prescriptions of this medication code", type="token" )
+  @SearchParamDefinition(name="code", path="MedicationRequest.medication.as(CodeableConcept)", description="Return prescriptions of this medication code", type="token" )
   public static final String SP_CODE = "code";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>code</b>
    * <p>
    * Description: <b>Return prescriptions of this medication code</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>MedicationOrder.medicationCodeableConcept</b><br>
+   * Path: <b>MedicationRequest.medicationCodeableConcept</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam CODE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CODE);
@@ -2213,115 +2445,141 @@ public class MedicationOrder extends DomainResource {
    * <p>
    * Description: <b>The identity of a patient to list orders  for</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>MedicationOrder.patient</b><br>
+   * Path: <b>MedicationRequest.patient</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="patient", path="MedicationOrder.patient", description="The identity of a patient to list orders  for", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient") }, target={Patient.class } )
+  @SearchParamDefinition(name="patient", path="MedicationRequest.patient", description="The identity of a patient to list orders  for", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient") }, target={Patient.class } )
   public static final String SP_PATIENT = "patient";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>patient</b>
    * <p>
    * Description: <b>The identity of a patient to list orders  for</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>MedicationOrder.patient</b><br>
+   * Path: <b>MedicationRequest.patient</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PATIENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PATIENT);
 
 /**
    * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>MedicationOrder:patient</b>".
+   * the path value of "<b>MedicationRequest:patient</b>".
    */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("MedicationOrder:patient").toLocked();
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("MedicationRequest:patient").toLocked();
 
  /**
    * Search parameter: <b>datewritten</b>
    * <p>
    * Description: <b>Return prescriptions written on this date</b><br>
    * Type: <b>date</b><br>
-   * Path: <b>MedicationOrder.dateWritten</b><br>
+   * Path: <b>MedicationRequest.dateWritten</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="datewritten", path="MedicationOrder.dateWritten", description="Return prescriptions written on this date", type="date" )
+  @SearchParamDefinition(name="datewritten", path="MedicationRequest.dateWritten", description="Return prescriptions written on this date", type="date" )
   public static final String SP_DATEWRITTEN = "datewritten";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>datewritten</b>
    * <p>
    * Description: <b>Return prescriptions written on this date</b><br>
    * Type: <b>date</b><br>
-   * Path: <b>MedicationOrder.dateWritten</b><br>
+   * Path: <b>MedicationRequest.dateWritten</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.DateClientParam DATEWRITTEN = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_DATEWRITTEN);
+
+ /**
+   * Search parameter: <b>context</b>
+   * <p>
+   * Description: <b>Return prescriptions with this encounter or episode of care identifier</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>MedicationRequest.context</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="context", path="MedicationRequest.context", description="Return prescriptions with this encounter or episode of care identifier", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Encounter") }, target={Encounter.class, EpisodeOfCare.class } )
+  public static final String SP_CONTEXT = "context";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>context</b>
+   * <p>
+   * Description: <b>Return prescriptions with this encounter or episode of care identifier</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>MedicationRequest.context</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam CONTEXT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_CONTEXT);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>MedicationRequest:context</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_CONTEXT = new ca.uhn.fhir.model.api.Include("MedicationRequest:context").toLocked();
 
  /**
    * Search parameter: <b>medication</b>
    * <p>
    * Description: <b>Return prescriptions of this medication reference</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>MedicationOrder.medicationReference</b><br>
+   * Path: <b>MedicationRequest.medicationReference</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="medication", path="MedicationOrder.medication.as(Reference)", description="Return prescriptions of this medication reference", type="reference", target={Medication.class } )
+  @SearchParamDefinition(name="medication", path="MedicationRequest.medication.as(Reference)", description="Return prescriptions of this medication reference", type="reference", target={Medication.class } )
   public static final String SP_MEDICATION = "medication";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>medication</b>
    * <p>
    * Description: <b>Return prescriptions of this medication reference</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>MedicationOrder.medicationReference</b><br>
+   * Path: <b>MedicationRequest.medicationReference</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam MEDICATION = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_MEDICATION);
 
 /**
    * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>MedicationOrder:medication</b>".
+   * the path value of "<b>MedicationRequest:medication</b>".
    */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_MEDICATION = new ca.uhn.fhir.model.api.Include("MedicationOrder:medication").toLocked();
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_MEDICATION = new ca.uhn.fhir.model.api.Include("MedicationRequest:medication").toLocked();
 
  /**
-   * Search parameter: <b>encounter</b>
+   * Search parameter: <b>intendeddispenser</b>
    * <p>
-   * Description: <b>Return prescriptions with this encounter identifier</b><br>
+   * Description: <b>Returns prescriptions intended to be dispensed by this Organization</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>MedicationOrder.encounter</b><br>
+   * Path: <b>MedicationRequest.dispenseRequest.performer</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="encounter", path="MedicationOrder.encounter", description="Return prescriptions with this encounter identifier", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Encounter") }, target={Encounter.class } )
-  public static final String SP_ENCOUNTER = "encounter";
+  @SearchParamDefinition(name="intendeddispenser", path="MedicationRequest.dispenseRequest.performer", description="Returns prescriptions intended to be dispensed by this Organization", type="reference", target={Organization.class } )
+  public static final String SP_INTENDEDDISPENSER = "intendeddispenser";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>encounter</b>
+   * <b>Fluent Client</b> search parameter constant for <b>intendeddispenser</b>
    * <p>
-   * Description: <b>Return prescriptions with this encounter identifier</b><br>
+   * Description: <b>Returns prescriptions intended to be dispensed by this Organization</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>MedicationOrder.encounter</b><br>
+   * Path: <b>MedicationRequest.dispenseRequest.performer</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam ENCOUNTER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_ENCOUNTER);
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam INTENDEDDISPENSER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_INTENDEDDISPENSER);
 
 /**
    * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>MedicationOrder:encounter</b>".
+   * the path value of "<b>MedicationRequest:intendeddispenser</b>".
    */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_ENCOUNTER = new ca.uhn.fhir.model.api.Include("MedicationOrder:encounter").toLocked();
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_INTENDEDDISPENSER = new ca.uhn.fhir.model.api.Include("MedicationRequest:intendeddispenser").toLocked();
 
  /**
    * Search parameter: <b>status</b>
    * <p>
    * Description: <b>Status of the prescription</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>MedicationOrder.status</b><br>
+   * Path: <b>MedicationRequest.status</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="status", path="MedicationOrder.status", description="Status of the prescription", type="token" )
+  @SearchParamDefinition(name="status", path="MedicationRequest.status", description="Status of the prescription", type="token" )
   public static final String SP_STATUS = "status";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>status</b>
    * <p>
    * Description: <b>Status of the prescription</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>MedicationOrder.status</b><br>
+   * Path: <b>MedicationRequest.status</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);

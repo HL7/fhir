@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Oct 21, 2016 09:09+1100 for FHIR v1.7.0
+// Generated on Tue, Nov 1, 2016 18:35-0400 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -1185,9 +1185,12 @@ public class Coverage extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(status, issuer, isAgreement
-          , period, type, planholder, beneficiary, relationship, identifier, level, dependent
-          , sequence, network, contract);
+        return super.isEmpty() && (status == null || status.isEmpty()) && (issuer == null || issuer.isEmpty())
+           && (isAgreement == null || isAgreement.isEmpty()) && (period == null || period.isEmpty())
+           && (type == null || type.isEmpty()) && (planholder == null || planholder.isEmpty()) && (beneficiary == null || beneficiary.isEmpty())
+           && (relationship == null || relationship.isEmpty()) && (identifier == null || identifier.isEmpty())
+           && (level == null || level.isEmpty()) && (dependent == null || dependent.isEmpty()) && (sequence == null || sequence.isEmpty())
+           && (network == null || network.isEmpty()) && (contract == null || contract.isEmpty());
       }
 
   @Override

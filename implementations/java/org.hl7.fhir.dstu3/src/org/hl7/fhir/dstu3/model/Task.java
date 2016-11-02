@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Oct 21, 2016 09:09+1100 for FHIR v1.7.0
+// Generated on Tue, Nov 1, 2016 18:35-0400 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -650,8 +650,8 @@ public class Task extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(repetitions, period, recipients
-          );
+        return super.isEmpty() && (repetitions == null || repetitions.isEmpty()) && (period == null || period.isEmpty())
+           && (recipients == null || recipients.isEmpty());
       }
 
   public String fhirType() {
@@ -959,7 +959,8 @@ public class Task extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(type, value);
+        return super.isEmpty() && (type == null || type.isEmpty()) && (value == null || value.isEmpty())
+          ;
       }
 
   public String fhirType() {
@@ -1267,7 +1268,8 @@ public class Task extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(type, value);
+        return super.isEmpty() && (type == null || type.isEmpty()) && (value == null || value.isEmpty())
+          ;
       }
 
   public String fhirType() {
@@ -2954,10 +2956,17 @@ public class Task extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, basedOn, requisition
-          , parent, status, statusReason, businessStatus, stage, code, priority, description
-          , focus, for_, context, created, lastModified, requester, owner, performerType
-          , reason, note, fulfillment, definition, input, output);
+        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (basedOn == null || basedOn.isEmpty())
+           && (requisition == null || requisition.isEmpty()) && (parent == null || parent.isEmpty())
+           && (status == null || status.isEmpty()) && (statusReason == null || statusReason.isEmpty())
+           && (businessStatus == null || businessStatus.isEmpty()) && (stage == null || stage.isEmpty())
+           && (code == null || code.isEmpty()) && (priority == null || priority.isEmpty()) && (description == null || description.isEmpty())
+           && (focus == null || focus.isEmpty()) && (for_ == null || for_.isEmpty()) && (context == null || context.isEmpty())
+           && (created == null || created.isEmpty()) && (lastModified == null || lastModified.isEmpty())
+           && (requester == null || requester.isEmpty()) && (owner == null || owner.isEmpty()) && (performerType == null || performerType.isEmpty())
+           && (reason == null || reason.isEmpty()) && (note == null || note.isEmpty()) && (fulfillment == null || fulfillment.isEmpty())
+           && (definition == null || definition.isEmpty()) && (input == null || input.isEmpty()) && (output == null || output.isEmpty())
+          ;
       }
 
   @Override

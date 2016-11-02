@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Oct 21, 2016 09:09+1100 for FHIR v1.7.0
+// Generated on Tue, Nov 1, 2016 18:35-0400 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -47,18 +47,18 @@ import org.hl7.fhir.exceptions.FHIRException;
 public class UsageContext extends Type implements ICompositeType {
 
     /**
-     * A code the specifies the type of context being specified by this usage context.
+     * A code that identifies the type of context being specified by this usage context.
      */
     @Child(name = "code", type = {Coding.class}, order=0, min=1, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Type of context being specified", formalDefinition="A code the specifies the type of context being specified by this usage context." )
+    @Description(shortDefinition="Type of context being specified", formalDefinition="A code that identifies the type of context being specified by this usage context." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/usage-context-type")
     protected Coding code;
 
     /**
-     * A value that defines the context specified in this context of use. The interpretation of the value is defined the code.
+     * A value that defines the context specified in this context of use. The interpretation of the value is defined by the code.
      */
     @Child(name = "value", type = {CodeableConcept.class, Quantity.class, Range.class}, order=1, min=1, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Value that defines the context", formalDefinition="A value that defines the context specified in this context of use. The interpretation of the value is defined the code." )
+    @Description(shortDefinition="Value that defines the context", formalDefinition="A value that defines the context specified in this context of use. The interpretation of the value is defined by the code." )
     protected Type value;
 
     private static final long serialVersionUID = -1092486508L;
@@ -80,7 +80,7 @@ public class UsageContext extends Type implements ICompositeType {
     }
 
     /**
-     * @return {@link #code} (A code the specifies the type of context being specified by this usage context.)
+     * @return {@link #code} (A code that identifies the type of context being specified by this usage context.)
      */
     public Coding getCode() { 
       if (this.code == null)
@@ -96,7 +96,7 @@ public class UsageContext extends Type implements ICompositeType {
     }
 
     /**
-     * @param value {@link #code} (A code the specifies the type of context being specified by this usage context.)
+     * @param value {@link #code} (A code that identifies the type of context being specified by this usage context.)
      */
     public UsageContext setCode(Coding value) { 
       this.code = value;
@@ -104,14 +104,14 @@ public class UsageContext extends Type implements ICompositeType {
     }
 
     /**
-     * @return {@link #value} (A value that defines the context specified in this context of use. The interpretation of the value is defined the code.)
+     * @return {@link #value} (A value that defines the context specified in this context of use. The interpretation of the value is defined by the code.)
      */
     public Type getValue() { 
       return this.value;
     }
 
     /**
-     * @return {@link #value} (A value that defines the context specified in this context of use. The interpretation of the value is defined the code.)
+     * @return {@link #value} (A value that defines the context specified in this context of use. The interpretation of the value is defined by the code.)
      */
     public CodeableConcept getValueCodeableConcept() throws FHIRException { 
       if (!(this.value instanceof CodeableConcept))
@@ -124,7 +124,7 @@ public class UsageContext extends Type implements ICompositeType {
     }
 
     /**
-     * @return {@link #value} (A value that defines the context specified in this context of use. The interpretation of the value is defined the code.)
+     * @return {@link #value} (A value that defines the context specified in this context of use. The interpretation of the value is defined by the code.)
      */
     public Quantity getValueQuantity() throws FHIRException { 
       if (!(this.value instanceof Quantity))
@@ -137,7 +137,7 @@ public class UsageContext extends Type implements ICompositeType {
     }
 
     /**
-     * @return {@link #value} (A value that defines the context specified in this context of use. The interpretation of the value is defined the code.)
+     * @return {@link #value} (A value that defines the context specified in this context of use. The interpretation of the value is defined by the code.)
      */
     public Range getValueRange() throws FHIRException { 
       if (!(this.value instanceof Range))
@@ -154,7 +154,7 @@ public class UsageContext extends Type implements ICompositeType {
     }
 
     /**
-     * @param value {@link #value} (A value that defines the context specified in this context of use. The interpretation of the value is defined the code.)
+     * @param value {@link #value} (A value that defines the context specified in this context of use. The interpretation of the value is defined by the code.)
      */
     public UsageContext setValue(Type value) { 
       this.value = value;
@@ -163,8 +163,8 @@ public class UsageContext extends Type implements ICompositeType {
 
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
-        childrenList.add(new Property("code", "Coding", "A code the specifies the type of context being specified by this usage context.", 0, java.lang.Integer.MAX_VALUE, code));
-        childrenList.add(new Property("value[x]", "CodeableConcept|Quantity|Range", "A value that defines the context specified in this context of use. The interpretation of the value is defined the code.", 0, java.lang.Integer.MAX_VALUE, value));
+        childrenList.add(new Property("code", "Coding", "A code that identifies the type of context being specified by this usage context.", 0, java.lang.Integer.MAX_VALUE, code));
+        childrenList.add(new Property("value[x]", "CodeableConcept|Quantity|Range", "A value that defines the context specified in this context of use. The interpretation of the value is defined by the code.", 0, java.lang.Integer.MAX_VALUE, value));
       }
 
       @Override
@@ -271,7 +271,8 @@ public class UsageContext extends Type implements ICompositeType {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(code, value);
+        return super.isEmpty() && (code == null || code.isEmpty()) && (value == null || value.isEmpty())
+          ;
       }
 
 

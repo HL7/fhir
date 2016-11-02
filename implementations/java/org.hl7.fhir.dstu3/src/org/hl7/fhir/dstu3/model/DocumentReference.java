@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Oct 21, 2016 09:09+1100 for FHIR v1.7.0
+// Generated on Tue, Nov 1, 2016 18:35-0400 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -392,7 +392,8 @@ public class DocumentReference extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(code, target);
+        return super.isEmpty() && (code == null || code.isEmpty()) && (target == null || target.isEmpty())
+          ;
       }
 
   public String fhirType() {
@@ -609,7 +610,8 @@ public class DocumentReference extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(attachment, format);
+        return super.isEmpty() && (attachment == null || attachment.isEmpty()) && (format == null || format.isEmpty())
+          ;
       }
 
   public String fhirType() {
@@ -1125,8 +1127,10 @@ public class DocumentReference extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(encounter, event, period
-          , facilityType, practiceSetting, sourcePatientInfo, related);
+        return super.isEmpty() && (encounter == null || encounter.isEmpty()) && (event == null || event.isEmpty())
+           && (period == null || period.isEmpty()) && (facilityType == null || facilityType.isEmpty())
+           && (practiceSetting == null || practiceSetting.isEmpty()) && (sourcePatientInfo == null || sourcePatientInfo.isEmpty())
+           && (related == null || related.isEmpty());
       }
 
   public String fhirType() {
@@ -1322,7 +1326,8 @@ public class DocumentReference extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, ref);
+        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (ref == null || ref.isEmpty())
+          ;
       }
 
   public String fhirType() {
@@ -2515,9 +2520,13 @@ public class DocumentReference extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(masterIdentifier, identifier
-          , subject, type, class_, author, custodian, authenticator, created, indexed
-          , status, docStatus, relatesTo, description, securityLabel, content, context);
+        return super.isEmpty() && (masterIdentifier == null || masterIdentifier.isEmpty()) && (identifier == null || identifier.isEmpty())
+           && (subject == null || subject.isEmpty()) && (type == null || type.isEmpty()) && (class_ == null || class_.isEmpty())
+           && (author == null || author.isEmpty()) && (custodian == null || custodian.isEmpty()) && (authenticator == null || authenticator.isEmpty())
+           && (created == null || created.isEmpty()) && (indexed == null || indexed.isEmpty()) && (status == null || status.isEmpty())
+           && (docStatus == null || docStatus.isEmpty()) && (relatesTo == null || relatesTo.isEmpty())
+           && (description == null || description.isEmpty()) && (securityLabel == null || securityLabel.isEmpty())
+           && (content == null || content.isEmpty()) && (context == null || context.isEmpty());
       }
 
   @Override

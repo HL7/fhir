@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Oct 21, 2016 09:09+1100 for FHIR v1.7.0
+// Generated on Tue, Nov 1, 2016 18:35-0400 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -987,8 +987,8 @@ public class CodeSystem extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(code, description, operator
-          , value);
+        return super.isEmpty() && (code == null || code.isEmpty()) && (description == null || description.isEmpty())
+           && (operator == null || operator.isEmpty()) && (value == null || value.isEmpty());
       }
 
   public String fhirType() {
@@ -1352,8 +1352,8 @@ public class CodeSystem extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(code, uri, description, type
-          );
+        return super.isEmpty() && (code == null || code.isEmpty()) && (uri == null || uri.isEmpty())
+           && (description == null || description.isEmpty()) && (type == null || type.isEmpty());
       }
 
   public String fhirType() {
@@ -1880,8 +1880,9 @@ public class CodeSystem extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(code, display, definition
-          , designation, property, concept);
+        return super.isEmpty() && (code == null || code.isEmpty()) && (display == null || display.isEmpty())
+           && (definition == null || definition.isEmpty()) && (designation == null || designation.isEmpty())
+           && (property == null || property.isEmpty()) && (concept == null || concept.isEmpty());
       }
 
   public String fhirType() {
@@ -2156,7 +2157,8 @@ public class CodeSystem extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(language, use, value);
+        return super.isEmpty() && (language == null || language.isEmpty()) && (use == null || use.isEmpty())
+           && (value == null || value.isEmpty());
       }
 
   public String fhirType() {
@@ -2454,7 +2456,8 @@ public class CodeSystem extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(code, value);
+        return super.isEmpty() && (code == null || code.isEmpty()) && (value == null || value.isEmpty())
+          ;
       }
 
   public String fhirType() {
@@ -4180,9 +4183,12 @@ public class CodeSystem extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, purpose, copyright
-          , caseSensitive, valueSet, hierarchyMeaning, compositional, versionNeeded, content
-          , count, filter, property, concept);
+        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (purpose == null || purpose.isEmpty())
+           && (copyright == null || copyright.isEmpty()) && (caseSensitive == null || caseSensitive.isEmpty())
+           && (valueSet == null || valueSet.isEmpty()) && (hierarchyMeaning == null || hierarchyMeaning.isEmpty())
+           && (compositional == null || compositional.isEmpty()) && (versionNeeded == null || versionNeeded.isEmpty())
+           && (content == null || content.isEmpty()) && (count == null || count.isEmpty()) && (filter == null || filter.isEmpty())
+           && (property == null || property.isEmpty()) && (concept == null || concept.isEmpty());
       }
 
   @Override

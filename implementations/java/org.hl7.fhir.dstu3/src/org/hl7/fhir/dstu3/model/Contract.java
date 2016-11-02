@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Oct 21, 2016 09:09+1100 for FHIR v1.7.0
+// Generated on Tue, Nov 1, 2016 18:35-0400 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -276,7 +276,8 @@ public class Contract extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(actor, role);
+        return super.isEmpty() && (actor == null || actor.isEmpty()) && (role == null || role.isEmpty())
+          ;
       }
 
   public String fhirType() {
@@ -559,7 +560,8 @@ public class Contract extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(type, party, signature);
+        return super.isEmpty() && (type == null || type.isEmpty()) && (party == null || party.isEmpty())
+           && (signature == null || signature.isEmpty());
       }
 
   public String fhirType() {
@@ -1135,8 +1137,10 @@ public class Contract extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(entity, identifier, effectiveTime
-          , quantity, unitPrice, factor, points, net);
+        return super.isEmpty() && (entity == null || entity.isEmpty()) && (identifier == null || identifier.isEmpty())
+           && (effectiveTime == null || effectiveTime.isEmpty()) && (quantity == null || quantity.isEmpty())
+           && (unitPrice == null || unitPrice.isEmpty()) && (factor == null || factor.isEmpty()) && (points == null || points.isEmpty())
+           && (net == null || net.isEmpty());
       }
 
   public String fhirType() {
@@ -2015,9 +2019,11 @@ public class Contract extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, issued, applies
-          , type, subType, topic, action, actionReason, agent, text, valuedItem, group
-          );
+        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (issued == null || issued.isEmpty())
+           && (applies == null || applies.isEmpty()) && (type == null || type.isEmpty()) && (subType == null || subType.isEmpty())
+           && (topic == null || topic.isEmpty()) && (action == null || action.isEmpty()) && (actionReason == null || actionReason.isEmpty())
+           && (agent == null || agent.isEmpty()) && (text == null || text.isEmpty()) && (valuedItem == null || valuedItem.isEmpty())
+           && (group == null || group.isEmpty());
       }
 
   public String fhirType() {
@@ -2254,7 +2260,8 @@ public class Contract extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(actor, role);
+        return super.isEmpty() && (actor == null || actor.isEmpty()) && (role == null || role.isEmpty())
+          ;
       }
 
   public String fhirType() {
@@ -2830,8 +2837,10 @@ public class Contract extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(entity, identifier, effectiveTime
-          , quantity, unitPrice, factor, points, net);
+        return super.isEmpty() && (entity == null || entity.isEmpty()) && (identifier == null || identifier.isEmpty())
+           && (effectiveTime == null || effectiveTime.isEmpty()) && (quantity == null || quantity.isEmpty())
+           && (unitPrice == null || unitPrice.isEmpty()) && (factor == null || factor.isEmpty()) && (points == null || points.isEmpty())
+           && (net == null || net.isEmpty());
       }
 
   public String fhirType() {
@@ -2996,7 +3005,7 @@ public class Contract extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(content);
+        return super.isEmpty() && (content == null || content.isEmpty());
       }
 
   public String fhirType() {
@@ -3161,7 +3170,7 @@ public class Contract extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(content);
+        return super.isEmpty() && (content == null || content.isEmpty());
       }
 
   public String fhirType() {
@@ -3326,7 +3335,7 @@ public class Contract extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(content);
+        return super.isEmpty() && (content == null || content.isEmpty());
       }
 
   public String fhirType() {
@@ -4848,9 +4857,13 @@ public class Contract extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, issued, applies
-          , subject, topic, authority, domain, type, subType, action, actionReason, agent
-          , signer, valuedItem, term, binding, friendly, legal, rule);
+        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (issued == null || issued.isEmpty())
+           && (applies == null || applies.isEmpty()) && (subject == null || subject.isEmpty()) && (topic == null || topic.isEmpty())
+           && (authority == null || authority.isEmpty()) && (domain == null || domain.isEmpty()) && (type == null || type.isEmpty())
+           && (subType == null || subType.isEmpty()) && (action == null || action.isEmpty()) && (actionReason == null || actionReason.isEmpty())
+           && (agent == null || agent.isEmpty()) && (signer == null || signer.isEmpty()) && (valuedItem == null || valuedItem.isEmpty())
+           && (term == null || term.isEmpty()) && (binding == null || binding.isEmpty()) && (friendly == null || friendly.isEmpty())
+           && (legal == null || legal.isEmpty()) && (rule == null || rule.isEmpty());
       }
 
   @Override

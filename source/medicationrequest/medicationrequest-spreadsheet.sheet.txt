@@ -264,7 +264,7 @@
  -- Row 10 -----------------------------------
   Element = MedicationRequest.context
   Card. = 0..1
-  Type = Reference(Encounter|EpisodeofCare)
+  Type = Reference(Encounter|EpisodeOfCare)
   Short Name = Created during encounter/admission/stay
   Definition = A link to a resource that identifies the particular occurrence or set oc occurences of contact between patient and health care provider
   Comments = SubstanceAdministration->component->EncounterEvent
