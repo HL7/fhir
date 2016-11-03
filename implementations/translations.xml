@@ -34,9 +34,16 @@
     <item id="Account">
         <translation lang="en">Account</translation>
     </item>
-    <item id="ActivityDefinition">
+  <item id="ActivityDefinition">
  		<translation lang="en">ActivityDefinition</translation>
 	</item>
+  <item id="ActivityGroup">
+ 		<translation lang="en">ActivityGroup</translation>
+	</item>
+  <item id="DecisionSupportServiceModule">
+ 		<translation lang="en">DecisionSupportServiceModule</translation>
+	</item>
+  
     <item id="AdverseReaction">
         <translation lang="en">AdverseReaction</translation>
         <translation lang="zh">不良反应</translation>
@@ -394,8 +401,8 @@
         <translation lang="es">DispensaciónMedicación</translation>
         <translation lang="fr">DispensationMédicaments</translation>
     </item>
-    <item id="MedicationRequest">
-        <translation lang="en">MedicationRequest</translation>
+    <item id="MedicationOrder">
+        <translation lang="en">MedicationOrder</translation>
         <translation lang="zh">药方TODO</translation>
         <translation lang="es">PrescripciónMedicaciónTODO</translation>
         <translation lang="fr">PrescriptionMédicamenteuseTODO</translation>
@@ -1605,6 +1612,16 @@
         <translation lang="en">Error: Multiple matches exist for the conditional update</translation>
         <!--<translation lang="it">Errore: Trovate corrispondenze multiple per %s parametri di ricerca "%s"</translation>-->
         <translation lang="nl">Fout: er is meer dan één resultaat voor de conditionele update</translation>
+        <!--<translation lang="zh">错误: 对于 %s 搜索的参数 "%s"存在多个匹配</translation>-->
+        <!--<translation lang="pl">Błąd: Istnieją wielokrotne dopasowania dla %s parametrów wyszukiwania "%s"</translation>-->
+        <!--<translation lang="es">Error: Multiples ocurrencias existen para %s parametros de búsqueda "%s"</translation>-->
+        <!--<translation lang="fr">Erreur : Plusieurs correspondances existent pour ce paramètre de recherche %s</translation>-->
+        <!--<translation lang="ru">Ошибка: множественные совпадения для %s с параметрами поиска "%s"</translation>-->
+    </item>
+    <item id="DELETE_MULTIPLE_MATCHES" ecode="true">
+        <translation lang="en">Error: Multiple matches exist for the conditional delete</translation>
+        <!--<translation lang="it">Errore: Trovate corrispondenze multiple per %s parametri di ricerca "%s"</translation>-->
+        <translation lang="nl">Fout: er is meer dan één resultaat voor de conditionele delete</translation>
         <!--<translation lang="zh">错误: 对于 %s 搜索的参数 "%s"存在多个匹配</translation>-->
         <!--<translation lang="pl">Błąd: Istnieją wielokrotne dopasowania dla %s parametrów wyszukiwania "%s"</translation>-->
         <!--<translation lang="es">Error: Multiples ocurrencias existen para %s parametros de búsqueda "%s"</translation>-->
