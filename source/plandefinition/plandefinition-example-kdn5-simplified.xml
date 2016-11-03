@@ -258,11 +258,14 @@
 
   <actionDefinition>
     <!-- list of regimen options. in this case only one -->
+    <selectionBehavior value="exactly-one"/>
     <actionDefinition>
       <!-- list of regimen parts. in this case only one -->
+      <selectionBehavior value="all"/>
       <actionDefinition>
         <!-- list of cycle definitions. in this case only one -->
         <groupingBehavior value="sentence-group" />
+        <selectionBehavior value="exactly-one"/>
         <actionDefinition>
           <actionIdentifier>
             <system value="http://nccn.org/ordertemplates/KDN5" />
@@ -277,8 +280,6 @@
               <durationUnit value="d" />
             </repeat>
           </timingTiming>
-
-          <cardinalityBehavior value="multiple" />
 
           <!-- list of regimen entry references for this regimen part -->
           <!-- references would duplicated in each cycle definition option
