@@ -153,7 +153,7 @@ in the FHIR server's Capability statement (subscriptions/webSocketUrl (todo)). A
 protocol is used to listen for notifications:
 </p>
 <ul>
- <li>Client connects a secure Web Socket to the hospital's webSocketUrl.</li>
+ <li>Client connects a secure Web Socket to the servers's webSocketUrl (see <a href="extension-capabilitystatement-websocket.html">websocket extension</a> in the server's <a href="capabilitystatement.html">CapabilityStatement</a>).</li>
  <li>Client authenticates to server using a server-specified Web socket protocol (e.g. OAuth bearer token presentation).</li>
  <li>Client sends a bind :id message over the socket (using the logical id of the subscription). For example, the client might issue: bind 123).</li>
  <li>Server responds with a "bound :id" message to acknowledge.</li>
