@@ -114,6 +114,12 @@
   Display = Initial
   Definition = Indicates that a name part is just an initial. Initials do not imply a trailing period since this would not work with non-Latin scripts. Initials may consist of more than one letter, e.g., \"Ph.\" could stand for \"Philippe\" or \"Th.\" for \"Thomas\"
 
+ -- Row 12 -----------------------------------
+  System = http://hl7.org/fhir/v3/EntityNamePartQualifier
+  Code = VV
+  Display = Voorvoegsel
+  Definition = A Dutch \"voorvoegsel\" is something like \"van\" or \"de\" that might have indicated nobility in the past but no longer so. Similar prefixes exist in other languages such as German, Spanish, French or Portugese
+
 === Sheet probability-distribution-type =====================================
 
  -- Row 1 -----------------------------------
