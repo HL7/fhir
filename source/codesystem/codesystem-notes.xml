@@ -91,7 +91,7 @@ concepts and their properties, but this information does not surface in the reso
 by the FHIR specification.
 </p>
 
-<a name="detailed-metadata"/>
+<a name="detailed-metadata"> </a>
 <h3>Code systems with detailed metadata</h3>
 <p>
 Sometimes code systems may be used to represent more complex information than just 

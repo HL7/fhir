@@ -8,20 +8,20 @@ version specific LOINC code system resources.
 Note that the following set of codes constitute the 
 LOINC code systems:
  - the main LOINC codes
- - the LOINC answer codes
+ - the LOINC answer codes (both the list codes (LL-) and the Answer codes (LA-)
  - the Part codes in the Multi-Axial Heirarchy
  - the part codes for the properties. 
     Note: there are license restrictions on the use of LOINC Part codes
     Note: LOINC does not yet publish all of these part codes
  
-Servers may generate variants of this for the LOINC version(s)
+Servers may generate variants of this for the LOINC version(s) and features
 they support
 -->
 
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="loinc"/>
   
-  <!-- this url is unchanged for all editions and versions of SCT. There
+  <!-- this url is unchanged for all editions and versions of LOINC. There
     can only be one correct Code System resource for each value of the
     version attribute (at least, only one per server) -->
   <url value="http://loinc.org"/> 
@@ -43,7 +43,6 @@ they support
   <status value="active"/>
   <experimental value="false"/>
   
-  <!-- publisher may change for specific editions / version (national policy decision) -->
   <publisher value="Regenstrief"/>
   <contact>
     <telecom>
@@ -61,13 +60,13 @@ they support
   <valueSet value=" http://loinc.org/vs"/>
    <!--
     for a version specific reference:
-    <valueSet value=" http://loinc.org/vs?ver=2.56"/>  ?? check
+    <valueSet value="http://loinc.org/2.56/vs"/>
   -->
             
   <!-- 
     it's at the discretion of servers whether to present fragments of LOINC heirarchically or not, when 
     using the code system resource, but if they are heirarchical, the heirarchy SHALL be based on the is-a relationship
-    The only place where this applies is the Document Heirarchy
+    The only place where this applies is the multi-axial Heirarchy
     -->
   <heirarchyMeaning value="subsumes"/> 
   <compositional value="false"/> <!-- no compositional grammar in LOINC -->
@@ -82,7 +81,9 @@ they support
   <!-- 
     generally defined filters for specifying value sets
 
-    in LOINC, all the properties can be used as filters too, but they are not defined explicitly as well    
+    in LOINC, all the properties can be used as filters too, but they are not defined explicitly as filters as well 
+
+    Note that parent/child/ancestor/descendent are defined by FHIR, but repeated here to document them clearly    
   -->
   <filter>
     <code value="parent"/> 
@@ -91,8 +92,8 @@ they support
     <value value="A part code"/>
   </filter>
   <filter>
-    <code value="parent"/> 
-    <description value="Allows for the selection of a set of codes base on their appearance in the LOINC multi-axial hierarchy. parent selects immediate children only. For example, the code '44022-2' has the parent 'LP52960-9'"/>
+    <code value="child"/> 
+    <description value="Allows for the selection of a set of codes base on their appearance in the LOINC multi-axial hierarchy. child selects immediate children only. For example, the code '44022-2' has the parent 'LP52960-9'"/>
     <operator value="in"/>
     <value value="A comma separated list of part codes"/>
   </filter>
@@ -103,7 +104,7 @@ they support
     <value value="A part code"/>
   </filter>
   <filter>
-    <code value="ancestor"/> 
+    <code value="descendent"/> 
     <description value="Allows for the selection of a set of codes base on their appearance in the LOINC multi-axial hierarchy. ancestor includes children transitively, e.g. 'LP52960-9' eventually has an ancestor 'LP31755-9', so the code '44022-2' is in the set of codes that have ancestor=LP31755-9"/>
     <operator value="in"/>
     <value value="A comma separated list of part codes"/>
@@ -118,29 +119,34 @@ they support
 
   <!-- properties. There are 3 kinds of properties:
     fhir: display, designation; these are not described here since they are inherent in the specification
-    infrastructural: defined by the structure of LOINC itself
-    concept model: defined by the LOINC directly heirarchy 
+    infrastructural: defined by FHIR, but documented here for LOINC 
+    LOINC properties: defined by the main LOINC table
+    concept model: defined by the LOINC multi-axial heirarchy 
   -->
-  <!-- first, the infrastructural properties -->
+  <!-- first, the infrastructural properties - inherited from FHIR, but documented here -->
+  <property>
+    <code value="parent"/>
+    <uri value="http://hl7.org/fhir/concept-properties#parent"/> 
+    <description value="A parent code in the Multi-Axial Heirarchy"/>
+    <type value=""/>
+  </property>
+  <property>
+    <code value="child"/>
+    <uri value="http://hl7.org/fhir/concept-properties#child"/>
+    <description value="A child code in the Multi-Axial Heirarchy"/>
+    <type value=""/>
+  </property>
+  <!-- 
+    LOINC properties. 
+    These apply to the main LOINC codes. e.g. not the multiaxial heirarchy, or the answer lists, or the part codes).
+    note: SHORTNAME = display & LONG_COMMON_NAME = definition 
+  -->
   <property>
     <code value="STATUS"/>
     <uri value="http://loinc.org/property/STATUS"/>
     <description value="Status of the term. For the purposes of LOINC, codes with Property ACTIVE=DEPRECATED are considered inactive"/>
     <type value="boolean"/>
   </property>
-  <property>
-    <code value="parent"/>
-    <uri value="http://loinc.org/property/parent"/> 
-    <description value="A parent code in the document Multi-Axial Heirarchy"/>
-    <type value=""/>
-  </property>
-  <property>
-    <code value="child"/>
-    <uri value="http://loinc.org/property/child"/>
-    <description value="A child code in the document Multi-Axial Heirarchy"/>
-    <type value=""/>
-  </property>
-  <!-- LOINC properties -->
   <property>
     <code value="COMPONENT"/>
     <uri value="http://loinc.org/property/COMPONENT"/>
@@ -198,21 +204,39 @@ they support
   <property>
     <code value="ORDER_OBS"/>
     <uri value="http://loinc.org/property/ORDER_OBS"/>
-    <description value="??"/>
-    <type value="string"/>
-  </property>
-  <!-- SHORTNAME	= display -->
-  <property>
-    <code value="ORDER_OBS"/>
-    <uri value="http://loinc.org/property/ORDER_OBS"/>
     <description value="Provides users with an idea of the intended use of the term by categorizing it as an order only, observation only, or both"/>
     <type value="string"/>
   </property>
-  <!-- LONG_COMMON_NAME = definition -->
   <property>
     <code value="DOCUMENT_SECTION"/>
     <uri value="http://loinc.org/property/DOCUMENT_SECTION"/>
     <description value="Classification of whether this LOINC code can be used a full document, a section of a document, or both"/>
     <type value="string"/>
   </property>
+  
+  <!-- Answer list related properties -->
+  <property>
+    <code value="answer-list"/>
+    <uri value="http://loinc.org/property/answer-list"/>
+    <description value="An answer list associated with this LOINC code (if there are matching answer lists defined). Only on normal LOINC Codes"/>
+    <type value="code"/>
+  </property>
+  <property>
+    <code value="answers-for"/>
+    <uri value="http://loinc.org/property/answers-for"/>
+    <description value="A LOINC Code for which this answer list is used. Only on normal LL- Codes"/>
+    <type value="code"/>
+  </property>
+  <property>
+    <code value="sequence"/>
+    <uri value="http://loinc.org/property/sequence"/>
+    <description value="Sequence Number of a answer in a set of answers (LA- codes only)"/>
+    <type value="integer"/>
+  </property>  
+  <property>
+    <code value="score"/>
+    <uri value="http://loinc.org/property/score"/>
+    <description value="Score assigned to an answer (LA- codes only)"/>
+    <type value="integer"/>
+  </property>  
 </CodeSystem>
