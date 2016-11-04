@@ -21,12 +21,27 @@
   <concept>
     <code value="update"/>
     <display value="Update"/>
+    <definition value="Update an existing resource by its id."/>
+  </concept>
+  <concept>
+    <code value="updateCreate"/>
+    <display value="Create using Update"/>
     <definition value="Update an existing resource by its id (or create it if it is new)."/>
   </concept>
   <concept>
     <code value="delete"/>
     <display value="Delete"/>
     <definition value="Delete a resource."/>
+  </concept>
+  <concept>
+    <code value="deleteCondSingle"/>
+    <display value="Conditional Delete Single"/>
+    <definition value="Conditionally delete a single resource based on search parameters."/>
+  </concept>
+  <concept>
+    <code value="deleteCondMultiple"/>
+    <display value="Conditional Delete Multiple"/>
+    <definition value="Conditionally delete one or more resources based on search parameters."/>
   </concept>
   <concept>
     <code value="history"/>
@@ -69,14 +84,14 @@
     <definition value="Cancel Task"/>
   </concept>
   <concept>
-    <code value="cds-hook"/>
-    <display value="$cds-hook"/>
-    <definition value="The CDS Hook operation is the core API request for CDS Hooks"/>
-  </concept>
-  <concept>
     <code value="closure"/>
     <display value="$closure"/>
     <definition value="Closure Table Maintenance"/>
+  </concept>
+  <concept>
+    <code value="compose"/>
+    <display value="$compose"/>
+    <definition value="Code Composition based on supplied properties"/>
   </concept>
   <concept>
     <code value="conforms"/>
@@ -134,11 +149,6 @@
     <definition value="Test if a server implements a client's required operations"/>
   </concept>
   <concept>
-    <code value="infer"/>
-    <display value="$infer"/>
-    <definition value="Perform inferencing based on a set of codes"/>
-  </concept>
-  <concept>
     <code value="lookup"/>
     <display value="$lookup"/>
     <definition value="Concept Look Up"/>
@@ -162,11 +172,6 @@
     <code value="meta-delete"/>
     <display value="$meta-delete"/>
     <definition value="Delete profiles, tags, and security labels for a resource"/>
-  </concept>
-  <concept>
-    <code value="place"/>
-    <display value="$place"/>
-    <definition value="Place OrderSet"/>
   </concept>
   <concept>
     <code value="populate"/>

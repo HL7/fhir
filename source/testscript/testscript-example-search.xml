@@ -62,11 +62,13 @@
 	</variable>
 	<variable>
 		<name value="PatientSearchFamilyName"/>
-		<defaultValue value="Chalmers"/>
+		<description value="Enter patient search criteria for a known family name on the target system"/>
+		<hint value="[Family name]"/>
 	</variable>
 	<variable>
 		<name value="PatientSearchGivenName"/>
-		<defaultValue value="Peter"/>
+		<description value="Enter patient search criteria for a known given name on the target system"/>
+		<hint value="[Given name]"/>
 	</variable>
 
 	<test id="01-PatientCreateSearch">
