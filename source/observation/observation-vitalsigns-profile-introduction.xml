@@ -4,7 +4,7 @@
 			<span class="mw-headline" id="Introduction">Introduction</span>
 		</h2>
 		<p>The FHIR Vitals Signs profile sets a minimum expectations for the Observation Resource to record, search and fetch the vital signs associated with a patient. When a FHIR implementation supports any of the vital signs listed below, the implementation <strong>SHALL</strong> conform to this profile for the vitals sign observation.</p>
-		<p>This profile identifies the required core elements and values when using this profile. Support for basic mandatory searching of resources are defined below in the Quick Start section. It is based on the <a href="http://argonautwiki.hl7.org">Argonaut DSTU2 Vital Signs Profile</a>.</p>
+		<p>This profile identifies the required core elements and values. Support for basic mandatory searching of resources are defined below in the Quick Start section. It is based on the <a href="http://argonautwiki.hl7.org">Argonaut DSTU2 Vital Signs Profile</a>.</p>
 	</div>
 	<div>
 		<a name="bnc"> </a>
@@ -19,7 +19,7 @@ profile:</p>
 			<li>Query for patients with a particular type of vital sign measurement</li>
 		</ul>
 		<h5>Mandatory Data Elements and Terminology</h5>
-		<p>The following data-elements are mandatory (i.e data MUST be present). These are presented below in a simple human-readable explanation.  Profile specific guidance and an <a href="#example">example</a> are provided as well.  The links to the<a href="#content">
+		<p>The following data-elements are mandatory (i.e data MUST be present). These are presented below in a simple human-readable explanation.  Profile specific guidance and an <a href="#example">example</a> are provided as well.  The links to the <a href="#content">
 				<strong>Profile Definitions</strong></a>provide the formal views of the profile content, descriptions, mappings and the StructureDefinitions in JSON and XML.</p>
 		<p>
 			<strong>Each Observation must have:</strong>
@@ -64,7 +64,7 @@ profile:</p>
 			</thead>
 			<tbody>
 				<tr>
-					<td><a href="#.html">Vital Signs Panel</a></td>
+					<td><a href="vitalspanel.html">Vital Signs Panel</a></td>
 					<td>8716-3</td>
 					<td>-</td>
 					<td>This is the top-level grouping structure for a set of vital signs.  It has no value in Observation.valueQuantity ; instead, it just includes related links (with type=has-member) to the Observations in this set (e.g. respiratory rate, heart rate, BP).  Note that querying for the panel may miss individual results that are not part of an actual panel.</td>
@@ -129,7 +129,7 @@ profile:</p>
 				</tr>
 				<tr>
 					<td>
-					<a href="#.html">Body length</a>
+					<a href="bodylength.html">Body length</a>
 					</td>
 					<td>8306-3</td>
 					<td>cm, [in_i]</td>
@@ -151,7 +151,7 @@ profile:</p>
 				</tr>
 				<tr>
 					<td>
-					<a href="#.html">Body weight</a>
+					<a href="bodyweight.html">Body weight</a>
 					</td>
 					<td>29463-7</td>
 					<td>g, kg,[lb_av]</td>
@@ -256,7 +256,7 @@ profile:</p>
 		<p>
 			<em>Support:</em>  Mandatory to support search by category code.</p>
 		<p>
-			<em>Implementation Notes:</em>   Search based on vital sign category code. This search fetches a bundle of all Observation resources with category 'vital-signs' for the specified patient  <a href="http://hl7.org/fhir/DSTU2/search.html#reference">(how to search by reference)</a> and <a href="http://hl7.org/fhir/DSTU2/search.html#token">(how to search by token)</a>.  The table above is the minimum set, additional vital signs are allowed.</p>
+			<em>Implementation Notes:</em>   Search based on vital sign category code. This search fetches a bundle of all Observation resources with category 'vital-signs' for the specified patient  <a href="search.html#reference">(how to search by reference)</a> and <a href="search.html#token">(how to search by token)</a>.  The table above is the minimum set, additional vital signs are allowed.</p>
 		<p>
 			<em>Response Class:</em>
 		</p>
@@ -278,7 +278,7 @@ profile:</p>
 		<p>
 			<em>Support:</em>  Mandatory to support search by vital sign LOINC(s) listed above.</p>
 		<p>
-			<em>Implementation Notes:</em>   1)Search based on vital sign LOINC code(s). This fetches a bundle of all Observation resources for specific vital sign(s) listed in the table above for the specified patient <a href="http://hl7.org/fhir/DSTU2/search.html#reference">(how to search by reference)</a> and [how to search by token)]. 2) The Argonaut Observation "code" parameter has been defined to search both in both Observation.code and Observation.component.code. For example when fetching blood pressures the same resources will be returned whether the search is based on 55284-4(Systolic and Diastolic BP), or the component codes 8480-6(Systolic BP) or 8462-4 (Diastolic BP).</p>
+			<em>Implementation Notes:</em>   1)Search based on vital sign LOINC code(s). This fetches a bundle of all Observation resources for specific vital sign(s) listed in the table above for the specified patient <a href="search.html#reference">(how to search by reference)</a> and [how to search by token)]. 2) The Argonaut Observation "code" parameter has been defined to search both in both Observation.code and Observation.component.code. For example when fetching blood pressures the same resources will be returned whether the search is based on 55284-4(Systolic and Diastolic BP), or the component codes 8480-6(Systolic BP) or 8462-4 (Diastolic BP).</p>
 		<p>
 			<em>Response Class:</em>
 		</p>
@@ -305,7 +305,7 @@ Search for all heart rate, respiratory rate and blood pressure observations for 
 		<p>
 			<em>Support:</em>  Mandatory to support search by category code and date</p>
 		<p>
-			<em>Implementation Notes:</em>  Search based on vital sign category code and date. This fetches a bundle of all Observation resources with category 'vital-signs' for the specified patient for a specified time period  <a href="http://hl7.org/fhir/DSTU2/search.html#reference">(how to search by reference)</a> and <a href="http://hl7.org/fhir/DSTU2/search.html#token">(how to search by token)</a>.</p>
+			<em>Implementation Notes:</em>  Search based on vital sign category code and date. This fetches a bundle of all Observation resources with category 'vital-signs' for the specified patient for a specified time period  <a href="search.html#reference">(how to search by reference)</a> and <a href="search.html#token">(how to search by token)</a>.</p>
 		<p>
 			<em>Response Class:</em>
 		</p>
