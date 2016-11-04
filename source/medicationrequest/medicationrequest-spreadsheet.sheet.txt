@@ -358,7 +358,7 @@
  -- Row 19 -----------------------------------
   Element = MedicationRequest.dispenseRequest
   Card. = 0..1
-  UML = 300;350
+  UML = 300;400
   Short Name = Medication supply authorization
   Definition = Indicates the specific details for the dispense or medication supply part of a medication order (also known as a Medication Prescription).  Note that this information is NOT always sent with the order.  There may be in some settings (e.g. hospitals) institutional or system support for completing the dispense details in the pharmacy department.
   SCRIPT 10.6 Mapping = Message/Body/NewRx/MedicationPrescribed/ExpirationDate
@@ -417,7 +417,7 @@
  -- Row 25 -----------------------------------
   Element = MedicationRequest.substitution
   Card. = 0..1
-  UML = -60;350
+  UML = -60;400
   Short Name = Any restrictions on medication substitution
   Definition = Indicates whether or not substitution can or should be part of the dispense. In some cases substitution must happen, in other cases substitution must not happen, and in others it does not matter. This block explains the prescriber\'s intent. If nothing is specified substitution may be done.
   SCRIPT 10.6 Mapping = specific values within Message/Body/NewRx/MedicationPrescribed/Substitutions
@@ -513,7 +513,7 @@
   Path = MedicationRequest.prescriber
 
  -- Row 9 -----------------------------------
-  Name = intendeddispenser
+  Name = intended-dispenser
   Type = reference
   Description = Returns prescriptions intended to be dispensed by this Organization
   Path = MedicationRequest.dispenseRequest.performer
