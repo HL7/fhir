@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <name value="Immunization Status Codes"/>
+  <status value="draft"/>
+  <publisher value="FHIR Project team"/>
+  <contact>
+    <telecom>
+      <system value="other"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="The value set to instantiate this attribute should be drawn from a terminologically robust code system that consists of or contains concepts to support the immunization process."/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/medication-admin-status"/>
+	  <concept>
+        <code value="completed"/>
+      </concept>
+      <concept>
+        <code value="entered-in-error"/>
+      </concept>
+    </include>
+  </compose>
+</ValueSet>
