@@ -209,7 +209,7 @@ How to resolve a reference in a bundle:
 <ol>
  <li>If the reference is not an absolute reference, convert it
   <ul>
-    <li>If the fullUrl starts with urn:uuid: or urn:oid:, then treat then append the id to the base URL and try to resolve within the bundle as for a RESTful URL reference.  If no resolution is possible, then the reference has no defined meaning within this specification</li>
+    <li>If the fullUrl starts with urn:uuid: or urn:oid:, then append the id to the base URL and try to resolve within the bundle as for a RESTful URL reference.  If no resolution is possible, then the reference has no defined meaning within this specification</li>
     <li>if the fullUrl of the resource that contains the reference is a RESTful one (see the <a href="references.html#regex">RESTful URL regex</a>), extract the <a href="http.html#root">[root]</a>, and append the reference to it</li>
     <li>otherwise, treat the fullUrl as a normal URL, and follow the normal method for <a href="https://tools.ietf.org/html/rfc2396#section-5.2">Resolving Relative References to Absolute Form</a></li>
   </ul>

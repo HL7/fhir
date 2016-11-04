@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 
-     
+
 [%settitle Conformance Rules%]
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
@@ -18,14 +18,14 @@
 
 <p>
 The FHIR specification describes a set of <a href="resource.html">resources</a>,
-and several different frameworks for exchanging resources between different systems. 
-Because of its general nature and wide applicability, the rules made in this 
-specification are generally fairly loose. As a consequence, this specification 
-allows that different applications may not be able to be interoperate because of 
-how they use optional features. As a consequence, applications claiming 
-conformance to this specification make the claim in respect of a specific 
-exchange framework, and in regard to a specific details about their usage of 
-those frameworks and resource contents. 
+and several different frameworks for exchanging resources between different systems.
+Because of its general nature and wide applicability, the rules made in this
+specification are generally fairly loose. As a consequence, this specification
+allows that different applications may not be able to be interoperate because of
+how they use optional features. As a consequence, applications claiming
+conformance to this specification make the claim in respect of a specific
+exchange framework, and in regard to a specific details about their usage of
+those frameworks and resource contents.
 </p>
 <p>
 Applications claim conformance to one (or more) of the following exchange
@@ -37,10 +37,10 @@ frameworks:
  <li>"FHIR documents": <a href="documents.html">Document based exchange</a></li>
 </ul>
 <p>
-To provide details about specific usage of the frameworks and resource 
+To provide details about specific usage of the frameworks and resource
 contents, FHIR provides a <a href="profiling.html">conformance layer</a> that implementers and
-national/regional programs can use to provide a computable statement about 
-how the resources and their exchange paradigms are used to solve particular use cases. 
+national/regional programs can use to provide a computable statement about
+how the resources and their exchange paradigms are used to solve particular use cases.
 The conformance layer itself is implemented using the following key resources:
 </p>
 <table class="grid">
@@ -50,25 +50,29 @@ The conformance layer itself is implemented using the following key resources:
  <tr> <td><a href="implementationguide.html">Implementation Guide</a></td> <td>A single coherent collection of capability statements, profiles, value set, and documentation describing a set of interoperable applications</td>  </tr>
 </table>
 <p>
-The specification also <a href="validation.html">provides a number of tools that can assist with enforcing technical conformance</a> 
+The specification also <a href="validation.html">provides a number of tools that can assist with enforcing technical conformance</a>
 to this base specification and profiles on it.
 </p>
 <p>
 Conformance with this specification does not provide any guarantee of patient or data safety.
-However, choosing to not conform to this specification carries additional risk in 
+However, choosing to not conform to this specification carries additional risk in
 two ways:
 </p>
 <ul>
  <li>FHIR has been subject to a level of review and vetting unlikely to be received by any non-conformant variation; variations may result in introduction of undetected risks</li>
  <li>FHIR-like solutions (based on FHIR, but not conformant) may set expectations by trading partners which are not met due to the non-conformance of the system and these un-met expectations may also result in risk</li>
 </ul>
+<p>
+Any assertion of conformance to FHIR that does not reference a <a href="capabilitystatement.html">CapabilityStatement</a>
+instance has limited utility.  System capabilities that cannot be described by a CapabilityStatement cannot be considered FHIR conformant.
+</p>
 
 <a name="baseconf"> </a>
 <h3>Base Conformance Rules</h3>
 <p>
 The contents of a resource and the formats used to represent resources SHALL
-conform to the rules described in this specification, as defined in the 
-narrative of the specification, and as controlled by the conformance 
+conform to the rules described in this specification, as defined in the
+narrative of the specification, and as controlled by the conformance
 properties defined below.
 </p>
 <p>
@@ -76,47 +80,47 @@ Note: This specification uses the conformance verbs SHALL, SHOULD, and MAY as de
 Unlike RFC 2119, however, this specification allows that different applications may not be able to interoperate because of how they use optional features.
 </p>
 <p>
-Data elements defined in resources and data types have 3 properties that are 
+Data elements defined in resources and data types have 3 properties that are
 directly related to conformance: Cardinality, Is-Modifier, and Must-Support.
-These interact to place conformance requirements on implementations. 
+These interact to place conformance requirements on implementations.
 </p>
 
 <a name="cardinality"> </a>
 <h3>Cardinality</h3>
 <p>
-All attributes defined in FHIR have cardinality as part of their definition - a minimum number 
+All attributes defined in FHIR have cardinality as part of their definition - a minimum number
 of required appearances and a maximum number. These numbers specify the number of times
 the attribute may appear in any instance of the resource type. This specification
-only defines the following cardinalities: 0..1, 0..*, 1..1, and 1..*. Profiles 
-that describe specific use cases may use other values for cardinality within the limits 
-of the cardinality defined by the base resource. 
+only defines the following cardinalities: 0..1, 0..*, 1..1, and 1..*. Profiles
+that describe specific use cases may use other values for cardinality within the limits
+of the cardinality defined by the base resource.
 </p>
 <p>
-Note that when present, elements cannot be empty - they SHALL have a value attribute, 
+Note that when present, elements cannot be empty - they SHALL have a value attribute,
 child elements, or extensions. This means that setting an element to a minimum cardinality
 of 1 does not ensure that valid data will be present; specific XPath constraints are required
 to ensure that the required data will be present.
 </p>
 <p>
-In this specification, very few elements have a minimum cardinality of 1. 
+In this specification, very few elements have a minimum cardinality of 1.
 Resources are used in many contexts, often quite removed from their primary
 use case, and sometimes even basic information is quite incomplete. For this reason,
 the only elements that have a minimum cardinality of 1 are those where they
-are necessary to any understanding of the resource or element that contains them. 
+are necessary to any understanding of the resource or element that contains them.
 The minimum cardinalities should not be taken as a guide to what elements
 are expected to be present in any particular use of the resource, including their normal/primary usage purpose.
-In some cases, this specification publishes additional profiles that define which elements are required in 
+In some cases, this specification publishes additional profiles that define which elements are required in
 particular situations. Similar profiles are published by jurisdictions, vendors, or projects.
 </p>
 <p>
 For elements that have cardinality &gt; 1, the order in which they appear may have meaning.
-Unless the element definition (either in this specification or the extension) defines a meaning 
-to the order explicitly, the meaning of the order is not defined, and implementations are allowed 
-to reorder the elements. Note that it is not possible to define a meaning for the order of the elements in 
-a <a href="profiling.html">profile</a> using a <a href="structuredefinition.html">StructureDefinition</a>. 
-When there is no definition of the meaning of the order, implementations that need to choose a 
-single element from a list of elements for some use SHALL do so based on the semantics 
-of the content of the elements that repeats. Profiles and Implementation guides may often make 
+Unless the element definition (either in this specification or the extension) defines a meaning
+to the order explicitly, the meaning of the order is not defined, and implementations are allowed
+to reorder the elements. Note that it is not possible to define a meaning for the order of the elements in
+a <a href="profiling.html">profile</a> using a <a href="structuredefinition.html">StructureDefinition</a>.
+When there is no definition of the meaning of the order, implementations that need to choose a
+single element from a list of elements for some use SHALL do so based on the semantics
+of the content of the elements that repeats. Profiles and Implementation guides may often make
 rules about this selection process.
 </p>
 
@@ -126,18 +130,18 @@ rules about this selection process.
 <a name="isModifier"> </a>
 <h3>Is-modifier</h3>
 <p>
-Is-Modifier is a boolean property that is assigned when an element is defined, either as part of 
-the base resource contents in this specification, or when <a href="structuredefinition.html">extensions are defined</a>. 
-An element is labeled "Is-Modifier = true" if the value it contains may change the 
-interpretation of the element that contains it (including if the element is the resource as a whole). Typical examples of 
-elements that are labeled "Is-Modifier" are elements such as "status", "active", "refuted", or "certainty". 
-Whether an element is a modifier cannot be changed when element usage is described in a 
+Is-Modifier is a boolean property that is assigned when an element is defined, either as part of
+the base resource contents in this specification, or when <a href="structuredefinition.html">extensions are defined</a>.
+An element is labeled "Is-Modifier = true" if the value it contains may change the
+interpretation of the element that contains it (including if the element is the resource as a whole). Typical examples of
+elements that are labeled "Is-Modifier" are elements such as "status", "active", "refuted", or "certainty".
+Whether an element is a modifier cannot be changed when element usage is described in a
 profile (i.e. a constraining <a href="structuredefinition.html">Structure Definition</a>).
-When an element is labeled as Is-Modifier, the documentation must be clear about why 
+When an element is labeled as Is-Modifier, the documentation must be clear about why
 it is a modifier.
 </p>
 <p>
-A typical example of a modifier element is one that negates the element that contains it. For 
+A typical example of a modifier element is one that negates the element that contains it. For
 instance, in the following fragment of a resource definition:
 </p>
 <table style="border: 0px; font-size: 11px; font-family: verdana; vertical-align: top;" cellpadding="0" border="0" cellspacing="0"><tbody><tr style="border: 1px #F0F0F0 solid; font-size: 11px; font-family: verdana; vertical-align: top;"><th style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px" class="hierarchy"><a title="The logical name of the element" href="formats.html#table">Name</a></th><th style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px" class="hierarchy"><a title="Information about the use of the element" href="formats.html#table">Flags</a></th><th style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px" class="hierarchy"><a title="Minimum and Maximum # of times the element can appear in the instance" href="formats.html#table">Card.</a></th><th style="width: 100px" class="hierarchy"><a title="Reference to the type of the element" href="formats.html#table">Type</a></th><th style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px" class="hierarchy"><a title="Additional information about the element" href="formats.html#table">Description &amp; Constraints</a><span style="float: right"><a title="Legend for this format" href="formats.html#table"><img style="background-color: inherit" alt="doco" src="help16.png"/></a></span></th></tr><tr style="border: 0px; padding:0px; vertical-align: top; background-color: white;"><td style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck1.png)" class="hierarchy"><img style="background-color: inherit" alt="." class="hierarchy" src="tbl_spacer.png"/><img title="Resource" style="background-color: white; background-color: inherit" alt="." class="hierarchy" src="icon_resource.png"/> <a title="AllergyIntolerance : Risk of harmful or undesirable, physiological response which is unique to an individual and associated with exposure to a substance." href="allergyintolerance-definitions.html#AllergyIntolerance">AllergyIntolerance</a><a name="AllergyIntolerance"> </a></td><td style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px" class="hierarchy"></td><td style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px" class="hierarchy"></td><td style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px" class="hierarchy"><a href="domainresource.html">DomainResource</a></td><td style="vertical-align: top; text-align : left; background-color: white; padding:0px 4px 0px 4px" class="hierarchy">Allergy or Intolerance (generally: Risk Of Adverse reaction to a substance)</td></tr>
@@ -148,47 +152,47 @@ instance, in the following fragment of a resource definition:
 </tbody></table>
 
 <p>
-The value of element affects the entire meaning of the resource - if it is set to refuted, the 
-entire resource must be understood differently, and so it is not safe for implementations to ignore it. 
+The value of element 'status' affects the entire meaning of the resource - if it is set to refuted, the
+entire resource must be understood differently, and so it is not safe for implementations to ignore it.
 As a consequence, it is labelled as 'is modifier = true'. In this tabular representation of the resource,
-this shows as the flag '?!'. The <a href="json.html">JSON</a> and <a href="xml.html">XML</a> representations 
-of a resource definition have their own representation of 'is modifier = true' status, and 
+this shows as the flag '?!'. The <a href="json.html">JSON</a> and <a href="xml.html">XML</a> representations
+of a resource definition have their own representation of 'is modifier = true' status, and
 it is defined directly in a <a href="elementdefinition-definitions.html#ElementDefinition.isModifier">ElementDefinition</a>.
 </p>
 <p>
 Is-Modifier elements SHALL be represented in the narrative summary of the resource.
 </p>
 <p>
-If the value of a modifier element is not explicit in the instance, or known by the context, 
-the resource may not be able to be safely understood. Wherever possible, elements labeled 
-"Is-Modifier = true" also have a minimum cardinality of 1, or a default value, in order to 
-introduce certainty in their handling. However sometimes this is not possible - much legacy 
-data is not well described. Implementations producing resources SHOULD ensure that 
+If the value of a modifier element is not explicit in the instance, or known by the context,
+the resource may not be able to be safely understood. Wherever possible, elements labeled
+"Is-Modifier = true" also have a minimum cardinality of 1, or a default value, in order to
+introduce certainty in their handling. However sometimes this is not possible - much legacy
+data is not well described. Implementations producing resources SHOULD ensure that
 appropriate values for isModifier elements are provided at all times.
 </p>
 <p>
-Implementations processing the data in resources SHALL understand the impact of the element when using the data. 
-Implementations are not required to "support" the element in any meaningful way - they 
+Implementations processing the data in resources SHALL understand the impact of the element when using the data.
+Implementations are not required to "support" the element in any meaningful way - they
 may achieve this understanding by rejecting instances that contain values outside those they support (for instance,
 an application may refuse to accept observations with a reliability other than "ok"). Alternatively,
-implementations may be able to be sure that, due to their implementation environment, such values 
+implementations may be able to be sure that, due to their implementation environment, such values
 will never occur. However applications SHOULD always check the value irrespective of this.
 </p>
 <p>
 Note that processing the data of a resource typically means
-copying or filtering data out of a resource for use in another 
-context (display to a human, decision support, exchange in another 
+copying or filtering data out of a resource for use in another
+context (display to a human, decision support, exchange in another
 format where not all information is included, or storing it for this kind of use).
-Servers and background processes that simply move whole resources around unchanged 
-are not "processing the data of the resource", and therefore these applications 
-are not required to check Is-Modifier elements. 
+Servers and background processes that simply move whole resources around unchanged
+are not "processing the data of the resource", and therefore these applications
+are not required to check Is-Modifier elements.
 </p>
 <p>
-Every element in the base resource has a value of "true" or "false" for the Is-Modifier flag. 
-The value of the flag cannot be changed by profiles on the resource, in either direction. 
+Every element in the base resource has a value of "true" or "false" for the Is-Modifier flag.
+The value of the flag cannot be changed by profiles on the resource, in either direction.
 When a profile defines an extension, it labels the extension with the Is-Modifier flag,
 and this cannot be changed in other profiles. Note that extensions that have is-Modifier = true
-are represented differently in resource instances ("modifierExtension" instead of "extension"), 
+are represented differently in resource instances ("modifierExtension" instead of "extension"),
 and there are <a href="extensibility.html#modifierExtension">additional rules about how they are handled</a>.
 </p>
 <p>
@@ -201,28 +205,28 @@ Here is a list of all the modifier elements defined in the specification:
 <a name="mustSupport"> </a>
 <h3>Must-Support</h3>
 <p>
-Labeling an element Must-Support means that implementations that produce or consume resources SHALL 
+Labeling an element Must-Support means that implementations that produce or consume resources SHALL
 provide "support" for the element in some meaningful way. Because the base FHIR specification is intended
-to be independent of any particular implementation context, no elements are flagged as "must-support" as 
+to be independent of any particular implementation context, no elements are flagged as "must-support" as
 part of the base specification. This flag is intended for use in profiles that have a defined implementation context.
 </p>
 <p>
-For this reason, the specification itself never labels any elements as must-support. 
-This is done in <a href="profiling.html#mustsupport">Resource Profiles</a>, where the profile 
+For this reason, the specification itself never labels any elements as must-support.
+This is done in <a href="profiling.html#mustsupport">Resource Profiles</a>, where the profile
 labels an element as mustSupport=true. When a profile does this, it SHALL also make clear
 exactly what kind of "support" is required, as this can mean many things.
 </p>
 
 <p>
-Note that an element that has the property IsModifier is not necessarily a "key" element (e.g. one of 
-the important elements to make use of the resource), nor is it automatically mustSupport - however both 
+Note that an element that has the property IsModifier is not necessarily a "key" element (e.g. one of
+the important elements to make use of the resource), nor is it automatically mustSupport - however both
 of these things are more likely to be true for IsModifier elements than for other elements.
 </p>
 
 <a name="constraints"> </a>
 <h3>Constraints</h3>
 <p>
-All elements may have constraints attached to them (also known as 'invariants'). 
+All elements may have constraints attached to them (also known as 'invariants').
 Constraints defined on an element have the following properties:
 </p>
 <table class="grid">
@@ -234,18 +238,18 @@ Constraints defined on an element have the following properties:
  <tr><td><b>XPath</b></td><td>An XPath expression that must evaluate to true when run on the element in the XML representation</td></tr>
 </table>
 <p>
-Many constraints are defined in the base specification. In addition, additional 
-constraints may be defined in <a href="profiling.html">profiles</a> that apply 
-to resources. Systems are not required to evaluate the constraints, just as they 
-are not required to check for conformance, or schema validity. However, systems 
+Many constraints are defined in the base specification. In addition, additional
+constraints may be defined in <a href="profiling.html">profiles</a> that apply
+to resources. Systems are not required to evaluate the constraints, just as they
+are not required to check for conformance, or schema validity. However, systems
 SHOULD always ensure that all resources are valid against all applicable constraints.
 </p>
 <p>
-Elements can also be explicitly associated with constraints defined elsewhere. This is 
+Elements can also be explicitly associated with constraints defined elsewhere. This is
 a notification to implementers that the element is affected by the constraint. It has no meaning when the constraints are evaluated.
 </p>
 <p>
-<a href="profiling.html">Profiles</a> may define additional constraints that 
+<a href="profiling.html">Profiles</a> may define additional constraints that
 apply to an element, but they cannot alter or remove constraints that are already
 applied.
 </p>
@@ -269,12 +273,12 @@ In addition to the conformance metadata, each element has other metadata propert
 <h3>Examples and Reference Implementations</h3>
 <p>
 This specification includes many examples. While every effort has been made to ensure that the examples
-are fully conformant to the specification, if the examples disagree with the specification, the specification 
+are fully conformant to the specification, if the examples disagree with the specification, the specification
 is considered correct and normative, not the examples. This same rule applies to the reference implementations.
 </p>
 <p>
-The examples reflected in this specification do *not* represent actual people.  Any resemblance to real people - alive 
-or dead - is entirely coincidental.  In some cases, examples may be drawn from real clinical data.  
+The examples reflected in this specification do *not* represent actual people.  Any resemblance to real people - alive
+or dead - is entirely coincidental.  In some cases, examples may be drawn from real clinical data.
 However, if this has occurred, the content has been scrubbed to remove any identifying information.
 </p>
 

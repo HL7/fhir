@@ -134,7 +134,7 @@ the Bundle.id should be changed to a new value.
 <p>
 When a receiver receives and processes the message, it responds with a
 new message with a new identifier, wrapped in a bundle which also has a new id.
-The response message also quotes the request MessageHeader.id in 
+The response message also quotes the request MessageHeader.id in
 MessageHeader.response.identifier so that the source system can relate the response to its request.
 </p>
 
@@ -258,15 +258,15 @@ Capability statement lists all the message events supported (either
 as sender or receiver) and for each event, a
 profile that states which resources are bundled (sender), or
 are required to be bundled (receiver), and any rules about the
-information content of the individual resources. 
+information content of the individual resources.
 </p>
 
 <a name="process"></a>
 <h2>$process-message</h2>
 <p>
 The simplest way to handle messages where there are also <a href="http.html">RESTful interactions</a>
-occurring is to use the <a href="messageheader-operations.html">$process-message</a>. 
-This operation accepts a message, processes it according to the definition of the event in the message header, and returns a one or more response messages. 
+occurring is to use the <a href="messageheader-operations.html">$process-message</a>.
+This operation accepts a message, processes it according to the definition of the event in the message header, and returns a one or more response messages.
 For example, in addition to processing the message event, a server
 may choose to retain all or some the resources and make them available on a RESTful interface, but
 is not required to do so.
@@ -279,8 +279,8 @@ For any other response code, the message has not been successfully processed. Th
 do so if the response code is 400 or greater.
 The client SHALL interpret a 4xx response to indicate that there is no point resubmitting the unaltered
 message, and a 5xx response to indicate an unexpected error occurred on the part of the server, with
-the implication that it may be appropriate to resubmit the original message. Doing so SHOULD NOT result 
-in a duplicate message response). Repeated failures indicate either a fatal problem with the submission 
+the implication that it may be appropriate to resubmit the original message. Doing so SHOULD NOT result
+in a duplicate message response. Repeated failures indicate either a fatal problem with the submission
 or a problem with the receiving application.
 </p>
 <p>
@@ -298,18 +298,18 @@ The $process-message operation can be used by any HTTP end-point that accepts FH
 </p>
 <p>
 In order to ensure consistency of processing, the <a href="#reliable">logical rules regarding processing of Bundle.id and
-message id described above</a> SHALL be followed when messages are processed using this operation. 
+message id described above</a> SHALL be followed when messages are processed using this operation.
 </p>
 
 <p>
-The <a href="messageheader-operations.html">$process-message</a> operation may be used 
+The <a href="messageheader-operations.html">$process-message</a> operation may be used
 synchronously, or asynchronously.
 </p>
 <h3>Synchronous Operation</h3>
 <p>
-Synchronous messaging is the easiest to understand; the sender sends a message to the 
+Synchronous messaging is the easiest to understand; the sender sends a message to the
 receiver (the server), the server processes it, and then returns a response. Usually
-(though not always) the sender waits for the response to the current message before  
+(though not always) the sender waits for the response to the current message before
 sending the next message. This kind of messaging exchange is the most common because
 it's the simplest to understand.
 </p>
@@ -325,23 +325,23 @@ The following rules apply when using the $process-message operation synchronousl
 <p>
 In Asynchronous messaging, the server acknowledges receipt of the message immediately,
 and responds to the sender separately. The server may respond more than once to any
-given message. 
+given message.
 </p>
 <p>
 The following rules apply when using the $process-message operation synchronously:
 </p>
 <ul>
  <li>The URL has at least one parameter: http://server/base/$process-message?async=true</li>
- <li>The server acknowledges the message with a 200OK with no body, or returns an HTTP error if the message cannot be processed. An <a href="operationoutcome.html">OperationOutcome</a> SHOULD be returned in such a case</li>
+ <li>The server acknowledges the message with a 200 OK with no body, or returns an HTTP error if the message cannot be processed. An <a href="operationoutcome.html">OperationOutcome</a> SHOULD be returned in such a case</li>
  <li>Accepting the message means that the server has understood the message enough to know where to respond</li>
  <li>By default, the server responds by invoking the $process-message using the sender's stated end-point in the message: POST [MessageHeader.source.endpoint]/$process-messages]</li>
- <li>Since the source end-point may be manipulated by message transfer engines, an alternative response address may be specified using the parameter "response-url": http://server/base/$process-message?async=true&amp;response-url=http://server2.com/base/anything. 
+ <li>Since the source end-point may be manipulated by message transfer engines, an alternative response address may be specified using the parameter "response-url": http://server/base/$process-message?async=true&amp;response-url=http://server2.com/base/anything.
    The endpoint at the specified URL SHALL implement the signature of the $process-message operation (parameter async=true, accept a Bundle, return a 200 OK or an error)</li>
  <li>The server submits response messages to the appropriate end-point with the parameter async=true. There is no response message for the response messages</li>
 </ul>
 <p>
-When a message is received, a receiver can determine from the content of the message header whether it's a new message to process, or a response to a message that has already been sent. 
-Note that asynchronous messaging is less reliable than synchronous messaging; more can go wrong. 
+When a message is received, a receiver can determine from the content of the message header whether it's a new message to process, or a response to a message that has already been sent.
+Note that asynchronous messaging is less reliable than synchronous messaging; more can go wrong.
 This specification does not dictate any particular error handling protocols or responsibilities; these are left to trading partner agreements between implementers.
 </p>
 
@@ -390,17 +390,17 @@ any logic associated with the actual event.</b> It is just for managing a set of
 <h3>Asynchronous Messaging using the RESTful API</h3>
 
 <p>
-It is possible to exchange messages using the RESTful 
-end-point as a central point of exchange. This is not 
-particularly efficient compared to other methods, but 
-is useful for low-volume axynchronous exchange. 
+It is possible to exchange messages using the RESTful
+end-point as a central point of exchange. This is not
+particularly efficient compared to other methods, but
+is useful for low-volume asynchronous exchange.
 </p>
 <p>
-To send a message, a sender posts the message bundle to the 
-/Bundle end-point, with a uri that identifies the receiver 
+To send a message, a sender posts the message bundle to the
+/Bundle end-point, with a uri that identifies the receiver
 at <a href="messageheader-definitions.html#MessageHeader.destination.endpoint">MessageHeader.destination.endpoint</a>.
 The RESTful server accepts the bundle,
-stores it as a single bundle, and indexes it on the 
+stores it as a single bundle, and indexes it on the
 <a href="messageheader.html">MessageHeader</a>.
 </p>
 <p>
@@ -412,12 +412,12 @@ destined for itself, since it's last check:
 </pre>
 <p>
 The receiver works through the response, processing each message.
-As each message is processed, the receiver creates a response 
+As each message is processed, the receiver creates a response
 message, reversing the source and destination, and posts it back
 to the server.
 </p>
 <p>
-To check for responses, the original sender searches for 
+To check for responses, the original sender searches for
 response messages destined for itself, since it's last check:
 </p>
 <pre>
@@ -425,9 +425,9 @@ response messages destined for itself, since it's last check:
       &amp;_lastUpdated=>2015-03-03T06:03:522+01:00
 </pre>
 <p>
-This lightweight protocol needs ongoing administration to 
+This lightweight protocol needs ongoing administration to
 ensure that multiple parties do not interfere with each other
-by re-using the same system identifier (and against malicious 
+by re-using the same system identifier (and against malicious
 attack).
 </p>
 
@@ -456,8 +456,8 @@ In this table, the request and response columns list the focus resource for the 
 <blockquote class="dstu-note">
 <a name="dstu"> </a>
 <p>
-<b>DSTU Note:</b>  
-Additional events may be defined elsewhere, though this specification does not yet define how. 
+<b>DSTU Note:</b>
+Additional events may be defined elsewhere, though this specification does not yet define how.
 </p>
 <p>
 Feedback is sought <a href="http://wiki.hl7.org/index.php?title=FHIR_Specification_Feedback_(DSTU_2)">here</a>.
@@ -505,7 +505,7 @@ Here's an example:
         &lt;event&gt;
           &lt;system value=&quot;urn:ietf:rfc:3986&quot;/&gt;
           &lt;!-- value set expansion --&gt;
-          &lt;code value=&quot;http://hl7.org/fhir/OperationDefinition/ValueSet-expand&quot;/&gt; 
+          &lt;code value=&quot;http://hl7.org/fhir/OperationDefinition/ValueSet-expand&quot;/&gt;
         &lt;/event&gt;
         &lt;!-- more normal message header stuff --&gt;
         &lt;data&gt;
@@ -521,7 +521,7 @@ Here's an example:
         &lt;parameter&gt;
           &lt;name value=&quot;identifier&quot;/&gt;
           &lt;valueUri value=&quot;http://hl7.org/fhir/ValueSet/identifier-type&quot;/&gt;
-        &lt;/parameter&gt; 
+        &lt;/parameter&gt;
       &lt;/Parameters&gt;
     &lt;/resource&gt;
   &lt;/entry&gt;
@@ -599,7 +599,7 @@ Here's an example:
         &lt;event&gt;
           &lt;system value=&quot;http://hl7.org/fhir/restful-interaction&quot;/&gt;
           &lt;!-- Search against Patient --&gt;
-          &lt;code value=&quot;search-type&quot;/&gt; 
+          &lt;code value=&quot;search-type&quot;/&gt;
         &lt;/event&gt;
         &lt;!-- more normal message header stuff --&gt;
         &lt;data&gt;
@@ -615,11 +615,11 @@ Here's an example:
         &lt;parameter&gt;
           &lt;name value=&quot;resourceType&quot;/&gt;
           &lt;valueString value=&quot;Patient&quot;/&gt;
-        &lt;/parameter&gt; 
+        &lt;/parameter&gt;
         &lt;parameter&gt;
           &lt;name value=&quot;gender&quot;/&gt;
           &lt;valueString value=&quot;m&quot;/&gt;
-        &lt;/parameter&gt; 
+        &lt;/parameter&gt;
       &lt;/Parameters&gt;
     &lt;/resource&gt;
   &lt;/entry&gt;

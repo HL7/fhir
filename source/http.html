@@ -25,7 +25,7 @@ HTTP request/response. The API does not directly address authentication, authori
 collection - for further information, see the <a href="security.html">Security Page</a>.
 </p>
 <p>
-The API describes the FHIR resources as a set of operations (known as "interactions") on resources where 
+The API describes the FHIR resources as a set of operations (known as "interactions") on resources where
 individual resource instances are managed in collections by their type. Servers can choose which of
 these interactions are made available and which resource types they support. Servers SHALL
 provide a <a href="capabilitystatement.html">Capability Statement</a> that specifies which interactions and
@@ -145,15 +145,15 @@ For the purposes of this specification, the following rules apply:
  <li>The query part of the URL (anything after <code>?</code>) is ignored</li>
  <li>The comparison of the document portion of the URL (i.e. not the server/port) is case sensitive</li>
  <li>The protocols <code>http:</code> and <code>https:</code> SHALL NOT be used to refer to different underlying objects</li>
- <li>If a port is specified, then the ports must be identical or the objects are different (due to 
-   the prevalence of port mapping and/or interface engines running on different ports). Ports should 
+ <li>If a port is specified, then the ports must be identical or the objects are different (due to
+   the prevalence of port mapping and/or interface engines running on different ports). Ports should
 	 only be explicit when they have explicit meaning to the server</li>
 </ul>
 <p>
 For example:
 <code>http://myserver.com/Patient/1</code> and <code>https://myserver.com/Patient/1</code> refer to the same underlying object, while <code>http://myserver.com:81/Patient/1</code> is a distinct entity from either of the above.
-This does not mean that the two addresses need to be treated the same, or that a server must serve both addresses, or that the content from the two addresses must be identical, but just that if these two 
-addresses have the same identity, and if both are served, they must both represent the same underlying object. Systems are not required to 
+This does not mean that the two addresses need to be treated the same, or that a server must serve both addresses, or that the content from the two addresses must be identical, but just that if these two
+addresses have the same identity, and if both are served, they must both represent the same underlying object. Systems are not required to
 check that this is true. Note: the identity comparison for protocols other than http:/https: is undefined.
 </p>
 
@@ -174,11 +174,11 @@ ETag: W/"3141"
 </pre>
 <h3>Security</h3>
 <p>
-Using HTTPS is optional, but all production exchange of healthcare data SHOULD use SSL and 
+Using HTTPS is optional, but all production exchange of healthcare data SHOULD use SSL and
 additional security as appropriate. See <a href="security.html#http">HTTP Security</a> for further information.
-Most operations will require user authentication, and all operations that do are subject 
+Most operations will require user authentication, and all operations that do are subject
 to <a href="https://en.wikipedia.org/wiki/Role-based_access_control">RBAC</a> and/or <a href="https://en.wikipedia.org/wiki/Attribute-based_access_control">ABAC</a>,
-and some operations may depend on appropriate consent being granted. 
+and some operations may depend on appropriate consent being granted.
 </p>
 <p>
 See the <a href="security.html#AccessDenied">HTTP Security</a> guidance on how to handle access denial response.
@@ -247,12 +247,12 @@ Prefer: return=OperationOutcome
 <p>
 The first of these two asks to return no body. The
 second asks to return the full resource. The third asks
-the server to return an <a href="operationoutcome.html">OperationOutcome</a> 
-resource containing hints and warnings about the operation rather than the 
-full resource. Servers SHOULD honor this header. In the absence of the header, 
+the server to return an <a href="operationoutcome.html">OperationOutcome</a>
+resource containing hints and warnings about the operation rather than the
+full resource. Servers SHOULD honor this header. In the absence of the header,
 servers may choose whether to return the full resource or not (but not the OperationOutcome;
-that should only be returned if explicitly requested). Note that this setting 
-only applies to successful interactions. In case of failure, servers SHOULD 
+that should only be returned if explicitly requested). Note that this setting
+only applies to successful interactions. In case of failure, servers SHOULD
 always return a body that contains an <a href="operationoutcome.html">OperationOutcome</a> resource.
 </p>
 
@@ -269,20 +269,20 @@ The correct mime type SHALL be used by clients and servers:
 </ul>
 <p>
 Servers SHALL support server-driven content negotiation as described in <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec12.html#sec12">section 12</a>
-of the HTTP specification. 
+of the HTTP specification.
 </p>
 <p>
 Note: between FHIR DSTU2 and STU3, the correct mime type was changed from application/xml+fhir and application/json+fhir to application/fhir+xml and application/fhir+json.
 Servers MAY also support the older mime types, and are encouraged to do so to smooth the transtion process.
 </p>
 <p>
-In order to support various implementation limitations, servers SHOULD support the optional <code>_format</code> parameter to 
-specify alternative response formats by their MIME-types. This parameter allows a client to override the <code>accept</code> 
-header value when it is unable to set it correctly due to internal limitations (e.g. XSLT usage). For the <code>_format</code> 
-parameter, the values <code>xml</code>, <code>text/xml</code>, <code>application/xml</code>, and <code>application/fhir+xml</code> 
-SHALL be interpreted to mean the <a href="xml.html">XML format</a>, the codes <code>json</code>, <code>application/json</code> and 
-<code>application/fhir+json</code> SHALL be interpreted to mean the <a href="json.html">JSON format</a>, and the codes <code>ttl</code> 
-and <code>text/turtle</code> SHALL be interpreted to mean the <a href="rdf.html">Turtle RDF format</a>. In addition, the values 
+In order to support various implementation limitations, servers SHOULD support the optional <code>_format</code> parameter to
+specify alternative response formats by their MIME-types. This parameter allows a client to override the <code>accept</code>
+header value when it is unable to set it correctly due to internal limitations (e.g. XSLT usage). For the <code>_format</code>
+parameter, the values <code>xml</code>, <code>text/xml</code>, <code>application/xml</code>, and <code>application/fhir+xml</code>
+SHALL be interpreted to mean the <a href="xml.html">XML format</a>, the codes <code>json</code>, <code>application/json</code> and
+<code>application/fhir+json</code> SHALL be interpreted to mean the <a href="json.html">JSON format</a>, and the codes <code>ttl</code>
+and <code>text/turtle</code> SHALL be interpreted to mean the <a href="rdf.html">Turtle RDF format</a>. In addition, the values
 <code>html</code> and <code>text/html</code> are allowed.
 </p>
 <p>
@@ -298,14 +298,14 @@ Note: the <code>_format</code> parameter does not override the <code>content-typ
 The content types <code>application/x-www-form-urlencoded</code> is also accepted for posting <code>search</code> requests.
 </p>
 <p>
-If neither the accept header nor the _format parameter are specified, the MIME-type 
+If neither the accept header nor the _format parameter are specified, the MIME-type
 of the content returned by the server is undefined and may vary.
 </p>
 <p>
 Implementation Note: If a client provides a generic mime type in the Accept header
 (application/xml, text/json, or application/json), the server SHOULD respond with
-the requested mime type, using the XML or JSON formats described in this specification 
-as the best representation for the named mime type (though see the <a href="binary.html#rest">note on the 
+the requested mime type, using the XML or JSON formats described in this specification
+as the best representation for the named mime type (though see the <a href="binary.html#rest">note on the
 Binary resource</a>.
 </p>
 
@@ -325,8 +325,8 @@ versioning support. Systems declare their support for versioning
 in their <a href="capabilitystatement-definitions.html#CapabilityStatement.rest.resource.versioning">Capability Statements</a>.
 </p>
 <p>
-Server should always return the default timezone for <a href="search.html#date">date searches</a> 
-in the HTTP Response headers using the Date header. Note: Servers are not required to have a 
+Server should always return the default timezone for <a href="search.html#date">date searches</a>
+in the HTTP Response headers using the Date header. Note: Servers are not required to have a
 default timezone.
 </p>
 
@@ -349,9 +349,9 @@ Servers SHOULD return an <code>ETag</code> header with the versionId of the reso
 <p>
 Note: Unknown resources and deleted resources are treated differently on a read: A <code>GET</code> for a deleted
 resource returns a <code>410</code> status code, whereas a <code>GET</code> for an unknown resource returns <code>404</code>. Systems that do
-not track deleted records will treat deleted records as an unknown resource. Since deleted resources may be brought 
-back to life, servers MAY include an ETag on the error response when reading a deleted record to allow version 
-contention management when a resource is brought back to life. 
+not track deleted records will treat deleted records as an unknown resource. Since deleted resources may be brought
+back to life, servers MAY include an ETag on the error response when reading a deleted record to allow version
+contention management when a resource is brought back to life.
 </p>
 
 <p>
@@ -362,12 +362,12 @@ In addition, the search parameter <code>_summary</code> can be used when reading
 </pre>
 <p>
 This requests that only a subset of the resource content be returned,
-as specified in the <code>_summary</code> parameter, which can have the values 
+as specified in the <code>_summary</code> parameter, which can have the values
 <a href="search.html#summary"><code>true</code>, <code>false</code>, <code>text</code> &amp; <code>data</code></a>.
-Note that a resource that only contains a subset of the data is 
-not suitable for use as a base to update the resource, and may not 
-be suitable for other uses. The same applies to the <a href="search.html#elements">_elements</a> parameter - both 
-that it should bs supported, and the subset implications. Servers SHOULD use 
+Note that a resource that only contains a subset of the data is
+not suitable for use as a base to update the resource, and may not
+be suitable for other uses. The same applies to the <a href="search.html#elements">_elements</a> parameter - both
+that it should bs supported, and the subset implications. Servers SHOULD use
 the <a href="v3/vs/SecurityIntegrityObservationValue/cs.html#SUBSETTED">SUBSETTED</a> <a href="security-labels.html">Security Label</a>
 to explicitly mark such resources.
 </p>
@@ -385,7 +385,7 @@ is performed by an HTTP <code>GET</code> command as shown:
 This returns a single instance with the content specified for the resource type for that
 version of the resource.
 The returned resource SHALL have an <code>id</code> element with a value that is the <code>[id]</code>, and a <code>meta.versionId</code>
-element with a value of <code>[vid]</code>. Servers SHOULD return an <code>ETag</code> header with the versionId (if versioning is supported) 
+element with a value of <code>[vid]</code>. Servers SHOULD return an <code>ETag</code> header with the versionId (if versioning is supported)
 and a <code>Last-Modified</code> header.
 </p>
 <p>
@@ -399,8 +399,8 @@ server should return a <code>410</code> status code.
 Servers are encouraged to support a version specific retrieval of the current version of the
 resource even if they do not provide access to previous versions. If a request
 is made for a previous version of a resource, and the server does not support accessing
-previous versions (either generally, or for this particular resource), it should 
-return a <code>404</code> Not Found error, with an operation outcome explaining that 
+previous versions (either generally, or for this particular resource), it should
+return a <code>404</code> Not Found error, with an operation outcome explaining that
 history is not supported for the underlying resource type or instance.
 </p>
 
@@ -415,8 +415,8 @@ The <code>update</code> interaction is performed by an HTTP <code>PUT</code> com
   PUT [base]/[type]/[id] {?_format=[mime-type]}
 </pre>
 <p>
-The request body SHALL be a <a href="resource.html">Resource</a> with an id element 
-that has an identical value to the <code>[id]</code> in the URL. If no <code>id</code> element is provided, or 
+The request body SHALL be a <a href="resource.html">Resource</a> with an id element
+that has an identical value to the <code>[id]</code> in the URL. If no <code>id</code> element is provided, or
 the value is wrong, the server SHALL respond with a HTTP <code>400</code> error code, and SHOULD
 provide an operation outcome identifying the issue.
 If the request body includes a <a href="resource.html#meta"><code>meta</code></a>, the server SHALL
@@ -424,7 +424,7 @@ ignore the provided <code>versionId</code> and <code>lastUpdated</code> values.
 
 If the server supports versions, it SHALL populate the <code>meta.versionId</code> and <code>meta.lastUpdated</code>
 with the new correct values. Servers are allowed to review and alter the other metadata values, but SHOULD refrain
-from doing so (see <a href="resource.html#meta">metadata description</a>  for further information). Note that 
+from doing so (see <a href="resource.html#meta">metadata description</a>  for further information). Note that
 there is no support for updating past versions - see notes on the <a href="#history">history</a> interaction.
 </p>
 <p>
@@ -438,9 +438,9 @@ around update behavior.
 <a name="dstu"> </a>
 <p>
 <b>DSTU Note:</b>   The update operation updates the entire resource. Servers MAY apply some logic
-and preserve some existing content based where this is known to be appropriate behavior. 
+and preserve some existing content based where this is known to be appropriate behavior.
 HTTP <code>PATCH</code> functionality is likely to be defined, and feedback from outcomes of implementer
-experimentation is welcome. 
+experimentation is welcome.
 </p>
 <p>
 Provide feedback <a href="http://wiki.hl7.org/index.php?title=FHIR_Specification_Feedback_(DSTU_2)">here</a>.
@@ -456,10 +456,10 @@ Note: Servers MAY choose to preserve XML comments, instructions, and formatting 
 </p>
 <a name="upsert"> </a>
 <p>
-Note that servers MAY choose to allow clients to <code>PUT</code> a resource to a location that 
-does not yet exist on the server - effectively, allowing the client to define the 
-id of the resource. Whether a server allows this is a deployment choice based 
-on the nature of its relationships with the clients. While many servers will 
+Note that servers MAY choose to allow clients to <code>PUT</code> a resource to a location that
+does not yet exist on the server - effectively, allowing the client to define the
+id of the resource. Whether a server allows this is a deployment choice based
+on the nature of its relationships with the clients. While many servers will
 not allow clients to define their ids, there are several reasons why it may
 be necessary in some configurations:
 </p>
@@ -473,7 +473,7 @@ Alternatively, clients may be sharing an agreed identification model (e.g. key s
 where clashes do not arise.
 </p>
 <p>
-Servers can choose whether or not to support client defined ids, and indicate such to the clients 
+Servers can choose whether or not to support client defined ids, and indicate such to the clients
 using <a href="capabilitystatement-definitions.html#CapabilityStatement.rest.resource.updateCreate">CapabilityStatement.rest.resource.updateCreate</a>.
 </p>
 
@@ -524,8 +524,8 @@ For example, a client updating the status of a lab result from "preliminary" to 
 might submit the finalized result using <code>PUT path/Observation?identifier=http://my-lab-system|123</code>
 </p>
 <p>
-Note that transactions and conditional create/update/delete are complex interactions and it is 
-not expected that every server will implement them. Servers that don't support the conditional 
+Note that transactions and conditional create/update/delete are complex interactions and it is
+not expected that every server will implement them. Servers that don't support the conditional
 update should return an HTTP <code>400</code> error and an operation outcome.
 </p>
 
@@ -588,18 +588,21 @@ is performed by an HTTP <code>DELETE</code> command as shown:
 <p>
 A delete interaction means that subsequent <a href="#read">non-version specific reads</a> of a resource
 return a <code>410</code> HTTP status code and that the resource is no longer found through <a href="#search">search</a>
-interactions. Upon successful deletion, or if the resource does not exist at all, the server should return
-<code>204 No Content</code>. <!--, or 200 OK status code, with an <a href="operationoutcome.html">OperationOutcome</a>
+interactions. Upon successful deletion, or if the resource does not exist at all, the server should return either a
+<code>200 OK</code> if the response contains a payload, or a <code>204 No Content</code> with no response payload.
+<!--, or 200 OK status code, with an <a href="operationoutcome.html">OperationOutcome</a>
 resource containing hints and warnings about the deletion; if one is sent it SHALL NOT include any errors. -->
 </p>
 <p>
-Whether to support delete at all, or for a particular resource type or a particular instance is at the 
-discretion of the server based on the business rules that apply in its context.  
+Whether to support delete at all, or for a particular resource type or a particular instance is at the
+discretion of the server based on the business rules that apply in its context.
 If the server refuses to delete resources of that type as a blanket policy, then it should return the <code>405</code>
 Method not allowed status code. If the server refuses to delete a resource because of reasons specific
 to that resource, such as referential integrity, it should return the <code>409</code> Conflict status code.
-Performing this interaction on a resource that is already deleted has no effect, and the server should return a <code>204</code> or <code>200</code> response.
-Resources that have been deleted may be "brought back to life" by a subsequent <a href="#href"><code>update</code></a> interaction using an HTTP <code>PUT</code>.
+Performing this interaction on a resource that is already deleted has no effect, and the server should return either a
+<code>200 OK</code> if the response contains a payload, or a <code>204 No Content</code> with no response payload.
+Resources that have been deleted may be "brought back to life" by a subsequent <a href="#href"><code>update</code></a>
+interaction using an HTTP <code>PUT</code>.
 </p>
 <p>
 Many resources have a status element that overlaps with the idea of deletion. Each resource type
@@ -610,12 +613,12 @@ about the state of the real-world corresponding resource implied.
 <p>
 For servers that maintain a version history, the <code>delete</code> interaction does not remove a resource's version history. From a version history respect,
 deleting a resource is the equivalent of creating a special kind of history entry that has
-no content and is marked as deleted. Note that 
+no content and is marked as deleted. Note that
 there is no support for deleting past versions - see notes on the <a href="#history">history</a> interaction.
 </p>
 <p>
 Since deleted resources may be brought back to life, servers MAY include an ETag on the delete response
-to allow version contention management when a resource is brought back to life. 
+to allow version contention management when a resource is brought back to life.
 </p>
 
 <h4>Conditional delete</h4>
@@ -643,8 +646,8 @@ a resource on a  server, without having to remember the logical ids that the ser
 For example, a client deleting a lab atomic result might delete the resource using <code>DELETE /Observation?identifier=http://my-lab-system|123</code>.
 </p>
 <p>
-Note that transactions and conditional create/update/delete are complex interactions and it is 
-not expected that every server will implement them. Servers that don't support the conditional 
+Note that transactions and conditional create/update/delete are complex interactions and it is
+not expected that every server will implement them. Servers that don't support the conditional
 delete should return an HTTP <code>400</code> error and an operation outcome.
 </p>
 
@@ -660,12 +663,12 @@ interaction instead. The <code>create</code> interaction is performed by an HTTP
 </pre>
 <p>
 The request body SHALL be a FHIR Resource. The resource does not need to have an <code>id</code> element (this is the
-one of the few case where a resource exists without an id element). If an <code>id</code> is provided, the 
+one of the few case where a resource exists without an id element). If an <code>id</code> is provided, the
 server SHALL ignore it. If the request body includes a <a href="resource.html#meta">meta</a>, the server SHALL
 ignore the existing <code>versionId</code> and <code>lastUpdated</code> values.
 The server SHALL populate the <code>id</code>, <code>meta.versionId</code> and <code>meta.lastUpdated</code>
-with the new correct values. Servers are allowed to review and alter the other metadata values, but SHOULD 
-refrain from doing so (see <a href="resource.html#meta">metadata description</a>  for further information).
+with the new correct values. Servers are allowed to review and alter the other metadata values, but SHOULD
+refrain from doing so (see <a href="resource.html#meta">metadata description</a> for further information).
 </p>
 <p>
 A server SHOULD otherwise accept the resource as submitted when it accepts the create, and return the same
@@ -673,7 +676,7 @@ content when it is subsequently read. However some systems may not be able to do
 the note on <a href="#transactional-integrity">transactional integrity</a> for discussion.
 </p>
 <p>
-The server returns a <code>201</code> Created HTTP status code, and SHOULD also return a <code>Location</code> header which
+The server returns a <code>201</code> Created HTTP status code, and SHALL also return a <code>Location</code> header which
 contains the new <a href="resource.html#metadata">Logical Id</a> and <a href="resource.html#metadata">Version Id</a> of
 the created resource version:
 </p>
@@ -734,8 +737,8 @@ creating duplicate resources for the same record. For example, a client posting 
 <code>If-None-Exist: identifier=http://my-lab-system|123</code> to ensure it is does not create a duplicate record.
 </p>
 <p>
-Note that transactions and conditional create/update/delete are complex interactions and it is 
-not expected that every server will implement them. Servers that don't support the conditional 
+Note that transactions and conditional create/update/delete are complex interactions and it is
+not expected that every server will implement them. Servers that don't support the conditional
 create should return an HTTP <code>412</code> error and an operation outcome.
 </p>
 
@@ -749,7 +752,7 @@ This interaction searches a set of resources based on some filter criteria. The 
   GET [base]/[type]{?[parameters]{&amp;_format=[mime-type]}}
 </pre>
 <p>
-This searches all resources of a particular type using the criteria represented in the parameters. 
+This searches all resources of a particular type using the criteria represented in the parameters.
 </p>
 <p>
 Because of the way that some user agents and proxies treat <code>GET</code> and <code>POST</code> requests, in addition
@@ -765,16 +768,16 @@ are a series of <code>name=value</code> pairs encoded in the URL (or as an <code
 </p>
 <blockquote>
 <p>
-Note: <code>application/x-www-form-urlencoded</code> is supported for <code>POST</code> so that invoking a search by <code>GET</code> or <code>POST</code> can be 
+Note: <code>application/x-www-form-urlencoded</code> is supported for <code>POST</code> so that invoking a search by <code>GET</code> or <code>POST</code> can be
 done from HTML forms in a browser (though considerable active content might be required in the browser), although
-this is not the main usage. 
+this is not the main usage.
 </p>
 </blockquote>
 <p>
 Searches are processed as specified for the <a href="search.html">Search handling mechanism</a>.
 </p>
 <p>
-If the search fails (cannot be executed, not that there is no matches), the return value is 
+If the search fails (cannot be executed, not that there is no matches), the return value is
 a status code 4xx or 5xx with an <a href="operationoutcome.html">OperationOutcome</a>.
 If the search succeeds, the return content is a <a href="bundle.html">Bundle</a> with
 <a href="bundle-definitions.html#Bundle.type">type</a> = <code>searchset</code> containing the results of the search as a list of resources
@@ -810,7 +813,7 @@ Finally, it's possible to search all resources at once:
   GET [base]?[parameters]{&amp;_format=[mime-type]}
 </pre>
 <p>
-When searching all resources at once, only the <a href="resource.html#search">parameters defined for all resources</a> 
+When searching all resources at once, only the <a href="resource.html#search">parameters defined for all resources</a>
 can be used.
 </p>
 
@@ -831,7 +834,7 @@ In addition, there is another method to get the capability statement, using the 
   OPTIONS [base] {?_format=[mime-type]}
 </pre>
 <p>
-However as of STU3, this method is deprecated, and will be removed in a future version. Using OPTIONS like this 
+However as of STU3, this method is deprecated, and will be removed in a future version. Using OPTIONS like this
 is not conformant with HTTP, and creates challenges for <a href="http://enable-cors.org/">cross-origin resource sharing</a> support).
 </p>
 <p>
@@ -844,10 +847,10 @@ the <code>OPTIONS</code> command are defined in the <a href="#hdata">OMG hData R
 </p>
 <p>
 The Capability statement returned typically has an arbitrary id, and no meta element, though it is not prohibited.
-Capability statements can become quite large; Servers are encouraged to support the 
-<a href="search.html#summary"><code>_summary</code></a> and <a href="search.html#elements"><code>_elements</code></a> 
-parameters on the capabilities interaction, though this is not required. In addition, servers are encouraged to 
-implement the <a href="capabilitystatement-operations.html#subset">$subset</a> and <a href="capabilitystatement-operations.html#implements">$implements</a> 
+Capability statements can become quite large; Servers are encouraged to support the
+<a href="search.html#summary"><code>_summary</code></a> and <a href="search.html#elements"><code>_elements</code></a>
+parameters on the capabilities interaction, though this is not required. In addition, servers are encouraged to
+implement the <a href="capabilitystatement-operations.html#subset">$subset</a> and <a href="capabilitystatement-operations.html#implements">$implements</a>
 operations to make it easy for a client to check conformance.
 </p>
 <p>
@@ -861,7 +864,7 @@ This is different from the <code>capabilities</code> interaction:
  <tr><td>CapabilityStatement end-point</td><td>manages a repository of capability statements (e.g. the HL7 capability statement registry)</td></tr>
 </table>
 <p>
-All servers are required to support the <code>capabilities</code> interaction, but servers may choose whether they wish to support the CapabilityStatement end-point, 
+All servers are required to support the <code>capabilities</code> interaction, but servers may choose whether they wish to support the CapabilityStatement end-point,
 just like any other end-point.
 </p>
 
@@ -869,9 +872,9 @@ just like any other end-point.
 <h3>batch/transaction</h3>
 <p>
 The <code>batch</code> and <code>transaction</code> interactions submit a set of actions to perform on a server in a single HTTP request/response.
-The actions may be performed independently as a "batch", or as a single atomic "transaction" where 
-the entire set of changes succeed or fail as a single entity. Multiple actions on multiple resources 
-of the same or different types may be submitted, and they may be a mix of other interactions defined 
+The actions may be performed independently as a "batch", or as a single atomic "transaction" where
+the entire set of changes succeed or fail as a single entity. Multiple actions on multiple resources
+of the same or different types may be submitted, and they may be a mix of other interactions defined
 on this page (e.g. <code>read</code>, <code>search</code>, <code>create</code>, <code>update</code>, <code>delete</code>, etc.), or using the <a href="operations.html">operations</a>
 framework.
 </p>
@@ -882,7 +885,7 @@ a Provenance resource and its corresponding target resource, or, on document rep
 document index entry and its accompanying document).
 </p>
 <p>
-Note that transactions and conditional create/update/delete are complex interactions and it is 
+Note that transactions and conditional create/update/delete are complex interactions and it is
 not expected that every server will implement them.
 </p>
 <p>
@@ -895,7 +898,7 @@ A <code>batch</code> or <code>transaction</code> interaction is performed by an 
 The content of the post submission is a <a href="bundle.html">Bundle</a> with <a href="bundle-definitions.html#Bundle.type">Bundle.type</a> = <code><a href="valueset-bundle-type.html#batch">batch</a></code> or <code><a href="valueset-bundle-type.html#transaction">transaction</a></code>.
 Each entry carries <code>request</code> details (<a href="bundle-definitions.html#Bundle.entry.request">Bundle.entry.request</a>)
 that provides the HTTP details of the action in order to inform the system processing the batch or transaction
-what to do for the entry (note: the <code>request</code> is <a href="bundle.html#transaction">optional</a>, but SHOULD be present). If the HTTP command is a <code>PUT</code> or <code>POST</code>, then the entry 
+what to do for the entry (note: the <code>request</code> is <a href="bundle.html#transaction">optional</a>, but SHOULD be present). If the HTTP command is a <code>PUT</code> or <code>POST</code>, then the entry
 SHALL contain a resource for the body of the action.
 The resources in the bundle are each processed separately as if they were an individual
 interactions or operations as otherwise described on this page, or the <a href="operations.html">Operations
@@ -913,15 +916,15 @@ Examples:
 
 <h4>Batch Processing Rules</h4>
 <p>
-For a <code>batch</code>, there SHALL be no interdependencies between the different entries 
-in the Bundle that cause change on the server. The success or failure of one change SHOULD 
-not alter the success or failure or resulting content of another change. Servers SHOULD 
-validate that this is the case. Note that it is considered that servers execute the batch 
-in the same order as that specified below for transactions, though the order of execution 
+For a <code>batch</code>, there SHALL be no interdependencies between the different entries
+in the Bundle that cause change on the server. The success or failure of one change SHOULD
+not alter the success or failure or resulting content of another change. Servers SHOULD
+validate that this is the case. Note that it is considered that servers execute the batch
+in the same order as that specified below for transactions, though the order of execution
 should not matter given the previous rule.
 </p>
 <p>
-Static references within a Bundle.entry.resource another to Bundle.entry.resource that is being 
+Static references within a Bundle.entry.resource another to Bundle.entry.resource that is being
 created within the Batch are be non-conformant.
 </p>
 
@@ -945,15 +948,15 @@ together and the order of the entries doesn't matter, there is a particular orde
  <li>Process any <code>GET</code> interactions</li>
 </ol>
 <p>
-If any resource identities (including resolved identities from conditional update/delete) overlap in steps 1-3, 
-then the transaction SHALL fail. 
+If any resource identities (including resolved identities from conditional update/delete) overlap in steps 1-3,
+then the transaction SHALL fail.
 </p>
 <blockquote class="dstu-note">
 <a name="dstu-2"> </a>
 <p>
-<b>DSTU Note:</b>  clients are able to request that operations be executed as part of a transaction. 
-Some transactions can cause side effects, such as the creation of new resources or other 
-actions that may be difficult to fit into a transaction framework. Input regarding this 
+<b>DSTU Note:</b>  clients are able to request that operations be executed as part of a transaction.
+Some transactions can cause side effects, such as the creation of new resources or other
+actions that may be difficult to fit into a transaction framework. Input regarding this
 issue is sought during the DSTU period.
 </p>
 <p>
@@ -973,17 +976,17 @@ Servers SHALL replace all matching links in the bundle, whether they are found i
 resource references, url elements, or <code>&lt;a href="" &amp; &lt;img src=""</code> in the narrative.
 </p>
 <p>
-When processing a "POST" (create), the full URL is treated as the id of the resource on the 
-source, and is ignored; the server generates an id for the resource. For updates, 
-the server performs a mapping between the fullUrl specified and the local URL the server 
-knows that instance as, if possible. If the server does not have a mapping for the fullUrl, 
-the server ignores the base URL and attempts an update assuming the base is the same 
-as the server base.  This allows the same transaction bundle to be sent to multiple systems 
+When processing a "POST" (create), the full URL is treated as the id of the resource on the
+source, and is ignored; the server generates an id for the resource. For updates,
+the server performs a mapping between the fullUrl specified and the local URL the server
+knows that instance as, if possible. If the server does not have a mapping for the fullUrl,
+the server ignores the base URL and attempts an update assuming the base is the same
+as the server base.  This allows the same transaction bundle to be sent to multiple systems
 without changing the fullUrls for each target.
 </p>
 <p>
-When processing a batch or transaction, a server MAY choose to honor existing 
-logical ids (e.g. <code>Observation/1234</code> remains as <code>Observation/1234</code> on the server), but 
+When processing a batch or transaction, a server MAY choose to honor existing
+logical ids (e.g. <code>Observation/1234</code> remains as <code>Observation/1234</code> on the server), but
 since this is only <a href="#upsert">safe in controlled circumstances</a>, servers
 may choose to assign new ids to all submitted resources, irrespective of any claimed
 logical <code>id</code> in the resource, or <code>fullUrl</code> on entries in the batch/transaction.
@@ -997,13 +1000,13 @@ logical <code>id</code> in the resource, or <code>fullUrl</code> on entries in t
 
 <p><b>Conditional References</b></p>
 <p>
-When constructing the batch, the client may not know the logical id of a resource, but it may 
+When constructing the batch, the client may not know the logical id of a resource, but it may
 know identifying information - e.g. an identifier. This situations arises commonly when building
 transactions from v2 messages. The client could resolve that identifier to a logical id using
-a search, but that would mean that the resolution to a logical id does not occur within the 
+a search, but that would mean that the resolution to a logical id does not occur within the
 same transaction as the commit (as well as significantly complicating the client). Because
 of this, in a transaction (and only in a trasaction), references to resources may be replaced
-by a search URI that describes how to find the correct reference: 
+by a search URI that describes how to find the correct reference:
 </p>
 <div class="example">
 <pre class="xml">
@@ -1030,7 +1033,7 @@ by a search URI that describes how to find the correct reference:
 <p>
 The search URI is relative to the servers [base] path, and always starts with
 a resource type: <code>[type]:?parameters...</code>. Only filtering parameters
-are allowed; none of the parameters that control the return of resources 
+are allowed; none of the parameters that control the return of resources
 are relevant.
 </p>
 <p>
@@ -1048,18 +1051,18 @@ When processing transactions, servers SHALL:
 <h4>Batch/Transaction Response</h4>
 
 <p>
-For a batch, or a successful transaction, the response the server SHALL 
-return a <a href="bundle.html">Bundle</a> with <a href="bundle-definitions.html#Bundle.type">type</a> 
+For a batch, or a successful transaction, the response the server SHALL
+return a <a href="bundle.html">Bundle</a> with <a href="bundle-definitions.html#Bundle.type">type</a>
 set to <code>batch-response</code> or <code>transaction-response</code> that contains one entry for each entry in the
 request, in the same order, with the outcome of processing the entry. For a failed transaction,
 the server returns a single <a href="operationoutcome.html">OperationOutcome</a> instead of a Bundle.
 </p>
 <p>
-A client may use the return bundled to track the outcomes of processing the entry, 
-and the identities assigned to the resources by the server. Each entry element SHALL 
-contain a <code>response</code> element which details the outcome of processing the 
-entry - the HTTP status code, and the location and <code>ETag</code> header values, 
-which are used for identifying and versioning the resources. In addition, a resource 
+A client may use the return bundled to track the outcomes of processing the entry,
+and the identities assigned to the resources by the server. Each entry element SHALL
+contain a <code>response</code> element which details the outcome of processing the
+entry - the HTTP status code, and the location and <code>ETag</code> header values,
+which are used for identifying and versioning the resources. In addition, a resource
 may be included in the entry, as specified by the <a href="#prefer">Prefer</a> header.
 </p>
 
@@ -1103,22 +1106,22 @@ interaction are performed by HTTP <code>GET</code> command as shown:
 </pre>
 <p>
 The return content is a <a href="bundle.html">Bundle</a> with
-<a href="bundle-definitions.html#Bundle.type">type</a> set to <code>history</code> containing the 
+<a href="bundle-definitions.html#Bundle.type">type</a> set to <code>history</code> containing the
 specified version history, sorted with oldest versions last, and including deleted resources.
-Each entry SHALL minimally contain either a <code>resource</code> which holds the resource as 
-it is at the conclusion of the interaction, or a <code>request</code> with <code>entry.request.method</code> 
-The <code>request</code> provides information about the interaction that occurred to 
-cause the new version, and allows, for instance, subscriber system to differentiate between 
-create and update interactions. The principal reason a <code>resource</code> might be missing 
-is that the resource was changed by some other channel rather than via the RESTful interface. If 
-the <code>entry.request.method</code> is a <code>PUT</code> or a <code>POST</code>, the entry 
+Each entry SHALL minimally contain either a <code>resource</code> which holds the resource as
+it is at the conclusion of the interaction, or a <code>request</code> with <code>entry.request.method</code>
+The <code>request</code> provides information about the interaction that occurred to
+cause the new version, and allows, for instance, subscriber system to differentiate between
+create and update interactions. The principal reason a <code>resource</code> might be missing
+is that the resource was changed by some other channel rather than via the RESTful interface. If
+the <code>entry.request.method</code> is a <code>PUT</code> or a <code>POST</code>, the entry
 SHALL contain a resource.
 </p>
 <p>
 The interactions <a href="#create"><code>create</code></a>, <a href="#update"><code>update</code></a>, and <a href="#delete"><code>delete</code></a>
 create history entries. Other interactions do not (note that these operations may produce side-effects
 such as new AuditEvent resources; these are represented as create interactions in their own right).
-New resources or updates to existing resources that are triggered by operations also appear in the 
+New resources or updates to existing resources that are triggered by operations also appear in the
 history, as do updates to the resources that result from interactions outside the scope of the
 RESTful interface.
 </p>
@@ -1205,10 +1208,10 @@ values the server does not support.
 To the degree that the server alters the resource for any of
 the 3 reasons above, the FHIR server will create implementation
 consequences for the eco-system that it is part of, which will
-need to be managed (i.e. it will cost more). For this reason, servers 
-SHOULD change the resource as little as possible, given the constraints 
-of the system exposing the FHIR resource. However due to the variability 
-that exists within healthcare, this specification allows that servers 
+need to be managed (i.e. it will cost more). For this reason, servers
+SHOULD change the resource as little as possible, given the constraints
+of the system exposing the FHIR resource. However due to the variability
+that exists within healthcare, this specification allows that servers
 MAY alter the resource on create/update.
 </p>
 <p>
@@ -1318,7 +1321,7 @@ The server need not use a stateful paging method as shown in this example - it i
 the discretion of the server how to best ensure that the continuation retains
 integrity in the context of ongoing changes to the resources. An alternative approach
 is to use version specific references to the records on the boundaries, but this is
-subject to continuity failures when records are updated. 
+subject to continuity failures when records are updated.
 </p>
 <p>
 A server MAY add additional state tracking parameters to the links, as shown in the example above.
@@ -1408,7 +1411,7 @@ Note that <i>all</i> requests may include an optional <code>Accept</code> header
 </table>
 
 <p>
-Notes: 
+Notes:
 </p>
 <ul>
  <li>N/A = not present, R = Required, O = optional</li>
