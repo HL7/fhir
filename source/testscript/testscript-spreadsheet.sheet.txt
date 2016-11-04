@@ -327,6 +327,20 @@
   XPath = (f:compareToSourceId and f:compareToSourceExpression) or (f:compareToSourceId and f:compareToSourcePath) or not(f:compareToSourceId or f:compareToSourceExpression or f:compareToSourcePath)
   Expression = compareToSourceId.empty() xor (compareToSourceExpression.exists() or compareToSourcePath.exists())
 
+ -- Row 12 -----------------------------------
+  Id = 12
+  Context = TestScript.setup.action.assert
+  English = Setup action assert response and response and responseCode SHALL be empty when direction equals request
+  XPath = ((count(f:response) + count(f:responseCode)) = 0 and (f:direction/@value=\'request\')) or (count(f:direction) = 0) or (f:direction/@value=\'response\')
+  Expression = (response.empty() and responseCode.empty() and direction = \'request\') or direction.empty() or direction = \'response\'
+
+ -- Row 13 -----------------------------------
+  Id = 13
+  Context = TestScript.test.action.assert
+  English = Test action assert response and response and responseCode SHALL be empty when direction equals request
+  XPath = ((count(f:response) + count(f:responseCode)) = 0 and (f:direction/@value=\'request\')) or (count(f:direction) = 0) or (f:direction/@value=\'response\')
+  Expression = (response.empty() and responseCode.empty() and direction = \'request\') or direction.empty() or direction = \'response\'
+
 === Sheet Data Elements =====================================
 
  -- Row 1 -----------------------------------

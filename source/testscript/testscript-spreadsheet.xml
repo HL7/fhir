@@ -6890,22 +6890,24 @@
     <Cell ss:StyleID="s116"><Data ss:Type="String">(f:compareToSourceId and f:compareToSourceExpression) or (f:compareToSourceId and f:compareToSourcePath) or not(f:compareToSourceId or f:compareToSourceExpression or f:compareToSourcePath)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s115"><NamedCell ss:Name="Invariantids"/></Cell>
+    <Cell ss:StyleID="s115"><Data ss:Type="Number">12</Data><NamedCell
+      ss:Name="Invariantids"/></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">setup action assert direction</Data></Cell>
     <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s116"/>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">TestScript.setup.action.assert</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">Setup action assert response and response and responseCode SHALL be empty when direction equals request</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">(response.empty() and responseCode.empty() and direction = 'request') or direction.empty() or direction = 'response'</Data></Cell>
+    <Cell ss:StyleID="s116"><Data ss:Type="String">((count(f:response) + count(f:responseCode)) = 0 and (f:direction/@value='request')) or (count(f:direction) = 0) or (f:direction/@value='response')</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s115"><NamedCell ss:Name="Invariantids"/></Cell>
+    <Cell ss:StyleID="s115"><Data ss:Type="Number">13</Data><NamedCell
+      ss:Name="Invariantids"/></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">test action assert direction</Data></Cell>
     <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s116"/>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">TestScript.test.action.assert</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">Test action assert response and response and responseCode SHALL be empty when direction equals request</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">(response.empty() and responseCode.empty() and direction = 'request') or direction.empty() or direction = 'response'</Data></Cell>
+    <Cell ss:StyleID="s116"><Data ss:Type="String">((count(f:response) + count(f:responseCode)) = 0 and (f:direction/@value='request')) or (count(f:direction) = 0) or (f:direction/@value='response')</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s115"><NamedCell ss:Name="Invariantids"/></Cell>
@@ -7043,7 +7045,7 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>2</SplitVertical>
-   <LeftColumnRightPane>2</LeftColumnRightPane>
+   <LeftColumnRightPane>4</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -7051,6 +7053,7 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>2</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
