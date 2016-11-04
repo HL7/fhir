@@ -12,8 +12,8 @@
   <code>
     <coding>
       <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
-      <code value="314422"/>
-      <display value="ALLERGENIC EXTRACT, PENICILLIN"/>
+      <code value="7980"/>
+      <display value="Penicillin G"/>
     </coding>
   </code>
  

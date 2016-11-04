@@ -234,6 +234,14 @@
   w5 = status
 
  -- Row 12 -----------------------------------
+  Element = ProcedureRequest.supportingInfo
+  Card. = 0..*
+  Type = Reference (Any)
+  Short Name = Extra information to use in performing request
+  Definition = Information that may be needed by/relevant to the performer in their execution of this request
+  Committee Notes = GF#11181
+
+ -- Row 13 -----------------------------------
   Element = ProcedureRequest.notes
   Card. = 0..*
   Type = Annotation
@@ -241,7 +249,7 @@
   Definition = Any other notes associated with this proposal or order - e.g. provider instructions.
   QUICK mapping = ClinicalStatement.additionalText
 
- -- Row 13 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = ProcedureRequest.asNeeded[x]
   Card. = 0..1
   Type = boolean|CodeableConcept
@@ -250,7 +258,7 @@
   Definition = If a CodeableConcept is present, it indicates the pre-condition for performing the procedure.
   QUICK mapping = Proposal.prnReason.reason
 
- -- Row 14 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = ProcedureRequest.orderedOn
   Card. = 0..1
   Type = dateTime
@@ -259,7 +267,7 @@
   QUICK mapping = Proposal.proposedAtTime
   w5 = when.recorded
 
- -- Row 15 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = ProcedureRequest.orderer
   Card. = 0..1
   Type = Reference(Practitioner|Patient|RelatedPerson|Device)
@@ -268,7 +276,7 @@
   QUICK mapping = ClinicalStatement.statementAuthor
   w5 = who.author
 
- -- Row 16 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = ProcedureRequest.priority
   Card. = 0..1
   Type = code

@@ -1805,6 +1805,7 @@
     <Cell ss:StyleID="s68"><Data ss:Type="String">completed</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s70"/>
+    <Cell><Data ss:Type="String">unknown</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ProcedureRequest.status</Data></Cell>
@@ -2197,11 +2198,12 @@
     <VerticalResolution>-4</VerticalResolution>
    </Print>
    <Selected/>
-   <LeftColumnVisible>1</LeftColumnVisible>
+   <TopRowVisible>47</TopRowVisible>
+   <LeftColumnVisible>2</LeftColumnVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>13</ActiveRow>
+     <ActiveRow>73</ActiveRow>
      <ActiveCol>17</ActiveCol>
     </Pane>
    </Panes>

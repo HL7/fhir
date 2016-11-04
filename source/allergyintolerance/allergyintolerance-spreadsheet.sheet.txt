@@ -201,7 +201,7 @@
   Id = 4
   Code = unknown
   Display = Unknown
-  Definition = The clinical certainty that the reaction was caused by the identified substance is unknown.
+  Definition = The clinical certainty that the reaction was caused by the identified substance is unknown.  It is an explicit assertion that certainty is not known.
 
 === Sheet reaction-event-severity =====================================
 
@@ -287,10 +287,10 @@
   Binding = AllergyIntoleranceCategory
   Short Name = food | medication | biologic | environment
   Definition = Category of the identified substance
-  Comments = This data element has been included because it is currently being captured in some clinical systems. This data can be derived from the substance where coding systems are used, and is effectively redundant in that situation.
+  Comments = This data element has been included because it is currently being captured in some clinical systems. This data can be derived from the substance where coding systems are used, and is effectively redundant in that situation.  When searching on category, consider the implications of AllergyIntolerance resources without a category.  For example, when searching on category = medication, medication allergies that don\'t have a category valued will not be returned.  Refer to [search](search.html) for more information on how to search category with a :missing modifier to get allergies that don\'t have a category.
   v2 Mapping = AL1-2
   RIM Mapping = value < IntoleranceValue (Agent)
-  Committee Notes = GF#11352 - to address examples like bee pollen that may fit into multiple categories
+  Committee Notes = GF#11352 - to address examples like bee pollen that may fit into multiple categories;  GF#12136 - search usage note
   w5 = class
 
  -- Row 6 -----------------------------------
@@ -337,7 +337,7 @@
   Element = AllergyIntolerance.onset
   Card. = 0..1
   Type = dateTime
-  Short Name = Date(/time) when manifestations showed
+  Short Name = Date(/time) when allergy or intolerance was identified
   Definition = Record of the date and/or time of the onset of the Allergy or Intolerance
   RIM Mapping = effectiveTime.low
   w5 = when.init
@@ -420,7 +420,9 @@
   Binding = AllergyIntoleranceCertainty
   Short Name = unlikely | likely | confirmed | unknown
   Definition = Statement about the degree of clinical certainty that the specific substance was the cause of the manifestation in this reaction event
+  Comments = When certainty is not value, it means no information exists (although it could be in narrative).  By contrast, the unknown code is used when there is an explicit assertion that certainty is not known, such as when a patient eats a meal and it is unknown which food caused the reaction.
   RIM Mapping = uncertaintyCode
+  Committee Notes = GF#11022
 
  -- Row 18 -----------------------------------
   Element = AllergyIntolerance.reaction.manifestation

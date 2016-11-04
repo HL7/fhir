@@ -40,6 +40,15 @@ as described above, or using the <a href="list.html">List</a> resource with empt
 </p>
 </blockquote>
 
+<h3>Assertions of Condition Absence</h3>
+<p>
+Generally, electronic records do not contain assertions of conditions that a patient does not have.  There are however two exceptions:
+<ul>
+<li>It is appropriate to capture a "refuted" Condition record if the patient or anyone else had reason to believe that a patient did have a condition for a period of time and subsequent evidence has demonstrated that belief was mistaken.  In this case, a concrete statement acknowledging the belief as well as the refution of it is useful.</li>
+<li>It is common as part of checklists prior to admission, surgery, enrollment in trials, etc. to ask questions such as "are you pregnant", "do you have a history of hypertension", etc.  This information should NOT be captured using the Condition resource but should instead be captured using QuestionnaireResponse or Observation.  In this case, the combination of the question and answer would convey that a particular condition was not present.</li>
+</ul>
+</p>
+
 <h3>Use of Condition.evidence</h3>
 
 <p>
