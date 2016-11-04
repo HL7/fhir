@@ -172,7 +172,7 @@
   Binding = RequestStatus
   Short Name = draft | active | suspended | cancelled | completed | entered-in-error
   Definition = The current state of the request
-  Comments = The status is generally fully in the control of the requester - they determine whether the order is competed, cancelled, etc. after it has been activated.  States relating to the activities of the performer are reflected on either the corresponding [[[Event]]](s) or using the [[[Task]]] resource
+  Comments = The status is generally fully in the control of the requester - they determine whether the order is draft or active and, after it has been activated, completed, cancelled or suspended. States relating to the activities of the performer are reflected on either the corresponding [[[Event]]](s) or using the [[[Task]]] resource.
   RIM Mapping = .status
   To Do = Should this be a common code system for all requests?
   w5 = status

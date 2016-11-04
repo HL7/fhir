@@ -1,38 +1,8 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <div>
-
 <a name="scope"> </a>
 <h2>Scope and Usage</h2>
-
-<p>
-The subscription resource is used to define a push based subscription 
-from a server to another system. Once a subscription is registered with the server, 
-the server checks every resource that is created or updated, and 
-if the resource matches the given criteria, it sends a message
-on the defined "channel" so that another system is able 
-to take an appropriate action. The server is able to send 
-notifications without any information about the matching
-resource, or with the entire resource.
-</p>
-<p>
-Several different types of channels are supported:
-</p>
-<ul>
- <li><b>rest-hook</b>: A post is made to the URL. If the subscription requests that the whole resource is included, the URL is interpreted as the service base</li>
- <li><b>websocket</b>: An PING message is sent to the designated URI</li>
- <li><b>email/sms</b>: A notification is send to nominated email address or SMS number</li>
- <li><b>message</b>: The resource is sent to the application identified in the URI as a <a href="messaging.html">message</a></li>
-</ul>
-<p>
-See below for further discussion of the various channels. Note that sending
-the entire resource creates security concerns that must be managed by the server.
-</p>
-</div>
-
-<div>
-<a name="bnr"> </a>
-<h2>Boundaries and Relationships</h2>
 <p>
 Once a subscription is created, any newly created or updated resources 
 that meet the criteria in the resource cause a notification to be sent using the 
@@ -44,11 +14,20 @@ is that there is no notification when a resource is deleted, or when
 a resource is updated so that it no longer meets the criteria. 
 </p>
 <p>
-As an alternative to subscriptions, the RESTful API describes a 
-polling-based subscription method using <a href="bundle.html">bundles</a> 
-and the <a href="http.html#history">history operation</a>. This method 
-of polling allows for a much tighter relationship between the client and 
-the server that doesn't involve missing updates and/or deletes. 
+The server is able to send notifications without any information about the matching resource, or with the entire resource.
+</p>
+<p>
+Several different types of channels are supported:
+</p>
+<ul>
+ <li><b>rest-hook</b>: A post is made to the URL. If the subscription requests that the whole resource is included, the URL is interpreted as the service base</li>
+ <li><b>websocket</b>: A PING message is sent to the designated URI</li>
+ <li><b>email/sms</b>: A notification is send to nominated email address or SMS number</li>
+ <li><b>message</b>: The resource is sent to the application identified in the URI as a <a href="messaging.html">message</a></li>
+</ul>
+<p>
+See below for further discussion of the various channels. Note that sending
+the entire resource creates security concerns that must be managed by the server.
 </p>
 <p>
 Subscriptions are active resources; a server can only accept a subscription
@@ -56,7 +35,18 @@ if it will execute the specified channel for any resources subsequently
 received. The subscription is no longer active once it is deleted from 
 the server.
 </p>
+</div>
 
+<div>
+<a name="bnr"> </a>
+<h2>Boundaries and Relationships</h2>
+<p>
+As an alternative to subscriptions, the RESTful API describes a 
+polling-based subscription method using <a href="bundle.html">bundles</a> 
+and the <a href="http.html#history">history operation</a>. This method 
+of polling allows for a much tighter relationship between the client and 
+the server that doesn't involve missing updates and/or deletes. 
+</p>
 </div>
 
 </div>
