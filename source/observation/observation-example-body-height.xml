@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Observation xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns="http://hl7.org/fhir">
-	<id value="heart-rate"/>
+	<id value="body-height"/>
 	<status value="final"/>
 	<category>
 		<coding>
@@ -13,19 +13,19 @@
 	<code>
 		<coding>
 			<system value="http://loinc.org"/>
-			<code value="8867-4"/>
-			<display value="Heart rate"/>
+			<code value="8302-2"/>
+			<display value="Body height"/>
 		</coding>
-		<text value="Heart rate"/>
+		<text value="Body height"/>
 	</code>
 	<subject>
 		<reference value="Patient/example"/>
 	</subject>
 	<effectiveDateTime value="1999-07-02"/>
 	<valueQuantity>
-		<value value="44"/>
-		<unit value="beats/minute"/>
+		<value value="66.899999999999991"/>
+		<unit value="in"/>
 		<system value="http://unitsofmeasure.org"/>
-		<code value="/min"/>
+		<code value="[in_i]"/>
 	</valueQuantity>
 </Observation>

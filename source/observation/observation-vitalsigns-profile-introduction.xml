@@ -3,256 +3,262 @@
 		<h2>
 			<span class="mw-headline" id="Introduction">Introduction</span>
 		</h2>
-		<p>The FHIR Vitals Signs profile provides a common data model and API documentation for searching and fetching Vitals Signs.  <strong>To be conformant to FHIR, the implementation SHALL conform to this profile for the vitals sign observations listed in the table below.</strong>   Support for basic mandatory searching of resources are defined below in the <a href="#Quick_Start"> Quick Start</a> section. It is based on the <a rel="nofollow" class="external text" href="http://hl7.org/fhir/daf/observation-daf-vitalsigns.html">Data Access Framework (DAF) Vital Signs</a>. </p><p> This profile represents a minimum set of vital signs observations.  It does not require the support of any of these vital signs, but when do, you must represent them using this profile.  In addition, if you have a blood pressure observation, you must have both a systolic and a diastolic component, though one or both may have dataAbsentReason instead of a value. Other profiles may make rules about which vital sign must be present.</p>
+		<p>The FHIR Vitals Signs profile sets a minimum expectations for the Observation Resource to record, search and fetch the vital signs associated with a patient. When a FHIR implementation supports any of the vital signs listed below, the implementation <strong>SHALL</strong> conform to this profile for the vitals sign observation.</p>
+		<p>This profile identifies the required core elements and values when using this profile. Support for basic mandatory searching of resources are defined below in the Quick Start section. It is based on the <a href="http://argonautwiki.hl7.org">Argonaut DSTU2 Vital Signs Profile</a>.</p>
 	</div>
 	<div>
 		<a name="bnc"> </a>
 		<h2>Scope and Usage</h2>
-		<p>The following data-elements in the Observation resource are mandatory (i.e data MUST be present). These are presented below in simple human-readable explanation.  Refer to the table for additional quidance and examples for each vital sign.  The <a href="vitalsigns.html">StructureDefinition: Vital Signs Profile.</a> provides the complete formal definition profile in summary, differental and snapshot views
-</p>
 		<p>
-			
-Each Observation must have:
-</p>
+			<strong>Example Usage Scenarios:</strong>
+		</p>
+		<p>The following are example usage scenarios for the US VitalSigns
+profile:</p>
 		<ul>
-			<li> a patient</li>
-			<li> a time indicating when the measurement was taken</li>
-			<li> a LOINC code which tells you what is being measured and is taken from the "LOINC Code" column in the table below.
-<ul>
-					<li> note: additional codes that translate or map to these are allowed - e.g. method specific LOINC Codes, SNOMED CT concepts, system specific codes</li>
-				</ul>
-			</li>
-			<li> a numeric result value and
-<ul>
-					<li> note: if there is no numeric result then you have to supply a reason</li>
-				</ul>
-			</li>
-			<li>a reference range if it's available</li>
-			<li> a status</li>
-			<li> a category code of 'vital-signs'</li>
+			<li>Query for vital signs of a particular patient</li>
+			<li>Query for patients with a particular type of vital sign measurement</li>
 		</ul>
-		<br/>
-		<h3>
-			<span class="mw-headline" id="Vital_Signs_Table">Vital Signs Table</span>
-		</h3>
+		<h5>Mandatory Data Elements and Terminology</h5>
+		<p>The following data-elements are mandatory (i.e data MUST be present). These are presented below in a simple human-readable explanation.  Profile specific guidance and an <a href="#example">example</a> are provided as well.  The links to the<a href="#content">
+				<strong>Profile Definitions</strong></a>provide the formal views of the profile content, descriptions, mappings and the StructureDefinitions in JSON and XML.</p>
 		<p>
-Note to reviewers:  Several examples provided below link to external references.
-They will be updated to link to references within the specification in the future 
-following the connectathon freeze period</p>
+			<strong>Each Observation must have:</strong>
+		</p>
+		<ol>
+			<li>a status</li>
+			<li>a category code of 'vital-signs'</li>
+			<li>a LOINC code which tells you what is being measured and is taken from the LOINC Code column in the table below.
+<ul>
+					<li>note: If a more specific code is recorded, the generic code and the translated coded must be sent - e.g. method specific LOINC Codes, SNOMED CT concepts, system specific (local) codes</li>
+				</ul>
+			</li>
+			<li>a patient</li>
+			<li>a time indicating when the measurement was taken</li>
+			<li>a numeric result value and standard UCUM unit which is taken from the LOINC Code column in the table below.
+<ul>
+					<li>note: if there is no numeric result then you have to supply a reason</li>
+				</ul>
+			</li>
+		</ol>
+		<p>
+			<strong>Profile specific implementation guidance:</strong>
+		</p>
+		<ul>
+			<li>This table represents a minimum set of vital sign concepts, the required LOINC codes, and UCUM units of measure codes used for representing vitals signs observations. These are <a href="terminologies.html#extensible">extensible</a> bindings and require that when a system supports of any of these vital signs concepts, they must represent them using these codes. In addition, if you have a blood pressure observation, you must have both a systolic and a diastolic component, though one or both may have dataAbsentReason instead of a value.</li>
+			<li>
+				Alternate codes may be provided in addition to the standard LOINC and UCUM codes defined here.  The examples illustrate using other codes as translations.
+			</li>
+			<li>
+				Other profiles may make rules about which vital sign must be present or must be present as part of a panel.
+			</li>
+		</ul>
 		<table class="grid">
-			<tr>
-				<th> Vital Sign
-</th>
-				<th> LOINC&#160;Code
-</th>
-				<th> Units
-</th>
-				<th> Notes
-</th>
-				<th> Examples
-</th>
-			</tr>
-			<tr>
-				<td> Vital signs</td>
-				<td> 8716-3 </td>
-				<td> — </td>
-				<td> This is the top-level grouping structure for a set of vital signs.  It has no value in Observation.valueQuantity&#160;; instead, it just includes related links (with type=has-member) to the Observations in this set (e.g. respiratory rate, heart rate, BP).  Note that querying for the grouping (panel) code may miss individual results that are not grouped.</td>
-				<td>
-					<a href="http://argonautwiki.hl7.org/index.php?title=Vital_Signs_Panel_Example" title="Vital Signs Panel Example">Example</a> 
-</td>
-			</tr>
-			<tr>
-				<td>
-					<a href="resprate.html">Respiratory rate</a>
-				</td>
-				<td> 9279-1 </td>
-				<td>/min </td>
-				<td> </td>
-				<td>
-					<a href="http://argonautwiki.hl7.org/index.php?title=Vital_Signs_Respiratory_Rate_Example" title="Vital Signs Respiratory Rate Example">Example</a>
-				</td>
-			</tr>
-			<tr>
-				<td>
+			<thead>
+				<tr>
+					<th>Vital Sign Name</th>
+					<th>LOINC Code</th>
+					<th>UCUM Unit Code</th>
+					<th>Notes</th>
+					<th id = "example">Examples</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><a href="#.html">Vital Signs Panel</a></td>
+					<td>8716-3</td>
+					<td>-</td>
+					<td>This is the top-level grouping structure for a set of vital signs.  It has no value in Observation.valueQuantity ; instead, it just includes related links (with type=has-member) to the Observations in this set (e.g. respiratory rate, heart rate, BP).  Note that querying for the panel may miss individual results that are not part of an actual panel.</td>
+					<td>
+						<a href="observation-example-vitals-panel.html">Vital Signs Panel Example</a>
+					</td>
+				</tr>
+				<tr>
+					<td>
+					<a href="resprate.html">Respiratory Rate</a>
+					</td>
+					<td>9279-1</td>
+					<td>/min</td>
+					<td/>
+					<td>
+						<a href="observation-example-respiratory-rate.html">Vital Signs Respiratory Rate Example</a>
+					</td>
+				</tr>
+				<tr>
+					<td>
 					<a href="heartrate.html">Heart rate</a>
-				</td>
-				<td> 8867-4 </td>
-				<td> /min </td>
-				<td> </td>
-				<td>
-					<a href="http://argonautwiki.hl7.org/index.php?title=Vital_Signs_Heart_Rate_Example" title="Vital Signs Heart Rate Example">Example</a>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<a href="oxygensat.html"> Oxygen saturation</a>
-				</td>
-				<td>59408-5</td>
-				<td>&#160;% </td>
-				<td>
-					<a rel="nofollow" class="external text" href="http://s.details.loinc.org/LOINC/2710-2.html">LOINC has deprecated 2710-2</a> (which is listed in C-CDA) and replaced  it with 59408-5.</td>
-				<td>
-					<a href="http://argonautwiki.hl7.org/index.php?title=Vital_Signs_Oxygen_Saturation_Example" title="Vital Signs Oxygen Saturation Example">Example</a>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<a href="bodytemp.html"> Body temperature</a>
-				</td>
-				<td> 8310-5 </td>
-				<td> Cel, [degF]</td>
-				<td> </td>
-				<td>
-					<a href="observation-example-f202-temperature.html" title="Vital Signs Body Temperature Example">Example</a>
-				</td>
-			</tr>
-			<tr>
-				<td>
+					</td>
+					<td>8867-4</td>
+					<td>/min</td>
+					<td/>
+					<td>
+						<a href="observation-example-heart-rate.html">Vital Signs Heart Rate Example</a>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="oxygensat.html">Oxygen saturation</a>
+					</td>
+					<td>59408-5</td>
+					<td>%</td>
+					<td>59408-5 (Oxygen saturation in Arterial blood by Pulse oximetry) replaces the deprecated code 2710-2 which had been listed in C-CDA.</td>
+					<td>
+						<a href="observation-example-satO2.html">Vital Signs Oxygen Saturation Example</a>
+					</td>
+				</tr>
+				<tr>
+					<td>
+					<a href="bodytemp.html">Body temperature</a>
+					</td>
+					<td>8310-5</td>
+					<td>Cel, [degF]</td>
+					<td/>
+					<td>
+						<a href="observation-example-body-temperature.html">Vital Signs Body Temperature Example</a>
+					</td>
+				</tr>
+				<tr>
+					<td>
 					<a href="bodyheight.html">Body height</a>
-				</td>
-				<td> 8302-2 </td>
-				<td> cm, [in_i] </td>
-				<td> </td>
-				<td>
-					<a href="http://argonautwiki.hl7.org/index.php?title=Vital_Signs_Body_height_Example" title="Vital Signs Body height Example">Example</a>
-				</td>
-			</tr>
-			<!--			
-           <tr>
-				<td>
-					<a href="bodylength.html">Body length </a>
-				</td>
-				<td> 8306-3 </td>
-				<td> cm, [in_i] </td>
-				<td> Like height, but lying down, typically this is used for infants</td>
-				<td>
-					<a href="http://argonautwiki.hl7.org/index.php?title=Vital_Signs_Body_Length_Example" title="Vital Signs Body Length Example">Example</a>
-				</td>
-			</tr>
--->
-			<tr>
-				<td>
-					<a href="headcircum.html">Head circumference </a>
-				</td>
-<!--				
-				<td> 8287-5 </td>
-	-->
-				<td>9843-4 </td>
-				<td> cm, [in_i]</td>
-				<td></td>
-				<td>
-					<a href="http://argonautwiki.hl7.org/index.php?title=Vital_Signs_Head_Cirmcumference_Example" title="Vital Signs Head Cirmcumference Example">Example</a>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<a href="bodyweight.html"/>Body weight </td>
-				<td> 29463-7 </td>
-				<td> g, kg,[lb_av]</td>
-				<td></td>
-				<td>
-					<a href="observation-example.html"> Example</a>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<a href="bmi.html"> Body mass index </a>
-				</td>
-				<td> 39156-5 </td>
-				<td> kg/m2 </td>
-				<td></td>
-				<td>
-					<a href="http://argonautwiki.hl7.org/index.php?title=Vital_Body_Mass_Example" title="Vital Body Mass Example">Example</a>
-				</td>
-			</tr>
-			<!--
-			<tr>
-				<td>
-					<a href="bsa.html"> Body surface area </a>
-				</td>
-				<td> 3140-1 </td>
-				<td> m2 </td>
-				<td> </td>
-				<td>
-					<a href="http://argonautwiki.hl7.org/index.php?title=Vital_Signs_Body_Surface_Example" title="Vital Signs Body Surface Example">Example</a>
-				</td>
-			</tr>
-			
--->
-			<tr>
-				<td>
-					<a href="bp.html"> Blood pressure systolic and diastolic </a>
-				</td>
-				<td> 55284-4 </td>
-				<td> — </td>
-				<td> This is a grouping structure. It has no value in Observation.valueQuantity but contains at least two component - systolic blood pressure and diastolic blood pressure. </td>
-				<td>
-					<a href="observation-example-bloodpressure.html" title="Vital Signs Blood Pressure Example">Example</a>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					Systolic blood pressure
-				</td>
-				<td>8480-6 </td>
-				<td> mm[Hg] </td>
-				<td> This lives in  in the Observation.component structure on a "systolic and diastolic" Observation</td>
-				<td>
-					<a href="observation-example-bloodpressure.html" title="Vital Signs Blood Pressure Example">Example</a>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					Diastolic blood pressure
-				</td>
-				<td> 8462-4 </td>
-				<td> mm[Hg] </td>
-				<td> This lives in Observation.component structure on a "systolic and diastolic" Observation</td>
-				<td>
-					<a href="observation-example-bloodpressure.html" title="Vital Signs Blood Pressure Example">Example</a>
-					<p>
-						<a href="http://argonautwiki.hl7.org/index.php?title=Vital_Signs_Blood_Pressure_DataAbsentReason_Example" title="Vital Signs Blood Pressure DataAbsentReason Example">DataAbsentReason Example</a>
-					</p>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<a href="mbp.html">Mean blood pressure </a>
-				</td>
-				<td> 8478-0 </td>
-				<td> mm[Hg] </td>
-				<td> Will define this as Mean Arterial Pressure (MAP) = 2/3DP + 1/3SP  </td>
-				<td>
-					<a href="http://argonautwiki.hl7.org/index.php?title=Vital_Signs_Mean_Arterial_Bloode_Pressure_Example" title="Vital Signs Mean Arterial Blood Pressure Example">Example</a>
-				</td>
-			</tr>
+					</td>
+					<td>8302-2</td>
+					<td>cm, [in_i]</td>
+					<td/>
+					<td>
+						<a href="observation-example-body-height.html">Vital Signs Body height Example</a>
+					</td>
+				</tr>
+				<tr>
+					<td>
+					<a href="#.html">Body length</a>
+					</td>
+					<td>8306-3</td>
+					<td>cm, [in_i]</td>
+					<td>Like height, but lying down, typically this is used for infants</td>
+					<td>
+						<a href="observation-example-body-length.html">Vital Signs Body Length Example</a>
+					</td>
+				</tr>
+				<tr>
+					<td>
+					<a href="headcircum.html">Head circumference</a>
+					</td>
+					<td>8287-5</td>
+					<td>cm, [in_i]</td>
+					<td/>
+					<td>
+						<a href="observation-example-head-circumference.html">Vital Signs Head Cirmcumference Example</a>
+					</td>
+				</tr>
+				<tr>
+					<td>
+					<a href="#.html">Body weight</a>
+					</td>
+					<td>29463-7</td>
+					<td>g, kg,[lb_av]</td>
+					<td/>
+					<td>
+						<a href="observation-example.html">Vital Signs Body Weight Example</a>
+					</td>
+				</tr>
+				<tr>
+					<td>
+					<a href="bmi.html">Body mass index</a>
+					</td>
+					<td>39156-5</td>
+					<td>kg/m2</td>
+					<td/>
+					<td>
+						<a href="observation-example-bmi.html">Vital  Body Mass Example</a>
+					</td>
+				</tr>
+				<tr>
+					<td>
+					<a href="bp.html">Blood pressure systolic and diastolic</a>
+					</td>
+					<td>55284-4</td>
+					<td></td>
+					<td>This is a grouping structure. It has no value in Observation.valueQuantity but contains at least one component (systolic and/or diastolic).</td>
+					<td>
+						<a href="observation-example-bloodpressure.html">Vital Signs Blood Pressure Example</a>,  <a href="observation-example-bloodpressure-dar.html">Vital Signs Blood Pressure Example with missing Diastolic measurement</a>
+					</td>
+				</tr>
+				<tr>
+					<td>
+					<a href="bp.html">Systolic blood pressure</a>
+					</td>
+					<td>8480-6</td>
+					<td>mm[Hg]</td>
+					<td>Observation.component code for a blood pressure Observation</td>
+					<td>
+						<a href="observation-example-bloodpressure.html">Vital Signs Blood Pressure Example</a>
+					</td>
+				</tr>
+				<tr>
+					<td>
+					<a href="bp.html">Diastolic blood pressure</a>
+					</td>
+					<td>8462-4</td>
+					<td>mm[Hg]</td>
+					<td>Observation.component code for a blood pressure Observation</td>
+					<td>
+						<a href="observation-example-bloodpressure.html">Vital Signs Blood Pressure Example</a>
+					</td>
+				</tr>
+				<tr>
+					<td>
+					<a href="mbp.html">Mean blood pressure</a>
+					</td>
+					<td>8478-0</td>
+					<td>mm[Hg]</td>
+					<td>The mean blood pressure is most commonly a direct average taken off of an instrument.</td>
+					<td>
+						<a href="observation-example-mbp.html">Vital Signs Mean Blood Pressure Example</a>
+					</td>
+				</tr>
+			</tbody>
 		</table>
+
 	</div>
-	<!-- (recommended): 
-<div>
-<h2>Boundaries and Relationships</h2>
-<p>
-Explains how this resource relates to others. Particularly important is to differentiate between appropriate usages for related resources when an implementer might be confused about what to reference when.
-</p>
-</div>
--->
 	<div>
-		<h2>
-			<span class="mw-headline" id="Quick_Start">Quick Start</span>
-		</h2>
-		<p>Below is a quick overview of the required search and read operations
-</p>
-		<h3>
-			<span class="mw-headline" id="GET_.5Bbase.5D.2FObservation.3Fpatient.3D.5Bid.5D.26category.3Dvital-signs">GET [base]/Observation?patient=[id]&amp;category=vital-signs</span>
-		</h3>
+		<a name="Quick_Start"> </a>
+		<h2>Quick Start</h2>
+		<p>Below is an overview of required search and read operations</p>
 		<p>
-			<i>Support:</i> Mandatory to support search by category code.
-</p>
+			<strong>Clients</strong>
+		</p>
+		<ul>
+			<li>A client has connected to a server and fetched all of a patient's vital signs by searching by category using <code>GET [base]/Observation?patient=[id]&amp;category=vital-signs</code>.</li>
+			<li>A client has connected to a server and fetched all of a patient's vital signs searching by category code and date range using <code>GET [base]/Observation?patient=[id]&amp;category=vital-signs&amp;date=[date]{&amp;date=[date]}</code>.</li>
+			<li>A client has connected to a server and fetched any of a patient's vital signs by searching by one or more of the codes listed below using <code>GET [base]/Observation?patient=[id]&amp;code[vital sign LOINC{,LOINC2,LOINC3,...}]</code>.</li>
+		</ul>
+		<ul>
+			<li>A client <strong>SHOULD</strong> be capable of connecting to a server and fetching any of a patient's vital signs searching by one or more of the codes listed below and date range using <code>GET [base]/Observation?patient=[id]&amp;code=[LOINC{,LOINC2...}]vital-signs&amp;date=[date]{&amp;date=[date]}</code>.</li>
+		</ul>
 		<p>
-			<i>Implementation Notes:</i> Search based on vital sign category code. This fetches a bundle of all Observation resources with category 'vital-signs' for the specified patient <a rel="nofollow" class="external text" href="search.html#reference">(how to search by reference)</a> and <a rel="nofollow" class="external text" href="search.html#token">(how to search by token)</a>.
-</p>
+			<strong>Servers</strong>
+		</p>
+		<ul>
+			<li>A server is capable of returning all of a patient's vital signs that it supports using <code>GET [base]/Observation?patient=[id]&amp;category=vital-signs</code>.</li>
+			<li>A server is capable of returning all of a patient's vital signs queried by date range using <code>GET [base]/Observation?patient=[id]&amp;category=vital-signs&amp;date=[date]{&amp;date=[date]}</code>.</li>
+			<li>A server is capable of returning any of a patient's vital signs queried by one or more of the codes listed below using <code>GET [base]/Observation?patient=[id]&amp;code[vital sign LOINC{,LOINC2,LOINC3,...}]</code>.</li>
+		</ul>
+		<ul>
+			<li>A server <strong>SHOULD</strong> be capable of returning any of a patient's vital signs queried by one or more of the codes listed below and date range using <code>GET [base]/Observation?patient=[id]&amp;code=[LOINC{,LOINC2...}]vital-signs&amp;date=[date]{&amp;date=[date]}</code>.</li>
+		</ul>
+		<ul>
+			<li>A server has ensured that every API request includes a valid Authorization token, supplied via:Authorization: Bearer {server-specific-token-here}</li>
+			<li>A server has rejected any unauthorized requests by returning an HTTP 401 Unauthorized response code.</li>
+		</ul>
+		<hr/>
 		<p>
-			<i>Response Class:</i>
+			<code>GET [base]/Observation?patient=[id]&amp;category=vital-signs</code>
+		</p>
+		<p>
+			<em>Support:</em>  Mandatory to support search by category code.</p>
+		<p>
+			<em>Implementation Notes:</em>   Search based on vital sign category code. This search fetches a bundle of all Observation resources with category 'vital-signs' for the specified patient  <a href="http://hl7.org/fhir/DSTU2/search.html#reference">(how to search by reference)</a> and <a href="http://hl7.org/fhir/DSTU2/search.html#token">(how to search by token)</a>.  The table above is the minimum set, additional vital signs are allowed.</p>
+		<p>
+			<em>Response Class:</em>
 		</p>
 		<ul>
 			<li>(Status 200): successful operation</li>
@@ -260,23 +266,21 @@ Explains how this resource relates to others. Particularly important is to diffe
 			<li>(Status 401/4xx): unauthorized request</li>
 			<li>(Status 403): insufficient scope</li>
 		</ul>
-		<span class="mw-headline" id="Example">
-			<b>Example:</b>
-		</span>
-		<pre>[GET <a rel="nofollow" class="external free" href="https://fhir-open-api-dstu2.smarthealthit.org/Observation?patient=1186747&amp;category=vital-signs">https://fhir-open-api-dstu2.smarthealthit.org/Observation?patient=1186747&amp;category=vital-signs</a>]
-</pre>
+		<p>
+			<strong>Example:</strong>
+		</p>
+		<p>GET <a href="https://fhir-open-api-dstu2.smarthealthit.org/Observation?patient=1186747&amp;category=vital-signs">https://fhir-open-api-dstu2.smarthealthit.org/Observation?patient=1186747&amp;category=vital-signs</a>
+		</p>
 		<hr/>
-		<h3>
-			<span class="mw-headline" id="GET_.5Bbase.5D.2FObservation.3Fpatient.3D.5Bid.5D.26code.3D.5Bvital_sign_LOINC.5D">GET [base]/Observation?patient=[id]&amp;code=[vital sign LOINC]</span>
-		</h3>
 		<p>
-			<i>Support:</i> Mandatory to support search by vital sign LOINCs listed above.
-</p>
+			<code>GET [base]/Observation?patient=[id]&amp;code=[vital sign LOINC{,LOINC2,LOINC3,...}]</code>
+		</p>
 		<p>
-			<i>Implementation Notes:</i> Search based on vital sign LOINC code. This fetches a bundle of all Observation resources for a specific vital sign listed in the table above for the specified patient <a rel="nofollow" class="external text" href="search.html#reference">(how to search by reference)</a> and <a rel="nofollow" class="external text" href="search.html#token">(how to search by token)</a>.
-</p>
+			<em>Support:</em>  Mandatory to support search by vital sign LOINC(s) listed above.</p>
 		<p>
-			<i>Response Class:</i>
+			<em>Implementation Notes:</em>   1)Search based on vital sign LOINC code(s). This fetches a bundle of all Observation resources for specific vital sign(s) listed in the table above for the specified patient <a href="http://hl7.org/fhir/DSTU2/search.html#reference">(how to search by reference)</a> and [how to search by token)]. 2) The Argonaut Observation "code" parameter has been defined to search both in both Observation.code and Observation.component.code. For example when fetching blood pressures the same resources will be returned whether the search is based on 55284-4(Systolic and Diastolic BP), or the component codes 8480-6(Systolic BP) or 8462-4 (Diastolic BP).</p>
+		<p>
+			<em>Response Class:</em>
 		</p>
 		<ul>
 			<li>(Status 200): successful operation</li>
@@ -284,50 +288,26 @@ Explains how this resource relates to others. Particularly important is to diffe
 			<li>(Status 401/4xx): unauthorized request</li>
 			<li>(Status 403): insufficient scope</li>
 		</ul>
-		<span class="mw-headline" id="Example3">
-			<b>Example:</b>
-		</span>
-		<pre>Search for all heart rate observations for a patient:
-[GET <a rel="nofollow" class="external free" href="https://fhir-open-api-dstu2.smarthealthit.org/Observation?patient=1186747&amp;code=8867-4">https://fhir-open-api-dstu2.smarthealthit.org/Observation?patient=1186747&amp;code=8867-4</a>]
-</pre>
-		<hr/>
-		<h3>
-			<span class="mw-headline" id="GET_.5Bbase.5D.2FObservation.3Fpatient.3D.5Bid.5D.26code.3D.5Bvital_sign1_LOINC.2C_vital_sign2_LOINC.2C_etc.5D">GET [base]/Observation?patient=[id]&amp;code=[vital sign1 LOINC, vital sign2 LOINC, etc]</span>
-		</h3>
 		<p>
-			<i>Support:</i> Mandatory to support search by multiple vital sign LOINCs listed above.
-.
-</p>
-		<p>
-			<i>Implementation Notes:</i> Search based on multiple vital sign LOINC codes. This fetches a bundle of all Observation resources for specific vital signs listed in the table above for the specified patient <a rel="nofollow" class="external text" href="search.html#reference">(how to search by reference)</a> and <a rel="nofollow" class="external text" href="search.html#token">(how to search by token)</a> and <a rel="nofollow" class="external text" href="http://hl7-fhir.github.iosearch.html#combining">(how to search for multiple values)</a>
+			<strong>Example:</strong>
+Search for all heart rate observations for a patient:</p>
+		<p>GET <a href="https://fhir-open-api-dstu2.smarthealthit.org/Observation?patient=1186747&amp;code=8867-4">https://fhir-open-api-dstu2.smarthealthit.org/Observation?patient=1186747&amp;code=8867-4</a>
 		</p>
 		<p>
-			<i>Response Class:</i>
+			<strong>Example:</strong>
+Search for all heart rate, respiratory rate and blood pressure observations for a patient</p>
+		<p>GET <a href="https://fhir-open-api-dstu2.smarthealthit.org/Observation?patient=1186747&amp;code=8867-4,9279-1,55284-4">https://fhir-open-api-dstu2.smarthealthit.org/Observation?patient=1186747&amp;code=8867-4,9279-1,55284-4</a>
 		</p>
-		<ul>
-			<li>(Status 200): successful operation</li>
-			<li>(Status 400): invalid parameter</li>
-			<li>(Status 401/4xx): unauthorized request</li>
-			<li>(Status 403): insufficient scope</li>
-		</ul>
-		<span class="mw-headline" id="Example4">
-			<b>Example:</b>
-		</span>
-		<pre>Search for all heart rate, respiratory rate and blood pressure observations for a patient
-[GET <a rel="nofollow" class="external free" href="https://fhir-open-api-dstu2.smarthealthit.org/Observation?patient=1186747&amp;code=8867-4,9279-1,55284-4">https://fhir-open-api-dstu2.smarthealthit.org/Observation?patient=1186747&amp;code=8867-4,9279-1,55284-4</a>]
-</pre>
 		<hr/>
-		<h3>
-			<span class="mw-headline" id="GET_.5Bbase.5D.2FObservation.3Fpatient.3D.5Bid.5D.26category.3Dvital-signs.26date.3D.5Beq.7Cne.7Clt.7Cgt.7Cgeyyyy-mm-dd.5D">GET [base]/Observation?patient=[id]&amp;category=vital-signs&amp;date=[eq|ne|lt|gt|geyyyy-mm-dd]</span>
-		</h3>
 		<p>
-			<i>Support:</i> Should support search by category code and date
-</p>
+			<code>GET [base]/Observation?patient=[id]&amp;category=vital-signs&amp;date=[date]{&amp;date=[date]}</code>
+		</p>
 		<p>
-			<i>Implementation Notes:</i> Search based on vital sign category code and date. This fetches a bundle of all Observation resources with category 'vital-signs' for the specified patient for a specified time period <a rel="nofollow" class="external text" href="search.html#reference">(how to search by reference)</a>and <a rel="nofollow" class="external text" href="search.html#token">(how to search by token)</a> and <a rel="nofollow" class="external text" href="search.html#date">(how to search by date)</a>.
-</p>
+			<em>Support:</em>  Mandatory to support search by category code and date</p>
 		<p>
-			<i>Response Class:</i>
+			<em>Implementation Notes:</em>  Search based on vital sign category code and date. This fetches a bundle of all Observation resources with category 'vital-signs' for the specified patient for a specified time period  <a href="http://hl7.org/fhir/DSTU2/search.html#reference">(how to search by reference)</a> and <a href="http://hl7.org/fhir/DSTU2/search.html#token">(how to search by token)</a>.</p>
+		<p>
+			<em>Response Class:</em>
 		</p>
 		<ul>
 			<li>(Status 200): successful operation</li>
@@ -335,41 +315,11 @@ Explains how this resource relates to others. Particularly important is to diffe
 			<li>(Status 401/4xx): unauthorized request</li>
 			<li>(Status 403): insufficient scope</li>
 		</ul>
-		<span class="mw-headline" id="Example6">
-			<b>Example:</b>
-		</span>
-		<pre>Find all the vital signs after 2013-03-14
-[GET <a rel="nofollow" class="external free" href="http://fhir2.healthintersections.com.au/open/Observation?patient=555580&amp;category=vital-signs&amp;date=ge2015-01-14">http://fhir2.healthintersections.com.au/open/Observation?patient=555580&amp;category=vital-signs&amp;date=ge2015-01-14</a>]
-</pre>
-		<hr/>
 		<p>
-			<br/>
+			<strong>Example:</strong>
+Find all the blood pressures after 2013-03-14</p>
+		<p>GET <a href="http://fhir2.healthintersections.com.au/open/Observation?patient=555580&amp;code=55284-4&amp;date=ge2015-01-14">http://fhir2.healthintersections.com.au/open/Observation?patient=555580&amp;code=55284-4&amp;date=ge2015-01-14</a>
 		</p>
 	</div>
-	<!--<h2><span class="mw-headline" id="Resources">Resources</span></h2>
-<p>Formalized testing with test scripts and objective results reporting is available through the participation of AEGIS and MITRE (Crucible). The testscript provided can be used to test servers:
-[todo]
-</p>-->
-	<div>
-		<h2>
-			<span class="mw-headline" id="References">References</span>
-		</h2>
-		<ul>
-			<li>
-				<a rel="nofollow" class="external text" href="https://en.wikipedia.org/wiki/Vital_signs">Vital Signs</a>
-			</li>
-			<li>
-				<a rel="nofollow" class="external text" href="http://loinc.org">LOINC</a>
-			</li>
-			<li>
-				<a rel="nofollow" class="external text" href="http://unitsofmeasure.org">UCUM</a>
-			</li>
-		</ul>
-	</div>
-	<!--<div>
-<h2>Background and Context</h2>
-<p>
-Provides additional detail on exactly how the resource is to be used
-</p>
-</div>-->
+
 </div>

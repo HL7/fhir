@@ -899,186 +899,246 @@
   Filename = observation-example.xml
 
  -- Row 2 -----------------------------------
-  Name = Blood pressure
+  Name = Respiratory Rate
+  Identity = respiratory-rate
+  Description = Simple Respiratory Rate Example
+  Filename = observation-example-respiratory-rate.xml
+
+ -- Row 3 -----------------------------------
+  Name = Heart Rate
+  Identity = heart-rate
+  Description = Simple Heart Rate Example
+  Filename = observation-example-heart-rate.xml
+
+ -- Row 4 -----------------------------------
+  Name = Body Temperature
+  Identity = body-temperature
+  Description = Simple Body Temperature Example
+  Filename = observation-example-body-temperature.xml
+
+ -- Row 5 -----------------------------------
+  Name = Body Height
+  Identity = body-height
+  Description = Simple Body Height Example
+  Filename = observation-example-body-height.xml
+
+ -- Row 6 -----------------------------------
+  Name = Body Length
+  Identity = body-length
+  Description = Simple Body Length Example
+  Filename = observation-example-body-length.xml
+
+ -- Row 7 -----------------------------------
+  Name = Head Circumference
+  Identity = head-circumference
+  Description = Simple Head Circumference Example
+  Filename = observation-example-head-circumference.xml
+
+ -- Row 8 -----------------------------------
+  Name = BMI
+  Identity = bmi
+  Description = Simple BMI Example
+  Filename = observation-example-bmi.xml
+
+ -- Row 9 -----------------------------------
+  Name = Oxygen Saturation (SpO2)
+  Identity = satO2
+  Description = Oxygen Saturation by Pulse Oximetry Example (DeviceMetricObservation profile)
+  Filename = observation-example-satO2.xml
+
+ -- Row 10 -----------------------------------
+  Name = Blood Pressure
   Identity = blood-pressure
   Description = Blood Pressure Measurement
   Filename = observation-example-bloodpressure.xml
 
- -- Row 3 -----------------------------------
+ -- Row 11 -----------------------------------
+  Name = Blood Pressure with Data Absent
+  Identity = blood-pressure-dar
+  Description = Blood Pressure Measurement with an absent Diastolic measurement
+  Filename = observation-example-bloodpressure-dar.xml
+
+ -- Row 12 -----------------------------------
+  Name = Mean Arterial Blood Pressure
+  Identity = mbp
+  Description = Simple Mean Arterial Blood Pressure Example
+  Filename = observation-example-mbp.xml
+
+ -- Row 13 -----------------------------------
+  Name = Vitals Signs Panel
+  Identity = vitals-panel
+  Description = Simple Panel of Heart Rate, Repiratory Rate. Blood Pressure and Body Temperature
+  Filename = observation-example-vitals-panel.xml
+
+ -- Row 14 -----------------------------------
   Name = cancelled
   Identity = blood-pressure-cancel
   Description = Blood Pressure Measurement cancelled
   Filename = observation-example-bloodpressure-cancel.xml
 
- -- Row 4 -----------------------------------
+ -- Row 15 -----------------------------------
   Name = Glucose
   Identity = f001
   Description = Real-world patient - glucose
   Filename = observation-example-f001-glucose.xml
 
- -- Row 5 -----------------------------------
+ -- Row 16 -----------------------------------
   Name = Unsat
   Identity = unsat
   Description = Specimen Reject Example
   Filename = observation-example-unsat.xml
 
- -- Row 6 -----------------------------------
+ -- Row 17 -----------------------------------
   Name = Base Excess
   Identity = f002
   Description = Real-world patient -base excess
   Filename = observation-example-f002-excess.xml
 
- -- Row 7 -----------------------------------
+ -- Row 18 -----------------------------------
   Name = Carbon Dioxide
   Identity = f003
   Description = Real-world patient - CO2
   Filename = observation-example-f003-co2.xml
 
- -- Row 8 -----------------------------------
+ -- Row 19 -----------------------------------
   Name = Erythrocyte Hemoglobin
   Identity = f004
   Description = Real-world patient - erythrocyte
   Filename = observation-example-f004-erythrocyte.xml
 
- -- Row 9 -----------------------------------
+ -- Row 20 -----------------------------------
   Name = Hemoglobin
   Identity = f005
   Description = Real-world patient - hemoglobin
   Filename = observation-example-f005-hemoglobin.xml
 
- -- Row 10 -----------------------------------
+ -- Row 21 -----------------------------------
   Name = !BMI
   Identity = f201
   Description = Real-world patient - bmi
   Filename = observation-example-f201-bmi.xml
 
- -- Row 11 -----------------------------------
+ -- Row 22 -----------------------------------
   Name = Temperature
   Identity = f202
   Description = Real-world patient - temperature
   Filename = observation-example-f202-temperature.xml
 
- -- Row 12 -----------------------------------
+ -- Row 23 -----------------------------------
   Name = Bicarbonate
   Identity = f203
   Description = Real-world patient - CO2
   Filename = observation-example-f203-bicarbonate.xml
 
- -- Row 13 -----------------------------------
+ -- Row 24 -----------------------------------
   Name = Creatinine
   Identity = f204
   Description = Real-world patient - creatinine
   Filename = observation-example-f204-creatinine.xml
 
- -- Row 14 -----------------------------------
+ -- Row 25 -----------------------------------
   Name = Estimated GFR
   Identity = f205
   Description = Real-world patient - estimated gfr
   Filename = observation-example-f205-egfr.xml
 
- -- Row 15 -----------------------------------
+ -- Row 26 -----------------------------------
   Name = Staphylococcus
   Identity = f206
   Description = Real-world patient - staphylococcus
   Filename = observation-example-f206-staphylococcus.xml
 
- -- Row 16 -----------------------------------
-  Name = Oxygen Saturation
-  Identity = satO2
-  Description = Oxygen Saturation Example (DeviceMetricObservation profile)
-  Filename = observation-example-satO2.xml
-
- -- Row 17 -----------------------------------
+ -- Row 27 -----------------------------------
   Name = EKG
   Identity = ekg
   Description = EKG Example using SampledData data type
   Filename = observation-example-sample-data.xml
 
- -- Row 18 -----------------------------------
+ -- Row 28 -----------------------------------
   Name = !EEG Example
   Identity = example-eeg
   Description = EEG Example
   Filename = observation-example-eeg.xml
 
- -- Row 19 -----------------------------------
+ -- Row 29 -----------------------------------
   Name = Glasgow Score 1
   Identity = glasgow
   Description = Clinical assessment tool example - GCS using related Observations
   Filename = observation-example-glasgow.xml
 
- -- Row 20 -----------------------------------
+ -- Row 30 -----------------------------------
   Name = Glasgow Score 2
   Identity = gcs-qa
   Description = Clinical assessment tool example - GCS using related QuestionnaireAnswer
   Filename = observation-example-glasgow-qa.xml
 
- -- Row 21 -----------------------------------
+ -- Row 31 -----------------------------------
   Name = Genetics 1
   Identity = example-genetics-1
   Description = Genetics example 1
   Filename = observation-example-genetics-1.xml
 
- -- Row 22 -----------------------------------
+ -- Row 32 -----------------------------------
   Name = Genetics 2
   Identity = example-genetics-2
   Description = Genetics example 2
   Filename = observation-example-genetics-2.xml
 
- -- Row 23 -----------------------------------
+ -- Row 33 -----------------------------------
   Name = Genetics 3
   Identity = example-genetics-3
   Description = Genetics example 3
   Filename = observation-example-genetics-3.xml
 
- -- Row 24 -----------------------------------
+ -- Row 34 -----------------------------------
   Name = Genetics 4
   Identity = example-genetics-4
   Description = Genetics example 4
   Filename = observation-example-genetics-4.xml
 
- -- Row 25 -----------------------------------
+ -- Row 35 -----------------------------------
   Name = Genetics 5
   Identity = example-genetics-5
   Description = Genetics example 5
   Filename = observation-example-genetics-5.xml
 
- -- Row 26 -----------------------------------
+ -- Row 36 -----------------------------------
   Name = 1 minute Apgar Score
   Identity = 1minute-apgar-score
   Description = Example of a 1 minute Apgar score including the individual score components
   Filename = observation-example-1minute-apgar-score.xml
 
- -- Row 27 -----------------------------------
+ -- Row 37 -----------------------------------
   Name = 2 minute Apgar Score
   Identity = 2minute-apgar-score
   Description = Example of a 2 minute Apgar score including the individual score components
   Filename = observation-example-2minute-apgar-score.xml
 
- -- Row 28 -----------------------------------
+ -- Row 38 -----------------------------------
   Name = 5 minute Apgar Score
   Identity = 5minute-apgar-score
   Description = Example of a 5 minute Apgar score including the individual score components
   Filename = observation-example-5minute-apgar-score.xml
 
- -- Row 29 -----------------------------------
+ -- Row 39 -----------------------------------
   Name = 10 minute Apgar Score
   Identity = 10minute-apgar-score
   Description = Example of a 10 minute Apgar score including the individual score components
   Filename = observation-example-10minute-apgar-score.xml
 
- -- Row 30 -----------------------------------
+ -- Row 40 -----------------------------------
   Name = 20 minute Apgar Score
   Identity = 20minute-apgar-score
   Description = Example of a 20 minute Apgar score including the individual score components
   Filename = observation-example-20minute-apgar-score.xml
 
- -- Row 31 -----------------------------------
+ -- Row 41 -----------------------------------
   Name = Eye Color
   Identity = eye-color
   Description = Example of a very simple personal characteristic observation
   Filename = observation-example-eye-color.xml
 
- -- Row 32 -----------------------------------
+ -- Row 42 -----------------------------------
   Name = Bone Density Measurement
   Identity = bmd
   Description = Example of an encoded BMD measurements of left femur

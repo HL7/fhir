@@ -1,56 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <!-- 
  This example is taken from the v3 data types (SLIST)
  -->
 <Observation xmlns="http://hl7.org/fhir">
-  <id value="satO2"/>
-  <identifier>
-    <system value="http://goodcare.org/observation/id"/>
-    <value value="o1223435-10"/>
-  </identifier>
-  <status value="final"/>
-  <code>
-    <coding>
-      <system value="https://rtmms.nist.gov"/>
-    <!--    mdc    -->
-      <code value="150456"/>
-      <display value="MDC_PULS_OXIM_SAT_O2"/>
-    </coding>
-  </code>
-  <subject>
-    <reference value="Patient/example"/>
-  </subject>
-  <effectiveDateTime value="2014-12-05T09:30:10+01:00"/>
-  <valueQuantity>
-    <value value="95"/>
-    <unit value="%"/>
-    <system value="https://rtmms.nist.gov"/>
-    <code value="262688"/>
-  </valueQuantity>
-  <interpretation>
-    <coding>
-      <system value="http://hl7.org/fhir/v2/0078"/>
-      <code value="N"/>
-      <display value="Normal"/>
-    </coding>
-    <text value="Normal (applies to non-numeric results)"/>
-  </interpretation>
-  <device>
-    <reference value="DeviceMetric/example"/>
-  </device>
-  <referenceRange>
-    <low>
-      <value value="90"/>
-      <unit value="%"/>
-      <system value="https://rtmms.nist.gov"/>
-      <code value="262688"/>
-    </low>
-    <high>
-      <value value="99"/>
-      <unit value="%"/>
-      <system value="https://rtmms.nist.gov"/>
-      <code value="262688"/>
-    </high>
-  </referenceRange>
+	<id value="satO2"/>
+	<identifier>
+		<system value="http://goodcare.org/observation/id"/>
+		<value value="o1223435-10"/>
+	</identifier>
+	<status value="final"/>
+	<category>
+		<coding>
+			<system value="http://hl7.org/fhir/observation-category"/>
+			<code value="vital-signs"/>
+			<display value="Vital Signs"/>
+		</coding>
+		<text value="Vital Signs"/>
+	</category>
+	<code>
+		<coding>
+			<system value="http://loinc.org"/>
+			<!-- LOINC -->
+			<code value="59408-5"/>
+			<display value="Oxygen saturation in Arterial blood by Pulse oximetry"/>
+		</coding>
+		<!-- Example of a translation to a more specific code  to the vitals profile LOINC code -->
+		<coding>
+			<system value="https://rtmms.nist.gov"/>
+			<!--    mdc    -->
+			<code value="150456"/>
+			<display value="MDC_PULS_OXIM_SAT_O2"/>
+		</coding>
+	</code>
+	<subject>
+		<reference value="Patient/example"/>
+	</subject>
+	<effectiveDateTime value="2014-12-05T09:30:10+01:00"/>
+	<valueQuantity>
+		<value value="95"/>
+		<unit value="%"/>
+		<system value="http://unitsofmeasure.org"/>
+		<code value="%"/>
+	</valueQuantity>
+	<interpretation>
+		<coding>
+			<system value="http://hl7.org/fhir/v2/0078"/>
+			<code value="N"/>
+			<display value="Normal"/>
+		</coding>
+		<text value="Normal (applies to non-numeric results)"/>
+	</interpretation>
+	<device>
+		<reference value="DeviceMetric/example"/>
+	</device>
+	<referenceRange>
+		<low>
+			<value value="90"/>
+			<unit value="%"/>
+			<system value="http://unitsofmeasure.org"/>
+			<code value="%"/>
+		</low>
+		<high>
+			<value value="99"/>
+			<unit value="%"/>
+			<system value="http://unitsofmeasure.org"/>
+			<code value="%"/>
+		</high>
+	</referenceRange>
 </Observation>
