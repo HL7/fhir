@@ -11,7 +11,7 @@
   <LastAuthor>Melva Peters</LastAuthor>
   <Created>2013-11-28T10:43:10Z</Created>
   <LastSaved>2016-10-26T20:29:43Z</LastSaved>
-  <Version>16.00</Version>
+  <Version>14.00</Version>
  </DocumentProperties>
  <CustomDocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <WorkbookGuid dt:dt="string">2eaca039-8f5b-4e09-a647-90931ca82fc4</WorkbookGuid>
@@ -555,7 +555,7 @@
     <Cell ss:StyleID="s68"><Data ss:Type="String">completed</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s68"><Data ss:Type="String">cancelled</Data></Cell>
-    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">unknown</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">CarePlan.status</Data></Cell>
@@ -575,7 +575,7 @@
     <Cell ss:StyleID="s68"><Data ss:Type="String">completed</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s68"><Data ss:Type="String">cancelled</Data></Cell>
-    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">unknown</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Claim.status</Data></Cell>
@@ -2197,10 +2197,12 @@
     <VerticalResolution>-4</VerticalResolution>
    </Print>
    <Selected/>
+   <LeftColumnVisible>1</LeftColumnVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>53</ActiveRow>
+     <ActiveRow>13</ActiveRow>
+     <ActiveCol>17</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

@@ -181,14 +181,24 @@
   w5 = status
 
  -- Row 11 -----------------------------------
-  Element = CommunicationRequest.encounter
-  Card. = 0..1
-  Type = Reference(Encounter)
-  Short Name = Encounter leading to message
-  Definition = The encounter within which the communication request was created.
+  Element = CommunicationRequest.topic
+  Card. = 0..*
+  Type = Reference(Any)
+  Short Name = Focal resources
+  Definition = The resources which were related to producing this communication request.
+  Committee Notes = GF#11381
   w5 = context
 
  -- Row 12 -----------------------------------
+  Element = CommunicationRequest.context
+  Card. = 0..1
+  Type = Reference(Encounter|EpisodeOfCare)
+  Short Name = Encounter or episode leading to message
+  Definition = The encounter or episode of care within which the communication request was created.
+  Committee Notes = GF#11381
+  w5 = context
+
+ -- Row 13 -----------------------------------
   Element = CommunicationRequest.scheduled[x]
   Card. = 0..1
   Type = dateTime|Period
@@ -196,7 +206,7 @@
   Definition = The time when this communication is to occur.
   w5 = when.planned
 
- -- Row 13 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = CommunicationRequest.reason
   Card. = 0..*
   Type = CodeableConcept
@@ -204,7 +214,7 @@
   Short Name = Indication for message
   Definition = The reason or justification for the communication request.
 
- -- Row 14 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = CommunicationRequest.requestedOn
   Card. = 0..1
   Type = dateTime
@@ -212,7 +222,7 @@
   Definition = The time when the request was made.
   w5 = when.init
 
- -- Row 15 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = CommunicationRequest.subject
   Card. = 0..1
   Type = Reference(Patient|)
@@ -220,7 +230,7 @@
   Definition = The patient who is the focus of this communication request.
   w5 = who.focus
 
- -- Row 16 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = CommunicationRequest.priority
   Card. = 0..1
   Type = CodeableConcept
@@ -266,9 +276,9 @@
   Path = CommunicationRequest.status
 
  -- Row 8 -----------------------------------
-  Name = encounter
+  Name = context
   Type = reference
-  Path = CommunicationRequest.encounter
+  Path = CommunicationRequest.context
 
  -- Row 9 -----------------------------------
   Name = time

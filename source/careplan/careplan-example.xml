@@ -85,6 +85,7 @@
       <code>
         <text value="a code for weight measurement"/>
       </code>
+	  <status value="completed"/>
       <prohibited value="false"/>
       <scheduledTiming>
         <repeat>

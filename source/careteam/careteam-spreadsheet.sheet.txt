@@ -39,7 +39,7 @@
   w5 = status
 
  -- Row 4 -----------------------------------
-  Element = CareTeam.type
+  Element = CareTeam.category
   Card. = 0..*
   Summary = Y
   Type = CodeableConcept
@@ -48,6 +48,7 @@
   Requirements = Used for filtering what teams(s) are retrieved and displayed to different types of users
   Comments = There may be multiple axis of categorization and one team may serve multiple purposes.
   To Do = Need a value set for this
+  Committee Notes = GF#11347
   w5 = class
 
  -- Row 5 -----------------------------------
@@ -56,7 +57,9 @@
   Summary = Y
   Type = string
   Short Name = Name of the team, such as crisis assessment team
-  Definition = Name of the care team
+  Definition = A label for human use intended to distinguish like teams.  E.g. the \"red\" vs. \"green\" trauma teams
+  Comments = The meaning/purpose of the team is conveyed in CareTeam.category.  This element may also convey semantics of the team (e.g. \"Red trauma team\"), but it\'s primary purpose is to distinguish between identical teams in a human-friendly way.  (\"Team 18735\" isn\'t as friendly . )
+  Committee Notes = GF#11176
 
  -- Row 6 -----------------------------------
   Element = CareTeam.subject
@@ -93,7 +96,7 @@
   Type = CodeableConcept
   Binding = CareTeamParticipantRole
   Short Name = Type of involvement
-  Definition = Indicates specific responsibility of an individual within the care team, such as \"Primary physician\", \"Team coordinator\", \"Caregiver\", etc.
+  Definition = Indicates specific responsibility of an individual within the care team, such as \"Primary care physician\", \"Trained social worker counselor\", \"Caregiver\", etc.
   Comments = Roles may sometimes be inferred by type of Practitioner.  These are relationships that hold only within the context of the care team.  General relationships should be handled as properties of the Patient resource directly.
   v2 Mapping = REL.2 (or PRT-4?)
   RIM Mapping = .functionCode
@@ -119,11 +122,13 @@
 
  -- Row 12 -----------------------------------
   Element = CareTeam.managingOrganization
-  Card. = 0..1
+  Card. = 0..*
   Summary = Y
   Type = Reference(Organization)
   Short Name = Organization responsible for the care team
   Definition = The organization responsible for the care team
+  Requirements = Allows for multiple organizations to collaboratively manage cross-organizational, longitudinal care plan
+  Committee Notes = GF#11335
 
 === Sheet Search =====================================
 
@@ -149,9 +154,9 @@
   Path = CareTeam.participant.member
 
  -- Row 5 -----------------------------------
-  Name = type
+  Name = category
   Type = token
-  Path = CareTeam.type
+  Path = CareTeam.category
 
  -- Row 6 -----------------------------------
   Name = status

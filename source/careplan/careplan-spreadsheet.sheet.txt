@@ -113,6 +113,12 @@
   Display = Cancelled
   Definition = The plan has been terminated prior to reaching completion (though it may have been replaced by a new plan).
 
+ -- Row 8 -----------------------------------
+  Id = 7
+  Code = unknown
+  Display = Unknown
+  Definition = The authoring system doesn\'t know the current state of the care plan.
+
 === Sheet care-plan-activity-status =====================================
 
  -- Row 1 -----------------------------------
@@ -150,6 +156,12 @@
   Code = cancelled
   Display = Cancelled
   Definition = The activities have been ended prior to completion (perhaps even before they were started).
+
+ -- Row 7 -----------------------------------
+  Id = y
+  Code = unknown
+  Display = Unknown
+  Definition = The authoring system doesn\'t know the current state of the activity.
 
 === Sheet care-plan-relationship =====================================
 
@@ -212,11 +224,13 @@
   Summary = Y
   Type = code
   Binding = CarePlanStatus
-  Short Name = proposed | draft | active | suspended | completed | entered-in-error | cancelled
+  Short Name = proposed | draft | active | suspended | completed | entered-in-error | cancelled | unknown
   Definition = Indicates whether the plan is currently being acted upon, represents future intentions or is now a historical record.
   Requirements = Allows clinicians to determine whether the plan is actionable or not
+  Comments = The unknown code is not to be used to convey other statuses.  The unknown code should be used when one of the statuses applies, but the authoring system doesn\'t know the current state of the care plan.
   v2 Mapping = PTH-5
   RIM Mapping = .statusCode planned = new active = active completed = completed
+  Committee Notes = GF#10617
   w5 = status
 
  -- Row 4 -----------------------------------
@@ -317,9 +331,10 @@
   Type = Reference(Condition)
   Short Name = Health issues this plan addresses
   Definition = Identifies the conditions/problems/concerns/diagnoses/etc. whose management and/or mitigation are handled by this plan.
-  Requirements = Links plan to the conditions it manages.  Also scopes plans - multiple plans may exist addressing different concerns.
+  Requirements = Links plan to the conditions it manages.  The element can identify risks addressed by the plan as well as active conditions.  (The Condition resource can include things like \"at risk for hypertension\" or \"fall risk\".)  Also scopes plans - multiple plans may exist addressing different concerns.
   v2 Mapping = PRB-4
   RIM Mapping = .actRelationship[typeCode=SUBJ].target[classCode=CONC, moodCode=EVN]
+  Committee Notes = GF#11170
   w5 = why
 
  -- Row 13 -----------------------------------
@@ -332,6 +347,14 @@
   Comments = Use \"concern\" to identify specific conditions addressed by the care plan.
 
  -- Row 14 -----------------------------------
+  Element = CarePlan.definition
+  Card. = 0..1
+  Type = Reference(PlanDefinition|Questionnaire)
+  Short Name = Protocol or definition
+  Definition = Identifies the protocol, questionnaire, guideline or other specification the care plan should be conducted in accordance with.
+  Committee Notes = GF#11343
+
+ -- Row 15 -----------------------------------
   Element = CarePlan.relatedPlan
   Card. = 0..*
   UML = 0;300
@@ -339,7 +362,7 @@
   Definition = Identifies CarePlans with some sort of formal relationship to the current plan.
   Comments = Relationships are uni-directional with the \"newer\" plan pointing to the older one.
 
- -- Row 15 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = CarePlan.relatedPlan.code
   Card. = 0..1
   Type = code
@@ -348,14 +371,14 @@
   Definition = Identifies the type of relationship this plan has to the target plan.
   Comments = Read the relationship as \"this plan\" [relatedPlan.code] \"relatedPlan.plan\"; e.g. This plan includes Plan B.\n\nAdditional relationship types can be proposed for future releases or handled as extensions.
 
- -- Row 16 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = CarePlan.relatedPlan.plan
   Card. = 1..1
   Type = Reference(CarePlan)
   Short Name = Plan relationship exists with
   Definition = A reference to the plan to which a relationship is asserted.
 
- -- Row 17 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = CarePlan.goal
   Card. = 0..*
   Type = Reference(Goal)
@@ -367,7 +390,7 @@
   RIM Mapping = .outboundRelationship[typeCode<=OBJ].
   Committee Notes = Should this be expanded into code + value + timeframe?
 
- -- Row 18 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = CarePlan.activity
   Card. = 0..*
   UML = 350;0
@@ -376,7 +399,7 @@
   Requirements = Allows systems to prompt for performance of planned activities, and validate plans against best practice.
   RIM Mapping = .outboundRelationship[typeCode=COMP].target
 
- -- Row 19 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = CarePlan.activity.actionResulting
   Card. = 0..*
   Type = Reference(Any)
@@ -385,7 +408,7 @@
   Requirements = Links plan to resulting actions
   RIM Mapping = .inboundRelationship[typeCode=FLFS].source
 
- -- Row 20 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = CarePlan.activity.outcome
   Card. = 0..1
   Type = CodeableConcept
@@ -393,7 +416,7 @@
   Short Name = Results of the activity
   Definition = Results of the careplan activity
 
- -- Row 21 -----------------------------------
+ -- Row 22 -----------------------------------
   Element = CarePlan.activity.progress
   Card. = 0..*
   Type = Annotation
@@ -404,7 +427,7 @@
   v2 Mapping = NTE?
   RIM Mapping = .inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=\"annotation\"].value
 
- -- Row 22 -----------------------------------
+ -- Row 23 -----------------------------------
   Element = CarePlan.activity.reference
   Card. = 0..1
   Inv. = 3
@@ -415,7 +438,7 @@
   Comments = Standard extension exists ([goal-pertainstogoal](extension-goal-pertainstogoal.html)) that allows goals to be referenced from any of the referenced resources in CarePlan.activity.reference.  \rThe goal should be visible when the resource referenced by CarePlan.activity.reference is viewed indepedently from the CarePlan.  Requests that are pointed to by a CarePlan using this element should *not* point to this CarePlan using the \"basedOn\" element.  i.e. Requests that are part of a CarePlan are not \"based on\" the CarePlan.
   RIM Mapping = .outboundRelationship[typeCode=COMP].target
 
- -- Row 23 -----------------------------------
+ -- Row 24 -----------------------------------
   Element = CarePlan.activity.detail
   Card. = 0..1
   UML = 350;200
@@ -425,7 +448,7 @@
   Requirements = Details in a simple form for generic care plan systems
   RIM Mapping = .outboundRelationship[typeCode=COMP, subsetCode=SUMM].target
 
- -- Row 24 -----------------------------------
+ -- Row 25 -----------------------------------
   Element = CarePlan.activity.detail.category
   Card. = 0..1
   Type = CodeableConcept
@@ -436,14 +459,16 @@
   RIM Mapping = .inboundRelationship[typeCode=COMP].source[classCode=LIST].code
   Committee Notes = Should this be an HL7-defined code?  Do we need more (e.g. accommodation)
 
- -- Row 25 -----------------------------------
+ -- Row 26 -----------------------------------
   Element = CarePlan.activity.detail.definition
   Card. = 0..1
   Type = Reference(PlanDefinition|Questionnaire)
   Short Name = Protocol or definition
   Definition = Identifies the protocol, questionnaire, guideline or other specification the planned activity should be conducted in accordance with.
+  Requirements = Allows Questionnaires that the patient (or practitioner) should fill in to fulfill the care plan activity.
+  Committee Notes = GF#11051
 
- -- Row 26 -----------------------------------
+ -- Row 27 -----------------------------------
   Element = CarePlan.activity.detail.code
   Card. = 0..1
   Type = CodeableConcept
@@ -455,7 +480,7 @@
   v2 Mapping = OBR-4 / RXE-2 / RXO-1  / RXD-2
   RIM Mapping = .code
 
- -- Row 27 -----------------------------------
+ -- Row 28 -----------------------------------
   Element = CarePlan.activity.detail.reasonCode
   Card. = 0..*
   Type = CodeableConcept
@@ -464,7 +489,7 @@
   Definition = Provides the rationale that drove the inclusion of this particular activity as part of the plan or the reason why the activity was prohibited.
   Comments = This could be a diagnosis code.  If a full condition record exists or additional detail is needed, use reasonCondition instead
 
- -- Row 28 -----------------------------------
+ -- Row 29 -----------------------------------
   Element = CarePlan.activity.detail.reasonReference
   Card. = 0..*
   Type = Reference(Condition)
@@ -472,7 +497,7 @@
   Definition = Provides the health condition(s) that drove the inclusion of this particular activity as part of the plan.
   Comments = Conditions can be identified at the activity level that are not identified as reasons for the overall plan
 
- -- Row 29 -----------------------------------
+ -- Row 30 -----------------------------------
   Element = CarePlan.activity.detail.goal
   Card. = 0..*
   Type = Reference(Goal)
@@ -481,20 +506,21 @@
   Requirements = So that participants know the link explicitly
   RIM Mapping = .outboundRelationship[typeCode<=OBJ].
 
- -- Row 30 -----------------------------------
+ -- Row 31 -----------------------------------
   Element = CarePlan.activity.detail.status
-  Card. = 0..1
+  Card. = 1..1
   Is Modifier = Y
   Type = code
   Binding = CarePlanActivityStatus
-  Short Name = not-started | scheduled | in-progress | on-hold | completed | cancelled
+  Short Name = not-started | scheduled | in-progress | on-hold | completed | cancelled | unknown
   Definition = Identifies what progress is being made for the specific activity.
   Requirements = Indicates progress against the plan, whether the activity is still relevant for the plan
-  Comments = Some aspects of status can be inferred based on the resources linked in actionTaken.  Note that \"status\" is only as current as the plan was most recently updated.
+  Comments = Some aspects of status can be inferred based on the resources linked in actionTaken.  Note that \"status\" is only as current as the plan was most recently updated.  \nThe unknown code is not to be used to convey other statuses.  The unknown code should be used when one of the statuses applies, but the authoring system doesn\'t know the current state of the activity.
   v2 Mapping = ORC-5?
   RIM Mapping = .statusCode not-started = new scheduled = not-started (and fulfillment relationship to appointent) in-progress = active on-hold = suspended completed = completed cancelled = aborted
+  Committee Notes = GF#10617, 10643
 
- -- Row 31 -----------------------------------
+ -- Row 32 -----------------------------------
   Element = CarePlan.activity.detail.statusReason
   Card. = 0..1
   Type = CodeableConcept
@@ -504,7 +530,7 @@
   Comments = Will generally not be present if status is \"complete\".  Be sure to prompt to update this (or at least remove the existing value) if the status is changed.
   To Do = Need a proper value set
 
- -- Row 32 -----------------------------------
+ -- Row 33 -----------------------------------
   Element = CarePlan.activity.detail.prohibited
   Card. = 0..1
   Is Modifier = Y
@@ -515,7 +541,7 @@
   RIM Mapping = actionNegationInd
   Default Value = False
 
- -- Row 33 -----------------------------------
+ -- Row 34 -----------------------------------
   Element = CarePlan.activity.detail.scheduled[x]
   Card. = 0..1
   Type = Timing|Period | string
@@ -525,7 +551,7 @@
   v2 Mapping = TQ1
   RIM Mapping = .effectiveTime
 
- -- Row 34 -----------------------------------
+ -- Row 35 -----------------------------------
   Element = CarePlan.activity.detail.location
   Card. = 0..1
   Type = Reference(Location)
@@ -536,7 +562,7 @@
   v2 Mapping = OBR-24(???!!)
   RIM Mapping = .participation[typeCode=LOC].role
 
- -- Row 35 -----------------------------------
+ -- Row 36 -----------------------------------
   Element = CarePlan.activity.detail.performer
   Card. = 0..*
   Type = Reference(Practitioner|Organization|RelatedPerson|Patient)
@@ -547,7 +573,7 @@
   v2 Mapping = PRT-5 : ( PRV-4 e {provider participations} ) / PRT-5 : ( PRV-4 e {non-provider person participations} ) / PRT-5 : ( PRV-4 = (patient non-subject of care) ) / PRT-8
   RIM Mapping = .participation[typeCode=PFM]
 
- -- Row 36 -----------------------------------
+ -- Row 37 -----------------------------------
   Element = CarePlan.activity.detail.product[x]
   Card. = 0..1
   Type = CodeableConcept | Reference(Medication|Substance)
@@ -557,7 +583,7 @@
   v2 Mapping = RXE-2 / RXO-1 / RXD-2
   RIM Mapping = .participation[typeCode=PRD].role
 
- -- Row 37 -----------------------------------
+ -- Row 38 -----------------------------------
   Element = CarePlan.activity.detail.dailyAmount
   Card. = 0..1
   Aliases = daily dose
@@ -568,7 +594,7 @@
   v2 Mapping = RXO-23 / RXE-19 / RXD-12
   RIM Mapping = .outboundRelationship[typeCode=COMP][classCode=SBADM].doseQuantity
 
- -- Row 38 -----------------------------------
+ -- Row 39 -----------------------------------
   Element = CarePlan.activity.detail.quantity
   Card. = 0..1
   Type = SimpleQuantity
@@ -577,7 +603,7 @@
   v2 Mapping = RXO-11 / RXE-10 / RXD-4 / RXG-5 / RXA-6 /  TQ1-2.1  *and*  RXO-12 /  RXE-11 / RXD-5 / RXG-7 / RXA-7 / TQ1-2.2
   RIM Mapping = .outboundRelationship[typeCode=COMP][classCode=SPLY].quantity
 
- -- Row 39 -----------------------------------
+ -- Row 40 -----------------------------------
   Element = CarePlan.activity.detail.description
   Card. = 0..1
   Type = string
@@ -586,7 +612,7 @@
   v2 Mapping = NTE?
   RIM Mapping = .text
 
- -- Row 40 -----------------------------------
+ -- Row 41 -----------------------------------
   Element = CarePlan.note
   Card. = 0..1
   Type = Annotation
