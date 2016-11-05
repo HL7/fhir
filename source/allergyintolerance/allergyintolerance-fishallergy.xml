@@ -15,7 +15,9 @@
     <system value="http://acme.com/ids/patients/risks"/>
     <value value="49476535"/>
   </identifier>
-
+  <clinicalStatus value="active"/>
+  <verificationStatus value="confirmed"/>
+  
   <!-- this categorisation is implied by "cashew nut" and therefore basically 
     redundant, but many systems collect this field anyway, since it's either 
     useful when the substance is not coded, or it's quicker to sort/filter on
@@ -40,7 +42,7 @@
   </patient>
 
   <!-- the date that this entry was recorded -->  
-  <attestedDate value="2015-08-06T15:37:31-06:00"/>
+  <assertedDate value="2015-08-06T15:37:31-06:00"/>
   
   <!-- who made the record / last updated it -->
   <recorder>

@@ -43,7 +43,7 @@
     <system value="http://unitsofmeasure.org"/>
     <code value="a"/>
   </onsetAge>
-  <dateRecorded value="2012-12-01"/>
+  <assertedDate value="2012-12-01"/>
   <evidence>
     <!--Problem is confirmed in diagnostic report-->
     <detail>

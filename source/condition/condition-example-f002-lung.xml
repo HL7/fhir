@@ -39,7 +39,7 @@
     <reference value="Encounter/f002"/>
   </context>
   <onsetDateTime value="2011-05-05"/>
-  <dateRecorded value="2012-06-03"/>
+  <assertedDate value="2012-06-03"/>
   <asserter>
     <reference value="Patient/f001"/>
     <display value="P. van de Heuvel"/>

@@ -278,7 +278,7 @@
   </Style>
  </Styles>
  <Worksheet ss:Name="Status Codes">
-  <Table ss:ExpandedColumnCount="40" ss:ExpandedRowCount="93" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="40" ss:ExpandedRowCount="94" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s63" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s63" ss:Width="314.25"/>
@@ -437,7 +437,24 @@
     <Cell ss:StyleID="s66"><Data ss:Type="String">retired</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">AllergyIntolerance.status</Data></Cell>
+    <Cell><Data ss:Type="String">AllergyIntolerance.clinicalStatus</Data></Cell>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:Index="5" ss:StyleID="s66"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">active</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">inactive</Data></Cell>
+    <Cell ss:Index="21"><Data ss:Type="String">resolved</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">AllergyIntolerance.verificationStatus</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">entered-in-error</Data></Cell>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
@@ -447,17 +464,16 @@
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">active</Data></Cell>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
-    <Cell><Data ss:Type="String">inactive</Data></Cell>
     <Cell ss:StyleID="s71"/>
+    <Cell ss:Index="17" ss:StyleID="s71"/>
     <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">unconfirmed</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">confirmed</Data></Cell>
     <Cell ss:StyleID="s66"/>
-    <Cell ss:StyleID="s66"><Data ss:Type="String">active-confirmed</Data></Cell>
-    <Cell ss:StyleID="s66"><Data ss:Type="String">resolved</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">refuted</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -2198,13 +2214,10 @@
     <VerticalResolution>-4</VerticalResolution>
    </Print>
    <Selected/>
-   <TopRowVisible>47</TopRowVisible>
-   <LeftColumnVisible>2</LeftColumnVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>73</ActiveRow>
-     <ActiveCol>17</ActiveCol>
+     <ActiveRow>6</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

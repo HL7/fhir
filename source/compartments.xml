@@ -20,8 +20,8 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>15960</WindowHeight>
-  <WindowWidth>28155</WindowWidth>
+  <WindowHeight>13740</WindowHeight>
+  <WindowWidth>24240</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>465</WindowTopY>
   <ActiveSheet>1</ActiveSheet>
@@ -152,9 +152,9 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">AllergyIntolerance</Data></Cell>
-    <Cell><Data ss:Type="String">patient | recorder | reporter</Data></Cell>
-    <Cell ss:Index="4"><Data ss:Type="String">reporter</Data></Cell>
-    <Cell><Data ss:Type="String">recorder | reporter</Data></Cell>
+    <Cell><Data ss:Type="String">patient | recorder | asserter</Data></Cell>
+    <Cell ss:Index="4"><Data ss:Type="String">asserter</Data></Cell>
+    <Cell><Data ss:Type="String">recorder | asserter</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Account</Data></Cell>
@@ -261,9 +261,10 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Condition</Data></Cell>
-    <Cell><Data ss:Type="String">patient</Data></Cell>
+    <Cell><Data ss:Type="String">patient | asserter</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">context</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">asserter</Data></Cell>
+    <Cell><Data ss:Type="String">asserter</Data></Cell>
+    <Cell><Data ss:Type="String">asserter</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">CapabilityStatement</Data></Cell>
@@ -702,7 +703,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>7</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <ActivePane>2</ActivePane>
    <Panes>
     <Pane>
@@ -710,8 +711,7 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>16</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+     <ActiveRow>22</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

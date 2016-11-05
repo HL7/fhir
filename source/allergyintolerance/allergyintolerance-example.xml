@@ -9,8 +9,8 @@
   </identifier>
 
   <!-- this individual has had several reactions --> 
-  <status value="active-confirmed"/>
-
+  <clinicalStatus value="active"/>
+  <verificationStatus value="confirmed"/>
   <!-- note: it's often unknown whether an allergy is mediated by an immune response, and not as significant as once thought -->
   <type value="allergy"/>
   
@@ -40,10 +40,10 @@
   </patient>
 
   <!-- when the allergy was first noted (in this case the same as reaction.onset of the first occurrence) --> 
-  <onset value="2004"/>
+  <onsetDateTime value="2004"/>
 
   <!-- the date that this entry was recorded -->  
-  <attestedDate value="2014-10-09T14:58:00+11:00"/>
+  <assertedDate value="2014-10-09T14:58:00+11:00"/>
   
   <!-- who made the record / last updated it -->
   <recorder>
@@ -51,9 +51,9 @@
   </recorder>
   
   <!-- the patient is the reporter in this case -->
-  <reporter>
+  <asserter>
     <reference value="Patient/example"/>
-  </reporter>
+  </asserter>
 
   <!-- last happened June 2012. Typically, systems either track lastOccurrence,
      or a list of events. -->

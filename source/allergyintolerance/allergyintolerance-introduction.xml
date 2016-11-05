@@ -68,9 +68,9 @@ In clinical practice distinguishing between allergy and intolerance is difficult
 The sensitivity in the case of either an allergy or intolerance is unique to the individual, and is distinguished from those reactions that are a property of the circumstance, such as toxicity of a food or drug, overdose, drug-drug, drug-food, or drug-disease interaction (which are reactions that would be expected to occur for any individual given the same circumstances). </p>
 		<p>
 The risk of an adverse reaction event or manifestation should not be recorded without identifying a proposed causative 
-substance (including pharmaceutical products) or class of substance. If there is uncertainty that a specific substance is the cause, this uncertainty can be recorded using the 'status' data element. If there are multiple possible substances that may have caused a reaction/manifestation, each substance should be recorded using a separate instance of this resource with the 
-'status' set to an initial state of 'unconfirmed' so that adverse reaction checking can be supported in clinical systems. 
-If a substance, agent or class is later proven not to be the cause for a given reaction then the 'status' can be modified 
+substance (including pharmaceutical products) or class of substance. If there is uncertainty that a specific substance is the cause, this uncertainty can be recorded using the 'verificationStatus' data element. If there are multiple possible substances that may have caused a reaction/manifestation, each substance should be recorded using a separate instance of this resource with the 
+'verificationStatus' set to an initial state of 'unconfirmed' so that adverse reaction checking can be supported in clinical systems. 
+If a substance, agent or class is later proven not to be the cause for a given reaction then the 'verificationStatus' can be modified 
 to 'refuted'.
 </p>
 		<p>

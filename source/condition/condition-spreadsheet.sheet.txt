@@ -288,25 +288,27 @@
   w5 = when.done
 
  -- Row 14 -----------------------------------
-  Element = Condition.dateRecorded
+  Element = Condition.assertedDate
   Card. = 0..1
   Type = date
-  Short Name = When first entered
-  Definition = A date, when  the Condition statement was documented
-  Comments = The Date Recorded represents the date when this particular Condition record was created in the EHR, not the date of the most recent update in terms of when severity, abatement, etc. were specified.  The date of the last record modification can be retrieved from the resource metadata.
+  Short Name = Date record was believed accurate
+  Definition = The date on which the existance of the Condition was first asserted or acknowledged.
+  Comments = The assertedDate represents the date when this particular Condition record was created in the EHR, not the date of the most recent update in terms of when severity, abatement, etc. were specified.  The date of the last record modification can be retrieved from the resource metadata.
   v2 Mapping = REL-11
   RIM Mapping = .participation[typeCode=AUT].time
+  Committee Notes = GF#11089
   w5 = when.recorded
 
  -- Row 15 -----------------------------------
   Element = Condition.asserter
   Card. = 0..1
   Summary = Y
-  Type = Reference(Practitioner|Patient)
+  Type = Reference(Practitioner|Patient | RelatedPerson)
   Short Name = Person who asserts this condition
   Definition = Individual who is making the condition statement
   v2 Mapping = REL-7.1 identifier + REL-7.12 type code
   RIM Mapping = .participation[typeCode=AUT].role
+  Committee Notes = GF#11089
   w5 = who.author
 
  -- Row 16 -----------------------------------
@@ -462,10 +464,9 @@
   Path = Condition.asserter
 
  -- Row 15 -----------------------------------
-  Name = date-recorded
+  Name = asserted-date
   Type = date
-  Description = A date, when the Condition statement was documented
-  Path = Condition.dateRecorded
+  Path = Condition.assertedDate
 
  -- Row 16 -----------------------------------
   Name = evidence

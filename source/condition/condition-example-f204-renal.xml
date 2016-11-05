@@ -47,7 +47,7 @@
   </context>
   <onsetDateTime value="2013-03-11"/>
   <abatementDateTime value="2013-03-20"/>
-  <dateRecorded value="2013-03-11"/>
+  <assertedDate value="2013-03-11"/>
   <asserter>
     <reference value="Practitioner/f201"/>
   </asserter>

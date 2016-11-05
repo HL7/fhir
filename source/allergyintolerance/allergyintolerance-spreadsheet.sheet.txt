@@ -2,76 +2,110 @@
 === Sheet Bindings =====================================
 
  -- Row 1 -----------------------------------
-  Binding Name = AllergyIntoleranceStatus
+  Binding Name = AllergyIntoleranceVerificationStatus
   Binding = code list
-  Reference = #allergy-intolerance-status
+  Reference = #allergy-verification-status
   Definition = Assertion about certainty associated with a propensity, or potential risk, of a reaction to the identified substance.
   Conformance = required
 
  -- Row 2 -----------------------------------
+  Binding Name = AllergyIntoleranceClinicalStatus
+  Binding = code list
+  Reference = #allergy-clinical-status
+  Definition = The clinical status of the allergy or intolerance.
+  Conformance = required
+
+ -- Row 3 -----------------------------------
   Binding Name = AllergyIntoleranceCriticality
   Binding = code list
   Reference = #allergy-intolerance-criticality
   Definition = Estimate of the potential clinical harm, or seriousness, of a reaction to an identified substance.
   Conformance = required
 
- -- Row 3 -----------------------------------
+ -- Row 4 -----------------------------------
   Binding Name = AllergyIntoleranceType
   Binding = code list
   Reference = #allergy-intolerance-type
   Definition = Identification of the underlying physiological mechanism for a Reaction Risk.
   Conformance = required
 
- -- Row 4 -----------------------------------
+ -- Row 5 -----------------------------------
   Binding Name = AllergyIntoleranceCategory
   Binding = code list
   Reference = #allergy-intolerance-category
   Definition = Category of an identified substance.
   Conformance = required
 
- -- Row 5 -----------------------------------
+ -- Row 6 -----------------------------------
   Binding Name = AllergyIntoleranceCertainty
   Binding = code list
   Reference = #reaction-event-certainty
   Definition = Statement about the degree of clinical certainty that a specific substance was the cause of the manifestation in an reaction event.
   Conformance = required
 
- -- Row 6 -----------------------------------
+ -- Row 7 -----------------------------------
   Binding Name = Manifestation
   Binding = value set
   Reference = valueset-manifestation-codes
   Definition = Clinical symptoms and/or signs that are observed or associated with an Adverse Reaction Event.
   Conformance = example
 
- -- Row 7 -----------------------------------
+ -- Row 8 -----------------------------------
   Binding Name = AllergyIntoleranceSeverity
   Binding = code list
   Reference = #reaction-event-severity
   Definition = Clinical assessment of the severity of a reaction event as a whole, potentially considering multiple different manifestations.
   Conformance = required
 
- -- Row 8 -----------------------------------
+ -- Row 9 -----------------------------------
   Binding Name = AllergyIntoleranceCode
   Binding = value set
   Reference = valueset-allergyintolerance-code
   Definition = Type of the substance/product, allergy or intolerance condition, or negation/exclusion codes for reporting no known allergies.
   Conformance = example
 
- -- Row 9 -----------------------------------
+ -- Row 10 -----------------------------------
   Binding Name = RouteOfAdministration
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/route-codes
   Definition = A coded concept describing the route or physiological path of administration of a therapeutic agent into or onto the body of a subject.
   Conformance = example
 
- -- Row 10 -----------------------------------
+ -- Row 11 -----------------------------------
   Binding Name = SubstanceCode
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/substance-code
   Definition = Codes defining the type of the substance (including pharmaceutical products).
   Conformance = example
 
-=== Sheet allergy-intolerance-status =====================================
+=== Sheet allergy-verification-status =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = unconfirmed
+  Display = Unconfirmed
+  Definition = A low level of certainty about the propensity for a reaction to the identified substance.
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = confirmed
+  Display = Confirmed
+  Definition = A high level of certainty about the propensity for a reaction to the identified substance, which may include clinical evidence by testing or rechallenge.
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = refuted
+  Display = Refuted
+  Definition = A propensity for a reaction to the identified substance has been disproven with a high level of clinical certainty, which may include testing or rechallenge, and is refuted.
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = entered-in-error
+  Display = Entered In Error
+  Definition = The statement was entered in error and is not valid.
+  v3 = ActStatus.nullified
+
+=== Sheet allergy-clinical-status =====================================
 
  -- Row 1 -----------------------------------
   Id = 1
@@ -83,35 +117,14 @@
   Id = 2
   Code = inactive
   Display = Inactive
-  Definition = An inactivated record of a risk of a reaction to the identified substance
+  Definition = An inactivated record of a risk of a reaction to the identified substance.
 
  -- Row 3 -----------------------------------
   Id = 3
-  Code = active-confirmed
-  Display = Active Confirmed
-  Definition = A high level of certainty about the propensity for a reaction to the identified substance, which may include clinical evidence by testing or rechallenge.
-  Parent = #1
-
- -- Row 4 -----------------------------------
-  Id = 4
   Code = resolved
   Display = Resolved
-  Definition = A reaction to the identified substance has been clinically reassessed by testing or re-exposure and considered to be resolved
+  Definition = A reaction to the identified substance has been clinically reassessed by testing or re-exposure and considered to be resolved.
   Parent = #2
-
- -- Row 5 -----------------------------------
-  Id = 5
-  Code = refuted
-  Display = Refuted
-  Definition = A propensity for a reaction to the identified substance has been disproven with a high level of clinical certainty, which may include testing or rechallenge, and is refuted.
-  Parent = #2
-
- -- Row 6 -----------------------------------
-  Id = 6
-  Code = entered-in-error
-  Display = Entered In Error
-  Definition = The statement was entered in error and is not valid.
-  v3 = ActStatus.nullified
 
 === Sheet allergy-intolerance-criticality =====================================
 
@@ -225,6 +238,20 @@
 
 === Sheet Invariants =====================================
 
+ -- Row 1 -----------------------------------
+  Id = 1
+  Context = AllergyIntolerance
+  English = AllergyIntolerance.clinicalStatus SHALL be present if verificationStatus is not entered-in-error.
+  XPath = f:verificationStatus/@value=\'entered-in-error\' or exists(f:clinicalStatus)
+  Expression = verificationStatus=\'entered-in-error\' or clinicalStatus.exists()
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Context = AllergyIntolerance
+  English = AllergyIntolerance.clinicalStatus SHALL NOT be present if verification Status is entered-in-error
+  XPath = f:verificationStatus/@value!=\'entered-in-error\' or not(exists(f:clinicalStatus))
+  Expression = verificationStatus!=\'entered-in-error\' or clinicalStatus.empty()
+
 === Sheet Data Elements =====================================
 
  -- Row 1 -----------------------------------
@@ -250,21 +277,31 @@
   w5 = id
 
  -- Row 3 -----------------------------------
-  Element = AllergyIntolerance.status
+  Element = AllergyIntolerance.clinicalStatus
   Card. = 0..1
-  Aliases = State
-  Is Modifier = Y
+  Is Modifier = y
   Summary = Y
   Type = code
-  Binding = AllergyIntoleranceStatus
-  Short Name = active | active-confirmed | inactive | resolved | refuted | entered-in-error
-  Definition = Assertion about certainty associated with the propensity, or potential risk, of a reaction to the identified substance (including pharmaceutical product)
-  Comments = Decision support would typically raise alerts for \'active\' and \'active-confirmed\' (and potetially \'resolved\') and ignore a \'refuted\' reaction. In particular, \'refuted\' may be useful for reconciliation of the Adverse Reaction List. Some implementations may choose to make this field mandatory.
-  v2 Mapping = IAM-17
-  RIM Mapping = statusCode
+  Binding = AllergyIntoleranceClinicalStatus
+  Short Name = active | inactive | resolved
+  Definition = The clinical status of the allergy or intolerance.
+  Committee Notes = GF# 10642, 11151, 11920
   w5 = status
 
  -- Row 4 -----------------------------------
+  Element = AllergyIntolerance.verificationStatus
+  Card. = 1..1
+  Is Modifier = y
+  Summary = Y
+  Type = code
+  Binding = AllergyIntoleranceVerificationStatus
+  Short Name = unconfirmed | confirmed | refuted | entered-in-error
+  Definition = Assertion about certainty associated with the propensity, or potential risk, of a reaction to the identified substance (including pharmaceutical product)
+  Comments = Decision support would typically raise alerts for \'confirmed\' and \'unconfirmed\' and ignore a \'refuted\' reaction. In particular, \'refuted\' may be useful for reconciliation of the Adverse Reaction List.
+  Committee Notes = GF# 10642, 11151, 11920
+  w5 = status
+
+ -- Row 5 -----------------------------------
   Element = AllergyIntolerance.type
   Card. = 0..1
   Aliases = Category; Class
@@ -278,7 +315,7 @@
   RIM Mapping = code
   w5 = class
 
- -- Row 5 -----------------------------------
+ -- Row 6 -----------------------------------
   Element = AllergyIntolerance.category
   Card. = 0..*
   Aliases = Category; Type; Reaction Type; Class
@@ -293,7 +330,7 @@
   Committee Notes = GF#11352 - to address examples like bee pollen that may fit into multiple categories;  GF#12136 - search usage note
   w5 = class
 
- -- Row 6 -----------------------------------
+ -- Row 7 -----------------------------------
   Element = AllergyIntolerance.criticality
   Card. = 0..1
   Aliases = Severity; Seriousness; Contra-indication; Risk
@@ -307,7 +344,7 @@
   RIM Mapping = inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=SEV, value <= SeverityObservation (Severity Level)]
   w5 = grade
 
- -- Row 7 -----------------------------------
+ -- Row 8 -----------------------------------
   Element = AllergyIntolerance.code
   Card. = 0..1
   Aliases = Code
@@ -321,7 +358,7 @@
   RIM Mapping = substance/product:\r\r.participation[typeCode=CAGNT].role[classCode=ADMM].player[classCode=MAT, determinerCode=KIND, code <= ExposureAgentEntityType]\r\rnegated/excluded substance/product:\r\r.participation[typeCode=CAGNT, negationInd=true].role[classCode=ADMM].player[classCode=MAT, determinerCode=KIND, code <= ExposureAgentEntityType]\r\rpositive or negated/excluded condition/situation:\r\rObservation.code=ASSERTION; Observation.value
   w5 = what
 
- -- Row 8 -----------------------------------
+ -- Row 9 -----------------------------------
   Element = AllergyIntolerance.patient
   Card. = 1..1
   Aliases = Patient
@@ -333,27 +370,28 @@
   RIM Mapping = .participation[typeCode=SBJ].role[classCode=PAT]
   w5 = who.focus
 
- -- Row 9 -----------------------------------
-  Element = AllergyIntolerance.onset
+ -- Row 10 -----------------------------------
+  Element = AllergyIntolerance.onset[x]
   Card. = 0..1
-  Type = dateTime
-  Short Name = Date(/time) when allergy or intolerance was identified
-  Definition = Record of the date and/or time of the onset of the Allergy or Intolerance
+  Type = dateTime | Age | Period | Range | string
+  Short Name = When allergy or intolerance was identified
+  Definition = Estimated or actual date,  date-time, or age when allergy or intolerance was identified
   RIM Mapping = effectiveTime.low
+  Committee Notes = GF#11089
   w5 = when.init
 
- -- Row 10 -----------------------------------
-  Element = AllergyIntolerance.attestedDate
+ -- Row 11 -----------------------------------
+  Element = AllergyIntolerance.assertedDate
   Card. = 0..1
   Type = dateTime
   Short Name = Date record was believed accurate
-  Definition = Indicates the most recent date on which the recorder has asserted that the information represented by this AllergyIntolerance record is accurate
-  Comments = This is typically the date of last change, but it\'s possible to update this date without changing any other data if you just want to say \'this allergy/intolerance record is up to date as of now
+  Definition = The date on which the existance of the AllergyIntolerance was first asserted or acknowledged.
   v2 Mapping = IAM-20
   RIM Mapping = .participation[typeCode=AUT].time
+  Committee Notes = GF#11089
   w5 = when.recorded
 
- -- Row 11 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = AllergyIntolerance.recorder
   Card. = 0..1
   Aliases = Author
@@ -363,8 +401,8 @@
   RIM Mapping = .participation[typeCode=AUT].role
   w5 = who.author
 
- -- Row 12 -----------------------------------
-  Element = AllergyIntolerance.reporter
+ -- Row 13 -----------------------------------
+  Element = AllergyIntolerance.asserter
   Card. = 0..1
   Aliases = Source; Informant
   Summary = Y
@@ -374,9 +412,10 @@
   Comments = The recorder takes repsonsibility for the content, but can reference the source from where they got it
   v2 Mapping = IAM-14 (if patient) / IAM-18 (if practitioner)
   RIM Mapping = .participation[typeCode=INF].role
+  Committee Notes = GF#11089
   w5 = who.source
 
- -- Row 13 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = AllergyIntolerance.lastOccurrence
   Card. = 0..1
   Type = dateTime
@@ -385,7 +424,7 @@
   Comments = This date may be replicated by one of the Onset of Reaction dates. Where a textual representation of the date of last occurrence is required e.g. \'In Childhood, \'10 years ago\' the Comment element should be used.
   RIM Mapping = outBoundRelationship[typeCode=SUBJ].target[classCode=OBS, moodCode=EVN, code <= CommonClinicalObservationType, value <= ObservationValue (Reaction Type)].effectiveTime
 
- -- Row 14 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = AllergyIntolerance.note
   Card. = 0..*
   Type = Annotation
@@ -394,7 +433,7 @@
   Comments = For example: including reason for flagging a seriousness of \'High Risk\'; and instructions related to future exposure or administration of the substance, such as administration within an Intensive Care Unit or under corticosteroid cover. The notes should be related to an allergy or intolerance as a condition in general and not related to any particular episode of it. For episode notes and descriptions, use AllergyIntolerance.event.description and  AllergyIntolerance.event.notes.
   RIM Mapping = subjectOf.observationEvent[code=\"annotation\"].value
 
- -- Row 15 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = AllergyIntolerance.reaction
   Card. = 0..*
   UML = right
@@ -402,7 +441,7 @@
   Definition = Details about each adverse reaction event linked to exposure to the identified substance
   RIM Mapping = outBoundRelationship[typeCode=SUBJ].target[classCode=OBS, moodCode=EVN, code <= CommonClinicalObservationType, value <= ObservationValue (Reaction Type)]
 
- -- Row 16 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = AllergyIntolerance.reaction.substance
   Card. = 0..1
   Type = CodeableConcept
@@ -412,7 +451,7 @@
   Comments = Coding of the specific substance (or pharmaceutical product) with a terminology capable of triggering decision support should be used wherever possible.  The \'code\' element allows for the use of a specific substance or pharmaceutical product, or a group or class of substances. In the case of an allergy or intolerance to a class of substances, (for example, \"penicillins\"), the \'reaction.substance\' element could be used to code the specific substance that was identifed as having caused the reaction (for example, \"amoxycillin\"). Duplication of the value in the \'code\' and \'reaction.substance\' elements is acceptable when a specific substance has been recorded in \'code\'.
   RIM Mapping = outBoundRelationship[typeCode=SAS].target[classCode=SBADM, code <= ExposureCode].participation[typeCode=CSM].role[classCode=ADMM].player[classCode=MAT, determinerCode=KIND, code <= ExposureAgentEntityType]
 
- -- Row 17 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = AllergyIntolerance.reaction.certainty
   Card. = 0..1
   Aliases = Cause;
@@ -420,11 +459,11 @@
   Binding = AllergyIntoleranceCertainty
   Short Name = unlikely | likely | confirmed | unknown
   Definition = Statement about the degree of clinical certainty that the specific substance was the cause of the manifestation in this reaction event
-  Comments = When certainty is not value, it means no information exists (although it could be in narrative).  By contrast, the unknown code is used when there is an explicit assertion that certainty is not known, such as when a patient eats a meal and it is unknown which food caused the reaction.
+  Comments = When certainty is missing, it means no information exists (although it could be in narrative).  By contrast, the unknown code is used when there is an explicit assertion that certainty is not known, such as when a patient eats a meal and it is unknown which food caused the reaction.
   RIM Mapping = uncertaintyCode
   Committee Notes = GF#11022
 
- -- Row 18 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = AllergyIntolerance.reaction.manifestation
   Card. = 1..*
   Aliases = Symptoms; Signs
@@ -436,7 +475,7 @@
   v2 Mapping = AL1-5
   RIM Mapping = code
 
- -- Row 19 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = AllergyIntolerance.reaction.description
   Card. = 0..1
   Aliases = Narrative; Text
@@ -446,7 +485,7 @@
   Comments = Use the description to provide any details of a particular event of the occurred reaction such as circumstances, reaction specifics, what happened before/after. Information, related to the event, but not describing a particular care should be captured in the comment field. For example: at the age of four, the patient was given penicillin for strep throat and subsequently developed severe hives.
   RIM Mapping = text
 
- -- Row 20 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = AllergyIntolerance.reaction.onset
   Card. = 0..1
   Type = dateTime
@@ -455,7 +494,7 @@
   v2 Mapping = AL1-6
   RIM Mapping = effectiveTime.low
 
- -- Row 21 -----------------------------------
+ -- Row 22 -----------------------------------
   Element = AllergyIntolerance.reaction.severity
   Card. = 0..1
   Type = code
@@ -465,7 +504,7 @@
   Comments = It is acknowledged that this assessment is very subjective. There may be some some specific practice domains where objective scales have been applied. Objective scales can be included in this model as extensions
   RIM Mapping = inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=SEV, value <= SeverityObservation (Severity Level)]
 
- -- Row 22 -----------------------------------
+ -- Row 23 -----------------------------------
   Element = AllergyIntolerance.reaction.exposureRoute
   Card. = 0..1
   Type = CodeableConcept
@@ -475,7 +514,7 @@
   Comments = Coding of the route of exposure with a terminology should be used wherever possible.
   RIM Mapping = outBoundRelationship[typeCode=SAS].target[classCode=SBADM, code <= ExposureCode].routeCode
 
- -- Row 23 -----------------------------------
+ -- Row 24 -----------------------------------
   Element = AllergyIntolerance.reaction.note
   Card. = 0..*
   Type = Annotation
@@ -492,9 +531,9 @@
   Path = AllergyIntolerance.code | \rAllergyIntolerance.reaction.substance
 
  -- Row 2 -----------------------------------
-  Name = status
+  Name = clinical-status
   Type = token
-  Path = AllergyIntolerance.status
+  Path = AllergyIntolerance.clinicalStatus
 
  -- Row 3 -----------------------------------
   Name = criticality
@@ -544,7 +583,7 @@
  -- Row 12 -----------------------------------
   Name = date
   Type = date
-  Path = AllergyIntolerance.attestedDate
+  Path = AllergyIntolerance.assertedDate
 
  -- Row 13 -----------------------------------
   Name = recorder
@@ -557,9 +596,14 @@
   Path = AllergyIntolerance.patient
 
  -- Row 15 -----------------------------------
-  Name = reporter
+  Name = asserter
   Type = reference
-  Path = AllergyIntolerance.reporter
+  Path = AllergyIntolerance.asserter
+
+ -- Row 16 -----------------------------------
+  Name = verification-status
+  Type = token
+  Path = AllergyIntolerance.verificationStatus
 
 === Sheet Profiles =====================================
 

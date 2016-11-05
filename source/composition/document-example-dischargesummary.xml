@@ -474,7 +474,8 @@
           <div xmlns="http://www.w3.org/1999/xhtml">Sensitivity to Doxycycline :
                         Hives</div>
         </text>
-        <status value="active-confirmed"/>
+        <clinicalStatus value="active"/>
+		<verificationStatus value="confirmed"/>
         <type value="allergy"/>
         <criticality value="high"/>
         <code>
@@ -484,7 +485,7 @@
           <reference value="http://fhir.healthintersections.com.au/open/Patient/d1"/>
           <display value="Eve Everywoman"/>
         </patient>
-        <attestedDate value="2012-09-17"/>
+        <assertedDate value="2012-09-17"/>
         <reaction>
           <manifestation>
             <coding>

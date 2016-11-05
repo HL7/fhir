@@ -49,7 +49,7 @@
     <display value="Roel's encounter on March eleventh"/>
   </context>
   <onsetDateTime value="2013-03-08"/>
-  <dateRecorded value="2013-03-11"/>
+  <assertedDate value="2013-03-11"/>
   <asserter>
     <reference value="Practitioner/f201"/>
   </asserter>
