@@ -170,23 +170,23 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 		    write("@ResourceDef(name=\""+upFirst(name).replace("ListResource", "List")+"\", profile=\"http://hl7.org/fhir/Profile/"+upFirst(name)+"\")\r\n");
 		  }
 		  
-//		  if (HAPI_16) {
-//		    if (hasImpliedBaseType) {
-//	        write("@ChildOrder(names={");
-//	        boolean first = true; 
-//	        for (ElementDefn e : root.getElements()) {
-//	          if (first) {
-//	            first = false;
-//	          } else {
-//	            write(", ");
-//	          }
-//	          write("\"");
-//            write(e.getName());
-//            write("\"");
-//	        }
-//	        write("})\r\n");
-//		    }
-//		  }
+		  if (HAPI_16) {
+		    if (template != null) {
+	        write("@ChildOrder(names={");
+	        boolean first = true; 
+	        for (ElementDefn e : root.getElements()) {
+	          if (first) {
+	            first = false;
+	          } else {
+	            write(", ");
+	          }
+	          write("\"");
+            write(e.getName());
+            write("\"");
+	        }
+	        write("})\r\n");
+		    }
+		  }
 		  
 			String hierarchy;
       if (Utilities.noString(supertype)) {
@@ -208,7 +208,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
       }
       write("public "+(isAbstract? "abstract " : "")+"class "+upFirst(name)+" extends "+hierarchy+" ");
     } else if (clss == JavaGenClass.Structure && upFirst(name).equals("Element")) {
-      write("public abstract class "+upFirst(name)+" extends Base implements IBaseHasExtensions ");
+      write("public abstract class "+upFirst(name)+" extends Base implements IBaseHasExtensions, IBaseElement ");
       isAbstract = true;
 		} else if (clss == JavaGenClass.Structure) {
       write("@DatatypeDef(name=\""+upFirst(name)+"\")\r\n");
