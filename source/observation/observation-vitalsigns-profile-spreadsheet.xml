@@ -9,7 +9,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Eric Haas</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2016-11-04T21:55:58Z</LastSaved>
+  <LastSaved>2016-11-04T23:50:06Z</LastSaved>
   <Version>12.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -21,8 +21,7 @@
   <WindowTopX>15</WindowTopX>
   <WindowTopY>5730</WindowTopY>
   <TabRatio>808</TabRatio>
-  <ActiveSheet>2</ActiveSheet>
-  <FirstVisibleSheet>2</FirstVisibleSheet>
+  <ActiveSheet>1</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -1033,6 +1032,21 @@
    <NumberFormat/>
    <Protection/>
   </Style>
+  <Style ss:ID="s190">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="2"
+     ss:Color="#000000"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="2"
+     ss:Color="#000000"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="2"
+     ss:Color="#000000"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="2"
+     ss:Color="#000000"/>
+   </Borders>
+   <Font ss:FontName="Verdana" x:Family="Swiss" ss:Size="9" ss:Color="#333333"/>
+   <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
+  </Style>
  </Styles>
  <Worksheet ss:Name="Instructions">
   <Table ss:ExpandedColumnCount="1" ss:ExpandedRowCount="5" x:FullColumns="1"
@@ -1201,59 +1215,59 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">summary-VitalSigns</Data></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">#### Complete Summary of the Mandatory Requirements&#13;&#13;1.  One status in `Observation.status`&#13;2.  One category in `Observation.category` which must have:&#13;    -   a fixed&#13;        `Observation.category.coding.system`=**“http://hl7.org/fhir/observation-category”**&#13;    -   a fixed `Observation.category.coding.code`=**“vital-signs”**&#13;&#13;3.  One code in `Observation.code` which must have&#13;    -   a fixed `Observation.code.coding.system`=**“http://loinc.org”**&#13;    -   a LOINC code in `Observation.code.coding.code` which must be taken&#13;            from the [Vital Signs] valueset&#13;    -   Other additional codes are allowed - e.g. method specific LOINC&#13;        Codes, SNOMED CT concepts, system specific codes. All codes&#13;        SHALL have an system value&#13;&#13;4.  Either one `Observation.valueQuantity` or, if there is no value,&#13;    one code in `Observation.DataAbsentReason` (Note: See the comments&#13;    in the table for exceptions)&#13;    -   Each Observation.valueQuantity must have:&#13;        -   One numeric value in `Observation.valueQuantity.value`&#13;        -   a fixed&#13;            `Observation.valueQuantity.system`=**“http://unitsofmeasure.org”**&#13;        -   a UCUM unit code in `Observation.valueQuantity.code` which must be taken&#13;            from the [Vital Signs Units] valueset&#13;    -   Observation.DataAbsentReason should be taken from the [Observation&#13;        Value Absent Reason] Valueset&#13;&#13;5.  When using a panel code to group component observations (Note: See&#13;    the comments regarding blood pressure in the table), one or more&#13;    `Observation.component.code` each of which must have:&#13;    -   a fixed&#13;        `Observation.component.code.coding.system`=**“http://loinc.org”**&#13;    -   a LOINC code in `Observation.component.code.coding.code` taken&#13;        from the column labeled “LOINC code” in the table&#13;&#13;6.  Either one `Observation.component.valueQuantity` or, if there is&#13;    no value, one code in `Observation.component.DataAbsentReason`&#13;    -   Each Observation.component.valueQuantity must have:&#13;        -   One numeric value in&#13;            `Observation.component.valueQuantity.value`&#13;        -   a fixed&#13;            `Observation.component.valueQuantity.system`=**“http://unitsofmeasure.org”**&#13;        -   a UCUM unit code in&#13;            `Observation.component.valueQuantity.code` which must be taken&#13;            from the [Vital Signs Units] valueset&#13;    -   The `Observation.component.DataAbsentReason.code.coding.code` should be taken from the [Observation&#13;        Value Absent Reason] Valueset&#13;&#13;7.  When using a panel code to group observations, one or more reference&#13;    to Observations in `Observation.related.target`(Note: See the&#13;    comments for Vital Signs in the table)&#13;    -   a fixed `Observation.related.type`=**“has-member”**&#13;&#13;8.  One patient in `Observation.subject`&#13;9.  A date and time in `Observation.effectiveDateTime` or `Observation.effectivePeriod`&#13;&#13;  [Observation Value Absent Reason]: valueset-observation-valueabsentreason.html&#13;  [Vital Signs Units]:valueset-ucum-vitals-common.html&#13;  [Vital Signs]:valueset-observation-vitalsignresult.html</Data></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">### Complete Summary of the Mandatory Requirements&#10;&#10;1.  One status in `Observation.status`which has a [required](http://build.fhir.org/terminologies.html#extensible) binding to:&#10;    -    [ObservationStatus] value set.&#10;1.  One category in `Observation.category` which must have:&#10;    -   a fixed `Observation.category.coding.system`=&quot;http://hl7.org/fhir/observation-category&quot;&#10;    -   a fixed `Observation.category.coding.code`= &quot;vital-signs&quot;&#10;&#10;1.  A code in `Observation.code`&#10;    -   a fixed `Observation.code.coding.system`= &quot;http://loinc.org&quot;&#10;    -   a LOINC code in `Observation.code.coding.code` which has an [extensible](http://build.fhir.org/terminologies.html#extensible) binding to:&#10;         -   [Vital Signs] value set.&#10;                &#10;1.  One patient in `Observation.subject`&#10;1.  A date and time in `effectiveDateTime` or `effectivePeriod`&#10;1.  Either one `Observation.valueQuantity` or, if there is no value, one code in `Observation.DataAbsentReason`&#10;    -   Each Observation.valueQuantity must have:&#10;        -   One numeric value in `Observation.valueQuantity.value`&#10;        -   a fixed `Observation.valueQuantity.system`=&quot;http://unitsofmeasure&quot;&#10;        -   a UCUM unit code in `Observation.valueQuantity.code` which has an [required] binding to:&#10;             -   [Vital Signs Units] value set.&#10;    -   Observation.DataAbsentReason is bound to [Observation Value&#10;        Absent Reason] value set.&#10;&#10;1.  When using a panel code to group component observations (Note: See&#10;    the comments regarding blood pressure in the table above), one or&#10;    more `Observation.component.code` each of which must have:&#10;    -   a fixed&#10;        `Observation.component.code.coding.system` =&quot;&lt;http://loinc.org&gt;&quot;&#10;         -   a LOINC code in `Observation.code.coding.code` which has an [extensible] binding to:&#10;             -   [Vital Signs Units] value set.&#10;&#10;1.  Either one `Observation.component.valueQuantity` or, if there is&#10;    no value, one code in `Observation.component.DataAbsentReason`&#10;    -   Each Observation.component.valueQuantity must have:&#10;        -   One numeric value in&#10;            `Observation.component.valueQuantity.value`&#10;        -   a fixed `Observation.component.valueQuantity.system`= &quot;&lt;http://unitsofmeasure.org&gt;&quot;&#10;        -   a UCUM unit code in&#10;            `Observation.component.valueQuantity.code` which has an [required] binding to:&#10;             -   [Vital Signs Units] value set.&#10;    -   Observation.component.DataAbsentReason is bound to [Observation&#10;        Value Absent Reason] value set.&#10;&#10;1.  When using a panel code to group observations, one or more reference&#10;    to Vitals Signs Observations in `Observation.related.target`&#10;    -   a fixed `Observation.related.type`= &quot;has-member&quot;&#10;&#10; [Vital Signs]: valueset-observation-vitalsignresult.html&#10;  [Vital Signs Units]: valueset-ucum-vitals-common.html&#10;  [extensible]: terminologies.html#extensible&#10;  [ObservationStatus]: valueset-observation-status.html&#10; [Observation Value Absent Reason]: valueset-observation-valueabsentreason.html&#10;[required]: terminologies.html#required</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">summary-BodyWeight</Data></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">####Complete Summary of the Mandatory Requirements&#13;&#13;1.  One code in `Observation.code` which must have&#13;    -   a fixed `Observation.code.coding.system`=**'http&lt;i&lt;/i://loinc.org'**&#13;    -   a fixed  `Observation.code.coding.code`= **'59574-4'**&#13;    -   Other additional codes are allowed - e.g. more specific LOINC&#13;        Codes, SNOMED CT concepts, system specific codes. All codes&#13;        SHALL have an system value&#13;2.  `Observation.valueQuantity.code` = **'kg', 'g', or '[lb_av]'**</Data></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">####Complete Summary of the Mandatory Requirements&#13;&#13;1.  One code in `Observation.code` which must have&#13;    -   a fixed `Observation.code.coding.system`=**'http ://loinc.org'**&#13;    -   a fixed  `Observation.code.coding.code`= **'59574-4'**&#13;    -   Other additional codes are allowed - e.g. more specific LOINC&#13;        Codes, SNOMED CT concepts, system specific codes. All codes&#13;        SHALL have an system value&#13;2.  `Observation.valueQuantity.code` = **'kg', 'g', or '[lb_av]'**</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Formula="=&quot;summary-&quot;&amp;R[-19]C[1]"><Data ss:Type="String">summary-RespRate</Data></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">####Complete Summary of the Mandatory Requirements&#13;&#13;1.  One code in `Observation.code` which must have&#13;    -   a fixed `Observation.code.coding.system`=**'http&lt;i&lt;/i://loinc.org'**&#13;    -   a fixed  `Observation.code.coding.code`= **'9279-1'**&#13;    -   Other additional codes are allowed - e.g. more specific LOINC&#13;        Codes, SNOMED CT concepts, system specific codes. All codes&#13;        SHALL have an system value&#13;2.  a fixed`Observation.valueQuantity.code` = **'/min'**&#13;&#13;</Data></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">####Complete Summary of the Mandatory Requirements&#13;&#13;1.  One code in `Observation.code` which must have&#13;    -   a fixed `Observation.code.coding.system`=**'http ://loinc.org'**&#13;    -   a fixed  `Observation.code.coding.code`= **'9279-1'**&#13;    -   Other additional codes are allowed - e.g. more specific LOINC&#13;        Codes, SNOMED CT concepts, system specific codes. All codes&#13;        SHALL have an system value&#13;2.  a fixed`Observation.valueQuantity.code` = **'/min'**&#13;&#13;</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Formula="=&quot;summary-&quot;&amp;R[-19]C[1]"><Data ss:Type="String">summary-HeartRate</Data></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">####Complete Summary of the Mandatory Requirements&#13;&#13;1.  One code in `Observation.code` which must have&#13;    -   a fixed `Observation.code.coding.system`=**'http&lt;i&lt;/i://loinc.org'**&#13;    -   a fixed  `Observation.code.coding.code`= **'8867-4'**&#13;    -   Other additional codes are allowed - e.g. more specific LOINC&#13;        Codes, SNOMED CT concepts, system specific codes. All codes&#13;        SHALL have an system value&#13;2.  a fixed`Observation.valueQuantity.code` = **'/min'**&#13;</Data></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">####Complete Summary of the Mandatory Requirements&#13;&#13;1.  One code in `Observation.code` which must have&#13;    -   a fixed `Observation.code.coding.system`=**'http ://loinc.org'**&#13;    -   a fixed  `Observation.code.coding.code`= **'8867-4'**&#13;    -   Other additional codes are allowed - e.g. more specific LOINC&#13;        Codes, SNOMED CT concepts, system specific codes. All codes&#13;        SHALL have an system value&#13;2.  a fixed`Observation.valueQuantity.code` = **'/min'**&#13;</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Formula="=&quot;summary-&quot;&amp;R[-19]C[1]"><Data ss:Type="String">summary-BodyTemp</Data></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">####Complete Summary of the Mandatory Requirements&#13;&#13;1.  One code in `Observation.code` which must have&#13;    -   a fixed `Observation.code.coding.system`=**'http&lt;i&lt;/i://loinc.org'**&#13;    -   a fixed  `Observation.code.coding.code`= **'8310-5'**&#13;    -   Other additional codes are allowed - e.g. more specific LOINC&#13;        Codes, SNOMED CT concepts, system specific codes. All codes&#13;        SHALL have an system value&#13;2.  a fixed`Observation.valueQuantity.code` = **'Cel', or '[degF]'**&#13;</Data></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">####Complete Summary of the Mandatory Requirements&#13;&#13;1.  One code in `Observation.code` which must have&#13;    -   a fixed `Observation.code.coding.system`=**'http ://loinc.org'**&#13;    -   a fixed  `Observation.code.coding.code`= **'8310-5'**&#13;    -   Other additional codes are allowed - e.g. more specific LOINC&#13;        Codes, SNOMED CT concepts, system specific codes. All codes&#13;        SHALL have an system value&#13;2.  a fixed`Observation.valueQuantity.code` = **'Cel', or '[degF]'**&#13;</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Formula="=&quot;summary-&quot;&amp;R[-19]C[1]"><Data ss:Type="String">summary-BodyHeight</Data></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">####Complete Summary of the Mandatory Requirements&#13;&#13;1.  One code in `Observation.code` which must have&#13;    -   a fixed `Observation.code.coding.system`=**'http&lt;i&lt;/i://loinc.org'**&#13;    -   a fixed  `Observation.code.coding.code`= **'8302-2'**&#13;    -   Other additional codes are allowed - e.g. more specific LOINC&#13;        Codes, SNOMED CT concepts, system specific codes. All codes&#13;        SHALL have an system value&#13;2.  a fixed`Observation.valueQuantity.code` = **'cm', or '[in_i]'**&#13;</Data></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">####Complete Summary of the Mandatory Requirements&#13;&#13;1.  One code in `Observation.code` which must have&#13;    -   a fixed `Observation.code.coding.system`=**'http ://loinc.org'**&#13;    -   a fixed  `Observation.code.coding.code`= **'8302-2'**&#13;    -   Other additional codes are allowed - e.g. more specific LOINC&#13;        Codes, SNOMED CT concepts, system specific codes. All codes&#13;        SHALL have an system value&#13;2.  a fixed`Observation.valueQuantity.code` = **'cm', or '[in_i]'**&#13;</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Formula="=&quot;!summary-&quot;&amp;R[-19]C[1]"><Data ss:Type="String">!summary-BodyLength</Data></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">####Complete Summary of the Mandatory Requirements&#13;&#13;1.  One code in `Observation.code` which must have&#13;    -   a fixed `Observation.code.coding.system`=**'http&lt;i&lt;/i://loinc.org'**&#13;    -   a fixed  `Observation.code.coding.code`= **'8306-3'**&#13;    -   Other additional codes are allowed - e.g. more specific LOINC&#13;        Codes, SNOMED CT concepts, system specific codes. All codes&#13;        SHALL have an system value&#13;2.  a fixed`Observation.valueQuantity.code` = **'cm', or '[in_i]'**&#13;</Data></Cell>
+    <Cell ss:Formula="=&quot;summary-&quot;&amp;R[-19]C[1]"><Data ss:Type="String">summary-BodyLength</Data></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">####Complete Summary of the Mandatory Requirements&#13;&#13;1.  One code in `Observation.code` which must have&#13;    -   a fixed `Observation.code.coding.system`=**'http ://loinc.org'**&#13;    -   a fixed  `Observation.code.coding.code`= **'8306-3'**&#13;    -   Other additional codes are allowed - e.g. more specific LOINC&#13;        Codes, SNOMED CT concepts, system specific codes. All codes&#13;        SHALL have an system value&#13;2.  a fixed`Observation.valueQuantity.code` = **'cm', or '[in_i]'**&#13;</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Formula="=&quot;summary-&quot;&amp;R[-19]C[1]"><Data ss:Type="String">summary-HeadCircum</Data></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">####Complete Summary of the Mandatory Requirements&#13;&#13;1.  One code in `Observation.code` which must have&#13;    -   a fixed `Observation.code.coding.system`=**'http&lt;i&lt;/i://loinc.org'**&#13;    -   a fixed  `Observation.code.coding.code`= **'9843-4'**&#13;    -   Other additional codes are allowed - e.g. more specific LOINC&#13;        Codes, SNOMED CT concepts, system specific codes. All codes&#13;        SHALL have an system value&#13;2.  a fixed`Observation.valueQuantity.code` = **'cm', or '[in_i]'**&#13;</Data></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">####Complete Summary of the Mandatory Requirements&#13;&#13;1.  One code in `Observation.code` which must have&#13;    -   a fixed `Observation.code.coding.system`=**'http ://loinc.org'**&#13;    -   a fixed  `Observation.code.coding.code`= **'8287-5'**&#13;    -   Other additional codes are allowed - e.g. more specific LOINC&#13;        Codes, SNOMED CT concepts, system specific codes. All codes&#13;        SHALL have an system value&#13;2.  a fixed`Observation.valueQuantity.code` = **'cm', or '[in_i]'**&#13;</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Formula="=&quot;summary-&quot;&amp;R[-19]C[1]"><Data ss:Type="String">summary-OxygenSat</Data></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">&quot;####Complete Summary of the Mandatory Requirements&#13;&#13;1.  One code in `Observation.code` which must have&#13;    -   a fixed `Observation.code.coding.system`=**'http&lt;i&lt;/i://loinc.org'**&#13;    -   a fixed  `Observation.code.coding.code`= **'59408-5'**&#13;    -   Other additional codes are allowed - e.g. more specific LOINC&#13;        Codes, SNOMED CT concepts, system specific codes. All codes&#13;        SHALL have an system value&#13;2.  a fixed`Observation.valueQuantity.code` = **'%'**&#13;&quot;</Data></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">&quot;####Complete Summary of the Mandatory Requirements&#13;&#13;1.  One code in `Observation.code` which must have&#13;    -   a fixed `Observation.code.coding.system`=**'http ://loinc.org'**&#13;    -   a fixed  `Observation.code.coding.code`= **'59408-5'**&#13;    -   Other additional codes are allowed - e.g. more specific LOINC&#13;        Codes, SNOMED CT concepts, system specific codes. All codes&#13;        SHALL have an system value&#13;2.  a fixed`Observation.valueQuantity.code` = **'%'**&#13;&quot;</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Formula="=&quot;summary-&quot;&amp;R[-19]C[1]"><Data ss:Type="String">summary-BMI</Data></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">####Complete Summary of the Mandatory Requirements&#13;&#13;1.  One code in `Observation.code` which must have&#13;    -   a fixed `Observation.code.coding.system`=**'http&lt;i&lt;/i://loinc.org'**&#13;    -   a fixed  `Observation.code.coding.code`= **'39156-5'**&#13;    -   Other additional codes are allowed - e.g. more specific LOINC&#13;        Codes, SNOMED CT concepts, system specific codes. All codes&#13;        SHALL have an system value&#13;2.  a fixed`Observation.valueQuantity.code` = **'kg/m2'**&#13;</Data></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">####Complete Summary of the Mandatory Requirements&#13;&#13;1.  One code in `Observation.code` which must have&#13;    -   a fixed `Observation.code.coding.system`=**'http ://loinc.org'**&#13;    -   a fixed  `Observation.code.coding.code`= **'39156-5'**&#13;    -   Other additional codes are allowed - e.g. more specific LOINC&#13;        Codes, SNOMED CT concepts, system specific codes. All codes&#13;        SHALL have an system value&#13;2.  a fixed`Observation.valueQuantity.code` = **'kg/m2'**&#13;</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Formula="=&quot;!summary-&quot;&amp;R[-19]C[1]"><Data ss:Type="String">!summary-BSA</Data></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">####Complete Summary of the Mandatory Requirements&#13;&#13;1.  One code in `Observation.code` which must have&#13;    -   a fixed `Observation.code.coding.system`=**'http&lt;i&lt;/i://loinc.org'**&#13;    -   a fixed  `Observation.code.coding.code`= **'3140-1'**&#13;    -   Other additional codes are allowed - e.g. more specific LOINC&#13;        Codes, SNOMED CT concepts, system specific codes. All codes&#13;        SHALL have an system value&#13;2.  a fixed`Observation.valueQuantity.code` = **'m2'**&#13;</Data></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">####Complete Summary of the Mandatory Requirements&#13;&#13;1.  One code in `Observation.code` which must have&#13;    -   a fixed `Observation.code.coding.system`=**'http ://loinc.org'**&#13;    -   a fixed  `Observation.code.coding.code`= **'3140-1'**&#13;    -   Other additional codes are allowed - e.g. more specific LOINC&#13;        Codes, SNOMED CT concepts, system specific codes. All codes&#13;        SHALL have an system value&#13;2.  a fixed`Observation.valueQuantity.code` = **'m2'**&#13;</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Formula="=&quot;summary-&quot;&amp;R[-19]C[1]"><Data ss:Type="String">summary-MBP</Data></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">####Complete Summary of the Mandatory Requirements&#13;&#13;1.  One code in `Observation.code` which must have&#13;    -   a fixed `Observation.code.coding.system`=**'http&lt;i&lt;/i://loinc.org'**&#13;    -   a fixed  `Observation.code.coding.code`= **'2708-6'**&#13;    -   Other additional codes are allowed - e.g. more specific LOINC&#13;        Codes, SNOMED CT concepts, system specific codes. All codes&#13;        SHALL have an system value&#13;2.  a fixed`Observation.valueQuantity.code` = **'mm[Hg]'**&#13;</Data></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">####Complete Summary of the Mandatory Requirements&#13;&#13;1.  One code in `Observation.code` which must have&#13;    -   a fixed `Observation.code.coding.system`=**'http ://loinc.org'**&#13;    -   a fixed  `Observation.code.coding.code`= **8478-0'**&#13;    -   Other additional codes are allowed - e.g. more specific LOINC&#13;        Codes, SNOMED CT concepts, system specific codes. All codes&#13;        SHALL have an system value&#13;2.  a fixed`Observation.valueQuantity.code` = **'mm[Hg]'**&#13;</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Formula="=&quot;summary-&quot;&amp;R[-19]C[1]"><Data ss:Type="String">summary-BP</Data></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">####Complete Summary of the Mandatory Requirements&#13;&#13;1.  One code in `Observation.code` which must have&#13;    -   a fixed `Observation.code.coding.system`=**'http&lt;i&lt;/i://loinc.org'**&#13;    -   a fixed  `Observation.code.coding.code`= **'55284-4'**&#13;    -   Other additional codes are allowed - e.g. more specific LOINC&#13;        Codes, SNOMED CT concepts, system specific codes. All codes&#13;        SHALL have an system value&#13;2.  One  `Observation.component.code`  which must have&#13;    -   a fixed `Observation.component.code.coding.system`=**'http&lt;i&lt;/i://loinc.org'**&#13;    -   fixed  `Observation.component.code.coding.code`= **'8480-6'**&#13;    -   Other additional codes are allowed - e.g. more specific LOINC&#13;        Codes, SNOMED CT concepts, system specific codes. All codes&#13;        SHALL have an system value&#13;3.   One  `Observation.component.code`  which must have&#13;    -   a fixed `Observation.component.code.coding.system`=**'http&lt;i&lt;/i://loinc.org'**&#13;    -   fixed  `Observation.component.code.coding.code`= **'8462-4'**&#13;    -   Other additional codes are allowed - e.g. more specific LOINC&#13;        Codes, SNOMED CT concepts, system specific codes. All codes&#13;        SHALL have an system value&#13;4.  fixed`Observation.component.valueQuantity.code` = **'mm[Hg]'**&#13;</Data></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">####Complete Summary of the Mandatory Requirements&#13;&#13;1.  One code in `Observation.code` which must have&#13;    -   a fixed `Observation.code.coding.system`=**'http ://loinc.org'**&#13;    -   a fixed  `Observation.code.coding.code`= **'55284-4'**&#13;    -   Other additional codes are allowed - e.g. more specific LOINC&#13;        Codes, SNOMED CT concepts, system specific codes. All codes&#13;        SHALL have an system value&#13;2.  One  `Observation.component.code`  which must have&#13;    -   a fixed `Observation.component.code.coding.system`=**'htp ://loinc.org'**&#13;    -   fixed  `Observation.component.code.coding.code`= **'8480-6'**&#13;    -   Other additional codes are allowed - e.g. more specific LOINC&#13;        Codes, SNOMED CT concepts, system specific codes. All codes&#13;        SHALL have an system value&#13;3.   One  `Observation.component.code`  which must have&#13;    -   a fixed `Observation.component.code.coding.system`=**'htp ://loinc.org'**&#13;    -   fixed  `Observation.component.code.coding.code`= **'8462-4'**&#13;    -   Other additional codes are allowed - e.g. more specific LOINC&#13;        Codes, SNOMED CT concepts, system specific codes. All codes&#13;        SHALL have an system value&#13;4.  fixed`Observation.component.valueQuantity.code` = **'mm[Hg]'**&#13;</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">summary-VitalsPanel</Data></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">#### Complete Summary of the Mandatory Requirements&#13;&#13;1.  One status in `Observation.status`&#13;2.  One category in `Observation.category` which must have:&#13;    -   a fixed&#13;        `Observation.category.coding.system`=**“http://hl7.org/fhir/observation-category”**&#13;    -   a fixed `Observation.category.coding.code`=**“vital-signs”**&#13;&#13;3.  One code in `Observation.code` which must have&#13;    -   a fixed `Observation.code.coding.system`=**“http://loinc.org”**&#13;    -   a LOINC code in `Observation.code.coding.code` which must be taken&#13;            from the [Vital Signs] valueset&#13;    -   Other additional codes are allowed - e.g. method specific LOINC&#13;        Codes, SNOMED CT concepts, system specific codes. All codes&#13;        SHALL have an system value&#13;&#13;4.  Either one `Observation.valueQuantity` or, if there is no value,&#13;    one code in `Observation.DataAbsentReason` (Note: See the comments&#13;    in the table for exceptions)&#13;    -   Each Observation.valueQuantity must have:&#13;        -   One numeric value in `Observation.valueQuantity.value`&#13;        -   a fixed&#13;            `Observation.valueQuantity.system`=**“http://unitsofmeasure.org”**&#13;        -   a UCUM unit code in `Observation.valueQuantity.code` which must be taken&#13;            from the [Vital Signs Units] valueset&#13;    -   Observation.DataAbsentReason should be taken from the [Observation&#13;        Value Absent Reason] Valueset&#13;&#13;5.  When using a panel code to group component observations (Note: See&#13;    the comments regarding blood pressure in the table), one or more&#13;    `Observation.component.code` each of which must have:&#13;    -   a fixed&#13;        `Observation.component.code.coding.system`=**“http://loinc.org”**&#13;    -   a LOINC code in `Observation.component.code.coding.code` taken&#13;        from the column labeled “LOINC code” in the table&#13;&#13;6.  Either one `Observation.component.valueQuantity` or, if there is&#13;    no value, one code in `Observation.component.DataAbsentReason`&#13;    -   Each Observation.component.valueQuantity must have:&#13;        -   One numeric value in&#13;            `Observation.component.valueQuantity.value`&#13;        -   a fixed&#13;            `Observation.component.valueQuantity.system`=**“http://unitsofmeasure.org”**&#13;        -   a UCUM unit code in&#13;            `Observation.component.valueQuantity.code` which must be taken&#13;            from the [Vital Signs Units] valueset&#13;    -   The `Observation.component.DataAbsentReason.code.coding.code` should be taken from the [Observation&#13;        Value Absent Reason] Valueset&#13;&#13;7.  When using a panel code to group observations, one or more reference&#13;    to Observations in `Observation.related.target`(Note: See the&#13;    comments for Vital Signs in the table)&#13;    -   a fixed `Observation.related.type`=**“has-member”**&#13;&#13;8.  One patient in `Observation.subject`&#13;9.  A date and time in `Observation.effectiveDateTime` or `Observation.effectivePeriod`&#13;&#13;  [Observation Value Absent Reason]: valueset-observation-valueabsentreason.html&#13;  [Vital Signs Units]:valueset-ucum-vitals-common.html&#13;  [Vital Signs]:valueset-observation-vitalsignresult.html</Data></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">####Complete Summary of the Mandatory Requirements&#10;####Complete Summary of the Mandatory Requirements&#10;&#10;1.  One code in `Observation.code` which must have&#10;    -   a fixed `Observation.code.coding.system`=**'http ://loinc.org'**&#10;    -   a fixed  `Observation.code.coding.code`= **'8716-3'**&#10;    -   Other additional codes are allowed - e.g. more specific LOINC&#10;        Codes, SNOMED CT concepts, system specific codes. All codes&#10;        SHALL have an system value&#10;1.  No value in `Observation.value[x]`&#10;1.  At Least one Vitals Sign Observation reference in `Observation.related`</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -1268,10 +1282,11 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>19</TopRowBottomPane>
+   <TopRowBottomPane>35</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -1288,7 +1303,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>21</ActiveRow>
+     <ActiveRow>42</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1472,7 +1487,8 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s107"><Data ss:Type="String">Status</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1787,7 +1803,8 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s107"><Data ss:Type="String">DAR</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2126,7 +2143,8 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s107"><Data ss:Type="String">DAR</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3977,11 +3995,10 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>10</TopRowBottomPane>
+   <TopRowBottomPane>19</TopRowBottomPane>
    <SplitVertical>4</SplitVertical>
    <LeftColumnRightPane>4</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -3999,8 +4016,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>16</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     <ActiveRow>12</ActiveRow>
+     <ActiveCol>9</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -6991,8 +7008,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>7</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     <ActiveRow>6</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -41403,10 +41420,10 @@
  </Worksheet>
  <Worksheet ss:Name="Bindings">
   <Names>
-   <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Bindings!R1C1:R5C13"
+   <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Bindings!R1C1:R7C13"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="13" ss:ExpandedRowCount="31" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="13" ss:ExpandedRowCount="33" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s84" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s84" ss:Width="114.75"/>
@@ -41476,13 +41493,54 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
+    <Cell ss:StyleID="s93"><Data ss:Type="String">Status</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s137"><Data ss:Type="String">value set</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s137"><Data ss:Type="String">required</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s179"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/observation-status</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s137"><Data ss:Type="String">This identifies the vital sign result type. Original source C-CDA R1.1 ,  HITSP Vital Sign Result Type.</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s137"><Data ss:Type="String">2.16.840.1.113883.3.88.12.80.62</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s137"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s137"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s137"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s137"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s137"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s138"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="30">
+    <Cell ss:StyleID="s104"><Data ss:Type="String">DAR</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s140"><Data ss:Type="String">value set</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s140"><Data ss:Type="String">extensible</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s190"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/observation-valueabsentreason</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s140"><Data ss:Type="String">Commonly encountered UCUM units for recording Vital Signs.</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s140"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s140"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s140"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s140"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s140"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s140"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s141"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell ss:StyleID="s93"><Data ss:Type="String">VitalSigns</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">This identifies the vital sign result type.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s137"><Data ss:Type="String">value set</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s137"><Data ss:Type="String">required</Data><NamedCell
+    <Cell ss:StyleID="s137"><Data ss:Type="String">extensible</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s137"><Data ss:Type="String">valueset-observation-vitalsignresult</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -41955,7 +42013,7 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>2</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -41963,22 +42021,21 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>4</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
    <x:PageLayoutZoom>0</x:PageLayoutZoom>
   </WorksheetOptions>
-  <AutoFilter x:Range="R1C1:R5C13"
+  <AutoFilter x:Range="R1C1:R7C13"
    xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
  </Worksheet>

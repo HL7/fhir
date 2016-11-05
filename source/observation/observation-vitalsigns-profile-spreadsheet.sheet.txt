@@ -2,15 +2,30 @@
 === Sheet Bindings =====================================
 
  -- Row 1 -----------------------------------
-  Binding Name = VitalSigns
+  Binding Name = Status
   Binding = value set
-  Reference = valueset-observation-vitalsignresult
-  Definition = This identifies the vital sign result type.
+  Reference = http://hl7.org/fhir/ValueSet/observation-status
   Description = This identifies the vital sign result type. Original source C-CDA R1.1 ,  HITSP Vital Sign Result Type.
   Conformance = required
   Oid = 2.16.840.1.113883.3.88.12.80.62
 
  -- Row 2 -----------------------------------
+  Binding Name = DAR
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/observation-valueabsentreason
+  Description = Commonly encountered UCUM units for recording Vital Signs.
+  Conformance = extensible
+
+ -- Row 3 -----------------------------------
+  Binding Name = VitalSigns
+  Binding = value set
+  Reference = valueset-observation-vitalsignresult
+  Definition = This identifies the vital sign result type.
+  Description = This identifies the vital sign result type. Original source C-CDA R1.1 ,  HITSP Vital Sign Result Type.
+  Conformance = extensible
+  Oid = 2.16.840.1.113883.3.88.12.80.62
+
+ -- Row 4 -----------------------------------
   Binding Name = VitalSignsUnits
   Binding = value set
   Reference = valueset-ucum-vitals-common
@@ -18,7 +33,7 @@
   Description = Commonly encountered UCUM units for recording Vital Signs.
   Conformance = required
 
- -- Row 3 -----------------------------------
+ -- Row 5 -----------------------------------
   Binding Name = BodyWeightUnits
   Binding = value set
   Reference = valueset-ucum-bodyweight
@@ -26,7 +41,7 @@
   Description = g | kg  | [lb_av]
   Conformance = required
 
- -- Row 4 -----------------------------------
+ -- Row 6 -----------------------------------
   Binding Name = BodyTempUnits
   Binding = value set
   Reference = valueset-ucum-bodytemp
@@ -34,7 +49,7 @@
   Description = Cel | [degF]
   Conformance = required
 
- -- Row 5 -----------------------------------
+ -- Row 7 -----------------------------------
   Binding Name = BodyLengthUnits
   Binding = value set
   Reference = valueset-ucum-bodylength
@@ -83,6 +98,7 @@
   Card. = 1..1
   Must Support = Y
   Type = code
+  Binding = Status
 
  -- Row 3 -----------------------------------
   Element = Observation.category
@@ -156,6 +172,7 @@
   Must Support = Y
   Inv. = vs-2
   Type = CodeableConcept
+  Binding = DAR
 
  -- Row 13 -----------------------------------
   Element = Observation.related
@@ -229,6 +246,7 @@
   Must Support = Y
   Inv. = vs-3
   Type = CodeableConcept
+  Binding = DAR
 
 === Sheet BodyWeight =====================================
 

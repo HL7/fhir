@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ValueSet xmlns="http://hl7.org/fhir">
 	<identifier>
-    <system value="urn:ietf:rfc:3986"/>
+		<system value="urn:ietf:rfc:3986"/>
 		<value value="urn:oid:2.16.840.1.113883.3.88.12.80.62"/>
 	</identifier>
 	<name value="Vital Signs"/>
@@ -38,15 +38,12 @@
 			<concept>
 				<code value="8302-2"/>
 			</concept>
-<!--	
 			<concept>
 				<code value="8306-3"/>
-			</concept>	
-
+			</concept>
 			<concept>
 				<code value="8287-5"/>
 			</concept>
--->
 			<concept>
 				<code value="29463-7"/>
 			</concept>
