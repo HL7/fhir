@@ -60,6 +60,12 @@
   <contained>
     <Coverage>
       <id value="coverage-1"/>
+	  
+      <identifier>
+        <system value="http://benefitsinc.com/certificate"/>
+        <value value="12345"/>
+      </identifier>
+
       <status value="active"/>
       <issuer>
 	    <identifier>
@@ -83,26 +89,13 @@
         <code value="self"/>
       </relationship>
 	  
-      <identifier>
-        <system value="http://benefitsinc.com/certificate"/>
-        <value value="12345"/>
-      </identifier>
-      <!-- 
-	  plan value="CBI35"/>
-      <subPlan value="123"/
-	  -->
-      <level>
-        <system value="http://benefitsinc.com/plan" />
-        <code value="CBI35" />
-        <display value="Corporate Baker's Inc. Plan#35" />
-      </level>
-
-      <level>
-        <system value="http://benefitsinc.com/subplan" />
-        <code value="123" />
-        <display value="Trainee Part-time Benefits" />
-      </level>
-	  
+	  <group>
+	    <plan value="CBI35"/>
+        <planDisplay value="Corporate Baker's Inc. Plan#35" />
+        <subPlan value="123"/>
+        <subPlanDisplay value="Trainee Part-time Benefits" />
+	  </group> 
+	  	  
       <dependent value="1"/>
       <sequence value="1"/>
     </Coverage>
