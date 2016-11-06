@@ -420,84 +420,96 @@
   Path = Coverage.type
 
  -- Row 6 -----------------------------------
-  Name = !plan
-  Type = token
+  Name = plan
+  Type = string
   Description = A plan or policy identifier
-  Path = Coverage.plan
+  Path = Coverage.group.plan
 
  -- Row 7 -----------------------------------
-  Name = !subplan
-  Type = token
+  Name = subplan
+  Type = string
   Description = Sub-plan identifier
-  Path = Coverage.subPlan
+  Path = Coverage.group.subPlan
 
  -- Row 8 -----------------------------------
-  Name = !group
-  Type = token
+  Name = group
+  Type = string
   Description = Group identifier
-  Path = Coverage.group
+  Path = Coverage.group.group
 
  -- Row 9 -----------------------------------
-  Name = !subgroup
-  Type = token
+  Name = subgroup
+  Type = string
   Description = Sub-group identifier
-  Path = Coverage.subGroup
+  Path = Coverage.group.subGroup
 
  -- Row 10 -----------------------------------
+  Name = class
+  Type = string
+  Description = Class identifier
+  Path = Coverage.group.class
+
+ -- Row 11 -----------------------------------
+  Name = subclass
+  Type = string
+  Description = Sub-class identifier
+  Path = Coverage.group.subClass
+
+ -- Row 12 -----------------------------------
   Name = dependent
   Type = number
   Description = Dependent number
   Path = Coverage.dependent
 
- -- Row 11 -----------------------------------
+ -- Row 13 -----------------------------------
   Name = sequence
   Type = number
   Description = Sequence number
   Path = Coverage.sequence
 
- -- Row 12 -----------------------------------
+ -- Row 14 -----------------------------------
   Name = !subject
   Type = reference
   Description = Covered party
   Path = Coverage.subject
 
- -- Row 13 -----------------------------------
+ -- Row 15 -----------------------------------
   Name = !subscriber
   Type = reference
   Description = Reference to the subscriber
   Path = Coverage.subscriber
 
- -- Row 14 -----------------------------------
+ -- Row 16 -----------------------------------
   Name = beneficiary
   Type = reference
   Description = Covered party
   Path = Coverage.beneficiary
 
- -- Row 15 -----------------------------------
+ -- Row 17 -----------------------------------
   Name = !beneficiary-identifier
   Type = token
   Description = Covered party
   Path = Coverage.beneficiaryIdentifier
 
- -- Row 16 -----------------------------------
+ -- Row 18 -----------------------------------
   Name = !beneficiary-reference
   Type = reference
   Description = Covered party
   Path = Coverage.beneficiaryReference
 
- -- Row 17 -----------------------------------
+ -- Row 19 -----------------------------------
   Name = planholder
   Type = reference
   Description = Reference to the planholder
   Path = Coverage.planholder
 
- -- Row 18 -----------------------------------
+ -- Row 20 -----------------------------------
   Name = !planholder-identifier
   Type = token
   Description = Reference to the planholder
   Path = Coverage.planholderIdentifier
 
- -- Row 19 -----------------------------------
+ -- Row 21 -----------------------------------
   Name = !planholder-reference
   Type = reference
   Description = Reference to the planholder

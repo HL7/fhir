@@ -20,7 +20,7 @@
   <WindowWidth>25110</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>3</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -4472,7 +4472,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -5054,7 +5053,7 @@
    <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Search!R1C1:R1C5"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="37" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="39" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s114" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s114" ss:AutoFitWidth="0" ss:Width="135.75"/>
    <Column ss:StyleID="s114" ss:AutoFitWidth="0" ss:Width="57"/>
@@ -5118,32 +5117,46 @@
     <Cell ss:StyleID="s121"><Data ss:Type="String">The kind of coverage (health plan, auto, Workers Compensation)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s119"><Data ss:Type="String">!plan</Data></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">token</Data></Cell>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">plan</Data></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:StyleID="s89"/>
-    <Cell ss:StyleID="s120"><Data ss:Type="String">Coverage.plan</Data></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">Coverage.group.plan</Data></Cell>
     <Cell ss:StyleID="s121"><Data ss:Type="String">A plan or policy identifier</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s119"><Data ss:Type="String">!subplan</Data></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">token</Data></Cell>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">subplan</Data></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:StyleID="s89"/>
-    <Cell ss:StyleID="s120"><Data ss:Type="String">Coverage.subPlan</Data></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">Coverage.group.subPlan</Data></Cell>
     <Cell ss:StyleID="s121"><Data ss:Type="String">Sub-plan identifier</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s119"><Data ss:Type="String">!group</Data></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">token</Data></Cell>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">group</Data></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:StyleID="s89"/>
-    <Cell ss:StyleID="s120"><Data ss:Type="String">Coverage.group</Data></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">Coverage.group.group</Data></Cell>
     <Cell ss:StyleID="s121"><Data ss:Type="String">Group identifier</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s119"><Data ss:Type="String">!subgroup</Data></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">token</Data></Cell>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">subgroup</Data></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:StyleID="s89"/>
-    <Cell ss:StyleID="s120"><Data ss:Type="String">Coverage.subGroup</Data></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">Coverage.group.subGroup</Data></Cell>
     <Cell ss:StyleID="s121"><Data ss:Type="String">Sub-group identifier</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s119"><Data ss:Type="String">class</Data></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:StyleID="s89"/>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">Coverage.group.class</Data></Cell>
+    <Cell ss:StyleID="s121"><Data ss:Type="String">Class identifier</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s119"><Data ss:Type="String">subclass</Data></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:StyleID="s89"/>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">Coverage.group.subClass</Data></Cell>
+    <Cell ss:StyleID="s121"><Data ss:Type="String">Sub-class identifier</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s119"><Data ss:Type="String">dependent</Data></Cell>
@@ -5336,6 +5349,7 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -5355,8 +5369,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>9</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>15</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
