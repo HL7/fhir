@@ -100,105 +100,6 @@
   w5 = financial.support
 
  -- Row 2 -----------------------------------
-  Element = Coverage.status
-  Card. = 1..1
-  Is Modifier = Y
-  Summary = Y
-  Type = code
-  Binding = CoverageStatus
-  Short Name = active | cancelled | draft | entered-in-error
-  Definition = The status of the resource instance.
-  w5 = status
-
- -- Row 3 -----------------------------------
-  Element = Coverage.issuer
-  Card. = 1..1
-  Summary = Y
-  Type = Reference(Organization|Patient|RelatedPerson)
-  Short Name = Identifier for the plan or agreement issuer
-  Definition = The program or plan underwriter or payor including both insurance and non-insurance agreements, such as patient-pay agreements.
-  Requirements = Need to identify the issuer to target for processing and for coordination of benefit processing.
-  CDAnet v4 Mapping = A05
-  v2 Mapping = IN1-3
-  CPhA3 (Pharmacy) Mapping = C.30
-  w5 = who.author
-
- -- Row 4 -----------------------------------
-  Element = Coverage.isAgreement
-  Card. = 0..1
-  Summary = Y
-  Type = boolean
-  Short Name = Is a Payment Agreement
-  Definition = A self, or other, payment agreement not an insurance policy.
-  Requirements = Only insurance policies receive Claims, agreements receive bills.
-
- -- Row 5 -----------------------------------
-  Element = !Coverage.bin
-  Card. = 0..1
-  Summary = Y
-  Type = string
-  Short Name = BIN Number
-  Definition = Business Identification Number (BIN number) used to identify the routing  of eClaims.
-
- -- Row 6 -----------------------------------
-  Element = Coverage.period
-  Card. = 0..1
-  Summary = Y
-  Type = Period
-  Short Name = Coverage start and end dates
-  Definition = Time period during which the coverage is in force. A missing start date indicates the start date isn\'t known, a missing end date means the coverage is continuing to be in force.
-  v2 Mapping = IN1-12 / IN1-13
-  w5 = when.done
-
- -- Row 7 -----------------------------------
-  Element = Coverage.type
-  Card. = 0..1
-  Summary = Y
-  Type = Coding
-  Binding = CoverageType
-  Short Name = Type of coverage
-  Definition = The type of coverage: social program, medical plan, accident coverage (workers compensation, auto), group health.
-  Requirements = The order of application of coverages is dependent on the types of coverage.
-  v2 Mapping = IN1-15
-  w5 = class
-
- -- Row 8 -----------------------------------
-  Element = Coverage.planholder
-  Card. = 1..1
-  Summary = Y
-  Type = Reference(Patient|Organization)
-  Short Name = Plan holder
-  Definition = The party who \'owns\' the insurance contractual relationship to the policy or to whom the benefit of the policy is due.
-  CDAnet v4 Mapping = D01 through D09
-  v2 Mapping = IN1-16, 18,  19-name of insured, address, date of birth
-  CPhA3 (Pharmacy) Mapping = C.35
-  Committee Notes = C.35
-  w5 = who.focus
-
- -- Row 9 -----------------------------------
-  Element = Coverage.beneficiary
-  Card. = 1..1
-  Summary = Y
-  Type = Reference(Patient)
-  Short Name = Plan Beneficiary
-  Definition = The party who benefits from the insurance coverage.
-  CDAnet v4 Mapping = D01 through D09
-  v2 Mapping = IN1-16, 18,  19-name of insured, address, date of birth
-  CPhA3 (Pharmacy) Mapping = C.35
-  Committee Notes = C.35
-  w5 = who.focus
-
- -- Row 10 -----------------------------------
-  Element = Coverage.relationship
-  Card. = 1..1
-  Type = Coding
-  Binding = Relationship
-  Short Name = Beneficiary relationship to Planholder
-  Definition = The relationship of beneficiary (patient) (subscriber) to the the planholder.
-  Requirements = To determine relationship between the patient and the subscriber
-  CDAnet v4 Mapping = C03
-
- -- Row 11 -----------------------------------
   Element = Coverage.identifier
   Card. = 0..*
   Summary = Y
@@ -211,8 +112,107 @@
   CPhA3 (Pharmacy) Mapping = C.32, C.33, C.39
   w5 = id
 
+ -- Row 3 -----------------------------------
+  Element = Coverage.status
+  Card. = 0..1
+  Is Modifier = Y
+  Summary = Y
+  Type = code
+  Binding = CoverageStatus
+  Short Name = active | cancelled | draft | entered-in-error
+  Definition = The status of the resource instance.
+  w5 = status
+
+ -- Row 4 -----------------------------------
+  Element = Coverage.issuer
+  Card. = 0..1
+  Summary = Y
+  Type = Reference(Organization|Patient|RelatedPerson)
+  Short Name = Identifier for the plan or agreement issuer
+  Definition = The program or plan underwriter or payor including both insurance and non-insurance agreements, such as patient-pay agreements.
+  Requirements = Need to identify the issuer to target for processing and for coordination of benefit processing.
+  CDAnet v4 Mapping = A05
+  v2 Mapping = IN1-3
+  CPhA3 (Pharmacy) Mapping = C.30
+  w5 = who.author
+
+ -- Row 5 -----------------------------------
+  Element = Coverage.isAgreement
+  Card. = 0..1
+  Summary = Y
+  Type = boolean
+  Short Name = Is a Payment Agreement
+  Definition = A self, or other, payment agreement not an insurance policy.
+  Requirements = Only insurance policies receive Claims, agreements receive bills.
+
+ -- Row 6 -----------------------------------
+  Element = !Coverage.bin
+  Card. = 0..1
+  Summary = Y
+  Type = string
+  Short Name = BIN Number
+  Definition = Business Identification Number (BIN number) used to identify the routing  of eClaims.
+
+ -- Row 7 -----------------------------------
+  Element = Coverage.period
+  Card. = 0..1
+  Summary = Y
+  Type = Period
+  Short Name = Coverage start and end dates
+  Definition = Time period during which the coverage is in force. A missing start date indicates the start date isn\'t known, a missing end date means the coverage is continuing to be in force.
+  v2 Mapping = IN1-12 / IN1-13
+  w5 = when.done
+
+ -- Row 8 -----------------------------------
+  Element = Coverage.type
+  Card. = 0..1
+  Summary = Y
+  Type = Coding
+  Binding = CoverageType
+  Short Name = Type of coverage
+  Definition = The type of coverage: social program, medical plan, accident coverage (workers compensation, auto), group health.
+  Requirements = The order of application of coverages is dependent on the types of coverage.
+  v2 Mapping = IN1-15
+  w5 = class
+
+ -- Row 9 -----------------------------------
+  Element = Coverage.planholder
+  Card. = 0..1
+  Summary = Y
+  Type = Reference(Patient|RelatedPerson|Organization)
+  Short Name = Plan holder
+  Definition = The party who \'owns\' the insurance contractual relationship to the policy or to whom the benefit of the policy is due.
+  CDAnet v4 Mapping = D01 through D09
+  v2 Mapping = IN1-16, 18,  19-name of insured, address, date of birth
+  CPhA3 (Pharmacy) Mapping = C.35
+  Committee Notes = C.35
+  w5 = who.focus
+
+ -- Row 10 -----------------------------------
+  Element = Coverage.beneficiary
+  Card. = 0..1
+  Summary = Y
+  Type = Reference(Patient)
+  Short Name = Plan Beneficiary
+  Definition = The party who benefits from the insurance coverage.
+  CDAnet v4 Mapping = D01 through D09
+  v2 Mapping = IN1-16, 18,  19-name of insured, address, date of birth
+  CPhA3 (Pharmacy) Mapping = C.35
+  Committee Notes = C.35
+  w5 = who.focus
+
+ -- Row 11 -----------------------------------
+  Element = Coverage.relationship
+  Card. = 0..1
+  Type = Coding
+  Binding = Relationship
+  Short Name = Beneficiary relationship to Planholder
+  Definition = The relationship of beneficiary (patient) (subscriber) to the the planholder.
+  Requirements = To determine relationship between the patient and the subscriber
+  CDAnet v4 Mapping = C03
+
  -- Row 12 -----------------------------------
-  Element = Coverage.level
+  Element = !Coverage.level
   Card. = 0..*
   Summary = Y
   Type = Coding
@@ -221,7 +221,14 @@
   Definition = A suite of underwrite specific classifiers, for example may be used to identify a class of coverage or employer group, Policy, Plan.
 
  -- Row 13 -----------------------------------
-  Element = !Coverage.group
+  Element = Coverage.group
+  Card. = 0..*
+  Type = =Group
+  Short Name = Additional coverage classifications
+  Definition = A suite of underwrite specific classifiers, for example may be used to identify a class of coverage or employer group, Policy, Plan.
+
+ -- Row 14 -----------------------------------
+  Element = Coverage.group.group
   Card. = 0..1
   Summary = Y
   Type = string
@@ -231,8 +238,19 @@
   v2 Mapping = IN1-8
   CPhA3 (Pharmacy) Mapping = C.31
 
- -- Row 14 -----------------------------------
-  Element = !Coverage.subGroup
+ -- Row 15 -----------------------------------
+  Element = Coverage.group.groupDisplay
+  Card. = 0..1
+  Summary = Y
+  Type = string
+  Short Name = Display text for an identifier for the group
+  Definition = A short description for the group.
+  CDAnet v4 Mapping = C11 (Division,Section)
+  v2 Mapping = IN1-8
+  CPhA3 (Pharmacy) Mapping = C.31
+
+ -- Row 16 -----------------------------------
+  Element = Coverage.group.subGroup
   Card. = 0..1
   Summary = Y
   Type = string
@@ -240,8 +258,17 @@
   Definition = Identifies a style or collective of coverage issues by the underwriter, for example may be used to identify a class of coverage or employer group. May also be referred to as a Policy or Group ID.
   v2 Mapping = IN1-8
 
- -- Row 15 -----------------------------------
-  Element = !Coverage.plan
+ -- Row 17 -----------------------------------
+  Element = Coverage.group.subGroupDisplay
+  Card. = 0..1
+  Summary = Y
+  Type = string
+  Short Name = Display text for the subsection of the group
+  Definition = A short description for the subgroup.
+  v2 Mapping = IN1-8
+
+ -- Row 18 -----------------------------------
+  Element = Coverage.group.plan
   Card. = 0..1
   Summary = Y
   Type = string
@@ -250,8 +277,18 @@
   CDAnet v4 Mapping = C01
   v2 Mapping = IN1-35
 
- -- Row 16 -----------------------------------
-  Element = !Coverage.subPlan
+ -- Row 19 -----------------------------------
+  Element = Coverage.group.planDisplay
+  Card. = 0..1
+  Summary = Y
+  Type = string
+  Short Name = Display text for the plan
+  Definition = A short description for the plan.
+  CDAnet v4 Mapping = C01
+  v2 Mapping = IN1-35
+
+ -- Row 20 -----------------------------------
+  Element = Coverage.group.subPlan
   Card. = 0..1
   Summary = Y
   Type = string
@@ -259,8 +296,17 @@
   Definition = Identifies a sub-style or sub-collective of coverage issues by the underwriter, for example may be used to identify a specific employer group within a class of employers. May be referred to as a Section or Division ID.
   v2 Mapping = IN1-10
 
- -- Row 17 -----------------------------------
-  Element = !Coverage.class
+ -- Row 21 -----------------------------------
+  Element = Coverage.group.subPlanDisplay
+  Card. = 0..1
+  Summary = Y
+  Type = string
+  Short Name = Display text for the subsection of the plan
+  Definition = A short description for the subplan.
+  v2 Mapping = IN1-10
+
+ -- Row 22 -----------------------------------
+  Element = Coverage.group.class
   Card. = 0..1
   Summary = Y
   Type = string
@@ -269,7 +315,37 @@
   CDAnet v4 Mapping = C01
   v2 Mapping = IN1-35
 
- -- Row 18 -----------------------------------
+ -- Row 23 -----------------------------------
+  Element = Coverage.group.classDisplay
+  Card. = 0..1
+  Summary = Y
+  Type = string
+  Short Name = Display text for the class
+  Definition = A short description for the class.
+  CDAnet v4 Mapping = C01
+  v2 Mapping = IN1-35
+
+ -- Row 24 -----------------------------------
+  Element = Coverage.group.subClass
+  Card. = 0..1
+  Summary = Y
+  Type = string
+  Short Name = An identifier for the subsection of the class
+  Definition = Identifies a sub-style or sub-collective of coverage issues by the underwriter, for example may be used to identify a subclass of coverage or employer group.
+  CDAnet v4 Mapping = C01
+  v2 Mapping = IN1-35
+
+ -- Row 25 -----------------------------------
+  Element = Coverage.group.subClassDisplay
+  Card. = 0..1
+  Summary = Y
+  Type = string
+  Short Name = Display text for the subsection of the subclass
+  Definition = A short description for the subclass.
+  CDAnet v4 Mapping = C01
+  v2 Mapping = IN1-35
+
+ -- Row 26 -----------------------------------
   Element = Coverage.dependent
   Card. = 0..1
   Summary = Y
@@ -280,7 +356,7 @@
   CDAnet v4 Mapping = C17
   v2 Mapping = - No exact HL7 v2 equivalent concept seems to exist;
 
- -- Row 19 -----------------------------------
+ -- Row 27 -----------------------------------
   Element = Coverage.sequence
   Card. = 0..1
   Summary = Y
@@ -291,7 +367,7 @@
   CDAnet v4 Mapping = D11
   v2 Mapping = No HL7 v2 equivalent concept seems to exist
 
- -- Row 20 -----------------------------------
+ -- Row 28 -----------------------------------
   Element = Coverage.network
   Card. = 0..1
   Summary = Y
@@ -300,7 +376,7 @@
   Definition = The identifier for a community of providers.
   CDAnet v4 Mapping = D10
 
- -- Row 21 -----------------------------------
+ -- Row 29 -----------------------------------
   Element = Coverage.contract
   Card. = 0..*
   Type = Reference(Contract)
