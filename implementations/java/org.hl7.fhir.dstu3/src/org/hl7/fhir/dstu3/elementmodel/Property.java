@@ -116,9 +116,23 @@ public class Property {
 		return structure;
 	}
 
-	public boolean isPrimitive(String name) {
-	  String code = name;
-      StructureDefinition sd = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+code);
+	/**
+	 * Is the given name a primitive
+	 * 
+	 * @param E.g. "Observation.status"
+	 */
+	public boolean isPrimitiveName(String name) {
+	  String code = getType(name);
+      return isPrimitive(code);
+	}
+
+	/**
+	 * Is the given type a primitive
+	 * 
+	 * @param E.g. "integer"
+	 */
+	public boolean isPrimitive(String code) {
+		StructureDefinition sd = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+code);
       return sd != null && sd.getKind() == StructureDefinitionKind.PRIMITIVETYPE;
 	}
 
