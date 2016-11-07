@@ -1048,7 +1048,9 @@ public class IgSpreadsheetParser {
       ex.setStatus(PublicationStatus.fromCode(metadata("status")));
    
     row++;
+    boolean hasChild = false;
     while (row < sheet.getRows().size() && sheet.getColumn(row, "Code").startsWith(name+".")) {
+      hasChild = true;
       String n = sheet.getColumn(row, "Code");
       ElementDefinition child = ex.getDifferential().addElement();
       child.setPath("Extension.extension");
@@ -1061,6 +1063,17 @@ public class IgSpreadsheetParser {
         }
       }
       row++;
+    }
+    if (hasChild) {
+      boolean found = false;
+      for (ElementDefinition exv : ex.getDifferential().getElement())
+        if (exv.getPath().startsWith("Extension.value")) {
+          found = true;
+          exv.setMax("0");
+        }
+      if (!found) {
+        ex.getDifferential().addElement().setPath("Extension.value[x]").setMax("0");
+      }
     }
     ex.getDifferential().getElementFirstRep().getType().clear();
     if (ex.getDifferential().getElementFirstRep().hasRequirements()) {
