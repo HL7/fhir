@@ -222,7 +222,7 @@
 
  -- Row 13 -----------------------------------
   Element = Coverage.group
-  Card. = 0..*
+  Card. = 0..1
   Type = =Group
   Short Name = Additional coverage classifications
   Definition = A suite of underwrite specific classifiers, for example may be used to identify a class of coverage or employer group, Policy, Plan.
