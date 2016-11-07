@@ -2540,10 +2540,8 @@ public class Publisher implements URIResolver, SectionNumberer {
       zip.addFilesFiltered(page.getFolders().dstDir, "", ".json", new String[] {".schema.json", ".canonical.json", "expansions.json"});
       zip.close();
 
-      if (web) {
-        page.log(" ...final zip", LogMessageType.Process);
-        produceZip();
-      }
+      page.log(" ...final zip", LogMessageType.Process);
+      produceZip();
 
       page.log("Check HTML Links", LogMessageType.Process);
       page.getHTMLChecker().produce();

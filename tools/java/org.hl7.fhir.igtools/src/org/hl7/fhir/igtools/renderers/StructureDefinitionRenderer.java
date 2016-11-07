@@ -728,7 +728,7 @@ public class StructureDefinitionRenderer extends BaseRenderer {
       s.append("<b>Defined on this element</b><br/>\r\n");
       List<String> ids = new ArrayList<String>();
       for (ElementDefinitionConstraintComponent id : constraints)
-        ids.add(id.getKey());
+        ids.add(id.hasKey() ? id.getKey() : id.toString());
       Collections.sort(ids);
       boolean b = false;
       for (String id : ids) {
@@ -745,9 +745,12 @@ public class StructureDefinitionRenderer extends BaseRenderer {
   }
 
   private ElementDefinitionConstraintComponent getConstraint(List<ElementDefinitionConstraintComponent> constraints, String id) {
-    for (ElementDefinitionConstraintComponent c : constraints)
-      if (c.getKey().equals(id))
+    for (ElementDefinitionConstraintComponent c : constraints) {
+      if (c.hasKey() && c.getKey().equals(id))
         return c;
+      if (!c.hasKey() && c.toString().equals(id))
+        return c;
+    } 
     return null;
   }
 

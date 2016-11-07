@@ -1455,7 +1455,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
             r.setElement(convertToElement(bc));
           igpkp.checkForPath(f, r, bc);
           try {
-            if (!(bc instanceof StructureDefinition))
+//            if (!(bc instanceof StructureDefinition))
               context.seeResource(bc.getUrl(), bc);
           } catch (Exception e) {
             throw new Exception("Exception loading "+bc.getUrl()+": "+e.getMessage(), e);
@@ -3002,7 +3002,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
       System.out.println("Alternatively, you can run the Publisher directly against a folder containing");
       System.out.println("a set of resources, to validate and represent them");
       System.out.println("");
-      System.out.println("-source [source] -destination [dest] -tx [url] -watch");
+      System.out.println("-source [source] -destination [dest] -tx [url]");
       System.out.println("");
       System.out.println("-source: a local to scan for resources (e.g. logical models)");
       System.out.println("-destination: where to put the output (including qa.html)");
