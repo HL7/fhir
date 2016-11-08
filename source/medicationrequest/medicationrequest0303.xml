@@ -20,6 +20,17 @@
         <system value="http://www.bmc.nl/portal/prescriptions"/>
         <value value="12345689"/>
     </identifier>
+    <definition>
+        <reference value="ActivityDefinition/example"></reference>
+    </definition>
+    <basedOn>
+        <reference value="CarePlan/gpvisit"></reference>
+    </basedOn>
+    <requisition>
+        <use value="official"/>
+        <system value="http://www.bmc.nl/portal/prescriptions"/>
+        <value value="983939393"/>
+    </requisition>
     <status value="active"/>
     <stage>
         <coding>
