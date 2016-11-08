@@ -720,4 +720,10 @@
   Description = Order for a Dosage that needs to be dispensed as different strength tablets - Warfarin - active
   Filename = medicationrequest0331.xml
 
+ -- Row 33 -----------------------------------
+  Name = One time dose
+  Identity = medrx0332
+  Description = Order for a medication that is intended to be given as a single, once only dose
+  Filename = medicationrequest0332.xml
+
 === Sheet Examples =====================================

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MedicationRequest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationrequest.xsd"
+ xmlns="http://hl7.org/fhir">
+    <id value="medrx0332"/>
+    <contained>
+      <Medication>
+          <id value="med03499"/>
+          <code>
+              <coding>
+                  <system value="http://snomed.info/sct"/>
+                  <code value="375860009"/>
+                  <display value="Ceftriaxone sodium 500mg powder for injection solution vial (product)"/>
+              </coding>
+          </code>
+      </Medication>
+  </contained>
+    <identifier>
+        <use value="official"/>
+        <system value="http://www.bmc.nl/portal/prescriptions"/>
+        <value value="12345689"/>
+    </identifier>
+    <definition>
+        <reference value="ActivityDefinition/example"></reference>
+    </definition>
+    <basedOn>
+        <reference value="CarePlan/gpvisit"></reference>
+    </basedOn>
+    <requisition>
+        <use value="official"/>
+        <system value="http://www.bmc.nl/portal/prescriptions"/>
+        <value value="983939393"/>
+    </requisition>
+    <status value="active"/>
+    <stage>
+        <coding>
+            <code value="original-order"/>
+        </coding>
+    </stage>
+    <medicationReference> <!-- Linked to a RESOURCE Medication -->
+           <reference value="#med03499"/>
+    </medicationReference> 
+    <patient> <!-- Linked to the resource patient who needs the medication -->
+        <reference value="Patient/pat1"/>
+        <display value="Donald Duck"/>        
+    </patient>
+    <context> <!-- Linked to a resource Encounter between patient and practitioner-->
+        <reference value="Encounter/f001"/>
+        <display value="encounter who leads to this prescription"/>
+    </context>
+    <dateWritten value="2015-01-15"/>
+    <prescriber> <!-- Linked to the practitioner who treats patient -->
+        <reference value="Practitioner/f007"/>
+        <display value="Patrick Pump"/>
+    </prescriber>
+    <dosageInstruction>
+        <sequence value="1"/>
+        <text value="Administer 500mg IM as a single dose" />
+        <timing>
+                <repeat>
+                    <count value="1" />
+                </repeat>   
+        </timing>
+        <route>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="255559005"/>
+                <display value="Intramuscular (qualifier value)"/>
+            </coding>
+        </route>
+        <doseQuantity>
+            <value value="500"/>
+            <unit value="mg"/>
+            <system value="http://unitsofmeasure.org"/>
+            <code value="mg"/> 
+        </doseQuantity>
+    </dosageInstruction>
+</MedicationRequest>

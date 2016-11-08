@@ -68,4 +68,11 @@
         <li><a href="medicationrequest0330.html">Order referencing Medication Resource for Eye Drops - Timoptic - active - with link to encounter, dispenseRequest and substitution flag</a></li>
     </ul>
     
+    <p>MISCELLAENOUS DOSAGE INSTRUCTIONS</p>
+    <p>The following examples of MedicationRequest resources including miscellaneous dosage instructions:
+    </p>
+    <ul>
+        <li><a href="medicationrequest0332.html">Order that includes a dosage instruction for a medication that is intended to be given once only as single dose</a></li>
+    </ul>
+    
 </div>
