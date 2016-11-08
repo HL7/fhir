@@ -306,7 +306,7 @@ Implementation Note: If a client provides a generic mime type in the Accept head
 (application/xml, text/json, or application/json), the server SHOULD respond with
 the requested mime type, using the XML or JSON formats described in this specification
 as the best representation for the named mime type (though see the <a href="binary.html#rest">note on the
-Binary resource</a>.
+Binary resource</a>).
 </p>
 
 <a name="versioning"> </a>
@@ -839,9 +839,8 @@ is not conformant with HTTP, and creates challenges for <a href="http://enable-c
 </p>
 <p>
 Applications SHALL return a <a href="capabilitystatement.html">Capability Statement</a> that specifies which resource types and interactions are supported
-for the <code>GET</code> command, and SHOULD do so for the <code>OPTIONS</code> command. If a <code>404</code> Unknown is returned from the <code>GET</code>, FHIR is not supported on the
-nominated service url. The <code>GET</code> command is defined because not all client libraries are able to perform an <code>OPTIONS</code> command.
-An <code>ETag</code> header SHOULD be returned with the CapabilityStatement. The value of the header SHALL change if the
+for the <code>GET</code> command. If a <code>404</code> Unknown is returned from the <code>GET</code>, FHIR is not supported on the
+nominated service url. An <code>ETag</code> header SHOULD be returned with the CapabilityStatement. The value of the header SHALL change if the
 CapabilityStatement itself changes. Additional parameters that are required to be returned with
 the <code>OPTIONS</code> command are defined in the <a href="#hdata">OMG hData RESTful Transport</a> specification.
 </p>
@@ -1377,7 +1376,7 @@ In this regard, FHIR functions as a Record Format Profile as described in that s
  <li>Because clients cannot submit new sections (<code>POST</code> to service URL), <code>POST</code> to the service URL has been re-used for <a href="#transaction">the transaction
  interaction</a> (difference under review)</li>
  <li>FHIR does not (yet) define a root document. When defined, it will contain information about what the FHIR server has done (as opposed to a Capability Statement, which describes what it is capable of doing)</li>
- <li>Note that this specification does not repeat the rules in the hData RESTful Transport concerning the <code>OPTIONS</code> command on the service URL, but these rules (extra headers etc.) still apply</li>
+ <li>Note that this specification does support the hData RESTful Transport <code>OPTIONS</code> command on the service URL</li>
 </ul>
 
 <a name="summary"> </a>
