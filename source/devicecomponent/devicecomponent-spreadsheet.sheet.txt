@@ -10,7 +10,7 @@
   Conformance = preferred
 
  -- Row 2 -----------------------------------
-  Binding Name = Measmnt-Principle
+  Binding Name = MeasmntPrinciple
   Binding = code list
   Reference = #measurement-principle
   Definition = Different measurement principle supported by the device.
@@ -173,7 +173,7 @@
   Element = DeviceComponent.measurementPrinciple
   Card. = 0..1
   Type = code
-  Binding = Measmnt-Principle
+  Binding = MeasmntPrinciple
   Short Name = other | chemical | electrical | impedance | nuclear | optical | thermal | biological | mechanical | acoustical | manual+
   Definition = Describes the physical principle of the measurement. For example: thermal, chemical, acoustical, etc.
 
