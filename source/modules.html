@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 
 
-      
+
 [%settitle Getting Started with FHIR%]
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
@@ -20,33 +20,33 @@
 <h2>Getting Started with FHIR</h2>
 
 <p>
-FHIR is a platform specification that defines a set of capabilities use across the healthcare 
-process, in all jurisdictions, and in lots of different context. While the basics of the 
-FHIR specification are relatively straight-forward (see the Overviews: <a href="overview.html">General</a>, 
+FHIR is a platform specification that defines a set of capabilities use across the healthcare
+process, in all jurisdictions, and in lots of different context. While the basics of the
+FHIR specification are relatively straight-forward (see the Overviews: <a href="overview.html">General</a>,
 <a href="overview-dev.html">Developers</a>, <a href="overview-clinical.html">Clinical</a>, and <a href="overview-arch.html">Architects</a>), it can still be difficult to know
-where to start when implementing a solution based on FHIR. 
+where to start when implementing a solution based on FHIR.
 </p>
 <p>
 This page provides some guidance to help get new implementers started on their path to successful
-implementation. Beyond reading the overviews (previous paragraph), where should an implementer 
+implementation. Beyond reading the overviews (previous paragraph), where should an implementer
 start? Generally, an implementer needs to resolve:
 </p>
 <ul>
  <li>What information is going to be exchanged</li>
  <li>How will information be exchanged? (see <a href="foundation-module.html#uses">Foundation Module</a>)</li>
  <li>How are terminologies being used? (see <a href="terminology-module.html#uses">Terminology Module</a>)</li>
- <li>How will the information be secured? (see <a href="foundation-module.html#uses">Foundation Module</a>)</li>
+ <li>How will the information be secured? (see <a href="secpriv-module.html#uses">Security and Privacy Module</a>)</li>
 </ul>
 <a name="modules"> </a>
 <h3>Modules</h3>
 <p>
-In order to help implementers find their way around the specification and answer these questions, 
-it is organised into a set of "modules". Each module represents a different functional area of the 
+In order to help implementers find their way around the specification and answer these questions,
+it is organised into a set of "modules". Each module represents a different functional area of the
 specification, and contains:
 </p>
 <ul>
  <li><b>Scope and Index</b>:A description of the content covered by the module, and an index of the important content</li>
- <li><b>Use cases</b>: guidance for common uses of the module, and how to approach them. This is a key resource for 
+ <li><b>Use cases</b>: guidance for common uses of the module, and how to approach them. This is a key resource for
    implementers familiarizing themselves with the FHIR specification</li>
  <li><b>Security / Privacy</b>: information</li>
  <li><b>Roadmap</b>: Where the content covered by the module is in terms of overall progress</li>
@@ -64,10 +64,10 @@ Broadly, the modules are organized into 3 groups:
 [%file modules-fragment%]
 
 <p>
-Dependencies between the modules are mainly downwards, with some horizontal dependencies. 
-Implementers should choose the content modules to engage with based on their 
-requirements, and should only engage with the reasoning module if they need to do 
-clinical decision support, and/or Quality Measures. 
+Dependencies between the modules are mainly downwards, with some horizontal dependencies.
+Implementers should choose the content modules to engage with based on their
+requirements, and should only engage with the reasoning module if they need to do
+clinical decision support, and/or Quality Measures.
 </p>
 
 <p>
@@ -80,14 +80,14 @@ may be useful:
 </ul>
 
 <p>
-Finally, one important place to look is the <a href="http://www.fhir.org/guides/registry">registry of implementation guides</a>, to see 
-whether similar (or identical) requirements have been met.  
+Finally, one important place to look is the <a href="http://www.fhir.org/guides/registry">registry of implementation guides</a>, to see
+whether similar (or identical) requirements have been met.
 </p>
 
 </div>
 
 [%file newfooter%]
-    
-    
+
+
 </body>
 </html>

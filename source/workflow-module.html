@@ -2,7 +2,7 @@
 
 <!--
 These elements SHALL always appear in this order. These basic elements shared by all resources come first
-in order to support consistent definitions for schema and UML derived code. 
+in order to support consistent definitions for schema and UML derived code.
 -->
 
 [%settitle Workflow Module%]
@@ -32,14 +32,14 @@ In addition, this module supports resources to support two specific workflows - 
 <a name="intro"> </a>
 <h3>Introduction</h3>
 <p>
-Workflows can be performed using the <a href="task.html">Task</a> resource, <a href="messaging.html">messaging</a> or <a href="services.html">services</a>.  This specification 
+Workflows can be performed using the <a href="task.html">Task</a> resource, <a href="messaging.html">messaging</a> or <a href="services.html">services</a>.  This specification
 includes a <a href="workflow.html">workflow</a> page that describes a number of different communication and architectural <a href="workflow.html#commpatterns">workflow patterns</a>.
 </p>
 <p>
-This specification defines two logical models - <a href="request.html">Request</a> and <a href="event.html">Event</a> that define the patterns for resources that are typically
-involved in workflow.  These patterns include elements defining relationships between requests, between events across requests and events.  These relationships are summarized
-on the <a href="workflow.html#relationships">workflow</a> page, along with a complete <a href="workflow.html#list">list</a> of resources that follow (or are hoped to soon follow)
-the request and event patterns.
+This specification defines three logical models - <a href="definition.html">Definition</a>, <a href="request.html">Request</a> and <a href="event.html">Event</a> that define the
+patterns for resources that are typically involved in workflow.  These patterns include elements defining relationships between requests, between events across requests and events.
+These relationships are summarized on the <a href="workflow.html#relationships">workflow</a> page, along with a complete <a href="workflow.html#list">list</a> of resources that follow
+(or are hoped to soon follow) the request and event patterns.
 </p>
 <p>Finally the <a href="plandefinition.html">PlanDefinition</a> and <a href="activitydefinition.html">ActivityDefinition</a> resources combine to support the creation of protocols,
 orders sets, guidelines and other workflow definitions.</p>
@@ -50,8 +50,8 @@ orders sets, guidelines and other workflow definitions.</p>
 Workflow manifests in many places in the healthcare environment:
 </p>
 <ul>
-  <li>Creating a <a href="diagnosticrequest.html">lab order</a>, <a href="medicationrequest.html">drug prescription</a>, <a href="referralrequest.html">referral</a> or other 
-  order clinical order or a <a href="claim.html">insurance claim</a>, <a href="enrollmentrequest.html">EnrollmentRequest</a> or similar administrative request and asking 
+  <li>Creating a <a href="diagnosticrequest.html">lab order</a>, <a href="medicationrequest.html">drug prescription</a>, <a href="referralrequest.html">referral</a> or other
+  order clinical order or a <a href="claim.html">insurance claim</a>, <a href="enrollmentrequest.html">EnrollmentRequest</a> or similar administrative request and asking
   for it to be actioned by a specific organization or practitioner</li>
   <li>Negotiating a fulfillment process, such as requesting further information before accepting a claim or referral or proposing an alternative therapy when processing an
   order</li>
@@ -60,7 +60,7 @@ Workflow manifests in many places in the healthcare environment:
   <li>Defining a <a href="careplan.html">plan</a> or recommendation for a set of clinical and/or administrative activities to manage a patient's care and then tracking
   how those plans and recommendations are (or are not) acted upon over time.</li>
   <li>Communicating a state change to a request or order (e.g. suspension, update, cancellation, etc.) to a filling system so that they can take appropriate action</li>
-  <li>Asking for a state change, merge of a couple of patients or the invoking of some operation or decision supporting an asynchronous manner - for example, one where human 
+  <li>Asking for a state change, merge of a couple of patients or the invoking of some operation or decision supporting an asynchronous manner - for example, one where human
   intervention is required</li>
   <li>Designing or adhering to a study protocol, chemotherapy protocol, instantiating an order set or other <a href="plandefinition.html">plan definition</a></li>
 </ul>
@@ -72,19 +72,19 @@ section on <a href="workflow.html#commpatterns">patterns</a>.
 <a name="secpriv"> </a>
 <h3>Security and Privacy</h3>
 <p>
-Resources related to workflow need to adhere to the same <a href="security.html">security and privacy guidelines</a> that apply to all FHIR resource, including specific 
+Resources related to workflow need to adhere to the same <a href="security.html">security and privacy guidelines</a> that apply to all FHIR resource, including specific
 considerations for those that may contain personally-identifying information.  There are a couple of additional security and privacy considerations specific to workflow:
 </p>
 <p>
 1. Some workflows are ad-hoc without pre-defined participants or flows.  These can be challenging for security and privacy processes to manage appropriately</p>
 <p>
-2. Workflow can drive automated behavior.  I.e. The mere existence of an electronic record can cause information to flow, procedures to be performed, records to be changed 
+2. Workflow can drive automated behavior.  I.e. The mere existence of an electronic record can cause information to flow, procedures to be performed, records to be changed
 and money to be transferred, potentially without any intervention, oversight or sanity checking by a human being.  As such, even greater care must be taken to ensure that:
 </p>
 <ul>
   <li>constraints are placed on what systems (and users) can initiate workflow processes</li>
   <li>requests for action are appropriately authenticated before action is taken</li>
-  <li>patient consents and other relevant policies are enforced either by the system storing the request or the system acting upon it (and that if enforcement is not performed 
+  <li>patient consents and other relevant policies are enforced either by the system storing the request or the system acting upon it (and that if enforcement is not performed
   by the actor, that they are confident that relevant policies have been enforced on the request prior to action)</li>
 </ul>
 <p>
@@ -98,7 +98,7 @@ The principles of requesting action and reporting results have been present in F
 part of this STU 3 release to increase the consistency of resources involved in workflow and to improve the documentation expressing the different ways workflow can be
 managed depending on architectural and other constraints.  This has included the introduction of the <a href="task.html">Task</a> resource (which replaced the old
 Order and OrderResponse resources), the definition of the <a href="workflow.html#request">Request</a> and <a href="workflow.html#event">Event</a> patterns and the creation of
-the <a href="plandefinition.html">PlanDefinition</a> and <a href="activitydefinition.html">ActivityDefinition</a> resources.  Some of this work has had preliminary testing at 
+the <a href="plandefinition.html">PlanDefinition</a> and <a href="activitydefinition.html">ActivityDefinition</a> resources.  Some of this work has had preliminary testing at
 connectathon but has had little production experience as yet.  Most of the discussion has been on how workflow is best managed from a <a href="http.html">RESTful</a>
 paradigm perspective.
 </p>
@@ -112,7 +112,7 @@ between now and that release.
 </p>
 <p>Additional topics for future work include:</p>
 <ul>
-  <li>Resolving the overlap between the <a href="supplyrequest.html">SupplyRequest</a>, <a href="deviceuserequest.html">DeviceUseRequest</a> and 
+  <li>Resolving the overlap between the <a href="supplyrequest.html">SupplyRequest</a>, <a href="deviceuserequest.html">DeviceUseRequest</a> and
   <a href="visionprescription.html">VisionPrescription</a> resources</li>
   <li>Improving mapping and alignment of the elements and status codes of the <a href="task.html">Task</a> resource with the WS-HumanTask specification</li>
   <li>Creating "best practice" guides for how to implement workflow for different business patterns</li>

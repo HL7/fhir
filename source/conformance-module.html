@@ -2,9 +2,9 @@
 
 <!--
 These elements SHALL always appear in this order. These basic elements shared by all resources come first
-in order to support consistent definitions for schema and UML derived code. 
+in order to support consistent definitions for schema and UML derived code.
 -->
-      
+
 [%settitle Conformance Module%]
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
@@ -35,7 +35,7 @@ in order to support consistent definitions for schema and UML derived code.
   <li><a href="compartmentdefinition.html">CompartmentDefinition</a></li>
   <li><a href="dataelement.html">DataElement</a></li>
   <li><a href="implementationguide.html">ImplementationGuide</a></li>
-  <li><a href="elementdefinition.html">ElementDefinition (datatype)</a></li>    
+  <li><a href="elementdefinition.html">ElementDefinition (datatype)</a></li>
 </ul>
 </td>
  <td width="33%">
@@ -49,8 +49,8 @@ in order to support consistent definitions for schema and UML derived code.
 
 <a name="intro"> </a>
 <h3>Introduction</h3>
-    <p>The base FHIR specification describes a set of base resources, frameworks and APIs that are
-        used in many different contexts in healthcare.However there is wide variability between
+    <p>The core FHIR specification describes a set of resources, frameworks and APIs that are
+        used in many different contexts in healthcare. However, there is wide variability between
         jurisdictions and across the healthcare ecosystem around practices, requirements,
         regulations,education and what actions are feasible and/or beneficial.</p>
     <p>For this reason, the FHIR specification is a &quot;platform specification&quot; - it creates
@@ -93,7 +93,7 @@ in order to support consistent definitions for schema and UML derived code.
         make use of the complete set of conformance resources to fully capture the set of
         adaptations they represent.  Note that the CapabilityStatement resource is one of the <em>conformance resources</em>,
 		the first just describing the capabilities of a system, while the latter is the set of all conformance resources, including:</p>
-	
+
     <ul>
         <li>The <a href="structuredefinition.html">StructureDefinition</a>
             defines how a particular structure (Resource, Extension or Data Type) is used:<ul>
@@ -122,7 +122,7 @@ in order to support consistent definitions for schema and UML derived code.
 	<p>Resources shown with a dotted box are described in other sections of the specification:
 		<code>ValueSet</code>, <code>ConceptMap</code> and <code>StructureMap</code> are from the <a href="terminology-module.html">section on terminology</a>,
 		 <code>TestScript</code> is part of the section on <a href="implsupport-module.html">Implementer Support</a>.</p>
-	
+
 <a name="secpriv"> </a>
 <h3>Security and Privacy</h3>
     <p>The conformance resources do not represent patient-related data, and as such are less
@@ -137,14 +137,14 @@ in order to support consistent definitions for schema and UML derived code.
             or both.</li>
         <li>If a server acts as a repository of conformance resources, it should tightly control
 modifications to its data: updates to conformance resources are usually managed by a review process to ensure
-backwards compatibility ad stability. Worst case, changes to these resources may result in dependent systems 
+backwards compatibility ad stability. Worst case, changes to these resources may result in dependent systems
 running the risk of being misconfigured.</li>
     </ul>
 
 
 <a name="uses"> </a>
 <h3>Common use Cases</h3>
-<p>Conformance resources are commonuly used as part of an <a href="implementationguide.html">Implementation Guide</a> or 
+<p>Conformance resources are commonly used as part of an <a href="implementationguide.html">Implementation Guide</a> or
 <a href="capabilitystatement.html">CapabilityStatement</a> resource. There are many ways to use the resources independently however, including:</p>
 
     <ul>
@@ -176,7 +176,7 @@ running the risk of being misconfigured.</li>
         <li><code>CompartmentDefinition</code>: new in STU3, and as such has not undergone much production
             use</li>
     </ul>
-    <p>Over the past two years, these resources are mainly used in the tools used to build the FHIR
+    <p>Over the past two years, these resources have been mainly used in the tools used to build the FHIR
         publication, early-adopter implementation guides and the FHIR Foundation conformance
         resource registry. In the 2016-2018 timeframe we expect to see more widespread use of these
         resources in validation tooling, code-generators and more extensive model-based guide
