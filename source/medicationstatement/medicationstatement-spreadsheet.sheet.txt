@@ -38,9 +38,11 @@
   Conformance = example
 
  -- Row 6 -----------------------------------
-  Binding Name = MedicationAdministrationNegationReason
-  Binding = unbound
-  Definition = A coded concept indicating the reason why the MedicationStatement is negated.
+  Binding Name = MedicationStatementNotTakenReason
+  Binding = value set
+  Reference = valueset-reason-medication-not-taken-codes
+  Definition = A coded concept indicating the reason why the medication was not taken
+  Conformance = example
 
  -- Row 7 -----------------------------------
   Binding Name = MedicationReason
@@ -284,7 +286,7 @@
   Card. = 0..*
   Inv. = 1
   Type = CodeableConcept
-  Binding = MedicationAdministrationNegationReason
+  Binding = MedicationStatementNotTakenReason
   Short Name = True if asserting medication was not given
   Definition = A code indicating why the medication was not taken.
   RIM Mapping = SubstanceAdministration->Reason->Observation->Value

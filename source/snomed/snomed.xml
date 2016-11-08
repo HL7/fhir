@@ -12733,6 +12733,10 @@
     <display value="Drug addiction therapy (regime/therapy)"/>
     <display value="Drug addiction therapy"/>
   </concept>
+  <concept id="266710000" display="Drugs not taken/completed">
+    <display value="Drugs not taken/completed"/>
+    <display value="Drugs not taken/completed (situation)"/>
+  </concept>
   <concept id="266919005" display="Never smoked tobacco (finding)">
     <display value="Never smoked tobacco (finding)"/>
     <display value="Never smoked"/>
