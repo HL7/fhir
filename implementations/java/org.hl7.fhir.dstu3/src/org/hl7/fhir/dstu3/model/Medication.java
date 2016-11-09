@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Nov 1, 2016 18:35-0400 for FHIR v1.7.0
+// Generated on Wed, Nov 9, 2016 16:59+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -324,8 +324,8 @@ public class Medication extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (form == null || form.isEmpty()) && (ingredient == null || ingredient.isEmpty())
-           && (batch == null || batch.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(form, ingredient, batch
+          );
       }
 
   public String fhirType() {
@@ -534,8 +534,7 @@ public class Medication extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (item == null || item.isEmpty()) && (amount == null || amount.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(item, amount);
       }
 
   public String fhirType() {
@@ -761,8 +760,8 @@ public class Medication extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (lotNumber == null || lotNumber.isEmpty()) && (expirationDate == null || expirationDate.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(lotNumber, expirationDate
+          );
       }
 
   public String fhirType() {
@@ -971,8 +970,7 @@ public class Medication extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (container == null || container.isEmpty()) && (content == null || content.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(container, content);
       }
 
   public String fhirType() {
@@ -1181,8 +1179,7 @@ public class Medication extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (item == null || item.isEmpty()) && (amount == null || amount.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(item, amount);
       }
 
   public String fhirType() {
@@ -1544,9 +1541,8 @@ public class Medication extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (code == null || code.isEmpty()) && (isBrand == null || isBrand.isEmpty())
-           && (manufacturer == null || manufacturer.isEmpty()) && (product == null || product.isEmpty())
-           && (package_ == null || package_.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(code, isBrand, manufacturer
+          , product, package_);
       }
 
   @Override

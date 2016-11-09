@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Nov 1, 2016 18:35-0400 for FHIR v1.7.0
+// Generated on Wed, Nov 9, 2016 16:59+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -2121,14 +2121,10 @@ public class RequestGroup extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (actionIdentifier == null || actionIdentifier.isEmpty()) && (label == null || label.isEmpty())
-           && (title == null || title.isEmpty()) && (description == null || description.isEmpty()) && (textEquivalent == null || textEquivalent.isEmpty())
-           && (code == null || code.isEmpty()) && (documentation == null || documentation.isEmpty())
-           && (relatedAction == null || relatedAction.isEmpty()) && (timing == null || timing.isEmpty())
-           && (participant == null || participant.isEmpty()) && (type == null || type.isEmpty()) && (groupingBehavior == null || groupingBehavior.isEmpty())
-           && (selectionBehavior == null || selectionBehavior.isEmpty()) && (requiredBehavior == null || requiredBehavior.isEmpty())
-           && (precheckBehavior == null || precheckBehavior.isEmpty()) && (cardinalityBehavior == null || cardinalityBehavior.isEmpty())
-           && (resource == null || resource.isEmpty()) && (action == null || action.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(actionIdentifier, label, title
+          , description, textEquivalent, code, documentation, relatedAction, timing, participant
+          , type, groupingBehavior, selectionBehavior, requiredBehavior, precheckBehavior, cardinalityBehavior
+          , resource, action);
       }
 
   public String fhirType() {
@@ -2404,8 +2400,8 @@ public class RequestGroup extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (actionIdentifier == null || actionIdentifier.isEmpty()) && (relationship == null || relationship.isEmpty())
-           && (offset == null || offset.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(actionIdentifier, relationship
+          , offset);
       }
 
   public String fhirType() {
@@ -3028,10 +3024,8 @@ public class RequestGroup extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (subject == null || subject.isEmpty())
-           && (context == null || context.isEmpty()) && (occurrenceDateTime == null || occurrenceDateTime.isEmpty())
-           && (author == null || author.isEmpty()) && (reason == null || reason.isEmpty()) && (note == null || note.isEmpty())
-           && (action == null || action.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, subject, context
+          , occurrenceDateTime, author, reason, note, action);
       }
 
   @Override

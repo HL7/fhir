@@ -521,8 +521,10 @@ public class ProfileUtilities {
             updateFromSlicing(outcome.getSlicing(), diffMatches.get(0).getSlicing());
             updateFromDefinition(outcome, diffMatches.get(0), profileName, closed, url); // if there's no slice, we don't want to update the unsliced description
           }
-          if (diffMatches.get(0).hasSlicing() && !diffMatches.get(0).hasSliceName())
+          if (diffMatches.get(0).hasSlicing() && !diffMatches.get(0).hasSliceName()) {
             diffpos++;
+            throw new Error("fhir diffpos++ at "+diffpos);
+          }
             
           result.getElement().add(outcome);
 

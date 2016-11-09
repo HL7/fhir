@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Nov 1, 2016 18:35-0400 for FHIR v1.7.0
+// Generated on Wed, Nov 9, 2016 16:59+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -665,8 +665,8 @@ public class Subscription extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (type == null || type.isEmpty()) && (endpoint == null || endpoint.isEmpty())
-           && (payload == null || payload.isEmpty()) && (header == null || header.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(type, endpoint, payload
+          , header);
       }
 
   public String fhirType() {
@@ -1301,10 +1301,8 @@ public class Subscription extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (criteria == null || criteria.isEmpty()) && (contact == null || contact.isEmpty())
-           && (reason == null || reason.isEmpty()) && (status == null || status.isEmpty()) && (error == null || error.isEmpty())
-           && (channel == null || channel.isEmpty()) && (end == null || end.isEmpty()) && (tag == null || tag.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(criteria, contact, reason
+          , status, error, channel, end, tag);
       }
 
   @Override

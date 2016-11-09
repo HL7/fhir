@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.codec.binary.Base64;
-import org.hl7.fhir.dstu2.utils.ToolingExtensions;
 import org.hl7.fhir.dstu2.model.CodeableConcept;
+import org.hl7.fhir.dstu2.utils.ToolingExtensions;
 import org.hl7.fhir.dstu3.model.Annotation;
 import org.hl7.fhir.dstu3.model.CapabilityStatement.SystemRestfulInteraction;
 import org.hl7.fhir.dstu3.model.CodeSystem;
@@ -167,7 +167,19 @@ public class VersionConvertor_10_20 {
     return tgt;
   }
 
+  public org.hl7.fhir.dstu3.model.DateType convertDate(org.hl7.fhir.dstu2.model.DateTimeType src) throws FHIRException {
+    org.hl7.fhir.dstu3.model.DateType tgt = new org.hl7.fhir.dstu3.model.DateType(src.getValue());
+    copyElement(src, tgt);
+    return tgt;
+  }
+
   public org.hl7.fhir.dstu2.model.DateType convertDate(org.hl7.fhir.dstu3.model.DateType src) throws FHIRException {
+    org.hl7.fhir.dstu2.model.DateType tgt = new org.hl7.fhir.dstu2.model.DateType(src.getValue());
+    copyElement(src, tgt);
+    return tgt;
+  }
+
+  public org.hl7.fhir.dstu2.model.DateType convertDate(org.hl7.fhir.dstu3.model.DateTimeType src) throws FHIRException {
     org.hl7.fhir.dstu2.model.DateType tgt = new org.hl7.fhir.dstu2.model.DateType(src.getValue());
     copyElement(src, tgt);
     return tgt;
@@ -2059,16 +2071,17 @@ public class VersionConvertor_10_20 {
     copyDomainResource(src, tgt);
     for (org.hl7.fhir.dstu2.model.Identifier t : src.getIdentifier())
       tgt.addIdentifier(convertIdentifier(t));
-    tgt.setStatus(convertAllergyIntoleranceStatus(src.getStatus()));
+    tgt.setClinicalStatus(convertAllergyIntoleranceClinicalStatus(src.getStatus()));
+    tgt.setVerificationStatus(convertAllergyIntoleranceVerificationStatus(src.getStatus()));
     tgt.setType(convertAllergyIntoleranceType(src.getType()));
 //    tgt.setCategory(convertAllergyIntoleranceCategory(src.getCategory()));
     tgt.setCriticality(convertAllergyIntoleranceCriticality(src.getCriticality()));
     tgt.setCode(convertCodeableConcept(src.getSubstance()));
     tgt.setPatient(convertReference(src.getPatient()));
-    tgt.setAttestedDate(src.getRecordedDate());
+    tgt.setAssertedDate(src.getRecordedDate());
     tgt.setRecorder(convertReference(src.getRecorder()));
-    tgt.setReporter(convertReference(src.getReporter()));
-    tgt.setOnset(src.getOnset());
+    tgt.setAsserter(convertReference(src.getReporter()));
+    tgt.setOnset(convertDateTime(src.getOnsetElement()));
     tgt.setLastOccurrence(src.getLastOccurence());
     if (src.hasNote())
       tgt.addNote(convertAnnotation(src.getNote()));
@@ -2084,16 +2097,16 @@ public class VersionConvertor_10_20 {
     copyDomainResource(src, tgt);
     for (org.hl7.fhir.dstu3.model.Identifier t : src.getIdentifier())
       tgt.addIdentifier(convertIdentifier(t));
-    tgt.setStatus(convertAllergyIntoleranceStatus(src.getStatus()));
+    tgt.setStatus(convertAllergyIntoleranceStatus(src.getClinicalStatus(), src.getVerificationStatus()));
     tgt.setType(convertAllergyIntoleranceType(src.getType()));
 //    tgt.setCategory(convertAllergyIntoleranceCategory(src.getCategory()));
     tgt.setCriticality(convertAllergyIntoleranceCriticality(src.getCriticality()));
     tgt.setSubstance(convertCodeableConcept(src.getCode()));
     tgt.setPatient(convertReference(src.getPatient()));
-    tgt.setRecordedDate(src.getAttestedDate());
+    tgt.setRecordedDate(src.getAssertedDate());
     tgt.setRecorder(convertReference(src.getRecorder()));
-    tgt.setReporter(convertReference(src.getReporter()));
-    tgt.setOnset(src.getOnset());
+    tgt.setReporter(convertReference(src.getAsserter()));
+    tgt.setOnsetElement(convertDateTime(src.getOnsetDateTimeType()));
     tgt.setLastOccurence(src.getLastOccurrence());
     for (org.hl7.fhir.dstu3.model.Annotation t : src.getNote())
       tgt.setNote(convertAnnotation(t));
@@ -2102,33 +2115,53 @@ public class VersionConvertor_10_20 {
     return tgt;
   }
 
-  public org.hl7.fhir.dstu3.model.AllergyIntolerance.AllergyIntoleranceStatus convertAllergyIntoleranceStatus(org.hl7.fhir.dstu2.model.AllergyIntolerance.AllergyIntoleranceStatus src) throws FHIRException {
+  public org.hl7.fhir.dstu3.model.AllergyIntolerance.AllergyIntoleranceClinicalStatus convertAllergyIntoleranceClinicalStatus(org.hl7.fhir.dstu2.model.AllergyIntolerance.AllergyIntoleranceStatus src) throws FHIRException {
     if (src == null)
       return null;
     switch (src) {
-    case ACTIVE: return org.hl7.fhir.dstu3.model.AllergyIntolerance.AllergyIntoleranceStatus.ACTIVE;
-    case UNCONFIRMED: return org.hl7.fhir.dstu3.model.AllergyIntolerance.AllergyIntoleranceStatus.ACTIVE;
-    case CONFIRMED: return org.hl7.fhir.dstu3.model.AllergyIntolerance.AllergyIntoleranceStatus.ACTIVECONFIRMED;
-    case INACTIVE: return org.hl7.fhir.dstu3.model.AllergyIntolerance.AllergyIntoleranceStatus.INACTIVE;
-    case RESOLVED: return org.hl7.fhir.dstu3.model.AllergyIntolerance.AllergyIntoleranceStatus.RESOLVED;
-    case REFUTED: return org.hl7.fhir.dstu3.model.AllergyIntolerance.AllergyIntoleranceStatus.REFUTED;
-    case ENTEREDINERROR: return org.hl7.fhir.dstu3.model.AllergyIntolerance.AllergyIntoleranceStatus.ENTEREDINERROR;
-    default: return org.hl7.fhir.dstu3.model.AllergyIntolerance.AllergyIntoleranceStatus.NULL;
+    case ACTIVE: return org.hl7.fhir.dstu3.model.AllergyIntolerance.AllergyIntoleranceClinicalStatus.ACTIVE;
+    case UNCONFIRMED: return org.hl7.fhir.dstu3.model.AllergyIntolerance.AllergyIntoleranceClinicalStatus.ACTIVE;
+    case CONFIRMED: return org.hl7.fhir.dstu3.model.AllergyIntolerance.AllergyIntoleranceClinicalStatus.ACTIVE;
+    case INACTIVE: return org.hl7.fhir.dstu3.model.AllergyIntolerance.AllergyIntoleranceClinicalStatus.RESOLVED;
+    case RESOLVED: return org.hl7.fhir.dstu3.model.AllergyIntolerance.AllergyIntoleranceClinicalStatus.RESOLVED;
+    case REFUTED: return org.hl7.fhir.dstu3.model.AllergyIntolerance.AllergyIntoleranceClinicalStatus.RESOLVED;
+    default: return org.hl7.fhir.dstu3.model.AllergyIntolerance.AllergyIntoleranceClinicalStatus.NULL;
     }
   }
 
-  public org.hl7.fhir.dstu2.model.AllergyIntolerance.AllergyIntoleranceStatus convertAllergyIntoleranceStatus(org.hl7.fhir.dstu3.model.AllergyIntolerance.AllergyIntoleranceStatus src) throws FHIRException {
+  public org.hl7.fhir.dstu3.model.AllergyIntolerance.AllergyIntoleranceVerificationStatus convertAllergyIntoleranceVerificationStatus(org.hl7.fhir.dstu2.model.AllergyIntolerance.AllergyIntoleranceStatus src) throws FHIRException {
     if (src == null)
       return null;
     switch (src) {
-    case ACTIVE: return org.hl7.fhir.dstu2.model.AllergyIntolerance.AllergyIntoleranceStatus.ACTIVE;
-    case ACTIVECONFIRMED: return org.hl7.fhir.dstu2.model.AllergyIntolerance.AllergyIntoleranceStatus.CONFIRMED;
-    case INACTIVE: return org.hl7.fhir.dstu2.model.AllergyIntolerance.AllergyIntoleranceStatus.INACTIVE;
-    case RESOLVED: return org.hl7.fhir.dstu2.model.AllergyIntolerance.AllergyIntoleranceStatus.RESOLVED;
-    case REFUTED: return org.hl7.fhir.dstu2.model.AllergyIntolerance.AllergyIntoleranceStatus.REFUTED;
-    case ENTEREDINERROR: return org.hl7.fhir.dstu2.model.AllergyIntolerance.AllergyIntoleranceStatus.ENTEREDINERROR;
-    default: return org.hl7.fhir.dstu2.model.AllergyIntolerance.AllergyIntoleranceStatus.NULL;
+    case UNCONFIRMED: return org.hl7.fhir.dstu3.model.AllergyIntolerance.AllergyIntoleranceVerificationStatus.UNCONFIRMED;
+    case CONFIRMED: return org.hl7.fhir.dstu3.model.AllergyIntolerance.AllergyIntoleranceVerificationStatus.CONFIRMED;
+    case RESOLVED: return org.hl7.fhir.dstu3.model.AllergyIntolerance.AllergyIntoleranceVerificationStatus.CONFIRMED;
+    case REFUTED: return org.hl7.fhir.dstu3.model.AllergyIntolerance.AllergyIntoleranceVerificationStatus.REFUTED;
+    case ENTEREDINERROR: return org.hl7.fhir.dstu3.model.AllergyIntolerance.AllergyIntoleranceVerificationStatus.ENTEREDINERROR;
+    default: return org.hl7.fhir.dstu3.model.AllergyIntolerance.AllergyIntoleranceVerificationStatus.NULL;
     }
+  }
+
+  public org.hl7.fhir.dstu2.model.AllergyIntolerance.AllergyIntoleranceStatus convertAllergyIntoleranceStatus(org.hl7.fhir.dstu3.model.AllergyIntolerance.AllergyIntoleranceClinicalStatus srcC, org.hl7.fhir.dstu3.model.AllergyIntolerance.AllergyIntoleranceVerificationStatus srcV) throws FHIRException {
+    if (srcC == null && srcV == null)
+      return null;
+    if (srcV == org.hl7.fhir.dstu3.model.AllergyIntolerance.AllergyIntoleranceVerificationStatus.ENTEREDINERROR)
+      return org.hl7.fhir.dstu2.model.AllergyIntolerance.AllergyIntoleranceStatus.ENTEREDINERROR;
+    if (srcV == org.hl7.fhir.dstu3.model.AllergyIntolerance.AllergyIntoleranceVerificationStatus.REFUTED)
+      return org.hl7.fhir.dstu2.model.AllergyIntolerance.AllergyIntoleranceStatus.REFUTED;
+
+    if (srcC != null) {
+      switch (srcC) {
+      case ACTIVE:
+        if (srcV == org.hl7.fhir.dstu3.model.AllergyIntolerance.AllergyIntoleranceVerificationStatus.CONFIRMED)
+          return org.hl7.fhir.dstu2.model.AllergyIntolerance.AllergyIntoleranceStatus.CONFIRMED;
+        else
+          return org.hl7.fhir.dstu2.model.AllergyIntolerance.AllergyIntoleranceStatus.ACTIVE;
+      case INACTIVE: return org.hl7.fhir.dstu2.model.AllergyIntolerance.AllergyIntoleranceStatus.INACTIVE;
+      case RESOLVED: return org.hl7.fhir.dstu2.model.AllergyIntolerance.AllergyIntoleranceStatus.RESOLVED;
+      }
+    }
+    return org.hl7.fhir.dstu2.model.AllergyIntolerance.AllergyIntoleranceStatus.NULL;
   }
 
   public org.hl7.fhir.dstu3.model.AllergyIntolerance.AllergyIntoleranceType convertAllergyIntoleranceType(org.hl7.fhir.dstu2.model.AllergyIntolerance.AllergyIntoleranceType src) throws FHIRException {
@@ -3581,7 +3614,7 @@ public class VersionConvertor_10_20 {
       tgt.addMedium(convertCodeableConcept(t));
     tgt.setRequester(convertReference(src.getRequester()));
     tgt.setStatus(convertCommunicationRequestStatus(src.getStatus()));
-    tgt.setEncounter(convertReference(src.getEncounter()));
+    tgt.setContext(convertReference(src.getEncounter()));
     tgt.setScheduled(convertType(src.getScheduled()));
     for (org.hl7.fhir.dstu2.model.CodeableConcept t : src.getReason())
       tgt.addReason(convertCodeableConcept(t));
@@ -3608,7 +3641,7 @@ public class VersionConvertor_10_20 {
       tgt.addMedium(convertCodeableConcept(t));
     tgt.setRequester(convertReference(src.getRequester()));
     tgt.setStatus(convertCommunicationRequestStatus(src.getStatus()));
-    tgt.setEncounter(convertReference(src.getEncounter()));
+    tgt.setEncounter(convertReference(src.getContext()));
     tgt.setScheduled(convertType(src.getScheduled()));
     for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getReason())
       tgt.addReason(convertCodeableConcept(t));
@@ -4137,7 +4170,7 @@ public class VersionConvertor_10_20 {
     tgt.setContext(convertReference(src.getEncounter()));
     tgt.setAsserter(convertReference(src.getAsserter()));
     if (src.hasDateRecorded())
-      tgt.setDateRecorded(src.getDateRecorded());
+      tgt.setAssertedDate(src.getDateRecorded());
     tgt.setCode(convertCodeableConcept(src.getCode()));
     tgt.addCategory(convertCodeableConcept(src.getCategory()));
     try {
@@ -4168,8 +4201,8 @@ public class VersionConvertor_10_20 {
     tgt.setPatient(convertReference(src.getSubject()));
     tgt.setEncounter(convertReference(src.getContext()));
     tgt.setAsserter(convertReference(src.getAsserter()));
-    if (src.hasDateRecorded())
-      tgt.setDateRecorded(src.getDateRecorded());
+    if (src.hasAssertedDate())
+      tgt.setDateRecorded(src.getAssertedDate());
     tgt.setCode(convertCodeableConcept(src.getCode()));
     for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getCategory())
       tgt.setCategory(convertCodeableConcept(t));

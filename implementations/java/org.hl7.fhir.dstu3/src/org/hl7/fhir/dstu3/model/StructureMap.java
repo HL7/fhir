@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Nov 1, 2016 18:35-0400 for FHIR v1.7.0
+// Generated on Wed, Nov 9, 2016 16:59+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -51,6 +51,7 @@ import org.hl7.fhir.dstu3.utils.StructureMapUtilities;
  * A Map of relationships between 2 structures that can be used to transform data.
  */
 @ResourceDef(name="StructureMap", profile="http://hl7.org/fhir/Profile/StructureMap")
+@ChildOrder(names={"url", "identifier", "version", "name", "title", "status", "experimental", "publisher", "contact", "date", "description", "useContext", "jurisdiction", "purpose", "copyright", "structure", "import", "group"})
 public class StructureMap extends MetadataResource {
 
     public enum StructureMapModelMode {
@@ -1077,8 +1078,8 @@ public class StructureMap extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (url == null || url.isEmpty()) && (mode == null || mode.isEmpty())
-           && (documentation == null || documentation.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(url, mode, documentation
+          );
       }
 
   public String fhirType() {
@@ -1528,9 +1529,8 @@ public class StructureMap extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (name == null || name.isEmpty()) && (extends_ == null || extends_.isEmpty())
-           && (documentation == null || documentation.isEmpty()) && (input == null || input.isEmpty())
-           && (rule == null || rule.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(name, extends_, documentation
+          , input, rule);
       }
 
   public String fhirType() {
@@ -1902,9 +1902,8 @@ public class StructureMap extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (name == null || name.isEmpty()) && (type == null || type.isEmpty())
-           && (mode == null || mode.isEmpty()) && (documentation == null || documentation.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(name, type, mode, documentation
+          );
       }
 
   public String fhirType() {
@@ -2438,9 +2437,8 @@ public class StructureMap extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (name == null || name.isEmpty()) && (source == null || source.isEmpty())
-           && (target == null || target.isEmpty()) && (rule == null || rule.isEmpty()) && (dependent == null || dependent.isEmpty())
-           && (documentation == null || documentation.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(name, source, target, rule
+          , dependent, documentation);
       }
 
   public String fhirType() {
@@ -3084,10 +3082,8 @@ public class StructureMap extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (required == null || required.isEmpty()) && (context == null || context.isEmpty())
-           && (contextType == null || contextType.isEmpty()) && (element == null || element.isEmpty())
-           && (listMode == null || listMode.isEmpty()) && (variable == null || variable.isEmpty()) && (condition == null || condition.isEmpty())
-           && (check == null || check.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(required, context, contextType
+          , element, listMode, variable, condition, check);
       }
 
   public String fhirType() {
@@ -3758,10 +3754,8 @@ public class StructureMap extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (context == null || context.isEmpty()) && (contextType == null || contextType.isEmpty())
-           && (element == null || element.isEmpty()) && (variable == null || variable.isEmpty()) && (listMode == null || listMode.isEmpty())
-           && (listRuleId == null || listRuleId.isEmpty()) && (transform == null || transform.isEmpty())
-           && (parameter == null || parameter.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(context, contextType, element
+          , variable, listMode, listRuleId, transform, parameter);
       }
 
   public String fhirType() {
@@ -3985,7 +3979,7 @@ public class StructureMap extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (value == null || value.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(value);
       }
 
   public String fhirType() {
@@ -4238,8 +4232,7 @@ public class StructureMap extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (name == null || name.isEmpty()) && (variable == null || variable.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(name, variable);
       }
 
   public String fhirType() {
@@ -5535,9 +5528,8 @@ public class StructureMap extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (purpose == null || purpose.isEmpty())
-           && (copyright == null || copyright.isEmpty()) && (structure == null || structure.isEmpty())
-           && (import_ == null || import_.isEmpty()) && (group == null || group.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, purpose, copyright
+          , structure, import_, group);
       }
 
   @Override

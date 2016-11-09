@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Nov 1, 2016 18:35-0400 for FHIR v1.7.0
+// Generated on Wed, Nov 9, 2016 16:59+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -47,6 +47,7 @@ import org.hl7.fhir.exceptions.FHIRException;
  * A curated namespace that issues unique symbols within that namespace for the identification of concepts, people, devices, etc.  Represents a "System" used within the Identifier and Coding data types.
  */
 @ResourceDef(name="NamingSystem", profile="http://hl7.org/fhir/Profile/NamingSystem")
+@ChildOrder(names={"name", "status", "kind", "date", "publisher", "contact", "responsible", "type", "description", "useContext", "jurisdiction", "usage", "uniqueId", "replacedBy"})
 public class NamingSystem extends MetadataResource {
 
     public enum NamingSystemType {
@@ -671,9 +672,8 @@ public class NamingSystem extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (type == null || type.isEmpty()) && (value == null || value.isEmpty())
-           && (preferred == null || preferred.isEmpty()) && (comment == null || comment.isEmpty()) && (period == null || period.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(type, value, preferred, comment
+          , period);
       }
 
   public String fhirType() {
@@ -1673,9 +1673,8 @@ public class NamingSystem extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (kind == null || kind.isEmpty()) && (responsible == null || responsible.isEmpty())
-           && (type == null || type.isEmpty()) && (usage == null || usage.isEmpty()) && (uniqueId == null || uniqueId.isEmpty())
-           && (replacedBy == null || replacedBy.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(kind, responsible, type
+          , usage, uniqueId, replacedBy);
       }
 
   @Override

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Nov 1, 2016 18:35-0400 for FHIR v1.7.0
+// Generated on Wed, Nov 9, 2016 16:59+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -47,6 +47,7 @@ import org.hl7.fhir.exceptions.FHIRException;
  * A Capability Statement documents a set of capabilities (behaviors) of a FHIR Server that may be used as a statement of actual server functionality or a statement of required or desired server implementation.
  */
 @ResourceDef(name="CapabilityStatement", profile="http://hl7.org/fhir/Profile/CapabilityStatement")
+@ChildOrder(names={"url", "version", "name", "title", "status", "experimental", "date", "publisher", "contact", "description", "useContext", "jurisdiction", "purpose", "copyright", "kind", "instantiates", "software", "implementation", "fhirVersion", "acceptUnknown", "format", "profile", "rest", "messaging", "document"})
 public class CapabilityStatement extends MetadataResource implements IBaseConformance {
 
     public enum CapabilityStatementKind {
@@ -1939,8 +1940,8 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (name == null || name.isEmpty()) && (version == null || version.isEmpty())
-           && (releaseDate == null || releaseDate.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(name, version, releaseDate
+          );
       }
 
   public String fhirType() {
@@ -2168,8 +2169,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (description == null || description.isEmpty()) && (url == null || url.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(description, url);
       }
 
   public String fhirType() {
@@ -2833,10 +2833,8 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (mode == null || mode.isEmpty()) && (documentation == null || documentation.isEmpty())
-           && (security == null || security.isEmpty()) && (resource == null || resource.isEmpty()) && (interaction == null || interaction.isEmpty())
-           && (searchParam == null || searchParam.isEmpty()) && (operation == null || operation.isEmpty())
-           && (compartment == null || compartment.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(mode, documentation, security
+          , resource, interaction, searchParam, operation, compartment);
       }
 
   public String fhirType() {
@@ -3210,9 +3208,8 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (cors == null || cors.isEmpty()) && (service == null || service.isEmpty())
-           && (description == null || description.isEmpty()) && (certificate == null || certificate.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(cors, service, description
+          , certificate);
       }
 
   public String fhirType() {
@@ -3436,8 +3433,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (type == null || type.isEmpty()) && (blob == null || blob.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(type, blob);
       }
 
   public String fhirType() {
@@ -4615,14 +4611,10 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (type == null || type.isEmpty()) && (profile == null || profile.isEmpty())
-           && (documentation == null || documentation.isEmpty()) && (interaction == null || interaction.isEmpty())
-           && (versioning == null || versioning.isEmpty()) && (readHistory == null || readHistory.isEmpty())
-           && (updateCreate == null || updateCreate.isEmpty()) && (conditionalCreate == null || conditionalCreate.isEmpty())
-           && (conditionalRead == null || conditionalRead.isEmpty()) && (conditionalUpdate == null || conditionalUpdate.isEmpty())
-           && (conditionalDelete == null || conditionalDelete.isEmpty()) && (referencePolicy == null || referencePolicy.isEmpty())
-           && (searchInclude == null || searchInclude.isEmpty()) && (searchRevInclude == null || searchRevInclude.isEmpty())
-           && (searchParam == null || searchParam.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(type, profile, documentation
+          , interaction, versioning, readHistory, updateCreate, conditionalCreate, conditionalRead
+          , conditionalUpdate, conditionalDelete, referencePolicy, searchInclude, searchRevInclude
+          , searchParam);
       }
 
   public String fhirType() {
@@ -4851,8 +4843,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (code == null || code.isEmpty()) && (documentation == null || documentation.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(code, documentation);
       }
 
   public String fhirType() {
@@ -5472,10 +5463,8 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (name == null || name.isEmpty()) && (definition == null || definition.isEmpty())
-           && (type == null || type.isEmpty()) && (documentation == null || documentation.isEmpty())
-           && (target == null || target.isEmpty()) && (modifier == null || modifier.isEmpty()) && (chain == null || chain.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(name, definition, type, documentation
+          , target, modifier, chain);
       }
 
   public String fhirType() {
@@ -5704,8 +5693,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (code == null || code.isEmpty()) && (documentation == null || documentation.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(code, documentation);
       }
 
   public String fhirType() {
@@ -5935,8 +5923,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (name == null || name.isEmpty()) && (definition == null || definition.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(name, definition);
       }
 
   public String fhirType() {
@@ -6310,9 +6297,8 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (endpoint == null || endpoint.isEmpty()) && (reliableCache == null || reliableCache.isEmpty())
-           && (documentation == null || documentation.isEmpty()) && (event == null || event.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(endpoint, reliableCache, documentation
+          , event);
       }
 
   public String fhirType() {
@@ -6518,8 +6504,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (protocol == null || protocol.isEmpty()) && (address == null || address.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(protocol, address);
       }
 
   public String fhirType() {
@@ -7072,10 +7057,8 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (code == null || code.isEmpty()) && (category == null || category.isEmpty())
-           && (mode == null || mode.isEmpty()) && (focus == null || focus.isEmpty()) && (request == null || request.isEmpty())
-           && (response == null || response.isEmpty()) && (documentation == null || documentation.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(code, category, mode, focus
+          , request, response, documentation);
       }
 
   public String fhirType() {
@@ -7375,8 +7358,8 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (mode == null || mode.isEmpty()) && (documentation == null || documentation.isEmpty())
-           && (profile == null || profile.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(mode, documentation, profile
+          );
       }
 
   public String fhirType() {
@@ -9150,12 +9133,9 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (purpose == null || purpose.isEmpty()) && (copyright == null || copyright.isEmpty())
-           && (kind == null || kind.isEmpty()) && (instantiates == null || instantiates.isEmpty()) && (software == null || software.isEmpty())
-           && (implementation == null || implementation.isEmpty()) && (fhirVersion == null || fhirVersion.isEmpty())
-           && (acceptUnknown == null || acceptUnknown.isEmpty()) && (format == null || format.isEmpty())
-           && (profile == null || profile.isEmpty()) && (rest == null || rest.isEmpty()) && (messaging == null || messaging.isEmpty())
-           && (document == null || document.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(purpose, copyright, kind
+          , instantiates, software, implementation, fhirVersion, acceptUnknown, format, profile
+          , rest, messaging, document);
       }
 
   @Override

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Nov 1, 2016 18:35-0400 for FHIR v1.7.0
+// Generated on Wed, Nov 9, 2016 16:59+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -1260,13 +1260,9 @@ public class GuidanceResponse extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (requestId == null || requestId.isEmpty()) && (identifier == null || identifier.isEmpty())
-           && (module == null || module.isEmpty()) && (status == null || status.isEmpty()) && (subject == null || subject.isEmpty())
-           && (context == null || context.isEmpty()) && (occurrenceDateTime == null || occurrenceDateTime.isEmpty())
-           && (performer == null || performer.isEmpty()) && (reason == null || reason.isEmpty()) && (note == null || note.isEmpty())
-           && (evaluationMessage == null || evaluationMessage.isEmpty()) && (outputParameters == null || outputParameters.isEmpty())
-           && (requestGroup == null || requestGroup.isEmpty()) && (dataRequirement == null || dataRequirement.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(requestId, identifier, module
+          , status, subject, context, occurrenceDateTime, performer, reason, note, evaluationMessage
+          , outputParameters, requestGroup, dataRequirement);
       }
 
   @Override

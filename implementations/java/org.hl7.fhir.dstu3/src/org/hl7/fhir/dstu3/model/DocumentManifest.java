@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Nov 1, 2016 18:35-0400 for FHIR v1.7.0
+// Generated on Wed, Nov 9, 2016 16:59+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -204,7 +204,7 @@ public class DocumentManifest extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (p == null || p.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(p);
       }
 
   public String fhirType() {
@@ -400,8 +400,7 @@ public class DocumentManifest extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (ref == null || ref.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, ref);
       }
 
   public String fhirType() {
@@ -1341,11 +1340,9 @@ public class DocumentManifest extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (masterIdentifier == null || masterIdentifier.isEmpty()) && (identifier == null || identifier.isEmpty())
-           && (subject == null || subject.isEmpty()) && (recipient == null || recipient.isEmpty()) && (type == null || type.isEmpty())
-           && (author == null || author.isEmpty()) && (created == null || created.isEmpty()) && (source == null || source.isEmpty())
-           && (status == null || status.isEmpty()) && (description == null || description.isEmpty())
-           && (content == null || content.isEmpty()) && (related == null || related.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(masterIdentifier, identifier
+          , subject, recipient, type, author, created, source, status, description, content
+          , related);
       }
 
   @Override

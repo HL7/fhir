@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Nov 1, 2016 18:35-0400 for FHIR v1.7.0
+// Generated on Wed, Nov 9, 2016 16:59+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -607,9 +607,8 @@ public class MedicationAdministration extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (text == null || text.isEmpty()) && (site == null || site.isEmpty())
-           && (route == null || route.isEmpty()) && (method == null || method.isEmpty()) && (dose == null || dose.isEmpty())
-           && (rate == null || rate.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(text, site, route, method
+          , dose, rate);
       }
 
   public String fhirType() {
@@ -1998,15 +1997,10 @@ public class MedicationAdministration extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (status == null || status.isEmpty())
-           && (medication == null || medication.isEmpty()) && (patient == null || patient.isEmpty())
-           && (encounter == null || encounter.isEmpty()) && (supportingInformation == null || supportingInformation.isEmpty())
-           && (effectiveTime == null || effectiveTime.isEmpty()) && (performer == null || performer.isEmpty())
-           && (reasonReference == null || reasonReference.isEmpty()) && (prescription == null || prescription.isEmpty())
-           && (notGiven == null || notGiven.isEmpty()) && (reasonNotGiven == null || reasonNotGiven.isEmpty())
-           && (reasonGiven == null || reasonGiven.isEmpty()) && (device == null || device.isEmpty())
-           && (note == null || note.isEmpty()) && (dosage == null || dosage.isEmpty()) && (eventHistory == null || eventHistory.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, status, medication
+          , patient, encounter, supportingInformation, effectiveTime, performer, reasonReference
+          , prescription, notGiven, reasonNotGiven, reasonGiven, device, note, dosage, eventHistory
+          );
       }
 
   @Override

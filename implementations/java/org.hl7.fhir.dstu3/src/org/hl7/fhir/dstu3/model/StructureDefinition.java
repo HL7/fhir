@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Nov 1, 2016 18:35-0400 for FHIR v1.7.0
+// Generated on Wed, Nov 9, 2016 16:59+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -47,6 +47,7 @@ import org.hl7.fhir.exceptions.FHIRException;
  * A definition of a FHIR structure. This resource is used to describe the underlying resources, data types defined in FHIR, and also for describing extensions, and constraints on resources and data types.
  */
 @ResourceDef(name="StructureDefinition", profile="http://hl7.org/fhir/Profile/StructureDefinition")
+@ChildOrder(names={"url", "identifier", "version", "name", "title", "status", "experimental", "publisher", "contact", "date", "description", "useContext", "jurisdiction", "purpose", "copyright", "keyword", "fhirVersion", "mapping", "kind", "abstract", "contextType", "context", "contextInvariant", "type", "baseDefinition", "derivation", "snapshot", "differential"})
 public class StructureDefinition extends MetadataResource {
 
     public enum StructureDefinitionKind {
@@ -723,8 +724,8 @@ public class StructureDefinition extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identity == null || identity.isEmpty()) && (uri == null || uri.isEmpty())
-           && (name == null || name.isEmpty()) && (comments == null || comments.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identity, uri, name, comments
+          );
       }
 
   public String fhirType() {
@@ -888,7 +889,7 @@ public class StructureDefinition extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (element == null || element.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(element);
       }
 
   public String fhirType() {
@@ -1052,7 +1053,7 @@ public class StructureDefinition extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (element == null || element.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(element);
       }
 
   public String fhirType() {
@@ -2998,14 +2999,9 @@ public class StructureDefinition extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (purpose == null || purpose.isEmpty())
-           && (copyright == null || copyright.isEmpty()) && (keyword == null || keyword.isEmpty()) && (fhirVersion == null || fhirVersion.isEmpty())
-           && (mapping == null || mapping.isEmpty()) && (kind == null || kind.isEmpty()) && (abstract_ == null || abstract_.isEmpty())
-           && (contextType == null || contextType.isEmpty()) && (context == null || context.isEmpty())
-           && (contextInvariant == null || contextInvariant.isEmpty()) && (type == null || type.isEmpty())
-           && (baseDefinition == null || baseDefinition.isEmpty()) && (derivation == null || derivation.isEmpty())
-           && (snapshot == null || snapshot.isEmpty()) && (differential == null || differential.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, purpose, copyright
+          , keyword, fhirVersion, mapping, kind, abstract_, contextType, context, contextInvariant
+          , type, baseDefinition, derivation, snapshot, differential);
       }
 
   @Override

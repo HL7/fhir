@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Nov 1, 2016 18:35-0400 for FHIR v1.7.0
+// Generated on Wed, Nov 9, 2016 16:59+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -47,6 +47,7 @@ import org.hl7.fhir.exceptions.FHIRException;
  * The Library resource is a general-purpose container for knowledge asset definitions. It can be used to describe and expose exist knowledge assets such as logic libraries and information model descriptions, as well as to describe a collection of knowledge assets.
  */
 @ResourceDef(name="Library", profile="http://hl7.org/fhir/Profile/Library")
+@ChildOrder(names={"url", "identifier", "version", "name", "title", "type", "status", "experimental", "date", "description", "purpose", "usage", "approvalDate", "lastReviewDate", "effectivePeriod", "useContext", "jurisdiction", "topic", "contributor", "publisher", "contact", "copyright", "relatedArtifact", "parameter", "dataRequirement", "content"})
 public class Library extends MetadataResource {
 
     /**
@@ -1828,13 +1829,9 @@ public class Library extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (type == null || type.isEmpty())
-           && (purpose == null || purpose.isEmpty()) && (usage == null || usage.isEmpty()) && (approvalDate == null || approvalDate.isEmpty())
-           && (lastReviewDate == null || lastReviewDate.isEmpty()) && (effectivePeriod == null || effectivePeriod.isEmpty())
-           && (topic == null || topic.isEmpty()) && (contributor == null || contributor.isEmpty()) && (copyright == null || copyright.isEmpty())
-           && (relatedArtifact == null || relatedArtifact.isEmpty()) && (parameter == null || parameter.isEmpty())
-           && (dataRequirement == null || dataRequirement.isEmpty()) && (content == null || content.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, type, purpose
+          , usage, approvalDate, lastReviewDate, effectivePeriod, topic, contributor, copyright
+          , relatedArtifact, parameter, dataRequirement, content);
       }
 
   @Override

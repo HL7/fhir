@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Nov 1, 2016 18:35-0400 for FHIR v1.7.0
+// Generated on Wed, Nov 9, 2016 16:59+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -981,12 +981,9 @@ public class EnrollmentResponse extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (status == null || status.isEmpty())
-           && (request == null || request.isEmpty()) && (outcome == null || outcome.isEmpty()) && (disposition == null || disposition.isEmpty())
-           && (ruleset == null || ruleset.isEmpty()) && (originalRuleset == null || originalRuleset.isEmpty())
-           && (created == null || created.isEmpty()) && (organization == null || organization.isEmpty())
-           && (requestProvider == null || requestProvider.isEmpty()) && (requestOrganization == null || requestOrganization.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, status, request
+          , outcome, disposition, ruleset, originalRuleset, created, organization, requestProvider
+          , requestOrganization);
       }
 
   @Override

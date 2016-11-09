@@ -6,7 +6,6 @@ import java.util.Map;
 
 import org.hl7.fhir.dstu3.formats.IParser;
 import org.hl7.fhir.dstu3.model.CodeSystem;
-import org.hl7.fhir.dstu3.model.CodeableConcept;
 import org.hl7.fhir.dstu3.model.ContactDetail;
 import org.hl7.fhir.dstu3.model.ContactPoint;
 import org.hl7.fhir.dstu3.model.UsageContext;

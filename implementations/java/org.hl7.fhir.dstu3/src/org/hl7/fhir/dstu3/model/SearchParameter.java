@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Nov 1, 2016 18:35-0400 for FHIR v1.7.0
+// Generated on Wed, Nov 9, 2016 16:59+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -47,6 +47,7 @@ import org.hl7.fhir.exceptions.FHIRException;
  * A search parameter that defines a named search item that can be used to search/filter on a resource.
  */
 @ResourceDef(name="SearchParameter", profile="http://hl7.org/fhir/Profile/SearchParameter")
+@ChildOrder(names={"url", "version", "name", "status", "experimental", "date", "publisher", "contact", "useContext", "jurisdiction", "purpose", "code", "base", "type", "description", "expression", "xpath", "xpathUsage", "target", "component"})
 public class SearchParameter extends MetadataResource {
 
     public enum XPathUsageType {
@@ -1621,10 +1622,8 @@ public class SearchParameter extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (purpose == null || purpose.isEmpty()) && (code == null || code.isEmpty())
-           && (base == null || base.isEmpty()) && (type == null || type.isEmpty()) && (expression == null || expression.isEmpty())
-           && (xpath == null || xpath.isEmpty()) && (xpathUsage == null || xpathUsage.isEmpty()) && (target == null || target.isEmpty())
-           && (component == null || component.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(purpose, code, base, type
+          , expression, xpath, xpathUsage, target, component);
       }
 
   @Override

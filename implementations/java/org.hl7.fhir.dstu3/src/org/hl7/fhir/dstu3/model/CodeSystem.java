@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Nov 1, 2016 18:35-0400 for FHIR v1.7.0
+// Generated on Wed, Nov 9, 2016 16:59+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -47,6 +47,7 @@ import org.hl7.fhir.exceptions.FHIRException;
  * A code system resource specifies a set of codes drawn from one or more code systems.
  */
 @ResourceDef(name="CodeSystem", profile="http://hl7.org/fhir/Profile/CodeSystem")
+@ChildOrder(names={"url", "identifier", "version", "name", "title", "status", "experimental", "publisher", "contact", "date", "description", "useContext", "jurisdiction", "purpose", "copyright", "caseSensitive", "valueSet", "hierarchyMeaning", "compositional", "versionNeeded", "content", "count", "filter", "property", "concept"})
 public class CodeSystem extends MetadataResource {
 
     public enum CodeSystemHierarchyMeaning {
@@ -303,6 +304,10 @@ public class CodeSystem extends MetadataResource {
          */
         ISA, 
         /**
+         * Includes all concept ids that have a transitive is-a relationship with the concept Id provided as the value, excluding the provided concept itself (i.e. include child codes)
+         */
+        DESCENDENTOF, 
+        /**
          * The specified property of the code does not have an is-a relationship with the provided value.
          */
         ISNOTA, 
@@ -333,6 +338,8 @@ public class CodeSystem extends MetadataResource {
           return EQUAL;
         if ("is-a".equals(codeString))
           return ISA;
+        if ("descendent-of".equals(codeString))
+          return DESCENDENTOF;
         if ("is-not-a".equals(codeString))
           return ISNOTA;
         if ("regex".equals(codeString))
@@ -352,6 +359,7 @@ public class CodeSystem extends MetadataResource {
           switch (this) {
             case EQUAL: return "=";
             case ISA: return "is-a";
+            case DESCENDENTOF: return "descendent-of";
             case ISNOTA: return "is-not-a";
             case REGEX: return "regex";
             case IN: return "in";
@@ -364,6 +372,7 @@ public class CodeSystem extends MetadataResource {
           switch (this) {
             case EQUAL: return "http://hl7.org/fhir/filter-operator";
             case ISA: return "http://hl7.org/fhir/filter-operator";
+            case DESCENDENTOF: return "http://hl7.org/fhir/filter-operator";
             case ISNOTA: return "http://hl7.org/fhir/filter-operator";
             case REGEX: return "http://hl7.org/fhir/filter-operator";
             case IN: return "http://hl7.org/fhir/filter-operator";
@@ -376,6 +385,7 @@ public class CodeSystem extends MetadataResource {
           switch (this) {
             case EQUAL: return "The specified property of the code equals the provided value.";
             case ISA: return "Includes all concept ids that have a transitive is-a relationship with the concept Id provided as the value, including the provided concept itself (i.e. include child codes)";
+            case DESCENDENTOF: return "Includes all concept ids that have a transitive is-a relationship with the concept Id provided as the value, excluding the provided concept itself (i.e. include child codes)";
             case ISNOTA: return "The specified property of the code does not have an is-a relationship with the provided value.";
             case REGEX: return "The specified property of the code  matches the regex specified in the provided value.";
             case IN: return "The specified property of the code is in the set of codes or concepts specified in the provided value (comma separated list).";
@@ -388,6 +398,7 @@ public class CodeSystem extends MetadataResource {
           switch (this) {
             case EQUAL: return "Equals";
             case ISA: return "Is A (by subsumption)";
+            case DESCENDENTOF: return "Descendent Of (by subsumption)";
             case ISNOTA: return "Not (Is A) (by subsumption)";
             case REGEX: return "Regular Expression";
             case IN: return "In Set";
@@ -407,6 +418,8 @@ public class CodeSystem extends MetadataResource {
           return FilterOperator.EQUAL;
         if ("is-a".equals(codeString))
           return FilterOperator.ISA;
+        if ("descendent-of".equals(codeString))
+          return FilterOperator.DESCENDENTOF;
         if ("is-not-a".equals(codeString))
           return FilterOperator.ISNOTA;
         if ("regex".equals(codeString))
@@ -429,6 +442,8 @@ public class CodeSystem extends MetadataResource {
           return new Enumeration<FilterOperator>(this, FilterOperator.EQUAL);
         if ("is-a".equals(codeString))
           return new Enumeration<FilterOperator>(this, FilterOperator.ISA);
+        if ("descendent-of".equals(codeString))
+          return new Enumeration<FilterOperator>(this, FilterOperator.DESCENDENTOF);
         if ("is-not-a".equals(codeString))
           return new Enumeration<FilterOperator>(this, FilterOperator.ISNOTA);
         if ("regex".equals(codeString))
@@ -446,6 +461,8 @@ public class CodeSystem extends MetadataResource {
         return "=";
       if (code == FilterOperator.ISA)
         return "is-a";
+      if (code == FilterOperator.DESCENDENTOF)
+        return "descendent-of";
       if (code == FilterOperator.ISNOTA)
         return "is-not-a";
       if (code == FilterOperator.REGEX)
@@ -987,8 +1004,8 @@ public class CodeSystem extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (code == null || code.isEmpty()) && (description == null || description.isEmpty())
-           && (operator == null || operator.isEmpty()) && (value == null || value.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(code, description, operator
+          , value);
       }
 
   public String fhirType() {
@@ -1352,8 +1369,8 @@ public class CodeSystem extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (code == null || code.isEmpty()) && (uri == null || uri.isEmpty())
-           && (description == null || description.isEmpty()) && (type == null || type.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(code, uri, description, type
+          );
       }
 
   public String fhirType() {
@@ -1880,9 +1897,8 @@ public class CodeSystem extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (code == null || code.isEmpty()) && (display == null || display.isEmpty())
-           && (definition == null || definition.isEmpty()) && (designation == null || designation.isEmpty())
-           && (property == null || property.isEmpty()) && (concept == null || concept.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(code, display, definition
+          , designation, property, concept);
       }
 
   public String fhirType() {
@@ -2157,8 +2173,7 @@ public class CodeSystem extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (language == null || language.isEmpty()) && (use == null || use.isEmpty())
-           && (value == null || value.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(language, use, value);
       }
 
   public String fhirType() {
@@ -2456,8 +2471,7 @@ public class CodeSystem extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (code == null || code.isEmpty()) && (value == null || value.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(code, value);
       }
 
   public String fhirType() {
@@ -4183,12 +4197,9 @@ public class CodeSystem extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (purpose == null || purpose.isEmpty())
-           && (copyright == null || copyright.isEmpty()) && (caseSensitive == null || caseSensitive.isEmpty())
-           && (valueSet == null || valueSet.isEmpty()) && (hierarchyMeaning == null || hierarchyMeaning.isEmpty())
-           && (compositional == null || compositional.isEmpty()) && (versionNeeded == null || versionNeeded.isEmpty())
-           && (content == null || content.isEmpty()) && (count == null || count.isEmpty()) && (filter == null || filter.isEmpty())
-           && (property == null || property.isEmpty()) && (concept == null || concept.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, purpose, copyright
+          , caseSensitive, valueSet, hierarchyMeaning, compositional, versionNeeded, content
+          , count, filter, property, concept);
       }
 
   @Override

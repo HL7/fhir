@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Nov 1, 2016 18:35-0400 for FHIR v1.7.0
+// Generated on Wed, Nov 9, 2016 16:59+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -723,10 +723,8 @@ public class Flag extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (category == null || category.isEmpty())
-           && (status == null || status.isEmpty()) && (period == null || period.isEmpty()) && (subject == null || subject.isEmpty())
-           && (encounter == null || encounter.isEmpty()) && (author == null || author.isEmpty()) && (code == null || code.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, category, status
+          , period, subject, encounter, author, code);
       }
 
   @Override

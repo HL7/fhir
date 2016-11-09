@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Nov 1, 2016 18:35-0400 for FHIR v1.7.0
+// Generated on Wed, Nov 9, 2016 16:59+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -50,25 +50,13 @@ public class Immunization extends DomainResource {
 
     public enum ImmunizationStatus {
         /**
-         * The administration has started but has not yet completed.
-         */
-        INPROGRESS, 
-        /**
-         * Actions implied by the administration have been temporarily halted, but are expected to continue later. May also be called "suspended".
-         */
-        ONHOLD, 
-        /**
-         * All actions that are implied by the administration have occurred.
+         * null
          */
         COMPLETED, 
         /**
-         * The administration was entered in error and therefore nullified.
+         * null
          */
         ENTEREDINERROR, 
-        /**
-         * Actions implied by the administration have been permanently halted, before all of them occurred.
-         */
-        STOPPED, 
         /**
          * added to help the parsers with the generic types
          */
@@ -76,16 +64,10 @@ public class Immunization extends DomainResource {
         public static ImmunizationStatus fromCode(String codeString) throws FHIRException {
             if (codeString == null || "".equals(codeString))
                 return null;
-        if ("in-progress".equals(codeString))
-          return INPROGRESS;
-        if ("on-hold".equals(codeString))
-          return ONHOLD;
         if ("completed".equals(codeString))
           return COMPLETED;
         if ("entered-in-error".equals(codeString))
           return ENTEREDINERROR;
-        if ("stopped".equals(codeString))
-          return STOPPED;
         if (Configuration.isAcceptInvalidEnums())
           return null;
         else
@@ -93,41 +75,29 @@ public class Immunization extends DomainResource {
         }
         public String toCode() {
           switch (this) {
-            case INPROGRESS: return "in-progress";
-            case ONHOLD: return "on-hold";
             case COMPLETED: return "completed";
             case ENTEREDINERROR: return "entered-in-error";
-            case STOPPED: return "stopped";
             default: return "?";
           }
         }
         public String getSystem() {
           switch (this) {
-            case INPROGRESS: return "http://hl7.org/fhir/medication-admin-status";
-            case ONHOLD: return "http://hl7.org/fhir/medication-admin-status";
             case COMPLETED: return "http://hl7.org/fhir/medication-admin-status";
             case ENTEREDINERROR: return "http://hl7.org/fhir/medication-admin-status";
-            case STOPPED: return "http://hl7.org/fhir/medication-admin-status";
             default: return "?";
           }
         }
         public String getDefinition() {
           switch (this) {
-            case INPROGRESS: return "The administration has started but has not yet completed.";
-            case ONHOLD: return "Actions implied by the administration have been temporarily halted, but are expected to continue later. May also be called \"suspended\".";
-            case COMPLETED: return "All actions that are implied by the administration have occurred.";
-            case ENTEREDINERROR: return "The administration was entered in error and therefore nullified.";
-            case STOPPED: return "Actions implied by the administration have been permanently halted, before all of them occurred.";
+            case COMPLETED: return "";
+            case ENTEREDINERROR: return "";
             default: return "?";
           }
         }
         public String getDisplay() {
           switch (this) {
-            case INPROGRESS: return "In Progress";
-            case ONHOLD: return "On Hold";
-            case COMPLETED: return "Completed";
-            case ENTEREDINERROR: return "Entered in Error";
-            case STOPPED: return "Stopped";
+            case COMPLETED: return "completed";
+            case ENTEREDINERROR: return "entered-in-error";
             default: return "?";
           }
         }
@@ -138,16 +108,10 @@ public class Immunization extends DomainResource {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
-        if ("in-progress".equals(codeString))
-          return ImmunizationStatus.INPROGRESS;
-        if ("on-hold".equals(codeString))
-          return ImmunizationStatus.ONHOLD;
         if ("completed".equals(codeString))
           return ImmunizationStatus.COMPLETED;
         if ("entered-in-error".equals(codeString))
           return ImmunizationStatus.ENTEREDINERROR;
-        if ("stopped".equals(codeString))
-          return ImmunizationStatus.STOPPED;
         throw new IllegalArgumentException("Unknown ImmunizationStatus code '"+codeString+"'");
         }
         public Enumeration<ImmunizationStatus> fromType(Base code) throws FHIRException {
@@ -156,29 +120,17 @@ public class Immunization extends DomainResource {
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
-        if ("in-progress".equals(codeString))
-          return new Enumeration<ImmunizationStatus>(this, ImmunizationStatus.INPROGRESS);
-        if ("on-hold".equals(codeString))
-          return new Enumeration<ImmunizationStatus>(this, ImmunizationStatus.ONHOLD);
         if ("completed".equals(codeString))
           return new Enumeration<ImmunizationStatus>(this, ImmunizationStatus.COMPLETED);
         if ("entered-in-error".equals(codeString))
           return new Enumeration<ImmunizationStatus>(this, ImmunizationStatus.ENTEREDINERROR);
-        if ("stopped".equals(codeString))
-          return new Enumeration<ImmunizationStatus>(this, ImmunizationStatus.STOPPED);
         throw new FHIRException("Unknown ImmunizationStatus code '"+codeString+"'");
         }
     public String toCode(ImmunizationStatus code) {
-      if (code == ImmunizationStatus.INPROGRESS)
-        return "in-progress";
-      if (code == ImmunizationStatus.ONHOLD)
-        return "on-hold";
       if (code == ImmunizationStatus.COMPLETED)
         return "completed";
       if (code == ImmunizationStatus.ENTEREDINERROR)
         return "entered-in-error";
-      if (code == ImmunizationStatus.STOPPED)
-        return "stopped";
       return "?";
       }
     public String toSystem(ImmunizationStatus code) {
@@ -419,8 +371,7 @@ public class Immunization extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (reason == null || reason.isEmpty()) && (reasonNotGiven == null || reasonNotGiven.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(reason, reasonNotGiven);
       }
 
   public String fhirType() {
@@ -710,8 +661,7 @@ public class Immunization extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (date == null || date.isEmpty()) && (detail == null || detail.isEmpty())
-           && (reported == null || reported.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(date, detail, reported);
       }
 
   public String fhirType() {
@@ -1311,10 +1261,8 @@ public class Immunization extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (doseSequence == null || doseSequence.isEmpty()) && (description == null || description.isEmpty())
-           && (authority == null || authority.isEmpty()) && (series == null || series.isEmpty()) && (seriesDoses == null || seriesDoses.isEmpty())
-           && (targetDisease == null || targetDisease.isEmpty()) && (doseStatus == null || doseStatus.isEmpty())
-           && (doseStatusReason == null || doseStatusReason.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(doseSequence, description
+          , authority, series, seriesDoses, targetDisease, doseStatus, doseStatusReason);
       }
 
   public String fhirType() {
@@ -1335,8 +1283,8 @@ public class Immunization extends DomainResource {
      * Indicates the current status of the vaccination event.
      */
     @Child(name = "status", type = {CodeType.class}, order=1, min=1, max=1, modifier=true, summary=true)
-    @Description(shortDefinition="in-progress | on-hold | completed | entered-in-error | stopped", formalDefinition="Indicates the current status of the vaccination event." )
-    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/medication-admin-status")
+    @Description(shortDefinition="completed | entered-in-error", formalDefinition="Indicates the current status of the vaccination event." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/immunization-status")
     protected Enumeration<ImmunizationStatus> status;
 
     /**
@@ -2768,16 +2716,10 @@ public class Immunization extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (status == null || status.isEmpty())
-           && (date == null || date.isEmpty()) && (vaccineCode == null || vaccineCode.isEmpty()) && (patient == null || patient.isEmpty())
-           && (wasNotGiven == null || wasNotGiven.isEmpty()) && (reported == null || reported.isEmpty())
-           && (performer == null || performer.isEmpty()) && (requester == null || requester.isEmpty())
-           && (encounter == null || encounter.isEmpty()) && (manufacturer == null || manufacturer.isEmpty())
-           && (location == null || location.isEmpty()) && (lotNumber == null || lotNumber.isEmpty())
-           && (expirationDate == null || expirationDate.isEmpty()) && (site == null || site.isEmpty())
-           && (route == null || route.isEmpty()) && (doseQuantity == null || doseQuantity.isEmpty())
-           && (note == null || note.isEmpty()) && (explanation == null || explanation.isEmpty()) && (reaction == null || reaction.isEmpty())
-           && (vaccinationProtocol == null || vaccinationProtocol.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, status, date
+          , vaccineCode, patient, wasNotGiven, reported, performer, requester, encounter
+          , manufacturer, location, lotNumber, expirationDate, site, route, doseQuantity
+          , note, explanation, reaction, vaccinationProtocol);
       }
 
   @Override

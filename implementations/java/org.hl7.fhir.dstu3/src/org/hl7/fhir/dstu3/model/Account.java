@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Nov 1, 2016 18:35-0400 for FHIR v1.7.0
+// Generated on Wed, Nov 9, 2016 16:59+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -990,11 +990,9 @@ A coverage may only be resposible for specific types of charges, and the sequenc
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (name == null || name.isEmpty())
-           && (type == null || type.isEmpty()) && (status == null || status.isEmpty()) && (active == null || active.isEmpty())
-           && (currency == null || currency.isEmpty()) && (balance == null || balance.isEmpty()) && (coverage == null || coverage.isEmpty())
-           && (coveragePeriod == null || coveragePeriod.isEmpty()) && (subject == null || subject.isEmpty())
-           && (owner == null || owner.isEmpty()) && (description == null || description.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, name, type, status
+          , active, currency, balance, coverage, coveragePeriod, subject, owner, description
+          );
       }
 
   @Override

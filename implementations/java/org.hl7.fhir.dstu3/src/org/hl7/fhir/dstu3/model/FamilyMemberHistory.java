@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Nov 1, 2016 18:35-0400 for FHIR v1.7.0
+// Generated on Wed, Nov 9, 2016 16:59+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -495,8 +495,8 @@ public class FamilyMemberHistory extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (code == null || code.isEmpty()) && (outcome == null || outcome.isEmpty())
-           && (onset == null || onset.isEmpty()) && (note == null || note.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(code, outcome, onset, note
+          );
       }
 
   public String fhirType() {
@@ -1542,12 +1542,9 @@ public class FamilyMemberHistory extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (patient == null || patient.isEmpty())
-           && (date == null || date.isEmpty()) && (status == null || status.isEmpty()) && (name == null || name.isEmpty())
-           && (relationship == null || relationship.isEmpty()) && (gender == null || gender.isEmpty())
-           && (born == null || born.isEmpty()) && (age == null || age.isEmpty()) && (estimatedAge == null || estimatedAge.isEmpty())
-           && (deceased == null || deceased.isEmpty()) && (note == null || note.isEmpty()) && (condition == null || condition.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, patient, date
+          , status, name, relationship, gender, born, age, estimatedAge, deceased, note
+          , condition);
       }
 
   @Override

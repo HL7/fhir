@@ -39,11 +39,12 @@ import java.util.UUID;
 
 import org.hl7.fhir.dstu3.context.IWorkerContext;
 import org.hl7.fhir.dstu3.model.AllergyIntolerance;
+import org.hl7.fhir.dstu3.model.AllergyIntolerance.AllergyIntoleranceClinicalStatus;
 import org.hl7.fhir.dstu3.model.AllergyIntolerance.AllergyIntoleranceCriticality;
 import org.hl7.fhir.dstu3.model.AllergyIntolerance.AllergyIntoleranceReactionComponent;
 import org.hl7.fhir.dstu3.model.AllergyIntolerance.AllergyIntoleranceSeverity;
-import org.hl7.fhir.dstu3.model.AllergyIntolerance.AllergyIntoleranceStatus;
 import org.hl7.fhir.dstu3.model.AllergyIntolerance.AllergyIntoleranceType;
+import org.hl7.fhir.dstu3.model.AllergyIntolerance.AllergyIntoleranceVerificationStatus;
 import org.hl7.fhir.dstu3.model.Bundle;
 import org.hl7.fhir.dstu3.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.dstu3.model.CodeableConcept;
@@ -788,16 +789,17 @@ public class CCDAConverter {
 			//  SHOULD contain zero or more [0..*] entryRelationship (CONF:7447) such that it SHALL contain exactly one [1..1] Reaction Observation (templateId:2.16.840.1.113883.10.20.22.4.9) (CONF:7450).
 			for (Element e : cda.getChildren(obs,  "entryRelationship")) {
 				Element child = cda.getChild(e, "observation");
-				if (cda.hasTemplateId(child, "2.16.840.1.113883.10.20.22.4.28") && ai.getStatus() == null) {
+				if (cda.hasTemplateId(child, "2.16.840.1.113883.10.20.22.4.28") && ai.getClinicalStatus() == null) {
 					// SHALL contain exactly one [1..1] value with @xsi:type="CE", where the @code SHALL be selected from ValueSet Problem Status Value Set 2.16.840.1.113883.3.88.12.80.68 DYNAMIC (CONF:7322).
 					// 55561003  SNOMED CT  Active
 					// 73425007  SNOMED CT  Inactive
 					// 413322009  SNOMED CT  Resolved
 					String sc = cda.getChild(child, "value").getAttribute("code");
-					if (sc.equals("55561003"))
-						ai.setStatus(AllergyIntoleranceStatus.ACTIVECONFIRMED);
-					else
-						ai.setStatus(AllergyIntoleranceStatus.RESOLVED);
+					if (sc.equals("55561003")) {
+            ai.setClinicalStatus(AllergyIntoleranceClinicalStatus.ACTIVE);
+            ai.setVerificationStatus(AllergyIntoleranceVerificationStatus.CONFIRMED);
+					} else
+						ai.setClinicalStatus(AllergyIntoleranceClinicalStatus.RESOLVED);
 				} else if (cda.hasTemplateId(child, "2.16.840.1.113883.10.20.22.4.9")) {
 					ai.getReaction().add(processAdverseReactionObservation(child));
 				}

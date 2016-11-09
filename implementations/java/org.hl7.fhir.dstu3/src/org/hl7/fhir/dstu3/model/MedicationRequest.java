@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Nov 1, 2016 18:35-0400 for FHIR v1.7.0
+// Generated on Wed, Nov 9, 2016 16:59+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -563,9 +563,8 @@ public class MedicationRequest extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (validityPeriod == null || validityPeriod.isEmpty()) && (numberOfRepeatsAllowed == null || numberOfRepeatsAllowed.isEmpty())
-           && (quantity == null || quantity.isEmpty()) && (expectedSupplyDuration == null || expectedSupplyDuration.isEmpty())
-           && (performer == null || performer.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(validityPeriod, numberOfRepeatsAllowed
+          , quantity, expectedSupplyDuration, performer);
       }
 
   public String fhirType() {
@@ -770,8 +769,7 @@ public class MedicationRequest extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (allowed == null || allowed.isEmpty()) && (reason == null || reason.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(allowed, reason);
       }
 
   public String fhirType() {
@@ -2357,16 +2355,10 @@ public class MedicationRequest extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (definition == null || definition.isEmpty())
-           && (basedOn == null || basedOn.isEmpty()) && (requisition == null || requisition.isEmpty())
-           && (status == null || status.isEmpty()) && (stage == null || stage.isEmpty()) && (medication == null || medication.isEmpty())
-           && (patient == null || patient.isEmpty()) && (context == null || context.isEmpty()) && (supportingInformation == null || supportingInformation.isEmpty())
-           && (dateWritten == null || dateWritten.isEmpty()) && (prescriber == null || prescriber.isEmpty())
-           && (reasonCode == null || reasonCode.isEmpty()) && (reasonReference == null || reasonReference.isEmpty())
-           && (note == null || note.isEmpty()) && (category == null || category.isEmpty()) && (dosageInstruction == null || dosageInstruction.isEmpty())
-           && (dispenseRequest == null || dispenseRequest.isEmpty()) && (substitution == null || substitution.isEmpty())
-           && (priorPrescription == null || priorPrescription.isEmpty()) && (eventHistory == null || eventHistory.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, definition, basedOn
+          , requisition, status, stage, medication, patient, context, supportingInformation
+          , dateWritten, prescriber, reasonCode, reasonReference, note, category, dosageInstruction
+          , dispenseRequest, substitution, priorPrescription, eventHistory);
       }
 
   @Override
@@ -2419,6 +2411,32 @@ public class MedicationRequest extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
+
+ /**
+   * Search parameter: <b>intended-dispenser</b>
+   * <p>
+   * Description: <b>Returns prescriptions intended to be dispensed by this Organization</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>MedicationRequest.dispenseRequest.performer</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="intended-dispenser", path="MedicationRequest.dispenseRequest.performer", description="Returns prescriptions intended to be dispensed by this Organization", type="reference", target={Organization.class } )
+  public static final String SP_INTENDED_DISPENSER = "intended-dispenser";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>intended-dispenser</b>
+   * <p>
+   * Description: <b>Returns prescriptions intended to be dispensed by this Organization</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>MedicationRequest.dispenseRequest.performer</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam INTENDED_DISPENSER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_INTENDED_DISPENSER);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>MedicationRequest:intended-dispenser</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_INTENDED_DISPENSER = new ca.uhn.fhir.model.api.Include("MedicationRequest:intended-dispenser").toLocked();
 
  /**
    * Search parameter: <b>code</b>
@@ -2537,32 +2555,6 @@ public class MedicationRequest extends DomainResource {
    * the path value of "<b>MedicationRequest:medication</b>".
    */
   public static final ca.uhn.fhir.model.api.Include INCLUDE_MEDICATION = new ca.uhn.fhir.model.api.Include("MedicationRequest:medication").toLocked();
-
- /**
-   * Search parameter: <b>intendeddispenser</b>
-   * <p>
-   * Description: <b>Returns prescriptions intended to be dispensed by this Organization</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>MedicationRequest.dispenseRequest.performer</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="intendeddispenser", path="MedicationRequest.dispenseRequest.performer", description="Returns prescriptions intended to be dispensed by this Organization", type="reference", target={Organization.class } )
-  public static final String SP_INTENDEDDISPENSER = "intendeddispenser";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>intendeddispenser</b>
-   * <p>
-   * Description: <b>Returns prescriptions intended to be dispensed by this Organization</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>MedicationRequest.dispenseRequest.performer</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam INTENDEDDISPENSER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_INTENDEDDISPENSER);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>MedicationRequest:intendeddispenser</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_INTENDEDDISPENSER = new ca.uhn.fhir.model.api.Include("MedicationRequest:intendeddispenser").toLocked();
 
  /**
    * Search parameter: <b>status</b>

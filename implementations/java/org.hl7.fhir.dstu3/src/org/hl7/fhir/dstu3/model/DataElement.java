@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Nov 1, 2016 18:35-0400 for FHIR v1.7.0
+// Generated on Wed, Nov 9, 2016 16:59+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -47,6 +47,7 @@ import org.hl7.fhir.exceptions.FHIRException;
  * The formal description of a single piece of information that can be gathered and reported.
  */
 @ResourceDef(name="DataElement", profile="http://hl7.org/fhir/Profile/DataElement")
+@ChildOrder(names={"url", "identifier", "version", "status", "experimental", "publisher", "date", "name", "title", "contact", "useContext", "jurisdiction", "copyright", "stringency", "mapping", "element"})
 public class DataElement extends MetadataResource {
 
     public enum DataElementStringency {
@@ -559,8 +560,8 @@ public class DataElement extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identity == null || identity.isEmpty()) && (uri == null || uri.isEmpty())
-           && (name == null || name.isEmpty()) && (comment == null || comment.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identity, uri, name, comment
+          );
       }
 
   public String fhirType() {
@@ -1718,9 +1719,8 @@ public class DataElement extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (copyright == null || copyright.isEmpty())
-           && (stringency == null || stringency.isEmpty()) && (mapping == null || mapping.isEmpty())
-           && (element == null || element.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, copyright, stringency
+          , mapping, element);
       }
 
   @Override

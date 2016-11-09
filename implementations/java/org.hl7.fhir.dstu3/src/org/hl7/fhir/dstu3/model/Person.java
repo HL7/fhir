@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Nov 1, 2016 18:35-0400 for FHIR v1.7.0
+// Generated on Wed, Nov 9, 2016 16:59+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -390,8 +390,7 @@ public class Person extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (target == null || target.isEmpty()) && (assurance == null || assurance.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(target, assurance);
       }
 
   public String fhirType() {
@@ -1184,10 +1183,8 @@ public class Person extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (name == null || name.isEmpty())
-           && (telecom == null || telecom.isEmpty()) && (gender == null || gender.isEmpty()) && (birthDate == null || birthDate.isEmpty())
-           && (address == null || address.isEmpty()) && (photo == null || photo.isEmpty()) && (managingOrganization == null || managingOrganization.isEmpty())
-           && (active == null || active.isEmpty()) && (link == null || link.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, name, telecom
+          , gender, birthDate, address, photo, managingOrganization, active, link);
       }
 
   @Override

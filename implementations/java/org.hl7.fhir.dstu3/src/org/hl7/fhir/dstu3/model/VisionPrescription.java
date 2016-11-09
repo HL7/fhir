@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Nov 1, 2016 18:35-0400 for FHIR v1.7.0
+// Generated on Wed, Nov 9, 2016 16:59+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -1575,12 +1575,9 @@ public class VisionPrescription extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (product == null || product.isEmpty()) && (eye == null || eye.isEmpty())
-           && (sphere == null || sphere.isEmpty()) && (cylinder == null || cylinder.isEmpty()) && (axis == null || axis.isEmpty())
-           && (prism == null || prism.isEmpty()) && (base == null || base.isEmpty()) && (add == null || add.isEmpty())
-           && (power == null || power.isEmpty()) && (backCurve == null || backCurve.isEmpty()) && (diameter == null || diameter.isEmpty())
-           && (duration == null || duration.isEmpty()) && (color == null || color.isEmpty()) && (brand == null || brand.isEmpty())
-           && (notes == null || notes.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(product, eye, sphere, cylinder
+          , axis, prism, base, add, power, backCurve, diameter, duration, color, brand
+          , notes);
       }
 
   public String fhirType() {
@@ -2246,10 +2243,8 @@ public class VisionPrescription extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (status == null || status.isEmpty())
-           && (dateWritten == null || dateWritten.isEmpty()) && (patient == null || patient.isEmpty())
-           && (prescriber == null || prescriber.isEmpty()) && (encounter == null || encounter.isEmpty())
-           && (reason == null || reason.isEmpty()) && (dispense == null || dispense.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, status, dateWritten
+          , patient, prescriber, encounter, reason, dispense);
       }
 
   @Override

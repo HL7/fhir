@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Nov 1, 2016 18:35-0400 for FHIR v1.7.0
+// Generated on Wed, Nov 9, 2016 16:59+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -47,6 +47,7 @@ import org.hl7.fhir.exceptions.FHIRException;
  * The ServiceDefinition describes a unit of decision support functionality that is made available as a service, such as immunization modules or drug-drug interaction checking.
  */
 @ResourceDef(name="ServiceDefinition", profile="http://hl7.org/fhir/Profile/ServiceDefinition")
+@ChildOrder(names={"url", "identifier", "version", "name", "title", "status", "experimental", "date", "description", "purpose", "usage", "approvalDate", "lastReviewDate", "effectivePeriod", "useContext", "jurisdiction", "topic", "contributor", "publisher", "contact", "copyright", "relatedArtifact", "trigger", "dataRequirement", "operationDefinition"})
 public class ServiceDefinition extends MetadataResource {
 
     /**
@@ -1806,13 +1807,9 @@ public class ServiceDefinition extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (purpose == null || purpose.isEmpty())
-           && (usage == null || usage.isEmpty()) && (approvalDate == null || approvalDate.isEmpty())
-           && (lastReviewDate == null || lastReviewDate.isEmpty()) && (effectivePeriod == null || effectivePeriod.isEmpty())
-           && (topic == null || topic.isEmpty()) && (contributor == null || contributor.isEmpty()) && (copyright == null || copyright.isEmpty())
-           && (relatedArtifact == null || relatedArtifact.isEmpty()) && (trigger == null || trigger.isEmpty())
-           && (dataRequirement == null || dataRequirement.isEmpty()) && (operationDefinition == null || operationDefinition.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, purpose, usage
+          , approvalDate, lastReviewDate, effectivePeriod, topic, contributor, copyright, relatedArtifact
+          , trigger, dataRequirement, operationDefinition);
       }
 
   @Override

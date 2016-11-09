@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Nov 1, 2016 18:35-0400 for FHIR v1.7.0
+// Generated on Wed, Nov 9, 2016 16:59+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -706,9 +706,8 @@ public class RelatedArtifact extends Type implements ICompositeType {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (type == null || type.isEmpty()) && (display == null || display.isEmpty())
-           && (citation == null || citation.isEmpty()) && (url == null || url.isEmpty()) && (document == null || document.isEmpty())
-           && (resource == null || resource.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(type, display, citation
+          , url, document, resource);
       }
 
 

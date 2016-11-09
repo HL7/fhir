@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Nov 1, 2016 18:35-0400 for FHIR v1.7.0
+// Generated on Wed, Nov 9, 2016 16:59+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -47,6 +47,7 @@ import org.hl7.fhir.exceptions.FHIRException;
  * A formal computable definition of an operation (on the RESTful interface) or a named query (using the search interaction).
  */
 @ResourceDef(name="OperationDefinition", profile="http://hl7.org/fhir/Profile/OperationDefinition")
+@ChildOrder(names={"url", "version", "name", "status", "kind", "experimental", "date", "publisher", "contact", "description", "useContext", "jurisdiction", "purpose", "idempotent", "code", "comment", "base", "resource", "system", "type", "instance", "parameter", "overload"})
 public class OperationDefinition extends MetadataResource {
 
     public enum OperationKind {
@@ -975,10 +976,8 @@ public class OperationDefinition extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (name == null || name.isEmpty()) && (use == null || use.isEmpty())
-           && (min == null || min.isEmpty()) && (max == null || max.isEmpty()) && (documentation == null || documentation.isEmpty())
-           && (type == null || type.isEmpty()) && (searchType == null || searchType.isEmpty()) && (profile == null || profile.isEmpty())
-           && (binding == null || binding.isEmpty()) && (part == null || part.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(name, use, min, max, documentation
+          , type, searchType, profile, binding, part);
       }
 
   public String fhirType() {
@@ -1209,8 +1208,7 @@ public class OperationDefinition extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (strength == null || strength.isEmpty()) && (valueSet == null || valueSet.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(strength, valueSet);
       }
 
   public String fhirType() {
@@ -1452,8 +1450,7 @@ public class OperationDefinition extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (parameterName == null || parameterName.isEmpty()) && (comment == null || comment.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(parameterName, comment);
       }
 
   public String fhirType() {
@@ -3079,11 +3076,9 @@ public class OperationDefinition extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (kind == null || kind.isEmpty()) && (purpose == null || purpose.isEmpty())
-           && (idempotent == null || idempotent.isEmpty()) && (code == null || code.isEmpty()) && (comment == null || comment.isEmpty())
-           && (base == null || base.isEmpty()) && (resource == null || resource.isEmpty()) && (system == null || system.isEmpty())
-           && (type == null || type.isEmpty()) && (instance == null || instance.isEmpty()) && (parameter == null || parameter.isEmpty())
-           && (overload == null || overload.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(kind, purpose, idempotent
+          , code, comment, base, resource, system, type, instance, parameter, overload
+          );
       }
 
   @Override

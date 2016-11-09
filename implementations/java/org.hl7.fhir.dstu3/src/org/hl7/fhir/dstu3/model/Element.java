@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Nov 1, 2016 18:35-0400 for FHIR v1.7.0
+// Generated on Wed, Nov 9, 2016 16:59+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -44,7 +44,7 @@ import org.hl7.fhir.exceptions.FHIRException;
 /**
  * Base definition for all elements in a resource.
  */
-public abstract class Element extends Base implements IBaseHasExtensions {
+public abstract class Element extends Base implements IBaseHasExtensions, IBaseElement {
 
     /**
      * unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.
@@ -302,8 +302,7 @@ public abstract class Element extends Base implements IBaseHasExtensions {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (id == null || id.isEmpty()) && (extension == null || extension.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(id, extension);
       }
 
   @Override

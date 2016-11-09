@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Nov 1, 2016 18:35-0400 for FHIR v1.7.0
+// Generated on Wed, Nov 9, 2016 16:59+1100 for FHIR v1.7.0
 
 
 import org.hl7.fhir.instance.model.api.*;
@@ -7529,6 +7529,10 @@ public class Enumerations {
          */
         ADMINNOTIFY, 
         /**
+         * null
+         */
+        COMMUNICATIONREQUEST, 
+        /**
          * Provide a diagnostic report, or update a previously provided diagnostic report.
          */
         DIAGNOSTICREPORTPROVIDE, 
@@ -7567,6 +7571,8 @@ public class Enumerations {
           return MEDICATIONADMINISTRATIONUPDATE;
         if ("admin-notify".equals(codeString))
           return ADMINNOTIFY;
+        if ("communication-request".equals(codeString))
+          return COMMUNICATIONREQUEST;
         if ("diagnosticreport-provide".equals(codeString))
           return DIAGNOSTICREPORTPROVIDE;
         if ("observation-provide".equals(codeString))
@@ -7587,6 +7593,7 @@ public class Enumerations {
             case MEDICATIONADMINISTRATIONRECORDING: return "MedicationAdministration-Recording";
             case MEDICATIONADMINISTRATIONUPDATE: return "MedicationAdministration-Update";
             case ADMINNOTIFY: return "admin-notify";
+            case COMMUNICATIONREQUEST: return "communication-request";
             case DIAGNOSTICREPORTPROVIDE: return "diagnosticreport-provide";
             case OBSERVATIONPROVIDE: return "observation-provide";
             case PATIENTLINK: return "patient-link";
@@ -7603,6 +7610,7 @@ public class Enumerations {
             case MEDICATIONADMINISTRATIONRECORDING: return "http://hl7.org/fhir/message-events";
             case MEDICATIONADMINISTRATIONUPDATE: return "http://hl7.org/fhir/message-events";
             case ADMINNOTIFY: return "http://hl7.org/fhir/message-events";
+            case COMMUNICATIONREQUEST: return "http://hl7.org/fhir/message-events";
             case DIAGNOSTICREPORTPROVIDE: return "http://hl7.org/fhir/message-events";
             case OBSERVATIONPROVIDE: return "http://hl7.org/fhir/message-events";
             case PATIENTLINK: return "http://hl7.org/fhir/message-events";
@@ -7619,6 +7627,7 @@ public class Enumerations {
             case MEDICATIONADMINISTRATIONRECORDING: return "Indicates that a medication has been recorded against the patient's record.";
             case MEDICATIONADMINISTRATIONUPDATE: return "Update a Medication Administration record.";
             case ADMINNOTIFY: return "Notification of a change to an administrative resource (either create or update). Note that there is no delete, though some administrative resources have status or period elements for this use.";
+            case COMMUNICATIONREQUEST: return "";
             case DIAGNOSTICREPORTPROVIDE: return "Provide a diagnostic report, or update a previously provided diagnostic report.";
             case OBSERVATIONPROVIDE: return "Provide a simple observation or update a previously provided simple observation.";
             case PATIENTLINK: return "Notification that two patient records actually identify the same patient.";
@@ -7635,6 +7644,7 @@ public class Enumerations {
             case MEDICATIONADMINISTRATIONRECORDING: return "MedicationAdministration-Recording";
             case MEDICATIONADMINISTRATIONUPDATE: return "MedicationAdministration-Update";
             case ADMINNOTIFY: return "admin-notify";
+            case COMMUNICATIONREQUEST: return "communication-request";
             case DIAGNOSTICREPORTPROVIDE: return "diagnosticreport-provide";
             case OBSERVATIONPROVIDE: return "observation-provide";
             case PATIENTLINK: return "patient-link";
@@ -7662,6 +7672,8 @@ public class Enumerations {
           return MessageEvent.MEDICATIONADMINISTRATIONUPDATE;
         if ("admin-notify".equals(codeString))
           return MessageEvent.ADMINNOTIFY;
+        if ("communication-request".equals(codeString))
+          return MessageEvent.COMMUNICATIONREQUEST;
         if ("diagnosticreport-provide".equals(codeString))
           return MessageEvent.DIAGNOSTICREPORTPROVIDE;
         if ("observation-provide".equals(codeString))
@@ -7692,6 +7704,8 @@ public class Enumerations {
           return new Enumeration<MessageEvent>(this, MessageEvent.MEDICATIONADMINISTRATIONUPDATE);
         if ("admin-notify".equals(codeString))
           return new Enumeration<MessageEvent>(this, MessageEvent.ADMINNOTIFY);
+        if ("communication-request".equals(codeString))
+          return new Enumeration<MessageEvent>(this, MessageEvent.COMMUNICATIONREQUEST);
         if ("diagnosticreport-provide".equals(codeString))
           return new Enumeration<MessageEvent>(this, MessageEvent.DIAGNOSTICREPORTPROVIDE);
         if ("observation-provide".equals(codeString))
@@ -7717,6 +7731,8 @@ public class Enumerations {
         return "MedicationAdministration-Update";
       if (code == MessageEvent.ADMINNOTIFY)
         return "admin-notify";
+      if (code == MessageEvent.COMMUNICATIONREQUEST)
+        return "communication-request";
       if (code == MessageEvent.DIAGNOSTICREPORTPROVIDE)
         return "diagnosticreport-provide";
       if (code == MessageEvent.OBSERVATIONPROVIDE)

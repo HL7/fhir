@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Nov 1, 2016 18:35-0400 for FHIR v1.7.0
+// Generated on Wed, Nov 9, 2016 16:59+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -47,6 +47,7 @@ import org.hl7.fhir.exceptions.FHIRException;
  * A compartment definition that defines how resources are accessed on a server.
  */
 @ResourceDef(name="CompartmentDefinition", profile="http://hl7.org/fhir/Profile/CompartmentDefinition")
+@ChildOrder(names={"url", "name", "title", "status", "experimental", "publisher", "contact", "date", "description", "purpose", "useContext", "jurisdiction", "code", "search", "resource"})
 public class CompartmentDefinition extends MetadataResource {
 
     public enum CompartmentType {
@@ -492,8 +493,8 @@ public class CompartmentDefinition extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (code == null || code.isEmpty()) && (param == null || param.isEmpty())
-           && (documentation == null || documentation.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(code, param, documentation
+          );
       }
 
   public String fhirType() {
@@ -1554,8 +1555,8 @@ public class CompartmentDefinition extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (purpose == null || purpose.isEmpty()) && (code == null || code.isEmpty())
-           && (search == null || search.isEmpty()) && (resource == null || resource.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(purpose, code, search, resource
+          );
       }
 
   @Override

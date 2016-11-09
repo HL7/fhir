@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Nov 1, 2016 18:35-0400 for FHIR v1.7.0
+// Generated on Wed, Nov 9, 2016 16:59+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -963,8 +963,8 @@ public class ElementDefinition extends Type implements ICompositeType {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (discriminator == null || discriminator.isEmpty()) && (description == null || description.isEmpty())
-           && (ordered == null || ordered.isEmpty()) && (rules == null || rules.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(discriminator, description
+          , ordered, rules);
       }
 
   public String fhirType() {
@@ -1256,8 +1256,7 @@ public class ElementDefinition extends Type implements ICompositeType {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (path == null || path.isEmpty()) && (min == null || min.isEmpty())
-           && (max == null || max.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(path, min, max);
       }
 
   public String fhirType() {
@@ -1712,9 +1711,8 @@ public class ElementDefinition extends Type implements ICompositeType {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (code == null || code.isEmpty()) && (profile == null || profile.isEmpty())
-           && (targetProfile == null || targetProfile.isEmpty()) && (aggregation == null || aggregation.isEmpty())
-           && (versioning == null || versioning.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(code, profile, targetProfile
+          , aggregation, versioning);
       }
 
   public String fhirType() {
@@ -2278,9 +2276,8 @@ public class ElementDefinition extends Type implements ICompositeType {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (key == null || key.isEmpty()) && (requirements == null || requirements.isEmpty())
-           && (severity == null || severity.isEmpty()) && (human == null || human.isEmpty()) && (expression == null || expression.isEmpty())
-           && (xpath == null || xpath.isEmpty()) && (source == null || source.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(key, requirements, severity
+          , human, expression, xpath, source);
       }
 
   public String fhirType() {
@@ -2580,8 +2577,8 @@ public class ElementDefinition extends Type implements ICompositeType {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (strength == null || strength.isEmpty()) && (description == null || description.isEmpty())
-           && (valueSet == null || valueSet.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(strength, description, valueSet
+          );
       }
 
   public String fhirType() {
@@ -2876,8 +2873,8 @@ public class ElementDefinition extends Type implements ICompositeType {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identity == null || identity.isEmpty()) && (language == null || language.isEmpty())
-           && (map == null || map.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identity, language, map
+          );
       }
 
   public String fhirType() {
@@ -5726,19 +5723,11 @@ public class ElementDefinition extends Type implements ICompositeType {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (path == null || path.isEmpty()) && (representation == null || representation.isEmpty())
-           && (sliceName == null || sliceName.isEmpty()) && (label == null || label.isEmpty()) && (code == null || code.isEmpty())
-           && (slicing == null || slicing.isEmpty()) && (short_ == null || short_.isEmpty()) && (definition == null || definition.isEmpty())
-           && (comments == null || comments.isEmpty()) && (requirements == null || requirements.isEmpty())
-           && (alias == null || alias.isEmpty()) && (min == null || min.isEmpty()) && (max == null || max.isEmpty())
-           && (base == null || base.isEmpty()) && (contentReference == null || contentReference.isEmpty())
-           && (type == null || type.isEmpty()) && (defaultValue == null || defaultValue.isEmpty()) && (meaningWhenMissing == null || meaningWhenMissing.isEmpty())
-           && (fixed == null || fixed.isEmpty()) && (pattern == null || pattern.isEmpty()) && (example == null || example.isEmpty())
-           && (minValue == null || minValue.isEmpty()) && (maxValue == null || maxValue.isEmpty()) && (maxLength == null || maxLength.isEmpty())
-           && (condition == null || condition.isEmpty()) && (constraint == null || constraint.isEmpty())
-           && (mustSupport == null || mustSupport.isEmpty()) && (isModifier == null || isModifier.isEmpty())
-           && (isSummary == null || isSummary.isEmpty()) && (binding == null || binding.isEmpty()) && (mapping == null || mapping.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(path, representation, sliceName
+          , label, code, slicing, short_, definition, comments, requirements, alias, min
+          , max, base, contentReference, type, defaultValue, meaningWhenMissing, fixed, pattern
+          , example, minValue, maxValue, maxLength, condition, constraint, mustSupport, isModifier
+          , isSummary, binding, mapping);
       }
 
 // added from java-adornments.txt:

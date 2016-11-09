@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Nov 1, 2016 18:35-0400 for FHIR v1.7.0
+// Generated on Wed, Nov 9, 2016 16:59+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -685,8 +685,7 @@ public class TestReport extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (type == null || type.isEmpty()) && (uri == null || uri.isEmpty())
-           && (display == null || display.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(type, uri, display);
       }
 
   public String fhirType() {
@@ -850,7 +849,7 @@ public class TestReport extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (action == null || action.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(action);
       }
 
   public String fhirType() {
@@ -1026,8 +1025,7 @@ public class TestReport extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (operation == null || operation.isEmpty()) && (assert_ == null || assert_.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(operation, assert_);
       }
 
   public String fhirType() {
@@ -1326,8 +1324,8 @@ public class TestReport extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (result == null || result.isEmpty()) && (message == null || message.isEmpty())
-           && (detail == null || detail.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(result, message, detail
+          );
       }
 
   public String fhirType() {
@@ -1626,8 +1624,8 @@ public class TestReport extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (result == null || result.isEmpty()) && (message == null || message.isEmpty())
-           && (detail == null || detail.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(result, message, detail
+          );
       }
 
   public String fhirType() {
@@ -1928,8 +1926,8 @@ public class TestReport extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (name == null || name.isEmpty()) && (description == null || description.isEmpty())
-           && (action == null || action.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(name, description, action
+          );
       }
 
   public String fhirType() {
@@ -2105,8 +2103,7 @@ public class TestReport extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (operation == null || operation.isEmpty()) && (assert_ == null || assert_.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(operation, assert_);
       }
 
   public String fhirType() {
@@ -2270,7 +2267,7 @@ public class TestReport extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (action == null || action.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(action);
       }
 
   public String fhirType() {
@@ -2410,7 +2407,7 @@ public class TestReport extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (operation == null || operation.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(operation);
       }
 
   public String fhirType() {
@@ -3226,11 +3223,8 @@ public class TestReport extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (name == null || name.isEmpty())
-           && (status == null || status.isEmpty()) && (score == null || score.isEmpty()) && (tester == null || tester.isEmpty())
-           && (testScript == null || testScript.isEmpty()) && (issued == null || issued.isEmpty()) && (participant == null || participant.isEmpty())
-           && (setup == null || setup.isEmpty()) && (test == null || test.isEmpty()) && (teardown == null || teardown.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, name, status
+          , score, tester, testScript, issued, participant, setup, test, teardown);
       }
 
   @Override

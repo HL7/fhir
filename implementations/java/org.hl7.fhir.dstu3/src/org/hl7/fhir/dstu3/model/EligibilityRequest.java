@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Nov 1, 2016 18:35-0400 for FHIR v1.7.0
+// Generated on Wed, Nov 9, 2016 16:59+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -1325,14 +1325,10 @@ public class EligibilityRequest extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (status == null || status.isEmpty())
-           && (ruleset == null || ruleset.isEmpty()) && (originalRuleset == null || originalRuleset.isEmpty())
-           && (created == null || created.isEmpty()) && (insurer == null || insurer.isEmpty()) && (provider == null || provider.isEmpty())
-           && (organization == null || organization.isEmpty()) && (priority == null || priority.isEmpty())
-           && (enterer == null || enterer.isEmpty()) && (facility == null || facility.isEmpty()) && (patient == null || patient.isEmpty())
-           && (coverage == null || coverage.isEmpty()) && (businessArrangement == null || businessArrangement.isEmpty())
-           && (serviced == null || serviced.isEmpty()) && (benefitCategory == null || benefitCategory.isEmpty())
-           && (benefitSubCategory == null || benefitSubCategory.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, status, ruleset
+          , originalRuleset, created, insurer, provider, organization, priority, enterer
+          , facility, patient, coverage, businessArrangement, serviced, benefitCategory, benefitSubCategory
+          );
       }
 
   @Override

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Nov 1, 2016 18:35-0400 for FHIR v1.7.0
+// Generated on Wed, Nov 9, 2016 16:59+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -724,9 +724,8 @@ public class ContactPoint extends Type implements ICompositeType {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (system == null || system.isEmpty()) && (value == null || value.isEmpty())
-           && (use == null || use.isEmpty()) && (rank == null || rank.isEmpty()) && (period == null || period.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(system, value, use, rank
+          , period);
       }
 
 

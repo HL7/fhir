@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Nov 1, 2016 18:35-0400 for FHIR v1.7.0
+// Generated on Wed, Nov 9, 2016 16:59+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -47,6 +47,7 @@ import org.hl7.fhir.exceptions.FHIRException;
  * A set of rules or how FHIR is used to solve a particular problem. This resource is used to gather all the parts of an implementation guide into a logical whole, and to publish a computable definition of all the parts.
  */
 @ResourceDef(name="ImplementationGuide", profile="http://hl7.org/fhir/Profile/ImplementationGuide")
+@ChildOrder(names={"url", "version", "name", "status", "experimental", "publisher", "contact", "date", "description", "useContext", "jurisdiction", "copyright", "fhirVersion", "dependency", "package", "global", "binary", "page"})
 public class ImplementationGuide extends MetadataResource {
 
     public enum GuideDependencyType {
@@ -541,8 +542,7 @@ public class ImplementationGuide extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (type == null || type.isEmpty()) && (uri == null || uri.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(type, uri);
       }
 
   public String fhirType() {
@@ -847,8 +847,8 @@ public class ImplementationGuide extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (name == null || name.isEmpty()) && (description == null || description.isEmpty())
-           && (resource == null || resource.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(name, description, resource
+          );
       }
 
   public String fhirType() {
@@ -1354,9 +1354,8 @@ public class ImplementationGuide extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (example == null || example.isEmpty()) && (name == null || name.isEmpty())
-           && (description == null || description.isEmpty()) && (acronym == null || acronym.isEmpty())
-           && (source == null || source.isEmpty()) && (exampleFor == null || exampleFor.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(example, name, description
+          , acronym, source, exampleFor);
       }
 
   public String fhirType() {
@@ -1587,8 +1586,7 @@ public class ImplementationGuide extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (type == null || type.isEmpty()) && (profile == null || profile.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(type, profile);
       }
 
   public String fhirType() {
@@ -2196,9 +2194,8 @@ public class ImplementationGuide extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (source == null || source.isEmpty()) && (title == null || title.isEmpty())
-           && (kind == null || kind.isEmpty()) && (type == null || type.isEmpty()) && (package_ == null || package_.isEmpty())
-           && (format == null || format.isEmpty()) && (page == null || page.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(source, title, kind, type
+          , package_, format, page);
       }
 
   public String fhirType() {
@@ -3477,10 +3474,8 @@ public class ImplementationGuide extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (copyright == null || copyright.isEmpty()) && (fhirVersion == null || fhirVersion.isEmpty())
-           && (dependency == null || dependency.isEmpty()) && (package_ == null || package_.isEmpty())
-           && (global == null || global.isEmpty()) && (binary == null || binary.isEmpty()) && (page == null || page.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(copyright, fhirVersion, dependency
+          , package_, global, binary, page);
       }
 
   @Override

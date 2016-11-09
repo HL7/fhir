@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Nov 1, 2016 18:35-0400 for FHIR v1.7.0
+// Generated on Wed, Nov 9, 2016 16:59+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -66,6 +66,10 @@ public class Procedure extends DomainResource {
          */
         ENTEREDINERROR, 
         /**
+         * The authoring system doesn't know the current state of the procedure.
+         */
+        UNKNOWN, 
+        /**
          * added to help the parsers with the generic types
          */
         NULL;
@@ -80,6 +84,8 @@ public class Procedure extends DomainResource {
           return COMPLETED;
         if ("entered-in-error".equals(codeString))
           return ENTEREDINERROR;
+        if ("unknown".equals(codeString))
+          return UNKNOWN;
         if (Configuration.isAcceptInvalidEnums())
           return null;
         else
@@ -91,6 +97,7 @@ public class Procedure extends DomainResource {
             case ABORTED: return "aborted";
             case COMPLETED: return "completed";
             case ENTEREDINERROR: return "entered-in-error";
+            case UNKNOWN: return "unknown";
             default: return "?";
           }
         }
@@ -100,6 +107,7 @@ public class Procedure extends DomainResource {
             case ABORTED: return "http://hl7.org/fhir/procedure-status";
             case COMPLETED: return "http://hl7.org/fhir/procedure-status";
             case ENTEREDINERROR: return "http://hl7.org/fhir/procedure-status";
+            case UNKNOWN: return "http://hl7.org/fhir/procedure-status";
             default: return "?";
           }
         }
@@ -109,6 +117,7 @@ public class Procedure extends DomainResource {
             case ABORTED: return "The procedure was terminated without completing successfully.";
             case COMPLETED: return "All actions involved in the procedure have taken place.";
             case ENTEREDINERROR: return "The statement was entered in error and Is not valid.";
+            case UNKNOWN: return "The authoring system doesn't know the current state of the procedure.";
             default: return "?";
           }
         }
@@ -118,6 +127,7 @@ public class Procedure extends DomainResource {
             case ABORTED: return "Aboted";
             case COMPLETED: return "Completed";
             case ENTEREDINERROR: return "Entered in Error";
+            case UNKNOWN: return "Unknown";
             default: return "?";
           }
         }
@@ -136,6 +146,8 @@ public class Procedure extends DomainResource {
           return ProcedureStatus.COMPLETED;
         if ("entered-in-error".equals(codeString))
           return ProcedureStatus.ENTEREDINERROR;
+        if ("unknown".equals(codeString))
+          return ProcedureStatus.UNKNOWN;
         throw new IllegalArgumentException("Unknown ProcedureStatus code '"+codeString+"'");
         }
         public Enumeration<ProcedureStatus> fromType(Base code) throws FHIRException {
@@ -152,6 +164,8 @@ public class Procedure extends DomainResource {
           return new Enumeration<ProcedureStatus>(this, ProcedureStatus.COMPLETED);
         if ("entered-in-error".equals(codeString))
           return new Enumeration<ProcedureStatus>(this, ProcedureStatus.ENTEREDINERROR);
+        if ("unknown".equals(codeString))
+          return new Enumeration<ProcedureStatus>(this, ProcedureStatus.UNKNOWN);
         throw new FHIRException("Unknown ProcedureStatus code '"+codeString+"'");
         }
     public String toCode(ProcedureStatus code) {
@@ -163,6 +177,8 @@ public class Procedure extends DomainResource {
         return "completed";
       if (code == ProcedureStatus.ENTEREDINERROR)
         return "entered-in-error";
+      if (code == ProcedureStatus.UNKNOWN)
+        return "unknown";
       return "?";
       }
     public String toSystem(ProcedureStatus code) {
@@ -357,8 +373,7 @@ public class Procedure extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (actor == null || actor.isEmpty()) && (role == null || role.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(actor, role);
       }
 
   public String fhirType() {
@@ -568,8 +583,7 @@ public class Procedure extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (action == null || action.isEmpty()) && (manipulated == null || manipulated.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(action, manipulated);
       }
 
   public String fhirType() {
@@ -590,7 +604,7 @@ public class Procedure extends DomainResource {
      * A code specifying the state of the procedure. Generally this will be in-progress or completed state.
      */
     @Child(name = "status", type = {CodeType.class}, order=1, min=1, max=1, modifier=true, summary=true)
-    @Description(shortDefinition="in-progress | aborted | completed | entered-in-error", formalDefinition="A code specifying the state of the procedure. Generally this will be in-progress or completed state." )
+    @Description(shortDefinition="in-progress | aborted | completed | entered-in-error | unknown", formalDefinition="A code specifying the state of the procedure. Generally this will be in-progress or completed state." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/procedure-status")
     protected Enumeration<ProcedureStatus> status;
 
@@ -2434,17 +2448,10 @@ public class Procedure extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (status == null || status.isEmpty())
-           && (category == null || category.isEmpty()) && (code == null || code.isEmpty()) && (subject == null || subject.isEmpty())
-           && (encounter == null || encounter.isEmpty()) && (performed == null || performed.isEmpty())
-           && (performer == null || performer.isEmpty()) && (location == null || location.isEmpty())
-           && (reasonReference == null || reasonReference.isEmpty()) && (reasonCode == null || reasonCode.isEmpty())
-           && (notPerformed == null || notPerformed.isEmpty()) && (reasonNotPerformed == null || reasonNotPerformed.isEmpty())
-           && (bodySite == null || bodySite.isEmpty()) && (outcome == null || outcome.isEmpty()) && (report == null || report.isEmpty())
-           && (complication == null || complication.isEmpty()) && (followUp == null || followUp.isEmpty())
-           && (request == null || request.isEmpty()) && (notes == null || notes.isEmpty()) && (focalDevice == null || focalDevice.isEmpty())
-           && (usedReference == null || usedReference.isEmpty()) && (usedCode == null || usedCode.isEmpty())
-           && (component == null || component.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, status, category
+          , code, subject, encounter, performed, performer, location, reasonReference, reasonCode
+          , notPerformed, reasonNotPerformed, bodySite, outcome, report, complication, followUp
+          , request, notes, focalDevice, usedReference, usedCode, component);
       }
 
   @Override

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Nov 1, 2016 18:35-0400 for FHIR v1.7.0
+// Generated on Wed, Nov 9, 2016 16:59+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -1193,10 +1193,8 @@ public class OperationOutcome extends DomainResource implements IBaseOperationOu
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (severity == null || severity.isEmpty()) && (code == null || code.isEmpty())
-           && (details == null || details.isEmpty()) && (diagnostics == null || diagnostics.isEmpty())
-           && (location == null || location.isEmpty()) && (expression == null || expression.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(severity, code, details
+          , diagnostics, location, expression);
       }
 
   public String fhirType() {
@@ -1367,7 +1365,7 @@ public class OperationOutcome extends DomainResource implements IBaseOperationOu
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (issue == null || issue.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(issue);
       }
 
   @Override

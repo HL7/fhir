@@ -29,30 +29,36 @@
   Definition = Includes all concept ids that have a transitive is-a relationship with the concept Id provided as the value, including the provided concept itself (i.e. include child codes)
 
  -- Row 3 -----------------------------------
+  Id = 8
+  Code = descendent-of
+  Display = Descendent Of (by subsumption)
+  Definition = Includes all concept ids that have a transitive is-a relationship with the concept Id provided as the value, excluding the provided concept itself (i.e. include child codes)
+
+ -- Row 4 -----------------------------------
   Id = 3
   Code = is-not-a
   Display = Not (Is A) (by subsumption)
   Definition = The specified property of the code does not have an is-a relationship with the provided value.
 
- -- Row 4 -----------------------------------
+ -- Row 5 -----------------------------------
   Id = 4
   Code = regex
   Display = Regular Expression
   Definition = The specified property of the code  matches the regex specified in the provided value.
 
- -- Row 5 -----------------------------------
+ -- Row 6 -----------------------------------
   Id = 5
   Code = in
   Display = In Set
   Definition = The specified property of the code is in the set of codes or concepts specified in the provided value (comma separated list).
 
- -- Row 6 -----------------------------------
+ -- Row 7 -----------------------------------
   Id = 6
   Code = not-in
   Display = Not in Set
   Definition = The specified property of the code is not in the set of codes or concepts specified in the provided value (comma separated list).
 
- -- Row 7 -----------------------------------
+ -- Row 8 -----------------------------------
   Id = 7
   Code = generalizes
   Display = Generalizes (by Subsumption)
@@ -341,7 +347,7 @@
   Card. = 1..1
   Type = code
   Binding = FilterOperator
-  Short Name = = | is-a | is-not-a | regex | in | not-in | generalizes
+  Short Name = = | is-a | descendent-of | is-not-a | regex | in | not-in | generalizes
   Definition = The kind of operation to perform as a part of the filter criteria
   RIM Mapping = N/A
 

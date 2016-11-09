@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Nov 1, 2016 18:35-0400 for FHIR v1.7.0
+// Generated on Wed, Nov 9, 2016 16:59+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -78,6 +78,10 @@ public class CarePlan extends DomainResource {
          */
         CANCELLED, 
         /**
+         * The authoring system doesn't know the current state of the care plan.
+         */
+        UNKNOWN, 
+        /**
          * added to help the parsers with the generic types
          */
         NULL;
@@ -98,6 +102,8 @@ public class CarePlan extends DomainResource {
           return ENTEREDINERROR;
         if ("cancelled".equals(codeString))
           return CANCELLED;
+        if ("unknown".equals(codeString))
+          return UNKNOWN;
         if (Configuration.isAcceptInvalidEnums())
           return null;
         else
@@ -112,6 +118,7 @@ public class CarePlan extends DomainResource {
             case COMPLETED: return "completed";
             case ENTEREDINERROR: return "entered-in-error";
             case CANCELLED: return "cancelled";
+            case UNKNOWN: return "unknown";
             default: return "?";
           }
         }
@@ -124,6 +131,7 @@ public class CarePlan extends DomainResource {
             case COMPLETED: return "http://hl7.org/fhir/care-plan-status";
             case ENTEREDINERROR: return "http://hl7.org/fhir/care-plan-status";
             case CANCELLED: return "http://hl7.org/fhir/care-plan-status";
+            case UNKNOWN: return "http://hl7.org/fhir/care-plan-status";
             default: return "?";
           }
         }
@@ -136,6 +144,7 @@ public class CarePlan extends DomainResource {
             case COMPLETED: return "The plan is no longer in use and is not expected to be followed or used in patient care.";
             case ENTEREDINERROR: return "The plan was entered in error and voided.";
             case CANCELLED: return "The plan has been terminated prior to reaching completion (though it may have been replaced by a new plan).";
+            case UNKNOWN: return "The authoring system doesn't know the current state of the care plan.";
             default: return "?";
           }
         }
@@ -148,6 +157,7 @@ public class CarePlan extends DomainResource {
             case COMPLETED: return "Completed";
             case ENTEREDINERROR: return "Entered In Error";
             case CANCELLED: return "Cancelled";
+            case UNKNOWN: return "Unknown";
             default: return "?";
           }
         }
@@ -172,6 +182,8 @@ public class CarePlan extends DomainResource {
           return CarePlanStatus.ENTEREDINERROR;
         if ("cancelled".equals(codeString))
           return CarePlanStatus.CANCELLED;
+        if ("unknown".equals(codeString))
+          return CarePlanStatus.UNKNOWN;
         throw new IllegalArgumentException("Unknown CarePlanStatus code '"+codeString+"'");
         }
         public Enumeration<CarePlanStatus> fromType(Base code) throws FHIRException {
@@ -194,6 +206,8 @@ public class CarePlan extends DomainResource {
           return new Enumeration<CarePlanStatus>(this, CarePlanStatus.ENTEREDINERROR);
         if ("cancelled".equals(codeString))
           return new Enumeration<CarePlanStatus>(this, CarePlanStatus.CANCELLED);
+        if ("unknown".equals(codeString))
+          return new Enumeration<CarePlanStatus>(this, CarePlanStatus.UNKNOWN);
         throw new FHIRException("Unknown CarePlanStatus code '"+codeString+"'");
         }
     public String toCode(CarePlanStatus code) {
@@ -211,6 +225,8 @@ public class CarePlan extends DomainResource {
         return "entered-in-error";
       if (code == CarePlanStatus.CANCELLED)
         return "cancelled";
+      if (code == CarePlanStatus.UNKNOWN)
+        return "unknown";
       return "?";
       }
     public String toSystem(CarePlanStatus code) {
@@ -350,6 +366,10 @@ public class CarePlan extends DomainResource {
          */
         CANCELLED, 
         /**
+         * The authoring system doesn't know the current state of the activity.
+         */
+        UNKNOWN, 
+        /**
          * added to help the parsers with the generic types
          */
         NULL;
@@ -368,6 +388,8 @@ public class CarePlan extends DomainResource {
           return COMPLETED;
         if ("cancelled".equals(codeString))
           return CANCELLED;
+        if ("unknown".equals(codeString))
+          return UNKNOWN;
         if (Configuration.isAcceptInvalidEnums())
           return null;
         else
@@ -381,6 +403,7 @@ public class CarePlan extends DomainResource {
             case ONHOLD: return "on-hold";
             case COMPLETED: return "completed";
             case CANCELLED: return "cancelled";
+            case UNKNOWN: return "unknown";
             default: return "?";
           }
         }
@@ -392,6 +415,7 @@ public class CarePlan extends DomainResource {
             case ONHOLD: return "http://hl7.org/fhir/care-plan-activity-status";
             case COMPLETED: return "http://hl7.org/fhir/care-plan-activity-status";
             case CANCELLED: return "http://hl7.org/fhir/care-plan-activity-status";
+            case UNKNOWN: return "http://hl7.org/fhir/care-plan-activity-status";
             default: return "?";
           }
         }
@@ -403,6 +427,7 @@ public class CarePlan extends DomainResource {
             case ONHOLD: return "Activity was started but has temporarily ceased with an expectation of resumption at a future time.";
             case COMPLETED: return "The activities have been completed (more or less) as planned.";
             case CANCELLED: return "The activities have been ended prior to completion (perhaps even before they were started).";
+            case UNKNOWN: return "The authoring system doesn't know the current state of the activity.";
             default: return "?";
           }
         }
@@ -414,6 +439,7 @@ public class CarePlan extends DomainResource {
             case ONHOLD: return "On Hold";
             case COMPLETED: return "Completed";
             case CANCELLED: return "Cancelled";
+            case UNKNOWN: return "Unknown";
             default: return "?";
           }
         }
@@ -436,6 +462,8 @@ public class CarePlan extends DomainResource {
           return CarePlanActivityStatus.COMPLETED;
         if ("cancelled".equals(codeString))
           return CarePlanActivityStatus.CANCELLED;
+        if ("unknown".equals(codeString))
+          return CarePlanActivityStatus.UNKNOWN;
         throw new IllegalArgumentException("Unknown CarePlanActivityStatus code '"+codeString+"'");
         }
         public Enumeration<CarePlanActivityStatus> fromType(Base code) throws FHIRException {
@@ -456,6 +484,8 @@ public class CarePlan extends DomainResource {
           return new Enumeration<CarePlanActivityStatus>(this, CarePlanActivityStatus.COMPLETED);
         if ("cancelled".equals(codeString))
           return new Enumeration<CarePlanActivityStatus>(this, CarePlanActivityStatus.CANCELLED);
+        if ("unknown".equals(codeString))
+          return new Enumeration<CarePlanActivityStatus>(this, CarePlanActivityStatus.UNKNOWN);
         throw new FHIRException("Unknown CarePlanActivityStatus code '"+codeString+"'");
         }
     public String toCode(CarePlanActivityStatus code) {
@@ -471,6 +501,8 @@ public class CarePlan extends DomainResource {
         return "completed";
       if (code == CarePlanActivityStatus.CANCELLED)
         return "cancelled";
+      if (code == CarePlanActivityStatus.UNKNOWN)
+        return "unknown";
       return "?";
       }
     public String toSystem(CarePlanActivityStatus code) {
@@ -702,8 +734,7 @@ public class CarePlan extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (code == null || code.isEmpty()) && (plan == null || plan.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(code, plan);
       }
 
   public String fhirType() {
@@ -1112,9 +1143,8 @@ public class CarePlan extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (actionResulting == null || actionResulting.isEmpty()) && (outcome == null || outcome.isEmpty())
-           && (progress == null || progress.isEmpty()) && (reference == null || reference.isEmpty())
-           && (detail == null || detail.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(actionResulting, outcome, progress
+          , reference, detail);
       }
 
   public String fhirType() {
@@ -1189,8 +1219,8 @@ public class CarePlan extends DomainResource {
         /**
          * Identifies what progress is being made for the specific activity.
          */
-        @Child(name = "status", type = {CodeType.class}, order=7, min=0, max=1, modifier=true, summary=false)
-        @Description(shortDefinition="not-started | scheduled | in-progress | on-hold | completed | cancelled", formalDefinition="Identifies what progress is being made for the specific activity." )
+        @Child(name = "status", type = {CodeType.class}, order=7, min=1, max=1, modifier=true, summary=false)
+        @Description(shortDefinition="not-started | scheduled | in-progress | on-hold | completed | cancelled | unknown", formalDefinition="Identifies what progress is being made for the specific activity." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/care-plan-activity-status")
         protected Enumeration<CarePlanActivityStatus> status;
 
@@ -1276,6 +1306,14 @@ public class CarePlan extends DomainResource {
      */
       public CarePlanActivityDetailComponent() {
         super();
+      }
+
+    /**
+     * Constructor
+     */
+      public CarePlanActivityDetailComponent(Enumeration<CarePlanActivityStatus> status) {
+        super();
+        this.status = status;
       }
 
         /**
@@ -1607,13 +1645,9 @@ public class CarePlan extends DomainResource {
          * @param value Identifies what progress is being made for the specific activity.
          */
         public CarePlanActivityDetailComponent setStatus(CarePlanActivityStatus value) { 
-          if (value == null)
-            this.status = null;
-          else {
             if (this.status == null)
               this.status = new Enumeration<CarePlanActivityStatus>(new CarePlanActivityStatusEnumFactory());
             this.status.setValue(value);
-          }
           return this;
         }
 
@@ -2295,14 +2329,9 @@ public class CarePlan extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (category == null || category.isEmpty()) && (definition == null || definition.isEmpty())
-           && (code == null || code.isEmpty()) && (reasonCode == null || reasonCode.isEmpty()) && (reasonReference == null || reasonReference.isEmpty())
-           && (goal == null || goal.isEmpty()) && (status == null || status.isEmpty()) && (statusReason == null || statusReason.isEmpty())
-           && (prohibited == null || prohibited.isEmpty()) && (scheduled == null || scheduled.isEmpty())
-           && (location == null || location.isEmpty()) && (performer == null || performer.isEmpty())
-           && (product == null || product.isEmpty()) && (dailyAmount == null || dailyAmount.isEmpty())
-           && (quantity == null || quantity.isEmpty()) && (description == null || description.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(category, definition, code
+          , reasonCode, reasonReference, goal, status, statusReason, prohibited, scheduled
+          , location, performer, product, dailyAmount, quantity, description);
       }
 
   public String fhirType() {
@@ -2323,7 +2352,7 @@ public class CarePlan extends DomainResource {
      * Indicates whether the plan is currently being acted upon, represents future intentions or is now a historical record.
      */
     @Child(name = "status", type = {CodeType.class}, order=1, min=1, max=1, modifier=true, summary=true)
-    @Description(shortDefinition="proposed | draft | active | suspended | completed | entered-in-error | cancelled", formalDefinition="Indicates whether the plan is currently being acted upon, represents future intentions or is now a historical record." )
+    @Description(shortDefinition="proposed | draft | active | suspended | completed | entered-in-error | cancelled | unknown", formalDefinition="Indicates whether the plan is currently being acted upon, represents future intentions or is now a historical record." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/care-plan-status")
     protected Enumeration<CarePlanStatus> status;
 
@@ -2429,16 +2458,28 @@ public class CarePlan extends DomainResource {
 
 
     /**
+     * Identifies the protocol, questionnaire, guideline or other specification the care plan should be conducted in accordance with.
+     */
+    @Child(name = "definition", type = {PlanDefinition.class, Questionnaire.class}, order=12, min=0, max=1, modifier=false, summary=false)
+    @Description(shortDefinition="Protocol or definition", formalDefinition="Identifies the protocol, questionnaire, guideline or other specification the care plan should be conducted in accordance with." )
+    protected Reference definition;
+
+    /**
+     * The actual object that is the target of the reference (Identifies the protocol, questionnaire, guideline or other specification the care plan should be conducted in accordance with.)
+     */
+    protected Resource definitionTarget;
+
+    /**
      * Identifies CarePlans with some sort of formal relationship to the current plan.
      */
-    @Child(name = "relatedPlan", type = {}, order=12, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "relatedPlan", type = {}, order=13, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Plans related to this one", formalDefinition="Identifies CarePlans with some sort of formal relationship to the current plan." )
     protected List<CarePlanRelatedPlanComponent> relatedPlan;
 
     /**
      * Describes the intended objective(s) of carrying out the care plan.
      */
-    @Child(name = "goal", type = {Goal.class}, order=13, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "goal", type = {Goal.class}, order=14, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Desired outcome of plan", formalDefinition="Describes the intended objective(s) of carrying out the care plan." )
     protected List<Reference> goal;
     /**
@@ -2450,18 +2491,18 @@ public class CarePlan extends DomainResource {
     /**
      * Identifies a planned action to occur as part of the plan.  For example, a medication to be used, lab tests to perform, self-monitoring, education, etc.
      */
-    @Child(name = "activity", type = {}, order=14, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "activity", type = {}, order=15, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Action to occur as part of plan", formalDefinition="Identifies a planned action to occur as part of the plan.  For example, a medication to be used, lab tests to perform, self-monitoring, education, etc." )
     protected List<CarePlanActivityComponent> activity;
 
     /**
      * General notes about the care plan not covered elsewhere.
      */
-    @Child(name = "note", type = {Annotation.class}, order=15, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "note", type = {Annotation.class}, order=16, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Comments about the plan", formalDefinition="General notes about the care plan not covered elsewhere." )
     protected Annotation note;
 
-    private static final long serialVersionUID = -237869962L;
+    private static final long serialVersionUID = -1352752128L;
 
   /**
    * Constructor
@@ -3106,6 +3147,45 @@ public class CarePlan extends DomainResource {
     }
 
     /**
+     * @return {@link #definition} (Identifies the protocol, questionnaire, guideline or other specification the care plan should be conducted in accordance with.)
+     */
+    public Reference getDefinition() { 
+      if (this.definition == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create CarePlan.definition");
+        else if (Configuration.doAutoCreate())
+          this.definition = new Reference(); // cc
+      return this.definition;
+    }
+
+    public boolean hasDefinition() { 
+      return this.definition != null && !this.definition.isEmpty();
+    }
+
+    /**
+     * @param value {@link #definition} (Identifies the protocol, questionnaire, guideline or other specification the care plan should be conducted in accordance with.)
+     */
+    public CarePlan setDefinition(Reference value) { 
+      this.definition = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #definition} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Identifies the protocol, questionnaire, guideline or other specification the care plan should be conducted in accordance with.)
+     */
+    public Resource getDefinitionTarget() { 
+      return this.definitionTarget;
+    }
+
+    /**
+     * @param value {@link #definition} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Identifies the protocol, questionnaire, guideline or other specification the care plan should be conducted in accordance with.)
+     */
+    public CarePlan setDefinitionTarget(Resource value) { 
+      this.definitionTarget = value;
+      return this;
+    }
+
+    /**
      * @return {@link #relatedPlan} (Identifies CarePlans with some sort of formal relationship to the current plan.)
      */
     public List<CarePlanRelatedPlanComponent> getRelatedPlan() { 
@@ -3324,6 +3404,7 @@ public class CarePlan extends DomainResource {
         childrenList.add(new Property("careTeam", "Reference(CareTeam)", "Identifies all people and organizations who are expected to be involved in the care envisioned by this plan.", 0, java.lang.Integer.MAX_VALUE, careTeam));
         childrenList.add(new Property("addresses", "Reference(Condition)", "Identifies the conditions/problems/concerns/diagnoses/etc. whose management and/or mitigation are handled by this plan.", 0, java.lang.Integer.MAX_VALUE, addresses));
         childrenList.add(new Property("support", "Reference(Any)", "Identifies portions of the patient's record that specifically influenced the formation of the plan.  These might include co-morbidities, recent procedures, limitations, recent assessments, etc.", 0, java.lang.Integer.MAX_VALUE, support));
+        childrenList.add(new Property("definition", "Reference(PlanDefinition|Questionnaire)", "Identifies the protocol, questionnaire, guideline or other specification the care plan should be conducted in accordance with.", 0, java.lang.Integer.MAX_VALUE, definition));
         childrenList.add(new Property("relatedPlan", "", "Identifies CarePlans with some sort of formal relationship to the current plan.", 0, java.lang.Integer.MAX_VALUE, relatedPlan));
         childrenList.add(new Property("goal", "Reference(Goal)", "Describes the intended objective(s) of carrying out the care plan.", 0, java.lang.Integer.MAX_VALUE, goal));
         childrenList.add(new Property("activity", "", "Identifies a planned action to occur as part of the plan.  For example, a medication to be used, lab tests to perform, self-monitoring, education, etc.", 0, java.lang.Integer.MAX_VALUE, activity));
@@ -3345,6 +3426,7 @@ public class CarePlan extends DomainResource {
         case -7323378: /*careTeam*/ return this.careTeam == null ? new Base[0] : this.careTeam.toArray(new Base[this.careTeam.size()]); // Reference
         case 874544034: /*addresses*/ return this.addresses == null ? new Base[0] : this.addresses.toArray(new Base[this.addresses.size()]); // Reference
         case -1854767153: /*support*/ return this.support == null ? new Base[0] : this.support.toArray(new Base[this.support.size()]); // Reference
+        case -1014418093: /*definition*/ return this.definition == null ? new Base[0] : new Base[] {this.definition}; // Reference
         case 1112903156: /*relatedPlan*/ return this.relatedPlan == null ? new Base[0] : this.relatedPlan.toArray(new Base[this.relatedPlan.size()]); // CarePlanRelatedPlanComponent
         case 3178259: /*goal*/ return this.goal == null ? new Base[0] : this.goal.toArray(new Base[this.goal.size()]); // Reference
         case -1655966961: /*activity*/ return this.activity == null ? new Base[0] : this.activity.toArray(new Base[this.activity.size()]); // CarePlanActivityComponent
@@ -3393,6 +3475,9 @@ public class CarePlan extends DomainResource {
         case -1854767153: // support
           this.getSupport().add(castToReference(value)); // Reference
           break;
+        case -1014418093: // definition
+          this.definition = castToReference(value); // Reference
+          break;
         case 1112903156: // relatedPlan
           this.getRelatedPlan().add((CarePlanRelatedPlanComponent) value); // CarePlanRelatedPlanComponent
           break;
@@ -3436,6 +3521,8 @@ public class CarePlan extends DomainResource {
           this.getAddresses().add(castToReference(value));
         else if (name.equals("support"))
           this.getSupport().add(castToReference(value));
+        else if (name.equals("definition"))
+          this.definition = castToReference(value); // Reference
         else if (name.equals("relatedPlan"))
           this.getRelatedPlan().add((CarePlanRelatedPlanComponent) value);
         else if (name.equals("goal"))
@@ -3463,6 +3550,7 @@ public class CarePlan extends DomainResource {
         case -7323378:  return addCareTeam(); // Reference
         case 874544034:  return addAddresses(); // Reference
         case -1854767153:  return addSupport(); // Reference
+        case -1014418093:  return getDefinition(); // Reference
         case 1112903156:  return addRelatedPlan(); // CarePlanRelatedPlanComponent
         case 3178259:  return addGoal(); // Reference
         case -1655966961:  return addActivity(); // CarePlanActivityComponent
@@ -3512,6 +3600,10 @@ public class CarePlan extends DomainResource {
         }
         else if (name.equals("support")) {
           return addSupport();
+        }
+        else if (name.equals("definition")) {
+          this.definition = new Reference();
+          return this.definition;
         }
         else if (name.equals("relatedPlan")) {
           return addRelatedPlan();
@@ -3574,6 +3666,7 @@ public class CarePlan extends DomainResource {
           for (Reference i : support)
             dst.support.add(i.copy());
         };
+        dst.definition = definition == null ? null : definition.copy();
         if (relatedPlan != null) {
           dst.relatedPlan = new ArrayList<CarePlanRelatedPlanComponent>();
           for (CarePlanRelatedPlanComponent i : relatedPlan)
@@ -3608,8 +3701,9 @@ public class CarePlan extends DomainResource {
            && compareDeep(description, o.description, true) && compareDeep(subject, o.subject, true) && compareDeep(context, o.context, true)
            && compareDeep(period, o.period, true) && compareDeep(modified, o.modified, true) && compareDeep(author, o.author, true)
            && compareDeep(careTeam, o.careTeam, true) && compareDeep(addresses, o.addresses, true) && compareDeep(support, o.support, true)
-           && compareDeep(relatedPlan, o.relatedPlan, true) && compareDeep(goal, o.goal, true) && compareDeep(activity, o.activity, true)
-           && compareDeep(note, o.note, true);
+           && compareDeep(definition, o.definition, true) && compareDeep(relatedPlan, o.relatedPlan, true)
+           && compareDeep(goal, o.goal, true) && compareDeep(activity, o.activity, true) && compareDeep(note, o.note, true)
+          ;
       }
 
       @Override
@@ -3624,13 +3718,9 @@ public class CarePlan extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (status == null || status.isEmpty())
-           && (category == null || category.isEmpty()) && (description == null || description.isEmpty())
-           && (subject == null || subject.isEmpty()) && (context == null || context.isEmpty()) && (period == null || period.isEmpty())
-           && (modified == null || modified.isEmpty()) && (author == null || author.isEmpty()) && (careTeam == null || careTeam.isEmpty())
-           && (addresses == null || addresses.isEmpty()) && (support == null || support.isEmpty()) && (relatedPlan == null || relatedPlan.isEmpty())
-           && (goal == null || goal.isEmpty()) && (activity == null || activity.isEmpty()) && (note == null || note.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, status, category
+          , description, subject, context, period, modified, author, careTeam, addresses
+          , support, definition, relatedPlan, goal, activity, note);
       }
 
   @Override

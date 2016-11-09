@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Nov 1, 2016 18:35-0400 for FHIR v1.7.0
+// Generated on Wed, Nov 9, 2016 16:59+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -736,11 +736,8 @@ public class Sequence extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (chromosome == null || chromosome.isEmpty()) && (genomeBuild == null || genomeBuild.isEmpty())
-           && (referenceSeqId == null || referenceSeqId.isEmpty()) && (referenceSeqPointer == null || referenceSeqPointer.isEmpty())
-           && (referenceSeqString == null || referenceSeqString.isEmpty()) && (strand == null || strand.isEmpty())
-           && (windowStart == null || windowStart.isEmpty()) && (windowEnd == null || windowEnd.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(chromosome, genomeBuild, referenceSeqId
+          , referenceSeqPointer, referenceSeqString, strand, windowStart, windowEnd);
       }
 
   public String fhirType() {
@@ -1232,10 +1229,8 @@ public class Sequence extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (start == null || start.isEmpty()) && (end == null || end.isEmpty())
-           && (observedAllele == null || observedAllele.isEmpty()) && (referenceAllele == null || referenceAllele.isEmpty())
-           && (cigar == null || cigar.isEmpty()) && (variantPointer == null || variantPointer.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(start, end, observedAllele
+          , referenceAllele, cigar, variantPointer);
       }
 
   public String fhirType() {
@@ -2278,11 +2273,9 @@ public class Sequence extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (standardSequence == null || standardSequence.isEmpty()) && (start == null || start.isEmpty())
-           && (end == null || end.isEmpty()) && (score == null || score.isEmpty()) && (method == null || method.isEmpty())
-           && (truthTP == null || truthTP.isEmpty()) && (queryTP == null || queryTP.isEmpty()) && (truthFN == null || truthFN.isEmpty())
-           && (queryFP == null || queryFP.isEmpty()) && (gtFP == null || gtFP.isEmpty()) && (precision == null || precision.isEmpty())
-           && (recall == null || recall.isEmpty()) && (fScore == null || fScore.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(standardSequence, start, end
+          , score, method, truthTP, queryTP, truthFN, queryFP, gtFP, precision, recall
+          , fScore);
       }
 
   public String fhirType() {
@@ -2644,8 +2637,8 @@ public class Sequence extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (url == null || url.isEmpty()) && (name == null || name.isEmpty())
-           && (variantId == null || variantId.isEmpty()) && (readId == null || readId.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(url, name, variantId, readId
+          );
       }
 
   public String fhirType() {
@@ -3042,9 +3035,8 @@ public class Sequence extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (precisionOfBoundaries == null || precisionOfBoundaries.isEmpty())
-           && (reportedaCGHRatio == null || reportedaCGHRatio.isEmpty()) && (length == null || length.isEmpty())
-           && (outer == null || outer.isEmpty()) && (inner == null || inner.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(precisionOfBoundaries, reportedaCGHRatio
+          , length, outer, inner);
       }
 
   public String fhirType() {
@@ -3260,8 +3252,7 @@ public class Sequence extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (start == null || start.isEmpty()) && (end == null || end.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(start, end);
       }
 
   public String fhirType() {
@@ -3477,8 +3468,7 @@ public class Sequence extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (start == null || start.isEmpty()) && (end == null || end.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(start, end);
       }
 
   public String fhirType() {
@@ -4628,14 +4618,9 @@ public class Sequence extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (type == null || type.isEmpty())
-           && (coordinateSystem == null || coordinateSystem.isEmpty()) && (patient == null || patient.isEmpty())
-           && (specimen == null || specimen.isEmpty()) && (device == null || device.isEmpty()) && (quantity == null || quantity.isEmpty())
-           && (referenceSeq == null || referenceSeq.isEmpty()) && (variant == null || variant.isEmpty())
-           && (observedSeq == null || observedSeq.isEmpty()) && (quality == null || quality.isEmpty())
-           && (readCoverage == null || readCoverage.isEmpty()) && (repository == null || repository.isEmpty())
-           && (pointer == null || pointer.isEmpty()) && (structureVariant == null || structureVariant.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, type, coordinateSystem
+          , patient, specimen, device, quantity, referenceSeq, variant, observedSeq, quality
+          , readCoverage, repository, pointer, structureVariant);
       }
 
   @Override

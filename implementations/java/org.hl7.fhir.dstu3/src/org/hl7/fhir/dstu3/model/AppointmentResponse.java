@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Nov 1, 2016 18:35-0400 for FHIR v1.7.0
+// Generated on Wed, Nov 9, 2016 16:59+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -823,10 +823,8 @@ public class AppointmentResponse extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (appointment == null || appointment.isEmpty())
-           && (start == null || start.isEmpty()) && (end == null || end.isEmpty()) && (participantType == null || participantType.isEmpty())
-           && (actor == null || actor.isEmpty()) && (participantStatus == null || participantStatus.isEmpty())
-           && (comment == null || comment.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, appointment, start
+          , end, participantType, actor, participantStatus, comment);
       }
 
   @Override

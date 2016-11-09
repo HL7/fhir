@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Nov 1, 2016 18:35-0400 for FHIR v1.7.0
+// Generated on Wed, Nov 9, 2016 16:59+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -443,7 +443,7 @@ public class ProcessRequest extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (sequenceLinkId == null || sequenceLinkId.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(sequenceLinkId);
       }
 
   public String fhirType() {
@@ -1674,13 +1674,9 @@ public class ProcessRequest extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (status == null || status.isEmpty())
-           && (ruleset == null || ruleset.isEmpty()) && (originalRuleset == null || originalRuleset.isEmpty())
-           && (action == null || action.isEmpty()) && (created == null || created.isEmpty()) && (target == null || target.isEmpty())
-           && (provider == null || provider.isEmpty()) && (organization == null || organization.isEmpty())
-           && (request == null || request.isEmpty()) && (response == null || response.isEmpty()) && (nullify == null || nullify.isEmpty())
-           && (reference == null || reference.isEmpty()) && (item == null || item.isEmpty()) && (include == null || include.isEmpty())
-           && (exclude == null || exclude.isEmpty()) && (period == null || period.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, status, ruleset
+          , originalRuleset, action, created, target, provider, organization, request, response
+          , nullify, reference, item, include, exclude, period);
       }
 
   @Override

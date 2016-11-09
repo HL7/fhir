@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Nov 1, 2016 18:35-0400 for FHIR v1.7.0
+// Generated on Wed, Nov 9, 2016 16:59+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -47,6 +47,7 @@ import org.hl7.fhir.exceptions.FHIRException;
  * This resource allows for the definition of some activity to be performed, independent of a particular patient, practitioner, or other performance context.
  */
 @ResourceDef(name="ActivityDefinition", profile="http://hl7.org/fhir/Profile/ActivityDefinition")
+@ChildOrder(names={"url", "identifier", "version", "name", "title", "status", "experimental", "date", "description", "purpose", "usage", "approvalDate", "lastReviewDate", "effectivePeriod", "useContext", "jurisdiction", "topic", "contributor", "publisher", "contact", "copyright", "relatedArtifact", "library", "category", "code", "timing[x]", "location", "participantType", "product[x]", "quantity", "dosageInstruction", "transform", "dynamicValue"})
 public class ActivityDefinition extends MetadataResource {
 
     public enum ActivityDefinitionCategory {
@@ -773,9 +774,8 @@ public class ActivityDefinition extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (description == null || description.isEmpty()) && (path == null || path.isEmpty())
-           && (language == null || language.isEmpty()) && (expression == null || expression.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(description, path, language
+          , expression);
       }
 
   public String fhirType() {
@@ -3098,16 +3098,10 @@ public class ActivityDefinition extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (purpose == null || purpose.isEmpty())
-           && (usage == null || usage.isEmpty()) && (approvalDate == null || approvalDate.isEmpty())
-           && (lastReviewDate == null || lastReviewDate.isEmpty()) && (effectivePeriod == null || effectivePeriod.isEmpty())
-           && (topic == null || topic.isEmpty()) && (contributor == null || contributor.isEmpty()) && (copyright == null || copyright.isEmpty())
-           && (relatedArtifact == null || relatedArtifact.isEmpty()) && (library == null || library.isEmpty())
-           && (category == null || category.isEmpty()) && (code == null || code.isEmpty()) && (timing == null || timing.isEmpty())
-           && (location == null || location.isEmpty()) && (participantType == null || participantType.isEmpty())
-           && (product == null || product.isEmpty()) && (quantity == null || quantity.isEmpty()) && (dosageInstruction == null || dosageInstruction.isEmpty())
-           && (transform == null || transform.isEmpty()) && (dynamicValue == null || dynamicValue.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, purpose, usage
+          , approvalDate, lastReviewDate, effectivePeriod, topic, contributor, copyright, relatedArtifact
+          , library, category, code, timing, location, participantType, product, quantity
+          , dosageInstruction, transform, dynamicValue);
       }
 
   @Override

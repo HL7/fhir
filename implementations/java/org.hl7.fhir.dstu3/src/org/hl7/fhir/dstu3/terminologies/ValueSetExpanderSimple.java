@@ -163,9 +163,12 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
       boolean abs = CodeSystemUtilities.isAbstract(cs, def);
       if (canBeHeirarchy || !abs)
         np = addCode(system, def.getCode(), def.getDisplay(), parent, def.getDesignation(), profile, abs, filters);
-			for (ConceptDefinitionComponent c : def.getConcept())
+      for (ConceptDefinitionComponent c : def.getConcept())
         addCodeAndDescendents(cs, system, c, np, profile, filters);
-		}
+		} else
+	    for (ConceptDefinitionComponent c : def.getConcept())
+	      addCodeAndDescendents(cs, system, c, null, profile, filters);
+
 	}
 
   private void addCodes(ValueSetExpansionComponent expand, List<ValueSetExpansionParameterComponent> params, ExpansionProfile profile, List<ValueSet> filters) throws ETooCostly {
@@ -402,11 +405,18 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
       if (inc.getFilter().size() == 1) {
         ConceptSetFilterComponent fc = inc.getFilter().get(0);
         if ("concept".equals(fc.getProperty()) && fc.getOp() == FilterOperator.ISA) {
-          // special: all non-abstract codes in the target code system under the value
+          // special: all codes in the target code system under the value
           ConceptDefinitionComponent def = getConceptForCode(cs.getConcept(), fc.getValue());
           if (def == null)
             throw new TerminologyServiceException("Code '"+fc.getValue()+"' not found in system '"+inc.getSystem()+"'");
           addCodeAndDescendents(cs, inc.getSystem(), def, null, profile, imports);
+        } else if ("concept".equals(fc.getProperty()) && fc.getOp() == FilterOperator.DESCENDENTOF) {
+          // special: all codes in the target code system under the value
+          ConceptDefinitionComponent def = getConceptForCode(cs.getConcept(), fc.getValue());
+          if (def == null)
+            throw new TerminologyServiceException("Code '"+fc.getValue()+"' not found in system '"+inc.getSystem()+"'");
+          for (ConceptDefinitionComponent c : def.getConcept())
+            addCodeAndDescendents(cs, inc.getSystem(), c, null, profile, imports);
         } else if ("display".equals(fc.getProperty()) && fc.getOp() == FilterOperator.EQUAL) {
           // gg; note: wtf is this: if the filter is display=v, look up the code 'v', and see if it's diplsay is 'v'?
           canBeHeirarchy = false;

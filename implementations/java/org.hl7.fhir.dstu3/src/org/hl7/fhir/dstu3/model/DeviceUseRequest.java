@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Nov 1, 2016 18:35-0400 for FHIR v1.7.0
+// Generated on Wed, Nov 9, 2016 16:59+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -1774,15 +1774,10 @@ public class DeviceUseRequest extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (definition == null || definition.isEmpty())
-           && (basedOn == null || basedOn.isEmpty()) && (replaces == null || replaces.isEmpty()) && (requisition == null || requisition.isEmpty())
-           && (status == null || status.isEmpty()) && (stage == null || stage.isEmpty()) && (device == null || device.isEmpty())
-           && (subject == null || subject.isEmpty()) && (context == null || context.isEmpty()) && (occurrence == null || occurrence.isEmpty())
-           && (authored == null || authored.isEmpty()) && (requester == null || requester.isEmpty())
-           && (performerType == null || performerType.isEmpty()) && (performer == null || performer.isEmpty())
-           && (reasonCode == null || reasonCode.isEmpty()) && (reasonReference == null || reasonReference.isEmpty())
-           && (supportingInfo == null || supportingInfo.isEmpty()) && (note == null || note.isEmpty())
-           && (relevantHistory == null || relevantHistory.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, definition, basedOn
+          , replaces, requisition, status, stage, device, subject, context, occurrence
+          , authored, requester, performerType, performer, reasonCode, reasonReference, supportingInfo
+          , note, relevantHistory);
       }
 
   @Override

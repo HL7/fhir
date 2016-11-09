@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Nov 1, 2016 18:35-0400 for FHIR v1.7.0
+// Generated on Wed, Nov 9, 2016 16:59+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -588,8 +588,8 @@ public class ListResource extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (flag == null || flag.isEmpty()) && (deleted == null || deleted.isEmpty())
-           && (date == null || date.isEmpty()) && (item == null || item.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(flag, deleted, date, item
+          );
       }
 
   public String fhirType() {
@@ -1524,11 +1524,9 @@ public class ListResource extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (status == null || status.isEmpty())
-           && (mode == null || mode.isEmpty()) && (title == null || title.isEmpty()) && (code == null || code.isEmpty())
-           && (subject == null || subject.isEmpty()) && (encounter == null || encounter.isEmpty()) && (date == null || date.isEmpty())
-           && (source == null || source.isEmpty()) && (orderedBy == null || orderedBy.isEmpty()) && (note == null || note.isEmpty())
-           && (entry == null || entry.isEmpty()) && (emptyReason == null || emptyReason.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, status, mode
+          , title, code, subject, encounter, date, source, orderedBy, note, entry, emptyReason
+          );
       }
 
   @Override

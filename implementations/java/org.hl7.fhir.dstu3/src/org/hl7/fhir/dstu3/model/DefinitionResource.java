@@ -30,16 +30,8 @@ package org.hl7.fhir.dstu3.model;
 */
 
 // Generated on Mon, Oct 10, 2016 10:43+1100 for FHIR v1.7.0
+import java.util.List;
 
-import java.util.*;
-
-import ca.uhn.fhir.model.api.annotation.ResourceDef;
-import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;
-import ca.uhn.fhir.model.api.annotation.Child;
-import ca.uhn.fhir.model.api.annotation.ChildOrder;
-import ca.uhn.fhir.model.api.annotation.Description;
-import ca.uhn.fhir.model.api.annotation.Block;
-import org.hl7.fhir.instance.model.api.*;
 import org.hl7.fhir.exceptions.FHIRException;
 /**
  * null

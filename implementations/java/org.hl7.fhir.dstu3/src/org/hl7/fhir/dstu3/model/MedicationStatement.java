@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Nov 1, 2016 18:35-0400 for FHIR v1.7.0
+// Generated on Wed, Nov 9, 2016 16:59+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -516,6 +516,7 @@ public class MedicationStatement extends DomainResource {
      */
     @Child(name = "reasonNotTaken", type = {CodeableConcept.class}, order=9, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="True if asserting medication was not given", formalDefinition="A code indicating why the medication was not taken." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/reason-medication-not-taken-codes")
     protected List<CodeableConcept> reasonNotTaken;
 
     /**
@@ -1650,14 +1651,9 @@ public class MedicationStatement extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (status == null || status.isEmpty())
-           && (medication == null || medication.isEmpty()) && (patient == null || patient.isEmpty())
-           && (effective == null || effective.isEmpty()) && (informationSource == null || informationSource.isEmpty())
-           && (derivedFrom == null || derivedFrom.isEmpty()) && (dateAsserted == null || dateAsserted.isEmpty())
-           && (notTaken == null || notTaken.isEmpty()) && (reasonNotTaken == null || reasonNotTaken.isEmpty())
-           && (reasonForUseCode == null || reasonForUseCode.isEmpty()) && (reasonForUseReference == null || reasonForUseReference.isEmpty())
-           && (note == null || note.isEmpty()) && (category == null || category.isEmpty()) && (dosage == null || dosage.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, status, medication
+          , patient, effective, informationSource, derivedFrom, dateAsserted, notTaken, reasonNotTaken
+          , reasonForUseCode, reasonForUseReference, note, category, dosage);
       }
 
   @Override

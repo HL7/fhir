@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Nov 1, 2016 18:35-0400 for FHIR v1.7.0
+// Generated on Wed, Nov 9, 2016 16:59+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -480,8 +480,8 @@ public class Parameters extends Resource implements IBaseParameters {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (name == null || name.isEmpty()) && (value == null || value.isEmpty())
-           && (resource == null || resource.isEmpty()) && (part == null || part.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(name, value, resource, part
+          );
       }
 
   public String fhirType() {
@@ -652,7 +652,7 @@ public class Parameters extends Resource implements IBaseParameters {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (parameter == null || parameter.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(parameter);
       }
 
   @Override

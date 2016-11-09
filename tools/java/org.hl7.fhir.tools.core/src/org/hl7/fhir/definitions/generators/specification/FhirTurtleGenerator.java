@@ -214,7 +214,7 @@ public class FhirTurtleGenerator extends RdfGenerator {
     section.triple("fhir:w5", "a", "rdf:Property");
     section.label("fhir:w5", "W5 Categorization (preliminary)");
     section.comment("fhir:w5", "FHIR W5 categorization is a preliminary classification of the type of fhir property");
-    section.triple("fhir:w5", "rdfs:range", "fhir:w5");
+    section.triple("fhir:w5", "rdfs:range", "fhir:w5.system");
 
 
     section.triple("fhir:status", "a", "rdf:Property");

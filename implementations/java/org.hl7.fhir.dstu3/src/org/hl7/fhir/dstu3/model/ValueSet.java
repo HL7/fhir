@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Nov 1, 2016 18:35-0400 for FHIR v1.7.0
+// Generated on Wed, Nov 9, 2016 16:59+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -47,6 +47,7 @@ import org.hl7.fhir.exceptions.FHIRException;
  * A value set specifies a set of codes drawn from one or more code systems.
  */
 @ResourceDef(name="ValueSet", profile="http://hl7.org/fhir/Profile/ValueSet")
+@ChildOrder(names={"url", "identifier", "version", "name", "title", "status", "experimental", "publisher", "contact", "date", "description", "useContext", "jurisdiction", "immutable", "purpose", "copyright", "extensible", "compose", "expansion"})
 public class ValueSet extends MetadataResource {
 
     public enum FilterOperator {
@@ -58,6 +59,10 @@ public class ValueSet extends MetadataResource {
          * Includes all concept ids that have a transitive is-a relationship with the concept Id provided as the value, including the provided concept itself (i.e. include child codes)
          */
         ISA, 
+        /**
+         * Includes all concept ids that have a transitive is-a relationship with the concept Id provided as the value, excluding the provided concept itself (i.e. include child codes)
+         */
+        DESCENDENTOF, 
         /**
          * The specified property of the code does not have an is-a relationship with the provided value.
          */
@@ -89,6 +94,8 @@ public class ValueSet extends MetadataResource {
           return EQUAL;
         if ("is-a".equals(codeString))
           return ISA;
+        if ("descendent-of".equals(codeString))
+          return DESCENDENTOF;
         if ("is-not-a".equals(codeString))
           return ISNOTA;
         if ("regex".equals(codeString))
@@ -108,6 +115,7 @@ public class ValueSet extends MetadataResource {
           switch (this) {
             case EQUAL: return "=";
             case ISA: return "is-a";
+            case DESCENDENTOF: return "descendent-of";
             case ISNOTA: return "is-not-a";
             case REGEX: return "regex";
             case IN: return "in";
@@ -120,6 +128,7 @@ public class ValueSet extends MetadataResource {
           switch (this) {
             case EQUAL: return "http://hl7.org/fhir/filter-operator";
             case ISA: return "http://hl7.org/fhir/filter-operator";
+            case DESCENDENTOF: return "http://hl7.org/fhir/filter-operator";
             case ISNOTA: return "http://hl7.org/fhir/filter-operator";
             case REGEX: return "http://hl7.org/fhir/filter-operator";
             case IN: return "http://hl7.org/fhir/filter-operator";
@@ -132,6 +141,7 @@ public class ValueSet extends MetadataResource {
           switch (this) {
             case EQUAL: return "The specified property of the code equals the provided value.";
             case ISA: return "Includes all concept ids that have a transitive is-a relationship with the concept Id provided as the value, including the provided concept itself (i.e. include child codes)";
+            case DESCENDENTOF: return "Includes all concept ids that have a transitive is-a relationship with the concept Id provided as the value, excluding the provided concept itself (i.e. include child codes)";
             case ISNOTA: return "The specified property of the code does not have an is-a relationship with the provided value.";
             case REGEX: return "The specified property of the code  matches the regex specified in the provided value.";
             case IN: return "The specified property of the code is in the set of codes or concepts specified in the provided value (comma separated list).";
@@ -144,6 +154,7 @@ public class ValueSet extends MetadataResource {
           switch (this) {
             case EQUAL: return "Equals";
             case ISA: return "Is A (by subsumption)";
+            case DESCENDENTOF: return "Descendent Of (by subsumption)";
             case ISNOTA: return "Not (Is A) (by subsumption)";
             case REGEX: return "Regular Expression";
             case IN: return "In Set";
@@ -163,6 +174,8 @@ public class ValueSet extends MetadataResource {
           return FilterOperator.EQUAL;
         if ("is-a".equals(codeString))
           return FilterOperator.ISA;
+        if ("descendent-of".equals(codeString))
+          return FilterOperator.DESCENDENTOF;
         if ("is-not-a".equals(codeString))
           return FilterOperator.ISNOTA;
         if ("regex".equals(codeString))
@@ -185,6 +198,8 @@ public class ValueSet extends MetadataResource {
           return new Enumeration<FilterOperator>(this, FilterOperator.EQUAL);
         if ("is-a".equals(codeString))
           return new Enumeration<FilterOperator>(this, FilterOperator.ISA);
+        if ("descendent-of".equals(codeString))
+          return new Enumeration<FilterOperator>(this, FilterOperator.DESCENDENTOF);
         if ("is-not-a".equals(codeString))
           return new Enumeration<FilterOperator>(this, FilterOperator.ISNOTA);
         if ("regex".equals(codeString))
@@ -202,6 +217,8 @@ public class ValueSet extends MetadataResource {
         return "=";
       if (code == FilterOperator.ISA)
         return "is-a";
+      if (code == FilterOperator.DESCENDENTOF)
+        return "descendent-of";
       if (code == FilterOperator.ISNOTA)
         return "is-not-a";
       if (code == FilterOperator.REGEX)
@@ -518,8 +535,8 @@ public class ValueSet extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (lockedDate == null || lockedDate.isEmpty()) && (include == null || include.isEmpty())
-           && (exclude == null || exclude.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(lockedDate, include, exclude
+          );
       }
 
   public String fhirType() {
@@ -981,9 +998,8 @@ public class ValueSet extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (system == null || system.isEmpty()) && (version == null || version.isEmpty())
-           && (concept == null || concept.isEmpty()) && (filter == null || filter.isEmpty()) && (valueSet == null || valueSet.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(system, version, concept
+          , filter, valueSet);
       }
 
   public String fhirType() {
@@ -1288,8 +1304,8 @@ public class ValueSet extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (code == null || code.isEmpty()) && (display == null || display.isEmpty())
-           && (designation == null || designation.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(code, display, designation
+          );
       }
 
   public String fhirType() {
@@ -1564,8 +1580,7 @@ public class ValueSet extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (language == null || language.isEmpty()) && (use == null || use.isEmpty())
-           && (value == null || value.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(language, use, value);
       }
 
   public String fhirType() {
@@ -1588,7 +1603,7 @@ public class ValueSet extends MetadataResource {
          * The kind of operation to perform as a part of the filter criteria.
          */
         @Child(name = "op", type = {CodeType.class}, order=2, min=1, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="= | is-a | is-not-a | regex | in | not-in | generalizes", formalDefinition="The kind of operation to perform as a part of the filter criteria." )
+        @Description(shortDefinition="= | is-a | descendent-of | is-not-a | regex | in | not-in | generalizes", formalDefinition="The kind of operation to perform as a part of the filter criteria." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/filter-operator")
         protected Enumeration<FilterOperator> op;
 
@@ -1858,8 +1873,7 @@ public class ValueSet extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (property == null || property.isEmpty()) && (op == null || op.isEmpty())
-           && (value == null || value.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(property, op, value);
       }
 
   public String fhirType() {
@@ -2367,9 +2381,8 @@ public class ValueSet extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (timestamp == null || timestamp.isEmpty())
-           && (total == null || total.isEmpty()) && (offset == null || offset.isEmpty()) && (parameter == null || parameter.isEmpty())
-           && (contains == null || contains.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, timestamp, total
+          , offset, parameter, contains);
       }
 
   public String fhirType() {
@@ -2666,8 +2679,7 @@ public class ValueSet extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (name == null || name.isEmpty()) && (value == null || value.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(name, value);
       }
 
   public String fhirType() {
@@ -3246,10 +3258,8 @@ public class ValueSet extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (system == null || system.isEmpty()) && (abstract_ == null || abstract_.isEmpty())
-           && (version == null || version.isEmpty()) && (code == null || code.isEmpty()) && (display == null || display.isEmpty())
-           && (designation == null || designation.isEmpty()) && (contains == null || contains.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(system, abstract_, version
+          , code, display, designation, contains);
       }
 
   public String fhirType() {
@@ -4531,9 +4541,8 @@ public class ValueSet extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (immutable == null || immutable.isEmpty())
-           && (purpose == null || purpose.isEmpty()) && (copyright == null || copyright.isEmpty()) && (extensible == null || extensible.isEmpty())
-           && (compose == null || compose.isEmpty()) && (expansion == null || expansion.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, immutable, purpose
+          , copyright, extensible, compose, expansion);
       }
 
   @Override

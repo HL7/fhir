@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Nov 1, 2016 18:35-0400 for FHIR v1.7.0
+// Generated on Wed, Nov 9, 2016 16:59+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -601,9 +601,8 @@ public class QuestionnaireResponse extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (linkId == null || linkId.isEmpty()) && (text == null || text.isEmpty())
-           && (subject == null || subject.isEmpty()) && (answer == null || answer.isEmpty()) && (item == null || item.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(linkId, text, subject, answer
+          , item);
       }
 
   public String fhirType() {
@@ -1023,8 +1022,7 @@ public class QuestionnaireResponse extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (value == null || value.isEmpty()) && (item == null || item.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(value, item);
       }
 
   public String fhirType() {
@@ -1890,11 +1888,8 @@ public class QuestionnaireResponse extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (basedOn == null || basedOn.isEmpty())
-           && (parent == null || parent.isEmpty()) && (questionnaire == null || questionnaire.isEmpty())
-           && (status == null || status.isEmpty()) && (subject == null || subject.isEmpty()) && (context == null || context.isEmpty())
-           && (author == null || author.isEmpty()) && (authored == null || authored.isEmpty()) && (source == null || source.isEmpty())
-           && (item == null || item.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, basedOn, parent
+          , questionnaire, status, subject, context, author, authored, source, item);
       }
 
   @Override

@@ -796,7 +796,7 @@ public class ArgonautConverter extends ConverterBase {
 			cond.setContext(new Reference().setReference("Encounter/"+context.encounter.getId()));
 			cond.setVerificationStatus(getVerificationStatusFromAct(cda.getChild(pca, "statusCode")));
 
-			cond.setDateRecordedElement(convert.makeDateFromTS(cda.getChild(cda.getChild(pca, "effectiveTime"), "low")));
+			cond.setAssertedDateElement(convert.makeDateFromTS(cda.getChild(cda.getChild(pca, "effectiveTime"), "low")));
 
 			boolean found = false;
 			for (Element e : cda.getChildren(pca, "id")) {
@@ -859,7 +859,7 @@ public class ArgonautConverter extends ConverterBase {
 			i++;
 			ai.setPatient(context.subjectRef);
 
-			ai.setAttestedDateElement(convert.makeDateTimeFromTS(cda.getChild(cda.getChild(apa, "effectiveTime"), "low")));
+			ai.setAssertedDateElement(convert.makeDateTimeFromTS(cda.getChild(cda.getChild(apa, "effectiveTime"), "low")));
 			boolean found = false;
 			for (Element e : cda.getChildren(apa, "id")) {
 				Identifier id = convert.makeIdentifierFromII(e);

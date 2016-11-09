@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Nov 1, 2016 18:35-0400 for FHIR v1.7.0
+// Generated on Wed, Nov 9, 2016 16:59+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -697,10 +697,8 @@ public class EligibilityResponse extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (category == null || category.isEmpty()) && (subCategory == null || subCategory.isEmpty())
-           && (name == null || name.isEmpty()) && (description == null || description.isEmpty()) && (network == null || network.isEmpty())
-           && (unit == null || unit.isEmpty()) && (term == null || term.isEmpty()) && (financial == null || financial.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(category, subCategory, name
+          , description, network, unit, term, financial);
       }
 
   public String fhirType() {
@@ -997,8 +995,8 @@ public class EligibilityResponse extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (type == null || type.isEmpty()) && (benefit == null || benefit.isEmpty())
-           && (benefitUsed == null || benefitUsed.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(type, benefit, benefitUsed
+          );
       }
 
   public String fhirType() {
@@ -1139,7 +1137,7 @@ public class EligibilityResponse extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (code == null || code.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(code);
       }
 
   public String fhirType() {
@@ -2291,14 +2289,9 @@ public class EligibilityResponse extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (status == null || status.isEmpty())
-           && (request == null || request.isEmpty()) && (outcome == null || outcome.isEmpty()) && (disposition == null || disposition.isEmpty())
-           && (ruleset == null || ruleset.isEmpty()) && (originalRuleset == null || originalRuleset.isEmpty())
-           && (created == null || created.isEmpty()) && (organization == null || organization.isEmpty())
-           && (requestProvider == null || requestProvider.isEmpty()) && (requestOrganization == null || requestOrganization.isEmpty())
-           && (inforce == null || inforce.isEmpty()) && (contract == null || contract.isEmpty()) && (form == null || form.isEmpty())
-           && (benefitBalance == null || benefitBalance.isEmpty()) && (error == null || error.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, status, request
+          , outcome, disposition, ruleset, originalRuleset, created, organization, requestProvider
+          , requestOrganization, inforce, contract, form, benefitBalance, error);
       }
 
   @Override

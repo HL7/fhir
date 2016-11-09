@@ -8,9 +8,9 @@ import java.util.List;
 import java.util.Set;
 
 import org.hl7.fhir.dstu3.context.IWorkerContext;
-import org.hl7.fhir.dstu3.model.MetadataResource;
 import org.hl7.fhir.dstu3.model.CodeSystem;
 import org.hl7.fhir.dstu3.model.CodeSystem.CodeSystemContentMode;
+import org.hl7.fhir.dstu3.model.MetadataResource;
 import org.hl7.fhir.dstu3.model.ValueSet;
 import org.hl7.fhir.dstu3.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.dstu3.terminologies.CodeSystemUtilities;

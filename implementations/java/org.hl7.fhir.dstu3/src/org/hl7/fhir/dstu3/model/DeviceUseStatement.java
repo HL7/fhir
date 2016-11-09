@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Nov 1, 2016 18:35-0400 for FHIR v1.7.0
+// Generated on Wed, Nov 9, 2016 16:59+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -786,10 +786,8 @@ public class DeviceUseStatement extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (bodySite == null || bodySite.isEmpty()) && (whenUsed == null || whenUsed.isEmpty())
-           && (device == null || device.isEmpty()) && (identifier == null || identifier.isEmpty()) && (indication == null || indication.isEmpty())
-           && (notes == null || notes.isEmpty()) && (recordedOn == null || recordedOn.isEmpty()) && (subject == null || subject.isEmpty())
-           && (timing == null || timing.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(bodySite, whenUsed, device
+          , identifier, indication, notes, recordedOn, subject, timing);
       }
 
   @Override
