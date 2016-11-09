@@ -303,20 +303,23 @@ func (dal *mongoDataAccessLayer) ConditionalDelete(query search.Query) (count in
 	worker := dal.MasterSession.GetWorkerSession()
 	defer worker.Close()
 
+	IDsToDelete, err := dal.FindIDs(query)
+	if err != nil {
+		return 0, err
+	}
+	// There is the potential here for the delete to fail if the slice of IDs
+	// is too large (exceeding Mongo's 16MB document size limit).
+	deleteQuery := bson.M{"_id": bson.M{"$in": IDsToDelete}}
 	resourceType := query.Resource
-	searcher := search.NewMongoSearcher(worker.DB())
 	collection := worker.DB().C(models.PluralizeLowerResourceName(resourceType))
-	defaultQueryObject := searcher.CreateQueryObject(query)
-	var queryObject bson.M
 
 	if dal.hasInterceptorsForOpAndType("Delete", resourceType) {
 		/* Interceptors for a conditional delete are tricky since an interceptor is only run
 		   AFTER the database operation and only on resources that were SUCCESSFULLY deleted. We use
 		   the following approach:
-		   1. Search for all matching resources by the original query (returns a bundle of resources)
-		   2. Bulk delete those resources by ID
-		   3. Search again using the SAME query, to verify that those resources were in fact deleted
-		   4. Run the interceptor(s) on all resources that ARE NOT in the second search (since they were truly deleted)
+		   1. Bulk delete those resources by ID
+		   2. Search again using the SAME query, to verify that those resources were in fact deleted
+		   3. Run the interceptor(s) on all resources that ARE NOT in the second search (since they were truly deleted)
 		*/
 
 		// get the resources that are about to be deleted
@@ -324,16 +327,13 @@ func (dal *mongoDataAccessLayer) ConditionalDelete(query search.Query) (count in
 		bundle, err = dal.Search(url.URL{}, query) // the baseURL argument here does not matter
 
 		if err == nil {
-			resourceIds := getResourceIdsFromBundle(bundle)
-			queryObject = bson.M{"_id": bson.M{"$in": resourceIds}}
-
 			for _, elem := range bundle.Entry {
 				dal.invokeInterceptorsBefore("Delete", resourceType, elem.Resource)
 			}
 
-			// do the bulk delete by ID
-			info, err := collection.RemoveAll(queryObject)
-			successfulIds := make([]string, len(resourceIds))
+			// Do the bulk delete by ID.
+			info, err := collection.RemoveAll(deleteQuery)
+			deletedIds := make([]string, len(IDsToDelete))
 
 			if info != nil {
 				count = info.Removed
@@ -346,23 +346,24 @@ func (dal *mongoDataAccessLayer) ConditionalDelete(query search.Query) (count in
 				return count, convertMongoErr(err)
 			}
 
-			var failBundle *models.Bundle
 			var searchErr error
 
-			if count < len(resourceIds) {
-				// Not all resources were removed...
-				failBundle, searchErr = dal.Search(url.URL{}, query) // original search query
-				successfulIds = setDiff(resourceIds, getResourceIdsFromBundle(failBundle))
+			if count < len(IDsToDelete) {
+				// Some but not all resources were removed, so use the original search query
+				// to see which resources are left.
+				var failBundle *models.Bundle
+				failBundle, searchErr = dal.Search(url.URL{}, query)
+				deletedIds = setDiff(IDsToDelete, getResourceIdsFromBundle(failBundle))
 			} else {
 				// All resources were successfully removed
-				successfulIds = resourceIds
+				deletedIds = IDsToDelete
 			}
 
 			if searchErr == nil {
 				for _, elem := range bundle.Entry {
 					id := reflect.ValueOf(elem.Resource).Elem().FieldByName("Id").String()
 
-					if elementInSlice(id, successfulIds) {
+					if elementInSlice(id, deletedIds) {
 						// This resource was confirmed deleted
 						dal.invokeInterceptorsAfter("Delete", resourceType, elem.Resource)
 					} else {
@@ -374,13 +375,10 @@ func (dal *mongoDataAccessLayer) ConditionalDelete(query search.Query) (count in
 			}
 			return count, convertMongoErr(err)
 		}
-	} else {
-		// No interceptor(s) registered, use the default conditional query
-		queryObject = defaultQueryObject
 	}
 
 	// do the bulk delete the usual way
-	info, err := collection.RemoveAll(queryObject)
+	info, err := collection.RemoveAll(deleteQuery)
 	if info != nil {
 		count = info.Removed
 	}
@@ -395,18 +393,7 @@ func (dal *mongoDataAccessLayer) Search(baseURL url.URL, searchQuery search.Quer
 
 	searcher := search.NewMongoSearcher(worker.DB())
 
-	var result interface{}
-	var err error
-	usesIncludes := len(searchQuery.Options().Include) > 0
-	usesRevIncludes := len(searchQuery.Options().RevInclude) > 0
-	// Only use (slower) pipeline if it is needed
-	if usesIncludes || usesRevIncludes {
-		result = models.NewSlicePlusForResourceName(searchQuery.Resource, 0, 0)
-		err = searcher.CreatePipeline(searchQuery).All(result)
-	} else {
-		result = models.NewSliceForResourceName(searchQuery.Resource, 0, 0)
-		err = searcher.CreateQuery(searchQuery).All(result)
-	}
+	result, total, err := searcher.Search(searchQuery)
 	if err != nil {
 		return nil, convertMongoErr(err)
 	}
@@ -420,7 +407,7 @@ func (dal *mongoDataAccessLayer) Search(baseURL url.URL, searchQuery search.Quer
 		entry.Search = &models.BundleEntrySearchComponent{Mode: "match"}
 		entryList = append(entryList, entry)
 
-		if usesIncludes || usesRevIncludes {
+		if searchQuery.UsesIncludes() || searchQuery.UsesRevIncludes() {
 			rpi, ok := entry.Resource.(ResourcePlusRelatedResources)
 			if ok {
 				for k, v := range rpi.GetIncludedAndRevIncludedResources() {
@@ -441,22 +428,6 @@ func (dal *mongoDataAccessLayer) Search(baseURL url.URL, searchQuery search.Quer
 	bundle.Id = bson.NewObjectId().Hex()
 	bundle.Type = "searchset"
 	bundle.Entry = entryList
-
-	options := searchQuery.Options()
-
-	// Need to get the true total (not just how many were returned in this response)
-	var total uint32
-	if resultVal.Len() == options.Count || resultVal.Len() == 0 {
-		// Need to get total count from the server, since there may be more or the offset was too high
-		intTotal, err := searcher.CreateQueryWithoutOptions(searchQuery).Count()
-		if err != nil {
-			return nil, convertMongoErr(err)
-		}
-		total = uint32(intTotal)
-	} else {
-		// We can figure out the total by adding the offset and # results returned
-		total = uint32(options.Offset + resultVal.Len())
-	}
 	bundle.Total = &total
 
 	// Add links for paging
@@ -486,16 +457,16 @@ func (dal *mongoDataAccessLayer) FindIDs(searchQuery search.Query) (IDs []string
 
 	// Now search on that query, unmarshaling to a temporary struct and converting results to []string
 	searcher := search.NewMongoSearcher(worker.DB())
-	mgoQuery := searcher.CreateQuery(newQuery).Select(bson.M{"_id": 1})
-	results := []struct {
-		ID string `bson:"_id"`
-	}{}
-	if err := mgoQuery.All(&results); err != nil {
-		return nil, err
+	results, _, err := searcher.Search(newQuery)
+	if err != nil {
+		return nil, convertMongoErr(err)
 	}
-	IDs = make([]string, len(results))
-	for i := range results {
-		IDs[i] = results[i].ID
+
+	resultsVal := reflect.ValueOf(results).Elem()
+	IDs = make([]string, resultsVal.Len())
+
+	for i := 0; i < resultsVal.Len(); i++ {
+		IDs[i] = resultsVal.Index(i).FieldByName("Id").String()
 	}
 
 	return IDs, nil
