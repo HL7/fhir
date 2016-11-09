@@ -72,21 +72,21 @@
 
  -- Row 17 -----------------------------------
   Element = ConceptMap.source[x]
-  Card. = 1..1
+  Card. = 0..1
   Summary = Y
-  Type = uri | Reference(ValueSet|StructureDefinition)
+  Type = uri | Reference(ValueSet)
   Short Name = Identifies the source of the concepts which are being mapped
   Definition = The source value set that specifies the concepts that are being mapped
-  Comments = Should be a version specific reference. URIs SHOULD be absolute
+  Comments = Should be a version specific reference. URIs SHOULD be absolute. If there is no source or target value set, the is no specified context for the map
 
  -- Row 18 -----------------------------------
   Element = ConceptMap.target[x]
-  Card. = 1..1
+  Card. = 0..1
   Summary = Y
-  Type = uri | Reference(ValueSet|StructureDefinition)
+  Type = uri | Reference(ValueSet)
   Short Name = Provides context to the mappings
   Definition = The target value set provides context to the mappings. Note that the mapping is made between concepts, not between value sets, but the value set provides important context about how the concept mapping choices are made
-  Comments = Should be a version specific reference. URIs SHOULD be absolute
+  Comments = Should be a version specific reference. URIs SHOULD be absolute. If there is no source or target value set, the is no specified context for the map
 
  -- Row 19 -----------------------------------
   Element = ConceptMap.group
