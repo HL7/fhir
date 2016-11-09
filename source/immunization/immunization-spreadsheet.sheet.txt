@@ -60,7 +60,7 @@
  -- Row 9 -----------------------------------
   Binding Name = ImmunizationStatus
   Binding = value set
-  Reference = http://hl7.org/fhir/ValueSet/medication-admin-status
+  Reference = valueset-immunization-status
   Definition = A set of codes indicating the current status of an Immunization
   Conformance = required
 
@@ -108,7 +108,7 @@
   Summary = Y
   Type = code
   Binding = ImmunizationStatus
-  Short Name = in-progress | on-hold | completed | entered-in-error | stopped
+  Short Name = completed | entered-in-error
   Definition = Indicates the current status of the vaccination event
   Comments = Will generally be set to show that the immunization has been completed.
   RIM Mapping = statusCode
