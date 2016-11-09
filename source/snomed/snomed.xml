@@ -12168,6 +12168,11 @@
     <display value="Posterior"/>
     <display value="Posterior (qualifier value)"/>
   </concept>
+  <concept id="255559005" display="Intramuscular">
+    <display value="IM - Intramuscular"/>
+    <display value="Intramuscular"/>
+    <display value="Intramuscular (qualifier value)"/>
+  </concept>
   <concept id="255560000" display="Intravenous (qualifier value)">
     <display value="Intravenous"/>
     <display value="IV - Intravenous"/>
@@ -14205,6 +14210,11 @@
   <concept id="37550003" display="Hospital-based outpatient dermatology clinic">
     <display value="Hospital-based outpatient dermatology clinic"/>
     <display value="Hospital-based outpatient dermatology clinic (environment)"/>
+  </concept>
+  <concept id="375860009" display="Ceftriaxone sodium 500mg powder for injection solution vial (product)">
+    <display value="Ceftriaxone sodium 500mg powder for injection"/>
+    <display value="Ceftriaxone sodium 500mg powder for injection solution vial (product)"/>
+    <display value="Ceftriaxone sodium 500mg powder for injection solution vial"/>
   </concept>
   <concept id="37636003" display="Pleural friction rub">
     <display value="Pleural friction rub"/>

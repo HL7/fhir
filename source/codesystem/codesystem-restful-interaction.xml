@@ -43,7 +43,7 @@
     <concept>
       <code value="history-type"/>
       <display value="history-type"/>
-      <definition value="Retrieve the change history for a all resources of a particular type."/>
+      <definition value="Retrieve the change history for all resources of a particular type."/>
     </concept>
     <concept>
       <code value="history-system"/>
