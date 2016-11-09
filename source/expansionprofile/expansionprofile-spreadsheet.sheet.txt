@@ -279,7 +279,7 @@
   Type = boolean
   Short Name = Include or exclude inactive concepts in the expansion
   Definition = Controls whether inactive concepts are included or excluded in value set expansions.
-  Comments = Inactive codes are included if activeOnly is present and has a value of \"true\".
+  Comments = Inactive codes are included if activeOnly is present and has a value of \"true\". Note that if the value set explicitly specifies that inactive codes are included, this property can still remove them from a specific expansion, but this parameter cannot include them if the value set excludes them
   Default Value = False
 
  -- Row 33 -----------------------------------
