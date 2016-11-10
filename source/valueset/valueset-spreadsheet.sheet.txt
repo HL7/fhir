@@ -77,7 +77,7 @@
   Id = 2
   Context = ValueSet.compose.include
   English = A value set with concepts or filters SHALL include a system
-  XPath = (not(exists(f:concept) or exists(f:filter)) or exists(f:system)
+  XPath = not(exists(f:concept) or exists(f:filter)) or exists(f:system)
   Expression = (concept.exists() or filter.exists()) implies system.exists()
 
  -- Row 3 -----------------------------------

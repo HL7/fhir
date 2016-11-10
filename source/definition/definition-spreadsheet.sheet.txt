@@ -71,7 +71,7 @@
   RIM Mapping = .outboundRelationship[typeCode=DEFN].target
 
  -- Row 4 -----------------------------------
-  Element = Definition.parent
+  Element = Definition.partOf
   Card. = 0..*
   Aliases = container
   Summary = Y

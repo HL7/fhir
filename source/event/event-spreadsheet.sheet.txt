@@ -106,7 +106,7 @@
   RIM Mapping = .outboundRelationship[typeCode=FLFS].target
 
  -- Row 5 -----------------------------------
-  Element = Event.parent
+  Element = Event.partOf
   Card. = 0..*
   Aliases = container
   Summary = Y
