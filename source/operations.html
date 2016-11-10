@@ -49,7 +49,7 @@ Operations are executed using a URL derived from the FHIR endpoint, where the na
  POST http://fhir.someserver.org/fhir/Patient/1/$everything
 </pre>
 <p>
-When an operation is idempotent, and the parameters are all primitive data types with no extensions 
+When an operation is idempotent, and the parameters are all primitive data types with no extensions
 (as is the case with the example above), it may be invoked using GET as well.
 </p>
 <p>
@@ -63,17 +63,17 @@ Operations can be invoked on four types of FHIR endpoints:
 </ul>
 <p>
 The body of the invocation contains a special infrastructure resource called <a href="parameters.html">Parameters</a>,
-which represents a collection of named parameters as &lt;key,value&gt; pairs, where the value may be any 
-primitive or complex datatype or even a full Resource. It may also include strings 
+which represents a collection of named parameters as &lt;key,value&gt; pairs, where the value may be any
+primitive or complex datatype or even a full Resource. It may also include strings
 formatted as search parameter types.
 </p>
 <p>
-Upon completion, the operation returns another <code>Parameters</code> resource, containing one or 
-more output parameters. This means that a FHIR operation can take a set of zero or more parameters <i>in</i> and return a set of zero or more 
-result parameters <i>out</i>. Both the body of the POST and the returned result are always a Resource. 
+Upon completion, the operation returns another <code>Parameters</code> resource, containing one or
+more output parameters. This means that a FHIR operation can take a set of zero or more parameters <i>in</i> and return a set of zero or more
+result parameters <i>out</i>. Both the body of the POST and the returned result are always a Resource.
 </p>
 <p>
-Some Operations with primitive input types and a single Resource output parameter named '<code>return</code>' can be invoked using a GET directly, with parameters as HTTP URL parameters. 
+Some Operations with primitive input types and a single Resource output parameter named '<code>return</code>' can be invoked using a GET directly, with parameters as HTTP URL parameters.
 In this case, the response is simply the resource that is the return value, with no Parameters resource. These kinds of usage are discussed further below.
 </p>
 
@@ -124,7 +124,7 @@ For each parameter, the following information is needed:
 </ul>
 <p>
 Prameters may be nested into multi-part parameteters. Each part has the same information as a parameter, except for use, which is taken from
-the parameter it is part of. 
+the parameter it is part of.
 </p>
 
 <p>
@@ -170,7 +170,7 @@ The URL for an operation end-point depends on its context:
 
 <p>
 An operation is generally invoked by performing an HTTP POST to the operation's end-point.
-The submitted content is the special <a href="parameters.html">Parameters</a> format (the "in" parameters) - a list of named parameters. 
+The submitted content is the special <a href="parameters.html">Parameters</a> format (the "in" parameters) - a list of named parameters.
 For an example, see <a href="op-example-request.html">the value set expansion request example</a>.
 Note that when parameters have a search type, the search modifiers are available, and are used on the parameter name in the Parameters resource (e.g. "code:in").
 </p>
@@ -183,14 +183,14 @@ If all the parameters for the operation are <a href="datatypes.html#primitive">p
 is <i>idempotent</i> (see <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html">HTTP specification
 definition of idempotent</a>), the operation may be invoked by performing an HTTP GET operation where
 all of the values of the parameters are appended to the URL in the search portion of the URL (e.g. after the '?' character).
-Servers SHALL support this method of invocation. E.g. 
+Servers SHALL support this method of invocation. E.g.
 </p>
 <pre>
 GET [base]/ValueSet/$expand?identifier=http://hl7.org/fhir/ValueSet/body-sit&amp;filter=abdo
 </pre>
 <p>
-If the only parameter to the operation is a resource, then the operation can also executed 
-by a POST with that parameter as the body of the request.
+If the only parameter to a specific invocation of the operation is a resource, then the operation
+can also be executed by a POST with that resource as the body of the request.
 </p>
 
 <p>
@@ -203,20 +203,20 @@ which can be useful when testing an operation using HTML forms.
 <h4>Operation Response</h4>
 
 <p>
-If an operation succeeds, an HTTP Status success code is returned. 
+If an operation succeeds, an HTTP Status success code is returned.
 This will usually be a 2xx code, though it may also be a 303 See Other.
-Other kinds of 3xx codes should be understood to indicate that the 
-operation did not proceed, and the client will need to re-issue the 
+Other kinds of 3xx codes should be understood to indicate that the
+operation did not proceed, and the client will need to re-issue the
 operation if it can perform the redirection (e.g. may get redirected
-to an authentication step). User agents should note that servers 
-may issue redirects, etc. to authenticate the client in response to 
-an operation request. An HTTP status code of 4xx or 5xx indicates 
-an error, and an <a href="operationoutcome.html">OperationOutcome</a> 
-SHOULD be returned with details. 
+to an authentication step). User agents should note that servers
+may issue redirects, etc. to authenticate the client in response to
+an operation request. An HTTP status code of 4xx or 5xx indicates
+an error, and an <a href="operationoutcome.html">OperationOutcome</a>
+SHOULD be returned with details.
 </p>
 <p>
 In general, an operation response uses the same
-<a href="parameters.html">Parameters</a> format whether there is only one or 
+<a href="parameters.html">Parameters</a> format whether there is only one or
 there are multiple named <i>out</i> parameters.
 </p>
 <p>

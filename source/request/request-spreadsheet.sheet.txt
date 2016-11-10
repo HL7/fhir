@@ -8,9 +8,9 @@
   Definition = Codes identifying the stage lifecycle stage of a request
 
  -- Row 2 -----------------------------------
-  Binding Name = RequestStage
+  Binding Name = RequestIntent
   Binding = code list
-  Reference = #request-stage
+  Reference = #request-intent
   Definition = Codes indicating the degree of authority/intentionality associated with a request
 
  -- Row 3 -----------------------------------
@@ -72,7 +72,7 @@
   Definition = This electronic record should never have existed, though it is possible that real-world decisions were based on it.  (If real-world activity has occurred, the status should be \"cancelled\" rather than \"entered-in-error\".)
   v3 = =ActStatus.nullified
 
-=== Sheet request-stage =====================================
+=== Sheet request-intent =====================================
 
  -- Row 1 -----------------------------------
   Id = 1
@@ -152,9 +152,9 @@
   RIM Mapping = .outboundRelationship[typeCode=RPLC].target
 
  -- Row 6 -----------------------------------
-  Element = Request.requisition
+  Element = Request.groupIdentifier
   Card. = 0..1
-  Aliases = grouperId
+  Aliases = grouperId, requisition
   Summary = Y
   Type = Identifier
   Short Name = Composite request this is part of
@@ -178,17 +178,17 @@
   w5 = status
 
  -- Row 8 -----------------------------------
-  Element = Request.stage
+  Element = Request.intent
   Card. = 1..1
   Aliases = category
   Is Modifier = Y
   Summary = Y
-  Type = CodeableConcept
-  Binding = RequestStage
-  Short Name = proposal | plan | order +
+  Type = code
+  Binding = RequestIntent
+  Short Name = proposal | plan | order
   Definition = Indicates the level of authority/intentionality associated with the request and where the request fits into the workflow chain.
   Requirements = Proposals/recommendations, plans and orders all use the same structure and can exist in the same fulfillment chain.
-  Comments = The stage of a request is immutable.  I.e. proposals don\'t change to plans or plans change to orders.  Instead, a new instance of the appropriate stage is created \"basedOn\" the instance with the prior stage.\n\n[The value set is extensible to allow inclusion of additional order layers.  For example Encoded orders and MARs for pharmacy, Reflex orders for lab, etc.
+  Comments = When resources map to this element, they are free to define as many codes as necessary to cover their space and will map to \"proposal, plan or order\".  Can have multiple codes that map to one of these.  E.g. \"original order\", \"encoded order\", \"reflex order\" would all map to \"order\".  Expectation is that the set of codes is mutually exclusive or a strict all-encompassing hierarchy.
   RIM Mapping = .moodCode (nuances beyond PRP/PLAN/RQO would need to be elsewhere)
   To Do = Should this be a common code system for all requests?
   w5 = class

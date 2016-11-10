@@ -38,10 +38,10 @@ vary widely in sophistication and size.
 <p>
 Throughout this specification, coded values are always treated as a pair
 composed of "system" and "code", where the system is a URL that identifies the
-code system that defines the codes. Note that <code>system</code> values are always 
-case sensitive. Different code systems make their own rules as to whether the codes 
-they define are case sensitive or not. Note that all the codes defined by FHIR 
-itself are case sensitive and SHALL be used in the provided case (usually, but 
+code system that defines the codes. Note that <code>system</code> values are always
+case sensitive. Different code systems make their own rules as to whether the codes
+they define are case sensitive or not. Note that all the codes defined by FHIR
+itself are case sensitive and SHALL be used in the provided case (usually, but
 not always, lowercase).
 </p>
 <p>
@@ -70,7 +70,7 @@ see the FHIR wiki for <a href="http://wiki.hl7.org/index.php?title=FHIR_Guide_to
 <p>
 The set of coded values that is allowed to be used in an element of one of these
 4 data types is known as a <a href="valueset.html">"value set"</a>. Anywhere these data types are used, the
-specification "binds" a value set to the element. 
+specification "binds" a value set to the element.
 </p>
 <p>
 The difference between a code system and a value set is an important distinction that is easily
@@ -91,14 +91,14 @@ those two namespaces. The value set itself is given its own URL as an identifier
 - this identifies the set of Code Pairs, but is never used as the namespace in a actual code pair, or in an instance.
 In FHIR, Code Pairs are always represented as "code" and "system", except for the simple <a href="datatypes.html#code">data type "code"</a>
 data type where the namespace (e.g. the system element/property) is fixed in the schema and not
-represented explicitly. 
+represented explicitly.
 </p>
 <p>
 Note that for some code systems, there is a single correct machanism by which to represent
 codes defined by the system as a single URL. These single URLs are used in the context of
 the <a href="rdf.html#concept">RDF</a> format to enable ontological reasoning. The URL is
 often a direct reference to a web source that can provide additional definitional material
-about the concept. Where the mechanism is known and defined by the code system, it is 
+about the concept. Where the mechanism is known and defined by the code system, it is
 described in this specification.
 </p>
 
@@ -106,32 +106,32 @@ described in this specification.
 <h2>Choosing a system</h2>
 
 <p>
-The URL in a <code>system</code> is always a reference to a code system, 
+The URL in a <code>system</code> is always a reference to a code system,
 not to a value set. The <code>system</code> ensures that codes can be unambiguously
-traced back to their original definition, and that logical comparisons, matching and 
+traced back to their original definition, and that logical comparisons, matching and
 inferences can be performed consistently by different systems. For this reason, choice
 of the correct URI for the system attribute is critical.
 </p>
 <p>
-The correct value to use in the <i>system</i> for a given code system can be determined 
+The correct value to use in the <i>system</i> for a given code system can be determined
 by working through the following list, in order:
 </p>
 <ul>
- <li>the specification <a href="terminologies-systems.html">Code System Registry</a> 
+ <li>the specification <a href="terminologies-systems.html">Code System Registry</a>
      - if a code system is listed here, it SHALL be used</li>
  <li>A system URI or OID defined as the correct value to use in FHIR by the publisher of the code system</li>
- <li>the FHIR <a href="http://registry.fhir.org/NamingSystem">community code system registry</a> 
+ <li>the FHIR <a href="http://registry.fhir.org/NamingSystem">community code system registry</a>
      - if a code system is listed here with <a href="namingsystem-definitions.html#NamingSystem.status">status = active</a>, it SHALL be used</li>
  <li>an OID registered in the <a href="http://hl7.org/oid">HL7 OID registry</a> - if a code system is registered here, the OID SHOULD be used (using the syntax urn:oid:[oid])</li>
 </ul>
 <p>
-If a code system is not resolved by this list, and there is no publisher to consult, implementers 
+If a code system is not resolved by this list, and there is no publisher to consult, implementers
 will have to choose a URI to use. The priority should be to choose a unique value that won't
 accidently be used by another implementer for a different purpose - or a very similar purpose
-with a different scope. 
+with a different scope.
 </p>
 <p>
-For publishers of code systems, the following considerations should be kept in mind when 
+For publishers of code systems, the following considerations should be kept in mind when
 defining the correct URI to use:
 </p>
 <ul>
@@ -140,12 +140,12 @@ defining the correct URI to use:
  <li>An http: address SHOULD resolve to some useful description of the code system. Ideally, if a user makes a request of the address with the media type set to a FHIR media type, the server will respond
    with a FHIR Value Set resource with an inline <a href="valueset-definitions.html#ValueSet.codeSystem">code system</a>, but some other human or computable definition is allowed</li>
  <li>HTTP addresses should be permalinks which may re-direct to the current correct content</li>
- <li>A scope of the code system URI and the correct usage of codes and displays in its namespace SHOULD be clearly defined. 
+ <li>A scope of the code system URI and the correct usage of codes and displays in its namespace SHOULD be clearly defined.
    See examples for <a href="snomedct.html">SNOMED CT</a>, <a href="rxnorm.html">RxNorm</a>, <a href="loinc.html">LOINC</a>, <a href="ndc.html">NDC</a></li>
  <li>Generally, allocation of URLs is hierarchical, and most care is required in choosing the root URL. Once sub-URL policies are clearly defined, URIs can often be automatically assigned</li>
-</ul> 
+</ul>
 <p>
-Note: if the code system is made available packaged inside a <a href="valueset.html">ValueSet</a> resource, the 
+Note: if the code system is made available packaged inside a <a href="valueset.html">ValueSet</a> resource, the
 correct URL for the <code>system</code> value is <i>ValueSet.codeSystem.system</i>, not <i>ValueSet.uri</i>.
 </p>
 
@@ -180,18 +180,18 @@ There are a number of places in the specification where value sets are reference
  <tr><td><a href="extension-valueset-reference.html">ValueSet Reference Extension</a></td><td>Indicates that a particular coded value was chosen from the specified value set</td></tr>
 </table>
 <p>
-There are two types of value set references in this list, direct and logical. 
+There are two types of value set references in this list, direct and logical.
 </p>
 
 <a name="direct"> </a>
 <h4>Direct Value Set references</h4>
 <p>
-A direct value set reference has the type <a href="references.html#Reference">Reference</a>, 
+A direct value set reference has the type <a href="references.html#Reference">Reference</a>,
 and refers directly to a ValueSet based on a URL, usually to a terminology server running
 a <a href="http.html">FHIR RESTful API</a>. When accessing a value set based on this kind of reference, a system should
 access the URL directly (after converting a relative reference to an absolute reference
 according to the local context). If this process fails, the system is unable to resolve
-the value set and must handle the error appropriately. 
+the value set and must handle the error appropriately.
 </p>
 <p>
 Example:
@@ -210,22 +210,22 @@ GET fhir/Questionnaire/234
 &lt;/Questionnaire&gt;
 </pre>
 <p>
-This specifies that the values for a particular questionnaire come from the 
+This specifies that the values for a particular questionnaire come from the
 ValueSet with id 234234 on the same FHIR end-point. To resolve this, the
 system would GET fhir/ValueSet/234234
 </p>
 <p>
 Typically, a direct reference like this is good for in-process references, in closed
-or carefully managed eco-systems. In a more general context, these references tend 
+or carefully managed eco-systems. In a more general context, these references tend
 to be fragile over time because web URLs - including RESTful API URLS - are easily
-reassigned. For this reason, systems are encouraged to use logical value set references. 
+reassigned. For this reason, systems are encouraged to use logical value set references.
 </p>
 
 <a name="logical"> </a>
 <h4>Logical Value Set references</h4>
 <p>
-A logical value set reference has the type <a href="datatypes.html#uri">uri</a>, 
-where an absolute URI is provided that matches the one in ValueSet.url. The 
+A logical value set reference has the type <a href="datatypes.html#uri">uri</a>,
+where an absolute URI is provided that matches the one in ValueSet.url. The
 value set URL can - and is preferred to be - a web address that actually resolves
 directly to a fixed web address that serves as the authoritative source for that
 value set. Alternatively, the system can query its terminology server(s) to
@@ -249,10 +249,10 @@ Example:
 &lt;/StructureDefinition&gt;
 </pre>
 <p>
-This specifies that the element is bound to the value set with a Value.url of
-<a href="http://hl7.org/fhir/ValueSet/clinical-findings">http://hl7.org/fhir/ValueSet/clinical-findings</a>. One way to accees this value set is 
-to try GET http://hl7.org/fhir/ValueSet/clinical-findings - which works, for this value set - http://hl7.org/fhir/ValueSet/clinical-findings 
-returns the authoritative value set for this URL. 
+This specifies that the element is bound to the value set with a ValueSet.url of
+<a href="http://hl7.org/fhir/ValueSet/clinical-findings">http://hl7.org/fhir/ValueSet/clinical-findings</a>. One way to accees this value set is
+to try GET http://hl7.org/fhir/ValueSet/clinical-findings - which works, for this value set - http://hl7.org/fhir/ValueSet/clinical-findings
+returns the authoritative value set for this URL.
 </p>
 <p>
 Alternatively, the value set could be resolved using a local terminology server.
@@ -266,7 +266,7 @@ GET fhir/ValueSet?url=http://hl7.org/fhir/ValueSet/clinical-findings
 if the terminology server knows the value set, then it will return the value set.
 If the URL doesn't resolve to an authoritative value set, and the terminology
 server(s) don't know the value set, the system is unable to resolve
-the value set and must handle the error appropriately. 
+the value set and must handle the error appropriately.
 </p>
 <p>
 The value set URL is allowed to be a URI such as a UUID (e.g. urn:uuid:c0e0d027-1250-4278-8f44-33a49dc67916).
@@ -275,20 +275,20 @@ that this specification defines many value sets that have a logical URL that is 
 (examples for <a href="snomedct.html#implicit">SNOMED CT</a>, <a href="rxnorm.html#implicit">RxNorm</a>, <a href="loinc.html#implicit">LOINC</a>)
 </p>
 <p>
-Using a logical reference which is a direct reference to the authoritative value set 
-is the easiest and most reliable approach. However this requires suitable hosting 
+Using a logical reference which is a direct reference to the authoritative value set
+is the easiest and most reliable approach. However this requires suitable hosting
 arrangements, and cannot always be guaranteed, so it is not required.
 </p>
 <p><b>Version specific Logical References</b></p>
 <p>
-A value set has a two part identifier: a url, and a version. Some value sets only 
-ever have a single 'version'; a revision of the value set contents will cause 
+A value set has a two part identifier: a url, and a version. Some value sets only
+ever have a single 'version'; a revision of the value set contents will cause
 a new url to be assigned. Others, however, maintain the same URL, and change
-the version. A terminology server may have multiple value sets for the same 
-ValueSet.url with different versions. 
+the version. A terminology server may have multiple value sets for the same
+ValueSet.url with different versions.
 </p>
 <p>
-To be precise about which version of a value set is being referred to in 
+To be precise about which version of a value set is being referred to in
 a value set reference, append the version to the logical url like this:
 </p>
 <pre>
@@ -320,7 +320,7 @@ any value set at all. Bindings are to be provided for these elements.
 <h2>Binding Strengths</h2>
 <p>
 Almost all of the elements that have a coded data type are bound to a value set. The bindings
-are associated with various degrees of flexibility as to how closely the value set should be 
+are associated with various degrees of flexibility as to how closely the value set should be
 followed:
 </p>
 <table class="grid">
@@ -330,11 +330,11 @@ followed:
  <tr><td>example</td><td>Instances are not expected or even encouraged to draw from the specified value set.  The value set merely provides examples of the types of concepts intended to be included</td></tr>
 </table>
 <p>
-Irrespective of the binding strength, when a <a href="structuredefinition.html">StructureDefinition</a> is used 
+Irrespective of the binding strength, when a <a href="structuredefinition.html">StructureDefinition</a> is used
 to describe local usage, it can bind the element to a different value set in order to be much more precise about
-exactly which coded values can be used for these elements, and/or increase the strength of the binding. There are different rules for this, depending on the 
+exactly which coded values can be used for these elements, and/or increase the strength of the binding. There are different rules for this, depending on the
 binding strength, as discussed below.  Generally it is expected that jurisdictions, projects and vendors
-will work together to choose actual working value sets. 
+will work together to choose actual working value sets.
 </p>
 
 <a name="required"> </a>
@@ -345,17 +345,17 @@ will work together to choose actual working value sets.
 <i>To be conformant, instances of this element SHALL include a code from the specified value set.</i>.
 </p>
 <p>
-In the standard, this is generally used for elements where the value needs to be strictly controlled so that everyone 
-can interpret it with confidence. Generally, this is used for elements with type <a href="datatypes.html#code">code</a>: 
+In the standard, this is generally used for elements where the value needs to be strictly controlled so that everyone
+can interpret it with confidence. Generally, this is used for elements with type <a href="datatypes.html#code">code</a>:
 </p>
 <ul>
  <li>the element is bound to a value set that contains a list of distinct codes with a specified system (and version, where required)</li>
  <li>the element is bound to some external standard that defines the set of valid codes that can be used (typical examples of references are <a href="http://www.rfc-editor.org/bcp/bcp13.txt">Mime Types</a>,
 <a href="http://tools.ietf.org/html/bcp47">Language Codes</a>, <a href="http://unitsofmeasure.org">UCUM</a>, etc.)</li>
-</ul> 
+</ul>
 <p>
 The other place where this is used is when <a href="profiling.html">profiling resources</a>, and there is agreement within a particular context of use
-that a particular set of codes are the only ones that can be used. In these cases, the data type SHALL contain one of the 
+that a particular set of codes are the only ones that can be used. In these cases, the data type SHALL contain one of the
 values in the value set.
 </p>
 <p>
@@ -375,20 +375,20 @@ The following  rules apply when required bindings are used with the <a href="dat
  <li>The list of codes that can be used can only be extended in subsequent releases of the FHIR specification</li>
 </ul>
 <p>
-When an element is bound to a required value set, <a href="profiling.html">derived profiles</a> 
+When an element is bound to a required value set, <a href="profiling.html">derived profiles</a>
 may state rules on which codes can be used, but cannot select new or additional codes for these elements.
 </p>
 
 <a name="extensible"> </a>
 <h3>Extensible</h3>
 <p>
-<i>To be conformant, instances of this element SHALL include a code from the specified value set if any of the codes within the value set 
-can apply to the concept being communicated.  If the value set does not cover the concept (based on human review), an alternate 
+<i>To be conformant, instances of this element SHALL include a code from the specified value set if any of the codes within the value set
+can apply to the concept being communicated.  If the value set does not cover the concept (based on human review), an alternate
 system.code may be used instead.</i>
 </p>
 <p>
 If the data type is <a href="datatypes.html#CodeableConcept">CodeableConcept</a>, then one of the <i>coding</i> values SHALL
-be from the specified value set if a code applies, but if no suitable code exists in the value set, alternate code(s) may 
+be from the specified value set if a code applies, but if no suitable code exists in the value set, alternate code(s) may
 be provided in its place. If no codes, including local codes, are available, then just text may be used.
 </p>
 <p>
@@ -396,16 +396,16 @@ If the data type is <a href="datatypes.html#Coding">Coding</a>, then the code/sy
 if a code applies, but if no suitable code exists in the value set, an alternate code may provided in its place.
 </p>
 <p>
-Identified gaps in value sets should be submitted to the organization administering the value 
+Identified gaps in value sets should be submitted to the organization administering the value
 set in order to improve interoperability in the future.
 </p>
 <p>
 Extensible bindings are used when there is consensus at the specification or profiling level about the coded values
-that should be used, but it is impossible to create a bounded list of codes that are known to cover all 
-use cases, including ones that are yet to arise.  
+that should be used, but it is impossible to create a bounded list of codes that are known to cover all
+use cases, including ones that are yet to arise.
 </p>
 <p>
-When an element is extensibly bound to value set, <a href="profiling.html">derived profiles</a> 
+When an element is extensibly bound to value set, <a href="profiling.html">derived profiles</a>
 may state rules on which codes can be used, but cannot select new or additional codes for these elements
 unless no codes with appropriate meanings are found in the base value set.
 </p>
@@ -413,7 +413,7 @@ unless no codes with appropriate meanings are found in the base value set.
 <a name="preferred"> </a>
 <h3>Preferred</h3>
 <p>
-<i>Instances are encouraged to draw from the specified codes for interoperability purposes but 
+<i>Instances are encouraged to draw from the specified codes for interoperability purposes but
 are not required to do so to be considered conformant.</i>
 </p>
 <p>
@@ -423,19 +423,19 @@ be from the specified value set, but another code and/or text can be used in its
 <p>
 Preferred bindings are used when there is consensus at the specification level about the coded values
 that are the best to be used, but there is recognition that some implementation contexts are unable
-to use the recommended codes for a variety of reasons. Applications should consider adopting the 
-preferred value set where ever possible, as these preferred value sets are the most likely to 
-server interoperability purposes in the future. 
+to use the recommended codes for a variety of reasons. Applications should consider adopting the
+preferred value set where ever possible, as these preferred value sets are the most likely to
+server interoperability purposes in the future.
 </p>
 <p>
-When an element is bound to a preferred value set, <a href="profiling.html">derived profiles</a> 
+When an element is bound to a preferred value set, <a href="profiling.html">derived profiles</a>
 may bind the element to any value set they choose.
 </p>
 
 <a name="example"> </a>
 <h4>Example Bindings</h4>
 <p>
-<i>Instances are not expected or even encouraged to draw from the specified value set.  The value set merely 
+<i>Instances are not expected or even encouraged to draw from the specified value set.  The value set merely
 provides examples of the types of concepts intended to be included.</i>
 </p>
 <p>
@@ -449,12 +449,12 @@ or there is no consensus over the correct codes to be used. For these bindings:
 <p>
 Some other coded value MAY be used, or (for a CodeableConcept), a text alternative MAY be provided.
 Example value sets are provided to assist implementers to understand the correct use of an element.
-Value sets based on code systems such as SNOMED CT that have restrictive license terms will only be 
+Value sets based on code systems such as SNOMED CT that have restrictive license terms will only be
 used as example bindings in the base FHIR specification, though implementation guides for particular
 jurisdictions may adopt value sets that require licenses.
 </p>
 <p>
-When an element is bound to an example value set, <a href="profiling.html">derived profiles</a> 
+When an element is bound to an example value set, <a href="profiling.html">derived profiles</a>
 may bind the element to any value set they choose.
 </p>
 
@@ -474,10 +474,10 @@ underlying code system, in which case the list of valid concepts may change over
 <h3>Binding String Values</h3>
 <p>
 In a few special cases, humans customarily use codes directly for elements that have type "string". A typical case is codes for states,
-and there are several places where a URI must come from a set of controlled values. 
-An element of type <a href="datatypes.html#string">string</a> or <a href="datatypes.html#uri">uri</a> can also be bound to a value set. 
-When a string or URI is bound to a value set, the value property SHALL contain the code specified by the value set, and the system 
-and display values are ignored. 
+and there are several places where a URI must come from a set of controlled values.
+An element of type <a href="datatypes.html#string">string</a> or <a href="datatypes.html#uri">uri</a> can also be bound to a value set.
+When a string or URI is bound to a value set, the value property SHALL contain the code specified by the value set, and the system
+and display values are ignored.
 </p>
 
 
