@@ -4072,7 +4072,7 @@
     <Cell ss:StyleID="s90"><Data ss:Type="String">ValueSet.compose.include</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">A value set with concepts or filters SHALL include a system</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">(concept.exists() or filter.exists()) implies system.exists()</Data></Cell>
-    <Cell ss:StyleID="s112"><Data ss:Type="String">(not(exists(f:concept) or exists(f:filter)) or exists(f:system)</Data></Cell>
+    <Cell ss:StyleID="s112"><Data ss:Type="String">not(exists(f:concept) or exists(f:filter)) or exists(f:system)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s111"><Data ss:Type="Number">3</Data><NamedCell
