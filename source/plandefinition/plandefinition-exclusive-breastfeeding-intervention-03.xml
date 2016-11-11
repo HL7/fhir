@@ -38,6 +38,7 @@
       <eventName value="Transfer to Post-Partum"/>
     </triggerDefinition>
     <condition>
+      <kind value="applicability"/>
       <expression value="Should Notify Nurse to Perform Assessment"/>
     </condition>
     <actionDefinition>

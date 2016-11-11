@@ -124,6 +124,7 @@
     <label value="SCRN"/>
     <description value="Screen"/>
     <condition>
+      <kind value="applicability"/>
       <description value="Informed Consent"/>
     </condition>
     <!--exit>
@@ -146,6 +147,7 @@
     <label value="SBRI"/>
     <description value="Single Blind Run-In"/>
     <condition>
+      <kind value="applicability"/>
       <description value="Initial Single Blind Placebo dose"/>
     </condition>
     <timingDuration>
@@ -170,6 +172,7 @@
     <label value="DOSE 1"/>
     <description value="Administer 0.5mg [Drug A] QD"/>
     <condition>
+      <kind value="applicability"/>
       <description value="First dose of treatment where total drug dose of [Drug A] per day is 0.5 mg."/>
     </condition>
     <timingDuration>
@@ -194,6 +197,7 @@
     <label value="FLWUP"/>
     <description value="Follow-Up"/>
     <condition>
+      <kind value="applicability"/>
       <description value="Last dose of treatment"/>
     </condition>
     <!--exit>
@@ -213,6 +217,7 @@
     <label value="SCRN"/>
     <description value="Screen"/>
     <condition>
+      <kind value="applicability"/>
       <description value="Informed Consent"/>
     </condition>
     <!--exit>
@@ -235,6 +240,7 @@
     <label value="SBRI"/>
     <description value="Single Blind Run-In"/>
     <condition>
+      <kind value="applicability"/>
       <description value="First dose of Single Blind Placebo"/>
     </condition>
     <timingDuration>
@@ -259,6 +265,7 @@
     <label value="1.0 mg Dose"/>
     <description value="Administer 1.0 mg [Drug A] QD"/>
     <condition>
+      <kind value="applicability"/>
       <description value="Intial dose of treatment where total drug dose of [Drug A] per day is 1.0 mg."/>
     </condition>
     <timingDuration>
@@ -283,6 +290,7 @@
     <label value="FLWUP"/>
     <description value="Follow-Up"/>
     <condition>
+      <kind value="applicability"/>
       <description value="Last dose of treatment"/>
     </condition>
     <!--exit>
@@ -295,6 +303,7 @@
     </extension>
     <label value="VISIT 1"/>
     <condition>
+      <kind value="applicability"/>
       <description value="Screening"/>
     </condition>
     <activityDefinition>
@@ -307,6 +316,7 @@
     </extension>
     <label value="VISIT 2"/>
     <condition>
+	  <kind value="applicability"/>
       <description value="single-blind placebo start"/>
     </condition>
     <activityDefinition>
@@ -319,6 +329,7 @@
     </extension>
     <label value="VISIT 3"/>
     <condition>
+	  <kind value="applicability"/>
       <description value="Treatment start"/>
     </condition>
     <activityDefinition>
@@ -331,6 +342,7 @@
     </extension>
     <label value="VISIT 4"/>
     <condition>
+	  <kind value="applicability"/>
       <description value="5 weeks after treatment start"/>
     </condition>
     <activityDefinition>
@@ -343,6 +355,7 @@
     </extension>
     <label value="VISIT 5"/>
     <condition>
+	  <kind value="applicability"/>
       <description value="10 weeks after treatment start"/>
     </condition>
     <activityDefinition>
@@ -355,6 +368,7 @@
     </extension>
     <label value="VISIT 6"/>
     <condition>
+	  <kind value="applicability"/>
       <description value="15 weeks after treatment start"/>
     </condition>
     <activityDefinition>
@@ -367,6 +381,7 @@
     </extension>
     <label value="VISIT 7"/>
     <condition>
+	  <kind value="applicability"/>
       <description value="20 weeks after treatment start"/>
     </condition>
     <activityDefinition>
@@ -379,6 +394,7 @@
     </extension>
     <label value="VISIT 8"/>
     <condition>
+	  <kind value="applicability"/>
       <description value="25 weeks after treatment start"/>
     </condition>
     <activityDefinition>
@@ -391,6 +407,7 @@
     </extension>
     <label value="VISIT 9"/>
     <condition>
+	  <kind value="applicability"/>
       <description value="30 weeks after treatment start"/>
     </condition>
     <activityDefinition>
@@ -403,6 +420,7 @@
     </extension>
     <label value="VISIT 10"/>
     <condition>
+	  <kind value="applicability"/>
       <description value="start of follow-up"/>
     </condition>
     <activityDefinition>
