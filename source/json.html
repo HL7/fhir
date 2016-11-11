@@ -89,9 +89,7 @@ The JSON format is similar to the XML format:
  <li>The order of properties of an object is not significant in the JSON representation, though order within an array SHALL be maintained</li>
  <li>JSON does not have a notion of attributes versus elements, so attributes (e.g. <code>id</code>, <code>value</code>) are handled differently (see below)</li>
  <li>JSON has the array notation, which is used to represent repeating elements. Note that arrays are used when the item might repeat, even if it does not repeat in a specific instance</li>
-<li>The XHTML <code>&lt;div&gt;</code> element in the <a href="narrative.html">Narrative</a> datatype is represented as a single escaped string of XHTML. This is to avoid problems in JSON with mixed content, etc. The XHTML SHALL still conform to the rules described for <a href="narrative.html">the Narrative</a></li>
- <li>There is no inherent support in JSON for a comment syntax. As a convention, content that would be comments in an XML representation is represented in a property with the name <code>fhir_comments</code>, which is an array of strings, which can appear on any JSON object.
-  This is heavily used in example instances, e.g. in this specification, but not usually used in production systems (and production systems may choose to reject resources with comments in them)</li>
+ <li>The XHTML <code>&lt;div&gt;</code> element in the <a href="narrative.html">Narrative</a> datatype is represented as a single escaped string of XHTML. This is to avoid problems in JSON with mixed content, etc. The XHTML SHALL still conform to the rules described for <a href="narrative.html">the Narrative</a></li>
 </ul>
 
 <p>
@@ -146,7 +144,7 @@ FHIR elements with primitive data types are represented in two parts:
 </p>
 <ul>
  <li>A JSON property with the name of the element, which has a JSON type of number, boolean, or string</li>
- <li>a JSON property with <code>_</code> prepended to the name of the element, which, if present, contains the value's id and/or extensions (and comments, if there are any)</li>
+ <li>a JSON property with <code>_</code> prepended to the name of the element, which, if present, contains the value's id and/or extensions</li>
 </ul>
 <p>
 The FHIR types <a href="datatypes.html#integer">integer</a> and <a href="datatypes.html#decimal">decimal</a> are represented as a JSON number, the FHIR type <a href="datatypes.html#boolean">boolean</a>
@@ -334,7 +332,6 @@ JSON:
  <li>No whitespace other than single spaces in property values and in the xhtml in the <a href="narrative.html">Narrative</a></li>
  <li>Order properties alphabetically</li>
  <li>Omit all properties that have a default value, if a default value is defined</li>
- <li>Omit all comments (<code>fhir_comments</code> property as defined above)</li>
 </ul>
 <p>
 This canonicalization method is identified by the URL <code>http://hl7.org/fhir/canonicalization/json</code>. The
