@@ -251,6 +251,7 @@
  -- Row 25 -----------------------------------
   Element = Measure.disclaimer
   Card. = 0..1
+  Summary = Y
   Type = markdown
   Short Name = Disclaimer for the measure
   Definition = A disclaimer for the use of the measure
@@ -258,6 +259,7 @@
  -- Row 26 -----------------------------------
   Element = Measure.scoring
   Card. = 0..1
+  Summary = Y
   Type = code
   Binding = MeasureScoring
   Short Name = proportion | ratio | continuous-variable | cohort
@@ -266,6 +268,7 @@
  -- Row 27 -----------------------------------
   Element = Measure.type
   Card. = 0..*
+  Summary = Y
   Type = code
   Binding = MeasureType
   Short Name = process | outcome
@@ -274,6 +277,7 @@
  -- Row 28 -----------------------------------
   Element = Measure.riskAdjustment
   Card. = 0..1
+  Summary = Y
   Type = string
   Short Name = How is risk adjustment applied for this measure
   Definition = A description of the risk adjustment factors that may impact the resulting score for the measure and how they may be accounted for when computing and reporting measure results
@@ -281,6 +285,7 @@
  -- Row 29 -----------------------------------
   Element = Measure.rateAggregation
   Card. = 0..1
+  Summary = Y
   Type = string
   Short Name = How is rate aggregation performed for this measure
   Definition = A description of the rate aggregation for the measure
@@ -288,6 +293,7 @@
  -- Row 30 -----------------------------------
   Element = Measure.rationale
   Card. = 0..1
+  Summary = Y
   Type = markdown
   Short Name = Why does this measure exist
   Definition = The rationale for the measure
@@ -295,6 +301,7 @@
  -- Row 31 -----------------------------------
   Element = Measure.clinicalRecommendationStatement
   Card. = 0..1
+  Summary = Y
   Type = markdown
   Short Name = Clinical recommendation
   Definition = The clinical recommendation statement for the measure
@@ -302,6 +309,7 @@
  -- Row 32 -----------------------------------
   Element = Measure.improvementNotation
   Card. = 0..1
+  Summary = Y
   Type = string
   Short Name = Improvement notation for the measure, e.g. higher score indicates better quality
   Definition = Improvement notation for the measure, e.g. higher score indicates better quality
@@ -309,6 +317,7 @@
  -- Row 33 -----------------------------------
   Element = Measure.definition
   Card. = 0..1
+  Summary = Y
   Type = markdown
   Short Name = A natural language definition of the measure
   Definition = A narrative description of the complete measure calculation
@@ -316,6 +325,7 @@
  -- Row 34 -----------------------------------
   Element = Measure.guidance
   Card. = 0..1
+  Summary = Y
   Type = markdown
   Short Name = The guidance for the measure
   Definition = Additional guidance for the measure including how it can be used in a clinical context, and the intent of the measure
@@ -323,6 +333,7 @@
  -- Row 35 -----------------------------------
   Element = Measure.set
   Card. = 0..1
+  Summary = Y
   Type = string
   Short Name = The measure set, e.g. Preventive Care and Screening
   Definition = The measure set, e.g. Preventive Care and Screening
@@ -367,7 +378,7 @@
   Card. = 1..1
   Type = code
   Binding = MeasurePopulationType
-  Short Name = initial-population | numerator | numerator-exclusion | denominator | denominator-exclusion | denominator-exception | measure-population | measure-population-exclusion | measure-score
+  Short Name = initial-population | numerator | numerator-exclusion | denominator | denominator-exclusion | denominator-exception | measure-population | measure-population-exclusion | measure-observation
   Definition = The type of population criteria
 
  -- Row 42 -----------------------------------
