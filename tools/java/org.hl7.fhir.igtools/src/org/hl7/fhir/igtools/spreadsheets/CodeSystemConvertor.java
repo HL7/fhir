@@ -70,7 +70,8 @@ public class CodeSystemConvertor {
       cs.addUseContext(cc);
     cs.setPurpose(vs.getPurpose());
     cs.setCopyright(vs.getCopyright());
-    cs.setValueSet(vs.getUrl());    
+    cs.setValueSet(vs.getUrl());  
+    vs.setImmutable(true);
   }
 
 }

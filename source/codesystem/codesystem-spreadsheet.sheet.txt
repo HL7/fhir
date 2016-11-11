@@ -215,6 +215,7 @@
   Type = uri
   Short Name = Canonical URL for value set with entire code system
   Definition = Canonical URL of value set that contains the entire code system
+  Comments = Thedefinition of the value set SHALL include all codes from this code system, and it SHALL be immutable
 
  -- Row 19 -----------------------------------
   Element = CodeSystem.hierarchyMeaning
