@@ -41,6 +41,7 @@ The following logical interactions are defined:
   <tr><td><a href="#read">read</a></td><td>Read the current state of the resource</td></tr>
   <tr><td><a href="#vread">vread</a></td><td>Read the state of a specific version of the resource</td></tr>
   <tr><td><a href="#update">update</a></td><td>Update an existing resource by its id (or create it if it is new)</td></tr>
+  <tr><td><a href="#patch">patch</a></td><td>Update an existing resource by posting a set of changes to it</td></tr>
   <tr><td><a href="#delete">delete</a></td><td>Delete a resource</td></tr>
   <tr><td><a href="#history">history</a></td><td>Retrieve the change history for a particular resource</td></tr>
   <tr><td colspan="2"><b>Type Level Interactions</b></td></tr>
@@ -225,9 +226,9 @@ Servers can return <code>304</code> Not Modified where content is unchanged sinc
 return the full content as normal. This optimisation is relevant in reducing bandwidth for caching purposes and servers are encouraged but
 not required to support this. If servers don't support conditional read, they just return the full content.
 </p>
-<h4>create/update/transaction</h4>
+<h4>create/update/patch/transaction</h4>
 <p>
-These interactions are performed using <code>POST</code>,<code>PUT</code> and <code>POST</code> respectively, and
+These interactions are performed using <code>POST</code>, <code>PUT</code> or <code>PATCH</code>, and
 it may be appropriate for a server to return either only a status
 code, or also return the entire resource that is the outcome of the
 create or update (which may be different to that provided by the
@@ -336,7 +337,7 @@ default timezone.
 The <code>read</code> interaction accesses the current contents of a resource. The interaction
 is performed by an HTTP <code>GET</code> command as shown:
 </p>
-<pre>
+<pre class="http">
   GET [base]/[type]/[id] {?_format=[mime-type]}
 </pre>
 <p>
@@ -357,7 +358,7 @@ contention management when a resource is brought back to life.
 <p>
 In addition, the search parameter <code>_summary</code> can be used when reading a resource:
 </p>
-<pre>
+<pre class="http">
   GET [base]/[type]/[id] {?_summary=text}
 </pre>
 <p>
@@ -411,7 +412,7 @@ The <code>update</code> interaction creates a new current version for an existin
 creates an initial version if no resource already exists for the given id.
 The <code>update</code> interaction is performed by an HTTP <code>PUT</code> command as shown:
 </p>
-<pre>
+<pre class="http">
   PUT [base]/[type]/[id] {?_format=[mime-type]}
 </pre>
 <p>
@@ -432,20 +433,9 @@ A server SHOULD accept the resource as submitted when it accepts the update, and
 content when it is subsequently read. However systems may not be able to do this; see
 the note on <a href="#transactional-integrity">transactional integrity</a> for discussion.
 Also, see <a href="updates.html">Variations between Submitted data and Retrieved data</a> for additional discussion
-around update behavior.
+around update behavior. Note that <code>update</code> genreally updates the whole content of the resource. For partial
+updates, see <a href="#patch"><code>patch</code></a> below.
 </p>
-<blockquote class="dstu-note">
-<a name="dstu"> </a>
-<p>
-<b>DSTU Note:</b>   The update operation updates the entire resource. Servers MAY apply some logic
-and preserve some existing content based where this is known to be appropriate behavior.
-HTTP <code>PATCH</code> functionality is likely to be defined, and feedback from outcomes of implementer
-experimentation is welcome.
-</p>
-<p>
-Provide feedback <a href="http://wiki.hl7.org/index.php?title=FHIR_Specification_Feedback_(DSTU_2)">here</a>.
-</p>
-</blockquote>
 <p>
 If the interaction is successful, the server SHALL return either a <code>200</code> OK HTTP status code if the resource was updated, or a <code>201</code> Created status code if the resource was created,
 with a <code>Last-Modified</code> header, and an <code>ETag</code> header which contains the new <code>versionId</code> of the resource. If the resource was created (i.e. the interaction resulted in a <code>201</code> Created), the server SHOULD
@@ -499,12 +489,13 @@ Any of these errors SHOULD be accompanied by an <a href="operationoutcome.html">
 For additional information on how systems may behave when processing updates, refer to the <a href="updates.html">Variations between Submitted data and Retrieved data</a> page.
 </p>
 
+<a name="cond-update"> </a>
 <h4>Conditional update</h4>
 <p>
 The conditional update interaction allows a client to update an existing resource based on some identification criteria,
 rather than by  <a href="resource.html#meta">logical id</a>. To accomplish this, the client issues a <code>PUT</code> as shown:
 </p>
-<pre>
+<pre class="http">
   PUT [base]/[type]?[search parameters]
 </pre>
 <p>
@@ -575,7 +566,60 @@ Servers can require that clients provide an <code>If-Match</code> header by retu
 status codes when no <code>If-Match</code> header is found.
 </p>
 
-
+<a name="patch"> </a>
+<h3>patch</h3>
+<p>
+As an alternative to updating an entire resource, clients can perform a patch operation.
+This can be useful when a client is seeking to minimise it's bandwidth utilization, or 
+in scenarios where a client has only partial access or support for a resource. The <code>patch</code> 
+interaction is performed by an HTTP <code>PATCH</code> command as shown:
+</p>
+<pre class="http">
+  PATCH [base]/[type]/[id] {?_format=[mime-type]}
+</pre>
+<p>
+The body of a PATCH operation SHALL be either:
+</p>
+<ul>
+ <li>a <a href="http://jsonpatch.com/">JSON Patch</a> document with a content type of <code>application/json-patch+json</code></li>
+ <li>an <a href="http://tools.ietf.org/html/rfc5261">XML Patch</a> document with a content type of <code>application/xml-patch+xml</code></li>
+</ul>
+<p>
+In either case, the server SHALL process it's own copy of the resource in the format indicated, applying 
+the operations specified in the document, following the relevant PATCH specification. When the operations 
+have all been processed, the server processes the resulting document as an <a href="#update"><code>Update</code></a> 
+operation; all the version and error handling etc applies as specified, as does the <a href="#prefer">Prefer Header</a>.
+</p>
+<p>
+Processing PATCH operations may be very version sensitive. For this reason, servers SHALL support 
+conditional PATCH, which works exactly the same as specified for update in <a href="#versionaware">Concurrency Management</a>. 
+Clients SHOULD always consider using version specific PATCH operations so that inappropriate 
+actions are not executed. In addition, servers SHALL support Conditional PATCH, which works 
+exactly as described for <a href="#cond-update">Conditional Update</a>. 
+</p>
+<p>
+The server SHALL ensure that the narrative in a resource is not clinically unsafe after the PATCH operation is performed.
+Exactly how this is defined and can be achieved depends on the context, and how narrative is being maintained, but servers may wish to consider:
+</p>
+<ul>
+ <li>If the existing narrative has a status != <code>generated</code>, the server could reject the PATCH operation</li>
+ <li>The server could regenerate the narrative once the operation has been applied to the data</li>
+ <li>In some limited circumstances, an XML PATCH operation could update the narrative</li>
+ <li>The server could delete the narrative, in the basis that some later process will be able to populate it correctly</li>
+</ul>
+<p>
+Processing XML Patch documents is tricky because of namespace handling. Servers SHALL handle
+namespaces correctly, but note that FHIR resources only contain two XML namespaces, 
+for FHIR (<code>http://hl7.org/fhir</code>) and XHTML (<code>http://www.w3.org/1999/xhtml</code>).
+</p>
+<p>
+For PATCH Examples, see (link todo).
+</p>
+<p>
+Note: There is, as yet, no support for preforming patch operations as part of Batch or Transaction
+Operations. This may be addressed in a future version of the specification.
+</p>
+ 
 <a name="delete"> </a>
 <h3>delete</h3>
 <p>
@@ -626,7 +670,7 @@ to allow version contention management when a resource is brought back to life.
 The conditional delete interaction allows a client to delete an existing resource based on some selection criteria,
 rather than by a specific <a href="resource.html#meta">logical id</a>. To accomplish this, the client issues an HTTP <code>DELETE</code> as shown:
 </p>
-<pre>
+<pre class="http">
   DELETE [base]/[type]/?[search parameters]
 </pre>
 <p>
@@ -658,7 +702,7 @@ The <code>create</code> interaction creates a new resource in a server-assigned 
 wishes to have control over the id of a newly submitted resource, it should use the <a href="#update">update</a>
 interaction instead. The <code>create</code> interaction is performed by an HTTP <code>POST</code> command as shown:
 </p>
-<pre>
+<pre class="http">
   POST [base]/[type] {?_format=[mime-type]}
 </pre>
 <p>
@@ -680,7 +724,7 @@ The server returns a <code>201</code> Created HTTP status code, and SHALL also r
 contains the new <a href="resource.html#metadata">Logical Id</a> and <a href="resource.html#metadata">Version Id</a> of
 the created resource version:
 </p>
-<pre>
+<pre class="http">
   Location: [base]/[type]/[id]/_history/[vid]
 </pre>
 <p>
@@ -715,7 +759,7 @@ The conditional <code>create</code> interaction allows a client to create a new 
 does not already exist on the server. The client defines what equivalence means in this case by supplying
 a FHIR search query using an HL7 defined extension header "<code>If-None-Exist</code>" as shown:
 </p>
-<pre>
+<pre class="http">
   If-None-Exist: [search parameters]
 </pre>
 <p>
@@ -748,7 +792,7 @@ create should return an HTTP <code>412</code> error and an operation outcome.
 <p>
 This interaction searches a set of resources based on some filter criteria. The interaction can be performed by several different HTTP commands.
 </p>
-<pre>
+<pre class="http">
   GET [base]/[type]{?[parameters]{&amp;_format=[mime-type]}}
 </pre>
 <p>
@@ -758,7 +802,7 @@ This searches all resources of a particular type using the criteria represented 
 Because of the way that some user agents and proxies treat <code>GET</code> and <code>POST</code> requests, in addition
 to the get based search method above, servers that support <i>search</i> SHALL also support a <code>POST</code> based search:
 </p>
-<pre>
+<pre class="http">
 POST  [base]/[type]/_search{?[parameters]{&amp;_format=[mime-type]}}
 </pre>
 <p>
@@ -792,7 +836,7 @@ mode</a> of <code>include</code>.
 <p>
 To search a <a href="compartmentdefinition.html">compartment</a>, for either all possible resources or for a particular resource type, respectively:
 </p>
-<pre>
+<pre class="http">
   GET [base]/[Compartment]/[id]/{*?[parameters]{&amp;_format=[mime-type]}}
   GET [base]/[Compartment]/[id]/[type]{?[parameters]{&amp;_format=[mime-type]}}
 </pre>
@@ -809,7 +853,7 @@ or <a href="encounter-operations.html#everything">all record for an encounter</a
 <p>
 Finally, it's possible to search all resources at once:
 </p>
-<pre>
+<pre class="http">
   GET [base]?[parameters]{&amp;_format=[mime-type]}
 </pre>
 <p>
@@ -824,13 +868,13 @@ can be used.
 The <code>capabilities</code> interaction retrieves the server's Capability Statement that defines how it supports resources.
 The interaction is performed by an HTTP <code>GET</code> command as shown:
 </p>
-<pre>
+<pre class="http">
   GET [base]/metadata {?_format=[mime-type]}
 </pre>
 <p>
 In addition, there is another method to get the capability statement, using the HTTP <code>OPTIONS</code> command:
 </p>
-<pre>
+<pre class="http">
   OPTIONS [base] {?_format=[mime-type]}
 </pre>
 <p>
@@ -890,7 +934,7 @@ not expected that every server will implement them.
 <p>
 A <code>batch</code> or <code>transaction</code> interaction is performed by an HTTP <code>POST</code> command as shown:
 </p>
-<pre>
+<pre class="http">
   POST [base] {?_format=[mime-type]}
 </pre>
 <p>
@@ -1442,7 +1486,6 @@ Additional codes that are likely are server errors and various codes associated 
 
 </div>
 
-[%onthispage Interactions#interactions|Paging#paging|hData Information#hdata|Summary#summary%]
 
 [%file newfooter%]
 </body>

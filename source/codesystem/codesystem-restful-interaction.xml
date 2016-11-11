@@ -27,6 +27,11 @@
     <definition value="Update an existing resource by its id (or create it if it is new)."/>
   </concept>
   <concept>
+    <code value="patch"/>
+    <display value="patch"/>
+    <definition value="Update an existing resource by posting a set of changes to it."/>
+  </concept>
+  <concept>
     <code value="delete"/>
     <display value="delete"/>
     <definition value="Delete a resource."/>
