@@ -12,6 +12,8 @@ import org.hl7.fhir.dstu3.model.DateTimeType;
 import org.hl7.fhir.dstu3.model.Identifier;
 import org.hl7.fhir.dstu3.model.Meta;
 import org.hl7.fhir.dstu3.model.UriType;
+import org.hl7.fhir.dstu3.model.ValueSet.ConceptReferenceComponent;
+import org.hl7.fhir.exceptions.FHIRException;
 
 public class CodeSystemUtilities {
 
@@ -81,7 +83,6 @@ public class CodeSystemUtilities {
     return null;
   }
 
-
   public static CodeSystem makeShareable(CodeSystem cs) {
     if (!cs.hasMeta())
       cs.setMeta(new Meta());
@@ -113,4 +114,31 @@ public class CodeSystemUtilities {
         return cs.getIdentifier().getValue().substring(8);
     return null;
   }
+
+  public static boolean isInactive(CodeSystem cs, ConceptDefinitionComponent def) throws FHIRException {
+    for (ConceptPropertyComponent p : def.getProperty()) {
+      if (p.getCode().equals("status") && p.hasValueStringType()) 
+        return "inactive".equals(p.getValueStringType());
+    }
+    return false;
+  }
+  
+  public static boolean isInactive(CodeSystem cs, String code) throws FHIRException {
+    ConceptDefinitionComponent def = findCode(cs.getConcept(), code);
+    if (def == null)
+      return true;
+    return isInactive(cs, def);
+  }
+
+  private static ConceptDefinitionComponent findCode(List<ConceptDefinitionComponent> list, String code) {
+    for (ConceptDefinitionComponent c : list) {
+      if (c.getCode().equals(code))
+        return c;
+      ConceptDefinitionComponent s = findCode(c.getConcept(), code);
+      if (s != null)
+        return s;
+    }
+    return null;
+  }
+
 }

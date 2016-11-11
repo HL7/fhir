@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Nov 9, 2016 16:59+1100 for FHIR v1.7.0
+// Generated on Fri, Nov 11, 2016 15:02+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -246,20 +246,27 @@ public class ValueSet extends MetadataResource {
         protected DateType lockedDate;
 
         /**
+         * Whether inactive codes - codes that are not approved for current use - are in the value set. If inactive = true, inactive codes are to be included in the expansion, if inactive = false, the inactive codes will not be included in the expansion. If absent, the behavior is determined by the implementation, or by the applicable ExpansionProfile (but generally, inactive codes would be expected to be included).
+         */
+        @Child(name = "inactive", type = {BooleanType.class}, order=2, min=0, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="Whether inactive codes are in the value set", formalDefinition="Whether inactive codes - codes that are not approved for current use - are in the value set. If inactive = true, inactive codes are to be included in the expansion, if inactive = false, the inactive codes will not be included in the expansion. If absent, the behavior is determined by the implementation, or by the applicable ExpansionProfile (but generally, inactive codes would be expected to be included)." )
+        protected BooleanType inactive;
+
+        /**
          * Include one or more codes from a code system or other value set(s).
          */
-        @Child(name = "include", type = {}, order=2, min=1, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+        @Child(name = "include", type = {}, order=3, min=1, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
         @Description(shortDefinition="Include one or more codes from a code system or other value set(s)", formalDefinition="Include one or more codes from a code system or other value set(s)." )
         protected List<ConceptSetComponent> include;
 
         /**
          * Exclude one or more codes from the value set based on code system filters and/or other value sets.
          */
-        @Child(name = "exclude", type = {ConceptSetComponent.class}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Child(name = "exclude", type = {ConceptSetComponent.class}, order=4, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Explicitly exclude codes from a code system or other value sets", formalDefinition="Exclude one or more codes from the value set based on code system filters and/or other value sets." )
         protected List<ConceptSetComponent> exclude;
 
-        private static final long serialVersionUID = -337636966L;
+        private static final long serialVersionUID = -765941757L;
 
     /**
      * Constructor
@@ -314,6 +321,51 @@ public class ValueSet extends MetadataResource {
               this.lockedDate = new DateType();
             this.lockedDate.setValue(value);
           }
+          return this;
+        }
+
+        /**
+         * @return {@link #inactive} (Whether inactive codes - codes that are not approved for current use - are in the value set. If inactive = true, inactive codes are to be included in the expansion, if inactive = false, the inactive codes will not be included in the expansion. If absent, the behavior is determined by the implementation, or by the applicable ExpansionProfile (but generally, inactive codes would be expected to be included).). This is the underlying object with id, value and extensions. The accessor "getInactive" gives direct access to the value
+         */
+        public BooleanType getInactiveElement() { 
+          if (this.inactive == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ValueSetComposeComponent.inactive");
+            else if (Configuration.doAutoCreate())
+              this.inactive = new BooleanType(); // bb
+          return this.inactive;
+        }
+
+        public boolean hasInactiveElement() { 
+          return this.inactive != null && !this.inactive.isEmpty();
+        }
+
+        public boolean hasInactive() { 
+          return this.inactive != null && !this.inactive.isEmpty();
+        }
+
+        /**
+         * @param value {@link #inactive} (Whether inactive codes - codes that are not approved for current use - are in the value set. If inactive = true, inactive codes are to be included in the expansion, if inactive = false, the inactive codes will not be included in the expansion. If absent, the behavior is determined by the implementation, or by the applicable ExpansionProfile (but generally, inactive codes would be expected to be included).). This is the underlying object with id, value and extensions. The accessor "getInactive" gives direct access to the value
+         */
+        public ValueSetComposeComponent setInactiveElement(BooleanType value) { 
+          this.inactive = value;
+          return this;
+        }
+
+        /**
+         * @return Whether inactive codes - codes that are not approved for current use - are in the value set. If inactive = true, inactive codes are to be included in the expansion, if inactive = false, the inactive codes will not be included in the expansion. If absent, the behavior is determined by the implementation, or by the applicable ExpansionProfile (but generally, inactive codes would be expected to be included).
+         */
+        public boolean getInactive() { 
+          return this.inactive == null || this.inactive.isEmpty() ? false : this.inactive.getValue();
+        }
+
+        /**
+         * @param value Whether inactive codes - codes that are not approved for current use - are in the value set. If inactive = true, inactive codes are to be included in the expansion, if inactive = false, the inactive codes will not be included in the expansion. If absent, the behavior is determined by the implementation, or by the applicable ExpansionProfile (but generally, inactive codes would be expected to be included).
+         */
+        public ValueSetComposeComponent setInactive(boolean value) { 
+            if (this.inactive == null)
+              this.inactive = new BooleanType();
+            this.inactive.setValue(value);
           return this;
         }
 
@@ -426,6 +478,7 @@ public class ValueSet extends MetadataResource {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("lockedDate", "date", "If a locked date is defined, then the Content Logical Definition must be evaluated using the current version of all referenced code system(s) and value set instances as of the locked date.", 0, java.lang.Integer.MAX_VALUE, lockedDate));
+          childrenList.add(new Property("inactive", "boolean", "Whether inactive codes - codes that are not approved for current use - are in the value set. If inactive = true, inactive codes are to be included in the expansion, if inactive = false, the inactive codes will not be included in the expansion. If absent, the behavior is determined by the implementation, or by the applicable ExpansionProfile (but generally, inactive codes would be expected to be included).", 0, java.lang.Integer.MAX_VALUE, inactive));
           childrenList.add(new Property("include", "", "Include one or more codes from a code system or other value set(s).", 0, java.lang.Integer.MAX_VALUE, include));
           childrenList.add(new Property("exclude", "@ValueSet.compose.include", "Exclude one or more codes from the value set based on code system filters and/or other value sets.", 0, java.lang.Integer.MAX_VALUE, exclude));
         }
@@ -434,6 +487,7 @@ public class ValueSet extends MetadataResource {
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
         case 1391591896: /*lockedDate*/ return this.lockedDate == null ? new Base[0] : new Base[] {this.lockedDate}; // DateType
+        case 24665195: /*inactive*/ return this.inactive == null ? new Base[0] : new Base[] {this.inactive}; // BooleanType
         case 1942574248: /*include*/ return this.include == null ? new Base[0] : this.include.toArray(new Base[this.include.size()]); // ConceptSetComponent
         case -1321148966: /*exclude*/ return this.exclude == null ? new Base[0] : this.exclude.toArray(new Base[this.exclude.size()]); // ConceptSetComponent
         default: return super.getProperty(hash, name, checkValid);
@@ -446,6 +500,9 @@ public class ValueSet extends MetadataResource {
         switch (hash) {
         case 1391591896: // lockedDate
           this.lockedDate = castToDate(value); // DateType
+          break;
+        case 24665195: // inactive
+          this.inactive = castToBoolean(value); // BooleanType
           break;
         case 1942574248: // include
           this.getInclude().add((ConceptSetComponent) value); // ConceptSetComponent
@@ -462,6 +519,8 @@ public class ValueSet extends MetadataResource {
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("lockedDate"))
           this.lockedDate = castToDate(value); // DateType
+        else if (name.equals("inactive"))
+          this.inactive = castToBoolean(value); // BooleanType
         else if (name.equals("include"))
           this.getInclude().add((ConceptSetComponent) value);
         else if (name.equals("exclude"))
@@ -474,6 +533,7 @@ public class ValueSet extends MetadataResource {
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 1391591896: throw new FHIRException("Cannot make property lockedDate as it is not a complex type"); // DateType
+        case 24665195: throw new FHIRException("Cannot make property inactive as it is not a complex type"); // BooleanType
         case 1942574248:  return addInclude(); // ConceptSetComponent
         case -1321148966:  return addExclude(); // ConceptSetComponent
         default: return super.makeProperty(hash, name);
@@ -485,6 +545,9 @@ public class ValueSet extends MetadataResource {
       public Base addChild(String name) throws FHIRException {
         if (name.equals("lockedDate")) {
           throw new FHIRException("Cannot call addChild on a primitive type ValueSet.lockedDate");
+        }
+        else if (name.equals("inactive")) {
+          throw new FHIRException("Cannot call addChild on a primitive type ValueSet.inactive");
         }
         else if (name.equals("include")) {
           return addInclude();
@@ -500,6 +563,7 @@ public class ValueSet extends MetadataResource {
         ValueSetComposeComponent dst = new ValueSetComposeComponent();
         copyValues(dst);
         dst.lockedDate = lockedDate == null ? null : lockedDate.copy();
+        dst.inactive = inactive == null ? null : inactive.copy();
         if (include != null) {
           dst.include = new ArrayList<ConceptSetComponent>();
           for (ConceptSetComponent i : include)
@@ -520,8 +584,8 @@ public class ValueSet extends MetadataResource {
         if (!(other instanceof ValueSetComposeComponent))
           return false;
         ValueSetComposeComponent o = (ValueSetComposeComponent) other;
-        return compareDeep(lockedDate, o.lockedDate, true) && compareDeep(include, o.include, true) && compareDeep(exclude, o.exclude, true)
-          ;
+        return compareDeep(lockedDate, o.lockedDate, true) && compareDeep(inactive, o.inactive, true) && compareDeep(include, o.include, true)
+           && compareDeep(exclude, o.exclude, true);
       }
 
       @Override
@@ -531,12 +595,12 @@ public class ValueSet extends MetadataResource {
         if (!(other instanceof ValueSetComposeComponent))
           return false;
         ValueSetComposeComponent o = (ValueSetComposeComponent) other;
-        return compareValues(lockedDate, o.lockedDate, true);
+        return compareValues(lockedDate, o.lockedDate, true) && compareValues(inactive, o.inactive, true);
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(lockedDate, include, exclude
-          );
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(lockedDate, inactive, include
+          , exclude);
       }
 
   public String fhirType() {
@@ -2706,41 +2770,48 @@ public class ValueSet extends MetadataResource {
         protected BooleanType abstract_;
 
         /**
+         * If the concept is inactive in the code system that defines it. Inactive codes are those that are no longer to be used, but are maintained by the code system for understnading legacy data.
+         */
+        @Child(name = "inactive", type = {BooleanType.class}, order=3, min=0, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="If concept is inactive in the code system", formalDefinition="If the concept is inactive in the code system that defines it. Inactive codes are those that are no longer to be used, but are maintained by the code system for understnading legacy data." )
+        protected BooleanType inactive;
+
+        /**
          * The version of this code system that defined this code and/or display. This should only be used with code systems that do not enforce concept permanence.
          */
-        @Child(name = "version", type = {StringType.class}, order=3, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "version", type = {StringType.class}, order=4, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Version in which this code/display is defined", formalDefinition="The version of this code system that defined this code and/or display. This should only be used with code systems that do not enforce concept permanence." )
         protected StringType version;
 
         /**
          * The code for this item in the expansion hierarchy. If this code is missing the entry in the hierarchy is a place holder (abstract) and does not represent a valid code in the value set.
          */
-        @Child(name = "code", type = {CodeType.class}, order=4, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "code", type = {CodeType.class}, order=5, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Code - if blank, this is not a selectable code", formalDefinition="The code for this item in the expansion hierarchy. If this code is missing the entry in the hierarchy is a place holder (abstract) and does not represent a valid code in the value set." )
         protected CodeType code;
 
         /**
          * The recommended display for this item in the expansion.
          */
-        @Child(name = "display", type = {StringType.class}, order=5, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "display", type = {StringType.class}, order=6, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="User display for the concept", formalDefinition="The recommended display for this item in the expansion." )
         protected StringType display;
 
         /**
          * Additional representations for this item - other languages, aliases, specialized purposes, used for particular purposes, etc. These are relevant when the conditions of the expansion do not fix to a single correct representation.
          */
-        @Child(name = "designation", type = {ConceptReferenceDesignationComponent.class}, order=6, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Child(name = "designation", type = {ConceptReferenceDesignationComponent.class}, order=7, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Additional representations for this item", formalDefinition="Additional representations for this item - other languages, aliases, specialized purposes, used for particular purposes, etc. These are relevant when the conditions of the expansion do not fix to a single correct representation." )
         protected List<ConceptReferenceDesignationComponent> designation;
 
         /**
          * Other codes and entries contained under this entry in the hierarchy.
          */
-        @Child(name = "contains", type = {ValueSetExpansionContainsComponent.class}, order=7, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Child(name = "contains", type = {ValueSetExpansionContainsComponent.class}, order=8, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Codes contained under this entry", formalDefinition="Other codes and entries contained under this entry in the hierarchy." )
         protected List<ValueSetExpansionContainsComponent> contains;
 
-        private static final long serialVersionUID = -1566559207L;
+        private static final long serialVersionUID = 719458860L;
 
     /**
      * Constructor
@@ -2840,6 +2911,51 @@ public class ValueSet extends MetadataResource {
             if (this.abstract_ == null)
               this.abstract_ = new BooleanType();
             this.abstract_.setValue(value);
+          return this;
+        }
+
+        /**
+         * @return {@link #inactive} (If the concept is inactive in the code system that defines it. Inactive codes are those that are no longer to be used, but are maintained by the code system for understnading legacy data.). This is the underlying object with id, value and extensions. The accessor "getInactive" gives direct access to the value
+         */
+        public BooleanType getInactiveElement() { 
+          if (this.inactive == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ValueSetExpansionContainsComponent.inactive");
+            else if (Configuration.doAutoCreate())
+              this.inactive = new BooleanType(); // bb
+          return this.inactive;
+        }
+
+        public boolean hasInactiveElement() { 
+          return this.inactive != null && !this.inactive.isEmpty();
+        }
+
+        public boolean hasInactive() { 
+          return this.inactive != null && !this.inactive.isEmpty();
+        }
+
+        /**
+         * @param value {@link #inactive} (If the concept is inactive in the code system that defines it. Inactive codes are those that are no longer to be used, but are maintained by the code system for understnading legacy data.). This is the underlying object with id, value and extensions. The accessor "getInactive" gives direct access to the value
+         */
+        public ValueSetExpansionContainsComponent setInactiveElement(BooleanType value) { 
+          this.inactive = value;
+          return this;
+        }
+
+        /**
+         * @return If the concept is inactive in the code system that defines it. Inactive codes are those that are no longer to be used, but are maintained by the code system for understnading legacy data.
+         */
+        public boolean getInactive() { 
+          return this.inactive == null || this.inactive.isEmpty() ? false : this.inactive.getValue();
+        }
+
+        /**
+         * @param value If the concept is inactive in the code system that defines it. Inactive codes are those that are no longer to be used, but are maintained by the code system for understnading legacy data.
+         */
+        public ValueSetExpansionContainsComponent setInactive(boolean value) { 
+            if (this.inactive == null)
+              this.inactive = new BooleanType();
+            this.inactive.setValue(value);
           return this;
         }
 
@@ -3100,6 +3216,7 @@ public class ValueSet extends MetadataResource {
           super.listChildren(childrenList);
           childrenList.add(new Property("system", "uri", "An absolute URI which is the code system in which the code for this item in the expansion is defined.", 0, java.lang.Integer.MAX_VALUE, system));
           childrenList.add(new Property("abstract", "boolean", "If true, this entry is included in the expansion for navigational purposes, and the user cannot select the code directly as a proper value.", 0, java.lang.Integer.MAX_VALUE, abstract_));
+          childrenList.add(new Property("inactive", "boolean", "If the concept is inactive in the code system that defines it. Inactive codes are those that are no longer to be used, but are maintained by the code system for understnading legacy data.", 0, java.lang.Integer.MAX_VALUE, inactive));
           childrenList.add(new Property("version", "string", "The version of this code system that defined this code and/or display. This should only be used with code systems that do not enforce concept permanence.", 0, java.lang.Integer.MAX_VALUE, version));
           childrenList.add(new Property("code", "code", "The code for this item in the expansion hierarchy. If this code is missing the entry in the hierarchy is a place holder (abstract) and does not represent a valid code in the value set.", 0, java.lang.Integer.MAX_VALUE, code));
           childrenList.add(new Property("display", "string", "The recommended display for this item in the expansion.", 0, java.lang.Integer.MAX_VALUE, display));
@@ -3112,6 +3229,7 @@ public class ValueSet extends MetadataResource {
         switch (hash) {
         case -887328209: /*system*/ return this.system == null ? new Base[0] : new Base[] {this.system}; // UriType
         case 1732898850: /*abstract*/ return this.abstract_ == null ? new Base[0] : new Base[] {this.abstract_}; // BooleanType
+        case 24665195: /*inactive*/ return this.inactive == null ? new Base[0] : new Base[] {this.inactive}; // BooleanType
         case 351608024: /*version*/ return this.version == null ? new Base[0] : new Base[] {this.version}; // StringType
         case 3059181: /*code*/ return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeType
         case 1671764162: /*display*/ return this.display == null ? new Base[0] : new Base[] {this.display}; // StringType
@@ -3130,6 +3248,9 @@ public class ValueSet extends MetadataResource {
           break;
         case 1732898850: // abstract
           this.abstract_ = castToBoolean(value); // BooleanType
+          break;
+        case 24665195: // inactive
+          this.inactive = castToBoolean(value); // BooleanType
           break;
         case 351608024: // version
           this.version = castToString(value); // StringType
@@ -3157,6 +3278,8 @@ public class ValueSet extends MetadataResource {
           this.system = castToUri(value); // UriType
         else if (name.equals("abstract"))
           this.abstract_ = castToBoolean(value); // BooleanType
+        else if (name.equals("inactive"))
+          this.inactive = castToBoolean(value); // BooleanType
         else if (name.equals("version"))
           this.version = castToString(value); // StringType
         else if (name.equals("code"))
@@ -3176,6 +3299,7 @@ public class ValueSet extends MetadataResource {
         switch (hash) {
         case -887328209: throw new FHIRException("Cannot make property system as it is not a complex type"); // UriType
         case 1732898850: throw new FHIRException("Cannot make property abstract as it is not a complex type"); // BooleanType
+        case 24665195: throw new FHIRException("Cannot make property inactive as it is not a complex type"); // BooleanType
         case 351608024: throw new FHIRException("Cannot make property version as it is not a complex type"); // StringType
         case 3059181: throw new FHIRException("Cannot make property code as it is not a complex type"); // CodeType
         case 1671764162: throw new FHIRException("Cannot make property display as it is not a complex type"); // StringType
@@ -3193,6 +3317,9 @@ public class ValueSet extends MetadataResource {
         }
         else if (name.equals("abstract")) {
           throw new FHIRException("Cannot call addChild on a primitive type ValueSet.abstract");
+        }
+        else if (name.equals("inactive")) {
+          throw new FHIRException("Cannot call addChild on a primitive type ValueSet.inactive");
         }
         else if (name.equals("version")) {
           throw new FHIRException("Cannot call addChild on a primitive type ValueSet.version");
@@ -3218,6 +3345,7 @@ public class ValueSet extends MetadataResource {
         copyValues(dst);
         dst.system = system == null ? null : system.copy();
         dst.abstract_ = abstract_ == null ? null : abstract_.copy();
+        dst.inactive = inactive == null ? null : inactive.copy();
         dst.version = version == null ? null : version.copy();
         dst.code = code == null ? null : code.copy();
         dst.display = display == null ? null : display.copy();
@@ -3241,9 +3369,9 @@ public class ValueSet extends MetadataResource {
         if (!(other instanceof ValueSetExpansionContainsComponent))
           return false;
         ValueSetExpansionContainsComponent o = (ValueSetExpansionContainsComponent) other;
-        return compareDeep(system, o.system, true) && compareDeep(abstract_, o.abstract_, true) && compareDeep(version, o.version, true)
-           && compareDeep(code, o.code, true) && compareDeep(display, o.display, true) && compareDeep(designation, o.designation, true)
-           && compareDeep(contains, o.contains, true);
+        return compareDeep(system, o.system, true) && compareDeep(abstract_, o.abstract_, true) && compareDeep(inactive, o.inactive, true)
+           && compareDeep(version, o.version, true) && compareDeep(code, o.code, true) && compareDeep(display, o.display, true)
+           && compareDeep(designation, o.designation, true) && compareDeep(contains, o.contains, true);
       }
 
       @Override
@@ -3253,13 +3381,14 @@ public class ValueSet extends MetadataResource {
         if (!(other instanceof ValueSetExpansionContainsComponent))
           return false;
         ValueSetExpansionContainsComponent o = (ValueSetExpansionContainsComponent) other;
-        return compareValues(system, o.system, true) && compareValues(abstract_, o.abstract_, true) && compareValues(version, o.version, true)
-           && compareValues(code, o.code, true) && compareValues(display, o.display, true);
+        return compareValues(system, o.system, true) && compareValues(abstract_, o.abstract_, true) && compareValues(inactive, o.inactive, true)
+           && compareValues(version, o.version, true) && compareValues(code, o.code, true) && compareValues(display, o.display, true)
+          ;
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(system, abstract_, version
-          , code, display, designation, contains);
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(system, abstract_, inactive
+          , version, code, display, designation, contains);
       }
 
   public String fhirType() {

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Wed, Nov 9, 2016 16:59+1100 for FHIR v1.7.0
+// Generated on Fri, Nov 11, 2016 15:02+1100 for FHIR v1.7.0
 
 import org.hl7.fhir.dstu3.model.DateType;
 import org.hl7.fhir.dstu3.model.DateTimeType;
@@ -17480,6 +17480,10 @@ public class JsonParser extends JsonParserBase {
       res.setLockedDateElement(parseDate(json.get("lockedDate").getAsString()));
     if (json.has("_lockedDate"))
       parseElementProperties(json.getAsJsonObject("_lockedDate"), res.getLockedDateElement());
+    if (json.has("inactive"))
+      res.setInactiveElement(parseBoolean(json.get("inactive").getAsBoolean()));
+    if (json.has("_inactive"))
+      parseElementProperties(json.getAsJsonObject("_inactive"), res.getInactiveElement());
     if (json.has("include")) {
       JsonArray array = json.getAsJsonArray("include");
       for (int i = 0; i < array.size(); i++) {
@@ -17676,6 +17680,10 @@ public class JsonParser extends JsonParserBase {
       res.setAbstractElement(parseBoolean(json.get("abstract").getAsBoolean()));
     if (json.has("_abstract"))
       parseElementProperties(json.getAsJsonObject("_abstract"), res.getAbstractElement());
+    if (json.has("inactive"))
+      res.setInactiveElement(parseBoolean(json.get("inactive").getAsBoolean()));
+    if (json.has("_inactive"))
+      parseElementProperties(json.getAsJsonObject("_inactive"), res.getInactiveElement());
     if (json.has("version"))
       res.setVersionElement(parseString(json.get("version").getAsString()));
     if (json.has("_version"))
@@ -37781,6 +37789,10 @@ public class JsonParser extends JsonParserBase {
         composeDateCore("lockedDate", element.getLockedDateElement(), false);
         composeDateExtras("lockedDate", element.getLockedDateElement(), false);
       }
+      if (element.hasInactiveElement()) {
+        composeBooleanCore("inactive", element.getInactiveElement(), false);
+        composeBooleanExtras("inactive", element.getInactiveElement(), false);
+      }
       if (element.hasInclude()) {
         openArray("include");
         for (ValueSet.ConceptSetComponent e : element.getInclude()) 
@@ -37988,6 +38000,10 @@ public class JsonParser extends JsonParserBase {
       if (element.hasAbstractElement()) {
         composeBooleanCore("abstract", element.getAbstractElement(), false);
         composeBooleanExtras("abstract", element.getAbstractElement(), false);
+      }
+      if (element.hasInactiveElement()) {
+        composeBooleanCore("inactive", element.getInactiveElement(), false);
+        composeBooleanExtras("inactive", element.getInactiveElement(), false);
       }
       if (element.hasVersionElement()) {
         composeStringCore("version", element.getVersionElement(), false);

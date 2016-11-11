@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Wed, Nov 9, 2016 16:59+1100 for FHIR v1.7.0
+// Generated on Fri, Nov 11, 2016 15:02+1100 for FHIR v1.7.0
 
 import org.hl7.fhir.dstu3.model.DateType;
 import org.hl7.fhir.dstu3.model.DateTimeType;
@@ -16033,6 +16033,8 @@ public class XmlParser extends XmlParserBase {
   protected boolean parseValueSetValueSetComposeComponentContent(int eventType, XmlPullParser xpp, ValueSet owner, ValueSet.ValueSetComposeComponent res) throws XmlPullParserException, IOException, FHIRFormatError {
       if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("lockedDate")) {
         res.setLockedDateElement(parseDate(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("inactive")) {
+        res.setInactiveElement(parseBoolean(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("include")) {
         res.getInclude().add(parseValueSetConceptSetComponent(xpp, owner));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("exclude")) {
@@ -16232,6 +16234,8 @@ public class XmlParser extends XmlParserBase {
         res.setSystemElement(parseUri(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("abstract")) {
         res.setAbstractElement(parseBoolean(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("inactive")) {
+        res.setInactiveElement(parseBoolean(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("version")) {
         res.setVersionElement(parseString(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("code")) {
@@ -33848,6 +33852,9 @@ public class XmlParser extends XmlParserBase {
       if (element.hasLockedDateElement()) {
         composeDate("lockedDate", element.getLockedDateElement());
       }
+      if (element.hasInactiveElement()) {
+        composeBoolean("inactive", element.getInactiveElement());
+      }
       if (element.hasInclude()) { 
         for (ValueSet.ConceptSetComponent e : element.getInclude()) 
           composeValueSetConceptSetComponent("include", e);
@@ -34029,6 +34036,9 @@ public class XmlParser extends XmlParserBase {
       }
       if (element.hasAbstractElement()) {
         composeBoolean("abstract", element.getAbstractElement());
+      }
+      if (element.hasInactiveElement()) {
+        composeBoolean("inactive", element.getInactiveElement());
       }
       if (element.hasVersionElement()) {
         composeString("version", element.getVersionElement());

@@ -481,6 +481,15 @@
   Default Value = false
 
  -- Row 50 -----------------------------------
+  Element = ValueSet.expansion.contains.inactive
+  Card. = 0..1
+  Type = boolean
+  Short Name = If concept is inactive in the code system
+  Definition = If the concept is inactive in the code system that defines it. Inactive codes are those that are no longer to be used, but are maintained by the code system for understnading legacy data
+  Comments = This shoulld only have a value if the concept is inactive
+  Default Value = False
+
+ -- Row 51 -----------------------------------
   Element = ValueSet.expansion.contains.version
   Card. = 0..1
   Type = string
@@ -488,7 +497,7 @@
   Definition = The version of this code system that defined this code and/or display. This should only be used with code systems that do not enforce concept permanence
   Comments = The exact value of the version string is specified by the system from which the code is derived
 
- -- Row 51 -----------------------------------
+ -- Row 52 -----------------------------------
   Element = ValueSet.expansion.contains.code
   Card. = 0..1
   Inv. = 6
@@ -497,7 +506,7 @@
   Short Name = Code - if blank, this is not a selectable code
   Definition = The code for this item in the expansion hierarchy. If this code is missing the entry in the hierarchy is a place holder (abstract) and does not represent a valid code in the value set
 
- -- Row 52 -----------------------------------
+ -- Row 53 -----------------------------------
   Element = ValueSet.expansion.contains.display
   Card. = 0..1
   Inv. = 6
@@ -505,7 +514,7 @@
   Short Name = User display for the concept
   Definition = The recommended display for this item in the expansion
 
- -- Row 53 -----------------------------------
+ -- Row 54 -----------------------------------
   Element = ValueSet.expansion.contains.designation
   Card. = 0..*
   Type = @ValueSet.compose.include.concept.designation
@@ -513,7 +522,7 @@
   Definition = Additional representations for this item - other languages, aliases, specialized purposes, used for particular purposes, etc. These are relevant when the conditions of the expansion do not fix to a single correct representation
   Comments = The designations provided must be based on the value set and code system definitions
 
- -- Row 54 -----------------------------------
+ -- Row 55 -----------------------------------
   Element = ValueSet.expansion.contains.contains
   Card. = 0..*
   Type = @ValueSet.expansion.contains

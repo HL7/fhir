@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Wed, Nov 9, 2016 16:59+1100 for FHIR v1.7.0
+// Generated on Fri, Nov 11, 2016 15:02+1100 for FHIR v1.7.0
 
 import org.hl7.fhir.dstu3.model.DateType;
 import org.hl7.fhir.dstu3.model.DateTimeType;
@@ -11843,6 +11843,8 @@ public class RdfParser extends RdfParserBase {
     composeBackboneElement(t, "compose", name, element, index);
     if (element.hasLockedDateElement())
       composeDate(t, "ValueSet", "lockedDate", element.getLockedDateElement(), -1);
+    if (element.hasInactiveElement())
+      composeBoolean(t, "ValueSet", "inactive", element.getInactiveElement(), -1);
     for (int i = 0; i < element.getInclude().size(); i++)
       composeValueSetConceptSetComponent(t, "ValueSet", "include", element.getInclude().get(i), i);
     for (int i = 0; i < element.getExclude().size(); i++)
@@ -11979,6 +11981,8 @@ public class RdfParser extends RdfParserBase {
       composeUri(t, "ValueSet", "system", element.getSystemElement(), -1);
     if (element.hasAbstractElement())
       composeBoolean(t, "ValueSet", "abstract", element.getAbstractElement(), -1);
+    if (element.hasInactiveElement())
+      composeBoolean(t, "ValueSet", "inactive", element.getInactiveElement(), -1);
     if (element.hasVersionElement())
       composeString(t, "ValueSet", "version", element.getVersionElement(), -1);
     if (element.hasCodeElement())

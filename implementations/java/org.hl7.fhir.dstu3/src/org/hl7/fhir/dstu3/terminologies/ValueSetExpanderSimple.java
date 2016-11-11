@@ -65,6 +65,7 @@ import org.hl7.fhir.dstu3.model.ValueSet.ValueSetExpansionComponent;
 import org.hl7.fhir.dstu3.model.ValueSet.ValueSetExpansionContainsComponent;
 import org.hl7.fhir.dstu3.model.ValueSet.ValueSetExpansionParameterComponent;
 import org.hl7.fhir.dstu3.utils.ToolingExtensions;
+import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.exceptions.NoTerminologyServiceException;
 import org.hl7.fhir.exceptions.TerminologyServiceException;
 import org.hl7.fhir.utilities.Utilities;
@@ -95,7 +96,7 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
 	}
 
 
-  private ValueSetExpansionContainsComponent addCode(String system, String code, String display, ValueSetExpansionContainsComponent parent, List<ConceptDefinitionDesignationComponent> designations, ExpansionProfile profile, boolean isAbstract, List<ValueSet> filters) {
+  private ValueSetExpansionContainsComponent addCode(String system, String code, String display, ValueSetExpansionContainsComponent parent, List<ConceptDefinitionDesignationComponent> designations, ExpansionProfile profile, boolean isAbstract, boolean inactive, List<ValueSet> filters) {
     if (filters != null && !filters.isEmpty() && !filterContainsCode(filters, system, code))
       return null;
     ValueSetExpansionContainsComponent n = new ValueSet.ValueSetExpansionContainsComponent();
@@ -103,6 +104,8 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
 		n.setCode(code);
     if (isAbstract) 
       n.setAbstract(true);
+    if (inactive)
+      n.setInactive(true);
     
     if (profile.getIncludeDesignations() && designations != null) {
       for (ConceptDefinitionDesignationComponent t : designations) {
@@ -157,12 +160,13 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
     return null;
   }
 
-  private void addCodeAndDescendents(CodeSystem cs, String system, ConceptDefinitionComponent def, ValueSetExpansionContainsComponent parent, ExpansionProfile profile, List<ValueSet> filters) {
+  private void addCodeAndDescendents(CodeSystem cs, String system, ConceptDefinitionComponent def, ValueSetExpansionContainsComponent parent, ExpansionProfile profile, List<ValueSet> filters) throws FHIRException {
 		if (!CodeSystemUtilities.isDeprecated(cs, def)) {
 		  ValueSetExpansionContainsComponent np = null;
       boolean abs = CodeSystemUtilities.isAbstract(cs, def);
+      boolean inc = CodeSystemUtilities.isInactive(cs, def);      
       if (canBeHeirarchy || !abs)
-        np = addCode(system, def.getCode(), def.getDisplay(), parent, def.getDesignation(), profile, abs, filters);
+        np = addCode(system, def.getCode(), def.getDisplay(), parent, def.getDesignation(), profile, abs, inc, filters);
       for (ConceptDefinitionComponent c : def.getConcept())
         addCodeAndDescendents(cs, system, c, np, profile, filters);
 		} else
@@ -310,7 +314,7 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
 		return null;
 	}
 
-  private void handleCompose(ValueSetComposeComponent compose, List<ValueSetExpansionParameterComponent> params, ExpansionProfile profile) throws TerminologyServiceException, ETooCostly, FileNotFoundException, IOException, NoTerminologyServiceException {
+  private void handleCompose(ValueSetComposeComponent compose, List<ValueSetExpansionParameterComponent> params, ExpansionProfile profile) throws ETooCostly, FileNotFoundException, IOException, FHIRException {
 		// Exclude comes first because we build up a map of things to exclude
 		for (ConceptSetComponent inc : compose.getExclude())
 			excludeCodes(inc, params);
@@ -350,12 +354,12 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
 
   private void copyImportContains(List<ValueSetExpansionContainsComponent> list, ValueSetExpansionContainsComponent parent, ExpansionProfile profile, List<ValueSet> filter) {
     for (ValueSetExpansionContainsComponent c : list) {
-      ValueSetExpansionContainsComponent np = addCode(c.getSystem(), c.getCode(), c.getDisplay(), parent, null, profile, c.getAbstract(), filter);
+      ValueSetExpansionContainsComponent np = addCode(c.getSystem(), c.getCode(), c.getDisplay(), parent, null, profile, c.getAbstract(), c.getInactive(), filter);
       copyImportContains(c.getContains(), np, profile, filter);
 		}
 	}
 
-  private void includeCodes(ConceptSetComponent inc, List<ValueSetExpansionParameterComponent> params, ExpansionProfile profile) throws ETooCostly, org.hl7.fhir.exceptions.TerminologyServiceException, NoTerminologyServiceException, FileNotFoundException, IOException {
+  private void includeCodes(ConceptSetComponent inc, List<ValueSetExpansionParameterComponent> params, ExpansionProfile profile) throws ETooCostly, FileNotFoundException, IOException, FHIRException {
     List<ValueSet> imports = new ArrayList<ValueSet>();
     for (UriType imp : inc.getValueSet())
       imports.add(importValueSet(imp.getValue(), params, profile));
@@ -395,7 +399,7 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
       if (!inc.getConcept().isEmpty()) {
         canBeHeirarchy = false;
         for (ConceptReferenceComponent c : inc.getConcept()) {
-          addCode(inc.getSystem(), c.getCode(), Utilities.noString(c.getDisplay()) ? getCodeDisplay(cs, c.getCode()) : c.getDisplay(), null, convertDesignations(c.getDesignation()), profile, false, imports);
+          addCode(inc.getSystem(), c.getCode(), Utilities.noString(c.getDisplay()) ? getCodeDisplay(cs, c.getCode()) : c.getDisplay(), null, convertDesignations(c.getDesignation()), profile, false, CodeSystemUtilities.isInactive(cs, c.getCode()), imports);
         }
       }
       if (inc.getFilter().size() > 1) {
@@ -424,7 +428,7 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
           if (def != null) {
             if (isNotBlank(def.getDisplay()) && isNotBlank(fc.getValue())) {
               if (def.getDisplay().contains(fc.getValue())) {
-                addCode(inc.getSystem(), def.getCode(), def.getDisplay(), null, def.getDesignation(), profile, CodeSystemUtilities.isAbstract(cs,  def), imports);
+                addCode(inc.getSystem(), def.getCode(), def.getDisplay(), null, def.getDesignation(), profile, CodeSystemUtilities.isAbstract(cs,  def), CodeSystemUtilities.isInactive(cs, def), imports);
               }
             }
           }
