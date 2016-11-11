@@ -29,6 +29,13 @@
   Definition = The intended usage for supplemental data elements in the measure
   Conformance = required
 
+ -- Row 5 -----------------------------------
+  Binding Name = CompositeMeasureScoring
+  Binding = code list
+  Reference = #composite-measure-scoring
+  Definition = The composite scoring method of the measure
+  Conformance = required
+
 === Sheet measure-population =====================================
 
  -- Row 1 -----------------------------------
@@ -157,6 +164,32 @@
   Display = Risk Adjustment Factor
   Definition = The data is intended to be used to calculate and apply a risk adjustment model for the measure
 
+=== Sheet composite-measure-scoring =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = opportunity
+  Display = Opportunity
+  Definition = Opportunity scoring combines the scores from component measures by combining the numerators and denominators for each component
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = all-or-nothing
+  Display = All-or-nothing
+  Definition = All-or-nothing scoring includes an individual in the numerator of the composite measure if they are in the numerators of all of the component measures in which they are in the denominator
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = linear
+  Display = Linear
+  Definition = Linear scoring gives an individual a score based on the number of numerators in which they appear
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = weighted
+  Display = Weighted
+  Definition = Weighted scoring gives an individual a score based on a weigthed factor for each component numerator in which they appear
+
 === Sheet Invariants =====================================
 
 === Sheet Data Elements =====================================
@@ -284,6 +317,15 @@
   Definition = The measure scoring type, e.g. proportion, CV
 
  -- Row 27 -----------------------------------
+  Element = Measure.compositeScoring
+  Card. = 0..1
+  Summary = Y
+  Type = code
+  Binding = CompositeMeasureScoring
+  Short Name = opportunity | all-or-nothing | linear | weighted
+  Definition = If this is a composite measure, the scoring method used to combine the component measures to determine the composite score
+
+ -- Row 28 -----------------------------------
   Element = Measure.type
   Card. = 0..*
   Summary = Y
@@ -292,7 +334,7 @@
   Short Name = process | outcome | structure | patient-reported | composite
   Definition = The measure type, e.g. process, outcome
 
- -- Row 28 -----------------------------------
+ -- Row 29 -----------------------------------
   Element = Measure.riskAdjustment
   Card. = 0..1
   Summary = Y
@@ -300,7 +342,7 @@
   Short Name = How is risk adjustment applied for this measure
   Definition = A description of the risk adjustment factors that may impact the resulting score for the measure and how they may be accounted for when computing and reporting measure results
 
- -- Row 29 -----------------------------------
+ -- Row 30 -----------------------------------
   Element = Measure.rateAggregation
   Card. = 0..1
   Summary = Y
@@ -308,7 +350,7 @@
   Short Name = How is rate aggregation performed for this measure
   Definition = A description of the rate aggregation for the measure
 
- -- Row 30 -----------------------------------
+ -- Row 31 -----------------------------------
   Element = Measure.rationale
   Card. = 0..1
   Summary = Y
@@ -316,7 +358,7 @@
   Short Name = Why does this measure exist
   Definition = The rationale for the measure
 
- -- Row 31 -----------------------------------
+ -- Row 32 -----------------------------------
   Element = Measure.clinicalRecommendationStatement
   Card. = 0..1
   Summary = Y
@@ -324,7 +366,7 @@
   Short Name = Clinical recommendation
   Definition = The clinical recommendation statement for the measure
 
- -- Row 32 -----------------------------------
+ -- Row 33 -----------------------------------
   Element = Measure.improvementNotation
   Card. = 0..1
   Summary = Y
@@ -332,7 +374,7 @@
   Short Name = Improvement notation for the measure, e.g. higher score indicates better quality
   Definition = Improvement notation for the measure, e.g. higher score indicates better quality
 
- -- Row 33 -----------------------------------
+ -- Row 34 -----------------------------------
   Element = Measure.definition
   Card. = 0..1
   Summary = Y
@@ -340,7 +382,7 @@
   Short Name = A natural language definition of the measure
   Definition = A narrative description of the complete measure calculation
 
- -- Row 34 -----------------------------------
+ -- Row 35 -----------------------------------
   Element = Measure.guidance
   Card. = 0..1
   Summary = Y
@@ -348,7 +390,7 @@
   Short Name = The guidance for the measure
   Definition = Additional guidance for the measure including how it can be used in a clinical context, and the intent of the measure
 
- -- Row 35 -----------------------------------
+ -- Row 36 -----------------------------------
   Element = Measure.set
   Card. = 0..1
   Summary = Y
@@ -356,42 +398,42 @@
   Short Name = The measure set, e.g. Preventive Care and Screening
   Definition = The measure set, e.g. Preventive Care and Screening
 
- -- Row 36 -----------------------------------
+ -- Row 37 -----------------------------------
   Element = Measure.group
   Card. = 0..*
   UML = left
   Short Name = Population criteria group
   Definition = A group of population criteria for the measure
 
- -- Row 37 -----------------------------------
+ -- Row 38 -----------------------------------
   Element = Measure.group.identifier
   Card. = 1..1
   Type = Identifier
   Short Name = Unique identifier
   Definition = A unique identifier for the group. This identifier will used to report data for the group in the measure report
 
- -- Row 38 -----------------------------------
+ -- Row 39 -----------------------------------
   Element = Measure.group.name
   Card. = 0..1
   Type = string
   Short Name = Short name
   Definition = Optional name or short description of this group
 
- -- Row 39 -----------------------------------
+ -- Row 40 -----------------------------------
   Element = Measure.group.description
   Card. = 0..1
   Type = string
   Short Name = Summary description
   Definition = The human readable description of this population group
 
- -- Row 40 -----------------------------------
+ -- Row 41 -----------------------------------
   Element = Measure.group.population
   Card. = 0..*
   UML = up
   Short Name = Population criteria
   Definition = A population criteria for the measure
 
- -- Row 41 -----------------------------------
+ -- Row 42 -----------------------------------
   Element = Measure.group.population.type
   Card. = 1..1
   Type = code
@@ -399,77 +441,77 @@
   Short Name = initial-population | numerator | numerator-exclusion | denominator | denominator-exclusion | denominator-exception | measure-population | measure-population-exclusion | measure-observation
   Definition = The type of population criteria
 
- -- Row 42 -----------------------------------
+ -- Row 43 -----------------------------------
   Element = Measure.group.population.identifier
   Card. = 1..1
   Type = Identifier
   Short Name = Unique identifier
   Definition = A unique identifier for the population criteria. This identifier is used to report data against this criteria within the measure report
 
- -- Row 43 -----------------------------------
+ -- Row 44 -----------------------------------
   Element = Measure.group.population.name
   Card. = 0..1
   Type = string
   Short Name = Short name
   Definition = Optional name or short description of this population
 
- -- Row 44 -----------------------------------
+ -- Row 45 -----------------------------------
   Element = Measure.group.population.description
   Card. = 0..1
   Type = string
   Short Name = The human readable description of this population criteria
   Definition = The human readable description of this population criteria
 
- -- Row 45 -----------------------------------
+ -- Row 46 -----------------------------------
   Element = Measure.group.population.criteria
   Card. = 1..1
   Type = string
   Short Name = The name of a valid referenced CQL expression (may be namespaced) that defines this population criteria
   Definition = The name of a valid referenced CQL expression (may be namespaced) that defines this population criteria
 
- -- Row 46 -----------------------------------
+ -- Row 47 -----------------------------------
   Element = Measure.group.stratifier
   Card. = 0..*
   UML = down
   Short Name = Stratifier criteria for the measure
   Definition = The stratifier criteria for the measure report, specified as either the name of a valid CQL expression defined within a referenced library, or a valid FHIR Resource Path
 
- -- Row 47 -----------------------------------
+ -- Row 48 -----------------------------------
   Element = Measure.group.stratifier.identifier
   Card. = 1..1
   Type = Identifier
   Short Name = The identifier for the stratifier used to coordinate the reported data back to this stratifier
   Definition = The identifier for the stratifier used to coordinate the reported data back to this stratifier
 
- -- Row 48 -----------------------------------
+ -- Row 49 -----------------------------------
   Element = Measure.group.stratifier.criteria
   Card. = 0..1
   Type = string
   Short Name = Stratifier criteria
   Definition = The criteria for the stratifier. This must be the name of an expression defined within a referenced library
 
- -- Row 49 -----------------------------------
+ -- Row 50 -----------------------------------
   Element = Measure.group.stratifier.path
   Card. = 0..1
   Type = string
   Short Name = Path to the stratifier
   Definition = The path to an element that defines the stratifier, specified as a valid FHIR resource path
 
- -- Row 50 -----------------------------------
+ -- Row 51 -----------------------------------
   Element = Measure.supplementalData
   Card. = 0..*
   UML = right
   Short Name = Supplemental data
   Definition = The supplemental data criteria for the measure report, specified as either the name of a valid CQL expression within a referenced library, or a valid FHIR Resource Path
 
- -- Row 51 -----------------------------------
+ -- Row 52 -----------------------------------
   Element = Measure.supplementalData.identifier
   Card. = 1..1
   Type = Identifier
   Short Name = Identifier, unique within the measure
   Definition = An identifier for the supplemental data
 
- -- Row 52 -----------------------------------
+ -- Row 53 -----------------------------------
   Element = Measure.supplementalData.usage
   Card. = 0..*
   Type = code
@@ -477,14 +519,14 @@
   Short Name = supplemental-data | risk-adjustment-factor
   Definition = An indicator of the intended usage for the supplemental data element. Supplemental data indicates the data is additional information requested to augment the measure information. Risk adjustment factor indicates the data is additional information used to calculate risk adjustment factors when applying a risk model to the measure calculation
 
- -- Row 53 -----------------------------------
+ -- Row 54 -----------------------------------
   Element = Measure.supplementalData.criteria
   Card. = 0..1
   Type = string
   Short Name = Supplemental data criteria
   Definition = The criteria for the supplemental data. This must be the name of a valid expression defined within a referenced library, and defines the data to be returned for this element
 
- -- Row 54 -----------------------------------
+ -- Row 55 -----------------------------------
   Element = Measure.supplementalData.path
   Card. = 0..1
   Type = string
