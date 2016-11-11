@@ -59,6 +59,7 @@ Using this format:
  <li>Implementers SHOULD trim leading and trailing whitespace before writing and SHOULD trim leading and trailing whitespace when reading attribute values</li>
  <li>The lock icon (<img alt="??" src="lock.png"/>) denotes that an element defines or is affected by <a href="conformance-rules.html#constraints">additional rules</a> that control its presence and/or content</li>
  <li>XML comments, processing instructions and formatting are not part of the contents of a resource</li>
+ <li>There SHALL be no DTD references in FHIR resources (because of <a href="https://en.wikipedia.org/wiki/XML_external_entity_attack">XXE security exploit</a>)</li>
  <li>XML resources SHALL be exchanged using UTF-8 encoding. Specifying the character encoding using a <code>&lt;?xml encoding="UTF-8" ?&gt;</code> processing instruction is optional but recommended</li>
  <li>Other processing instructions SHOULD not be included, and SHALL NOT be required in order to properly understand and/or present the data or narrative of the resource. 
   Applications MAY preserve processing instructions when handling resources, but are not required to do so</li>
