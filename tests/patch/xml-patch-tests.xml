@@ -1,0 +1,531 @@
+<tests>
+
+  <case name="Missing patch operation">
+    <target>
+      <test/>    
+    </target>
+    <patch xmlns="http://hl7.org/fhir">
+    </patch>
+    <error message="No Patch Operations Found"/>
+  </case>
+  
+  <case name="Missing target document">
+    <target>
+    </target>
+    <patch xmlns="http://hl7.org/fhir">
+      <remove sel="doc/foo"/>
+    </patch>
+    <error message="No Target Document Found"/>
+  </case>
+
+<!-- removal tests -->
+  
+  <case name="Remove Element - simplest">
+    <target>
+      <doc xmlns="http://hl7.org/fhir">
+        <foo>test</foo>
+      </doc>
+    </target>
+    <patch xmlns="http://hl7.org/fhir">
+      <remove sel="f:doc/f:foo"/>
+    </patch>
+    <patched>
+      <doc xmlns="http://hl7.org/fhir"/>
+    </patched>
+  </case>
+  
+  <case name="Remove Element - error">
+    <target>
+      <doc xmlns="http://hl7.org/fhir">
+        <foo>test</foo>
+        <foo>test</foo>
+      </doc>
+    </target>
+    <patch xmlns="http://hl7.org/fhir">
+      <remove sel="f:doc/f:foo"/>
+    </patch>
+    <error message="The xpath foo matched multiple nodes"/>
+  </case>
+  
+  <case name="Remove Element - duplicate 1">
+    <target>
+      <doc xmlns="http://hl7.org/fhir">
+        <foo>test</foo>
+        <foo>test1</foo>
+      </doc>
+    </target>
+    <patch xmlns="http://hl7.org/fhir">
+      <remove sel="f:doc/f:foo[1]"/>
+    </patch>
+    <patched>
+      <doc xmlns="http://hl7.org/fhir">
+        <foo>test1</foo>
+      </doc>
+    </patched>
+  </case>
+  
+  <case name="Remove Element - duplicate 2">
+    <target>
+      <doc xmlns="http://hl7.org/fhir">
+        <foo>test</foo>
+        <foo>test1</foo>
+      </doc>
+    </target>
+    <patch xmlns="http://hl7.org/fhir">
+      <remove sel="f:doc/f:foo[2]"/>
+    </patch>
+    <patched>
+      <doc xmlns="http://hl7.org/fhir">
+        <foo>test</foo>
+      </doc>
+    </patched>
+  </case>
+  
+  <case name="Remove By Attribute - duplicate 1">
+    <target>
+      <doc xmlns="http://hl7.org/fhir">
+        <foo t="1">test</foo>
+        <foo t="2">test1</foo>
+      </doc>
+    </target>
+    <patch xmlns="http://hl7.org/fhir">
+      <remove sel="f:doc/f:foo[@t='1']"/>
+    </patch>
+    <patched>
+      <doc xmlns="http://hl7.org/fhir">
+        <foo t="2">test1</foo>
+      </doc>
+    </patched>
+  </case>
+  
+  <case name="Remove By Attribute - duplicate 2">
+    <target>
+      <doc xmlns="http://hl7.org/fhir">
+        <foo t="1">test</foo>
+        <foo t="2">test1</foo>
+      </doc>
+    </target>
+    <patch xmlns="http://hl7.org/fhir">
+      <remove sel="f:doc/f:foo[@t='2']"/>
+    </patch>
+    <patched>
+      <doc xmlns="http://hl7.org/fhir">
+        <foo t="2">test</foo>
+      </doc>
+    </patched>
+  </case>
+  
+  <case name="Remove Attribute - duplicate 1">
+    <target>
+      <doc xmlns="http://hl7.org/fhir">
+        <foo t="1">test</foo>
+        <foo t="2">test1</foo>
+      </doc>
+    </target>
+    <patch xmlns="http://hl7.org/fhir">
+      <remove sel="f:doc/f:foo[@t='1']/@t"/>
+    </patch>
+    <patched>
+      <doc xmlns="http://hl7.org/fhir">
+        <foo>test</foo>
+        <foo t="2">test1</foo>
+      </doc>
+    </patched>
+  </case>
+  
+  <case name="Remove Text">
+    <target>
+      <doc xmlns="http://hl7.org/fhir">
+        <foo t="1">test</foo>
+        <foo t="2">test1</foo>
+      </doc>
+    </target>
+    <patch xmlns="http://hl7.org/fhir">
+      <remove sel="f:doc/f:foo[@t='2']/text()"/>
+    </patch>
+    <patched>
+      <doc xmlns="http://hl7.org/fhir">
+        <foo t="1">test</foo>
+        <foo t="2"></foo>
+      </doc>
+    </patched>
+  </case>
+
+  <case name="Remove Element - NS1">
+    <target>
+      <doc xmlns="http://hl7.org/fhir">
+        <foo>test</foo>
+      </doc>
+    </target>
+    <patch xmlns="http://hl7.org/fhir">
+      <remove sel="f:doc/f:foo"/>
+    </patch>
+    <patched>
+      <doc xmlns="http://hl7.org/fhir"/>
+    </patched>
+  </case>
+    
+  <case name="Remove Element - NS error">
+    <target>
+      <doc xmlns="http://hl7.org/fhir1">
+        <foo>test</foo>
+      </doc>
+    </target>
+    <patch xmlns="http://hl7.org/fhir">
+      <remove sel="f:doc/f:foo"/>
+    </patch>
+    <error message="Nothing to delete found for xpath foo"/>
+  </case>
+  
+<!-- addition -->  
+  
+  <case name="Add simple case">
+    <target>
+      <doc xmlns="http://hl7.org/fhir"/>
+    </target>
+    <patch xmlns="http://hl7.org/fhir">
+      <add sel="f:doc"><foo id="ert4773">This is a new child</foo></add>
+    </patch>
+    <patched>
+      <doc xmlns="http://hl7.org/fhir">
+        <foo id="ert4773">This is a new child</foo>
+      </doc>
+    </patched>
+  </case>
+  
+  <case name="Add text">
+    <target>
+      <doc xmlns="http://hl7.org/fhir"/>
+    </target>
+    <patch xmlns="http://hl7.org/fhir">
+      <add sel="f:doc">This is new text</add>
+    </patch>
+    <patched>
+      <doc xmlns="http://hl7.org/fhir">This is new text</doc>
+    </patched>
+  </case>
+  
+  <case name="Add attribute">
+    <target>
+      <doc xmlns="http://hl7.org/fhir"/>
+    </target>
+    <patch xmlns="http://hl7.org/fhir">
+      <add sel="f:doc" type="@user">Attribute text</add>
+    </patch>
+    <patched>
+      <doc xmlns="http://hl7.org/fhir" user="Attribute text"/>
+    </patched>
+  </case>
+  
+  <case name="Add other NS">
+    <target>
+      <doc xmlns="http://hl7.org/fhir"/>
+    </target>
+    <patch xmlns="http://hl7.org/fhir">
+      <add sel="f:doc"><div xmlns="http://www.w3.org/1999/xhtml">some html</div></add>
+    </patch>
+    <patched>
+      <doc xmlns="http://hl7.org/fhir"><div xmlns="http://www.w3.org/1999/xhtml">some html</div></doc>
+    </patched>
+  </case>
+  
+<!-- Appendix A -->
+
+
+  <case name="A.1.  Adding an Element">
+    <target>
+      <doc xmlns="http://hl7.org/fhir">
+        <note>This is a sample document</note>
+      </doc>
+    </target>
+    <patch xmlns="http://hl7.org/fhir">
+      <add sel="f:doc"><foo id="ert4773">This is a new child</foo></add>
+    </patch>
+    <patched>
+      <doc xmlns="http://hl7.org/fhir">
+        <note>This is a sample document</note>
+        <foo id="ert4773">This is a new child</foo>
+      </doc>
+    </patched>
+  </case>
+  <case name="A.2.  Adding an Attribute">
+    <target>
+      <doc xmlns="http://hl7.org/fhir">
+        <note>This is a sample document</note>
+        <foo id="ert4773">This is a new child</foo>
+      </doc>
+    </target>
+    <patch xmlns="http://hl7.org/fhir">
+      <add sel="f:doc/f:foo[@id='ert4773']" type="@user">Bob</add>
+    </patch>
+    <patched>
+      <doc xmlns="http://hl7.org/fhir">
+        <note>This is a sample document</note>
+        <foo id="ert4773" user="Bob">This is a new child</foo>
+      </doc>
+    </patched>
+  </case>
+
+  <case name="A.3.  Adding a Prefixed Namespace Declaration">
+    <target>
+      <doc xmlns="http://hl7.org/fhir">
+        <note>This is a sample document</note>
+        <foo id="ert4773">This is a new child</foo>
+      </doc>
+    </target>
+    <patch xmlns="http://hl7.org/fhir">
+       <add sel="f:doc" type="namespace::pref">urn:ns:xxx</add>
+    </patch>
+    <patched>
+      <doc xmlns="http://hl7.org/fhir" xmlns:pref="urn:ns:xxx">
+        <note>This is a sample document</note>
+        <foo id="ert4773">This is a new child</foo>
+      </doc>
+    </patched>
+  </case>
+  <case name="A.4.  Adding a Comment Node with the 'pos' Attribute">
+    <target>
+      <doc xmlns="http://hl7.org/fhir">
+        <note>This is a sample document</note>
+        <foo id="ert4773">This is a new child</foo>
+      </doc>
+    </target>
+    <patch xmlns="http://hl7.org/fhir">
+      <add sel="f:doc/f:foo[@id='ert4773']" pos="before"><!-- comment --></add>
+    </patch>
+    <patched>
+      <doc xmlns="http://hl7.org/fhir">
+        <note>This is a sample document</note>
+        <!-- comment -->
+        <foo id="ert4773">This is a new child</foo>
+      </doc>
+    </patched>
+  </case>
+
+  <case name="A.5.  Adding Multiple Nodes">
+    <target>
+      <doc xmlns="http://hl7.org/fhir">
+        <note>This is a sample document</note>
+      </doc>
+    </target>
+    <patch xmlns="http://hl7.org/fhir">
+      <add sel="f:doc"><foo id="ert4773">This is a new child</foo></add>
+    </patch>
+    <patched>
+      <doc xmlns="http://hl7.org/fhir">
+        <note>This is a sample document</note>
+        <foo id="ert4773">This is a new child</foo>
+      </doc>
+    </patched>
+  </case>
+  
+  <case name="A.6.  Replacing an Element">
+    <target>
+      <doc xmlns="http://hl7.org/fhir">
+        <foo a="1">This is a sample document</foo>
+      </doc>
+    </target>
+    <patch xmlns="http://hl7.org/fhir">
+      <replace sel="f:doc/f:foo[@a='1']"><bar a="2"/></replace>
+    </patch>
+    <patched>
+      <doc xmlns="http://hl7.org/fhir">
+        <bar a="2"/>
+      </doc>
+    </patched>
+  </case>
+  
+  <case name="A.7.  Replacing an Attribute Value">
+    <target>
+      <doc a="test" xmlns="http://hl7.org/fhir">
+       <foo a="1">This is a sample document</foo>
+      </doc>
+    </target>
+    <patch xmlns="http://hl7.org/fhir">
+      <replace sel="f:doc/@a">new value</replace>
+    </patch>
+    <patched>
+      <doc a="new value" xmlns="http://hl7.org/fhir">
+        <foo a="1">This is a sample document</foo>
+      </doc>
+    </patched>
+  </case>
+<!--
+no need for this
+  <case name="A.8.  Replacing a Namespace Declaration URI">
+
+    <target>
+   <doc xmlns:pref="urn:test">
+     <foo a="1">This is a sample document</foo>
+   </doc>
+    </target>
+    <patch xmlns="http://hl7.org/fhir">
+     <replace sel="doc/namespace::pref">urn:new:xxx</replace>
+    </patch>
+    <patched>
+   <doc xmlns:pref="urn:new:xxx">
+     <foo a="1">This is a sample document</foo>
+   </doc>
+    </patched>
+  </case>
+  -->
+  
+  <case name="A.9.  Replacing a Comment Node">
+    <target>
+      <doc xmlns="http://hl7.org/fhir">
+        <foo a="1">This is a sample document</foo>
+        <!-- comment -->
+      </doc>
+    </target>
+    <patch xmlns="http://hl7.org/fhir">
+      <replace sel="f:doc/comment()[1]"><!-- This is the new content --></replace>
+    </patch>
+    <patched>
+      <doc xmlns="http://hl7.org/fhir">
+        <foo a="1">This is a sample document</foo>
+        <!-- This is the new content -->
+      </doc>
+    </patched>
+  </case>
+  <!--
+  <case name="A.10.  Replacing a Processing Instruction Node">
+
+    <target>
+   <doc>
+     <foo a="1">This is a sample document</foo>
+     <?test foo="bar"?>
+   </doc>
+    </target>
+    <patch xmlns="http://hl7.org/fhir">
+     <replace sel='doc/processing-instruction("test")'
+       ><?test bar="foobar"?></replace>
+    </patch>
+    <patched>
+   <doc>
+     <foo a="1">This is a sample document</foo>
+     <?test bar="foobar"?>
+   </doc>
+    </patched>
+  </case>
+-->
+
+  <case name="A.11.  Replacing a Text Node">
+    <target>
+      <doc xmlns="http://hl7.org/fhir">
+        <foo a="1">This is a sample document</foo>
+      </doc>
+    </target>
+    <patch xmlns="http://hl7.org/fhir">
+      <replace sel="f:doc/f:foo/text()[1]">This is the new text content</replace>
+    </patch>
+    <patched>
+      <doc xmlns="http://hl7.org/fhir">
+        <foo a="1">This is the new text content</foo>
+      </doc>
+    </patched>
+  </case>
+
+  <case name="A.12.  Removing an Element">
+    <target>
+      <doc xmlns="http://hl7.org/fhir">
+        <foo a="1">This is a sample document</foo>
+      </doc>
+    </target>
+    <patch xmlns="http://hl7.org/fhir">
+      <remove sel="f:doc/f:foo[@a='1']"/>
+    </patch>
+    <patched>
+      <doc xmlns="http://hl7.org/fhir"/>
+    </patched>
+  </case>
+  
+  <case name="A.13.  Removing an Attribute">
+    <target>
+      <doc xmlns="http://hl7.org/fhir" a="foo">
+        <foo a="1">This is a sample document</foo>
+      </doc>
+    </target>
+    <patch xmlns="http://hl7.org/fhir">
+      <remove sel="f:doc/@a"/>
+    </patch>
+    <patched>
+      <doc xmlns="http://hl7.org/fhir">
+        <foo a="1">This is a sample document</foo>
+      </doc>
+    </patched>
+  </case>
+  
+  <!--
+  <case name="A.14.  Removing a Prefixed Namespace Declaration">
+
+    <target>
+   <doc>
+     <foo a="1" xmlns:pref="urn:test"
+      >This is a sample document</foo>
+     <!-.- comment -.->
+   </doc>
+    </target>
+    <patch xmlns="http://hl7.org/fhir">
+     <remove sel="doc/foo/namespace::pref"/>
+    </patch>
+    <patched>
+   <doc>
+     <foo a="1">This is a sample document</foo>
+     <!-.- comment -.->
+   </doc>
+    </patched>
+  </case>
+  -->
+  <case name="A.15.  Removing a Comment Node">
+    <target>
+      <doc xmlns="http://hl7.org/fhir">
+        <foo a="1">This is a sample document</foo>
+        <!-- comment -->
+      </doc>
+    </target>
+    <patch xmlns="http://hl7.org/fhir">
+      <remove sel="f:doc/comment()[1]"/>
+    </patch>
+    <patched>
+      <doc xmlns="http://hl7.org/fhir">
+        <foo a="1">This is a sample document</foo>
+      </doc>
+    </patched>
+  </case>
+<!--
+  <case name="A.16.  Removing a Processing Instruction Node">
+
+    <target>
+   <doc>
+     <foo a="1">This is a sample document</foo>
+     <?test?>
+   </doc>
+    </target>
+    <patch xmlns="http://hl7.org/fhir">
+     <remove sel='doc/processing-instruction("test")'/>
+    </patch>
+    <patched>
+   <doc>
+     <foo a="1">This is a sample document</foo>
+   </doc>
+    </patched>
+  </case>
+  -->
+  <case name="A.17.  Removing a Text Node">
+    <target>
+      <doc xmlns="http://hl7.org/fhir">
+        <foo a="1">This is a sample document</foo>
+      </doc>
+    </target>
+    <patch xmlns="http://hl7.org/fhir">
+      <remove sel="f:doc/f:foo/text()[1]"/>
+    </patch>
+    <patched>
+      <doc xmlns="http://hl7.org/fhir">
+        <foo a="1"/>
+      </doc>
+    </patched>
+  </case>
+
+  
+</tests>
