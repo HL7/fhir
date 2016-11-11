@@ -125,7 +125,10 @@ URL. This means that if the address of any one FHIR resource on a system
 is known, the address of other resources may be determined.
 </p>
 <p>
-Note: All URLs (and ids that form part of the URL) defined by this specification are case sensitive.</p>
+Note: All URLs (and ids that form part of the URL) defined by this specification are case sensitive.
+Clients SHOULD encode URLs using UTF-8, and servers SHOULD decode them assuming they are UTF-8
+(for background, <a href="http://stackoverflow.com/questions/912811/what-is-the-proper-way-to-url-encode-unicode-characters">see here</a>).
+</p>
 <p>
 Note that a server may use a path of the form <code>http://server/...[xx]...</code> where the <code>[xx]</code> is some variable
 portion that identifies a particular instantiation of the FHIR API. Typically, the variable id

@@ -1,32 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-Message
-  segment : Segment 0..* {1 based}
-  
-Segment
-  code : String
-  element : Field 0..* {1 based}
-  field(n) : Element; // exception if there is repeat
-
-Field
-  id : String // metadata 
-  repeat : Element 0..* {1 based}
-  
-Element
-  component : Component 0..* {1 based}
-  value() : string; // simple field, if there is one
-  
-Component
-  // choice of one or the other
-  text : string;  //todo: xhtml
-  subComponent : Component 0..* {1 based}
-  value() : string; // simple field, if there is one
-  
+<!--  
  
 so, selecting the PID for the MRN:
-1. Message.segment.where(code = 'PID').repeat[3].first.value()
-2. Message.segment[2].field(3).value()
-3. Message.segment.where(code = 'PID').repeat[3].where(component[4].value = 'MR').value()
+Message.segment.where(code = 'PID').field[3].repeat.first.simple()
+Message.segment[2].elements(3).simple()
+Message.segment.where(code = 'PID').field[3].repeat.where(component[4].value = 'MR').simple()
+Message.segment.where(code = 'PID').elements(3).where(component[4].value = 'MR').component[1].text
+
 
 3. Message.SegmentList().Single(x => x.Code == "PID").Element(1).Repeat(3).AsString
 2. Message.Segment(2).Field(3).AsString;
