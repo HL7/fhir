@@ -37,6 +37,7 @@
     
     SNOMED CT does not define displays for expressions; if no display has been associated with the expression
     through a value set or other mechanism, the full expression syntax with preferred terms embedded may be used</td></tr>
+ <tr><td>Inactive</td><td>Inactive codes a identiifed using the 'iactive' property (see below)</td></tr>
  <tr><td>Filter Properties</td><td>Several properties are defined as described below</td></tr>
 </table>
 <p>
@@ -97,8 +98,8 @@ that for this use, expressions SHALL not contain whitespace, terms, or comments.
 In addition to the <a href="terminology-service.html#standard-props">standard properties</a>, the following properties are defined for SNOMED CT:
 </p>
 <table class="grid">
-<tr><td>inactive</td><td>boolean</td><td>Whether the code is active or not (defaults to false)</td></tr>
-<tr><td>sufficientlyDefined"</td><td>boolean</td><td>True if the description logic definition of the concept includes sufficient conditions (i.e., if the concept is not primitive).</td></tr>
+<tr><td>inactive</td><td>boolean</td><td>Whether the code is active or not (defaults to false). This is derived from the active column in the Concept file of the RF2 Distribution (by inverting the value) </td></tr>
+<tr><td>sufficientlyDefined</td><td>boolean</td><td>True if the description logic definition of the concept includes sufficient conditions (i.e., if the concept is not primitive).</td></tr>
 <tr><td>moduleId</td><td>code</td><td>The SNOMED CT concept id of the module that the concept belongs to.</td></tr>
 <tr><td>normalForm</td><td>string</td><td>Generated Normal form expression for the provided code or expression, with terms</td></tr>
 <tr><td>normalFormTerse</td><td>string</td><td>Generated Normal form expression for the provided code or expression, conceptIds only</td></tr>
