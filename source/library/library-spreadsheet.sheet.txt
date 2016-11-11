@@ -164,7 +164,7 @@
 
  -- Row 27 -----------------------------------
   Element = Library.content
-  Card. = 1..1
+  Card. = 0..*
   Type = Attachment
   Short Name = The content of the library
   Definition = The content of the library as an Attachment. The content may be a reference to a url, or may be directly embedded as a base-64 string. Either way, the contentType of the attachment determines how to interpret the content
