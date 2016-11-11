@@ -19,7 +19,7 @@
   Binding Name = MeasureType
   Binding = code list
   Reference = #measure-type
-  Definition = The type of measure
+  Definition = The type of measure (includes codes from 2.16.840.1.113883.1.11.20368)
   Conformance = required
 
  -- Row 4 -----------------------------------
@@ -117,13 +117,31 @@
   Id = 1
   Code = process
   Display = Process
-  Definition = The measure is a process measure
+  Definition = A measure which focuses on a process which leads to a certain outcome, meaning that a scientific basis exists for believing that the process, when executed well, will increase the probability of achieving a desired outcome
 
  -- Row 2 -----------------------------------
   Id = 2
   Code = outcome
   Display = Outcome
-  Definition = The measure is an outcome measure
+  Definition = A measure that indicates the result of the performance (or non-performance) of a function or process
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = structure
+  Display = Structure
+  Definition = A measure that focuses on a health care provider\'s capacity, systems, and processes to provide high-quality care
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = patient-reported-outcome
+  Display = Patient Reported Outcome
+  Definition = A measure that focuses on patient-reported information
+
+ -- Row 5 -----------------------------------
+  Id = 5
+  Code = composite
+  Display = Composite
+  Definition = A measure that combines multiple component measures in to a single quality measure
 
 === Sheet measure-data-usage =====================================
 
@@ -271,7 +289,7 @@
   Summary = Y
   Type = code
   Binding = MeasureType
-  Short Name = process | outcome
+  Short Name = process | outcome | structure | patient-reported | composite
   Definition = The measure type, e.g. process, outcome
 
  -- Row 28 -----------------------------------

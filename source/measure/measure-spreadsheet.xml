@@ -8,9 +8,9 @@
  xmlns:html="http://www.w3.org/TR/REC-html40">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>Grahame Grieve</LastAuthor>
+  <LastAuthor>Bryn</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2016-10-10T06:11:12Z</LastSaved>
+  <LastSaved>2016-11-11T18:39:23Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <CustomDocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
@@ -1744,7 +1744,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">process | outcome</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">process | outcome | structure | patient-reported | composite</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">The measure type, e.g. process, outcome</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -4685,7 +4685,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>40</TopRowBottomPane>
+   <TopRowBottomPane>13</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -4702,8 +4702,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>54</ActiveRow>
-     <ActiveCol>6</ActiveCol>
+     <ActiveRow>27</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -6192,7 +6192,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>16</ActiveRow>
+     <ActiveRow>5</ActiveRow>
      <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
@@ -7344,7 +7344,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s147"><Data ss:Type="String">MeasureType</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">The type of measure</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">The type of measure (includes codes from 2.16.840.1.113883.1.11.20368)</Data></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="String">required</Data></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="String">#measure-type</Data></Cell>
@@ -7780,7 +7780,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>4</ActiveRow>
+     <ActiveRow>3</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -9739,7 +9739,7 @@
     <Cell ss:StyleID="s127"/>
     <Cell ss:StyleID="s151"/>
     <Cell ss:StyleID="s151"><Data ss:Type="String">Process</Data></Cell>
-    <Cell ss:StyleID="s151"><Data ss:Type="String">The measure is a process measure</Data></Cell>
+    <Cell ss:StyleID="s151"><Data ss:Type="String">A measure which focuses on a process which leads to a certain outcome, meaning that a scientific basis exists for believing that the process, when executed well, will increase the probability of achieving a desired outcome</Data></Cell>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s141"/>
@@ -9750,40 +9750,40 @@
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s152"/>
     <Cell ss:StyleID="s152"><Data ss:Type="String">Outcome</Data></Cell>
-    <Cell ss:StyleID="s152"><Data ss:Type="String">The measure is an outcome measure</Data></Cell>
+    <Cell ss:StyleID="s152"><Data ss:Type="String">A measure that indicates the result of the performance (or non-performance) of a function or process</Data></Cell>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s143"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s142"/>
-    <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s142"><Data ss:Type="String">structure</Data></Cell>
+    <Cell ss:StyleID="s131"><Data ss:Type="Number">3</Data></Cell>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s152"/>
-    <Cell ss:StyleID="s152"/>
-    <Cell ss:StyleID="s152"/>
+    <Cell ss:StyleID="s152"><Data ss:Type="String">Structure</Data></Cell>
+    <Cell ss:StyleID="s152"><Data ss:Type="String">A measure that focuses on a health care provider's capacity, systems, and processes to provide high-quality care</Data></Cell>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s143"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s142"/>
-    <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s142"><Data ss:Type="String">patient-reported-outcome</Data></Cell>
+    <Cell ss:StyleID="s131"><Data ss:Type="Number">4</Data></Cell>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s152"/>
-    <Cell ss:StyleID="s152"/>
-    <Cell ss:StyleID="s152"/>
+    <Cell ss:StyleID="s152"><Data ss:Type="String">Patient Reported Outcome</Data></Cell>
+    <Cell ss:StyleID="s152"><Data ss:Type="String">A measure that focuses on patient-reported information</Data></Cell>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s143"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s142"/>
-    <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s142"><Data ss:Type="String">composite</Data></Cell>
+    <Cell ss:StyleID="s131"><Data ss:Type="Number">5</Data></Cell>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s152"/>
-    <Cell ss:StyleID="s152"/>
-    <Cell ss:StyleID="s152"/>
+    <Cell ss:StyleID="s152"><Data ss:Type="String">Composite</Data></Cell>
+    <Cell ss:StyleID="s152"><Data ss:Type="String">A measure that combines multiple component measures in to a single quality measure</Data></Cell>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s143"/>
@@ -10301,7 +10301,7 @@
     <Pane>
      <Number>0</Number>
      <ActiveRow>3</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
