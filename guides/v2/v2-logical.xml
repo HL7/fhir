@@ -1,4 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+Message
+  segment : Segment 0..* {1 based}
+  
+Segment
+  code : String
+  element : Field 0..* {1 based}
+  field(n) : Element; // exception if there is repeat
+
+Field
+  id : String // metadata 
+  repeat : Element 0..* {1 based}
+  
+Element
+  component : Component 0..* {1 based}
+  value() : string; // simple field, if there is one
+  
+Component
+  // choice of one or the other
+  text : string;  //todo: xhtml
+  subComponent : Component 0..* {1 based}
+  value() : string; // simple field, if there is one
+  
+ 
+so, selecting the PID for the MRN:
+1. Message.segment.where(code = 'PID').repeat[3].first.value()
+2. Message.segment[2].field(3).value()
+3. Message.segment.where(code = 'PID').repeat[3].where(component[4].value = 'MR').value()
+
+3. Message.SegmentList().Single(x => x.Code == "PID").Element(1).Repeat(3).AsString
+2. Message.Segment(2).Field(3).AsString;
+3. Message.SegmentList().Single(x => x.Code == "PID").Element(1).Repeat(3).ComponentList.Where(x => x.AsString == "MR");
+
+ 
+-->
 <StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file:///C:/work/org.hl7.fhir/build/schema/fhir-single.xsd">
   <id value="logical"/>
   <url value="http://hl7.org/fhir/v2/StructureDefinition/Message"/>
@@ -62,66 +97,8 @@
       <min value="0"/>
       <max value="*"/>
       <type>
-        <code value="Element"/>
+        <code value="http://hl7.org/fhir/v2/StructureDefinition/Component"/>
       </type>
-    </element>
-    <element id="Message.segment.element.index">
-      <path value="Message.segment.element.index"/>
-      <short value="1 based item index (since items repeat)"/>
-      <definition value="Which item this is in the segment/element/component (since items repeat). Always 1 based"/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="positiveInt"/>
-      </type>
-    </element>
-    <element id="Message.segment.element.content">
-      <path value="Message.segment.element.content"/>
-      <short value="The content in an element repeat"/>
-      <definition value="The content in a cell (element or component)"/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Element"/>
-      </type>
-      <constraint>
-        <key value="v2-cell-choice"/>
-        <severity value="error"/>
-        <human value="Content (component or element) cannot have both a value and components"/>
-        <expression value="(value.exists() and component.exists()).not()"/>
-        <xpath value="n/a"/>
-      </constraint>
-      <constraint>
-        <key value="v2-sub-components"/>
-        <severity value="error"/>
-        <human value="No components on subcomponents"/>
-        <expression value="component.component.component.empty()"/>
-        <xpath value="n/a"/>
-      </constraint>
-    </element>
-    <element id="Message.segment.element.content.value">
-      <path value="Message.segment.element.content.value[x]"/>
-      <short value="the simple value of the element"/>
-      <definition value="The value of the element, if it's simple. Use XHTML if there is escapes, or code for IS &amp; ID (for list, see ...)"/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <type>
-        <code value="code"/>
-      </type>
-      <type>
-        <code value="xhtml"/>
-      </type>
-    </element>
-    <element id="Message.segment.element.content.component">
-      <path value="Message.segment.element.content.component"/>
-      <short value="A component in an element or a component"/>
-      <definition value="A component in an element or a component"/>
-      <min value="0"/>
-      <max value="*"/>
-      <contentReference value="#Message.segment.element.content"/>
     </element>
   </differential>
 </StructureDefinition>
