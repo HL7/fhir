@@ -10,7 +10,7 @@
   <LastAuthor>lloyd</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2016-07-16T23:11:02Z</LastSaved>
-  <Version>16.00</Version>
+  <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -4139,7 +4139,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>26</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>16</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -4153,12 +4153,10 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>29</ActiveRow>
-     <ActiveCol>22</ActiveCol>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -5154,7 +5152,7 @@
     <Cell ss:StyleID="s134"/>
     <Cell ss:StyleID="s121"><Data ss:Type="String">operation</Data></Cell>
     <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"><Data ss:Type="String">Geneate HTML for Questionnaire</Data></Cell>
+    <Cell ss:StyleID="s121"><Data ss:Type="String">Generate HTML for Questionnaire</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="String">Generates an HTML page as a [[[Binary]]] instance  based on a specified [[[Questionnaire]]], filling in answers to questions where possible based on information provided as part of the operation or already known by the server about the subject of the [[[Questionnaire]]].&#10;&#10;If the operation is not called at the instance level, one and only one of the identifier, questionnaire or questionnaireRef 'in' parameters must be provided. If called at the instance level, these parameters will be ignored.&#10;&#10;The response will contain a [[[Binary]]] instance containing an HTML page for filling in and submitting the specified [[[Questionnaire]]] and/or an [[[OperationOutcome]]] resource with errors or warnings.&#10;&#10;The generated HTML form instance will be populated with an unanswered set of questions following the group and question structure of the specified [[[Questionnaire]]].  If  *content* parameters were specified or the *local* parameter was set to true, some of the questions may have answers filled in as well.  In the case of repeating questions or groups, typically only one repetition will be provided unless answer values exist that would support populating multiple repetitions.&#10;&#10;Population of the HTML form with appropriate data is dependent on the questions and/or groups in the [[[Questionnaire]]] having metadata that allows the server to recognize the questions.  This might be through *Questionnaire.group.question.code*, through extensions such as the [[[http://hl7.org/fhir/StructureDefinition/questionnaire-deReference]]] extension or through use of the [[[ConceptMap]]] resource.&#10;&#10;Regardless of the mechanism used to link the questions in a questionnaire to a &quot;known&quot; mappable concept, solutions using this operation should ensure that the details of the question and associated linkage element are sufficiently similar as to safely allow auto-population; i.e. the question text and context must be sufficiently the same, the value set for the question must fall within the value set for the mapped element, the data types must be the same or convertible, etc.</Data></Cell>
     <Cell ss:StyleID="s136"><Data ss:Type="String">While it is theoretically possible for an HTML form to be completely auto-populated and submitted without human review, the intention of this transaction is merely to reduce redundant data entry.  The HTML form **SHOULD** ensure that a human submitter has an opportunity to review the auto-populated answers to confirm correctness as well as to complete or expand on information provided by the auto-population process.&#10;&#10;Complex form designs with conditional logic or tight constraints on cardinalities may be challenging to auto-populate.  A server MAY choose to traverse the questionnaire as if it were a human respondent, answering only those questions that are enabled based on previously answered questions.  However, doing so may result in minimal population.  Alternatively, systems may choose to populate all known answers, independent of dependencies and other constraints.  This may cause questions to be answered that should not be answered.  The generated HTML form is responsible for pruning the final populated questionnaire once human review has taken place.&#10;&#10;Invoking this operation with the ''content'' parameter may involve the disclosure of personally identifiable healthcare information to the system which is performing the population process.  No such disclosures should be made unless the system on which the operation is being invoked is a &quot;trusted&quot; system and appropriate agreements are in place to protect the confidentiality of any information shared with that system.</Data></Cell>
     <Cell><Data ss:Type="String">$populatehtml-request.txt</Data></Cell>
@@ -5603,7 +5601,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>19</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -5616,11 +5614,9 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>24</ActiveRow>
      <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>

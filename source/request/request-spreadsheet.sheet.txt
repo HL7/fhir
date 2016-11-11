@@ -107,7 +107,7 @@
 
  -- Row 2 -----------------------------------
   Element = Request.identifier
-  Card. = 0..1
+  Card. = 0..*
   Summary = Y
   Type = Identifier
   Short Name = Business Identifer for request/order
@@ -315,7 +315,7 @@
 
  -- Row 19 -----------------------------------
   Element = Request.supportingInfo
-  Card. = 0..1
+  Card. = 0..*
   Type = Reference(Any)
   Short Name = Extra information to use in performing request
   Definition = Information that may be needed by/relevant to the performer in their execution of this request

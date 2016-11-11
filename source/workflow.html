@@ -2,7 +2,7 @@
 
 <!--
 These elements SHALL always appear in this order. These basic elements shared by all resources come first
-in order to support consistent definitions for schema and UML derived code. 
+in order to support consistent definitions for schema and UML derived code.
 -->
 
 [%settitle Workflow Description%]
@@ -35,8 +35,8 @@ workflow execution, there's still a need to standardize the data elements relate
 parent steps and child steps get linked together?  How does a care plan identify what protocol it's adhering to?
 </p>
 <p>
-FHIR defines three categories of resources that are involved in activities - <a href="#request">requests</a>, <a href="#event">events</a> and 
-<a href="#definition">definitions</a>.  Each of these different types has a "pattern" associated with that resources that fall into that category are encouraged to adhere to.
+FHIR defines three categories of resources that are involved in activities - <a href="#request">requests</a>, <a href="#event">events</a> and
+<a href="#definition">definitions</a>.  Each of these different types has an associated "pattern" to which  resources that fall into that category are encouraged to adhere.
 These patterns provide standard elements that are typical for most resources of each type.  Strict adherence is not required as work groups are expected to align with
 typical domain behavior and requirements as more authoritative than "desired" architectural patterns.  In some cases, capabilities might be supported with extensions rather than
 core elements where a pattern capability is deemed to be "not common, but still relevant" for a given resource.
@@ -46,13 +46,13 @@ A full description of the patterns and their interrelationships can be found in 
 </p>
 <p><b>Workflow execution</b></p>
 <p>
-In addition to defining patterns for resources used in workflow processes, FHIR supports the execution of those processes as well.  However, FHIR does not define a "one size 
+In addition to defining patterns for resources used in workflow processes, FHIR supports the execution of those processes as well.  However, FHIR does not define a "one size
 fits all" solution for workflow architecture.  FHIR supports a variety of interoperability paradigms and most of them (<a href="http.html">REST</a>,
 <a href="messaging.html">Messaging</a> and <a href="services.html">Services</a> provide support for driving workflow execution.  (The <a href="documents.html">Document</a>
 paradigm does not directly support driving behavior, though it can be combined with one of the other patterns to do so.)  In addition, several of these paradigms allow multiple
 approaches to supporting workflow, depending on the context and needs of the workflow process.
 </p>
-<p>The <a href="#commpatterns">Workflow Communication Patterns</a> section of this page describes a number of options for workflow execution, summarizes their respective pros 
+<p>The <a href="#commpatterns">Workflow Communication Patterns</a> section of this page describes a number of options for workflow execution, summarizes their respective pros
 and cons and makes recommendations for the circumstances in which they might best be used.</p>
 <p><b>Workflow definition</b></p>
 <p>
@@ -209,13 +209,13 @@ summarizes the list of workflow-relevant resources:</p>
   <tbody>
     <tr>
       <td><sup>*</sup></td>
-      <td>The <a href="appointment.html">Appointment</a> and <a href="appointmentresponse.html">AppointmentResponse</a> resources do not follow the same sort of 
+      <td>The <a href="appointment.html">Appointment</a> and <a href="appointmentresponse.html">AppointmentResponse</a> resources do not follow the same sort of
       request/response pattern as the other resources.  Their design is based on iCal conventions, so their model won't reflect the same alignment as most other resources.
       They are included here for completeness.</td>
     </tr>
     <tr>
       <td><sup>&#8224;</sup></td>
-      <td><a href="processrequest.html">ProcessRequest</a> and <a href="processresponse.html">ProcessResponse</a> are candidates for retirement with their function subsumed by 
+      <td><a href="processrequest.html">ProcessRequest</a> and <a href="processresponse.html">ProcessResponse</a> are candidates for retirement with their function subsumed by
       <a href="task.html">Task</a></td>
     </tr>
     <tr>
@@ -226,7 +226,7 @@ summarizes the list of workflow-relevant resources:</p>
 </table>
 
 <p>
-Note that requests, events and definitions don't exist in a 1:1:1 relationship.  Some requests and events have obvious pairings.  For example, a 
+Note that requests, events and definitions don't exist in a 1:1:1 relationship.  Some requests and events have obvious pairings.  For example, a
 <a href="supplyrequest.html">SupplyRequest</a> will generally always pair with a <a href="supplydelivery.html">SupplyDelivery</a>.  The same goes for
 <a href="enrollmentrequest.html">EnrollmentRequest</a>/<a href="enrollmentresponse.html">EnrollmentResponse</a>, etc.  On the other hand, for other resources
 there isn't a strict pairing.  A <a href="referralrequest.html">ReferralRequest</a> might be responded to by an <a href="encounter.html">Encounter</a>,
@@ -252,7 +252,7 @@ Specifically:
   <li>definitions and requests can both replace prior versions of the same type of artifact</li>
 </ul>
 <p>
-This list of relationships is not exhaustive, but covers those that are "standardized" as part of the patterns.  Further description and guidance on these relationships can 
+This list of relationships is not exhaustive, but covers those that are "standardized" as part of the patterns.  Further description and guidance on these relationships can
 be found in the <a href="request.html">Request</a>, <a href="event.html">Event</a> and <a href="definition.html">Definition</a> logical models.
 </p>
 
@@ -262,12 +262,27 @@ be found in the <a href="request.html">Request</a>, <a href="event.html">Event</
 Requests are resources that represent the proposal, plan or order for an activity to occur.  A <a href="request.html">Request</a> pattern defines the common elements typically
 present on all request resources.
 </p>
+<p>
+The amount of information needed for a Request to be actionable can vary by circumstance.  Some request instances may not be "fully specified" - additional information from
+protocol, patient preference and/or professional decision-making may be necessary before the authorized action can occur.  For example, a MedicationOrder might be specified
+without indicating a strength or route in situations where the pharmacy (or even nursing information) has the authority to determine those parameters.  A VisionPrescription
+might not be actionable until frames have been chosen and the necessary measurements of the patient's face have been taken to allow the lenses to be positioned appropriately
+within the frames.
+</p>
+<p>
+All requests with an intent of "order" authorize something.  Whether what is authorized is sufficient to be immediately actionable depends on who is fulfilling the order and
+the context in which the fulfillment request is made.  The determination of whether a given "request" is actionable may be made by the systems involved or the humans being asked to act.
+</p>
+<p>
+As well, the existence of a "Request" instance doesn't necessarily imply that fufillment will be requested immediately - or even ever.  The decision to request fulfillment
+may be delegated to the patient or to down-stream practitioners.  Such fufilling practitioners may need to capture additional information prior to executing the fufillment.
+</p>
 
 <a name="event"> </a>
 <h4>Event Resource Pattern</h4>
 <p>
 Events are resources that represent the ongoing or completed execution of some activity or observation.  For example, a clinical procedure, a financial transaction, the recording
-of an allergy or diagnosis, etc.  An <a href="event.html">Event</a> pattern defines the common elements 
+of an allergy or diagnosis, etc.  An <a href="event.html">Event</a> pattern defines the common elements
 typically present on all event resources.
 </p>
 
@@ -289,7 +304,7 @@ Workflow execution is supported in FHIR by a large number of mechanisms.  In con
   <li>Is there a need for confirmation that the desired performer agrees to act, or can that be presumed?</li>
   <li>Is there a need to negotiate whether/how the requested action will be performed?</li>
   <li>Can the requesting and performing system communicate directly?  Are they able to post to each other's servers (if using REST)?</li>
-  <li>Is there an ability/need to have an intermediary to facilitate workflow execution?</li>
+  <li>Is there an ability/need to have a queue server to facilitate workflow execution?</li>
   <li>How many potential actors are involved?</li>
   <li>Will the workflow always be directed or is there a pool of potential performers who could choose to perform the requested action?</li>
 </ul>
@@ -303,7 +318,7 @@ negotiation around how they plan to support workflow execution or all communicat
 expectations.
 </p>
 <p>
-Prior to reviewing this list of options, readers are encouraged to be familiar with the following pages and resources: <a href="http.html">REST</a>, 
+Prior to reviewing this list of options, readers are encouraged to be familiar with the following pages and resources: <a href="http.html">REST</a>,
 <a href="messaging.html">messaging</a>, <a href="operations.html">operations</a>, <a href="services.html">services</a> and the <a href="subscription.html">Subscription</a>
 resource.
 </p>
@@ -340,12 +355,12 @@ The list of patterns discussed here is as follows:
     </tr>
     <tr>
       <td>
-        <a href="#optionc">Option C: POST of request to placer/intermediary system, receiver uses polling</a>
+        <a href="#optionc">Option C: POST of request to placer/queue server system, receiver uses polling</a>
       </td>
     </tr>
     <tr>
       <td>
-        <a href="#optiond">Option D: POST of request to placer/intermediary system, receiver uses subscription</a>
+        <a href="#optiond">Option D: POST of request to placer/queue server system, receiver uses subscription</a>
       </td>
     </tr>
     <tr>
@@ -355,7 +370,7 @@ The list of patterns discussed here is as follows:
     </tr>
     <tr>
       <td>
-        <a href="#optionf">Option F: POST of "open" Task to intermediary system</a>
+        <a href="#optionf">Option F: POST of "open" Task to queue server system</a>
       </td>
     </tr>
     <tr>
@@ -393,7 +408,7 @@ TODO: Insert Jose's decision tree here?
 <h4>Option A: Simple RESTful POST or PUT</h4>
 <h5>Steps</h5>
 <ol>
-  <li>The placer makes a RESTful call to <a href="http.html#create">create</a> or <a href="http.html#create">update</a> a record or a POST to invoke an 
+  <li>The placer makes a RESTful call to <a href="http.html#create">create</a> or <a href="http.html#create">update</a> a record or a POST to invoke an
   <a href="operations.html#executing">operation</a> over HTTP</li>
   <li>The receiver responds with a 2xx HTTP response indicating whether the request was successfully processed or not and, if appropriate, provides the response to the request
   in the payload of the HTTP response</li>
@@ -421,13 +436,13 @@ more sophisticated patterns.
 <h4>Option B: Direct POST of request to fulfiller's system</h4>
 <h5>Steps</h5>
 <ol>
-  <li>Placer system invokes a <a href="http.html#create">create</a> by POSTing a 'request' resource (e.g. <a href="medicationrequest.html">MedicationRequest</a>, 
-  <a href="diagnosticrequest.html">DiagnosticRequest</a>, <a href="referralrequest.html">ReferralRequest</a>, etc.) to the appropriate RESTful resource 
-  endpoint (e.g. [base]/MedicationRequest) on the filler system and places an <a href="codesystem-common-tags.html#common-tags-actionable">actionable</a> 
+  <li>Placer system invokes a <a href="http.html#create">create</a> by POSTing a 'request' resource (e.g. <a href="medicationrequest.html">MedicationRequest</a>,
+  <a href="diagnosticrequest.html">DiagnosticRequest</a>, <a href="referralrequest.html">ReferralRequest</a>, etc.) to the appropriate RESTful resource
+  endpoint (e.g. [base]/MedicationRequest) on the filler system and places an <a href="codesystem-common-tags.html#common-tags-actionable">actionable</a>
   <a href="resource.html#simple-tags">tag</a> on the resource that indicates the request is intended to be acted upon, not merely stored.</li>
   <li>The filler synchronously responds with a "201" indicating that that they have received and stored (created) the resource on their system</li>
-  <li>At some later point, the filler POSTs an 'event' resource (e.g. <a href="medicationdispense.html">MedicationDispense</a>, 
-  <a href="diagnosticreport.html">DiagosticReport</a>, <a href="encounter.html">Encounter</a>, etc.) to the appropriate resource endpoint on the placer 
+  <li>At some later point, the filler POSTs an 'event' resource (e.g. <a href="medicationdispense.html">MedicationDispense</a>,
+  <a href="diagnosticreport.html">DiagosticReport</a>, <a href="encounter.html">Encounter</a>, etc.) to the appropriate resource endpoint on the placer
   system, including a <code>basedOn</code> link to the 'request' resource that the action was performed in fulfillment of.</li>
   <li>The placer system synchronously responds with a "201" indicating they've received and store (created) the resource on their system</li>
 </ol>
@@ -439,36 +454,36 @@ more sophisticated patterns.
 <h5>Limitations</h5>
 <ul>
   <li>Can only use when requesting fulfillment (can't use to request status change or other updates)</li>
-  <li>Placer and filler must be able to communicate directly (i.e. know each other's respective endpoints) and must each have a FHIR server and must have "write" permissions to 
+  <li>Placer and filler must be able to communicate directly (i.e. know each other's respective endpoints) and must each have a FHIR server and must have "write" permissions to
   each other's servers.  This could become unmanageable if there are a large (or dynamic) number of placers and fillers that need to communicate</li>
   <li>No indication of agreement to act on the request</li>
   <li>There's no ability to negotiate fulfillment - no ability to say "no"</li>
 </ul>
 <h5>Usage Recommendations</h5>
 <p>
-Use this approach when there's no ability to have intermediaries and no support/need for complexity of Task, polling or pub/sub (and no need for negotiation or the ability for 
+Use this approach when there's no ability to have queue servers and no support/need for complexity of Task, polling or pub/sub (and no need for negotiation or the ability for
 the filler to say "no").  This is a pseudo-messaging architecture that doesn't actually use messaging architecture.
 </p>
 
 <a name="optionc"> </a>
-<h4>Option C: POST of request to placer/intermediary system, receiver uses polling</h4>
+<h4>Option C: POST of request to placer/queue server system, receiver uses polling</h4>
 <h5>Steps</h5>
 <ol>
-  <li>Placer system invokes a "create" action by POSTing a 'request' resource (e.g. MedicationRequest, DiagnosticOrder, ReferralRequest, etc.) to the appropriate RESTful resource 
-  endpoint (e.g. [base]/MedicationRequest) on either its own system or a third party intermediary system and sets a "flag" on the resource that indicates the request is 
+  <li>Placer system invokes a "create" action by POSTing a 'request' resource (e.g. MedicationRequest, DiagnosticOrder, ReferralRequest, etc.) to the appropriate RESTful resource
+  endpoint (e.g. [base]/MedicationRequest) on either its own system or a third party queue server system and sets a "flag" on the resource that indicates the request is
   "actionable".  The request explicitly identifies the intended fullfiller</li>
-  <li>The filler system, at some agreed frequency, RESTfully queries the placer or intermediary system to see if there are any "new" requests that: are tagged as "actionable", 
-  have the filler identified as the intended performer, and are a type of request "of interest" to the filler.  (The queries could be initiated by the filler system 
+  <li>The filler system, at some agreed frequency, RESTfully queries the placer or queue server system to see if there are any "new" requests that: are tagged as "actionable",
+  have the filler identified as the intended performer, and are a type of request "of interest" to the filler.  (The queries could be initiated by the filler system
   automatically in the background or upon triggering by user of the filler system.)</li>
-  <li>At some later point, the filler POSTs an 'event' resource (e.g. MedicationDispense, DiagosticReport, Encounter, etc.) to the appropriate resource endpoint on either its 
-  own system, the same intermediary as the request was placed on or some alternate intermediary, including a link to the 'request' resource that the action was performed in 
+  <li>At some later point, the filler POSTs an 'event' resource (e.g. MedicationDispense, DiagosticReport, Encounter, etc.) to the appropriate resource endpoint on either its
+  own system, the same queue server as the request was placed on or some alternate queue server, including a link to the 'request' resource that the action was performed in
   fulfillment of.</li>
-  <li>The placer system, at some agreed frequency, RESTfully queries the filler or intermediary system to see if there are any "new" events that are tied to any outstanding 
+  <li>The placer system, at some agreed frequency, RESTfully queries the filler or queue server system to see if there are any "new" events that are tied to any outstanding
   orders the placer has initiated.  (The queries could be initiated by the placer system automatically in the background or upon triggering by user of the placer system.)</li>
 </ol>
 <h5>Benefits</h5>
 <ul>
-  <li>Placer &amp; Server don't have to communicate directly (can act through intermediary).  This can reduce the number of point-to-point interfaces that need to be supported.</li>
+  <li>Placer &amp; Server don't have to communicate directly (can act through queue server).  This can reduce the number of point-to-point interfaces that need to be supported.</li>
   <li>No need for Task.</li>
 </ul>
 <h5>Limitations</h5>
@@ -483,22 +498,22 @@ the filler to say "no").  This is a pseudo-messaging architecture that doesn't a
 </ul>
 <h5>Usage Recommendations</h5>
 <p>
-Use this when there's no ability to have intermediaries and no support/need for complexity of Task and where no Subscription infrastructure exists.  This is a more typically 
+Use this when there's no ability to have queue servers and no support/need for complexity of Task and where no Subscription infrastructure exists.  This is a more typically
 RESTful approach where data resides on the server "owned" by the data creator and is accessed by other systems.
 </p>
 
 <a name="optiond"> </a>
-<h4>Option D: POST of request to placer/intermediary system, receiver uses subscription</h4>
+<h4>Option D: POST of request to placer/queue server system, receiver uses subscription</h4>
 <h5>Steps</h5>
 <ol>
-  <li>Same as <a href="#optionc">Option C</a> - placer posts to itself or to intermediary</li>
+  <li>Same as <a href="#optionc">Option C</a> - placer posts to itself or to queue server</li>
   <li>Filler has set up a subscription to requests of interest (same criteria as for B)</li>
   <li>When placer's request is posted, filler receives a notification that a new, relevant request exists and queries to receive it</li>
   <li>Same pattern follows for transmission of response from filler back to placer</li>
 </ol>
 <h5>Benefits</h5>
 <ul>
-  <li>Placer &amp; Server don't have to communicate directly (can act through intermediary).  This can reduce the number of point-to-point interfaces that need to be 
+  <li>Placer &amp; Server don't have to communicate directly (can act through queue server).  This can reduce the number of point-to-point interfaces that need to be
   supported.</li>
   <li>No need for Task</li>
   <li>Lower communication overhead than polling</li>
@@ -521,12 +536,12 @@ Same a <a href="#optionc">Option C</a>, but in an environment where subscription
 <h4>Option E: POST of Task to filler system</h4>
 <h5>Steps</h5>
 <ol>
-  <li>Placer POSTs the request to its own system or to an intermediary system</li>
+  <li>Placer POSTs the request to its own system or to a queue server system</li>
   <li>Placer POSTs a Task resource to the filler system, pointing to the request resource and seeking fulfillment</li>
   <li>Fulfiller system queries to retrieve the referenced request</li>
   <li>Fulfiller Updates the Task to indicate acceptance of the task (and possibly interim progress notes)</li>
   <li>Placer either polls the Task to note acceptance and changes or uses a subscription to determine the same</li>
-  <li>Fulfiller POSTs an event resource to its own system or to an intermediary system </li>
+  <li>Fulfiller POSTs an event resource to its own system or to a queue server system </li>
   <li>Fulfiller Updates the Task resource to change its status to completed and to point to the event resource</li>
   <li>Placer system becomes aware of the update via polling or subscription and retrieves the referenced event resource</li>
 </ol>
@@ -541,11 +556,11 @@ Same a <a href="#optionc">Option C</a>, but in an environment where subscription
   <li>Additional complexity of setting up and maintaining a subscription or polling infrastructure</li>
   <li>Additional complexity of using Task</li>
   <li>
-    <p>Placer and filler may need to be able to communicate directly (i.e. know each other's respective endpoints) and have a FHIR server and must have "write" permissions to 
+    <p>Placer and filler may need to be able to communicate directly (i.e. know each other's respective endpoints) and have a FHIR server and must have "write" permissions to
     each other's servers</p>
     <ul>
       <li>This could become unmanageable if there are a large (or dynamic) number of placers and fillers that need to communicate</li>
-      <li>May not apply if there's an intermediary</li>
+      <li>May not apply if there's a queue server</li>
     </ul>
   </li>
   <li>Placer and fulfiller must know where to subscribe for content - this could be a large number of systems</li>
@@ -557,18 +572,18 @@ Not clear why would anyone do this . . .
 </p>
 
 <a name="optionf"> </a>
-<h4>Option F: POST of "open" Task to intermediary system</h4>
+<h4>Option F: POST of "open" Task to queue server system</h4>
 <h5>Steps</h5>
 <ol>
-  <li>Placer POSTs the request to its own system or to an intermediary system</li>
-  <li>Placer POSTs a Task resource to its own system or an intermediary system, pointing to the request resource and seeking fulfillment.<br/>
+  <li>Placer POSTs the request to its own system or to a queue server system</li>
+  <li>Placer POSTs a Task resource to its own system or a queue server system, pointing to the request resource and seeking fulfillment.<br/>
   Task does not have a specified "performer" (but may have performer type)</li>
   <li>Fulfiller system uses either polling or pub/sub to become aware of the existence of the task</li>
   <li>Fulfiller system queries to retrieve the referenced request</li>
   <li>Fulfiller system updates the Task to indicate "ownership" and agreement to fulfill </li>
   <li>Fulfiller may update the Task to indicate interim progress notes</li>
   <li>Placer either polls the Task to note acceptance and changes or uses a subscription to determine the same</li>
-  <li>Fulfiller POSTs an event resource to its own system or to an intermediary system</li>
+  <li>Fulfiller POSTs an event resource to its own system or to a queue server system</li>
   <li>Fulfiller Updates the Task resource to change its status to completed and to point to the event resource</li>
   <li>Placer system becomes aware of the update via polling or subscription and retrieves the referenced event resource</li>
 </ol>
@@ -584,11 +599,11 @@ Not clear why would anyone do this . . .
   <li>Additional complexity of setting up and maintaining a subscription or polling infrastructure</li>
   <li>Additional complexity of using Task</li>
   <li>
-    <p>Placer and filler may need to be able to communicate directly (i.e. know each other's respective endpoints) and have a FHIR server and must have "write" permissions to 
+    <p>Placer and filler may need to be able to communicate directly (i.e. know each other's respective endpoints) and have a FHIR server and must have "write" permissions to
     each other's servers</p>
     <ul>
       <li>This could become unmanageable if there are a large (or dynamic) number of placers and fillers that need to communicate</li>
-      <li>May not apply if there's an intermediary</li>
+      <li>May not apply if there's a queue server</li>
     </ul>
   </li>
   <li>Placer and fulfiller must know where to subscribe for content - this could be a large number of systems</li>
@@ -596,7 +611,7 @@ Not clear why would anyone do this . . .
 </ul>
 <h5>Usage Recommendations</h5>
 <p>
-Used when requests are not (always) directed to a specific filler and where fillers may respond to tasks from multiple placers.  This creates a sort of "market" where fillers 
+Used when requests are not (always) directed to a specific filler and where fillers may respond to tasks from multiple placers.  This creates a sort of "market" where fillers
 choose what to take on and negotiate what work they perform.
 </p>
 
@@ -604,13 +619,13 @@ choose what to take on and negotiate what work they perform.
 <h4>Option G: POST of "request" resource for filler system, response via Task</h4>
 <h5>Steps</h5>
 <ol>
-  <li>Placer system invokes a "create" action by POSTing a 'request' resource (e.g. MedicationRequest, DiagnosticOrder, ReferralRequest, etc.) to the appropriate RESTful resource 
-  endpoint (e.g. [base]/MedicationRequest) on the filler, placer or intermediary system and sets a "tag" on the resource that indicates the request is "actionable"</li>
-  <li>Filler POSTs a Task resource to its own system or an intermediary system, pointing to the request resource and indicating intent to fulfill or refusal to fulfill</li>
+  <li>Placer system invokes a "create" action by POSTing a 'request' resource (e.g. MedicationRequest, DiagnosticOrder, ReferralRequest, etc.) to the appropriate RESTful resource
+  endpoint (e.g. [base]/MedicationRequest) on the filler, placer or queue server system and sets a "tag" on the resource that indicates the request is "actionable"</li>
+  <li>Filler POSTs a Task resource to its own system or a queue server system, pointing to the request resource and indicating intent to fulfill or refusal to fulfill</li>
   <li>Placer system uses either polling or pub/sub to become aware of the existence of the task and fulfillment intent</li>
   <li>Fulfiller may update the Task to indicate interim progress notes</li>
   <li>Placer either polls the Task to note acceptance and changes or uses a subscription to determine the same</li>
-  <li>Fulfiller POSTs an event resource to its own system or to an intermediary system</li>
+  <li>Fulfiller POSTs an event resource to its own system or to a queue server system</li>
   <li>Fulfiller Updates the Task resource to change its status to completed and to point to the event resource</li>
   <li>Placer system becomes aware of the update via polling or subscription and retrieves the referenced event resource</li>
 </ol>
@@ -624,8 +639,8 @@ choose what to take on and negotiate what work they perform.
   <li>Can only use when requesting fulfillment (can't use to request status change or other updates)</li>
   <li>Additional complexity of setting up and maintaining a subscription or polling infrastructure</li>
   <li>Additional complexity of using Task</li>
-  <li>Placer and filler may need to be able to communicate directly (i.e. know each other's respective endpoints) and have a FHIR server and have "write" permissions to each 
-  other's servers (if no intermediary is used)</li>
+  <li>Placer and filler may need to be able to communicate directly (i.e. know each other's respective endpoints) and have a FHIR server and have "write" permissions to each
+  other's servers (if no queue server is used)</li>
   <li>Placer and fulfiller must know where to subscribe for content - this could be a large number of systems</li>
 </ul>
 <h5>Usage Recommendations</h5>
@@ -638,16 +653,16 @@ Use this when the filler needs to have complete ownership over the task and ther
 <img alt="Diagram showing interaction of placer, filler and workflow broker" src="workflow-optionh.png"/>
 <h5>Steps</h5>
 <ol>
-  <li>Placer POSTs the request to its own system or to an intermediary system</li>
+  <li>Placer POSTs the request to its own system or to a queue server system</li>
   <li>Broker detects that new un-assigned request (without a Task yet created and falling within the scope of the Broker to ensure fulfillment) via polling or subscription</li>
-  <li>Broker POSTs a Task resource  to its own system or an intermediary system, pointing to the request resource and seeking fulfillment from a specific filler<br/>
+  <li>Broker POSTs a Task resource  to its own system or a queue server system, pointing to the request resource and seeking fulfillment from a specific filler<br/>
   Task does not have a specified "performer" (but may have performer type)</li>
   <li>If the Task is rejected by one potential recipient, the broker may create a new task to seek fulfillment from others</li>
   <li>Continue as per <a href="#optiong">Option G</a></li>
 </ol>
 <h5>Benefits</h5>
 <ul>
-  <li>Offloads responsibility for seeking fulfillment from the placer system, but more actively solicits fulfillment than a simple "post the task and see who takes it".  
+  <li>Offloads responsibility for seeking fulfillment from the placer system, but more actively solicits fulfillment than a simple "post the task and see who takes it".
   Also allows prioritized assignment of tasks (i.e. some fillers may be preferred over others)</li>
 </ul>
 <h5>Limitations</h5>
@@ -664,8 +679,8 @@ Appropriate in environments that have a workflow engine that takes on responsibi
 <h4>Option I: Messaging request from placer to filler &amp; acknowledgment</h4>
 <h5>Steps</h5>
 <ol>
-  <li>Placer sends message to filler system including Request resource (and other relevant resources) along with a MessageHeader with an "event" code saying "please fulfill" 
-  and "data" element pointing to the Request resource as the item to fulfill.  Message could potentially use Task instead of MessageHeader.event to convey desired action 
+  <li>Placer sends message to filler system including Request resource (and other relevant resources) along with a MessageHeader with an "event" code saying "please fulfill"
+  and "data" element pointing to the Request resource as the item to fulfill.  Message could potentially use Task instead of MessageHeader.event to convey desired action
   (ongoing discussion)</li>
   <li>Filler system sends a response indicating receipt of the message and, optionally an indication of their intention to fulfill the request</li>
   <li>Filler system may send incremental messages to the placer showing progress (e.g. specimen collected, preliminary results, final results)</li>
@@ -699,10 +714,10 @@ Existing messaging (likely v2) infrastructure and a need to stay consistent with
 </p>
 <h5>Steps</h5>
 <ol>
-  <li>Placer may create and store a Request resource on their own system or an intermediary.</li>
-  <li>Placer invokes a service on the filler system saying "please fulfill this order", including the content or a reference to the request resource and any other relevant 
+  <li>Placer may create and store a Request resource on their own system or a queue server.</li>
+  <li>Placer invokes a service on the filler system saying "please fulfill this order", including the content or a reference to the request resource and any other relevant
   data</li>
-  <li>Filler system responds (synchronously if using HTTP, but may be asynchronous if using SOAP or other transport mechanisms) with conformation of receipt and, optionally 
+  <li>Filler system responds (synchronously if using HTTP, but may be asynchronous if using SOAP or other transport mechanisms) with conformation of receipt and, optionally
   indication of intention to fulfill and/or results</li>
   <li></li>
 </ol>
@@ -723,7 +738,7 @@ TBD
 <h4>Additional Scenarios</h4>
 <h5>Querying the status of a workflow using REST</h5>
 <ol>
-  <li>Placer sends query for Task(s) that have a focus of the request of interest to a system (placer system, intermediary or filler) that holds tasks related to their request.</li>
+  <li>Placer sends query for Task(s) that have a focus of the request of interest to a system (placer system, queue server or filler) that holds tasks related to their request.</li>
   <li>System returns a query response showing all related tasks (typically just one).  Task shows current status.</li>
 </ol>
 

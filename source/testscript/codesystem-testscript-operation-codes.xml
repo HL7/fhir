@@ -181,7 +181,7 @@
   <concept>
     <code value="populatehtml"/>
     <display value="$populatehtml"/>
-    <definition value="Geneate HTML for Questionnaire"/>
+    <definition value="Generate HTML for Questionnaire"/>
   </concept>
   <concept>
     <code value="populatelink"/>

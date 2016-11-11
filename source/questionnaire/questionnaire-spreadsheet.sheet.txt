@@ -727,7 +727,7 @@
   Type = operation
   Example.Request = $populatehtml-request.txt
   Example.Response = $populatehtml-response.txt
-  Title = Geneate HTML for Questionnaire
+  Title = Generate HTML for Questionnaire
   Footer = While it is theoretically possible for an HTML form to be completely auto-populated and submitted without human review, the intention of this transaction is merely to reduce redundant data entry.  The HTML form **SHOULD** ensure that a human submitter has an opportunity to review the auto-populated answers to confirm correctness as well as to complete or expand on information provided by the auto-population process.\n\nComplex form designs with conditional logic or tight constraints on cardinalities may be challenging to auto-populate.  A server MAY choose to traverse the questionnaire as if it were a human respondent, answering only those questions that are enabled based on previously answered questions.  However, doing so may result in minimal population.  Alternatively, systems may choose to populate all known answers, independent of dependencies and other constraints.  This may cause questions to be answered that should not be answered.  The generated HTML form is responsible for pruning the final populated questionnaire once human review has taken place.\n\nInvoking this operation with the \'\'content\'\' parameter may involve the disclosure of personally identifiable healthcare information to the system which is performing the population process.  No such disclosures should be made unless the system on which the operation is being invoked is a \"trusted\" system and appropriate agreements are in place to protect the confidentiality of any information shared with that system.
 
  -- Row 11 -----------------------------------
