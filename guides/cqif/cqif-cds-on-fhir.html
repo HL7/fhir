@@ -17,7 +17,7 @@
 <a name="service-definitions"></a>
 <h4>Service Definitions</h4>
 
-<p>The <a href="[%fhir-path%]servicedefinition.html">ServiceDefinition</a> resource provides a mechanism for describing the functionality made available by a particular service. For example, a service may provide an immunization forecasting module, or drug-drug interaction checking. From the perspective of the consumer, how this functionality is performed is irrelevant, the only aspect of interest is a description of what the service module does, and the inputs and outputs it requires.</p>
+<p>The <a href="[%fhir-path%]servicedefinition.html">ServiceDefinition</a> resource provides a mechanism for describing the functionality made available by a particular service. For example, a service may provide an immunization forecasting module, or drug-drug interaction checking module. From the perspective of the consumer, how this functionality is performed is irrelevant; the only aspect of interest is a description of what the service module does, the required inputs and the outputs it produces.</p>
 
 <p>As such, this resource uses the same metadata elements to define the common information relevant to all knowledge artifacts, and then defines the input and output parameters as well as any data requirements for the service module in the same way that parameters and data requirements are defined for expression logic in general.</p>
 
@@ -32,7 +32,7 @@
     
   &lt;identifier&gt;
     &lt;use value=&quot;official&quot;/&gt;
-    &lt;value value=&quot;guildeline-appropriate-ordering&quot;/&gt;
+    &lt;value value=&quot;guideline-appropriate-ordering&quot;/&gt;
   &lt;/identifier&gt;
   &lt;version value=&quot;1.0.0&quot;/&gt;
   &lt;title value=&quot;Guideline Appropriate Ordering Module&quot;/&gt;
@@ -96,7 +96,7 @@
 
 <p>The <a href="[%fhir-path%]guidanceresponse.html">GuidanceResponse</a> structure provides a general mechanism for representing the actions to be performed in response to a guidance evaluation request.</p>
 
-<p>The $evaluate operation provides a complete example of a request and response using the Guideline Appropriate Ordering decision support service module: <a href="[%fhir-path%]servicedefinition-operations.html#4.10.8.1.1">$evaluate operation example</a>:</p>
+<p>The $evaluate operation provides a complete example of a request and response using the Guideline Appropriate Ordering decision support service module: <a href="[%fhir-path%]servicedefinition-operations.html#4.10.8.1.1">$evaluate operation example</a>.</p>
 
 <p>In the simplest case, an application requests guidance from a decision support service as part of a particular trigger, usually a specific point in a clinical workflow.</p>
 
@@ -186,14 +186,14 @@
 &lt;/Parameters&gt;
 </code></pre>
 
-<p>The above example uses the profiles defined in the <!--a href="[%fhir-path%]gao/gao.html"-->Guideline Appropriate Ordering IG<!--/a-->. In this specific case, the request includes the patient information, and the order being assessed including the indication and the procedure.</p>
+<p>The above example uses the profiles defined in the <!--a href="[%fhir-path%]gao/gao.html"-->Guideline Appropriate Ordering IG<!--/a-->. In this specific case, the request includes the patient information, and the order being assessed includes the indication and the procedure.</p>
 
-<p>The decision support service processes the request and determines whether the order is appropriate given the patient information and indication for the requested procedure. The result is returned as a GuidanceResponse resource with a status of success, and the calling application examines the appropriateness score and determines the appropriate action to take, either proceed with placing the order, or prompt the user that the requested procedure is not appropriate based on the guidelines returned in the response:</p>
+<p>The decision support service processes the request and determines whether the order is appropriate given the patient information and indication for the requested procedure. The result is returned as a GuidanceResponse resource with a status of success, and the calling application examines the appropriateness score and determines the appropriate action to take: either proceed with placing the order, or prompt the user that the requested procedure is not appropriate based on the guidelines returned in the response.  An example response is shown below.</p>
 
 <pre><code>&lt;GuidanceResponse&gt;
   &lt;!-- This example demonstrates the response to an $evaluate operation using the GuidanceResponse resource. --&gt;
   &lt;contained&gt;
-    &lt;Parameters &gt;
+    &lt;Parameters&gt;
       &lt;id value=&quot;outputParameters1&quot;/&gt;
       &lt;parameter&gt;
         &lt;name value=&quot;order&quot;/&gt;
@@ -341,12 +341,12 @@
 
 <p>To support the ability to issue multiple requests, use a <a href="[%fhir-path%]bundle.html">Bundle</a> of type <code>batch</code>. In this case, the input data is provided as resource entries in the bundle, with the operations specified as request entries.</p>
 
-<p>The response to posting a batch Bundle containing $evaluate requests is a batch Bundle containing the GuidanceResponse resource results of each $evaluate, as though each request had been submitted independently. Note that this does not imply that the requests must be performed serially, the service is free to implement the requests in any order, including parallelizing the requests.</p>
+<p>The response to posting a batch Bundle containing $evaluate requests is a batch Bundle containing the GuidanceResponse resource results of each $evaluate, as though each request had been submitted independently. Note that this does not imply that the requests must be performed serially; the service is free to implement the requests in any order, including parallelizing the requests.</p>
 
 <a name="service-integration"/>
 <h4>Service Integration</h4>
 
-<p>In addition to the direct integration, the $evaluate operation can be used as a component within a larger infrastructure. For example:</p>
+<p>In addition to direct integration, the $evaluate operation can be used as a component within a larger infrastructure. For example:</p>
 
 <img alt="Decision Support Service Scenario" src="cqif-integrating-decision-support-service-scenario.jpg"/>
 

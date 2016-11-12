@@ -1493,7 +1493,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Describes the context of use for this module</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Specifies various attributes of the patient population for whom and/or environment of care in which, the knowledge module is applicable</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Specifies various attributes of the patient population for whom and/or environment of care in which the knowledge module is applicable</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">Consumers of the module must be able to determine the intended applicability for the module. Ideally, this information would be used programmatically to determine when and how it should be incorporated or exposed</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>

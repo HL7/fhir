@@ -12,7 +12,7 @@
 
 <a name="using-expressions"/>
 <h3>Using Expressions</h3>
-<p>This topic discusses the use of expression logic within FHIR resources using expression languages such as FluentPath and Clinical Quality Language (CQL). The clinical reasoning module defines an approach to the representing logic that enables dynamic functionality to be utilized directly within the Clinical Reasoning resources, as well as within FHIR resources more generally using extensions.</p>
+<p>This topic discusses the use of expression logic within FHIR resources using expression languages such as FluentPath and Clinical Quality Language (CQL). The clinical reasoning module defines an approach to representing logic that enables dynamic functionality to be utilized directly within the Clinical Reasoning resources, as well as within FHIR resources more generally using extensions.</p>
 
 <a name="expression elements"/>
 <h4>Expression Elements</h4>
@@ -119,11 +119,11 @@
 	<li>Code and date filters - The CQL retrieve also allows for data accessed to be filtered by membership in a specific valueset, as well as by date range. The DataRequirement type represents these filters via the <code>codeFilter</code> and <code>dateFilter</code> elements.</li>
 </ul>
 
-<p>For CQL expressions that contain retrieves, a Library SHOULD be used to describe the data requirements. However, the $data-requirements operation can also be used to infer the data requirements based on usage within the expression.</p>
+<p>For CQL expressions that contain retrieves, a Library SHOULD be used to describe the data requirements. However, the <a href="../operation-servicedefinition-data-requirements.html">$data-requirements</a> operation can also be used to infer the data requirements based on usage within the expression.</p>
 
 <a name="fluentpath"/>
 <h4>FluentPath</h4>
-<p><!--a href="fluentpath.html"-->FluentPath<!--/a--> is a lightweight path-based navigation language intended to provide simple but flexible access to graph-structured data. It is defined as a general purpose specification available <!--a href="fluentpath.html"-->here<!--/a-->.</p>
+<p>FluentPath is a lightweight path-based navigation language intended to provide simple but flexible access to graph-structured data. It is defined as a general purpose specification available <a href="http://hl7.org/fluentpath">here</a>.</p>
 
 <a name="clinical-quality-language"/>
 <h4>Clinical Quality Language</h4>

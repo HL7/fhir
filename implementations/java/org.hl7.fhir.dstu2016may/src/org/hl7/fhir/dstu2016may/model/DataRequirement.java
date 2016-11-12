@@ -723,14 +723,14 @@ public class DataRequirement extends Type implements ICompositeType {
     /**
      * The profile of the required data, specified as the uri of the profile definition.
      */
-    @Child(name = "profile", type = {StructureDefinition.class}, order=1, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "profile", type = {UriType.class}, order=1, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="The profile of the required data", formalDefinition="The profile of the required data, specified as the uri of the profile definition." )
-    protected Reference profile;
+    protected UriType profile;
 
     /**
      * The actual object that is the target of the reference (The profile of the required data, specified as the uri of the profile definition.)
      */
-    protected StructureDefinition profileTarget;
+    protected UriType profileTarget;
 
     /**
      * Indicates that specific elements of the type are referenced by the knowledge module and must be supported by the consumer in order to obtain an effective evaluation. This does not mean that a value is required for this element, only that the consuming system must understand the element and be able to provide values for it if they are available.
@@ -818,12 +818,12 @@ public class DataRequirement extends Type implements ICompositeType {
     /**
      * @return {@link #profile} (The profile of the required data, specified as the uri of the profile definition.)
      */
-    public Reference getProfile() { 
+    public UriType getProfile() { 
       if (this.profile == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DataRequirement.profile");
         else if (Configuration.doAutoCreate())
-          this.profile = new Reference(); // cc
+          this.profile = new UriType(); // cc
       return this.profile;
     }
 
@@ -834,7 +834,7 @@ public class DataRequirement extends Type implements ICompositeType {
     /**
      * @param value {@link #profile} (The profile of the required data, specified as the uri of the profile definition.)
      */
-    public DataRequirement setProfile(Reference value) { 
+    public DataRequirement setProfile(UriType value) { 
       this.profile = value;
       return this;
     }
@@ -842,19 +842,14 @@ public class DataRequirement extends Type implements ICompositeType {
     /**
      * @return {@link #profile} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The profile of the required data, specified as the uri of the profile definition.)
      */
-    public StructureDefinition getProfileTarget() { 
-      if (this.profileTarget == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create DataRequirement.profile");
-        else if (Configuration.doAutoCreate())
-          this.profileTarget = new StructureDefinition(); // aa
-      return this.profileTarget;
+    public String getProfileTarget() { 
+      return this.profileTarget == null ? null : this.profileTarget.getValue();
     }
 
     /**
      * @param value {@link #profile} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The profile of the required data, specified as the uri of the profile definition.)
      */
-    public DataRequirement setProfileTarget(StructureDefinition value) { 
+    public DataRequirement setProfileTarget(UriType value) { 
       this.profileTarget = value;
       return this;
     }
@@ -996,7 +991,7 @@ public class DataRequirement extends Type implements ICompositeType {
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("type", "code", "The type of the required data, specified as the type name of a resource. For profiles, this value is set to the type of the base resource of the profile.", 0, java.lang.Integer.MAX_VALUE, type));
-        childrenList.add(new Property("profile", "Reference(StructureDefinition)", "The profile of the required data, specified as the uri of the profile definition.", 0, java.lang.Integer.MAX_VALUE, profile));
+        childrenList.add(new Property("profile", "uri", "The profile of the required data, specified as the uri of the profile definition.", 0, java.lang.Integer.MAX_VALUE, profile));
         childrenList.add(new Property("mustSupport", "string", "Indicates that specific elements of the type are referenced by the knowledge module and must be supported by the consumer in order to obtain an effective evaluation. This does not mean that a value is required for this element, only that the consuming system must understand the element and be able to provide values for it if they are available.", 0, java.lang.Integer.MAX_VALUE, mustSupport));
         childrenList.add(new Property("codeFilter", "", "Code filters specify additional constraints on the data, specifying the value set of interest for a particular element of the data.", 0, java.lang.Integer.MAX_VALUE, codeFilter));
         childrenList.add(new Property("dateFilter", "", "Date filters specify additional constraints on the data in terms of the applicable date range for specific elements.", 0, java.lang.Integer.MAX_VALUE, dateFilter));
@@ -1006,7 +1001,7 @@ public class DataRequirement extends Type implements ICompositeType {
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
         case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // CodeType
-        case -309425751: /*profile*/ return this.profile == null ? new Base[0] : new Base[] {this.profile}; // Reference
+        case -309425751: /*profile*/ return this.profile == null ? new Base[0] : new Base[] {this.profile}; // UriType
         case -1402857082: /*mustSupport*/ return this.mustSupport == null ? new Base[0] : this.mustSupport.toArray(new Base[this.mustSupport.size()]); // StringType
         case -1303674939: /*codeFilter*/ return this.codeFilter == null ? new Base[0] : this.codeFilter.toArray(new Base[this.codeFilter.size()]); // DataRequirementCodeFilterComponent
         case 149531846: /*dateFilter*/ return this.dateFilter == null ? new Base[0] : this.dateFilter.toArray(new Base[this.dateFilter.size()]); // DataRequirementDateFilterComponent
@@ -1022,7 +1017,7 @@ public class DataRequirement extends Type implements ICompositeType {
           this.type = castToCode(value); // CodeType
           break;
         case -309425751: // profile
-          this.profile = castToReference(value); // Reference
+          this.profile = castToUri(value); // UriType
           break;
         case -1402857082: // mustSupport
           this.getMustSupport().add(castToString(value)); // StringType
@@ -1043,7 +1038,7 @@ public class DataRequirement extends Type implements ICompositeType {
         if (name.equals("type"))
           this.type = castToCode(value); // CodeType
         else if (name.equals("profile"))
-          this.profile = castToReference(value); // Reference
+          this.profile = castToUri(value); // UriType
         else if (name.equals("mustSupport"))
           this.getMustSupport().add(castToString(value));
         else if (name.equals("codeFilter"))
@@ -1058,7 +1053,7 @@ public class DataRequirement extends Type implements ICompositeType {
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 3575610: throw new FHIRException("Cannot make property type as it is not a complex type"); // CodeType
-        case -309425751:  return getProfile(); // Reference
+        case -309425751:  return getProfile(); // UriType
         case -1402857082: throw new FHIRException("Cannot make property mustSupport as it is not a complex type"); // StringType
         case -1303674939:  return addCodeFilter(); // DataRequirementCodeFilterComponent
         case 149531846:  return addDateFilter(); // DataRequirementDateFilterComponent
@@ -1073,7 +1068,7 @@ public class DataRequirement extends Type implements ICompositeType {
           throw new FHIRException("Cannot call addChild on a primitive type DataRequirement.type");
         }
         else if (name.equals("profile")) {
-          this.profile = new Reference();
+          this.profile = new UriType();
           return this.profile;
         }
         else if (name.equals("mustSupport")) {

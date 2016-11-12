@@ -168,7 +168,7 @@
  -- Row 2 -----------------------------------
   Name = evaluate.requestId
   Use = in
-  Documentation = An optional client-provided identifier to track the request
+  Documentation = An optional client-provided identifier to track the request.
   Type = id
   Title = Request Id
   Min = 0
@@ -177,7 +177,7 @@
  -- Row 3 -----------------------------------
   Name = evaluate.evaluateAtDateTime
   Use = in
-  Documentation = An optional date and time specifying that the evaluation should be performed as though it was the given date and time. The most direct implication of this is that references to \"Now\" within the evaluation logic of the module should result in this value. In addition, wherever possible, the data accessed by the module should appear as though it was accessed at this time. The evaluateAtDateTime value may be any time in the past or future, enabling both retrospective and prospective scenarios. If no value is provided, the date and time of the request is assumed
+  Documentation = An optional date and time specifying that the evaluation should be performed as though it was the given date and time. The most direct implication of this is that references to \"Now\" within the evaluation logic of the module should result in this value. In addition, wherever possible, the data accessed by the module should appear as though it was accessed at this time. The evaluateAtDateTime value may be any time in the past or future, enabling both retrospective and prospective scenarios. If no value is provided, the date and time of the request is assumed.
   Type = dateTime
   Title = Evaluate At
   Min = 0
@@ -186,7 +186,7 @@
  -- Row 4 -----------------------------------
   Name = evaluate.inputParameters
   Use = in
-  Documentation = The input parameters for a request, if any. These parameters are defined by the module that is the target of the evaluation, and typically supply patient-independent information to the module
+  Documentation = The input parameters for a request, if any. These parameters are defined by the module that is the target of the evaluation, and typically supply patient-independent information to the module.
   Type = Parameters
   Title = Input Parameters
   Min = 0
@@ -195,7 +195,7 @@
  -- Row 5 -----------------------------------
   Name = evaluate.inputData
   Use = in
-  Documentation = The input data for the request. These data are defined by the data requirements of the module and typically provide patient-dependent information
+  Documentation = The input data for the request. These data are defined by the data requirements of the module and typically provide patient-dependent information.
   Type = Any
   Title = Input Data
   Min = 0
@@ -204,7 +204,7 @@
  -- Row 6 -----------------------------------
   Name = evaluate.patient
   Use = in
-  Documentation = The patient in context, if any
+  Documentation = The patient in context, if any.
   Type = Reference(Patient)
   Title = Patient
   Min = 0
@@ -213,7 +213,7 @@
  -- Row 7 -----------------------------------
   Name = evaluate.encounter
   Use = in
-  Documentation = The encounter in context, if any
+  Documentation = The encounter in context, if any.
   Type = Reference(Encounter)
   Title = Encounter
   Min = 0
@@ -222,7 +222,7 @@
  -- Row 8 -----------------------------------
   Name = evaluate.initiatingOrganization
   Use = in
-  Documentation = The organization initiating the request
+  Documentation = The organization initiating the request.
   Type = Reference(Organization)
   Title = Initiating Organization
   Min = 0
@@ -231,7 +231,7 @@
  -- Row 9 -----------------------------------
   Name = evaluate.initiatingPerson
   Use = in
-  Documentation = The person initiating the request
+  Documentation = The person initiating the request.
   Type = Reference(Patient|Practitioner|RelatedPerson)
   Title = Initiating Person
   Min = 0
@@ -240,7 +240,7 @@
  -- Row 10 -----------------------------------
   Name = evaluate.userType
   Use = in
-  Documentation = The type of user initiating the request, e.g. patient, healthcare provider, or specific type of healthcare provider (physician, nurse, etc.)
+  Documentation = The type of user initiating the request, e.g. patient, healthcare provider, or specific type of healthcare provider (physician, nurse, etc.).
   Type = CodeableConcept
   Title = User Type
   Min = 0
@@ -249,7 +249,7 @@
  -- Row 11 -----------------------------------
   Name = evaluate.userLanguage
   Use = in
-  Documentation = Preferred language of the person using the system
+  Documentation = Preferred language of the person using the system.
   Type = CodeableConcept
   Title = User Language
   Min = 0
@@ -258,7 +258,7 @@
  -- Row 12 -----------------------------------
   Name = evaluate.userTaskContext
   Use = in
-  Documentation = The task the system user is performing, e.g. laboratory results review, medication list review, etc. This information can be used to tailor decision support outputs, such as recommended information resources
+  Documentation = The task the system user is performing, e.g. laboratory results review, medication list review, etc. This information can be used to tailor decision support outputs, such as recommended information resources.
   Type = CodeableConcept
   Title = User Task Context
   Min = 0
@@ -267,7 +267,7 @@
  -- Row 13 -----------------------------------
   Name = evaluate.receivingOrganization
   Use = in
-  Documentation = The organization that will receive the response
+  Documentation = The organization that will receive the response.
   Type = Reference(Organization)
   Title = Receiving Organization
   Min = 0
@@ -276,7 +276,7 @@
  -- Row 14 -----------------------------------
   Name = evaluate.receivingPerson
   Use = in
-  Documentation = The person in the receiving organization that will receive the response
+  Documentation = The person in the receiving organization that will receive the response.
   Type = Reference(Patient|Practitioner|RelatedPerson)
   Title = Receiving Person
   Min = 0
@@ -285,7 +285,7 @@
  -- Row 15 -----------------------------------
   Name = evaluate.recipientType
   Use = in
-  Documentation = The type of individual that will consume the response content. This may be different from the requesting user type (e.g. if a clinician is getting disease management guidance for provision to a patient). E.g. patient, healthcare provider or specific type of healthcare provider (physician, nurse, etc.)
+  Documentation = The type of individual that will consume the response content. This may be different from the requesting user type (e.g. if a clinician is getting disease management guidance for provision to a patient). E.g. patient, healthcare provider or specific type of healthcare provider (physician, nurse, etc.).
   Type = CodeableConcept
   Title = Recipient Type
   Min = 0
@@ -294,7 +294,7 @@
  -- Row 16 -----------------------------------
   Name = evaluate.recipientLanguage
   Use = in
-  Documentation = Preferred language of the person that will consume the content
+  Documentation = Preferred language of the person that will consume the content.
   Type = CodeableConcept
   Title = Recipient Language
   Min = 0
@@ -303,7 +303,7 @@
  -- Row 17 -----------------------------------
   Name = evaluate.setting
   Use = in
-  Documentation = The current setting of the request (inpatient, outpatient, etc)
+  Documentation = The current setting of the request (inpatient, outpatient, etc).
   Type = CodeableConcept
   Title = Setting
   Min = 0
@@ -312,7 +312,7 @@
  -- Row 18 -----------------------------------
   Name = evaluate.settingContext
   Use = in
-  Documentation = Additional detail about the setting of the request, if any
+  Documentation = Additional detail about the setting of the request, if any.
   Type = CodeableConcept
   Title = Setting Context
   Min = 0
@@ -330,15 +330,15 @@
  -- Row 20 -----------------------------------
   Name = data-requirements
   Use = Instance
-  Documentation = The data-requirements operation aggregates and returns the parameters and data requirements for the service module and all its dependencies as a single module definition library
+  Documentation = The data-requirements operation aggregates and returns the parameters and data requirements for the service module and all its dependencies as a single module definition library.
   Type = operation
   Title = Data Requirements
-  Footer = The effect of invoking this operation is to determine the aggregate set of data requirements and dependencies for the service module. The result is a Library resource with a type of module-definition that contains all the parameter definitions and data requirements of the service module and any libraries referenced by it. Implementations SHOULD aggregate data requirements intelligently (i.e. by collapsing overlapping data requirements)
+  Footer = The effect of invoking this operation is to determine the aggregate set of data requirements and dependencies for the service module. The result is a Library resource with a type of module-definition that contains all the parameter definitions and data requirements of the service module and any libraries referenced by it. Implementations SHOULD aggregate data requirements intelligently (i.e. by collapsing overlapping data requirements).
 
  -- Row 21 -----------------------------------
   Name = data-requirements.evaluateAtDateTime
   Use = in
-  Documentation = An optional date and time specifying that the evaluation should be performed as though it was the given date and time. Data requirements returned will use this as the \"Now\" point for the purposes of determining the data requirements
+  Documentation = An optional date and time specifying that the evaluation should be performed as though it was the given date and time. Data requirements returned will use this as the \"Now\" point for the purposes of determining the data requirements.
   Type = dateTime
   Title = Evaluate At
   Min = 0
@@ -350,6 +350,6 @@
   Documentation = The result of the requirements gathering
   Type = Library
   Title = Return
-  Footer = A module-definition Library that describes the aggregate parameters, data requirements, and dependencies of the target
+  Footer = A module-definition Library that describes the aggregate parameters, data requirements, and dependencies of the target.
   Min = 1
   Max = 1

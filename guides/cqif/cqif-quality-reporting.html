@@ -17,12 +17,11 @@
 The <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=400">Clinical Quality Language (CQL)</a> standard aims to unify the expression of logic for
 electronic Clinical Quality Measures (eCQM) and Clinical Decision Support (CDS). This
 document defines an approach to using CQL with Fast Health Interoperability Resources (FHIR)
-DSTU2 for defining eCQMs.
+for defining eCQMs.
 </p>
 
 <p>
-This Implementation Guide (IG) specifies how the Clinical Quality Language
-(CQL) is used in conjunction with the <a href="http://hl7.org/fhir/current/qicore">Quality Improvement Core (QICore)</a>
+This module is used in conjunction with the <a href="http://hl7.org/fhir/current/qicore">Quality Improvement Core (QICore)</a>
 FHIR profiles to define and invoke clinical quality measures.
 </p>
 
@@ -70,7 +69,7 @@ Quality Measure Format (HQMF)</a>.
 		<tr><td>Endorser</td><td>0..1</td><td>Measure.contributor</td><td>type.code of endorser</td></tr>
 		<tr><td>Description</td><td>0..1</td><td>Measure.description</td><td></td></tr>
 		<tr><td>Copyright</td><td>0..1</td><td>Measure.copyright</td><td></td></tr>
-		<tr><td>Reference</td><td>0..*</td><td>Mesaure.relatedResource</td><td>type.code of citation</td></tr>
+		<tr><td>Reference</td><td>0..*</td><td>Measure.relatedResource</td><td>type.code of citation</td></tr>
 		<tr><td>Disclaimer</td><td>0..1</td><td>disclaimer</td><td>String (containing Markdown)</td></tr>
 		<tr><td>Measure Scoring</td><td>0..1</td><td>scoring</td><td>Code, e.g. proportion, CV</td></tr>
 		<tr><td>Measure Type</td><td>0..1</td><td>type</td><td>Code, e.g. process, outcome</td></tr>
@@ -99,13 +98,13 @@ Quality Measure Format (HQMF)</a>.
 
 <table class="grid">
 	<thead>
-		<tr><th>MeasureType</th><th>Initial Population</th><th>Denominator</th><th>Denominator Exclusion</th><th>Denominator Exception</th><th>Numerator</th><th>Numerator Excxlusion</th><th>Measure Population</th><th>Measure Population Exclusion</th><th>Measure Score</th></tr>
+		<tr><th>MeasureType</th><th>Initial Population</th><th>Denominator</th><th>Denominator Exclusion</th><th>Denominator Exception</th><th>Numerator</th><th>Numerator Excxlusion</th><th>Measure Population</th><th>Measure Population Exclusion</th></tr>
 	</thead>
 	<tbody>
-		<tr><td>Proportion</td><td>R</td><td>R</td><td>O</td><td>O</td><td>R</td><td>O</td><td>NP</td><td>NP</td><td>O</td></tr>
-		<tr><td>Ratio</td><td>R</td><td>R</td><td>O</td><td>NP</td><td>R</td><td>O</td><td>NP</td><td>NP</td><td>O</td></tr>
-		<tr><td>Continuous Variable</td><td>R</td><td>NP</td><td>NP</td><td>NP</td><td>NP</td><td>NP</td><td>R</td><td>O</td><td>O</td></tr>
-		<tr><td>Cohort</td><td>R</td><td>NP</td><td>NP</td><td>NP</td><td>NP</td><td>NP</td><td>NP</td><td>NP</td><td>NP</td></tr>
+		<tr><td>Proportion</td><td>R</td><td>R</td><td>O</td><td>O</td><td>R</td><td>O</td><td>NP</td><td>NP</td></tr>
+		<tr><td>Ratio</td><td>R</td><td>R</td><td>O</td><td>NP</td><td>R</td><td>O</td><td>NP</td><td>NP</td></tr>
+		<tr><td>Continuous Variable</td><td>R</td><td>NP</td><td>NP</td><td>NP</td><td>NP</td><td>NP</td><td>R</td><td>O</td></tr>
+		<tr><td>Cohort</td><td>R</td><td>NP</td><td>NP</td><td>NP</td><td>NP</td><td>NP</td><td>NP</td><td>NP</td></tr>
 	</tbody>
 </table>
 
@@ -156,7 +155,7 @@ Quality Measure Format (HQMF)</a>.
 <a name="Data Criteria"/>
 <h6>Data Criteria</h6>
 
-<p>The data criteria for the primary library defines the patient data of interest in the measure as a set of <a href="[%fhir-path%]datarequirement.html">DataRequirement</a> elements. Each data requirement identifies specific types of data along with constraints that the data must meet. For example, one data requirement for CMS 146 identifies FHIR Condition resources that represent confirmed diagnoses of acute pharyngitis. Other data requirements for this measure include Encounters, DiagnosticReports and other FHIR resources representing specific data that is used to calculate the measure.</p>
+<p>The data criteria for the primary library defines the data of interest in the measure as a set of <a href="[%fhir-path%]datarequirement.html">DataRequirement</a> elements. Each data requirement identifies specific types of data along with constraints that the data must meet. For example, one data requirement for CMS 146 identifies FHIR Condition resources that represent confirmed diagnoses of acute pharyngitis. Other data requirements for this measure include Encounters, DiagnosticReports and other FHIR resources representing specific data that is used to calculate the measure.</p>
 
 <p>Specifying the data criteria in this way enables the following use cases:</p>
 
@@ -225,7 +224,7 @@ The next example demonstrates how to obtain the results of evaluating the eMeasu
 <a name="measure-report"/>
 <h4>Measure Report</h4>
 
-<p>When eCQMs are represented with the Health Quality Measure Format (HQMF), a single HQMF document represents both the measure itself and the request. Meanwhile, the responses are represented as Quality Reporting Document Architecture (QRDA) documents. QRDA documents come in three flavors: Category I for individual patient reports, Category II for patient list reports, and Category III for population reports.</p>
+<p>When eCQMs are represented with the Health Quality Measure Format (HQMF), a single HQMF document represents both the measure itself and the request. Meanwhile, the responses are represented as Quality Reporting Document Architecture (QRDA) documents. QRDA documents come in two flavors: <a href="http://wiki.hl7.org/index.php?title=Quality_Reporting_Document_Architecture_Category_1">Category I</a> for individual patient reports and <a href="http://wiki.hl7.org/index.php?title=Quality_Reporting_Document_Architecture_Category_3">Category III</a> for population reports.</p>
 
 <p>When eCQMs are represented with FHIR resources, the measure is represented as a <a href="[%fhir-path%]measure.html">Measure</a> resource, and the request is an <code>HTTP GET</code> conforming to the <a href="[%fhir-path%]operationdefinition.html">OperationDefinition</a> described above. Meanwhile, the responses are represented as <a href="[%fhir-path%]measurereport.html">MeasureReport</a> resources. Like QRDA, the MeasureReport allows for Category I (individual), Category II (patient-list), and Category III (population) reports.</p>
 
@@ -245,7 +244,7 @@ The next example demonstrates how to obtain the results of evaluating the eMeasu
 
 <img alt="Individual Measure Report" src="cqif-measure-report-individual.png"/>
 
-<p>See the MeasureReport examples for a detailed illustration of how the data elements involved in the calculation of the measure are communicated through the <code>evaluatedResources</code> element.</p>
+<p>See the MeasureReport <a href="../measurereport-examples.html">examples</a> for a detailed illustration of how the data elements involved in the calculation of the measure are communicated through the <code>evaluatedResources</code> element.</p>
 
 <a name="reporting-patient-list-data"/>
 <h5>Patient-List Reports</h5>
