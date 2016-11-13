@@ -113,12 +113,13 @@
 
  -- Row 14 -----------------------------------
   Element = SearchParameter.base
-  Card. = 1..1
+  Card. = 1..*
   Summary = Y
   Type = code
   Binding = ResourceType
-  Short Name = The resource type this search parameter applies to
-  Definition = The base resource type that this search parameter refers to
+  Short Name = The resource type(s) this search parameter applies to
+  Definition = The base resource type(s) that this search parameter can be used against
+  Comments = A search parameter must always have at least one type. When search parameters have more than one resource, they can be used against any of the listed resource types, or in a cross-type search (see [Cross Resource Search](http.html#xres-search))
 
  -- Row 15 -----------------------------------
   Element = SearchParameter.type

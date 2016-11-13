@@ -1,0 +1,14 @@
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="common-search-parameter-bundle"/>
+  <type value="collection"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <code value="code"/>
+        <base value="DiagnosticReport"/>
+        <base value="Observation"/>
+        <base value="Procedure"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

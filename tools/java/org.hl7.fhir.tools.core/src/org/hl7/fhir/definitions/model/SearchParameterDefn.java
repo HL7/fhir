@@ -62,6 +62,7 @@ public class SearchParameterDefn {
   private SearchParameter resource;
   private ExpressionNode expressionNode;
   private boolean XPathDone;
+  private List<String> otherResources = new ArrayList<String>();
   
   // operational tracking
   private String xPath;
@@ -103,6 +104,7 @@ public class SearchParameterDefn {
     composites.addAll(source.composites);
     targets.addAll(source.targets);
     manualTargets.addAll(source.manualTargets);
+    otherResources.addAll(source.otherResources);
   }
 
   public List<String> getPaths() {
@@ -218,6 +220,9 @@ public class SearchParameterDefn {
   public void setXPathDone(boolean xPathDone) {
     XPathDone = xPathDone;
   }
-  
+
+  public List<String> getOtherResources() {
+    return otherResources;
+  }
   
 }

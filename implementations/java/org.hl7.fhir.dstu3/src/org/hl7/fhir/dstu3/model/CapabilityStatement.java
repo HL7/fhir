@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Nov 11, 2016 15:02+1100 for FHIR v1.7.0
+// Generated on Sun, Nov 13, 2016 21:25+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -47,7 +47,7 @@ import org.hl7.fhir.exceptions.FHIRException;
  * A Capability Statement documents a set of capabilities (behaviors) of a FHIR Server that may be used as a statement of actual server functionality or a statement of required or desired server implementation.
  */
 @ResourceDef(name="CapabilityStatement", profile="http://hl7.org/fhir/Profile/CapabilityStatement")
-@ChildOrder(names={"url", "version", "name", "title", "status", "experimental", "date", "publisher", "contact", "description", "useContext", "jurisdiction", "purpose", "copyright", "kind", "instantiates", "software", "implementation", "fhirVersion", "acceptUnknown", "format", "profile", "rest", "messaging", "document"})
+@ChildOrder(names={"url", "version", "name", "title", "status", "experimental", "date", "publisher", "contact", "description", "useContext", "jurisdiction", "purpose", "copyright", "kind", "instantiates", "software", "implementation", "fhirVersion", "acceptUnknown", "format", "patchFormat", "profile", "rest", "messaging", "document"})
 public class CapabilityStatement extends MetadataResource implements IBaseConformance {
 
     public enum CapabilityStatementKind {
@@ -384,6 +384,10 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         /**
          * null
          */
+        PATCH, 
+        /**
+         * null
+         */
         DELETE, 
         /**
          * null
@@ -414,6 +418,8 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
           return VREAD;
         if ("update".equals(codeString))
           return UPDATE;
+        if ("patch".equals(codeString))
+          return PATCH;
         if ("delete".equals(codeString))
           return DELETE;
         if ("history-instance".equals(codeString))
@@ -434,6 +440,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
             case READ: return "read";
             case VREAD: return "vread";
             case UPDATE: return "update";
+            case PATCH: return "patch";
             case DELETE: return "delete";
             case HISTORYINSTANCE: return "history-instance";
             case HISTORYTYPE: return "history-type";
@@ -447,6 +454,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
             case READ: return "http://hl7.org/fhir/restful-interaction";
             case VREAD: return "http://hl7.org/fhir/restful-interaction";
             case UPDATE: return "http://hl7.org/fhir/restful-interaction";
+            case PATCH: return "http://hl7.org/fhir/restful-interaction";
             case DELETE: return "http://hl7.org/fhir/restful-interaction";
             case HISTORYINSTANCE: return "http://hl7.org/fhir/restful-interaction";
             case HISTORYTYPE: return "http://hl7.org/fhir/restful-interaction";
@@ -460,6 +468,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
             case READ: return "";
             case VREAD: return "";
             case UPDATE: return "";
+            case PATCH: return "";
             case DELETE: return "";
             case HISTORYINSTANCE: return "";
             case HISTORYTYPE: return "";
@@ -473,6 +482,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
             case READ: return "read";
             case VREAD: return "vread";
             case UPDATE: return "update";
+            case PATCH: return "patch";
             case DELETE: return "delete";
             case HISTORYINSTANCE: return "history-instance";
             case HISTORYTYPE: return "history-type";
@@ -494,6 +504,8 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
           return TypeRestfulInteraction.VREAD;
         if ("update".equals(codeString))
           return TypeRestfulInteraction.UPDATE;
+        if ("patch".equals(codeString))
+          return TypeRestfulInteraction.PATCH;
         if ("delete".equals(codeString))
           return TypeRestfulInteraction.DELETE;
         if ("history-instance".equals(codeString))
@@ -518,6 +530,8 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
           return new Enumeration<TypeRestfulInteraction>(this, TypeRestfulInteraction.VREAD);
         if ("update".equals(codeString))
           return new Enumeration<TypeRestfulInteraction>(this, TypeRestfulInteraction.UPDATE);
+        if ("patch".equals(codeString))
+          return new Enumeration<TypeRestfulInteraction>(this, TypeRestfulInteraction.PATCH);
         if ("delete".equals(codeString))
           return new Enumeration<TypeRestfulInteraction>(this, TypeRestfulInteraction.DELETE);
         if ("history-instance".equals(codeString))
@@ -537,6 +551,8 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         return "vread";
       if (code == TypeRestfulInteraction.UPDATE)
         return "update";
+      if (code == TypeRestfulInteraction.PATCH)
+        return "patch";
       if (code == TypeRestfulInteraction.DELETE)
         return "delete";
       if (code == TypeRestfulInteraction.HISTORYINSTANCE)
@@ -4630,7 +4646,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
          * Coded identifier of the operation, supported by the system resource.
          */
         @Child(name = "code", type = {CodeType.class}, order=1, min=1, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="read | vread | update | delete | history-instance | history-type | create | search-type", formalDefinition="Coded identifier of the operation, supported by the system resource." )
+        @Description(shortDefinition="read | vread | update | patch | delete | history-instance | history-type | create | search-type", formalDefinition="Coded identifier of the operation, supported by the system resource." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/type-restful-interaction")
         protected Enumeration<TypeRestfulInteraction> code;
 
@@ -7435,9 +7451,16 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
     protected List<CodeType> format;
 
     /**
+     * A list of the patch formats supported by this implementation using their content types.
+     */
+    @Child(name = "patchFormat", type = {CodeType.class}, order=9, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Description(shortDefinition="Patch formats supported", formalDefinition="A list of the patch formats supported by this implementation using their content types." )
+    protected List<CodeType> patchFormat;
+
+    /**
      * A list of profiles that represent different use cases supported by the system. For a server, "supported by the system" means the system hosts/produces a set of resources that are conformant to a particular profile, and allows clients that use its services to search using this profile and to find appropriate data. For a client, it means the system will search by this profile and process data according to the guidance implicit in the profile. See further discussion in [Using Profiles]{profiling.html#profile-uses}.
      */
-    @Child(name = "profile", type = {StructureDefinition.class}, order=9, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "profile", type = {StructureDefinition.class}, order=10, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Profiles for use cases supported", formalDefinition="A list of profiles that represent different use cases supported by the system. For a server, \"supported by the system\" means the system hosts/produces a set of resources that are conformant to a particular profile, and allows clients that use its services to search using this profile and to find appropriate data. For a client, it means the system will search by this profile and process data according to the guidance implicit in the profile. See further discussion in [Using Profiles]{profiling.html#profile-uses}." )
     protected List<Reference> profile;
     /**
@@ -7449,25 +7472,25 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
     /**
      * A definition of the restful capabilities of the solution, if any.
      */
-    @Child(name = "rest", type = {}, order=10, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "rest", type = {}, order=11, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="If the endpoint is a RESTful one", formalDefinition="A definition of the restful capabilities of the solution, if any." )
     protected List<CapabilityStatementRestComponent> rest;
 
     /**
      * A description of the messaging capabilities of the solution.
      */
-    @Child(name = "messaging", type = {}, order=11, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "messaging", type = {}, order=12, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="If messaging is supported", formalDefinition="A description of the messaging capabilities of the solution." )
     protected List<CapabilityStatementMessagingComponent> messaging;
 
     /**
      * A document definition.
      */
-    @Child(name = "document", type = {}, order=12, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "document", type = {}, order=13, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Document definition", formalDefinition="A document definition." )
     protected List<CapabilityStatementDocumentComponent> document;
 
-    private static final long serialVersionUID = 1423369803L;
+    private static final long serialVersionUID = -1088252901L;
 
   /**
    * Constructor
@@ -8480,6 +8503,67 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
     }
 
     /**
+     * @return {@link #patchFormat} (A list of the patch formats supported by this implementation using their content types.)
+     */
+    public List<CodeType> getPatchFormat() { 
+      if (this.patchFormat == null)
+        this.patchFormat = new ArrayList<CodeType>();
+      return this.patchFormat;
+    }
+
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public CapabilityStatement setPatchFormat(List<CodeType> thePatchFormat) { 
+      this.patchFormat = thePatchFormat;
+      return this;
+    }
+
+    public boolean hasPatchFormat() { 
+      if (this.patchFormat == null)
+        return false;
+      for (CodeType item : this.patchFormat)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    /**
+     * @return {@link #patchFormat} (A list of the patch formats supported by this implementation using their content types.)
+     */
+    public CodeType addPatchFormatElement() {//2 
+      CodeType t = new CodeType();
+      if (this.patchFormat == null)
+        this.patchFormat = new ArrayList<CodeType>();
+      this.patchFormat.add(t);
+      return t;
+    }
+
+    /**
+     * @param value {@link #patchFormat} (A list of the patch formats supported by this implementation using their content types.)
+     */
+    public CapabilityStatement addPatchFormat(String value) { //1
+      CodeType t = new CodeType();
+      t.setValue(value);
+      if (this.patchFormat == null)
+        this.patchFormat = new ArrayList<CodeType>();
+      this.patchFormat.add(t);
+      return this;
+    }
+
+    /**
+     * @param value {@link #patchFormat} (A list of the patch formats supported by this implementation using their content types.)
+     */
+    public boolean hasPatchFormat(String value) { 
+      if (this.patchFormat == null)
+        return false;
+      for (CodeType v : this.patchFormat)
+        if (v.equals(value)) // code
+          return true;
+      return false;
+    }
+
+    /**
      * @return {@link #profile} (A list of profiles that represent different use cases supported by the system. For a server, "supported by the system" means the system hosts/produces a set of resources that are conformant to a particular profile, and allows clients that use its services to search using this profile and to find appropriate data. For a client, it means the system will search by this profile and process data according to the guidance implicit in the profile. See further discussion in [Using Profiles]{profiling.html#profile-uses}.)
      */
     public List<Reference> getProfile() { 
@@ -8736,6 +8820,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         childrenList.add(new Property("fhirVersion", "id", "The version of the FHIR specification on which this capability statement is based.", 0, java.lang.Integer.MAX_VALUE, fhirVersion));
         childrenList.add(new Property("acceptUnknown", "code", "A code that indicates whether the application accepts unknown elements or extensions when reading resources.", 0, java.lang.Integer.MAX_VALUE, acceptUnknown));
         childrenList.add(new Property("format", "code", "A list of the formats supported by this implementation using their content types.", 0, java.lang.Integer.MAX_VALUE, format));
+        childrenList.add(new Property("patchFormat", "code", "A list of the patch formats supported by this implementation using their content types.", 0, java.lang.Integer.MAX_VALUE, patchFormat));
         childrenList.add(new Property("profile", "Reference(StructureDefinition)", "A list of profiles that represent different use cases supported by the system. For a server, \"supported by the system\" means the system hosts/produces a set of resources that are conformant to a particular profile, and allows clients that use its services to search using this profile and to find appropriate data. For a client, it means the system will search by this profile and process data according to the guidance implicit in the profile. See further discussion in [Using Profiles]{profiling.html#profile-uses}.", 0, java.lang.Integer.MAX_VALUE, profile));
         childrenList.add(new Property("rest", "", "A definition of the restful capabilities of the solution, if any.", 0, java.lang.Integer.MAX_VALUE, rest));
         childrenList.add(new Property("messaging", "", "A description of the messaging capabilities of the solution.", 0, java.lang.Integer.MAX_VALUE, messaging));
@@ -8766,6 +8851,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         case 461006061: /*fhirVersion*/ return this.fhirVersion == null ? new Base[0] : new Base[] {this.fhirVersion}; // IdType
         case -1862642142: /*acceptUnknown*/ return this.acceptUnknown == null ? new Base[0] : new Base[] {this.acceptUnknown}; // Enumeration<UnknownContentCode>
         case -1268779017: /*format*/ return this.format == null ? new Base[0] : this.format.toArray(new Base[this.format.size()]); // CodeType
+        case 172338783: /*patchFormat*/ return this.patchFormat == null ? new Base[0] : this.patchFormat.toArray(new Base[this.patchFormat.size()]); // CodeType
         case -309425751: /*profile*/ return this.profile == null ? new Base[0] : this.profile.toArray(new Base[this.profile.size()]); // Reference
         case 3496916: /*rest*/ return this.rest == null ? new Base[0] : this.rest.toArray(new Base[this.rest.size()]); // CapabilityStatementRestComponent
         case -1440008444: /*messaging*/ return this.messaging == null ? new Base[0] : this.messaging.toArray(new Base[this.messaging.size()]); // CapabilityStatementMessagingComponent
@@ -8841,6 +8927,9 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         case -1268779017: // format
           this.getFormat().add(castToCode(value)); // CodeType
           break;
+        case 172338783: // patchFormat
+          this.getPatchFormat().add(castToCode(value)); // CodeType
+          break;
         case -309425751: // profile
           this.getProfile().add(castToReference(value)); // Reference
           break;
@@ -8902,6 +8991,8 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
           this.acceptUnknown = new UnknownContentCodeEnumFactory().fromType(value); // Enumeration<UnknownContentCode>
         else if (name.equals("format"))
           this.getFormat().add(castToCode(value));
+        else if (name.equals("patchFormat"))
+          this.getPatchFormat().add(castToCode(value));
         else if (name.equals("profile"))
           this.getProfile().add(castToReference(value));
         else if (name.equals("rest"))
@@ -8938,6 +9029,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         case 461006061: throw new FHIRException("Cannot make property fhirVersion as it is not a complex type"); // IdType
         case -1862642142: throw new FHIRException("Cannot make property acceptUnknown as it is not a complex type"); // Enumeration<UnknownContentCode>
         case -1268779017: throw new FHIRException("Cannot make property format as it is not a complex type"); // CodeType
+        case 172338783: throw new FHIRException("Cannot make property patchFormat as it is not a complex type"); // CodeType
         case -309425751:  return addProfile(); // Reference
         case 3496916:  return addRest(); // CapabilityStatementRestComponent
         case -1440008444:  return addMessaging(); // CapabilityStatementMessagingComponent
@@ -9014,6 +9106,9 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         else if (name.equals("format")) {
           throw new FHIRException("Cannot call addChild on a primitive type CapabilityStatement.format");
         }
+        else if (name.equals("patchFormat")) {
+          throw new FHIRException("Cannot call addChild on a primitive type CapabilityStatement.patchFormat");
+        }
         else if (name.equals("profile")) {
           return addProfile();
         }
@@ -9079,6 +9174,11 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
           for (CodeType i : format)
             dst.format.add(i.copy());
         };
+        if (patchFormat != null) {
+          dst.patchFormat = new ArrayList<CodeType>();
+          for (CodeType i : patchFormat)
+            dst.patchFormat.add(i.copy());
+        };
         if (profile != null) {
           dst.profile = new ArrayList<Reference>();
           for (Reference i : profile)
@@ -9116,8 +9216,9 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         return compareDeep(purpose, o.purpose, true) && compareDeep(copyright, o.copyright, true) && compareDeep(kind, o.kind, true)
            && compareDeep(instantiates, o.instantiates, true) && compareDeep(software, o.software, true) && compareDeep(implementation, o.implementation, true)
            && compareDeep(fhirVersion, o.fhirVersion, true) && compareDeep(acceptUnknown, o.acceptUnknown, true)
-           && compareDeep(format, o.format, true) && compareDeep(profile, o.profile, true) && compareDeep(rest, o.rest, true)
-           && compareDeep(messaging, o.messaging, true) && compareDeep(document, o.document, true);
+           && compareDeep(format, o.format, true) && compareDeep(patchFormat, o.patchFormat, true) && compareDeep(profile, o.profile, true)
+           && compareDeep(rest, o.rest, true) && compareDeep(messaging, o.messaging, true) && compareDeep(document, o.document, true)
+          ;
       }
 
       @Override
@@ -9129,13 +9230,14 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         CapabilityStatement o = (CapabilityStatement) other;
         return compareValues(purpose, o.purpose, true) && compareValues(copyright, o.copyright, true) && compareValues(kind, o.kind, true)
            && compareValues(instantiates, o.instantiates, true) && compareValues(fhirVersion, o.fhirVersion, true)
-           && compareValues(acceptUnknown, o.acceptUnknown, true) && compareValues(format, o.format, true);
+           && compareValues(acceptUnknown, o.acceptUnknown, true) && compareValues(format, o.format, true) && compareValues(patchFormat, o.patchFormat, true)
+          ;
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(purpose, copyright, kind
-          , instantiates, software, implementation, fhirVersion, acceptUnknown, format, profile
-          , rest, messaging, document);
+          , instantiates, software, implementation, fhirVersion, acceptUnknown, format, patchFormat
+          , profile, rest, messaging, document);
       }
 
   @Override

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Nov 11, 2016 15:02+1100 for FHIR v1.7.0
+// Generated on Sun, Nov 13, 2016 21:25+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -44,7 +44,7 @@ import ca.uhn.fhir.model.api.annotation.Block;
 import org.hl7.fhir.instance.model.api.*;
 import org.hl7.fhir.exceptions.FHIRException;
 /**
- * The ServiceDefinition describes a unit of decision support functionality that is made available as a service, such as immunization modules or drug-drug interaction checking module.
+ * The ServiceDefinition describes a unit of decision support functionality that is made available as a service, such as immunization modules or drug-drug interaction checking.
  */
 @ResourceDef(name="ServiceDefinition", profile="http://hl7.org/fhir/Profile/ServiceDefinition")
 @ChildOrder(names={"url", "identifier", "version", "name", "title", "status", "experimental", "date", "description", "purpose", "usage", "approvalDate", "lastReviewDate", "effectivePeriod", "useContext", "jurisdiction", "topic", "contributor", "publisher", "contact", "copyright", "relatedArtifact", "trigger", "dataRequirement", "operationDefinition"})

@@ -5362,7 +5362,7 @@ public class VersionConvertor_14_20 {
     if (src.hasRequirements())
       tgt.setPurpose(src.getRequirements());
     tgt.setCode(src.getCode());
-    tgt.setBase(src.getBase());
+    tgt.addBase(src.getBase());
     tgt.setType(convertSearchParamType(src.getType()));
     tgt.setDescription(src.getDescription());
     if (src.hasExpression())
@@ -5399,7 +5399,8 @@ public class VersionConvertor_14_20 {
     if (src.hasPurpose())
       tgt.setRequirements(src.getPurpose());
     tgt.setCode(src.getCode());
-    tgt.setBase(src.getBase());
+    for (org.hl7.fhir.dstu3.model.CodeType t : src.getBase())
+      tgt.setBase(t.asStringValue());
     tgt.setType(convertSearchParamType(src.getType()));
     tgt.setDescription(src.getDescription());
     if (src.hasExpression())

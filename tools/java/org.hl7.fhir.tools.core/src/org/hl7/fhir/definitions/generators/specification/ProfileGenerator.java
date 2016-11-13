@@ -991,9 +991,9 @@ public class ProfileGenerator {
       for (ContactPoint ts : tc.getTelecom())
         t.getTelecom().add(ts.copy());
     }
-    sp.setBase(p.getType());
-    if (!definitions.hasResource(sp.getBase()) && !sp.getBase().equals("Resource") && !sp.getBase().equals("DomainResource"))
-      throw new Exception("unknown resource type "+sp.getBase());
+    if (!definitions.hasResource(p.getType()) && !p.getType().equals("Resource") && !p.getType().equals("DomainResource"))
+      throw new Exception("unknown resource type "+p.getType());
+    sp.addBase(p.getType());
     
     sp.setType(getSearchParamType(spd.getType()));
     sp.setDescription(spd.getDescription());

@@ -5440,18 +5440,41 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       else
         b.append("<p>Search parameters for this resource. The <a href=\"search.html#all\">common parameters</a> also apply. See <a href=\"search.html\">Searching</a> for more information about searching in REST, messaging, and services.</p>\r\n");
       b.append("<table class=\"list\">\r\n");
-      b.append("<tr><td><b>Name</b></td><td><b>Type</b></td><td><b>Description</b></td><td><b>Paths</b></td></tr>\r\n");
+      b.append("<tr><td><b>Name</b></td><td><b>Type</b></td><td><b>Description</b></td><td><b>Paths</b></td><td></td></tr>\r\n");
       List<String> names = new ArrayList<String>();
       names.addAll(resource.getSearchParams().keySet());
       Collections.sort(names);
       for (String name : names)  {
         SearchParameterDefn p = resource.getSearchParams().get(name);
-        b.append("<tr><td>").append(p.getCode()).append("</td><td><a href=\"search.html#").append(p.getType()).append("\">").append(p.getType()).append("</a></td><td>")
-                .append(Utilities.escapeXml(p.getDescription())).append("</td><td>").append(presentPaths(p.getPaths())).append(p.getType() == SearchType.reference ? p.getTargetTypesAsText() : "").append("</td></tr>\r\n");
+        b.append("<tr><td><a name=\"sp-").append(p.getCode()).append("\"> </a>").append(p.getCode()).append("</td><td><a href=\"search.html#").append(p.getType()).append("\">").append(p.getType()).append("</a></td><td>")
+                .append(Utilities.escapeXml(p.getDescription())).append("</td><td>").append(presentPaths(p.getPaths())).append(p.getType() == SearchType.reference ? p.getTargetTypesAsText() : "")
+                .append("</td><td>").append(presentOthers(p)).append("</td></tr>\r\n");
       }
       b.append("</table>\r\n");
       return b.toString();
     }
+  }
+
+  private Object presentOthers(SearchParameterDefn p) {
+    if (p.getOtherResources().isEmpty())
+      return "";
+    StringBuilder b = new StringBuilder();
+    b.append("Common with ");
+    boolean first = true;
+    for (String r : p.getOtherResources()) {
+      if (first)
+        first = false;
+      else
+        b.append(", ");
+      b.append("<a href=\"");
+      b.append(r.toLowerCase());
+      b.append(".html#sp-");
+      b.append(p.getCode());
+      b.append("\">");
+      b.append(r);
+      b.append("</a>");
+    }
+    return b.toString();
   }
 
   private String getAbstractSearch(ResourceDefn resource) {

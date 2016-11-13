@@ -44,6 +44,7 @@ import org.hl7.fhir.definitions.generators.specification.ProfileGenerator;
 import org.hl7.fhir.definitions.generators.specification.ToolResourceUtilities;
 import org.hl7.fhir.definitions.generators.specification.XPathQueryGenerator;
 import org.hl7.fhir.definitions.model.BindingSpecification;
+import org.hl7.fhir.definitions.model.CommonSearchParameter;
 import org.hl7.fhir.definitions.model.BindingSpecification.BindingMethod;
 import org.hl7.fhir.definitions.model.ConstraintStructure;
 import org.hl7.fhir.definitions.model.DefinedCode;
@@ -803,17 +804,17 @@ public class SpreadsheetParser {
         ResourceDefn root2 = null;
         if (!path.startsWith("#")) {
           path = path.substring(0, path.indexOf('.'));
-          sp.setBase(path);
-          if (!pkp.isResource(sp.getBase()))
+          if (!pkp.isResource(path))
             throw new Exception("Ilegal Search Parameter path "+sheet.getColumn(row, "Path"));
+          sp.addBase(path);
           sp.setId(pack.getId()+"-"+path+"-"+sp.getName());
           if (definitions != null) { // igtodo (and below)
             root2 = definitions.getResourceByName(path);
             if (root2 == null)
               throw new Exception("Search Param "+pack.getTitle()+"/"+n+" has an invalid path (resource not found)");
-            sp.setBase(root2.getName());
-            if (!pkp.isResource(sp.getBase()))
+            if (!pkp.isResource(root2.getName()))
               throw new Exception("Ilegal Search Parameter path "+sheet.getColumn(row, "Path"));
+            sp.addBase(root2.getName());
             sp.setId(pack.getId()+"-"+(root2 == null ? "all" : root2.getName())+"-"+sp.getName());
           }
         }
@@ -1002,8 +1003,6 @@ public class SpreadsheetParser {
             if (!forProfile && t == SearchType.reference && pn.size() == 0 && !sheet.hasColumn(row, "Target Types"))
               throw new Exception("Search Param "+root2.getName()+"/"+n+" of type reference has no path(s) "+ getLocation(row));
             
-            
-
             sp = new SearchParameterDefn(n, d, t, pu);
             sp.getPaths().addAll(pn);
             if (!Utilities.noString(sheet.getColumn(row, "Expression")))
@@ -1011,6 +1010,12 @@ public class SpreadsheetParser {
             if (!Utilities.noString(sheet.getColumn(row, "Target Types"))) {
               sp.setManualTypes(sheet.getColumn(row, "Target Types").split("\\,"));
             }
+            CommonSearchParameter csp = definitions.getCommonSearchParameters().get(root2.getName()+"::"+n);
+            if (csp != null)
+              for (String s : csp.getResources()) {
+                if (!root2.getName().equals(s))
+                  sp.getOtherResources().add(s);
+              }
           }
           root2.getSearchParams().put(n, sp);
         }

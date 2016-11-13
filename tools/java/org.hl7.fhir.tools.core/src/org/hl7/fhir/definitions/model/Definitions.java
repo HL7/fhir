@@ -178,6 +178,7 @@ public class Definitions {
   private Map<String, String> typePages = new HashMap<String, String>();
   private Map<String, String> pageTitles = new HashMap<String, String>();
   private Map<String, Set<String>> searchRules = new HashMap<String, Set<String>>();
+  private Map<String, CommonSearchParameter> commonSearchParameters = new HashMap<String, CommonSearchParameter>();
   private Map<String, NamespacePair> redirectList = new HashMap<String, NamespacePair>();
   
   
@@ -746,6 +747,10 @@ public class Definitions {
 
   public ConstraintStructure findProfile(String id) {
     return profileIds.get(id);
+  }
+
+  public Map<String, CommonSearchParameter> getCommonSearchParameters() {
+    return commonSearchParameters;
   }
 
 }

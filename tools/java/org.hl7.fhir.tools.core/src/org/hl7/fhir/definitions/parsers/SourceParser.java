@@ -48,6 +48,7 @@ import org.hl7.fhir.definitions.generators.specification.DataTypeTableGenerator;
 import org.hl7.fhir.definitions.generators.specification.ProfileGenerator;
 import org.hl7.fhir.definitions.generators.specification.ToolResourceUtilities;
 import org.hl7.fhir.definitions.model.BindingSpecification;
+import org.hl7.fhir.definitions.model.CommonSearchParameter;
 import org.hl7.fhir.definitions.model.Compartment;
 import org.hl7.fhir.definitions.model.ConstraintStructure;
 import org.hl7.fhir.definitions.model.DefinedCode;
@@ -71,18 +72,22 @@ import org.hl7.fhir.definitions.model.W5Entry;
 import org.hl7.fhir.definitions.model.WorkGroup;
 import org.hl7.fhir.definitions.validation.FHIRPathUsage;
 import org.hl7.fhir.dstu3.formats.FormatUtilities;
+import org.hl7.fhir.dstu3.formats.JsonParser;
 import org.hl7.fhir.dstu3.formats.XmlParser;
 import org.hl7.fhir.dstu3.model.Bundle;
 import org.hl7.fhir.dstu3.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.dstu3.model.Bundle.BundleType;
 import org.hl7.fhir.dstu3.model.CodeSystem;
+import org.hl7.fhir.dstu3.model.CodeType;
 import org.hl7.fhir.dstu3.model.Composition;
 import org.hl7.fhir.dstu3.model.Resource;
+import org.hl7.fhir.dstu3.model.SearchParameter;
 import org.hl7.fhir.dstu3.model.StringType;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
 import org.hl7.fhir.dstu3.model.StructureDefinition.TypeDerivationRule;
 import org.hl7.fhir.dstu3.model.ValueSet;
 import org.hl7.fhir.dstu3.validation.ValidationMessage;
+import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.igtools.spreadsheets.CodeSystemConvertor;
 import org.hl7.fhir.igtools.spreadsheets.MappingSpace;
 import org.hl7.fhir.igtools.spreadsheets.TypeParser;
@@ -178,6 +183,7 @@ public class SourceParser {
     loadDictionaries();
     loadStyleExemptions();
 
+    loadCommonSearchParameters();
     loadPrimitives();
 
     for (String id : ini.getPropertyNames("search-rules"))
@@ -290,6 +296,19 @@ public class SourceParser {
       }        
     }
     closeTemplates();
+  }
+
+  private void loadCommonSearchParameters() throws FHIRFormatError, FileNotFoundException, IOException {
+    Bundle bnd = (Bundle) new XmlParser().parse(new CSFileInputStream(Utilities.path(srcDir, "SearchParameter", "common-search-parameters.xml")));
+    for (BundleEntryComponent be : bnd.getEntry()) {
+      SearchParameter sp = (SearchParameter) be.getResource();
+      CommonSearchParameter csp = new CommonSearchParameter();
+      csp.setCode(sp.getCode());
+      for (CodeType ct : sp.getBase()) {
+        csp.getResources().add(ct.asStringValue());
+        definitions.getCommonSearchParameters().put(ct.asStringValue()+"::"+sp.getCode(), csp);
+      }
+    }
   }
 
   private void closeTemplates() throws Exception {

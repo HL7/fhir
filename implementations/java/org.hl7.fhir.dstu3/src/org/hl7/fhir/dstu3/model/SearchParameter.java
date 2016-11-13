@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Nov 11, 2016 15:02+1100 for FHIR v1.7.0
+// Generated on Sun, Nov 13, 2016 21:25+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -203,12 +203,12 @@ public class SearchParameter extends MetadataResource {
     protected CodeType code;
 
     /**
-     * The base resource type that this search parameter refers to.
+     * The base resource type(s) that this search parameter can be used against.
      */
-    @Child(name = "base", type = {CodeType.class}, order=2, min=1, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="The resource type this search parameter applies to", formalDefinition="The base resource type that this search parameter refers to." )
+    @Child(name = "base", type = {CodeType.class}, order=2, min=1, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Description(shortDefinition="The resource type(s) this search parameter applies to", formalDefinition="The base resource type(s) that this search parameter can be used against." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/resource-types")
-    protected CodeType base;
+    protected List<CodeType> base;
 
     /**
      * The type of value a search parameter refers to, and how the content is interpreted.
@@ -260,7 +260,7 @@ public class SearchParameter extends MetadataResource {
     protected List<SearchParameter> componentTarget;
 
 
-    private static final long serialVersionUID = 295034946L;
+    private static final long serialVersionUID = -494449964L;
 
   /**
    * Constructor
@@ -272,13 +272,12 @@ public class SearchParameter extends MetadataResource {
   /**
    * Constructor
    */
-    public SearchParameter(UriType url, StringType name, Enumeration<PublicationStatus> status, CodeType code, CodeType base, Enumeration<SearchParamType> type, MarkdownType description) {
+    public SearchParameter(UriType url, StringType name, Enumeration<PublicationStatus> status, CodeType code, Enumeration<SearchParamType> type, MarkdownType description) {
       super();
       this.url = url;
       this.name = name;
       this.status = status;
       this.code = code;
-      this.base = base;
       this.type = type;
       this.description = description;
     }
@@ -864,48 +863,64 @@ public class SearchParameter extends MetadataResource {
     }
 
     /**
-     * @return {@link #base} (The base resource type that this search parameter refers to.). This is the underlying object with id, value and extensions. The accessor "getBase" gives direct access to the value
+     * @return {@link #base} (The base resource type(s) that this search parameter can be used against.)
      */
-    public CodeType getBaseElement() { 
+    public List<CodeType> getBase() { 
       if (this.base == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create SearchParameter.base");
-        else if (Configuration.doAutoCreate())
-          this.base = new CodeType(); // bb
+        this.base = new ArrayList<CodeType>();
       return this.base;
     }
 
-    public boolean hasBaseElement() { 
-      return this.base != null && !this.base.isEmpty();
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public SearchParameter setBase(List<CodeType> theBase) { 
+      this.base = theBase;
+      return this;
     }
 
     public boolean hasBase() { 
-      return this.base != null && !this.base.isEmpty();
+      if (this.base == null)
+        return false;
+      for (CodeType item : this.base)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
     /**
-     * @param value {@link #base} (The base resource type that this search parameter refers to.). This is the underlying object with id, value and extensions. The accessor "getBase" gives direct access to the value
+     * @return {@link #base} (The base resource type(s) that this search parameter can be used against.)
      */
-    public SearchParameter setBaseElement(CodeType value) { 
-      this.base = value;
+    public CodeType addBaseElement() {//2 
+      CodeType t = new CodeType();
+      if (this.base == null)
+        this.base = new ArrayList<CodeType>();
+      this.base.add(t);
+      return t;
+    }
+
+    /**
+     * @param value {@link #base} (The base resource type(s) that this search parameter can be used against.)
+     */
+    public SearchParameter addBase(String value) { //1
+      CodeType t = new CodeType();
+      t.setValue(value);
+      if (this.base == null)
+        this.base = new ArrayList<CodeType>();
+      this.base.add(t);
       return this;
     }
 
     /**
-     * @return The base resource type that this search parameter refers to.
+     * @param value {@link #base} (The base resource type(s) that this search parameter can be used against.)
      */
-    public String getBase() { 
-      return this.base == null ? null : this.base.getValue();
-    }
-
-    /**
-     * @param value The base resource type that this search parameter refers to.
-     */
-    public SearchParameter setBase(String value) { 
-        if (this.base == null)
-          this.base = new CodeType();
-        this.base.setValue(value);
-      return this;
+    public boolean hasBase(String value) { 
+      if (this.base == null)
+        return false;
+      for (CodeType v : this.base)
+        if (v.equals(value)) // code
+          return true;
+      return false;
     }
 
     /**
@@ -1295,7 +1310,7 @@ public class SearchParameter extends MetadataResource {
         childrenList.add(new Property("jurisdiction", "CodeableConcept", "A jurisdiction in which the search parameter is intended to be used.", 0, java.lang.Integer.MAX_VALUE, jurisdiction));
         childrenList.add(new Property("purpose", "markdown", "Explains why this search parameter is needed and why it has been designed as it has.", 0, java.lang.Integer.MAX_VALUE, purpose));
         childrenList.add(new Property("code", "code", "The code used in the URL or the parameter name in a parameters resource for this search parameter.", 0, java.lang.Integer.MAX_VALUE, code));
-        childrenList.add(new Property("base", "code", "The base resource type that this search parameter refers to.", 0, java.lang.Integer.MAX_VALUE, base));
+        childrenList.add(new Property("base", "code", "The base resource type(s) that this search parameter can be used against.", 0, java.lang.Integer.MAX_VALUE, base));
         childrenList.add(new Property("type", "code", "The type of value a search parameter refers to, and how the content is interpreted.", 0, java.lang.Integer.MAX_VALUE, type));
         childrenList.add(new Property("description", "markdown", "A free text natural language description of the search parameter from the consumer's perspective. and how it used.", 0, java.lang.Integer.MAX_VALUE, description));
         childrenList.add(new Property("expression", "string", "A FluentPath expression that returns a set of elements for the search parameter.", 0, java.lang.Integer.MAX_VALUE, expression));
@@ -1320,7 +1335,7 @@ public class SearchParameter extends MetadataResource {
         case -507075711: /*jurisdiction*/ return this.jurisdiction == null ? new Base[0] : this.jurisdiction.toArray(new Base[this.jurisdiction.size()]); // CodeableConcept
         case -220463842: /*purpose*/ return this.purpose == null ? new Base[0] : new Base[] {this.purpose}; // MarkdownType
         case 3059181: /*code*/ return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeType
-        case 3016401: /*base*/ return this.base == null ? new Base[0] : new Base[] {this.base}; // CodeType
+        case 3016401: /*base*/ return this.base == null ? new Base[0] : this.base.toArray(new Base[this.base.size()]); // CodeType
         case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // Enumeration<SearchParamType>
         case -1724546052: /*description*/ return this.description == null ? new Base[0] : new Base[] {this.description}; // MarkdownType
         case -1795452264: /*expression*/ return this.expression == null ? new Base[0] : new Base[] {this.expression}; // StringType
@@ -1373,7 +1388,7 @@ public class SearchParameter extends MetadataResource {
           this.code = castToCode(value); // CodeType
           break;
         case 3016401: // base
-          this.base = castToCode(value); // CodeType
+          this.getBase().add(castToCode(value)); // CodeType
           break;
         case 3575610: // type
           this.type = new SearchParamTypeEnumFactory().fromType(value); // Enumeration<SearchParamType>
@@ -1428,7 +1443,7 @@ public class SearchParameter extends MetadataResource {
         else if (name.equals("code"))
           this.code = castToCode(value); // CodeType
         else if (name.equals("base"))
-          this.base = castToCode(value); // CodeType
+          this.getBase().add(castToCode(value));
         else if (name.equals("type"))
           this.type = new SearchParamTypeEnumFactory().fromType(value); // Enumeration<SearchParamType>
         else if (name.equals("description"))
@@ -1573,7 +1588,11 @@ public class SearchParameter extends MetadataResource {
         };
         dst.purpose = purpose == null ? null : purpose.copy();
         dst.code = code == null ? null : code.copy();
-        dst.base = base == null ? null : base.copy();
+        if (base != null) {
+          dst.base = new ArrayList<CodeType>();
+          for (CodeType i : base)
+            dst.base.add(i.copy());
+        };
         dst.type = type == null ? null : type.copy();
         dst.description = description == null ? null : description.copy();
         dst.expression = expression == null ? null : expression.copy();
@@ -1880,17 +1899,17 @@ public class SearchParameter extends MetadataResource {
  /**
    * Search parameter: <b>base</b>
    * <p>
-   * Description: <b>The resource type this search parameter applies to</b><br>
+   * Description: <b>The resource type(s) this search parameter applies to</b><br>
    * Type: <b>token</b><br>
    * Path: <b>SearchParameter.base</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="base", path="SearchParameter.base", description="The resource type this search parameter applies to", type="token" )
+  @SearchParamDefinition(name="base", path="SearchParameter.base", description="The resource type(s) this search parameter applies to", type="token" )
   public static final String SP_BASE = "base";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>base</b>
    * <p>
-   * Description: <b>The resource type this search parameter applies to</b><br>
+   * Description: <b>The resource type(s) this search parameter applies to</b><br>
    * Type: <b>token</b><br>
    * Path: <b>SearchParameter.base</b><br>
    * </p>

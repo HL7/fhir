@@ -11708,7 +11708,7 @@ public class VersionConvertor_10_20 {
       tgt.addContact(convertSearchParameterContactComponent(t));
     tgt.setPurpose(src.getRequirements());
     tgt.setCode(src.getCode());
-    tgt.setBase(src.getBase());
+    tgt.addBase(src.getBase());
     tgt.setType(convertSearchParamType(src.getType()));
     tgt.setDescription(src.getDescription());
     tgt.setExpression(ToolingExtensions.readStringExtension(src, ToolingExtensions.EXT_EXPRESSION));
@@ -11736,7 +11736,8 @@ public class VersionConvertor_10_20 {
       tgt.addContact(convertSearchParameterContactComponent(t));
     tgt.setRequirements(src.getPurpose());
     tgt.setCode(src.getCode());
-    tgt.setBase(src.getBase());
+    for (org.hl7.fhir.dstu3.model.CodeType t : src.getBase())
+      tgt.setBase(t.asStringValue());
     tgt.setType(convertSearchParamType(src.getType()));
     tgt.setDescription(src.getDescription());
     org.hl7.fhir.dstu2.utils.ToolingExtensions.setStringExtension(tgt, ToolingExtensions.EXT_EXPRESSION, src.getExpression());
