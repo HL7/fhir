@@ -299,7 +299,7 @@ public class SourceParser {
   }
 
   private void loadCommonSearchParameters() throws FHIRFormatError, FileNotFoundException, IOException {
-    Bundle bnd = (Bundle) new XmlParser().parse(new CSFileInputStream(Utilities.path(srcDir, "SearchParameter", "common-search-parameters.xml")));
+    Bundle bnd = (Bundle) new XmlParser().parse(new CSFileInputStream(Utilities.path(srcDir, "searchparameter", "common-search-parameters.xml")));
     for (BundleEntryComponent be : bnd.getEntry()) {
       SearchParameter sp = (SearchParameter) be.getResource();
       CommonSearchParameter csp = new CommonSearchParameter();
