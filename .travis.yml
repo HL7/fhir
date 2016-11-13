@@ -36,8 +36,8 @@ after_success:
   - cd hl7-fhir.github.io
   - cp -r ../publish/* .
   - echo -e "Host build.fhir.org\n  Compression yes\n  StrictHostKeyChecking no\n  User fhir_upload\n  IdentityFile ~/deploy.build.fhir.org" > ~/.ssh/config
-  - tar czf - * | ssh build.fhir.org "mkdir /var/www/uploading && cd /var/www/uploading  && tar xvzf - && date --iso-8601 > /var/www/uploading/done.txt"
-  - ssh build.fhir.org "mv /var/www/build.fhir.org /tmp && mv /var/www/uploading /var/www/build.fhir.org && rm -rf /tmp/build.fhir.org"
+  - tar czf - * | ssh build.fhir.org "mkdir /var/www/uploading/$TRAVIS_BUILD_ID && cd /var/www/uploading/$TRAVIS_BUILD_ID && tar xvzf - && date --iso-8601 > /var/www/uploading/$TRAVIS_BUILD_ID/done.txt"
+  - ssh build.fhir.org "mv /var/www/build.fhir.org /tmp && mv /var/www/uploading/$TRAVIS_BUILD_ID /var/www/build.fhir.org && rm -rf /tmp/build.fhir.org"
 
 env:
   global:
