@@ -17,11 +17,11 @@
 <a name="service-definitions"></a>
 <h4>Service Definitions</h4>
 
-<p>The <a href="[%fhir-path%]servicedefinition.html">ServiceDefinition</a> resource provides a mechanism for describing the functionality made available by a particular service. For example, a service may provide an immunization forecasting module or drug-drug interaction checking module. From the perspective of the consumer, how this functionality is performed is irrelevant; the only aspect of interest is a description of what the service module does, the required inputs and the outputs it produces.</p>
+<p>The <a href="[%fhir-path%]servicedefinition.html">ServiceDefinition</a> resource provides a mechanism for describing the functionality made available by a particular service. For example, a service may provide an immunization forecasting module or a drug-drug interaction checking module. From the perspective of the consumer, how this functionality is performed is irrelevant; the only aspect of interest is a description of what the service module does, the required inputs and the outputs it produces.</p>
 
 <p>As such, this resource uses the same metadata elements to define the common information relevant to all knowledge artifacts, and then defines the input and output parameters as well as any data requirements for the service module in the same way that parameters and data requirements are defined for expression logic in general.</p>
 
-<p>As an example, the functionality defined by the <!--a href="[%fhir-path%]gao/gao.html"-->Guideline Appropriate Ordering IG<!--/a--> can be expressed as a ServiceDefinition: <a href="[%fhir-path%]servicedefinition-example.html">Service Definition Example</a>.</p>
+<p>As an example, the functionality defined by the Guideline Appropriate Ordering IG can be expressed as a ServiceDefinition: <a href="[%fhir-path%]servicedefinition-example.html">Service Definition Example</a>.</p>
 
 <pre><code>&lt;ServiceDefinition&gt;
   &lt;id value=&quot;example&quot;/&gt;
@@ -186,7 +186,7 @@
 &lt;/Parameters&gt;
 </code></pre>
 
-<p>The above example uses the profiles defined in the <!--a href="[%fhir-path%]gao/gao.html"-->Guideline Appropriate Ordering IG<!--/a-->. In this specific case, the request includes the patient information, and the order being assessed includes the indication and the procedure.</p>
+<p>The above example uses the profiles defined in the Guideline Appropriate Ordering IG. In this specific case, the request includes the patient information, and the order being assessed includes the indication and the procedure.</p>
 
 <p>The decision support service processes the request and determines whether the order is appropriate given the patient information and indication for the requested procedure. The result is returned as a GuidanceResponse resource with a status of success, and the calling application examines the appropriateness score and determines the appropriate action to take: either proceed with placing the order, or prompt the user that the requested procedure is not appropriate based on the guidelines returned in the response.  An example response is shown below.</p>
 

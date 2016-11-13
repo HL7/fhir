@@ -350,7 +350,7 @@
 <a name="order-set"/>
 <h4>Order Set</h4>
 
-<p>An order set is a pre-defined and approved group of orders related to a particular clinical context (e.g., hypertension treatment and monitoring) or stage of care (e.g., hospital admission to Coronary Care Unit). An order set is typically used as a checklist for clinicians when managing a patient with a specific context. It is a structured collection of orders relevant to that condition and presented to the clinician in a computerized provider order entry system (CPOE).</p>
+<p>An order set is a pre-defined and approved group of orders related to a particular clinical context (e.g., hypertension treatment and monitoring) or stage of care (e.g., hospital admission to Coronary Care Unit). An order set is typically used as a checklist for clinicians when managing a patient with a specific context. It is a structured collection of orders relevant to that condition or context and presented to the clinician in a computerized provider order entry system (CPOE).</p>
 
 <p>The <a href="[%fhir-path%]plandefinition.html">PlanDefinition</a> resource can represent an Order Set using action definitions to define the orderable items in the order set. The items in an order set are typically organized hierarchically, as a set of sections, sub-sections, etc., with the actions themselves at the very bottom of the structure. In the PlanDefinition resource, each section, and sub-section, as well as the individual items are all represented as action definitions. Each group and/or subgroup may have behavior indicators associated with it, e.g., the number of actions that can/should/must be selected from the group of actions.</p>
 
