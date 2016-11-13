@@ -27,9 +27,9 @@
 <p>This general pattern is to used to represent expression logic throughout the resources in the Clinical Reasoning module and allows expression logic to be represented at different levels:</p>
 
 <ul>
-	<li>Unstructured - The logic in this case can be communicated using natural language without the expectation that it is computable. This is useful for communicating the intended dynamic semantics to environments that do not support computable evaluation.</li>
-	<li>Structured - The logic is specified as a computable expression in a formal language. This is useful for communicating the logic to environments that are expected to support the computation.</li>
-	<li>Mixed - The logic in this case is communicated using both a natural language description, as well as a computable expression in a formal language. This is useful for communicating to environments that may support the computation, but may need the semantics communicated via natural language.</li>
+	<li>Unstructured - The logic in this case can be communicated using natural language without the expectation that it is computable. This information is useful for communicating the intended dynamic semantics to environments that do not support computable evaluation.</li>
+	<li>Structured - The logic is specified as a computable expression in a formal language. This information is useful for communicating the logic to environments that are expected to support the computation.</li>
+	<li>Mixed - The logic in this case is communicated using both a natural language description, as well as a computable expression in a formal language. This information is useful for communicating to environments that may support the computation as well as to environments that do not, or to environments that support the computation but desire human-readable information to more easily understand the logic.</li>
 </ul>
 
 <a name="expression-description"/>
@@ -40,7 +40,7 @@
 <h5>Expression Language</h5>
 <p>The <i>language</i> element identifies the expression language used to represent the logic. The Clinical Reasoning module defines support for FluentPath and Clinical Quality Language, but support for other languages can be provided.</p>
 
-<p>The language element is specified using the Media Type of the language. For inline expressions, this SHALL be a text media type:</p>
+<p>The language element is specified using the Media Type of the language. For inline expressions using FluentPath and Clinical Quality Language, the media type SHALL be specified as follows:</p>
 
 <ul>
 	<li>FluentPath - <code>text/fluentpath</code></li>
@@ -108,14 +108,14 @@
 
 <a name="data-requirements"/>
 <h5>Data Requirements</h5>
-<p>The data requirements for a given expression describe the minimum data required in order to achieve a successful evaluation of the expression. More data may in general be provided, but not less. For example, an expression may reference lab results for A1C tests over the past two years. If a system provides data for the last three years, the expression can still be successfully evaluated, but if a system provides data for only the last year, the expression may produce incorrect results based on the absence of the expected data.</p>
+<p>The data requirements for a given expression describe the minimum data required in order to achieve a successful evaluation of the expression. More data may in general be provided, but not less. For example, an expression may reference lab results for hemoglobin A1C tests over the past two years. If a system provides data for the last three years, the expression can still be successfully evaluated, but if a system provides data for only the last year, the expression may produce incorrect results based on the absence of the expected data.</p>
 
 <p>In the scenario that an evaluation service is not colocated with the clinical information, the service has no general way of knowing whether or not a request has fulfilled the stated data requirements for a expression. As such, this is a critical aspect of implementation. The service assumes the stated data requirements will be provided as part of a request, and requesters shall provide at least the data specified by the data requirements when requesting evaluation for an expression.</p>
 
 <p>Within CQL, data requirements can be inferred based on the <i>retrieve</i> expressions used. This process is described in detail in the Clinical Quality Language Specification, but in general, the set of data requirements is represented by elements of the <a href="[%fhir-path%]datarequirement.html">DataRequirement</a> type. This type is similar to a parameter definition, with the following differences:</p>
 
 <ul>
-	<li>No name element - Because patient-dependent information is accessed in CQL through the use of a <i>retrieve</i> expression, there is no need to specify a name in order to access the information.</li>
+	<li>No name element - Because there is no need for a name to inference on the data, there is no need to specify a name for the data required.</li>
 	<li>Code and date filters - The CQL retrieve also allows for data accessed to be filtered by membership in a specific valueset, as well as by date range. The DataRequirement type represents these filters via the <code>codeFilter</code> and <code>dateFilter</code> elements.</li>
 </ul>
 

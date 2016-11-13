@@ -26,23 +26,23 @@ in order to support consistent definitions for schema and UML derived code.
 <h3>Introduction</h3>
 <p>The Clinical Reasoning module provides resources and operations to enable the representation, distribution, and evaluation of clinical knowledge artifacts such as clinical decision support rules, quality measures, order sets, and protocols. In addition, the module describes how expression languages can be used throughout the specification to provide dynamic capabilities.</p>
 
-<p>Clinical Reasoning involves the ability to represent and encode clinical knowledge in a very broad sense so that it can be integrated into clinical systems. This encoding may be as simple as controlling whether or not a particular section of an order set appears based on the specific conditions that are present for the patient in content in a CPOE system, or it may be as complex as representing the care pathway for patients with multiple conditions.</p>
+<p>Clinical Reasoning involves the ability to represent and encode clinical knowledge in a very broad sense so that it can be integrated into clinical systems. This encoding may be as simple as controlling whether or not a particular section of an order set appears based on the conditions that a patient has, or it may be as complex as representing the care pathway for a patient with multiple conditions.</p>
 
 <a name="scope"/>
 <h4>Scope</h4>
 <p>The Clinical Reasoning module focuses on enabling two primary use cases:</p>
 
 <ol>
-	<li><b>Sharing</b> - The ability to represent clinical knowledge artifacts such as decision support rules, order sets, protocols, and quality measures, and to do so in a way that enables those artifacts to be shared across organizations and institutions.</li>
+	<li><b>Sharing</b> - The ability to represent clinical knowledge artifacts such as decision support rules, order sets, protocols, and quality measures, and to do so in a way that enables those artifacts to be shared across organizations.</li>
 	<li><b>Evaluation</b> - The ability to evaluate clinical knowledge artifacts in the context of a specific patient or population, including the ability to request decision support guidance, impact clinical workflow, and retrospectively assess quality metrics.</li>
 </ol>
 
 <p>To enable these use cases, the module defines several components that can each be used independently, or combined to enable more complex functionality. These components are:</p>
 
 <ul>
-	<li><b>Expression Logic</b> - The ability to represent expression logic using languages such as FluentPath and Clinical Quality Language (CQL).</li>
-	<li><b>Definitional Resources</b> - The ability to describe definitional resources, or <i>template</i> resources that are not defined on any specific patient, but are used to define the actions to be performed as part of a clinical knowledge artifact such as an order set or decision support rule.</li>
-	<li><b>Knowledge Artifacts</b> - The ability to represent clinical knowledge artifacts such as decision support rules and clinical quality measures.</li>
+	<li><b>Expression Logic</b> - the representation of logic using languages such as FluentPath and Clinical Quality Language (CQL).</li>
+	<li><b>Definitional Resources</b> - template resources that are not defined on any specific patient, but are used to define the actions to be performed as part of a clinical knowledge artifact such as an order set or decision support rule.</li>
+	<li><b>Knowledge Artifacts</b> - representation of clinical knowledge such as decision support rules and clinical quality measures.</li>
 </ul>
 
 <p>These basic components can then be used to enable a broad variety of clinical decision support and quality measurement use cases, including knowledge sharing, decision support services, and clinical quality assessment and reporting. The topics below provide more detailed discussion on each of these components and uses:</p>
@@ -52,7 +52,7 @@ in order to support consistent definitions for schema and UML derived code.
 		<tr><th>Topic</th><th>Description</th></tr>
 	</thead>
 	<tbody>
-		<tr><td><a href="#background">Overview and Background</a></td><td>If you're interested in the background and development of the Clinical Quality Framework, this topic covers where it came from and why it exists.</td></tr>
+		<tr><td><a href="#background">Overview and Background</a></td><td>If you are interested in the background and development of the FHIR Clinical Reasoning module, this topic covers where it came from and why it exists.</td></tr>
 		<tr><td><a href="cqif/cqif-topics-using-expressions.html">Using Expressions</a></td><td>If you want to see how to add dynamic capabilities to FHIR resources using expressions, start here.</td></tr>
 		<tr><td><a href="cqif/cqif-topics-definitional-resources.html">Definitional Resources</a></td><td>If you want to see how to describe definitional resources using the ActivityDefinition resource, start here.</td></tr>
 		<tr><td><a href="cqif/cqif-knowledge-artifact-representation.html">Representing Knowledge Artifacts</a></td><td>If you want to represent knowledge artifacts such as Event-Condition-Action rules, Order Sets, or Protocols, start here.</td></tr>
@@ -187,27 +187,27 @@ in order to support consistent definitions for schema and UML derived code.
 <a name="background"/>
 <h3>Background</h3>
 
-<p>The CQF Implementation Guide is sponsored by the Clinical Decision Support (CDS) and Clinical Quality Information (CQI) HL7 Work Groups, with input and coordination from the FHIR Infrastructure and Service Oriented Architecture HL7 Work Groups.</p>
+<p>The FHIR Clinical Reasoning module is sponsored by the Clinical Decision Support (CDS) and Clinical Quality Information (CQI) HL7 Work Groups, with input and coordination from the FHIR Infrastructure and Service Oriented Architecture HL7 Work Groups.</p>
 
 <p>The Clinical Quality Framework initiative has focused on harmonizing the historically disjointed specifications used by the Clinical Quality Measurement and Clinical Decision Support communities. Specifically, the initiative has focused on the specifications used to represent knowledge artifacts within the two communities. The strategy employed has been to break the conceptual content of knowledge artifacts into three core components, to define common standards for these core components, and to re-use these common standards for both clinical decision support and clinical quality measurement:</p>
 
 <ul>
 	<li>Metadata - Descriptive information about the artifact and its content</li>
-	<li>Clinical Information - The representation used to represent clinical information about the patient or population of concern within a given artifact</li>
-	<li>Logic - The representation used to convey the logic involved in the artifact</li>
+	<li>Clinical Information - Information about a patient or population of concern within a given artifact</li>
+	<li>Logic - The clinical reasoning involved in an artifact</li>
 </ul>
 
 <img alt="Clinical Quality Framework Conceptual Components" src="cqif/cqframework-components-diagram.jpg"/>
 
 <p>The first component has resulted in the <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=391">Clinical Quality Common Metadata Conceptual Model</a>, an informative document harmonizing metadata requirements between Quality Measurement and Decision Support artifacts.</p>
 
-<p>The second component has resulted in the QUICK <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=378">Conceptual and Logical</a> Models, a harmonization of the <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=338">Virtual Medical Record (vMR)</a> used in Decision Support and the <a href="https://ecqi.healthit.gov/qdm">Quality Data Model (QDM)</a> used in Quality Measurement, and realized in FHIR as the QICore profiles.</p>
+<p>The second component has resulted in the QUICK <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=378">Conceptual and Logical</a> Models, a harmonization of the <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=338">Virtual Medical Record (vMR)</a> used in Decision Support and the <a href="https://ecqi.healthit.gov/qdm">Quality Data Model (QDM)</a> used in Quality Measurement, and with its core requirements realized in FHIR as the Quality Improvement Core (QICore) <a href="http://hl7.org/fhir/qicore/qicore.html#contents">profiles</a>.</p>
 
-<p>And finally, the third component has resulted in the <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=400">Clinical Quality Language Specification</a>, a harmonization of the expressive capabilities of the <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=337">Clinical Decision Support Knowledge Artifact Specification (CDS KAS)</a> (produced by the <a href="http://healthedecisions.org">Health eDecisions</a> (HeD) S&amp;I Framework Initiative), and the <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=97">Health Quality Measures Format (HQMF)</a>.</p>
+<p>Finally, the third component has resulted in the <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=400">Clinical Quality Language specification</a>, a harmonization of the expressive capabilities of the <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=337">Clinical Decision Support Knowledge Artifact Specification (CDS KAS)</a> (produced by the <a href="http://healthedecisions.org">Health eDecisions</a> (HeD) Standards and Interoperability (S&amp;I) initiative), and the <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=97">Health Quality Measures Format (HQMF)</a>.</p>
 
 <p>As part of the ongoing CQF initiative pilot efforts, these developing specifications are being used to support knowledge artifact sharing, as well as evaluation of knowledge artifacts as part of decision support request/response and measure evaluation.</p>
 
-<p>This implementation guide continues the harmonization of quality domain specifications by defining an approach to using a FHIR server as a component of a knowledge system in both the Knowledge Repository and Knowledge Evaluation Service roles.</p>
+<p>This module continues the harmonization of quality domain specifications by defining an approach to using a FHIR server as a component of a knowledge system in both the Knowledge Repository and Knowledge Evaluation Service roles.</p>
 
 <a name="related-specifications"/>
 <h3>Related Specifications</h3>
@@ -224,9 +224,9 @@ in order to support consistent definitions for schema and UML derived code.
 <a name="copyright-information"/>
 <h3>Copyright Information</h3>
 
-<p>This material includes SNOMED Clinical Terms &reg; (SNOMED CT&reg;), which are used by permission of the International Health Terminology Standards Development Organization (IHTSDO). All rights reserved. SNOMED CT was originally created by The College of American Pathologists. "SNOMED &reg;" and "SNOMED CT &reg;" are registered trademarks of the IHTSDO.</p>
+<p>This material includes SNOMED Clinical Terms &reg; (SNOMED CT&reg;), which are used by permission of the International Health Terminology Standards Development Organization (IHTSDO). All rights reserved. SNOMED CT was originally created by the College of American Pathologists. "SNOMED &reg;" and "SNOMED CT &reg;" are registered trademarks of the IHTSDO.</p>
 
-<p>This material contains content from LOINC&reg; (<a href="http://loinc.org">http://loinc.org</a>). The LOINC table, LOINC codes, and LOINC panels and forms file are copyright &copy; 1995-2011, Regenstrief Institute, Inc. and the Logical Observation Identifiers Names and Codes (LOINC) Committee and available at no cost under the license at <a href="http://loinc.org/terms-of-use">http://loinc.org/terms-of-use</a>.</p>
+<p>This material contains content from Logical Observation Identifiers Names and Codes (LOINC&reg;) (<a href="http://loinc.org">http://loinc.org</a>). The LOINC table, LOINC codes, and LOINC panels and forms file are copyright &copy; 1995-2011, Regenstrief Institute, Inc. and the LOINC Committee and available at no cost under the license at <a href="http://loinc.org/terms-of-use">http://loinc.org/terms-of-use</a>.</p>
 
 <p>This material contains content from the Unified Code for Units of Measure (UCUM) (<a href="http://unitsofmeasure.org">http://unitsofmeasure.org</a>). The UCUM specification is copyright &copy; 1999-2013, Regenstrief Institute, Inc. and available at no cost under the license at <a href="http://unitsofmeasure.org/trac/wiki/TermsOfUse">http://unitsofmeasure.org/trac/wiki/TermsOfUse</a>.</p>
 
@@ -235,7 +235,7 @@ in order to support consistent definitions for schema and UML derived code.
 <a name="acknowledgements"></a>
 <h3>Acknowledgements</h3>
 
-The guidance in this module is the work of a joint project between the HL7 Clinical Quality Information and  Clinical Decision Support Working Groups with the co-sponsorhip of the FHIR Infrastructure, Implementable Technology Specifications, and Service Oriented Architecture Work Groups. The project team was:
+The guidance in this module is the work of a joint project between the HL7 Clinical Quality Information and  Clinical Decision Support Work Groups with the co-sponsorhip of the FHIR Infrastructure, Implementable Technology Specifications, and Service Oriented Architecture Work Groups. The project team was:
 
 <table class="list">
 	<tbody>

@@ -22,7 +22,7 @@
  -- Row 3 -----------------------------------
   Element = DataRequirement.profile
   Card. = 0..*
-  Type = Reference(StructureDefinition)
+  Type = uri
   Short Name = The profile of the required data
   Definition = The profile of the required data, specified as the uri of the profile definition
 

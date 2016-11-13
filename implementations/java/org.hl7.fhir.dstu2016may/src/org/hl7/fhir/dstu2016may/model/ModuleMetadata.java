@@ -1842,10 +1842,10 @@ public class ModuleMetadata extends Type implements ICompositeType {
     protected Period effectivePeriod;
 
     /**
-     * Specifies various attributes of the patient population for whom and/or environment of care in which, the knowledge module is applicable.
+     * Specifies various attributes of the patient population for whom and/or environment of care in which the knowledge module is applicable.
      */
     @Child(name = "coverage", type = {}, order=14, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-    @Description(shortDefinition="Describes the context of use for this module", formalDefinition="Specifies various attributes of the patient population for whom and/or environment of care in which, the knowledge module is applicable." )
+    @Description(shortDefinition="Describes the context of use for this module", formalDefinition="Specifies various attributes of the patient population for whom and/or environment of care in which the knowledge module is applicable." )
     protected List<ModuleMetadataCoverageComponent> coverage;
 
     /**
