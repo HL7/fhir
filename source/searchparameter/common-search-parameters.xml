@@ -8,6 +8,7 @@
         <base value="DiagnosticReport"/>
         <base value="Observation"/>
         <base value="Procedure"/>
+        
       </SearchParameter>
     </resource>
   </entry>
