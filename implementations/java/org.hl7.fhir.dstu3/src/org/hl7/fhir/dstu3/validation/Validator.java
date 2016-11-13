@@ -151,14 +151,26 @@ public class Validator {
 
         // load the parameters - so order doesn't matter
       for (int i = 0; i < args.length; i++) {
-          if (args[i].equals("-defn"))
-          definitions = args[++i];
+        if (args[i].equals("-defn"))
+          if (i+1 == args.length)
+            throw new Error("Specified -defn without indicating definition file");
+          else
+            definitions = args[++i];
         else if (args[i].equals("-output"))
-          output = args[++i];
+          if (i+1 == args.length)
+            throw new Error("Specified -output without indicating output file");
+          else
+            output = args[++i];
         else if (args[i].equals("-profile"))
-          profiles.add(args[++i]);
+          if (i+1 == args.length)
+            throw new Error("Specified -profile without indicating profile file");
+          else
+            profiles.add(args[++i]);
         else if (args[i].equals("-questionnaire"))
-          questionnaires.add(args[++i]);
+          if (i+1 == args.length)
+            throw new Error("Specified -questionnaire without indicating questionnaire file");
+          else
+            questionnaires.add(args[++i]);
         else if (args[i].equals("-native"))
             doNative = true;
         else if (args[i].equals("-transform"))
@@ -166,12 +178,21 @@ public class Validator {
         else if (args[i].equals("-narrative"))
           narrative = true;
         else if (args[i].equals("-tx"))
-          txServer = "n/a".equals(args[++i]) ? null : args[i];
+          if (i+1 == args.length)
+            throw new Error("Specified -tx without indicating terminology server");
+          else
+            txServer = "n/a".equals(args[++i]) ? null : args[i];
         else if (args[i].equals("-ig"))
-          igs.add(args[++i]);
+          if (i+1 == args.length)
+            throw new Error("Specified -ig without indicating ig file");
+          else
+            igs.add(args[++i]);
         else if (args[i].equals("-map"))
           if (map == null)
-            map = args[++i];
+            if (i+1 == args.length)
+              throw new Error("Specified -map without indicating map file");
+            else
+              map = args[++i];
           else
             throw new Exception("Can only nominate a single -map parameter");
         else
@@ -188,13 +209,10 @@ public class Validator {
       if  (!transform && definitions == null)
         throw new Exception("Must provide a defn when doing validation");
         
-        ValidationEngine validator = new ValidationEngine();
       System.out.println("  .. load FHIR from "+definitions);
-        validator.loadDefinitions(definitions);
-      System.out.println("    (v"+validator.getValidator().getContext().getVersion()+")");
-      if (txServer != null) 
-        System.out.println("  .. connect to tx server @ "+txServer);
-          validator.connectToTSServer(txServer);
+      System.out.println("  .. connect to tx server @ "+txServer);
+      ValidationEngine validator = new ValidationEngine(definitions, txServer);
+      System.out.println("    (v"+validator.getContext().getVersion()+")");
       for (String src : igs) {
         System.out.println("  .. load IG from "+src);
           validator.loadIg(src);
@@ -298,5 +316,4 @@ public class Validator {
 		}
 		return false;
 	}
-
 }

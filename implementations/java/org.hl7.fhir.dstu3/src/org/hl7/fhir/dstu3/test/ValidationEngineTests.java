@@ -20,8 +20,7 @@ public class ValidationEngineTests {
   public void testCurrentXml() throws Exception {
     if (!TestingUtilities.silent) 
     System.out.println("Validate patient-example.xml in Current version");
-    ValidationEngine ve = new ValidationEngine();
-    ve.loadDefinitions(Utilities.path(TestingUtilities.home(),  "publish"));
+    ValidationEngine ve = new ValidationEngine(Utilities.path(TestingUtilities.home(),  "publish"), DEF_TX);
     ve.connectToTSServer(DEF_TX);
     OperationOutcome op = ve.validate(Utilities.path(TestingUtilities.home(),  "publish\\patient-example.xml"), null);
     int e = errors(op);
@@ -38,8 +37,7 @@ public class ValidationEngineTests {
   public void testCurrentJson() throws Exception {
     if (!TestingUtilities.silent)
     System.out.println("Validate patient-example.json in Current version");
-    ValidationEngine ve = new ValidationEngine();
-    ve.loadDefinitions(Utilities.path(TestingUtilities.home(),  "publish"));
+    ValidationEngine ve = new ValidationEngine(Utilities.path(TestingUtilities.home(),  "publish"), DEF_TX);
     ve.connectToTSServer(DEF_TX);
     OperationOutcome op = ve.validate(Utilities.path(TestingUtilities.home(),  "publish\\patient-example.xml"), null);
     int e = errors(op);
@@ -61,8 +59,7 @@ public class ValidationEngineTests {
 
     if (!TestingUtilities.silent)
     System.out.println("Validate patient-example.xml in v1.6.0 version");
-    ValidationEngine ve = new ValidationEngine();
-    ve.loadDefinitions("C:\\work\\org.hl7.fhir.2016Sep\\build\\publish");
+    ValidationEngine ve = new ValidationEngine("C:\\work\\org.hl7.fhir.2016Sep\\build\\publish", DEF_TX);
     ve.connectToTSServer(DEF_TX);
     OperationOutcome op = ve.validate("C:\\work\\org.hl7.fhir.2016Sep\\build\\publish\\patient-example.xml", null);
     int e = errors(op);
@@ -83,10 +80,9 @@ public class ValidationEngineTests {
     }
     if (!TestingUtilities.silent)
     System.out.println("Validate patient-example.xml in v1.4.0 version");
-    ValidationEngine ve = new ValidationEngine();
-    ve.loadDefinitions("C:\\work\\org.hl7.fhir.2016May\\build\\publish");
+    ValidationEngine ve = new ValidationEngine("C:\\work\\org.hl7.fhir.2016May\\build\\publish", DEF_TX);
     ve.connectToTSServer(DEF_TX);
-    ve.getValidator().setNoInvariantChecks(true);
+    ve.setNoInvariantChecks(true);
     OperationOutcome op = ve.validate("C:\\work\\org.hl7.fhir.2016May\\build\\publish\\patient-example.xml", null);
     int e = errors(op);
     int w = warnings(op);
@@ -102,8 +98,7 @@ public class ValidationEngineTests {
   public void testCurrentDataElement() throws Exception {
     if (!TestingUtilities.silent)
     System.out.println("Validate dataelement-example.xml in Current version");
-    ValidationEngine ve = new ValidationEngine();
-    ve.loadDefinitions(Utilities.path(TestingUtilities.home(),  "publish"));
+    ValidationEngine ve = new ValidationEngine(Utilities.path(TestingUtilities.home(),  "publish"), DEF_TX);
     ve.connectToTSServer(DEF_TX);
     OperationOutcome op = ve.validate(Utilities.path(TestingUtilities.home(),  "publish\\dataelement-example.xml"), null);
     int e = errors(op);
@@ -120,8 +115,7 @@ public class ValidationEngineTests {
   public void testCurrentDataElementLabMaster() throws Exception {
     if (!TestingUtilities.silent)
     System.out.println("Validate dataelement-labtestmaster-example.xml in Current version");
-    ValidationEngine ve = new ValidationEngine();
-    ve.loadDefinitions(Utilities.path(TestingUtilities.home(),  "publish"));
+    ValidationEngine ve = new ValidationEngine(Utilities.path(TestingUtilities.home(),  "publish"), DEF_TX);
     ve.connectToTSServer(DEF_TX);
     OperationOutcome op = ve.validate(Utilities.path(TestingUtilities.home(),  "publish\\dataelement-labtestmaster-example.xml"), null);
     int e = errors(op);
@@ -143,18 +137,17 @@ public class ValidationEngineTests {
     }
     if (!TestingUtilities.silent)
     System.out.println("Validate DAF patient-example.xml in Current version");
-    ValidationEngine ve = new ValidationEngine();
     if (!TestingUtilities.silent)
       System.out.println("  .. load FHIR from " +Utilities.path(TestingUtilities.home(),  "publish"));
-    ve.loadDefinitions(Utilities.path(TestingUtilities.home(),  "publish"));
+    ValidationEngine ve = new ValidationEngine(Utilities.path(TestingUtilities.home(),  "publish"), DEF_TX);
     ve.connectToTSServer(DEF_TX);
     if (!TestingUtilities.silent)
       System.out.println("  .. load IG from " +Utilities.path(TestingUtilities.home(),  "guides\\daf2\\output"));
     ve.loadIg(Utilities.path(TestingUtilities.home(),  "guides\\daf2\\output"));
     OperationOutcome op = ve.validate(Utilities.path(TestingUtilities.home(),  "guides\\daf2\\output\\Patient-example.xml"), null);
     if (!TestingUtilities.silent)
-      for (ValidationMessage issue : ve.getMessages())
-        System.out.println("  - "+issue.summary());
+      for (OperationOutcomeIssueComponent issue : op.getIssue())
+        System.out.println("  - "+issue.getDetails());
     int e = errors(op);
     int w = warnings(op);
     int h = hints(op);
@@ -169,10 +162,9 @@ public class ValidationEngineTests {
   public void testTransform() throws Exception {
     if (!TestingUtilities.silent)
       System.out.println("Transform CCDA");
-    ValidationEngine ve = new ValidationEngine();
     if (!TestingUtilities.silent)
       System.out.println("  .. load FHIR from " +Utilities.path(TestingUtilities.home(),  "publish"));
-    ve.loadDefinitions(Utilities.path(TestingUtilities.home(),  "publish"));
+    ValidationEngine ve = new ValidationEngine(Utilities.path(TestingUtilities.home(),  "publish"), DEF_TX);
     ve.connectToTSServer(DEF_TX);
     if (!TestingUtilities.silent)
       System.out.println("  .. load CCDA from " +Utilities.path(TestingUtilities.home(),  "guides\\ccda2\\mapping\\logical"));

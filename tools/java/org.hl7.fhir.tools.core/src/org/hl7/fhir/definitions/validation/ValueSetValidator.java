@@ -352,8 +352,13 @@ public class ValueSetValidator extends BaseValidator {
     return false;
   }
 
-  private boolean canValidate(String system) throws TerminologyServiceException {
-    return context.getCodeSystems().containsKey(system) || context.supportsSystem(system);
+  private boolean canValidate(String system) {
+    try {
+      return context.getCodeSystems().containsKey(system) || context.supportsSystem(system);
+    } catch (TerminologyServiceException e) {
+      //If there are problems accessing the terminology server, fail gracefully
+      return false;
+    }
   }
 
   private void fixup(CodeSystem cs) {

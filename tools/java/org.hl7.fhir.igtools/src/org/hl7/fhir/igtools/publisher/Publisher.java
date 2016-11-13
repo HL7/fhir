@@ -1676,6 +1676,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
   }
 
   private void validate(FetchedFile file, FetchedResource r) throws Exception {
+    assert resources.isEmpty();
     List<ValidationMessage> errs = new ArrayList<ValidationMessage>();
     if (r.isValidateByUserData()) {
       Resource res = r.getResource();
@@ -1687,6 +1688,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
           if (ber.hasUserData("profile"))
             validator.validate(r.getElement(), errs, ber, ber.getUserString("profile"));
         }
+        
       } else if (res.hasUserData("profile")) {
         validator.validate(null, errs, res, res.getUserString("profile"));
       }
@@ -1699,7 +1701,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
     if (r.getConfig() == null)
       igpkp.findConfiguration(file, r);
   }
-
+  
   private void generate() throws Exception {
     forceDir(tempDir);
     forceDir(Utilities.path(tempDir, "_includes"));
@@ -2722,6 +2724,8 @@ public class Publisher implements IWorkerContext.ILoggingService {
       fragment("StructureDefinition-"+sd.getId()+"-diff", sdr.diff(igpkp.getDefinitionsName(r)), f.getOutputNames(), r, vars, null);
     if (igpkp.wantGen(r, "snapshot"))
       fragment("StructureDefinition-"+sd.getId()+"-snapshot", sdr.snapshot(igpkp.getDefinitionsName(r)), f.getOutputNames(), r, vars, null);
+    if (igpkp.wantGen(r, "grid"))
+      fragment("StructureDefinition-"+sd.getId()+"-grid", sdr.grid(igpkp.getDefinitionsName(r)), f.getOutputNames(), r, vars, null);
     if (igpkp.wantGen(r, "pseudo-xml"))
       fragmentError("StructureDefinition-"+sd.getId()+"-pseudo-xml", "yet to be done: Xml template", f.getOutputNames());
     if (igpkp.wantGen(r, "pseudo-json"))
@@ -2751,7 +2755,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
     if (igpkp.wantGen(r, "csv")) {
       String path = Utilities.path(tempDir, r.getId()+".csv");
       f.getOutputNames().add(path);
-      new ProfileUtilities(context, errors, igpkp).generateCsvs(new FileOutputStream(path), sd);
+      new ProfileUtilities(context, errors, igpkp).generateCsvs(new FileOutputStream(path), sd, true);
     }
 
     if (!regen && sd.getKind() != StructureDefinitionKind.LOGICAL &&  igpkp.wantGen(r, ".sch")) {

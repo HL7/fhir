@@ -16,9 +16,9 @@
   </contained>
   <contained>
     <FamilyMemberHistory>
-      <id value="2"/>
+      <id value="1"/>
       <extension url="http://hl7.org/fhir/StructureDefinition/family-member-history-genetics-parent">
-        <extension url="parent.type">
+        <extension url="type">
           <valueCodeableConcept>
             <coding>
               <system value="http://hl7.org/fhir/v3/RoleCode"/>
@@ -27,14 +27,14 @@
             </coding>
           </valueCodeableConcept>
         </extension>
-        <extension url="parent.reference">
+        <extension url="reference">
           <valueReference>
-            <reference value="#4"/>
+            <reference value="#2"/>
           </valueReference>
         </extension>
       </extension>
       <extension url="http://hl7.org/fhir/StructureDefinition/family-member-history-genetics-parent">
-        <extension url="parent.type">
+        <extension url="type">
           <valueCodeableConcept>
             <coding>
               <system value="http://hl7.org/fhir/v3/RoleCode"/>
@@ -43,7 +43,64 @@
             </coding>
           </valueCodeableConcept>
         </extension>
-        <extension url="parent.reference">
+        <extension url="reference">
+          <valueReference>
+            <reference value="#3"/>
+          </valueReference>
+        </extension>
+      </extension>
+      <patient>
+        <reference value="Patient/proband"/>
+        <display value="Annie Proband, female, born 1966"/>
+      </patient>
+      <status value="completed"/>
+      <name value="Annie"/>
+      <relationship>
+        <coding>
+          <system value="http://hl7.org/fhir/v3/RoleCode"/>
+          <code value="ONESELF"/>
+          <display value="self"/>
+        </coding>
+      </relationship>
+      <ageAge>
+        <value value="42"/>
+        <unit value="years"/>
+        <system value="http://unitsofmeasure.org"/>
+        <code value="a"/>
+      </ageAge>
+      <deceasedBoolean value="false"/>
+    </FamilyMemberHistory>
+  </contained>
+  <contained>
+    <FamilyMemberHistory>
+      <id value="2"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/family-member-history-genetics-parent">
+        <extension url="type">
+          <valueCodeableConcept>
+            <coding>
+              <system value="http://hl7.org/fhir/v3/RoleCode"/>
+              <code value="NMTH"/>
+              <display value="natural mother"/>
+            </coding>
+          </valueCodeableConcept>
+        </extension>
+        <extension url="reference">
+          <valueReference>
+            <reference value="#4"/>
+          </valueReference>
+        </extension>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/family-member-history-genetics-parent">
+        <extension url="type">
+          <valueCodeableConcept>
+            <coding>
+              <system value="http://hl7.org/fhir/v3/RoleCode"/>
+              <code value="NFTH"/>
+              <display value="natural father"/>
+            </coding>
+          </valueCodeableConcept>
+        </extension>
+        <extension url="reference">
           <valueReference>
             <reference value="#5"/>
           </valueReference>
@@ -89,7 +146,7 @@
     <FamilyMemberHistory>
       <id value="3"/>
       <extension url="http://hl7.org/fhir/StructureDefinition/family-member-history-genetics-parent">
-        <extension url="parent.type">
+        <extension url="type">
           <valueCodeableConcept>
             <coding>
               <system value="http://hl7.org/fhir/v3/RoleCode"/>
@@ -98,14 +155,14 @@
             </coding>
           </valueCodeableConcept>
         </extension>
-        <extension url="parent.reference">
+        <extension url="reference">
           <valueReference>
             <reference value="#6"/>
           </valueReference>
         </extension>
       </extension>
       <extension url="http://hl7.org/fhir/StructureDefinition/family-member-history-genetics-parent">
-        <extension url="parent.type">
+        <extension url="type">
           <valueCodeableConcept>
             <coding>
               <system value="http://hl7.org/fhir/v3/RoleCode"/>
@@ -114,7 +171,7 @@
             </coding>
           </valueCodeableConcept>
         </extension>
-        <extension url="parent.reference">
+        <extension url="reference">
           <valueReference>
             <reference value="#7"/>
           </valueReference>
@@ -272,7 +329,7 @@
     <FamilyMemberHistory>
       <id value="8"/>
       <extension url="http://hl7.org/fhir/StructureDefinition/family-member-history-genetics-parent">
-        <extension url="parent.type">
+        <extension url="type">
           <valueCodeableConcept>
             <coding>
               <system value="http://hl7.org/fhir/v3/RoleCode"/>
@@ -281,14 +338,14 @@
             </coding>
           </valueCodeableConcept>
         </extension>
-        <extension url="parent.reference">
+        <extension url="reference">
           <valueReference>
             <reference value="#2"/>
           </valueReference>
         </extension>
       </extension>
       <extension url="http://hl7.org/fhir/StructureDefinition/family-member-history-genetics-parent">
-        <extension url="parent.type">
+        <extension url="type">
           <valueCodeableConcept>
             <coding>
               <system value="http://hl7.org/fhir/v3/RoleCode"/>
@@ -297,7 +354,7 @@
             </coding>
           </valueCodeableConcept>
         </extension>
-        <extension url="parent.reference">
+        <extension url="reference">
           <valueReference>
             <reference value="#3"/>
           </valueReference>
@@ -344,7 +401,7 @@
     <FamilyMemberHistory>
       <id value="9"/>
       <extension url="http://hl7.org/fhir/StructureDefinition/family-member-history-genetics-parent">
-        <extension url="parent.type">
+        <extension url="type">
           <valueCodeableConcept>
             <coding>
               <system value="http://hl7.org/fhir/v3/RoleCode"/>
@@ -353,14 +410,14 @@
             </coding>
           </valueCodeableConcept>
         </extension>
-        <extension url="parent.reference">
+        <extension url="reference">
           <valueReference>
             <reference value="#2"/>
           </valueReference>
         </extension>
       </extension>
       <extension url="http://hl7.org/fhir/StructureDefinition/family-member-history-genetics-parent">
-        <extension url="parent.type">
+        <extension url="type">
           <valueCodeableConcept>
             <coding>
               <system value="http://hl7.org/fhir/v3/RoleCode"/>
@@ -369,7 +426,7 @@
             </coding>
           </valueCodeableConcept>
         </extension>
-        <extension url="parent.reference">
+        <extension url="reference">
           <valueReference>
             <reference value="#3"/>
           </valueReference>
@@ -388,8 +445,8 @@
           <display value="natural sister"/>
         </coding>
       </relationship>
-          <!--Age was 31 in source, but 36 in diagram -->
-    <ageAge>
+      <!--Age was 31 in source, but 36 in diagram -->
+      <ageAge>
         <value value="36"/>
         <unit value="years"/>
         <system value="http://unitsofmeasure.org"/>
@@ -423,7 +480,7 @@
       <status value="completed"/>
       <relationship>
         <coding>
-        <system value="http://hl7.org/fhir/v3/RoleCode"/>
+          <system value="http://hl7.org/fhir/v3/RoleCode"/>
           <code value="BROINLAW"/>
           <display value="brother-in-law"/>
         </coding>
@@ -440,7 +497,7 @@
     <FamilyMemberHistory>
       <id value="11"/>
       <extension url="http://hl7.org/fhir/StructureDefinition/family-member-history-genetics-parent">
-        <extension url="parent.type">
+        <extension url="type">
           <valueCodeableConcept>
             <coding>
               <system value="http://hl7.org/fhir/v3/RoleCode"/>
@@ -449,14 +506,14 @@
             </coding>
           </valueCodeableConcept>
         </extension>
-        <extension url="parent.reference">
+        <extension url="reference">
           <valueReference>
             <reference value="#9"/>
           </valueReference>
         </extension>
       </extension>
       <extension url="http://hl7.org/fhir/StructureDefinition/family-member-history-genetics-parent">
-        <extension url="parent.type">
+        <extension url="type">
           <valueCodeableConcept>
             <coding>
               <system value="http://hl7.org/fhir/v3/RoleCode"/>
@@ -465,7 +522,7 @@
             </coding>
           </valueCodeableConcept>
         </extension>
-        <extension url="parent.reference">
+        <extension url="reference">
           <valueReference>
             <reference value="#10"/>
           </valueReference>
@@ -497,7 +554,7 @@
     <FamilyMemberHistory>
       <id value="12"/>
       <extension url="http://hl7.org/fhir/StructureDefinition/family-member-history-genetics-parent">
-        <extension url="parent.type">
+        <extension url="type">
           <valueCodeableConcept>
             <coding>
               <system value="http://hl7.org/fhir/v3/RoleCode"/>
@@ -506,14 +563,14 @@
             </coding>
           </valueCodeableConcept>
         </extension>
-        <extension url="parent.reference">
+        <extension url="reference">
           <valueReference>
             <reference value="#9"/>
           </valueReference>
         </extension>
       </extension>
       <extension url="http://hl7.org/fhir/StructureDefinition/family-member-history-genetics-parent">
-        <extension url="parent.type">
+        <extension url="type">
           <valueCodeableConcept>
             <coding>
               <system value="http://hl7.org/fhir/v3/RoleCode"/>
@@ -522,7 +579,7 @@
             </coding>
           </valueCodeableConcept>
         </extension>
-        <extension url="parent.reference">
+        <extension url="reference">
           <valueReference>
             <reference value="#10"/>
           </valueReference>
@@ -551,8 +608,8 @@
       <condition>
         <code>
           <coding>
-           <!--No system or OID for NCBI Entrez yet -->
-          <code value="657"/>
+            <!--No system or OID for NCBI Entrez yet -->
+            <code value="657"/>
             <display value="BRCA2"/>
           </coding>
           <coding>
@@ -592,7 +649,7 @@
     <FamilyMemberHistory>
       <id value="14"/>
       <extension url="http://hl7.org/fhir/StructureDefinition/family-member-history-genetics-parent">
-        <extension url="parent.type">
+        <extension url="type">
           <valueCodeableConcept>
             <coding>
               <system value="http://hl7.org/fhir/v3/RoleCode"/>
@@ -601,14 +658,14 @@
             </coding>
           </valueCodeableConcept>
         </extension>
-        <extension url="parent.reference">
+        <extension url="reference">
           <valueReference>
             <reference value="#1"/>
           </valueReference>
         </extension>
       </extension>
       <extension url="http://hl7.org/fhir/StructureDefinition/family-member-history-genetics-parent">
-        <extension url="parent.type">
+        <extension url="type">
           <valueCodeableConcept>
             <coding>
               <system value="http://hl7.org/fhir/v3/RoleCode"/>
@@ -617,7 +674,7 @@
             </coding>
           </valueCodeableConcept>
         </extension>
-        <extension url="parent.reference">
+        <extension url="reference">
           <valueReference>
             <reference value="#13"/>
           </valueReference>
@@ -628,6 +685,7 @@
         <display value="Annie Proband, female, born 1966"/>
       </patient>
       <status value="completed"/>
+      <name value="Susan"/>
       <relationship>
         <coding>
           <system value="http://hl7.org/fhir/v3/RoleCode"/>
@@ -647,7 +705,7 @@
     <FamilyMemberHistory>
       <id value="15"/>
       <extension url="http://hl7.org/fhir/StructureDefinition/family-member-history-genetics-parent">
-        <extension url="parent.type">
+        <extension url="type">
           <valueCodeableConcept>
             <coding>
               <system value="http://hl7.org/fhir/v3/RoleCode"/>
@@ -656,14 +714,14 @@
             </coding>
           </valueCodeableConcept>
         </extension>
-        <extension url="parent.reference">
+        <extension url="reference">
           <valueReference>
             <reference value="#6"/>
           </valueReference>
         </extension>
       </extension>
       <extension url="http://hl7.org/fhir/StructureDefinition/family-member-history-genetics-parent">
-        <extension url="parent.type">
+        <extension url="type">
           <valueCodeableConcept>
             <coding>
               <system value="http://hl7.org/fhir/v3/RoleCode"/>
@@ -672,7 +730,7 @@
             </coding>
           </valueCodeableConcept>
         </extension>
-        <extension url="parent.reference">
+        <extension url="reference">
           <valueReference>
             <reference value="#7"/>
           </valueReference>
@@ -702,7 +760,7 @@
     <FamilyMemberHistory>
       <id value="16"/>
       <extension url="http://hl7.org/fhir/StructureDefinition/family-member-history-genetics-parent">
-        <extension url="parent.type">
+        <extension url="type">
           <valueCodeableConcept>
             <coding>
               <system value="http://hl7.org/fhir/v3/RoleCode"/>
@@ -711,14 +769,14 @@
             </coding>
           </valueCodeableConcept>
         </extension>
-        <extension url="parent.reference">
+        <extension url="reference">
           <valueReference>
             <reference value="#6"/>
           </valueReference>
         </extension>
       </extension>
       <extension url="http://hl7.org/fhir/StructureDefinition/family-member-history-genetics-parent">
-        <extension url="parent.type">
+        <extension url="type">
           <valueCodeableConcept>
             <coding>
               <system value="http://hl7.org/fhir/v3/RoleCode"/>
@@ -727,7 +785,7 @@
             </coding>
           </valueCodeableConcept>
         </extension>
-        <extension url="parent.reference">
+        <extension url="reference">
           <valueReference>
             <reference value="#7"/>
           </valueReference>
@@ -766,7 +824,7 @@
     <FamilyMemberHistory>
       <id value="17"/>
       <extension url="http://hl7.org/fhir/StructureDefinition/family-member-history-genetics-parent">
-        <extension url="parent.type">
+        <extension url="type">
           <valueCodeableConcept>
             <coding>
               <system value="http://hl7.org/fhir/v3/RoleCode"/>
@@ -775,14 +833,14 @@
             </coding>
           </valueCodeableConcept>
         </extension>
-        <extension url="parent.reference">
+        <extension url="reference">
           <valueReference>
             <reference value="#4"/>
           </valueReference>
         </extension>
       </extension>
       <extension url="http://hl7.org/fhir/StructureDefinition/family-member-history-genetics-parent">
-        <extension url="parent.type">
+        <extension url="type">
           <valueCodeableConcept>
             <coding>
               <system value="http://hl7.org/fhir/v3/RoleCode"/>
@@ -791,7 +849,7 @@
             </coding>
           </valueCodeableConcept>
         </extension>
-        <extension url="parent.reference">
+        <extension url="reference">
           <valueReference>
             <reference value="#5"/>
           </valueReference>
@@ -821,7 +879,7 @@
     <FamilyMemberHistory>
       <id value="18"/>
       <extension url="http://hl7.org/fhir/StructureDefinition/family-member-history-genetics-parent">
-        <extension url="parent.type">
+        <extension url="type">
           <valueCodeableConcept>
             <coding>
               <system value="http://hl7.org/fhir/v3/RoleCode"/>
@@ -830,14 +888,14 @@
             </coding>
           </valueCodeableConcept>
         </extension>
-        <extension url="parent.reference">
+        <extension url="reference">
           <valueReference>
             <reference value="#4"/>
           </valueReference>
         </extension>
       </extension>
       <extension url="http://hl7.org/fhir/StructureDefinition/family-member-history-genetics-parent">
-        <extension url="parent.type">
+        <extension url="type">
           <valueCodeableConcept>
             <coding>
               <system value="http://hl7.org/fhir/v3/RoleCode"/>
@@ -846,7 +904,7 @@
             </coding>
           </valueCodeableConcept>
         </extension>
-        <extension url="parent.reference">
+        <extension url="reference">
           <valueReference>
             <reference value="#5"/>
           </valueReference>
@@ -893,7 +951,7 @@
     <FamilyMemberHistory>
       <id value="20"/>
       <extension url="http://hl7.org/fhir/StructureDefinition/family-member-history-genetics-parent">
-        <extension url="parent.type">
+        <extension url="type">
           <valueCodeableConcept>
             <coding>
               <system value="http://hl7.org/fhir/v3/RoleCode"/>
@@ -902,14 +960,14 @@
             </coding>
           </valueCodeableConcept>
         </extension>
-        <extension url="parent.reference">
+        <extension url="reference">
           <valueReference>
             <reference value="#18"/>
           </valueReference>
         </extension>
       </extension>
       <extension url="http://hl7.org/fhir/StructureDefinition/family-member-history-genetics-parent">
-        <extension url="parent.type">
+        <extension url="type">
           <valueCodeableConcept>
             <coding>
               <system value="http://hl7.org/fhir/v3/RoleCode"/>
@@ -918,7 +976,7 @@
             </coding>
           </valueCodeableConcept>
         </extension>
-        <extension url="parent.reference">
+        <extension url="reference">
           <valueReference>
             <reference value="#19"/>
           </valueReference>
@@ -943,7 +1001,7 @@
         <system value="http://unitsofmeasure.org"/>
         <code value="a"/>
       </ageAge>
-    <condition>
+      <condition>
         <code>
           <coding>
             <system value="urn:oid:2.16.840.1.113883.3.26.1.1"/>
@@ -964,7 +1022,7 @@
     <FamilyMemberHistory>
       <id value="21"/>
       <extension url="http://hl7.org/fhir/StructureDefinition/family-member-history-genetics-parent">
-        <extension url="parent.type">
+        <extension url="type">
           <valueCodeableConcept>
             <coding>
               <system value="http://hl7.org/fhir/v3/RoleCode"/>
@@ -973,14 +1031,14 @@
             </coding>
           </valueCodeableConcept>
         </extension>
-        <extension url="parent.reference">
+        <extension url="reference">
           <valueReference>
             <reference value="#18"/>
           </valueReference>
         </extension>
       </extension>
       <extension url="http://hl7.org/fhir/StructureDefinition/family-member-history-genetics-parent">
-        <extension url="parent.type">
+        <extension url="type">
           <valueCodeableConcept>
             <coding>
               <system value="http://hl7.org/fhir/v3/RoleCode"/>
@@ -989,7 +1047,7 @@
             </coding>
           </valueCodeableConcept>
         </extension>
-        <extension url="parent.reference">
+        <extension url="reference">
           <valueReference>
             <reference value="#19"/>
           </valueReference>
@@ -1008,7 +1066,7 @@
         </coding>
       </relationship>
       <gender value="female"/>
-    <ageAge>
+      <ageAge>
         <value value="31"/>
         <unit value="years"/>
         <system value="http://unitsofmeasure.org"/>
@@ -1028,7 +1086,7 @@
   <subject>
     <reference value="Patient/proband"/>
     <display value="Annie Proband, female, born 1966"/>
-       <!--Age said 33, but diagram shows 42, so adjusted DOB -->
+    <!--Age said 33, but diagram shows 42, so adjusted DOB -->
   </subject>
   <entry>
     <item>

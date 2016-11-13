@@ -1198,7 +1198,7 @@ public class ProfileUtilities {
     r.getCells().add(c);
 
 
-    return gen.generate(model, corePath);
+    return gen.generate(model, corePath, 0);
     }
 
   private ElementDefinition getUrlFor(StructureDefinition ed, ElementDefinition c) {
@@ -1404,7 +1404,7 @@ public class ProfileUtilities {
     List<StructureDefinition> profiles = new ArrayList<StructureDefinition>();
     profiles.add(profile);
     genElement(defFile == null ? null : defFile+"#"+profile.getId()+".", gen, model.getRows(), list.get(0), list, profiles, diff, profileBaseFileName, null, snapshot, corePath);
-    return gen.generate(model, corePath);
+    return gen.generate(model, corePath, 0);
   }
 
   private void genElement(String defPath, HierarchicalTableGenerator gen, List<Row> rows, ElementDefinition element, List<ElementDefinition> all, List<StructureDefinition> profiles, boolean showMissing, String profileBaseFileName, Boolean extensions, boolean snapshot, String corePath) throws IOException {

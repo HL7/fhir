@@ -17,7 +17,7 @@ public class DataTypeTableGenerator extends TableGenerator {
     
     model.getRows().add(genElement(e, gen, false, e.getName(), false, "", RenderMode.DATATYPE));
     
-    return gen.generate(model, "");
+    return gen.generate(model, "", 0);
   }
 
  

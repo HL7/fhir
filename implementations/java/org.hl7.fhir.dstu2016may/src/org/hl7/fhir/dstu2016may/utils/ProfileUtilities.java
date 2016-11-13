@@ -1200,7 +1200,7 @@ public class ProfileUtilities {
 
 
     try {
-		return gen.generate(model, corePath);
+		return gen.generate(model, corePath, 0);
 	} catch (org.hl7.fhir.exceptions.FHIRException e) {
 		throw new FHIRException(e.getMessage(), e);
 	}
@@ -1404,7 +1404,7 @@ public class ProfileUtilities {
     profiles.add(profile);
     genElement(defFile == null ? null : defFile+"#"+profile.getId()+".", gen, model.getRows(), list.get(0), list, profiles, diff, profileBaseFileName, null, snapshot, corePath, true, logicalModel);
     try {
-		return gen.generate(model, corePath);
+		return gen.generate(model, corePath, 0);
 	} catch (org.hl7.fhir.exceptions.FHIRException e) {
 		throw new FHIRException(e.getMessage(), e);
 	}

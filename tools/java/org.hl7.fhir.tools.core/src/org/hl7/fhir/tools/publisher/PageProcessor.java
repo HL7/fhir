@@ -2485,7 +2485,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
 
   private String genIgToc(ImplementationGuideDefn ig) throws Exception {
     HierarchicalTableGenerator gen = new HierarchicalTableGenerator(folders.dstDir, false);
-    return new XhtmlComposer().compose(gen.generate(ig.genToc(gen), "../"));
+    return new XhtmlComposer().compose(gen.generate(ig.genToc(gen), "../", 0));
   }
   
   private String generateToc() throws Exception {
@@ -2542,7 +2542,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     }
     b.append("</ul>\r\n");
    
-    return /*b.toString()+*/new XhtmlComposer().compose(gen.generate(model, ""));
+    return /*b.toString()+*/new XhtmlComposer().compose(gen.generate(model, "", 0));
   }
 
   private int rootInd(String s) {

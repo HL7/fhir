@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MessageDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
+	<id value="example"/>
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">[Put rendering here]</div>
+	</text>
+	<url value="http://hl7.org/fhir/MessageDefinition/example"/>
+	<name value="A24"/>
+	<title value="Link patients notification"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <date value="2016-11-09"/>
+  <publisher value="Health Level Seven, Int'l"/>
+  <contact>
+    <telecom>
+      <system value="other"/>
+      <value value="http://hl7.org"/>
+    </telecom>
+  </contact>
+  <purpose value="Notifies recipient systems that two patients have been 'linked' - meaning they represent the same individual"/>
+  <event>
+    <system value="http://hl7.org/fhir/message-events"/>
+    <code value="patient-link"/>
+  </event>
+  <category value="Notification"/>
+  <focus>
+    <code value="Patient"/>
+    <min value="2"/>
+    <max value="2"/>
+  </focus>
+  <responseRequired value="false"/>
+</MessageDefinition>

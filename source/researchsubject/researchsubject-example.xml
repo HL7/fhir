@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ResearchSubject xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
+	<id value="example"/>
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">[Put rendering here]</div>
+	</text>
+	<identifier>
+    <type>
+      <text value="Subject id"/>
+    </type>
+    <system value="http://example.org/studysubjectids"/>
+    <value value="123"/>
+	</identifier>
+	<status value="candidate"/>
+	<study>
+    <reference value="ResearchStudy/example"/>
+	</study>
+	<individual>
+    <reference value="Patient/example"/>
+	</individual>
+</ResearchSubject>

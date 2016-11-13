@@ -62,8 +62,10 @@ import org.hl7.fhir.dstu3.model.MetadataResource;
 import org.hl7.fhir.dstu3.model.OperationOutcome;
 import org.hl7.fhir.dstu3.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.dstu3.model.OperationOutcome.IssueType;
+import org.hl7.fhir.dstu3.model.OperationOutcome.OperationOutcomeIssueComponent;
 import org.hl7.fhir.dstu3.model.Questionnaire;
 import org.hl7.fhir.dstu3.model.Resource;
+import org.hl7.fhir.dstu3.utils.FluentPathEngine;
 import org.hl7.fhir.dstu3.utils.NarrativeGenerator;
 import org.hl7.fhir.dstu3.utils.StructureMapUtilities;
 import org.hl7.fhir.dstu3.utils.ToolingExtensions;
@@ -78,15 +80,14 @@ import org.xml.sax.SAXException;
  * This is just a wrapper around the InstanceValidator class for convenient use 
  * 
  * The following resource formats are supported: XML, JSON, Turtle
- * The following verions are supported: 1.4.0, 1.6.0, and current
+ * The following versions are supported: 1.4.0, 1.6.0, and current
  * 
- * Note: the validation engine is not threadsafe
+ * Note: the validation engine is intended to be threadsafe
  * To Use:
  *  
- * 1/ Initialise
- *    ValidationEngine validator = new ValidationEngine();
- *    validator.loadDefinitions(src);
- *      - this must refer to the igpack.zip for the version of the spec against which you wnat to validate
+ * 1/ Initialize
+ *    ValidationEngine validator = new ValidationEngine(src);
+ *      - this must refer to the igpack.zip for the version of the spec against which you want to validate
  *       it can be a url or a file reference. It can nominate the igpack.zip directly, 
  *       or it can name the container alone (e.g. just the spec URL).
  *       The validation engine does not cache igpack.zip. the user must manage that if desired 
@@ -95,10 +96,10 @@ import org.xml.sax.SAXException;
  *      - this is optional; in the absence of a terminology service, snomed, loinc etc will not be validated
  *      
  *    validator.loadIg(src);
- *      - call this any number of times for the Implementation Guide of interest. This is also a reference
+ *      - call this any number of times for the Implementation Guide(s) of interest. This is a reference
  *        to the igpack.zip for the implementation guide - same rules as above
  *        the version of the IGPack must match that of the spec 
- *        Alternatively it can point ot a local folder that contains conformance resources.
+ *        Alternatively it can point to a local folder that contains conformance resources.
  *         
  *    validator.loadQuestionnaire(src)
  *      - url or filename of a questionnaire to load. Any loaded questionnaires will be used while validating
@@ -123,10 +124,10 @@ import org.xml.sax.SAXException;
 public class ValidationEngine {
 
 	private SimpleWorkerContext context;
-  private InstanceValidator validator;
-  private List<ValidationMessage> messages = new ArrayList<ValidationMessage>();
-  private boolean doNative;
+  private FluentPathEngine fpe;
   private Map<String, byte[]> binaries = new HashMap<String, byte[]>();
+  private boolean doNative;
+  private boolean noInvariantChecks;
 
   private class AsteriskFilter implements FilenameFilter {
     String dir;
@@ -159,16 +160,21 @@ public class ValidationEngine {
     }
   }
   
-  public void loadDefinitions(String src) throws Exception {
+  public ValidationEngine(String src, String txsrvr) throws Exception {
+    loadDefinitions(src);
+    connectToTSServer(txsrvr);
+  }
+  
+  private void loadDefinitions(String src) throws Exception {
     Map<String, byte[]> source = loadSource(src, "igpack.zip");   
     context = SimpleWorkerContext.fromDefinitions(source);
-    validator  = new InstanceValidator(context);    
+    fpe = new FluentPathEngine(context);
     grabNatives(source, "http://hl7.org/fhir");
   }
 
-  Map<String, byte[]> loadSource(String src, String defname) throws Exception {
+  private Map<String, byte[]> loadSource(String src, String defname) throws Exception {
     if (Utilities.noString(src)) {
-      throw new FHIRException("Definitions Source '' could not be processed");
+      throw new FHIRException("Definitions Source '" + src + "' could not be processed");
     } else if (src.startsWith("https:") || src.startsWith("http:")) {
       return loadFromUrl(src);
     } else if (new File(src).exists()) {
@@ -208,16 +214,32 @@ public class ValidationEngine {
         }
     }
         return res;
-  }
-    } else {
-      if (src.endsWith(".zip") || (defname != null && src.endsWith(defname)))
-        return readZip(new FileInputStream(src));
-      else {
-        Map<String, byte[]> res = new HashMap<String, byte[]>();
-        res.put(f.getName(), TextFile.fileToBytes(src));
-        return res;
+    }
+      } else {
+        if (src.endsWith(".zip") || (defname != null && src.endsWith(defname)))
+          return readZip(new FileInputStream(src));
+        else {
+          Map<String, byte[]> res = new HashMap<String, byte[]>();
+          res.put(f.getName(), TextFile.fileToBytes(src));
+          return res;
+      }
     }
   }
+
+  public SimpleWorkerContext getContext() {
+    return context;
+  }
+  
+  public FluentPathEngine getFpe() {
+    return fpe;
+  }
+  
+  public boolean isNoInvariantChecks() {
+    return noInvariantChecks;
+  }
+
+  public void setNoInvariantChecks(boolean value) {
+    this.noInvariantChecks = value;
   }
 
   private FhirFormat checkIsResource(String path) {
@@ -320,13 +342,11 @@ public class ValidationEngine {
 	}
 
   public void setQuestionnaires(List<String> questionnaires) {
-//    validator.set
 	}
 
   public void setNative(boolean doNative) {
     this.doNative = doNative;
   }
-
 
   private class Content {
     byte[] focus = null;
@@ -337,7 +357,7 @@ public class ValidationEngine {
     Map<String, byte[]> s = loadSource(source, null);
     Content res = new Content();
     if (s.size() != 1)
-      throw new Exception("Unable to find a single resource to "+opName);
+      throw new Exception("Unable to find resource " + source + " to "+opName);
     for (Entry<String, byte[]> t: s.entrySet()) {
       res.focus = t.getValue();
       if (t.getKey().endsWith(".json"))
@@ -373,6 +393,10 @@ public class ValidationEngine {
       return results;
     else
       return results.getEntryFirstRep().getResource();
+  }
+
+  public OperationOutcome validateString(String source, FhirFormat format, List<String> profiles) throws Exception {
+    return validate(source.getBytes(), format, profiles);
   }
 
   private boolean handleSources(List<String> sources, List<String> refs) throws IOException {
@@ -422,24 +446,26 @@ public class ValidationEngine {
   }
 
   public OperationOutcome validate(byte[] source, FhirFormat cntType, List<String> profiles) throws Exception {
+    List<ValidationMessage> messages = new ArrayList<ValidationMessage>();
     if (doNative) {
       if (cntType == FhirFormat.JSON)
-        validateJsonSchema();
+        validateJsonSchema(messages);
       if (cntType == FhirFormat.XML)
-        validateXmlSchema();
+        validateXmlSchema(messages);
       if (cntType == FhirFormat.TURTLE)
-        validateSHEX();
+        validateSHEX(messages);
     }
-    messages.clear();
+    InstanceValidator validator = new InstanceValidator(this);
+    validator.setNoInvariantChecks(isNoInvariantChecks());
     validator.validate(null, messages, new ByteArrayInputStream(source), cntType, new ValidationProfileSet(profiles));
-    return getOutcome();
+    return messagesToOutcome(messages);
   }
 
-  private void validateSHEX() {
+  private void validateSHEX(List<ValidationMessage> messages) {
     messages.add(new ValidationMessage(Source.InstanceValidator, IssueType.INFORMATIONAL, "SHEX Validation is not done yet", IssueSeverity.INFORMATION));
 	}
 
-  private void validateXmlSchema() throws FileNotFoundException, IOException, SAXException {
+  private void validateXmlSchema(List<ValidationMessage> messages) throws FileNotFoundException, IOException, SAXException {
     XmlValidator xml = new XmlValidator(messages, loadSchemas(), loadTransforms());
     messages.add(new ValidationMessage(Source.InstanceValidator, IssueType.INFORMATIONAL, "XML Schema Validation is not done yet", IssueSeverity.INFORMATION));
 	}
@@ -464,17 +490,13 @@ public class ValidationEngine {
     return res;
   }
 
-  private void validateJsonSchema() {
+  private void validateJsonSchema(List<ValidationMessage> messages) {
     messages.add(new ValidationMessage(Source.InstanceValidator, IssueType.INFORMATIONAL, "JSON Schema Validation is not done yet", IssueSeverity.INFORMATION));   
 	}
 
-  public List<ValidationMessage> getMessages() {
-    return messages;
-	}
-
-  public List<ValidationMessage> getFilteredMessages() {
+  private List<ValidationMessage> filterMessages(List<ValidationMessage> messages) {
     List<ValidationMessage> filteredValidation = new ArrayList<ValidationMessage>();
-    for (ValidationMessage e : getMessages()) {
+    for (ValidationMessage e : messages) {
       if (!filteredValidation.contains(e))
         filteredValidation.add(e);
     }
@@ -482,17 +504,18 @@ public class ValidationEngine {
     return filteredValidation;
   }
   
-  private OperationOutcome getOutcome() throws DefinitionException {
+  private OperationOutcome messagesToOutcome(List<ValidationMessage> messages) throws DefinitionException {
     OperationOutcome op = new OperationOutcome();
-    for (ValidationMessage vm : getFilteredMessages()) {
+    for (ValidationMessage vm : filterMessages(messages)) {
       op.getIssue().add(vm.asIssue(op));
     }
     new NarrativeGenerator("", "", context).generate(op);
     return op;
 	}
-
-  public InstanceValidator getValidator() {
-    return validator;
+  
+  public static String issueSummary (OperationOutcomeIssueComponent issue) {
+    String source = ToolingExtensions.readStringExtension(issue, ToolingExtensions.EXT_ISSUE_SOURCE);
+    return issue.getSeverity().toString()+" @ "+issue.getLocation() + " " +issue.getDetails().getText() +(source != null ? " (src = "+source+")" : "");    
   }
 
   public Resource transform(String source, String map) throws Exception {

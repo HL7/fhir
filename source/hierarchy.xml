@@ -97,6 +97,7 @@ signatures.html
       <page type="resource" resource="Composition"/>
       <page type="resource" resource="DocumentReference"/>
       <page type="resource" resource="DocumentManifest"/>
+      <page type="resource" resource="MessageDefinition"/>
       <page type="resource" resource="MessageHeader"/>
       <page type="resource" resource="OperationOutcome"/>
       <page type="resource" resource="Parameters"/>
@@ -223,6 +224,11 @@ signatures.html
       <page type="resource" resource="EpisodeOfCare"/>
       <page type="resource" resource="Flag"/>
       <page type="resource" resource="Endpoint"/>
+      <page type="resource" resource="Linkage"/>
+      <page type="resource" resource="Communication"/>
+      <page type="resource" resource="CommunicationRequest"/>
+      <page type="resource" resource="ResearchStudy"/>
+      <page type="resource" resource="ResearchSubject"/>
     </page>
 
     <page title="Clinical Summary" filename="clinicalsummary-module.html" icon="clinical.png">
@@ -239,6 +245,7 @@ signatures.html
       <page type="resource" resource="RiskAssessment"/>
       <page type="resource" resource="FamilyMemberHistory"/>
       <page type="resource" resource="NutritionRequest"/>
+      <page type="resource" resource="VisionPrescription"/>
     </page>
 
     <page title="Diagnostics" filename="diagnostics-module.html" icon="diagnostics.jpg">
@@ -268,21 +275,20 @@ signatures.html
       <page title="Definition Pattern" filename="definition.html"/>
       <page title="Request Pattern" filename="request.html"/>
       <page title="Event Pattern" filename="event.html"/>
-      <page type="resource" resource="VisionPrescription"/>
-      <page type="resource" resource="ProcessRequest"/>
-      <page type="resource" resource="ProcessResponse"/>
-      <page type="resource" resource="DeviceUseRequest"/>
-      <page type="resource" resource="DeviceUseStatement"/>
-      <page type="resource" resource="Linkage"/>
-      <page type="resource" resource="Communication"/>
-      <page type="resource" resource="CommunicationRequest"/>
-      <page type="resource" resource="SupplyDelivery"/>
-      <page type="resource" resource="SupplyRequest"/>
+      <page type="resource" resource="Definition"/>
+      <page type="resource" resource="Request"/>
+      <page type="resource" resource="Event"/>
+      <page type="resource" resource="Task"/>
       <page type="resource" resource="Appointment"/>
       <page type="resource" resource="AppointmentResponse"/>
       <page type="resource" resource="Schedule"/>
       <page type="resource" resource="Slot"/>
-      <page type="resource" resource="Task"/>
+      <page type="resource" resource="ProcessRequest"/>
+      <page type="resource" resource="ProcessResponse"/>
+      <page type="resource" resource="DeviceUseRequest"/>
+      <page type="resource" resource="DeviceUseStatement"/>
+      <page type="resource" resource="SupplyDelivery"/>
+      <page type="resource" resource="SupplyRequest"/>
       <page type="resource" resource="Subscription"/>
     </page>
 
@@ -295,14 +301,8 @@ signatures.html
       <page type="resource" resource="ExplanationOfBenefit"/>
       <page type="resource" resource="EnrollmentRequest"/>
       <page type="resource" resource="EnrollmentResponse"/>
-      <!--			<page type="resource" resource="InstitutionalClaim"/>
-			<page type="resource" resource="OralHealthClaim"/> -->
       <page type="resource" resource="PaymentNotice"/>
       <page type="resource" resource="PaymentReconciliation"/>
-      <!--			<page type="resource" resource="PharmacyClaim"/>
-			<page type="resource" resource="ProfessionalClaim"/> -->
-      <!--			<page type="resource" resource="SupportingDocumentation"/> -->
-      <!--			<page type="resource" resource="VisionClaim"/> -->
       <page type="resource" resource="Contract"/>
     </page>
 

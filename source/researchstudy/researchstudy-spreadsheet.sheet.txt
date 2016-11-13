@@ -1,0 +1,369 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = ResearchStudyStatus
+  Binding = code list
+  Reference = #research-study-status
+  Definition = Codes that convey the current status of the research study
+  Conformance = required
+
+ -- Row 2 -----------------------------------
+  Binding Name = ResearchStudyCategory
+  Binding = unbound
+  Definition = Codes that describe the type of research study.  E.g. Study phase, Interventional/Observational, blinding type, etc.
+
+ -- Row 3 -----------------------------------
+  Binding Name = ResearchStudyFocus
+  Binding = unbound
+  Definition = Codes for medications, devices, conditions and other interventions
+
+ -- Row 4 -----------------------------------
+  Binding Name = ResearchStudyKeyword
+  Binding = unbound
+  Definition = Words associated with the study that may be useful in discovery
+
+=== Sheet research-study-status =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = draft
+  Display = draft
+  Definition = The study is undergoing design but the process of selecting study subjects and capturing data has not yet begun.
+  v3 = new
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = in-progress
+  Display = in-progress
+  Definition = The study is currently being executed
+  v3 = active
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = suspended
+  Display = suspended
+  Definition = Execution of the study has been temporarily paused
+  v3 = suspended
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = stopped
+  Display = stopped
+  Definition = The study was terminated prior to the final determination of results
+  v3 = aborted
+
+ -- Row 5 -----------------------------------
+  Id = 5
+  Code = completed
+  Display = completed
+  Definition = The information sought by the study has been gathered and compiled and no further work is being performed
+  v3 = completed
+
+ -- Row 6 -----------------------------------
+  Id = 6
+  Code = entered-in-error
+  Display = entered in error
+  Definition = This study never actually existed.  The record is retained for tracking purposes in the event decisions may have been made based on this erroneous information.
+  v3 = nullified
+
+=== Sheet Invariants =====================================
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = ResearchStudy
+  Aliases = Clinical Trial, Study
+  Type = DomainResource
+  Short Name = Investigation increase healthcare-related patient-independent knowledge
+  Definition = A process where a researcher or organization plans and then executes a series of steps intended to increase the field of healthcare-related knowledge.  This includes studies of safety, efficacy, comparative effectiveness and other information about medications, devices, therapies and other interventional and investigative techniques.  ResearchStudies involve the gathering of information about human or animal subjects
+  Comments = Need to make sure we encompass public health studies
+  v2 Mapping = OBX
+  RIM Mapping = Observation[classCode=CLNTRL, moodCode=EVN]
+  w5 = clinical.diagnostics
+
+ -- Row 2 -----------------------------------
+  Element = ResearchStudy.identifier
+  Card. = 0..1
+  Summary = Y
+  Type = Identifier
+  Short Name = Business Identifer for study
+  Definition = Identifiers assigned to this research study by the sponsor or other systems
+  Requirements = Allows identification of the research study as it is known by various participating systems and in a way that remains consistent across servers
+  RIM Mapping = .identifier
+  w5 = id
+
+ -- Row 3 -----------------------------------
+  Element = ResearchStudy.title
+  Card. = 0..1
+  Summary = Y
+  Type = string
+  Short Name = Name for this study
+  Definition = A short, descriptive user-friendly label for the study
+
+ -- Row 4 -----------------------------------
+  Element = ResearchStudy.protocol
+  Card. = 0..*
+  Summary = Y
+  Type = Reference(PlanDefinition)
+  Short Name = Steps followed in executing study
+  Definition = The set of steps expected to be performed as part of the execution of the study
+  RIM Mapping = .outboundRelationship[typeCode=DEFN].target
+
+ -- Row 5 -----------------------------------
+  Element = ResearchStudy.partOf
+  Card. = 0..*
+  Aliases = container
+  Summary = Y
+  Type = Reference(ResearchStudy)
+  Short Name = Part of larger study
+  Definition = A larger research study of which this particular study is a component or step
+  Requirements = Allows breaking a study into components (e.g. by study site) each with their own PI, status, enrollment, etc.
+  RIM Mapping = .inboundRelationship[typeCode=COMP].source[moodCode=EVN]
+
+ -- Row 6 -----------------------------------
+  Element = ResearchStudy.status
+  Card. = 1..1
+  Is Modifier = Y
+  Summary = Y
+  Type = code
+  Binding = ResearchStudyStatus
+  Short Name = draft | in-progress | suspended | stopped | completed | entered-in-error
+  Definition = The current state of the study
+  RIM Mapping = .status
+  To Do = Should this be a common code system for all events?
+  w5 = status
+
+ -- Row 7 -----------------------------------
+  Element = ResearchStudy.category
+  Card. = 0..*
+  Summary = Y
+  Type = CodeableConcept
+  Binding = ResearchStudyCategory
+  Short Name = Classifications for the study
+  Definition = Codes categorizing the type of study such as investigational vs. observational, type of blinding, type of randomization, safety vs. efficacy, etc.
+
+ -- Row 8 -----------------------------------
+  Element = ResearchStudy.focus
+  Card. = 0..*
+  Summary = Y
+  Type = CodeableConcept
+  Binding = ResearchStudyFocus
+  Short Name = Drugs, devices, conditions, etc. under study
+  Definition = The condition(s), medication(s), food(s), therapy(ies), device(s) or other concerns or interventions that the study is seeking to gain more information about
+  w5 = what
+
+ -- Row 9 -----------------------------------
+  Element = ResearchStudy.contact
+  Card. = 0..*
+  Summary = Y
+  Type = ContactDetail
+  Short Name = Contact details for the study
+  Definition = Contact details to assist a user in learning more about or engaging with the study
+
+ -- Row 10 -----------------------------------
+  Element = ResearchStudy.relatedArtifact
+  Card. = 0..*
+  Type = RelatedArtifact
+  Short Name = References and dependencies
+  Definition = Citations, references and other related documents
+
+ -- Row 11 -----------------------------------
+  Element = ResearchStudy.keyword
+  Card. = 0..*
+  Summary = Y
+  Type = CodeableConcept
+  Binding = ResearchStudyKeyword
+  Short Name = Used to search for the study
+  Definition = Key terms to aid in searching for or filtering the study
+
+ -- Row 12 -----------------------------------
+  Element = ResearchStudy.jurisdiction
+  Card. = 0..*
+  Summary = Y
+  Type = CodeableConcept
+  Binding = Jurisdiction
+  Short Name = Geographic region(s) for study
+  Definition = Indicates a country, state or other region where the study is taking place
+
+ -- Row 13 -----------------------------------
+  Element = ResearchStudy.description
+  Card. = 0..1
+  Type = markdown
+  Short Name = What this is study doing
+  Definition = A full description of how the study is being conducted
+
+ -- Row 14 -----------------------------------
+  Element = ResearchStudy.enrollment
+  Card. = 0..*
+  Aliases = patient
+  Summary = Y
+  Type = Reference(Group)
+  Short Name = Inclusion & exclusion criteria
+  Definition = Reference to a Group that defines the criteria for and quantity of subjects participating in the study.  E.g. \" 200 female Europeans between the ages of 20 and 45 with early onset diabetes\"
+  Comments = The Group referenced should not generally enumerate specific subjects.  Subjects will be linked to the study using the ResearchSubject resource.
+  To Do = .participation[typeCode=SBJ].role
+  w5 = who.focus
+
+ -- Row 15 -----------------------------------
+  Element = ResearchStudy.period
+  Card. = 0..1
+  Aliases = timing
+  Summary = Y
+  Type = Period
+  Short Name = When the study began and ended
+  Definition = Identifies the start date and the expected (or actual, depending on status) end date for the study.
+  Requirements = [The list of types may be constrained as appropriate for the type of event]
+  To Do = .effectiveTime
+  w5 = when.done
+
+ -- Row 16 -----------------------------------
+  Element = ResearchStudy.sponsor
+  Card. = 0..1
+  Summary = Y
+  Type = Reference(Organization)
+  Short Name = Organization responsible for the study
+  Definition = The organization responsible for the execution of the study
+  To Do = .participation[typeCode=PRF].role[scoper.determinerCode=INSTANCE]
+  w5 = who.actor
+
+ -- Row 17 -----------------------------------
+  Element = ResearchStudy.principleInvestigator
+  Card. = 0..1
+  Summary = Y
+  Type = Reference(Practitioner)
+  Short Name = Individual responsible for the study
+  Definition = Indicates the individual who has primary oversite of the execution of the study
+  w5 = who.actor
+
+ -- Row 18 -----------------------------------
+  Element = ResearchStudy.site
+  Card. = 0..*
+  Summary = Y
+  Type = Reference(Location)
+  Short Name = Location involved in study execution
+  Definition = Clinic, hospital or other healthcare location that is participating in the study
+  w5 = where
+
+ -- Row 19 -----------------------------------
+  Element = ResearchStudy.reasonStopped
+  Card. = 0..1
+  Summary = Y
+  Type = CodeableConcept
+  Short Name = Reason for terminating study early
+  Definition = A description and/or code explaining the premature termination of the study
+  w5 = why
+
+ -- Row 20 -----------------------------------
+  Element = ResearchStudy.note
+  Card. = 0..*
+  Type = Annotation
+  Short Name = Comments made about the event
+  Definition = Comments made about the event by the performer, subject or other participants.
+  To Do = .inboundRelationship(typeCode=SUBJ].source[classCode=ANNGEN, moodCode=EVN].value[xsi:type=ST]
+
+ -- Row 21 -----------------------------------
+  Element = ResearchStudy.arm
+  Card. = 0..*
+  Short Name = Defined path through the study for a subject
+  Definition = Describes an expected sequence of events for one of the participants of a study.  E.g. Exposure to drug A, wash-out, exposure to drug B, wash-out, follow-up
+
+ -- Row 22 -----------------------------------
+  Element = ResearchStudy.arm.name
+  Card. = 1..1
+  Type = string
+  Short Name = Label for study arm
+  Definition = Unique, human-readable label for this arm of the study
+
+ -- Row 23 -----------------------------------
+  Element = ResearchStudy.arm.code
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Name = Categorization of arm
+  Definition = E.g. Experimental, active comparator, placebo comparator
+
+ -- Row 24 -----------------------------------
+  Element = ResearchStudy.arm.description
+  Card. = 0..1
+  Type = string
+  Short Name = Short explanation of study path
+  Definition = A succinct description of the path through the study that would be followed by a subject adhering to this arm.
+
+=== Sheet Search =====================================
+
+ -- Row 1 -----------------------------------
+  Name = identifier
+  Type = token
+  Path = ResearchStudy.identifier
+
+ -- Row 2 -----------------------------------
+  Name = title
+  Type = string
+  Path = ResearchStudy.title
+
+ -- Row 3 -----------------------------------
+  Name = protocol
+  Type = reference
+  Path = ResearchStudy.protocol
+
+ -- Row 4 -----------------------------------
+  Name = partof
+  Type = reference
+  Path = ResearchStudy.partOf
+
+ -- Row 5 -----------------------------------
+  Name = status
+  Type = token
+  Path = ResearchStudy.status
+
+ -- Row 6 -----------------------------------
+  Name = category
+  Type = token
+  Path = ResearchStudy.category
+
+ -- Row 7 -----------------------------------
+  Name = focus
+  Type = token
+  Path = ResearchStudy.focus
+
+ -- Row 8 -----------------------------------
+  Name = keyword
+  Type = token
+  Path = ResearchStudy.keyword
+
+ -- Row 9 -----------------------------------
+  Name = jurisdiction
+  Type = token
+  Path = ResearchStudy.jurisdiction
+
+ -- Row 10 -----------------------------------
+  Name = date
+  Type = date
+  Path = ResearchStudy.period
+
+ -- Row 11 -----------------------------------
+  Name = sponsor
+  Type = reference
+  Path = ResearchStudy.sponsor
+
+ -- Row 12 -----------------------------------
+  Name = principleinvestigator
+  Type = reference
+  Path = ResearchStudy.principleInvestigator
+
+ -- Row 13 -----------------------------------
+  Name = site
+  Type = reference
+  Path = ResearchStudy.site
+
+=== Sheet Profiles =====================================
+
+=== Sheet Examples =====================================
+
+ -- Row 1 -----------------------------------
+  Name = Example
+  Identity = example
+  Description = Placeholder example
+  Filename = researchstudy-example.xml
+
+=== Sheet Examples =====================================

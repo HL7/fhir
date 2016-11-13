@@ -364,6 +364,25 @@ more data points (<a href="observation.html">Observations</a>), usually about a 
 <tr><td><a href="devicemetric.html">DeviceMetric</a></td><td><a href="#unrelated">Unrelated</a></td><td>Role</td><td></td></tr>
 </table>
 
+<h4>Research</h4>
+
+<p>
+<code>ResearchStudy</code> is used to capture information related to the planning and execution
+of clinical and pre-clinical studies.  It covers both human and veterinary studies and safety, efficacy,
+comparative effectiveness and retrospective trials.
+</p>
+<p>
+<code>ResearchSubject</code> capture the information around the participation of a specific individual
+(<a href="patient.html">Patient</a>) in a specific <code>ResearchStudy</code>.  This information includes
+their time of participation, associated study arm, status within the study, etc.
+</p>
+
+<table class="grid">
+<tr><td><b>Resource</b></td><td><b>Category</b></td><td><b>RIM</b></td><td><b>Lifecycle</b></td></tr>
+<tr><td><a href="researchstudy.html">ResearchStudy</a></td><td><a href="#unrelated">Unrelated</a></td><td>Act</td><td></td></tr>
+<tr><td><a href="researchsubject.html">ResearchSubject</a></td><td><a href="#unrelated">Unrelated</a></td><td>Role</td><td></td></tr>
+</table>
+
 <h3>Work Flow</h3>
 
 <h4>Encounters</h4>
@@ -599,14 +618,15 @@ from one structure to another.
 <h4>Behavior</h4>
 
 <p>
-A <code>Conformance</code> is a statement of a set of system capabilities
+A <code>CapabilityStatement</code> is a statement of a set of system capabilities
 for use as system discovery, or conformance expectations.
 </p>
 <p>
 An <code>OperationDefinition</code> describes an operation that can be
 executed on a server, and a <code>SearchParameter</code> defines
 a search parameter that can be used on a server. <code>CompartmentDefinition</code>
-provides information about how resources are associated on a server.
+provides information about how resources are associated on a server.  <code>MessageDefintion</code>
+describes the behavior associated with receiving a particular message.
 </p>
 
 <table class="grid">

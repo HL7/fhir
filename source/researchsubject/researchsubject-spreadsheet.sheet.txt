@@ -1,0 +1,179 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = ResearchSubjectStatus
+  Binding = code list
+  Reference = #research-subject-status
+  Definition = Indicates the progression of a study subject through a study
+  Conformance = required
+
+=== Sheet research-subject-status =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = candidate
+  Display = candidate
+  Definition = The subject has been identified as a potential participant in the study but has not yet agreed to participate
+  v3 = draft
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = enrolled
+  Display = enrolled
+  Definition = The subject has agreed to participate in the study but has not yet begun performing any action within the study
+  v3 = active
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = active
+  Display = active
+  Definition = The subject is currently being monitored and/or subject to treatment as part of the study
+  v3 = active
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = suspended
+  Display = suspended
+  Definition = The subject has temporarily discontinued monitoring/treatment as part of the study
+  v3 = suspended
+
+ -- Row 5 -----------------------------------
+  Id = 5
+  Code = withdrawn
+  Display = withdrawn
+  Definition = The subject has permanently ended participation in the study prior to completion of the intended monitoring/treatment
+  v3 = aborted
+
+ -- Row 6 -----------------------------------
+  Id = 6
+  Code = completed
+  Display = completed
+  Definition = All intended monitoring/treatment of the subject has been completed and their engagement with the study is now ended
+  v3 = completed
+
+=== Sheet Invariants =====================================
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = ResearchSubject
+  Aliases = Study Subject
+  Type = DomainResource
+  Short Name = Investigation increase healthcare-related patient-independent knowledge
+  Definition = A process where a researcher or organization plans and then executes a series of steps intended to increase the field of healthcare-related knowledge.  This includes studies of safety, efficacy, comparative effectiveness and other information about medications, devices, therapies and other interventional and investigative techniques.  ResearchStudies involve the gathering of information about human or animal subjects
+  Comments = Need to make sure we encompass public health studies
+  v2 Mapping = OBX
+  RIM Mapping = Observation[classCode=CLNTRL, moodCode=EVN]
+  w5 = clinical.diagnostics
+
+ -- Row 2 -----------------------------------
+  Element = ResearchSubject.identifier
+  Card. = 0..1
+  Summary = Y
+  Type = Identifier
+  Short Name = Business Identifer for event
+  Definition = Identifiers assigned to this research study by the sponsor or other systems
+  Requirements = Allows identification of the research study as it is known by various participating systems and in a way that remains consistent across servers
+  RIM Mapping = .identifier
+  w5 = id
+
+ -- Row 3 -----------------------------------
+  Element = ResearchSubject.status
+  Card. = 1..1
+  Is Modifier = Y
+  Summary = Y
+  Type = code
+  Binding = ResearchSubjectStatus
+  Short Name = candidate | enrolled | active | suspended | withdrawn | completed
+  Definition = The current state of the event
+  RIM Mapping = .status
+  To Do = Should this be a common code system for all events?
+  w5 = status
+
+ -- Row 4 -----------------------------------
+  Element = ResearchSubject.period
+  Card. = 0..1
+  Aliases = timing
+  Summary = Y
+  Type = Period
+  Short Name = Start and end of participation
+  Definition = The dates the subject began and ended their participation in the study
+  To Do = .effectiveTime
+  w5 = when.planned
+
+ -- Row 5 -----------------------------------
+  Element = ResearchSubject.study
+  Card. = 1..1
+  Summary = Y
+  Type = Reference(ResearchStudy)
+  Short Name = Study subject is part of
+  Definition = Reference to the study the subject is participating in
+
+ -- Row 6 -----------------------------------
+  Element = ResearchSubject.individual
+  Card. = 1..1
+  Summary = Y
+  Type = Reference(Patient)
+  Short Name = Who is part of study
+  Definition = The record of the person or animal who is involved in the study
+
+ -- Row 7 -----------------------------------
+  Element = ResearchSubject.assignedArm
+  Card. = 0..1
+  Type = string
+  Short Name = What path should be followed
+  Definition = The name of the arm in the study the subject is expected to follow as part of this study
+
+ -- Row 8 -----------------------------------
+  Element = ResearchSubject.actualArm
+  Card. = 0..1
+  Type = string
+  Short Name = What path was followed
+  Definition = The name of the arm in the study the subject actually followed as part of this study
+
+ -- Row 9 -----------------------------------
+  Element = ResearchSubject.consent
+  Card. = 0..1
+  Type = Reference(Consent)
+  Short Name = Agreement to participate in study
+  Definition = A record of the patient\'s informed agreement to participate in the study
+
+=== Sheet Search =====================================
+
+ -- Row 1 -----------------------------------
+  Name = identifier
+  Type = token
+  Path = ResearchSubject.identifier
+
+ -- Row 2 -----------------------------------
+  Name = status
+  Type = token
+  Path = ResearchSubject.status
+
+ -- Row 3 -----------------------------------
+  Name = date
+  Type = date
+  Path = ResearchSubject.period
+
+ -- Row 4 -----------------------------------
+  Name = individual
+  Type = reference
+  Path = ResearchSubject.individual
+
+ -- Row 5 -----------------------------------
+  Name = patient
+  Type = reference
+  Path = ResearchSubject.individual
+
+=== Sheet Profiles =====================================
+
+=== Sheet Examples =====================================
+
+ -- Row 1 -----------------------------------
+  Name = Example
+  Identity = example
+  Description = Placeholder example
+  Filename = researchsubject-example.xml
+
+=== Sheet Examples =====================================

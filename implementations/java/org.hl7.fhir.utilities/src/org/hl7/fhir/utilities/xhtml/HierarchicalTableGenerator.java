@@ -48,6 +48,8 @@ import org.apache.commons.io.FileUtils;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.utilities.Utilities;
 
+import com.github.rjeschke.txtmark.Processor;
+
 
 public class HierarchicalTableGenerator  {
   public static final String TEXT_ICON_REFERENCE = "Reference to another Resource";
@@ -158,6 +160,37 @@ public class HierarchicalTableGenerator  {
     public Cell addPiece(Piece piece) {
       pieces.add(piece);
       return this;
+    }
+    public Cell addMarkdown(String md) {
+      try {
+        String html = Processor.process("[$PROFILE$]: extended\n" + md);
+        pieces.addAll(htmlToParagraphPieces(html));
+      } catch (Exception e) {
+        e = e;
+      }
+      return this;
+    }
+    private List<Piece> htmlToParagraphPieces(String html) {
+      List<Piece> myPieces = new ArrayList<Piece>();
+      String[] paragraphs = html.replace("<p>", "").split("<\\/p>|<br  \\/>");
+      for (int i=0;i<paragraphs.length;i++) {
+        if (!paragraphs[i].isEmpty()) {
+          if (i!=0) {
+            myPieces.add(new Piece("br"));
+            myPieces.add(new Piece("br"));
+          }
+          myPieces.addAll(htmlFormattingToPieces(paragraphs[i]));
+        }
+      }
+      
+      return myPieces;
+    }
+    private List<Piece> htmlFormattingToPieces(String html) {
+      List<Piece> myPieces = new ArrayList<Piece>();
+      //Todo: At least handle bold and italics and turn them into formatted spans.  (Will need to handle nesting though)
+      myPieces.add(new Piece(null, html, null));
+      
+      return myPieces;
     }
     public void addStyle(String style) {
       for (Piece p : pieces)
@@ -284,6 +317,10 @@ public class HierarchicalTableGenerator  {
   private boolean inLineGraphics;
   
   
+  public HierarchicalTableGenerator() {
+    super();
+  }
+
   public HierarchicalTableGenerator(String dest, boolean inlineGraphics) {
     super();
     this.dest = dest;
@@ -306,15 +343,25 @@ public class HierarchicalTableGenerator  {
     return model;
   }
 
-  public XhtmlNode generate(TableModel model, String imagePath) throws IOException, FHIRException  {
+  public TableModel initGridTable(String prefix) {
+    TableModel model = new TableModel();
+    
+    model.getTitles().add(new Title(null, model.getDocoRef(), "Name", "The name of the element (Slice name in brackets).  Mouse-over provides definition", null, 0));
+    model.getTitles().add(new Title(null, model.getDocoRef(), "Card.", "Minimum and Maximum # of times the the element can appear in the instance. Super-scripts indicate additional constraints on appearance", null, 0));
+    model.getTitles().add(new Title(null, model.getDocoRef(), "Type", "Reference to the type of the element", null, 100));
+    model.getTitles().add(new Title(null, model.getDocoRef(), "Constraints and Usage", "Fixed values, length limits, vocabulary bindings and other usage notes", null, 0));
+    return model;
+  }
+
+  public XhtmlNode generate(TableModel model, String imagePath, int border) throws IOException, FHIRException  {
     checkModel(model);
-    XhtmlNode table = new XhtmlNode(NodeType.Element, "table").setAttribute("border", "0").setAttribute("cellspacing", "0").setAttribute("cellpadding", "0");
-    table.setAttribute("style", "border: 0px; font-size: 11px; font-family: verdana; vertical-align: top;");
+    XhtmlNode table = new XhtmlNode(NodeType.Element, "table").setAttribute("border", Integer.toString(border)).setAttribute("cellspacing", "0").setAttribute("cellpadding", "0");
+    table.setAttribute("style", "border: " + border + "px #F0F0F0 solid; font-size: 11px; font-family: verdana; vertical-align: top;");
     XhtmlNode tr = table.addTag("tr");
-    tr.setAttribute("style", "border: 1px #F0F0F0 solid; font-size: 11px; font-family: verdana; vertical-align: top;");
+    tr.setAttribute("style", "border: " + Integer.toString(1 + border) + "px #F0F0F0 solid; font-size: 11px; font-family: verdana; vertical-align: top;");
     XhtmlNode tc = null;
     for (Title t : model.getTitles()) {
-      tc = renderCell(tr, t, "th", null, null, null, false, null, "white", imagePath);
+      tc = renderCell(tr, t, "th", null, null, null, false, null, "white", imagePath, border);
       if (t.width != 0)
         tc.setAttribute("style", "width: "+Integer.toString(t.width)+"px");
     }
@@ -322,7 +369,7 @@ public class HierarchicalTableGenerator  {
       tc.addTag("span").setAttribute("style", "float: right").addTag("a").setAttribute("title", "Legend for this format").setAttribute("href", model.getDocoRef()).addTag("img").setAttribute("alt", "doco").setAttribute("style", "background-color: inherit").setAttribute("src", model.getDocoImg());
       
     for (Row r : model.getRows()) {
-      renderRow(table, r, 0, new ArrayList<Boolean>(), imagePath);
+      renderRow(table, r, 0, new ArrayList<Boolean>(), imagePath, border);
     }
     if (model.getDocoRef() != null) {
       tr = table.addTag("tr");
@@ -339,15 +386,15 @@ public class HierarchicalTableGenerator  {
   }
 
 
-  private void renderRow(XhtmlNode table, Row r, int indent, List<Boolean> indents, String imagePath) throws IOException  {
+  private void renderRow(XhtmlNode table, Row r, int indent, List<Boolean> indents, String imagePath, int border) throws IOException  {
     XhtmlNode tr = table.addTag("tr");
     String color = "white";
     if (r.getColor() != null)
       color = r.getColor();
-    tr.setAttribute("style", "border: 0px; padding:0px; vertical-align: top; background-color: "+color+";");
+    tr.setAttribute("style", "border: " + border + "px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: "+color+";");
     boolean first = true;
     for (Cell t : r.getCells()) {
-      renderCell(tr, t, "td", first ? r.getIcon() : null, first ? r.getHint() : null, first ? indents : null, !r.getSubRows().isEmpty(), first ? r.getAnchor() : null, color, imagePath);
+      renderCell(tr, t, "td", first ? r.getIcon() : null, first ? r.getHint() : null, first ? indents : null, !r.getSubRows().isEmpty(), first ? r.getAnchor() : null, color, imagePath, border);
       first = false;
     }
     table.addText("\r\n");
@@ -360,17 +407,17 @@ public class HierarchicalTableGenerator  {
         ind.add(true);
       else
         ind.add(false);
-      renderRow(table, c, indent+1, ind, imagePath);
+      renderRow(table, c, indent+1, ind, imagePath, border);
     }
   }
 
 
-  private XhtmlNode renderCell(XhtmlNode tr, Cell c, String name, String icon, String hint, List<Boolean> indents, boolean hasChildren, String anchor, String color, String imagePath) throws IOException  {
+  private XhtmlNode renderCell(XhtmlNode tr, Cell c, String name, String icon, String hint, List<Boolean> indents, boolean hasChildren, String anchor, String color, String imagePath, int border) throws IOException  {
     XhtmlNode tc = tr.addTag(name);
     tc.setAttribute("class", "hierarchy");
     if (indents != null) {
       tc.addTag("img").setAttribute("src", srcFor(imagePath, "tbl_spacer.png")).setAttribute("style", "background-color: inherit").setAttribute("class", "hierarchy").setAttribute("alt", ".");
-      tc.setAttribute("style", "vertical-align: top; text-align : left; background-color: "+color+"; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url("+imagePath+checkExists(indents, hasChildren)+")");
+      tc.setAttribute("style", "vertical-align: top; text-align : left; background-color: "+color+"; border: "+ border +"px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url("+imagePath+checkExists(indents, hasChildren)+")");
       for (int i = 0; i < indents.size()-1; i++) { 
         if (indents.get(i))
           tc.addTag("img").setAttribute("src", srcFor(imagePath, "tbl_blank.png")).setAttribute("style", "background-color: inherit").setAttribute("class", "hierarchy").setAttribute("alt", ".");
@@ -384,7 +431,7 @@ public class HierarchicalTableGenerator  {
           tc.addTag("img").setAttribute("src", srcFor(imagePath, "tbl_vjoin.png")).setAttribute("style", "background-color: inherit").setAttribute("class", "hierarchy").setAttribute("alt", ".");
     }
     else
-      tc.setAttribute("style", "vertical-align: top; text-align : left; background-color: "+color+"; padding:0px 4px 0px 4px");
+      tc.setAttribute("style", "vertical-align: top; text-align : left; background-color: "+color+"; border: "+ border +"px #F0F0F0 solid; padding:0px 4px 0px 4px");
     if (!Utilities.noString(icon)) {
       XhtmlNode img = tc.addTag("img").setAttribute("src", srcFor(imagePath, icon)).setAttribute("class", "hierarchy").setAttribute("style", "background-color: "+color+"; background-color: inherit").setAttribute("alt", ".");
       if (hint != null)
@@ -406,6 +453,7 @@ public class HierarchicalTableGenerator  {
         if (!Utilities.noString(p.getHint()))
           a.setAttribute("title", p.getHint());
         a.addText(p.getText());
+        addStyle(a, p);
       } else { 
         if (!Utilities.noString(p.getHint())) {
           XhtmlNode s = addStyle(tc.addTag("span"), p);
@@ -442,7 +490,7 @@ public class HierarchicalTableGenerator  {
       b.append("data: image/png;base64,");
       byte[] bytes;
       File file = new File(Utilities.path(dest, filename));
-      if (!file.exists()) // because sometime this is called real early before the files exist. it will be uilt again later because of this
+      if (!file.exists()) // because sometime this is called real early before the files exist. it will be built again later because of this
     	bytes = new byte[0]; 
       else
         bytes = FileUtils.readFileToByteArray(file);

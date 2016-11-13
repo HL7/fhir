@@ -322,6 +322,13 @@ public class StructureDefinitionRenderer extends BaseRenderer {
       return new XhtmlComposer().compose(utils.generateTable(defnFile, sd, false, destDir, false, sd.getId(), true, prefix, "", false, false));
   }
 
+  public String grid(String defnFile) throws IOException, FHIRException, org.hl7.fhir.exceptions.FHIRException {
+    if (sd.getSnapshot().getElement().isEmpty())
+      return "";
+    else
+      return new XhtmlComposer().compose(utils.generateGrid(defnFile, sd, destDir, false, sd.getId(), prefix, ""));
+  }
+
   public String tx() {
     List<String> txlist = new ArrayList<String>();
     Map<String, ElementDefinitionBindingComponent> txmap = new HashMap<String, ElementDefinitionBindingComponent>();

@@ -1,0 +1,231 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = MessageSignificanceCategory
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/message-significance-category
+  Definition = The impact of the content of a message.
+
+=== Sheet Invariants =====================================
+
+ -- Row 1 -----------------------------------
+  Id = md-1
+  Context = MessageDefinition.focus
+  English = Max must be postive int or *
+  XPath = f:/max@value=\'*\' or f:max/@value > 0
+  Expression = max=\'*\' or (max.toInteger() > 0)
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = MessageDefinition
+  UML = 0;0
+  Type = MetadataResource
+  Short Name = A resource that defines a type of message that can be exchanged between systems
+  Definition = Defines the characteristics of a message that can be shared between systems, including the type of event that initiates the message, the content to be transmitted and what response(s), if any, are permitted
+  Requirements = Allows messages to be defined once and re-used across systems
+  v2 Mapping = N/A
+  RIM Mapping = N/A - this would be a MIF-level artifact
+  w5 = infrastructure.exchange
+
+ -- Row 2 -----------------------------------
+  Element = MessageDefinition.url
+  Summary = Y
+
+ -- Row 3 -----------------------------------
+  Element = MessageDefinition.version
+  Summary = Y
+
+ -- Row 4 -----------------------------------
+  Element = MessageDefinition.name
+  Summary = Y
+
+ -- Row 5 -----------------------------------
+  Element = MessageDefinition.title
+  Summary = Y
+
+ -- Row 6 -----------------------------------
+  Element = MessageDefinition.status
+  Summary = Y
+
+ -- Row 7 -----------------------------------
+  Element = MessageDefinition.experimental
+  Summary = Y
+
+ -- Row 8 -----------------------------------
+  Element = MessageDefinition.date
+  Card. = 1..1
+  Summary = Y
+
+ -- Row 9 -----------------------------------
+  Element = MessageDefinition.publisher
+  Summary = Y
+
+ -- Row 10 -----------------------------------
+  Element = MessageDefinition.contact
+
+ -- Row 11 -----------------------------------
+  Element = MessageDefinition.description
+  Summary = Y
+
+ -- Row 12 -----------------------------------
+  Element = MessageDefinition.useContext
+  Summary = Y
+
+ -- Row 13 -----------------------------------
+  Element = MessageDefinition.jurisdiction
+  Summary = Y
+
+ -- Row 14 -----------------------------------
+  Element = MessageDefinition.purpose
+  Summary = Y
+
+ -- Row 15 -----------------------------------
+  Element = MessageDefinition.copyright
+
+ -- Row 16 -----------------------------------
+  Element = MessageDefinition.base
+  Card. = 0..1
+  Summary = Y
+  Type = Reference(MessageDefinition)
+  Short Name = Definition this one is based on
+  Definition = The MessageDefinition this new definition is a profile of
+
+ -- Row 17 -----------------------------------
+  Element = MessageDefinition.parent
+  Card. = 0..*
+  Summary = Y
+  Type = Reference(ActivityDefinition|PlanDefinition)
+  Short Name = Protocol/workflow this is part of
+  Definition = Identifies a protocol or workflow that this MessageDefinition represents a step in
+
+ -- Row 18 -----------------------------------
+  Element = MessageDefinition.replaces
+  Card. = 0..*
+  Summary = Y
+  Type = Reference(MessageDefinition)
+  Short Name = Takes the place of
+  Definition = A MessageDefinition that is superseded by this definition
+
+ -- Row 19 -----------------------------------
+  Element = MessageDefinition.event
+  Card. = 1..1
+  Summary = Y
+  Type = Coding
+  Binding = MessageEvent
+  Short Name = Event type
+  Definition = A coded identifier of a supported messaging event
+  To Do = May need a profile id as well if profiles can define message events
+
+ -- Row 20 -----------------------------------
+  Element = MessageDefinition.category
+  Card. = 0..1
+  Summary = Y
+  Type = code
+  Binding = MessageSignificanceCategory
+  Short Name = Consequence | Currency | Notification
+  Definition = The impact of the content of the message
+
+ -- Row 21 -----------------------------------
+  Element = MessageDefinition.focus
+  Card. = 0..*
+  Summary = Y
+  Short Name = Resource(s) that are the subject of the event
+  Definition = Identifies the resource (or resources) that are being addressed by the event.  For example, the Encounter for an admit message or two Account records for a merge
+
+ -- Row 22 -----------------------------------
+  Element = MessageDefinition.focus.code
+  Card. = 1..1
+  Summary = Y
+  Type = code
+  Binding = ResourceType
+  Short Name = Type of resource
+  Definition = The kind of resource that must be the focus for this message
+  Comments = Multiple focuses addressing different resources may occasionally occur.  E.g. to link or unlink a resource from a particular account or encounter, etc.
+
+ -- Row 23 -----------------------------------
+  Element = MessageDefinition.focus.profile
+  Card. = 0..1
+  Type = Reference(StructureDefinition)
+  Short Name = Profile that must be adhered to by focus
+  Definition = A profile that reflects constraints for the focal resource (and potentially for related resources)
+  Requirements = This profile allows setting boundaries for what content must appear within the message bundle vs. outside based on the declared aggregation constraints on referenced resources on this and related profiles.
+  Comments = This should be present for most message definitions.  However, if the message focus is only a single resource and there is no need to include referenced resources or otherwise enforce the presence of particular elements, it can be omitted.
+
+ -- Row 24 -----------------------------------
+  Element = MessageDefinition.focus.min
+  Card. = 0..1
+  Type = unsignedInt
+  Short Name = Minimum number of focuses of this type
+  Definition = Identifies the minimum number of resources of this type that must be pointed to by a message in order for it to be valid against this MessageDefinition
+  Default Value = 0
+
+ -- Row 25 -----------------------------------
+  Element = MessageDefinition.focus.max
+  Card. = 0..1
+  Inv. = md-1
+  Type = string
+  Short Name = Maximum number of focuses of this type
+  Definition = Identifies the maximum number of resources of this type that must be pointed to by a message in order for it to be valid against this MessageDefinition
+
+ -- Row 26 -----------------------------------
+  Element = MessageDefinition.responseRequired
+  Card. = 0..1
+  Type = boolean
+  Short Name = Is a response required?
+  Definition = Indicates whether a response is required for this message
+  Default Value = false
+
+ -- Row 27 -----------------------------------
+  Element = MessageDefinition.allowedResponse
+  Card. = 0..*
+  Short Name = Responses to this message
+  Definition = Indicates what types of messages may be sent as an application-level response to this message.
+  Comments = This indicates an application level response to \"close\" a transaction implicit in a particular request message.  To define a complete workflow scenario, look to the [[PlanDefinition]] resource which allows the definition of complex orchestrations, conditionality, etc.
+
+ -- Row 28 -----------------------------------
+  Element = MessageDefinition.allowedResponse.message
+  Card. = 1..1
+  Type = Reference(MessageDefinition)
+  Short Name = MessageDefinition for response
+  Definition = A reference to the message definition that must be adhered to by this supported response
+
+ -- Row 29 -----------------------------------
+  Element = MessageDefinition.allowedResponse.situation
+  Card. = 0..1
+  Type = markdown
+  Short Name = When should this response be used
+  Definition = Provides a description of the circumstances in which this response should be used (as opposed to one of the alternative responses)
+
+=== Sheet Search =====================================
+
+ -- Row 1 -----------------------------------
+  Name = event
+  Type = token
+  Description = The event that triggers the message
+  Path = MessageDefinition.event
+
+ -- Row 2 -----------------------------------
+  Name = category
+  Type = token
+  Description = The behavior associated with the message
+  Path = MessageDefinition.category
+
+ -- Row 3 -----------------------------------
+  Name = focus
+  Type = token
+  Description = A resource that is a permitted focus of the message
+  Path = MessageDefinition.focus.code
+
+=== Sheet Profiles =====================================
+
+=== Sheet Examples =====================================
+
+ -- Row 1 -----------------------------------
+  Name = General Example
+  Identity = example
+  Description = A typical message definition
+  Filename = messagedefinition-example.xml
+
+=== Sheet Examples =====================================

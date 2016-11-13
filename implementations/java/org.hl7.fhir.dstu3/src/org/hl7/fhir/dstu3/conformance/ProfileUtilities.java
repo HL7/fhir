@@ -11,6 +11,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import com.github.rjeschke.txtmark.Processor;
+
+import org.apache.commons.lang3.StringUtils;
 import org.hl7.fhir.dstu3.conformance.ProfileUtilities.ProfileKnowledgeProvider.BindingResolution;
 import org.hl7.fhir.dstu3.context.IWorkerContext;
 import org.hl7.fhir.dstu3.elementmodel.ObjectConverter;
@@ -66,10 +69,14 @@ import org.hl7.fhir.utilities.xhtml.HierarchicalTableGenerator.Piece;
 import org.hl7.fhir.utilities.xhtml.HierarchicalTableGenerator.Row;
 import org.hl7.fhir.utilities.xhtml.HierarchicalTableGenerator.TableModel;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
+import org.hl7.fhir.utilities.xhtml.XhtmlParser;
 import org.hl7.fhir.utilities.xml.SchematronWriter;
 import org.hl7.fhir.utilities.xml.SchematronWriter.Rule;
 import org.hl7.fhir.utilities.xml.SchematronWriter.SchematronType;
 import org.hl7.fhir.utilities.xml.SchematronWriter.Section;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
 
 /**
  * This class provides a set of utility operations for working with Profiles.
@@ -1418,7 +1425,7 @@ public class ProfileUtilities {
 
 
     try {
-		return gen.generate(model, corePath);
+		return gen.generate(model, corePath, 0);
 	} catch (org.hl7.fhir.exceptions.FHIRException e) {
 		throw new FHIRException(e.getMessage(), e);
 	}
@@ -1704,11 +1711,27 @@ public class ProfileUtilities {
     profiles.add(profile);
     genElement(defFile == null ? null : defFile+"#", gen, model.getRows(), list.get(0), list, profiles, diff, profileBaseFileName, null, snapshot, corePath, imagePath, true, logicalModel, profile.getDerivation() == TypeDerivationRule.CONSTRAINT && usesMustSupport(list), allInvariants);
     try {
-      return gen.generate(model, imagePath);
+      return gen.generate(model, imagePath, 0);
 	} catch (org.hl7.fhir.exceptions.FHIRException e) {
 		throw new FHIRException(e.getMessage(), e);
 	}
   }
+
+
+  public XhtmlNode generateGrid(String defFile, StructureDefinition profile, String imageFolder, boolean inlineGraphics, String profileBaseFileName, String corePath, String imagePath) throws IOException, FHIRException {
+    HierarchicalTableGenerator gen = new HierarchicalTableGenerator(imageFolder, inlineGraphics);
+    TableModel model = gen.initGridTable(corePath);
+    List<ElementDefinition> list = profile.getSnapshot().getElement();
+    List<StructureDefinition> profiles = new ArrayList<StructureDefinition>();
+    profiles.add(profile);
+    genGridElement(defFile == null ? null : defFile+"#", gen, model.getRows(), list.get(0), list, profiles, true, profileBaseFileName, null, corePath, imagePath, true, profile.getDerivation() == TypeDerivationRule.CONSTRAINT && usesMustSupport(list));
+    try {
+      return gen.generate(model, imagePath, 1);
+    } catch (org.hl7.fhir.exceptions.FHIRException e) {
+      throw new FHIRException(e.getMessage(), e);
+    }
+  }
+
 
   private boolean usesMustSupport(List<ElementDefinition> list) {
     for (ElementDefinition ed : list)
@@ -1844,6 +1867,59 @@ public class ProfileUtilities {
             if (child.getPath().endsWith(".extension"))
               genElement(defPath, gen, row.getSubRows(), child, all, profiles, showMissing, profileBaseFileName, true, false, corePath, imagePath, false, logicalModel, isConstraintMode, allInvariants);
       }
+    }
+  }
+
+  private void genGridElement(String defPath, HierarchicalTableGenerator gen, List<Row> rows, ElementDefinition element, List<ElementDefinition> all, List<StructureDefinition> profiles, boolean showMissing, String profileBaseFileName, Boolean extensions, String corePath, String imagePath, boolean root, boolean isConstraintMode) throws IOException {
+    StructureDefinition profile = profiles == null ? null : profiles.get(profiles.size()-1);
+    String s = tail(element.getPath());
+    List<ElementDefinition> children = getChildren(all, element);
+    boolean isExtension = (s.equals("extension") || s.equals("modifierExtension"));
+
+    if (!onlyInformationIsMapping(all, element)) {
+      Row row = gen.new Row();
+      row.setAnchor(element.getPath());
+      row.setColor(getRowColor(element, isConstraintMode));
+      boolean hasDef = element != null;
+      String ref = defPath == null ? null : defPath + element.getId();
+      UnusedTracker used = new UnusedTracker();
+      used.used = true;
+      Cell left = gen.new Cell();
+      if (element.getType().size() == 1 && element.getType().get(0).isPrimitive())
+        left.getPieces().add(gen.new Piece(ref, "\u00A0\u00A0" + s, !hasDef ? null : element.getDefinition()).addStyle("font-weight:bold"));
+      else
+        left.getPieces().add(gen.new Piece(ref, "\u00A0\u00A0" + s, !hasDef ? null : element.getDefinition()));
+      if (element.hasSliceName()) {
+        left.getPieces().add(gen.new Piece("br"));
+        String indent = StringUtils.repeat('\u00A0', 1+2*(element.getPath().split("\\.").length));
+        left.getPieces().add(gen.new Piece(null, indent + "("+element.getSliceName() + ")", null));
+      }
+      row.getCells().add(left);
+
+      ExtensionContext extDefn = null;
+      genCardinality(gen, element, row, hasDef, used, null);
+      if (hasDef && !"0".equals(element.getMax()))
+        genTypes(gen, row, element, profileBaseFileName, profile, corePath, imagePath);
+      else
+        row.getCells().add(gen.new Cell());
+      generateGridDescription(gen, row, element, null, used.used, null, null, profile, corePath, imagePath, root, null);
+/*      if (element.hasSlicing()) {
+        if (standardExtensionSlicing(element)) {
+          used.used = element.hasType() && element.getType().get(0).hasProfile();
+          showMissing = false;
+        } else {
+          row.setIcon("icon_slice.png", HierarchicalTableGenerator.TEXT_ICON_SLICE);
+          row.getCells().get(2).getPieces().clear();
+          for (Cell cell : row.getCells())
+            for (Piece p : cell.getPieces()) {
+              p.addStyle("font-style: italic");
+            }
+        }
+      }*/
+      rows.add(row);
+      for (ElementDefinition child : children)
+        if (child.getMustSupport())
+          genGridElement(defPath, gen, row.getSubRows(), child, all, profiles, showMissing, profileBaseFileName, isExtension, corePath, imagePath, false, isConstraintMode);
     }
   }
 
@@ -2045,6 +2121,120 @@ public class ProfileUtilities {
     }
     return c;
   }
+
+  private Cell generateGridDescription(HierarchicalTableGenerator gen, Row row, ElementDefinition definition, ElementDefinition fallback, boolean used, String baseURL, String url, StructureDefinition profile, String corePath, String imagePath, boolean root, ElementDefinition valueDefn) throws IOException {
+    Cell c = gen.new Cell();
+    row.getCells().add(c);
+
+    if (used) {
+      if (definition.hasContentReference()) {
+        ElementDefinition ed = getElementByName(profile.getSnapshot().getElement(), definition.getContentReference());
+        if (ed == null)
+          c.getPieces().add(gen.new Piece(null, "Unknown reference to "+definition.getContentReference(), null));
+        else
+          c.getPieces().add(gen.new Piece("#"+ed.getPath(), "See "+ed.getPath(), null));
+      }
+      if (definition.getPath().endsWith("url") && definition.hasFixed()) {
+        c.getPieces().add(checkForNoChange(definition.getFixed(), gen.new Piece(null, "\""+buildJson(definition.getFixed())+"\"", null).addStyle("color: darkgreen")));
+      } else {
+        if (url != null) {
+          if (!c.getPieces().isEmpty()) c.addPiece(gen.new Piece("br"));
+          String fullUrl = url.startsWith("#") ? baseURL+url : url;
+          StructureDefinition ed = context.fetchResource(StructureDefinition.class, url);
+          String ref = null;
+          if (ed != null) {
+            String p = ed.getUserString("path");
+            if (p != null) {
+              ref = p.startsWith("http:") || igmode ? p : Utilities.pathReverse(corePath, p);
+            }
+          }
+          c.getPieces().add(gen.new Piece(null, "URL: ", null).addStyle("font-weight:bold"));
+          c.getPieces().add(gen.new Piece(ref, fullUrl, null));
+        }
+
+        if (definition.hasSlicing()) {
+          if (!c.getPieces().isEmpty()) c.addPiece(gen.new Piece("br"));
+          c.getPieces().add(gen.new Piece(null, "Slice: ", null).addStyle("font-weight:bold"));
+          c.getPieces().add(gen.new Piece(null, describeSlice(definition.getSlicing()), null));
+        }
+        if (definition != null) {
+          ElementDefinitionBindingComponent binding = null;
+          if (valueDefn != null && valueDefn.hasBinding() && !valueDefn.getBinding().isEmpty())
+            binding = valueDefn.getBinding();
+          else
+            binding = definition.getBinding();
+          if (binding!=null && !binding.isEmpty()) {
+            if (!c.getPieces().isEmpty()) 
+              c.addPiece(gen.new Piece("br"));
+            BindingResolution br = pkp.resolveBinding(profile, binding, definition.getPath());
+            c.getPieces().add(checkForNoChange(binding, gen.new Piece(null, "Binding: ", null).addStyle("font-weight:bold")));
+            c.getPieces().add(checkForNoChange(binding, gen.new Piece(br.url == null ? null : Utilities.isAbsoluteUrl(br.url) || !pkp.prependLinks() ? br.url : corePath+br.url, br.display, null)));
+            if (binding.hasStrength()) {
+              c.getPieces().add(checkForNoChange(binding, gen.new Piece(null, " (", null)));
+              c.getPieces().add(checkForNoChange(binding, gen.new Piece(corePath+"terminologies.html#"+binding.getStrength().toCode(), binding.getStrength().toCode(), binding.getStrength().getDefinition())));              c.getPieces().add(gen.new Piece(null, ")", null));
+            }
+          }
+          for (ElementDefinitionConstraintComponent inv : definition.getConstraint()) {
+            if (!c.getPieces().isEmpty()) c.addPiece(gen.new Piece("br"));
+            c.getPieces().add(checkForNoChange(inv, gen.new Piece(null, inv.getKey()+": ", null).addStyle("font-weight:bold")));
+            c.getPieces().add(checkForNoChange(inv, gen.new Piece(null, inv.getHuman(), null)));
+          }
+          if (definition.hasFixed()) {
+            if (!c.getPieces().isEmpty()) c.addPiece(gen.new Piece("br"));
+            c.getPieces().add(checkForNoChange(definition.getFixed(), gen.new Piece(null, "Fixed Value: ", null).addStyle("font-weight:bold")));
+            c.getPieces().add(checkForNoChange(definition.getFixed(), gen.new Piece(null, buildJson(definition.getFixed()), null).addStyle("color: darkgreen")));
+          } else if (definition.hasPattern()) {
+            if (!c.getPieces().isEmpty()) c.addPiece(gen.new Piece("br"));
+            c.getPieces().add(checkForNoChange(definition.getPattern(), gen.new Piece(null, "Required Pattern: ", null).addStyle("font-weight:bold")));
+            c.getPieces().add(checkForNoChange(definition.getPattern(), gen.new Piece(null, buildJson(definition.getPattern()), null).addStyle("color: darkgreen")));
+          } else if (definition.hasExample()) {
+            if (!c.getPieces().isEmpty()) c.addPiece(gen.new Piece("br"));
+            c.getPieces().add(checkForNoChange(definition.getExample(), gen.new Piece(null, "Example: ", null).addStyle("font-weight:bold")));
+            c.getPieces().add(checkForNoChange(definition.getExample(), gen.new Piece(null, buildJson(definition.getExample()), null).addStyle("color: darkgreen")));
+          }
+          if (profile != null) {
+            for (StructureDefinitionMappingComponent md : profile.getMapping()) {
+              if (md.hasExtension(ToolingExtensions.EXT_TABLE_NAME)) {
+                ElementDefinitionMappingComponent map = null;
+                for (ElementDefinitionMappingComponent m : definition.getMapping()) 
+                  if (m.getIdentity().equals(md.getIdentity()))
+                    map = m;
+                if (map != null) {
+                  for (int i = 0; i<definition.getMapping().size(); i++){
+                    c.addPiece(gen.new Piece("br"));
+                    c.getPieces().add(gen.new Piece(null, ToolingExtensions.readStringExtension(md, ToolingExtensions.EXT_TABLE_NAME)+": " + map.getMap(), null));
+                  }
+                }
+              }
+            }
+          }
+          if (definition.getComments()!=null) {
+            if (!c.getPieces().isEmpty()) c.addPiece(gen.new Piece("br"));
+            c.getPieces().add(gen.new Piece(null, "Comments: ", null).addStyle("font-weight:bold"));
+            c.addPiece(gen.new Piece("br"));
+            c.addMarkdown(definition.getComments());
+//            c.getPieces().add(checkForNoChange(definition.getCommentsElement(), gen.new Piece(null, definition.getComments(), null)));
+          }
+        }
+      }
+    }
+    return c;
+  }
+  /*
+  private List<Piece> markdownToPieces(String markdown) throws FHIRException {
+    String htmlString = Processor.process(markdown);
+    XhtmlParser parser = new XhtmlParser();
+    try {
+      XhtmlNode node = parser.parseFragment(htmlString);
+      return htmlToPieces(node);
+    } catch (IOException e) {
+    }
+    return null;
+  }
+
+  private List<Piece> htmlToPieces(XhtmlNode n) {
+    
+  }*/
 
   private String buildJson(Type value) throws IOException {
     if (value instanceof PrimitiveType)
@@ -2422,12 +2612,12 @@ public class ProfileUtilities {
     sch.dump();
   }
 
-  // generate schematrons for the rules in a structure definition
-  public void generateCsvs(OutputStream dest, StructureDefinition structure) throws IOException, DefinitionException, Exception {
+  // generate a CSV representation of the structure definition
+  public void generateCsvs(OutputStream dest, StructureDefinition structure, boolean asXml) throws IOException, DefinitionException, Exception {
     if (!structure.hasSnapshot())
       throw new DefinitionException("needs a snapshot");
 
-    CSVWriter csv = new CSVWriter(dest, structure, true);
+    CSVWriter csv = new CSVWriter(dest, structure, asXml);
 
     for (ElementDefinition child : structure.getSnapshot().getElement()) {
       csv.processElement(child);
@@ -2921,7 +3111,7 @@ public class ProfileUtilities {
     SpanEntry span = buildSpanningTable("(focus)", "", profile, processed, onlyConstraints, constraintPrefix);
     
     genSpanEntry(gen, model.getRows(), span);
-    return gen.generate(model, "");
+    return gen.generate(model, "", 0);
   }
 
   private SpanEntry buildSpanningTable(String name, String cardinality, StructureDefinition profile, Set<String> processed, boolean onlyConstraints, String constraintPrefix) throws IOException {

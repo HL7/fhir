@@ -413,6 +413,9 @@
         <translation lang="es">ResumenMedicación</translation>
         <translation lang="fr">ÉtatMédication</translation>
     </item>
+    <item id="MessageDefinition">
+        <translation lang="en">MessageDefinition</translation>
+    </item>
     <item id="MessageHeader">
         <translation lang="en">MessageHeader</translation>
         <translation lang="zh">消息头</translation>
@@ -586,8 +589,14 @@
         <translation lang="fr">Remise</translation>
     </item>
     <item id="RequestGroup">
- 		<translation lang="en">RequestGroup</translation>
-	</item>
+        <translation lang="en">RequestGroup</translation>
+    </item>
+    <item id="ResearchStudy">
+        <translation lang="en">ResearchStudy</translation>
+    </item>
+    <item id="ResearchSubject">
+        <translation lang="en">ResearchSubject</translation>
+    </item>
     <item id="RiskAssessment">
         <translation lang="en">RiskAssessment</translation>
         <translation lang="fr">ÉvaluationRisques</translation>
