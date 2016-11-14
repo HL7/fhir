@@ -614,7 +614,7 @@
   Element = AuditEvent.purposeOfEvent
   Card. = 0..*
   Summary = Y
-  Type = Coding
+  Type = CodeableConcept
   Binding = AuditPurposeOfUse
   Short Name = The purposeOfUse of the event
   Definition = The purposeOfUse (reason) that was used during the event being recorded.
@@ -792,7 +792,7 @@
  -- Row 23 -----------------------------------
   Element = AuditEvent.agent.purposeOfUse
   Card. = 0..*
-  Type = Coding
+  Type = CodeableConcept
   Binding = AuditPurposeOfUse
   Short Name = Reason given for this user
   Definition = The reason (purpose of use), specific to this agent, that was used during the event being recorded.

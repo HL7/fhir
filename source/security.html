@@ -134,18 +134,14 @@ so as to prevent inappropriate risks (e.g. audit logging of the GET parameters i
 To support browser-based client applications, servers SHOULD 
 implement <a href="http://enable-cors.org/">cross-origin resource sharing</a> for the <a href="http.html">REST operations</a>.  
 </p>
-<p>
-Chained search implementations need to observe the restrictions on a user in the chained 
-search, and that it would be normal to simply omit resources from the search if the user is not 
-authorized, but a server may elect to add an OperationOutcome to indicate that additional 
-resources may be available if other access tokens are used (e.g. break the glass) (<a href="operationoutcome-example-break-the-glass.html">example</a>). 
-</p>
+
 <a name="authentication"> </a>
 <h2>Authentication</h2>
 <p>
 Other than testing systems, FHIR servers should authenticate the clients. 
 The server may choose to authenticate the client system and trust it, or to authenticate
 the individual user by a variety of techniques. For web-centric use, 
+<a href="http://openid.net/connect/">OpenID Connect</a> may be used to authenticate users and
 <a href="http://oauth.net/">OAuth</a> may be used to authenticate and/or authorize 
 the users. The <a href="http://docs.smarthealthit.org/">Smart-On-FHIR</a> profile 
 on OAuth is tightly integrated with FHIR and is the preferred method for using OAuth.
@@ -183,7 +179,7 @@ In Role-Based Access Control (RBAC), permissions are operations on an object tha
 Permissions are grouped into roles. A role characterizes the functions a user is allowed to perform. Roles 
 are assigned to users. If the user’s role has the appropriate permissions to access an object, then that 
 user is granted access to the object. FHIR readily enables RBAC, as FHIR Resources are object types and 
-the CRUDE events (the FHIR equivalent to permissions in the RBAC scheme) are operations on those objects. 
+the CRUDE (Create, Read, Update, Delete, Execute) events (the FHIR equivalent to permissions in the RBAC scheme) are operations on those objects. 
 </p>
 <p>
 In Attribute-Based Access Control (ABAC), a user requests to perform operations on objects. That user's 
@@ -215,6 +211,22 @@ Access control constraints may result in data returned in a read or search being
 redacted or otherwise restricted. See <a href="updates.html">Variations between 
 Submitted data and Retrieved data</a>.
 </p>
+<h3>
+Access Control Considerations
+</h3>
+The FHIR RESTful API provides a number of ways that a client may request or create information. 
+When designing a system to authorize access to information, all potential access methods must be considered. 
+They include the following:
+<ul>
+<li>The basic CRUD methods on resources. A security implementation must evaluate whether a client can read, update create or delete a given resource.</li>
+<li>Chained search provides the ability to disclose information on related resources. A security implementation must consider whether a client has the permission to access the resource being searched on, as well as the chained resource(s)</li>
+<li>_include and _revinclude search parameters allow client to request related resources. A security implementation must determine if the client has access to the included resources.</li>
+<li><a href="security-labels.html">security labels</a></li>
+<li>Several resources, including Bundle, Composition, Group and List, are designed to contain other resources. A security implementation should consider whether access to an individual resource, such as a Bundle, should permit access to all resources contained within the resource.</li>
+<li>FHIR defines several operations that may be supported by a server. Security implementations must evaluate whether a client has the ability to invoke these operations and what information should be returned from them. Fetch Encounter Record, Evaluate Measure, Observation Statistics, Find patient matches using MPI based logic and Fetch Patient Record specifically provide the ability to disclose patient information.</li>
+<li>Batch and transaction processing provide ways for clients to create and update information in bulk. Security implementations should consider whether a client has the ability to initiate one of these interactions and make authorization decisions on each action in the batch/transaction.</li>
+<li>Security implementations must be aware of the <a href="security-labels.html#break-the-glass">Break the Glass protocol</a> (e.g. break the glass) (<a href="operationoutcome-example-break-the-glass.html">example</a>). </li>
+</ul>
 
 <a name="AccessDenied"> </a>
 <h3>

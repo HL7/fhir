@@ -3,7 +3,7 @@
   <id value="example"/>
   <text>
     <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">procedure record authored on 27-June 2015 by Harold Hippocrates, MD Content extracted from Referral received 26-June</div>
+    <div xmlns="http://www.w3.org/1999/xhtml">procedure record authored on 27-June 2015 by Harold Hippocrates, MD Content extracted from XDS managed CDA Referral received 26-June</div>
   </text>
   <!-- 
     where possible, provenance targets should be version specific,
@@ -34,51 +34,37 @@
       <system value="http://hl7.org/fhir/provenance-participant-role"/>
       <code value="author"/>
     </role>
-    <actor>
-      <reference value="Practitioner/xcda-author"/>
-    </actor>
-    <!-- very often, the user won't have a known system - these aren't available 
-      for security system log ons. But where you can define it, you should -->
-    <userId>
-      <system value="http://acme.com/fhir/users/sso"/>      
-      <value value="hhd"/>
-    </userId>
-    <relatedAgent>
-      <type>
+    <whoReference>
+		<reference value="Practitioner/xcda-author"/>
+	</whoReference>
+	  <!-- reference to other agent defined within -->
+    <onBehalfOfUri value="#a1"/>
+	<relatedAgentType>
         <text value="used"/>
-      </type>
-      <target value="#a1"/>
-    </relatedAgent>
-  </agent>
+    </relatedAgentType>
+	</agent>
   <!-- device = software Harold used -->
   <agent id="a1">
     <role>
       <system value="http://hl7.org/fhir/v3/ParticipationType"/>
       <code value="DEV"/>
     </role>
-    <actor>
-      <reference value="Device/software"/>
-    </actor>
+    <whoReference>
+		<reference value="Device/software"/>
+	</whoReference>
   </agent>
   <!-- information extract from a CCDA referral document -->
   <entity>
     <role value="source"/>
-    <!-- this code is extracted from the CDA source document -->
-    <type>
-      <system value="http://loinc.org"/>
-      <code value="57133-1"/>
-      <display value="Referral note"/>      
-    </type>
     <!-- 
       the document is in an XDS repository. 
       as a source, we're going to give an MHD 
       reference. (easier than XDS.b call with parameters!)
-
-      Note that though this is a URI, so that you can reference
-      outside FHIR, you can also put a standard FHIR reference 
-      here as well
+	  Given the reference is to a FHIR DocumentReference, that resource describes the kind of content
     -->
-    <reference value="DocumentReference/90f55916-9d15-4b8f-87a9-2d7ade8670c8"/>    
-    <display value="CDA Document in XDS repository"/>
+    <reference>
+		<reference value="DocumentReference/90f55916-9d15-4b8f-87a9-2d7ade8670c8"/>    
+		<display value="CDA Document in XDS repository"/>
+	</reference>
   </entity>
 </Provenance>

@@ -31,15 +31,11 @@
       <system value="http://hl7.org/fhir/provenance-participant-role"/>
       <code value="verifier"/>
     </role>
-    <actor>
-      <reference value="Practitioner/xcda-author"/>
-    </actor>
+
     <!-- very often, the user won't have a known system - these aren't available 
-      for security system log ons. But where you can define it, you should -->
-    <userId>
-      <system value="http://acme.com/fhir/users/sso"/>      
-      <value value="hhd"/>
-    </userId>
+      for security system log ons. But where you can define it, you should.
+      Most of the time the userId is fully qualfied such as an email address	  -->
+    <whoUri value="mailto://hhd@ssa.gov"/>
   </agent>
   <signature>
   <!-- verification signature -->

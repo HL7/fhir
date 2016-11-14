@@ -17,9 +17,9 @@
       <system value="http://hl7.org/fhir/provenance-participant-role"/>
       <code value="author"/>
     </role>
-    <actor>
+    <whoReference>
       <reference value="Patient/72"/>
-    </actor>
+    </whoReference>
   </agent>
   <signature>
     <type>

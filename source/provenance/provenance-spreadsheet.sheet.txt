@@ -105,6 +105,7 @@
  -- Row 2 -----------------------------------
   Element = Provenance.target
   Card. = 1..*
+  Summary = y
   Type = Reference(Any)
   Short Name = Target Reference(s) (usually version specific)
   Definition = The Reference(s) that were generated or updated by  the activity described in this resource. A provenance can point to more than one target if multiple resources were created/updated by the same activity
@@ -128,6 +129,7 @@
  -- Row 4 -----------------------------------
   Element = Provenance.recorded
   Card. = 1..1
+  Summary = y
   Type = instant
   Short Name = When the activity was recorded / updated
   Definition = The instant of time at which the activity was recorded
@@ -198,6 +200,7 @@
  -- Row 10 -----------------------------------
   Element = Provenance.agent.role
   Card. = 1..1
+  Summary = y
   Type = Coding
   Binding = ProvenanceAgentRole
   Short Name = What the agents involvement was
@@ -208,7 +211,33 @@
   Prov Mapping = Agent.Attribution
 
  -- Row 11 -----------------------------------
-  Element = Provenance.agent.actor
+  Element = Provenance.agent.who[x]
+  Card. = 1..1
+  Summary = y
+  Type = uri|Reference(Practitioner|RelatedPerson|Patient|Device|Organization)
+  Short Name = Who participated
+  Definition = The individual, device or organization that participated in the event
+  w5 = who.actor
+
+ -- Row 12 -----------------------------------
+  Element = Provenance.agent.onBehalfOf[x]
+  Card. = 0..1
+  Type = uri|Reference(Practitioner|RelatedPerson|Patient|Device|Organization)
+  Short Name = On behalf of
+  Definition = A reference to an application-usable description of the identity that is represented by the signature.
+
+ -- Row 13 -----------------------------------
+  Element = Provenance.agent.relatedAgentType
+  Card. = 0..1
+  Type = CodeableConcept
+  Binding = RelatedAgentType
+  Short Name = Type of relationship between agents
+  Definition = The type of relationship between agents
+  RIM Mapping = .typeCode
+  Prov Mapping = type
+
+ -- Row 14 -----------------------------------
+  Element = !Provenance.agent.actor
   Card. = 0..1
   Type = Reference(Practitioner|RelatedPerson|Patient|Device|Organization)
   Short Name = Individual, device or organization playing role
@@ -218,8 +247,8 @@
   Prov Mapping = Agent.Identity
   w5 = who.actor
 
- -- Row 12 -----------------------------------
-  Element = Provenance.agent.userId
+ -- Row 15 -----------------------------------
+  Element = !Provenance.agent.userId
   Card. = 0..1
   Type = Identifier
   Short Name = Authorization-system identifier for the agent
@@ -229,8 +258,8 @@
   Prov Mapping = Agent.Identity
   w5 = who.actor
 
- -- Row 13 -----------------------------------
-  Element = Provenance.agent.relatedAgent
+ -- Row 16 -----------------------------------
+  Element = !Provenance.agent.relatedAgent
   Card. = 0..*
   UML = 420;200
   Short Name = Track delegation between agents
@@ -238,18 +267,8 @@
   RIM Mapping = .rolelink
   Prov Mapping = Agent.actedOnBehalfOf
 
- -- Row 14 -----------------------------------
-  Element = Provenance.agent.relatedAgent.type
-  Card. = 1..1
-  Type = CodeableConcept
-  Binding = RelatedAgentType
-  Short Name = Type of relationship between agents
-  Definition = The type of relationship between agents
-  RIM Mapping = .typeCode
-  Prov Mapping = type
-
- -- Row 15 -----------------------------------
-  Element = Provenance.agent.relatedAgent.target
+ -- Row 17 -----------------------------------
+  Element = !Provenance.agent.relatedAgent.target
   Card. = 1..1
   Type = uri
   Short Name = Reference to other agent in this resource by identifier
@@ -258,7 +277,7 @@
   RIM Mapping = .target
   Prov Mapping = responsible
 
- -- Row 16 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = Provenance.entity
   Card. = 0..*
   UML = 440;30
@@ -269,9 +288,10 @@
   Auditevent Mapping = AuditEvent.entity
   Prov Mapping = Entity
 
- -- Row 17 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = Provenance.entity.role
   Card. = 1..1
+  Summary = y
   Type = code
   Binding = ProvenanceEntityRole
   Short Name = derivation | revision | quotation | source | removal
@@ -281,22 +301,23 @@
   Prov Mapping = Entity.role
   Committee Notes = No uses cases have been identified for extensibility for this role
 
- -- Row 18 -----------------------------------
-  Element = Provenance.entity.type
+ -- Row 20 -----------------------------------
+  Element = !Provenance.entity.type
   Card. = 1..1
   Type = Coding
   Binding = ProvenanceEntityType
-  Short Name = The type of resource in this entity
+  Short Name = The kind of resource in this entity
   Definition = The type of the entity. If the entity is a resource, then this is a resource type
   Requirements = If the type is \"resource\" then the resource itself was the participant. If the type is a type of resource, then the entity identified by the resource is the participant
   RIM Mapping = ./target
   Auditevent Mapping = AuditEvent.entity.type
   Prov Mapping = Entity.type
 
- -- Row 19 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = Provenance.entity.reference
   Card. = 1..1
-  Type = uri
+  Summary = y
+  Type = Reference(Any)
   Short Name = Identity of entity
   Definition = Identity of the  Entity used. May be a logical or physical uri and maybe absolute or relative
   Comments = Identity may be a reference to a resource or to something else, depending on the type
@@ -304,8 +325,8 @@
   Auditevent Mapping = AuditEvent.entity.reference
   Prov Mapping = Entity.Identity
 
- -- Row 20 -----------------------------------
-  Element = Provenance.entity.display
+ -- Row 22 -----------------------------------
+  Element = !Provenance.entity.display
   Card. = 0..1
   Type = string
   Short Name = Human description of entity
@@ -314,7 +335,7 @@
   Auditevent Mapping = AuditEvent.entity.description
   Prov Mapping = Entity.Label
 
- -- Row 21 -----------------------------------
+ -- Row 23 -----------------------------------
   Element = Provenance.entity.agent
   Card. = 0..*
   Type = @Provenance.agent
@@ -323,7 +344,7 @@
   Comments = A usecase where one Provenance.entity.agent is used where the Entity that was used in the creation/updating of the Target, is not in the context of the same custodianship as the Target, and thus the meaning of Provenance.entity.agent is to say that the entity referenced is managed elsewhere and that this Agent provided access to it.  This would be similar to where the Entity being referenced is managed outside FHIR, such as through HL7 v2, v3, or XDS. This might be where the Entity being referenced is managed in another FHIR resource server. Thus it explains the Provenance of that Entity\'s use in the context of this Provenance activity.
   RIM Mapping = ./author/role
 
- -- Row 22 -----------------------------------
+ -- Row 24 -----------------------------------
   Element = Provenance.signature
   Card. = 0..*
   Type = Signature
@@ -355,11 +376,11 @@
 
  -- Row 5 -----------------------------------
   Name = agent
-  Type = reference
-  Path = Provenance.agent.actor
+  Type = token
+  Path = Provenance.agent.who[x]
 
  -- Row 6 -----------------------------------
-  Name = userid
+  Name = !userid
   Type = token
   Path = Provenance.agent.userId
 
@@ -375,13 +396,13 @@
   Path = Provenance.signature.type
 
  -- Row 9 -----------------------------------
-  Name = entity-type
+  Name = !entity-type
   Type = token
   Path = Provenance.entity.type
 
  -- Row 10 -----------------------------------
   Name = entity
-  Type = uri
+  Type = reference
   Path = Provenance.entity.reference
 
 === Sheet Profiles =====================================

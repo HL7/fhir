@@ -19,9 +19,11 @@
     <outcome value="0"/>
 	<outcomeDesc value="Successful  Disclosure"/>
 	<purposeOfEvent>
+	   <coding>
 		<system value="http://hl7.org/fhir/v3/ActReason"/>
 		<code value="HMARKT"/>
 		<display value="healthcare marketing"/>
+	  </coding>
 	</purposeOfEvent>
 
   <agent>
@@ -69,9 +71,11 @@
       <type value="1"/>
     </network>
 	<purposeOfUse>
+	  <coding>
 	  	<system value="http://hl7.org/fhir/v3/ActReason"/>
 		<code value="HMARKT"/>
 		<display value="healthcare marketing"/>
+	  </coding>
 	</purposeOfUse>
   </agent>
   <source>

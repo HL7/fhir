@@ -119,4 +119,24 @@ the version that was deleted is referenced in Provenance.target; if versioning i
 Provenance.target contains the non-version reference. Provenance.entity is not used unless there is 
 a business requirement to do so.
 </p>
+<h3>Use of Provenance to record Import and Transform</h3>
+<p>
+Provenance can be used to record activities of an automaton that transforms input. Such as middleware 
+that extracts information from a HL7 v2 message and creates FHIR resources, or middleware that extracts 
+information from an HL7 CDA document and creates FHIR resources, etc. The Provenance in these cases is 
+recording the activity of the middleware.
+</p><p>
+The middleware in this case would, in addtion to creating the target resources, create a Provenance 
+resource that indicates all the target resources (using Provenance.target). The middleware is 
+identified as one of the Provenance.agent elements, with the Provenance.agent.role of assembler.
+</p><p>
+The middleware may record the source as another Provenance.agent element.
+</p><p>
+The original content is optionally saved. This might be as a DocumentReference, or Binary. The 
+Provenance.entity would then point at this original content.
+</p><p>
+The original source might include some form of 'provenance' to cover the history of the orignal 
+content prior to the import transformation. This original source 'provenance' should be converted 
+into FHIR Provenance records as appropriate.
+</p>
 </div>
