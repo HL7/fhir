@@ -987,6 +987,7 @@ public class ProfileGenerator {
         created = false;
         sp = csp.getDefinition();
       }
+      spd.setCommonId(sp.getId());
     } else {
       shared = false;
       sp = new SearchParameter();
@@ -1035,7 +1036,7 @@ public class ProfileGenerator {
     } else {
       if (sp.getType() != getSearchParamType(spd.getType()))
         throw new FHIRException("Type mismatch on common parameter: expected "+sp.getType().toCode()+" but found "+getSearchParamType(spd.getType()).toCode());
-      sp.setDescription(sp.getDescription()+"* "+rn+":" + spd.getDescription()+"\r\n");
+      sp.setDescription(sp.getDescription()+"* [[["+rn+"]]]: " + spd.getDescription()+"\r\n");
       if (!Utilities.noString(spd.getExpression())) 
         sp.setExpression(sp.getExpression()+" | "+spd.getExpression());
       String xpath = new XPathQueryGenerator(this.definitions, null, null).generateXpath(spd.getPaths());

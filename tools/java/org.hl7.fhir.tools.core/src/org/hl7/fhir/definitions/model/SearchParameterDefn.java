@@ -63,6 +63,7 @@ public class SearchParameterDefn {
   private ExpressionNode expressionNode;
   private boolean XPathDone;
   private List<String> otherResources = new ArrayList<String>();
+  private String commonId;
   
   // operational tracking
   private String xPath;
@@ -223,6 +224,14 @@ public class SearchParameterDefn {
 
   public List<String> getOtherResources() {
     return otherResources;
+  }
+
+  public String getCommonId() {
+    return commonId;
+  }
+
+  public void setCommonId(String commonId) {
+    this.commonId = commonId;
   }
   
 }

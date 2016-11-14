@@ -5441,7 +5441,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       else
         b.append("<p>Search parameters for this resource. The <a href=\"search.html#all\">common parameters</a> also apply. See <a href=\"search.html\">Searching</a> for more information about searching in REST, messaging, and services.</p>\r\n");
       b.append("<table class=\"list\">\r\n");
-      b.append("<tr><td><b>Name</b></td><td><b>Type</b></td><td><b>Description</b></td><td><b>Paths</b></td><td></td></tr>\r\n");
+      b.append("<tr><td><b>Name</b></td><td><b>Type</b></td><td><b>Description</b></td><td><b>Paths</b></td><td><b>In Common</b></td></tr>\r\n");
       List<String> names = new ArrayList<String>();
       names.addAll(resource.getSearchParams().keySet());
       Collections.sort(names);
@@ -5460,21 +5460,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     if (p.getOtherResources().isEmpty())
       return "";
     StringBuilder b = new StringBuilder();
-    b.append("Common with ");
-    boolean first = true;
-    for (String r : p.getOtherResources()) {
-      if (first)
-        first = false;
-      else
-        b.append(", ");
-      b.append("<a href=\"");
-      b.append(r.toLowerCase());
-      b.append(".html#sp-");
-      b.append(p.getCode());
-      b.append("\">");
-      b.append(r);
-      b.append("</a>");
-    }
+    b.append("<a href=\"searchparameter-registry.html#"+p.getCommonId()+"\">"+Integer.toString(p.getOtherResources().size())+" Resources</a>");
     return b.toString();
   }
 
@@ -8053,7 +8039,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     if (list.size() > 0) {
       b.append("<tr><td colspan=\"4\" style=\"background-color: #dddddd\"><b>Common Search Parameters<a name=\"common\"> </a></b></td></tr>\r\n");
       for (SearchParameter sp : list) {
-        b.append("<tr><td>"+sp.getCode()+"</td><td><a href=\"search.html#"+sp.getType().toCode()+"\">"+sp.getType().toCode()+"</a></td><td>"+processMarkdown("allsearchparams", sp.getDescription(), "")+"</td><td>"+Utilities.escapeXml(sp.getExpression())+"</td></tr>\r\n");
+        b.append("<tr><td>"+sp.getCode()+"<a name=\""+sp.getId()+"\"> </a></td><td><a href=\"search.html#"+sp.getType().toCode()+"\">"+sp.getType().toCode()+"</a></td><td>"+processMarkdown("allsearchparams", sp.getDescription(), "")+"</td><td>"+Utilities.escapeXml(sp.getExpression())+"</td></tr>\r\n");
       }
     }
   }
