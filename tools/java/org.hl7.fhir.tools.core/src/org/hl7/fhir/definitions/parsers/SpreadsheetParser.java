@@ -814,6 +814,7 @@ public class SpreadsheetParser {
               throw new Exception("Search Param "+pack.getTitle()+"/"+n+" has an invalid path (resource not found)");
             if (!pkp.isResource(root2.getName()))
               throw new Exception("Ilegal Search Parameter path "+sheet.getColumn(row, "Path"));
+            sp.getBase().clear();
             sp.addBase(root2.getName());
             sp.setId(pack.getId()+"-"+(root2 == null ? "all" : root2.getName())+"-"+sp.getName());
           }

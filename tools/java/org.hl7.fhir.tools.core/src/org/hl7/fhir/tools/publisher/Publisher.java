@@ -2147,14 +2147,15 @@ public class Publisher implements URIResolver, SectionNumberer {
     searchParamsFeed.setId("searchParams");
     searchParamsFeed.setType(BundleType.COLLECTION);
     searchParamsFeed.setMeta(new Meta().setLastUpdated(page.getResourceBundle().getMeta().getLastUpdated()));
+    Set<String> uris = new HashSet<String>();
     for (ResourceDefn rd : page.getDefinitions().getBaseResources().values())
-      addSearchParams(searchParamsFeed, rd);
+      addSearchParams(uris, searchParamsFeed, rd);
     for (String n : page.getDefinitions().sortedResourceNames()) {
       ResourceDefn rd = page.getDefinitions().getResources().get(n);
-      addSearchParams(searchParamsFeed, rd);
+      addSearchParams(uris, searchParamsFeed, rd);
     }
     for (Profile cp : page.getDefinitions().getPackList()) {
-      addSearchParams(searchParamsFeed, cp);
+      addSearchParams(uris, searchParamsFeed, cp);
     }
     checkBundleURLs(searchParamsFeed);
 
@@ -3044,7 +3045,7 @@ public class Publisher implements URIResolver, SectionNumberer {
 
   }
 
-  private void addSearchParams(Bundle bundle, ResourceDefn rd) throws Exception {
+  private void addSearchParams(Set<String> uris, Bundle bundle, ResourceDefn rd) throws Exception {
     if (rd.getConformancePack() == null) {
       for (SearchParameterDefn spd : rd.getSearchParams().values()) {
         if (spd.getResource() == null) {
@@ -3059,15 +3060,21 @@ public class Publisher implements URIResolver, SectionNumberer {
           spd.setResource(sp);
         }
         SearchParameter sp = spd.getResource();
-        bundle.addEntry().setResource(sp).setFullUrl(sp.getUrl());
+        if (!uris.contains(sp.getUrl())) {
+          bundle.addEntry().setResource(sp).setFullUrl(sp.getUrl());
+          uris.add(sp.getUrl());
+        }
       }
     } else
-      addSearchParams(bundle, rd.getConformancePack());
+      addSearchParams(uris, bundle, rd.getConformancePack());
   }
 
-  private void addSearchParams(Bundle bundle, Profile conformancePack) {
+  private void addSearchParams(Set<String> uris, Bundle bundle, Profile conformancePack) {
     for (SearchParameter sp : conformancePack.getSearchParameters()) {
-     bundle.addEntry().setResource(sp).setFullUrl(sp.getUrl());
+      if (!uris.contains(sp.getUrl())) {
+        bundle.addEntry().setResource(sp).setFullUrl(sp.getUrl());
+        uris.add(sp.getUrl());
+      }
     }
   }
 

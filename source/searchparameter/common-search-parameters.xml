@@ -1,14 +1,263 @@
 <Bundle xmlns="http://hl7.org/fhir">
   <id value="common-search-parameter-bundle"/>
   <type value="collection"/>
+  
+  <!-- Administration Searching Capability -->
   <entry>
     <resource>
       <SearchParameter>
+        <id value="individual-email"/>
+        <code value="email"/>
+        <base value="Patient"/><base value="Person"/><base value="Practitioner"/><base value="PractitionerRole"/><base value="RelatedPerson"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="individual-phone"/>
+        <code value="phone"/>
+        <base value="Patient"/><base value="Person"/><base value="Practitioner"/><base value="PractitionerRole"/><base value="RelatedPerson"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="individual-telecom"/>
+        <code value="telecom"/>
+        <base value="Patient"/><base value="Person"/><base value="Practitioner"/><base value="PractitionerRole"/><base value="RelatedPerson"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="individual-address"/>
+        <code value="address"/>
+        <base value="Patient"/><base value="Person"/><base value="Practitioner"/><base value="RelatedPerson"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="individual-address-city"/>
+        <code value="address-city"/>
+        <base value="Patient"/><base value="Person"/><base value="Practitioner"/><base value="RelatedPerson"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="individual-address-country"/>
+        <code value="address-country"/>
+        <base value="Patient"/><base value="Person"/><base value="Practitioner"/><base value="RelatedPerson"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="individual-address-postalcode"/>
+        <code value="address-postalcode"/>
+        <base value="Patient"/><base value="Person"/><base value="Practitioner"/><base value="RelatedPerson"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="individual-address-state"/>
+        <code value="address-state"/>
+        <base value="Patient"/><base value="Person"/><base value="Practitioner"/><base value="RelatedPerson"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="individual-address-use"/>
+        <code value="address-use"/>
+        <base value="Patient"/><base value="Person"/><base value="Practitioner"/><base value="RelatedPerson"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="individual-gender"/>
+        <code value="gender"/>
+        <base value="Patient"/><base value="Person"/><base value="Practitioner"/><base value="RelatedPerson"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="individual-phonetic"/>
+        <code value="phonetic"/>
+        <base value="Patient"/><base value="Person"/><base value="Practitioner"/><base value="RelatedPerson"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="individual-birthdate"/>
+        <code value="birthdate"/>
+        <base value="Patient"/><base value="Person"/><base value="RelatedPerson"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="individual-family"/>
+        <code value="family"/>
+        <base value="Patient"/><base value="Practitioner"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="individual-given"/>
+        <code value="given"/>
+        <base value="Patient"/><base value="Practitioner"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+
+  
+  <!-- Common Clinical Core -->
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="clinical-date"/>
+        <code value="date"/>
+        <base value="AllergyIntolerance"/><base value="CarePlan"/><base value="CareTeam"/><base value="ClinicalImpression"/><base value="Composition"/><base value="Consent"/><base value="DetectedIssue"/><base value="DiagnosticReport"/><base value="Encounter"/><base value="EpisodeOfCare"/><base value="FamilyMemberHistory"/><base value="Flag"/><base value="Immunization"/><base value="List"/><base value="Observation"/><base value="Procedure"/><base value="ReferralRequest"/><base value="RiskAssessment"/><base value="SupplyRequest"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="clinical-code"/>
         <code value="code"/>
-        <base value="DiagnosticReport"/>
-        <base value="Observation"/>
-        <base value="Procedure"/>
-        
+        <base value="AllergyIntolerance"/><base value="Condition"/><base value="DeviceUseRequest"/><base value="DiagnosticReport"/><base value="DiagnosticRequest"/><base value="FamilyMemberHistory"/><base value="List"/><base value="Observation"/><base value="Procedure"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="clinical-encounter"/>
+        <code value="encounter"/>
+        <base value="Composition"/><base value="DeviceUseRequest"/><base value="DiagnosticReport"/><base value="DiagnosticRequest"/><base value="DocumentReference"/><base value="Flag"/><base value="List"/><base value="NutritionRequest"/><base value="Observation"/><base value="Procedure"/><base value="ProcedureRequest"/><base value="RiskAssessment"/><base value="VisionPrescription"/>      
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="clinical-identifier"/>
+        <code value="identifier"/>
+        <base value="AllergyIntolerance"/><base value="CarePlan"/><base value="CareTeam"/><base value="Composition"/><base value="Condition"/><base value="Consent"/><base value="DetectedIssue"/><base value="DeviceUseRequest"/><base value="DiagnosticReport"/><base value="DiagnosticRequest"/><base value="DocumentManifest"/><base value="DocumentReference"/><base value="Encounter"/><base value="EpisodeOfCare"/><base value="FamilyMemberHistory"/><base value="Goal"/><base value="ImagingStudy"/><base value="Immunization"/><base value="List"/><base value="NutritionRequest"/><base value="Observation"/><base value="Procedure"/><base value="ProcedureRequest"/><base value="RiskAssessment"/><base value="SupplyDelivery"/><base value="SupplyRequest"/><base value="VisionPrescription"/>      
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="clinical-patient"/>
+        <code value="patient"/>
+        <base value="AllergyIntolerance"/><base value="CarePlan"/><base value="CareTeam"/><base value="ClinicalImpression"/><base value="Composition"/><base value="Condition"/><base value="Consent"/><base value="DetectedIssue"/><base value="DeviceUseRequest"/><base value="DeviceUseStatement"/><base value="DiagnosticReport"/><base value="DiagnosticRequest"/><base value="DocumentManifest"/><base value="DocumentReference"/><base value="Encounter"/><base value="EpisodeOfCare"/><base value="FamilyMemberHistory"/><base value="Flag"/><base value="Goal"/><base value="ImagingManifest"/><base value="ImagingStudy"/><base value="Immunization"/><base value="List"/><base value="NutritionRequest"/><base value="Observation"/><base value="Procedure"/><base value="ProcedureRequest"/><base value="ReferralRequest"/><base value="RiskAssessment"/><base value="SupplyDelivery"/><base value="SupplyRequest"/><base value="VisionPrescription"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="clinical-type"/>
+        <code value="type"/>
+        <base value="AllergyIntolerance"/><base value="Composition"/><base value="DocumentManifest"/><base value="DocumentReference"/><base value="Encounter"/><base value="EpisodeOfCare"/><base value="ReferralRequest"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  
+  <!-- Medication Core -->
+
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="medications-code"/>
+        <code value="code"/>
+        <base value="Medication"/><base value="MedicationAdministration"/><base value="MedicationDispense"/><base value="MedicationRequest"/><base value="MedicationStatement"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="medications-encounter"/>
+        <code value="encounter"/>
+        <base value="MedicationAdministration"/><base value="MedicationRequest"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="medications-identifier"/>
+        <code value="identifier"/>
+        <base value="MedicationAdministration"/><base value="MedicationDispense"/><base value="MedicationRequest"/><base value="MedicationStatement"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="medications-medication"/>
+        <code value="medication"/>
+        <base value="MedicationAdministration"/><base value="MedicationDispense"/><base value="MedicationRequest"/><base value="MedicationStatement"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="medications-patient"/>
+        <code value="patient"/>
+        <base value="MedicationAdministration"/><base value="MedicationDispense"/><base value="MedicationRequest"/><base value="MedicationStatement"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="medications-status"/>
+        <code value="status"/>
+        <base value="MedicationAdministration"/><base value="MedicationDispense"/><base value="MedicationRequest"/><base value="MedicationStatement"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="medications-prescription"/>
+        <code value="prescription"/>
+        <base value="MedicationAdministration"/><base value="MedicationDispense"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="medications-date"/>
+        <code value="date"/>
+        <base value="MedicationRequest"/><base value="MedicationAdministration"/><base value="MedicationDispense"/><base value="MedicationStatement"/>
       </SearchParameter>
     </resource>
   </entry>

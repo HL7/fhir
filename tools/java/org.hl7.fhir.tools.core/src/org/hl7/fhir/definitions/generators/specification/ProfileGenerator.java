@@ -40,6 +40,7 @@ import java.util.Set;
 
 import org.hl7.fhir.definitions.model.BindingSpecification;
 import org.hl7.fhir.definitions.model.BindingSpecification.BindingMethod;
+import org.hl7.fhir.definitions.model.CommonSearchParameter;
 import org.hl7.fhir.definitions.model.ConstraintStructure;
 import org.hl7.fhir.definitions.model.DefinedStringPattern;
 import org.hl7.fhir.definitions.model.Definitions;
@@ -59,6 +60,7 @@ import org.hl7.fhir.dstu3.conformance.ProfileUtilities;
 import org.hl7.fhir.dstu3.conformance.ProfileUtilities.ProfileKnowledgeProvider;
 import org.hl7.fhir.dstu3.formats.FormatUtilities;
 import org.hl7.fhir.dstu3.model.Bundle;
+import org.hl7.fhir.dstu3.model.CodeType;
 import org.hl7.fhir.dstu3.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.dstu3.model.ContactDetail;
 import org.hl7.fhir.dstu3.model.ContactPoint;
@@ -971,54 +973,102 @@ public class ProfileGenerator {
   }
 
   public SearchParameter makeSearchParam(StructureDefinition p, String id, String rn, SearchParameterDefn spd) throws Exception  {
-    SearchParameter sp = new SearchParameter();
-    sp.setId(id.replace("[", "").replace("]", ""));
-    sp.setUrl("http://hl7.org/fhir/SearchParameter/"+sp.getId());
-    if (context.getSearchParameters().containsKey(sp.getUrl()))
-      throw new Exception("Duplicated Search Parameter "+sp.getUrl());
-    context.getSearchParameters().put(sp.getUrl(), sp);
-    sp.setStatus(p.getStatus());
-    sp.setExperimental(p.getExperimental());
-
-    sp.setName(spd.getCode());
-    sp.setCode(spd.getCode());
-    sp.setDate(genDate.getTime());
-    sp.setPublisher(p.getPublisher());
-    definitions.addNs(sp.getUrl(), "Search Parameter: "+sp.getName(), rn.toLowerCase()+".html#search");
-    for (ContactDetail tc : p.getContact()) {
-      ContactDetail t = sp.addContact();
-      t.setNameElement(tc.getNameElement().copy());
-      for (ContactPoint ts : tc.getTelecom())
-        t.getTelecom().add(ts.copy());
-    }
-    if (!definitions.hasResource(p.getType()) && !p.getType().equals("Resource") && !p.getType().equals("DomainResource"))
-      throw new Exception("unknown resource type "+p.getType());
-    sp.addBase(p.getType());
-    
-    sp.setType(getSearchParamType(spd.getType()));
-    sp.setDescription(spd.getDescription());
-    if (!Utilities.noString(spd.getExpression())) 
-      sp.setExpression(spd.getExpression());
-    String xpath = new XPathQueryGenerator(this.definitions, null, null).generateXpath(spd.getPaths());
-    if (xpath != null) {
-      if (xpath.contains("[x]"))
-        xpath = convertToXpath(xpath);
-      sp.setXpath(xpath);
-      sp.setXpathUsage(spd.getxPathUsage());
-    }
-
-    if (sp.getType() == SearchParamType.COMPOSITE) {
-      for (String cs : spd.getComposites()) {
-        sp.addComponent().setReference("http://hl7.org/fhir/SearchParameter/"+rn+"-"+cs);
+    boolean shared;
+    boolean created = true;
+    SearchParameter sp;
+    if (definitions.getCommonSearchParameters().containsKey(rn+"::"+spd.getCode())) {
+      shared = true;
+      CommonSearchParameter csp = definitions.getCommonSearchParameters().get(rn+"::"+spd.getCode());
+      if (csp.getDefinition() == null) {
+        sp = new SearchParameter();
+        csp.setDefinition(sp);
+        sp.setId(csp.getId());
+      } else { 
+        created = false;
+        sp = csp.getDefinition();
       }
+    } else {
+      shared = false;
+      sp = new SearchParameter();
+      sp.setId(id.replace("[", "").replace("]", ""));
+    }
+    if (created) {
+      sp.setUrl("http://hl7.org/fhir/SearchParameter/"+sp.getId());
+      if (context.getSearchParameters().containsKey(sp.getUrl()))
+        throw new Exception("Duplicated Search Parameter "+sp.getUrl());
+      context.getSearchParameters().put(sp.getUrl(), sp);
+      definitions.addNs(sp.getUrl(), "Search Parameter: "+sp.getName(), rn.toLowerCase()+".html#search");
+      sp.setStatus(p.getStatus());
+      sp.setExperimental(p.getExperimental());
+      sp.setName(spd.getCode());
+      sp.setCode(spd.getCode());
+      sp.setDate(genDate.getTime());
+      sp.setPublisher(p.getPublisher());
+      for (ContactDetail tc : p.getContact()) {
+        ContactDetail t = sp.addContact();
+        t.setNameElement(tc.getNameElement().copy());
+        for (ContactPoint ts : tc.getTelecom())
+          t.getTelecom().add(ts.copy());
+      }
+      if (!definitions.hasResource(p.getType()) && !p.getType().equals("Resource") && !p.getType().equals("DomainResource"))
+        throw new Exception("unknown resource type "+p.getType());
+      sp.setType(getSearchParamType(spd.getType()));
+      if (shared)
+        sp.setDescription("Multiple Resources: \r\n\r\n* "+rn+":" + spd.getDescription()+"\r\n");
+      else
+        sp.setDescription(spd.getDescription());
+      if (!Utilities.noString(spd.getExpression())) 
+        sp.setExpression(spd.getExpression());
+      String xpath = new XPathQueryGenerator(this.definitions, null, null).generateXpath(spd.getPaths());
+      if (xpath != null) {
+        if (xpath.contains("[x]"))
+          xpath = convertToXpath(xpath);
+        sp.setXpath(xpath);
+        sp.setXpathUsage(spd.getxPathUsage());
+      }
+      if (sp.getType() == SearchParamType.COMPOSITE) {
+        for (String cs : spd.getComposites()) {
+          sp.addComponent().setReference("http://hl7.org/fhir/SearchParameter/"+rn+"-"+cs);
+        }
+      } 
+      sp.addBase(p.getType());
+    } else {
+      if (sp.getType() != getSearchParamType(spd.getType()))
+        throw new FHIRException("Type mismatch on common parameter: expected "+sp.getType().toCode()+" but found "+getSearchParamType(spd.getType()).toCode());
+      sp.setDescription(sp.getDescription()+"* "+rn+":" + spd.getDescription()+"\r\n");
+      if (!Utilities.noString(spd.getExpression())) 
+        sp.setExpression(sp.getExpression()+" | "+spd.getExpression());
+      String xpath = new XPathQueryGenerator(this.definitions, null, null).generateXpath(spd.getPaths());
+      if (xpath != null) {
+        if (xpath.contains("[x]"))
+          xpath = convertToXpath(xpath);
+        sp.setXpath(sp.getXpath()+" | " +xpath);
+        if (sp.getXpathUsage() != spd.getxPathUsage()) 
+          throw new FHIRException("Usage mismatch on common parameter: expected "+sp.getXpathUsage().toCode()+" but found "+spd.getxPathUsage().toCode());
+      }
+      boolean found = false;
+      for (CodeType ct : sp.getBase())
+        found = found || ct.asStringValue().equals(p.getType());
+      if (!found)
+        sp.addBase(p.getType());
     }
     for(String target : spd.getWorkingTargets()) {
       if("Any".equals(target) == true) {   	  
-        for(String resourceName : definitions.sortedResourceNames())
-          sp.addTarget(resourceName);
+        for(String resourceName : definitions.sortedResourceNames()) {
+          boolean found = false;
+          for (CodeType st : sp.getTarget())
+            found = found || st.asStringValue().equals(resourceName);
+          if (!found)
+            sp.addTarget(resourceName);
+        }
       }
-      else
-        sp.addTarget(target);
+      else {
+        boolean found = false;
+        for (CodeType st : sp.getTarget())
+          found = found || st.asStringValue().equals(target);
+        if (!found)
+          sp.addTarget(target);
+      }
     }
 
     return sp;

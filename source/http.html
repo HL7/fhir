@@ -854,7 +854,17 @@ Note that there are specific operations defined to support fetching <a href="pat
 or <a href="encounter-operations.html#everything">all record for an encounter</a>.
 </p>
 <p>
-Finally, it's possible to search all resources at once:
+It's also possible to search across multiple resource types:
+</p>
+<pre class="http">
+  GET [base]?_type=Condition,Observation&amp;[parameters]{&amp;_format=[mime-type]}
+</pre>
+<p>
+This is a request to search on both Condition and Observation. In this case,
+the only parameters that can be used are those defined for both Condition and Observation 
+(using <a href="searchparameter-definitions.html#SearchParameter.base">SearchParameter.base</a> - see <a href="searchparameter-registry.html#cross-resource">Cross-resource Search Parameters</a>),
+or the <a href="resource.html#search">parameters defined for all resources</a>. 
+It's also possible to search on all types at once:
 </p>
 <pre class="http">
   GET [base]?[parameters]{&amp;_format=[mime-type]}
@@ -863,7 +873,6 @@ Finally, it's possible to search all resources at once:
 When searching all resources at once, only the <a href="resource.html#search">parameters defined for all resources</a>
 can be used.
 </p>
-
 
 <a name="capabilities"> </a>
 <h3>capabilities</h3>

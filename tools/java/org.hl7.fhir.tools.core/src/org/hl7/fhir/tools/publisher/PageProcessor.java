@@ -179,6 +179,7 @@ import org.hl7.fhir.igtools.spreadsheets.MappingSpace;
 import org.hl7.fhir.igtools.spreadsheets.TypeParser;
 import org.hl7.fhir.igtools.spreadsheets.TypeRef;
 import org.hl7.fhir.tools.converters.ValueSetImporterV2;
+import org.hl7.fhir.tools.publisher.PageProcessor.SearchParameterListSorter;
 import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.CSFileInputStream;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
@@ -7981,7 +7982,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     throw new Exception("unhandled default value");
   }
 
-  private String genAllSearchParams() {
+  private String genAllSearchParams() throws Exception {
     List<SearchParameter> splist = new ArrayList<SearchParameter>();
     
     for (ResourceDefn rd : getDefinitions().getBaseResources().values())
@@ -7994,22 +7995,65 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     StringBuilder b = new StringBuilder();
     genSearchParams(b, splist, "Resource");
     genSearchParams(b, splist, "DomainResource");
+    genCommonSearchParams(b, splist);
     for (String n : definitions.sortedResourceNames())
       genSearchParams(b, splist, n);
     return b.toString();
   }
   
-  private void genSearchParams(StringBuilder b, List<SearchParameter> splist, String base) {
+  private void genSearchParams(StringBuilder b, List<SearchParameter> splist, String base) throws Exception {
     List<SearchParameter> list = new ArrayList<SearchParameter>();
     for (SearchParameter sp : splist) {
-      if (sp.getBase().equals(base)) {
-        list.add(sp);
+      for (CodeType ct : sp.getBase())
+        if (ct.asStringValue().equals(base)) {
+          boolean found = false;
+          for (SearchParameter spt : list)
+            if (spt == sp)
+              found = true;
+          if (!found)
+            list.add(sp);
+        }
+    }
+    Collections.sort(list, new SearchParameterListSorter());
+    if (list.size() > 0) {
+      b.append("<tr><td colspan=\"4\" style=\"background-color: #dddddd\"><b><a href=\""+base.toLowerCase()+".html\">"+base+"</a><a name=\""+base.toLowerCase()+"\"> </a></b></td></tr>\r\n");
+      for (SearchParameter sp : list) {
+        if (sp.getBase().size() > 1) {
+          SearchParameterDefn spd = definitions.getResourceByName(base).getSearchParams().get(sp.getCode());
+          b.append("<tr><td>"+sp.getCode()+"</td><td><a href=\"search.html#"+sp.getType().toCode()+"\">"+sp.getType().toCode()+"</a></td><td>"+processMarkdown("allsearchparams", spd.getDescription(), "")+"</td><td>"+Utilities.escapeXml(spd.getExpression())+"</td></tr>\r\n");
+        } else
+          b.append("<tr><td>"+sp.getCode()+"</td><td><a href=\"search.html#"+sp.getType().toCode()+"\">"+sp.getType().toCode()+"</a></td><td>"+processMarkdown("allsearchparams", sp.getDescription(), "")+"</td><td>"+Utilities.escapeXml(sp.getExpression())+"</td></tr>\r\n");
       }
     }
+  }
+
+  public class SearchParameterListSorter implements Comparator<SearchParameter> {
+
+    @Override
+    public int compare(SearchParameter sp0, SearchParameter sp1) {
+      return sp0.getCode().compareTo(sp1.getCode());
+    }
+
+  }
+
+
+  private void genCommonSearchParams(StringBuilder b, List<SearchParameter> splist) throws Exception {
+    List<SearchParameter> list = new ArrayList<SearchParameter>();
+    for (SearchParameter sp : splist) {
+      if (sp.getBase().size() > 1) {
+        boolean found = false;
+        for (SearchParameter spt : list)
+          if (spt == sp)
+            found = true;
+        if (!found)
+          list.add(sp);
+      }
+    }
+    Collections.sort(list, new SearchParameterListSorter());
     if (list.size() > 0) {
-      b.append("<tr><td colspan=\"4\" style=\"background-color: #dddddd\"><b><a href=\""+base.toLowerCase()+".html\">"+base+"</a></b></td></tr>\r\n");
+      b.append("<tr><td colspan=\"4\" style=\"background-color: #dddddd\"><b>Common Search Parameters<a name=\"common\"> </a></b></td></tr>\r\n");
       for (SearchParameter sp : list) {
-        b.append("<tr><td>"+sp.getCode()+"</td><td><a href=\"search.html#"+sp.getType().toCode()+"\">"+sp.getType().toCode()+"</a></td><td>"+Utilities.escapeXml(sp.getDescription())+"</td><td>"+Utilities.escapeXml(sp.getExpression())+"</td></tr>\r\n");
+        b.append("<tr><td>"+sp.getCode()+"</td><td><a href=\"search.html#"+sp.getType().toCode()+"\">"+sp.getType().toCode()+"</a></td><td>"+processMarkdown("allsearchparams", sp.getDescription(), "")+"</td><td>"+Utilities.escapeXml(sp.getExpression())+"</td></tr>\r\n");
       }
     }
   }

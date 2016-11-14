@@ -303,6 +303,7 @@ public class SourceParser {
     for (BundleEntryComponent be : bnd.getEntry()) {
       SearchParameter sp = (SearchParameter) be.getResource();
       CommonSearchParameter csp = new CommonSearchParameter();
+      csp.setId(sp.getId());
       csp.setCode(sp.getCode());
       for (CodeType ct : sp.getBase()) {
         csp.getResources().add(ct.asStringValue());
