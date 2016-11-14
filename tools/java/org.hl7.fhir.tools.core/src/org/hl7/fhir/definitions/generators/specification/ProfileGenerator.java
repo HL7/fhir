@@ -1015,7 +1015,7 @@ public class ProfileGenerator {
         throw new Exception("unknown resource type "+p.getType());
       sp.setType(getSearchParamType(spd.getType()));
       if (shared)
-        sp.setDescription("Multiple Resources: \r\n\r\n* "+rn+":" + spd.getDescription()+"\r\n");
+        sp.setDescription("Multiple Resources: \r\n\r\n* [[["+rn+"]]]: " + spd.getDescription()+"\r\n");
       else
         sp.setDescription(spd.getDescription());
       if (!Utilities.noString(spd.getExpression())) 
