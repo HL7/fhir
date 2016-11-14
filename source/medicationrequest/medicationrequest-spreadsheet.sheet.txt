@@ -518,6 +518,12 @@
   Description = Returns prescriptions intended to be dispensed by this Organization
   Path = MedicationRequest.dispenseRequest.performer
 
+ -- Row 10 -----------------------------------
+  Name = category
+  Type = token
+  Description = Returns prescriptions with different categories
+  Path = MedicationRequest.category
+
 === Sheet Profiles =====================================
 
  -- Row 1 -----------------------------------

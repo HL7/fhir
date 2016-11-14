@@ -69,7 +69,7 @@
   Binding Name = MedicationStatementCategory
   Binding = code list
   Reference = #medication-statement-category
-  Definition = A coded concept identifying where the medication included in the is expected to be consumed or administered
+  Definition = A coded concept identifying where the medication included in the medicationstatement is expected to be consumed or administered
   Conformance = example
 
  -- Row 11 -----------------------------------
@@ -380,6 +380,12 @@
   Type = reference
   Description = Who or where the information in the statement came from
   Path = MedicationStatement.informationSource
+
+ -- Row 8 -----------------------------------
+  Name = category
+  Type = token
+  Description = Returns statements of this category of medicationstatement
+  Path = MedicationStatement.category
 
 === Sheet Profiles =====================================
 
