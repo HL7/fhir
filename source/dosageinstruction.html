@@ -52,7 +52,7 @@ DosageInstruction is used in the following places: [%dtusage ContactDetail%]
  if (!currentTabIndex)
    currentTabIndex = '0';
 
-$( '#tabs-ContactDetail' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
+$( '#tabs-DosageInstruction' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
      
      
 function store(currentTab) {
@@ -61,7 +61,7 @@ function store(currentTab) {
     sessionStorage.setItem('fhir-resource-tab-index', currentTab);
   } catch(exception){ 
   }
-  $( '#tabs-ContactDetail' ).tabs('option', 'active', currentTab);
+  $( '#tabs-DosageInstruction' ).tabs('option', 'active', currentTab);
 }     
 </script>
   
