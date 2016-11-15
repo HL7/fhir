@@ -43,6 +43,13 @@
 
 === Sheet Invariants =====================================
 
+ -- Row 1 -----------------------------------
+  Id = 1
+  Context = QuestionnaireResponse.item
+  English = Nested item can\'t be beneath both item and answer
+  XPath = not(exists(f:answer) and exists(f:item))
+  Expression = (answer.exists() and item.exists()).not()
+
 === Sheet Data Elements =====================================
 
  -- Row 1 -----------------------------------

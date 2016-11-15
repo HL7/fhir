@@ -127,6 +127,13 @@
   XPath = f:verificationStatus/@value=\'entered-in-error\' or exists(f:clinicalStatus)
   Expression = verificationStatus=\'entered-in-error\' or clinicalStatus.exists()
 
+ -- Row 4 -----------------------------------
+  Id = !4
+  Context = Condition
+  English = If condition is abated, then clinicalStatus must be either inactive, resolved, or remission
+  XPath = xpath: not(f:abatementBoolean=\'true\' or exists(*[starts-with(local-name(.), \'abatement\')]) or f:clinicalStatus/@value=(\'resolved\', \'remission\',\'inactive\')
+  Expression = (abatementBoolean or abatementDateTime.exists() or abatementAge.exists() or abatementPeriod.exists or abatementRange.exists).not() or clinicalStatus=\'resolved\' or clinicalStatus=\'remission\' or clinicalStatus=\'inactive\'
+
 === Sheet Data Elements =====================================
 
  -- Row 1 -----------------------------------
