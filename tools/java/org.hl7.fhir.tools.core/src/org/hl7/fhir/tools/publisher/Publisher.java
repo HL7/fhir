@@ -248,7 +248,7 @@ import org.xmlpull.v1.XmlPullParserFactory;
  *
  */
 public class Publisher implements URIResolver, SectionNumberer {
-  public static final String CANONICAL_BASE = "http://hl7-fhir.github.io/";
+  public static final String CANONICAL_BASE = "http://build.fhir.org/";
   
   public class DocumentHolder {
 

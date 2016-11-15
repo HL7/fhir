@@ -137,7 +137,7 @@ public class Validator {
       System.out.println("");
       System.out.println("-narrative requires the parameters -defn, -txserver, -source, and -output. ig and profile may be used");
       } else { 
-        String definitions = "http://hl7-fhir.github.io/";
+        String definitions = "http://buid.fhir.org/";
         List<String> igs = new ArrayList<String>();
       List<String> questionnaires = new ArrayList<String>();
         String txServer = "http://fhir3.healthintersections.com.au/open";

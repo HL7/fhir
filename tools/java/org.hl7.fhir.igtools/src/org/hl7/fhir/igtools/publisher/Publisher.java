@@ -713,7 +713,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
             "    \"temp\" : \"temp\",\r\n"+
             "    \"qa\" : \"qa\",\r\n"+
             "    \"output\" : \"output\",\r\n"+
-            "    \"specification\" : \"http://hl7-fhir.github.io/\"\r\n"+
+            "    \"specification\" : \"http://build.fhir.org/\"\r\n"+
             "  },\r\n"+
             "  \"sct-edition\": \"http://snomed.info/sct/900000000000207008\",\r\n"+
             "  \"source\": \"ig.xml\"\r\n"+
