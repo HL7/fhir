@@ -25,6 +25,7 @@
     <linkId value="birthDetails"/>
     <text value="Birth details - To be completed by health professional"/>
     <item>
+	  <linkId value="group"/>
       <item>
         <linkId value="nameOfChild"/>
         <text value="Name of child"/>
@@ -92,12 +93,10 @@
           <valueBoolean value="true"/>
           <item>
             <linkId value="hepBgivenDate"/>
-            <item>
-              <text value="Date given"/>
-              <answer>
-                <valueDate value="1972-12-04"/>
-              </answer>
-            </item>
+            <text value="Date given"/>
+            <answer>
+              <valueDate value="1972-12-04"/>
+            </answer>
           </item>
         </answer>
       </item>

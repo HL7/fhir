@@ -14,8 +14,8 @@ well as sufficient local information to allow rendering of the questionnaire may
 Each time a questionnaire is completed for a different subject or at a different time, a distinct QuestionnaireResponse is generated, though it may be
 possible for a previously entered set of answers to be edited or updated.</p>
 <p>
-Questionnaires cover the need to communicate data originating from forms used in medical history examinations, research questionnaires and sometimes full
-clinical specialty records. In many systems this data is collected using user-defined screens and forms. Questionnaires record specifics about data capture -
+Questionnaire responses cover the need to communicate data originating from forms used in medical history examinations, research questionnaires and sometimes full
+clinical specialty records. In many systems this data is collected using user-defined screens and forms. Questionnaire responses record specifics about data capture -
 exactly what questions were asked, in what order, what choices for answers were, etc. Each of these questions is part of the Questionnaire, 
 and as such the Questionnaire is a separately identifiable Resource, whereas the individual questions are not.
 </p>

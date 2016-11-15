@@ -348,7 +348,7 @@
   Type = Coding
   Binding = QuestionnaireConcept
   Short Name = Concept that represents the overall questionnaire
-  Definition = Identifies a how this question or group of questions is known in a particular terminology such as LOINC.
+  Definition = Identifies how this question or group of questions is known in a particular terminology such as LOINC.
   Requirements = Allows linking of the complete Questionnaire resources to formal terminologies.  It\'s common for \"pannels\" of questions to be identified by a code.
   RIM Mapping = .code
 
@@ -374,9 +374,9 @@
 
  -- Row 14 -----------------------------------
   Element = Questionnaire.item.linkId
-  Card. = 0..1
+  Card. = 1..1
   Type = string
-  Short Name = To link questionnaire with questionnaire response
+  Short Name = Unique id for item in questionnaire
   Definition = An identifier that is unique within the Questionnaire allowing linkage to the equivalent item in a QuestionnaireResponse resource.
   Requirements = [[[QuestionnaireResponse]]] does not require omitted items to be included and may have some items that repeat, so linkage based on position alone is not sufficient.
   Comments = May be omitted if there is no expectation to link answers back to a Questionnaire.  This \'\'can\'\' be a meaningful identifier (e.g. a LOINC code) but is not intended to have any meaning.  GUIDs or sequential numbers are appropriate here.
@@ -390,7 +390,7 @@
   Type = Coding
   Binding = QuestionnaireConcept
   Short Name = Concept that represents this item within in a questionnaire
-  Definition = Identifies a how this group of questions is known in a particular terminology such as LOINC.
+  Definition = Terminology code that corresponds to this group or question (e.g. LOINC)
   Requirements = Allows linking of groups of questions (and complete Questionnaire resources) to formal terminologies
   Comments = The code(s) for the \"root\" group apply to the questionnaire as a whole.
   RIM Mapping = .code
@@ -474,7 +474,7 @@
   Type = boolean
   Short Name = Whether the item must be included in data results
   Definition = If true, indicates that the item must be present in a \"completed\" QuestionnaireResponse.  If false, the item may be skipped when answering the questionnaire.
-  Comments = If an item that contains other items is marked as required, that does not automatically make the contained elements required (though required groups must contain at least one child element).
+  Comments = Questionnaire.item.required only has meaning for elements that are conditionally enabled with enableWhen if the condition evaluates to true.  If an item that contains other items is marked as required, that does not automatically make the contained elements required (though required groups must contain at least one child element).
   RIM Mapping = N/A - MIF rather than RIM level
   Default Value = False
 
@@ -486,6 +486,7 @@
   Short Name = Whether the item may repeat
   Definition = Whether the item may occur multiple times in the instance, containing multiple sets of answers
   Requirements = Items may be used to create set of (related) questions that can be repeated to give multiple answers to such a set
+  Comments = If a question is marked as repeats=true, then multiple answers can be provided for the question in the corresponding QuestionnaireResponse.  When rendering the questionnaire, it is up to the rendering software whether to render the question text for each answer repetition or to simply list each of the answers beneath the question.  (Which is most appropriate visually may depend on the type of answer as well as whether there are nested items.)
   RIM Mapping = N/A - MIF rather than RIM level
   Default Value = False
 
@@ -545,7 +546,7 @@
   Card. = 0..1
   Inv. = 8
   Type = boolean | decimal | integer | date | dateTime | instant | time | string | uri | Attachment | Coding | Quantity | Reference(Any)
-  Short Name = Initial presumed answer for question
+  Short Name = Default value when item is first rendered
   Definition = The value that should be pre-populated when rendering the questionnaire for user input.
   Requirements = In some workflows, having defaults saves time.
   RIM Mapping = N/A - MIF rather than RIM level

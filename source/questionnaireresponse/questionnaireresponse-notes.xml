@@ -5,17 +5,17 @@
 Notes
 </h2>
 <ul>
-<li>Questionnaires can be authored by clinicians, the patient or a patient's relatives (or even the owner in the case of animals). Clinicians
-may author questionnaires, where the answers are provided by others on behalf of the patient. Additionally, information gathered for the
-purpose of a patient may be about the patient's relatives (e.g. in family anamnesis). Therefore, Questionnaire makes a distinction between the author,
+<li>QuestionnaireResponses can be authored by clinicians, the patient or a patient's relatives (or even the owner in the case of animals). Clinicians
+may author questionnaire responses, where the answers are provided by others on behalf of the patient. Additionally, information gathered for the
+purpose of a patient may be about the patient's relatives (e.g. in family anamnesis). Therefore, QuestionnaireResponse makes a distinction between the author,
 the subject and the source of information.</li>
 <li>A QuestionnaireResponse may be stand-alone or may point to the form that defines the questions in <a href="questionnaire.html">Questionnaire</a>.  In
 this second case, the linkage between the questions and groups in the two resources is established using the <code>linkId</code> element.</li>
 <li>Because of the lack of explicit support for Questionnaires in <a href="https://www.hl7.org/implement/standards/product_brief.cfm?product_id=186">HL7 v3</a>, 
 <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=7">CDA</a> Documents frequently used named sections with
-Observations to model Questionnaires. Such use cases should now utilize the QuestionnaireResponse Resource instead.</li>
-<li>The Questionnaire's <i>encounter</i> element can be used to link to the encounter during which the Questionnaire was taken. This can be relevant since the
-encounter gives context to the answers and can be used to relate information in the Questionnaire to orders and observations that were done during the same Encounter.</li>
+Observations to model questionnaires. Such use cases should now utilize the QuestionnaireResponse resource instead.</li>
+<li>The QuestionnaireResponse's <i>encounter</i> element can be used to link to the encounter when the questionnaire response was authored. This can be relevant since the
+encounter gives context to the answers and can be used to relate information in the QuestionnaireResponse to orders and observations that were done during the same Encounter.</li>
 <li>The order of questions within groups, groups within groups and groups within questions is relevant and must be retained for display and capture.</li>
 <li>Typically <a href="questionnaire.html">Questionnaire</a> items of type <i>display</i> are not mirrored in a QuestionnaireResponse as the purpose of a
 QuestionnaireResponse is to reflect the information entered into the form, not the instructions provided, though questions and group headings are retained to ensure

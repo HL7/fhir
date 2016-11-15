@@ -73,8 +73,8 @@
   Aliases = order
   Summary = Y
   Type = Reference(DiagnosticRequest|ReferralRequest | CarePlan)
-  Short Name = Request fulfilled by this Questionnaire
-  Definition = Identifies the order, proposal or plan that is fulfilled in whole or in part by this Questionnaire.
+  Short Name = Request fulfilled by this QuestionnaireResponse
+  Definition = Identifies the order, proposal or plan that is fulfilled in whole or in part by this QuestionnaireResponse.
   Requirements = Supports traceability of authorization and confirmation of action on recommendations
 
  -- Row 4 -----------------------------------
@@ -91,7 +91,7 @@
   Card. = 0..1
   Aliases = Form
   Summary = y
-  Type = Reference(Questionnaire)
+  Type = uri
   Short Name = Form being answered
   Definition = Indicates the Questionnaire resource that defines the form for which answers are being provided
   Requirements = Needed to allow editing of the questionnaire in a manner that enforces the constraints of the original form.
@@ -119,6 +119,7 @@
   Short Name = The subject of the questions
   Definition = The subject of the questionnaire response.  This could be a patient, organization, practitioner, device, etc.  This is who/what the answers apply to, but is not necessarily the source of information
   Requirements = The subject context must be known
+  Comments = If the Questionnaire declared a subjectType, the resource pointed to by this element must be an instance of that type.
   RIM Mapping = .participation[typeCode=SBJ].role
   w5 = who.focus
 
@@ -180,9 +181,9 @@
 
  -- Row 13 -----------------------------------
   Element = QuestionnaireResponse.item.linkId
-  Card. = 0..1
+  Card. = 1..1
   Type = string
-  Short Name = Corresponding item within Questionnaire
+  Short Name = Pointer to specific item from Questionnaire
   Definition = Identifies the item from the Questionnaire that corresponds to this item in the QuestionnaireResponse resource.
   Requirements = Items can repeat in the answers, so a direct 1..1 correspondence may not exist - requiring correspondence by identifier.
   RIM Mapping = .outboundRelationship[typeCode=DEFN].target[classCode=OBS, moodCode=DEFN]
@@ -255,37 +256,37 @@
  -- Row 2 -----------------------------------
   Name = authored
   Type = date
-  Description = When the questionnaire was authored
+  Description = When the questionnaire response was authored
   Path = QuestionnaireResponse.authored
 
  -- Row 3 -----------------------------------
   Name = subject
   Type = reference
-  Description = The subject of the questionnaire
+  Description = The subject of the questionnaire response
   Path = QuestionnaireResponse.subject
 
  -- Row 4 -----------------------------------
   Name = author
   Type = reference
-  Description = The author of the questionnaire
+  Description = The author of the questionnaire response
   Path = QuestionnaireResponse.author
 
  -- Row 5 -----------------------------------
   Name = questionnaire
-  Type = reference
+  Type = uri
   Description = The questionnaire the answers are provided for
   Path = QuestionnaireResponse.questionnaire
 
  -- Row 6 -----------------------------------
   Name = context
   Type = reference
-  Description = Encounter or episode during which questionnaire was authored
+  Description = Encounter or episode during which questionnaire response was authored
   Path = QuestionnaireResponse.context
 
  -- Row 7 -----------------------------------
   Name = patient
   Type = reference
-  Description = The patient that is the subject of the questionnaire
+  Description = The patient that is the subject of the questionnaire response
   Path = QuestionnaireResponse.subject
   Target Types = Patient
 
