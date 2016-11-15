@@ -120,6 +120,13 @@
   XPath = exists(f:code) or exists(f:detail)
   Expression = code.exists() or detail.exists()
 
+ -- Row 3 -----------------------------------
+  Id = 3
+  Context = Condition
+  English = Condition.clinicalStatus SHALL be present if verificationStatus is not entered-in-error
+  XPath = f:verificationStatus/@value=\'entered-in-error\' or exists(f:clinicalStatus)
+  Expression = verificationStatus=\'entered-in-error\' or clinicalStatus.exists()
+
 === Sheet Data Elements =====================================
 
  -- Row 1 -----------------------------------
@@ -152,7 +159,7 @@
   Summary = Y
   Type = code
   Binding = ConditionClinicalStatus
-  Short Name = active | relapse | remission | resolved
+  Short Name = active | recurrence | inactive | remission | resolved
   Definition = The clinical status of the condition.
   SNOMED CT Concept Domain = < 303105007 |Disease phases|
   v2 Mapping = PRB-14 / DG1-6

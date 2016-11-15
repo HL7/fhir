@@ -69,7 +69,7 @@
  -- Row 2 -----------------------------------
   Id = 2
   Context = FamilyMemberHistory
-  English = Can only have estimatedAge is age[x] is present
+  English = Can only have estimatedAge if age[x] is present
   XPath = exists(*[starts-with(local-name(.), \'age\')]) or not(exists(f:estimatedAge))
   Expression = age.exists() or estimatedAge.empty()
 

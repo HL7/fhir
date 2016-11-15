@@ -10,7 +10,7 @@
   <LastAuthor>Rob Hausam</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2016-07-21T16:37:25Z</LastSaved>
-  <Version>16.00</Version>
+  <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -20,7 +20,7 @@
   <WindowWidth>17625</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>5</ActiveSheet>
+  <ActiveSheet>4</ActiveSheet>
   <FirstVisibleSheet>3</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
@@ -3751,10 +3751,10 @@
  </Worksheet>
  <Worksheet ss:Name="Extensions">
   <Names>
-   <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Extensions!R1C1:R27C23"
+   <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Extensions!R1C1:R26C23"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="23" ss:ExpandedRowCount="28" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="23" ss:ExpandedRowCount="27" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s85" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s86" ss:Width="227.25"/>
@@ -4070,32 +4070,8 @@
     <Cell ss:StyleID="s97"><Data ss:Type="String">The presence or absence of a known exposure risk of the patient for an adverse reaction (allergy or intolerance) to the specified substance/product.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s97"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s117"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s97"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s97"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s97"><Data ss:Type="String">exposureRisk is a modifier of the substance</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4593,12 +4569,13 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>93</Zoom>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>8</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -4606,14 +4583,13 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>4</ActiveRow>
+     <ActiveRow>13</ActiveRow>
      <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
@@ -4621,7 +4597,7 @@
    <ProtectScenarios>False</ProtectScenarios>
    <x:PageLayoutZoom>0</x:PageLayoutZoom>
   </WorksheetOptions>
-  <AutoFilter x:Range="R1C1:R27C23"
+  <AutoFilter x:Range="R1C1:R26C23"
    xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
  </Worksheet>
@@ -4675,7 +4651,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>

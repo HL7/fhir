@@ -21,7 +21,7 @@
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>763</TabRatio>
-  <ActiveSheet>3</ActiveSheet>
+  <ActiveSheet>1</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -1102,7 +1102,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">active | relapse | remission | resolved</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">active | recurrence | inactive | remission | resolved</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">The clinical status of the condition.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -3718,12 +3718,13 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>12</TopRowBottomPane>
+   <TopRowBottomPane>2</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>4</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -3731,7 +3732,6 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -3739,6 +3739,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>13</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -3818,14 +3820,15 @@
     <Cell ss:StyleID="s91"><Data ss:Type="String">code.exists() or detail.exists()</Data></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">exists(f:code) or exists(f:detail)</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s108"><NamedCell ss:Name="Invariantids"/></Cell>
+   <Row ss:AutoFitHeight="0" ss:Height="45">
+    <Cell ss:StyleID="s108"><Data ss:Type="Number">3</Data><NamedCell
+      ss:Name="Invariantids"/></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">Require clinicalStatus when not entered in error</Data></Cell>
     <Cell ss:StyleID="s91"/>
-    <Cell ss:StyleID="s91"/>
-    <Cell ss:StyleID="s91"/>
-    <Cell ss:StyleID="s91"/>
-    <Cell ss:StyleID="s91"/>
-    <Cell ss:StyleID="s109"/>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">Condition</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">Condition.clinicalStatus SHALL be present if verificationStatus is not entered-in-error</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">verificationStatus='entered-in-error' or clinicalStatus.exists()</Data></Cell>
+    <Cell ss:StyleID="s109"><Data ss:Type="String">f:verificationStatus/@value='entered-in-error' or exists(f:clinicalStatus)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s108"><NamedCell ss:Name="Invariantids"/></Cell>
@@ -4247,7 +4250,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>1</ActiveCol>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -4555,7 +4559,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>

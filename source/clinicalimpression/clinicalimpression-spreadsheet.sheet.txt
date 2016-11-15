@@ -272,9 +272,10 @@
  -- Row 24 -----------------------------------
   Element = ClinicalImpression.action
   Card. = 0..*
-  Type = Reference(ReferralRequest | ProcedureRequest | Procedure | MedicationRequest | DiagnosticRequest | NutritionRequest | DeviceUseRequest | Appointment)
-  Short Name = Actions taken during assessment
-  Definition = Actions taken during assessment
+  Type = Reference(ReferralRequest | ProcedureRequest | Procedure | MedicationRequest | DiagnosticRequest | Appointment)
+  Short Name = Action taken as part of assessment procedure
+  Definition = Action taken as part of assessment procedure
+  Comments = Actions recommended as a result of the impression should not be captured using the \'action\' element.
 
  -- Row 25 -----------------------------------
   Element = ClinicalImpression.note

@@ -12,21 +12,26 @@
   <concept>
     <code value="active"/>
     <display value="Active"/>
-    <definition value="The subject is currently experiencing the symptoms of the condition."/>
+    <definition value="The subject is currently experiencing the symptoms of the condition or there is evidence of the condition."/>
+	  <concept>
+		<code value="recurrence"/>
+		<display value="Recurrence"/>
+		<definition value="The subject is having a relapse or re-experiencing the condition after a period of remission or presumed resolution."/>
+	  </concept>
   </concept>
   <concept>
-    <code value="relapse"/>
-    <display value="Relapse"/>
-    <definition value="The subject is re-experiencing the symptoms of the condition after a period of remission or presumed resolution."/>
-  </concept>
-  <concept>
-    <code value="remission"/>
-    <display value="Remission"/>
-    <definition value="The subject is no longer experiencing the symptoms of the condition, but there is a risk of the symptoms returning."/>
-  </concept>
-  <concept>
-    <code value="resolved"/>
-    <display value="Resolved"/>
-    <definition value="The subject is no longer experiencing the symptoms of the condition and there is no perceived risk of the symptoms returning."/>
-  </concept>
+    <code value="inactive"/>
+    <display value="Inactive"/>
+    <definition value="The subject is no longer experiencing the symptoms of the condition or there is no longer evidence of the condition."/>
+	  <concept>
+		<code value="remission"/>
+		<display value="Remission"/>
+		<definition value="The subject is no longer experiencing the symptoms of the condition, but there is a risk of the symptoms returning."/>
+	  </concept>
+	  <concept>
+		<code value="resolved"/>
+		<display value="Resolved"/>
+		<definition value="The subject is no longer experiencing the symptoms of the condition and there is a negligible perceived risk of the symptoms returning."/>
+	  </concept>
+   </concept>
 </CodeSystem>

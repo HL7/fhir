@@ -17,7 +17,8 @@
     <!-- This is the reason for the encounter. It is referenced by the concern -->
     <Condition>
       <id value="p1"/>
-      <verificationStatus value="confirmed"/>
+      <clinicalStatus value="active"/>
+	  <verificationStatus value="confirmed"/>
       <code>
         <!-- Could coded if we wanted to...-->
         <text value="Overseas encounter"/>

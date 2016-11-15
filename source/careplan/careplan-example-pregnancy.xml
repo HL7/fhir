@@ -13,7 +13,8 @@
   <contained>
     <Condition>
       <id value="p1"/>
-      <verificationStatus value="confirmed"/>
+      <clinicalStatus value="active"/>
+	  <verificationStatus value="confirmed"/>
       <code>
         <text value="pregnancy"/>
       </code>

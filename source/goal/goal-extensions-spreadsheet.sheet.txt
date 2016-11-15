@@ -6,7 +6,7 @@
   Binding = code list
   Reference = #goal-relationship-type
   Definition = Types of relationships between two goals
-  Conformance = required
+  Conformance = extensible
 
  -- Row 2 -----------------------------------
   Binding Name = GoalAcceptanceStatus
