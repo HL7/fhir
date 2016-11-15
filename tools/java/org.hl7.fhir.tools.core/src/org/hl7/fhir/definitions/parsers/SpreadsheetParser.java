@@ -118,6 +118,7 @@ import org.hl7.fhir.igtools.spreadsheets.MappingSpace;
 import org.hl7.fhir.igtools.spreadsheets.TabDelimitedSpreadSheet;
 import org.hl7.fhir.igtools.spreadsheets.TypeParser;
 import org.hl7.fhir.igtools.spreadsheets.TypeRef;
+import org.hl7.fhir.tools.converters.MarkDownPreProcessor;
 import org.hl7.fhir.tools.publisher.BuildWorkerContext;
 import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.CSFileInputStream;
@@ -2163,7 +2164,7 @@ public class SpreadsheetParser {
       ex.setName(sl);
     if (!ex.hasName())
       throw new Exception("Extension "+ex.getUrl()+" missing name at "+getLocation(row));
-    ex.setDescription(exe.getDefinition());
+    ex.setDescription(preProcessMarkdown(exe.getDefinition(), "Extension Definition"));
 
     ex.setPublisher(ap.metadata("author.name"));
     if (ap.hasMetadata("author.reference"))
@@ -2215,6 +2216,10 @@ public class SpreadsheetParser {
 	  this.context.seeExtensionDefinition("http://hl7.org/fhir", ex);
 	  return row;
 	}
+
+  private String preProcessMarkdown(String text, String location) throws Exception {
+    return MarkDownPreProcessor.process(definitions, context, null, text, location, null);
+  }
 
   private String tail(String url) {
     return url.substring(url.lastIndexOf("/")+1);

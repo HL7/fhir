@@ -39,7 +39,7 @@
   Card. = 0..*
   Type = uri
   Short Name = Profiles this resource claims to conform to
-  Definition = A list of profiles [[[StructureDefinition]]]s that this resource claims to conform to. The URL is a reference to [[[StructureDefinition.url]]]
+  Definition = A list of profiles (references to [[[StructureDefinition]]] resources) that this resource claims to conform to. The URL is a reference to [[[StructureDefinition.url]]]
   Comments = It is up to the server and/or other infrastructure of policy to determine whether/how these claims are verified and/or updated over time.  The list of profile URLs is a set
 
  -- Row 5 -----------------------------------

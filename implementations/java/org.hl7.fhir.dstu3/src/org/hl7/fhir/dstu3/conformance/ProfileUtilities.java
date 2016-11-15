@@ -2339,16 +2339,16 @@ public class ProfileUtilities {
 
 
   public StructureDefinition getProfile(StructureDefinition source, String url) {
-  	StructureDefinition profile;
-  	String code;
+  	StructureDefinition profile = null;
+  	String code = null;
   	if (url.startsWith("#")) {
   		profile = source;
   		code = url.substring(1);
-  	} else {
+  	} else if (context != null) {
   		String[] parts = url.split("\\#");
   		profile = context.fetchResource(StructureDefinition.class, parts[0]);
       code = parts.length == 1 ? null : parts[1];
-  	}
+  	}  	  
   	if (profile == null)
   		return null;
   	if (code == null)

@@ -818,7 +818,8 @@ public class IgSpreadsheetParser {
     return new StringType(s);
   }
 
-  private String processDefinition(String definition) {    
+  private String processDefinition(String definition) {
+    // preProcessMarkdown(...
     return definition.replace("$version$", Constants.VERSION);
   }
 

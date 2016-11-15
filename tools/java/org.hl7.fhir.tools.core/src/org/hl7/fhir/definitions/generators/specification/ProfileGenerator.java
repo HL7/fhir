@@ -111,6 +111,7 @@ import org.hl7.fhir.dstu3.validation.ValidationMessage.Source;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.igtools.spreadsheets.TypeParser;
 import org.hl7.fhir.igtools.spreadsheets.TypeRef;
+import org.hl7.fhir.tools.converters.MarkDownPreProcessor;
 import org.hl7.fhir.tools.publisher.BuildWorkerContext;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xhtml.NodeType;
@@ -670,7 +671,7 @@ public class ProfileGenerator {
     e.setPath(pt.getBaseType());
     e.setSliceName(pt.getName());
     e.setShort(pt.getDefinition());
-    e.setDefinition(pt.getDescription());
+    e.setDefinition(preProcessMarkdown(pt.getDescription(), "??"));
     e.setMin(0);
     e.setMax("*");
     e.setIsModifier(false);
@@ -712,7 +713,7 @@ public class ProfileGenerator {
         else if (parts[1].equals("max"))
           er.setMax(value);
         else if (parts[1].equals("defn"))
-          er.setDefinition(value);
+          er.setDefinition(preProcessMarkdown(value, "er"));
 
       }
       List<String> errors = new ArrayList<String>();
@@ -896,7 +897,7 @@ public class ProfileGenerator {
     //  <code> opt Zero+ Coding assist with indexing and finding</code>
     p.setDescription(resource.getRoot().getShortDefn());    
     if (!p.hasDescriptionElement() && pack.hasMetadata("description"))
-      p.setDescription(pack.metadata("description"));
+      p.setDescription(preProcessMarkdown(pack.metadata("description"), "pack.description"));
     p.setPurpose(resource.getRoot().getRequirements());
     if (!p.hasPurpose() && pack.hasMetadata("requirements"))
       p.setPurpose(pack.metadata("requirements"));
@@ -948,6 +949,10 @@ public class ProfileGenerator {
     new ProfileUtilities(context, issues, pkp).setIds(p, false);
     checkHasTypes(p);
     return p;
+  }
+
+  private String preProcessMarkdown(String text, String location) throws Exception {
+    return MarkDownPreProcessor.process(definitions, context, null, text, location, null);
   }
 
   private SearchParamType getSearchParamType(SearchParameterDefn.SearchType type) {
@@ -1015,9 +1020,9 @@ public class ProfileGenerator {
         throw new Exception("unknown resource type "+p.getType());
       sp.setType(getSearchParamType(spd.getType()));
       if (shared)
-        sp.setDescription("Multiple Resources: \r\n\r\n* [[["+rn+"]]]: " + spd.getDescription()+"\r\n");
+        sp.setDescription("Multiple Resources: \r\n\r\n* ["+rn+"]("+rn.toLowerCase()+".html): " + spd.getDescription()+"\r\n");
       else
-        sp.setDescription(spd.getDescription());
+        sp.setDescription(preProcessMarkdown(spd.getDescription(), "Search Description"));
       if (!Utilities.noString(spd.getExpression())) 
         sp.setExpression(spd.getExpression());
       String xpath = new XPathQueryGenerator(this.definitions, null, null).generateXpath(spd.getPaths());
@@ -1036,7 +1041,7 @@ public class ProfileGenerator {
     } else {
       if (sp.getType() != getSearchParamType(spd.getType()))
         throw new FHIRException("Type mismatch on common parameter: expected "+sp.getType().toCode()+" but found "+getSearchParamType(spd.getType()).toCode());
-      sp.setDescription(sp.getDescription()+"* [[["+rn+"]]]: " + spd.getDescription()+"\r\n");
+      sp.setDescription(sp.getDescription()+"* ["+rn+"]("+rn.toLowerCase()+".html): " + spd.getDescription()+"\r\n");
       if (!Utilities.noString(spd.getExpression())) 
         sp.setExpression(sp.getExpression()+" | "+spd.getExpression());
       String xpath = new XPathQueryGenerator(this.definitions, null, null).generateXpath(spd.getPaths());
@@ -1322,16 +1327,16 @@ public class ProfileGenerator {
 
   private void buildDefinitionFromElement(String path, ElementDefinition ce, ElementDefn e, Profile ap, StructureDefinition p, String inheritedType) throws Exception {
     if (!Utilities.noString(e.getComments()))
-      ce.setComments(e.getComments());
+      ce.setComments(preProcessMarkdown(e.getComments(), "Element Comments"));
     if (!Utilities.noString(e.getShortDefn()))
       ce.setShort(e.getShortDefn());
     if (!Utilities.noString(e.getDefinition())) {
-      ce.setDefinition(e.getDefinition());
+      ce.setDefinition(preProcessMarkdown(e.getDefinition(), "Element Definition"));
       if (!Utilities.noString(e.getShortDefn()))
         ce.setShort(e.getShortDefn());
     }
     if (path.contains(".") && !Utilities.noString(e.getRequirements())) 
-      ce.setRequirements(e.getRequirements());
+      ce.setRequirements(preProcessMarkdown(e.getRequirements(), "Element Requirements"));
     if (e.hasMustSupport())
       ce.setMustSupport(e.isMustSupport());
 
@@ -1541,14 +1546,14 @@ public class ProfileGenerator {
     return false;
   }
 
-  private ElementDefinition createBaseDefinition(StructureDefinition p, String path, ElementDefn src) throws URISyntaxException {
+  private ElementDefinition createBaseDefinition(StructureDefinition p, String path, ElementDefn src) throws Exception {
     ElementDefinition ce = new ElementDefinition();
     ce.setId(path+"."+src.getName());
     ce.setPath(path+"."+src.getName());
     ce.setShort(src.getShortDefn());
-    ce.setDefinition(src.getDefinition());
-    ce.setComments(src.getComments());
-    ce.setRequirements(src.getRequirements());
+    ce.setDefinition(preProcessMarkdown(src.getDefinition(), "ELement Definition"));
+    ce.setComments(preProcessMarkdown(src.getComments(), "Element Comments"));
+    ce.setRequirements(preProcessMarkdown(src.getRequirements(), "Element Reqiurements"));
     for (String a : src.getAliases())
       ce.addAlias(a);
     ce.setMin(src.getMinCardinality());
@@ -1587,8 +1592,8 @@ public class ProfileGenerator {
       dst.setSliceName(src.getName());
 
     dst.setShort(src.getShortDefn());
-    dst.setDefinition(src.getDefinition());
-    dst.setComments(src.getComments());
+    dst.setDefinition(preProcessMarkdown(src.getDefinition(), "Element Definition"));
+    dst.setComments(preProcessMarkdown(src.getComments(), "Element Comments"));
     if (src.getMaxCardinality() != null) {
       if (src.getMaxCardinality() == Integer.MAX_VALUE)
         dst.setMax("*");
@@ -1741,7 +1746,7 @@ public class ProfileGenerator {
     opd.setPublisher("HL7 (FHIR Project)");
     opd.addContact().getTelecom().add(org.hl7.fhir.dstu3.model.Factory.newContactPoint(ContactPointSystem.OTHER, "http://hl7.org/fhir"));
     opd.getContact().get(0).getTelecom().add(org.hl7.fhir.dstu3.model.Factory.newContactPoint(ContactPointSystem.EMAIL, "fhir@lists.hl7.org"));
-    opd.setDescription(op.getDoco());
+    opd.setDescription(preProcessMarkdown(op.getDoco(), "Operation Documentation"));
     opd.setStatus(PublicationStatus.DRAFT);
     opd.setDate(genDate.getTime());
     if (op.getKind().toLowerCase().equals("operation"))
@@ -1752,7 +1757,7 @@ public class ProfileGenerator {
       throw new Exception("Unrecognized operation kind: '" + op.getKind() + "' for operation " + name);
     }
     opd.setCode(op.getName());
-    opd.setComment(op.getFooter());
+    opd.setComment(preProcessMarkdown(op.getFooter(), "Operation Comments"));
     opd.setSystem(op.isSystem());
     opd.addResource(resourceName);
     opd.setType(op.isType()); 
@@ -1776,7 +1781,7 @@ public class ProfileGenerator {
       pp.setUse(defUse);
     else
       throw new Exception("Unable to determine parameter use: "+p.getUse()+" at "+path+"."+p.getName()); // but this is validated elsewhere
-    pp.setDocumentation(p.getDoc());
+    pp.setDocumentation(preProcessMarkdown(p.getDoc(), "Operation Parameter Doco"));
     pp.setMin(p.getMin());
     pp.setMax(p.getMax());
     if (p.getBs() != null) {
