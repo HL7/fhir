@@ -51,7 +51,7 @@
           <language value="de"/>
           <value value="Bengalisch"/>
         </designation>
-		<designation>
+		    <designation>
           <language value="da"/>
           <value value="Bengalsk"/>
         </designation>
@@ -79,7 +79,7 @@
           <language value="de"/>
           <value value="Tschechisch"/>
         </designation>
-		<designation>
+        <designation>
           <language value="da"/>
           <value value="Tjekkisk"/>
         </designation>
@@ -107,7 +107,7 @@
           <language value="de"/>
           <value value="Dänisch"/>
         </designation>
-		<designation>
+        <designation>
           <language value="da"/>
           <value value="Dansk"/>
         </designation>
@@ -135,7 +135,7 @@
           <language value="de"/>
           <value value="Deutsch"/>
         </designation>
-		<designation>
+        <designation>
           <language value="da"/>
           <value value="Tysk"/>
         </designation>
@@ -163,7 +163,7 @@
           <language value="de"/>
           <value value="Deutsch (Österreich)"/>
         </designation>
-		<designation>
+    <designation>
           <language value="da"/>
           <value value="Tysk (Østrig"/>
         </designation>
@@ -191,7 +191,7 @@
           <language value="de"/>
           <value value="Deutsch (Schweiz)"/>
         </designation>
-				<designation>
+        <designation>
           <language value="da"/>
           <value value="Tysk (Schweiz)"/>
         </designation>
@@ -219,7 +219,7 @@
           <language value="de"/>
           <value value="Deutsch (Deutschland)"/>
         </designation>
-				<designation>
+        <designation>
           <language value="da"/>
           <value value="Tysk (Tyskland)"/>
         </designation>
@@ -247,7 +247,7 @@
           <language value="de"/>
           <value value="Griechisch"/>
         </designation>
-				<designation>
+        <designation>
           <language value="da"/>
           <value value="Græsk"/>
         </designation>
@@ -275,7 +275,7 @@
           <language value="de"/>
           <value value="Englisch"/>
         </designation>
-				<designation>
+        <designation>
           <language value="da"/>
           <value value="Engelsk"/>
         </designation>
@@ -303,7 +303,7 @@
           <language value="de"/>
           <value value="Englisch (Australien)"/>
         </designation>
-				<designation>
+        <designation>
           <language value="da"/>
           <value value="Engelsk (Australien)"/>
         </designation>
@@ -331,7 +331,7 @@
           <language value="de"/>
           <value value="Englisch (Kanada)"/>
         </designation>
-				<designation>
+        <designation>
           <language value="da"/>
           <value value="Engelsk (Canada)"/>
         </designation>
@@ -359,7 +359,7 @@
           <language value="de"/>
           <value value="Englisch (Großbritannien)"/>
         </designation>
-				<designation>
+        <designation>
           <language value="da"/>
           <value value="Engelsk (Storbritannien)"/>
         </designation>
@@ -387,7 +387,7 @@
           <language value="de"/>
           <value value="Englisch (Indien)"/>
         </designation>
-		        <designation>
+            <designation>
           <language value="da"/>
           <value value="Engelsk (Indien)"/>
         </designation>
@@ -415,7 +415,7 @@
           <language value="de"/>
           <value value="Englisch (Neuseeland)"/>
         </designation>
-		        <designation>
+            <designation>
           <language value="da"/>
           <value value="Engelsk (New Zeeland)"/>
         </designation>
@@ -443,9 +443,37 @@
           <language value="de"/>
           <value value="Englisch (Singapur)"/>
         </designation>
-		        <designation>
+            <designation>
           <language value="da"/>
           <value value="Engelsk (Singapore)"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="en-US"/>
+        <display value="English (United States)"/>
+        <designation>
+          <language value="en"/>
+          <value value="English (United States)"/>
+        </designation>
+        <designation>
+          <language value="nl"/>
+          <value value="Engels (Verenigde Staten)"/>
+        </designation>
+        <designation>
+          <language value="ru"/>
+          <value value="Английский (США)"/>
+        </designation>
+        <designation>
+          <language value="zh"/>
+          <value value="[todo]"/>
+        </designation>
+        <designation>
+          <language value="de"/>
+          <value value="Englisch (USA)"/>
+        </designation>
+            <designation>
+          <language value="da"/>
+          <value value="Engelsk (Amerikansk)"/>
         </designation>
       </concept>
       <concept>
@@ -471,7 +499,7 @@
           <language value="de"/>
           <value value="Spanisch"/>
         </designation>
-		<designation>
+        <designation>
           <language value="da"/>
           <value value="Spansk"/>
         </designation>
@@ -499,7 +527,7 @@
           <language value="de"/>
           <value value="Spanisch (Argentinien)"/>
         </designation>
-		<designation>
+        <designation>
           <language value="da"/>
           <value value="Spansk (Argentina)"/>
         </designation>
@@ -527,7 +555,7 @@
           <language value="de"/>
           <value value="Spanisch (Spanien)"/>
         </designation>
-				<designation>
+        <designation>
           <language value="da"/>
           <value value="Spansk (Spanien)"/>
         </designation>
@@ -555,7 +583,7 @@
           <language value="de"/>
           <value value="Spanisch (Uruguay)"/>
         </designation>
-				<designation>
+        <designation>
           <language value="da"/>
           <value value="Spansk (Uruguay)"/>
         </designation>
@@ -583,7 +611,7 @@
           <language value="de"/>
           <value value="Finnisch"/>
         </designation>
-		<designation>
+        <designation>
           <language value="da"/>
           <value value="Finsk"/>
         </designation>
@@ -611,7 +639,7 @@
           <language value="de"/>
           <value value="Französisch"/>
         </designation>
-		<designation>
+        <designation>
           <language value="da"/>
           <value value="Fransk"/>
         </designation>
@@ -631,7 +659,7 @@
           <language value="de"/>
           <value value="Französisch (Belgien)"/>
         </designation>
-		<designation>
+        <designation>
           <language value="da"/>
           <value value="Finsk (Belgien)"/>
         </designation>
@@ -659,7 +687,7 @@
           <language value="de"/>
           <value value="Französisch (Schweiz)"/>
         </designation>
-		<designation>
+        <designation>
           <language value="da"/>
           <value value="Fransk (Schweiz)"/>
         </designation>
@@ -687,7 +715,7 @@
           <language value="de"/>
           <value value="Französisch (Frankreich)"/>
         </designation>
-		<designation>
+        <designation>
           <language value="da"/>
           <value value="Fransk (Frankrig)"/>
         </designation>
@@ -711,7 +739,7 @@
           <language value="de"/>
           <value value="Friesisch"/>
         </designation>
-		<designation>
+        <designation>
           <language value="da"/>
           <value value="Frisisk"/>
         </designation>
@@ -735,7 +763,7 @@
           <language value="de"/>
           <value value="Friesisch (Niederlande)"/>
         </designation>
-		<designation>
+        <designation>
           <language value="da"/>
           <value value="Frisisk (Holland)"/>
         </designation>
@@ -763,7 +791,7 @@
           <language value="de"/>
           <value value="Kroatisch"/>
         </designation>
-				<designation>
+        <designation>
           <language value="da"/>
           <value value="Kroatisk"/>
         </designation>
@@ -791,7 +819,7 @@
           <language value="de"/>
           <value value="Italienisch"/>
         </designation>
-						<designation>
+            <designation>
           <language value="da"/>
           <value value="Italiensk"/>
         </designation>
@@ -819,7 +847,7 @@
           <language value="de"/>
           <value value="Italienisch (Schweiz)"/>
         </designation>
-						<designation>
+            <designation>
           <language value="da"/>
           <value value="Italiensk (Schweiz)"/>
         </designation>
@@ -847,7 +875,7 @@
           <language value="de"/>
           <value value="Italienisch (Italien)"/>
         </designation>
-		<designation>
+        <designation>
           <language value="da"/>
           <value value="Italiensk (Italien)"/>
         </designation>
@@ -875,7 +903,7 @@
           <language value="de"/>
           <value value="Japanisch"/>
         </designation>
-		<designation>
+        <designation>
           <language value="da"/>
           <value value="Japansk"/>
         </designation>
@@ -903,7 +931,7 @@
           <language value="de"/>
           <value value="Koreanisch"/>
         </designation>
-		<designation>
+        <designation>
           <language value="da"/>
           <value value="Koreansk"/>
         </designation>
@@ -931,7 +959,7 @@
           <language value="de"/>
           <value value="Niederländisch"/>
         </designation>
-		<designation>
+        <designation>
           <language value="da"/>
           <value value="Hollandsk"/>
         </designation>
@@ -955,7 +983,7 @@
           <language value="de"/>
           <value value="Niederländisch (Belgien)"/>
         </designation>
-				<designation>
+        <designation>
           <language value="da"/>
           <value value="Hollandsk (Belgien)"/>
         </designation>
@@ -983,7 +1011,7 @@
           <language value="de"/>
           <value value="Niederländisch (Niederlande)"/>
         </designation>
-				<designation>
+        <designation>
           <language value="da"/>
           <value value="Hollandsk (Holland)"/>
         </designation>
@@ -1011,7 +1039,7 @@
           <language value="de"/>
           <value value="Norwegisch"/>
         </designation>
-				<designation>
+        <designation>
           <language value="da"/>
           <value value="Norsk"/>
         </designation>
@@ -1039,7 +1067,7 @@
           <language value="de"/>
           <value value="Norwegisch (Norwegen)"/>
         </designation>
-				<designation>
+        <designation>
           <language value="da"/>
           <value value="Norsk (Norge)"/>
         </designation>
@@ -1067,7 +1095,7 @@
           <language value="de"/>
           <value value="Portugiesisch"/>
         </designation>
-				<designation>
+        <designation>
           <language value="da"/>
           <value value="Portugisisk"/>
         </designation>
@@ -1095,7 +1123,7 @@
           <language value="de"/>
           <value value="Portugiesisch (Brasilien)"/>
         </designation>
-		<designation>
+        <designation>
           <language value="da"/>
           <value value="Portugisisk (Brasilien)"/>
         </designation>
@@ -1123,7 +1151,7 @@
           <language value="de"/>
           <value value="Russisch"/>
         </designation>
-		<designation>
+        <designation>
           <language value="da"/>
           <value value="Russisk"/>
         </designation>
@@ -1151,7 +1179,7 @@
           <language value="de"/>
           <value value="Russisch (Russland)"/>
         </designation>
-				<designation>
+        <designation>
           <language value="da"/>
           <value value="Russisk (Rusland)"/>
         </designation>
@@ -1179,7 +1207,7 @@
           <language value="de"/>
           <value value="Serbisch"/>
         </designation>
-				<designation>
+        <designation>
           <language value="da"/>
           <value value="Serbisk"/>
         </designation>
@@ -1207,7 +1235,7 @@
           <language value="de"/>
           <value value="Serbisch (Serbien)"/>
         </designation>
-				<designation>
+        <designation>
           <language value="da"/>
           <value value="Serbisk (Serbien)"/>
         </designation>
@@ -1235,7 +1263,7 @@
           <language value="de"/>
           <value value="Schwedisch"/>
         </designation>
-				<designation>
+        <designation>
           <language value="da"/>
           <value value="Svensk"/>
         </designation>
@@ -1263,7 +1291,7 @@
           <language value="de"/>
           <value value="Schwedisch (Schweden)"/>
         </designation>
-		<designation>
+        <designation>
           <language value="da"/>
           <value value="Svensk (Sverige)"/>
         </designation>
@@ -1291,9 +1319,9 @@
           <language value="de"/>
           <value value="Telugu"/>
         </designation>
-		
-		
-		<designation>
+    
+    
+        <designation>
           <language value="da"/>
           <value value="Telugu"/>
         </designation>
@@ -1321,7 +1349,7 @@
           <language value="de"/>
           <value value="Chinesisch"/>
         </designation>
-		<designation>
+        <designation>
           <language value="da"/>
           <value value="Kinesisk"/>
         </designation>
@@ -1349,7 +1377,7 @@
           <language value="de"/>
           <value value="Chinesisch (China)"/>
         </designation>
-		<designation>
+        <designation>
           <language value="da"/>
           <value value="Kinesisk (Kina)"/>
         </designation>
@@ -1377,7 +1405,7 @@
           <language value="de"/>
           <value value="Chinesisch (Hong Kong)"/>
         </designation>
-		<designation>
+        <designation>
           <language value="da"/>
           <value value="Kinesisk (Hong Kong)"/>
         </designation>
@@ -1405,7 +1433,7 @@
           <language value="de"/>
           <value value="Chinesisch (Singapur)"/>
         </designation>
-		<designation>
+        <designation>
           <language value="da"/>
           <value value="Kinesisk (Singapore)"/>
         </designation>
@@ -1433,7 +1461,7 @@
           <language value="de"/>
           <value value="Chinesisch (Taiwan)"/>
         </designation>
-		<designation>
+        <designation>
           <language value="da"/>
           <value value="Kinesisk (Taiwan)"/>
         </designation>
