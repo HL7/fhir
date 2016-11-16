@@ -19,7 +19,8 @@ profile:</p>
 		</ul>
 		<h5>Mandatory Data Elements and Terminology</h5>
 		<p>The following data-elements are mandatory (i.e data MUST be present). These are presented below in a simple human-readable explanation.  Profile specific guidance and an <a href="#example">example</a> are provided as well.  The links to the <a href="#content">
-				<strong>Profile Definitions</strong></a> provide the formal views of the profile content, descriptions, mappings and the StructureDefinitions in JSON and XML.</p>
+				<strong>Profile Definitions</strong>
+			</a> provide the formal views of the profile content, descriptions, mappings and the StructureDefinitions in JSON and XML.</p>
 		<p>
 			<strong>Each Observation must have:</strong>
 		</p>
@@ -58,12 +59,14 @@ profile:</p>
 					<th>LOINC Code</th>
 					<th>UCUM Unit Code</th>
 					<th>Notes</th>
-					<th id = "example">Examples</th>
+					<th id="example">Examples</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr>
-					<td><a href="vitalspanel.html">Vital Signs Panel</a></td>
+					<td>
+						<a href="vitalspanel.html">Vital Signs Panel</a>
+					</td>
 					<td>8716-3</td>
 					<td>-</td>
 					<td>This is the top-level grouping structure for a set of vital signs.  It has no value in Observation.valueQuantity ; instead, it just includes related links (with type=has-member) to the Observations in this set (e.g. respiratory rate, heart rate, BP).  Note that querying for the panel may miss individual results that are not part of an actual panel.</td>
@@ -73,7 +76,7 @@ profile:</p>
 				</tr>
 				<tr>
 					<td>
-					<a href="resprate.html">Respiratory Rate</a>
+						<a href="resprate.html">Respiratory Rate</a>
 					</td>
 					<td>9279-1</td>
 					<td>/min</td>
@@ -84,7 +87,7 @@ profile:</p>
 				</tr>
 				<tr>
 					<td>
-					<a href="heartrate.html">Heart rate</a>
+						<a href="heartrate.html">Heart rate</a>
 					</td>
 					<td>8867-4</td>
 					<td>/min</td>
@@ -106,7 +109,7 @@ profile:</p>
 				</tr>
 				<tr>
 					<td>
-					<a href="bodytemp.html">Body temperature</a>
+						<a href="bodytemp.html">Body temperature</a>
 					</td>
 					<td>8310-5</td>
 					<td>Cel, [degF]</td>
@@ -117,7 +120,7 @@ profile:</p>
 				</tr>
 				<tr>
 					<td>
-					<a href="bodyheight.html">Body height</a>
+						<a href="bodyheight.html">Body height</a>
 					</td>
 					<td>8302-2</td>
 					<td>cm, [in_i]</td>
@@ -128,7 +131,7 @@ profile:</p>
 				</tr>
 				<tr>
 					<td>
-					<a href="bodylength.html">Body length</a>
+						<a href="bodylength.html">Body length</a>
 					</td>
 					<td>8306-3</td>
 					<td>cm, [in_i]</td>
@@ -139,7 +142,7 @@ profile:</p>
 				</tr>
 				<tr>
 					<td>
-					<a href="headcircum.html">Head circumference</a>
+						<a href="headcircum.html">Head circumference</a>
 					</td>
 					<td>8287-5</td>
 					<td>cm, [in_i]</td>
@@ -150,7 +153,7 @@ profile:</p>
 				</tr>
 				<tr>
 					<td>
-					<a href="bodyweight.html">Body weight</a>
+						<a href="bodyweight.html">Body weight</a>
 					</td>
 					<td>29463-7</td>
 					<td>g, kg,[lb_av]</td>
@@ -161,7 +164,7 @@ profile:</p>
 				</tr>
 				<tr>
 					<td>
-					<a href="bmi.html">Body mass index</a>
+						<a href="bmi.html">Body mass index</a>
 					</td>
 					<td>39156-5</td>
 					<td>kg/m2</td>
@@ -172,10 +175,10 @@ profile:</p>
 				</tr>
 				<tr>
 					<td>
-					<a href="bp.html">Blood pressure systolic and diastolic</a>
+						<a href="bp.html">Blood pressure systolic and diastolic</a>
 					</td>
 					<td>55284-4</td>
-					<td></td>
+					<td/>
 					<td>This is a grouping structure. It has no value in Observation.valueQuantity but contains at least one component (systolic and/or diastolic).</td>
 					<td>
 						<a href="observation-example-bloodpressure.html">Vital Signs Blood Pressure Example</a>,  <a href="observation-example-bloodpressure-dar.html">Vital Signs Blood Pressure Example with missing Diastolic measurement</a>
@@ -183,7 +186,7 @@ profile:</p>
 				</tr>
 				<tr>
 					<td>
-					<a href="bp.html">Systolic blood pressure</a>
+						<a href="bp.html">Systolic blood pressure</a>
 					</td>
 					<td>8480-6</td>
 					<td>mm[Hg]</td>
@@ -194,7 +197,7 @@ profile:</p>
 				</tr>
 				<tr>
 					<td>
-					<a href="bp.html">Diastolic blood pressure</a>
+						<a href="bp.html">Diastolic blood pressure</a>
 					</td>
 					<td>8462-4</td>
 					<td>mm[Hg]</td>
@@ -205,7 +208,7 @@ profile:</p>
 				</tr>
 				<tr>
 					<td>
-					<a href="mbp.html">Mean blood pressure</a>
+						<a href="mbp.html">Mean blood pressure</a>
 					</td>
 					<td>8478-0</td>
 					<td>mm[Hg]</td>
@@ -216,7 +219,6 @@ profile:</p>
 				</tr>
 			</tbody>
 		</table>
-
 	</div>
 	<div>
 		<a name="Quick_Start"> </a>
@@ -249,16 +251,16 @@ profile:</p>
 			<li>A server has rejected any unauthorized requests by returning an HTTP 401 Unauthorized response code.</li>
 		</ul>
 		<hr/>
+		<h4>
+			GET [base]/Observation?patient=[id]&amp;category=vital-signs
+		</h4>
 		<p>
-			<code>GET [base]/Observation?patient=[id]&amp;category=vital-signs</code>
-		</p>
-				<p>
 			<strong>Example:</strong>
 			Search for all Vitals Signs measuirements for a patient
 		</p>
-		<p><code>GET [base]/Observation?patient=1186747&amp;category=vital-signs</code>
+		<p>
+			<a href="#.html">GET [base]/Observation?patient=1186747&amp;category=vital-signs</a>
 		</p>
-
 		<p>
 			<em>Support:</em>  Mandatory to support search by category code.</p>
 		<p>
@@ -273,18 +275,20 @@ profile:</p>
 			<li>(Status 403): insufficient scope</li>
 		</ul>
 		<hr/>
+		<h4>
+			GET [base]/Observation?patient=[id]&amp;code=[vital sign LOINC{,LOINC2,LOINC3,...}]
+		</h4>
 		<p>
-			<code>GET [base]/Observation?patient=[id]&amp;code=[vital sign LOINC{,LOINC2,LOINC3,...}]</code>
-		</p>
-				<p>
 			<strong>Example:</strong>
 Search for all heart rate observations for a patient:</p>
-		<p><code>GET [base]/Observation?patient=1186747&amp;code=8867-4</code>
+		<p>
+			<a href="#.html">GET [base]/Observation?patient=1186747&amp;code=8867-4</a>
 		</p>
 		<p>
 			<strong>Example:</strong>
 Search for all heart rate, respiratory rate and blood pressure observations for a patient</p>
-		<p><code>GET [base]/Observation?patient=1186747&amp;code=8867-4,9279-1,55284-4</code>
+		<p>
+			<a href="#.html">GET [base]/Observation?patient=1186747&amp;code=8867-4,9279-1,55284-4</a>
 		</p>
 		<p>
 			<em>Support:</em>  Mandatory to support search by vital sign LOINC(s) listed above.</p>
@@ -299,17 +303,16 @@ Search for all heart rate, respiratory rate and blood pressure observations for 
 			<li>(Status 401/4xx): unauthorized request</li>
 			<li>(Status 403): insufficient scope</li>
 		</ul>
-
 		<hr/>
+		<h4>
+			GET [base]/Observation?patient=[id]&amp;category=vital-signs&amp;date=[date]{&amp;date=[date]}
+		</h4>
 		<p>
-			<code>GET [base]/Observation?patient=[id]&amp;category=vital-signs&amp;date=[date]{&amp;date=[date]}</code>
-		</p>
-				<p>
 			<strong>Example:</strong>
 Find all the blood pressures after 2013-03-14</p>
-		<p><code>GET[base]/Observation?patient=555580&amp;code=55284-4&amp;date=ge2015-01-14</code>
+		<p>
+			<a href="#.hml">GET [base]/Observation?patient=555580&amp;code=55284-4&amp;date=ge2015-01-14</a>
 		</p>
-
 		<p>
 			<em>Support:</em>  Mandatory to support search by category code and date</p>
 		<p>
@@ -323,11 +326,5 @@ Find all the blood pressures after 2013-03-14</p>
 			<li>(Status 401/4xx): unauthorized request</li>
 			<li>(Status 403): insufficient scope</li>
 		</ul>
-		<p>
-			<strong>Example:</strong>
-Find all the blood pressures after 2013-03-14</p>
-		<p>GET <a href="http://fhir2.healthintersections.com.au/open/Observation?patient=555580&amp;code=55284-4&amp;date=ge2015-01-14">http://fhir2.healthintersections.com.au/open/Observation?patient=555580&amp;code=55284-4&amp;date=ge2015-01-14</a>
-		</p>
 	</div>
-
 </div>
