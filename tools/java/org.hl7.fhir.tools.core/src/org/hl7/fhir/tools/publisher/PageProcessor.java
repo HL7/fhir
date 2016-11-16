@@ -586,6 +586,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+mmHeader(com.length > 1 ? com[1] : null)+s3;
       else if (com[0].equals("cdheader"))
         src = s1+cdHeader(com.length > 1 ? com[1] : null)+s3;
+      else if (com[0].equals("diheader"))
+        src = s1+diHeader(com.length > 1 ? com[1] : null)+s3;
       else if (com[0].equals("ctheader"))
         src = s1+ctHeader(com.length > 1 ? com[1] : null)+s3;
       else if (com[0].equals("ucheader"))
@@ -2983,6 +2985,17 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     return b.toString();
   }
 
+  private String diHeader(String mode) {
+    StringBuilder b = new StringBuilder();
+    b.append("<ul class=\"nav nav-tabs\">");
+    b.append(makeHeaderTab("Dosage Instruction Detail", "dosageinstruction.html", mode==null || "base".equals(mode)));
+    b.append(makeHeaderTab("Examples", "dosageinstruction-examples.html", mode==null || "examples".equals(mode)));
+    b.append(makeHeaderTab("Detailed Descriptions", "dosageinstruction-definitions.html", mode==null || "definitions".equals(mode)));
+    b.append(makeHeaderTab("Mappings", "dosageinstruction-mappings.html", mode==null || "mappings".equals(mode)));
+    b.append("</ul>\r\n");
+    return b.toString();
+  }
+
   private String ctHeader(String mode) {
     StringBuilder b = new StringBuilder();
     b.append("<ul class=\"nav nav-tabs\">");
@@ -3915,7 +3928,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
           com[0].equals("formatsheader") || com[0].equals("resourcesheader") || com[0].equals("txheader") || com[1].equals("txheader0") ||
           com[0].equals("refheader") || com[0].equals("extrasheader") || com[0].equals("profilesheader") || com[0].equals("fmtheader") ||
           com[0].equals("igheader") || com[0].equals("cmpheader") || com[0].equals("atomheader") || com[0].equals("dictheader") ||
-          com[0].equals("adheader") || com[0].equals("pdheader") || com[0].equals("tdheader") || com[0].equals("cdheader") ||
+          com[0].equals("adheader") || com[0].equals("pdheader") || com[0].equals("tdheader") || com[0].equals("cdheader") || com[0].equals("diheader") ||
           com[0].equals("ctheader") || com[0].equals("ucheader") || com[0].equals("rrheader"))
         src = s1+s3;
       else if (com[0].equals("resheader"))
@@ -4320,7 +4333,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
           com[0].equals("formatsheader") || com[0].equals("narrheader") || com[0].equals("refheader") ||  com[0].equals("extrasheader") || com[0].equals("profilesheader") ||
           com[0].equals("txheader") || com[0].equals("txheader0") || com[0].equals("fmtheader") || com[0].equals("igheader") ||
           com[0].equals("cmpheader") || com[0].equals("atomheader") || com[0].equals("dictheader") || com[0].equals("ctheader") ||
-          com[0].equals("adheader") || com[0].equals("pdheader") || com[0].equals("tdheader") || com[0].equals("cdheader") ||
+          com[0].equals("adheader") || com[0].equals("pdheader") || com[0].equals("tdheader") || com[0].equals("cdheader") || com[0].equals("diheader") ||
           com[0].equals("ucheader") || com[0].equals("rrheader"))
         src = s1+s3;
       else if (com[0].equals("resheader"))

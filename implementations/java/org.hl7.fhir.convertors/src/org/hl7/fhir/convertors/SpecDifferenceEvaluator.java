@@ -181,7 +181,7 @@ public class SpecDifferenceEvaluator {
       StructureDefinition orig = original.types.get(s);
       StructureDefinition rev = revision.types.get(s);
       if (orig == null) {
-        markNew(rev.getName(), true);
+        markNew(rev.getName(), true, false);
       } else if (rev.getKind() == StructureDefinitionKind.PRIMITIVETYPE) {
         markNoChanges(rev.getName(), true);
       } else if (rev.hasDerivation() && orig.hasDerivation() && rev.getDerivation() != orig.getDerivation()) {
@@ -202,7 +202,7 @@ public class SpecDifferenceEvaluator {
       StructureDefinition orig = original.resources.get(checkRename(s));
       StructureDefinition rev = revision.resources.get(s);
       if (orig == null) {
-        markNew(rev.getName(), true);
+        markNew(rev.getName(), true, true);
       } else {
         compare(orig, rev);
       }
@@ -264,12 +264,12 @@ public class SpecDifferenceEvaluator {
     right.addText("deleted");
   }
   
-  private void markNew(String name, boolean item) {
+  private void markNew(String name, boolean item, boolean res) {
     XhtmlNode tr = tbl.addTag("tr").setAttribute("class", item ? "diff-new-item" : "diff-new");
     XhtmlNode left = tr.addTag("td").setAttribute("class", "diff-left");
     XhtmlNode right = tr.addTag("td").setAttribute("class", "diff-right");
     left.addText(name);
-    right.addText("added");    
+    right.addText(res ? "added Resource" : "added Element");    
   }
 
   private void compare(StructureDefinition orig, StructureDefinition rev) {
@@ -296,7 +296,7 @@ public class SpecDifferenceEvaluator {
       ElementDefinition oed = (ElementDefinition) ed.getUserData("match");
       if (oed == null) {
         changed = true;
-        markNew(ed.getPath(), false);        
+        markNew(ed.getPath(), false, false);        
       } else 
         changed = compareElement(ed, oed) || changed;
     }
