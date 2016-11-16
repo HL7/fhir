@@ -87,7 +87,7 @@ purposes:</p>
 <h3>Question Definitions</h3>
 <p>
 Questionnaires can be crafted using any questions the author can conceive phrased in whatever manner is appropriate or convenient.  However, standardization of
-questions and the constraints enforced on the accompanying answers increases the ability to compare data gathered across questionnaires.  There are two
+questions and the constraints enforced on the accompanying answers increases the ability to compare data gathered across questionnaires.  <!--There are two
 mechanisms defined in the specification for linking a Question (or Group) to a standardized definition:
 </p>
 <ul>
@@ -96,19 +96,35 @@ mechanisms defined in the specification for linking a Question (or Group) to a s
   <li>The <a href="questionnaire-extensions.html#deReference">deReference</a> extension allows a question or group to be associated with the
   <a href="dataelement.html">DataElement</a> (DE) resource that formally defines the data element.</li>
 </ul>
+-->
+Items can be directly linked to an <a href="elementdefinition">ElementDefinition</a> using <code>Questionnaire.item.definition</code>
+which provides details for the item. If a definition is provided, then the following element values can be derived from the definition: 
+</p>
+<ul>
+<li>concept (from ElementDefinition.code)</li>
+<li>type (from ElementDefinition.type)</li>
+<li>required (from ElementDefinition.min)</li>
+<li>repeats (from ElementDefinition.max)</li>
+<li>maxLength (from ElementDefinition.maxLength)</li>
+<li>options (from ElementDefinition.binding)</li>
+</ul>
 <p>
-Linking to formal definitions of a question allows data captured by distinct questionnaires to be compared.  If systems have the necessary mappings to the
-formal definition, linkages to formal definitions may also be used to automatically pre-populate or extract data from a corresponding 
-<a href="questionnaireresponse.html">QuestionnaireResponse</a> resource.
+Any information provided in these elements overrides the information from the definition.
+The ElementDefinition must be in a <a href="structuredefinition.html">StructureDefinition</a> or a <a href="dataelement.html">DataElement</a>, 
+and must have a fragment identifier that identifies the specific data element by it's id (<a href="element.html">Element</a>.id). 
+E.g. http://hl7.org/fhir/StructureDefinition/Observation#Observation.value[x]
 </p>
 <p>
-NOTE: Even if standard question definitions are referenced using <code>concept</code> or the <code>deReference</code> extension, information such as the question text,
+The definitions may also be used to automatically pre-populate answers, or extract data from a corresponding <a href="questionnaireresponse.html">QuestionnaireResponse</a> resource.
+</p>
+<p>
+NOTE: Even if a standard question definition is provided<!--s are referenced using <code>concept</code> or the <code>deReference</code> extension-->, information such as the question text,
 data type and value set SHOULD still be declared for the question.  Systems processing the questionnaire may not have access to or support the ability to look
 up the question definitions from external sources.  If the information is not included in-line within the questionnaire, other systems may not be able to to render
 or use the Questionnaire.
 </p>
 <p>
-If an external reference (<code>concept</code> or <code>deReference</code> extension) is included along with question information such as question text, data type or
+If an external definition <!--reference (<code>concept</code> or <code>deReference</code> extension)--> is included along with question information such as question text, data type or
 value set, it is expected that the content for the question and the referenced definition would be in alignment.  However, FHIR does not dictate what degree of
 alignment is required; e.g. Does the question text need to match exactly?  Is it legitimate for a question to constrain the allowed value set of possible answers?
 These rules will need to be established within implementation environments.

@@ -232,6 +232,14 @@
   Expression = (type in (\'boolean\' | \'decimal\' | \'integer\' | \'string\' | \'text\' | \'url\')) or maxLength.empty()
   Severity = error
 
+ -- Row 11 -----------------------------------
+  Id = 11
+  Context = Questionnaire.item
+  English = Type is required if a definition is not provided
+  XPath = not(exists(f:type)) or exists(f:definition)
+  Expression = definition.empty() implies type.exists()
+  Severity = error
+
 === Sheet Data Elements =====================================
 
  -- Row 1 -----------------------------------
@@ -379,10 +387,21 @@
   Short Name = Unique id for item in questionnaire
   Definition = An identifier that is unique within the Questionnaire allowing linkage to the equivalent item in a QuestionnaireResponse resource.
   Requirements = [[[QuestionnaireResponse]]] does not require omitted items to be included and may have some items that repeat, so linkage based on position alone is not sufficient.
-  Comments = May be omitted if there is no expectation to link answers back to a Questionnaire.  This \'\'can\'\' be a meaningful identifier (e.g. a LOINC code) but is not intended to have any meaning.  GUIDs or sequential numbers are appropriate here.
+  Comments = This \'\'can\'\' be a meaningful identifier (e.g. a LOINC code) but is not intended to have any meaning.  GUIDs or sequential numbers are appropriate here.
   RIM Mapping = .id
 
  -- Row 15 -----------------------------------
+  Element = Questionnaire.item.definition
+  Card. = 0..1
+  Inv. = 11
+  Type = uri
+  Short Name = ElementDefinition - details for the item
+  Definition = A reference to an [[[ElementDefinition]]] that provides the details for the item. If a definition is provided, then the following element values can be inferred from the definition: \n\n* concept (ElementDefinition.code)\n* type (ElementDefinition.type)\n* required (ElementDefinition.min)\n* repeats (ElementDefinition.max)\n* maxLength (ElementDefinition.maxLength)\n* options (ElementDefinition.binding)\n\nAny information provided in these elements overrides the information from the definition
+  Requirements = A common pattern is to define a set of data elements, and then build multiple different questionnaires for different circumstances to gather the data. This element provides traceability to the common definition, and allows the content for the question to come from the underlying definition
+  Comments = The ElementDefinition must be in a [[[StructureDefinition]]] or a [[[DataElement]]], and must have a fragment identifier that identifies the specific data element by it\\\'s id (Element.id). E.g. http://hl7.org/fhir/StructureDefinition/Observation#Observation.value[x]
+  RIM Mapping = Not supported
+
+ -- Row 16 -----------------------------------
   Element = Questionnaire.item.concept
   Card. = 0..*
   Summary = Y
@@ -392,10 +411,10 @@
   Short Name = Concept that represents this item within in a questionnaire
   Definition = Terminology code that corresponds to this group or question (e.g. LOINC)
   Requirements = Allows linking of groups of questions (and complete Questionnaire resources) to formal terminologies
-  Comments = The code(s) for the \"root\" group apply to the questionnaire as a whole.
+  Comments = The code(s) for the \"root\" group apply to the questionnaire as a whole. Value may come from the ElementDefinition referred to by .definition
   RIM Mapping = .code
 
- -- Row 16 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = Questionnaire.item.prefix
   Card. = 0..1
   Aliases = label
@@ -406,7 +425,7 @@
   Comments = These are generally unique within a questionnaire, though this is not guaranteed. Some questionnaires may have multiple questions with the same label with logic to control which gets exposed.\n\nTypically these won\'t be used for \"text\" items, though such use is not prohibited.\n\nSystems SHOULD NOT generate their own prefixes if prefixes are defined for any items within a Questionnaire.
   RIM Mapping = Not supported
 
- -- Row 17 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = Questionnaire.item.text
   Card. = 0..1
   Summary = Y
@@ -415,18 +434,19 @@
   Definition = The name of a section, the text of a question or text content for a text item
   RIM Mapping = .text
 
- -- Row 18 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = Questionnaire.item.type
-  Card. = 1..1
+  Card. = 0..1
+  Inv. = 11
   Type = code
   Binding = QuestionnaireItemType
   Short Name = group | display | question | boolean | decimal | integer | date | dateTime +
   Definition = Identifies the type of questionnaire item this is - whether text for display, a grouping of other items or a particular type of data to be captured (string, integer, coded choice, etc.)
   Requirements = Defines the format in which the user is to be prompted for the answer
-  Comments = Additional constraints on the type of answer can be conveyed by extensions
+  Comments = Additional constraints on the type of answer can be conveyed by extensions. Value may come from the ElementDefinition referred to by .definition
   RIM Mapping = N/A - MIF rather than RIM level
 
- -- Row 19 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = Questionnaire.item.enableWhen
   Card. = 0..*
   Is Modifier = Y
@@ -438,7 +458,7 @@
   Comments = If multiple repetitions of this extension are present, the item should be enabled when the condition for *any* of the repetitions is true.  I.e. Treat \"enableWhen\"s as being joined by an \"or\" clause.\n\nIf enableWhen is present for an item, \"required\" is ignored unless one of the enableWhen conditions is met.
   RIM Mapping = N/A - MIF rather than RIM level
 
- -- Row 20 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = Questionnaire.item.enableWhen.question
   Card. = 1..1
   Type = string
@@ -447,7 +467,7 @@
   Comments = If multiple question occurrences are present for the same question (same linkId), then this refers to the nearest question occurrence reachable by tracing first the \"ancestor\" axis and then the \"preceding\" axis and then the \"following\" axis
   RIM Mapping = N/A - MIF rather than RIM level
 
- -- Row 21 -----------------------------------
+ -- Row 22 -----------------------------------
   Element = Questionnaire.item.enableWhen.hasAnswer
   Card. = 0..1
   Inv. = 7
@@ -457,7 +477,7 @@
   Comments = If answered=false and answer values are also provided, then they are treated as \"or\".  I.e. \"Enable if the question is unanswered or the answer is one of the specified values\".  If answered=true and answers are present, one of the specified answers must be met. (So there\'s little reason to specify answered=true if answers are present.)
   RIM Mapping = N/A - MIF rather than RIM level
 
- -- Row 22 -----------------------------------
+ -- Row 23 -----------------------------------
   Element = Questionnaire.item.enableWhen.answer[x]
   Card. = 0..1
   Inv. = 7
@@ -467,18 +487,18 @@
   Comments = Components not specified in the answer do not need to match.  For example, if enableWhen specifies code + system for a Coding, it\'s ok if the answer has a \"display\" element.\n\nThe dataType of this element must be the same as the data type of the question being referenced.
   RIM Mapping = N/A - MIF rather than RIM level
 
- -- Row 23 -----------------------------------
+ -- Row 24 -----------------------------------
   Element = Questionnaire.item.required
   Card. = 0..1
   Inv. = 6
   Type = boolean
   Short Name = Whether the item must be included in data results
   Definition = If true, indicates that the item must be present in a \"completed\" QuestionnaireResponse.  If false, the item may be skipped when answering the questionnaire.
-  Comments = Questionnaire.item.required only has meaning for elements that are conditionally enabled with enableWhen if the condition evaluates to true.  If an item that contains other items is marked as required, that does not automatically make the contained elements required (though required groups must contain at least one child element).
+  Comments = Questionnaire.item.required only has meaning for elements that are conditionally enabled with enableWhen if the condition evaluates to true.  If an item that contains other items is marked as required, that does not automatically make the contained elements required (though required groups must contain at least one child element). Value may come from the ElementDefinition referred to by .definition
   RIM Mapping = N/A - MIF rather than RIM level
   Default Value = False
 
- -- Row 24 -----------------------------------
+ -- Row 25 -----------------------------------
   Element = Questionnaire.item.repeats
   Card. = 0..1
   Inv. = 6
@@ -486,11 +506,11 @@
   Short Name = Whether the item may repeat
   Definition = Whether the item may occur multiple times in the instance, containing multiple sets of answers
   Requirements = Items may be used to create set of (related) questions that can be repeated to give multiple answers to such a set
-  Comments = If a question is marked as repeats=true, then multiple answers can be provided for the question in the corresponding QuestionnaireResponse.  When rendering the questionnaire, it is up to the rendering software whether to render the question text for each answer repetition or to simply list each of the answers beneath the question.  (Which is most appropriate visually may depend on the type of answer as well as whether there are nested items.)
+  Comments = If a question is marked as repeats=true, then multiple answers can be provided for the question in the corresponding QuestionnaireResponse.  When rendering the questionnaire, it is up to the rendering software whether to render the question text for each answer repetition or to simply list each of the answers beneath the question.  (Which is most appropriate visually may depend on the type of answer as well as whether there are nested items.). Value may come from the ElementDefinition referred to by .definition
   RIM Mapping = N/A - MIF rather than RIM level
   Default Value = False
 
- -- Row 25 -----------------------------------
+ -- Row 26 -----------------------------------
   Element = Questionnaire.item.readOnly
   Card. = 0..1
   Inv. = 9
@@ -501,28 +521,28 @@
   Comments = The value of readOnly elements can be established by asserting  extensions for defaultValues, linkages that support pre-population and/or extensions that support calculation based on other answers.
   RIM Mapping = N/A - MIF rather than RIM level
 
- -- Row 26 -----------------------------------
+ -- Row 27 -----------------------------------
   Element = Questionnaire.item.maxLength
   Card. = 0..1
   Inv. = 10
   Type = integer
   Short Name = No more than this many characters
   Definition = The maximum number of characters that are permitted in the answer to be considered a \"valid\" QuestionnaireResponse.
-  Comments = For base64binary, reflects the number of characters representing the encoded data, not the number of bytes of the binary data.
+  Comments = For base64binary, reflects the number of characters representing the encoded data, not the number of bytes of the binary data. Value may come from the ElementDefinition referred to by .definition
   v2 Mapping = N/A
   RIM Mapping = N/A - MIF rather than RIM level
 
- -- Row 27 -----------------------------------
+ -- Row 28 -----------------------------------
   Element = Questionnaire.item.options
   Card. = 0..1
   Inv. = 4,5
   Type = Reference(ValueSet)
   Short Name = Valueset containing permitted answers
   Definition = Reference to a value set containing a list of codes representing permitted answers for the question
-  Comments = LOINC defines many useful value sets for questionnaire response. See [LOINC Answer Lists](loinc.html#alist)
+  Comments = LOINC defines many useful value sets for questionnaire response. See [LOINC Answer Lists](loinc.html#alist). Value may come from the ElementDefinition referred to by .definition
   RIM Mapping = N/A - MIF rather than RIM level
 
- -- Row 28 -----------------------------------
+ -- Row 29 -----------------------------------
   Element = Questionnaire.item.option
   Card. = 0..*
   UML = 100;400
@@ -532,7 +552,7 @@
   Definition = For a \"choice\" question, identifies one of the permitted answers for the question.
   RIM Mapping = N/A - MIF rather than RIM level
 
- -- Row 29 -----------------------------------
+ -- Row 30 -----------------------------------
   Element = Questionnaire.item.option.value[x]
   Card. = 1..1
   Type = integer | date | time | string | Coding
@@ -541,7 +561,7 @@
   Definition = Identifies a specific answer that\'s allowed as the answer to a question
   RIM Mapping = N/A - MIF rather than RIM level
 
- -- Row 30 -----------------------------------
+ -- Row 31 -----------------------------------
   Element = Questionnaire.item.initial[x]
   Card. = 0..1
   Inv. = 8
@@ -551,7 +571,7 @@
   Requirements = In some workflows, having defaults saves time.
   RIM Mapping = N/A - MIF rather than RIM level
 
- -- Row 31 -----------------------------------
+ -- Row 32 -----------------------------------
   Element = Questionnaire.item.item
   Card. = 0..*
   Inv. = 1

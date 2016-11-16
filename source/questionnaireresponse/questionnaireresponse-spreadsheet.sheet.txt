@@ -196,6 +196,16 @@
   RIM Mapping = .outboundRelationship[typeCode=DEFN].target[classCode=OBS, moodCode=DEFN]
 
  -- Row 14 -----------------------------------
+  Element = QuestionnaireResponse.item.definition
+  Card. = 0..1
+  Type = uri
+  Short Name = ElementDefinition - details for the item
+  Definition = A reference to an [[[ElementDefinition]]] that provides the details for the item
+  Requirements = A common pattern is to define a set of data elements, and then build multiple different questionnaires for different circumstances to gather the data. This element provides traceability to the common definition
+  Comments = The ElementDefinition must be in a [[[StructureDefinition]]] or a [[[DataElement]]], and must have a fragment identifier that identifies the specific data element by it\\\'s id (Element.id). E.g. http://hl7.org/fhir/StructureDefinition/Observation#Observation.value[x]
+  RIM Mapping = Not supported
+
+ -- Row 15 -----------------------------------
   Element = QuestionnaireResponse.item.text
   Card. = 0..1
   Type = string
@@ -204,7 +214,7 @@
   Requirements = Allows the questionnaire response to be read without access to the questionnaire
   RIM Mapping = .text
 
- -- Row 15 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = QuestionnaireResponse.item.subject
   Card. = 0..1
   Type = Reference(Any)
@@ -214,7 +224,7 @@
   RIM Mapping = .participation[typeCode=SBJ].role or .outboundRelationship[typeCode=SUBJ].target
   To Do = How does the questionnaire indicate where this is appropriate/necessary?
 
- -- Row 16 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = QuestionnaireResponse.item.answer
   Card. = 0..*
   UML = 300;190
@@ -223,7 +233,7 @@
   Comments = The value is nested because we cannot have a repeating structure that has variable type
   RIM Mapping = .value[type=LIST_ANY]
 
- -- Row 17 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = QuestionnaireResponse.item.answer.value[x]
   Card. = 0..1
   Type = boolean | decimal | integer | date | dateTime | instant | time | string | uri | Attachment | Coding | Quantity | Reference(Any)
@@ -234,7 +244,7 @@
   Comments = More complex structures (Attachment, Resource and Quantity) will typically be limited to electronic forms that can expose an appropriate user interface to capture the components and enforce the constraints of a complex data type.  Additional complex types can be introduced through extensions.
   RIM Mapping = .item
 
- -- Row 18 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = QuestionnaireResponse.item.answer.item
   Card. = 0..*
   Type = @QuestionnaireResponse.item
@@ -243,7 +253,7 @@
   Requirements = It is useful to have \"sub-questions\", questions which normally appear when certain answers are given and which collect additional details.
   RIM Mapping = .outboundRelationship[typeCode=COMP].target[classCode=DOCSECT, moodCode=EVN]
 
- -- Row 19 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = QuestionnaireResponse.item.item
   Card. = 0..*
   Type = @QuestionnaireResponse.item
