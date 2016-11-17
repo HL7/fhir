@@ -128,11 +128,11 @@
   Expression = verificationStatus=\'entered-in-error\' or clinicalStatus.exists()
 
  -- Row 4 -----------------------------------
-  Id = !4
+  Id = 4
   Context = Condition
   English = If condition is abated, then clinicalStatus must be either inactive, resolved, or remission
-  XPath = xpath: not(f:abatementBoolean=\'true\' or exists(*[starts-with(local-name(.), \'abatement\')]) or f:clinicalStatus/@value=(\'resolved\', \'remission\',\'inactive\')
-  Expression = (abatementBoolean or abatementDateTime.exists() or abatementAge.exists() or abatementPeriod.exists or abatementRange.exists).not() or clinicalStatus=\'resolved\' or clinicalStatus=\'remission\' or clinicalStatus=\'inactive\'
+  XPath = xpath: not(f:abatementBoolean=\'true\' or (not(exists(f:abatementBoolean)) and exists(*[starts-with(local-name(.), \'abatement\')])) or f:clinicalStatus/@value=(\'resolved\', \'remission\', \'inactive\')
+  Expression = abatement.empty() or (abatement as boolean).not()  or clinicalStatus=\'resolved\' or clinicalStatus=\'remission\' or clinicalStatus=\'inactive\'
 
 === Sheet Data Elements =====================================
 
@@ -297,7 +297,7 @@
   Type = dateTime | Age | boolean | Period | Range | string
   Short Name = If/when in resolution/remission
   Definition = The date or estimated date that the condition resolved or went into remission. This is called \"abatement\" because of the many overloaded connotations associated with \"remission\" or \"resolution\" - Conditions are never really resolved, but they can abate.
-  Comments = There is no explicit distinction between resolution and remission because in many cases the distinction is not clear. Age is generally used when the patient reports an age at which the Condition abated.  If there is no abatement element, it is unknown whether the condition has resolved or entered remission; applications and users should generally assume that the condition is still valid
+  Comments = There is no explicit distinction between resolution and remission because in many cases the distinction is not clear. Age is generally used when the patient reports an age at which the Condition abated.  If there is no abatement element, it is unknown whether the condition has resolved or entered remission; applications and users should generally assume that the condition is still valid.  When abatementString exists, then it implies the condition is abated.
   RIM Mapping = .effectiveTime.high or .inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=\"age at remission\"].value or .inboundRelationship[typeCode=SUBJ]source[classCode=CONC, moodCode=EVN].status=completed
   w5 = when.done
 

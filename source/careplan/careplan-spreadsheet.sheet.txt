@@ -258,13 +258,14 @@
 
  -- Row 6 -----------------------------------
   Element = CarePlan.subject
-  Card. = 0..1
+  Card. = 1..1
   Summary = Y
   Type = Reference(Patient | Group)
   Short Name = Who care plan is for
   Definition = Identifies the patient or group whose intended care is described by the plan.
   v2 Mapping = PID-3
   RIM Mapping = .participation[typeCode=PAT].role[classCode=PAT]
+  Committee Notes = GF#12341
   w5 = who.focus
 
  -- Row 7 -----------------------------------

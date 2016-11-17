@@ -569,7 +569,9 @@
   Short Name = Default value when item is first rendered
   Definition = The value that should be pre-populated when rendering the questionnaire for user input.
   Requirements = In some workflows, having defaults saves time.
+  Comments = The user is allowed to change the value and override the default (unless marked as read-only). If the user doesn\'t change the value, then this initial value will be persisted when the QuestionnaireResponse is initially created.
   RIM Mapping = N/A - MIF rather than RIM level
+  Committee Notes = GF#11003
 
  -- Row 32 -----------------------------------
   Element = Questionnaire.item.item

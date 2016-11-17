@@ -98,7 +98,7 @@
   Card. = 0..1
   Aliases = Form
   Summary = y
-  Type = uri
+  Type = Reference (Questionnaire)
   Short Name = Form being answered
   Definition = Indicates the Questionnaire resource that defines the form for which answers are being provided
   Requirements = Needed to allow editing of the questionnaire in a manner that enforces the constraints of the original form.
@@ -184,7 +184,9 @@
   UML = 390;40
   Short Name = Groups and questions
   Definition = Corresponds to a group or question item from the original questionnaire
+  Comments = Groups cannot have answers and therefore must nest directly within item. When dealing with questions, nesting must occur within each answer because some questions may have multiple answers (and the nesting occurs for each answer).
   RIM Mapping = .outboundRelationship[typeCode=COMP].target[classCode=OBS, moodCode=EVN]
+  Committee Notes = GF#12071
 
  -- Row 13 -----------------------------------
   Element = QuestionnaireResponse.item.linkId
@@ -290,7 +292,7 @@
 
  -- Row 5 -----------------------------------
   Name = questionnaire
-  Type = uri
+  Type = reference
   Description = The questionnaire the answers are provided for
   Path = QuestionnaireResponse.questionnaire
 
