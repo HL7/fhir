@@ -31,9 +31,9 @@
       <display value="extended healthcare"/>
  </type>
 
- <planholder>
+ <subscriber>
 	<reference value="Patient/5"/>
- </planholder>
+ </subscriber>
  
  <beneficiary>
 	<reference value="Patient/5"/>
@@ -42,7 +42,5 @@
  <relationship>
       <code value="self"/>
  </relationship>
-
- <!-- <cardNumber value="75837593758377562475"/> Required? -->
   
 </Coverage>

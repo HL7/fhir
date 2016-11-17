@@ -29,9 +29,13 @@
    <display value="extended healthcare"/>
  </type>
  
- <planholder>
+ <policyHolder>
+   <reference value="http://benefitsinc.com/FHIR/Organization/CBI35"/>
+ </policyHolder>
+ 
+ <subscriber>
    <reference value="Patient/4"/>
- </planholder>
+ </subscriber>
  
  <beneficiary>
    <reference value="Patient/4"/>
@@ -42,13 +46,21 @@
  </relationship>
  
  <group>
-   <plan value="CBI35"/>
-   <planDisplay value="Corporate Baker's Inc. Plan#35"/>
-   <subPlan value="123"/>
-   <subPlanDisplay value="Trainee Part-time Benefits"/>
+   <group value="CBI35"/>
+   <groupDisplay value="Corporate Baker's Inc. Local #35"/>
+   <subGroup value="123"/>
+   <subGroupDisplay value="Trainee Part-time Benefits"/>
+   <plan value="B37FC"/>
+   <planDisplay value="Full Coverage: Medical, Dental, Pharmacy, Vision, EHC"/>
+   <subPlan value="P7"/>
+   <subPlanDisplay value="Includes afterlife benefits"/>
+   <class value="SILVER"/>
+   <classDisplay value="Silver: Family Plan spouse only"/>
+   <subClass value="Tier2"/>
+   <subClassDisplay value="Low deductable, max $20 copay"/>
  </group>
   
- <dependent value="1"/>
- <sequence value="1"/>
+ <dependent value="0"/>
+ <sequence value="9"/>
 
 </Coverage>
