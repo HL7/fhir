@@ -77,9 +77,10 @@
         <system value="http://hl7.org/fhir/v3/ActCode"/>
         <code value="EHCPOL"/>
       </type>
-      <planholder>
+	  
+      <subscriber>
         <reference value="#patient-1"/>
-      </planholder>
+      </subscriber>
  
       <beneficiary>
         <reference value="#patient-1"/>
