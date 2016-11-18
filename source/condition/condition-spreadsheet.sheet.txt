@@ -174,17 +174,20 @@
 
  -- Row 4 -----------------------------------
   Element = Condition.verificationStatus
-  Card. = 1..1
+  Card. = 0..1
   Is Modifier = y
   Summary = Y
   Type = code
   Binding = ConditionVerificationStatus
   Short Name = provisional | differential | confirmed | refuted | entered-in-error | unknown
   Definition = The verification status to support the clinical status of the condition.
+  Comments = verificationStatus is not required.  For example, when a patient has abdominal pain in the ED, there is not likely going to be a verification status.
   SNOMED CT Concept Domain = < 410514004 |Finding context value|
   v2 Mapping = PRB-13
   RIM Mapping = .code (pre or post-coordinated in)  Can use valueNegationInd for refuted
   SNOMED CT Attribute = 408729009
+  Committee Notes = GF#11281
+  Default Value = unknown
   w5 = status
 
  -- Row 5 -----------------------------------
@@ -249,7 +252,7 @@
   Binding = BodySite
   Short Name = Anatomical location, if relevant
   Definition = The anatomical location where this condition manifests itself
-  Comments = May be a summary code, or a reference to a very precise definition of the location, or both
+  Comments = Only used if not implicit in code found in Condition.code. If the use case requires attributes from the BodySite resource (e.g. to identify and track separately) then use the standard extension [body-site-instance](extension-body-site-instance.html).  May be a summary code, or a reference to a very precise definition of the location, or both
   SNOMED CT Concept Domain = < 442083009  |Anatomical or acquired body structure|
   RIM Mapping = .targetBodySiteCode
   SNOMED CT Attribute = 363698007
@@ -297,7 +300,7 @@
   Type = dateTime | Age | boolean | Period | Range | string
   Short Name = If/when in resolution/remission
   Definition = The date or estimated date that the condition resolved or went into remission. This is called \"abatement\" because of the many overloaded connotations associated with \"remission\" or \"resolution\" - Conditions are never really resolved, but they can abate.
-  Comments = There is no explicit distinction between resolution and remission because in many cases the distinction is not clear. Age is generally used when the patient reports an age at which the Condition abated.  If there is no abatement element, it is unknown whether the condition has resolved or entered remission; applications and users should generally assume that the condition is still valid.  When abatementString exists, then it implies the condition is abated.
+  Comments = There is no explicit distinction between resolution and remission because in many cases the distinction is not clear. Age is generally used when the patient reports an age at which the Condition abated.  If there is no abatement element, it is unknown whether the condition has resolved or entered remission; applications and users should generally assume that the condition is still valid.  When abatementString exists, it implies the condition is abated.
   RIM Mapping = .effectiveTime.high or .inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=\"age at remission\"].value or .inboundRelationship[typeCode=SUBJ]source[classCode=CONC, moodCode=EVN].status=completed
   w5 = when.done
 
