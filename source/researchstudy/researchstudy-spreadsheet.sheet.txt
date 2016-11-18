@@ -28,42 +28,42 @@
  -- Row 1 -----------------------------------
   Id = 1
   Code = draft
-  Display = draft
+  Display = Draft
   Definition = The study is undergoing design but the process of selecting study subjects and capturing data has not yet begun.
   v3 = new
 
  -- Row 2 -----------------------------------
   Id = 2
   Code = in-progress
-  Display = in-progress
+  Display = In-progress
   Definition = The study is currently being executed
   v3 = active
 
  -- Row 3 -----------------------------------
   Id = 3
   Code = suspended
-  Display = suspended
+  Display = Suspended
   Definition = Execution of the study has been temporarily paused
   v3 = suspended
 
  -- Row 4 -----------------------------------
   Id = 4
   Code = stopped
-  Display = stopped
+  Display = Stopped
   Definition = The study was terminated prior to the final determination of results
   v3 = aborted
 
  -- Row 5 -----------------------------------
   Id = 5
   Code = completed
-  Display = completed
+  Display = Completed
   Definition = The information sought by the study has been gathered and compiled and no further work is being performed
   v3 = completed
 
  -- Row 6 -----------------------------------
   Id = 6
   Code = entered-in-error
-  Display = entered in error
+  Display = Entered in error
   Definition = This study never actually existed.  The record is retained for tracking purposes in the event decisions may have been made based on this erroneous information.
   v3 = nullified
 

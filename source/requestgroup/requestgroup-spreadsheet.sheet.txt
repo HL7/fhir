@@ -59,6 +59,13 @@
 
 === Sheet Invariants =====================================
 
+ -- Row 1 -----------------------------------
+  Id = 1
+  Context = RequestGroup.action
+  English = Must have resource or action but not both
+  XPath = exists(f:resource) != exists(f:action)
+  Expression = resource.exists() != action.exists()
+
 === Sheet Data Elements =====================================
 
  -- Row 1 -----------------------------------
@@ -313,13 +320,16 @@
  -- Row 34 -----------------------------------
   Element = RequestGroup.action.resource
   Card. = 0..1
+  Inv. = 1
   Type = Reference(Any)
   Short Name = The target of the action
   Definition = The resource that is the target of the action (e.g. CommunicationRequest)
+  Comments = The target resource SHALL be a [[[Request]]] resource with a Request.intent set to \"option\".
 
  -- Row 35 -----------------------------------
   Element = RequestGroup.action.action
   Card. = 0..*
+  Inv. = 1
   Type = @RequestGroup.action
   Short Name = Sub action
   Definition = Sub actions

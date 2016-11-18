@@ -26,7 +26,7 @@ This logical model is one of three common <a href="workflow.html#respatterns">wo
 <h2>Background and Context</h2>
 <p>
 This resource represents a pattern.  It provides a standard list of data elements with cardinalities, data types, definitions, rationale and usage notes that will ideally be 
-adhered to by resources that fall into the "request" workflow category.  However, adherence to this pattern is not mandatory.  Not all healthcare domains are the same.
+adhered to by resources that fall into the "event" workflow category.  However, adherence to this pattern is not mandatory.  Not all healthcare domains are the same.
 Concepts that may be generally applicable (and thus are included in this standard pattern) might still not be relevant everywhere or may be sufficiently uncommon that they
 are more appropriate to include as extensions than as core properties of the resource.  Work groups are encouraged to adjust descriptions, usage notes and rationale to be
 specific to their resource (e.g. use the term "procedure" or "observation" rather than "event").  As well, design notes in the comments column marked with [square

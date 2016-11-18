@@ -131,6 +131,7 @@
   Element = MessageDefinition.focus
   Card. = 0..*
   Summary = Y
+  UML = 410;0
   Short Name = Resource(s) that are the subject of the event
   Definition = Identifies the resource (or resources) that are being addressed by the event.  For example, the Encounter for an admit message or two Account records for a merge
 
@@ -180,6 +181,7 @@
  -- Row 27 -----------------------------------
   Element = MessageDefinition.allowedResponse
   Card. = 0..*
+  UML = 410;250
   Short Name = Responses to this message
   Definition = Indicates what types of messages may be sent as an application-level response to this message.
   Comments = This indicates an application level response to \"close\" a transaction implicit in a particular request message.  To define a complete workflow scenario, look to the [[PlanDefinition]] resource which allows the definition of complex orchestrations, conditionality, etc.

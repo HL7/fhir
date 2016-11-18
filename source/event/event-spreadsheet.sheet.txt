@@ -17,6 +17,12 @@
   Binding = unbound
   Definition = Codes identifying why this event was necessary.  These may be clinical reasons (e.g. diagnoses, symptoms) and/or administrative reasons.  While the detailed constraints of relevant reasons will vary by resource, some degree of consistency across resources around recommended codes would be desirable.
 
+ -- Row 4 -----------------------------------
+  Binding Name = EventPerformerRole
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/performer-role
+  Definition = Codes describing the types of functional roles performers can take on when performing events
+
 === Sheet event-status =====================================
 
  -- Row 1 -----------------------------------
@@ -61,7 +67,21 @@
   Definition = This electronic record should never have existed, though it is possible that real-world decisions were based on it.  (If real-world activity has occurred, the status should be \"cancelled\" rather than \"entered-in-error\".)
   v3 = =ActStatus.nullified
 
+ -- Row 7 -----------------------------------
+  Id = 7
+  Code = unknown
+  Display = Unknown
+  Definition = The authoring system does not know which of the status values currently applies for this event
+  v3 = =NullFlavor.unknown
+
 === Sheet Invariants =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Context = Event
+  English = Not Done Reason can only be specified if NotDone is \"true\"
+  XPath = f:notDone=\'true\' or not(exists(f:notDoneReason))
+  Expression = notDone or notDoneReason.exists().not()
 
 === Sheet Data Elements =====================================
 
@@ -69,7 +89,7 @@
   Element = Event
   Type = Logical
   Short Name = Event Pattern
-  Definition = A pattern to be followed by resources that represent the performance of some task, possibly in accordance with a request or service definition
+  Definition = A pattern to be followed by resources that represent the performance of some activity, possibly in accordance with a request or service definition
   RIM Mapping = Act[moodCode=EVN]
 
  -- Row 2 -----------------------------------
@@ -126,11 +146,35 @@
   Binding = EventStatus
   Short Name = preparation | in-progress | suspended | aborted | completed | entered-in-error
   Definition = The current state of the event
+  Comments = A nominal state-transition diagram can be found in the [[event.html#statemachine | Event pattern]] documentation\n\nUnknown does not represent \"other\" - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is.
   RIM Mapping = .status
   To Do = Should this be a common code system for all events?
   w5 = status
 
  -- Row 7 -----------------------------------
+  Element = Event.notDone
+  Card. = 0..1
+  Is Modifier = Y
+  Summary = Y
+  Type = boolean
+  Short Name = {{title}} did not occur
+  Definition = If true, indicates that the described event (combination of code, timing, performer, etc.) did not actually occur.
+  Requirements = Creating a {{title}} where notDone is true is intended for situations where there\'s a need for a specific statement in the record about something not being done.  If the need is merely to indicate that a request wasn\'t fulfilled, that should be handled using Task.
+  Comments = The more attributes are populated, the more constrained the negated statement is.  For example if timeframe and performer are specified, that means the event wasn\'t done by that performer in that time-period, but could well have been done by someone else or by that performer in a different time period.
+  RIM Mapping = .actionNegationInd
+
+ -- Row 8 -----------------------------------
+  Element = Event.notDoneReason
+  Card. = 0..1
+  Summary = Y
+  Inv. = 1
+  Type = CodeableConcept
+  Short Name = Why {{title}} did not occur
+  Definition = Describes why the event did not occur in coded and/or textual form.
+  Requirements = This is a separate element to allow it to have a distinct binding from reasonCode
+  RIM Mapping = .reasonCode
+
+ -- Row 9 -----------------------------------
   Element = Event.code
   Card. = 0..1
   Aliases = type
@@ -142,7 +186,7 @@
   RIM Mapping = .code
   w5 = what
 
- -- Row 8 -----------------------------------
+ -- Row 10 -----------------------------------
   Element = Event.subject
   Card. = 1..1
   Aliases = patient
@@ -156,7 +200,7 @@
   To Do = For mapping, is it better if we make this Any and then constrain it down?
   w5 = who.focus
 
- -- Row 9 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = Event.context
   Card. = 0..1
   Aliases = encounter
@@ -169,7 +213,7 @@
   RIM Mapping = .inboundRelationship(typeCode=COMP].source[classCode<=PCPR, moodCode=EVN]
   w5 = context
 
- -- Row 10 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = Event.occurrence[x]
   Card. = 0..1
   Aliases = timing
@@ -181,18 +225,46 @@
   RIM Mapping = .effectiveTime
   w5 = when.planned
 
- -- Row 11 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = Event.performer
-  Card. = 0..1
+  Card. = 0..*
   Summary = Y
-  Type = Reference(Practitioner|Organization|Patient|Device|RelatedPerson)
   Short Name = Who performed event
   Definition = Indicates who or what performed the event
+  Comments = [Resources may choose to replace this with just a single performer or repeating where there\'s no need to distinguish role and/or responsible organization]
   RIM Mapping = .participation[typeCode=PRF].role[scoper.determinerCode=INSTANCE]
+
+ -- Row 14 -----------------------------------
+  Element = Event.performer.role
+  Card. = 0..1
+  Summary = Y
+  Type = CodeableConcept
+  Binding = EventPerformerRole
+  Short Name = What type of performance was done
+  Definition = Describes the type of performance (e.g. primary surgeon, anaesthesiologiest, etc.)
+  RIM Mapping = .participation.functionCode
+
+ -- Row 15 -----------------------------------
+  Element = Event.performer.actor
+  Card. = 1..1
+  Summary = Y
+  Type = Reference(Practitioner|Organization|Patient|Device|RelatedPerson)
+  Short Name = Individual who was performing
+  Definition = The device, practitioner, etc. who performed the action
+  RIM Mapping = .player
   w5 = who.actor
 
- -- Row 12 -----------------------------------
-  Element = Event.reasonCode
+ -- Row 16 -----------------------------------
+  Element = Event.performer.onBehalfOf
+  Card. = 0..1
+  Type = Reference(Organization)
+  Short Name = Organization organization was acting for
+  Definition = The organization the device or practitioner was acting on behalf of
+  Requirements = Practitioners and Devices can be associated with multiple organizations.  This element indicates which organization they were acting on behalf of when performing the action
+  RIM Mapping = .scoper
+
+ -- Row 17 -----------------------------------
+  Element = Event.reasonCodeableConcept
   Card. = 0..*
   Summary = Y
   Type = CodeableConcept
@@ -203,7 +275,7 @@
   RIM Mapping = .reasonCode
   w5 = why
 
- -- Row 13 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = Event.reasonReference
   Card. = 0..*
   Summary = Y
@@ -214,7 +286,7 @@
   RIM Mapping = .outboundRelationship[typeCode=RSON].target
   w5 = why
 
- -- Row 14 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = Event.note
   Card. = 0..*
   Type = Annotation

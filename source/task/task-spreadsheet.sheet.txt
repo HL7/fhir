@@ -11,8 +11,8 @@
 
  -- Row 2 -----------------------------------
   Binding Name = TaskPriority
-  Binding = code list
-  Reference = #task-priority
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/request-priority
   Definition = The task\'s priority
   Description = The priority of a task (may affect service level applied to the task).
   Conformance = required
@@ -102,26 +102,6 @@
   Display = Reviewer
   Definition = A workflow participant that reviews task inputs or outputs.
 
-=== Sheet task-priority =====================================
-
- -- Row 1 -----------------------------------
-  Id = 1
-  Code = low
-  Display = Low
-  Definition = This task has low priority.
-
- -- Row 2 -----------------------------------
-  Id = 2
-  Code = normal
-  Display = Normal
-  Definition = This task has normal priority.
-
- -- Row 3 -----------------------------------
-  Id = 3
-  Code = high
-  Display = High
-  Definition = This task has high priority.
-
 === Sheet task-status =====================================
 
  -- Row 1 -----------------------------------
@@ -132,7 +112,7 @@
  -- Row 2 -----------------------------------
   Code = requested
   Display = Requested
-  Definition = The task is ready to be acted upon
+  Definition = The task is ready to be acted upon and action is sought
 
  -- Row 3 -----------------------------------
   Code = received
@@ -155,24 +135,34 @@
   Definition = Task is ready to be performed, but no action has yet been taken.  Used in place of requested/received/accepted/rejected when request assignment and acceptance is a given.
 
  -- Row 7 -----------------------------------
+  Code = cancelled
+  Display = Cancelled
+  Definition = The request for action has been withdrawn prior to commencement of activity
+
+ -- Row 8 -----------------------------------
   Code = in-progress
   Display = In Progress
   Definition = Task has been started but is not yet complete.
 
- -- Row 8 -----------------------------------
+ -- Row 9 -----------------------------------
   Code = on-hold
   Display = On Hold
   Definition = Task has been started but work has been paused
 
- -- Row 9 -----------------------------------
+ -- Row 10 -----------------------------------
   Code = failed
   Display = Failed
   Definition = The task was attempted but could not be completed due to some error.
 
- -- Row 10 -----------------------------------
+ -- Row 11 -----------------------------------
   Code = completed
   Display = Completed
   Definition = The task has been completed (more or less) as requested.
+
+ -- Row 12 -----------------------------------
+  Code = entered-in-error
+  Display = Entered in Error
+  Definition = The task should never have existed and is retained only because of the possibility it may have used
 
 === Sheet Invariants =====================================
 
@@ -293,8 +283,8 @@
   Card. = 0..1
   Type = code
   Binding = TaskPriority
-  Short Name = low | normal | high
-  Definition = The priority of the task among other tasks of the same type
+  Short Name = normal | urgent | asap | stat
+  Definition = Indicates how quickly the Task should be addressed with respect to other requests
   Requirements = Used to identify the service level expected while performing a task.
   RIM Mapping = .priorityCode
   Missing Meaning = If missing, this task should be performed with normal priority
@@ -424,16 +414,16 @@
   RIM Mapping = .inboundRelationship[typeCode=SUBJ, ].source[classCode=OBS, moodCode=EVN, code=\"annotation\"].value(string)
 
  -- Row 23 -----------------------------------
-  Element = Task.fulfillment
+  Element = Task.restriction
   Card. = 0..1
   UML = 400;00
   Short Name = Constraints on fulfillment tasks
-  Definition = Identifies any limitations on what part of a referenced task subject request should be actioned
+  Definition = If the Task.focus is a request resource and the task is seeking fulfillment (i.e is asking for the request to be actioned), this element identifies any limitations on what parts of the referenced request should be actioned
   Requirements = Sometimes when fulfillment is sought, you don\'t want full fulfillment
   RIM Mapping = Instead of pointing to request, would point to component of request, having these characteristics
 
  -- Row 24 -----------------------------------
-  Element = Task.fulfillment.repetitions
+  Element = Task.restriction.repetitions
   Card. = 0..1
   Type = positiveInt
   Short Name = How many times to repeat
@@ -442,7 +432,7 @@
   RIM Mapping = .repeatNumber
 
  -- Row 25 -----------------------------------
-  Element = Task.fulfillment.period
+  Element = Task.restriction.period
   Card. = 0..1
   Type = Period
   Short Name = Over what time-period is fulfillment sought
@@ -450,7 +440,7 @@
   RIM Mapping = .effectiveTime(IVL<TS>)
 
  -- Row 26 -----------------------------------
-  Element = Task.fulfillment.recipients
+  Element = Task.restriction.recipient
   Card. = 0..*
   Type = Reference(Patient|Practitioner|RelatedPerson|Group|Organization)
   Short Name = For whom is fulfillment sought?
@@ -463,7 +453,7 @@
   Card. = 0..1
   Summary = Y
   Type = uri
-  Short Name = Task Definition
+  Short Name = Formal definition of task
   Definition = A reference to a formal or informal definition of the task.  For example, a protocol, a step within a defined workflow definition, etc.
   Requirements = Enables a formal definition of how he task is to be performed (e.g. using BPMN, BPEL, XPDL or other formal notation) to be associated with a task, enabling automation.
   RIM Mapping = .outboundRelationship[typeCode=DEFN].target
@@ -474,7 +464,7 @@
   Aliases = Supporting Information
   UML = 400;125
   Type = =Parameter
-  Short Name = Supporting information
+  Short Name = Information used to perform task
   Definition = Additional information that may be needed in the execution of the task
   Requirements = Resources and data used to perform the task.  This data is used in the business logic of task execution, and is stored separately because it varies between workflows.
   RIM Mapping = ???
@@ -495,7 +485,7 @@
   Element = Task.input.value[x]
   Card. = 1..1
   Type = *
-  Short Name = Input Value
+  Short Name = Content to use in performing the task
   Definition = The value of the input parameter as a basic type.
   RIM Mapping = ???
 
@@ -504,7 +494,7 @@
   Card. = 0..*
   UML = 400;200
   Type = @Parameter
-  Short Name = Task Output
+  Short Name = Information produced as part of task
   Definition = Outputs produced by the Task
   Requirements = Resources and data produced during the execution the task.  This data is generated by the business logic of task execution, and is stored separately because it varies between workflows.
   RIM Mapping = ???
@@ -515,7 +505,7 @@
   Aliases = Name
   Type = CodeableConcept
   Binding = TaskOutputParameterType
-  Short Name = Output Name
+  Short Name = Label for output
   Definition = The name of the Output parameter.
   Requirements = Outputs are named to enable task automation to bind data and pass it from one task to the next.
   RIM Mapping = ???
@@ -524,7 +514,7 @@
   Element = Task.output.value[x]
   Card. = 1..1
   Type = *
-  Short Name = Output Value
+  Short Name = Result of output
   Definition = The value of the Output parameter as a basic type.
   Requirements = Task outputs can take any form.
   RIM Mapping = ???

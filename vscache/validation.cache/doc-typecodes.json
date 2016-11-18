@@ -1,26 +1,26 @@
 ﻿{
-  "url": "http://hl7.org/fhir/ValueSet/tooth",
+  "url": "http://hl7.org/fhir/ValueSet/doc-typecodes",
   "outcomes": [
     {
-      "hash": "|http://fdi.org/fhir/oraltoothcodes|null|21|null",
+      "hash": "#|http://loinc.org|null|11488-4|Consult note",
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
-        "code": "21",
+        "code": null,
         "definition": null,
-        "display": "21"
+        "display": "Consult note"
       }
     },
     {
-      "hash": "|http://fdi.org/fhir/oraltoothcodes|null|36|null",
+      "hash": "#|http://loinc.org|null|28655-9|null",
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
-        "code": "36",
+        "code": null,
         "definition": null,
-        "display": "36"
+        "display": "Physician attending Discharge summary"
       }
     }
   ]

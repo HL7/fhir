@@ -1,5 +1,103 @@
-﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
-<!-- content goes here -->
+  <a name="statemachine"> </a>
+  <h2>State Machine</h2>
+  <p>
+    The following diagram shows the "typical" state machine diagram for resources following the Request
+    pattern.  Note that not all resources will support all states, some resources may choose different names
+    for certain states and some resources may introduce sub-states to the listed states.  As well, additional
+    transitions may be supported, including from terminal nodes (e.g. from "completed" back to "active").
+    That said, most resources should align with this state machine fairly well.
+  </p>
+  <img src="request-state-machine.svg" alt="Typical state machine diagram for resources following 
+  the Request pattern"/>
+  <p>
+    Note that this state machine does not reflect the <i>execution</i> of the request.  That state is managed
+    either through the <a href="event.html">Event</a> resources that are based on the request or via the
+    <a href="task.html">Task</a> resource.
+  </p>
+
+  <a name="fulfillment"> </a>
+  <h2>Fulfillment/Execution information</h2>
+  <p>
+    Request resources describe what activity is desired/authorized.  They don't describe what activity has actually
+    occurred against the request.  I.e. The request resource will not indicate actual performer, actual performance
+    time, actual action performed, etc.  Information about what action (if any) has occurred against the request is
+    tracked using the corresponding <a href="event.html">Event</a> resource(s).  Events that are associated with
+    the request should have a <code>basedOn</code> link referencing the request.  In addition, a linkage can be
+    established (and information about progress in execution) may be found in <a href="task.html">Task</a> resources
+    that have a focus of this request.
+  </p>
+
+  <a name="updating"> </a>
+  <h2>Updating requests</h2>
+  <p>
+    FHIR does not impose any business rules on what sorts of changes may be made to a request.  A generic FHIR server
+    could support updating a completed request to change the subject, requester, authorized action, quantity, timing
+    and any other such information.  However, most business processes will impose significant constraints on what changes,
+    if any, are allowed to request resources, particularly after they have transitioned to "active" or "completed".
+    Servers are free to enforce whatever rules they deem appropriate - and to provide appropriate 
+    <a href="operationoutcome.html">OperationOutcome</a> responses detailing constraints if those rules are violated.
+  </p>
+  
+  <a name="compound"> </a>
+  <h2>Compount Requests</h2>
+  <p>
+    There are three different ways to define "compound" requests in FHIR:
+  </p>
+  <ul>
+    <li>Shared requisition id</li>
+    <li>"Based on" chain</li>
+    <li>RequestGroup</li>
+  </ul>
+  
+  <a name="requisitionid"> </a>
+  <h3>Shared requisition id</h3>
+  <p>
+    The <code>Request.requisitionId</code> element allows multiple requests to be linked as having been created as part 
+    of the same "event" - generally by the same practitioner at the same time for the same subject.  The 
+    "requisitionId" represents the identifier of the prescription, lab requisition or other form that was
+    shared by all items.  The common information (<code>patient</code>/<code>practitioner</code>/<code>authoredOn</code>) 
+    can be seen by examining
+    any of the Request instances that share that <code>requisitionId</code>  If there are common comments or notes that
+    span the entire requisition, they should be captured as <a href="observation.html">Observation</a> or 
+    <a href="communication.html">Communication</a> instances linked to relevant Request instances using 
+    <code>Request.supportingInfo</code>.
+  </p>
+  <p>
+    Each "component" behaves as an independent request and has its own status that changes independently.  In general the
+    requisitionId, practitioner, authoredOn and subject for each will be immutable, but there may be situations where
+    some workflows allow them to change.  The shared requisitionId allows business processes dependent on 
+    "simultaneous/requisition-based ordering" such as payment rules to know that the requests were ordered at the same time.
+  </p>
+
+  <a name="basedon"> </a>
+  <h3>"Based on" chain</h3>
+  <p>
+    In this case "components" of a parent request are not treated as components, but rather as separate orders that are
+    executed as part of the fulfillment process for the parent order.  For example, a lab order might spawn child orders
+    to draw the specimen, treat the specimen, run several tests and to create the report.  Each "child" Request would use 
+    <code>Request.basedOn</code> to reference the original Request.  In this case, there's a relationship between the
+    statuses of the base Request and the fulfilling Requests, but they transition separately and may not transition in
+    the same manner.  For example, if the original lab order were updated to "suspended", the initial blood draw request might
+    be complete.  The other requests might change to either "suspended" or even "aborted" and a subsequent update of the
+    lab order back to active might require spawning additional fulfilling orders, perhaps to draw a new specimen.
+  </p>
+
+  <a name="requestgroup"> </a>
+  <h3>RequestGroup</h3>
+  <p>
+    This approach makes use of the <a href="requestgroup.html">RequestGroup</a> resource which allows the assertion of complex
+    timing and other dependencies between a collection of requests.  These effectively become one overall Request instance with
+    a single status.  All resources referenced by the RequestGroup must have an intent of "option", meaning that they cannot
+    be interpretted independently - and that changes to them must take into account the impact on referencing resources.
+    Typically these will either be contained resources or tightly controlled or immutable instances based on ActivityDefinitions
+    that can safely be referenced without concern of them changing independent of referencing Requests.
+  </p>
+  <p>
+    The status of the parent request automatically cascades to the component "options".  If there is a need for divergent
+    statuses, these must be handled by creating "child" using the "basedOn" approach above.  They should have a basedOn relationship
+    with both the "parent" Request as well as the specific "option" Request they are tied to.
+  </p>
 
 </div>

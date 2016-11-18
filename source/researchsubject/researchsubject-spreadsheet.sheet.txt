@@ -13,42 +13,42 @@
  -- Row 1 -----------------------------------
   Id = 1
   Code = candidate
-  Display = candidate
+  Display = Candidate
   Definition = The subject has been identified as a potential participant in the study but has not yet agreed to participate
   v3 = draft
 
  -- Row 2 -----------------------------------
   Id = 2
   Code = enrolled
-  Display = enrolled
+  Display = Enrolled
   Definition = The subject has agreed to participate in the study but has not yet begun performing any action within the study
   v3 = active
 
  -- Row 3 -----------------------------------
   Id = 3
   Code = active
-  Display = active
+  Display = Active
   Definition = The subject is currently being monitored and/or subject to treatment as part of the study
   v3 = active
 
  -- Row 4 -----------------------------------
   Id = 4
   Code = suspended
-  Display = suspended
+  Display = Suspended
   Definition = The subject has temporarily discontinued monitoring/treatment as part of the study
   v3 = suspended
 
  -- Row 5 -----------------------------------
   Id = 5
   Code = withdrawn
-  Display = withdrawn
+  Display = Withdrawn
   Definition = The subject has permanently ended participation in the study prior to completion of the intended monitoring/treatment
   v3 = aborted
 
  -- Row 6 -----------------------------------
   Id = 6
   Code = completed
-  Display = completed
+  Display = Completed
   Definition = All intended monitoring/treatment of the subject has been completed and their engagement with the study is now ended
   v3 = completed
 

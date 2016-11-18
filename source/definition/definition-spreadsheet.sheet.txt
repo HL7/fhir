@@ -23,19 +23,29 @@
   Id = 1
   Code = draft
   Display = Draft
+  Definition = The definition is in the design stage and is not yet considered to be \"ready for use\"
   v3 = =ActStatus.new
 
  -- Row 2 -----------------------------------
   Id = 2
   Code = active
   Display = Active
+  Definition = The definition is considered ready for use
   v3 = =ActStatus.active
 
  -- Row 3 -----------------------------------
   Id = 3
   Code = withdrawn
-  Display = Suspended
-  v3 = =ActStatus.suspended
+  Display = Withdrawn
+  Definition = The definition should no longer be used
+  v3 = =ActStatus.aborted
+
+ -- Row 4 -----------------------------------
+  Id = 7
+  Code = unknown
+  Display = Unknown
+  Definition = The authoring system does not know which of the status values currently applies for this definition.
+  v3 = =NullFlavor.unknown
 
 === Sheet Invariants =====================================
 
@@ -49,17 +59,47 @@
   RIM Mapping = Act[moodCode<=DEFN]
 
  -- Row 2 -----------------------------------
-  Element = Definition.identifier
+  Element = Definition.url
   Card. = 0..1
   Summary = Y
-  Type = Identifier
-  Short Name = Business Identifer for definition/protocol
-  Definition = Identifiers assigned to this request by the requester, performer and other systems
-  Requirements = Allows identification of the definition as it is known by various participating systems and in a way that remains consistent across servers
+  Type = uri
+  Short Name = Logical uri to reference this {{title}} (globally unique)
+  Definition = An absolute URL that is used to identify this {{title}} when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this {{title}} is (or will be) published. The URL SHOULD include the major version of the {{title}}. For more information see [Technical and Business Versions](resource.html#versions)
+  Requirements = Allows the {{title}} to be referenced by a single globally unique identifier
+  Comments = Can be a urn:uuid: or a urn:oid:, but real http: addresses are preferred
   RIM Mapping = .identifier
   w5 = id
 
  -- Row 3 -----------------------------------
+  Element = Definition.identifier
+  Card. = 0..1
+  Summary = Y
+  Type = Identifier
+  Short Name = Business Identifer for {{title}}
+  Definition = Identifier assigned to this {{title}} request by the requester, performer and other systems
+  Requirements = Allows identification of the {{title}} as it is known by various participating systems and in a way that remains consistent across servers
+  RIM Mapping = .identifier
+  w5 = id
+
+ -- Row 4 -----------------------------------
+  Element = Definition.version
+  Card. = 0..1
+  Summary = y
+  Type = string
+  Short Name = Business version of the {{title}}
+  Definition = The identifier that is used to identify this version of the {{title}} when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the {{title}} author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions are orderable
+  Comments = There may be multiple different instances of a {{title}} that have the same identifier but different versions
+  w5 = id.version
+
+ -- Row 5 -----------------------------------
+  Element = Definition.title
+  Card. = 0..1
+  Summary = y
+  Type = string
+  Short Name = Name for this {{title}} (Human friendly)
+  Definition = A short, descriptive, user-friendly title for the {{title}}
+
+ -- Row 6 -----------------------------------
   Element = Definition.definition
   Card. = 0..*
   Summary = Y
@@ -70,7 +110,7 @@
   Comments = [The allowed reference resources may be adjusted as appropriate for the request resource]
   RIM Mapping = .outboundRelationship[typeCode=DEFN].target
 
- -- Row 4 -----------------------------------
+ -- Row 7 -----------------------------------
   Element = Definition.partOf
   Card. = 0..*
   Aliases = container
@@ -82,7 +122,7 @@
   Comments = [The allowed reference resources may be adjusted as appropriate for the event resource]
   RIM Mapping = .inboundRelationship[typeCode=COMP].source[moodCode=DEFN]
 
- -- Row 5 -----------------------------------
+ -- Row 8 -----------------------------------
   Element = Definition.replaces
   Card. = 0..*
   Aliases = supersedes, prior, renewed order
@@ -93,7 +133,7 @@
   Requirements = As new versions of a protocol or guideline are defined, allows identification of what versions are replaced by a new instance
   RIM Mapping = .outboundRelationship[typeCode=RPLC].target
 
- -- Row 6 -----------------------------------
+ -- Row 9 -----------------------------------
   Element = Definition.status
   Card. = 1..1
   Is Modifier = Y
@@ -101,12 +141,25 @@
   Type = code
   Binding = DefinitionStatus
   Short Name = draft | active | withdrawn
-  Definition = The current state of the definition
+  Definition = The current state of the {{title}}
+  Comments = A nominal state-transition diagram can be found in the [[definition.html#statemachine | Definition pattern]] documentation\n\nUnknown does not represent \"other\" - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is.
   RIM Mapping = .status
   To Do = Should this be a common code system for all definitions?
   w5 = status
 
- -- Row 7 -----------------------------------
+ -- Row 10 -----------------------------------
+  Element = Definition.experimental
+  Card. = 0..1
+  Is Modifier = y
+  Summary = y
+  Type = boolean
+  Short Name = If for testing purposes, not real usage
+  Definition = A flag to indicate that this {{title}} is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage
+  Requirements = Enables experimental content to be developed following the same life-cycle as a production-level {{title}} would
+  Comments = Allows filtering of {{title}} that are appropriate for use vs. not
+  w5 = class
+
+ -- Row 11 -----------------------------------
   Element = Definition.subject[x]
   Card. = 0..1
   Aliases = patient
@@ -119,7 +172,7 @@
   RIM Mapping = .participation[typeCode=SBJ].role
   w5 = who.focus
 
- -- Row 8 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = Definition.date
   Card. = 0..1
   Aliases = created
@@ -130,18 +183,98 @@
   RIM Mapping = .participation[typeCode=AUT].time
   w5 = when.recorded
 
- -- Row 9 -----------------------------------
-  Element = Definition.author
+ -- Row 13 -----------------------------------
+  Element = Definition.publisher
   Card. = 0..1
   Aliases = author
   Summary = Y
   Type = Reference(Practitioner|Organization)
-  Short Name = Who/what is requesting service
-  Definition = The individual or group with primary responsibility for the content of this definition.
+  Short Name = The name of the individual or organization that published the {{title}}
+  Definition = Helps establish the \"authority/credibility\" of the {{title}}.  May also allow for contact
+  Requirements = Usually an organization, but may be an individual. The publisher (or steward) of the {{title}} is the organization or individual primarily responsible for the maintenance and upkeep of the {{title}}. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the {{title}}. This item SHOULD be populated unless the information is available from context.
   RIM Mapping = .participation[typeCode=AUT].role
   w5 = who.author
 
- -- Row 10 -----------------------------------
+ -- Row 14 -----------------------------------
+  Element = Definition.contact
+  Card. = 0..*
+  Summary = y
+  Type = ContactDetail
+  Short Name = Contact details for the publisher
+  Definition = Contact details to assist a user in finding and communicating with the publisher
+  Comments = May be a web site, an email address, a telephone number, etc.
+
+ -- Row 15 -----------------------------------
+  Element = Definition.useContext
+  Card. = 0..*
+  Summary = y
+  Type = UsageContext
+  Short Name = Content intends to support these contexts
+  Definition = The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of code system definitions.
+  Requirements = Assist in searching for appropriate content
+  Comments = When multiple usageContexts are specified, there is no expectation for whether all or any of the contexts apply
+
+ -- Row 16 -----------------------------------
+  Element = Definition.jurisdiction
+  Card. = 0..*
+  Summary = Y
+  Type = CodeableConcept
+  Binding = Jurisdiction
+  Short Name = Intended jurisdiction for {{title}} (if applicable)
+  Definition = A jurisdiction in which the {{title}} is intended to be used
+
+ -- Row 17 -----------------------------------
+  Element = Definition.description
+  Card. = 0..1
+  Type = markdown
+  Short Name = Natural language description of the {{title}}
+  Definition = A free text natural language description of the {{title}} from the consumer\'s perspective
+  Comments = This description can be used to capture details such as why the {{title}} was built, comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the module as conveyed in the text field of the resource itself. This item SHOULD be populated unless the information is available from context
+
+ -- Row 18 -----------------------------------
+  Element = Definition.purpose
+  Card. = 0..1
+  Type = markdown
+  Short Name = Why this {{title}} is defined
+  Definition = Explains why this {{title}} is needed and why it has been designed as it has
+  Comments = This element does not describe the usage of the {{title}} (See, e.g, the comments element, or relatedArtifacts), rather it\'s for traceability of \'\'why\'\' the resource is either needed or \'\'why\'\' it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this {{title}}
+  w5 = why
+
+ -- Row 19 -----------------------------------
+  Element = Definition.copyright
+  Card. = 0..1
+  Aliases = License,Restrictions
+  Type = markdown
+  Short Name = Use and/or publishing restrictions
+  Definition = A copyright statement relating to the {{title}} and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the {{title}}
+  Requirements = Consumers of the {{title}} must be able to determine any legal restrictions on the use of the artifact and/or its content
+
+ -- Row 20 -----------------------------------
+  Element = Definition.approvalDate
+  Card. = 0..1
+  Type = date
+  Short Name = When {{title}} approved by publisher
+  Definition = The date on which the asset content was approved by the publisher. Approval happens once when the content is officially approved for usage
+  Comments = The date may be more recent than the approval date because of minor changes / editorial corrections
+
+ -- Row 21 -----------------------------------
+  Element = Definition.lastReviewDate
+  Card. = 0..1
+  Type = date
+  Short Name = Last review date for the {{title}}
+  Definition = The date on which the asset content was last reviewed. Review happens periodically after that, but doesn\'t change the original approval date.
+  Comments = If specified, this is usually after the approval date
+
+ -- Row 22 -----------------------------------
+  Element = Definition.effectivePeriod
+  Card. = 0..1
+  Summary = Y
+  Type = Period
+  Short Name = The effective date range for the {{title}}
+  Definition = The period during which the {{title}} content was or is planned to be effective
+  Comments = The effective period for a {{title}}  determines when the content is applicable for usage and is independent of publication and review dates. For example, a measure intended to be used for the year 2016 would be published in 2015
+
+ -- Row 23 -----------------------------------
   Element = Definition.performerType
   Card. = 0..1
   Summary = Y

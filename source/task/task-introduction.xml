@@ -2,10 +2,12 @@
   <div>
     <a name="scope"> </a>
     <h2>Scope and Usage</h2>
-    <p> An task resource describes an activity that can be performed, and tracks the state of
+    <p>
+      A task resource describes an activity that can be performed and tracks the state of
       completion of that activity. It is a representation that an activity should be or has been
       initiated, and eventually, represents the successful or unsuccessful completion of that
-      activity. </p>
+      activity.
+    </p>
     <p> Note that there are a variety of processes associated with making and processing orders.
       Some orders may be handled immediately by automated systems but most require real world
       actions by one or more humans. Some orders can only be processed when other real world actions

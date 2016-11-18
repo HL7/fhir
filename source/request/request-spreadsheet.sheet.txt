@@ -28,6 +28,12 @@
   Binding = unbound
   Definition = Codes identifying why this request was necessary.  These may be clinical reasons (e.g. diagnoses, symptoms) and/or administrative reasons.  While the detailed constraints of relevant reasons will vary by resource, some degree of consistency across resources around recommended codes would be desirable.
 
+ -- Row 6 -----------------------------------
+  Binding Name = RequestPriority
+  Binding = code list
+  Reference = #request-priority
+  Definition = Identifies the level of importance to be assigned to actioning the request
+
 === Sheet request-status =====================================
 
  -- Row 1 -----------------------------------
@@ -72,6 +78,13 @@
   Definition = This electronic record should never have existed, though it is possible that real-world decisions were based on it.  (If real-world activity has occurred, the status should be \"cancelled\" rather than \"entered-in-error\".)
   v3 = =ActStatus.nullified
 
+ -- Row 7 -----------------------------------
+  Id = 7
+  Code = unknown
+  Display = Unknown
+  Definition = The authoring system does not know which of the status values currently applies for this request
+  v3 = =NullFlavor.unknown
+
 === Sheet request-intent =====================================
 
  -- Row 1 -----------------------------------
@@ -91,10 +104,85 @@
   Id = 3
   Code = order
   Display = Order
-  Definition = The request represents an initial request/demand and authorization for action
+  Definition = The request represents a request/demand and authorization for action
   v3 = =ActMood.RQO
 
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = option
+  Display = Option
+  Definition = The request represents a component or option for a RequestGroup that establishes timing, conditionality and/or other constraints among a set of requests.\n\nRefer to [[[RequestGroup]]] for additional information on how this status is used
+  v3 = =ActMood.OPT
+
+ -- Row 5 -----------------------------------
+  Id = 5
+  Code = original-order
+  Display = Original Order
+  Definition = The request represents an original authorization for action
+  Parent = order
+
+ -- Row 6 -----------------------------------
+  Id = 6
+  Code = reflex-order
+  Display = Reflex Order
+  Definition = The request represents an automatically generated supplemental authorization for action based on a parent authorization together with initial results of the action taken against that parent authorization
+  Parent = order
+
+ -- Row 7 -----------------------------------
+  Id = 7
+  Code = filler-order
+  Display = Filler Order
+  Definition = The request represents the view of an authorization instantiated by a fulfilling system representing the details of the fulfiller\'s intention to act upon a submitted order
+  Parent = order
+
+ -- Row 8 -----------------------------------
+  Id = 8
+  Code = instance-order
+  Display = Instance Order
+  Definition = An order created in fulfillment of a broader order that represents the authorization for a single activity occurrence.  E.g. The administration of a single dose of a drug.
+  Parent = filler-order
+
+=== Sheet request-priority =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = routine
+  Display = Routine
+  Definition = The request has normal priority
+  v2 = 0485.R
+  v3 = ActPriority.R
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = urgent
+  Display = Urgent
+  Definition = The request should be actioned promptly - higher priority than routine
+  v3 = ActPriority.UR
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = asap
+  Display = ASAP
+  Definition = The request should be actioned as soon as possible - higher priority than urgent
+  v2 = 0485.A
+  v3 = ActPriority.A
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = stat
+  Display = STAT
+  Definition = The request should be actioned immediately - highest possible priority.  E.g., emergency
+  v2 = 0485.S
+  v3 = ActPriority.S
+
 === Sheet Invariants =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Context = Request.requester
+  English = onBehalfOf can only be specified if agent is practitioner or device
+  XPath = contains(f:agent, \'/Practitioner\') or contains(f:agent, \'/Device\') or not(exists(f:onBehalfOf))
+  Expression = (agent is Practitioner) or (agent is Device) or onBehalfOf.exists().not()
 
 === Sheet Data Elements =====================================
 
@@ -170,9 +258,9 @@
   Summary = Y
   Type = code
   Binding = RequestStatus
-  Short Name = draft | active | suspended | cancelled | completed | entered-in-error
+  Short Name = draft | active | suspended | cancelled | completed | entered-in-error | unknown
   Definition = The current state of the request
-  Comments = The status is generally fully in the control of the requester - they determine whether the order is draft or active and, after it has been activated, completed, cancelled or suspended. States relating to the activities of the performer are reflected on either the corresponding [[[Event]]](s) or using the [[[Task]]] resource.
+  Comments = The status is generally fully in the control of the requester - they determine whether the order is draft or active and, after it has been activated, completed, cancelled or suspended. States relating to the activities of the performer are reflected on either the corresponding [[[Event]]](s) or using the [[[Task]]] resource.\n\nA nominal state-transition diagram can be found in the [[request.html#statemachine | Request pattern]] documentation\n\nUnknown does not represent \"other\" - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is.
   RIM Mapping = .status
   To Do = Should this be a common code system for all requests?
   w5 = status
@@ -194,6 +282,17 @@
   w5 = class
 
  -- Row 9 -----------------------------------
+  Element = Request.priority
+  Card. = 0..1
+  Summary = Y
+  Type = code
+  Binding = RequestPriority
+  Short Name = routine | urgent | asap | stat
+  Definition = Indicates how quickly the {{title}} should be addressed with respect to other requests
+  Missing Meaning = If missing, this task should be performed with normal priority
+  w5 = grade
+
+ -- Row 10 -----------------------------------
   Element = Request.code
   Card. = 0..1
   Aliases = type
@@ -205,7 +304,7 @@
   RIM Mapping = .code
   w5 = what
 
- -- Row 10 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = Request.subject
   Card. = 1..1
   Aliases = patient
@@ -219,7 +318,7 @@
   To Do = For mapping, is it better if we make this Any and then constrain it down?
   w5 = who.focus
 
- -- Row 11 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = Request.context
   Card. = 0..1
   Aliases = encounter
@@ -232,7 +331,7 @@
   RIM Mapping = .inboundRelationship(typeCode=COMP].source[classCode<=PCPR, moodCode=EVN]
   w5 = context
 
- -- Row 12 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = Request.occurrence[x]
   Card. = 0..1
   Aliases = timing
@@ -244,10 +343,10 @@
   RIM Mapping = .effectiveTime
   w5 = when.planned
 
- -- Row 13 -----------------------------------
-  Element = Request.authored
+ -- Row 14 -----------------------------------
+  Element = Request.authoredOn
   Card. = 0..1
-  Aliases = created
+  Aliases = createdOn, signedOn
   Summary = Y
   Type = dateTime
   Short Name = When request transitioned to being actionable
@@ -256,18 +355,38 @@
   To Do = Do we need a \"status date\" too (for when the request was suspended, cancelled, etc.)
   w5 = when.recorded
 
- -- Row 14 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = Request.requester
   Card. = 0..1
   Aliases = author
   Summary = Y
-  Type = Reference(Practitioner|Organization|Patient|RelatedPerson|Device)
   Short Name = Who/what is requesting service
   Definition = The individual who initiated the request and has responsibility for its activation
+  Comments = [Resources may choose to replace this with just a single requester where there\'s no need to responsible organization]
   RIM Mapping = .participation[typeCode=AUT].role
+
+ -- Row 16 -----------------------------------
+  Element = Request.requester.agent
+  Card. = 1..1
+  Summary = Y
+  Type = Reference(Practitioner|Organization|Patient|RelatedPerson|Device)
+  Short Name = Individual making the request
+  Definition = The device, practitioner, etc. who initiated the request
+  RIM Mapping = .player
   w5 = who.author
 
- -- Row 15 -----------------------------------
+ -- Row 17 -----------------------------------
+  Element = Request.requester.onBehalfOf
+  Card. = 0..1
+  Summary = Y
+  Inv. = 1
+  Type = Reference(Organization)
+  Short Name = Organization agent is acting for
+  Definition = The organization the device or practitioner was acting on behalf of
+  Requirements = Practitioners and Devices can be associated with multiple organizations.  This element indicates which organization they were acting on behalf of when authoring the request
+  RIM Mapping = .scoper
+
+ -- Row 18 -----------------------------------
   Element = Request.performerType
   Card. = 0..1
   Summary = Y
@@ -275,12 +394,12 @@
   Binding = PerformerType
   Short Name = Desired kind of service performer
   Definition = The type of individual that is desired to act upon the request
-  Comments = If performer is also specified, this indicates what type of performer is desired in the event the requested performer is not available.
+  Comments = If performer is also specified, this indicates what type of performer is desired in the event the requested performer is not available.\n\nIf specified without indicating a performer, this indicates that the performer must be of the specified type.  If specified with a performer then it indicates the requirements of the performer if the designated performer is not available.
   RIM Mapping = .participation[typeCode=PRF].role[scoper.determinerCode=KIND].code
   To Do = Need to define who.performer
   w5 = who.actor
 
- -- Row 16 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = Request.performer
   Card. = 0..1
   Summary = Y
@@ -290,7 +409,7 @@
   RIM Mapping = .participation[typeCode=PRF].role[scoper.determinerCode=INSTANCE]
   w5 = who.actor
 
- -- Row 17 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = Request.reasonCode
   Card. = 0..*
   Summary = Y
@@ -302,7 +421,7 @@
   RIM Mapping = .reasonCode
   w5 = why
 
- -- Row 18 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = Request.reasonReference
   Card. = 0..*
   Summary = Y
@@ -313,7 +432,7 @@
   RIM Mapping = .outboundRelationship[typeCode=RSON].target
   w5 = why
 
- -- Row 19 -----------------------------------
+ -- Row 22 -----------------------------------
   Element = Request.supportingInfo
   Card. = 0..*
   Type = Reference(Any)
@@ -321,7 +440,7 @@
   Definition = Information that may be needed by/relevant to the performer in their execution of this request
   RIM Mapping = .outboundRelationship[typeCode=PERT].target
 
- -- Row 20 -----------------------------------
+ -- Row 23 -----------------------------------
   Element = Request.note
   Card. = 0..*
   Type = Annotation
@@ -329,7 +448,7 @@
   Definition = Comments made about the request by the requester, performer, subject or other participants.
   RIM Mapping = .inboundRelationship(typeCode=SUBJ].source[classCode=ANNGEN, moodCode=EVN].value[xsi:type=ST]
 
- -- Row 21 -----------------------------------
+ -- Row 24 -----------------------------------
   Element = Request.relevantHistory
   Card. = 0..*
   Aliases = eventHistory

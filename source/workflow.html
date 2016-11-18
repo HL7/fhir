@@ -36,7 +36,7 @@ parent steps and child steps get linked together?  How does a care plan identify
 </p>
 <p>
 FHIR defines three categories of resources that are involved in activities - <a href="#request">requests</a>, <a href="#event">events</a> and
-<a href="#definition">definitions</a>.  Each of these different types has an associated "pattern" to which  resources that fall into that category are encouraged to adhere.
+<a href="#definition">definitions</a>.  Each of these different types has a "pattern" associated with it.  Resources that fall into that type are encouraged to adhere to their respective pattern.
 These patterns provide standard elements that are typical for most resources of each type.  Strict adherence is not required as work groups are expected to align with
 typical domain behavior and requirements as more authoritative than "desired" architectural patterns.  In some cases, capabilities might be supported with extensions rather than
 core elements where a pattern capability is deemed to be "not common, but still relevant" for a given resource.
@@ -48,7 +48,7 @@ A full description of the patterns and their interrelationships can be found in 
 <p>
 In addition to defining patterns for resources used in workflow processes, FHIR supports the execution of those processes as well.  However, FHIR does not define a "one size
 fits all" solution for workflow architecture.  FHIR supports a variety of interoperability paradigms and most of them (<a href="http.html">REST</a>,
-<a href="messaging.html">Messaging</a> and <a href="services.html">Services</a> provide support for driving workflow execution.  (The <a href="documents.html">Document</a>
+<a href="messaging.html">Messaging</a> and <a href="services.html">Services</a>) provide support for driving workflow execution.  (The <a href="documents.html">Document</a>
 paradigm does not directly support driving behavior, though it can be combined with one of the other patterns to do so.)  In addition, several of these paradigms allow multiple
 approaches to supporting workflow, depending on the context and needs of the workflow process.
 </p>
@@ -259,7 +259,7 @@ be found in the <a href="request.html">Request</a>, <a href="event.html">Event</
 <a name="request"> </a>
 <h4>Request Resource Pattern</h4>
 <p>
-Requests are resources that represent the proposal, plan or order for an activity to occur.  A <a href="request.html">Request</a> pattern defines the common elements typically
+Requests are resources that represent the proposal, plan or order for an activity to occur.  A <a href="request.html">Request pattern</a> defines the common elements typically
 present on all request resources.
 </p>
 <p>
@@ -282,7 +282,7 @@ may be delegated to the patient or to down-stream practitioners.  Such fufilling
 <h4>Event Resource Pattern</h4>
 <p>
 Events are resources that represent the ongoing or completed execution of some activity or observation.  For example, a clinical procedure, a financial transaction, the recording
-of an allergy or diagnosis, etc.  An <a href="event.html">Event</a> pattern defines the common elements
+of a diagnosis, etc.  An <a href="event.html">Event pattern</a> defines the common elements
 typically present on all event resources.
 </p>
 
@@ -290,7 +290,7 @@ typically present on all event resources.
 <h4>Definition Resource Pattern</h4>
 <p>
 Definitions are resources that represent activities that could be performed in a time and subject-independent manner such as a protocol, order set, clinical guideline, etc.
-A <a href="definition.html">Definition</a> pattern defines the common elements typically present on all event resources.
+A <a href="definition.html">Definition pattern</a> defines the common elements typically present on all event resources.
 </p>
 
 <a name="commpatterns"> </a>
@@ -334,6 +334,8 @@ The scenarios below make use of a few conventions:
   the terms hold whether the request is expressed as a proposal, plan or full-blown order</li>
   <li>Each of the patterns defines the set of steps involved in processing the request, lists some of the benefits and limitations associated with the approach and then
   makes recommendations about when the pattern is most appropriate</li>
+  <li>The descriptions of these patterns focuses on the notion of requesting fulfillment of a request.  However most of these patterns are also applicable to requests for
+  status change, requests for information, etc.  If a pattern is limited in the types of execution it can trigger, this will be noted in the "limitations" section.</li>
 </ul>
 
 <a name="commpatterns"> </a>
@@ -424,6 +426,7 @@ TODO: Insert Jose's decision tree here?
   (generally on the order of 10s of seconds).</li>
   <li>Requires that the placer have authority to post directly to the placer's system</li>
   <li>Requires that the "request" be expressible as a simple creation, update or operation invocation</li>
+  <li>Only works for "fulfillment" requests for Request resources - can't handle request for state changes or information</li>
 </ul>
 <h5>Usage Recommendations</h5>
 <p>
@@ -434,6 +437,7 @@ more sophisticated patterns.
 
 <a name="optionb"> </a>
 <h4>Option B: Direct POST of request to fulfiller's system</h4>
+<img alt="Diagram showing direct POST of request to fulfiller's system workflow" src="workflow-optionb.png"/>
 <h5>Steps</h5>
 <ol>
   <li>Placer system invokes a <a href="http.html#create">create</a> by POSTing a 'request' resource (e.g. <a href="medicationrequest.html">MedicationRequest</a>,
@@ -467,6 +471,7 @@ the filler to say "no").  This is a pseudo-messaging architecture that doesn't a
 
 <a name="optionc"> </a>
 <h4>Option C: POST of request to placer/queue server system, receiver uses polling</h4>
+<img alt="Diagram showing POST of request to placer/queue server system, receiver uses polling workflow" src="workflow-optionc.png"/>
 <h5>Steps</h5>
 <ol>
   <li>Placer system invokes a "create" action by POSTing a 'request' resource (e.g. MedicationRequest, DiagnosticOrder, ReferralRequest, etc.) to the appropriate RESTful resource
@@ -504,6 +509,7 @@ RESTful approach where data resides on the server "owned" by the data creator an
 
 <a name="optiond"> </a>
 <h4>Option D: POST of request to placer/queue server system, receiver uses subscription</h4>
+<img alt="Diagram showing POST of request to placer/queue server system, receiver uses subscription workflow" src="workflow-optiond.png"/>
 <h5>Steps</h5>
 <ol>
   <li>Same as <a href="#optionc">Option C</a> - placer posts to itself or to queue server</li>
@@ -534,6 +540,7 @@ Same a <a href="#optionc">Option C</a>, but in an environment where subscription
 
 <a name="optione"> </a>
 <h4>Option E: POST of Task to filler system</h4>
+<img alt="Diagram showing POST of Task to filler system workflow" src="workflow-optione.png"/>
 <h5>Steps</h5>
 <ol>
   <li>Placer POSTs the request to its own system or to a queue server system</li>
@@ -573,6 +580,7 @@ Not clear why would anyone do this . . .
 
 <a name="optionf"> </a>
 <h4>Option F: POST of "open" Task to queue server system</h4>
+<img alt="Diagram showing POST of &quot;open&quot; Task to queue server system workflow" src="workflow-optionf.png"/>
 <h5>Steps</h5>
 <ol>
   <li>Placer POSTs the request to its own system or to a queue server system</li>
@@ -617,6 +625,7 @@ choose what to take on and negotiate what work they perform.
 
 <a name="optiong"> </a>
 <h4>Option G: POST of "request" resource for filler system, response via Task</h4>
+<img alt="Diagram showing POST of &quot;request&quot; resource for filler system, response via Task workflow" src="workflow-optiong.png"/>
 <h5>Steps</h5>
 <ol>
   <li>Placer system invokes a "create" action by POSTing a 'request' resource (e.g. MedicationRequest, DiagnosticOrder, ReferralRequest, etc.) to the appropriate RESTful resource
@@ -627,7 +636,9 @@ choose what to take on and negotiate what work they perform.
   <li>Placer either polls the Task to note acceptance and changes or uses a subscription to determine the same</li>
   <li>Fulfiller POSTs an event resource to its own system or to a queue server system</li>
   <li>Fulfiller Updates the Task resource to change its status to completed and to point to the event resource</li>
-  <li>Placer system becomes aware of the update via polling or subscription and retrieves the referenced event resource</li>
+  <li>Placer system becomes aware of the update via polling or subscription</li>
+  <li>Placer system retrieves the event</li>
+  <li>Placer system marks the request as "complete"</li>
 </ol>
 <h5>Benefits</h5>
 <ul>
@@ -650,7 +661,7 @@ Use this when the filler needs to have complete ownership over the task and ther
 
 <a name="optionh"> </a>
 <h4>Option H: Workflow broker</h4>
-<img alt="Diagram showing interaction of placer, filler and workflow broker" src="workflow-optionh.png"/>
+<img alt="Diagram showing workflow broker workflow" src="workflow-optionh.png"/>
 <h5>Steps</h5>
 <ol>
   <li>Placer POSTs the request to its own system or to a queue server system</li>
@@ -704,7 +715,7 @@ Appropriate in environments that have a workflow engine that takes on responsibi
 </ul>
 <h5>Usage Recommendations</h5>
 <p>
-Existing messaging (likely v2) infrastructure and a need to stay consistent with that architecture
+Existing messaging infrastructure (e.g. v2 LTP, MLTP, WSI Web Services, Direct, VISA, REST, etc.) and a need to stay consistent with that architecture
 </p>
 
 <a name="optionj"> </a>

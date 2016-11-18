@@ -1,7 +1,20 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
-  <div>
-  <a name="task"> </a>
-  <h2>Processing Tasks</h2>
-  <p>TBD</p>
-  </div>
+
+  <a name="statemachine"> </a>
+  <h2>Task state machine</h2>
+  <p>
+    The following diagram reflects the "typical" state machine for Task.  Note that not all states will be supported by all workflows 
+    and that some workflows may support additional transitions, including transitions from terminal states (e.g. back to "in-progress" 
+    from "failed" or "completed").
+  </p>
+  <img src="task-state-machine.svg" alt="Diagram showing typical state machine for the Task resource"/>
+
+  <a name="cancelled"> </a>
+  <h2>The Cancelled state</h2>
+  <p>
+    While the intention of a "cancelled" task is that all work authorized by the task should cease, this
+    may not always be possible practice.  It is possible that the originally requested action could still
+    be completed and still attached to the Task but this would not change the status of the task.  If the
+    placer cancels a task, it signals they no longer care about the outcome of the task.
+  </p>
 </div>
