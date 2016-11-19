@@ -71,6 +71,16 @@
       <code value="provider"/>
     </type>
   </payee>
+
+   <careTeam>
+    <sequence value="1"/>
+    <provider>
+	 <identifier>
+      <system value="http://www.jurisdiction.com/providerId"/>
+      <value value="MD98765"/>
+	 </identifier>
+    </provider>
+   </careTeam>
   
   <diagnosis>
     <sequence value="1"/>
@@ -84,23 +94,12 @@
     <focal value="true"/>
     <coverage>
 	  <reference value="http://www.jurisdiction.com/nationalplan/123AB345" />
-  	<!-->  <identifier>
-        <system value="http://www.jurisdiction.com/nationalplan"/>
-        <value value="123AB345"/>
-	  </identifier> <!-->
     </coverage>
   </coverage>
   
   <item>
     <sequence value="1"/>
-   <careTeam>
-    <provider>
-	 <identifier>
-      <system value="http://www.jurisdiction.com/providerId"/>
-      <value value="MD98765"/>
-	 </identifier>
-    </provider>
-   </careTeam>
+    <careTeamLinkId value="1"/>
     <service>
       <code value="1200"/>
     </service>

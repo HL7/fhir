@@ -141,6 +141,13 @@
       <code value="provider"/>
     </type>
   </payee>
+
+   <careTeam>
+    <sequence value="1"/>
+    <provider>
+      <reference value="#provider-1"/>
+    </provider>
+   </careTeam>
   
   <diagnosis>
     <sequence value="1"/>
@@ -159,11 +166,7 @@
   
   <item>
     <sequence value="1"/>
-   <careTeam>
-    <provider>
-      <reference value="#provider-1"/>
-    </provider>
-   </careTeam>
+    <careTeamLinkId value="1"/>
     <service>
       <code value="1200"/>
     </service>

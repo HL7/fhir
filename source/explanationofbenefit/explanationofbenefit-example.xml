@@ -26,6 +26,7 @@
     <code value="oral"/>
   </type>
   <created value="2014-08-16"/>
+
   <outcome>
     <system value="http://hl7.org/fhir/remittance-outcome" />
 	<code value="complete" />
@@ -35,6 +36,13 @@
   <organization>
     <reference value="Organization/2"/>
   </organization>
+
+   <careTeam>
+     <sequence value="1"/>
+     <provider>
+       <reference value="Practitioner/example"/>
+     </provider>
+   </careTeam>
 
   <patient>
     <reference value="Patient/pat1"/>
@@ -48,11 +56,7 @@
  
  <item>
    <sequence value="1"/>
-   <careTeam>
-     <provider>
-       <reference value="Practitioner/example"/>
-     </provider>
-   </careTeam>
+   <careTeamLinkId value="1"/>
    <service>
      <system value="http://hl7.org/fhir/service-uscls"/>
      <code value="1200"/>

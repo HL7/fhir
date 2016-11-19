@@ -59,7 +59,14 @@
   </identifier>
  </facility>
  
-  <diagnosis>
+   <careTeam>
+     <sequence value="1"/>
+     <provider>
+       <reference value="Practitioner/example"/>
+     </provider>
+   </careTeam>
+
+   <diagnosis>
     <sequence value="1"/>
 	<diagnosis>
 	  <code value="654456"/>
@@ -76,11 +83,7 @@
   
  <item>
    <sequence value="1"/>
-   <careTeam>
-     <provider>
-       <reference value="Practitioner/example"/>
-     </provider>
-   </careTeam>
+   <careTeamLinkId value="1"/>
    <service>
      <system value="http://hl7.org/fhir/ex-serviceproduct"/>
      <code value="exam"/> 

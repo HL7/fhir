@@ -53,6 +53,16 @@
       <code value="provider"/>
     </type>
   </payee>
+
+    <careTeam>
+	  <sequence value="1"/>
+      <provider>
+	   <identifier>
+        <system value="http://www.jurisdiction.com/providerId"/>
+        <value value="MD98765"/>
+	   </identifier>
+      </provider>
+    </careTeam>
   
   <diagnosis>
     <sequence value="1"/>
@@ -74,14 +84,7 @@
   
   <item>
     <sequence value="1"/>
-    <careTeam>
-      <provider>
-	   <identifier>
-        <system value="http://www.jurisdiction.com/providerId"/>
-        <value value="MD98765"/>
-	   </identifier>
-      </provider>
-    </careTeam>
+    <careTeamLinkId value="1"/>
     <service>
       <code value="1200"/>
     </service>

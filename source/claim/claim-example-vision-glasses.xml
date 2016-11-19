@@ -48,6 +48,13 @@
      <code value="provider"/>
    </type>
  </payee>
+
+   <careTeam>
+     <sequence value="1"/>
+     <provider>
+       <reference value="Practitioner/example"/>
+     </provider>
+   </careTeam>
  
   <diagnosis>
     <sequence value="1"/>
@@ -66,11 +73,7 @@
   
  <item>
    <sequence value="1"/>
-   <careTeam>
-     <provider>
-       <reference value="Practitioner/example"/>
-     </provider>
-   </careTeam>
+   <careTeamLinkId value="1"/>
    <service>
      <system value="http://hl7.org/fhir/ex-visionservice"/>
      <code value="glasses"/>

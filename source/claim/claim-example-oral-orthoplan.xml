@@ -48,7 +48,14 @@
       <code value="provider"/>
     </type>
   </payee>
- 
+
+   <careTeam>
+     <sequence value="1"/>
+     <provider>
+       <reference value="Practitioner/example"/>
+     </provider>
+   </careTeam>
+  
   <diagnosis>
     <sequence value="1"/>
     <diagnosis>
@@ -67,11 +74,7 @@
   
  <item>
    <sequence value="1"/>
-   <careTeam>
-     <provider>
-       <reference value="Practitioner/example"/>
-     </provider>
-   </careTeam>
+   <careTeamLinkId value="1"/>
    <diagnosisLinkId value="1"/>
    <service>
      <system value="http://hl7.org/fhir/oralservicecodes"/>
@@ -173,11 +176,7 @@
 
   <item>
    <sequence value="2"/>
-   <careTeam>
-     <provider>
-       <reference value="Practitioner/example"/>
-     </provider>
-   </careTeam>
+   <careTeamLinkId value="1"/>
    <service>
      <system value="http://hl7.org/fhir/oralservicecodes"/>
      <code value="21211"/>
@@ -205,11 +204,7 @@
 
   <item>
    <sequence value="3"/>
-   <careTeam>
-     <provider>
-       <reference value="Practitioner/example"/>
-     </provider>
-   </careTeam>
+   <careTeamLinkId value="1"/>
    <service>
      <system value="http://hl7.org/fhir/oralservicecodes"/>
      <code value="27211"/>
