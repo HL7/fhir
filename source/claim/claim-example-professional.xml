@@ -2,7 +2,7 @@
 <Claim xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/coverage.xsd">
  <id value="860150"/>
 
- <text>
+  <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">A human-readable rendering of the Claim</div>
   </text>
@@ -10,7 +10,7 @@
   <identifier>
     <system value="http://happypdocs.com/claim"/>
     <value value="8612345"/>
- </identifier>
+  </identifier>
  
   <status value = "active"/>
 
@@ -19,27 +19,31 @@
     <code value="professional"/>
   </type>
   
+  <use value="complete"/>
+
+  <patient>
+    <reference value="Patient/1"/>
+  </patient>
+ 
   <created value="2014-08-16"/>
 
- <insurer>
-  <reference value="Organization/2"/>
- </insurer>
+  <insurer>
+    <reference value="Organization/2"/>
+  </insurer>
 
- <organization>
+  <organization>
     <reference value="Organization/1"/>
- </organization>
+  </organization>
 
- <use value="complete"/>
-
- <priority>
+  <priority>
     <code value="normal"/>
- </priority>
+  </priority>
 
- <payee>
-   <type>
-     <code value="provider"/>
-   </type>
- </payee>
+  <payee>
+    <type>
+      <code value="provider"/>
+    </type>
+  </payee>
  
   <diagnosis>
     <sequence value="1"/>
@@ -48,19 +52,15 @@
 	  </diagnosis>
   </diagnosis>
  
- <patient>
-   <reference value="Patient/1"/>
- </patient>
- 
- <coverage>
+  <coverage>
    <sequence value="1"/>
    <focal value="true"/>
    <coverage>
      <reference value="Coverage/9876B1"/>
    </coverage>
- </coverage>
+  </coverage>
   
- <item>
+  <item>
    <sequence value="1"/>
    <careTeam>
      <provider>

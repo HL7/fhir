@@ -420,6 +420,26 @@
   w5 = id
 
  -- Row 4 -----------------------------------
+  Element = Claim.ruleset
+  Card. = 0..1
+  Aliases = BusinessVersion
+  Type = Coding
+  Binding = Ruleset
+  Short Name = Current specification followed
+  Definition = The version of the specification on which this instance relies.
+  w5 = id.version
+
+ -- Row 5 -----------------------------------
+  Element = Claim.originalRuleset
+  Card. = 0..1
+  Aliases = OriginalBusinessVersion
+  Type = Coding
+  Binding = Ruleset
+  Short Name = Original specification followed
+  Definition = The version of the specification from which the original instance was created.
+  w5 = id.version
+
+ -- Row 6 -----------------------------------
   Element = Claim.status
   Card. = 1..1
   Is Modifier = Y
@@ -430,7 +450,7 @@
   Definition = The status of the resource instance.
   w5 = status
 
- -- Row 5 -----------------------------------
+ -- Row 7 -----------------------------------
   Element = Claim.type
   Card. = 1..1
   Type = Coding
@@ -440,7 +460,7 @@
   Comments = Affects which fields and value sets are used
   w5 = class
 
- -- Row 6 -----------------------------------
+ -- Row 8 -----------------------------------
   Element = Claim.subType
   Card. = 0..*
   Type = Coding
@@ -450,65 +470,7 @@
   Comments = This may contain the local bill type codes such as the US UB-04 bill type code.
   w5 = class
 
- -- Row 7 -----------------------------------
-  Element = Claim.ruleset
-  Card. = 0..1
-  Aliases = BusinessVersion
-  Type = Coding
-  Binding = Ruleset
-  Short Name = Current specification followed
-  Definition = The version of the specification on which this instance relies.
-  w5 = id.version
-
- -- Row 8 -----------------------------------
-  Element = Claim.originalRuleset
-  Card. = 0..1
-  Aliases = OriginalBusinessVersion
-  Type = Coding
-  Binding = Ruleset
-  Short Name = Original specification followed
-  Definition = The version of the specification from which the original instance was created.
-
  -- Row 9 -----------------------------------
-  Element = Claim.created
-  Card. = 0..1
-  Type = dateTime
-  Short Name = Creation date
-  Definition = The date when the enclosed suite of services were performed or completed
-  w5 = when.recorded
-
- -- Row 10 -----------------------------------
-  Element = Claim.billablePeriod
-  Card. = 0..1
-  Type = Period
-  Short Name = Period for charge submission
-  Definition = The billable period for which charges are being submitted.
-  w5 = when.done
-
- -- Row 11 -----------------------------------
-  Element = Claim.insurer
-  Card. = 0..1
-  Type = Reference(Organization)
-  Short Name = Target
-  Definition = The Insurer who is target  of the request.
-
- -- Row 12 -----------------------------------
-  Element = Claim.provider
-  Card. = 0..1
-  Type = Reference(Practitioner)
-  Short Name = Responsible provider
-  Definition = The provider which is responsible for the bill, claim pre-determination, pre-authorization.
-  w5 = who.source
-
- -- Row 13 -----------------------------------
-  Element = Claim.organization
-  Card. = 0..1
-  Type = Reference(Organization)
-  Short Name = Responsible organization
-  Definition = The organization which is responsible for the bill, claim pre-determination, pre-authorization.
-  w5 = who.source
-
- -- Row 14 -----------------------------------
   Element = Claim.use
   Card. = 0..1
   Type = code
@@ -517,23 +479,34 @@
   Definition = Complete (Bill or Claim), Proposed (Pre-Authorization), Exploratory (Pre-determination).
   w5 = class
 
- -- Row 15 -----------------------------------
-  Element = Claim.priority
-  Card. = 0..1
-  Type = Coding
-  Binding = ProcessPriority
-  Short Name = Desired processing priority
-  Definition = Immediate (STAT), best effort (NORMAL), deferred (DEFER)
+ -- Row 10 -----------------------------------
+  Element = !Patient Information
 
- -- Row 16 -----------------------------------
-  Element = Claim.fundsReserve
-  Card. = 0..1
-  Type = Coding
-  Binding = FundsReserve
-  Short Name = Funds requested to be reserved
-  Definition = In the case of a Pre-Determination/Pre-Authorization the provider may request that funds in the amount of the expected Benefit be reserved (\'Patient\' or \'Provider\') to pay for the Benefits determined on the subsequent claim(s). \'None\' explicitly indicates no funds reserving is requested.
+ -- Row 11 -----------------------------------
+  Element = Claim.patient
+  Card. = 1..1
+  Type = Reference(Patient)
+  Short Name = The subject of the Products and Services
+  Definition = Patient Resource
+  w5 = who.focus
 
- -- Row 17 -----------------------------------
+ -- Row 12 -----------------------------------
+  Element = Claim.billablePeriod
+  Card. = 0..1
+  Type = Period
+  Short Name = Period for charge submission
+  Definition = The billable period for which charges are being submitted.
+  w5 = when.done
+
+ -- Row 13 -----------------------------------
+  Element = Claim.created
+  Card. = 0..1
+  Type = dateTime
+  Short Name = Creation date
+  Definition = The date when the enclosed suite of services were performed or completed
+  w5 = when.recorded
+
+ -- Row 14 -----------------------------------
   Element = Claim.enterer
   Card. = 0..1
   Type = Reference(Practitioner)
@@ -541,15 +514,46 @@
   Definition = Person who created the invoice/claim/pre-determination or pre-authorization.
   w5 = who.author
 
- -- Row 18 -----------------------------------
-  Element = Claim.facility
+ -- Row 15 -----------------------------------
+  Element = Claim.insurer
   Card. = 0..1
-  Type = Reference(Location)
-  Short Name = Servicing Facility
-  Definition = Facility where the services were provided.
-  w5 = where
+  Type = Reference(Organization)
+  Short Name = Target
+  Definition = The Insurer who is target  of the request.
+
+ -- Row 16 -----------------------------------
+  Element = Claim.provider
+  Card. = 0..1
+  Type = Reference(Practitioner)
+  Short Name = Responsible provider
+  Definition = The provider which is responsible for the bill, claim pre-determination, pre-authorization.
+  w5 = who.source
+
+ -- Row 17 -----------------------------------
+  Element = Claim.organization
+  Card. = 0..1
+  Type = Reference(Organization)
+  Short Name = Responsible organization
+  Definition = The organization which is responsible for the bill, claim pre-determination, pre-authorization.
+  w5 = who.source
+
+ -- Row 18 -----------------------------------
+  Element = Claim.priority
+  Card. = 0..1
+  Type = Coding
+  Binding = ProcessPriority
+  Short Name = Desired processing priority
+  Definition = Immediate (STAT), best effort (NORMAL), deferred (DEFER)
 
  -- Row 19 -----------------------------------
+  Element = Claim.fundsReserve
+  Card. = 0..1
+  Type = Coding
+  Binding = FundsReserve
+  Short Name = Funds requested to be reserved
+  Definition = In the case of a Pre-Determination/Pre-Authorization the provider may request that funds in the amount of the expected Benefit be reserved (\'Patient\' or \'Provider\') to pay for the Benefits determined on the subsequent claim(s). \'None\' explicitly indicates no funds reserving is requested.
+
+ -- Row 20 -----------------------------------
   Element = Claim.related
   Card. = 0..*
   UML = 740;120
@@ -557,7 +561,7 @@
   Short Name = Related Claims which may be revelant to processing this claimn
   Definition = Other claims which are related to this claim such as prior claim versions or for related services.
 
- -- Row 20 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = Claim.related.claim
   Card. = 0..1
   Type = Reference(Claim)
@@ -565,7 +569,7 @@
   Definition = Other claims which are related to this claim such as prior claim versions or for related services.
   Comments = Do we need a relationship code?
 
- -- Row 21 -----------------------------------
+ -- Row 22 -----------------------------------
   Element = Claim.related.relationship
   Card. = 0..1
   Type = Coding
@@ -573,14 +577,14 @@
   Short Name = How the reference claim is related
   Definition = For example prior or umbrella.
 
- -- Row 22 -----------------------------------
+ -- Row 23 -----------------------------------
   Element = Claim.related.reference
   Card. = 0..1
   Type = Identifier
   Short Name = Related file or case reference
   Definition = An alternate organizational reference to the case or file to which this particular claim pertains - eg Property/Casualy insurer claim # or Workers Compensation case # .
 
- -- Row 23 -----------------------------------
+ -- Row 24 -----------------------------------
   Element = Claim.prescription
   Card. = 0..1
   Type = Reference(MedicationRequest|VisionPrescription)
@@ -589,7 +593,7 @@
   Requirements = For type=Pharmacy and Vision only.
   Comments = Should we create a group to hold multiple prescriptions and add a sequence number and on the line items a link to the sequence.
 
- -- Row 24 -----------------------------------
+ -- Row 25 -----------------------------------
   Element = Claim.originalPrescription
   Card. = 0..1
   Type = Reference(MedicationRequest)
@@ -597,10 +601,10 @@
   Definition = Original prescription which has been superceded by this prescription to support the dispensing of pharmacy services, medications or products.
   Comments = as above
 
- -- Row 25 -----------------------------------
+ -- Row 26 -----------------------------------
   Element = !Payee Information
 
- -- Row 26 -----------------------------------
+ -- Row 27 -----------------------------------
   Element = Claim.payee
   Card. = 0..1
   UML = 0;0
@@ -608,7 +612,7 @@
   Short Name = Party to be paid any benefits payable
   Definition = The party to be reimbursed for the services.
 
- -- Row 27 -----------------------------------
+ -- Row 28 -----------------------------------
   Element = Claim.payee.type
   Card. = 1..1
   Type = Coding
@@ -616,24 +620,24 @@
   Short Name = Type of party: Subscriber, Provider, other
   Definition = Type of Party to be reimbursed: Subscriber, provider, other.
 
- -- Row 28 -----------------------------------
+ -- Row 29 -----------------------------------
   Element = Claim.payee.resourceType
   Card. = 0..1
   Type = Coding
   Binding = PayeeResourceType
   Short Name = organization | patient | practitioner | relatedperson
 
- -- Row 29 -----------------------------------
+ -- Row 30 -----------------------------------
   Element = Claim.payee.party
   Card. = 0..1
   Type = Reference(Practitioner|Organization|Patient|RelatedPerson)
   Short Name = Party to receive the payable
   Definition = Party to be reimbursed: Subscriber, provider, other.
 
- -- Row 30 -----------------------------------
+ -- Row 31 -----------------------------------
   Element = !Referral Information
 
- -- Row 31 -----------------------------------
+ -- Row 32 -----------------------------------
   Element = Claim.referral
   Card. = 0..1
   Type = Reference(ReferralRequest)
@@ -641,7 +645,15 @@
   Definition = The referral resource which lists the date, practitioner, reason and other supporting information.
   w5 = who.cause
 
- -- Row 32 -----------------------------------
+ -- Row 33 -----------------------------------
+  Element = Claim.facility
+  Card. = 0..1
+  Type = Reference(Location)
+  Short Name = Servicing Facility
+  Definition = Facility where the services were provided.
+  w5 = where
+
+ -- Row 34 -----------------------------------
   Element = Claim.information
   Card. = 0..*
   UML = 740;0
@@ -650,7 +662,7 @@
   Definition = Additional information codes regarding exceptions, special considerations, the condition, situation, prior or concurrent issues. Often there are mutiple jurisdiction specific valuesets which are required.
   Requirements = Typically these information codes are required to support the services rendered or the adjudication of the services rendered.
 
- -- Row 33 -----------------------------------
+ -- Row 35 -----------------------------------
   Element = Claim.information.category
   Card. = 1..1
   Type = Coding
@@ -659,7 +671,7 @@
   Definition = The general class of the information supplied: information; exception; accident, employment; onset, etc.
   Comments = This may contain the local bill type codes such as the US UB-04 bill type code.
 
- -- Row 34 -----------------------------------
+ -- Row 36 -----------------------------------
   Element = Claim.information.code
   Card. = 0..1
   Type = Coding
@@ -668,24 +680,24 @@
   Definition = System and code pertaining to the specific information regarding special conditions relating to the setting, treatment or patient  for which care is sought which may influence the adjudication.
   Comments = This may contain the local bill type codes such as the US UB-04 bill type code.
 
- -- Row 35 -----------------------------------
+ -- Row 37 -----------------------------------
   Element = Claim.information.timing[x]
   Card. = 0..1
   Type = date|Period
   Short Name = When it occurred
   Definition = The date when or period to which this information refers.
 
- -- Row 36 -----------------------------------
+ -- Row 38 -----------------------------------
   Element = Claim.information.value[x]
   Card. = 0..1
   Type = string|Quantity
   Short Name = Additional Data
   Definition = Additional data.
 
- -- Row 37 -----------------------------------
+ -- Row 39 -----------------------------------
   Element = !Diagnostic Information
 
- -- Row 38 -----------------------------------
+ -- Row 40 -----------------------------------
   Element = Claim.diagnosis
   Card. = 0..*
   UML = 0;115
@@ -693,7 +705,7 @@
   Short Name = Diagnosis
   Definition = Ordered list of patient diagnosis for which care is sought.
 
- -- Row 39 -----------------------------------
+ -- Row 41 -----------------------------------
   Element = Claim.diagnosis.sequence
   Card. = 1..1
   Type = positiveInt
@@ -701,7 +713,7 @@
   Definition = Sequence of diagnosis which serves to order and provide a link.
   Requirements = Required to maintain order of the diagnoses.
 
- -- Row 40 -----------------------------------
+ -- Row 42 -----------------------------------
   Element = Claim.diagnosis.diagnosis
   Card. = 1..1
   Type = Coding
@@ -710,7 +722,7 @@
   Definition = The diagnosis.
   Requirements = Required to adjudicate services rendered to condition presented.
 
- -- Row 41 -----------------------------------
+ -- Row 43 -----------------------------------
   Element = Claim.diagnosis.type
   Card. = 0..*
   Type = Coding
@@ -720,7 +732,7 @@
   Requirements = Required to adjudicate services rendered to the mandated diagnosis grouping system.
   Comments = Diagnosis are presented in list order to their expected importance: primary, secondary, etc.
 
- -- Row 42 -----------------------------------
+ -- Row 44 -----------------------------------
   Element = Claim.diagnosis.drg
   Card. = 0..1
   Type = Coding
@@ -729,10 +741,10 @@
   Definition = The Diagnosis Related Group (DRG) code based on the assigned grouping code system.
   Requirements = Required to adjudicate services rendered to the mandated diagnosis grouping system.
 
- -- Row 43 -----------------------------------
+ -- Row 45 -----------------------------------
   Element = !Procedure Information
 
- -- Row 44 -----------------------------------
+ -- Row 46 -----------------------------------
   Element = Claim.procedure
   Card. = 0..*
   UML = 0;220
@@ -740,7 +752,7 @@
   Short Name = Procedures performed
   Definition = Ordered list of patient procedures performed to support the adjudication.
 
- -- Row 45 -----------------------------------
+ -- Row 47 -----------------------------------
   Element = Claim.procedure.sequence
   Card. = 1..1
   Type = positiveInt
@@ -748,7 +760,7 @@
   Definition = Sequence of procedures which serves to order and provide a link.
   Requirements = Required to maintain order of the procudures.
 
- -- Row 46 -----------------------------------
+ -- Row 48 -----------------------------------
   Element = Claim.procedure.date
   Card. = 0..1
   Type = dateTime
@@ -757,7 +769,7 @@
   Requirements = Required to adjudicate services rendered.
   Comments = SB DateTime??
 
- -- Row 47 -----------------------------------
+ -- Row 49 -----------------------------------
   Element = Claim.procedure.procedure[x]
   Card. = 1..1
   Type = Coding|Reference(Procedure)
@@ -765,17 +777,6 @@
   Short Name = Patient\'s list of procedures performed
   Definition = The procedure code.
   Requirements = Required to adjudicate services rendered.
-
- -- Row 48 -----------------------------------
-  Element = !Patient Information
-
- -- Row 49 -----------------------------------
-  Element = Claim.patient
-  Card. = 1..1
-  Type = Reference(Patient)
-  Short Name = The subject of the Products and Services
-  Definition = Patient Resource
-  w5 = who.focus
 
  -- Row 50 -----------------------------------
   Element = !Insurance Information

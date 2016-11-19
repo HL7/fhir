@@ -19,7 +19,20 @@
     <code value="institutional"/>
   </type>
  
-  <created value="2014-08-16"/>
+ <use value="complete"/>
+
+ <patient>
+   <reference value="Patient/1"/>
+ </patient>
+ 
+ <created value="2014-08-16"/>
+
+ <enterer>
+   <identifier>
+    <system value="http://jurisdiction.org/facilities/HOSP1234/users"/>
+    <value value="UC1234"/>
+   </identifier>
+</enterer>
 
  <insurer>
   <reference value="Organization/2"/>
@@ -29,31 +42,22 @@
     <reference value="Organization/1"/>
  </organization>
 
- <use value="complete"/>
-
  <priority>
     <code value="normal"/>
  </priority>
 
- <enterer>
-   <identifier>
-    <system value="http://jurisdiction.org/facilities/HOSP1234/users"/>
-    <value value="UC1234"/>
-   </identifier>
-</enterer>
-
- <facility>
-  <identifier>
-    <system value="http://jurisdiction.org/facilities"/>
-    <value value="HOSP1234"/>
-  </identifier>
-</facility>
- 
  <payee>
    <type>
      <code value="provider"/>
    </type>
  </payee>
+ 
+ <facility>
+  <identifier>
+    <system value="http://jurisdiction.org/facilities"/>
+    <value value="HOSP1234"/>
+  </identifier>
+ </facility>
  
   <diagnosis>
     <sequence value="1"/>
@@ -61,10 +65,6 @@
 	  <code value="654456"/>
 	</diagnosis>
   </diagnosis>
- 
- <patient>
-   <reference value="Patient/1"/>
- </patient>
  
  <coverage>
    <sequence value="1"/>

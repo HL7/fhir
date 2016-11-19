@@ -124,19 +124,6 @@
   w5 = status
 
  -- Row 4 -----------------------------------
-  Element = Coverage.issuer
-  Card. = 0..*
-  Summary = Y
-  Type = Reference(Organization|Patient|RelatedPerson)
-  Short Name = Identifier for the plan or agreement issuer
-  Definition = The program or plan underwriter or payor including both insurance and non-insurance agreements, such as patient-pay agreements. May provide multiple identifiers such as insurance company identifier or business identifier (BIN number).
-  Requirements = Need to identify the issuer to target for processing and for coordination of benefit processing.
-  CDAnet v4 Mapping = A05
-  v2 Mapping = IN1-3
-  CPhA3 (Pharmacy) Mapping = C.30
-  w5 = who.author
-
- -- Row 5 -----------------------------------
   Element = Coverage.isAgreement
   Card. = 0..1
   Summary = Y
@@ -145,7 +132,7 @@
   Definition = A self, or other, payment agreement not an insurance policy.
   Requirements = Only insurance policies receive Claims, agreements receive bills.
 
- -- Row 6 -----------------------------------
+ -- Row 5 -----------------------------------
   Element = !Coverage.bin
   Card. = 0..1
   Summary = Y
@@ -153,17 +140,7 @@
   Short Name = BIN Number
   Definition = Business Identification Number (BIN number) used to identify the routing  of eClaims.
 
- -- Row 7 -----------------------------------
-  Element = Coverage.period
-  Card. = 0..1
-  Summary = Y
-  Type = Period
-  Short Name = Coverage start and end dates
-  Definition = Time period during which the coverage is in force. A missing start date indicates the start date isn\'t known, a missing end date means the coverage is continuing to be in force.
-  v2 Mapping = IN1-12 / IN1-13
-  w5 = when.done
-
- -- Row 8 -----------------------------------
+ -- Row 6 -----------------------------------
   Element = Coverage.type
   Card. = 0..1
   Summary = Y
@@ -175,7 +152,7 @@
   v2 Mapping = IN1-15
   w5 = class
 
- -- Row 9 -----------------------------------
+ -- Row 7 -----------------------------------
   Element = Coverage.policyHolder
   Card. = 0..1
   Summary = Y
@@ -188,7 +165,7 @@
   Committee Notes = C.35
   w5 = who.focus
 
- -- Row 10 -----------------------------------
+ -- Row 8 -----------------------------------
   Element = Coverage.subscriber
   Card. = 0..1
   Summary = Y
@@ -201,7 +178,7 @@
   Committee Notes = C.35
   w5 = who.focus
 
- -- Row 11 -----------------------------------
+ -- Row 9 -----------------------------------
   Element = Coverage.subscriberId
   Card. = 0..1
   Summary = Y
@@ -214,7 +191,7 @@
   Committee Notes = C.35
   w5 = who.focus
 
- -- Row 12 -----------------------------------
+ -- Row 10 -----------------------------------
   Element = Coverage.beneficiary
   Card. = 0..1
   Summary = Y
@@ -227,7 +204,7 @@
   Committee Notes = C.35
   w5 = who.focus
 
- -- Row 13 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = Coverage.relationship
   Card. = 0..1
   Type = Coding
@@ -236,6 +213,29 @@
   Definition = The relationship of beneficiary (patient) to the subscriber.
   Requirements = To determine relationship between the patient and the subscriber
   CDAnet v4 Mapping = C03
+
+ -- Row 12 -----------------------------------
+  Element = Coverage.period
+  Card. = 0..1
+  Summary = Y
+  Type = Period
+  Short Name = Coverage start and end dates
+  Definition = Time period during which the coverage is in force. A missing start date indicates the start date isn\'t known, a missing end date means the coverage is continuing to be in force.
+  v2 Mapping = IN1-12 / IN1-13
+  w5 = when.done
+
+ -- Row 13 -----------------------------------
+  Element = Coverage.issuer
+  Card. = 0..*
+  Summary = Y
+  Type = Reference(Organization|Patient|RelatedPerson)
+  Short Name = Identifier for the plan or agreement issuer
+  Definition = The program or plan underwriter or payor including both insurance and non-insurance agreements, such as patient-pay agreements. May provide multiple identifiers such as insurance company identifier or business identifier (BIN number).
+  Requirements = Need to identify the issuer to target for processing and for coordination of benefit processing.
+  CDAnet v4 Mapping = A05
+  v2 Mapping = IN1-3
+  CPhA3 (Pharmacy) Mapping = C.30
+  w5 = who.author
 
  -- Row 14 -----------------------------------
   Element = !Coverage.level

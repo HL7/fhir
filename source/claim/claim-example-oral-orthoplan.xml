@@ -19,6 +19,12 @@
     <code value="oral"/>
   </type>
   
+  <use value="proposed"/>
+
+  <patient>
+    <reference value="Patient/1"/>
+  </patient>
+ 
   <created value="2015-03-16"/>
 
   <insurer>
@@ -28,8 +34,6 @@
   <organization>
     <reference value="Organization/1"/>
   </organization>
-
-  <use value="proposed"/>
 
   <priority>
     <code value="normal"/>
@@ -52,10 +56,6 @@
       <code value="123457"/>
     </diagnosis>
   </diagnosis>
- 
-  <patient>
-    <reference value="Patient/1"/>
-  </patient>
  
   <coverage>
     <sequence value="1"/>

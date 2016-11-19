@@ -67,12 +67,7 @@
       </identifier>
 
       <status value="active"/>
-      <issuer>
-	    <identifier>
-          <system value="http://www.bindb.com/bin"/>
-          <value value="123456"/>
-	    </identifier>
-      </issuer>
+
       <type>
         <system value="http://hl7.org/fhir/v3/ActCode"/>
         <code value="EHCPOL"/>
@@ -89,6 +84,13 @@
       <relationship>
         <code value="self"/>
       </relationship>
+
+      <issuer>
+	    <identifier>
+          <system value="http://www.bindb.com/bin"/>
+          <value value="123456"/>
+	    </identifier>
+      </issuer>
 	  
 	  <group>
 	    <plan value="CBI35"/>
@@ -114,6 +116,12 @@
     <code value="oral"/>
   </type>
 
+  <use value="complete"/>
+  
+  <patient>
+    <reference value="#patient-1"/>
+  </patient>
+
   <created value="2014-08-16"/>
   
   <insurer>
@@ -122,9 +130,7 @@
   
   <organization>
     <reference value="#org-org"/>
-  </organization>
-  
-  <use value="complete"/>
+  </organization>  
   
   <priority>
     <code value="normal"/>
@@ -142,10 +148,6 @@
       <code value="123456"/>
     </diagnosis>
   </diagnosis>
-  
-  <patient>
-    <reference value="#patient-1"/>
-  </patient>
   
   <coverage>
     <sequence value="1"/>

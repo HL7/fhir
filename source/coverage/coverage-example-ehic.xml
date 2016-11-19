@@ -14,17 +14,6 @@
   
  <status value="active"/>
   
- <issuer>
-	<identifier>
-	  <system value="http://ehic.com/insurer"/>
-	  <value value="123456789"/>
-	</identifier>
- </issuer>
- 
- <period> 
-   <end value="2012-03-17"/>
- </period>
-
  <type>
       <system value="http://hl7.org/fhir/v3/ActCode"/>
       <code value="EHCPOL"/>
@@ -42,5 +31,16 @@
  <relationship>
       <code value="self"/>
  </relationship>
-  
+
+ <period> 
+   <end value="2012-03-17"/>
+ </period>
+
+ <issuer>
+	<identifier>
+	  <system value="http://ehic.com/insurer"/>
+	  <value value="123456789"/>
+	</identifier>
+ </issuer>
+ 
 </Coverage>

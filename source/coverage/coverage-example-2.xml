@@ -13,15 +13,6 @@
  </identifier>
 
  <status value="active"/>
-  
- <issuer>
-  <reference value="Organization/2"/>
- </issuer>
- 
- <period> 
-   <start value="2011-03-17"/>
-   <end value="2012-03-17"/>
- </period>
 
  <type>
    <system value="http://hl7.org/fhir/v3/ActCode"/>
@@ -38,8 +29,17 @@
  </beneficiary>
  
  <relationship>
-      <code value="self"/>
+   <code value="self"/>
  </relationship>
+ 
+ <period> 
+   <start value="2011-03-17"/>
+   <end value="2012-03-17"/>
+ </period>
+
+ <issuer>
+  <reference value="Organization/2"/>
+ </issuer>
  
  <group>
    <group value="WESTAIR" />

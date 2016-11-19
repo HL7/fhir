@@ -19,6 +19,15 @@
     <code value="oral"/>
   </type>
   
+  <use value="complete"/>
+
+  <patient>
+	<identifier>
+      <system value="http://www.jurisdiction.com/nationalId"/>
+      <value value="123AB345"/>
+	</identifier>
+  </patient>
+    
   <created value="2014-08-16"/>
   
   <insurer>
@@ -34,8 +43,6 @@
       <value value="HOSP12345"/>
 	</identifier>
   </organization>
-  
-  <use value="complete"/>
   
   <priority>
     <code value="normal"/>
@@ -53,13 +60,6 @@
       <code value="123456"/>
     </diagnosis>
   </diagnosis>
-  
-  <patient>
-	<identifier>
-      <system value="http://www.jurisdiction.com/nationalId"/>
-      <value value="123AB345"/>
-	</identifier>
-  </patient>
   
   <coverage>
     <sequence value="1"/>

@@ -13,15 +13,6 @@
  </identifier>
 
  <status value="active"/>
- 
- <issuer>
-   <reference value="Organization/2"/>
- </issuer>
- 
- <period> 
-   <start value="2011-05-23"/>
-   <end value="2012-05-23"/>
- </period>
 
  <type>
    <system value="http://hl7.org/fhir/v3/ActCode"/>
@@ -44,6 +35,15 @@
  <relationship>
    <code value="self"/>
  </relationship>
+
+ <period> 
+   <start value="2011-05-23"/>
+   <end value="2012-05-23"/>
+ </period>
+ 
+ <issuer>
+   <reference value="Organization/2"/>
+ </issuer>
  
  <group>
    <group value="CBI35"/>

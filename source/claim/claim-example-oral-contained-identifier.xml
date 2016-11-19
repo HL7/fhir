@@ -40,6 +40,12 @@
     <code value="oral"/>
   </type>
 
+  <use value="complete"/>
+  
+  <patient>
+    <reference value="#patient-1"/>
+  </patient>
+    
   <created value="2014-08-16"/>
   
   <insurer>
@@ -55,8 +61,6 @@
       <value value="HOSP12345"/>
 	</identifier>
   </organization>
-  
-  <use value="complete"/>
   
   <priority>
     <code value="normal"/>
@@ -75,10 +79,6 @@
     </diagnosis>
   </diagnosis>
 
-  <patient>
-    <reference value="#patient-1"/>
-  </patient>
-    
   <coverage>
     <sequence value="1"/>
     <focal value="true"/>
