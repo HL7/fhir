@@ -797,13 +797,13 @@
   Comments = Diagnosis are presented in list order to their expected importance: primary, secondary, etc.
 
  -- Row 51 -----------------------------------
-  Element = ExplanationOfBenefit.diagnosis.drg
+  Element = ExplanationOfBenefit.diagnosis.packageCode
   Card. = 0..1
   Type = Coding
   Binding = DiagnosisRelatedGroup
-  Short Name = Diagnosis Related Group
-  Definition = The Diagnosis Related Group (DRG) code based on the assigned grouping code system.
-  Requirements = Required to adjudicate services rendered to the mandated diagnosis grouping system.
+  Short Name = Package billing code
+  Definition = The package billing code, for example DRG, based on the assigned grouping code system.
+  Requirements = Required to adjudicate services rendered to the mandated grouping system.
 
  -- Row 52 -----------------------------------
   Element = !Procedure Information
