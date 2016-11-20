@@ -13,6 +13,12 @@
   
   <status value="active"/>
 
+  <created value="2014-08-16"/>
+
+  <organization>
+    <reference value="Organization/2"/>
+  </organization>
+
   <request>
 	<reference value="http://www.BenefitsInc.com/fhir/eligibility/225476332402"/>
   </request>
@@ -21,12 +27,6 @@
   
   <disposition value="2014 August mid-month settlement."/>
  
-  <created value="2014-08-16"/>
-
-  <organization>
-    <reference value="Organization/2"/>
-  </organization>
-
   <requestOrganization>
     <reference value="Organization/1"/>
   </requestOrganization>

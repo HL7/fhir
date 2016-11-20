@@ -13,16 +13,16 @@
  
   <status value="active"/>
  
+  <request>
+    <reference value="http://benefitsinc.com/fhir/claim/12345"/>
+  </request>
+
   <created value="2014-08-16"/>
 
   <organization>
     <reference value="Organization/1"/>
   </organization>
   
-  <request>
-    <reference value="http://benefitsinc.com/fhir/claim/12345"/>
-  </request>
-
   <paymentStatus>
 	<system value="http://hl7.org/fhir/paymentstatus"/>
 	<code value="paid"/>
