@@ -767,7 +767,7 @@
  -- Row 1 -----------------------------------
   Name = identifier
   Type = token
-  Description = The identity of the insurer
+  Description = The identity of the claimresponse
   Path = ClaimResponse.identifier
 
  -- Row 2 -----------------------------------
@@ -825,7 +825,7 @@
   Path = ClaimResponse.disposition
 
  -- Row 11 -----------------------------------
-  Name = paymentdate
+  Name = payment-date
   Type = date
   Description = The expected paymentDate
   Path = ClaimResponse.payment.date

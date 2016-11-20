@@ -30,14 +30,24 @@
     <definition value="Nature and date of the related event eg. Last exam, service, Xray etc."/>
   </concept>
   <concept>
-    <code value="exceptions"/>
-    <display value="Exceptions"/>
-    <definition value="Insurance policy exceptions.."/>
+    <code value="exception"/>
+    <display value="Exception"/>
+    <definition value="Insurance policy exceptions."/>
   </concept>
   <concept>
     <code value="material"/>
     <display value="Materials Forwarded"/>
     <definition value="Materials being forwarded, eg. Models, molds, images, documents."/>
+  </concept>
+  <concept>
+    <code value="attachment"/>
+    <display value="Attachment"/>
+    <definition value="Materials attached such as images, documents and resources."/>
+  </concept>
+  <concept>
+    <code value="missingtooth"/>
+    <display value="Missing Tooth"/>
+    <definition value="Teeth which are missing for any reason, for example: prior extraction, never developed."/>
   </concept>
   <concept>
     <code value="other"/>
