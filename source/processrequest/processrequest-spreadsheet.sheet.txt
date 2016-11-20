@@ -93,6 +93,24 @@
   w5 = id
 
  -- Row 4 -----------------------------------
+  Element = ProcessRequest.ruleset
+  Card. = 0..1
+  Type = Coding
+  Binding = Ruleset
+  Short Name = Resource version
+  Definition = The version of the style of resource contents. This should be mapped to the allowable profiles for this and supporting resources.
+  w5 = id.version
+
+ -- Row 5 -----------------------------------
+  Element = ProcessRequest.originalRuleset
+  Card. = 0..1
+  Type = Coding
+  Binding = Ruleset
+  Short Name = Original version
+  Definition = The style (standard) and version of the original material which was converted into this resource.
+  Requirements = Knowledge of the original version can inform the processing of this instance so that information which is processable by the originating system may be generated.
+
+ -- Row 6 -----------------------------------
   Element = ProcessRequest.status
   Card. = 1..1
   Is Modifier = Y
@@ -102,24 +120,6 @@
   Short Name = active | cancelled | draft | entered-in-error
   Definition = The status of the resource instance.
   w5 = status
-
- -- Row 5 -----------------------------------
-  Element = ProcessRequest.ruleset
-  Card. = 0..1
-  Type = Coding
-  Binding = Ruleset
-  Short Name = Resource version
-  Definition = The version of the style of resource contents. This should be mapped to the allowable profiles for this and supporting resources.
-  w5 = id.version
-
- -- Row 6 -----------------------------------
-  Element = ProcessRequest.originalRuleset
-  Card. = 0..1
-  Type = Coding
-  Binding = Ruleset
-  Short Name = Original version
-  Definition = The style (standard) and version of the original material which was converted into this resource.
-  Requirements = Knowledge of the original version can inform the processing of this instance so that information which is processable by the originating system may be generated.
 
  -- Row 7 -----------------------------------
   Element = ProcessRequest.action
@@ -131,20 +131,20 @@
   w5 = class
 
  -- Row 8 -----------------------------------
-  Element = ProcessRequest.created
-  Card. = 0..1
-  Type = dateTime
-  Short Name = Creation date
-  Definition = The date when this resource was created.
-  w5 = when.recorded
-
- -- Row 9 -----------------------------------
   Element = ProcessRequest.target
   Card. = 0..1
   Type = Reference(Organization)
   Short Name = Target of the request
   Definition = The organization which is the target of the request.
   w5 = who.focus
+
+ -- Row 9 -----------------------------------
+  Element = ProcessRequest.created
+  Card. = 0..1
+  Type = dateTime
+  Short Name = Creation date
+  Definition = The date when this resource was created.
+  w5 = when.recorded
 
  -- Row 10 -----------------------------------
   Element = ProcessRequest.provider

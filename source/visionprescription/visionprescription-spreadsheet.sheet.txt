@@ -139,16 +139,6 @@
   w5 = status
 
  -- Row 4 -----------------------------------
-  Element = VisionPrescription.dateWritten
-  Card. = 0..1
-  Type = dateTime
-  Short Name = When prescription was authorized
-  Definition = The date (and perhaps time) when the prescription was written
-  v2 Mapping = RXE-32-Original Order Date/Time / ORC-9-Date/Time of Transaction
-  RIM Mapping = author.time
-  w5 = when.recorded
-
- -- Row 5 -----------------------------------
   Element = VisionPrescription.patient
   Card. = 0..1
   Type = Reference(Patient)
@@ -158,17 +148,7 @@
   RIM Mapping = subject.role
   w5 = who.focus
 
- -- Row 6 -----------------------------------
-  Element = VisionPrescription.prescriber
-  Card. = 0..1
-  Type = Reference(Practitioner)
-  Short Name = Who authorizes the vision product
-  Definition = The healthcare professional responsible for authorizing the prescription
-  v2 Mapping = RXE-13-Ordering Provider\'s DEA Number / RXO-14-Ordering Provider\'s DEA Number / RXE-14-Pharmacist/Treatment Supplier\'s Verifier ID / RXO-15-Pharmacist/Treatment Supplier\'s Verifier ID / ORC-12-Ordering Provider / PRT-5-Participation Person: PRT-4-Participation=\'OP\' (all but last deprecated)
-  RIM Mapping = author.role
-  w5 = who.author
-
- -- Row 7 -----------------------------------
+ -- Row 5 -----------------------------------
   Element = VisionPrescription.encounter
   Card. = 0..1
   Type = Reference(Encounter)
@@ -177,6 +157,26 @@
   v2 Mapping = PV1-19-Visit Number
   RIM Mapping = componentOf.patientEncounter
   w5 = context
+
+ -- Row 6 -----------------------------------
+  Element = VisionPrescription.dateWritten
+  Card. = 0..1
+  Type = dateTime
+  Short Name = When prescription was authorized
+  Definition = The date (and perhaps time) when the prescription was written
+  v2 Mapping = RXE-32-Original Order Date/Time / ORC-9-Date/Time of Transaction
+  RIM Mapping = author.time
+  w5 = when.recorded
+
+ -- Row 7 -----------------------------------
+  Element = VisionPrescription.prescriber
+  Card. = 0..1
+  Type = Reference(Practitioner)
+  Short Name = Who authorizes the vision product
+  Definition = The healthcare professional responsible for authorizing the prescription
+  v2 Mapping = RXE-13-Ordering Provider\'s DEA Number / RXO-14-Ordering Provider\'s DEA Number / RXE-14-Pharmacist/Treatment Supplier\'s Verifier ID / RXO-15-Pharmacist/Treatment Supplier\'s Verifier ID / ORC-12-Ordering Provider / PRT-5-Participation Person: PRT-4-Participation=\'OP\' (all but last deprecated)
+  RIM Mapping = author.role
+  w5 = who.author
 
  -- Row 8 -----------------------------------
   Element = VisionPrescription.reason[x]
@@ -300,9 +300,8 @@
   Definition = Brand recommendations or restrictions.
 
  -- Row 24 -----------------------------------
-  Element = VisionPrescription.dispense.notes
+  Element = VisionPrescription.dispense.note
   Card. = 0..1
-  Aliases = 0..1
   Type = string
   Short Name = Notes for coatings
   Definition = Notes for special requirements such as coatings and lens materials.

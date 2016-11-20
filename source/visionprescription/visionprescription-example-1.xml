@@ -16,12 +16,12 @@
  
   <status value="active"/>
  
-  <dateWritten value="2014-06-15"/>
-  
   <patient>
     <reference value="Patient/example"/>
   </patient>
 
+  <dateWritten value="2014-06-15"/>
+  
   <prescriber>
     <reference value="Practitioner/example"/>
   </prescriber>
