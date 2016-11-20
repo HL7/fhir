@@ -519,7 +519,7 @@
   Card. = 0..1
   Type = Reference(Organization)
   Short Name = Target
-  Definition = The Insurer who is target  of the request.
+  Definition = The Insurer who is target of the request.
 
  -- Row 16 -----------------------------------
   Element = Claim.provider

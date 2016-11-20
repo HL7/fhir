@@ -14,23 +14,23 @@
 
   <status value="active"/>
 
-  <request>
-    <reference value="http://www.BenefitsInc.com/fhir/oralhealthclaim/15476332402"/>
-  </request>
-
   <created value="2014-08-16"/>
 
-  <organization>
+  <insurer>
    <identifier>
     <system value="http://www.jurisdiction.org/insurers"/>
     <value value="555123"/>
    </identifier>
-  </organization>
+  </insurer>
 
- <!-- <requestOrganizationReference>
+  <requestOrganization>
     <reference value="Organization/1"/>
-  </requestOrganizationReference>
--->
+  </requestOrganization>
+
+  <request>
+    <reference value="http://www.BenefitsInc.com/fhir/oralhealthclaim/15476332402"/>
+  </request>
+
   <outcome>
     <system value="http://hl7.org/fhir/remittance-outcome" />
 	<code value="complete" />

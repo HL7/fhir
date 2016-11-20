@@ -12,7 +12,22 @@
   </identifier>
 
   <status value="active"/>
-	
+
+  <type>
+    <system value="http://hl7.org/fhir/ex-claimtype"/>
+    <code value="oral"/>
+  </type>
+
+  <patient>
+    <reference value="Patient/pat1"/>
+  </patient>
+
+  <created value="2014-08-16"/>
+
+  <organization>
+    <reference value="Organization/2"/>
+  </organization>
+
   <claim>
     <reference value="Claim/100150"/>
   </claim>
@@ -21,32 +36,18 @@
     <reference value="ClaimResponse/R3500"/>
   </claimResponse> 
 
-  <type>
-    <system value="http://hl7.org/fhir/ex-claimtype"/>
-    <code value="oral"/>
-  </type>
-  <created value="2014-08-16"/>
-
   <outcome>
     <system value="http://hl7.org/fhir/remittance-outcome" />
 	<code value="complete" />
   </outcome>
   <disposition value="Claim settled as per contract."/>
  
-  <organization>
-    <reference value="Organization/2"/>
-  </organization>
-
-   <careTeam>
-     <sequence value="1"/>
-     <provider>
-       <reference value="Practitioner/example"/>
-     </provider>
-   </careTeam>
-
-  <patient>
-    <reference value="Patient/pat1"/>
-  </patient>
+  <careTeam>
+    <sequence value="1"/>
+    <provider>
+      <reference value="Practitioner/example"/>
+    </provider>
+  </careTeam>
  
   <coverage>
     <coverage>
@@ -99,7 +100,6 @@
 	</amount> 
    </adjudication>
   </item>
-
 
   <totalCost>
     <value value="135.57"/>
