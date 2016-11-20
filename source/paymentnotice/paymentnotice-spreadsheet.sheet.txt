@@ -53,6 +53,7 @@
   Type = DomainResource
   Short Name = PaymentNotice request
   Definition = This resource provides the status of the payment for goods and services rendered, and the request and response resource references.
+  RIM Mapping = n/a
   w5 = financial.payment
 
  -- Row 2 -----------------------------------
@@ -64,6 +65,7 @@
   Type = Identifier
   Short Name = Business Identifier
   Definition = The notice business identifier
+  RIM Mapping = n/a
   w5 = id
 
  -- Row 4 -----------------------------------
@@ -73,6 +75,7 @@
   Binding = Ruleset
   Short Name = Resource version
   Definition = The version of the style of resource contents. This should be mapped to the allowable profiles for this and supporting resources.
+  RIM Mapping = n/a
   w5 = id.version
 
  -- Row 5 -----------------------------------
@@ -83,6 +86,7 @@
   Short Name = Original version
   Definition = The style (standard) and version of the original material which was converted into this resource.
   Requirements = Knowledge of the original version can inform the processing of this instance so that information which is processable by the originating system may be generated.
+  RIM Mapping = n/a
   w5 = id.version
 
  -- Row 6 -----------------------------------
@@ -94,7 +98,7 @@
   Binding = PaymentNoticeStatus
   Short Name = active | cancelled | draft | entered-in-error
   Definition = The status of the resource instance.
-  To Do = The category of claim this is
+  RIM Mapping = n/a
   w5 = status
 
  -- Row 7 -----------------------------------
@@ -111,6 +115,7 @@
   Type = Reference(Any)
   Short Name = Response reference
   Definition = Reference of response to resource for which payment is being made.
+  RIM Mapping = n/a
   w5 = who.focus
 
  -- Row 9 -----------------------------------
@@ -119,6 +124,7 @@
   Type = date
   Short Name = Payment or clearing date
   Definition = The date when the above payment action occurrred.
+  RIM Mapping = n/a
   w5 = when.done
 
  -- Row 10 -----------------------------------
@@ -127,6 +133,7 @@
   Type = dateTime
   Short Name = Creation date
   Definition = The date when this resource was created.
+  RIM Mapping = n/a
   w5 = when.recorded
 
  -- Row 11 -----------------------------------
@@ -135,6 +142,7 @@
   Type = Reference(Organization)
   Short Name = Insurer or Regulatory body
   Definition = The Insurer who is target  of the request.
+  RIM Mapping = n/a
 
  -- Row 12 -----------------------------------
   Element = PaymentNotice.provider
@@ -143,6 +151,8 @@
   Short Name = Responsible practitioner
   Definition = The practitioner who is responsible for the services rendered to the patient.
   CDAnet v4 Mapping = B01
+  v2 Mapping = B01
+  RIM Mapping = n/a
   w5 = who.source
 
  -- Row 13 -----------------------------------
@@ -151,6 +161,9 @@
   Type = Reference(Organization)
   Short Name = Responsible organization
   Definition = The organization which is responsible for the services rendered to the patient.
+  CDAnet v4 Mapping = B02
+  v2 Mapping = B02
+  RIM Mapping = n/a
   w5 = who.source
 
  -- Row 14 -----------------------------------
@@ -160,6 +173,7 @@
   Binding = PaymentStatus
   Short Name = Status of the payment
   Definition = The payment status, typically paid: payment sent, cleared: payment received.
+  RIM Mapping = n/a
 
 === Sheet Search =====================================
 

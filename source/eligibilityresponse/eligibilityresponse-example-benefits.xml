@@ -29,6 +29,7 @@
 
   <inforce value="true"/>
   
+ <insurance>
   <benefitBalance>
     <category>
 	  <system value="http://hl7.org/fhir/benefit-category"/>
@@ -256,5 +257,6 @@
 	</financial>
 	
   </benefitBalance>
-  
+ </insurance>
+ 
 </EligibilityResponse>

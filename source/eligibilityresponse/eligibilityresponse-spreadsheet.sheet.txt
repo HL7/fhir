@@ -194,20 +194,126 @@
   Definition = Flag indicating if the coverage provided is inforce currently  if no service date(s) specified or for the whole duration of the service dates.
 
  -- Row 15 -----------------------------------
-  Element = EligibilityResponse.coverage
+  Element = !Insurance Information
+
+ -- Row 16 -----------------------------------
+  Element = EligibilityResponse.insurance
   Card. = 0..*
+  UML = 200;0
+  Type = =Insurance
+  Short Name = Details by insurance coverage
+  Definition = The insurer may provide both the details for the requested coverage as well as details for additional coverages known to the insurer.
+
+ -- Row 17 -----------------------------------
+  Element = EligibilityResponse.insurance.coverage
+  Card. = 0..1
   Type = Reference(Coverage)
   Short Name = Updated Coverage details
   Definition = A suite of updated or additional Coverages from the Insurer.
 
- -- Row 16 -----------------------------------
-  Element = EligibilityResponse.contract
+ -- Row 18 -----------------------------------
+  Element = EligibilityResponse.insurance.contract
   Card. = 0..1
   Type = Reference(Contract)
   Short Name = Contract details
   Definition = The contract resource which may provide more detailed information.
 
- -- Row 17 -----------------------------------
+ -- Row 19 -----------------------------------
+  Element = !Plan Balance Information
+
+ -- Row 20 -----------------------------------
+  Element = EligibilityResponse.insurance.benefitBalance
+  Card. = 0..*
+  UML = 380;0
+  Type = =Benefits
+  Short Name = Benefits by Category
+  Definition = Benefits and optionally current balances by Category
+
+ -- Row 21 -----------------------------------
+  Element = EligibilityResponse.insurance.benefitBalance.category
+  Card. = 1..1
+  Type = Coding
+  Binding = BenefitCategory
+  Short Name = Benefit Category
+  Definition = Dental, Vision, Medical, Pharmacy, Rehab etc.
+
+ -- Row 22 -----------------------------------
+  Element = EligibilityResponse.insurance.benefitBalance.subCategory
+  Card. = 0..1
+  Type = Coding
+  Binding = BenefitSubCategory
+  Short Name = Benefit SubCategory
+  Definition = Dental: basic, major, ortho; Vision exam, glasses, contacts; etc
+
+ -- Row 23 -----------------------------------
+  Element = EligibilityResponse.insurance.benefitBalance.name
+  Card. = 0..1
+  Type = string
+  Short Name = Short name for the benefit
+  Definition = A short name or tag for the benefit, for example MED01, or DENT2.
+
+ -- Row 24 -----------------------------------
+  Element = EligibilityResponse.insurance.benefitBalance.description
+  Card. = 0..1
+  Type = string
+  Short Name = Description of the benefit
+  Definition = A richer description of the benefit, for example \'DENT2 covers 100% of basic, 50% of major but exclused Ortho, Implants and Costmetic services\'.
+
+ -- Row 25 -----------------------------------
+  Element = EligibilityResponse.insurance.benefitBalance.network
+  Card. = 0..1
+  Type = Coding
+  Binding = BenefitNetwork
+  Short Name = In or out of network
+  Definition = Network designation
+
+ -- Row 26 -----------------------------------
+  Element = EligibilityResponse.insurance.benefitBalance.unit
+  Card. = 0..1
+  Type = Coding
+  Binding = BenefitUnit
+  Short Name = Individual or family
+  Definition = Unit designation: individual or family
+
+ -- Row 27 -----------------------------------
+  Element = EligibilityResponse.insurance.benefitBalance.term
+  Card. = 0..1
+  Type = Coding
+  Binding = BenefitTerm
+  Short Name = Annual or lifetime
+  Definition = The term or period of the values such as \'maximum lifetime benefit\' or \'maximum annual vistis\'.
+
+ -- Row 28 -----------------------------------
+  Element = EligibilityResponse.insurance.benefitBalance.financial
+  Card. = 0..*
+  UML = 380;180
+  Type = =Benefit
+  Short Name = Benefit Summary
+  Definition = Benefits Used to date
+
+ -- Row 29 -----------------------------------
+  Element = EligibilityResponse.insurance.benefitBalance.financial.type
+  Card. = 1..1
+  Type = Coding
+  Binding = BenefitType
+  Short Name = Deductable, visits, benefit amount
+  Definition = Deductable, visits, benefit amount.
+
+ -- Row 30 -----------------------------------
+  Element = EligibilityResponse.insurance.benefitBalance.financial.benefit[x]
+  Card. = 0..1
+  Type = unsignedInt|string|Money
+  Short Name = Benefits allowed
+  Definition = Benefits allowed
+
+ -- Row 31 -----------------------------------
+  Element = EligibilityResponse.insurance.benefitBalance.financial.benefitUsed[x]
+  Card. = 0..1
+  Type = unsignedInt|Money
+  Short Name = Benefits used
+  Definition = Benefits used
+
+ -- Row 32 -----------------------------------
   Element = EligibilityResponse.form
   Card. = 0..1
   Type = Coding
@@ -216,106 +322,11 @@
   Definition = The form to be used for printing the content.
   CDAnet v4 Mapping = G42
 
- -- Row 18 -----------------------------------
-  Element = !Plan Balance Information
-
- -- Row 19 -----------------------------------
-  Element = EligibilityResponse.benefitBalance
-  Card. = 0..*
-  UML = 380;0
-  Type = =Benefits
-  Short Name = Benefits by Category
-  Definition = Benefits and optionally current balances by Category
-
- -- Row 20 -----------------------------------
-  Element = EligibilityResponse.benefitBalance.category
-  Card. = 1..1
-  Type = Coding
-  Binding = BenefitCategory
-  Short Name = Benefit Category
-  Definition = Dental, Vision, Medical, Pharmacy, Rehab etc.
-
- -- Row 21 -----------------------------------
-  Element = EligibilityResponse.benefitBalance.subCategory
-  Card. = 0..1
-  Type = Coding
-  Binding = BenefitSubCategory
-  Short Name = Benefit SubCategory
-  Definition = Dental: basic, major, ortho; Vision exam, glasses, contacts; etc
-
- -- Row 22 -----------------------------------
-  Element = EligibilityResponse.benefitBalance.name
-  Card. = 0..1
-  Type = string
-  Short Name = Short name for the benefit
-  Definition = A short name or tag for the benefit, for example MED01, or DENT2.
-
- -- Row 23 -----------------------------------
-  Element = EligibilityResponse.benefitBalance.description
-  Card. = 0..1
-  Type = string
-  Short Name = Description of the benefit
-  Definition = A richer description of the benefit, for example \'DENT2 covers 100% of basic, 50% of major but exclused Ortho, Implants and Costmetic services\'.
-
- -- Row 24 -----------------------------------
-  Element = EligibilityResponse.benefitBalance.network
-  Card. = 0..1
-  Type = Coding
-  Binding = BenefitNetwork
-  Short Name = In or out of network
-  Definition = Network designation
-
- -- Row 25 -----------------------------------
-  Element = EligibilityResponse.benefitBalance.unit
-  Card. = 0..1
-  Type = Coding
-  Binding = BenefitUnit
-  Short Name = Individual or family
-  Definition = Unit designation: individual or family
-
- -- Row 26 -----------------------------------
-  Element = EligibilityResponse.benefitBalance.term
-  Card. = 0..1
-  Type = Coding
-  Binding = BenefitTerm
-  Short Name = Annual or lifetime
-  Definition = The term or period of the values such as \'maximum lifetime benefit\' or \'maximum annual vistis\'.
-
- -- Row 27 -----------------------------------
-  Element = EligibilityResponse.benefitBalance.financial
-  Card. = 0..*
-  UML = 380;180
-  Type = =Benefit
-  Short Name = Benefit Summary
-  Definition = Benefits Used to date
-
- -- Row 28 -----------------------------------
-  Element = EligibilityResponse.benefitBalance.financial.type
-  Card. = 1..1
-  Type = Coding
-  Binding = BenefitType
-  Short Name = Deductable, visits, benefit amount
-  Definition = Deductable, visits, benefit amount.
-
- -- Row 29 -----------------------------------
-  Element = EligibilityResponse.benefitBalance.financial.benefit[x]
-  Card. = 0..1
-  Type = unsignedInt|string|Money
-  Short Name = Benefits allowed
-  Definition = Benefits allowed
-
- -- Row 30 -----------------------------------
-  Element = EligibilityResponse.benefitBalance.financial.benefitUsed[x]
-  Card. = 0..1
-  Type = unsignedInt|Money
-  Short Name = Benefits used
-  Definition = Benefits used
-
- -- Row 31 -----------------------------------
+ -- Row 33 -----------------------------------
   Element = !Errors
   Short Name = Processing errors
 
- -- Row 32 -----------------------------------
+ -- Row 34 -----------------------------------
   Element = EligibilityResponse.error
   Card. = 0..*
   UML = 50;300
@@ -323,7 +334,7 @@
   Short Name = Processing errors
   Definition = Mutually exclusive with Services Provided (Item).
 
- -- Row 33 -----------------------------------
+ -- Row 35 -----------------------------------
   Element = EligibilityResponse.error.code
   Card. = 1..1
   Type = Coding
