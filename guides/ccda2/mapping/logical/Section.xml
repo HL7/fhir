@@ -1,0 +1,1269 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="Section"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
+    <valueUri value="urn:hl7-org:v3"/>
+  </extension>
+  <url value="http://hl7.org/fhir/cda/StructureDefinition/Section"/>
+  <name value="CDAR2.Section"/>
+  <title value="FHIR Definition for CDA R2 Class Section"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <publisher value="HL7"/>
+  <kind value="logical"/>
+  <abstract value="false"/>
+  <baseDefinition value="http://hl7.org/fhir/cda/StructureDefinition/Element"/>
+  <snapshot>
+    <element>
+      <path value="Section"/>
+      <min value="1"/>
+      <max value="1"/>
+    </element>
+    <element>
+      <path value="Section.nullFlavor"/>
+      <representation value="xmlAttr"/>
+      <label value="Exceptional Value Detail"/>
+      <definition value="If a value is an exceptional value (NULL-value), this specifies in what way and why proper information is missing."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <binding>
+        <strength value="required"/>
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/v3-NullFlavor"/>
+        </valueSetReference>
+      </binding>
+    </element>
+    <element>
+      <path value="Section.realmCode"/>
+      <definition value="When valued in an instance, this attribute signals the imposition of realm-specific constraints. The value of this attribute identifies the realm in question"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CS"/>
+      </type>
+    </element>
+    <element>
+      <path value="Section.typeId"/>
+      <definition value="When valued in an instance, this attribute signals the imposition of constraints defined in an HL7-specified message type. This might be a common type (also known as CMET in the messaging communication environment), or content included within a wrapper. The value of this attribute provides a unique identifier for the type in question."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="II"/>
+      </type>
+    </element>
+    <element>
+      <path value="Section.templateId"/>
+      <definition value="When valued in an instance, this attribute signals the imposition of a set of template-defined constraints. The value of this attribute provides a unique identifier for the templates in question"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="II"/>
+      </type>
+    </element>
+    <element>
+      <path value="Section.classCode"/>
+      <representation value="xmlAttr"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <defaultValueCode value="DOCSECT"/>
+      <fixedCode value="DOCSECT"/>
+      <mustSupport value="true"/>
+      <binding>
+        <strength value="required"/>
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/v3-ActClassOrganizer"/>
+        </valueSetReference>
+      </binding>
+    </element>
+    <element>
+      <path value="Section.moodCode"/>
+      <representation value="xmlAttr"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <defaultValueCode value="EVN"/>
+      <fixedCode value="EVN"/>
+      <mustSupport value="true"/>
+      <binding>
+        <strength value="required"/>
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/v3-ActMood"/>
+        </valueSetReference>
+      </binding>
+    </element>
+    <element>
+      <path value="Section.id"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="II"/>
+      </type>
+    </element>
+    <element>
+      <path value="Section.code"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CE"/>
+      </type>
+      <binding>
+        <strength value="extensible"/>
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/v3-DocumentSectionType"/>
+        </valueSetReference>
+      </binding>
+    </element>
+    <element>
+      <path value="Section.title"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="ST"/>
+      </type>
+    </element>
+    <element>
+      <path value="Section.text"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="NARRATIVE"/>
+      </type>
+      <mustSupport value="true"/>
+    </element>
+    <element>
+      <path value="Section.confidentialityCode"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CE"/>
+      </type>
+    </element>
+    <element>
+      <path value="Section.languageCode"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CS"/>
+      </type>
+      <binding>
+        <strength value="required"/>
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/v3-HumanLanguage"/>
+        </valueSetReference>
+      </binding>
+    </element>
+    <element>
+      <path value="Section.subject"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element>
+      <path value="Section.subject.nullFlavor"/>
+      <representation value="xmlAttr"/>
+      <label value="Exceptional Value Detail"/>
+      <definition value="If a value is an exceptional value (NULL-value), this specifies in what way and why proper information is missing."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <binding>
+        <strength value="required"/>
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/v3-NullFlavor"/>
+        </valueSetReference>
+      </binding>
+    </element>
+    <element>
+      <path value="Section.subject.realmCode"/>
+      <definition value="When valued in an instance, this attribute signals the imposition of realm-specific constraints. The value of this attribute identifies the realm in question"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CS"/>
+      </type>
+    </element>
+    <element>
+      <path value="Section.subject.typeId"/>
+      <definition value="When valued in an instance, this attribute signals the imposition of constraints defined in an HL7-specified message type. This might be a common type (also known as CMET in the messaging communication environment), or content included within a wrapper. The value of this attribute provides a unique identifier for the type in question."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="II"/>
+      </type>
+    </element>
+    <element>
+      <path value="Section.subject.templateId"/>
+      <definition value="When valued in an instance, this attribute signals the imposition of a set of template-defined constraints. The value of this attribute provides a unique identifier for the templates in question"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="II"/>
+      </type>
+    </element>
+    <element>
+      <path value="Section.subject.typeCode"/>
+      <representation value="xmlAttr"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <defaultValueCode value="SBJ"/>
+      <fixedCode value="SBJ"/>
+      <mustSupport value="true"/>
+      <binding>
+        <strength value="required"/>
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/v3-ParticipationTargetSubject"/>
+        </valueSetReference>
+      </binding>
+    </element>
+    <element>
+      <path value="Section.subject.contextControlCode"/>
+      <representation value="xmlAttr"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <defaultValueCode value="OP"/>
+      <fixedCode value="OP"/>
+      <mustSupport value="true"/>
+      <binding>
+        <strength value="required"/>
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/v3-ContextControl"/>
+        </valueSetReference>
+      </binding>
+    </element>
+    <element>
+      <path value="Section.subject.awarenessCode"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CE"/>
+      </type>
+      <binding>
+        <strength value="extensible"/>
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/v3-TargetAwareness"/>
+        </valueSetReference>
+      </binding>
+    </element>
+    <element>
+      <path value="Section.subject.relatedSubject"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <type>
+        <code value="http://hl7.org/fhir/cda/StructureDefinition/RelatedSubject"/>
+      </type>
+    </element>
+    <element>
+      <path value="Section.author"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element>
+      <path value="Section.author.nullFlavor"/>
+      <representation value="xmlAttr"/>
+      <label value="Exceptional Value Detail"/>
+      <definition value="If a value is an exceptional value (NULL-value), this specifies in what way and why proper information is missing."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <binding>
+        <strength value="required"/>
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/v3-NullFlavor"/>
+        </valueSetReference>
+      </binding>
+    </element>
+    <element>
+      <path value="Section.author.realmCode"/>
+      <definition value="When valued in an instance, this attribute signals the imposition of realm-specific constraints. The value of this attribute identifies the realm in question"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CS"/>
+      </type>
+    </element>
+    <element>
+      <path value="Section.author.typeId"/>
+      <definition value="When valued in an instance, this attribute signals the imposition of constraints defined in an HL7-specified message type. This might be a common type (also known as CMET in the messaging communication environment), or content included within a wrapper. The value of this attribute provides a unique identifier for the type in question."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="II"/>
+      </type>
+    </element>
+    <element>
+      <path value="Section.author.templateId"/>
+      <definition value="When valued in an instance, this attribute signals the imposition of a set of template-defined constraints. The value of this attribute provides a unique identifier for the templates in question"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="II"/>
+      </type>
+    </element>
+    <element>
+      <path value="Section.author.typeCode"/>
+      <representation value="xmlAttr"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <defaultValueCode value="AUT"/>
+      <fixedCode value="AUT"/>
+      <mustSupport value="true"/>
+      <binding>
+        <strength value="required"/>
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/v3-ParticipationInformationTranscriber"/>
+        </valueSetReference>
+      </binding>
+    </element>
+    <element>
+      <path value="Section.author.functionCode"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CE"/>
+      </type>
+      <binding>
+        <strength value="extensible"/>
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/v3-ParticipationFunction"/>
+        </valueSetReference>
+      </binding>
+    </element>
+    <element>
+      <path value="Section.author.contextControlCode"/>
+      <representation value="xmlAttr"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <defaultValueCode value="OP"/>
+      <fixedCode value="OP"/>
+      <mustSupport value="true"/>
+      <binding>
+        <strength value="required"/>
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/v3-ContextControl"/>
+        </valueSetReference>
+      </binding>
+    </element>
+    <element>
+      <path value="Section.author.time"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="TS"/>
+      </type>
+      <mustSupport value="true"/>
+    </element>
+    <element>
+      <path value="Section.author.assignedAuthor"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <type>
+        <code value="http://hl7.org/fhir/cda/StructureDefinition/AssignedAuthor"/>
+      </type>
+    </element>
+    <element>
+      <path value="Section.informant"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element>
+      <path value="Section.informant.nullFlavor"/>
+      <representation value="xmlAttr"/>
+      <label value="Exceptional Value Detail"/>
+      <definition value="If a value is an exceptional value (NULL-value), this specifies in what way and why proper information is missing."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <binding>
+        <strength value="required"/>
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/v3-NullFlavor"/>
+        </valueSetReference>
+      </binding>
+    </element>
+    <element>
+      <path value="Section.informant.realmCode"/>
+      <definition value="When valued in an instance, this attribute signals the imposition of realm-specific constraints. The value of this attribute identifies the realm in question"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CS"/>
+      </type>
+    </element>
+    <element>
+      <path value="Section.informant.typeId"/>
+      <definition value="When valued in an instance, this attribute signals the imposition of constraints defined in an HL7-specified message type. This might be a common type (also known as CMET in the messaging communication environment), or content included within a wrapper. The value of this attribute provides a unique identifier for the type in question."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="II"/>
+      </type>
+    </element>
+    <element>
+      <path value="Section.informant.templateId"/>
+      <definition value="When valued in an instance, this attribute signals the imposition of a set of template-defined constraints. The value of this attribute provides a unique identifier for the templates in question"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="II"/>
+      </type>
+    </element>
+    <element>
+      <path value="Section.informant.typeCode"/>
+      <representation value="xmlAttr"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <defaultValueCode value="INF"/>
+      <fixedCode value="INF"/>
+      <mustSupport value="true"/>
+      <binding>
+        <strength value="required"/>
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/v3-ParticipationInformationGenerator"/>
+        </valueSetReference>
+      </binding>
+    </element>
+    <element>
+      <path value="Section.informant.contextControlCode"/>
+      <representation value="xmlAttr"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <defaultValueCode value="OP"/>
+      <fixedCode value="OP"/>
+      <mustSupport value="true"/>
+      <binding>
+        <strength value="required"/>
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/v3-ContextControl"/>
+        </valueSetReference>
+      </binding>
+    </element>
+    <element>
+      <path value="Section.informant.assignedEntity"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <type>
+        <code value="http://hl7.org/fhir/cda/StructureDefinition/AssignedEntity"/>
+      </type>
+    </element>
+    <element>
+      <path value="Section.informant.relatedEntity"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <type>
+        <code value="http://hl7.org/fhir/cda/StructureDefinition/RelatedEntity"/>
+      </type>
+    </element>
+    <element>
+      <path value="Section.entry"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element>
+      <path value="Section.entry.nullFlavor"/>
+      <representation value="xmlAttr"/>
+      <label value="Exceptional Value Detail"/>
+      <definition value="If a value is an exceptional value (NULL-value), this specifies in what way and why proper information is missing."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <binding>
+        <strength value="required"/>
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/v3-NullFlavor"/>
+        </valueSetReference>
+      </binding>
+    </element>
+    <element>
+      <path value="Section.entry.realmCode"/>
+      <definition value="When valued in an instance, this attribute signals the imposition of realm-specific constraints. The value of this attribute identifies the realm in question"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CS"/>
+      </type>
+    </element>
+    <element>
+      <path value="Section.entry.typeId"/>
+      <definition value="When valued in an instance, this attribute signals the imposition of constraints defined in an HL7-specified message type. This might be a common type (also known as CMET in the messaging communication environment), or content included within a wrapper. The value of this attribute provides a unique identifier for the type in question."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="II"/>
+      </type>
+    </element>
+    <element>
+      <path value="Section.entry.templateId"/>
+      <definition value="When valued in an instance, this attribute signals the imposition of a set of template-defined constraints. The value of this attribute provides a unique identifier for the templates in question"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="II"/>
+      </type>
+    </element>
+    <element>
+      <path value="Section.entry.typeCode"/>
+      <representation value="xmlAttr"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <defaultValueCode value="COMP"/>
+      <mustSupport value="true"/>
+    </element>
+    <element>
+      <path value="Section.entry.contextConductionInd"/>
+      <representation value="xmlAttr"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+      <defaultValueBoolean value="true"/>
+      <mustSupport value="true"/>
+    </element>
+    <element>
+      <path value="Section.entry.observation"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <type>
+        <code value="http://hl7.org/fhir/cda/StructureDefinition/Observation"/>
+      </type>
+    </element>
+    <element>
+      <path value="Section.entry.regionOfInterest"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <type>
+        <code value="http://hl7.org/fhir/cda/StructureDefinition/RegionOfInterest"/>
+      </type>
+    </element>
+    <element>
+      <path value="Section.entry.observationMedia"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <type>
+        <code value="http://hl7.org/fhir/cda/StructureDefinition/ObservationMedia"/>
+      </type>
+    </element>
+    <element>
+      <path value="Section.entry.substanceAdministration"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <type>
+        <code value="http://hl7.org/fhir/cda/StructureDefinition/SubstanceAdministration"/>
+      </type>
+    </element>
+    <element>
+      <path value="Section.entry.supply"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <type>
+        <code value="http://hl7.org/fhir/cda/StructureDefinition/Supply"/>
+      </type>
+    </element>
+    <element>
+      <path value="Section.entry.procedure"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <type>
+        <code value="http://hl7.org/fhir/cda/StructureDefinition/Procedure"/>
+      </type>
+    </element>
+    <element>
+      <path value="Section.entry.encounter"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <type>
+        <code value="http://hl7.org/fhir/cda/StructureDefinition/Encounter"/>
+      </type>
+    </element>
+    <element>
+      <path value="Section.entry.organizer"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <type>
+        <code value="http://hl7.org/fhir/cda/StructureDefinition/Organizer"/>
+      </type>
+    </element>
+    <element>
+      <path value="Section.entry.act"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <type>
+        <code value="http://hl7.org/fhir/cda/StructureDefinition/Act"/>
+      </type>
+    </element>
+    <element>
+      <path value="Section.component"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element>
+      <path value="Section.component.nullFlavor"/>
+      <representation value="xmlAttr"/>
+      <label value="Exceptional Value Detail"/>
+      <definition value="If a value is an exceptional value (NULL-value), this specifies in what way and why proper information is missing."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <binding>
+        <strength value="required"/>
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/v3-NullFlavor"/>
+        </valueSetReference>
+      </binding>
+    </element>
+    <element>
+      <path value="Section.component.realmCode"/>
+      <definition value="When valued in an instance, this attribute signals the imposition of realm-specific constraints. The value of this attribute identifies the realm in question"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CS"/>
+      </type>
+    </element>
+    <element>
+      <path value="Section.component.typeId"/>
+      <definition value="When valued in an instance, this attribute signals the imposition of constraints defined in an HL7-specified message type. This might be a common type (also known as CMET in the messaging communication environment), or content included within a wrapper. The value of this attribute provides a unique identifier for the type in question."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="II"/>
+      </type>
+    </element>
+    <element>
+      <path value="Section.component.templateId"/>
+      <definition value="When valued in an instance, this attribute signals the imposition of a set of template-defined constraints. The value of this attribute provides a unique identifier for the templates in question"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="II"/>
+      </type>
+    </element>
+    <element>
+      <path value="Section.component.typeCode"/>
+      <representation value="xmlAttr"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <defaultValueCode value="COMP"/>
+      <fixedCode value="COMP"/>
+      <mustSupport value="true"/>
+      <binding>
+        <strength value="required"/>
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/v3-null"/>
+        </valueSetReference>
+      </binding>
+    </element>
+    <element>
+      <path value="Section.component.contextConductionInd"/>
+      <representation value="xmlAttr"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+      <defaultValueBoolean value="true"/>
+      <mustSupport value="true"/>
+    </element>
+    <element>
+      <path value="Section.component.section"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <type>
+        <code value="http://hl7.org/fhir/cda/StructureDefinition/Section"/>
+      </type>
+    </element>
+  </snapshot>
+  <differential>
+    <element>
+      <path value="Section"/>
+      <min value="1"/>
+      <max value="1"/>
+    </element>
+    <element>
+      <path value="Section.classCode"/>
+      <representation value="xmlAttr"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <defaultValueCode value="DOCSECT"/>
+      <fixedCode value="DOCSECT"/>
+      <mustSupport value="true"/>
+      <binding>
+        <strength value="required"/>
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/v3-ActClassOrganizer"/>
+        </valueSetReference>
+      </binding>
+    </element>
+    <element>
+      <path value="Section.moodCode"/>
+      <representation value="xmlAttr"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <defaultValueCode value="EVN"/>
+      <fixedCode value="EVN"/>
+      <mustSupport value="true"/>
+      <binding>
+        <strength value="required"/>
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/v3-ActMood"/>
+        </valueSetReference>
+      </binding>
+    </element>
+    <element>
+      <path value="Section.id"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="II"/>
+      </type>
+    </element>
+    <element>
+      <path value="Section.code"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CE"/>
+      </type>
+      <binding>
+        <strength value="extensible"/>
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/v3-DocumentSectionType"/>
+        </valueSetReference>
+      </binding>
+    </element>
+    <element>
+      <path value="Section.title"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="ST"/>
+      </type>
+    </element>
+    <element>
+      <path value="Section.text"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="NARRATIVE"/>
+      </type>
+      <mustSupport value="true"/>
+    </element>
+    <element>
+      <path value="Section.confidentialityCode"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CE"/>
+      </type>
+    </element>
+    <element>
+      <path value="Section.languageCode"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CS"/>
+      </type>
+      <binding>
+        <strength value="required"/>
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/v3-HumanLanguage"/>
+        </valueSetReference>
+      </binding>
+    </element>
+    <element>
+      <path value="Section.subject"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element>
+      <path value="Section.subject.typeCode"/>
+      <representation value="xmlAttr"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <defaultValueCode value="SBJ"/>
+      <fixedCode value="SBJ"/>
+      <mustSupport value="true"/>
+      <binding>
+        <strength value="required"/>
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/v3-ParticipationTargetSubject"/>
+        </valueSetReference>
+      </binding>
+    </element>
+    <element>
+      <path value="Section.subject.contextControlCode"/>
+      <representation value="xmlAttr"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <defaultValueCode value="OP"/>
+      <fixedCode value="OP"/>
+      <mustSupport value="true"/>
+      <binding>
+        <strength value="required"/>
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/v3-ContextControl"/>
+        </valueSetReference>
+      </binding>
+    </element>
+    <element>
+      <path value="Section.subject.awarenessCode"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CE"/>
+      </type>
+      <binding>
+        <strength value="extensible"/>
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/v3-TargetAwareness"/>
+        </valueSetReference>
+      </binding>
+    </element>
+    <element>
+      <path value="Section.subject.relatedSubject"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <type>
+        <code value="http://hl7.org/fhir/cda/StructureDefinition/RelatedSubject"/>
+      </type>
+    </element>
+    <element>
+      <path value="Section.author"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element>
+      <path value="Section.author.typeCode"/>
+      <representation value="xmlAttr"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <defaultValueCode value="AUT"/>
+      <fixedCode value="AUT"/>
+      <mustSupport value="true"/>
+      <binding>
+        <strength value="required"/>
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/v3-ParticipationInformationTranscriber"/>
+        </valueSetReference>
+      </binding>
+    </element>
+    <element>
+      <path value="Section.author.functionCode"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CE"/>
+      </type>
+      <binding>
+        <strength value="extensible"/>
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/v3-ParticipationFunction"/>
+        </valueSetReference>
+      </binding>
+    </element>
+    <element>
+      <path value="Section.author.contextControlCode"/>
+      <representation value="xmlAttr"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <defaultValueCode value="OP"/>
+      <fixedCode value="OP"/>
+      <mustSupport value="true"/>
+      <binding>
+        <strength value="required"/>
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/v3-ContextControl"/>
+        </valueSetReference>
+      </binding>
+    </element>
+    <element>
+      <path value="Section.author.time"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="TS"/>
+      </type>
+      <mustSupport value="true"/>
+    </element>
+    <element>
+      <path value="Section.author.assignedAuthor"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <type>
+        <code value="http://hl7.org/fhir/cda/StructureDefinition/AssignedAuthor"/>
+      </type>
+    </element>
+    <element>
+      <path value="Section.informant"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element>
+      <path value="Section.informant.typeCode"/>
+      <representation value="xmlAttr"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <defaultValueCode value="INF"/>
+      <fixedCode value="INF"/>
+      <mustSupport value="true"/>
+      <binding>
+        <strength value="required"/>
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/v3-ParticipationInformationGenerator"/>
+        </valueSetReference>
+      </binding>
+    </element>
+    <element>
+      <path value="Section.informant.contextControlCode"/>
+      <representation value="xmlAttr"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <defaultValueCode value="OP"/>
+      <fixedCode value="OP"/>
+      <mustSupport value="true"/>
+      <binding>
+        <strength value="required"/>
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/v3-ContextControl"/>
+        </valueSetReference>
+      </binding>
+    </element>
+    <element>
+      <path value="Section.informant.assignedEntity"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <type>
+        <code value="http://hl7.org/fhir/cda/StructureDefinition/AssignedEntity"/>
+      </type>
+    </element>
+    <element>
+      <path value="Section.informant.relatedEntity"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <type>
+        <code value="http://hl7.org/fhir/cda/StructureDefinition/RelatedEntity"/>
+      </type>
+    </element>
+    <element>
+      <path value="Section.entry"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element>
+      <path value="Section.entry.typeCode"/>
+      <representation value="xmlAttr"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <defaultValueCode value="COMP"/>
+      <mustSupport value="true"/>
+    </element>
+    <element>
+      <path value="Section.entry.contextConductionInd"/>
+      <representation value="xmlAttr"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+      <defaultValueBoolean value="true"/>
+      <mustSupport value="true"/>
+    </element>
+    <element>
+      <path value="Section.entry.observation"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <type>
+        <code value="http://hl7.org/fhir/cda/StructureDefinition/Observation"/>
+      </type>
+    </element>
+    <element>
+      <path value="Section.entry.regionOfInterest"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <type>
+        <code value="http://hl7.org/fhir/cda/StructureDefinition/RegionOfInterest"/>
+      </type>
+    </element>
+    <element>
+      <path value="Section.entry.observationMedia"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <type>
+        <code value="http://hl7.org/fhir/cda/StructureDefinition/ObservationMedia"/>
+      </type>
+    </element>
+    <element>
+      <path value="Section.entry.substanceAdministration"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <type>
+        <code value="http://hl7.org/fhir/cda/StructureDefinition/SubstanceAdministration"/>
+      </type>
+    </element>
+    <element>
+      <path value="Section.entry.supply"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <type>
+        <code value="http://hl7.org/fhir/cda/StructureDefinition/Supply"/>
+      </type>
+    </element>
+    <element>
+      <path value="Section.entry.procedure"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <type>
+        <code value="http://hl7.org/fhir/cda/StructureDefinition/Procedure"/>
+      </type>
+    </element>
+    <element>
+      <path value="Section.entry.encounter"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <type>
+        <code value="http://hl7.org/fhir/cda/StructureDefinition/Encounter"/>
+      </type>
+    </element>
+    <element>
+      <path value="Section.entry.organizer"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <type>
+        <code value="http://hl7.org/fhir/cda/StructureDefinition/Organizer"/>
+      </type>
+    </element>
+    <element>
+      <path value="Section.entry.act"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <type>
+        <code value="http://hl7.org/fhir/cda/StructureDefinition/Act"/>
+      </type>
+    </element>
+    <element>
+      <path value="Section.component"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element>
+      <path value="Section.component.typeCode"/>
+      <representation value="xmlAttr"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <defaultValueCode value="COMP"/>
+      <fixedCode value="COMP"/>
+      <mustSupport value="true"/>
+      <binding>
+        <strength value="required"/>
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/v3-null"/>
+        </valueSetReference>
+      </binding>
+    </element>
+    <element>
+      <path value="Section.component.contextConductionInd"/>
+      <representation value="xmlAttr"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+      <defaultValueBoolean value="true"/>
+      <mustSupport value="true"/>
+    </element>
+    <element>
+      <path value="Section.component.section"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <type>
+        <code value="http://hl7.org/fhir/cda/StructureDefinition/Section"/>
+      </type>
+    </element>
+  </differential>
+</StructureDefinition>

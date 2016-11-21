@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="CS"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
+    <valueUri value="urn:hl7-org:v3"/>
+  </extension>
+  <url value="http://hl7.org/fhir/cda/StructureDefinition/CS"/>
+  <name value="V3 Data type CS (CodedSimpleValue)"/>
+  <title value="V3 Data type CS (CodedSimpleValue)"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <publisher value="HL7"/>
+  <description value="XCoded data in its simplest form, where only the code is not predetermined. The code system and code system version are fixed by the context in which the CS value occurs. CS is used for coded attributes that have a single HL7-defined value set."/>
+  <kind value="logical"/>
+  <abstract value="false"/>
+  <baseDefinition value="http://hl7.org/fhir/cda/StructureDefinition/CV"/>
+  <derivation value="specialization"/>
+  <snapshot>
+    <element>
+      <path value="CS"/>
+      <min value="1"/>
+      <max value="*"/>
+      <type>
+        <code value="Element"/>
+      </type>
+    </element>
+    <element>
+      <path value="CS.nullFlavor"/>
+      <representation value="xmlAttr"/>
+      <label value="Exceptional Value Detail"/>
+      <definition value="If a value is an exceptional value (NULL-value), this specifies in what way and why proper information is missing."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <binding>
+        <strength value="required"/>
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/v3-NullFlavor"/>
+        </valueSetReference>
+      </binding>
+    </element>
+    <element>
+      <path value="CS.code"/>
+      <representation value="xmlAttr"/>
+      <label value="Code"/>
+      <definition value="The plain code symbol defined by the code system. For example, &quot;784.0&quot; is the code symbol of the ICD-9 code &quot;784.0&quot; for headache."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element>
+      <path value="CS.codeSystem"/>
+      <representation value="xmlAttr"/>
+      <label value="Code System"/>
+      <definition value="Specifies the code system that defines the code."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element>
+      <path value="CS.codeSystemName"/>
+      <representation value="xmlAttr"/>
+      <label value="Code System Name"/>
+      <definition value="The common name of the coding system."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element>
+      <path value="CS.codeSystemVersion"/>
+      <representation value="xmlAttr"/>
+      <label value="Code System Version"/>
+      <definition value="If applicable, a version descriptor defined specifically for the given code system."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element>
+      <path value="CS.displayName"/>
+      <representation value="xmlAttr"/>
+      <label value="Display Name"/>
+      <definition value="A name or title for the code, under which the sending system shows the code value to its users."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element>
+      <path value="CS.originalText"/>
+      <label value="Original Text"/>
+      <definition value="The text or phrase used as the basis for the coding."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="ED"/>
+      </type>
+    </element>
+    <element>
+      <path value="CS.translation"/>
+      <label value="Translation"/>
+      <definition value="A set of other concept descriptors that translate this concept descriptor into other code systems."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CD"/>
+      </type>
+    </element>
+    <element>
+      <path value="CS.qualifier"/>
+      <label value="Qualifier"/>
+      <definition value="Specifies additional codes that increase the specificity of the the primary code."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CR"/>
+      </type>
+    </element>
+    <element>
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
+        <valueUri value="urn:hl7-org:sdtc"/>
+      </extension>
+      <path value="CS.valueSetVersion"/>
+      <representation value="xmlAttr"/>
+      <definition value="The valueSetVersion extension adds an attribute for elements with a CD dataType which indicates the version of the particular value set constraining the coded concept."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element>
+      <path value="CS.value"/>
+      <representation value="xmlAttr"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+    </element>
+  </snapshot>
+  <differential>
+    <element>
+      <path value="CS"/>
+      <min value="1"/>
+      <max value="*"/>
+      <type>
+        <code value="Element"/>
+      </type>
+    </element>
+    <element>
+      <path value="CS.value"/>
+      <representation value="xmlAttr"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+    </element>
+  </differential>
+</StructureDefinition>

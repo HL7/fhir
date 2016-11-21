@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="IVL_PQ"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
+    <valueUri value="urn:hl7-org:v3"/>
+  </extension>
+  <url value="http://hl7.org/fhir/cda/StructureDefinition/IVL_PQ"/>
+  <name value="V3 Data type IVL_PQ (Interval)"/>
+  <title value="V3 Data type IVL_PQ (Interval)"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <publisher value="HL7"/>
+  <description value="A set of consecutive values of an ordered base data type."/>
+  <kind value="logical"/>
+  <abstract value="false"/>
+  <baseDefinition value="http://hl7.org/fhir/cda/StructureDefinition/ANY"/>
+  <derivation value="specialization"/>
+  <snapshot>
+    <element>
+      <path value="IVL_PQ"/>
+      <min value="1"/>
+      <max value="*"/>
+      <type>
+        <code value="Element"/>
+      </type>
+    </element>
+    <element>
+      <path value="IVL_PQ.nullFlavor"/>
+      <representation value="xmlAttr"/>
+      <label value="Exceptional Value Detail"/>
+      <definition value="If a value is an exceptional value (NULL-value), this specifies in what way and why proper information is missing."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <binding>
+        <strength value="required"/>
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/v3-NullFlavor"/>
+        </valueSetReference>
+      </binding>
+    </element>
+    <element>
+      <path value="IVL_PQ.low"/>
+      <label value="Low Boundary"/>
+      <definition value="This is the low limit of the interval."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="PQ"/>
+      </type>
+    </element>
+    <element>
+      <path value="IVL_PQ.high"/>
+      <label value="High Boundary"/>
+      <definition value="This is the high limit of the interval."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="PQ"/>
+      </type>
+    </element>
+    <element>
+      <path value="IVL_PQ.width"/>
+      <label value="Width"/>
+      <definition value="The difference between high and low boundary. The purpose of distinguishing a width property is to handle all cases of incomplete information symmetrically. In any interval representation only two of the three properties high, low, and width need to be stated and the third can be derived."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="PQ"/>
+      </type>
+    </element>
+    <element>
+      <path value="IVL_PQ.center"/>
+      <label value="Central Value"/>
+      <definition value="The arithmetic mean of the interval (low plus high divided by 2). The purpose of distinguishing the center as a semantic property is for conversions of intervals from and to point values."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="PQ"/>
+      </type>
+    </element>
+  </snapshot>
+  <differential>
+    <element>
+      <path value="IVL_PQ"/>
+      <min value="1"/>
+      <max value="*"/>
+      <type>
+        <code value="Element"/>
+      </type>
+    </element>
+    <element>
+      <path value="IVL_PQ.low"/>
+      <label value="Low Boundary"/>
+      <definition value="This is the low limit of the interval."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="PQ"/>
+      </type>
+    </element>
+    <element>
+      <path value="IVL_PQ.high"/>
+      <label value="High Boundary"/>
+      <definition value="This is the high limit of the interval."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="PQ"/>
+      </type>
+    </element>
+    <element>
+      <path value="IVL_PQ.width"/>
+      <label value="Width"/>
+      <definition value="The difference between high and low boundary. The purpose of distinguishing a width property is to handle all cases of incomplete information symmetrically. In any interval representation only two of the three properties high, low, and width need to be stated and the third can be derived."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="PQ"/>
+      </type>
+    </element>
+    <element>
+      <path value="IVL_PQ.center"/>
+      <label value="Central Value"/>
+      <definition value="The arithmetic mean of the interval (low plus high divided by 2). The purpose of distinguishing the center as a semantic property is for conversions of intervals from and to point values."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="PQ"/>
+      </type>
+    </element>
+  </differential>
+</StructureDefinition>
