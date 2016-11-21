@@ -131,6 +131,8 @@ import org.hl7.fhir.dstu3.model.CapabilityStatement.CapabilityStatementKind;
 import org.hl7.fhir.dstu3.model.CapabilityStatement.CapabilityStatementRestComponent;
 import org.hl7.fhir.dstu3.model.CapabilityStatement.CapabilityStatementRestResourceComponent;
 import org.hl7.fhir.dstu3.model.CapabilityStatement.CapabilityStatementRestResourceSearchParamComponent;
+import org.hl7.fhir.dstu3.model.CapabilityStatement.CapabilityStatementRestSecurityComponent;
+import org.hl7.fhir.dstu3.model.CapabilityStatement.CapabilityStatementSoftwareComponent;
 import org.hl7.fhir.dstu3.model.CapabilityStatement.ConditionalDeleteStatus;
 import org.hl7.fhir.dstu3.model.CapabilityStatement.ReferenceHandlingPolicy;
 import org.hl7.fhir.dstu3.model.CapabilityStatement.ResourceInteractionComponent;
@@ -1343,6 +1345,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     cpbs.setPublisher("FHIR Project Team");
     cpbs.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.OTHER, "http://hl7.org/fhir"));
     cpbs.setKind(CapabilityStatementKind.CAPABILITY);
+    cpbs.setSoftware(new CapabilityStatementSoftwareComponent());
     cpbs.getSoftware().setName("Insert your softwware name here...");
     cpbs.setFhirVersion(page.getVersion());
     cpbs.setAcceptUnknown(full ? UnknownContentCode.BOTH : UnknownContentCode.NO);
@@ -1358,6 +1361,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       rest.setDocumentation("An empty Capability Statement");
       cpbs.setDescription("This is the base Capability Statement for FHIR. It represents a server that provides the none of the functionality defined by FHIR. It is provided to use as a template for system designers to build their own Capability Statements from. A capability statement has to contain something, so this contains a read of a Capability Statement");
     }
+    rest.setSecurity(new CapabilityStatementRestSecurityComponent());
     rest.getSecurity().setCors(true);
     rest.getSecurity().addService().setText("See http://docs.smarthealthit.org/").addCoding().setSystem("http://hl7.org/fhir/restful-security-service").setCode("SMART-on-FHIR").setDisplay("SMART-on-FHIR");
     rest.getSecurity().setDescription("This is the Capability Statement to declare that the server supports SMART-on-FHIR. See the SMART-on-FHIR docs for the extension that would go with such a server");
@@ -4262,7 +4266,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       throw new Exception("Resource has no id: "+vs.getName()+" ("+vs.getUrl()+")");
     if (ResourceUtilities.getById(dest, ResourceType.ValueSet, vs.getId()) != null)
       throw new Exception("Attempt to add duplicate value set " + vs.getId()+" ("+vs.getName()+")");
-    if (vs.getText() == null || vs.getText().getDiv() == null)
+    if (!vs.hasText() || vs.getText().getDiv() == null)
       throw new Exception("Example Value Set " + vs.getId() + " does not have any narrative");
 
     ResourceUtilities.meta(vs).setLastUpdated(page.getGenDate().getTime());
@@ -4304,8 +4308,10 @@ public class Publisher implements URIResolver, SectionNumberer {
       throw new Exception("Resource has no id");
     if (ResourceUtilities.getById(dest, ResourceType.ValueSet, cs.getId()) != null)
       throw new Exception("Attempt to add duplicate Conformance " + cs.getId());
-    if (cs.getText() == null || cs.getText().getDiv() == null)
-      throw new Exception("Example CapabilityStatement " + cs.getId() + " does not have any narrative");
+    if (!cs.hasText() || cs.getText().getDiv() == null)
+      System.out.println("WARNING: Example CapabilityStatement " + cs.getId() + " does not have any narrative");
+      // Changed this from an exception to a warning because generateConformanceStatement doesn't produce narrative if
+      // "register" is 'false'
 
     ResourceUtilities.meta(cs).setLastUpdated(page.getGenDate().getTime());
     if (!cs.getUrl().equals("http://hl7.org/fhir/"+cs.getResourceType().toString()+"/"+cs.getId()))
@@ -5431,8 +5437,8 @@ public class Publisher implements URIResolver, SectionNumberer {
     if (ig != null)
       n = ig.getCode()+File.separator+n;
 
-    if (vs.getText().getDiv().allChildrenAreText()
-        && (Utilities.noString(vs.getText().getDiv().allText()) || !vs.getText().getDiv().allText().matches(".*\\w.*"))) {
+    if (!vs.hasText() || (vs.getText().getDiv().allChildrenAreText()
+        && (Utilities.noString(vs.getText().getDiv().allText()) || !vs.getText().getDiv().allText().matches(".*\\w.*")))) {
       if (ig != null)
         new NarrativeGenerator("../", ig.getCode()+"/", page.getWorkerContext()).setTooCostlyNoteEmpty(PageProcessor.TOO_MANY_CODES_TEXT_EMPTY).setTooCostlyNoteNotEmpty(PageProcessor.TOO_MANY_CODES_TEXT_NOT_EMPTY).generate(vs);
       else

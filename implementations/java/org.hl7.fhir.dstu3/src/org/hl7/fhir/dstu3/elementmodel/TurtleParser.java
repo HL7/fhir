@@ -381,9 +381,11 @@ public class TurtleParser extends ParserBase {
 	}
 
   private String getFormalName(Element element) {
-    String en;
-    if (element.getSpecial() == null)
-      en = element.getProperty().getDefinition().getBase().getPath();
+    String en = null;
+    if (element.getSpecial() == null) {
+      if (element.getProperty().getDefinition().hasBase())
+        en = element.getProperty().getDefinition().getBase().getPath();
+    }
     else if (element.getSpecial() == SpecialElement.BUNDLE_ENTRY)
       en = "Bundle.entry.resource";
     else if (element.getSpecial() == SpecialElement.BUNDLE_OUTCOME)

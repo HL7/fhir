@@ -99,7 +99,9 @@ public class JsonLDParser extends ParserBase {
 
 	private void composeList(String path, List<Element> list) throws IOException {
 		// there will be at least one element
-    String en = list.get(0).getProperty().getDefinition().getBase().getPath();
+    String en = null;
+    if (list.get(0).getProperty().getDefinition().hasBase())
+      list.get(0).getProperty().getDefinition().getBase().getPath();
     if (en == null) 
       en = list.get(0).getProperty().getDefinition().getPath();
     boolean doType = false;
@@ -141,7 +143,9 @@ public class JsonLDParser extends ParserBase {
 
 	private void compose(String path, Element element) throws IOException {
 	  Property p = element.hasElementProperty() ? element.getElementProperty() : element.getProperty();
-    String en = p.getDefinition().getBase().getPath();
+    String en = null;
+    if (p.getDefinition().hasBase())
+      en = p.getDefinition().getBase().getPath();
     if (en == null) 
       en = p.getDefinition().getPath();
     boolean doType = false;

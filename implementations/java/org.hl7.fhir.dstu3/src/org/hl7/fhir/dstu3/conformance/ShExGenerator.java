@@ -518,12 +518,14 @@ public class ShExGenerator {
    */
   private String simpleElement(StructureDefinition sd, ElementDefinition ed, String typ) {
     String addldef = "";
-    ElementDefinition.ElementDefinitionBindingComponent binding = ed.getBinding();
-    if(binding.hasStrength() && binding.getStrength() == Enumerations.BindingStrength.REQUIRED) {
-      ValueSet vs = resolveBindingReference(sd, binding.getValueSet());
-      if (vs != null) {
-        addldef = tmplt(VALUESET_DEFN_TEMPLATE).add("vsn", vsprefix(vs.getUrl())).render();
-        required_value_sets.add(vs);
+    if (ed.hasBinding()) {
+      ElementDefinition.ElementDefinitionBindingComponent binding = ed.getBinding();
+      if(binding.hasStrength() && binding.getStrength() == Enumerations.BindingStrength.REQUIRED) {
+        ValueSet vs = resolveBindingReference(sd, binding.getValueSet());
+        if (vs != null) {
+          addldef = tmplt(VALUESET_DEFN_TEMPLATE).add("vsn", vsprefix(vs.getUrl())).render();
+          required_value_sets.add(vs);
+        }
       }
     }
     // TODO: check whether value sets and fixed are mutually exclusive

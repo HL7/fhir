@@ -68,6 +68,8 @@ public class ValueSetGenerator {
   }
 
   private void genDataTypes(ValueSet vs) throws Exception {
+    if (!vs.hasCompose())
+      vs.setCompose(new ValueSetComposeComponent());
     vs.getCompose().addInclude().setSystem("http://hl7.org/fhir/data-types");
     vs.setUserData("filename", "valueset-"+vs.getId());
     vs.setUserData("committee", "fhir");
@@ -104,6 +106,8 @@ public class ValueSetGenerator {
   }
 
   private void genResourceTypes(ValueSet vs) {
+    if (!vs.hasCompose())
+      vs.setCompose(new ValueSetComposeComponent());
     vs.getCompose().addInclude().setSystem("http://hl7.org/fhir/resource-types");
     vs.setUserData("filename", "valueset-"+vs.getId());
     vs.setUserData("committee", "fhir");
@@ -138,6 +142,8 @@ public class ValueSetGenerator {
   }
 
   private void genAbstractTypes(ValueSet vs) {
+    if (!vs.hasCompose())
+      vs.setCompose(new ValueSetComposeComponent());
     vs.getCompose().addInclude().setSystem("http://hl7.org/fhir/abstract-types");
     vs.setUserData("filename", "valueset-"+vs.getId());
     vs.setUserData("committee", "fhir");
@@ -170,6 +176,8 @@ public class ValueSetGenerator {
   }
 
   private void genMessageEvents(ValueSet vs) {
+    if (!vs.hasCompose())
+      vs.setCompose(new ValueSetComposeComponent());
     vs.getCompose().addInclude().setSystem("http://hl7.org/fhir/message-events");
     vs.setUserData("filename", "valueset-"+vs.getId());
     vs.setUserData("committee", "fhir");
@@ -256,6 +264,8 @@ public class ValueSetGenerator {
     c.addTelecom().setSystem(ContactPointSystem.EMAIL).setValue("fhir@lists.hl7.org");
     vs.setDescription("Operation Outcome codes used by FHIR test servers (see Implementation file translations.xml)");
     vs.setStatus(PublicationStatus.DRAFT);
+    if (!vs.hasCompose())
+      vs.setCompose(new ValueSetComposeComponent());
     vs.getCompose().addInclude().setSystem("http://hl7.org/fhir/operation-outcome");
 
     CodeSystem cs = new CodeSystem();

@@ -70,6 +70,7 @@ import org.hl7.fhir.dstu3.model.DataElement.DataElementStringency;
 import org.hl7.fhir.dstu3.model.ElementDefinition;
 import org.hl7.fhir.dstu3.model.ElementDefinition.AggregationMode;
 import org.hl7.fhir.dstu3.model.ElementDefinition.ConstraintSeverity;
+import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionBaseComponent;
 import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionBindingComponent;
 import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionConstraintComponent;
 import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionMappingComponent;
@@ -84,6 +85,7 @@ import org.hl7.fhir.dstu3.model.Extension;
 import org.hl7.fhir.dstu3.model.Factory;
 import org.hl7.fhir.dstu3.model.InstantType;
 import org.hl7.fhir.dstu3.model.IntegerType;
+import org.hl7.fhir.dstu3.model.Meta;
 import org.hl7.fhir.dstu3.model.Narrative;
 import org.hl7.fhir.dstu3.model.Narrative.NarrativeStatus;
 import org.hl7.fhir.dstu3.model.OperationDefinition;
@@ -188,7 +190,9 @@ public class ProfileGenerator {
     
     if (ed.hasBase())
       throw new Exception("attempt to add derived element to data elements");
-      
+    
+    if (!de.hasMeta())
+      de.setMeta(new Meta());
     de.getMeta().setLastUpdatedElement(new InstantType(genDate));
     de.setName(ed.getSliceName());
     de.setStatus(PublicationStatus.DRAFT);
@@ -257,6 +261,7 @@ public class ProfileGenerator {
     ec.setMax("1");
     TypeRefComponent t = ec.addType();
     t.getFormatCommentsPre().add("Note: primitive values do not have an assigned type. e.g. this is compiler magic. XML, JSON and RDF types provided by extension");
+    t.setCodeElement(new UriType());
     ToolingExtensions.addStringExtension(t.getCodeElement(), ToolingExtensions.EXT_JSON_TYPE, type.getJsonType());
     String xst = type.getSchemaType().replace(", ", " OR ");
     if (xst.contains("xs:"))
@@ -296,9 +301,7 @@ public class ProfileGenerator {
     ec2.setShort("xml:id (or equivalent in JSON)");
     ec2.getType().add(new TypeRefComponent().setCode("id"));
     generateElementDefinition(ec2, ec1);
-    ec2.getBase().setPath("Element.id");
-    ec2.getBase().setMin(0);
-    ec2.getBase().setMax("1");
+    ec2.setBase(new ElementDefinitionBaseComponent("Element.id", 0, "1"));
 
     makeExtensionSlice("extension", p, p.getSnapshot(), null, type.getCode());
 
@@ -312,6 +315,7 @@ public class ProfileGenerator {
     ec3.setMax("1");
     ec3.setShort("Primitive value for " +type.getCode());
     t = ec3.addType();
+    t.setCodeElement(new UriType());
     t.getFormatCommentsPre().add("Note: primitive values do not have an assigned type. e.g. this is compiler magic. XML, JSON and RDF types provided by extension");
     ToolingExtensions.addStringExtension(t.getCodeElement(), ToolingExtensions.EXT_JSON_TYPE, type.getJsonType());
     ToolingExtensions.addStringExtension(t.getCodeElement(), ToolingExtensions.EXT_XML_TYPE, xst);
@@ -402,6 +406,7 @@ public class ProfileGenerator {
     ec.setMin(1);
     ec.setMax("1");
     TypeRefComponent t = ec.addType();
+    t.setCodeElement(new UriType());
     t.getFormatCommentsPre().add("Note: primitive values do not have an assigned type. e.g. this is compiler magic. XML, JSON and RDF types provided by extension");
     ToolingExtensions.addStringExtension(t.getCodeElement(), ToolingExtensions.EXT_JSON_TYPE, "string");
     ToolingExtensions.addStringExtension(t.getCodeElement(), ToolingExtensions.EXT_XML_TYPE, "xhtml:div");
@@ -432,9 +437,7 @@ public class ProfileGenerator {
     ec2.setShort("xml:id (or equivalent in JSON)");
     ec2.getType().add(new TypeRefComponent().setCode("id"));
     generateElementDefinition(ec2, ec1);
-    ec2.getBase().setPath("Element.id");
-    ec2.getBase().setMin(0);
-    ec2.getBase().setMax("1");
+    ec2.setBase(new ElementDefinitionBaseComponent("Element.id", 0, "1"));
 
     ElementDefinition ex = makeExtensionSlice("extension", p, p.getSnapshot(), null, "xhtml");
     ex.setMax("0");
@@ -449,6 +452,7 @@ public class ProfileGenerator {
     ec3.setMin(1);
     ec3.setMax("1");
     t = ec3.addType();
+    t.setCodeElement(new UriType());
     t.getFormatCommentsPre().add("Note: primitive values do not have an assigned type. e.g. this is compiler magic. XML, JSON and RDF types provided by extension");
     ToolingExtensions.addStringExtension(t.getCodeElement(), ToolingExtensions.EXT_JSON_TYPE, "string");
     ToolingExtensions.addStringExtension(t.getCodeElement(), ToolingExtensions.EXT_XML_TYPE, "xhtml:div");
@@ -522,6 +526,7 @@ public class ProfileGenerator {
     ec2.setMin(0);
     ec2.setMax("1");
     TypeRefComponent t = ec2.addType();
+    t.setCodeElement(new UriType());
     t.getFormatCommentsPre().add("Note: primitive values do not have an assigned type. e.g. this is compiler magic. XML, JSON and RDF types provided by extension");
     ToolingExtensions.addStringExtension(t.getCodeElement(), ToolingExtensions.EXT_JSON_TYPE, type.getJsonType());
     String xst = type.getSchema().replace("xs:", "xsd:").replace("+", "");
@@ -543,9 +548,7 @@ public class ProfileGenerator {
     ecA.setComments(type.getComment());
     ecA.setMin(0);
     ecA.setMax("*");
-    ecA.getBase().setPath(type.getCode());
-    ecA.getBase().setMin(0);
-    ecA.getBase().setMax("*");
+    ecA.setBase(new ElementDefinitionBaseComponent(type.getCode(), 0, "*"));
     addElementConstraints("Element", ecA);
 
 //    generateElementDefinition(ecA, null);
@@ -562,10 +565,9 @@ public class ProfileGenerator {
     ecB.setShort("Primitive value for " +type.getCode());
     ecB.setMin(0);
     ecB.setMax("1");
-    ecB.getBase().setPath(type.getBase()+".value");
-    ecB.getBase().setMin(0);
-    ecB.getBase().setMax("1");
+    ecB.setBase(new ElementDefinitionBaseComponent(type.getBase()+".value", 0, "1"));
     t = ecB.addType();
+    t.setCodeElement(new UriType());
     t.getFormatCommentsPre().add("Note: primitive values do not have an assigned type. e.g. this is compiler magic. XML, JSON and RDF types provided by extension");
     ToolingExtensions.addStringExtension(t.getCodeElement(), ToolingExtensions.EXT_JSON_TYPE, type.getJsonType());
     ToolingExtensions.addStringExtension(t.getCodeElement(), ToolingExtensions.EXT_XML_TYPE, xst);
@@ -1012,7 +1014,8 @@ public class ProfileGenerator {
       sp.setPublisher(p.getPublisher());
       for (ContactDetail tc : p.getContact()) {
         ContactDetail t = sp.addContact();
-        t.setNameElement(tc.getNameElement().copy());
+        if (tc.hasNameElement())
+          t.setNameElement(tc.getNameElement().copy());
         for (ContactPoint ts : tc.getTelecom())
           t.getTelecom().add(ts.copy());
       }
@@ -1454,6 +1457,8 @@ public class ProfileGenerator {
 
     for (ElementDefn child : e.getElements()) {
       ElementDefinition ed = defineElement(null, p, elements, child, path+"."+child.getName(), containedSlices, new ArrayList<ProfileGenerator.SliceHandle>(), snapshot, false, dt, null);
+      if (!ed.hasBase())
+        ed.setBase(new ElementDefinitionBaseComponent());
       ed.getBase().setPath(e.getName()+"."+child.getName());
       if (child.getMinCardinality() != null)
         ed.getBase().setMin(child.getMinCardinality());
@@ -1500,6 +1505,8 @@ public class ProfileGenerator {
   private ElementDefinition makeExtensionSlice(String extensionName, StructureDefinition p, StructureDefinitionSnapshotComponent c, ElementDefn e, String path) throws URISyntaxException, Exception {
     ElementDefinition ex = createBaseDefinition(p, path, definitions.getBaseResources().get("DomainResource").getRoot().getElementByName(definitions, extensionName, false, false));
     c.getElement().add(ex);
+    if (!ex.hasBase())
+      ex.setBase(new ElementDefinitionBaseComponent());
     ex.getBase().setPath("Element.extension");
     ex.getBase().setMin(0);
     ex.getBase().setMax("*");

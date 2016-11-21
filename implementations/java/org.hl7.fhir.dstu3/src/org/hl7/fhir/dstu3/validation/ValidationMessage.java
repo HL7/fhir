@@ -33,6 +33,7 @@ import java.util.Comparator;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
+import org.hl7.fhir.dstu3.model.CodeableConcept;
 import org.hl7.fhir.dstu3.model.OperationOutcome;
 import org.hl7.fhir.dstu3.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.dstu3.model.OperationOutcome.OperationOutcomeIssueComponent;
@@ -264,7 +265,9 @@ public class ValidationMessage implements Comparator<ValidationMessage>, Compara
       issue.getLocation().add(s);
     }
     issue.setSeverity(level);
-    issue.getDetails().setText(message);
+    CodeableConcept c = new CodeableConcept();
+    c.setText(message);
+    issue.setDetails(c);
     if (source != null) {
       issue.getExtension().add(ToolingExtensions.makeIssueSource(source));
     }

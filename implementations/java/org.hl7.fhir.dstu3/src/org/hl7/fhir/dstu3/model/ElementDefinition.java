@@ -1006,9 +1006,18 @@ public class ElementDefinition extends Type implements ICompositeType {
         super();
       }
 
-    /**
-     * Constructor
-     */
+      /**
+       * Constructor
+       */
+      public ElementDefinitionBaseComponent(String path, int min, String max) {
+        super();
+        this.path = new StringType(path);
+        this.min = new IntegerType(min);
+        this.max = new StringType(max);
+      }
+      /**
+       * Constructor
+       */
       public ElementDefinitionBaseComponent(StringType path, IntegerType min, StringType max) {
         super();
         this.path = path;

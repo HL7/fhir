@@ -1239,7 +1239,8 @@ public class VersionConvertor_14_20 {
       tgt.setLabel(src.getLabel());
     for (org.hl7.fhir.dstu3.model.Coding t : src.getCode())
       tgt.addCode(convertCoding(t));
-    tgt.setSlicing(convertElementDefinitionSlicingComponent(src.getSlicing()));
+    if (src.hasSlicing())
+      tgt.setSlicing(convertElementDefinitionSlicingComponent(src.getSlicing()));
     if (src.hasShort())
       tgt.setShort(src.getShort());
     if (src.hasDefinition())
@@ -1254,7 +1255,8 @@ public class VersionConvertor_14_20 {
       tgt.setMin(src.getMin());
     if (src.hasMax())
       tgt.setMax(src.getMax());
-    tgt.setBase(convertElementDefinitionBaseComponent(src.getBase()));
+    if (src.hasBase())
+      tgt.setBase(convertElementDefinitionBaseComponent(src.getBase()));
     if (src.hasContentReference())
       tgt.setContentReference(src.getContentReference());
     for (org.hl7.fhir.dstu3.model.ElementDefinition.TypeRefComponent t : src.getType())
@@ -1279,7 +1281,8 @@ public class VersionConvertor_14_20 {
       tgt.setIsModifier(src.getIsModifier());
     if (src.hasIsSummary())
       tgt.setIsSummary(src.getIsSummary());
-    tgt.setBinding(convertElementDefinitionBindingComponent(src.getBinding()));
+    if (src.hasBinding())
+      tgt.setBinding(convertElementDefinitionBindingComponent(src.getBinding()));
     for (org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionMappingComponent t : src.getMapping())
       tgt.addMapping(convertElementDefinitionMappingComponent(t));
     return tgt;
@@ -2075,7 +2078,8 @@ public class VersionConvertor_14_20 {
   }
   private static void copyDomainResource(org.hl7.fhir.dstu3.model.DomainResource src, org.hl7.fhir.dstu2016may.model.DomainResource tgt) throws FHIRException {
     copyResource(src, tgt);
-    tgt.setText(convertNarrative(src.getText()));
+    if (src.hasText())
+      tgt.setText(convertNarrative(src.getText()));
     for (org.hl7.fhir.dstu3.model.Resource t : src.getContained())
       tgt.addContained(convertResource(t));
     for (org.hl7.fhir.dstu3.model.Extension t : src.getExtension())
@@ -2141,7 +2145,8 @@ public class VersionConvertor_14_20 {
   private static void copyResource(org.hl7.fhir.dstu3.model.Resource src, org.hl7.fhir.dstu2016may.model.Resource tgt) throws FHIRException {
     if (src.hasId())
       tgt.setId(src.getId());
-    tgt.setMeta(convertMeta(src.getMeta()));
+    if (src.hasMeta())
+      tgt.setMeta(convertMeta(src.getMeta()));
     if (src.hasImplicitRules())
       tgt.setImplicitRules(src.getImplicitRules());
     if (src.hasLanguage())
@@ -5574,7 +5579,8 @@ public class VersionConvertor_14_20 {
     if (src.hasBaseDefinition())
       tgt.setBaseDefinition(src.getBaseDefinition());
     tgt.setDerivation(convertTypeDerivationRule(src.getDerivation()));
-    tgt.setSnapshot(convertStructureDefinitionSnapshotComponent(src.getSnapshot()));
+    if (src.hasSnapshot())
+      tgt.setSnapshot(convertStructureDefinitionSnapshotComponent(src.getSnapshot()));
     tgt.setDifferential(convertStructureDefinitionDifferentialComponent(src.getDifferential()));
     return tgt;
   }
@@ -6768,7 +6774,8 @@ public class VersionConvertor_14_20 {
     if (src.hasExtensible())
       tgt.setExtensible(src.getExtensible());
     tgt.setCompose(convertValueSetComposeComponent(src.getCompose()));
-    tgt.setExpansion(convertValueSetExpansionComponent(src.getExpansion()));
+    if (src.hasExpansion())
+      tgt.setExpansion(convertValueSetExpansionComponent(src.getExpansion()));
     return tgt;
   }
 

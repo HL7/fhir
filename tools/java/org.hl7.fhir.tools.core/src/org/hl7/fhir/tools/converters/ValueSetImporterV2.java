@@ -30,6 +30,7 @@ import org.hl7.fhir.dstu3.model.Narrative.NarrativeStatus;
 import org.hl7.fhir.dstu3.model.ValueSet;
 import org.hl7.fhir.dstu3.model.ValueSet.ConceptReferenceComponent;
 import org.hl7.fhir.dstu3.model.ValueSet.ConceptSetComponent;
+import org.hl7.fhir.dstu3.model.ValueSet.ValueSetComposeComponent;
 import org.hl7.fhir.dstu3.terminologies.CodeSystemUtilities;
 import org.hl7.fhir.dstu3.terminologies.ValueSetUtilities;
 import org.hl7.fhir.dstu3.utils.ToolingExtensions;
@@ -454,6 +455,8 @@ public class ValueSetImporterV2 extends ValueSetImporterBase {
       if (definesCode(cs.getConcept(), cd)) {
         if (cset != null)
           throw new Exception("Multiple possible matches for "+cd+" in "+sources.toString());
+        if (!vs.hasCompose())
+          vs.setCompose(new ValueSetComposeComponent());
         for (ConceptSetComponent cc : vs.getCompose().getInclude()) {
           if (cc.getSystem().equals(system)) 
             cset = cc;
@@ -587,6 +590,8 @@ public class ValueSetImporterV2 extends ValueSetImporterBase {
     cs.setUrl("http://hl7.org/fhir/v2/" + id);
     cs.setId("v2-"+FormatUtilities.makeId(id));
     cs.setUserData("filename", Utilities.path("v2", id, "index.html"));
+    if (!vs.hasCompose())
+      vs.setCompose(new ValueSetComposeComponent());
     vs.getCompose().addInclude().setSystem(cs.getUrl());
     vp.vs = vs;
     vp.cs = cs;
@@ -661,6 +666,8 @@ public class ValueSetImporterV2 extends ValueSetImporterBase {
     cs.setUrl("http://hl7.org/fhir/v2/" + id + "/" + version);
     cs.setId("v2-"+FormatUtilities.makeId(version)+"-"+id);
     cs.setUserData("filename", Utilities.path("v2", id, version, "index.html"));
+    if (!vs.hasCompose())
+      vs.setCompose(new ValueSetComposeComponent());
     vs.getCompose().addInclude().setSystem(cs.getUrl());
 
     String desc = "";

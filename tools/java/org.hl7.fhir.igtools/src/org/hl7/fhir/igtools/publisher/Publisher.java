@@ -180,6 +180,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
   private String destDir;
   private String txServer = "http://fhir3.healthintersections.com.au/open";
 //  private String txServer = "http://local.healthintersections.com.au:960/open";
+  private String igPack;
   private boolean watch;
 
   private GenerationTool tool;
@@ -295,7 +296,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
         dlog("narrative for "+f.getName()+" : "+r.getId());
         if (r.getResource() != null) {
           boolean regen = false;
-          if (r.getResource() instanceof DomainResource && !((DomainResource) r.getResource()).getText().hasDiv())
+          if (r.getResource() instanceof DomainResource && !(((DomainResource) r.getResource()).hasText() && ((DomainResource) r.getResource()).getText().hasDiv()))
             regen = gen.generate((DomainResource) r.getResource());
           if (r.getResource() instanceof Bundle)
             regen = gen.generate((Bundle) r.getResource());
@@ -569,7 +570,11 @@ public class Publisher implements IWorkerContext.ILoggingService {
     if (!new File(vsCache).exists())
       throw new Exception("Unable to access or create the cache directory at "+vsCache);
     
-    if (version.equals(Constants.VERSION)) {
+    if (!igPack.isEmpty()) {
+      File igPackFile = new File(igPack);
+      log("Loading ig pack from specified path " + igPackFile.getAbsolutePath());
+      context = SimpleWorkerContext.fromPack(igPackFile.getAbsolutePath());
+    } else if (version.equals(Constants.VERSION)) {
       try {
         log("Load Validation Pack (internal)");
         context = SimpleWorkerContext.fromClassPath("igpack.zip");
@@ -610,7 +615,12 @@ public class Publisher implements IWorkerContext.ILoggingService {
       throw new Exception("Must specify which SNOMED CT edition ('sct-edition') to use in the config file");
     context.getExpansionProfile().addFixedVersion().setSystem("http://snomed.info/sct").setVersion(sct);
     context.getExpansionProfile().setActiveOnly("true".equals(ostr(configuration, "activeOnly")));
-    context.connectToTSServer(txServer);
+    if (txServer == null || !txServer.contains(":")) {
+      log("WARNING: Running without terminology server - terminology content will likely not publish correctly");
+      context.setCanRunWithoutTerminology(true);
+    } else
+      context.connectToTSServer(txServer);
+    
     // ;
     validator = new InstanceValidator(context);
     validator.setAllowXsiLocation(true);
@@ -956,7 +966,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
           FetchedFile f = fetcher.fetch(res.getSource(), igf);
           needToBuild = noteFile(res, f) || needToBuild;
           determineType(f);
-          if (res.getExampleFor().getReference() != null) {
+          if (res.hasExampleFor() && res.getExampleFor().hasReference()) {
             if (f.getResources().size()!=1)
               throw new Exception("Can't have an exampleFor unless the file has exactly one resource");
             FetchedResource r = f.getResources().get(0);
@@ -2879,7 +2889,11 @@ public class Publisher implements IWorkerContext.ILoggingService {
   private void setTxServer(String s) {
     if (!Utilities.noString(s))
       txServer = s;
+  }
 
+  private void setIgPack(String s) {
+    if (!Utilities.noString(s))
+      igPack = s;
   }
 
   private static boolean hasParam(String[] args, String param) {
@@ -2989,8 +3003,11 @@ public class Publisher implements IWorkerContext.ILoggingService {
       System.out.println("To use this publisher to publish a FHIR Implementation Guide, run ");
       System.out.println("with the commands");
       System.out.println("");
-      System.out.println("-ig [source] -tx [url] -watch");
+      System.out.println("-spec [igpack.zip] -ig [source] -tx [url] -watch");
       System.out.println("");
+      System.out.println("-spec: a path or a url where the igpack for the version of the core FHIR");
+      System.out.println("  specification used by the ig being published is located.  If not specified");
+      System.out.println("  the tool will retrieve the file from the web based on the specified FHIR version");
       System.out.println("-ig: a path or a url where the implementation guide control file is found");
       System.out.println("  see Wiki for Documentation");
       System.out.println("-tx: (optional) Address to use for terminology server ");
@@ -3047,6 +3064,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
       } else {
         self.setConfigFile(getNamedParam(args, "-ig"));
       }
+      self.setIgPack(getNamedParam(args, "-spec"));
       self.setTxServer(getNamedParam(args, "-tx"));
       self.watch = hasParam(args, "-watch");
       self.filelog = new StringBuilder();

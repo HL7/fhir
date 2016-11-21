@@ -528,12 +528,18 @@ public class VersionConvertor_10_20 {
       return null;
     org.hl7.fhir.dstu2.model.Identifier tgt = new org.hl7.fhir.dstu2.model.Identifier();
     copyElement(src, tgt);
-    tgt.setUse(convertIdentifierUse(src.getUse()));
-    tgt.setType(convertCodeableConcept(src.getType()));
-    tgt.setSystem(src.getSystem());
-    tgt.setValue(src.getValue());
-    tgt.setPeriod(convertPeriod(src.getPeriod()));
-    tgt.setAssigner(convertReference(src.getAssigner()));
+    if (src.hasUse())
+      tgt.setUse(convertIdentifierUse(src.getUse()));
+    if (src.hasType())
+      tgt.setType(convertCodeableConcept(src.getType()));
+    if (src.hasSystem())
+      tgt.setSystem(src.getSystem());
+    if (src.hasValue())
+      tgt.setValue(src.getValue());
+    if (src.hasPeriod())
+      tgt.setPeriod(convertPeriod(src.getPeriod()));
+    if (src.hasAssigner())
+      tgt.setAssigner(convertReference(src.getAssigner()));
     return tgt;
   }
 
@@ -852,11 +858,13 @@ public class VersionConvertor_10_20 {
       return null;
     org.hl7.fhir.dstu2.model.ContactPoint tgt = new org.hl7.fhir.dstu2.model.ContactPoint();
     copyElement(src, tgt);
-    tgt.setSystem(convertContactPointSystem(src.getSystem()));
+    if (src.hasSystem())
+      tgt.setSystem(convertContactPointSystem(src.getSystem()));
     tgt.setValue(src.getValue());
     tgt.setUse(convertContactPointUse(src.getUse()));
     tgt.setRank(src.getRank());
-    tgt.setPeriod(convertPeriod(src.getPeriod()));
+    if (src.hasPeriod())
+      tgt.setPeriod(convertPeriod(src.getPeriod()));
     return tgt;
   }
 
@@ -998,7 +1006,8 @@ public class VersionConvertor_10_20 {
     tgt.setLabel(src.getLabel());
     for (org.hl7.fhir.dstu3.model.Coding t : src.getCode())
       tgt.addCode(convertCoding(t));
-    tgt.setSlicing(convertElementDefinitionSlicingComponent(src.getSlicing()));
+    if (src.hasSlicing())
+      tgt.setSlicing(convertElementDefinitionSlicingComponent(src.getSlicing()));
     tgt.setShort(src.getShort());
     tgt.setDefinition(src.getDefinition());
     tgt.setComments(src.getComments());
@@ -1007,7 +1016,8 @@ public class VersionConvertor_10_20 {
       tgt.addAlias(t.getValue());
     tgt.setMin(src.getMin());
     tgt.setMax(src.getMax());
-    tgt.setBase(convertElementDefinitionBaseComponent(src.getBase()));
+    if (src.hasBase())
+      tgt.setBase(convertElementDefinitionBaseComponent(src.getBase()));
     if (src.hasContentReference())
       tgt.setNameReference(src.getContentReference().substring(1));
     for (org.hl7.fhir.dstu3.model.ElementDefinition.TypeRefComponent t : src.getType())
@@ -1027,7 +1037,8 @@ public class VersionConvertor_10_20 {
     tgt.setMustSupport(src.getMustSupport());
     tgt.setIsModifier(src.getIsModifier());
     tgt.setIsSummary(src.getIsSummary());
-    tgt.setBinding(convertElementDefinitionBindingComponent(src.getBinding()));
+    if (src.hasBinding())
+      tgt.setBinding(convertElementDefinitionBindingComponent(src.getBinding()));
     for (org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionMappingComponent t : src.getMapping())
       tgt.addMapping(convertElementDefinitionMappingComponent(t));
     return tgt;
@@ -1943,9 +1954,12 @@ public class VersionConvertor_10_20 {
   }
   public void copyResource(org.hl7.fhir.dstu3.model.Resource src, org.hl7.fhir.dstu2.model.Resource tgt) throws FHIRException {
     tgt.setId(src.getId());
-    tgt.setMeta(convertMeta(src.getMeta()));
-    tgt.setImplicitRules(src.getImplicitRules());
-    tgt.setLanguage(src.getLanguage());
+    if (src.hasMeta())
+      tgt.setMeta(convertMeta(src.getMeta()));
+    if (src.hasImplicitRules())
+      tgt.setImplicitRules(src.getImplicitRules());
+    if (src.hasLanguage())
+      tgt.setLanguage(src.getLanguage());
   }
 
   public org.hl7.fhir.dstu3.model.Enumerations.AdministrativeGender convertAdministrativeGender(org.hl7.fhir.dstu2.model.Enumerations.AdministrativeGender src) throws FHIRException {
@@ -2011,8 +2025,10 @@ public class VersionConvertor_10_20 {
     copyDomainResource(src, tgt);
     for (org.hl7.fhir.dstu2.model.Identifier t : src.getIdentifier())
       tgt.addIdentifier(convertIdentifier(t));
-    tgt.setName(src.getName());
-    tgt.setType(convertCodeableConcept(src.getType()));
+    if (src.hasName())
+      tgt.setName(src.getName());
+    if (src.hasType())
+      tgt.setType(convertCodeableConcept(src.getType()));
     tgt.setStatus(convertAccountStatus(src.getStatus()));
     tgt.setActive(convertPeriod(src.getActivePeriod()));
     tgt.setCurrency(convertCoding(src.getCurrency()));
@@ -2901,7 +2917,8 @@ public class VersionConvertor_10_20 {
       tgt.addLink(convertBundleLinkComponent(t));
     for (org.hl7.fhir.dstu3.model.Bundle.BundleEntryComponent t : src.getEntry())
       tgt.addEntry(convertBundleEntryComponent(t));
-    tgt.setSignature(convertSignature(src.getSignature()));
+    if (src.hasSignature())
+      tgt.setSignature(convertSignature(src.getSignature()));
     return tgt;
   }
 
@@ -2989,9 +3006,12 @@ public class VersionConvertor_10_20 {
     if (res == null)
       res = convertResource(src.getResource());
     tgt.setResource(res);
-    tgt.setSearch(convertBundleEntrySearchComponent(src.getSearch()));
-    tgt.setRequest(convertBundleEntryRequestComponent(src.getRequest()));
-    tgt.setResponse(convertBundleEntryResponseComponent(src.getResponse()));
+    if (src.hasSearch())
+      tgt.setSearch(convertBundleEntrySearchComponent(src.getSearch()));
+    if (src.hasRequest())
+      tgt.setRequest(convertBundleEntryRequestComponent(src.getRequest()));
+    if (src.hasResponse())
+      tgt.setResponse(convertBundleEntryResponseComponent(src.getResponse()));
     return tgt;
   }
 
@@ -4350,7 +4370,8 @@ public class VersionConvertor_10_20 {
     tgt.setCopyright(src.getCopyright());
     tgt.setKind(convertConformanceStatementKind(src.getKind()));
     tgt.setSoftware(convertConformanceSoftwareComponent(src.getSoftware()));
-    tgt.setImplementation(convertConformanceImplementationComponent(src.getImplementation()));
+    if (src.hasImplementation())
+      tgt.setImplementation(convertConformanceImplementationComponent(src.getImplementation()));
     tgt.setFhirVersion(src.getFhirVersion());
     tgt.setAcceptUnknown(convertUnknownContentCode(src.getAcceptUnknown()));
     for (org.hl7.fhir.dstu3.model.CodeType t : src.getFormat())
@@ -4631,7 +4652,8 @@ public class VersionConvertor_10_20 {
     org.hl7.fhir.dstu2.model.Conformance.ConformanceRestResourceComponent tgt = new org.hl7.fhir.dstu2.model.Conformance.ConformanceRestResourceComponent();
     copyElement(src, tgt);
     tgt.setType(src.getType());
-    tgt.setProfile(convertReference(src.getProfile()));
+    if (src.hasProfile())
+      tgt.setProfile(convertReference(src.getProfile()));
     for (org.hl7.fhir.dstu3.model.CapabilityStatement.ResourceInteractionComponent t : src.getInteraction())
       tgt.addInteraction(convertResourceInteractionComponent(t));
     tgt.setVersioning(convertResourceVersionPolicy(src.getVersioning()));
@@ -9957,7 +9979,8 @@ public class VersionConvertor_10_20 {
     tgt.setIdempotent(src.getIdempotent());
     tgt.setCode(src.getCode());
     tgt.setNotes(src.getComment());
-    tgt.setBase(convertReference(src.getBase()));
+    if (src.hasBase())
+      tgt.setBase(convertReference(src.getBase()));
     tgt.setSystem(src.getSystem());
     if (src.getType())
       for (org.hl7.fhir.dstu3.model.CodeType t : src.getResource())
@@ -10043,8 +10066,10 @@ public class VersionConvertor_10_20 {
       tgt.setType("string");
     } else
       tgt.setType(src.getType());
-    tgt.setProfile(convertReference(src.getProfile()));
-    tgt.setBinding(convertOperationDefinitionParameterBindingComponent(src.getBinding()));
+    if (src.hasProfile())
+      tgt.setProfile(convertReference(src.getProfile()));
+    if (src.hasBinding())
+      tgt.setBinding(convertOperationDefinitionParameterBindingComponent(src.getBinding()));
     for (org.hl7.fhir.dstu3.model.OperationDefinition.OperationDefinitionParameterComponent t : src.getPart())
       tgt.addPart(convertOperationDefinitionParameterComponent(t));
     return tgt;
@@ -13236,8 +13261,10 @@ public org.hl7.fhir.dstu2.model.ValueSet.ConceptDefinitionDesignationComponent c
     tgt.setPurpose(src.getRequirements());
     tgt.setCopyright(src.getCopyright());
     tgt.setExtensible(src.getExtensible());
-    tgt.setCompose(convertValueSetComposeComponent(src.getCompose()));
-    tgt.getCompose().setLockedDate(src.getLockedDate());
+    if (src.hasCompose()) {
+      tgt.setCompose(convertValueSetComposeComponent(src.getCompose()));
+      tgt.getCompose().setLockedDate(src.getLockedDate());
+    }
     if (src.hasCodeSystem() && advisor != null) {
       org.hl7.fhir.dstu3.model.CodeSystem tgtcs = new org.hl7.fhir.dstu3.model.CodeSystem();
       copyDomainResource(src, tgtcs);

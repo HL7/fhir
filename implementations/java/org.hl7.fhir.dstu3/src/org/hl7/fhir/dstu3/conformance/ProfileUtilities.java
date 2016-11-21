@@ -26,6 +26,7 @@ import org.hl7.fhir.dstu3.model.Coding;
 import org.hl7.fhir.dstu3.model.Element;
 import org.hl7.fhir.dstu3.model.ElementDefinition;
 import org.hl7.fhir.dstu3.model.ElementDefinition.AggregationMode;
+import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionBaseComponent;
 import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionBindingComponent;
 import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionConstraintComponent;
 import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionMappingComponent;
@@ -511,10 +512,10 @@ public class ProfileUtilities {
           boolean isExtension = cpath.endsWith(".extension") || cpath.endsWith(".modifierExtension");
           if (diffMatches.get(0).hasSlicing()) { // it might be null if the differential doesn't want to say anything about slicing
             if (!isExtension)
-            diffpos++; // if there's a slice on the first, we'll ignore any content it has
+              diffpos++; // if there's a slice on the first, we'll ignore any content it has
             ElementDefinitionSlicingComponent dSlice = diffMatches.get(0).getSlicing();
             ElementDefinitionSlicingComponent bSlice = currentBase.getSlicing();
-            if (!orderMatches(dSlice.getOrderedElement(), bSlice.getOrderedElement()))
+            if (dSlice.hasOrderedElement() && bSlice.hasOrderedElement() && !orderMatches(dSlice.getOrderedElement(), bSlice.getOrderedElement()))
               throw new DefinitionException("Slicing rules on differential ("+summariseSlicing(dSlice)+") do not match those on base ("+summariseSlicing(bSlice)+") - order @ "+path+" ("+contextName+")");
             if (!discriminatorMatches(dSlice.getDiscriminator(), bSlice.getDiscriminator()))
              throw new DefinitionException("Slicing rules on differential ("+summariseSlicing(dSlice)+") do not match those on base ("+summariseSlicing(bSlice)+") - disciminator @ "+path+" ("+contextName+")");
@@ -529,8 +530,9 @@ public class ProfileUtilities {
             updateFromDefinition(outcome, diffMatches.get(0), profileName, closed, url); // if there's no slice, we don't want to update the unsliced description
           }
           if (diffMatches.get(0).hasSlicing() && !diffMatches.get(0).hasSliceName()) {
-            diffpos++;
-            throw new Error("fhir diffpos++ at "+diffpos);
+            if (isExtension)
+              diffpos++;
+//            throw new Error("fhir diffpos++ at "+diffpos);
           }
             
           result.getElement().add(outcome);
@@ -580,7 +582,7 @@ public class ProfileUtilities {
             for (ElementDefinition baseItem : baseMatches)
               if (baseItem.getSliceName().equals(diffItem.getSliceName()))
                 throw new DefinitionException("Named items are out of order in the slice");
-            outcome = updateURLs(url, original.copy());
+            outcome = updateURLs(url, diffItem.copy());
             outcome.setPath(fixedPath(contextPathDst, outcome.getPath()));
             updateFromBase(outcome, currentBase);
             outcome.setSlicing(null);
@@ -590,7 +592,7 @@ public class ProfileUtilities {
             updateFromDefinition(outcome, diffItem, profileName, trimDifferential, url);
             // --- LM Added this
             diffCursor = differential.getElement().indexOf(diffItem)+1;
-            if ((outcome.getType().get(0).getCode().equals("Extension") || differential.getElement().size() > diffCursor) && outcome.getPath().contains(".") && isDataType(outcome.getType())) {  // don't want to do this for the root, since that's base, and we're already processing it
+            if (!outcome.getType().isEmpty() && (outcome.getType().get(0).getCode().equals("Extension") || differential.getElement().size() > diffCursor) && outcome.getPath().contains(".") && isDataType(outcome.getType())) {  // don't want to do this for the root, since that's base, and we're already processing it
               if (!baseWalksInto(base.getElement(), baseCursor)) {
                 if (differential.getElement().size() > diffCursor && pathStartsWith(differential.getElement().get(diffCursor).getPath(), diffMatches.get(0).getPath()+".")) {
                 if (outcome.getType().size() > 1)
@@ -610,11 +612,10 @@ public class ProfileUtilities {
                   for (ElementDefinition extEd : dt.getSnapshot().getElement()) {
                     ElementDefinition extUrlEd = updateURLs(url, extEd.copy());
                     extUrlEd.setPath(fixedPath(contextPathDst, extUrlEd.getPath()));
-                    updateFromBase(extUrlEd, currentBase);
+//                    updateFromBase(extUrlEd, currentBase);
                     markDerived(extUrlEd);
                     result.getElement().add(extUrlEd);
-                  }
-                  
+                  }                  
                 }
               }
             }
@@ -623,6 +624,13 @@ public class ProfileUtilities {
           }
         }
       }
+    }
+
+    int i = 0;
+    for (ElementDefinition e : result.getElement()) {
+      i++;
+      if (e.hasMinElement() && e.getMinElement().getValue()==null)
+        throw new Error("null min");
     }
   }
 
@@ -740,10 +748,14 @@ public class ProfileUtilities {
 
   private void updateFromBase(ElementDefinition derived, ElementDefinition base) {
     if (base.hasBase()) {
+      if (!derived.hasBase())
+        derived.setBase(new ElementDefinitionBaseComponent());
       derived.getBase().setPath(base.getBase().getPath());
       derived.getBase().setMin(base.getBase().getMin());
       derived.getBase().setMax(base.getBase().getMax());
     } else {
+      if (!derived.hasBase())
+        derived.setBase(new ElementDefinitionBaseComponent());
       derived.getBase().setPath(base.getPath());
       derived.getBase().setMin(base.getMin());
       derived.getBase().setMax(base.getMax());
@@ -963,8 +975,10 @@ public class ProfileUtilities {
       ElementDefinition e = profile.getSnapshot().getElement().get(0);
       base.setDefinition(e.getDefinition());
       base.setShort(e.getShort());
-      base.setCommentsElement(e.getCommentsElement());
-      base.setRequirementsElement(e.getRequirementsElement());
+      if (e.hasCommentsElement())
+        base.setCommentsElement(e.getCommentsElement());
+      if (e.hasRequirementsElement())
+        base.setRequirementsElement(e.getRequirementsElement());
       base.getAlias().clear();
       base.getAlias().addAll(e.getAlias());
       base.getMapping().clear();
@@ -1001,7 +1015,7 @@ public class ProfileUtilities {
       if (derived.hasCommentsElement()) {
         if (derived.getComments().startsWith("..."))
           base.setComments(base.getComments()+"\r\n"+derived.getComments().substring(3));
-        else if (!Base.compareDeep(derived.getCommentsElement(), base.getCommentsElement(), false))
+        else if (derived.hasCommentsElement()!= base.hasCommentsElement() || !Base.compareDeep(derived.getCommentsElement(), base.getCommentsElement(), false))
           base.setCommentsElement(derived.getCommentsElement().copy());
         else if (trimDifferential)
           base.setCommentsElement(derived.getCommentsElement().copy());
@@ -1012,7 +1026,7 @@ public class ProfileUtilities {
       if (derived.hasLabelElement()) {
         if (derived.getLabel().startsWith("..."))
           base.setLabel(base.getLabel()+"\r\n"+derived.getLabel().substring(3));
-        else if (!Base.compareDeep(derived.getLabelElement(), base.getLabelElement(), false))
+        else if (!base.hasLabelElement() || !Base.compareDeep(derived.getLabelElement(), base.getLabelElement(), false))
           base.setLabelElement(derived.getLabelElement().copy());
         else if (trimDifferential)
           base.setLabelElement(derived.getLabelElement().copy());
@@ -1023,7 +1037,7 @@ public class ProfileUtilities {
       if (derived.hasRequirementsElement()) {
         if (derived.getRequirements().startsWith("..."))
           base.setRequirements(base.getRequirements()+"\r\n"+derived.getRequirements().substring(3));
-        else if (!Base.compareDeep(derived.getRequirementsElement(), base.getRequirementsElement(), false))
+        else if (!base.hasRequirementsElement() || !Base.compareDeep(derived.getRequirementsElement(), base.getRequirementsElement(), false))
           base.setRequirementsElement(derived.getRequirementsElement().copy());
         else if (trimDifferential)
           base.setRequirementsElement(derived.getRequirementsElement().copy());
@@ -1112,7 +1126,7 @@ public class ProfileUtilities {
       // condition : id 0..*
 
       if (derived.hasMustSupportElement()) {
-        if (!Base.compareDeep(derived.getMustSupportElement(), base.getMustSupportElement(), false))
+        if (!(base.hasMustSupportElement() && Base.compareDeep(derived.getMustSupportElement(), base.getMustSupportElement(), false)))
           base.setMustSupportElement(derived.getMustSupportElement().copy());
         else if (trimDifferential)
           derived.setMustSupportElement(null);
@@ -1124,16 +1138,16 @@ public class ProfileUtilities {
       // profiles cannot change : isModifier, defaultValue, meaningWhenMissing
       // but extensions can change isModifier
       if (isExtension) {
-        if (!Base.compareDeep(derived.getIsModifierElement(), base.getIsModifierElement(), false))
+        if (derived.hasIsModifierElement() && !(base.hasIsModifierElement() && Base.compareDeep(derived.getIsModifierElement(), base.getIsModifierElement(), false)))
           base.setIsModifierElement(derived.getIsModifierElement().copy());
         else if (trimDifferential)
           derived.setIsModifierElement(null);
-        else
+        else if (derived.hasIsModifierElement())
           derived.getIsModifierElement().setUserData(DERIVATION_EQUALS, true);
       }
 
       if (derived.hasBinding()) {
-        if (!Base.compareDeep(derived.getBinding(), base.getBinding(), false)) {
+        if (!base.hasBinding() || !Base.compareDeep(derived.getBinding(), base.getBinding(), false)) {
           if (base.hasBinding() && base.getBinding().getStrength() == BindingStrength.REQUIRED && derived.getBinding().getStrength() != BindingStrength.REQUIRED)
             messages.add(new ValidationMessage(Source.ProfileValidator, IssueType.BUSINESSRULE, pn+"."+derived.getPath(), "illegal attempt to change the binding on "+derived.getPath()+" from "+base.getBinding().getStrength().toCode()+" to "+derived.getBinding().getStrength().toCode(), IssueSeverity.ERROR));
 //            throw new DefinitionException("StructureDefinition "+pn+" at "+derived.getPath()+": illegal attempt to change a binding from "+base.getBinding().getStrength().toCode()+" to "+derived.getBinding().getStrength().toCode());
@@ -1662,13 +1676,17 @@ public class ProfileUtilities {
     StringType max = !hasDef ? new StringType() : definition.hasMaxElement() ? definition.getMaxElement() : new StringType();
     if (min.isEmpty() && definition.getUserData(DERIVATION_POINTER) != null) {
       ElementDefinition base = (ElementDefinition) definition.getUserData(DERIVATION_POINTER);
-      min = base.getMinElement().copy();
-      min.setUserData(DERIVATION_EQUALS, true);
+      if (base.hasMinElement()) {
+        min = base.getMinElement().copy();
+        min.setUserData(DERIVATION_EQUALS, true);
+      }
     }
     if (max.isEmpty() && definition.getUserData(DERIVATION_POINTER) != null) {
       ElementDefinition base = (ElementDefinition) definition.getUserData(DERIVATION_POINTER);
-      max = base.getMaxElement().copy();
-      max.setUserData(DERIVATION_EQUALS, true);
+      if (base.hasMaxElement()) {
+        max = base.getMaxElement().copy();
+        max.setUserData(DERIVATION_EQUALS, true);
+      }
     }
     if (min.isEmpty() && fallback != null)
       min = fallback.getMinElement();
@@ -2066,7 +2084,7 @@ public class ProfileUtilities {
           ElementDefinitionBindingComponent binding = null;
           if (valueDefn != null && valueDefn.hasBinding() && !valueDefn.getBinding().isEmpty())
             binding = valueDefn.getBinding();
-          else
+          else if (definition.hasBinding())
             binding = definition.getBinding();
           if (binding!=null && !binding.isEmpty()) {
             if (!c.getPieces().isEmpty()) 
@@ -2161,7 +2179,7 @@ public class ProfileUtilities {
           ElementDefinitionBindingComponent binding = null;
           if (valueDefn != null && valueDefn.hasBinding() && !valueDefn.getBinding().isEmpty())
             binding = valueDefn.getBinding();
-          else
+          else if (definition.hasBinding())
             binding = definition.getBinding();
           if (binding!=null && !binding.isEmpty()) {
             if (!c.getPieces().isEmpty()) 
@@ -2464,6 +2482,8 @@ public class ProfileUtilities {
 
     final List<ElementDefinition> diffList = diff.getDifferential().getElement();
     // first, we move the differential elements into a tree
+    if (diffList.isEmpty())
+      return;
     ElementDefinitionHolder edh = new ElementDefinitionHolder(diffList.get(0));
 
     boolean hasSlicing = false;
@@ -2639,7 +2659,7 @@ public class ProfileUtilities {
     // given a child in a structure, it's sliced. figure out the slicing xpath
     if (child.getPath().endsWith(".extension")) {
       ElementDefinition ued = getUrlFor(structure, child);
-      if ((ued == null || !ued.hasFixed()) && !(child.getType().get(0).hasProfile()))
+      if ((ued == null || !ued.hasFixed()) && !(child.hasType() && (child.getType().get(0).hasProfile())))
         return new Slicer(false);
       else {
       Slicer s = new Slicer(true);
@@ -2667,7 +2687,7 @@ public class ProfileUtilities {
       
       ElementDefinition based = getByPath(base, child.getPath());
       boolean doMin = (child.getMin() > 0) && (based == null || (child.getMin() != based.getMin()));
-      boolean doMax =  !child.getMax().equals("*") && (based == null || (!child.getMax().equals(based.getMax())));
+      boolean doMax = child.hasMax() && !child.getMax().equals("*") && (based == null || (!child.getMax().equals(based.getMax())));
       Slicer slicer = slicing == null ? new Slicer(true) : generateSlicer(child, slicing, structure);
       if (slicer.check) {
         if (doMin || doMax) {
@@ -2708,10 +2728,16 @@ public class ProfileUtilities {
 
 
   public void setIds(StructureDefinition sd, boolean checkFirst) throws DefinitionException  {
-    if (!checkFirst || hasMissingIds(sd.getDifferential().getElement()))
+    if (!checkFirst || !sd.hasDifferential() || hasMissingIds(sd.getDifferential().getElement())) {
+      if (!sd.hasDifferential())
+        sd.setDifferential(new StructureDefinitionDifferentialComponent());
       generateIds(sd.getDifferential().getElement(), sd.getName());
-    if (!checkFirst || hasMissingIds(sd.getSnapshot().getElement()))
-      generateIds(sd.getSnapshot().getElement(), sd.getName());    
+    }
+    if (!checkFirst || !sd.hasSnapshot() || hasMissingIds(sd.getSnapshot().getElement())) {
+      if (!sd.hasSnapshot())
+        sd.setSnapshot(new StructureDefinitionSnapshotComponent());
+      generateIds(sd.getSnapshot().getElement(), sd.getName());
+    }
   }
 
 
@@ -3143,7 +3169,7 @@ public class ProfileUtilities {
 
   private String getCardinality(ElementDefinition ed, List<ElementDefinition> list) {
     int min = ed.getMin();
-    int max = ed.getMax().equals("*") ? Integer.MAX_VALUE : Integer.parseInt(ed.getMax());
+    int max = !ed.hasMax() || ed.getMax().equals("*") ? Integer.MAX_VALUE : Integer.parseInt(ed.getMax());
     while (ed != null && ed.getPath().contains(".")) {
       ed = findParent(ed, list);
       if (ed.getMax().equals("0"))

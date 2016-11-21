@@ -93,6 +93,8 @@ public class CodeListToValueSetParser {
     if (hasDefine) {
       cs = new CodeSystem();
       cs.setUrl("http://hl7.org/fhir/"+sheetName);
+      if (!valueSet.hasCompose())
+        valueSet.setCompose(new ValueSetComposeComponent());
       valueSet.getCompose().addInclude().setSystem(cs.getUrl());
       CodeSystemConvertor.populate(cs, valueSet);
       cs.setVersion(version);

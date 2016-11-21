@@ -712,7 +712,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     if (system != null && code != null) {
       try {
         if (checkCode(errors, element, path, code, system, display))
-          if (theElementCntext != null && theElementCntext.getBinding() != null) {
+          if (theElementCntext != null && theElementCntext.hasBinding()) {
             ElementDefinitionBindingComponent binding = theElementCntext.getBinding();
             if (warning(errors, IssueType.CODEINVALID, element.line(), element.col(), path, binding != null, "Binding for " + path + " missing")) {
               if (binding.hasValueSet() && binding.getValueSet() instanceof Reference) {

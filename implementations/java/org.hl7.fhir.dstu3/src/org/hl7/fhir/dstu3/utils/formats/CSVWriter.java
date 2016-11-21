@@ -151,7 +151,7 @@ public class CSVWriter  extends TextStreamWriter  {
     line.addString(ed.getMinValue()!=null ? renderType(ed.getMinValue()) : "");
     line.addString(ed.getMaxValue()!=null ? renderType(ed.getMaxValue()) : "");
     line.addValue((ed.getMaxLength()!=0 ? Integer.toString(ed.getMaxLength()) : ""));
-    if (ed.getBinding()!=null) {
+    if (ed.hasBinding()) {
       line.addString(ed.getBinding().getStrength()!=null ? ed.getBinding().getStrength().toCode() : "");
       line.addString(ed.getBinding().getDescription());
       if (ed.getBinding().getValueSet()==null)
@@ -166,8 +166,8 @@ public class CSVWriter  extends TextStreamWriter  {
       line.addValue("");
     }
     line.addString(itemList(ed.getCode()));
-    line.addString(itemList(ed.getSlicing().getDiscriminator()));
-    if (ed.getSlicing()!=null) {
+    if (ed.hasSlicing()) {
+      line.addString(itemList(ed.getSlicing().getDiscriminator()));
       line.addString(ed.getSlicing().getDescription());
       line.addBoolean(ed.getSlicing().getOrdered());
       line.addString(ed.getSlicing().getRules()!=null ? ed.getSlicing().getRules().toCode() : "");

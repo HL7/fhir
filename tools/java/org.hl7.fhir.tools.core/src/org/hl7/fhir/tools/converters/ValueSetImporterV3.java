@@ -23,6 +23,7 @@ import org.hl7.fhir.dstu3.model.DateTimeType;
 import org.hl7.fhir.dstu3.model.Enumerations.PublicationStatus;
 import org.hl7.fhir.dstu3.model.Factory;
 import org.hl7.fhir.dstu3.model.InstantType;
+import org.hl7.fhir.dstu3.model.Meta;
 import org.hl7.fhir.dstu3.model.Narrative;
 import org.hl7.fhir.dstu3.model.Narrative.NarrativeStatus;
 import org.hl7.fhir.dstu3.model.ValueSet;
@@ -222,6 +223,8 @@ public class ValueSetImporterV3 extends ValueSetImporterBase {
     CodeSystemConvertor.populate(cs, vs);
     cs.setUserData("path", "v3" + "/" + id + "/" + "cs.html");
     cs.setUserData("filename", "v3" + "/" + id + "/" + "cs.html");
+    if (!vs.hasCompose())
+      vs.setCompose(new ValueSetComposeComponent());
     vs.getCompose().addInclude().setSystem(cs.getUrl());
     vs.setExperimental(false);
     cs.setCaseSensitive(true);
@@ -370,6 +373,8 @@ public class ValueSetImporterV3 extends ValueSetImporterBase {
               vp.vs.getMeta().setLastUpdatedElement(new InstantType(vp.vs.getDate()));
             else
               vp.vs.getMeta().setLastUpdated(page.getGenDate().getTime());
+            if (!vp.cs.hasMeta())
+              vp.cs.setMeta(new Meta());
             vp.cs.getMeta().setLastUpdated(vp.vs.getMeta().getLastUpdated());
             codesystems.put(e.getAttribute("codeSystemId"), vp.cs);
           } // else if (r == null)
