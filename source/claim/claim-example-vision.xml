@@ -15,8 +15,10 @@
   <status value = "active"/>
 
   <type>
+   <coding>
     <system value="http://hl7.org/fhir/ex-claimtype"/>
     <code value="vision"/>
+   </coding>
   </type>
   
  <use value="complete"/>
@@ -29,19 +31,23 @@
 
  <insurer>
   <reference value="Organization/2"/>
-</insurer>
+ </insurer>
 
  <organization>
     <reference value="Organization/1"/>
  </organization>
 
  <priority>
+  <coding>
     <code value="normal"/>
+  </coding>
  </priority>
 
  <payee>
    <type>
+    <coding>
      <code value="provider"/>
+    </coding>
    </type>
  </payee>
 
@@ -55,24 +61,28 @@
   <diagnosis>
     <sequence value="1"/>
 	<diagnosis>
+	 <coding>
 	  <code value="654321"/>
-	  </diagnosis>
+     </coding>
+	</diagnosis>
   </diagnosis>
  
- <coverage>
+ <insurance>
    <sequence value="1"/>
    <focal value="true"/>
    <coverage>
      <reference value="Coverage/9876B1"/>
    </coverage>
- </coverage>
+ </insurance>
   
  <item>
    <sequence value="1"/>
    <careTeamLinkId value="1"/>
    <service>
+    <coding>
      <system value="http://hl7.org/fhir/ex-visionservice"/>
      <code value="exam"/>
+	</coding>
    </service>
    <servicedDate value="2014-08-16"/>
    <unitPrice>

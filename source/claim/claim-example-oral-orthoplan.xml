@@ -15,8 +15,10 @@
   <status value = "active"/>
 
   <type>
+   <coding>
     <system value="http://hl7.org/fhir/ex-claimtype"/>
     <code value="oral"/>
+   </coding>
   </type>
   
   <use value="proposed"/>
@@ -36,17 +38,23 @@
   </organization>
 
   <priority>
+   <coding>
     <code value="normal"/>
+   </coding>
   </priority>
 
   <fundsReserve>
+   <coding>
     <code value="provider"/>
+   </coding>
   </fundsReserve>
   
   <payee>
     <type>
+	 <coding>
       <code value="provider"/>
-    </type>
+     </coding>
+	</type>
   </payee>
 
    <careTeam>
@@ -59,26 +67,30 @@
   <diagnosis>
     <sequence value="1"/>
     <diagnosis>
+     <coding>
 	  <system value="http://hl7.org/fhir/sid/icd-10"/>
       <code value="123457"/>
-    </diagnosis>
+     </coding>
+	</diagnosis>
   </diagnosis>
  
-  <coverage>
+  <insurance>
     <sequence value="1"/>
     <focal value="true"/>
     <coverage>
       <reference value="Coverage/9876B1"/>
     </coverage>
-  </coverage>
+  </insurance>
   
  <item>
    <sequence value="1"/>
    <careTeamLinkId value="1"/>
    <diagnosisLinkId value="1"/>
    <service>
+    <coding>
      <system value="http://hl7.org/fhir/oralservicecodes"/>
      <code value="ORTHPLAN"/>
+    </coding>
    </service>
    <servicedDate value="2015-05-16"/>  <!-- Start Date -->
    <unitPrice>
@@ -94,9 +106,11 @@
    <detail>
      <sequence value="1"/> <!-- Exam Fee -->
      <service>
+	  <coding>
        <system value="http://hl7.org/fhir/oralservicecodes"/>
        <code value="ORTHOEXAM"/>
-     </service>
+      </coding>
+	 </service>
      <unitPrice>
        <value value="1000.00"/>
        <system value="urn:iso:std:iso:4217"/>
@@ -111,9 +125,11 @@
    <detail>
      <sequence value="2"/> <!-- Diagnostic Fee -->
      <service>
+	  <coding>
        <system value="http://hl7.org/fhir/oralservicecodes"/>
        <code value="ORTHODIAG"/>
-     </service>
+      </coding>
+	 </service>
      <unitPrice>
        <value value="1500.00"/>
        <system value="urn:iso:std:iso:4217"/>
@@ -128,9 +144,11 @@
    <detail>
      <sequence value="3"/> <!-- Initial Payment -->
      <service>
+	  <coding>
        <system value="http://hl7.org/fhir/oralservicecodes"/>
        <code value="ORTHOINITIAL"/>
-     </service>
+      </coding>
+	 </service>
      <unitPrice>
        <value value="500.00"/>
        <system value="urn:iso:std:iso:4217"/>
@@ -145,9 +163,11 @@
    <detail>
      <sequence value="4"/> <!-- Duration in Months -->
      <service>
+	  <coding>
        <system value="http://hl7.org/fhir/oralservicecodes"/>
        <code value="ORTHOMONTHS"/>
-     </service>
+      </coding>
+	 </service>
      <quantity>
        <value value="24"/>
      </quantity>  
@@ -155,9 +175,11 @@
    <detail>
      <sequence value="5"/> <!-- Periodic Payments -->
      <service>
+	  <coding>
        <system value="http://hl7.org/fhir/oralservicecodes"/>
        <code value="ORTHOPERIODIC"/>
-     </service>
+      </coding>
+	 </service>
      <quantity>
        <value value="24"/>
      </quantity>  
@@ -178,8 +200,10 @@
    <sequence value="2"/>
    <careTeamLinkId value="1"/>
    <service>
+    <coding>
      <system value="http://hl7.org/fhir/oralservicecodes"/>
      <code value="21211"/>
+    </coding>
    </service>
    <servicedDate value="2014-08-16"/>
    <unitPrice>
@@ -193,12 +217,16 @@
      <code value="USD"/> 
    </net> 
    <bodySite>
+    <coding>
      <system value="http://fdi.org/fhir/oraltoothcodes"/>
      <code value="21"/>
+    </coding>
    </bodySite>
    <subSite>
+    <coding>
      <system value="http://fdi.org/fhir/oralsurfacecodes"/>
      <code value="L"/>
+    </coding>
    </subSite>
   </item>
 
@@ -206,8 +234,10 @@
    <sequence value="3"/>
    <careTeamLinkId value="1"/>
    <service>
+    <coding>
      <system value="http://hl7.org/fhir/oralservicecodes"/>
      <code value="27211"/>
+    </coding>
    </service>
    <servicedDate value="2014-08-16"/>
    <unitPrice>
@@ -221,15 +251,19 @@
      <code value="USD"/> 
    </net> 
    <bodySite>
+    <coding>
      <system value="http://fdi.org/fhir/oraltoothcodes"/>
      <code value="36"/>
+    </coding>
    </bodySite>
    <detail>
      <sequence value="1"/>
      <service>
+	  <coding>
        <system value="http://hl7.org/fhir/oralservicecodes"/>
        <code value="27211"/>
-     </service>
+      </coding>
+	 </service>
      <unitPrice>
        <value value="750.00"/>
        <system value="urn:iso:std:iso:4217"/>
@@ -244,9 +278,11 @@
    <detail>
      <sequence value="2"/>
      <service>
+	  <coding>
        <system value="http://hl7.org/fhir/oralservicecodes"/>
        <code value="lab"/>
-     </service>
+      </coding>
+	 </service>
      <unitPrice>
        <value value="350.00"/>
        <system value="urn:iso:std:iso:4217"/>

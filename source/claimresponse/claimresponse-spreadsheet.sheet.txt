@@ -155,7 +155,7 @@
 
  -- Row 6 -----------------------------------
   Element = ClaimResponse.status
-  Card. = 1..1
+  Card. = 0..1
   Is Modifier = Y
   Summary = Y
   Type = code
@@ -208,7 +208,7 @@
  -- Row 12 -----------------------------------
   Element = ClaimResponse.outcome
   Card. = 0..1
-  Type = Coding
+  Type = CodeableConcept
   Binding = RemittanceOutcome
   Short Name = complete | error | partial
   Definition = Processing outcome errror, partial or complete processing
@@ -235,7 +235,7 @@
  -- Row 16 -----------------------------------
   Element = ClaimResponse.payeeType
   Card. = 0..1
-  Type = Coding
+  Type = CodeableConcept
   Binding = PayeeType
   Short Name = Party to be paid any benefits payable
   Definition = Party to be reimbursed: Subscriber, provider, other.
@@ -286,7 +286,7 @@
  -- Row 24 -----------------------------------
   Element = ClaimResponse.item.adjudication.category
   Card. = 1..1
-  Type = Coding
+  Type = CodeableConcept
   Binding = Adjudication
   Short Name = Adjudication category such as co-pay, eligible, benefit, etc.
   Definition = Code indicating: Co-Pay, deductible, eligible, benefit, tax, etc.
@@ -294,7 +294,7 @@
  -- Row 25 -----------------------------------
   Element = ClaimResponse.item.adjudication.reason
   Card. = 0..1
-  Type = Coding
+  Type = CodeableConcept
   Binding = AdjudicationReason
   Short Name = Adjudication reason
   Definition = Adjudication reason such as limit reached.
@@ -405,7 +405,7 @@
  -- Row 41 -----------------------------------
   Element = ClaimResponse.addItem.revenue
   Card. = 0..1
-  Type = Coding
+  Type = CodeableConcept
   Binding = RevenueCenter
   Short Name = Revenue or cost center code
   Definition = The type of reveneu or cost center providing the product and/or service.
@@ -413,7 +413,7 @@
  -- Row 42 -----------------------------------
   Element = ClaimResponse.addItem.category
   Card. = 0..1
-  Type = Coding
+  Type = CodeableConcept
   Binding = BenefitSubCategory
   Short Name = Type of service or product
   Definition = Health Care Service Type Codes  to identify the classification of service or benefits.
@@ -421,7 +421,7 @@
  -- Row 43 -----------------------------------
   Element = ClaimResponse.addItem.service
   Card. = 0..1
-  Type = Coding
+  Type = CodeableConcept
   Binding = ServiceProduct
   Short Name = Group, Service or Product
   Definition = A code to indicate the Professional Service or Product supplied.
@@ -430,7 +430,7 @@
   Element = ClaimResponse.addItem.modifier
   Card. = 0..*
   UML = F16 (required field for Oral) and F05
-  Type = Coding
+  Type = CodeableConcept
   Binding = Modifiers
   Short Name = Service/Product billing modifiers
   Definition = Item typification or modifiers codes, eg for Oral whether the treatment is cosmetic or associated with TMJ, or for medical whether the treatment was outside the clinic or out of office hours.
@@ -470,7 +470,7 @@
  -- Row 49 -----------------------------------
   Element = ClaimResponse.addItem.detail.revenue
   Card. = 0..1
-  Type = Coding
+  Type = CodeableConcept
   Binding = RevenueCenter
   Short Name = Revenue or cost center code
   Definition = The type of reveneu or cost center providing the product and/or service.
@@ -478,7 +478,7 @@
  -- Row 50 -----------------------------------
   Element = ClaimResponse.addItem.detail.category
   Card. = 0..1
-  Type = Coding
+  Type = CodeableConcept
   Binding = BenefitSubCategory
   Short Name = Type of service or product
   Definition = Health Care Service Type Codes  to identify the classification of service or benefits.
@@ -486,7 +486,7 @@
  -- Row 51 -----------------------------------
   Element = ClaimResponse.addItem.detail.service
   Card. = 0..1
-  Type = Coding
+  Type = CodeableConcept
   Binding = ServiceProduct
   Short Name = Service or Product
   Definition = A code to indicate the Professional Service or Product supplied.
@@ -495,7 +495,7 @@
   Element = ClaimResponse.addItem.detail.modifier
   Card. = 0..*
   UML = F16 (required field for Oral) and F05
-  Type = Coding
+  Type = CodeableConcept
   Binding = Modifiers
   Short Name = Service/Product billing modifiers
   Definition = Item typification or modifiers codes, eg for Oral whether the treatment is cosmetic or associated with TMJ, or for medical whether the treatment was outside the clinic or out of office hours.
@@ -560,7 +560,7 @@
  -- Row 61 -----------------------------------
   Element = ClaimResponse.error.code
   Card. = 1..1
-  Type = Coding
+  Type = CodeableConcept
   Binding = AdjudicationError
   Short Name = Error code detailing processing issues
   Definition = An error code,from a specified code system, which details why the claim could not be adjudicated.
@@ -602,7 +602,7 @@
  -- Row 67 -----------------------------------
   Element = ClaimResponse.payment.type
   Card. = 0..1
-  Type = Coding
+  Type = CodeableConcept
   Binding = PaymentType
   Short Name = Partial or Complete
   Definition = Whether this represents partial or complete payment of the claim.
@@ -617,7 +617,7 @@
  -- Row 69 -----------------------------------
   Element = ClaimResponse.payment.adjustmentReason
   Card. = 0..1
-  Type = Coding
+  Type = CodeableConcept
   Binding = PaymentAdjustmentReason
   Short Name = Reason for Payment adjustment
   Definition = Reason for the payment adjustment.
@@ -655,7 +655,7 @@
  -- Row 74 -----------------------------------
   Element = ClaimResponse.form
   Card. = 0..1
-  Type = Coding
+  Type = CodeableConcept
   Binding = Forms
   Short Name = Printed Form Identifier
   Definition = The form to be used for printing the content.
@@ -679,7 +679,7 @@
  -- Row 77 -----------------------------------
   Element = ClaimResponse.note.type
   Card. = 0..1
-  Type = Coding
+  Type = CodeableConcept
   Binding = NoteType
   Short Name = display | print | printoper
   Definition = The note purpose: Print/Display.
@@ -695,7 +695,7 @@
  -- Row 79 -----------------------------------
   Element = ClaimResponse.note.language
   Card. = 0..1
-  Type = Coding
+  Type = CodeableConcept
   Binding = Language
   Short Name = Language
   Definition = The ISO-639-1 alpha 2 code in lower case for the language, optionally followed by a hyphen and the ISO-3166-1 alpha 2 code for the region in upper case; e.g. \"en\" for English, or \"en-US\" for American English versus \"en-EN\" for England English
@@ -704,17 +704,17 @@
   Element = !Insurance Information
 
  -- Row 81 -----------------------------------
-  Element = ClaimResponse.coverage
+  Element = ClaimResponse.insurance
   Card. = 0..*
   UML = 620;0
-  Type = =Coverage
+  Type = =Insurance
   Short Name = Insurance or medical plan
   Definition = Financial instrument by which payment information for health care
   Requirements = Health care programs and insurers are significant payors of health service costs
   RIM Mapping = Coverage
 
  -- Row 82 -----------------------------------
-  Element = ClaimResponse.coverage.sequence
+  Element = ClaimResponse.insurance.sequence
   Card. = 1..1
   Type = positiveInt
   Short Name = Service instance identifier
@@ -722,7 +722,7 @@
   Requirements = To maintain order of the coverages.
 
  -- Row 83 -----------------------------------
-  Element = ClaimResponse.coverage.focal
+  Element = ClaimResponse.insurance.focal
   Card. = 1..1
   Type = boolean
   Short Name = Is the focal Coverage
@@ -730,7 +730,7 @@
   Requirements = To identify which coverage is being adjudicated.
 
  -- Row 84 -----------------------------------
-  Element = ClaimResponse.coverage.coverage
+  Element = ClaimResponse.insurance.coverage
   Card. = 1..1
   Type = Reference(Coverage)
   Short Name = Insurance information
@@ -738,14 +738,14 @@
   Requirements = Need to identify the issuer to target for processing and for coordination of benefit processing.
 
  -- Row 85 -----------------------------------
-  Element = ClaimResponse.coverage.businessArrangement
+  Element = ClaimResponse.insurance.businessArrangement
   Card. = 0..1
   Type = string
   Short Name = Business agreement
   Definition = The contract number of a business agreement which describes the terms and conditions.
 
  -- Row 86 -----------------------------------
-  Element = ClaimResponse.coverage.preAuthRef
+  Element = ClaimResponse.insurance.preAuthRef
   Card. = 0..*
   Type = string
   Short Name = Pre-Authorization/Determination Reference
@@ -754,7 +754,7 @@
   CDAnet v4 Mapping = F03
 
  -- Row 87 -----------------------------------
-  Element = ClaimResponse.coverage.claimResponse
+  Element = ClaimResponse.insurance.claimResponse
   Card. = 0..1
   Type = Reference(ClaimResponse)
   Short Name = Adjudication results

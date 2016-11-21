@@ -144,7 +144,7 @@
   Element = Coverage.type
   Card. = 0..1
   Summary = Y
-  Type = Coding
+  Type = CodeableConcept
   Binding = CoverageType
   Short Name = Type of coverage
   Definition = The type of coverage: social program, medical plan, accident coverage (workers compensation, auto), group health.
@@ -207,7 +207,7 @@
  -- Row 11 -----------------------------------
   Element = Coverage.relationship
   Card. = 0..1
-  Type = Coding
+  Type = CodeableConcept
   Binding = Relationship
   Short Name = Beneficiary relationship to the Subscriber
   Definition = The relationship of beneficiary (patient) to the subscriber.

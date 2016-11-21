@@ -32,15 +32,19 @@
   </request>
 
   <outcome>
+   <coding>
     <system value="http://hl7.org/fhir/remittance-outcome" />
 	<code value="complete" />
+   </coding>
   </outcome>
  
   <disposition value="Claim settled as per contract."/>
 
   <payeeType>
+   <coding>
      <system value="http://hl7.org/fhir/payeetype"/>
      <code value="provider"/>
+   </coding>
   </payeeType>
 
  <!-- Adjudication details -->
@@ -51,7 +55,9 @@
 
    <adjudication>
      <category>
+	  <coding>
        <code value="eligible"/>
+	  </coding>
 	 </category>
 	 <amount>
  	    <value value="135.57"/>
@@ -62,7 +68,9 @@
 
    <adjudication>
      <category>
+	  <coding>
        <code value="copay"/>
+	  </coding>
 	 </category>
 	 <amount>
 	    <value value="10.00"/>
@@ -73,14 +81,18 @@
 
    <adjudication>
      <category>
+	  <coding>
        <code value="eligpercent"/>
+	  </coding>
 	 </category>
 	 <value value="80.00"/>
    </adjudication>
 
    <adjudication>
      <category>
+	  <coding>
        <code value="benefit"/>
+	  </coding>
 	 </category>
 	 <amount>
   	    <value value="100.47"/>
@@ -106,8 +118,10 @@
  <!-- Payment details -->
  <payment>
    <type>
+    <coding>
      <system value="http://hl7.org/fhir/ValueSet/ex-paymenttype"/>
      <code value="complete"/>
+    </coding>
    </type>	
 
    <date value="2014-08-31"/>

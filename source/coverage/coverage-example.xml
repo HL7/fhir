@@ -15,9 +15,11 @@
  <status value="active"/>
 
  <type>
+  <coding>
    <system value="http://hl7.org/fhir/v3/ActCode"/>
    <code value="EHCPOL"/>
    <display value="extended healthcare"/>
+  </coding>
  </type>
  
  <policyHolder>
@@ -33,7 +35,9 @@
  </beneficiary>
  
  <relationship>
+  <coding>
    <code value="self"/>
+  </coding>
  </relationship>
 
  <period> 

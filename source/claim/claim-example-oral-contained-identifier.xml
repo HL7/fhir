@@ -36,8 +36,10 @@
   <status value = "active"/>
 
   <type>
+   <coding>
     <system value="http://hl7.org/fhir/ex-claimtype"/>
     <code value="oral"/>
+   </coding>
   </type>
 
   <use value="complete"/>
@@ -63,13 +65,17 @@
   </organization>
   
   <priority>
+   <coding>
     <code value="normal"/>
+   </coding>
   </priority>
   
   <payee>
     <type>
+	 <coding>
       <code value="provider"/>
-    </type>
+     </coding>
+	</type>
   </payee>
 
    <careTeam>
@@ -85,24 +91,28 @@
   <diagnosis>
     <sequence value="1"/>
     <diagnosis>
+	 <coding>
       <code value="123456"/>
-    </diagnosis>
+     </coding>
+	</diagnosis>
   </diagnosis>
 
-  <coverage>
+  <insurance>
     <sequence value="1"/>
     <focal value="true"/>
     <coverage>
 	  <reference value="http://www.jurisdiction.com/nationalplan/123AB345" />
     </coverage>
-  </coverage>
+  </insurance>
   
   <item>
     <sequence value="1"/>
     <careTeamLinkId value="1"/>
     <service>
+	 <coding>
       <code value="1200"/>
-    </service>
+     </coding>
+	</service>
     <servicedDate value="2014-08-16"/>
     <unitPrice>
       <value value="135.57"/>

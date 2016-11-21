@@ -15,8 +15,10 @@
   <status value = "active"/>
 
   <type>
+   <coding>
     <system value="http://hl7.org/fhir/ex-claimtype"/>
     <code value="pharmacy"/>
+   </coding>	
   </type>
   
  <use value="complete"/>
@@ -36,12 +38,16 @@
  </organization>
 
  <priority>
+   <coding>
     <code value="stat"/>
+   </coding>
  </priority>
 
  <payee>
    <type>
+    <coding>
      <code value="provider"/>
+	</coding>
    </type>
  </payee>
 
@@ -55,24 +61,28 @@
   <diagnosis>
     <sequence value="1"/>
 	<diagnosis>
+	 <coding>
 	  <code value="654456"/>
-	  </diagnosis>
+	 </coding>
+	</diagnosis>
   </diagnosis>
  
- <coverage>
+ <insurance>
    <sequence value="1"/>
    <focal value="true"/>
    <coverage>
      <reference value="Coverage/9876B1"/>
    </coverage>
- </coverage>
+ </insurance>
   
  <item>
    <sequence value="1"/>
    <careTeamLinkId value="1"/>
    <service>
+    <coding>
      <system value="http://hl7.org/fhir/ex-pharmaservice"/>
      <code value="smokecess"/> <!-- smoking cessation consult -->
+	</coding> 
    </service>
    <servicedDate value="2014-08-16"/>
    <unitPrice>

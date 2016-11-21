@@ -15,8 +15,10 @@
   <status value = "active"/>
 
   <type>
+   <coding>
     <system value="http://hl7.org/fhir/ex-claimtype"/>
     <code value="vision"/>
+   </coding>
   </type>
   
  <use value="complete"/>
@@ -36,7 +38,9 @@
  </organization>
 
  <priority>
+  <coding>
     <code value="normal"/>
+  </coding>
  </priority>
 
  <prescription>
@@ -45,7 +49,9 @@
  
  <payee>
    <type>
+    <coding>
      <code value="provider"/>
+    </coding>
    </type>
  </payee>
 
@@ -59,24 +65,28 @@
   <diagnosis>
     <sequence value="1"/>
 	<diagnosis>
+	 <coding>
 	  <code value="654321"/>
-	  </diagnosis>
+     </coding>
+	</diagnosis>
   </diagnosis>
  
- <coverage>
+ <insurance>
    <sequence value="1"/>
    <focal value="true"/>
    <coverage>
      <reference value="Coverage/9876B1"/>
    </coverage>
- </coverage>
+ </insurance>
   
  <item>
    <sequence value="1"/>
    <careTeamLinkId value="1"/>
    <service>
+    <coding>
      <system value="http://hl7.org/fhir/ex-visionservice"/>
      <code value="glasses"/>
+    </coding>
    </service>
    <servicedDate value="2014-08-16"/>
    <unitPrice>
@@ -92,9 +102,11 @@
    <detail>
      <sequence value="1"/>
      <service>
+	  <coding>
        <system value="http://hl7.org/fhir/ex-visionservice"/>
        <code value="frame"/>
-     </service>
+      </coding>
+	 </service>
      <unitPrice>
        <value value="100.00"/>
        <system value="urn:iso:std:iso:4217"/>
@@ -109,9 +121,11 @@
    <detail>
      <sequence value="2"/>
      <service>
+	  <coding>
        <system value="http://hl7.org/fhir/ex-visionservice"/>
        <code value="lens"/>
-     </service>
+      </coding>
+	 </service>
      <quantity>
        <value value="2"/>
      </quantity>
@@ -129,9 +143,11 @@
    <detail>
      <sequence value="3"/>
      <service>
+	  <coding>
        <system value="http://hl7.org/fhir/ex-visionservice"/>
        <code value="fst"/>
-     </service>
+      </coding>
+	 </service>
      <unitPrice>
        <value value="200.00"/>
        <system value="urn:iso:std:iso:4217"/>

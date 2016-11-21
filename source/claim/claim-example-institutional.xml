@@ -15,8 +15,10 @@
   <status value = "active"/>
 
   <type>
+   <coding>
     <system value="http://hl7.org/fhir/ex-claimtype"/>
     <code value="institutional"/>
+   </coding>
   </type>
  
  <use value="complete"/>
@@ -43,12 +45,16 @@
  </organization>
 
  <priority>
+  <coding>
     <code value="normal"/>
+  </coding>
  </priority>
 
  <payee>
    <type>
+    <coding>
      <code value="provider"/>
+	</coding>
    </type>
  </payee>
  
@@ -69,24 +75,28 @@
    <diagnosis>
     <sequence value="1"/>
 	<diagnosis>
+	 <coding>
 	  <code value="654456"/>
+	 </coding>
 	</diagnosis>
   </diagnosis>
  
- <coverage>
+ <insurance>
    <sequence value="1"/>
    <focal value="true"/>
    <coverage>
      <reference value="Coverage/9876B1"/>
    </coverage>
- </coverage>
+ </insurance>
   
  <item>
    <sequence value="1"/>
    <careTeamLinkId value="1"/>
    <service>
+    <coding>
      <system value="http://hl7.org/fhir/ex-serviceproduct"/>
      <code value="exam"/> 
+	</coding>
    </service>
    <servicedDate value="2014-08-16"/>
    <unitPrice>
