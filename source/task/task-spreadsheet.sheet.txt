@@ -32,7 +32,7 @@
  -- Row 5 -----------------------------------
   Binding Name = TaskIntent
   Binding = value set
-  Reference = http://hl7.org/fhir/ValueSet/request-stage
+  Reference = http://hl7.org/fhir/ValueSet/request-intent
   Definition = Distinguishes whether the task is a proposal, plan or full order
   Conformance = required
 
@@ -170,8 +170,8 @@
   Id = inv-1
   Context = Task
   English = Last modified date must be greater than or equal to authored-on date.
-  XPath = f:lastModified >= f:authoredOn
-  Expression = lastModified >= authoredOn
+  XPath = f:lastModified >= f:authoredOn or not(exists(f:lastModified)) or not(exists(f:authoredOn))
+  Expression = lastModified >= authoredOn or lastModified.exists().not() or authoredOn.exists().not()
   Severity = error
 
 === Sheet Data Elements =====================================
@@ -368,7 +368,7 @@
 
  -- Row 18 -----------------------------------
   Element = Task.authoredOn
-  Card. = 1..1
+  Card. = 0..1
   Aliases = Created Date
   Inv. = inv-1
   Type = dateTime
@@ -381,7 +381,7 @@
 
  -- Row 19 -----------------------------------
   Element = Task.lastModified
-  Card. = 1..1
+  Card. = 0..1
   Aliases = Update Date
   Summary = Y
   Inv. = inv-1
