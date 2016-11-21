@@ -228,7 +228,7 @@
   w5 = who.actor
 
  -- Row 17 -----------------------------------
-  Element = ResearchStudy.principleInvestigator
+  Element = ResearchStudy.principalInvestigator
   Card. = 0..1
   Summary = Y
   Type = Reference(Practitioner)
@@ -347,9 +347,9 @@
   Path = ResearchStudy.sponsor
 
  -- Row 12 -----------------------------------
-  Name = principleinvestigator
+  Name = principalinvestigator
   Type = reference
-  Path = ResearchStudy.principleInvestigator
+  Path = ResearchStudy.principalInvestigator
 
  -- Row 13 -----------------------------------
   Name = site

@@ -223,7 +223,7 @@
   Definition = The date or time(s) the activity occurred.
   Comments = [The list of types may be constrained as appropriate for the type of event]
   RIM Mapping = .effectiveTime
-  w5 = when.planned
+  w5 = when.done
 
  -- Row 13 -----------------------------------
   Element = Event.performer

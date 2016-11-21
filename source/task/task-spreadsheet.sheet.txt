@@ -30,11 +30,11 @@
   Definition = The domain-specific business-contextual sub-state of the task.  For example: \"Blood drawn\", \"IV inserted\", \"Awaiting physician signature\", etc.
 
  -- Row 5 -----------------------------------
-  Binding Name = TaskStage
+  Binding Name = TaskIntent
   Binding = value set
-  Reference = valueset-task-stage
+  Reference = http://hl7.org/fhir/ValueSet/request-stage
   Definition = Distinguishes whether the task is a proposal, plan or full order
-  Conformance = extensible
+  Conformance = required
 
  -- Row 6 -----------------------------------
   Binding Name = TaskReason
@@ -169,9 +169,9 @@
  -- Row 1 -----------------------------------
   Id = inv-1
   Context = Task
-  English = Last modified date must be greater than or equal to created date.
-  XPath = f:lastModified >= f:created
-  Expression = lastModified >= created
+  English = Last modified date must be greater than or equal to authored-on date.
+  XPath = f:lastModified >= f:authoredOn
+  Expression = lastModified >= authoredOn
   Severity = error
 
 === Sheet Data Elements =====================================
@@ -181,39 +181,54 @@
   Type = DomainResource
   Short Name = A task to be performed
   Definition = A task to be performed
+  Workflow Mapping = Request, Event
   RIM Mapping = ControlAct[moodCode=INT]
   w5 = workflow.order
 
  -- Row 2 -----------------------------------
   Element = Task.identifier
-  Card. = 0..1
+  Card. = 0..*
   Type = Identifier
   Short Name = Task Instance Identifier
   Definition = The business identifier for this task.
+  Workflow Mapping = Request.identifier, Event.identifier
   RIM Mapping = .id
   w5 = id
 
  -- Row 3 -----------------------------------
+  Element = Task.definition[x]
+  Card. = 0..1
+  Summary = Y
+  Type = uri | Reference(ActivityDefinition)
+  Short Name = Formal definition of task
+  Definition = A reference to a formal or informal definition of the task.  For example, a protocol, a step within a defined workflow definition, etc.
+  Requirements = Enables a formal definition of how he task is to be performed (e.g. using BPMN, BPEL, XPDL or other formal notation) to be associated with a task, enabling automation.
+  Workflow Mapping = Request.definition, Event.definitoin
+  RIM Mapping = .outboundRelationship[typeCode=DEFN].target
+
+ -- Row 4 -----------------------------------
   Element = Task.basedOn
   Card. = 0..*
   Summary = Y
   Type = Reference(Any)
   Short Name = Request fulfilled by this task
   Definition = Identifies a plan, proposal or order that this task has been created in fulfillment of
+  Workflow Mapping = Request.basedOn, Definition.basedOn
   RIM Mapping = .outboundRelationship[typeCode=FLFS].target[moodCode=INT]
 
- -- Row 4 -----------------------------------
-  Element = Task.requisition
+ -- Row 5 -----------------------------------
+  Element = Task.groupIdentifier
   Card. = 0..1
   Summary = Y
   Type = Identifier
   Short Name = Requisition or grouper id
   Definition = An identifier that links together multiple tasks and other requests that were created in the same context
   Requirements = Billing and/or reporting can be linked to whether multiple requests were created as a single unit.
+  Workflow Mapping = Request.groupIdentifier
   RIM Mapping = .inboundRelationship[typeCode=COMP].source[moodCode=INT].id
 
- -- Row 5 -----------------------------------
-  Element = Task.parent
+ -- Row 6 -----------------------------------
+  Element = Task.partOf
   Card. = 0..*
   Summary = Y
   Type = Reference(Task)
@@ -221,9 +236,10 @@
   Definition = Task that this particular task is part of
   Requirements = Allows tasks to be broken down into sub-steps (and this division can occur independent of the original task)
   Comments = This should usually be 0..1
+  Workflow Mapping = Event.partOf
   RIM Mapping = .inboundRelationship[typeCode=COMP].source[moodCode=INT]
 
- -- Row 6 -----------------------------------
+ -- Row 7 -----------------------------------
   Element = Task.status
   Card. = 1..1
   Summary = Y
@@ -232,10 +248,11 @@
   Short Name = draft | requested | received | accepted | +
   Definition = The current status of the task.
   Requirements = These states enable coordination of task status with off-the-shelf workflow solutions that support automation of tasks.
+  Workflow Mapping = Request.status, Event.status
   RIM Mapping = .statusCode
   w5 = status
 
- -- Row 7 -----------------------------------
+ -- Row 8 -----------------------------------
   Element = Task.statusReason
   Card. = 0..1
   Summary = Y
@@ -245,7 +262,7 @@
   Comments = This applies to the current status.  Look at the history of the task to see reasons for past statuses
   RIM Mapping = .inboundRelationship[typeCode=SUBJ].source[classCode=CACT, moodCode=EVN, code=\"status change\"].reasonCode
 
- -- Row 8 -----------------------------------
+ -- Row 9 -----------------------------------
   Element = Task.businessStatus
   Card. = 0..1
   Summary = Y
@@ -256,26 +273,17 @@
   Requirements = There\'s often a need to track substates of a task - this is often variable by specific workflow implementation
   RIM Mapping = .inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=\"business status\"]
 
- -- Row 9 -----------------------------------
-  Element = Task.stage
+ -- Row 10 -----------------------------------
+  Element = Task.intent
   Card. = 1..1
   Summary = Y
-  Type = CodeableConcept
-  Binding = TaskStage
+  Type = code
+  Binding = TaskIntent
   Short Name = proposed | planned | actionable +
   Definition = Indicates the \"level\" of actionability associated with the Task.  I.e. Is this a proposed task, a planned task, an actionable task, etc.
-  Comments = This element is immutable.  Proposed tasks, planned tasks, etc. must be distinct instances.
+  Comments = This element is immutable.  Proposed tasks, planned tasks, etc. must be distinct instances.\n\nIn most cases, Tasks will have an intent of \"order\"
+  Workflow Mapping = Request.intent
   RIM Mapping = .moodCode
-  w5 = class
-
- -- Row 10 -----------------------------------
-  Element = Task.code
-  Card. = 0..1
-  Summary = Y
-  Type = CodeableConcept
-  Short Name = Task Type
-  Definition = A name or code (or both) briefly describing what the task involves.
-  RIM Mapping = .code
   w5 = class
 
  -- Row 11 -----------------------------------
@@ -286,11 +294,23 @@
   Short Name = normal | urgent | asap | stat
   Definition = Indicates how quickly the Task should be addressed with respect to other requests
   Requirements = Used to identify the service level expected while performing a task.
+  Workflow Mapping = Request.priority
   RIM Mapping = .priorityCode
   Missing Meaning = If missing, this task should be performed with normal priority
   w5 = grade
 
  -- Row 12 -----------------------------------
+  Element = Task.code
+  Card. = 0..1
+  Summary = Y
+  Type = CodeableConcept
+  Short Name = Task Type
+  Definition = A name or code (or both) briefly describing what the task involves.
+  Workflow Mapping = Request.code, Event.code
+  RIM Mapping = .code
+  w5 = class
+
+ -- Row 13 -----------------------------------
   Element = Task.description
   Card. = 0..1
   Summary = Y
@@ -299,7 +319,7 @@
   Definition = A free-text description of what is to be performed.
   RIM Mapping = .text
 
- -- Row 13 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = Task.focus
   Card. = 0..1
   Summary = Y
@@ -311,7 +331,7 @@
   RIM Mapping = .outboundRelationship[typeCode=SUBJ].target
   w5 = what
 
- -- Row 14 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = Task.for
   Card. = 0..1
   Aliases = Patient
@@ -320,10 +340,11 @@
   Short Name = Beneficiary of the Task
   Definition = The entity who benefits from the performance of the service specified in the task (e.g., the patient).
   Requirements = Used to track tasks outstanding for a beneficiary.  Do not use to track the task owner or creator (see owner and creator respectively).  This can also affect access control
+  Workflow Mapping = Request.subject, Event.subject
   RIM Mapping = .participation[typeCode=RCT].role
   w5 = who.focus
 
- -- Row 15 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = Task.context
   Card. = 0..1
   Summary = Y
@@ -331,11 +352,22 @@
   Short Name = Healthcare event during which this task originated
   Definition = The healthcare event  (e.g. a patient and healthcare provider interaction) during which this task was created
   Requirements = For some tasks it may be important to know the link between the task or episode of care the task originated within.
+  Workflow Mapping = Request.context, Event.context
   RIM Mapping = .inboundRelationship[typeCode=COMP].source[classCode=PCPR, moodCode=EVN]
   w5 = context
 
- -- Row 16 -----------------------------------
-  Element = Task.created
+ -- Row 17 -----------------------------------
+  Element = Task.executionPeriod
+  Card. = 0..1
+  Summary = Y
+  Type = Period
+  Short Name = Start and end time of execution
+  Definition = Identifies the time action was first taken against the task (start) and/or the time final action was taken against the task prior to marking it as completed (end).
+  Workflow Mapping = Event.occurrence[x]
+  w5 = when.done
+
+ -- Row 18 -----------------------------------
+  Element = Task.authoredOn
   Card. = 1..1
   Aliases = Created Date
   Inv. = inv-1
@@ -343,10 +375,11 @@
   Short Name = Task Creation Date
   Definition = The date and time this task was created.
   Requirements = Most often used along with lastUpdated to track duration of task to supporting monitoring and management.
+  Workflow Mapping = Request.authoredOn
   RIM Mapping = .participation[typeCode=AUT].time
   w5 = when.recorded
 
- -- Row 17 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = Task.lastModified
   Card. = 1..1
   Aliases = Update Date
@@ -358,19 +391,52 @@
   Requirements = Used along with history to track task activity and time in a particular task state.  This enables monitoring and management.
   RIM Mapping = .inboundRelationship[typeCode=SUBJ, ].source[classCode=CACT, moodCode=EVN].effectiveTime
 
- -- Row 18 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = Task.requester
+  Card. = 0..1
+  Summary = Y
+  UML = 400;0
+  Short Name = Who is asking for task to be done
+  Definition = The creator of the task.
+  Requirements = Identifies who created this task.  May be used by access control mechanisms (e.g., to ensure that only the creator can cancel a task).
+  Workflow Mapping = Request.requester
+  RIM Mapping = .participation[typeCode=AUT].role
+
+ -- Row 21 -----------------------------------
+  Element = Task.requester.agent
   Card. = 1..1
   Aliases = Initiator; Author
   Summary = Y
   Type = Reference(Device | Organization | Patient | Practitioner | RelatedPerson )
-  Short Name = Task Creator
-  Definition = The creator of the task.
-  Requirements = Identifies who created this task.  May be used by access control mechanisms (e.g., to ensure that only the creator can cancel a task).
-  RIM Mapping = .participation[typeCode=AUT].role
+  Short Name = Individual asking for task
+  Definition = The device, practitioner, etc. who initiated the task
+  Workflow Mapping = Request.requester.agent
+  RIM Mapping = .player
   w5 = who.author
 
- -- Row 19 -----------------------------------
+ -- Row 22 -----------------------------------
+  Element = Task.requester.onBehalfOf
+  Card. = 0..1
+  Type = Reference(Organization)
+  Short Name = Organization individual is acting for
+  Definition = The organization the device or practitioner was acting on behalf of when they initiated the task
+  Requirements = Practitioners and Devices can be associated with multiple organizations.  This element indicates which organization they were acting on behalf of when authoring the request
+  Workflow Mapping = Request.requester.onBehalfOf
+  RIM Mapping = .scoper
+
+ -- Row 23 -----------------------------------
+  Element = Task.performerType
+  Card. = 0..*
+  Type = CodeableConcept
+  Binding = TaskPerformerType
+  Short Name = requester | dispatcher | scheduler | performer | monitor | manager | acquirer | reviewer
+  Definition = The type of participant that can execute the task.
+  Requirements = Use to distinguish tasks on different activity queues.
+  Workflow Mapping = Event.performer.role, Request.performerType
+  RIM Mapping = .participation[typeCode=PRF].role.code
+  w5 = who.actor
+
+ -- Row 24 -----------------------------------
   Element = Task.owner
   Card. = 0..1
   Aliases = Performer; Executer
@@ -380,21 +446,11 @@
   Definition = The owner of this task.  The participant who can execute this task.
   Requirements = Identifies who is expected to perform this task.
   Comments = Tasks may be created with an owner not yet identified
+  Workflow Mapping = Event.performer.actor, Request.performer
   RIM Mapping = .participation[typeCode=PRF].role
   w5 = who.actor
 
- -- Row 20 -----------------------------------
-  Element = Task.performerType
-  Card. = 0..*
-  Type = CodeableConcept
-  Binding = TaskPerformerType
-  Short Name = requester | dispatcher | scheduler | performer | monitor | manager | acquirer | reviewer
-  Definition = The type of participant that can execute the task.
-  Requirements = Use to distinguish tasks on different activity queues.
-  RIM Mapping = .participation[typeCode=PRF].role.code
-  w5 = who.actor
-
- -- Row 21 -----------------------------------
+ -- Row 25 -----------------------------------
   Element = Task.reason
   Card. = 0..1
   Type = CodeableConcept
@@ -402,27 +458,40 @@
   Short Name = Why task is needed
   Definition = A description or code indicating why this task needs to be performed
   Comments = This should only be included if there is no focus or if it differs from the reason indicated on the focus.
+  Workflow Mapping = Request.reasonCode, Event.reasonCodeableConcept
   RIM Mapping = .reasonCode
   w5 = why
 
- -- Row 22 -----------------------------------
+ -- Row 26 -----------------------------------
   Element = Task.note
   Card. = 0..*
   Type = Annotation
   Short Name = Comments made about the task
   Definition = Free-text information captured about the task as it progresses.
+  Workflow Mapping = Request.note, Event.note
   RIM Mapping = .inboundRelationship[typeCode=SUBJ, ].source[classCode=OBS, moodCode=EVN, code=\"annotation\"].value(string)
 
- -- Row 23 -----------------------------------
+ -- Row 27 -----------------------------------
+  Element = Task.relevantHistory
+  Card. = 0..*
+  Aliases = Status History
+  Type = Reference(Provenance)
+  Short Name = Key events in history of the Task
+  Definition = Links to Provenance records for past versions of this Task that identify key state transitions or updates that are likely to be relevant to a user looking at the current version of the task
+  Comments = This element does not point to the Provenance associated with the *current* version of the resource - as it would be created after this version existed.  The Provenance for the current version can be retrieved with a _revinclude.
+  Workflow Mapping = Request.relevantHistory
+  RIM Mapping = .inboundRelationship(typeCode=SUBJ].source[classCode=CACT, moodCode=EVN]
+
+ -- Row 28 -----------------------------------
   Element = Task.restriction
   Card. = 0..1
-  UML = 400;00
+  UML = 400;100
   Short Name = Constraints on fulfillment tasks
   Definition = If the Task.focus is a request resource and the task is seeking fulfillment (i.e is asking for the request to be actioned), this element identifies any limitations on what parts of the referenced request should be actioned
   Requirements = Sometimes when fulfillment is sought, you don\'t want full fulfillment
   RIM Mapping = Instead of pointing to request, would point to component of request, having these characteristics
 
- -- Row 24 -----------------------------------
+ -- Row 29 -----------------------------------
   Element = Task.restriction.repetitions
   Card. = 0..1
   Type = positiveInt
@@ -431,7 +500,7 @@
   Requirements = E.g. order that requests monthly lab tests, fulfillment is sought for 1
   RIM Mapping = .repeatNumber
 
- -- Row 25 -----------------------------------
+ -- Row 30 -----------------------------------
   Element = Task.restriction.period
   Card. = 0..1
   Type = Period
@@ -439,7 +508,7 @@
   Requirements = E.g. order that authorizes 1 year\'s services.  Fulfillment is sought for next 3 months.
   RIM Mapping = .effectiveTime(IVL<TS>)
 
- -- Row 26 -----------------------------------
+ -- Row 31 -----------------------------------
   Element = Task.restriction.recipient
   Card. = 0..*
   Type = Reference(Patient|Practitioner|RelatedPerson|Group|Organization)
@@ -448,28 +517,18 @@
   RIM Mapping = .participation[typeCode=SBJ].role
   To Do = Is this in the 80%?
 
- -- Row 27 -----------------------------------
-  Element = Task.definition
-  Card. = 0..1
-  Summary = Y
-  Type = uri
-  Short Name = Formal definition of task
-  Definition = A reference to a formal or informal definition of the task.  For example, a protocol, a step within a defined workflow definition, etc.
-  Requirements = Enables a formal definition of how he task is to be performed (e.g. using BPMN, BPEL, XPDL or other formal notation) to be associated with a task, enabling automation.
-  RIM Mapping = .outboundRelationship[typeCode=DEFN].target
-
- -- Row 28 -----------------------------------
+ -- Row 32 -----------------------------------
   Element = Task.input
   Card. = 0..*
   Aliases = Supporting Information
-  UML = 400;125
+  UML = 400;225
   Type = =Parameter
   Short Name = Information used to perform task
   Definition = Additional information that may be needed in the execution of the task
   Requirements = Resources and data used to perform the task.  This data is used in the business logic of task execution, and is stored separately because it varies between workflows.
   RIM Mapping = ???
 
- -- Row 29 -----------------------------------
+ -- Row 33 -----------------------------------
   Element = Task.input.type
   Card. = 1..1
   Aliases = Name
@@ -481,7 +540,7 @@
   Comments = If referencing a BPMN workflow or Protocol, the \"system\" is the URL for the workflow definition and the code is the \"name\" of the required input.
   RIM Mapping = ???
 
- -- Row 30 -----------------------------------
+ -- Row 34 -----------------------------------
   Element = Task.input.value[x]
   Card. = 1..1
   Type = *
@@ -489,17 +548,17 @@
   Definition = The value of the input parameter as a basic type.
   RIM Mapping = ???
 
- -- Row 31 -----------------------------------
+ -- Row 35 -----------------------------------
   Element = Task.output
   Card. = 0..*
-  UML = 400;200
+  UML = 400;300
   Type = @Parameter
   Short Name = Information produced as part of task
   Definition = Outputs produced by the Task
   Requirements = Resources and data produced during the execution the task.  This data is generated by the business logic of task execution, and is stored separately because it varies between workflows.
   RIM Mapping = ???
 
- -- Row 32 -----------------------------------
+ -- Row 36 -----------------------------------
   Element = Task.output.type
   Card. = 1..1
   Aliases = Name
@@ -510,7 +569,7 @@
   Requirements = Outputs are named to enable task automation to bind data and pass it from one task to the next.
   RIM Mapping = ???
 
- -- Row 33 -----------------------------------
+ -- Row 37 -----------------------------------
   Element = Task.output.value[x]
   Card. = 1..1
   Type = *
@@ -528,89 +587,131 @@
   Path = Task.identifier
 
  -- Row 2 -----------------------------------
-  Name = code
-  Type = token
-  Description = Search by task code
-  Path = Task.code
+  Name = definition-ref
+  Type = reference
+  Description = Search by task definition as a Reference
+  Path = Task.definitionReference
 
  -- Row 3 -----------------------------------
-  Name = performer
-  Type = token
-  Description = Search by recommended type of performer (e.g., Requester, Performer, Scheduler).
-  Path = Task.performerType
+  Name = based-on
+  Type = reference
+  Description = Search by requests this task is based on
+  Path = Task.basedOn
 
  -- Row 4 -----------------------------------
-  Name = priority
+  Name = group-identifier
   Type = token
-  Description = Search by task priority
-  Path = Task.priority
+  Description = Search by group identifier
+  Path = Task.groupIdentifier
 
  -- Row 5 -----------------------------------
+  Name = part-of
+  Type = reference
+  Description = Search by task this task is part of
+  Path = Task.partOf
+
+ -- Row 6 -----------------------------------
   Name = status
   Type = token
   Description = Search by task status
   Path = Task.status
 
- -- Row 6 -----------------------------------
-  Name = statusreason
-  Type = token
-  Description = Search by status reason
-  Path = Task.statusReason
-
  -- Row 7 -----------------------------------
-  Name = focus
-  Type = reference
-  Description = Search by task focus
-  Path = Task.focus
+  Name = business-status
+  Type = token
+  Description = Search by business status
+  Path = Task.businessStatus
 
  -- Row 8 -----------------------------------
-  Name = definition
-  Type = uri
-  Description = Search by task definition
-  Path = Task.definition
+  Name = priority
+  Type = token
+  Description = Search by task priority
+  Path = Task.priority
 
  -- Row 9 -----------------------------------
-  Name = created
-  Type = date
-  Description = Search by creation date
-  Path = Task.created
+  Name = intent
+  Type = token
+  Description = Search by task intent
+  Path = Task.intent
 
  -- Row 10 -----------------------------------
-  Name = modified
-  Type = date
-  Description = Search by last modification date
-  Path = Task.lastModified
+  Name = code
+  Type = token
+  Description = Search by task code
+  Path = Task.code
 
  -- Row 11 -----------------------------------
-  Name = owner
+  Name = subject
   Type = reference
-  Description = Search by task owner
-  Path = Task.owner
+  Description = Search by subject
+  Path = Task.for
 
  -- Row 12 -----------------------------------
-  Name = requester
-  Type = reference
-  Description = Search by task requester
-  Path = Task.requester
-
- -- Row 13 -----------------------------------
-  Name = parent
-  Type = reference
-  Description = Search by parent task
-  Path = Task.parent
-
- -- Row 14 -----------------------------------
   Name = patient
   Type = reference
   Description = Search by patient
   Path = Task.for
   Target Types = Patient
 
+ -- Row 13 -----------------------------------
+  Name = focus
+  Type = reference
+  Description = Search by task focus
+  Path = Task.focus
+
+ -- Row 14 -----------------------------------
+  Name = context
+  Type = reference
+  Description = Search by encounter or episode
+  Path = Task.context
+
  -- Row 15 -----------------------------------
-  Name = stage
+  Name = period
+  Type = date
+  Description = Search by period Task is/was underway
+  Path = Task.executionPeriod
+
+ -- Row 16 -----------------------------------
+  Name = performer
   Type = token
-  Description = Search by task stage
-  Path = Task.stage
+  Description = Search by recommended type of performer (e.g., Requester, Performer, Scheduler).
+  Path = Task.performerType
+
+ -- Row 17 -----------------------------------
+  Name = statusreason
+  Type = token
+  Description = Search by status reason
+  Path = Task.statusReason
+
+ -- Row 18 -----------------------------------
+  Name = authored-on
+  Type = date
+  Description = Search by creation date
+  Path = Task.authoredOn
+
+ -- Row 19 -----------------------------------
+  Name = modified
+  Type = date
+  Description = Search by last modification date
+  Path = Task.lastModified
+
+ -- Row 20 -----------------------------------
+  Name = owner
+  Type = reference
+  Description = Search by task owner
+  Path = Task.owner
+
+ -- Row 21 -----------------------------------
+  Name = requester
+  Type = reference
+  Description = Search by task requester
+  Path = Task.requester.agent
+
+ -- Row 22 -----------------------------------
+  Name = organization
+  Type = reference
+  Description = Search by responsible organization
+  Path = Task.requester.onBehalfOf
 
 === Sheet Profiles =====================================
 

@@ -6,12 +6,7 @@
     <div xmlns="http://www.w3.org/1999/xhtml"/>
   </text>
   <status value="draft"/>
-  <stage>
-    <coding>
-      <system value="http://hl7.org/fhir/task-stage"/>
-      <code value="actionable"/>
-    </coding>
-  </stage>
+  <intent value="order"/>
   <code>
     <text value="Refill Request"/>
   </code>

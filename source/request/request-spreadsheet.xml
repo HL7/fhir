@@ -9,7 +9,7 @@
   <Author>Grahame</Author>
   <LastAuthor>lloyd</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2016-11-17T10:39:10Z</LastSaved>
+  <LastSaved>2016-11-20T03:50:55Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -25,7 +25,7 @@
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>735</TabRatio>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>3</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -914,10 +914,11 @@
   </Names>
   <Table ss:ExpandedColumnCount="23" ss:ExpandedRowCount="32" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s68" ss:DefaultRowHeight="14.55">
-   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="246.6"/>
-   <Column ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="77.399999999999991"/>
+   <Column ss:StyleID="s69" ss:Width="145.19999999999999"/>
+   <Column ss:StyleID="s68" ss:Hidden="1" ss:AutoFitWidth="0"
+    ss:Width="77.399999999999991"/>
    <Column ss:StyleID="s68" ss:Width="29.4"/>
-   <Column ss:StyleID="s70" ss:AutoFitWidth="0" ss:Width="42.6"/>
+   <Column ss:StyleID="s70" ss:Hidden="1" ss:AutoFitWidth="0" ss:Width="42.6"/>
    <Column ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="91.8"/>
    <Column ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="28.8"/>
    <Column ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="27"/>
@@ -1618,7 +1619,7 @@
     <Cell ss:StyleID="s95"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s97"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:Height="172.79999999999998">
+   <Row ss:AutoFitHeight="0" ss:Height="172.79999999999998">
     <Cell ss:StyleID="s90"><Data ss:Type="String">Request.performerType</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2039,13 +2040,12 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>15</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>2</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -2053,14 +2053,16 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>12</ActiveCol>
+     <RangeSelection>R4C13:R4C14</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -2167,7 +2169,7 @@
         html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">XPath 2 expression.  See wiki or make Lloyd do it :&gt;</Font></ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:Height="86.399999999999991">
+   <Row ss:AutoFitHeight="0" ss:Height="86.550000000000011">
     <Cell ss:StyleID="s111"><Data ss:Type="String">1</Data><NamedCell
       ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">onBehalfOf for Practitioner or Device</Data></Cell>
@@ -2763,6 +2765,7 @@
     <HorizontalResolution>1200</HorizontalResolution>
     <VerticalResolution>1200</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4938,7 +4941,7 @@
     <Cell><Data ss:Type="String">This electronic record should never have existed, though it is possible that real-world decisions were based on it.  (If real-world activity has occurred, the status should be &quot;cancelled&quot; rather than &quot;entered-in-error&quot;.)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String" x:Ticked="1">=ActStatus.nullified</Data></Cell>
    </Row>
-   <Row ss:Height="43.199999999999996">
+   <Row ss:AutoFitHeight="0" ss:Height="43.199999999999996">
     <Cell><Data ss:Type="String">unknown</Data></Cell>
     <Cell><Data ss:Type="Number">7</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">Unknown</Data></Cell>
@@ -5028,7 +5031,7 @@
     <Cell><Data ss:Type="String">The request represents a component or option for a RequestGroup that establishes timing, conditionality and/or other constraints among a set of requests.&#10;&#10;Refer to [[[RequestGroup]]] for additional information on how this status is used</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String" x:Ticked="1">=ActMood.OPT</Data></Cell>
    </Row>
-   <Row ss:Height="28.8">
+   <Row ss:AutoFitHeight="0" ss:Height="28.8">
     <Cell><Data ss:Type="String">original-order</Data></Cell>
     <Cell><Data ss:Type="Number">5</Data></Cell>
     <Cell ss:Index="4"><Data ss:Type="String">order</Data></Cell>
@@ -5078,7 +5081,7 @@
  </Worksheet>
  <Worksheet ss:Name="request-priority">
   <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="51" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s143" ss:DefaultRowHeight="14.4">
+   x:FullRows="1" ss:StyleID="s143" ss:DefaultRowHeight="14.55">
    <Column ss:StyleID="s143" ss:Width="80.400000000000006"/>
    <Column ss:StyleID="s143" ss:AutoFitWidth="0" ss:Width="34.799999999999997"/>
    <Column ss:StyleID="s143" ss:AutoFitWidth="0" ss:Width="155.39999999999998"/>
@@ -5664,6 +5667,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Unsynced/>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>

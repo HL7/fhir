@@ -300,4 +300,11 @@
 		<sort>33</sort>
 		<publish>true</publish>
 	</space>
+	<space>
+		<url>http://hl7.org/fhir/workflow</url>
+		<columnName>Workflow Mapping</columnName>
+		<title>Workflow Mapping</title>
+		<id>workflow</id>
+		<sort>34</sort>
+	</space>
 </mappingSpaces>
