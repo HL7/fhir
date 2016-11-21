@@ -23,7 +23,12 @@
 	<reference value="http://www.BenefitsInc.com/fhir/eligibility/225476332402"/>
   </request>
   
-  <outcome value="complete"/>
+  <outcome>
+   <coding>
+    <system value="http://hl7.org/fhir/remittance-outcome" />
+	<code value="complete" />
+   </coding>
+  </outcome>
   
   <disposition value="2014 August mid-month settlement."/>
  
@@ -33,8 +38,10 @@
  
   <detail>
 	<type>
+	  <coding>
 	   <system value="http://hl7.org/fhir/paymenttype"/>
 	   <code value="payment"/>
+	 </coding>
 	</type>
 	<request>
 		<reference value="http://www.BenefitsInc.com/fhir/oralhealthclaim/225476332402"/>
@@ -49,8 +56,10 @@
  
   <detail>
 	<type>
+	  <coding>
 	   <system value="http://hl7.org/fhir/paymenttype"/>
 	   <code value="payment"/>
+	 </coding>
 	</type>
 	<request>
 		<reference value="http://www.BenefitsInc.com/fhir/oralhealthclaim/225476332699"/>
@@ -65,8 +74,10 @@
  
   <detail>
 	<type>
+	  <coding>
 	   <system value="http://hl7.org/fhir/paymenttype"/>
 	   <code value="advance"/>
+	 </coding>
 	</type>
 	<date value="2014-08-16"/>
 	<amount>

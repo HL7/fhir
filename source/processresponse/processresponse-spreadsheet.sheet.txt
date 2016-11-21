@@ -86,7 +86,7 @@
 
  -- Row 6 -----------------------------------
   Element = ProcessResponse.status
-  Card. = 1..1
+  Card. = 0..1
   Is Modifier = Y
   Summary = Y
   Type = code
@@ -123,7 +123,7 @@
  -- Row 10 -----------------------------------
   Element = ProcessResponse.outcome
   Card. = 0..1
-  Type = Coding
+  Type = CodeableConcept
   Binding = ProcessingOutcome
   Short Name = Processing outcome
   Definition = Transaction status: error, complete, held.
@@ -156,7 +156,7 @@
  -- Row 15 -----------------------------------
   Element = ProcessResponse.form
   Card. = 0..1
-  Type = Coding
+  Type = CodeableConcept
   Binding = Forms
   Short Name = Printed Form Identifier
   Definition = The form to be used for printing the content.
@@ -172,7 +172,7 @@
  -- Row 17 -----------------------------------
   Element = ProcessResponse.notes.type
   Card. = 0..1
-  Type = Coding
+  Type = CodeableConcept
   Binding = NoteType
   Short Name = display | print | printoper
   Definition = The note purpose: Print/Display.
@@ -191,7 +191,7 @@
  -- Row 20 -----------------------------------
   Element = ProcessResponse.error
   Card. = 0..*
-  Type = Coding
+  Type = CodeableConcept
   Binding = AdjudicationError
   Short Name = Error code
   Definition = Processing errors.

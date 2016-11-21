@@ -60,7 +60,7 @@
 
  -- Row 4 -----------------------------------
   Element = EnrollmentRequest.status
-  Card. = 1..1
+  Card. = 0..1
   Is Modifier = Y
   Summary = Y
   Type = code
@@ -93,24 +93,24 @@
   Definition = The date when this resource was created.
 
  -- Row 8 -----------------------------------
-  Element = EnrollmentRequest.insurer[x]
+  Element = EnrollmentRequest.insurer
   Card. = 0..1
-  Type = Identifier|Reference(Organization)
+  Type = Reference(Organization)
   Short Name = Target
   Definition = The Insurer who is target  of the request.
 
  -- Row 9 -----------------------------------
-  Element = EnrollmentRequest.provider[x]
+  Element = EnrollmentRequest.provider
   Card. = 0..1
-  Type = Identifier|Reference(Practitioner)
+  Type = Reference(Practitioner)
   Short Name = Responsible practitioner
   Definition = The practitioner who is responsible for the services rendered to the patient.
   CDAnet v4 Mapping = B01
 
  -- Row 10 -----------------------------------
-  Element = EnrollmentRequest.organization[x]
+  Element = EnrollmentRequest.organization
   Card. = 0..1
-  Type = Identifier|Reference(Organization)
+  Type = Reference(Organization)
   Short Name = Responsible organization
   Definition = The organization which is responsible for the services rendered to the patient.
 
@@ -118,9 +118,9 @@
   Element = !Patient Information
 
  -- Row 12 -----------------------------------
-  Element = EnrollmentRequest.subject[x]
-  Card. = 1..1
-  Type = Identifier|Reference(Patient)
+  Element = EnrollmentRequest.subject
+  Card. = 0..1
+  Type = Reference(Patient)
   Short Name = The subject of the Products and Services
   Definition = Patient Resource
   CDAnet v4 Mapping = C06,C07,C08, C05, C04
@@ -130,7 +130,7 @@
 
  -- Row 14 -----------------------------------
   Element = EnrollmentRequest.coverage
-  Card. = 1..1
+  Card. = 0..1
   Type = Reference(Coverage)
   Short Name = Insurance information
   Definition = Reference to the program or plan identification, underwriter or payor.
@@ -145,34 +145,34 @@
   Path = EnrollmentRequest.identifier
 
  -- Row 2 -----------------------------------
-  Name = !organization
+  Name = organization
   Type = reference
   Description = The organization who generated this resource
-  Path = EnrollmentRequest.organizationreference
+  Path = EnrollmentRequest.organization
 
  -- Row 3 -----------------------------------
-  Name = subject-identifier
+  Name = !subject-identifier
   Type = token
   Description = The party to be enrolled
   Path = EnrollmentRequest.subjectidentifier
 
  -- Row 4 -----------------------------------
-  Name = subject-reference
+  Name = subject
   Type = reference
   Description = The party to be enrolled
-  Path = EnrollmentRequest.subjectreference
+  Path = EnrollmentRequest.subject
 
  -- Row 5 -----------------------------------
-  Name = patient-identifier
+  Name = !patient-identifier
   Type = token
   Description = The party to be enrolled
   Path = EnrollmentRequest.subjectidentifier
 
  -- Row 6 -----------------------------------
-  Name = patient-reference
+  Name = patient
   Type = reference
   Description = The party to be enrolled
-  Path = EnrollmentRequest.subjectreference
+  Path = EnrollmentRequest.subject
 
 === Sheet Profiles =====================================
 

@@ -112,7 +112,7 @@
 
  -- Row 6 -----------------------------------
   Element = ProcessRequest.status
-  Card. = 1..1
+  Card. = 0..1
   Is Modifier = Y
   Summary = Y
   Type = code
@@ -123,7 +123,7 @@
 
  -- Row 7 -----------------------------------
   Element = ProcessRequest.action
-  Card. = 1..1
+  Card. = 0..1
   Type = code
   Binding = ActionList
   Short Name = cancel | poll | reprocess | status

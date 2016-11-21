@@ -13,19 +13,24 @@
 
   <status value="active"/>
   
-  <requestReference>
+  <request>
 	<reference value="http://www.BenefitsInc.com/fhir/eligibility/225476332402"/>
-  </requestReference>
+  </request>
   
-  <outcome value="complete"/>
+  <outcome>
+    <coding>
+      <system value="http://hl7.org/fhir/remittance-outcome" />
+	  <code value="complete"/>
+	</coding>  
+  </outcome>
   
   <disposition value="Dependant added to policy."/>
  
   <created value="2014-08-16"/>
 
-  <organizationReference>
+  <organization>
     <reference value="Organization/2"/>
-  </organizationReference>
+  </organization>
 
   <!--requestOrganizationReference> PK don't know why the tooling rejects this.
     <reference value="Organization/1"/>

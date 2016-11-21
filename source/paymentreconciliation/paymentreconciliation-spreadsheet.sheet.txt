@@ -87,7 +87,7 @@
 
  -- Row 6 -----------------------------------
   Element = PaymentReconciliation.status
-  Card. = 1..1
+  Card. = 0..1
   Is Modifier = Y
   Summary = Y
   Type = code
@@ -133,7 +133,7 @@
  -- Row 11 -----------------------------------
   Element = PaymentReconciliation.outcome
   Card. = 0..1
-  Type = code
+  Type = CodeableConcept
   Binding = RemittanceOutcome
   Short Name = complete | error | partial
   Definition = Transaction status: error, complete
@@ -174,7 +174,7 @@
  -- Row 17 -----------------------------------
   Element = PaymentReconciliation.detail.type
   Card. = 1..1
-  Type = Coding
+  Type = CodeableConcept
   Binding = PaymentType
   Short Name = Type code
   Definition = Code to indicate the nature of the payment, adjustment, funds advance, etc.
@@ -225,7 +225,7 @@
  -- Row 24 -----------------------------------
   Element = PaymentReconciliation.form
   Card. = 0..1
-  Type = Coding
+  Type = CodeableConcept
   Binding = Forms
   Short Name = Printed Form Identifier
   Definition = The form to be used for printing the content.
@@ -233,7 +233,7 @@
 
  -- Row 25 -----------------------------------
   Element = PaymentReconciliation.total
-  Card. = 1..1
+  Card. = 0..1
   Type = Money
   Short Name = Total amount of Payment
   Definition = Total payment amount.
@@ -244,7 +244,7 @@
  -- Row 27 -----------------------------------
   Element = !PaymentReconciliation.error
   Card. = 0..*
-  Type = Coding
+  Type = CodeableConcept
   Binding = AdjudicationError
   Short Name = Error code
   Definition = List of errors detected in the request.
@@ -263,7 +263,7 @@
  -- Row 30 -----------------------------------
   Element = PaymentReconciliation.note.type
   Card. = 0..1
-  Type = Coding
+  Type = CodeableConcept
   Binding = NoteType
   Short Name = display | print | printoper
   Definition = The note purpose: Print/Display.

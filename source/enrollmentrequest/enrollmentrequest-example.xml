@@ -15,13 +15,13 @@
  
   <created value="2014-08-16"/>
 
-  <organizationReference>
+  <organization>
     <reference value="Organization/1"/>
-  </organizationReference>
+  </organization>
 
-  <subjectReference>
+  <subject>
     <reference value="Patient/1"/>
-  </subjectReference>
+  </subject>
   
   <coverage>
      <reference value="Coverage/9876B1"/>

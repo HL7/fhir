@@ -14,7 +14,9 @@
   <status value="active"/>
  
   <priority>
+   <coding>
     <code value="normal"/>
+   </coding>
   </priority>
 
   <patient>

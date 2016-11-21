@@ -60,7 +60,7 @@
 
  -- Row 4 -----------------------------------
   Element = EnrollmentResponse.status
-  Card. = 1..1
+  Card. = 0..1
   Is Modifier = Y
   Summary = Y
   Type = code
@@ -69,9 +69,9 @@
   Definition = The status of the resource instance.
 
  -- Row 5 -----------------------------------
-  Element = EnrollmentResponse.request[x]
+  Element = EnrollmentResponse.request
   Card. = 0..1
-  Type = Identifier|Reference(EnrollmentRequest)
+  Type = Reference(EnrollmentRequest)
   Short Name = Claim reference
   Definition = Original request resource reference
   CDAnet v4 Mapping = A02|G01
@@ -79,7 +79,7 @@
  -- Row 6 -----------------------------------
   Element = EnrollmentResponse.outcome
   Card. = 0..1
-  Type = code
+  Type = CodeableConcept
   Binding = RemittanceOutcome
   Short Name = complete | error | partial
   Definition = Processing status: error, complete
@@ -116,24 +116,24 @@
   Definition = The date when the enclosed suite of services were performed or completed
 
  -- Row 11 -----------------------------------
-  Element = EnrollmentResponse.organization[x]
+  Element = EnrollmentResponse.organization
   Card. = 0..1
-  Type = Identifier|Reference(Organization)
+  Type = Reference(Organization)
   Short Name = Insurer
   Definition = The Insurer who produced this adjudicated response.
 
  -- Row 12 -----------------------------------
-  Element = EnrollmentResponse.requestProvider[x]
+  Element = EnrollmentResponse.requestProvider
   Card. = 0..1
-  Type = Identifier|Reference(Practitioner)
+  Type = Reference(Practitioner)
   Short Name = Responsible practitioner
   Definition = The practitioner who is responsible for the services rendered to the patient.
   CDAnet v4 Mapping = B01
 
  -- Row 13 -----------------------------------
-  Element = EnrollmentResponse.requestOrganization[x]
+  Element = EnrollmentResponse.requestOrganization
   Card. = 0..1
-  Type = Identifier|Reference(Organization)
+  Type = Reference(Organization)
   Short Name = Responsible organization
   Definition = The organization which is responsible for the services rendered to the patient.
 
@@ -146,13 +146,13 @@
   Path = EnrollmentResponse.identifier
 
  -- Row 2 -----------------------------------
-  Name = !request
+  Name = request
   Type = reference
   Description = The reference to the claim
   Path = EnrollmentResponse.request
 
  -- Row 3 -----------------------------------
-  Name = !organization
+  Name = organization
   Type = reference
   Description = The organization who generated this resource
   Path = EnrollmentResponse.organization

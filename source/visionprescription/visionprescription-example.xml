@@ -28,30 +28,50 @@
   <prescriber>
     <reference value="Practitioner/example"/>
   </prescriber>
-
+<!--
   <dispense>
     <product>
+	 <coding>
 	  <system value="http://hl7.org/fhir/ex-visionprescriptionproduct"/>
 	  <code value="lens"/>
+	 </coding>
 	</product>
-    <eye value="right"/>
+    <eye>
+      <coding>
+	    <code value="right"/>
+      </coding>
+	</eye>  
     <sphere value="-2.00"/>
 	<prism value="0.5"/>
-	<base value="down"/>
+	<base>
+      <coding>
+	    <code value="down"/>
+      </coding>
+	</base>
 	<add value="2.00"/>
   </dispense>
-
+-->
   <dispense>
     <product>
+	 <coding>
 	  <system value="http://hl7.org/fhir/ex-visionprescriptionproduct"/>
 	  <code value="lens"/>
+	 </coding>
 	</product>
-    <eye value="left"/>
+    <eye>
+      <coding>
+	    <code value="left"/>
+      </coding>
+	</eye>  
     <sphere value="-1.00"/>
     <cylinder value="-0.50"/>
     <axis value="180"/>
 	<prism value="0.5"/>
-	<base value="up"/>
+    <base>
+      <coding>
+	    <code value="up"/>
+      </coding>
+	</base>  
 	<add value="2.00"/>
   </dispense>
 

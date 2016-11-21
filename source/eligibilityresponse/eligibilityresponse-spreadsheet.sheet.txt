@@ -121,7 +121,7 @@
 
  -- Row 6 -----------------------------------
   Element = EligibilityResponse.status
-  Card. = 1..1
+  Card. = 0..1
   Is Modifier = Y
   Summary = Y
   Type = code
@@ -167,7 +167,7 @@
  -- Row 11 -----------------------------------
   Element = EligibilityResponse.outcome
   Card. = 0..1
-  Type = code
+  Type = CodeableConcept
   Binding = RemittanceOutcome
   Short Name = complete | error | partial
   Definition = Transaction status: error, complete
@@ -232,7 +232,7 @@
  -- Row 21 -----------------------------------
   Element = EligibilityResponse.insurance.benefitBalance.category
   Card. = 1..1
-  Type = Coding
+  Type = CodeableConcept
   Binding = BenefitCategory
   Short Name = Benefit Category
   Definition = Dental, Vision, Medical, Pharmacy, Rehab etc.
@@ -240,7 +240,7 @@
  -- Row 22 -----------------------------------
   Element = EligibilityResponse.insurance.benefitBalance.subCategory
   Card. = 0..1
-  Type = Coding
+  Type = CodeableConcept
   Binding = BenefitSubCategory
   Short Name = Benefit SubCategory
   Definition = Dental: basic, major, ortho; Vision exam, glasses, contacts; etc
@@ -262,7 +262,7 @@
  -- Row 25 -----------------------------------
   Element = EligibilityResponse.insurance.benefitBalance.network
   Card. = 0..1
-  Type = Coding
+  Type = CodeableConcept
   Binding = BenefitNetwork
   Short Name = In or out of network
   Definition = Network designation
@@ -270,7 +270,7 @@
  -- Row 26 -----------------------------------
   Element = EligibilityResponse.insurance.benefitBalance.unit
   Card. = 0..1
-  Type = Coding
+  Type = CodeableConcept
   Binding = BenefitUnit
   Short Name = Individual or family
   Definition = Unit designation: individual or family
@@ -278,7 +278,7 @@
  -- Row 27 -----------------------------------
   Element = EligibilityResponse.insurance.benefitBalance.term
   Card. = 0..1
-  Type = Coding
+  Type = CodeableConcept
   Binding = BenefitTerm
   Short Name = Annual or lifetime
   Definition = The term or period of the values such as \'maximum lifetime benefit\' or \'maximum annual vistis\'.
@@ -294,7 +294,7 @@
  -- Row 29 -----------------------------------
   Element = EligibilityResponse.insurance.benefitBalance.financial.type
   Card. = 1..1
-  Type = Coding
+  Type = CodeableConcept
   Binding = BenefitType
   Short Name = Deductable, visits, benefit amount
   Definition = Deductable, visits, benefit amount.
@@ -316,7 +316,7 @@
  -- Row 32 -----------------------------------
   Element = EligibilityResponse.form
   Card. = 0..1
-  Type = Coding
+  Type = CodeableConcept
   Binding = Forms
   Short Name = Printed Form Identifier
   Definition = The form to be used for printing the content.
@@ -337,7 +337,7 @@
  -- Row 35 -----------------------------------
   Element = EligibilityResponse.error.code
   Card. = 1..1
-  Type = Coding
+  Type = CodeableConcept
   Binding = AdjudicationError
   Short Name = Error code detailing processing issues
   Definition = An error code,from a specified code system, which details why the eligibility check could not be performed.

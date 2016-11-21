@@ -100,7 +100,7 @@
 
  -- Row 6 -----------------------------------
   Element = EligibilityRequest.status
-  Card. = 1..1
+  Card. = 0..1
   Is Modifier = Y
   Summary = Y
   Type = code
@@ -112,7 +112,7 @@
  -- Row 7 -----------------------------------
   Element = EligibilityRequest.priority
   Card. = 0..1
-  Type = Coding
+  Type = CodeableConcept
   Binding = ProcessPriority
   Short Name = Desired processing priority
   Definition = Immediate (STAT), best effort (NORMAL), deferred (DEFER)
@@ -211,7 +211,7 @@
  -- Row 20 -----------------------------------
   Element = EligibilityRequest.benefitCategory
   Card. = 0..1
-  Type = Coding
+  Type = CodeableConcept
   Binding = BenefitCategory
   Short Name = Benefit Category
   Definition = Dental, Vision, Medical, Pharmacy, Rehab etc.
@@ -219,7 +219,7 @@
  -- Row 21 -----------------------------------
   Element = EligibilityRequest.benefitSubCategory
   Card. = 0..1
-  Type = Coding
+  Type = CodeableConcept
   Binding = BenefitSubCategory
   Short Name = Benefit SubCategory
   Definition = Dental: basic, major, ortho; Vision exam, glasses, contacts; etc

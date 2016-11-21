@@ -25,7 +25,12 @@
 	<reference value="http://www.BenefitsInc.com/fhir/eligibility/225476332402"/>
   </request>
   
-  <outcome value="complete"/>
+  <outcome>
+   <coding>
+    <system value="http://hl7.org/fhir/remittance-outcome" />
+	<code value="complete" />
+   </coding>
+  </outcome>
   
   <disposition value="Policy is currently in-force."/>
  

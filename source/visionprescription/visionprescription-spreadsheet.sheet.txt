@@ -129,7 +129,7 @@
 
  -- Row 3 -----------------------------------
   Element = VisionPrescription.status
-  Card. = 1..1
+  Card. = 0..1
   Is Modifier = Y
   Summary = Y
   Type = code
@@ -198,8 +198,8 @@
 
  -- Row 10 -----------------------------------
   Element = VisionPrescription.dispense.product
-  Card. = 1..1
-  Type = Coding
+  Card. = 0..1
+  Type = CodeableConcept
   Binding = VisionProduct
   Short Name = Product to be supplied
   Definition = Identifies the type of vision correction product which is required for the patient.
@@ -209,7 +209,7 @@
  -- Row 11 -----------------------------------
   Element = VisionPrescription.dispense.eye
   Card. = 0..1
-  Type = code
+  Type = CodeableConcept
   Binding = VisionEyes
   Short Name = right | left
   Definition = The eye for which the lens applies.
@@ -245,7 +245,7 @@
  -- Row 16 -----------------------------------
   Element = VisionPrescription.dispense.base
   Card. = 0..1
-  Type = code
+  Type = CodeableConcept
   Binding = VisionBase
   Short Name = up | down | in | out
   Definition = The relative base, or reference lens edge, for the prism.

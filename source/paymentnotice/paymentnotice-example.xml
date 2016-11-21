@@ -24,8 +24,10 @@
   </organization>
   
   <paymentStatus>
+   <coding>
 	<system value="http://hl7.org/fhir/paymentstatus"/>
 	<code value="paid"/>
+   </coding>
   </paymentStatus>
 
  </PaymentNotice>

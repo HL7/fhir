@@ -24,8 +24,10 @@
   </request>
   
   <outcome>
+   <coding>
     <system value="http://hl7.org/fhir/processoutcomecodes"/>
     <code value="complete"/>
+   </coding>
   </outcome>
   
   <disposition value="Adjudication processing completed, ClaimResponse and EOB ready for retrieval."/>
