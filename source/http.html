@@ -863,8 +863,8 @@ It's also possible to search across multiple resource types:
 This is a request to search on both Condition and Observation. In this case,
 the only parameters that can be used are those defined for both Condition and Observation 
 (using <a href="searchparameter-definitions.html#SearchParameter.base">SearchParameter.base</a> - see <a href="searchparameter-registry.html#common">Cross-resource Search Parameters</a>),
-or the <a href="resource.html#search">parameters defined for all resources</a>. 
-It's also possible to search on all types at once:
+or the <a href="resource.html#search">parameters defined for all resources</a>. If a search lists types not listed <code>SearchParameter.base</code> 
+for any of the parameters, this is an error, and a server SHOULD return a 400 status. It's also possible to search on all types at once:
 </p>
 <pre class="http">
   GET [base]?[parameters]{&amp;_format=[mime-type]}
