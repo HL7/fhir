@@ -5,9 +5,7 @@ https://www.usps.com/
 https://www.census.gov/geo/reference/
 http://hl7.org/fhir/ValueSet/v3-Ethnicity
 http://www.ncbi.nlm.nih.gov/projects/SNP
-http://hl7.org/fhir/animal-breed
 http://www.genenames.org
-http://hl7.org/fhir/patient-contact-relationship
 urn:ietf:bcp:47
 urn:iso:std:iso:3166
 http://www.hgvs.org/mutnomen

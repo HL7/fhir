@@ -187,6 +187,14 @@
   Expression = fullUrl.contains(\'/_history/\').not()
   Severity = error
 
+ -- Row 9 -----------------------------------
+  Id = 9
+  Context = Bundle
+  English = A document must have an identifier with a system and a value
+  XPath = not(f:type/@value = \'document\') or exists(f:identifier/f:system) or exists(f:identifier/f:value)
+  Expression = type = \'document\' implies (identifier.system.exists() and identifier.value.exists())
+  Severity = error
+
 === Sheet Data Elements =====================================
 
  -- Row 1 -----------------------------------
@@ -209,6 +217,15 @@
   w5 = class
 
  -- Row 3 -----------------------------------
+  Element = Bundle.identifier
+  Card. = 0..1
+  Type = Identifier
+  Short Name = Persistent identifier for the bundle
+  Definition = A persistent identifier for the batch that won\'t change as a batch is copied from server to server.
+  Comments = Persistent identity generally only matters for batches of type Document, Message, and Collection. It would not normally be populated for search and history results, and servers ignore Bundle.identifier when processing batches and transactions. For Documents, the .identifier SHALL be populated such that the .identifier is globally unique
+  w5 = id
+
+ -- Row 4 -----------------------------------
   Element = Bundle.total
   Card. = 0..1
   Inv. = 1
@@ -217,42 +234,42 @@
   Definition = If a set of search matches, this is the total number of matches for the search (as opposed to the number of results in this bundle)
   Comments = Only used if the bundle is a search result set. The total does not include resources such as OperationOutcome and included resources, only the total number of matching resources
 
- -- Row 4 -----------------------------------
+ -- Row 5 -----------------------------------
   Element = Bundle.link
   Card. = 0..*
   UML = right
   Short Name = Links related to this Bundle
   Definition = A series of links that provide context to this bundle
 
- -- Row 5 -----------------------------------
+ -- Row 6 -----------------------------------
   Element = Bundle.link.relation
   Card. = 1..1
   Type = string
   Short Name = http://www.iana.org/assignments/link-relations/link-relations.xhtml
   Definition = A name which details the functional use for this link - see [[http://www.iana.org/assignments/link-relations/link-relations.xhtml]]
 
- -- Row 6 -----------------------------------
+ -- Row 7 -----------------------------------
   Element = Bundle.link.url
   Card. = 1..1
   Type = uri
   Short Name = Reference details for the link
   Definition = The reference details for the link
 
- -- Row 7 -----------------------------------
+ -- Row 8 -----------------------------------
   Element = Bundle.entry
   Card. = 0..*
   UML = down
   Short Name = Entry in the bundle - will have a resource, or information
   Definition = An entry in a bundle resource - will either contain a resource, or information about a resource (transactions and history only)
 
- -- Row 8 -----------------------------------
+ -- Row 9 -----------------------------------
   Element = Bundle.entry.link
   Card. = 0..*
   Type = @Bundle.link
   Short Name = Links related to this entry
   Definition = A series of links that provide context to this entry
 
- -- Row 9 -----------------------------------
+ -- Row 10 -----------------------------------
   Element = Bundle.entry.fullUrl
   Card. = 0..1
   Type = uri
@@ -260,14 +277,14 @@
   Definition = The Absolute URL for the resource.  The fullUrl SHALL not disagree with the id in the resource. The fullUrl is a version independent reference to the resource. The fullUrl element SHALL have a value except that: \n* fullUrl can be empty on a POST (although it does not need to when specifying a temporary id for reference in the bundle)\n* Results from operations might involve resources that are not identified.
   Comments = fullUrl may not be [unique in the context of a resource](bundle.html#bundle-unique). Note that since [FHIR resources do not need to be served through the FHIR API](references.html), the absolute URL may not end with the logical id of the resource (Resource.id), but if the fullUrl does look like a RESTful server URL (e.g. meets the [regex](references.html#regex), then it SHALL end with the Resource.id
 
- -- Row 10 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = Bundle.entry.resource
   Card. = 0..1
   Type = Resource
   Short Name = A resource in the bundle
   Definition = The Resources for the entry
 
- -- Row 11 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = Bundle.entry.search
   Card. = 0..1
   UML = right
@@ -275,7 +292,7 @@
   Short Name = Search related information
   Definition = Information about the search process that lead to the creation of this entry
 
- -- Row 12 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = Bundle.entry.search.mode
   Card. = 0..1
   Type = code
@@ -284,7 +301,7 @@
   Definition = Why this entry is in the result set - whether it\'s included as a match or because of an _include requirement
   Comments = There is only one mode. In some corner cases, a resource may be included because it is both a match and an include. In these circumstances, \'match\' takes precedence
 
- -- Row 13 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = Bundle.entry.search.score
   Card. = 0..1
   Type = decimal
@@ -292,7 +309,7 @@
   Definition = When searching, the server\'s search ranking score for the entry
   Comments = Servers are not required to return a ranking score. 1 is most relevant, and 0 is least relevant. Often, search results are sorted by score, but the client may specify a different sort order
 
- -- Row 14 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = Bundle.entry.request
   Card. = 0..1
   UML = left
@@ -300,7 +317,7 @@
   Short Name = Transaction Related Information
   Definition = Additional information about how this entry should be processed as part of a transaction
 
- -- Row 15 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = Bundle.entry.request.method
   Card. = 1..1
   Type = code
@@ -308,7 +325,7 @@
   Short Name = GET | POST | PUT | DELETE
   Definition = The HTTP verb for this entry in either a change history, or a transaction/ transaction response
 
- -- Row 16 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = Bundle.entry.request.url
   Card. = 1..1
   Type = uri
@@ -316,35 +333,35 @@
   Definition = The URL for this entry, relative to the root (the address to which the request is posted)
   Comments = E.g. for a Patient Create, the method would be \"POST\" and the URL would be \"Patient\". For a Patient Update, the method would be PUT, and the URL would be \"Patient/[id]\"
 
- -- Row 17 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = Bundle.entry.request.ifNoneMatch
   Card. = 0..1
   Type = string
   Short Name = For managing cache currency
   Definition = If the ETag values match, return a 304 Not modified status. See the API documentation for [\"Conditional Read\"](http.html#cread)
 
- -- Row 18 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = Bundle.entry.request.ifModifiedSince
   Card. = 0..1
   Type = instant
   Short Name = For managing update contention
   Definition = Only perform the operation if the last updated date matches. See the API documentation for [\"Conditional Read\"](http.html#cread)
 
- -- Row 19 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = Bundle.entry.request.ifMatch
   Card. = 0..1
   Type = string
   Short Name = For managing update contention
   Definition = Only perform the operation if the Etag value matches. For more information, see the API section [\"Managing Resource Contention\"](http.html#concurrency)
 
- -- Row 20 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = Bundle.entry.request.ifNoneExist
   Card. = 0..1
   Type = string
   Short Name = For conditional creates
   Definition = Instruct the server not to perform the create if a specified resource already exists. For further information, see the API documentation for [\"Conditional Create\"](http.html#ccreate). This is just the query portion of the URL - what follows the \"?\" (not including the \"?\")
 
- -- Row 21 -----------------------------------
+ -- Row 22 -----------------------------------
   Element = Bundle.entry.response
   Card. = 0..1
   UML = left
@@ -352,21 +369,21 @@
   Short Name = Transaction Related Information
   Definition = Additional information about how this entry should be processed as part of a transaction
 
- -- Row 22 -----------------------------------
+ -- Row 23 -----------------------------------
   Element = Bundle.entry.response.status
   Card. = 1..1
   Type = string
   Short Name = Status response code (text optional)
   Definition = The status code returned by processing this entry. The status SHALL start with a 3 digit HTTP code (e.g. 404) and may contain the standard HTTP description associated with the status code
 
- -- Row 23 -----------------------------------
+ -- Row 24 -----------------------------------
   Element = Bundle.entry.response.location
   Card. = 0..1
   Type = uri
   Short Name = The location, if the operation returns a location
   Definition = The location header created by processing this operation
 
- -- Row 24 -----------------------------------
+ -- Row 25 -----------------------------------
   Element = Bundle.entry.response.etag
   Card. = 0..1
   Type = string
@@ -374,7 +391,7 @@
   Definition = The etag for the resource, it the operation for the entry produced a versioned resource
   Comments = This has to match the version id in the header if a resource is included
 
- -- Row 25 -----------------------------------
+ -- Row 26 -----------------------------------
   Element = Bundle.entry.response.lastModified
   Card. = 0..1
   Type = instant
@@ -382,7 +399,7 @@
   Definition = The date/time that the resource was modified on the server
   Comments = This has to match the same time in the meta header if a resource is included
 
- -- Row 26 -----------------------------------
+ -- Row 27 -----------------------------------
   Element = Bundle.entry.response.outcome
   Card. = 0..1
   Type = Resource
@@ -390,7 +407,7 @@
   Definition = An OperationOutcome containing hints and warnings produced as part of processing this entry in a batch or transaction
   Comments = For a POST/PUT operation, this is the equivalent outcome that would be returned for prefer = oprationoutcome - except that the resource is always returned whether or not the outcome is returned
 
- -- Row 27 -----------------------------------
+ -- Row 28 -----------------------------------
   Element = Bundle.signature
   Card. = 0..1
   Type = Signature
@@ -419,6 +436,11 @@
   Description = The first resource in the bundle, if the bundle type is \"document\" - this is a composition, and this parameter provides access to searches its contents
   Path = Bundle.entry(0).resource
   Target Types = Composition
+
+ -- Row 4 -----------------------------------
+  Name = identifier
+  Type = token
+  Path = Bundle.identifier
 
 === Sheet Profiles =====================================
 

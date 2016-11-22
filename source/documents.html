@@ -102,7 +102,7 @@ The document bundle SHALL include only:
 There are two key identifiers on the document:
 </p>
 <ul>
- <li>The document identifier (mandatory). This is found in <i>Bundle.id</i> and is unique for this instance of the document, and is never re-used</li>
+ <li>The document identifier (mandatory). This is found in <i>Bundle.identifier</i> and is globally unique for this instance of the document, and is never re-used anywhere, including for other documents derived from the same composition</li>
  <li>The Composition identifier (optional). This is found in <i>Composition.identifier</i>, and is the same for all documents that are derived from this composition</li>
 </ul>
 
@@ -283,9 +283,8 @@ of posting to them:
  <tr> <td><b>End-Point</b></td> <td><b>Type of Content</b></td> <td><b>Description</b></td> </tr>
  <tr> <td>[baseurl]/Bundle</td> <td>Document Bundle</td> <td>This works like a normal end-point
    for managing a type of resource, but it works with whole document bundles - i.e. a read operation returns a bundle, 
-   an update gets a bundle and a search returns a bundle of bundles. Note that since documents have assigned
-   and fixed identifiers, the <a href="http.html#create">create</a> interaction</td> which assigns a new id cannot be used </tr>
-
+   an update gets a bundle and a search returns a bundle of bundles. Note that if documents are POSTed 
+   using a <a href="http.html#create">create</a> interaction</td> the Bundle.id will change, but the Bundle.identifier will not</tr>
  <tr> <td>[baseurl]/Composition</td> <td>Composition Resource</td> <td>The normal end-point for managing
    composition resources. This can be used while building a document or after breaking a document up into
    its constituent resources or when using compositions separately from documents</td> </tr>

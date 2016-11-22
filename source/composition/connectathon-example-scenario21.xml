@@ -11,6 +11,10 @@
     </tag>
   </meta>
   <type value="document"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:uuid:0d4b8b57-76c2-4bc1-b534-46e4e7c7d515"/>
+  </identifier>
   <!-- The composition -->
   <entry>
     <resource>
