@@ -180,7 +180,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
   private String destDir;
   private String txServer = "http://fhir3.healthintersections.com.au/open";
 //  private String txServer = "http://local.healthintersections.com.au:960/open";
-  private String igPack;
+  private String igPack = "";
   private boolean watch;
 
   private GenerationTool tool;
