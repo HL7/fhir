@@ -607,7 +607,7 @@
 						<td>
 							<ul>
 								<li>
-									<a href="http://hl7-fhir.github.io/medicationorder.html#search">patient</a> - Search MedicationOrder for a patient(
+									<a href="http://hl7-fhir.github.io/medicationorder.html#search">patient</a> - Search MedicationRequest for a patient(
                   <a href="http://hl7-fhir.github.io/search.html#reference">reference</a>)
                 </li>
 							</ul>
@@ -1338,7 +1338,7 @@
 			</searchParam>
 		</resource>
 		<resource>
-			<type value="MedicationOrder"/>
+			<type value="MedicationRequest"/>
 			<profile>
 				<reference value="http://hl7.org/fhir/current/daf/daf-core-medicationorder.html"/>
 			</profile>
