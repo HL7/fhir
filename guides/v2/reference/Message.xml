@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file:///C:/work/org.hl7.fhir/build/schema/fhir-single.xsd">
+  <extension url="http://hl7.org/fhir/StructureDefinition/wire-format">
+    <valueUri value="urn:hl7-org:v2/vertical-bar"/>
+  </extension>
+  <id value="Message"/>
+  <url value="http://hl7.org/fhir/v2/StructureDefinition/Message"/>
+  <name value="Message (HL7 v2 Logical Model)"/>
+  <status value="draft"/>
+  <publisher value="Health Level Seven International (FHIR Infrastructure)"/>
+  <contact>
+    <telecom>
+      <system value="other"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <contact>
+    <telecom>
+      <system value="other"/>
+      <value value="http://www.hl7.org/Special/committees/fiwg/index.cfm"/>
+    </telecom>
+  </contact>
+  <date value="2016-08-25T13:46:22+10:00"/>
+  <description value="Message (the Logical Model for Version 2)"/>
+  <purpose value="To support v2 -&gt; FHIR mapping and v2 validation"/>
+  <fhirVersion value="1.7.0"/>
+  <kind value="logical"/>
+  <abstract value="false"/>
+  <type value="Message"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Element"/>
+  <derivation value="specialization"/>
+  <differential>
+    <element id="Message">
+      <path value="Message"/>
+      <short value="A message or batch - standalone set of segments"/>
+      <definition value="A set of segments - a message, or a batch. A segment always starts with a segment with code = MSH, where as a batch will haev the batch header first"/>
+      <min value="0"/>
+      <max value="1"/>
+    </element>
+    <element id="Message.segment">
+      <path value="Message.segment"/>
+      <short value="A segment - a list of fields"/>
+      <definition value="A segment a code, with a list of fields"/>
+      <min value="1"/>
+      <max value="*"/>
+      <type>
+        <code value="http://hl7.org/fhir/v2/StructureDefinition/Segment"/>
+      </type>
+    </element>
+  </differential>
+</StructureDefinition>

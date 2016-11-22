@@ -60,7 +60,7 @@ public class CDAGenerator {
   }
 
   public static void main(String[] args) throws Exception {
-    int lp = new CDAGenerator().execute("C:\\work\\org.hl7.fhir\\build\\guides\\ccda\\CDA", "C:\\work\\org.hl7.fhir\\build\\guides\\ccda\\cda");
+    int lp = new CDAGenerator().execute("C:\\work\\org.hl7.fhir\\build\\guides\\ccda2\\mapping\\mif", "C:\\work\\org.hl7.fhir\\build\\guides\\ccda2\\mapping\\logical");
     System.out.println("Done. Longest path = "+Integer.toString(lp));
   }
 
@@ -125,7 +125,7 @@ public class CDAGenerator {
     StringBuilder b = new StringBuilder();
     
     for (StructureDefinition sd : structures) {
-      new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(Utilities.path(target, "cda-logical-"+sd.getId()+".xml")), sd);
+      new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(Utilities.path(target, sd.getId()+".xml")), sd);
       b.append("   <resource>\r\n"+
           "     <purpose value=\"logical\"/>\r\n"+
           "     <name value=\""+sd.getName()+"\"/>\r\n"+
@@ -241,7 +241,7 @@ public class CDAGenerator {
   private void buildSXPR() {
     StructureDefinition sd = new StructureDefinition();
     sd.setId(fix("SXPR_TS"));
-    sd.setUrl("http://hl7.org/fhir/StructureDefinition/"+fix("SXPR_TS"));
+    sd.setUrl("http://hl7.org/fhir/cda/StructureDefinition/"+fix("SXPR_TS"));
     sd.setName("V3 Data type SXPR_TS (A set-component that is itself made up of set-components that are evaluated as one value)");
     sd.setTitle("SXPR_TS - Component part of GTS");
     sd.setStatus(PublicationStatus.ACTIVE);
@@ -251,7 +251,7 @@ public class CDAGenerator {
     sd.setKind(StructureDefinitionKind.LOGICAL);
     sd.setAbstract(false);
     sd.addExtension().setUrl("http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace").setValue(new UriType("urn:hl7-org:v3"));
-    sd.setBaseDefinition("http://hl7.org/fhir/StructureDefinition/SXCM_TS");
+    sd.setBaseDefinition("http://hl7.org/fhir/cda/StructureDefinition/SXCM_TS");
     sd.setDerivation(TypeDerivationRule.SPECIALIZATION);
 
     ElementDefinition edb = new ElementDefinition();
@@ -283,7 +283,7 @@ public class CDAGenerator {
   private void buildInfrastructureRoot() {
     StructureDefinition sd = new StructureDefinition();
     sd.setId("InfrastructureRoot");
-    sd.setUrl("http://hl7.org/fhir/StructureDefinition/InfrastructureRoot");
+    sd.setUrl("http://hl7.org/fhir/cda/StructureDefinition/InfrastructureRoot");
     sd.setName("Base Type for all classes in the CDA structure");
     sd.setTitle("InfrastructureRoot");
     sd.setStatus(PublicationStatus.ACTIVE);
@@ -293,7 +293,7 @@ public class CDAGenerator {
     sd.setKind(StructureDefinitionKind.LOGICAL);
     sd.setAbstract(true);
     sd.addExtension().setUrl("http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace").setValue(new UriType("urn:hl7-org:v3"));
-    sd.setBaseDefinition("http://hl7.org/fhir/StructureDefinition/ANY");
+    sd.setBaseDefinition("http://hl7.org/fhir/cda/StructureDefinition/ANY");
     sd.setDerivation(TypeDerivationRule.SPECIALIZATION);
 
     ElementDefinition edb = new ElementDefinition();
@@ -346,7 +346,7 @@ public class CDAGenerator {
 
       StructureDefinition sd = new StructureDefinition();
       sd.setId(fix(n));
-      sd.setUrl("http://hl7.org/fhir/StructureDefinition/"+fix(n));
+      sd.setUrl("http://hl7.org/fhir/cda/StructureDefinition/"+fix(n));
       sd.setName("V3 Data type "+n+" ("+dt.getAttribute("title")+")");
       sd.setTitle(sd.getName());
       sd.setStatus(PublicationStatus.ACTIVE);
@@ -358,13 +358,13 @@ public class CDAGenerator {
       sd.addExtension().setUrl("http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace").setValue(new UriType("urn:hl7-org:v3"));
       Element derived = XMLUtil.getNamedChild(dt, "mif:derivedFrom");
       if (Utilities.existsInList(n, "ST", "ED", "TEL", "AD", "EN", "IVL_PQ", "IVL_INT", "TS") ) {
-        sd.setBaseDefinition("http://hl7.org/fhir/StructureDefinition/ANY");
+        sd.setBaseDefinition("http://hl7.org/fhir/cda/StructureDefinition/ANY");
       } else if (Utilities.existsInList(n, "SXCM_TS") ) {
-        sd.setBaseDefinition("http://hl7.org/fhir/StructureDefinition/TS");
+        sd.setBaseDefinition("http://hl7.org/fhir/cda/StructureDefinition/TS");
       } else if (n.equals("PIVL_TS") || n.equals("EIVL_TS") || n.equals("IVL_TS")) {
-        sd.setBaseDefinition("http://hl7.org/fhir/StructureDefinition/SXCM_TS");
+        sd.setBaseDefinition("http://hl7.org/fhir/cda/StructureDefinition/SXCM_TS");
       } else if (derived != null) {
-        sd.setBaseDefinition("http://hl7.org/fhir/StructureDefinition/"+XMLUtil.getNamedChildAttribute(derived, "mif:targetDatatype", "name"));
+        sd.setBaseDefinition("http://hl7.org/fhir/cda/StructureDefinition/"+XMLUtil.getNamedChildAttribute(derived, "mif:targetDatatype", "name"));
       }
       sd.setDerivation(TypeDerivationRule.SPECIALIZATION);
       ElementDefinition edb = new ElementDefinition();
@@ -769,26 +769,11 @@ public class CDAGenerator {
   }
 
 
-  private Map<Element, ElementDefinition> classMap = new HashMap<Element, ElementDefinition>();
+  private Set<String> processed = new HashSet<String>();
+  private Set<String> waiting = new HashSet<String>();
   
   private void processCDA(String filename) throws ParserConfigurationException, SAXException, IOException {
     System.out.println("Process Structure");
-    StructureDefinition sd = new StructureDefinition();
-    sd.setId("ClinicalDocument");
-    sd.setUrl("http://hl7.org/fhir/StructureDefinition/ClinicalDocument");
-    sd.setName("CDA R2");
-    sd.setTitle("FHIR Definition for CDA document");
-    sd.setStatus(PublicationStatus.ACTIVE);
-    sd.setExperimental(false);
-    sd.setPublisher("HL7");
-    sd.addExtension().setUrl("http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace").setValue(new UriType("urn:hl7-org:v3"));
-
-    sd.setDescription("This is a generated StructureDefinition that describes CDA - that is, CDA as it actually is for R2. "+
-        "The intent of this StructureDefinition is to enable CDA to be a FHIR resource. That enables the FHIR infrastructure "+
-        "- API, conformance, query - to be used directly against CDA");
-    sd.setKind(StructureDefinitionKind.LOGICAL);
-    sd.setAbstract(false);
-//    sd.setBase("http://hl7.org/fhir/StructureDefinition/Resource");
 
     Document pocd = XMLUtil.parseFileToDom(filename);
     List<Element> classes = new ArrayList<Element>();
@@ -797,16 +782,16 @@ public class CDAGenerator {
     XMLUtil.getNamedChildren(pocd.getDocumentElement(), "association", associations);
     Collections.sort(associations, new AssociationSorter());
 
-    for (Element cclss : classes) {
-      String cname = XMLUtil.getNamedChildAttribute(cclss, "class", "name");
-      if (cname.equals("ClinicalDocument")) {
-        processClinicalDocument(classes, associations, sd.getDifferential().getElement(), sd.getSnapshot().getElement(), cclss);
+    waiting.add("ClinicalDocument");
+    while (!waiting.isEmpty()) {
+      for (String n : waiting) {
+        processClass(classes, associations, n);
+        break;
       }
     }
     
-    checkTypes(sd);
+    // todo: checkTypes(sd);
     
-    structures.add(sd);
   }
 
 
@@ -840,17 +825,47 @@ public class CDAGenerator {
     return id; //.replace("_", ".");
   }
 
-  private void processClinicalDocument(List<Element> classes, List<Element> associations, List<ElementDefinition> diff, List<ElementDefinition> snapshot, Element cclss) {
+  private void processClass(List<Element> classes, List<Element> associations, String className) {
+    Element cclass = null;
+    for (Element cclss : classes) {
+      String cname = XMLUtil.getNamedChildAttribute(cclss, "class", "name");
+      if (cname.equals(className)) {
+        cclass = cclss;
+        break;
+      }
+    }
+    if (cclass == null)
+      throw new Error("Unable to find class "+className);
+    processed.add(className);
+    waiting.remove(className);
+    
+    StructureDefinition sd = new StructureDefinition();
+    sd.setId(className);
+    sd.setUrl("http://hl7.org/fhir/cda/StructureDefinition/"+className);
+    sd.setName("CDAR2."+className);
+    sd.setTitle("FHIR Definition for CDA R2 Class "+className);
+    sd.setStatus(PublicationStatus.ACTIVE);
+    sd.setExperimental(false);
+    sd.setPublisher("HL7");
+    sd.addExtension().setUrl("http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace").setValue(new UriType("urn:hl7-org:v3"));
+    if ("ClinicalDocument".equals(className)) {
+      sd.setDescription("This is a generated StructureDefinition that describes CDA - that is, CDA as it actually is for R2. "+
+        "The intent of this StructureDefinition is to enable CDA to be a FHIR resource. That enables the FHIR infrastructure "+
+        "- API, conformance, query - to be used directly against CDA");
+    }
+    sd.setKind(StructureDefinitionKind.LOGICAL);
+    sd.setAbstract(false);
+    sd.setBaseDefinition("http://hl7.org/fhir/cda/StructureDefinition/Element");
+
     ElementDefinition ed = new ElementDefinition();
-    ed.setPath("ClinicalDocument");
+    ed.setPath(className);
     seePath(ed);
     ed.setMin(1);
     ed.setMax("1");
-    ed.addType().setCode("Resource");
-    diff.add(ed);
-    snapshot.add(ed);
-    classMap.put(cclss, ed);
-    processClassAttributes(classes, associations, diff, snapshot, cclss, "ClinicalDocument", null);
+    sd.getDifferential().getElement().add(ed);
+    sd.getSnapshot().getElement().add(ed);
+    processClassAttributes(classes, associations, sd.getDifferential().getElement(), sd.getSnapshot().getElement(), cclass, className, null);
+    structures.add(sd);
   }
 
 
@@ -884,9 +899,9 @@ public class CDAGenerator {
 
 
   private void addInfrastructureRootAttributes(List<ElementDefinition> list, String path) {
-    StructureDefinition any = getDataType("http://hl7.org/fhir/StructureDefinition/ANY");
+    StructureDefinition any = getDataType("http://hl7.org/fhir/cda/StructureDefinition/ANY");
     addAbstractClassAttributes(list, path, any);
-    StructureDefinition ir = getDataType("http://hl7.org/fhir/StructureDefinition/InfrastructureRoot");
+    StructureDefinition ir = getDataType("http://hl7.org/fhir/cda/StructureDefinition/InfrastructureRoot");
     addAbstractClassAttributes(list, path, ir);
   }
 
@@ -987,16 +1002,25 @@ public class CDAGenerator {
       for (Element choice : choices) {
         String n = choice.getAttribute("traversalName");
         Element choiceClass = getClass(classes, choice.getAttribute("className"));
-        processAssociationClass(classes, associations, diff, snapshot, path, tc, choiceClass, n, target);
+        Element c = XMLUtil.getNamedChild(choiceClass, "class");
+        processAssociationClass(classes, associations, diff, snapshot, path, tc, choiceClass, c.getAttribute("name"), getDerivation(c), n, target);
       }
     } else {
       String n = tc.getAttribute("name");
-      processAssociationClass(classes, associations, diff, snapshot, path, tc, target, n, null);
+      Element c = XMLUtil.getNamedChild(target, "class");
+      processAssociationClass(classes, associations, diff, snapshot, path, tc, target, c.getAttribute("name"), getDerivation(c), n, null);
     }
   }
 
+  private String getDerivation(Element element) {
+    Element der = XMLUtil.getNamedChild(element, "derivedFrom");
+    if (der == null)
+      return null;
+    else
+      return der.getAttribute("className");
+  }
 
-  private void processAssociationClass(List<Element> classes, List<Element> associations, List<ElementDefinition> diff, List<ElementDefinition> snapshot, String path, Element tc, Element target, String n, Element parentTarget) {
+  private void processAssociationClass(List<Element> classes, List<Element> associations, List<ElementDefinition> diff, List<ElementDefinition> snapshot, String path, Element tc, Element target, String t, String derivation, String n, Element parentTarget) {
     ElementDefinition ed = new ElementDefinition();
     String ipath = (path.contains(".") ? path.substring(path.lastIndexOf(".")+1) : path)+"."+n;
     
@@ -1010,18 +1034,12 @@ public class CDAGenerator {
     diff.add(ed);    
     snapshot.add(ed);    
 
-    if (classMap.containsKey(target)) {
-      ElementDefinition nr = classMap.get(target);
-      nr.setId(nr.getPath());
-      ed.setContentReference("#"+nr.getPath());
-      ed.getType().clear();
-      System.out.println(path+"+ - "+nr.getPath());
-    } else if (shadows.containsKey(ipath)) {
-      ed.setContentReference("#"+shadows.get(ipath));
-      ed.getType().clear();
-    } else {
-      classMap.put(target, ed);
+    if (Utilities.existsInList(derivation, "ActRelationship", "Participation")) // these aren't entry points, so we walk into them
       processClassAttributes(classes, associations, diff, snapshot, target, ed.getPath(), parentTarget);
+    else {
+      ed.addType().setCode("http://hl7.org/fhir/cda/StructureDefinition/"+t);
+      if (!processed.contains(t))
+        waiting.add(t);
     }
   }
 

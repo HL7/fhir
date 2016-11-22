@@ -773,14 +773,6 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 		}
     if (upFirst(name).equals("HumanName")) {
       write(" /**\r\n"); 
-          write("   * Returns all repetitions of {@link #getFamily() family name} as a space separated string\r\n"); 
-          write("   * \r\n"); 
-          write("   * @see DatatypeUtil#joinStringsSpaceSeparated(List)\r\n"); 
-          write("   */\r\n"); 
-          write("  public String getFamilyAsSingleString() {\r\n"); 
-          write("    return joinStringsSpaceSeparated(getFamily());\r\n"); 
-          write("  }\r\n"); 
-          write("\r\n"); 
           write("  /**\r\n"); 
           write("   * Returns all repetitions of {@link #getGiven() given name} as a space separated string\r\n"); 
           write("   * \r\n"); 
@@ -819,7 +811,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
           write("    List<StringType> nameParts = new ArrayList<StringType>();\r\n"); 
           write("    nameParts.addAll(getPrefix());\r\n"); 
           write("    nameParts.addAll(getGiven());\r\n"); 
-          write("    nameParts.addAll(getFamily());\r\n"); 
+          write("    nameParts.add(getFamilyElement());\r\n"); 
           write("    nameParts.addAll(getSuffix());\r\n"); 
           write("    if (nameParts.size() > 0) {\r\n"); 
           write("      return joinStringsSpaceSeparated(nameParts);\r\n"); 

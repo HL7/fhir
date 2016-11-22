@@ -1597,7 +1597,7 @@ public class VersionConvertor_14_20 {
     if (src.hasText())
       tgt.setText(src.getText());
     for (org.hl7.fhir.dstu2016may.model.StringType t : src.getFamily())
-      tgt.addFamily(t.getValue());
+      tgt.setFamily(t.getValue());
     for (org.hl7.fhir.dstu2016may.model.StringType t : src.getGiven())
       tgt.addGiven(t.getValue());
     for (org.hl7.fhir.dstu2016may.model.StringType t : src.getPrefix())
@@ -1616,8 +1616,8 @@ public class VersionConvertor_14_20 {
     tgt.setUse(convertNameUse(src.getUse()));
     if (src.hasText())
       tgt.setText(src.getText());
-    for (org.hl7.fhir.dstu3.model.StringType t : src.getFamily())
-      tgt.addFamily(t.getValue());
+    if (src.hasFamily())
+      tgt.addFamily(src.getFamily());
     for (org.hl7.fhir.dstu3.model.StringType t : src.getGiven())
       tgt.addGiven(t.getValue());
     for (org.hl7.fhir.dstu3.model.StringType t : src.getPrefix())

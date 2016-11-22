@@ -333,7 +333,7 @@ public class Convert {
 	  	if (n.getNodeType() == Node.ELEMENT_NODE) {
 	  		String v = n.getTextContent();
 	  		if (n.getLocalName().equals("family"))
-	  			hn.getFamily().add(makeString(v));
+	  			hn.setFamilyElement(makeString(v));
    			else if (n.getLocalName().equals("given"))
    				hn.getGiven().add(makeString(v));
   			else if (n.getLocalName().equals("prefix"))

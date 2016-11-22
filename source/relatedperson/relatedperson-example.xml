@@ -49,13 +49,12 @@
   </relationship>
   
   <name>
-    <family value="du">
-      <!-- the "du" part is a family name prefix (VV in iso 21090) -->
-      <extension url="http://hl7.org/fhir/StructureDefinitioniso-21090#qualifier">
-        <valueCode value="VV"/>
+    <family value="du Marché">
+    <!--  the "du" part is a family name prefix (VV in iso 21090)  -->
+      <extension url="http://hl7.org/fhir/StructureDefinition/humanname-own-prefix">
+        <valueString value="VV"/>
       </extension>
     </family>
-    <family value="Marché"/>
     <given value="Bénédicte"/>
   </name>
 

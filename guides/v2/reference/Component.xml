@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file:///C:/work/org.hl7.fhir/build/schema/fhir-single.xsd">
+  <id value="Component"/>
+  <url value="http://hl7.org/fhir/v2/StructureDefinition/Component"/>
+  <name value="Element (HL7 v2 Logical Model)"/>
+  <status value="draft"/>
+  <publisher value="Health Level Seven International (FHIR Infrastructure)"/>
+  <contact>
+    <telecom>
+      <system value="other"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <contact>
+    <telecom>
+      <system value="other"/>
+      <value value="http://www.hl7.org/Special/committees/fiwg/index.cfm"/>
+    </telecom>
+  </contact>
+  <date value="2016-08-25T13:46:22+10:00"/>
+  <description value="Field (the Logical Model for Version 2)"/>
+  <purpose value="To support v2 -&gt; FHIR mapping and v2 validation"/>
+  <fhirVersion value="1.7.0"/>
+  <kind value="logical"/>
+  <abstract value="false"/>
+  <type value="Field"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Element"/>
+  <derivation value="specialization"/>
+  <differential>
+    <element id="Component">
+      <path value="Component"/>
+      <short value="A Component that contains data"/>
+      <definition value="A Component that contains data - may be used as a data element, a component, or a sub-component"/>
+      <min value="0"/>
+      <max value="*"/>
+      <constraint>
+        <key value="cmp-1"/>
+        <severity value="error"/>
+        <human value="Cannot have both text and components"/>
+        <expression value="text.empty() xor component.empty()"/>
+      </constraint>
+      <constraint>
+        <key value="cmp-2"/>
+        <severity value="error"/>
+        <human value="Cannot have sub-sub-components"/>
+        <expression value="component.component.component.empty()"/>
+      </constraint>
+    </element>
+    <element id="Component.text">
+      <path value="Component.text"/>
+      <short value="A simple text value"/>
+      <definition value="Simple text value"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="Component.component">
+      <path value="Component.component"/>
+      <short value="A component or a sub-component in a field"/>
+      <definition value="A component or a sub-component in a field"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="http://hl7.org/fhir/v2/StructureDefinition/Component"/>
+      </type>
+    </element>
+  </differential>
+</StructureDefinition>

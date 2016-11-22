@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sun, Nov 13, 2016 21:25+1100 for FHIR v1.7.0
+// Generated on Tue, Nov 22, 2016 17:11+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -50,19 +50,23 @@ public class Condition extends DomainResource {
 
     public enum ConditionClinicalStatus {
         /**
-         * The subject is currently experiencing the symptoms of the condition.
+         * The subject is currently experiencing the symptoms of the condition or there is evidence of the condition.
          */
         ACTIVE, 
         /**
-         * The subject is re-experiencing the symptoms of the condition after a period of remission or presumed resolution.
+         * The subject is having a relapse or re-experiencing the condition after a period of remission or presumed resolution.
          */
-        RELAPSE, 
+        RECURRENCE, 
+        /**
+         * The subject is no longer experiencing the symptoms of the condition or there is no longer evidence of the condition.
+         */
+        INACTIVE, 
         /**
          * The subject is no longer experiencing the symptoms of the condition, but there is a risk of the symptoms returning.
          */
         REMISSION, 
         /**
-         * The subject is no longer experiencing the symptoms of the condition and there is no perceived risk of the symptoms returning.
+         * The subject is no longer experiencing the symptoms of the condition and there is a negligible perceived risk of the symptoms returning.
          */
         RESOLVED, 
         /**
@@ -74,8 +78,10 @@ public class Condition extends DomainResource {
                 return null;
         if ("active".equals(codeString))
           return ACTIVE;
-        if ("relapse".equals(codeString))
-          return RELAPSE;
+        if ("recurrence".equals(codeString))
+          return RECURRENCE;
+        if ("inactive".equals(codeString))
+          return INACTIVE;
         if ("remission".equals(codeString))
           return REMISSION;
         if ("resolved".equals(codeString))
@@ -88,7 +94,8 @@ public class Condition extends DomainResource {
         public String toCode() {
           switch (this) {
             case ACTIVE: return "active";
-            case RELAPSE: return "relapse";
+            case RECURRENCE: return "recurrence";
+            case INACTIVE: return "inactive";
             case REMISSION: return "remission";
             case RESOLVED: return "resolved";
             default: return "?";
@@ -97,7 +104,8 @@ public class Condition extends DomainResource {
         public String getSystem() {
           switch (this) {
             case ACTIVE: return "http://hl7.org/fhir/condition-clinical";
-            case RELAPSE: return "http://hl7.org/fhir/condition-clinical";
+            case RECURRENCE: return "http://hl7.org/fhir/condition-clinical";
+            case INACTIVE: return "http://hl7.org/fhir/condition-clinical";
             case REMISSION: return "http://hl7.org/fhir/condition-clinical";
             case RESOLVED: return "http://hl7.org/fhir/condition-clinical";
             default: return "?";
@@ -105,17 +113,19 @@ public class Condition extends DomainResource {
         }
         public String getDefinition() {
           switch (this) {
-            case ACTIVE: return "The subject is currently experiencing the symptoms of the condition.";
-            case RELAPSE: return "The subject is re-experiencing the symptoms of the condition after a period of remission or presumed resolution.";
+            case ACTIVE: return "The subject is currently experiencing the symptoms of the condition or there is evidence of the condition.";
+            case RECURRENCE: return "The subject is having a relapse or re-experiencing the condition after a period of remission or presumed resolution.";
+            case INACTIVE: return "The subject is no longer experiencing the symptoms of the condition or there is no longer evidence of the condition.";
             case REMISSION: return "The subject is no longer experiencing the symptoms of the condition, but there is a risk of the symptoms returning.";
-            case RESOLVED: return "The subject is no longer experiencing the symptoms of the condition and there is no perceived risk of the symptoms returning.";
+            case RESOLVED: return "The subject is no longer experiencing the symptoms of the condition and there is a negligible perceived risk of the symptoms returning.";
             default: return "?";
           }
         }
         public String getDisplay() {
           switch (this) {
             case ACTIVE: return "Active";
-            case RELAPSE: return "Relapse";
+            case RECURRENCE: return "Recurrence";
+            case INACTIVE: return "Inactive";
             case REMISSION: return "Remission";
             case RESOLVED: return "Resolved";
             default: return "?";
@@ -130,8 +140,10 @@ public class Condition extends DomainResource {
                 return null;
         if ("active".equals(codeString))
           return ConditionClinicalStatus.ACTIVE;
-        if ("relapse".equals(codeString))
-          return ConditionClinicalStatus.RELAPSE;
+        if ("recurrence".equals(codeString))
+          return ConditionClinicalStatus.RECURRENCE;
+        if ("inactive".equals(codeString))
+          return ConditionClinicalStatus.INACTIVE;
         if ("remission".equals(codeString))
           return ConditionClinicalStatus.REMISSION;
         if ("resolved".equals(codeString))
@@ -146,8 +158,10 @@ public class Condition extends DomainResource {
             return null;
         if ("active".equals(codeString))
           return new Enumeration<ConditionClinicalStatus>(this, ConditionClinicalStatus.ACTIVE);
-        if ("relapse".equals(codeString))
-          return new Enumeration<ConditionClinicalStatus>(this, ConditionClinicalStatus.RELAPSE);
+        if ("recurrence".equals(codeString))
+          return new Enumeration<ConditionClinicalStatus>(this, ConditionClinicalStatus.RECURRENCE);
+        if ("inactive".equals(codeString))
+          return new Enumeration<ConditionClinicalStatus>(this, ConditionClinicalStatus.INACTIVE);
         if ("remission".equals(codeString))
           return new Enumeration<ConditionClinicalStatus>(this, ConditionClinicalStatus.REMISSION);
         if ("resolved".equals(codeString))
@@ -157,8 +171,10 @@ public class Condition extends DomainResource {
     public String toCode(ConditionClinicalStatus code) {
       if (code == ConditionClinicalStatus.ACTIVE)
         return "active";
-      if (code == ConditionClinicalStatus.RELAPSE)
-        return "relapse";
+      if (code == ConditionClinicalStatus.RECURRENCE)
+        return "recurrence";
+      if (code == ConditionClinicalStatus.INACTIVE)
+        return "inactive";
       if (code == ConditionClinicalStatus.REMISSION)
         return "remission";
       if (code == ConditionClinicalStatus.RESOLVED)
@@ -783,14 +799,14 @@ public class Condition extends DomainResource {
      * The clinical status of the condition.
      */
     @Child(name = "clinicalStatus", type = {CodeType.class}, order=1, min=0, max=1, modifier=true, summary=true)
-    @Description(shortDefinition="active | relapse | remission | resolved", formalDefinition="The clinical status of the condition." )
+    @Description(shortDefinition="active | recurrence | inactive | remission | resolved", formalDefinition="The clinical status of the condition." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/condition-clinical")
     protected Enumeration<ConditionClinicalStatus> clinicalStatus;
 
     /**
      * The verification status to support the clinical status of the condition.
      */
-    @Child(name = "verificationStatus", type = {CodeType.class}, order=2, min=1, max=1, modifier=true, summary=true)
+    @Child(name = "verificationStatus", type = {CodeType.class}, order=2, min=0, max=1, modifier=true, summary=true)
     @Description(shortDefinition="provisional | differential | confirmed | refuted | entered-in-error | unknown", formalDefinition="The verification status to support the clinical status of the condition." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/condition-ver-status")
     protected Enumeration<ConditionVerificationStatus> verificationStatus;
@@ -917,9 +933,8 @@ public class Condition extends DomainResource {
   /**
    * Constructor
    */
-    public Condition(Enumeration<ConditionVerificationStatus> verificationStatus, CodeableConcept code, Reference subject) {
+    public Condition(CodeableConcept code, Reference subject) {
       super();
-      this.verificationStatus = verificationStatus;
       this.code = code;
       this.subject = subject;
     }
@@ -1065,9 +1080,13 @@ public class Condition extends DomainResource {
      * @param value The verification status to support the clinical status of the condition.
      */
     public Condition setVerificationStatus(ConditionVerificationStatus value) { 
+      if (value == null)
+        this.verificationStatus = null;
+      else {
         if (this.verificationStatus == null)
           this.verificationStatus = new Enumeration<ConditionVerificationStatus>(new ConditionVerificationStatusEnumFactory());
         this.verificationStatus.setValue(value);
+      }
       return this;
     }
 

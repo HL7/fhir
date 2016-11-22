@@ -976,42 +976,48 @@ This table summarizes where common parts of a person's name are found.
  <tr><td>Title</td><td>Mr</td><td>Prefix</td></tr>
  <tr><td>Middle Name</td><td>Samuel</td><td>Subsequent Given Names</td></tr>
  <tr><td>Patronymic</td><td>bin Osman</td><td>Family Name</td></tr>
- <tr><td>Multiple family names</td><td>Carreño Quiñones</td><td>Family Name. See note below about repeats</td></tr>
+ <tr><td>Multiple family names</td><td>Carreño Quiñones</td><td>Family Name. See note below about decomposition of family name</td></tr>
  <tr><td>Initials</td><td>Q.</td><td>Given Name as initial ("." recommended)</td></tr>
  <tr><td>Nick Name</td><td>Jock</td><td>Given name, with Use = common</td></tr>
  <tr><td>Qualifications</td><td>PhD</td><td>Suffix</td></tr>
  <tr><td>Honorifics</td><td>Senior</td><td>Suffix</td></tr>
+ <tr><td>Voorvoegsel / Nobility</td><td>van Beethoven</td><td>Family Name. See note below about decomposition of family name</td></tr>
 </table>
 <p>
 For further information, including all <a href="http://www.w3.org/International/questions/qa-personal-names">W3C International Examples</a>, 
-consult the <a href="datatypes-examples.html#HumanName">examples</a>.
+consult the <a href="datatypes-examples.html#HumanName">examples</a>. <b>Note: Implementers should read the name examples for a full
+understanding of how name works.</b>
 </p>
 <p>
-The multiple given and family name parts combine to form a single name. Multiple given and family names are for
-when a person's name has multiple given names (relatively common across cultures) and multiple surnames (less common).
-Where a person has alternate names that may be used in place of each other, these are different
-instances of <code>HumanName</code>.
+The multiple given parts and family name combine to form a single name. 
+Where a person has alternate names that may be used in place of each other (e.g. Nicknames, Aliases), 
+these are different instances of <code>HumanName</code>.
 </p>
 <p>
 The <code>text</code> element specifies the entire name as it should be represented. This
 may be provided instead of or as well as specific parts, and can be built from the parts, though
 the correct order of assembly is culture dependent: the order of the  parts within a given part type has 
-significance and SHALL be observed. The appropriate order between 
-family name and given names depends on culture and context of use.
+significance and SHALL be observed. The appropriate order between family name and given names depends on culture and context of use.
+Note that there is an <a href="extension-humanname-assembly-order.html">extension</a> for the few times name 
+assembly order is not fixed by the culture.
 </p>
 <p>
-The parts of a name SHOULD NOT contain whitespace. For family name, hyphenated  names such as "Smith-Jones" are a 
-single name, but names with spaces such as "Smith Jones" are broken into multiple parts. 
-For given names, initials may be used in place of the full name if that is all that is recorded. 
-Systems that operate across cultures should generally rely on the text form for presentation, and 
-use the parts for index/search functionality. For this reasons, applications SHOULD populate the 
-text element for future robustness.
+The given name parts may contain whitespace, though generally don't. Initials may be used in place of 
+the full name if that is all that is recorded. Systems that operate across cultures should 
+generally rely on the text form for presentation, and use the parts for index/search functionality. 
+For this reasons, applications SHOULD populate the text element for future robustness.
 </p>
 <p>
-Applications updating a name SHALL ensure either that the text and the parts 
-are in agreement, or that only one of the two is present. Systems that do not 
-support as many name parts as are provided in an instance may wish to append 
-some of the parts together using spaces
+In some cultures (e.g. German, Dutch, Spanish), family names are complex and composed of 
+various parts that may need to be managed separately, e.g. they have differing significance 
+for searching. In these cases, the full family name is populated in <code>family</code>,
+and a decomposition of the name can be provided using the <code>family</code> extensions
+<a href="extension-humanname-own-name.html">own-name</a>, 
+<a href="extension-humanname-own-prefix.html">own-prefix</a>, 
+<a href="extension-humanname-partner-name.html">partner-name</a>, 
+<a href="extension-humanname-partner-prefix.html">partner-prefix</a>, 
+<a href="extension-humanname-fathers-family.html">fathers-family</a> and
+<a href="extension-humanname-mothers-family.html">mothers-family</a>.
 </p>
 <p>
 HumanName is used in the following places: [%dtusage HumanName%]

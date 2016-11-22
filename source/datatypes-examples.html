@@ -578,20 +578,16 @@ Karen van Hentenryck is of Dutch origin, and the "van" is a voorvoegsel.
 <pre class="xml" fragment="HumanName">
 &lt;name&gt;
   &lt;use value=&quot;official&quot; /&gt;
-  &lt;family value=&quot;van&quot;&gt;
-    &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier&quot; &gt;
-	   &lt;valueCode value=&quot;VV&quot; /&gt;
+  &lt;family value=&quot;van Hentenryck&quot; &gt;
+    &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/humanname-own-prefix&quot; &gt;
+	   &lt;valueString value=&quot;VV&quot; /&gt;
     &lt;/extension&gt;
   &lt;/family&gt;
-  &lt;family value=&quot;Hentenryck&quot; /&gt;
   &lt;given value=&quot;Karen&quot; /&gt;
 &lt;/name&gt;
 </pre>
 <p>
-See <a href="extensibility-examples.html">the Extensibility Example for more information</a>.
-Note that this name has multiple family name parts. Systems that do not support as many name parts
-as are provided in an instance they are processing may wish to append parts together using spaces,
-so that this becomes "van Hentenryck".
+See <a href="extensibility-examples.html">the Extensibility Example for more information</a> about the use of extensions.
 </p>
 </div>
 
@@ -603,15 +599,14 @@ multiple given names, prefixes, suffixes, for academic degrees, nobility titles,
 <pre class="xml" fragment="HumanName">
 &lt;name&gt;
   &lt;use value=&quot;official&quot; /&gt;
-  &lt;family value=&quot;Hochheim-Weilenfels&quot; /&gt;
+  &lt;family value=&quot;Gräfin Hochheim-Weilenfels&quot;&gt;
+    &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/humanname-own-prefix&quot; &gt;
+      &lt;valueString value=&quot;Gräfin&quot; /&gt;
+    &lt;/extension&gt;
+  &lt;/family&gt;
   &lt;given value=&quot;Regina&quot; /&gt;
   &lt;given value=&quot;Johanna&quot; /&gt;
   &lt;given value=&quot;Maria&quot; /&gt;
-  &lt;prefix value=&quot;Gräfin&quot;&gt;
-    &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier&quot; &gt;
-      &lt;valueCode value=&quot;NB&quot; /&gt;
-    &lt;/extension&gt;
-  &lt;/prefix&gt;
   &lt;prefix value=&quot;Dr. phil.&quot;&gt;
     &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier&quot; &gt;
       &lt;valueCode value=&quot;AC&quot; /&gt;
@@ -625,7 +620,7 @@ multiple given names, prefixes, suffixes, for academic degrees, nobility titles,
 &lt;/name&gt;
 </pre>
 <p>
-This example makes use of the ISO 21090 extensions to carry the rare ISO 21090 qualifier attributes "AC" and "NB".
+This example makes use of the ISO 21090 extensions to carry the rarely used ISO 21090 qualifier attribute "AC".
 </p>
 </div>
 
@@ -633,20 +628,31 @@ This example makes use of the ISO 21090 extensions to carry the rare ISO 21090 q
 <p>Japanese example in the three forms: ideographic (Kanji), syllabic (Hiragana) and alphabetic (Romaji).</p>
 <pre class="xml" fragment="HumanName">
 &lt;name&gt;
-  &lt;family value="??" /&gt;
-  &lt;given value="??" /&gt;
+  &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/iso21090-EN-representation&quot;&gt;
+      &lt;valueCode value=&quot;IDE&quot; /&gt;
+  &lt;/extension&gt;
+  &lt;family value="木村" /&gt;
+  &lt;given value="通男" /&gt;
   &lt;/name&gt;
 &lt;name&gt;
- &lt;family value="???" /&gt;
- &lt;given value="???" /&gt;
+  &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/iso21090-EN-representation&quot;&gt;
+      &lt;valueCode value=&quot;SYL&quot; /&gt;
+  &lt;/extension&gt;
+ &lt;family value="きむら" /&gt;
+ &lt;given value="みちお" /&gt;
 &lt;/name&gt;
 &lt;name&gt;
+  &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/iso21090-EN-representation&quot;&gt;
+      &lt;valueCode value=&quot;ABC&quot; /&gt;
+  &lt;/extension&gt;
   &lt;family value="KIMURA" /&gt;
   &lt;given value="MICHIO" /&gt;
 &lt;/name&gt;
 </pre>
 <p>
-The three forms are differentiated by the character subset each contains.
+The three forms may be differentiated by the character subset each contains, but some systems
+require the differentiation to be made manually, which can be done using the ED representation
+extension.
 </p>
 </div>
 
@@ -654,9 +660,9 @@ The three forms are differentiated by the character subset each contains.
 <p>Russian example in the two forms: cyrillic, and latin:</p>
 <pre class="xml" fragment="HumanName">
 &lt;name&gt;
-  &lt;family value="??????" /&gt;
-  &lt;given value="????" /&gt;
-  &lt;given value="????????????" /&gt;
+  &lt;family value="ЕМЕЛИН" /&gt;
+  &lt;given value="ИВАН" /&gt;
+  &lt;given value="ВЛАДИМИРОВИЧ" /&gt;
 &lt;/name&gt;
 &lt;name&gt;
   &lt;family value="EMELIN" /&gt;
@@ -665,8 +671,8 @@ The three forms are differentiated by the character subset each contains.
 &lt;/name&gt;
 </pre>
 <p>
-In  Russian  usage, these names are known as
-the domestic and foreign names respectively. The two forms are differentiated by the character subset each contains.
+In  Russian  usage, these names are known as the domestic and foreign names respectively. 
+The two forms are differentiated by the character subset each contains.
 </p>
 </div>
 
@@ -793,9 +799,6 @@ A patronymic with a "son/daughter of" appellation:
   &lt;given value=&quot;Isa&quot;/&gt;
 &lt;/name&gt;
 </pre>
-<p>
-Note: The family name may also be given as two different family names.
-</p>
 
 <p>
 A Chinese name with a generational name:
@@ -832,27 +835,66 @@ Additional Western name (see also example above):
 </pre>
 
 <p>
-Multiple Family names:
+Composite Family name:
 </p>
 <pre class="xml" fragment="HumanName">
 &lt;name&gt;
-  &lt;family value="Carreño" /&gt;
-  &lt;family value="Quiñones" /&gt;
+  &lt;family value="Carreño Quiñones" &gt;
+    &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/humanname-fathers&quot;&gt;
+        &lt;valueString value=&quot;Carreño&quot; /&gt;
+    &lt;/extension&gt;
+    &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/humanname-mothers&quot;&gt;
+        &lt;valueString value=&quot;Quiñones&quot; /&gt;
+    &lt;/extension&gt;
+  &lt;/family&gt;
   &lt;given value="María-Jose" /&gt;
 &lt;/name&gt;
 </pre>
-
 <p>
-Brazilian Example:
+Note that it is optional whether to break down the family name to mother's and father's parts,
+and not always of value, as in this Brazilian Example:
 </p>
 <pre class="xml" fragment="HumanName">
 &lt;name&gt;
-  &lt;family value="Eduardo" /&gt;
-  &lt;family value="Santos" /&gt;
-  &lt;family value="Tavares" /&gt;
-  &lt;family value="Melo" /&gt;
-  &lt;family value="Silva" /&gt;
+  &lt;family value="Eduardo Santos Tavares Melo Silva" /&gt;
   &lt;given value="José" /&gt;
+&lt;/name&gt;
+</pre>
+<p>
+Note that this naming pattern can become quite 
+extreme ("Pedro de Alcântara João Carlos Leopoldo Salvador Bibiano Francisco Xavier de Paula Leocádio Miguel Gabriel Rafael Gonzaga").
+A more practical example is 
+</p>
+<pre class="xml" fragment="HumanName">
+&lt;name&gt;
+  &lt;family value="Costa Teixeira" &gt;
+    &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/humanname-fathers&quot;&gt;
+        &lt;valueString value=&quot;Costa&quot; /&gt;
+    &lt;/extension&gt;
+    &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/humanname-mothers&quot;&gt;
+        &lt;valueString value=&quot;Teixeira&quot; /&gt;
+    &lt;/extension&gt;
+  &lt;/family&gt;
+  &lt;given value="Manuel" /&gt;
+&lt;/name&gt;
+</pre>
+<p>
+After marriage, this may change to 
+</p>
+<pre class="xml" fragment="HumanName">
+&lt;name&gt;
+  &lt;family value="Costa Teixeira Carlos" &gt;
+    &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/humanname-fathers&quot;&gt;
+        &lt;valueString value=&quot;Costa&quot; /&gt;
+    &lt;/extension&gt;
+    &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/humanname-mothers&quot;&gt;
+        &lt;valueString value=&quot;Teixeira&quot; /&gt;
+    &lt;/extension&gt;
+    &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/humanname-partners-name&quot;&gt;
+        &lt;valueString value=&quot;Carlos&quot; /&gt;
+    &lt;/extension&gt;
+  &lt;/family&gt;
+  &lt;given value="Manuel" /&gt;
 &lt;/name&gt;
 </pre>
 
@@ -861,14 +903,15 @@ Russian Examples (using Cyrillic):
 </p>
 <pre class="xml" fragment="HumanName">
 &lt;name&gt;
-  &lt;family value="??????????" /&gt;
-  &lt;family value="??????" /&gt;
-  &lt;given value="?????" /&gt;
+  &lt;family value="Ельцин" /&gt;
+  &lt;given value="Борис" /&gt;
+  &lt;given value="Николаевич" /&gt;
 &lt;/name&gt;
+
 &lt;name&gt;
-  &lt;family value="?????????" /&gt;
-  &lt;family value="???????" /&gt;
-  &lt;given value="?????" /&gt;
+  &lt;family value="Ельцина" /&gt;
+  &lt;given value="Наина" /&gt;
+  &lt;given value="Иосифовна" /&gt;
 &lt;/name&gt;
 </pre>
 
@@ -915,8 +958,7 @@ Other Examples:
 &lt;/name&gt;
 &lt;name&gt;
   &lt;text value="Abu Karim Muhammad al-Jamil ibn Nidal ibn Abdulaziz al-Filistini"/&gt;
-  &lt;family value="ibn Nidal" /&gt;
-  &lt;family value="ibn Abdulaziz" /&gt;
+  &lt;family value="ibn Nidal ibn Abdulaziz" /&gt;
   &lt;given value="Muhammad" /&gt;
   &lt;given value="al-Jamil" /&gt;
   &lt;prefix value="Abu Karim" /&gt;

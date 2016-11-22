@@ -1833,8 +1833,8 @@ public class NarrativeGenerator implements INarrativeGenerator {
         s.append(p.getValue());
         s.append(" ");
       }
-      for (StringType p : name.getFamily()) {
-        s.append(p.getValue());
+      if (name.hasFamily()) {
+        s.append(name.getFamily());
         s.append(" ");
       }
     }

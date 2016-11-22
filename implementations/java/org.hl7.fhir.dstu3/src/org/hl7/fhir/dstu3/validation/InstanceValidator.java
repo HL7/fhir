@@ -989,10 +989,10 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 
     List<Element> parts = new ArrayList<Element>();
     focus.getNamedChildren("family", parts);
-    if (rule(errors, IssueType.VALUE, focus.line(), focus.col(), path, parts.size() == fixed.getFamily().size(),
-        "Expected " + Integer.toString(fixed.getFamily().size()) + " but found " + Integer.toString(parts.size()) + " family elements")) {
+    if (rule(errors, IssueType.VALUE, focus.line(), focus.col(), path, parts.size() > 0 == fixed.hasFamily(),
+        "Expected " + (fixed.hasFamily() ? "1" : "0") + " but found " + Integer.toString(parts.size()) + " family elements")) {
       for (int i = 0; i < parts.size(); i++)
-        checkFixedValue(errors, path + ".family", parts.get(i), fixed.getFamily().get(i), "family", focus);
+        checkFixedValue(errors, path + ".family", parts.get(i), fixed.getFamilyElement(), "family", focus);
     }
     focus.getNamedChildren("given", parts);
     if (rule(errors, IssueType.VALUE, focus.line(), focus.col(), path, parts.size() == fixed.getGiven().size(),

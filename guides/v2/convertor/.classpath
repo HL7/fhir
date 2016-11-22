@@ -8,5 +8,7 @@
 	<classpathentry kind="lib" path="jars/commons-lang-2.6.jar"/>
 	<classpathentry kind="lib" path="jars/jackcess-2.1.4.jar"/>
 	<classpathentry kind="lib" path="../../../tools/java/imports/hapi-fhir-base-1.6.jar"/>
+	<classpathentry kind="lib" path="C:/work/org.hl7.fhir/build/tools/java/imports/xpp3_xpath-1.1.4c.jar"/>
+	<classpathentry kind="lib" path="C:/work/org.hl7.fhir/build/tools/java/imports/xpp3-1.1.4c.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

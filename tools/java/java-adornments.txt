@@ -1,6 +1,16 @@
 // entries in this file get added to the generated class. "Class" in the line above is just the plain Class name e.g. BaseConformance
 // whatever is between -- [Class] --------- and ---- will be added to the generated class without modification
 
+-- Element --
+  public void addExtension(String url, Type value) {
+    Extension ex = new Extension();
+    ex.setUrl(url);
+    ex.setValue(value);
+    getExtension().add(ex);    
+  }
+
+----
+
 -- BaseConformance --
 
   @Override

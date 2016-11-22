@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sun, Nov 13, 2016 21:25+1100 for FHIR v1.7.0
+// Generated on Tue, Nov 22, 2016 17:11+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -235,9 +235,9 @@ public class HumanName extends Type implements ICompositeType {
     /**
      * The part of a name that links to the genealogy. In some cultures (e.g. Eritrea) the family name of a son is the first name of his father.
      */
-    @Child(name = "family", type = {StringType.class}, order=2, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "family", type = {StringType.class}, order=2, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Family name (often called 'Surname')", formalDefinition="The part of a name that links to the genealogy. In some cultures (e.g. Eritrea) the family name of a son is the first name of his father." )
-    protected List<StringType> family;
+    protected StringType family;
 
     /**
      * Given name.
@@ -267,7 +267,7 @@ public class HumanName extends Type implements ICompositeType {
     @Description(shortDefinition="Time period when name was/is in use", formalDefinition="Indicates the period of time when this name was valid for the named person." )
     protected Period period;
 
-    private static final long serialVersionUID = -210174642L;
+    private static final long serialVersionUID = -507469160L;
 
   /**
    * Constructor
@@ -375,64 +375,52 @@ public class HumanName extends Type implements ICompositeType {
     }
 
     /**
-     * @return {@link #family} (The part of a name that links to the genealogy. In some cultures (e.g. Eritrea) the family name of a son is the first name of his father.)
+     * @return {@link #family} (The part of a name that links to the genealogy. In some cultures (e.g. Eritrea) the family name of a son is the first name of his father.). This is the underlying object with id, value and extensions. The accessor "getFamily" gives direct access to the value
      */
-    public List<StringType> getFamily() { 
+    public StringType getFamilyElement() { 
       if (this.family == null)
-        this.family = new ArrayList<StringType>();
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create HumanName.family");
+        else if (Configuration.doAutoCreate())
+          this.family = new StringType(); // bb
       return this.family;
     }
 
-    /**
-     * @return Returns a reference to <code>this</code> for easy method chaining
-     */
-    public HumanName setFamily(List<StringType> theFamily) { 
-      this.family = theFamily;
-      return this;
+    public boolean hasFamilyElement() { 
+      return this.family != null && !this.family.isEmpty();
     }
 
     public boolean hasFamily() { 
-      if (this.family == null)
-        return false;
-      for (StringType item : this.family)
-        if (!item.isEmpty())
-          return true;
-      return false;
+      return this.family != null && !this.family.isEmpty();
     }
 
     /**
-     * @return {@link #family} (The part of a name that links to the genealogy. In some cultures (e.g. Eritrea) the family name of a son is the first name of his father.)
+     * @param value {@link #family} (The part of a name that links to the genealogy. In some cultures (e.g. Eritrea) the family name of a son is the first name of his father.). This is the underlying object with id, value and extensions. The accessor "getFamily" gives direct access to the value
      */
-    public StringType addFamilyElement() {//2 
-      StringType t = new StringType();
-      if (this.family == null)
-        this.family = new ArrayList<StringType>();
-      this.family.add(t);
-      return t;
-    }
-
-    /**
-     * @param value {@link #family} (The part of a name that links to the genealogy. In some cultures (e.g. Eritrea) the family name of a son is the first name of his father.)
-     */
-    public HumanName addFamily(String value) { //1
-      StringType t = new StringType();
-      t.setValue(value);
-      if (this.family == null)
-        this.family = new ArrayList<StringType>();
-      this.family.add(t);
+    public HumanName setFamilyElement(StringType value) { 
+      this.family = value;
       return this;
     }
 
     /**
-     * @param value {@link #family} (The part of a name that links to the genealogy. In some cultures (e.g. Eritrea) the family name of a son is the first name of his father.)
+     * @return The part of a name that links to the genealogy. In some cultures (e.g. Eritrea) the family name of a son is the first name of his father.
      */
-    public boolean hasFamily(String value) { 
-      if (this.family == null)
-        return false;
-      for (StringType v : this.family)
-        if (v.equals(value)) // string
-          return true;
-      return false;
+    public String getFamily() { 
+      return this.family == null ? null : this.family.getValue();
+    }
+
+    /**
+     * @param value The part of a name that links to the genealogy. In some cultures (e.g. Eritrea) the family name of a son is the first name of his father.
+     */
+    public HumanName setFamily(String value) { 
+      if (Utilities.noString(value))
+        this.family = null;
+      else {
+        if (this.family == null)
+          this.family = new StringType();
+        this.family.setValue(value);
+      }
+      return this;
     }
 
     /**
@@ -642,14 +630,6 @@ public class HumanName extends Type implements ICompositeType {
       return this;
     }
 
- /**
-   * Returns all repetitions of {@link #getFamily() family name} as a space separated string
-   * 
-   * @see DatatypeUtil#joinStringsSpaceSeparated(List)
-   */
-  public String getFamilyAsSingleString() {
-    return joinStringsSpaceSeparated(getFamily());
-  }
 
   /**
    * Returns all repetitions of {@link #getGiven() given name} as a space separated string
@@ -689,7 +669,7 @@ public class HumanName extends Type implements ICompositeType {
     List<StringType> nameParts = new ArrayList<StringType>();
     nameParts.addAll(getPrefix());
     nameParts.addAll(getGiven());
-    nameParts.addAll(getFamily());
+    nameParts.add(getFamilyElement());
     nameParts.addAll(getSuffix());
     if (nameParts.size() > 0) {
       return joinStringsSpaceSeparated(nameParts);
@@ -732,7 +712,7 @@ public class HumanName extends Type implements ICompositeType {
         switch (hash) {
         case 116103: /*use*/ return this.use == null ? new Base[0] : new Base[] {this.use}; // Enumeration<NameUse>
         case 3556653: /*text*/ return this.text == null ? new Base[0] : new Base[] {this.text}; // StringType
-        case -1281860764: /*family*/ return this.family == null ? new Base[0] : this.family.toArray(new Base[this.family.size()]); // StringType
+        case -1281860764: /*family*/ return this.family == null ? new Base[0] : new Base[] {this.family}; // StringType
         case 98367357: /*given*/ return this.given == null ? new Base[0] : this.given.toArray(new Base[this.given.size()]); // StringType
         case -980110702: /*prefix*/ return this.prefix == null ? new Base[0] : this.prefix.toArray(new Base[this.prefix.size()]); // StringType
         case -891422895: /*suffix*/ return this.suffix == null ? new Base[0] : this.suffix.toArray(new Base[this.suffix.size()]); // StringType
@@ -752,7 +732,7 @@ public class HumanName extends Type implements ICompositeType {
           this.text = castToString(value); // StringType
           break;
         case -1281860764: // family
-          this.getFamily().add(castToString(value)); // StringType
+          this.family = castToString(value); // StringType
           break;
         case 98367357: // given
           this.getGiven().add(castToString(value)); // StringType
@@ -778,7 +758,7 @@ public class HumanName extends Type implements ICompositeType {
         else if (name.equals("text"))
           this.text = castToString(value); // StringType
         else if (name.equals("family"))
-          this.getFamily().add(castToString(value));
+          this.family = castToString(value); // StringType
         else if (name.equals("given"))
           this.getGiven().add(castToString(value));
         else if (name.equals("prefix"))
@@ -844,11 +824,7 @@ public class HumanName extends Type implements ICompositeType {
         copyValues(dst);
         dst.use = use == null ? null : use.copy();
         dst.text = text == null ? null : text.copy();
-        if (family != null) {
-          dst.family = new ArrayList<StringType>();
-          for (StringType i : family)
-            dst.family.add(i.copy());
-        };
+        dst.family = family == null ? null : family.copy();
         if (given != null) {
           dst.given = new ArrayList<StringType>();
           for (StringType i : given)

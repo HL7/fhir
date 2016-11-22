@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sun, Nov 13, 2016 21:25+1100 for FHIR v1.7.0
+// Generated on Tue, Nov 22, 2016 17:11+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -461,17 +461,9 @@ public class ProcessRequest extends DomainResource {
     protected List<Identifier> identifier;
 
     /**
-     * The status of the resource instance.
-     */
-    @Child(name = "status", type = {CodeType.class}, order=1, min=1, max=1, modifier=true, summary=true)
-    @Description(shortDefinition="active | cancelled | draft | entered-in-error", formalDefinition="The status of the resource instance." )
-    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/processrequest-status")
-    protected Enumeration<ProcessRequestStatus> status;
-
-    /**
      * The version of the style of resource contents. This should be mapped to the allowable profiles for this and supporting resources.
      */
-    @Child(name = "ruleset", type = {Coding.class}, order=2, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "ruleset", type = {Coding.class}, order=1, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Resource version", formalDefinition="The version of the style of resource contents. This should be mapped to the allowable profiles for this and supporting resources." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/ruleset")
     protected Coding ruleset;
@@ -479,30 +471,31 @@ public class ProcessRequest extends DomainResource {
     /**
      * The style (standard) and version of the original material which was converted into this resource.
      */
-    @Child(name = "originalRuleset", type = {Coding.class}, order=3, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "originalRuleset", type = {Coding.class}, order=2, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Original version", formalDefinition="The style (standard) and version of the original material which was converted into this resource." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/ruleset")
     protected Coding originalRuleset;
 
     /**
+     * The status of the resource instance.
+     */
+    @Child(name = "status", type = {CodeType.class}, order=3, min=0, max=1, modifier=true, summary=true)
+    @Description(shortDefinition="active | cancelled | draft | entered-in-error", formalDefinition="The status of the resource instance." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/processrequest-status")
+    protected Enumeration<ProcessRequestStatus> status;
+
+    /**
      * The type of processing action being requested, for example Reversal, Readjudication, StatusRequest,PendedRequest.
      */
-    @Child(name = "action", type = {CodeType.class}, order=4, min=1, max=1, modifier=false, summary=false)
+    @Child(name = "action", type = {CodeType.class}, order=4, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="cancel | poll | reprocess | status", formalDefinition="The type of processing action being requested, for example Reversal, Readjudication, StatusRequest,PendedRequest." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/actionlist")
     protected Enumeration<ActionList> action;
 
     /**
-     * The date when this resource was created.
-     */
-    @Child(name = "created", type = {DateTimeType.class}, order=5, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="Creation date", formalDefinition="The date when this resource was created." )
-    protected DateTimeType created;
-
-    /**
      * The organization which is the target of the request.
      */
-    @Child(name = "target", type = {Organization.class}, order=6, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "target", type = {Organization.class}, order=5, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Target of the request", formalDefinition="The organization which is the target of the request." )
     protected Reference target;
 
@@ -510,6 +503,13 @@ public class ProcessRequest extends DomainResource {
      * The actual object that is the target of the reference (The organization which is the target of the request.)
      */
     protected Organization targetTarget;
+
+    /**
+     * The date when this resource was created.
+     */
+    @Child(name = "created", type = {DateTimeType.class}, order=6, min=0, max=1, modifier=false, summary=false)
+    @Description(shortDefinition="Creation date", formalDefinition="The date when this resource was created." )
+    protected DateTimeType created;
 
     /**
      * The practitioner who is responsible for the action specified in this request.
@@ -601,22 +601,13 @@ public class ProcessRequest extends DomainResource {
     @Description(shortDefinition="Period", formalDefinition="A period of time during which the fulfilling resources would have been created." )
     protected Period period;
 
-    private static final long serialVersionUID = 1329951961L;
+    private static final long serialVersionUID = 1552601339L;
 
   /**
    * Constructor
    */
     public ProcessRequest() {
       super();
-    }
-
-  /**
-   * Constructor
-   */
-    public ProcessRequest(Enumeration<ProcessRequestStatus> status, Enumeration<ActionList> action) {
-      super();
-      this.status = status;
-      this.action = action;
     }
 
     /**
@@ -673,51 +664,6 @@ public class ProcessRequest extends DomainResource {
     }
 
     /**
-     * @return {@link #status} (The status of the resource instance.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
-     */
-    public Enumeration<ProcessRequestStatus> getStatusElement() { 
-      if (this.status == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ProcessRequest.status");
-        else if (Configuration.doAutoCreate())
-          this.status = new Enumeration<ProcessRequestStatus>(new ProcessRequestStatusEnumFactory()); // bb
-      return this.status;
-    }
-
-    public boolean hasStatusElement() { 
-      return this.status != null && !this.status.isEmpty();
-    }
-
-    public boolean hasStatus() { 
-      return this.status != null && !this.status.isEmpty();
-    }
-
-    /**
-     * @param value {@link #status} (The status of the resource instance.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
-     */
-    public ProcessRequest setStatusElement(Enumeration<ProcessRequestStatus> value) { 
-      this.status = value;
-      return this;
-    }
-
-    /**
-     * @return The status of the resource instance.
-     */
-    public ProcessRequestStatus getStatus() { 
-      return this.status == null ? null : this.status.getValue();
-    }
-
-    /**
-     * @param value The status of the resource instance.
-     */
-    public ProcessRequest setStatus(ProcessRequestStatus value) { 
-        if (this.status == null)
-          this.status = new Enumeration<ProcessRequestStatus>(new ProcessRequestStatusEnumFactory());
-        this.status.setValue(value);
-      return this;
-    }
-
-    /**
      * @return {@link #ruleset} (The version of the style of resource contents. This should be mapped to the allowable profiles for this and supporting resources.)
      */
     public Coding getRuleset() { 
@@ -766,6 +712,55 @@ public class ProcessRequest extends DomainResource {
     }
 
     /**
+     * @return {@link #status} (The status of the resource instance.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
+     */
+    public Enumeration<ProcessRequestStatus> getStatusElement() { 
+      if (this.status == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create ProcessRequest.status");
+        else if (Configuration.doAutoCreate())
+          this.status = new Enumeration<ProcessRequestStatus>(new ProcessRequestStatusEnumFactory()); // bb
+      return this.status;
+    }
+
+    public boolean hasStatusElement() { 
+      return this.status != null && !this.status.isEmpty();
+    }
+
+    public boolean hasStatus() { 
+      return this.status != null && !this.status.isEmpty();
+    }
+
+    /**
+     * @param value {@link #status} (The status of the resource instance.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
+     */
+    public ProcessRequest setStatusElement(Enumeration<ProcessRequestStatus> value) { 
+      this.status = value;
+      return this;
+    }
+
+    /**
+     * @return The status of the resource instance.
+     */
+    public ProcessRequestStatus getStatus() { 
+      return this.status == null ? null : this.status.getValue();
+    }
+
+    /**
+     * @param value The status of the resource instance.
+     */
+    public ProcessRequest setStatus(ProcessRequestStatus value) { 
+      if (value == null)
+        this.status = null;
+      else {
+        if (this.status == null)
+          this.status = new Enumeration<ProcessRequestStatus>(new ProcessRequestStatusEnumFactory());
+        this.status.setValue(value);
+      }
+      return this;
+    }
+
+    /**
      * @return {@link #action} (The type of processing action being requested, for example Reversal, Readjudication, StatusRequest,PendedRequest.). This is the underlying object with id, value and extensions. The accessor "getAction" gives direct access to the value
      */
     public Enumeration<ActionList> getActionElement() { 
@@ -804,9 +799,57 @@ public class ProcessRequest extends DomainResource {
      * @param value The type of processing action being requested, for example Reversal, Readjudication, StatusRequest,PendedRequest.
      */
     public ProcessRequest setAction(ActionList value) { 
+      if (value == null)
+        this.action = null;
+      else {
         if (this.action == null)
           this.action = new Enumeration<ActionList>(new ActionListEnumFactory());
         this.action.setValue(value);
+      }
+      return this;
+    }
+
+    /**
+     * @return {@link #target} (The organization which is the target of the request.)
+     */
+    public Reference getTarget() { 
+      if (this.target == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create ProcessRequest.target");
+        else if (Configuration.doAutoCreate())
+          this.target = new Reference(); // cc
+      return this.target;
+    }
+
+    public boolean hasTarget() { 
+      return this.target != null && !this.target.isEmpty();
+    }
+
+    /**
+     * @param value {@link #target} (The organization which is the target of the request.)
+     */
+    public ProcessRequest setTarget(Reference value) { 
+      this.target = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #target} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The organization which is the target of the request.)
+     */
+    public Organization getTargetTarget() { 
+      if (this.targetTarget == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create ProcessRequest.target");
+        else if (Configuration.doAutoCreate())
+          this.targetTarget = new Organization(); // aa
+      return this.targetTarget;
+    }
+
+    /**
+     * @param value {@link #target} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The organization which is the target of the request.)
+     */
+    public ProcessRequest setTargetTarget(Organization value) { 
+      this.targetTarget = value;
       return this;
     }
 
@@ -856,50 +899,6 @@ public class ProcessRequest extends DomainResource {
           this.created = new DateTimeType();
         this.created.setValue(value);
       }
-      return this;
-    }
-
-    /**
-     * @return {@link #target} (The organization which is the target of the request.)
-     */
-    public Reference getTarget() { 
-      if (this.target == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ProcessRequest.target");
-        else if (Configuration.doAutoCreate())
-          this.target = new Reference(); // cc
-      return this.target;
-    }
-
-    public boolean hasTarget() { 
-      return this.target != null && !this.target.isEmpty();
-    }
-
-    /**
-     * @param value {@link #target} (The organization which is the target of the request.)
-     */
-    public ProcessRequest setTarget(Reference value) { 
-      this.target = value;
-      return this;
-    }
-
-    /**
-     * @return {@link #target} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The organization which is the target of the request.)
-     */
-    public Organization getTargetTarget() { 
-      if (this.targetTarget == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ProcessRequest.target");
-        else if (Configuration.doAutoCreate())
-          this.targetTarget = new Organization(); // aa
-      return this.targetTarget;
-    }
-
-    /**
-     * @param value {@link #target} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The organization which is the target of the request.)
-     */
-    public ProcessRequest setTargetTarget(Organization value) { 
-      this.targetTarget = value;
       return this;
     }
 
@@ -1365,12 +1364,12 @@ public class ProcessRequest extends DomainResource {
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "The ProcessRequest business identifier.", 0, java.lang.Integer.MAX_VALUE, identifier));
-        childrenList.add(new Property("status", "code", "The status of the resource instance.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("ruleset", "Coding", "The version of the style of resource contents. This should be mapped to the allowable profiles for this and supporting resources.", 0, java.lang.Integer.MAX_VALUE, ruleset));
         childrenList.add(new Property("originalRuleset", "Coding", "The style (standard) and version of the original material which was converted into this resource.", 0, java.lang.Integer.MAX_VALUE, originalRuleset));
+        childrenList.add(new Property("status", "code", "The status of the resource instance.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("action", "code", "The type of processing action being requested, for example Reversal, Readjudication, StatusRequest,PendedRequest.", 0, java.lang.Integer.MAX_VALUE, action));
-        childrenList.add(new Property("created", "dateTime", "The date when this resource was created.", 0, java.lang.Integer.MAX_VALUE, created));
         childrenList.add(new Property("target", "Reference(Organization)", "The organization which is the target of the request.", 0, java.lang.Integer.MAX_VALUE, target));
+        childrenList.add(new Property("created", "dateTime", "The date when this resource was created.", 0, java.lang.Integer.MAX_VALUE, created));
         childrenList.add(new Property("provider", "Reference(Practitioner)", "The practitioner who is responsible for the action specified in this request.", 0, java.lang.Integer.MAX_VALUE, provider));
         childrenList.add(new Property("organization", "Reference(Organization)", "The organization which is responsible for the action speccified in this request.", 0, java.lang.Integer.MAX_VALUE, organization));
         childrenList.add(new Property("request", "Reference(Any)", "Reference of resource which is the target or subject of this action.", 0, java.lang.Integer.MAX_VALUE, request));
@@ -1387,12 +1386,12 @@ public class ProcessRequest extends DomainResource {
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
         case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
-        case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<ProcessRequestStatus>
         case 1548678118: /*ruleset*/ return this.ruleset == null ? new Base[0] : new Base[] {this.ruleset}; // Coding
         case 1089373397: /*originalRuleset*/ return this.originalRuleset == null ? new Base[0] : new Base[] {this.originalRuleset}; // Coding
+        case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<ProcessRequestStatus>
         case -1422950858: /*action*/ return this.action == null ? new Base[0] : new Base[] {this.action}; // Enumeration<ActionList>
-        case 1028554472: /*created*/ return this.created == null ? new Base[0] : new Base[] {this.created}; // DateTimeType
         case -880905839: /*target*/ return this.target == null ? new Base[0] : new Base[] {this.target}; // Reference
+        case 1028554472: /*created*/ return this.created == null ? new Base[0] : new Base[] {this.created}; // DateTimeType
         case -987494927: /*provider*/ return this.provider == null ? new Base[0] : new Base[] {this.provider}; // Reference
         case 1178922291: /*organization*/ return this.organization == null ? new Base[0] : new Base[] {this.organization}; // Reference
         case 1095692943: /*request*/ return this.request == null ? new Base[0] : new Base[] {this.request}; // Reference
@@ -1414,23 +1413,23 @@ public class ProcessRequest extends DomainResource {
         case -1618432855: // identifier
           this.getIdentifier().add(castToIdentifier(value)); // Identifier
           break;
-        case -892481550: // status
-          this.status = new ProcessRequestStatusEnumFactory().fromType(value); // Enumeration<ProcessRequestStatus>
-          break;
         case 1548678118: // ruleset
           this.ruleset = castToCoding(value); // Coding
           break;
         case 1089373397: // originalRuleset
           this.originalRuleset = castToCoding(value); // Coding
           break;
+        case -892481550: // status
+          this.status = new ProcessRequestStatusEnumFactory().fromType(value); // Enumeration<ProcessRequestStatus>
+          break;
         case -1422950858: // action
           this.action = new ActionListEnumFactory().fromType(value); // Enumeration<ActionList>
           break;
-        case 1028554472: // created
-          this.created = castToDateTime(value); // DateTimeType
-          break;
         case -880905839: // target
           this.target = castToReference(value); // Reference
+          break;
+        case 1028554472: // created
+          this.created = castToDateTime(value); // DateTimeType
           break;
         case -987494927: // provider
           this.provider = castToReference(value); // Reference
@@ -1471,18 +1470,18 @@ public class ProcessRequest extends DomainResource {
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("identifier"))
           this.getIdentifier().add(castToIdentifier(value));
-        else if (name.equals("status"))
-          this.status = new ProcessRequestStatusEnumFactory().fromType(value); // Enumeration<ProcessRequestStatus>
         else if (name.equals("ruleset"))
           this.ruleset = castToCoding(value); // Coding
         else if (name.equals("originalRuleset"))
           this.originalRuleset = castToCoding(value); // Coding
+        else if (name.equals("status"))
+          this.status = new ProcessRequestStatusEnumFactory().fromType(value); // Enumeration<ProcessRequestStatus>
         else if (name.equals("action"))
           this.action = new ActionListEnumFactory().fromType(value); // Enumeration<ActionList>
-        else if (name.equals("created"))
-          this.created = castToDateTime(value); // DateTimeType
         else if (name.equals("target"))
           this.target = castToReference(value); // Reference
+        else if (name.equals("created"))
+          this.created = castToDateTime(value); // DateTimeType
         else if (name.equals("provider"))
           this.provider = castToReference(value); // Reference
         else if (name.equals("organization"))
@@ -1511,12 +1510,12 @@ public class ProcessRequest extends DomainResource {
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -1618432855:  return addIdentifier(); // Identifier
-        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<ProcessRequestStatus>
         case 1548678118:  return getRuleset(); // Coding
         case 1089373397:  return getOriginalRuleset(); // Coding
+        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<ProcessRequestStatus>
         case -1422950858: throw new FHIRException("Cannot make property action as it is not a complex type"); // Enumeration<ActionList>
-        case 1028554472: throw new FHIRException("Cannot make property created as it is not a complex type"); // DateTimeType
         case -880905839:  return getTarget(); // Reference
+        case 1028554472: throw new FHIRException("Cannot make property created as it is not a complex type"); // DateTimeType
         case -987494927:  return getProvider(); // Reference
         case 1178922291:  return getOrganization(); // Reference
         case 1095692943:  return getRequest(); // Reference
@@ -1537,9 +1536,6 @@ public class ProcessRequest extends DomainResource {
         if (name.equals("identifier")) {
           return addIdentifier();
         }
-        else if (name.equals("status")) {
-          throw new FHIRException("Cannot call addChild on a primitive type ProcessRequest.status");
-        }
         else if (name.equals("ruleset")) {
           this.ruleset = new Coding();
           return this.ruleset;
@@ -1548,15 +1544,18 @@ public class ProcessRequest extends DomainResource {
           this.originalRuleset = new Coding();
           return this.originalRuleset;
         }
+        else if (name.equals("status")) {
+          throw new FHIRException("Cannot call addChild on a primitive type ProcessRequest.status");
+        }
         else if (name.equals("action")) {
           throw new FHIRException("Cannot call addChild on a primitive type ProcessRequest.action");
-        }
-        else if (name.equals("created")) {
-          throw new FHIRException("Cannot call addChild on a primitive type ProcessRequest.created");
         }
         else if (name.equals("target")) {
           this.target = new Reference();
           return this.target;
+        }
+        else if (name.equals("created")) {
+          throw new FHIRException("Cannot call addChild on a primitive type ProcessRequest.created");
         }
         else if (name.equals("provider")) {
           this.provider = new Reference();
@@ -1610,12 +1609,12 @@ public class ProcessRequest extends DomainResource {
           for (Identifier i : identifier)
             dst.identifier.add(i.copy());
         };
-        dst.status = status == null ? null : status.copy();
         dst.ruleset = ruleset == null ? null : ruleset.copy();
         dst.originalRuleset = originalRuleset == null ? null : originalRuleset.copy();
+        dst.status = status == null ? null : status.copy();
         dst.action = action == null ? null : action.copy();
-        dst.created = created == null ? null : created.copy();
         dst.target = target == null ? null : target.copy();
+        dst.created = created == null ? null : created.copy();
         dst.provider = provider == null ? null : provider.copy();
         dst.organization = organization == null ? null : organization.copy();
         dst.request = request == null ? null : request.copy();
@@ -1652,13 +1651,12 @@ public class ProcessRequest extends DomainResource {
         if (!(other instanceof ProcessRequest))
           return false;
         ProcessRequest o = (ProcessRequest) other;
-        return compareDeep(identifier, o.identifier, true) && compareDeep(status, o.status, true) && compareDeep(ruleset, o.ruleset, true)
-           && compareDeep(originalRuleset, o.originalRuleset, true) && compareDeep(action, o.action, true)
-           && compareDeep(created, o.created, true) && compareDeep(target, o.target, true) && compareDeep(provider, o.provider, true)
-           && compareDeep(organization, o.organization, true) && compareDeep(request, o.request, true) && compareDeep(response, o.response, true)
-           && compareDeep(nullify, o.nullify, true) && compareDeep(reference, o.reference, true) && compareDeep(item, o.item, true)
-           && compareDeep(include, o.include, true) && compareDeep(exclude, o.exclude, true) && compareDeep(period, o.period, true)
-          ;
+        return compareDeep(identifier, o.identifier, true) && compareDeep(ruleset, o.ruleset, true) && compareDeep(originalRuleset, o.originalRuleset, true)
+           && compareDeep(status, o.status, true) && compareDeep(action, o.action, true) && compareDeep(target, o.target, true)
+           && compareDeep(created, o.created, true) && compareDeep(provider, o.provider, true) && compareDeep(organization, o.organization, true)
+           && compareDeep(request, o.request, true) && compareDeep(response, o.response, true) && compareDeep(nullify, o.nullify, true)
+           && compareDeep(reference, o.reference, true) && compareDeep(item, o.item, true) && compareDeep(include, o.include, true)
+           && compareDeep(exclude, o.exclude, true) && compareDeep(period, o.period, true);
       }
 
       @Override
@@ -1674,8 +1672,8 @@ public class ProcessRequest extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, status, ruleset
-          , originalRuleset, action, created, target, provider, organization, request, response
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, ruleset, originalRuleset
+          , status, action, target, created, provider, organization, request, response
           , nullify, reference, item, include, exclude, period);
       }
 

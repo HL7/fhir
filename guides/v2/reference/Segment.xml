@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file:///C:/work/org.hl7.fhir/build/schema/fhir-single.xsd">
+  <id value="Segment"/>
+  <url value="http://hl7.org/fhir/v2/StructureDefinition/Segment"/>
+  <name value="Segment (HL7 v2 Logical Model)"/>
+  <status value="draft"/>
+  <publisher value="Health Level Seven International (FHIR Infrastructure)"/>
+  <contact>
+    <telecom>
+      <system value="other"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <contact>
+    <telecom>
+      <system value="other"/>
+      <value value="http://www.hl7.org/Special/committees/fiwg/index.cfm"/>
+    </telecom>
+  </contact>
+  <date value="2016-08-25T13:46:22+10:00"/>
+  <description value="Segment (the Logical Model for Version 2)"/>
+  <purpose value="To support v2 -&gt; FHIR mapping and v2 validation"/>
+  <fhirVersion value="1.7.0"/>
+  <kind value="logical"/>
+  <abstract value="false"/>
+  <type value="Segment"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Element"/>
+  <derivation value="specialization"/>
+  <differential>
+    <element id="Segment">
+      <path value="Segment"/>
+      <short value="A Segments"/>
+      <definition value="A segment - a set of fields"/>
+      <min value="0"/>
+      <max value="1"/>
+    </element>
+    <element id="Segment.code">
+      <path value="Segment.code"/>
+      <short value="Identifies the type of segment"/>
+      <definition value="A 3 letter code that identifies the type of the segment"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <maxLength value="3"/>
+    </element>
+    <element id="Segment.field">
+      <path value="Segment.field"/>
+      <short value="Field in a segment"/>
+      <definition value="Field in a segment"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="http://hl7.org/fhir/v2/StructureDefinition/Field"/>
+      </type>
+    </element>
+  </differential>
+</StructureDefinition>

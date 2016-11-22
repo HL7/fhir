@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sun, Nov 13, 2016 21:25+1100 for FHIR v1.7.0
+// Generated on Tue, Nov 22, 2016 17:11+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -2374,7 +2374,7 @@ public class CarePlan extends DomainResource {
     /**
      * Identifies the patient or group whose intended care is described by the plan.
      */
-    @Child(name = "subject", type = {Patient.class, Group.class}, order=4, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "subject", type = {Patient.class, Group.class}, order=4, min=1, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Who care plan is for", formalDefinition="Identifies the patient or group whose intended care is described by the plan." )
     protected Reference subject;
 
@@ -2514,9 +2514,10 @@ public class CarePlan extends DomainResource {
   /**
    * Constructor
    */
-    public CarePlan(Enumeration<CarePlanStatus> status) {
+    public CarePlan(Enumeration<CarePlanStatus> status, Reference subject) {
       super();
       this.status = status;
+      this.subject = subject;
     }
 
     /**

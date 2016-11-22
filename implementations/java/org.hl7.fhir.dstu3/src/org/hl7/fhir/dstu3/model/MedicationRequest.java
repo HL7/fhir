@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sun, Nov 13, 2016 21:25+1100 for FHIR v1.7.0
+// Generated on Tue, Nov 22, 2016 17:11+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -2555,6 +2555,26 @@ public class MedicationRequest extends DomainResource {
    * the path value of "<b>MedicationRequest:medication</b>".
    */
   public static final ca.uhn.fhir.model.api.Include INCLUDE_MEDICATION = new ca.uhn.fhir.model.api.Include("MedicationRequest:medication").toLocked();
+
+ /**
+   * Search parameter: <b>category</b>
+   * <p>
+   * Description: <b>Returns prescriptions with different categories</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>MedicationRequest.category</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="category", path="MedicationRequest.category", description="Returns prescriptions with different categories", type="token" )
+  public static final String SP_CATEGORY = "category";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>category</b>
+   * <p>
+   * Description: <b>Returns prescriptions with different categories</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>MedicationRequest.category</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CATEGORY = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CATEGORY);
 
  /**
    * Search parameter: <b>status</b>

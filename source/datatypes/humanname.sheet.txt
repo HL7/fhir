@@ -109,13 +109,13 @@
 
  -- Row 4 -----------------------------------
   Element = HumanName.family
-  Card. = 0..*
+  Card. = 0..1
   Aliases = surname
   Type = string
   Short Name = Family name (often called \'Surname\')
   Definition = The part of a name that links to the genealogy. In some cultures (e.g. Eritrea) the family name of a son is the first name of his father.
-  Comments = For family name, hyphenated names such as \"Smith-Jones\" are a single name, but names with spaces such as \"Smith Jones\" are broken into multiple parts
-  v2 Mapping = XPN.1
+  Comments = Family Name may be decomposed into specific parts using extensions (de, nl, es related cultures)
+  v2 Mapping = XPN.1/FN.1
   RIM Mapping = ./part[partType = FAM]
   ServD Mapping = ./FamilyName
 

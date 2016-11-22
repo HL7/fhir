@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file:///C:/work/org.hl7.fhir/build/schema/fhir-single.xsd">
+  <id value="Field"/>
+  <url value="http://hl7.org/fhir/v2/StructureDefinition/Field"/>
+  <name value="Field (HL7 v2 Logical Model)"/>
+  <status value="draft"/>
+  <publisher value="Health Level Seven International (FHIR Infrastructure)"/>
+  <contact>
+    <telecom>
+      <system value="other"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <contact>
+    <telecom>
+      <system value="other"/>
+      <value value="http://www.hl7.org/Special/committees/fiwg/index.cfm"/>
+    </telecom>
+  </contact>
+  <date value="2016-08-25T13:46:22+10:00"/>
+  <description value="Field (the Logical Model for Version 2)"/>
+  <purpose value="To support v2 -&gt; FHIR mapping and v2 validation"/>
+  <fhirVersion value="1.7.0"/>
+  <kind value="logical"/>
+  <abstract value="false"/>
+  <type value="Field"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Element"/>
+  <derivation value="specialization"/>
+  <differential>
+    <element id="Field">
+      <path value="Field"/>
+      <short value="A field in a segment - contains repeats"/>
+      <definition value="The Field/Element split is solely introduced to deal with repeats. Since many elements do not repeat, path queries can skip this by using elements()"/>
+      <min value="0"/>
+      <max value="*"/>
+    </element>
+    <element id="Field.element">
+      <path value="Field.element"/>
+      <short value="An element in a field"/>
+      <definition value="An element in a field - first element is 0, repeats follow"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="http://hl7.org/fhir/v2/StructureDefinition/Cell"/>
+      </type>
+    </element>
+  </differential>
+</StructureDefinition>
