@@ -10,6 +10,8 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.net.URL;
 import java.net.URLConnection;
 import java.text.DateFormat;
@@ -2473,6 +2475,9 @@ public class Publisher implements IWorkerContext.ILoggingService {
         } catch (Exception e) {
           log("Exception generating resource "+f.getName()+"::"+r.getElement().fhirType()+"/"+r.getId()+": "+e.getMessage());
           e.printStackTrace();
+          for (StackTraceElement m : e.getStackTrace()) {
+              log("   "+m.toString());
+          }
         }
       }
     }
