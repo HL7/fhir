@@ -193,6 +193,10 @@ following additional canonicalization URLS are also defined:
   <td>http://hl7.org/fhir/canonicalization/xml#narrative</td>
   <td>The method only covers the <code>Resource.id</code> and Narrative is retained</td>
  </tr>
+ <tr>
+  <td>http://hl7.org/fhir/canonicalization/xml#document</td>
+  <td>The signs everything in a Bundle, except for the Bundle.id and Bundle.metadata on the root Bundle (allows for a document to copied from server to server)</td>
+ </tr>
 </table>
 <p>
 These canonicalization methods allow system the flexibility to sign the various portions of 
