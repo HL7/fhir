@@ -19,7 +19,7 @@
 		<reference value="Patient/example"/>
 	</patient>
 	<wasNotGiven value="false"/>
-	<reported value="false"/>
+	<primarySource value="true"/>
 	<performer>
 		<reference value="Practitioner/example"/>
 	</performer>

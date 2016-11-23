@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="immunization-origin"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid">
+    <valueUri value="urn:oid:2.16.840.1.113883.2.20.3.281"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/immunization-origin"/>
+  <name value="ImmunizationOrigin"/>
+  <status value="active"/>
+  <publisher value="PHER"/>
+  <contact>
+    <telecom>
+      <system value="other"/>
+      <value value="http://www.hl7.org/Special/committees/pher/index.cfm"/>
+    </telecom>
+  </contact>
+  <description value="This identifies the source of the data when the report of the immunization event is not based on information from the person who administered the vaccine."/>
+  <compose>
+    <include>
+	<!-- ImmunizationOrigin -->
+      <system value="urn:oid:2.16.840.1.113883.4.642.2.0"/>
+      <concept>
+        <code value="provider"/>
+		<display value="Other Provider"/>
+      </concept>
+	  <concept>
+        <code value="record"/>
+		<display value="Writen Record"/>
+      </concept>
+	   <concept>
+        <code value="recall"/>
+		<display value="Parent/Guardian/Patient Recall"/>
+      </concept>
+	  <concept>
+        <code value="school"/>
+		<display value="School Record"/>
+      </concept>
+    </include>
+  </compose>
+</ValueSet>
