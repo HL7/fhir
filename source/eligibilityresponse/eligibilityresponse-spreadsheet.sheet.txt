@@ -199,7 +199,7 @@
  -- Row 16 -----------------------------------
   Element = EligibilityResponse.insurance
   Card. = 0..*
-  UML = 200;0
+  UML = 380;0
   Type = =Insurance
   Short Name = Details by insurance coverage
   Definition = The insurer may provide both the details for the requested coverage as well as details for additional coverages known to the insurer.
@@ -224,7 +224,7 @@
  -- Row 20 -----------------------------------
   Element = EligibilityResponse.insurance.benefitBalance
   Card. = 0..*
-  UML = 380;0
+  UML = 340;120
   Type = =Benefits
   Short Name = Benefits by Category
   Definition = Benefits and optionally current balances by Category
@@ -246,20 +246,27 @@
   Definition = Dental: basic, major, ortho; Vision exam, glasses, contacts; etc
 
  -- Row 23 -----------------------------------
+  Element = EligibilityResponse.insurance.benefitBalance.excluded
+  Card. = 0..1
+  Type = boolean
+  Short Name = Excluded from the plan
+  Definition = True if the indicated class of service is excluded from the plan, missing or False indicated the service is included in the coverage.
+
+ -- Row 24 -----------------------------------
   Element = EligibilityResponse.insurance.benefitBalance.name
   Card. = 0..1
   Type = string
   Short Name = Short name for the benefit
   Definition = A short name or tag for the benefit, for example MED01, or DENT2.
 
- -- Row 24 -----------------------------------
+ -- Row 25 -----------------------------------
   Element = EligibilityResponse.insurance.benefitBalance.description
   Card. = 0..1
   Type = string
   Short Name = Description of the benefit
   Definition = A richer description of the benefit, for example \'DENT2 covers 100% of basic, 50% of major but exclused Ortho, Implants and Costmetic services\'.
 
- -- Row 25 -----------------------------------
+ -- Row 26 -----------------------------------
   Element = EligibilityResponse.insurance.benefitBalance.network
   Card. = 0..1
   Type = CodeableConcept
@@ -267,7 +274,7 @@
   Short Name = In or out of network
   Definition = Network designation
 
- -- Row 26 -----------------------------------
+ -- Row 27 -----------------------------------
   Element = EligibilityResponse.insurance.benefitBalance.unit
   Card. = 0..1
   Type = CodeableConcept
@@ -275,7 +282,7 @@
   Short Name = Individual or family
   Definition = Unit designation: individual or family
 
- -- Row 27 -----------------------------------
+ -- Row 28 -----------------------------------
   Element = EligibilityResponse.insurance.benefitBalance.term
   Card. = 0..1
   Type = CodeableConcept
@@ -283,15 +290,15 @@
   Short Name = Annual or lifetime
   Definition = The term or period of the values such as \'maximum lifetime benefit\' or \'maximum annual vistis\'.
 
- -- Row 28 -----------------------------------
+ -- Row 29 -----------------------------------
   Element = EligibilityResponse.insurance.benefitBalance.financial
   Card. = 0..*
-  UML = 380;180
+  UML = 340;320
   Type = =Benefit
   Short Name = Benefit Summary
   Definition = Benefits Used to date
 
- -- Row 29 -----------------------------------
+ -- Row 30 -----------------------------------
   Element = EligibilityResponse.insurance.benefitBalance.financial.type
   Card. = 1..1
   Type = CodeableConcept
@@ -299,21 +306,21 @@
   Short Name = Deductable, visits, benefit amount
   Definition = Deductable, visits, benefit amount.
 
- -- Row 30 -----------------------------------
+ -- Row 31 -----------------------------------
   Element = EligibilityResponse.insurance.benefitBalance.financial.benefit[x]
   Card. = 0..1
   Type = unsignedInt|string|Money
   Short Name = Benefits allowed
   Definition = Benefits allowed
 
- -- Row 31 -----------------------------------
+ -- Row 32 -----------------------------------
   Element = EligibilityResponse.insurance.benefitBalance.financial.benefitUsed[x]
   Card. = 0..1
   Type = unsignedInt|Money
   Short Name = Benefits used
   Definition = Benefits used
 
- -- Row 32 -----------------------------------
+ -- Row 33 -----------------------------------
   Element = EligibilityResponse.form
   Card. = 0..1
   Type = CodeableConcept
@@ -322,19 +329,19 @@
   Definition = The form to be used for printing the content.
   CDAnet v4 Mapping = G42
 
- -- Row 33 -----------------------------------
+ -- Row 34 -----------------------------------
   Element = !Errors
   Short Name = Processing errors
 
- -- Row 34 -----------------------------------
+ -- Row 35 -----------------------------------
   Element = EligibilityResponse.error
   Card. = 0..*
-  UML = 50;300
+  UML = 0;300
   Type = =Errors
   Short Name = Processing errors
   Definition = Mutually exclusive with Services Provided (Item).
 
- -- Row 35 -----------------------------------
+ -- Row 36 -----------------------------------
   Element = EligibilityResponse.error.code
   Card. = 1..1
   Type = CodeableConcept

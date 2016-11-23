@@ -2,7 +2,7 @@
 
 <CodeSystem xmlns="http://hl7.org/fhir">
   <url value="http://hl7.org/fhir/ex-oralprostho"/>
-  <name value="Oral Prostho Material type Codes"/>
+  <name value="Oral Material type Codes"/>
   <status value="draft"/>
   <experimental value="false"/>
   <description value="This value set includes sample Oral Prosthodontic Material type codes."/>

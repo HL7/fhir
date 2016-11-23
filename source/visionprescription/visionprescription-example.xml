@@ -28,7 +28,7 @@
   <prescriber>
     <reference value="Practitioner/example"/>
   </prescriber>
-<!--
+
   <dispense>
     <product>
 	 <coding>
@@ -50,7 +50,7 @@
 	</base>
 	<add value="2.00"/>
   </dispense>
--->
+
   <dispense>
     <product>
 	 <coding>
