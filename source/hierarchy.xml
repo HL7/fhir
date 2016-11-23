@@ -115,7 +115,7 @@ signatures.html
       <page title="Services" filename="services.html"/>
     </page>
 
-    <page title="Ontology" filename="ontology-module.html" icon="ontology.png">
+    <page title="Linked Data" filename="linked-data-module.html" icon="linked-data.png">
       <page title="RDF" filename="rdf.html"/>
       <page title="Ontology" filename="ontology.html"/>
       <page title="Status Code Map" filename="sc.html"/>
