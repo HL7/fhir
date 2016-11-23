@@ -1,0 +1,47 @@
+<StructureDefinition xmlns="http://hl7.org/fhir">
+    <id value="CCDA-on-FHIR-In-Fulfillment-Of-Order" />
+    <url value="http://hl7.org/fhir/ccda/StructureDefinition/CCDA-on-FHIR-In-Fulfillment-Of-Order" />
+    <name value="C-CDA on FHIR In Fulfillment Of Order" />
+    <status value="draft" />
+    <publisher value="Lantana Consulting Group" />
+    <contact>
+        <name value="Sarah Gaunt" />
+        <telecom>
+            <system value="phone" />
+            <value value="+6 141-029-2506" />
+            <use value="work" />
+        </telecom>
+        <telecom>
+            <system value="email" />
+            <value value="sarah.gaunt@lantanagroup.com" />
+            <use value="work" />
+        </telecom>
+    </contact>
+    <description value="C-CDA on FHIR In Fulfillment Of Order Extension" />
+    <kind value="resource" />
+    <abstract value="false" />
+    <contextType value="extension" />
+    <context value="Extension" />
+    <type value="Extension" />
+    <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension" />
+    <derivation value="constraint" />
+    <differential>
+        <element id="8126-00001">
+            <path value="Extension" />
+        </element>
+        <element id="111039">
+            <path value="Extension.url" />
+            <short value="@url" />
+            <definition value="SHALL contain exactly one [1..1] @url=&quot;http://hl7.org/fhir/ccda/StructureDefinition/CCDA_on_FHIR_In_Fulfillment_Of_Order&quot; (CONF:2219-1864)." />
+            <min value="1" />
+            <max value="1" />
+        </element>
+        <element id="111040">
+            <path value="Extension.valueReference" />
+            <short value="valueReference" />
+            <definition value="SHALL contain exactly one [1..1] U.S. DAF DiagnosticOrder Profile (identifier: http://hl7.org/fhir/us/StructureDefinition/daf-diagnosticOrder) (CONF:2219-1865)." />
+            <min value="1" />
+            <max value="1" />
+        </element>
+    </differential>
+</StructureDefinition>

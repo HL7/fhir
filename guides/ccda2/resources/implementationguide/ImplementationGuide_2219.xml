@@ -1,0 +1,239 @@
+<ImplementationGuide xmlns="http://hl7.org/fhir">
+    <id value="2219" />
+    <url value="http://hl7.org/fhir/ccda/ImplementationGuide/2219" />
+    <name value="C-CDA on FHIR" />
+    <status value="draft" />
+    <package>
+        <name value="Profiles in this Implementation Guide" />
+        <resource>
+            <example value="false" />
+            <sourceReference>
+                <reference value="StructureDefinition/CCDA-on-FHIR-US-Realm-Header" />
+                <display value="C-CDA on FHIR US Realm Header" />
+            </sourceReference>
+        </resource>
+        <resource>
+            <example value="false" />
+            <sourceReference>
+                <reference value="StructureDefinition/CCDA-on-FHIR-Care-Plan" />
+                <display value="C-CDA on FHIR Care Plan" />
+            </sourceReference>
+        </resource>
+        <resource>
+            <example value="false" />
+            <sourceReference>
+                <reference value="StructureDefinition/CCDA-on-FHIR-Consultation-Note" />
+                <display value="C-CDA on FHIR Consultation Note" />
+            </sourceReference>
+        </resource>
+        <resource>
+            <example value="false" />
+            <sourceReference>
+                <reference value="StructureDefinition/CCDA-on-FHIR-Continuity-of-Care-Document" />
+                <display value="C-CDA on FHIR Continuity of Care Document" />
+            </sourceReference>
+        </resource>
+        <resource>
+            <example value="false" />
+            <sourceReference>
+                <reference value="StructureDefinition/CCDA-on-FHIR-Diagnostic-Imaging" />
+                <display value="C-CDA on FHIR Diagnostic Imaging" />
+            </sourceReference>
+        </resource>
+        <resource>
+            <example value="false" />
+            <sourceReference>
+                <reference value="StructureDefinition/CCDA-on-FHIR-Discharge-Summary" />
+                <display value="C-CDA on FHIR Discharge Summary" />
+            </sourceReference>
+        </resource>
+        <resource>
+            <example value="false" />
+            <sourceReference>
+                <reference value="StructureDefinition/CCDA-on-FHIR-History-and-Physical" />
+                <display value="C-CDA on FHIR History and Physical" />
+            </sourceReference>
+        </resource>
+        <resource>
+            <example value="false" />
+            <sourceReference>
+                <reference value="StructureDefinition/CCDA-on-FHIR-Operative-Note" />
+                <display value="C-CDA on FHIR Operative Note" />
+            </sourceReference>
+        </resource>
+        <resource>
+            <example value="false" />
+            <sourceReference>
+                <reference value="StructureDefinition/CCDA-on-FHIR-Procedure-Note" />
+                <display value="C-CDA on FHIR Procedure Note" />
+            </sourceReference>
+        </resource>
+        <resource>
+            <example value="false" />
+            <sourceReference>
+                <reference value="StructureDefinition/CCDA-on-FHIR-Progress-Note" />
+                <display value="C-CDA on FHIR Progress Note" />
+            </sourceReference>
+        </resource>
+        <resource>
+            <example value="false" />
+            <sourceReference>
+                <reference value="StructureDefinition/CCDA-on-FHIR-Referral-Note" />
+                <display value="C-CDA on FHIR Referral Note" />
+            </sourceReference>
+        </resource>
+        <resource>
+            <example value="false" />
+            <sourceReference>
+                <reference value="StructureDefinition/CCDA-on-FHIR-Transfer-Summary" />
+                <display value="C-CDA on FHIR Transfer Summary" />
+            </sourceReference>
+        </resource>
+        
+        <resource>
+            <example value="false" />
+            <sourceReference>
+                <reference value="StructureDefinition/CCDA-on-FHIR-Consent" />
+                <display value="C-CDA on FHIR Consent" />
+            </sourceReference>
+        </resource>
+        <resource>
+            <example value="false" />
+            <sourceReference>
+                <reference value="StructureDefinition/CCDA-on-FHIR-Authorization" />
+                <display value="C-CDA on FHIR Authorization" />
+            </sourceReference>
+        </resource>
+        <resource>
+            <example value="false" />
+            <sourceReference>
+                <reference value="StructureDefinition/CCDA-on-FHIR-Data-Enterer" />
+                <display value="C-CDA on FHIR Data Enterer" />
+            </sourceReference>
+        </resource>
+        <resource>
+            <example value="false" />
+            <sourceReference>
+                <reference value="StructureDefinition/CCDA-on-FHIR-In-Fulfillment-Of-Order" />
+                <display value="C-CDA on FHIR In Fulfillment Of Order" />
+            </sourceReference>
+        </resource>
+        <resource>
+            <example value="false" />
+            <sourceReference>
+                <reference value="StructureDefinition/CCDA-on-FHIR-Informant" />
+                <display value="C-CDA on FHIR Informant" />
+            </sourceReference>
+        </resource>
+        <resource>
+            <example value="false" />
+            <sourceReference>
+                <reference value="StructureDefinition/CCDA-on-FHIR-Information-Recipient" />
+                <display value="C-CDA on FHIR Information Recipient" />
+            </sourceReference>
+        </resource>
+        <resource>
+            <example value="false" />
+            <sourceReference>
+                <reference value="StructureDefinition/CCDA-on-FHIR-Participant" />
+                <display value="C-CDA on FHIR Participant" />
+            </sourceReference>
+        </resource>
+        <resource>
+            <example value="false" />
+            <sourceReference>
+                <reference value="StructureDefinition/CCDA-on-FHIR-Performer" />
+                <display value="C-CDA on FHIR Performer" />
+            </sourceReference>
+        </resource>
+        <resource>
+            <example value="false" />
+            <sourceReference>
+                <reference value="StructureDefinition/CCDA-on-FHIR-Observation" />
+                <display value="C-CDA on FHIR Observation" />
+            </sourceReference>
+        </resource>
+        <resource>
+            <example value="false" />
+            <sourceReference>
+                <reference value="ValueSet/208" />
+                <display value="ConsultDocumentType" />
+            </sourceReference>
+        </resource>
+        <resource>
+            <example value="false" />
+            <sourceReference>
+                <reference value="ValueSet/2757" />
+                <display value="LOINC Imaging Document Codes" />
+            </sourceReference>
+        </resource>
+        <resource>
+            <example value="false" />
+            <sourceReference>
+                <reference value="ValueSet/2467" />
+                <display value="DIRSectionTypeCodes" />
+            </sourceReference>
+        </resource>
+        <resource>
+            <example value="false" />
+            <sourceReference>
+                <reference value="ValueSet/176" />
+                <display value="DischargeSummaryDocumentTypeCode" />
+            </sourceReference>
+        </resource>
+        <resource>
+            <example value="false" />
+            <sourceReference>
+                <reference value="ValueSet/173" />
+                <display value="HPDocumentType" />
+            </sourceReference>
+        </resource>
+        <resource>
+            <example value="false" />
+            <sourceReference>
+                <reference value="ValueSet/177" />
+                <display value="SurgicalOperationNoteDocumentTypeCode" />
+            </sourceReference>
+        </resource>
+        <resource>
+            <example value="false" />
+            <sourceReference>
+                <reference value="ValueSet/178" />
+                <display value="ProcedureNoteDocumentTypeCodes" />
+            </sourceReference>
+        </resource>
+        <resource>
+            <example value="false" />
+            <sourceReference>
+                <reference value="ValueSet/166" />
+                <display value="ProgressNoteDocumentTypeCode" />
+            </sourceReference>
+        </resource>
+        <resource>
+            <example value="false" />
+            <sourceReference>
+                <reference value="ValueSet/2426" />
+                <display value="ReferralDocumentType" />
+            </sourceReference>
+        </resource>
+        <resource>
+            <example value="false" />
+            <sourceReference>
+                <reference value="ValueSet/136" />
+                <display value="HL7 BasicConfidentialityKind" />
+            </sourceReference>
+        </resource>
+        <resource>
+            <example value="true" />
+            <sourceReference>
+                <reference value="Composition/CCDA-on-FHIR-Continuity-of-Care-Document-Example" />
+                <display value="C-CDA_on_FHIR_Continuity_of_Care_Document_Example" />
+            </sourceReference>
+        </resource>
+    </package>
+    <page>
+        <source value="http://test.com/IG/View/2219" />
+        <title value="C-CDA on FHIR" />
+        <kind value="page" />
+    </page>
+</ImplementationGuide>

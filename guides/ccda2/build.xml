@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <project name="org.hl7.fhir.tools" default="local-publish-ig">
-  <property name="guidename" value="???"/>
+  <property name="guidename" value="C-CDA_on_FHIR"/>
   <property name="spec" value="http://hl7-fhir.github.io/"/>
-  <!-- Where the main FHIR build publish folder is -->
-  <property name="dir.publish" value="../../publish"/>
   <!-- Working area -->
   <property name="dir.pages" value="pages"/>
   <property name="dir.pageassets" value="${dir.pages}/assets"/>
@@ -29,7 +27,7 @@
     <mkdir dir="${dir.output}"/>
   </target>
   <target name="local-setup" depends="dir-setup" description="--> grabs igpublisher from local build">
-    <copy file="${dir.publish}/org.hl7.fhir.igpublisher.jar" todir="${basedir}"/>
+    <copy file="org.hl7.fhir.igpublisher.jar" todir="${basedir}"/>
   </target>
   <target name="travis-setup" depends="dir-setup" description="--> Installs Jekyll, grabs publisher from CI website">
     <get src="http://hl7-fhir.github.io/org.hl7.fhir.igpublisher.jar" dest="${basedir}"/>

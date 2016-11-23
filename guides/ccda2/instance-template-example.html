@@ -7,7 +7,7 @@
   <!-- instance template base -->
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>C-CDA on FHIR</title>
+    <title>{{ site.data.fhir.igName }}</title>
     {% include header.html %}
   </head>
   <body>
@@ -18,9 +18,9 @@
       <div class="container">
         <!-- container -->
         <ul class="breadcrumb">
-          <li title="C-CDA on FHIR"><a href="index.html"><b>C-CDA on FHIR</b></a></li>
-          <li><a href="index.html"><b>C-CDA on FHIR {{page.type}} Profile</b></a></li>
-          <li><b>C-CDA on FHIR {{page.type}} Profile Example</b></li>
+          <li title="{{ site.data.fhir.igName }}"><a href="index.html"><b>{{ site.data.fhir.igName }}</b></a></li>
+          <li><a href="index.html"><b>{{ site.data.fhir.igName }} {{page.type}} Profile</b></a></li>
+          <li><b>{{ site.data.fhir.igName }} {{page.type}} Profile Example</b></li>
         </ul>
       </div>
       <!-- /container -->
@@ -33,7 +33,7 @@
           <div class="inner-wrapper">
             <!-- CONTENT CONTENT -->
             
-            <h2>C-CDA on FHIR: {{[id]}}</h2>
+            <h2>{{ site.data.fhir.igName }}: {{[id]}}</h2>
             
             <p>
               Formats:

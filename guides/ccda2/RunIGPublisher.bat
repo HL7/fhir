@@ -1,1 +1,1 @@
-java -jar ..\..\publish\org.hl7.fhir.igpublisher.jar
+java -jar org.hl7.fhir.igpublisher.jar

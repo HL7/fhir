@@ -1,0 +1,179 @@
+<StructureDefinition xmlns="http://hl7.org/fhir">
+    <id value="CCDA-on-FHIR-Diagnostic-Imaging" />
+    <url value="http://hl7.org/fhir/ccda/StructureDefinition/CCDA-on-FHIR-Diagnostic-Imaging" />
+    <name value="C-CDA on FHIR Diagnostic Imaging" />
+    <status value="draft" />
+    <publisher value="Lantana Consulting Group" />
+    <contact>
+        <name value="Sarah Gaunt" />
+        <telecom>
+            <system value="phone" />
+            <value value="+6 141-029-2506" />
+            <use value="work" />
+        </telecom>
+        <telecom>
+            <system value="email" />
+            <value value="sarah.gaunt@lantanagroup.com" />
+            <use value="work" />
+        </telecom>
+    </contact>
+    <description value="A Diagnostic Imaging Report (DIR) is a document that contains a consulting specialist�s interpretation of image data. It conveys the interpretation to the referring (ordering) physician and becomes part of the patient�s medical record. It is for use in Radiology, Endoscopy, Cardiology, and other imaging specialties." />
+    <kind value="resource" />
+    <abstract value="false" />
+    <contextType value="resource" />
+    <context value="Composition" />
+    <type value="Composition" />
+    <baseDefinition value="http://hl7.org/fhir/ccda/StructureDefinition/CCDA-on-FHIR-US-Realm-Header" />
+    <derivation value="constraint" />
+    <differential>
+        <element id="7110-00001">
+            <path value="Composition" />
+        </element>
+        <element id="109438">
+            <path value="Composition.type" />
+            <label value="Diagnostic Imaging Report" />
+            <short value="Diagnostic Imaging Report" />
+            <definition value="SHALL contain exactly one [1..1] type, which SHOULD be selected from ValueSet LOINC Imaging Document Codes urn:oid:1.3.6.1.4.1.12009.10.2.5 DYNAMIC (CONF:2219-1832)." />
+            <min value="1" />
+            <max value="1" />
+            <type>
+                <code value="CodeableConcept" />
+            </type>
+            <binding>
+                <strength value="preferred" />
+                <valueSetReference>
+                    <reference value="urn:oid:1.3.6.1.4.1.12009.10.2.5" />
+                    <display value="LOINC Imaging Document Codes" />
+                </valueSetReference>
+            </binding>
+        </element>
+        <element id="7110-00002">
+            <path value="Composition.section" />
+            <slicing>
+                <discriminator value="Composition.section.code" />
+                <rules value="open" />
+            </slicing>
+            <definition value="MAY contain zero or more [0..*] section (CONF:2219-1826) such that it" />
+        </element>
+        <element id="109430">
+            <path value="Composition.section" />
+            <sliceName value="section_slice_pos2" />
+            <label value="Findings Section" />
+            <short value="Findings Section" />
+            <definition value="SHALL contain exactly one [1..1] section (CONF:2219-1824) such that it" />
+            <comments value="Findings Section" />
+            <min value="1" />
+            <max value="1" />
+        </element>
+        <element id="109433">
+            <path value="Composition.section.title" />
+            <sliceName value="section_slice_pos2" />
+            <short value="title" />
+            <definition value="SHALL contain exactly one [1..1] title (CONF:2219-1827)." />
+            <min value="1" />
+            <max value="1" />
+        </element>
+        <element id="109442">
+            <path value="Composition.section.code" />
+            <sliceName value="section_slice_pos2" />
+            <short value="code" />
+            <definition value="SHALL contain exactly one [1..1] code (CONF:2219-1836)." />
+            <min value="1" />
+            <max value="1" />
+        </element>
+        <element id="109434">
+            <path value="Composition.section.text" />
+            <sliceName value="section_slice_pos2" />
+            <short value="text" />
+            <definition value="SHALL contain exactly one [1..1] text (CONF:2219-1828)." />
+            <min value="1" />
+            <max value="1" />
+        </element>
+        <element id="109431">
+            <path value="Composition.section" />
+            <sliceName value="section_slice_pos3" />
+            <label value="DICOM Object Catalog Section - DCM 121181" />
+            <short value="DICOM Object Catalog Section - DCM 121181" />
+            <definition value="SHOULD contain zero or one [0..1] section (CONF:2219-1825) such that it" />
+            <comments value="DICOM Object Catalog Section - DCM 121181" />
+            <min value="0" />
+            <max value="1" />
+        </element>
+        <element id="109435">
+            <path value="Composition.section.title" />
+            <sliceName value="section_slice_pos3" />
+            <short value="title" />
+            <definition value="SHALL contain exactly one [1..1] title (CONF:2219-1829)." />
+            <min value="1" />
+            <max value="1" />
+        </element>
+        <element id="109436">
+            <path value="Composition.section.code" />
+            <sliceName value="section_slice_pos3" />
+            <label value="Dicom Object Catalog" />
+            <short value="Dicom Object Catalog" />
+            <definition value="SHALL contain exactly one [1..1] code=&quot;121181&quot; (CodeSystem: DCM urn:oid:1.2.840.10008.2.16.4) (CONF:2219-1830)." />
+            <min value="1" />
+            <max value="1" />
+            <type>
+                <code value="CodeableConcept" />
+            </type>
+            <patternCodeableConcept>
+                <coding>
+                    <system value="urn:oid:1.2.840.10008.2.16.4" />
+                    <code value="121181" />
+                </coding>
+            </patternCodeableConcept>
+        </element>
+        <element id="109437">
+            <path value="Composition.section.text" />
+            <sliceName value="section_slice_pos3" />
+            <short value="text" />
+            <definition value="SHALL contain exactly one [1..1] text (CONF:2219-1831)." />
+            <min value="1" />
+            <max value="1" />
+        </element>
+        <element id="109432">
+            <path value="Composition.section" />
+            <sliceName value="section_slice_pos4" />
+            <short value="section" />
+            <definition value="MAY contain zero or more [0..*] section (CONF:2219-1826) such that it" />
+            <min value="0" />
+            <max value="*" />
+        </element>
+        <element id="109439">
+            <path value="Composition.section.title" />
+            <sliceName value="section_slice_pos4" />
+            <short value="title" />
+            <definition value="SHOULD contain zero or one [0..1] title (CONF:2219-1833)." />
+            <min value="0" />
+            <max value="1" />
+        </element>
+        <element id="109440">
+            <path value="Composition.section.code" />
+            <sliceName value="section_slice_pos4" />
+            <short value="code" />
+            <definition value="SHALL contain exactly one [1..1] code, which SHOULD be selected from ValueSet DIRSectionTypeCodes urn:oid:2.16.840.1.113883.11.20.9.59 DYNAMIC (CONF:2219-1834)." />
+            <min value="1" />
+            <max value="1" />
+            <type>
+                <code value="CodeableConcept" />
+            </type>
+            <binding>
+                <strength value="preferred" />
+                <valueSetReference>
+                    <reference value="urn:oid:2.16.840.1.113883.11.20.9.59" />
+                    <display value="DIRSectionTypeCodes" />
+                </valueSetReference>
+            </binding>
+        </element>
+        <element id="109441">
+            <path value="Composition.section.text" />
+            <sliceName value="section_slice_pos4" />
+            <short value="text" />
+            <definition value="SHOULD contain zero or one [0..1] text (CONF:2219-1835)." />
+            <min value="0" />
+            <max value="1" />
+        </element>
+    </differential>
+</StructureDefinition>

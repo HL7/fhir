@@ -1,0 +1,169 @@
+<ValueSet xmlns="http://hl7.org/fhir">
+    <id value="2.16.840.1.113883.11.20.6.1" />
+    <url value="http://hl7.org/fhir/ccda/ValueSet/2.16.840.1.113883.11.20.6.1" />
+    <name value="ProcedureNoteDocumentTypeCodes" />
+    <status value="active" />
+    <description value="A value set of LOINC document codes for Procedure Notes.&#xD;&#xA;&#xD;&#xA;Specific URL Pending" />
+    <compose>
+        <include>
+            <system value="urn:oid:2.16.840.1.113883.6.1" />
+            <concept>
+                <code value="28570-0" />
+                <display value="Provider-unspecified Procedure note" />
+            </concept>
+            <concept>
+                <code value="11505-5" />
+                <display value="Physician procedure note" />
+            </concept>
+            <concept>
+                <code value="18744-3" />
+                <display value="Bronchoscopy study" />
+            </concept>
+            <concept>
+                <code value="18745-0" />
+                <display value="Cardiac catheterization study" />
+            </concept>
+            <concept>
+                <code value="18746-8" />
+                <display value="Colonoscopy study" />
+            </concept>
+            <concept>
+                <code value="18751-8" />
+                <display value="Endoscopy study" />
+            </concept>
+            <concept>
+                <code value="18753-4" />
+                <display value="Flexible sigmoidoscopy study" />
+            </concept>
+            <concept>
+                <code value="18836-7" />
+                <display value="Cardiac stress study Procedure" />
+            </concept>
+            <concept>
+                <code value="28577-5" />
+                <display value="Dentist procedure note" />
+            </concept>
+            <concept>
+                <code value="28625-2" />
+                <display value="Podiatry procedure note" />
+            </concept>
+            <concept>
+                <code value="29757-2" />
+                <display value="Colposcopy study" />
+            </concept>
+            <concept>
+                <code value="33721-2" />
+                <display value="Bone marrow Pathology biopsy report" />
+            </concept>
+            <concept>
+                <code value="34121-4" />
+                <display value="Interventional procedure note" />
+            </concept>
+            <concept>
+                <code value="34896-1" />
+                <display value="Cardiovascular disease Interventional procedure note" />
+            </concept>
+            <concept>
+                <code value="34899-5" />
+                <display value="Gastroenterology Interventional procedure note" />
+            </concept>
+            <concept>
+                <code value="47048-4" />
+                <display value="Diagnostic interventional study report Interventional radiology" />
+            </concept>
+            <concept>
+                <code value="48807-2" />
+                <display value="Bone marrow aspiration report" />
+            </concept>
+        </include>
+    </compose>
+    <expansion>
+        <identifier value="urn:uuid:c787a09d-d48c-48a1-b7ba-e114e7f013e8" />
+        <timestamp value="2016-11-23T03:03:26-05:00" />
+        <contains>
+            <system value="urn:oid:2.16.840.1.113883.6.1" />
+            <code value="28570-0" />
+            <display value="Provider-unspecified Procedure note" />
+        </contains>
+        <contains>
+            <system value="urn:oid:2.16.840.1.113883.6.1" />
+            <code value="11505-5" />
+            <display value="Physician procedure note" />
+        </contains>
+        <contains>
+            <system value="urn:oid:2.16.840.1.113883.6.1" />
+            <code value="18744-3" />
+            <display value="Bronchoscopy study" />
+        </contains>
+        <contains>
+            <system value="urn:oid:2.16.840.1.113883.6.1" />
+            <code value="18745-0" />
+            <display value="Cardiac catheterization study" />
+        </contains>
+        <contains>
+            <system value="urn:oid:2.16.840.1.113883.6.1" />
+            <code value="18746-8" />
+            <display value="Colonoscopy study" />
+        </contains>
+        <contains>
+            <system value="urn:oid:2.16.840.1.113883.6.1" />
+            <code value="18751-8" />
+            <display value="Endoscopy study" />
+        </contains>
+        <contains>
+            <system value="urn:oid:2.16.840.1.113883.6.1" />
+            <code value="18753-4" />
+            <display value="Flexible sigmoidoscopy study" />
+        </contains>
+        <contains>
+            <system value="urn:oid:2.16.840.1.113883.6.1" />
+            <code value="18836-7" />
+            <display value="Cardiac stress study Procedure" />
+        </contains>
+        <contains>
+            <system value="urn:oid:2.16.840.1.113883.6.1" />
+            <code value="28577-5" />
+            <display value="Dentist procedure note" />
+        </contains>
+        <contains>
+            <system value="urn:oid:2.16.840.1.113883.6.1" />
+            <code value="28625-2" />
+            <display value="Podiatry procedure note" />
+        </contains>
+        <contains>
+            <system value="urn:oid:2.16.840.1.113883.6.1" />
+            <code value="29757-2" />
+            <display value="Colposcopy study" />
+        </contains>
+        <contains>
+            <system value="urn:oid:2.16.840.1.113883.6.1" />
+            <code value="33721-2" />
+            <display value="Bone marrow Pathology biopsy report" />
+        </contains>
+        <contains>
+            <system value="urn:oid:2.16.840.1.113883.6.1" />
+            <code value="34121-4" />
+            <display value="Interventional procedure note" />
+        </contains>
+        <contains>
+            <system value="urn:oid:2.16.840.1.113883.6.1" />
+            <code value="34896-1" />
+            <display value="Cardiovascular disease Interventional procedure note" />
+        </contains>
+        <contains>
+            <system value="urn:oid:2.16.840.1.113883.6.1" />
+            <code value="34899-5" />
+            <display value="Gastroenterology Interventional procedure note" />
+        </contains>
+        <contains>
+            <system value="urn:oid:2.16.840.1.113883.6.1" />
+            <code value="47048-4" />
+            <display value="Diagnostic interventional study report Interventional radiology" />
+        </contains>
+        <contains>
+            <system value="urn:oid:2.16.840.1.113883.6.1" />
+            <code value="48807-2" />
+            <display value="Bone marrow aspiration report" />
+        </contains>
+    </expansion>
+</ValueSet>

@@ -1,0 +1,43 @@
+<ValueSet xmlns="http://hl7.org/fhir">
+    <id value="2.16.840.1.113883.1.11.16926" />
+    <url value="http://hl7.org/fhir/ccda/ValueSet/2.16.840.1.113883.1.11.16926" />
+    <name value="HL7 BasicConfidentialityKind" />
+    <status value="active" />
+    <description value="A value set of HL7 Code indication the level of confidentiality an act." />
+    <compose>
+        <include>
+            <system value="urn:oid:2.16.840.1.113883.5.25" />
+            <concept>
+                <code value="N" />
+                <display value="normal" />
+            </concept>
+            <concept>
+                <code value="R" />
+                <display value="restricted" />
+            </concept>
+            <concept>
+                <code value="V" />
+                <display value="very restricted" />
+            </concept>
+        </include>
+    </compose>
+    <expansion>
+        <identifier value="urn:uuid:b0ff4539-662e-4581-8ca4-1e0b85ab5c5a" />
+        <timestamp value="2016-11-23T03:03:26-05:00" />
+        <contains>
+            <system value="urn:oid:2.16.840.1.113883.5.25" />
+            <code value="N" />
+            <display value="normal" />
+        </contains>
+        <contains>
+            <system value="urn:oid:2.16.840.1.113883.5.25" />
+            <code value="R" />
+            <display value="restricted" />
+        </contains>
+        <contains>
+            <system value="urn:oid:2.16.840.1.113883.5.25" />
+            <code value="V" />
+            <display value="very restricted" />
+        </contains>
+    </expansion>
+</ValueSet>

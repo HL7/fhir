@@ -7,7 +7,7 @@
 <!-- instance template base -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  <title>C-CDA on FHIR</title>
+  <title>{{ site.data.fhir.igName }}</title>
   
 
 {% include header.html %}
@@ -16,6 +16,15 @@
 <body>
 
 {% include navbar.html %}
+
+ <div id="segment-breadcrumb" class="segmnt">  <!-- segment-breadcrumb -->
+  <div class="container">  <!-- container -->
+   <ul class="breadcrumb">
+     <li title="{{ site.data.fhir.igName }}"><a href="index.html"><b>{{ site.data.fhir.igName }}</b></a></li>
+     <li><b>{{page.title}} Details</b></li>
+   </ul>
+  </div>  <!-- /container -->
+ </div>  <!-- /segment-breadcrumb -->
 
  <div id="segment-content" class="segment">  <!-- segment-content -->
  <div class="container">  <!-- container -->

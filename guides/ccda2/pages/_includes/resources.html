@@ -1,0 +1,13 @@
+<p>This guide defines the following profiles.</p>
+<table class="codes">
+    <tr>
+        <td><b>Profile Name</b></td>
+        <td><b>Description</b></td>
+    </tr>
+    {% for sd in site.data.structuredefinitions %}
+    <tr>
+        <td><a href="{{ sd[1].path }}">{{ sd[1].name }}</a></td>
+        <td>TODO: StructureDefinition description</td>
+    </tr>
+    {% endfor %}
+</table>
