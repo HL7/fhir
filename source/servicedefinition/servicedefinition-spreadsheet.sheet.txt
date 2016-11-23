@@ -321,8 +321,8 @@
  -- Row 19 -----------------------------------
   Name = evaluate.return
   Use = out
-  Documentation = The result of the request as a CarePlan resource.
-  Type = CarePlan
+  Documentation = The result of the request as a GuidanceResponse resource.
+  Type = GuidanceResponse
   Title = Return
   Min = 1
   Max = 1

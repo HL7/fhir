@@ -149,9 +149,9 @@
   Definition = The output parameters of the evaluation, if any. Many modules will result in the return of specific resources such as procedure or communication requests that are returned as part of the operation result. However, modules may define specific outputs that would be returned as the result of the evaluation, and these would be returned in this element
 
  -- Row 14 -----------------------------------
-  Element = GuidanceResponse.requestGroup
+  Element = GuidanceResponse.result
   Card. = 0..1
-  Type = Reference(RequestGroup)
+  Type = Reference(CarePlan|RequestGroup)
   Short Name = Proposed actions, if any
   Definition = The actions, if any, produced by the evaluation of the artifact
 
