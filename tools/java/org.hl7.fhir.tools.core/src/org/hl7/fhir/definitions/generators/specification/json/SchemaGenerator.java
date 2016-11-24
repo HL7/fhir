@@ -88,7 +88,7 @@ public class SchemaGenerator {
 
     List<String> names = new ArrayList<String>();
     names.addAll(definitions.getResources().keySet());
-	names.addAll(definitions.getBaseResources().keySet());
+	  names.addAll(definitions.getBaseResources().keySet());
 	
     names.add("Parameters");
     Collections.sort(names);
@@ -100,7 +100,7 @@ public class SchemaGenerator {
 	  }
 
     addAllResourcesChoice(schema, names);
-	save(generateAllResourceChoice(names), xsdDir+"ResourceList.schema.json");
+  	save(generateAllResourceChoice(names), xsdDir+"ResourceList.schema.json");
     save(schema, xsdDir+"fhir.schema.json");
 
 	  dir = new CSFile(xsdDir);

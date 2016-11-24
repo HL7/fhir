@@ -242,7 +242,7 @@ public class HTMLLinkChecker implements FileNotifier {
       if ("self-link".equals(node.getAttribute("class")))
         return; 
       String target = collapse(base, path, source);
-      if (target.endsWith(".xml") || target.endsWith(".json") || target.endsWith(".xsd") || target.endsWith(".txt") || target.endsWith(".sch") || target.endsWith(".pdf") || target.endsWith(".epub")) {
+      if (target.endsWith(".xml") || target.endsWith(".json") || target.endsWith(".jsonld") || target.endsWith(".xsd") || target.endsWith(".shex") || target.endsWith(".txt") || target.endsWith(".sch") || target.endsWith(".pdf") || target.endsWith(".epub")) {
         if (!(new File(Utilities.path(page.getFolders().dstDir, target)).exists()))
           reportError(base, "Broken Link (1) in "+base+": '"+href+"' not found at \""+Utilities.path(page.getFolders().dstDir, target)+"\" ("+node.allText()+")");
         node.setAttribute("href", webPath+"/"+target.replace(File.separatorChar, '/'));

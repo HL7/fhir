@@ -36,12 +36,12 @@ This page and the RDF forms are joinlty maintained by the HL7 FHIR project and t
 
 <p>
 FHIR resources can be represented as an <a href="http://www.w3.org/RDF/">RDF graph</a> serialised in the 
-<a href="https://www.w3.org/TR/turtle/">Turtle format</a>. The RDF format is defined to assist the process 
-of bridging between operational data exchange and formal knowledge processing systems. While the RDF 
-form offers a fully functional representation of FHIR resources, it has different operational 
-characteristics to the <a href="json.html">JSON</a> and <a href="xml.html">XML</a> representations, and 
-would be implemented for different reasons. Systems focused on operational exchange of data would 
-not generally use choose to use RDF.
+<a href="https://www.w3.org/TR/turtle/">Turtle format</a>, or as <a href="http://json-ld.org">JSON-LD</a>. 
+The RDF format is defined to assist the process of bridging between operational data exchange and formal 
+knowledge processing systems. While the RDF form offers a fully functional representation of FHIR 
+resources, it has different operational characteristics to the <a href="json.html">JSON</a> and 
+<a href="xml.html">XML</a> representations, and would be implemented for different reasons. 
+Systems focused on operational exchange of data would not generally use choose to use RDF.
 </p>
 <p>
 This page describes:
@@ -250,9 +250,33 @@ the serialiser, or injected by a post-processor.
 
 <p>
 FHIR uses ShEx for representing the turtle schema.
-Todo: actually generate the ShEx schema.
+See <a href="fhir.shex">fhir.shex</a> for definitions. 
 </p>
 
+<a name="json-ld"> </a>
+<h4>JSON-LD</h4>
+<p>
+As a by-product of the RDF format, a JSON-LD format is defined
+to represent exactly the same information as the Turtle format, 
+but using the JSON-LD syntax. Some specific notes about the JSON-LD format:
+</p>
+<ul>
+ <li>There is an @context on every resource, since the resources are inherently polymorphic at the format level</li>
+ <li>There is a version problem with the definitions; the definitions are generated at the version specific end-point, but the context 
+     references are not version specific. Input on the issues associated with this is welcome</li>
+</ul>
+<a name="dstu0"> </a>
+<blockquote class="dstu-note">
+  <p>
+    <b>STU Note:</b>
+    The definition of the JSON-LD format means that the FHIR specification defines 
+    two different JSON formats. It seems unlikely that normal implementers
+    will prefer the JSON-LD format over the <a href="json.html">other JSON format</a>,
+    since that is more dense, but there are other implementers who will use
+    the JSON-LD format. On the other hand, defining two different JSON formats 
+    seems like a recipe for confusion. Feedback from implementers is welcome.
+  </p>
+</blockquote>
 
 <a name="class"> </a>
 <h3>RDF Representation of FHIR</h3>
