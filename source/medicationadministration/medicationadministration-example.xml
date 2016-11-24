@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<MedicationAdministration xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationAdministration.xsd"> 
+<MedicationAdministration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationadministration.xsd"
+ xmlns="http://hl7.org/fhir"> 
   <id value="example"/>
 <text>
     <status value="generated"/>
@@ -9,37 +11,36 @@
       <p>to patient ref: a23</p>
     </div>
   </text> 
-<!--  -->
+  <identifier>
+    <use value="official"/>
+    <system value="http://www.bmc.nl/portal/administrations"/>
+    <value value="12345689"/>
+  </identifier>
   <status value="completed"/>
-  <patient>
-    <reference value="Patient/example"/>
-  </patient>
-  <practitioner>
-    <reference value="Practitioner/example"/>
-  </practitioner>
-  <prescription>
-    <reference value="MedicationRequest/example"/>
-  </prescription>
-  <effectiveTimePeriod>
-  <start value="2012-06-01T14:30:00+01:00"/>
-  <end value="2012-06-01T14:30:00+01:00"/>
-</effectiveTimePeriod>
   <medicationReference>
     <reference value="Medication/example"/> 
   </medicationReference>
+  <patient>
+    <reference value="Patient/pat1"/>
+    <display value="Donald Duck"/> 
+  </patient>
+  <effectivePeriod>
+    <start value="2012-06-01T14:30:00+01:00"/>
+    <end value="2012-06-01T14:30:00+01:00"/>
+  </effectivePeriod>
+  <performer>
+    <reference value="Practitioner/example"/>
+  </performer>
+  <prescription>
+    <reference value="MedicationRequest/example"/>
+  </prescription>
   <dosage>
-    <route>
-      <coding>
-        <system value="http://snomed.info/sct"/>
-        <code value="394899003"/>
-        <display value="oral administration of treatment"/>
-      </coding>  
-    </route>
-    <quantity>
-      <value value="10"/>
-      <unit value="ml"/>
-      <system value="http://unitsofmeasure.org"/>
-      <code value="ml"/>
-    </quantity>
+    <text value="one tablet four times daily"/>
+    <dose>
+      <value value="1"/>
+      <unit value="TAB"/>
+      <system value="http://hl7.org/fhir/v3/orderableDrugForm"/>
+      <code value="TAB"/>
+    </dose>
   </dosage>
 </MedicationAdministration>

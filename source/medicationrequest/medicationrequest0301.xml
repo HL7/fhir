@@ -41,10 +41,10 @@
         <reference value="Procedure/biopsy"></reference>
     </supportingInformation>
     <dateWritten value="2015-01-15"/>
-    <prescriber> <!-- Linked to the practitioner who treats patient -->
+    <requester> <!-- Linked to the practitioner who treats patient -->
         <reference value="Practitioner/f007"/>
         <display value="Patrick Pump"/>
-    </prescriber>
+    </requester>
     <reasonCode>
         <coding>
             <system value="http://snomed.info/sct"/>

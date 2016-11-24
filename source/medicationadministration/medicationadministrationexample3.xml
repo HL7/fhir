@@ -29,10 +29,10 @@
 <supportingInformation>
   <reference value ="Condition/f204"></reference>
 </supportingInformation>
- <effectiveTimePeriod>
+ <effectivePeriod>
   <start value="2015-01-15T14:30:00+01:00"/>
   <end value="2015-01-15T14:30:00+01:00"/>
-</effectiveTimePeriod>
+</effectivePeriod>
   <prescription>
     <reference value="MedicationRequest/medrx0317"/>
   </prescription>

@@ -22,10 +22,10 @@
    <reference value="Patient/pat1"/>
    <display value="Donald Duck"/> 
   </patient>
- <effectiveTimePeriod>
+ <effectivePeriod>
   <start value="2015-01-15T22:03:00+01:00"/>
    <end value="2015-01-16T02:03:00+01:00"/>
-</effectiveTimePeriod>
+</effectivePeriod>
   <performer>
     <reference value="Practitioner/f007"/>
     <display value="Patrick Pump"/>

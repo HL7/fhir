@@ -49,10 +49,10 @@
         <display value="encounter who leads to this prescription"/>
     </context>
     <dateWritten value="2015-01-15"/>
-    <prescriber> <!-- Linked to the practitioner who treats patient -->
+    <requester> 
         <reference value="Practitioner/f007"/>
         <display value="Patrick Pump"/>
-    </prescriber>
+    </requester>
     <note>
         <text value="Patient told to take with food"/>
     </note>

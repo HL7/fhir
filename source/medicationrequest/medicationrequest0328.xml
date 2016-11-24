@@ -45,11 +45,11 @@
         <display value="Donald Duck"/>
     </patient>
     <dateWritten value="2015-01-15"/>
-    <prescriber>
+    <requester>
         <!-- Linked to the practitioner who treats patient -->
         <reference value="Practitioner/f007"/>
         <display value="Patrick Pump"/>
-    </prescriber>
+    </requester>
     <dosageInstruction>
         <sequence value="1"/>
         <text value="Use 1 spray twice daily"/>

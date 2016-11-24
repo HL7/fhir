@@ -197,7 +197,7 @@
   w5 = context
 
  -- Row 8 -----------------------------------
-  Element = MedicationAdministration.effectiveTime[x]
+  Element = MedicationAdministration.effective[x]
   Card. = 1..1
   Summary = y
   Type = dateTime|Period
@@ -424,7 +424,7 @@
   Name = effective-time
   Type = date
   Description = Date administration happened (or did not happen)
-  Path = MedicationAdministration.effectiveTime[x]
+  Path = MedicationAdministration.effective[x]
 
  -- Row 11 -----------------------------------
   Name = performer

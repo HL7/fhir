@@ -31,11 +31,11 @@
 		<display value="encounter that leads to this prescription"/>
 	</context>
 	<dateWritten value="2015-03-01"/>
-	<prescriber>
+	<requester>
 		<!-- Linked to the practitioner who treats patient -->
 		<reference value="Practitioner/f007"/>
 		<display value="Patricia Primary"/>
-	</prescriber>	
+	</requester>	
 	<reasonCode>
 		<coding>
 			<system value="http://snomed.info/sct"/>

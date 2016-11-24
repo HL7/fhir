@@ -48,10 +48,10 @@
         <display value="encounter who leads to this prescription"/>
     </context>
     <dateWritten value="2015-01-15"/>
-    <prescriber> <!-- Linked to the practitioner who treats patient -->
+    <requester> 
         <reference value="Practitioner/f007"/>
         <display value="Patrick Pump"/>
-    </prescriber>
+    </requester>
     <reasonReference>
         <reference value="Condition/f201"></reference>
         <display value="condition for prescribing this medication"></display>

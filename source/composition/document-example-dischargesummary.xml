@@ -392,10 +392,10 @@
           <display value="Peter Patient"/>
         </patient>
       <!--   The prescriber details could also be within the bundle, but has the same options as patient  -->
-        <prescriber>
+        <requester>
           <reference value="Practitioner/example"/>
           <display value="Peter Practitioner"/>
-        </prescriber>
+        </requester>
         <reasonCode>
           <text value="Management of Asthma"/>
         </reasonCode>
