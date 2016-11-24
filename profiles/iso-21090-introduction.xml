@@ -47,6 +47,14 @@ This approach is preferred over referencing the full null flavor specification. 
 <ul>
   <li><a href="extension-iso21090-en-qualifier.html"><b>name-qualifier</b></a> - This extension to <code><a href="datatypes.html#humanname">HumanName</a>.part</code> allows distinguishing initials, middle names, call-me names and other types of names</li>
 </ul>
+<p>
+Note, however, that implementer experience has led to a new set of extensions being defined for 
+most of the human name issues (see <a href="extension-humanname-own-name.html">own-name</a>, 
+<a href="extension-humanname-own-prefix.html">own-prefix</a>, 
+<a href="extension-humanname-partner-name.html">partner-name</a>, 
+<a href="extension-humanname-partner-prefix.html">partner-prefix</a>, 
+<a href="extension-humanname-fathers-family.html">fathers-family</a> and
+<a href="extension-humanname-mothers-family.html">mothers-family</a>), and these should be used in preference to the ISO 21090 extensions.</p>
 </div>
 
 <div>
@@ -96,15 +104,6 @@ These additional elements of Address will be ignored by applications that do not
 </p>
 </div>
 
-<div>
-<a name="string"> </a>
-<h3>String (ST)</h3>
-<p>These extensions provide support for the probability distributions for the <a href="datatypes.html#string">string</a> data type.  There are two properties:</p>
-<ul>
-  <li><a href="extension-iso21090-st-translation.html"><b>string-translation</b></a> - Provides an alternate expression of the string in a different language.  (May have more than one occurrence)</li>
-  <li><a href="extension-iso21090-st-language.html"><b>language</b></a> - Indicates the language of the extended string.  (May also appear on the string-translation extension)</li>
-</ul>
-</div>
 
 </div>
 </div>
