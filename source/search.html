@@ -525,6 +525,10 @@ though only a few servers are expected to offer this facility.
 <p>
 When a string search parameter refers to the types <a href="datatypes.html#HumanName">HumanName</a> and <a href="datatypes.html#Address">Address</a>,
 the search covers the elements of type string, and does not cover elements such as <code>use</code> and <code>period</code>.
+For robust search, servers should search the parts of a family name independently.
+E.g. Searching either Carreno or Quinones should match a family name of "Carreño Quiñones".
+HL7 affiliates may make more specific recommendations about how search should work 
+in their specific culture.
 </p>
 <p>
 It is at the discretion of the server whether to pre-process names, addresses,

@@ -580,7 +580,7 @@ Karen van Hentenryck is of Dutch origin, and the "van" is a voorvoegsel.
   &lt;use value=&quot;official&quot; /&gt;
   &lt;family value=&quot;van Hentenryck&quot; &gt;
     &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/humanname-own-prefix&quot; &gt;
-	   &lt;valueString value=&quot;VV&quot; /&gt;
+	   &lt;valueString value=&quot;van&quot; /&gt;
     &lt;/extension&gt;
   &lt;/family&gt;
   &lt;given value=&quot;Karen&quot; /&gt;
@@ -593,16 +593,19 @@ See <a href="extensibility-examples.html">the Extensibility Example for more inf
 
 
 <div class="example">
-<p>Complex example from Germany: Dr.phil. Regina Johanna Maria Gräfin Hochheim-Weilenfels, NCFSA. This example shows extensive use of
+<p>Complex example from Germany: Dr.phil. Regina Johanna Maria von Hochheim-Weilenfels, NCFSA. This example shows extensive use of
 multiple given names, prefixes, suffixes, for academic degrees, nobility titles, and professional designations.
 </p>
 <pre class="xml" fragment="HumanName">
 &lt;name&gt;
   &lt;use value=&quot;official&quot; /&gt;
-  &lt;family value=&quot;Gräfin Hochheim-Weilenfels&quot;&gt;
+  &lt;family value=&quot;von Hochheim-Weilenfels&quot;&gt;
     &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/humanname-own-prefix&quot; &gt;
-      &lt;valueString value=&quot;Gräfin&quot; /&gt;
+      &lt;valueString value=&quot;von&quot; /&gt;
     &lt;/extension&gt;
+    &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/humanname-own-name&quot;&gt;
+      &lt;valueString value="Hochheim-Weilenfels" /&gt;
+    &lt;/extension&gt;    
   &lt;/family&gt;
   &lt;given value=&quot;Regina&quot; /&gt;
   &lt;given value=&quot;Johanna&quot; /&gt;
@@ -856,8 +859,9 @@ and not always of value, as in this Brazilian Example:
 </p>
 <pre class="xml" fragment="HumanName">
 &lt;name&gt;
-  &lt;family value="Eduardo Santos Tavares Melo Silva" /&gt;
+  &lt;family value="Santos Tavares Melo Silva" /&gt;
   &lt;given value="José" /&gt;
+  &lt;given value="Eduardo" /&gt;
 &lt;/name&gt;
 </pre>
 <p>
@@ -883,7 +887,7 @@ After marriage, this may change to
 </p>
 <pre class="xml" fragment="HumanName">
 &lt;name&gt;
-  &lt;family value="Costa Teixeira Carlos" &gt;
+  &lt;family value="Costa Teixeira Sanches" &gt;
     &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/humanname-fathers&quot;&gt;
         &lt;valueString value=&quot;Costa&quot; /&gt;
     &lt;/extension&gt;
@@ -891,7 +895,7 @@ After marriage, this may change to
         &lt;valueString value=&quot;Teixeira&quot; /&gt;
     &lt;/extension&gt;
     &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/humanname-partners-name&quot;&gt;
-        &lt;valueString value=&quot;Carlos&quot; /&gt;
+        &lt;valueString value=&quot;Sanches&quot; /&gt;
     &lt;/extension&gt;
   &lt;/family&gt;
   &lt;given value="Manuel" /&gt;

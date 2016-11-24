@@ -1008,7 +1008,7 @@ generally rely on the text form for presentation, and use the parts for index/se
 For this reasons, applications SHOULD populate the text element for future robustness.
 </p>
 <p>
-In some cultures (e.g. German, Dutch, Spanish), family names are complex and composed of 
+In some cultures (e.g. German, Dutch, Spanish, Portuguese), family names are complex and composed of 
 various parts that may need to be managed separately, e.g. they have differing significance 
 for searching. In these cases, the full family name is populated in <code>family</code>,
 and a decomposition of the name can be provided using the <code>family</code> extensions
@@ -1018,6 +1018,12 @@ and a decomposition of the name can be provided using the <code>family</code> ex
 <a href="extension-humanname-partner-prefix.html">partner-prefix</a>, 
 <a href="extension-humanname-fathers-family.html">fathers-family</a> and
 <a href="extension-humanname-mothers-family.html">mothers-family</a>.
+</p>
+<p>
+For robust search, servers should search the parts of a family name independently.
+E.g. Searching either Carreno or Quinones should match a family name of "Carreño Quiñones".
+HL7 affiliates may make more specific recommendations about how search should work 
+in their specific culture.
 </p>
 <p>
 HumanName is used in the following places: [%dtusage HumanName%]

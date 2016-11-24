@@ -35,7 +35,7 @@
  -- Row 4 -----------------------------------
   Id = 1
   Code = NL1
-  Display = Maiden Name
+  Display = Own Name
 
  -- Row 5 -----------------------------------
   Id = 2
@@ -50,6 +50,6 @@
  -- Row 7 -----------------------------------
   Id = 4
   Code = NL4
-  Display = Maiden Name followed by Partner Name
+  Display = Own Name followed by Partner Name
 
 === Sheet Search =====================================
