@@ -291,14 +291,23 @@ The following list specifies that transforms that can be specified. Each transfo
 </p>
 <table class="grid">
  <tr><td><b>Name</b></td><td><b>parameters</b></td><td><b>Documentation</b></td></tr>
- <tr><td>copy</td> <td>type</td> <td>simply copy the source to the target as is (only allowed when the types in source and target match- typically for primitive types). In the concretet syntax, this is simply represented as the source variable</td></tr>
- <tr><td>create</td> <td>source</td> <td>use the standard API to create a new instance of data. Where structure definitions have been provided, the name must be a known type of a root element. Where they haven't, the application must know the name somehow</td></tr>
+ <tr><td>copy</td> <td>source</td> <td>simply copy the source to the target as is (only allowed when the types in source and target match- typically for primitive types). In the concretet syntax, this is simply represented as the source variable</td></tr>
+ <tr><td>create</td> <td>type</td> <td>use the standard API to create a new instance of data. Where structure definitions have been provided, the type parameter must be a string which is a known type of a root element. Where they haven't, the application must know the name somehow</td></tr>
  <tr><td>truncate</td> <td>source, length</td> <td>source must be some stringy type that has some meaningful length property</td></tr>
  <tr><td>escape</td> <td>source, format1, format2</td> <td>Change the internal escaping of a string element. Note: this is not often needed, as mostly the escaping is done on the base format</td></tr>
  <tr><td>cast</td> <td>source, type?</td> <td>cast source from one type to another. target type can be left as implicit if there is one and only one target type known</td></tr>
  <tr><td>append</td> <td>source...</td> <td>source is element or string - just append them all together</td></tr>
- <tr><td>translate</td> <td>source, map_uri</td> <td>use the <a href="conceptmap-operations.html#translate">translate operation</a></td></tr>
+ <tr><td>translate</td> <td>source, map_uri, output</td> <td>use the <a href="conceptmap-operations.html#translate">translate operation</a>. The source is some type of code or coded datatype, and the source and map_uri are passed to the translate operation. The output determines what value from the translate operation is used for the result of the operation (code, system, display, Coding, or CodeableConcept)</td></tr>
  <tr><td>reference</td> <td>source</td> <td>return a string that references the provided tree properly</td></tr>
+ <tr><td>dateOp</td> <td>??</td> <td>Perform a date operation. Parameters to be documented</td></tr>
+ <tr><td>uuid</td> <td>n/a</td> <td>Generate a random UUID (in lowercase). No Parameters</td></tr>
+ <tr><td>pointer</td> <td>resource</td> <td>Return the appropriate string to put in a Reference that refers to the resource provided as a parameter</td></tr>
+ <tr><td>evaluate</td> <td>resource</td> <td>Execute the supplied fluentpath expression and use the value returned by that. In the concrete syntax, there is a short hand for this operation, by supplying () around the parameter</td></tr>
+ <tr><td>cc</td> <td>(text) or (system. Code[, display])</td> <td>Create a CodeableConcept from the parameters provided</td></tr>
+ <tr><td>c</td> <td>system. Code[, display]</td> <td>Create a Coding from the parameters provided</td></tr>
+ <tr><td>qty</td> <td>(text) or (value, unit, [system, code])</td> <td>Create a quantity. Parameters = (text) or (value, unit, [system, code]) where text =s the natural represenation e.g. [comparator]value[space]unit</td></tr>
+ <tr><td>id</td> <td>system, value[, type]</td> <td>Create an identifier. where type is a code from the identifier type value set</td></tr>
+ <tr><td>cp</td> <td>(value) or (system, value)</td> <td>Create a contact details. If no system is provided, the system should be inferred from the content of the value</td></tr>
 </table>
 
 <p>
