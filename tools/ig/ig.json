@@ -9,6 +9,7 @@
     "specification" : "http://hl7-fhir.github.io/"
   },
 	"source": "ig.xml",
+  "sct-edition" :  "http://snomed.info/sct/900000000000207008",
 	"canonicalBase": "http://hl7.org/fhir/template-adhoc-ig",
 	"defaults": {
 		"Any": {
