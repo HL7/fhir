@@ -232,6 +232,7 @@
   Binding = MedicationRequestStage
   Short Name = proposal | plan | original-order
   Definition = Whether the request is a proposal, plan, or an original order
+  Comments = It is expected that the type of requester will be restricted for different stages of a MedicationRequest.  For example, Proposals can be created by a patient, relatedPerson, Practitioner or Device.  Plans can be created by Practitioners, Patients, RelatedPersons and Devices.  Original orders can be created by a Practitioner only.
   w5 = class
 
  -- Row 8 -----------------------------------
@@ -294,12 +295,13 @@
   w5 = when.recorded
 
  -- Row 13 -----------------------------------
-  Element = MedicationRequest.prescriber
+  Element = MedicationRequest.requester
   Card. = 0..1
   Summary = y
-  Type = Reference(Practitioner)
+  Type = Reference(Practitioner | Organization |Patient |RelatedPerson |Device)
   Short Name = Who ordered the initial medication(s)
   Definition = The healthcare professional responsible for authorizing the initial prescription.
+  Comments = It is expected that the type of requester will be restricted for different stages of a MedicationRequest.  For example, Proposals can be created by a patient, relatedPerson, Practitioner or Device.  Plans can be created by Practitioners, Patients, RelatedPersons and Devices.  Original orders can be created by a Practitioner only.
   SCRIPT 10.6 Mapping = Message/Body/NewRx/Prescriber\r\r(need detail to link to specific prescriber … Prescriber.Identification in SCRIPT)
   v2 Mapping = RXE-13-Ordering Provider\'s DEA Number / RXO-14-Ordering Provider\'s DEA Number / RXE-14-Pharmacist/Treatment Supplier\'s Verifier ID / RXO-15-Pharmacist/Treatment Supplier\'s Verifier ID / ORC-12-Ordering Provider / PRT-5-Participation Person: PRT-4-Participation=\'OP\' (all but last deprecated)
   RIM Mapping = author.role
@@ -507,10 +509,10 @@
   Path = MedicationRequest.status
 
  -- Row 8 -----------------------------------
-  Name = prescriber
+  Name = requester
   Type = reference
   Description = Returns prescriptions prescribed by this prescriber
-  Path = MedicationRequest.prescriber
+  Path = MedicationRequest.requester
 
  -- Row 9 -----------------------------------
   Name = intended-dispenser
