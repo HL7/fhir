@@ -569,13 +569,16 @@ OIDs.
 <a name="token"> </a>
 <h4>token</h4>
 <p>
-A token type is a parameter that searches on a URI/value pair. It is
-used against a code or identifier data type where the value may have a
-URI that scopes its meaning. The search is performed against the  pair
-from a Coding or an Identifier.  Matches are literal (e.g. not based on
-subsumption or other code system features), but not case sensitive. To
-use subsumption based logic, use the modifiers below, or list all the
-codes in the heirarchy. The syntax for the value is one of the following:
+A token type is a parameter that provides an exact match search, either on a string of characters, potentially 
+scoped by a URI. It is mostly used against a code or identifier data type where the value may have a
+URI that scopes its meaning, where the search is performed against the  pair from a Coding or an 
+Identifier. Tokens are also used against other fields where exact matches are required - uris,
+booleans, and ContactDetails. In these cases, the URI portion is not used.
+</p>
+<p>
+For tokens, matches are literal (e.g. not based on subsumption or other code system features), 
+but not case sensitive. To use subsumption based logic, use the modifiers below, or list 
+all the codes in the heirarchy. The syntax for the value is one of the following:
 </p>
 <ul>
  <li><b><code>[parameter]=[code]</code></b>: the value of <code>[code]</code> matches a Coding.code or Identifier.value irrespective of the value of the system property</li>
@@ -584,7 +587,9 @@ codes in the heirarchy. The syntax for the value is one of the following:
  <li><b><code>[parameter]=[system]|</code></b>: any element where the value of <code>[system]</code> matches the system property of the Identifier or Coding</li>
 </ul>
 <p>
-Note: The namespace URI and code both must be <a href="#escaping">escaped</a> correctly.
+Note: The namespace URI and code both must be <a href="#escaping">escaped</a> correctly. 
+If a system is not applicable (e.g. an element of type <a href="datatypes.html#uri">uri</a>,
+then just the form [parameter]=[code] is used.
 </p>
 <p>
 Token search parameters are used for the following data types:
