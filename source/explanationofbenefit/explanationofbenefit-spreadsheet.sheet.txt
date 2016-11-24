@@ -400,7 +400,7 @@
  -- Row 1 -----------------------------------
   Element = ExplanationOfBenefit
   Aliases = EOB
-  UML = 360;150
+  UML = 360;170
   Type = DomainResource
   Short Name = Explanation of Benefit resource
   Definition = This resource provides: the claim details; adjudication details from the processing of a Claim; and optionally account balance information, for informing the subscriber of the benefits provided.
@@ -627,7 +627,7 @@
   Card. = 0..1
   Type = Reference(MedicationRequest)
   Short Name = Original Prescription
-  Definition = Original prescription which has been superceded by this prescription to support the dispensing of pharmacy services, medications or products.
+  Definition = Original prescription which has been superceded by this prescription to support the dispensing of pharmacy services, medications or products. For example, a physician may prescribe a medication which the pharmacy determines is contraindicated, or for which the patient has an intolerance, and therefor issues a new precription for an alternate medication which has the same theraputic intent. The prescription from the pharmacy becomes the \'prescription\' and that from the physician becomes the \'original prescription\'.
 
  -- Row 30 -----------------------------------
   Element = !Payee Information
@@ -806,9 +806,9 @@
   Requirements = Required to maintain order of the diagnoses.
 
  -- Row 53 -----------------------------------
-  Element = ExplanationOfBenefit.diagnosis.diagnosis
+  Element = ExplanationOfBenefit.diagnosis.diagnosis[x]
   Card. = 1..1
-  Type = CodeableConcept
+  Type = CodeableConcept|Reference(Condition)
   Binding = ICD10
   Short Name = Patient\'s list of diagnosis
   Definition = The diagnosis.
@@ -1216,7 +1216,7 @@
  -- Row 106 -----------------------------------
   Element = ExplanationOfBenefit.item.adjudication
   Card. = 0..*
-  UML = 400;800
+  UML = 400;820
   Type = =Adjudication
   Short Name = Adjudication details
   Definition = The adjudications results.
@@ -1257,7 +1257,7 @@
  -- Row 112 -----------------------------------
   Element = ExplanationOfBenefit.item.detail
   Card. = 0..*
-  UML = 360;940
+  UML = 360;960
   Type = =Detail
   Short Name = Additional items
   Definition = Second tier of goods and services.
@@ -1394,7 +1394,7 @@
  -- Row 129 -----------------------------------
   Element = ExplanationOfBenefit.item.detail.subDetail
   Card. = 0..*
-  UML = 740;940
+  UML = 740;960
   Type = =SubDetail
   Short Name = Additional items
   Definition = Third tier of goods and services.
@@ -1781,7 +1781,7 @@
  -- Row 178 -----------------------------------
   Element = ExplanationOfBenefit.payment
   Card. = 0..1
-  UML = 360;630
+  UML = 360;650
   Type = =Payment
   Short Name = Payment (if paid)
   Definition = Payment details for the claim if the claim has been paid.
@@ -2090,6 +2090,12 @@
   Type = reference
   Description = Facility responsible for the goods and services
   Path = ExplanationOfBenefit.facilityReference
+
+ -- Row 19 -----------------------------------
+  Name = coverage
+  Type = reference
+  Description = The plan under which the claim was adjudicated
+  Path = ExplanationOfBenefit.insurance.coverage
 
 === Sheet Profiles =====================================
 

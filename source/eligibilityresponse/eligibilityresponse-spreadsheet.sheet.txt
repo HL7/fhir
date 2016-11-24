@@ -159,7 +159,7 @@
   Element = EligibilityResponse.request
   Card. = 0..1
   Type = Reference(EligibilityRequest)
-  Short Name = Claim reference
+  Short Name = Eligibility reference
   Definition = Original request resource reference
   CDAnet v4 Mapping = A02|G01
   w5 = why

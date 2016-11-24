@@ -598,7 +598,7 @@
   Card. = 0..1
   Type = Reference(MedicationRequest)
   Short Name = Original Prescription
-  Definition = Original prescription which has been superceded by this prescription to support the dispensing of pharmacy services, medications or products.
+  Definition = Original prescription which has been superceded by this prescription to support the dispensing of pharmacy services, medications or products. For example, a physician may prescribe a medication which the pharmacy determines is contraindicated, or for which the patient has an intolerance, and therefor issues a new precription for an alternate medication which has the same theraputic intent. The prescription from the pharmacy becomes the \'prescription\' and that from the physician becomes the \'original prescription\'.
   Comments = as above
 
  -- Row 26 -----------------------------------
@@ -770,9 +770,9 @@
   Requirements = Required to maintain order of the diagnoses.
 
  -- Row 49 -----------------------------------
-  Element = Claim.diagnosis.diagnosis
+  Element = Claim.diagnosis.diagnosis[x]
   Card. = 1..1
-  Type = CodeableConcept
+  Type = CodeableConcept|Reference(Condition)
   Binding = ICD10
   Short Name = Patient\'s diagnosis
   Definition = The diagnosis.
@@ -860,7 +860,7 @@
   Card. = 1..1
   Type = boolean
   Short Name = Is the focal Coverage
-  Definition = The instance number of the Coverage which is the focus for adjudication. The Coverage against which the claim is to be adjudicated.
+  Definition = A flag to indicate that this Coverage is the focus for adjudication. The Coverage against which the claim is to be adjudicated.
   Requirements = To identify which coverage is being adjudicated.
 
  -- Row 61 -----------------------------------
