@@ -67,10 +67,10 @@
   Conformance = example
 
  -- Row 10 -----------------------------------
-  Binding Name = ParamCode
+  Binding Name = StatisticsCode
   Binding = code list
-  Reference = #observation-paramcode
-  Definition = The statistical operation parameter -\"params\" -  codes
+  Reference = #observation-statistics
+  Definition = The statistical operation parameter -\"statistic\" -  codes
   Conformance = required
 
 === Sheet observation-status =====================================
@@ -161,7 +161,7 @@
   Definition = The value of the target observation interferes (degrades quality, or prevents valid observation) with the semantics of the source observation (e.g. a hemolysis measure target from a plasma potassium measure which has no value).
   v3 = =ActRrelationshipType.INTF
 
-=== Sheet observation-paramcode =====================================
+=== Sheet observation-statistics =====================================
 
  -- Row 1 -----------------------------------
   Id = 1
@@ -1148,49 +1148,73 @@
 
  -- Row 1 -----------------------------------
   Name = stats
-  Use = Resource|Instance
-  Documentation = The Statistics operation performs a set of statistical calculations on a set of clinical measurements such as a blood pressure.  This operation is limited to [Observation](observation.html) resources with valueQuantity elements.\r\rThe set of Observations is defined by a the input parameters `patient`,`code` and `duration` and `params`. The set of statistical calculation depends upon the value of the `params` parameter:\r\r- **average** - for example if code = 55284-4 the mean of 55284-4 over the stated period from an operation\r- **max** - for example if code = 55284-4 the max of 55284-4 over the stated period from an operation\r- **min** - for example if code = 55284-4 the min of 55284-4 over the stated period from an operation\r- **count** - for example if code = 55284-4 the number of occurances of value x of 55284-4 over the stated period from an operation\r\rIf successful, the operation returns an Observation resource with the results of the statistical calculations as component value pairs where the component code = the params code. The Observation also contains the the input parameters `patient`,`code` and `duration` parameters. If unsuccessful, an [OperationOutcome](operationoutcome.html) with an error message will be returned.
+  Use = Resource
+  Documentation = The Statistics operation performs a set of statistical calculations on a set of clinical measurements such as a blood pressure as stored on the server.  This operation is focused on [Observation](observation.html) resources with valueQuantity elements.\n\nThe set of Observations is defined by 4 parameters: \n- the subject of the observations for which the statistics are being generated (`subject`)\n- which observations to generate statistics for (`code` and \'system\', or \'coding\')\n- the time period over which to generate statistics (\'duration\' or \'period\')\n- the set of statistical analyses to return (`statistic`). \n\nPossible statistical analyses:\n- **average** - for example if code = 55284-4 the mean of 55284-4 over the stated period\r\n- **maximum** - for example if code = 55284-4 the maximum of 55284-4 over the stated period\n- **minimum** - for example if code = 55284-4 the minimim of 55284-4 over the stated period \n\r- **count** - for example if code = 55284-4 the number of occurances of value x of 55284-4 over the stated period\n- **totalcount** - for example if code = 55284-4 the number of occurances of an observation, whether or not is has a value of 55284-4 over the stated period - e.g. this includes unsuccessful observations that have been ignored\n\n\r\rIf successful, the operation returns an Observation resource for each code with the results of the statistical calculations as component value pairs where the component code = the statistical code. The Observation also contains the the input parameters `patient`,`code` and `duration` parameters. If unsuccessful, an [OperationOutcome](operationoutcome.html) with an error message will be returned.
   Type = operation
   Example.Request = $stats-request.txt
   Example.Response = $stats-response.txt
   Title = Observation Statistics
 
  -- Row 2 -----------------------------------
-  Name = stats.patient
+  Name = stats.subject
   Use = in
-  Documentation = The FHIR Patient resource id of the relevant Observations. For example  The patient id  = \"123\"  in Observation.subject.reference = Patient/123.
-  Type = id
+  Documentation = The subject of the relevant Observations, which has the value of the Observation.subject.reference. E.g. \'Patient/123\'. Reference can be to an absolute URL, but servers only perform stats on their own observations
+  Type = uri
   Min = 1
   Max = 1
 
  -- Row 3 -----------------------------------
   Name = stats.code
   Use = in
-  Documentation = The test code upon which the statistics are being performed.   For example, the code  = \"45667-2\"  will evaluate all relevant Observations with this code in Observation.code.
+  Documentation = The test code(s) upon which the statistics are being performed. Provide along with a system, or as a coding. For example, the code  = \"45667-2\"  will evaluate all relevant Observations with this code in Observation.code. For LOINC codes that are panels, (e.g. 55284-4) this means to include all the individual codes that are part of a panel
   Type = string
-  Min = 1
-  Max = 1
+  Min = 0
+  Max = *
 
  -- Row 4 -----------------------------------
-  Name = stats.duration
+  Name = stats.system
   Use = in
-  Documentation = The time period of interest given as hours.  For example, the duration = \"1\" is the last hour
-  Type = decimal
-  Min = 1
+  Documentation = The system for the code(s). Or provide a coding instead
+  Type = uri
+  Min = 0
   Max = 1
 
  -- Row 5 -----------------------------------
-  Name = stats.params
+  Name = stats.coding
   Use = in
-  Documentation = average|max|min|count  The statistical operations to be performed on the relevant operations.   These codes are defined [here](todo.html)
-  Type = code
-  Min = 1
-  Max = 4
+  Documentation = The test code upon which the statistics are being performed, as a Coding
+  Type = Coding
+  Min = 0
+  Max = *
 
  -- Row 6 -----------------------------------
-  Name = stats.obs
+  Name = stats.duration
+  Use = in
+  Documentation = The time period of interest given as hours.  For example, the duration = \"1\" represents the last hour - the time period from on hour ago to now
+  Type = decimal
+  Min = 0
+  Max = 1
+
+ -- Row 7 -----------------------------------
+  Name = stats.period
+  Use = in
+  Documentation = The time period over which the calculations to be performed, if a duration is not provided
+  Type = Period
+  Min = 0
+  Max = 1
+
+ -- Row 8 -----------------------------------
+  Name = stats.params
+  Use = in
+  Documentation = average|max|min|count  The statistical operations to be performed on the relevant operations. Multiple statistics operations can be specified. These codes are defined [here](valueset-observation-statistics.html)
+  Type = code
+  Min = 1
+  Max = *
+
+ -- Row 9 -----------------------------------
+  Name = stats.return
   Use = out
-  Documentation = The Observation.component.code is relative to the Observation.code and cannot be interpreted independently.  The code input parameter is returned as the code element. The \'patient\' parameter is returned as the patient element.  The `period` input parameter is returned as the appliesPeriod element.  The status is fixed to `final`.
+  Documentation = A set of observations, one observation for each code, each containing one component for each statistic. The Observation.component.code contains the statistic, and is relative to the Observation.code and cannot be interpreted independently.  The Observation will also contain a subject, effectivePeriod, and code reflecting the input parameters.  The status is fixed to `final`.
   Type = Observation
   Min = 1
-  Max = 2
+  Max = *
