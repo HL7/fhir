@@ -1,0 +1,20 @@
+﻿{
+  "url": "http://hl7.org/fhir/ValueSet/usage-context-type",
+  "outcomes": [
+    {
+      "hash": "|http://example.org/fhir/CodeSystem/indications|null|disease-or-histology|null",
+      "severity": "error",
+      "message": "Unknown Code disease-or-histology in http://hl7.org/fhir/ValueSet/usage-context-type"
+    },
+    {
+      "hash": "|http://example.org/fhir/CodeSystem/indications|null|treamentSetting-or-diseaseStatus|null",
+      "severity": "error",
+      "message": "Unknown Code treamentSetting-or-diseaseStatus in http://hl7.org/fhir/ValueSet/usage-context-type"
+    },
+    {
+      "hash": "|http://example.org/fhir/CodeSystem/indications|null|treatmentSetting-or-diseaseStatus|null",
+      "severity": "error",
+      "message": "Unknown Code treatmentSetting-or-diseaseStatus in http://hl7.org/fhir/ValueSet/usage-context-type"
+    }
+  ]
+}

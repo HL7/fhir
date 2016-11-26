@@ -9,7 +9,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Grahame Grieve</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2016-11-26T00:11:06Z</LastSaved>
+  <LastSaved>2016-11-26T05:21:16Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -979,6 +979,14 @@
     <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="3"/>
    </Borders>
    <Interior/>
+  </Style>
+  <Style ss:ID="s181">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="3"/>
+   </Borders>
+   <Interior/>
+   <NumberFormat ss:Format="0%"/>
   </Style>
  </Styles>
  <Names>
@@ -5663,7 +5671,7 @@
     <Cell ss:StyleID="s118"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s118"><Data ss:Type="String">Observation Statistics</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s145"><Data ss:Type="String">The Statistics operation performs a set of statistical calculations on a set of clinical measurements such as a blood pressure as stored on the server.  This operation is focused on [Observation](observation.html) resources with valueQuantity elements.&#10;&#10;The set of Observations is defined by 4 parameters: &#10;- the subject of the observations for which the statistics are being generated (`subject`)&#10;- which observations to generate statistics for (`code` and 'system', or 'coding')&#10;- the time period over which to generate statistics ('duration' or 'period')&#10;- the set of statistical analyses to return (`statistic`). &#10;&#10;Possible statistical analyses:&#10;- **average** - for example if code = 55284-4 the mean of 55284-4 over the stated period&#13;&#10;- **maximum** - for example if code = 55284-4 the maximum of 55284-4 over the stated period&#10;- **minimum** - for example if code = 55284-4 the minimim of 55284-4 over the stated period &#10;&#13;- **count** - for example if code = 55284-4 the number of occurances of value x of 55284-4 over the stated period&#10;- **totalcount** - for example if code = 55284-4 the number of occurances of an observation, whether or not is has a value of 55284-4 over the stated period - e.g. this includes unsuccessful observations that have been ignored&#10;&#10;&#13;&#13;If successful, the operation returns an Observation resource for each code with the results of the statistical calculations as component value pairs where the component code = the statistical code. The Observation also contains the the input parameters `patient`,`code` and `duration` parameters. If unsuccessful, an [OperationOutcome](operationoutcome.html) with an error message will be returned.&#13;&#13;</Data><NamedCell
+    <Cell ss:StyleID="s145"><Data ss:Type="String">The Statistics operation performs a set of statistical calculations on a set of clinical measurements such as a blood pressure as stored on the server.  This operation is focused on [Observation](observation.html) resources with valueQuantity elements that have UCUM unit codes.&#10;&#10;The set of Observations is defined by 4 parameters: &#10;&#10;- the subject of the observations for which the statistics are being generated (`subject`)&#10;- which observations to generate statistics for (`code` and 'system', or 'coding')&#10;- the time period over which to generate statistics ('duration' or 'period')&#10;- the set of statistical analyses to return (`statistic`). &#10;&#10;Possible statistical analyses (see [StatisticsCode](valueset-observation-statistics.html)):&#10;&#10;[[[valueset:observation-statistics]]]&#10;&#10;&#13;&#13;If successful, the operation returns an Observation resource for each code with the results of the statistical calculations as component value pairs where the component code = the statistical code. The Observation also contains the the input parameters `patient`,`code` and `duration` parameters. If unsuccessful, an [OperationOutcome](operationoutcome.html) with an error message will be returned.&#13;&#13;&#10;&#10;The client can request that all the observations on which the statistics are based be returned as well, using the include parameter. If an include parameter is specified, a limit may also be specified; the sources observations are subsetted at the server's discretion if count &gt; limit. This functionality is included with the intent of supporting graphical presentation</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s146"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">$stats-request.txt</Data></Cell>
@@ -5758,14 +5766,14 @@
     <Cell ss:StyleID="s149"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="s108"><Data ss:Type="String">stats.source</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">out</Data></Cell>
+    <Cell ss:StyleID="s152"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s152"><Data ss:Type="String">*</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">Observation</Data></Cell>
     <Cell ss:StyleID="s126"/>
     <Cell ss:StyleID="s126"/>
-    <Cell ss:StyleID="s154"/>
+    <Cell ss:StyleID="s154"><Data ss:Type="String">Source observations on which the statistics are based</Data></Cell>
     <Cell ss:StyleID="s149"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -6274,8 +6282,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>10</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>11</ActiveRow>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -9668,8 +9676,9 @@
    <Column ss:Width="80.25"/>
    <Column ss:AutoFitWidth="0" ss:Width="35.25"/>
    <Column ss:AutoFitWidth="0" ss:Width="155.25"/>
-   <Column ss:AutoFitWidth="0" ss:Width="80.25" ss:Span="1"/>
-   <Column ss:Index="6" ss:AutoFitWidth="0" ss:Width="245.25"/>
+   <Column ss:AutoFitWidth="0" ss:Width="80.25"/>
+   <Column ss:AutoFitWidth="0" ss:Width="120.75"/>
+   <Column ss:AutoFitWidth="0" ss:Width="506.25"/>
    <Column ss:AutoFitWidth="0" ss:Width="84" ss:Span="1"/>
    <Column ss:Index="9" ss:AutoFitWidth="0" ss:Width="242.25"/>
    <Row ss:AutoFitHeight="0" ss:Height="30">
@@ -9707,13 +9716,13 @@
     <Cell ss:StyleID="s126"/>
     <Cell ss:StyleID="s175"/>
     <Cell ss:StyleID="s175"><Data ss:Type="String">Average</Data></Cell>
-    <Cell ss:StyleID="s175"><Data ss:Type="String">The [mean](https://en.wikipedia.org/wiki/Arithmetic_mean)of N measurements over the stated period</Data></Cell>
+    <Cell ss:StyleID="s175"><Data ss:Type="String">The [mean](https://en.wikipedia.org/wiki/Arithmetic_mean) of N measurements over the stated period</Data></Cell>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s168"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell ss:StyleID="s167"><Data ss:Type="String">max</Data></Cell>
+    <Cell ss:StyleID="s167"><Data ss:Type="String">maximum</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="Number">2</Data></Cell>
     <Cell ss:StyleID="s126"/>
     <Cell ss:StyleID="s175"/>
@@ -9724,7 +9733,7 @@
     <Cell ss:StyleID="s168"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell ss:StyleID="s167"><Data ss:Type="String">min</Data></Cell>
+    <Cell ss:StyleID="s167"><Data ss:Type="String">minimum</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="Number">3</Data></Cell>
     <Cell ss:StyleID="s126"/>
     <Cell ss:StyleID="s175"/>
@@ -9740,161 +9749,161 @@
     <Cell ss:StyleID="s126"/>
     <Cell ss:StyleID="s175"/>
     <Cell ss:StyleID="s175"><Data ss:Type="String">Count</Data></Cell>
-    <Cell ss:StyleID="s175"><Data ss:Type="String">The [number] of measurements over the stated period</Data></Cell>
+    <Cell ss:StyleID="s175"><Data ss:Type="String">The [number] of valid measurements over the stated period that contributed to the other statistical outputs</Data></Cell>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s168"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s167"/>
-    <Cell ss:StyleID="s147"/>
+    <Cell ss:StyleID="s167"><Data ss:Type="String">totalcount</Data></Cell>
+    <Cell ss:StyleID="s147"><Data ss:Type="Number">5</Data></Cell>
     <Cell ss:StyleID="s126"/>
     <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
+    <Cell ss:StyleID="s175"><Data ss:Type="String">Total Count</Data></Cell>
+    <Cell ss:StyleID="s175"><Data ss:Type="String">The total [number] of valid measurements over the stated period, including observations that were ignored because they did not contain valid result values</Data></Cell>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s168"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s167"/>
-    <Cell ss:StyleID="s147"/>
+    <Cell ss:StyleID="s167"><Data ss:Type="String">median</Data></Cell>
+    <Cell ss:StyleID="s147"><Data ss:Type="Number">6</Data></Cell>
     <Cell ss:StyleID="s126"/>
     <Cell ss:StyleID="s175"/>
     <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
+    <Cell ss:StyleID="s175"><Data ss:Type="String">The [median](https://en.wikipedia.org/wiki/Median) of N measurements over the stated period</Data></Cell>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s168"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s167"/>
-    <Cell ss:StyleID="s147"/>
+    <Cell ss:StyleID="s167"><Data ss:Type="String">std-dev</Data></Cell>
+    <Cell ss:StyleID="s147"><Data ss:Type="Number">7</Data></Cell>
     <Cell ss:StyleID="s126"/>
     <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
+    <Cell ss:StyleID="s175"><Data ss:Type="String">standard deviation</Data></Cell>
+    <Cell ss:StyleID="s175"><Data ss:Type="String">The [standard deviation](https://en.wikipedia.org/wiki/Standard_deviation) of N measurements over the stated period</Data></Cell>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s168"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s167"/>
-    <Cell ss:StyleID="s147"/>
+    <Cell ss:StyleID="s167"><Data ss:Type="String">sum</Data></Cell>
+    <Cell ss:StyleID="s147"><Data ss:Type="Number">8</Data></Cell>
     <Cell ss:StyleID="s126"/>
     <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
+    <Cell ss:StyleID="s175"><Data ss:Type="String">sum</Data></Cell>
+    <Cell ss:StyleID="s175"><Data ss:Type="String">The [sum](https://en.wikipedia.org/wiki/Summation) of N measurements over the stated period</Data></Cell>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s168"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s167"/>
-    <Cell ss:StyleID="s147"/>
+    <Cell ss:StyleID="s167"><Data ss:Type="String">variance</Data></Cell>
+    <Cell ss:StyleID="s147"><Data ss:Type="Number">9</Data></Cell>
     <Cell ss:StyleID="s126"/>
     <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
+    <Cell ss:StyleID="s175"><Data ss:Type="String">variance</Data></Cell>
+    <Cell ss:StyleID="s175"><Data ss:Type="String">The [variance](https://en.wikipedia.org/wiki/Variance) of N measurements over the stated period</Data></Cell>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s168"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s167"/>
-    <Cell ss:StyleID="s147"/>
+    <Cell ss:StyleID="s181"><Data ss:Type="String" x:Ticked="1">%20</Data></Cell>
+    <Cell ss:StyleID="s147"><Data ss:Type="Number">10</Data></Cell>
     <Cell ss:StyleID="s126"/>
     <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
+    <Cell ss:StyleID="s175"><Data ss:Type="String">20th percentile</Data></Cell>
+    <Cell ss:StyleID="s175"><Data ss:Type="String">The 20th [Percentile](https://en.wikipedia.org/wiki/Percentile) of N measurements over the stated period</Data></Cell>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s168"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s167"/>
-    <Cell ss:StyleID="s147"/>
+    <Cell ss:StyleID="s181"><Data ss:Type="String" x:Ticked="1">%80</Data></Cell>
+    <Cell ss:StyleID="s147"><Data ss:Type="Number">11</Data></Cell>
     <Cell ss:StyleID="s126"/>
     <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
+    <Cell ss:StyleID="s175"><Data ss:Type="String">80th percentile</Data></Cell>
+    <Cell ss:StyleID="s175"><Data ss:Type="String">The 80th [Percentile](https://en.wikipedia.org/wiki/Percentile) of N measurements over the stated period</Data></Cell>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s168"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s167"/>
-    <Cell ss:StyleID="s147"/>
+    <Cell ss:StyleID="s167"><Data ss:Type="String" x:Ticked="1">4-lower</Data></Cell>
+    <Cell ss:StyleID="s147"><Data ss:Type="Number">12</Data></Cell>
     <Cell ss:StyleID="s126"/>
     <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
+    <Cell ss:StyleID="s175"><Data ss:Type="String">lower quartile</Data></Cell>
+    <Cell ss:StyleID="s175"><Data ss:Type="String">The lower [Quartile](https://en.wikipedia.org/wiki/Quartile) Boundary of N measurements over the stated period</Data></Cell>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s168"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s167"/>
-    <Cell ss:StyleID="s147"/>
+    <Cell ss:StyleID="s167"><Data ss:Type="String" x:Ticked="1">4-upper</Data></Cell>
+    <Cell ss:StyleID="s147"><Data ss:Type="Number">13</Data></Cell>
     <Cell ss:StyleID="s126"/>
     <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
+    <Cell ss:StyleID="s175"><Data ss:Type="String">upper quartile</Data></Cell>
+    <Cell ss:StyleID="s175"><Data ss:Type="String">The upper [Quartile](https://en.wikipedia.org/wiki/Quartile) Boundary of N measurements over the stated period</Data></Cell>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s168"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s167"/>
-    <Cell ss:StyleID="s147"/>
+    <Cell ss:StyleID="s167"><Data ss:Type="String" x:Ticked="1">4-dev</Data></Cell>
+    <Cell ss:StyleID="s147"><Data ss:Type="Number">14</Data></Cell>
     <Cell ss:StyleID="s126"/>
     <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
+    <Cell ss:StyleID="s175"><Data ss:Type="String">quartile deviation</Data></Cell>
+    <Cell ss:StyleID="s175"><Data ss:Type="String">The difference between the upper and lower [Quartiles](https://en.wikipedia.org/wiki/Quartile) is called the Interquartile range. (IQR = Q3-Q1) Quartile deviation or Semi-interquartile range is one-half the difference between the first and the third quartiles.</Data></Cell>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s168"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s167"/>
-    <Cell ss:StyleID="s147"/>
+    <Cell ss:StyleID="s167"><Data ss:Type="String" x:Ticked="1">5-1</Data></Cell>
+    <Cell ss:StyleID="s147"><Data ss:Type="Number">15</Data></Cell>
     <Cell ss:StyleID="s126"/>
     <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
+    <Cell ss:StyleID="s175"><Data ss:Type="String">1st quintile</Data></Cell>
+    <Cell ss:StyleID="s175"><Data ss:Type="String">The lowest of four values that divide the N measurementsinto a frequency distribution of five classes with each containing one fifth of the total population</Data></Cell>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s168"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s167"/>
-    <Cell ss:StyleID="s147"/>
+    <Cell ss:StyleID="s167"><Data ss:Type="String" x:Ticked="1">5-2</Data></Cell>
+    <Cell ss:StyleID="s147"><Data ss:Type="Number">16</Data></Cell>
     <Cell ss:StyleID="s126"/>
     <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
+    <Cell ss:StyleID="s175"><Data ss:Type="String">2nd quintile</Data></Cell>
+    <Cell ss:StyleID="s175"><Data ss:Type="String">The second of four values that divide the N measurementsinto a frequency distribution of five classes with each containing one fifth of the total population</Data></Cell>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s168"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s167"/>
-    <Cell ss:StyleID="s147"/>
+    <Cell ss:StyleID="s167"><Data ss:Type="String" x:Ticked="1">5-3</Data></Cell>
+    <Cell ss:StyleID="s147"><Data ss:Type="Number">17</Data></Cell>
     <Cell ss:StyleID="s126"/>
     <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
+    <Cell ss:StyleID="s175"><Data ss:Type="String">3rd quintile</Data></Cell>
+    <Cell ss:StyleID="s175"><Data ss:Type="String">The third of four values that divide the N measurementsinto a frequency distribution of five classes with each containing one fifth of the total population</Data></Cell>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s168"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s167"/>
-    <Cell ss:StyleID="s147"/>
+    <Cell ss:StyleID="s167"><Data ss:Type="String" x:Ticked="1">5-4</Data></Cell>
+    <Cell ss:StyleID="s147"><Data ss:Type="Number">18</Data></Cell>
     <Cell ss:StyleID="s126"/>
     <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
+    <Cell ss:StyleID="s175"><Data ss:Type="String">4th quintile</Data></Cell>
+    <Cell ss:StyleID="s175"><Data ss:Type="String">The fourth of four values that divide the N measurementsinto a frequency distribution of five classes with each containing one fifth of the total population</Data></Cell>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s168"/>
@@ -10262,8 +10271,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>9</ActiveRow>
-     <ActiveCol>8</ActiveCol>
+     <ActiveRow>1</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

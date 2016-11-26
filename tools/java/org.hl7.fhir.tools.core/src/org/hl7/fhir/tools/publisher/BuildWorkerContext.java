@@ -419,7 +419,9 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
       try {
         return locateLoinc(code);
       } catch (Exception e) {
-      }        
+      }     
+    if (codeSystems.containsKey(system))
+      return findCodeInConcept(codeSystems.get(system).getConcept(), code);
     return null;
   }
 
