@@ -12,17 +12,29 @@ The Media resource contains photos, videos, and audio recordings. It is used wit
  <li>Storing scans and faxes of paper documents where not enough metadata exists to create a <a href="documentreference.html">DocumentReference</a></li>
  <li>Images on diagnostic reports</li> 
 </ul>
+
+
+</div>
+
+<div>
+<a name="bnr"> </a>
+<h2>Boundaries and Relationships</h2>
+
 <p>
-The Media resource may contain medical images in a DICOM format.  While such images may also be accessible through an <a href="imagingstudy.html">ImagingStudy</a> resource, the Media 
-resource enables "ready for presentation" access to a specific image. 
-
-Such images would preferentially be made available in a FHIR ecosystem by the 
-Media.content.url providing a reference to a WADO-RS service to access the image. 
-That WADO-RS service may include rendering the image with annotations and display parameters 
-from an associated DICOM presentation state.
-
-Although the Media resource is allowed to contain images collected by a DICOM based system, DICOM images would preferentially be made available in a FHIR ecosystem
-by provision of a resource with references to a <a href="ftp://medical.nema.org/medical/dicom/final/sup161_ft.pdf">WADO-RS server</a>.
+The Media resource is able to contain medical images in a DICOM format. These images may also be made accessible 
+through an <a href="imagingstudy.html">ImagingStudy</a> resource, which provides a direct reference to the
+image to a <a href="ftp://medical.nema.org/medical/dicom/final/sup161_ft.pdf">WADO-RS server</a>.
+</p>
+<p>
+For such images, the WADO-RS framework is a preferred method for representing the images - the WADO-RS
+service may include rendering the image with annotations and display parameters from an associated DICOM 
+presentation state, for instance. 
+</p>
+<p>
+On the other hand, the media resource allows for a robust transfer of an image across boundaries where
+the WADO-RS service is not available. For this reason, medical images can also be represented in 
+a Media resource, but the Media.content.url should provide a reference to a source WADO-RS service 
+for the image.
 </p>
 </div>
 
