@@ -113,6 +113,7 @@
         <pathelement location="../../../tools/java/imports/commons-io-1.2.jar"/>
         <pathelement location="../../../tools/java/imports/commons-lang3-3.3.2.jar"/>
         <pathelement location="../../../tools/java/imports/commons-httpclient-3.0.1.jar"/>
+        <pathelement location="../../../tools/java/imports/javaparser-1.0.11.jar"/>
         <path refid="org.hl7.fhir.dstu14.classpath"/>
         <path refid="org.hl7.fhir.dstu2.classpath"/>
         <path refid="org.hl7.fhir.dstu3.classpath"/>

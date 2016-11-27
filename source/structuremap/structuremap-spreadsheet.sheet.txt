@@ -449,13 +449,37 @@
   Definition = How to interpret the context
 
  -- Row 37 -----------------------------------
+  Element = StructureMap.group.rule.source.min
+  Card. = 0..1
+  Summary = y
+  Type = integer
+  Short Name = Specified minimum cardinality
+  Definition = Specified minimum cardinality for the element. This is optional; if present, it acts an implicit check on the input content
+
+ -- Row 38 -----------------------------------
+  Element = StructureMap.group.rule.source.max
+  Card. = 0..1
+  Summary = y
+  Type = string
+  Short Name = Specified maximum cardinality (number or *)
+  Definition = Specified maximum cardinality for the element - a number or a \"*\". This is optional; if present, it acts an implicit check on the input content (* just serves as documentation; it\'s the default value)
+
+ -- Row 39 -----------------------------------
+  Element = StructureMap.group.rule.source.type
+  Card. = 0..1
+  Summary = y
+  Type = string
+  Short Name = Type for this source
+  Definition = Specified type for the element. This works as a condition on the mapping - use for polymorphic elements
+
+ -- Row 40 -----------------------------------
   Element = StructureMap.group.rule.source.element
   Card. = 0..1
   Summary = y
   Type = string
   Short Name = Optional field for this source
 
- -- Row 38 -----------------------------------
+ -- Row 41 -----------------------------------
   Element = StructureMap.group.rule.source.listMode
   Card. = 0..1
   Summary = y
@@ -464,35 +488,35 @@
   Short Name = first | share | last
   Definition = How to handle the list mode for this element
 
- -- Row 39 -----------------------------------
+ -- Row 42 -----------------------------------
   Element = StructureMap.group.rule.source.variable
   Card. = 0..1
   Summary = y
   Type = id
   Short Name = Named context for field, if a field is specified
 
- -- Row 40 -----------------------------------
+ -- Row 43 -----------------------------------
   Element = StructureMap.group.rule.source.condition
   Card. = 0..1
   Summary = y
   Type = string
   Short Name = FluentPath expression  - must be true or the rule does not apply
 
- -- Row 41 -----------------------------------
+ -- Row 44 -----------------------------------
   Element = StructureMap.group.rule.source.check
   Card. = 0..1
   Summary = y
   Type = string
   Short Name = FluentPath expression  - must be true or the mapping engine throws an error instead of completing
 
- -- Row 42 -----------------------------------
+ -- Row 45 -----------------------------------
   Element = StructureMap.group.rule.target
   Card. = 0..*
   Summary = y
   UML = right
   Short Name = Content to create because of this mapping rule
 
- -- Row 43 -----------------------------------
+ -- Row 46 -----------------------------------
   Element = StructureMap.group.rule.target.context
   Card. = 0..1
   Summary = y
@@ -500,7 +524,7 @@
   Short Name = Type or variable this rule applies to
   Definition = Type or variable this rule applies to
 
- -- Row 44 -----------------------------------
+ -- Row 47 -----------------------------------
   Element = StructureMap.group.rule.target.contextType
   Card. = 0..1
   Summary = y
@@ -509,21 +533,21 @@
   Short Name = type | variable
   Definition = How to interpret the context
 
- -- Row 45 -----------------------------------
+ -- Row 48 -----------------------------------
   Element = StructureMap.group.rule.target.element
   Card. = 0..1
   Summary = y
   Type = string
   Short Name = Field to create in the context
 
- -- Row 46 -----------------------------------
+ -- Row 49 -----------------------------------
   Element = StructureMap.group.rule.target.variable
   Card. = 0..1
   Summary = y
   Type = id
   Short Name = Named context for field, if desired, and a field is specified
 
- -- Row 47 -----------------------------------
+ -- Row 50 -----------------------------------
   Element = StructureMap.group.rule.target.listMode
   Card. = 0..*
   Summary = y
@@ -532,14 +556,14 @@
   Short Name = first | share | last
   Definition = If field is a list, how to manage the list
 
- -- Row 48 -----------------------------------
+ -- Row 51 -----------------------------------
   Element = StructureMap.group.rule.target.listRuleId
   Card. = 0..1
   Summary = y
   Type = id
   Short Name = Internal rule reference for shared list items
 
- -- Row 49 -----------------------------------
+ -- Row 52 -----------------------------------
   Element = StructureMap.group.rule.target.transform
   Card. = 0..1
   Summary = y
@@ -548,49 +572,49 @@
   Short Name = create | copy +
   Definition = How the data is copied / created
 
- -- Row 50 -----------------------------------
+ -- Row 53 -----------------------------------
   Element = StructureMap.group.rule.target.parameter
   Card. = 0..*
   Summary = y
   UML = up
   Short Name = Parameters to the transform
 
- -- Row 51 -----------------------------------
+ -- Row 54 -----------------------------------
   Element = StructureMap.group.rule.target.parameter.value[x]
   Card. = 1..1
   Summary = y
   Type = id | string | boolean | integer | decimal
   Short Name = Parameter value - variable or literal
 
- -- Row 52 -----------------------------------
+ -- Row 55 -----------------------------------
   Element = StructureMap.group.rule.rule
   Card. = 0..*
   Summary = y
   Type = @StructureMap.group.rule
   Short Name = Rules contained in this rule
 
- -- Row 53 -----------------------------------
+ -- Row 56 -----------------------------------
   Element = StructureMap.group.rule.dependent
   Card. = 0..*
   Summary = y
   UML = down
   Short Name = Which other rules to apply in the context of this rule
 
- -- Row 54 -----------------------------------
+ -- Row 57 -----------------------------------
   Element = StructureMap.group.rule.dependent.name
   Card. = 1..1
   Summary = y
   Type = id
   Short Name = Name of a rule or group to apply
 
- -- Row 55 -----------------------------------
+ -- Row 58 -----------------------------------
   Element = StructureMap.group.rule.dependent.variable
   Card. = 1..*
   Summary = y
   Type = string
   Short Name = Names of variables to pass to the rule or group
 
- -- Row 56 -----------------------------------
+ -- Row 59 -----------------------------------
   Element = StructureMap.group.rule.documentation
   Card. = 0..1
   Type = string
