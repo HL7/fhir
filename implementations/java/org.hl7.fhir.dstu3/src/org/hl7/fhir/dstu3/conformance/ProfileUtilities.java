@@ -1241,6 +1241,10 @@ public class ProfileUtilities {
       	}
       }
       
+      // now, check that we still have a bindable type; if not, delete the binding - see task 8477
+      if (dest.hasBinding() && !hasBindableType(dest))
+        dest.setBinding(null);
+        
       // finally, we copy any extensions from source to dest
       for (Extension ex : base.getExtension()) {
         StructureDefinition sd  = context.fetchResource(StructureDefinition.class, ex.getUrl());
@@ -1250,6 +1254,15 @@ public class ProfileUtilities {
       }
     }
   }
+
+  private boolean hasBindableType(ElementDefinition ed) {
+    for (TypeRefComponent tr : ed.getType()) {
+      if (Utilities.existsInList(tr.getCode(), "Coding", "CodeableConcept", "Quantity", "url", "string", "code"))
+        return true;
+    }
+    return false;
+  }
+
 
   private boolean isLargerMax(String derived, String base) {
     if ("*".equals(base))
