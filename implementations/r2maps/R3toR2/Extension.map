@@ -1,0 +1,11 @@
+﻿map "http://hl7.org/fhir/StructureMap/Extension3to2" = "R3 to R2 Conversion for Extension"
+
+uses "http://hl7.org/fhir/StructureDefinition/ExtensionR2" as source
+uses "http://hl7.org/fhir/StructureDefinition/Extension" as target
+
+
+group Extension extends Element
+  input src : Extension as source
+  input tgt : ExtensionR2 as Target
+endgroup
+

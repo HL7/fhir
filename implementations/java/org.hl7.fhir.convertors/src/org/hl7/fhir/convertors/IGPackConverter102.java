@@ -7,7 +7,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Date;
 
-import org.hl7.fhir.convertors.VersionConvertor_10_20.VersionConvertorAdvisor;
 import org.hl7.fhir.dstu2.model.Resource;
 import org.hl7.fhir.dstu3.formats.IParser.OutputStyle;
 import org.hl7.fhir.dstu3.model.Bundle;

@@ -1,0 +1,11 @@
+﻿map "http://hl7.org/fhir/StructureMap/Attachment3to2" = "R3 to R2 Conversion for Attachment"
+
+uses "http://hl7.org/fhir/StructureDefinition/AttachmentR2" as source
+uses "http://hl7.org/fhir/StructureDefinition/Attachment" as target
+
+
+group Attachment extends Element
+  input src : Attachment as source
+  input tgt : AttachmentR2 as Target
+endgroup
+

@@ -1,0 +1,11 @@
+﻿map "http://hl7.org/fhir/StructureMap/ContactPoint3to2" = "R3 to R2 Conversion for ContactPoint"
+
+uses "http://hl7.org/fhir/StructureDefinition/ContactPointR2" as source
+uses "http://hl7.org/fhir/StructureDefinition/ContactPoint" as target
+
+
+group ContactPoint extends Element
+  input src : ContactPoint as source
+  input tgt : ContactPointR2 as Target
+endgroup
+

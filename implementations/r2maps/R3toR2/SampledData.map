@@ -1,0 +1,11 @@
+﻿map "http://hl7.org/fhir/StructureMap/SampledData3to2" = "R3 to R2 Conversion for SampledData"
+
+uses "http://hl7.org/fhir/StructureDefinition/SampledDataR2" as source
+uses "http://hl7.org/fhir/StructureDefinition/SampledData" as target
+
+
+group SampledData extends Element
+  input src : SampledData as source
+  input tgt : SampledDataR2 as Target
+endgroup
+

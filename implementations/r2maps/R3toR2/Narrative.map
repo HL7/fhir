@@ -1,0 +1,11 @@
+﻿map "http://hl7.org/fhir/StructureMap/Narrative3to2" = "R3 to R2 Conversion for Narrative"
+
+uses "http://hl7.org/fhir/StructureDefinition/NarrativeR2" as source
+uses "http://hl7.org/fhir/StructureDefinition/Narrative" as target
+
+
+group Narrative extends Element
+  input src : Narrative as source
+  input tgt : NarrativeR2 as Target
+endgroup
+

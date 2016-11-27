@@ -1,0 +1,11 @@
+﻿map "http://hl7.org/fhir/StructureMap/Reference3to2" = "R3 to R2 Conversion for Reference"
+
+uses "http://hl7.org/fhir/StructureDefinition/ReferenceR2" as source
+uses "http://hl7.org/fhir/StructureDefinition/Reference" as target
+
+
+group Reference extends Element
+  input src : Reference as source
+  input tgt : ReferenceR2 as Target
+endgroup
+

@@ -1,0 +1,11 @@
+﻿map "http://hl7.org/fhir/StructureMap/Annotation3to2" = "R3 to R2 Conversion for Annotation"
+
+uses "http://hl7.org/fhir/StructureDefinition/AnnotationR2" as source
+uses "http://hl7.org/fhir/StructureDefinition/Annotation" as target
+
+
+group Annotation extends Element
+  input src : Annotation as source
+  input tgt : AnnotationR2 as Target
+endgroup
+

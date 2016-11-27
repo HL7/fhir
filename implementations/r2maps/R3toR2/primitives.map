@@ -1,0 +1,327 @@
+﻿map "http://hl7.org/fhir/StructureMap/primitives3to2" = "R3 to R2 Primitive Conversions"
+
+uses "http://hl7.org/fhir/StructureDefinition/positiveIntR2" as source
+uses "http://hl7.org/fhir/StructureDefinition/positiveInt" as target
+uses "http://hl7.org/fhir/StructureDefinition/decimalR2" as source
+uses "http://hl7.org/fhir/StructureDefinition/decimal" as target
+uses "http://hl7.org/fhir/StructureDefinition/markdownR2" as source
+uses "http://hl7.org/fhir/StructureDefinition/markdown" as target
+uses "http://hl7.org/fhir/StructureDefinition/base64BinaryR2" as source
+uses "http://hl7.org/fhir/StructureDefinition/base64Binary" as target
+uses "http://hl7.org/fhir/StructureDefinition/oidR2" as source
+uses "http://hl7.org/fhir/StructureDefinition/oid" as target
+uses "http://hl7.org/fhir/StructureDefinition/stringR2" as source
+uses "http://hl7.org/fhir/StructureDefinition/string" as target
+uses "http://hl7.org/fhir/StructureDefinition/decimalR2" as source
+uses "http://hl7.org/fhir/StructureDefinition/decimal" as target
+uses "http://hl7.org/fhir/StructureDefinition/stringR2" as source
+uses "http://hl7.org/fhir/StructureDefinition/string" as target
+uses "http://hl7.org/fhir/StructureDefinition/timeR2" as source
+uses "http://hl7.org/fhir/StructureDefinition/time" as target
+uses "http://hl7.org/fhir/StructureDefinition/uriR2" as source
+uses "http://hl7.org/fhir/StructureDefinition/uri" as target
+uses "http://hl7.org/fhir/StructureDefinition/idR2" as source
+uses "http://hl7.org/fhir/StructureDefinition/id" as target
+uses "http://hl7.org/fhir/StructureDefinition/instantR2" as source
+uses "http://hl7.org/fhir/StructureDefinition/instant" as target
+uses "http://hl7.org/fhir/StructureDefinition/xhtmlR2" as source
+uses "http://hl7.org/fhir/StructureDefinition/xhtml" as target
+uses "http://hl7.org/fhir/StructureDefinition/unsignedIntR2" as source
+uses "http://hl7.org/fhir/StructureDefinition/unsignedInt" as target
+uses "http://hl7.org/fhir/StructureDefinition/timeR2" as source
+uses "http://hl7.org/fhir/StructureDefinition/time" as target
+uses "http://hl7.org/fhir/StructureDefinition/xhtmlR2" as source
+uses "http://hl7.org/fhir/StructureDefinition/xhtml" as target
+uses "http://hl7.org/fhir/StructureDefinition/idR2" as source
+uses "http://hl7.org/fhir/StructureDefinition/id" as target
+uses "http://hl7.org/fhir/StructureDefinition/positiveIntR2" as source
+uses "http://hl7.org/fhir/StructureDefinition/positiveInt" as target
+uses "http://hl7.org/fhir/StructureDefinition/markdownR2" as source
+uses "http://hl7.org/fhir/StructureDefinition/markdown" as target
+uses "http://hl7.org/fhir/StructureDefinition/dateTimeR2" as source
+uses "http://hl7.org/fhir/StructureDefinition/dateTime" as target
+uses "http://hl7.org/fhir/StructureDefinition/instantR2" as source
+uses "http://hl7.org/fhir/StructureDefinition/instant" as target
+uses "http://hl7.org/fhir/StructureDefinition/dateTimeR2" as source
+uses "http://hl7.org/fhir/StructureDefinition/dateTime" as target
+uses "http://hl7.org/fhir/StructureDefinition/uriR2" as source
+uses "http://hl7.org/fhir/StructureDefinition/uri" as target
+uses "http://hl7.org/fhir/StructureDefinition/booleanR2" as source
+uses "http://hl7.org/fhir/StructureDefinition/boolean" as target
+uses "http://hl7.org/fhir/StructureDefinition/integerR2" as source
+uses "http://hl7.org/fhir/StructureDefinition/integer" as target
+uses "http://hl7.org/fhir/StructureDefinition/dateR2" as source
+uses "http://hl7.org/fhir/StructureDefinition/date" as target
+uses "http://hl7.org/fhir/StructureDefinition/integerR2" as source
+uses "http://hl7.org/fhir/StructureDefinition/integer" as target
+uses "http://hl7.org/fhir/StructureDefinition/uuidR2" as source
+uses "http://hl7.org/fhir/StructureDefinition/uuid" as target
+uses "http://hl7.org/fhir/StructureDefinition/unsignedIntR2" as source
+uses "http://hl7.org/fhir/StructureDefinition/unsignedInt" as target
+uses "http://hl7.org/fhir/StructureDefinition/codeR2" as source
+uses "http://hl7.org/fhir/StructureDefinition/code" as target
+uses "http://hl7.org/fhir/StructureDefinition/base64BinaryR2" as source
+uses "http://hl7.org/fhir/StructureDefinition/base64Binary" as target
+uses "http://hl7.org/fhir/StructureDefinition/codeR2" as source
+uses "http://hl7.org/fhir/StructureDefinition/code" as target
+uses "http://hl7.org/fhir/StructureDefinition/oidR2" as source
+uses "http://hl7.org/fhir/StructureDefinition/oid" as target
+uses "http://hl7.org/fhir/StructureDefinition/uuidR2" as source
+uses "http://hl7.org/fhir/StructureDefinition/uuid" as target
+uses "http://hl7.org/fhir/StructureDefinition/dateR2" as source
+uses "http://hl7.org/fhir/StructureDefinition/date" as target
+uses "http://hl7.org/fhir/StructureDefinition/booleanR2" as source
+uses "http://hl7.org/fhir/StructureDefinition/boolean" as target
+
+group positiveInt extends Element
+  input src : positiveInt as source
+  input tgt : positiveIntR2 as Target
+
+  "positiveInt-value" : for src.value as v make target.value = v
+endgroup
+
+group decimal extends Element
+  input src : decimal as source
+  input tgt : decimalR2 as Target
+
+  "decimal-value" : for src.value as v make target.value = v
+endgroup
+
+group markdown extends Element
+  input src : markdown as source
+  input tgt : markdownR2 as Target
+
+  "markdown-value" : for src.value as v make target.value = v
+endgroup
+
+group base64Binary extends Element
+  input src : base64Binary as source
+  input tgt : base64BinaryR2 as Target
+
+  "base64Binary-value" : for src.value as v make target.value = v
+endgroup
+
+group oid extends Element
+  input src : oid as source
+  input tgt : oidR2 as Target
+
+  "oid-value" : for src.value as v make target.value = v
+endgroup
+
+group string extends Element
+  input src : string as source
+  input tgt : stringR2 as Target
+
+  "string-value" : for src.value as v make target.value = v
+endgroup
+
+group decimal extends Element
+  input src : decimal as source
+  input tgt : decimalR2 as Target
+
+  "decimal-value" : for src.value as v make target.value = v
+endgroup
+
+group string extends Element
+  input src : string as source
+  input tgt : stringR2 as Target
+
+  "string-value" : for src.value as v make target.value = v
+endgroup
+
+group time extends Element
+  input src : time as source
+  input tgt : timeR2 as Target
+
+  "time-value" : for src.value as v make target.value = v
+endgroup
+
+group uri extends Element
+  input src : uri as source
+  input tgt : uriR2 as Target
+
+  "uri-value" : for src.value as v make target.value = v
+endgroup
+
+group id extends Element
+  input src : id as source
+  input tgt : idR2 as Target
+
+  "id-value" : for src.value as v make target.value = v
+endgroup
+
+group instant extends Element
+  input src : instant as source
+  input tgt : instantR2 as Target
+
+  "instant-value" : for src.value as v make target.value = v
+endgroup
+
+group xhtml extends Element
+  input src : xhtml as source
+  input tgt : xhtmlR2 as Target
+
+  "xhtml-value" : for src.value as v make target.value = v
+endgroup
+
+group unsignedInt extends Element
+  input src : unsignedInt as source
+  input tgt : unsignedIntR2 as Target
+
+  "unsignedInt-value" : for src.value as v make target.value = v
+endgroup
+
+group time extends Element
+  input src : time as source
+  input tgt : timeR2 as Target
+
+  "time-value" : for src.value as v make target.value = v
+endgroup
+
+group xhtml extends Element
+  input src : xhtml as source
+  input tgt : xhtmlR2 as Target
+
+  "xhtml-value" : for src.value as v make target.value = v
+endgroup
+
+group id extends Element
+  input src : id as source
+  input tgt : idR2 as Target
+
+  "id-value" : for src.value as v make target.value = v
+endgroup
+
+group positiveInt extends Element
+  input src : positiveInt as source
+  input tgt : positiveIntR2 as Target
+
+  "positiveInt-value" : for src.value as v make target.value = v
+endgroup
+
+group markdown extends Element
+  input src : markdown as source
+  input tgt : markdownR2 as Target
+
+  "markdown-value" : for src.value as v make target.value = v
+endgroup
+
+group dateTime extends Element
+  input src : dateTime as source
+  input tgt : dateTimeR2 as Target
+
+  "dateTime-value" : for src.value as v make target.value = v
+endgroup
+
+group instant extends Element
+  input src : instant as source
+  input tgt : instantR2 as Target
+
+  "instant-value" : for src.value as v make target.value = v
+endgroup
+
+group dateTime extends Element
+  input src : dateTime as source
+  input tgt : dateTimeR2 as Target
+
+  "dateTime-value" : for src.value as v make target.value = v
+endgroup
+
+group uri extends Element
+  input src : uri as source
+  input tgt : uriR2 as Target
+
+  "uri-value" : for src.value as v make target.value = v
+endgroup
+
+group boolean extends Element
+  input src : boolean as source
+  input tgt : booleanR2 as Target
+
+  "boolean-value" : for src.value as v make target.value = v
+endgroup
+
+group integer extends Element
+  input src : integer as source
+  input tgt : integerR2 as Target
+
+  "integer-value" : for src.value as v make target.value = v
+endgroup
+
+group date extends Element
+  input src : date as source
+  input tgt : dateR2 as Target
+
+  "date-value" : for src.value as v make target.value = v
+endgroup
+
+group integer extends Element
+  input src : integer as source
+  input tgt : integerR2 as Target
+
+  "integer-value" : for src.value as v make target.value = v
+endgroup
+
+group uuid extends Element
+  input src : uuid as source
+  input tgt : uuidR2 as Target
+
+  "uuid-value" : for src.value as v make target.value = v
+endgroup
+
+group unsignedInt extends Element
+  input src : unsignedInt as source
+  input tgt : unsignedIntR2 as Target
+
+  "unsignedInt-value" : for src.value as v make target.value = v
+endgroup
+
+group code extends Element
+  input src : code as source
+  input tgt : codeR2 as Target
+
+  "code-value" : for src.value as v make target.value = v
+endgroup
+
+group base64Binary extends Element
+  input src : base64Binary as source
+  input tgt : base64BinaryR2 as Target
+
+  "base64Binary-value" : for src.value as v make target.value = v
+endgroup
+
+group code extends Element
+  input src : code as source
+  input tgt : codeR2 as Target
+
+  "code-value" : for src.value as v make target.value = v
+endgroup
+
+group oid extends Element
+  input src : oid as source
+  input tgt : oidR2 as Target
+
+  "oid-value" : for src.value as v make target.value = v
+endgroup
+
+group uuid extends Element
+  input src : uuid as source
+  input tgt : uuidR2 as Target
+
+  "uuid-value" : for src.value as v make target.value = v
+endgroup
+
+group date extends Element
+  input src : date as source
+  input tgt : dateR2 as Target
+
+  "date-value" : for src.value as v make target.value = v
+endgroup
+
+group boolean extends Element
+  input src : boolean as source
+  input tgt : booleanR2 as Target
+
+  "boolean-value" : for src.value as v make target.value = v
+endgroup
+

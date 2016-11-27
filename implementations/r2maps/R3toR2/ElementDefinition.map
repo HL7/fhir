@@ -1,0 +1,11 @@
+﻿map "http://hl7.org/fhir/StructureMap/ElementDefinition3to2" = "R3 to R2 Conversion for ElementDefinition"
+
+uses "http://hl7.org/fhir/StructureDefinition/ElementDefinitionR2" as source
+uses "http://hl7.org/fhir/StructureDefinition/ElementDefinition" as target
+
+
+group ElementDefinition extends Element
+  input src : ElementDefinition as source
+  input tgt : ElementDefinitionR2 as Target
+endgroup
+

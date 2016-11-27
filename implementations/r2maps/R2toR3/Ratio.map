@@ -1,0 +1,14 @@
+﻿map "http://hl7.org/fhir/StructureMap/Ratio2to3" = "R2 to R3 Conversions for Ratio"
+
+uses "http://hl7.org/fhir/StructureDefinition/Ratio" as source
+uses "http://hl7.org/fhir/StructureDefinition/RatioR2" as target
+
+
+group Ratio extends Element
+  input src : RatioR2 as source
+  input tgt : Ratio as Target
+
+  "Ratio-numerator" : for src.numerator as vs make tgt.numerator as vt then Quantity(vs,vt)
+  "Ratio-denominator" : for src.denominator as vs make tgt.denominator as vt then Quantity(vs,vt)
+endgroup
+

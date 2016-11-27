@@ -1,12 +1,10 @@
-package org.hl7.fhir.igtools.publisher;
+package org.hl7.fhir.convertors;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.hl7.fhir.convertors.VersionConvertor_10_20;
-import org.hl7.fhir.convertors.VersionConvertor_10_20.VersionConvertorAdvisor;
 import org.hl7.fhir.dstu2.formats.JsonParser;
 import org.hl7.fhir.dstu2.formats.XmlParser;
 import org.hl7.fhir.dstu2.model.Resource;

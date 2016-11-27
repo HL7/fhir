@@ -1,0 +1,17 @@
+﻿map "http://hl7.org/fhir/StructureMap/Duration2to3" = "R2 to R3 Conversions for Duration"
+
+uses "http://hl7.org/fhir/StructureDefinition/Duration" as source
+uses "http://hl7.org/fhir/StructureDefinition/DurationR2" as target
+
+
+group Duration extends Element
+  input src : DurationR2 as source
+  input tgt : Duration as Target
+
+  "Duration-value" : for src.value as vs make tgt.value as vt then decimal(vs, vt)
+  "Duration-comparator" : for src.comparator as vs make tgt.comparator as vt then code(vs, vt)
+  "Duration-unit" : for src.unit as vs make tgt.unit as vt then string(vs, vt)
+  "Duration-system" : for src.system as vs make tgt.system as vt then uri(vs, vt)
+  "Duration-code" : for src.code as vs make tgt.code as vt then code(vs, vt)
+endgroup
+

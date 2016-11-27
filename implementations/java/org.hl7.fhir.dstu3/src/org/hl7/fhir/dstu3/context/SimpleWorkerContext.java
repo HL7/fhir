@@ -101,6 +101,13 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
     return res;
   }
 
+  public static SimpleWorkerContext fromPack(String path, boolean allowDuplicates) throws FileNotFoundException, IOException, FHIRException {
+    SimpleWorkerContext res = new SimpleWorkerContext();
+    res.allowLoadingDuplicates = allowDuplicates;
+    res.loadFromPack(path, null);
+    return res;
+  }
+
   public static SimpleWorkerContext fromPack(String path, IContextResourceLoader loader) throws FileNotFoundException, IOException, FHIRException {
     SimpleWorkerContext res = new SimpleWorkerContext();
     res.loadFromPack(path, loader);
@@ -144,24 +151,30 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
 	}
 
 	private void loadFromFile(InputStream stream, String name, IContextResourceLoader loader) throws IOException, FHIRException {
-		Bundle f;
+		Resource f;
 		try {
 		  if (loader != null)
 		    f = loader.loadBundle(stream, false);
 		  else {
 		    XmlParser xml = new XmlParser();
-		    f = (Bundle) xml.parse(stream);
+		    f = xml.parse(stream);
 		  }
     } catch (DataFormatException e1) {
       throw new org.hl7.fhir.exceptions.FHIRFormatError("Error parsing "+name+":" +e1.getMessage(), e1);
     } catch (Exception e1) {
 			throw new org.hl7.fhir.exceptions.FHIRFormatError("Error parsing "+name+":" +e1.getMessage(), e1);
 		}
-		for (BundleEntryComponent e : f.getEntry()) {
-			if (e.getFullUrl() == null) {
-				System.out.println("unidentified resource in " + name+" (no fullUrl)");
-			}
-			seeResource(e.getFullUrl(), e.getResource());
+		if (f instanceof Bundle) {
+		  Bundle bnd = (Bundle) f;
+		  for (BundleEntryComponent e : bnd.getEntry()) {
+		    if (e.getFullUrl() == null) {
+		      System.out.println("unidentified resource in " + name+" (no fullUrl)");
+		    }
+		    seeResource(e.getFullUrl(), e.getResource());
+		  }
+		} else if (f instanceof MetadataResource) {
+		  MetadataResource m = (MetadataResource) f;
+		  seeResource(m.getUrl(), m);
 		}
 	}
 
@@ -249,6 +262,10 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
 		loadFromStream(new CSFileInputStream(path), loader);
 	}
 
+  public void loadFromFile(String file, IContextResourceLoader loader) throws IOException, FHIRException {
+    loadDefinitionItem(file, new CSFileInputStream(file), loader);
+  }
+  
 	private void loadFromStream(InputStream stream, IContextResourceLoader loader) throws IOException, FHIRException {
 		ZipInputStream zip = new ZipInputStream(stream);
 		ZipEntry ze;

@@ -19,7 +19,6 @@ import org.hl7.fhir.dstu3.model.NutritionRequest.NutritionOrderStatus;
 import org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionKind;
 import org.hl7.fhir.dstu3.model.StructureDefinition.TypeDerivationRule;
 import org.hl7.fhir.dstu3.model.UriType;
-import org.hl7.fhir.dstu3.model.ValueSet;
 import org.hl7.fhir.dstu3.terminologies.CodeSystemUtilities;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.utilities.Utilities;
@@ -58,20 +57,7 @@ import org.hl7.fhir.utilities.Utilities;
 
 public class VersionConvertor_10_20 {
 
-  public interface VersionConvertorAdvisor {
-    boolean ignoreEntry(org.hl7.fhir.dstu3.model.Bundle.BundleEntryComponent src);
-
-    // called ?
-    org.hl7.fhir.dstu2.model.Resource convert(org.hl7.fhir.dstu3.model.Resource resource) throws FHIRException;
-
-    // called when an r2 value set has a codeSystem in it
-    void handleCodeSystem(CodeSystem tgtcs, ValueSet source);
-
-    CodeSystem getCodeSystem(ValueSet src);
-  }
-
   public VersionConvertorAdvisor advisor;
-
 
   public VersionConvertor_10_20(VersionConvertorAdvisor advisor) {
     super();
@@ -13253,7 +13239,7 @@ public org.hl7.fhir.dstu2.model.ValueSet.ConceptDefinitionDesignationComponent c
         tgtcs.setExperimental(src.getExperimental());
       tgtcs.setPublisher(src.getPublisher());
       for (org.hl7.fhir.dstu2.model.ValueSet.ValueSetContactComponent t : src.getContact())
-        tgtcs.addContact(convertCodeSystemContactComponent(t));
+        tgtcs.addContact(convertValueSetContactComponent(t));
       if (src.hasDate())
         tgtcs.setDate(src.getDate());
       tgtcs.setDescription(src.getDescription());
@@ -13365,17 +13351,6 @@ public org.hl7.fhir.dstu2.model.ValueSet.ConceptDefinitionDesignationComponent c
 
 
   public org.hl7.fhir.dstu3.model.ContactDetail convertValueSetContactComponent(org.hl7.fhir.dstu2.model.ValueSet.ValueSetContactComponent src) throws FHIRException {
-    if (src == null || src.isEmpty())
-      return null;
-    org.hl7.fhir.dstu3.model.ContactDetail tgt = new org.hl7.fhir.dstu3.model.ContactDetail();
-    copyElement(src, tgt);
-    tgt.setName(src.getName());
-    for (org.hl7.fhir.dstu2.model.ContactPoint t : src.getTelecom())
-      tgt.addTelecom(convertContactPoint(t));
-    return tgt;
-  }
-
-  public org.hl7.fhir.dstu3.model.ContactDetail convertCodeSystemContactComponent(org.hl7.fhir.dstu2.model.ValueSet.ValueSetContactComponent src) throws FHIRException {
     if (src == null || src.isEmpty())
       return null;
     org.hl7.fhir.dstu3.model.ContactDetail tgt = new org.hl7.fhir.dstu3.model.ContactDetail();

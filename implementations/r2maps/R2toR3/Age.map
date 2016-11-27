@@ -1,0 +1,17 @@
+﻿map "http://hl7.org/fhir/StructureMap/Age2to3" = "R2 to R3 Conversions for Age"
+
+uses "http://hl7.org/fhir/StructureDefinition/Age" as source
+uses "http://hl7.org/fhir/StructureDefinition/AgeR2" as target
+
+
+group Age extends Element
+  input src : AgeR2 as source
+  input tgt : Age as Target
+
+  "Age-value" : for src.value as vs make tgt.value as vt then decimal(vs, vt)
+  "Age-comparator" : for src.comparator as vs make tgt.comparator as vt then code(vs, vt)
+  "Age-unit" : for src.unit as vs make tgt.unit as vt then string(vs, vt)
+  "Age-system" : for src.system as vs make tgt.system as vt then uri(vs, vt)
+  "Age-code" : for src.code as vs make tgt.code as vt then code(vs, vt)
+endgroup
+

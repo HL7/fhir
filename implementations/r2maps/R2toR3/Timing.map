@@ -1,0 +1,28 @@
+﻿map "http://hl7.org/fhir/StructureMap/Timing2to3" = "R2 to R3 Conversions for Timing"
+
+uses "http://hl7.org/fhir/StructureDefinition/Timing" as source
+uses "http://hl7.org/fhir/StructureDefinition/TimingR2" as target
+
+
+group Timing extends Element
+  input src : TimingR2 as source
+  input tgt : Timing as Target
+
+  "Timing-event" : for src.event as vs make tgt.event as vt then dateTime(vs, vt)
+  "Timing-repeat" : for src.repeat as vs0 make tgt.repeat = as vt0 then {
+    "Timing.repeat-bounds-Range" : for vs0.bounds : Range as vs make vt0.bounds = create("Range") as vt then Range(vs,vt)
+    "Timing.repeat-bounds-Period" : for vs0.bounds : Period as vs make vt0.bounds = create("Period") as vt then Period(vs,vt)
+    "Timing.repeat-count" : for vs0.count as vs make vt0.count as vt then integer(vs, vt)
+    "Timing.repeat-duration" : for vs0.duration as vs make vt0.duration as vt then decimal(vs, vt)
+    "Timing.repeat-durationMax" : for vs0.durationMax as vs make vt0.durationMax as vt then decimal(vs, vt)
+    "Timing.repeat-durationUnit" : for vs0.durationUnits as vs make vt0.durationUnit as vt then code(vs, vt)
+    "Timing.repeat-frequency" : for vs0.frequency as vs make vt0.frequency as vt then integer(vs, vt)
+    "Timing.repeat-frequencyMax" : for vs0.frequencyMax as vs make vt0.frequencyMax as vt then integer(vs, vt)
+    "Timing.repeat-period" : for vs0.period as vs make vt0.period as vt then decimal(vs, vt)
+    "Timing.repeat-periodMax" : for vs0.periodMax as vs make vt0.periodMax as vt then decimal(vs, vt)
+    "Timing.repeat-periodUnit" : for vs0.periodUnits as vs make vt0.periodUnit as vt then code(vs, vt)
+    "Timing.repeat-when" : for vs0.when as vs make vt0.when as vt then code(vs, vt)
+  }
+  "Timing-code" : for src.code as vs make tgt.code as vt then CodeableConcept(vs,vt)
+endgroup
+

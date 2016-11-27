@@ -1,0 +1,17 @@
+﻿map "http://hl7.org/fhir/StructureMap/Coding2to3" = "R2 to R3 Conversions for Coding"
+
+uses "http://hl7.org/fhir/StructureDefinition/Coding" as source
+uses "http://hl7.org/fhir/StructureDefinition/CodingR2" as target
+
+
+group Coding extends Element
+  input src : CodingR2 as source
+  input tgt : Coding as Target
+
+  "Coding-system" : for src.system as vs make tgt.system as vt then uri(vs, vt)
+  "Coding-version" : for src.version as vs make tgt.version as vt then string(vs, vt)
+  "Coding-code" : for src.code as vs make tgt.code as vt then code(vs, vt)
+  "Coding-display" : for src.display as vs make tgt.display as vt then string(vs, vt)
+  "Coding-userSelected" : for src.userSelected as vs make tgt.userSelected as vt then boolean(vs, vt)
+endgroup
+

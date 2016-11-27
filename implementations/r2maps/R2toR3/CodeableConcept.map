@@ -1,0 +1,14 @@
+﻿map "http://hl7.org/fhir/StructureMap/CodeableConcept2to3" = "R2 to R3 Conversions for CodeableConcept"
+
+uses "http://hl7.org/fhir/StructureDefinition/CodeableConcept" as source
+uses "http://hl7.org/fhir/StructureDefinition/CodeableConceptR2" as target
+
+
+group CodeableConcept extends Element
+  input src : CodeableConceptR2 as source
+  input tgt : CodeableConcept as Target
+
+  "CodeableConcept-coding" : for src.coding as vs make tgt.coding as vt then Coding(vs,vt)
+  "CodeableConcept-text" : for src.text as vs make tgt.text as vt then string(vs, vt)
+endgroup
+

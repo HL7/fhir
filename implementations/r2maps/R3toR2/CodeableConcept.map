@@ -1,0 +1,11 @@
+﻿map "http://hl7.org/fhir/StructureMap/CodeableConcept3to2" = "R3 to R2 Conversion for CodeableConcept"
+
+uses "http://hl7.org/fhir/StructureDefinition/CodeableConceptR2" as source
+uses "http://hl7.org/fhir/StructureDefinition/CodeableConcept" as target
+
+
+group CodeableConcept extends Element
+  input src : CodeableConcept as source
+  input tgt : CodeableConceptR2 as Target
+endgroup
+

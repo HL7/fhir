@@ -1,0 +1,11 @@
+﻿map "http://hl7.org/fhir/StructureMap/Ratio3to2" = "R3 to R2 Conversion for Ratio"
+
+uses "http://hl7.org/fhir/StructureDefinition/RatioR2" as source
+uses "http://hl7.org/fhir/StructureDefinition/Ratio" as target
+
+
+group Ratio extends Element
+  input src : Ratio as source
+  input tgt : RatioR2 as Target
+endgroup
+

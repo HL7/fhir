@@ -1,0 +1,11 @@
+﻿map "http://hl7.org/fhir/StructureMap/Distance3to2" = "R3 to R2 Conversion for Distance"
+
+uses "http://hl7.org/fhir/StructureDefinition/DistanceR2" as source
+uses "http://hl7.org/fhir/StructureDefinition/Distance" as target
+
+
+group Distance extends Element
+  input src : Distance as source
+  input tgt : DistanceR2 as Target
+endgroup
+

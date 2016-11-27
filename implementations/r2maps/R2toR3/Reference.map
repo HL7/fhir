@@ -1,0 +1,14 @@
+﻿map "http://hl7.org/fhir/StructureMap/Reference2to3" = "R2 to R3 Conversions for Reference"
+
+uses "http://hl7.org/fhir/StructureDefinition/Reference" as source
+uses "http://hl7.org/fhir/StructureDefinition/ReferenceR2" as target
+
+
+group Reference extends Element
+  input src : ReferenceR2 as source
+  input tgt : Reference as Target
+
+  "Reference-reference" : for src.reference as vs make tgt.reference as vt then string(vs, vt)
+  "Reference-display" : for src.display as vs make tgt.display as vt then string(vs, vt)
+endgroup
+

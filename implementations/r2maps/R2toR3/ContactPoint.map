@@ -1,0 +1,17 @@
+﻿map "http://hl7.org/fhir/StructureMap/ContactPoint2to3" = "R2 to R3 Conversions for ContactPoint"
+
+uses "http://hl7.org/fhir/StructureDefinition/ContactPoint" as source
+uses "http://hl7.org/fhir/StructureDefinition/ContactPointR2" as target
+
+
+group ContactPoint extends Element
+  input src : ContactPointR2 as source
+  input tgt : ContactPoint as Target
+
+  "ContactPoint-system" : for src.system as vs make tgt.system as vt then code(vs, vt)
+  "ContactPoint-value" : for src.value as vs make tgt.value as vt then string(vs, vt)
+  "ContactPoint-use" : for src.use as vs make tgt.use as vt then code(vs, vt)
+  "ContactPoint-rank" : for src.rank as vs make tgt.rank as vt then positiveInt(vs, vt)
+  "ContactPoint-period" : for src.period as vs make tgt.period as vt then Period(vs,vt)
+endgroup
+

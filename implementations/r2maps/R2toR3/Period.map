@@ -1,0 +1,14 @@
+﻿map "http://hl7.org/fhir/StructureMap/Period2to3" = "R2 to R3 Conversions for Period"
+
+uses "http://hl7.org/fhir/StructureDefinition/Period" as source
+uses "http://hl7.org/fhir/StructureDefinition/PeriodR2" as target
+
+
+group Period extends Element
+  input src : PeriodR2 as source
+  input tgt : Period as Target
+
+  "Period-start" : for src.start as vs make tgt.start as vt then dateTime(vs, vt)
+  "Period-end" : for src.end as vs make tgt.end as vt then dateTime(vs, vt)
+endgroup
+

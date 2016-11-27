@@ -1,0 +1,11 @@
+﻿map "http://hl7.org/fhir/StructureMap/Timing3to2" = "R3 to R2 Conversion for Timing"
+
+uses "http://hl7.org/fhir/StructureDefinition/TimingR2" as source
+uses "http://hl7.org/fhir/StructureDefinition/Timing" as target
+
+
+group Timing extends Element
+  input src : Timing as source
+  input tgt : TimingR2 as Target
+endgroup
+

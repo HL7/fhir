@@ -1,0 +1,19 @@
+﻿map "http://hl7.org/fhir/StructureMap/SampledData2to3" = "R2 to R3 Conversions for SampledData"
+
+uses "http://hl7.org/fhir/StructureDefinition/SampledData" as source
+uses "http://hl7.org/fhir/StructureDefinition/SampledDataR2" as target
+
+
+group SampledData extends Element
+  input src : SampledDataR2 as source
+  input tgt : SampledData as Target
+
+  "SampledData-origin" : for src.origin as vs make tgt.origin as vt then Quantity(vs,vt)
+  "SampledData-period" : for src.period as vs make tgt.period as vt then decimal(vs, vt)
+  "SampledData-factor" : for src.factor as vs make tgt.factor as vt then decimal(vs, vt)
+  "SampledData-lowerLimit" : for src.lowerLimit as vs make tgt.lowerLimit as vt then decimal(vs, vt)
+  "SampledData-upperLimit" : for src.upperLimit as vs make tgt.upperLimit as vt then decimal(vs, vt)
+  "SampledData-dimensions" : for src.dimensions as vs make tgt.dimensions as vt then positiveInt(vs, vt)
+  "SampledData-data" : for src.data as vs make tgt.data as vt then string(vs, vt)
+endgroup
+

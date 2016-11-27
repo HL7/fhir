@@ -1,0 +1,11 @@
+﻿map "http://hl7.org/fhir/StructureMap/Signature3to2" = "R3 to R2 Conversion for Signature"
+
+uses "http://hl7.org/fhir/StructureDefinition/SignatureR2" as source
+uses "http://hl7.org/fhir/StructureDefinition/Signature" as target
+
+
+group Signature extends Element
+  input src : Signature as source
+  input tgt : SignatureR2 as Target
+endgroup
+

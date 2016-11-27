@@ -1,0 +1,11 @@
+﻿map "http://hl7.org/fhir/StructureMap/Quantity3to2" = "R3 to R2 Conversion for Quantity"
+
+uses "http://hl7.org/fhir/StructureDefinition/QuantityR2" as source
+uses "http://hl7.org/fhir/StructureDefinition/Quantity" as target
+
+
+group Quantity extends Element
+  input src : Quantity as source
+  input tgt : QuantityR2 as Target
+endgroup
+

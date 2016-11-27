@@ -1,0 +1,11 @@
+﻿map "http://hl7.org/fhir/StructureMap/Money3to2" = "R3 to R2 Conversion for Money"
+
+uses "http://hl7.org/fhir/StructureDefinition/MoneyR2" as source
+uses "http://hl7.org/fhir/StructureDefinition/Money" as target
+
+
+group Money extends Element
+  input src : Money as source
+  input tgt : MoneyR2 as Target
+endgroup
+

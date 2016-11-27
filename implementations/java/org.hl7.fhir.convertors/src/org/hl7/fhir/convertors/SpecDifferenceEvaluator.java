@@ -581,7 +581,7 @@ public class SpecDifferenceEvaluator {
   private void saveResource(ZipGenerator zip, Resource t) throws IOException {
     ByteArrayOutputStream bs = new ByteArrayOutputStream();
     new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(bs, t);
-    zip.addBytes(t.fhirType()+"-"+t.getId(), bs.toByteArray(), true);
+    zip.addBytes(t.fhirType()+"-"+t.getId()+".xml", bs.toByteArray(), true);
   }
  
 }

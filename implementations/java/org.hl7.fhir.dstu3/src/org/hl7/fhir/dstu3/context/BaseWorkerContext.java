@@ -74,6 +74,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
   protected Map<String, Map<String, ValidationResult>> validationCache = new HashMap<String, Map<String,ValidationResult>>();
   protected String tsServer;
   protected String validationCachePath;
+  protected String name;
   
   // private ValueSetExpansionCache expansionCache; //   
 
@@ -765,6 +766,14 @@ public abstract class BaseWorkerContext implements IWorkerContext {
   @Override
   public boolean isNoTerminologyServer() {
     return noTerminologyServer;
+  }
+
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
   }
 
 }

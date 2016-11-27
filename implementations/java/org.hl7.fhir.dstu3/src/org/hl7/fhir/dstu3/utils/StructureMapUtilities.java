@@ -197,7 +197,6 @@ public class StructureMapUtilities {
     fpe = new FluentPathEngine(worker);
   }
 
-
 	public static String render(StructureMap map) {
 		StringBuilder b = new StringBuilder();
 		b.append("map \"");
@@ -571,8 +570,10 @@ public class StructureMapUtilities {
 
 	private ConceptMapEquivalence readEquivalence(FHIRLexer lexer) throws FHIRLexerException {
 		String token = lexer.take();
-		if (token.equals("="))
-			return ConceptMapEquivalence.EQUAL;
+    if (token.equals(":"))
+      return ConceptMapEquivalence.RELATEDTO;
+    if (token.equals("="))
+      return ConceptMapEquivalence.EQUAL;
 		if (token.equals("=="))
 			return ConceptMapEquivalence.EQUIVALENT;
 		if (token.equals("!="))

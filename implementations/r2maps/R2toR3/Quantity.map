@@ -1,0 +1,17 @@
+﻿map "http://hl7.org/fhir/StructureMap/Quantity2to3" = "R2 to R3 Conversions for Quantity"
+
+uses "http://hl7.org/fhir/StructureDefinition/Quantity" as source
+uses "http://hl7.org/fhir/StructureDefinition/QuantityR2" as target
+
+
+group Quantity extends Element
+  input src : QuantityR2 as source
+  input tgt : Quantity as Target
+
+  "Quantity-value" : for src.value as vs make tgt.value as vt then decimal(vs, vt)
+  "Quantity-comparator" : for src.comparator as vs make tgt.comparator as vt then code(vs, vt)
+  "Quantity-unit" : for src.unit as vs make tgt.unit as vt then string(vs, vt)
+  "Quantity-system" : for src.system as vs make tgt.system as vt then uri(vs, vt)
+  "Quantity-code" : for src.code as vs make tgt.code as vt then code(vs, vt)
+endgroup
+

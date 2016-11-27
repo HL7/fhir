@@ -3,8 +3,8 @@ package org.hl7.fhir.tools.converters;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 
+import org.hl7.fhir.convertors.VersionConvertorAdvisor;
 import org.hl7.fhir.convertors.VersionConvertor_10_20;
-import org.hl7.fhir.convertors.VersionConvertor_10_20.VersionConvertorAdvisor;
 import org.hl7.fhir.dstu2.formats.IParser.OutputStyle;
 import org.hl7.fhir.dstu2.model.Resource;
 import org.hl7.fhir.dstu3.formats.XmlParser;
