@@ -22,6 +22,7 @@
   <WindowTopY>0</WindowTopY>
   <ActiveSheet>1</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
+  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -1144,7 +1145,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75" ss:StyleID="s95">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">ClaimResponse.ruleset</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">!ClaimResponse.ruleset</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">BusinessVersion</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1178,7 +1179,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="120" ss:StyleID="s95">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">ClaimResponse.originalRuleset</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">!ClaimResponse.originalRuleset</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">OriginalBusinessVersion</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -4425,7 +4426,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>87</TopRowBottomPane>
+   <TopRowBottomPane>2</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -4442,8 +4443,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>97</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>5</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

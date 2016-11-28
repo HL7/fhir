@@ -81,7 +81,7 @@
   w5 = id
 
  -- Row 4 -----------------------------------
-  Element = EligibilityRequest.ruleset
+  Element = !EligibilityRequest.ruleset
   Card. = 0..1
   Type = Coding
   Binding = Ruleset
@@ -90,7 +90,7 @@
   w5 = id.version
 
  -- Row 5 -----------------------------------
-  Element = EligibilityRequest.originalRuleset
+  Element = !EligibilityRequest.originalRuleset
   Card. = 0..1
   Type = Coding
   Binding = Ruleset

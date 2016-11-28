@@ -133,7 +133,7 @@
   w5 = id
 
  -- Row 4 -----------------------------------
-  Element = ClaimResponse.ruleset
+  Element = !ClaimResponse.ruleset
   Card. = 0..1
   Aliases = BusinessVersion
   Type = Coding
@@ -143,7 +143,7 @@
   w5 = id.version
 
  -- Row 5 -----------------------------------
-  Element = ClaimResponse.originalRuleset
+  Element = !ClaimResponse.originalRuleset
   Card. = 0..1
   Aliases = OriginalBusinessVersion
   Type = Coding

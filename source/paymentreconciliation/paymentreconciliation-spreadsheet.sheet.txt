@@ -67,7 +67,7 @@
   w5 = id
 
  -- Row 4 -----------------------------------
-  Element = PaymentReconciliation.ruleset
+  Element = !PaymentReconciliation.ruleset
   Card. = 0..1
   Type = Coding
   Binding = Ruleset
@@ -76,7 +76,7 @@
   w5 = id.version
 
  -- Row 5 -----------------------------------
-  Element = PaymentReconciliation.originalRuleset
+  Element = !PaymentReconciliation.originalRuleset
   Card. = 0..1
   Type = Coding
   Binding = Ruleset

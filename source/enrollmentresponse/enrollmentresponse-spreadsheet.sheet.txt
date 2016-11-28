@@ -92,7 +92,7 @@
   Definition = A description of the status of the adjudication.
 
  -- Row 8 -----------------------------------
-  Element = EnrollmentResponse.ruleset
+  Element = !EnrollmentResponse.ruleset
   Card. = 0..1
   Type = Coding
   Binding = Ruleset
@@ -100,7 +100,7 @@
   Definition = The version of the style of resource contents. This should be mapped to the allowable profiles for this and supporting resources.
 
  -- Row 9 -----------------------------------
-  Element = EnrollmentResponse.originalRuleset
+  Element = !EnrollmentResponse.originalRuleset
   Card. = 0..1
   Type = Coding
   Binding = Ruleset
