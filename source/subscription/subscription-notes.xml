@@ -67,18 +67,16 @@ deletes it at the specified time.
 
 <p>
 This uses an empty POST message to alert the client that new results 
-are available.
+are available - POST to [base]/Subscription:
 </p>
-<pre class="json">
-POST /Subscription
-
+<pre class="json" fragment="Subscription">
 {
   "resourceType": "Subscription",
   "criteria": "/Observation?name=http://loinc.org|1975-2&amp;_format=json",
   "channel": {
     "type": "rest-hook",
-    "url": "https://biliwatch.com/customers/mount-auburn-miu/on-result",
-    "header": ["Authorization: Bearer secret-token-abc-123"]
+    "endpoint": "https://biliwatch.com/customers/mount-auburn-miu/on-result",
+    "header": "Authorization: Bearer secret-token-abc-123"
   }
 }
 </pre>
@@ -105,12 +103,14 @@ for defining routing rules within a managed eco-system such
 as a healthcare institution. 
 </p>
 
-<pre class="json">
+<pre class="json" fragment="Subscription">
+{
   "channel": {
     "type": "rest-hook",
-    "url": "https://internal.acme.com/research/saturn",
+    "endpoint": "https://internal.acme.com/research/saturn",
     "payload": "application/fhir+json"
   }
+}
 </pre>
 
 <p>
@@ -141,10 +141,12 @@ operation. This can be accomplished using a websocket notification channel.
 A client can declare its intention to listen via Web Sockets:
 </p>
 
-<pre class="json">
+<pre class="json" fragment="Subscription">
+{
   "channel": {
     "type": "websocket"
   }
+}
 </pre>
 
 <p>
@@ -167,12 +169,14 @@ A client can register for its user to receive notifications by
 email:
 </p>
 
-<pre class="json">
+<pre class="json" fragment="Subscription">
+{
   "channel": {
     "type": "email",
-    "url": "mailto:mt-auburn-results@direct.biliwatch.com",
+    "endpoint": "mailto:mt-auburn-results@direct.biliwatch.com",
     "header": "A new bilirubin result has arrived!"
   }
+}
 </pre>
 
 <p>
@@ -186,11 +190,13 @@ by the rules of the applicable jurisdictions.
 
 <p>SMS works very similarly:</p>
 
-<pre class="json">
+<pre class="json" fragment="Subscription">
+{
   "channel": {
     "type": "sms",
-    "url": "tel:+1555-345-5555"
+    "endpoint": "tel:+1555-345-5555"
   }
+}
 </pre>
 
 <p>
@@ -205,11 +211,13 @@ reasons.
 A client can register for its user to receive notifications by <a href="messaging.html">messaging</a>:
 </p>
 
-<pre class="json">
+<pre class="json" fragment="Subscription">
+{
   "channel": {
     "type": "message",
-    "url": "http://ehr.example.org/fhir/$process-message"
+    "endpoint": "http://ehr.example.org/fhir/$process-message"
   }
+}
 </pre>
 <p>
 For each matching resource, a server will send a message to the 

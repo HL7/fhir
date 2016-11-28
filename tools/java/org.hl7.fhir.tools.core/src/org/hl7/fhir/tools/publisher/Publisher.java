@@ -262,6 +262,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     private String type;
     private String xml;
     private String page;
+    private boolean json;
 
     public String getType() {
       return type;
@@ -285,6 +286,14 @@ public class Publisher implements URIResolver, SectionNumberer {
 
     public void setPage(String page) {
       this.page = page;
+    }
+
+    public boolean isJson() {
+      return json;
+    }
+
+    public void setJson(boolean json) {
+      this.json = json;
     }
 
   }
@@ -3446,22 +3455,28 @@ public class Publisher implements URIResolver, SectionNumberer {
 
   private void checkFragments() throws Exception {
     for (Fragment f : fragments) {
-      String xml = f.getXml();
-      DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-      factory.setNamespaceAware(true);
-      DocumentBuilder builder = factory.newDocumentBuilder();
-      InputSource is = new InputSource(new StringReader(xml));
-      Document doc = builder.parse(is);
-      org.w3c.dom.Element base = doc.getDocumentElement();
-      String type = base.getAttribute("fragment");
-      if (!page.getDefinitions().hasPrimitiveType(type)) {
-        try {
-          org.hl7.fhir.dstu3.elementmodel.XmlParser p = new org.hl7.fhir.dstu3.elementmodel.XmlParser(page.getWorkerContext());
-          p.setupValidation(ValidationPolicy.QUICK, null);
-          p.parse(XMLUtil.getFirstChild(base), type);
-        } catch (Exception e) {
-          page.getValidationErrors().add(new ValidationMessage(Source.Publisher, IssueType.STRUCTURE, "Fragment Error in page " + f.getPage() + ": " + e.getMessage(), IssueSeverity.ERROR));
+      try {
+        String xml = f.getXml();
+        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+        factory.setNamespaceAware(true);
+        DocumentBuilder builder = factory.newDocumentBuilder();
+        InputSource is = new InputSource(new StringReader(xml));
+        Document doc = builder.parse(is);
+        org.w3c.dom.Element base = doc.getDocumentElement();
+        String type = base.getAttribute("fragment");
+        if (!page.getDefinitions().hasPrimitiveType(type)) {
+          if (f.isJson()) {
+            org.hl7.fhir.dstu3.elementmodel.JsonParser p = new org.hl7.fhir.dstu3.elementmodel.JsonParser(page.getWorkerContext());
+            p.setupValidation(ValidationPolicy.QUICK, null);
+            p.parse(base.getTextContent(), type);
+          } else {
+            org.hl7.fhir.dstu3.elementmodel.XmlParser p = new org.hl7.fhir.dstu3.elementmodel.XmlParser(page.getWorkerContext());
+            p.setupValidation(ValidationPolicy.QUICK, null);
+            p.parse(XMLUtil.getFirstChild(base), type);
+          }
         }
+      } catch (Exception e) {
+        page.getValidationErrors().add(new ValidationMessage(Source.Publisher, IssueType.STRUCTURE, "Fragment Error in page " + f.getPage() + ": " + e.getMessage(), IssueSeverity.ERROR));
       }
     }
   }
@@ -3575,6 +3590,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       String src = TextFile.fileToString(page.getFolders().srcDir + template+".html");
       src = insertSectionNumbers(page.processResourceIncludes(n, resource, xml, json, ttl, tx, dict, src, mappings, mappingsList, "resource", n + ".html", null), st, n + ".html", 0, null);
       TextFile.stringToFile(src, page.getFolders().dstDir + n + ".html");
+      scanForFragments(n + ".html", new XhtmlParser().parseFragment(src));
       page.getHTMLChecker().registerFile(n + ".html", "Base Page for " + resource.getName(), HTMLLinkChecker.XHTML_TYPE, true);
 
       StructureDefinition profile = (StructureDefinition) ResourceUtilities.getById(page.getResourceBundle(), ResourceType.StructureDefinition, resource.getName());
@@ -5137,6 +5153,16 @@ public class Publisher implements URIResolver, SectionNumberer {
       f.setType(type);
       f.setXml(Utilities.unescapeXml(xml));
       f.setPage(filename);
+      f.setJson(false);
+      fragments.add(f);
+    }
+    if (clss.equals("json")) {
+      String xml = new XhtmlComposer().setXmlOnly(true).compose(node);
+      Fragment f = new Fragment();
+      f.setType(type);
+      f.setXml(xml);
+      f.setPage(filename);
+      f.setJson(true);
       fragments.add(f);
     }
   }

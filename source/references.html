@@ -252,7 +252,7 @@ refers to it.
 <p>
 For example, consider a situation where an interface engine is creating a <a href="condition.html">Condition</a>
 record on a patient from an <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 v2</a> message, and the only information about the primary surgeon is her
-first name and last name (REL-7.2 &amp; RES-7.3). In the absence of a controlled practitioner directory,
+first name and last name (REL-7.2 &amp; REL-7.3). In the absence of a controlled practitioner directory,
 this is not enough information to create an identified <a href="practitioner.html">Practitioner</a>
 resource since more than one practitioner might have the same name.
 </p>
@@ -265,44 +265,41 @@ done when the content can be identified properly, as once the identification is 
 <p>
 An example of a contained resource:
 </p>
-<pre class="xml"> <!-- Can't fragment test this - too incomplete -->
- &lt;Composition xmlns="http://hl7.org/fhir"&gt;
-  &lt;extension&gt;...&lt;/extension&gt;
-  &lt;text&gt;...&lt;/text&gt;
+<pre class="xml" fragment="Condition">
+ &lt;Condition xmlns="http://hl7.org/fhir"&gt;
   &lt;contained&gt;
-    &lt;Organization&gt;
-      &lt;id value=&quot;org1&quot;/&gt;
-      &lt;!-- whatever information is available --&gt;
-    &lt;/Organization&gt;
+    &lt;Practitioner&gt;
+      &lt;id value=&quot;p1&quot;/&gt;
+      &lt;name&gt;
+        &lt;family value=&quot;Person&quot;/&gt;
+        &lt;given value=&quot;Patricia&quot;/&gt;
+      &lt;/name&gt;
+    &lt;/Practitioner&gt;
   &lt;/contained&gt;
-  &lt;information&gt;
-    &lt;!-- other attributes --&gt;
-    &lt;custodian&gt;
-      &lt;reference value="#org1" /&gt;
-    &lt;/custodian&gt;
-    &lt;!-- other attributes --&gt;
-  &lt;information&gt;
- &lt;/Composition&gt;
+  &lt;!-- other attributes --&gt;
+  &lt;asserter&gt;
+    &lt;reference value="#p1" /&gt;
+  &lt;/asserter&gt;
+  &lt;!-- other attributes --&gt;
+ &lt;/Condition&gt;
 </pre>
 <p>
 The same example in JSON:
 </p>
-<pre class="json">
-{ "resourceType" : "Composition",
-  "extension" : { ... },
-  "text" : { .. },
-  "contained: [
+<pre class="json" fragment="Condition">
+{
+  "resourceType" : "Condition",
+  "contained": [
     {
-      "resourceType" : "Organization",
-      "id" : "org1",
-      .. whatever information is available ...
-	}  ]
-  "information: {
-    ... other attributes ...
-    "custodian" : {
-      "reference" : "#org1"
-	}
-    ... other attributes ...
+      "resourceType" : "Practitioner",
+      "id" : "p1",
+      "name" : [{
+        "family" : "Person",
+        "given" : ["Patricia"]
+      }]
+	  }],
+   "asserter" : {
+     "reference" : "#p1"
   }
 }
 </pre>

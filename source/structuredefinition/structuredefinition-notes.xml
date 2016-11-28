@@ -33,8 +33,8 @@ using this basic pattern:
 {
   "url": the identity of this structure definition,
   "kind": (datatype | resource),
-  "constrainedType": the type being constrained (if it's a constraint)
-  "base": the structure definition from which this is derived
+  "type": the type being constrained (if it's a constraint)
+  "baseDefinition": the structure definition from which this is derived
 }
 </pre>
 <p>
@@ -42,89 +42,89 @@ This list shows a number of examples, with links to real examples for each:
 </p>
 <ol>
  <li>Base definition of a data type (example: <a href="datatypes.html#Quantity">Quantity</a> - <a href="quantity.profile.xml.html">XML</a>, <a href="quantity.profile.json.html">JSON</a>):<br/>
-<pre class="json">
+<pre class="json" fragment="StructureDefinition">
 {
   "resourceType": "StructureDefinition",
   "url": "http://hl7.org/fhir/StructureDefinition/Quantity",
   "name": "Quantity",
   "kind": "datatype",
-  "base": "http://hl7.org/fhir/StructureDefinition/Element",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Element"
 }
 </pre>
  </li>
 
  <li>A constrained data type (example: <a href="datatypes.html#Money">Money</a>  - <a href="money.profile.xml.html">XML</a>, <a href="money.profile.json.html">JSON</a>):<br/>
-<pre class="json">
+<pre class="json" fragment="StructureDefinition">
 {
   "resourceType": "StructureDefinition",
   "url": "http://hl7.org/fhir/StructureDefinition/Money",
   "name": "Money",
   "kind": "datatype",
-  "constrainedType": "Quantity",
-  "base": "http://hl7.org/fhir/StructureDefinition/Quantity"
+  "type": "Quantity",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Quantity"
 }
 </pre>
 	</li>
 
  <li>Base definition of a resource (example: <a href="patient.html">Patient</a> - <a href="patient.profile.xml.html">XML</a>, <a href="patient.profile.json.html">JSON</a>): <br/>
-<pre class="json">
+<pre class="json" fragment="StructureDefinition">
 {
   "resourceType": "StructureDefinition",
   "url": "http://hl7.org/fhir/StructureDefinition/Patient",
   "name": "Patient",
   "kind": "resource",
-  "base":"http://hl7.org/fhir/StructureDefinition/DomainResource"
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/DomainResource"
 }
 </pre>
  </li>
 
  <li>Constraint on a resource (example: <a href="http://hl7.org/fhir/daf/daf-patient.html">DAF Patient</a> - <a href="http://hl7.org/fhir/daf/daf-patient.profile.xml.html">XML</a>, <a href="http://hl7.org/fhir/daf/daf-patient.profile.json.html">JSON</a>): <br/>
-<pre class="json">
+<pre class="json" fragment="StructureDefinition">
 {
   "resourceType": "StructureDefinition",
   "url": "http://hl7.org/fhir/StructureDefinition/daf-patient",
   "name": "U.S. Data Access Framework (DAF) Patient Profile",
   "kind": "resource",
-  "constrainedType": "Patient"
-  "base":"http://hl7.org/fhir/StructureDefinition/Patient"
+  "type": "Patient",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Patient"
 }
 </pre>
  </li>
 
  <li>Base Extension (a standard data type) (example: <a href="extensibility.html#Extension">Extension</a> - <a href="extension.profile.xml.html">XML</a>, <a href="extension.profile.json.html">JSON</a>): <br/>
-<pre class="json">
+<pre class="json" fragment="StructureDefinition">
 {
   "resourceType": "StructureDefinition",
   "url": "http://hl7.org/fhir/StructureDefinition/Extension",
   "name": "Extension",
   "kind": "datatype",
-  "base":"http://hl7.org/fhir/StructureDefinition/Element",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Element"
 }
 </pre>
  </li>
 
  <li>A defined Extension  (example: <a href="extension-us-core-race.html">Extension</a>  - <a href="extension-us-core-race.xml.html">XML</a>, <a href="extension-us-core-race.json.html">JSON</a>): <br/>
-<pre class="json">
+<pre class="json" fragment="StructureDefinition">
 {
   "resourceType": "StructureDefinition",
   "url": "http://hl7.org/fhir/StructureDefinition/us-core-race",
   "name": "A category of humans sharing history, origin or nationality",
   "kind": "datatype",
-  "constrainedType": "Extension",
-  "base": "http://hl7.org/fhir/StructureDefinition/Extension"
+  "type": "Extension",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Extension"
 }
 </pre>
  </li>
  
  <li>A constraint on a defined extension (no examples currently defined): <br/>
-<pre class="json">
+<pre class="json" fragment="StructureDefinition">
 {
   "resourceType": "StructureDefinition",
   "url": "http://example.org/fhir/StructureDefinition/race",
   "name": "Race codes used by institution (a subset of meaningful use codes)",
   "kind": "datatype",
-  "constrainedType": "Extension",
-  "base": "http://hl7.org/fhir/StructureDefinition/us-core-race"
+  "type": "Extension",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/us-core-race"
 }
 </pre>
  </li>

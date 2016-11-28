@@ -15,6 +15,7 @@ import java.util.Set;
 import org.hl7.fhir.dstu3.context.IWorkerContext;
 import org.hl7.fhir.dstu3.elementmodel.Element.SpecialElement;
 import org.hl7.fhir.dstu3.formats.IParser.OutputStyle;
+import org.hl7.fhir.dstu3.formats.FormatUtilities;
 import org.hl7.fhir.dstu3.formats.JsonCreator;
 import org.hl7.fhir.dstu3.formats.JsonCreatorCanonical;
 import org.hl7.fhir.dstu3.formats.JsonCreatorGson;
@@ -30,6 +31,7 @@ import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xhtml.XhtmlParser;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonNull;
@@ -44,6 +46,22 @@ public class JsonParser extends ParserBase {
 	public JsonParser(IWorkerContext context) {
 		super(context);
 	}
+
+	public Element parse(String source, String type) throws Exception {
+	  JsonObject obj = (JsonObject) new com.google.gson.JsonParser().parse(source);
+    String path = "/"+type;
+    StructureDefinition sd = getDefinition(-1, -1, type);
+    if (sd == null)
+      return null;
+
+    Element result = new Element(type, new Property(context, sd.getSnapshot().getElement().get(0), sd));
+    checkObject(obj, path);
+    result.setType(type);
+    parseChildren(path, obj, result, true);
+    result.numberChildren();
+    return result;
+  }
+
 
 	@Override
 	public Element parse(InputStream stream) throws IOException, FHIRFormatError, DefinitionException {

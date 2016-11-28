@@ -514,8 +514,8 @@
   Element = Sequence.referenceSeq.referenceSeqPointer
   Card. = 0..1
   Type = Reference(Sequence)
-  Short Name = A Pointer to another Sequence entity as refence sequence
-  Definition = A Pointer to another Sequence entity as refence sequence.
+  Short Name = A Pointer to another Sequence entity as reference sequence
+  Definition = A Pointer to another Sequence entity as reference sequence.
 
  -- Row 14 -----------------------------------
   Element = Sequence.referenceSeq.referenceSeqString
