@@ -1,0 +1,29 @@
+map "http://hl7.org/fhir/StructureMap/cda-any" = "V3/FHIR Mappings: ANY"
+
+uses "http://hl7.org/fhir/StructureDefinition/cda-ANY" as source
+uses "http://hl7.org/fhir/StructureDefinition/Element" as target
+uses "http://hl7.org/fhir/StructureDefinition/cda-ANY" as target
+uses "http://hl7.org/fhir/StructureDefinition/Element" as source
+
+group ANY2Element 
+  input src : ANY as source;
+  input tgt : Element as target;
+
+any.nf: for src.nullFlavor as nf make
+   Element.extension as ex, 
+   ex.url = "http://hl7.org/fhir/StructureDefinition/iso21090-nullFlavor",
+   ex.value = nf  // nothing more after this
+
+endgroup
+
+
+group Element2ANY 
+  input src : Element as source;
+  input tgt : ANY as target;
+
+any.nf: for src.Extension as ex then {
+  any.nf.ex: for ex.valueCode as v where ex.url = 'http://hl7.org/fhir/StructureDefinition/iso21090-nullFlavor' make tgt.nullFlavor = v
+}
+
+endgroup
+

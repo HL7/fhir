@@ -1,0 +1,24 @@
+map "http://hl7.org/fhir/StructureMap/cda-bl" = "V3/FHIR Mappings: BL"
+
+uses "http://hl7.org/fhir/StructureDefinition/cda-BL" as source
+uses "http://hl7.org/fhir/StructureDefinition/boolean" as target
+uses "http://hl7.org/fhir/StructureDefinition/cda-BL" as target
+uses "http://hl7.org/fhir/StructureDefinition/boolean" as source
+
+imports "http://hl7.org/fhir/StructureMap/cda-any"
+
+group BL2Boolean extends ANY2Element
+  input src : BL as source;
+  input tgt : boolean as target;
+
+bl_value: for src.value as bl make tgt.value = bl
+
+endgroup
+
+group Boolean2BL extends Element2ANY
+  input src : boolean as source;
+  input tgt : BL as target;
+
+bl_value: for src.value as bl make tgt.value = bl 
+
+endgroup

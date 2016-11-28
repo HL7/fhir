@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="SXPR_TS"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
+    <valueUri value="urn:hl7-org:v3"/>
+  </extension>
+  <url value="http://hl7.org/fhir/cda/StructureDefinition/SXPR_TS"/>
+  <name value="V3 Data type SXPR_TS (A set-component that is itself made up of set-components that are evaluated as one value)"/>
+  <title value="SXPR_TS - Component part of GTS"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <publisher value="HL7"/>
+  <description value="A set-component that is itself made up of set-components that are evaluated as one value"/>
+  <kind value="logical"/>
+  <abstract value="false"/>
+  <baseDefinition value="http://hl7.org/fhir/cda/StructureDefinition/SXCM_TS"/>
+  <derivation value="specialization"/>
+  <snapshot>
+    <element>
+      <path value="SXPR_TS"/>
+      <min value="1"/>
+      <max value="*"/>
+      <type>
+        <code value="Element"/>
+      </type>
+    </element>
+    <element>
+      <path value="SXPR_TS.nullFlavor"/>
+      <representation value="xmlAttr"/>
+      <label value="Exceptional Value Detail"/>
+      <definition value="If a value is an exceptional value (NULL-value), this specifies in what way and why proper information is missing."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <binding>
+        <strength value="required"/>
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/v3-NullFlavor"/>
+        </valueSetReference>
+      </binding>
+    </element>
+    <element>
+      <extension url="http://www.healthintersections.com.au/fhir/StructureDefinition/elementdefinition-dateformat">
+        <valueString value="v3"/>
+      </extension>
+      <path value="SXPR_TS.value"/>
+      <representation value="xmlAttr"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+    </element>
+    <element>
+      <path value="SXPR_TS.inclusive"/>
+      <representation value="xmlAttr"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+    </element>
+    <element>
+      <path value="SXPR_TS.operator"/>
+      <representation value="xmlAttr"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+    </element>
+    <element>
+      <path value="SXPR_TS.comp"/>
+      <representation value="typeAttr"/>
+      <min value="1"/>
+      <max value="*"/>
+      <type>
+        <code value="IVL_TS"/>
+      </type>
+      <type>
+        <code value="EIVL_TS"/>
+      </type>
+      <type>
+        <code value="PIVL_TS"/>
+      </type>
+      <type>
+        <code value="SXPR_TS"/>
+      </type>
+    </element>
+  </snapshot>
+  <differential>
+    <element>
+      <path value="SXPR_TS"/>
+      <min value="1"/>
+      <max value="*"/>
+      <type>
+        <code value="Element"/>
+      </type>
+    </element>
+    <element>
+      <path value="SXPR_TS.comp"/>
+      <representation value="typeAttr"/>
+      <min value="1"/>
+      <max value="*"/>
+      <type>
+        <code value="IVL_TS"/>
+      </type>
+      <type>
+        <code value="EIVL_TS"/>
+      </type>
+      <type>
+        <code value="PIVL_TS"/>
+      </type>
+      <type>
+        <code value="SXPR_TS"/>
+      </type>
+    </element>
+  </differential>
+</StructureDefinition>

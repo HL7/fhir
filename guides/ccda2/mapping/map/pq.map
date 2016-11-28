@@ -1,0 +1,19 @@
+map "http://hl7.org/fhir/StructureMap/cda-pq" = "V3/FHIR Mappings: PQ"
+
+uses "http://hl7.org/fhir/StructureDefinition/cda-PQ" as source
+uses "http://hl7.org/fhir/StructureDefinition/Quantity" as target
+
+imports "http://hl7.org/fhir/StructureMap/cda-any"; 
+
+group PQ2Quantity extends ANY2Element
+  input src : PQ as source;
+  input tgt : Quantity as target;
+
+// PQ / Quantity rules --------------------------------------------------------------------
+
+pq.value: for src.value as val make tgt.value = val
+pq.unit: for src.unit as u make tgt.unit = u, tgt.code = u, tgt.system = "http://unitsofmeasure.org"
+// ignore pq.translations
+
+endgroup
+

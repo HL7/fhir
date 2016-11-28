@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="PatientRole"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
+    <valueUri value="urn:hl7-org:v3"/>
+  </extension>
+  <url value="http://hl7.org/fhir/cda/StructureDefinition/PatientRole"/>
+  <name value="CDAR2.PatientRole"/>
+  <title value="FHIR Definition for CDA R2 Class PatientRole"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <publisher value="HL7"/>
+  <kind value="logical"/>
+  <abstract value="false"/>
+  <baseDefinition value="http://hl7.org/fhir/cda/StructureDefinition/Element"/>
+  <snapshot>
+    <element>
+      <path value="PatientRole"/>
+      <min value="1"/>
+      <max value="1"/>
+    </element>
+    <element>
+      <path value="PatientRole.nullFlavor"/>
+      <representation value="xmlAttr"/>
+      <label value="Exceptional Value Detail"/>
+      <definition value="If a value is an exceptional value (NULL-value), this specifies in what way and why proper information is missing."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <binding>
+        <strength value="required"/>
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/v3-NullFlavor"/>
+        </valueSetReference>
+      </binding>
+    </element>
+    <element>
+      <path value="PatientRole.realmCode"/>
+      <definition value="When valued in an instance, this attribute signals the imposition of realm-specific constraints. The value of this attribute identifies the realm in question"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CS"/>
+      </type>
+    </element>
+    <element>
+      <path value="PatientRole.typeId"/>
+      <definition value="When valued in an instance, this attribute signals the imposition of constraints defined in an HL7-specified message type. This might be a common type (also known as CMET in the messaging communication environment), or content included within a wrapper. The value of this attribute provides a unique identifier for the type in question."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="II"/>
+      </type>
+    </element>
+    <element>
+      <path value="PatientRole.templateId"/>
+      <definition value="When valued in an instance, this attribute signals the imposition of a set of template-defined constraints. The value of this attribute provides a unique identifier for the templates in question"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="II"/>
+      </type>
+    </element>
+    <element>
+      <path value="PatientRole.classCode"/>
+      <representation value="xmlAttr"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <defaultValueCode value="PAT"/>
+      <fixedCode value="PAT"/>
+      <mustSupport value="true"/>
+      <binding>
+        <strength value="required"/>
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/v3-RoleClassRelationshipFormal"/>
+        </valueSetReference>
+      </binding>
+    </element>
+    <element>
+      <path value="PatientRole.id"/>
+      <min value="1"/>
+      <max value="*"/>
+      <type>
+        <code value="II"/>
+      </type>
+    </element>
+    <element>
+      <path value="PatientRole.addr"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="AD"/>
+      </type>
+    </element>
+    <element>
+      <path value="PatientRole.telecom"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="TEL"/>
+      </type>
+    </element>
+    <element>
+      <path value="PatientRole.patient"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <type>
+        <code value="http://hl7.org/fhir/cda/StructureDefinition/Patient"/>
+      </type>
+    </element>
+    <element>
+      <path value="PatientRole.providerOrganization"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <type>
+        <code value="http://hl7.org/fhir/cda/StructureDefinition/Organization"/>
+      </type>
+    </element>
+  </snapshot>
+  <differential>
+    <element>
+      <path value="PatientRole"/>
+      <min value="1"/>
+      <max value="1"/>
+    </element>
+    <element>
+      <path value="PatientRole.classCode"/>
+      <representation value="xmlAttr"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <defaultValueCode value="PAT"/>
+      <fixedCode value="PAT"/>
+      <mustSupport value="true"/>
+      <binding>
+        <strength value="required"/>
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/v3-RoleClassRelationshipFormal"/>
+        </valueSetReference>
+      </binding>
+    </element>
+    <element>
+      <path value="PatientRole.id"/>
+      <min value="1"/>
+      <max value="*"/>
+      <type>
+        <code value="II"/>
+      </type>
+    </element>
+    <element>
+      <path value="PatientRole.addr"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="AD"/>
+      </type>
+    </element>
+    <element>
+      <path value="PatientRole.telecom"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="TEL"/>
+      </type>
+    </element>
+    <element>
+      <path value="PatientRole.patient"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <type>
+        <code value="http://hl7.org/fhir/cda/StructureDefinition/Patient"/>
+      </type>
+    </element>
+    <element>
+      <path value="PatientRole.providerOrganization"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <type>
+        <code value="http://hl7.org/fhir/cda/StructureDefinition/Organization"/>
+      </type>
+    </element>
+  </differential>
+</StructureDefinition>

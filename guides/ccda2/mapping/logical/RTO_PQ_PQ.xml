@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="RTO_PQ_PQ"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
+    <valueUri value="urn:hl7-org:v3"/>
+  </extension>
+  <url value="http://hl7.org/fhir/cda/StructureDefinition/RTO_PQ_PQ"/>
+  <name value="V3 Data type RTO_PQ_PQ (Ratio)"/>
+  <title value="V3 Data type RTO_PQ_PQ (Ratio)"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <publisher value="HL7"/>
+  <description value="A quantity constructed as the quotient of a numerator quantity divided by a denominator quantity. Common factors in the numerator and denominator are not automatically cancelled out. The data type supports titers (e.g., &quot;1:128&quot;) and other quantities produced by laboratories that truly represent ratios. Ratios are not simply &quot;structured numerics&quot;, particularly blood pressure measurements (e.g. &quot;120/60&quot;) are not ratios. In many cases the should be used instead of the ."/>
+  <kind value="logical"/>
+  <abstract value="false"/>
+  <baseDefinition value="http://hl7.org/fhir/cda/StructureDefinition/QTY"/>
+  <derivation value="specialization"/>
+  <snapshot>
+    <element>
+      <path value="RTO_PQ_PQ"/>
+      <min value="1"/>
+      <max value="*"/>
+      <type>
+        <code value="Element"/>
+      </type>
+    </element>
+    <element>
+      <path value="RTO_PQ_PQ.nullFlavor"/>
+      <representation value="xmlAttr"/>
+      <label value="Exceptional Value Detail"/>
+      <definition value="If a value is an exceptional value (NULL-value), this specifies in what way and why proper information is missing."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <binding>
+        <strength value="required"/>
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/v3-NullFlavor"/>
+        </valueSetReference>
+      </binding>
+    </element>
+    <element>
+      <path value="RTO_PQ_PQ.numerator"/>
+      <label value="Numerator"/>
+      <definition value="The quantity that is being divided in the ratio. The default is the integer number 1 (one.)"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="PQ"/>
+      </type>
+    </element>
+    <element>
+      <path value="RTO_PQ_PQ.denominator"/>
+      <label value="Denominator"/>
+      <definition value="The quantity that devides the numerator in the ratio. The default is the integer number 1 (one.) The denominator must not be zero."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="PQ"/>
+      </type>
+    </element>
+  </snapshot>
+  <differential>
+    <element>
+      <path value="RTO_PQ_PQ"/>
+      <min value="1"/>
+      <max value="*"/>
+      <type>
+        <code value="Element"/>
+      </type>
+    </element>
+    <element>
+      <path value="RTO_PQ_PQ.numerator"/>
+      <label value="Numerator"/>
+      <definition value="The quantity that is being divided in the ratio. The default is the integer number 1 (one.)"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="PQ"/>
+      </type>
+    </element>
+    <element>
+      <path value="RTO_PQ_PQ.denominator"/>
+      <label value="Denominator"/>
+      <definition value="The quantity that devides the numerator in the ratio. The default is the integer number 1 (one.) The denominator must not be zero."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="PQ"/>
+      </type>
+    </element>
+  </differential>
+</StructureDefinition>
