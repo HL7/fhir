@@ -18,7 +18,7 @@ at once, but this requires that the implementation guides are compatible (see <a
 <a name="bnr"> </a>
 <h2>Boundaries and Relationships</h2>
 <p>
-Implementation Guides contain two different types of resource references: .
+Implementation Guides contain two different types of resource references:
 </p>
 <ul>
  <li>Contents: A set of logical statements which implementations must conformn to. These are almost always <a href="conformance-module.html">conformance resources</a></li>
