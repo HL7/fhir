@@ -1349,9 +1349,9 @@
     <Cell ss:Index="5"><Data ss:Type="String">Reference(Sequence)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="9" ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">A Pointer to another Sequence entity as refence sequence</Data><NamedCell
+    <Cell ss:Index="14"><Data ss:Type="String">A Pointer to another Sequence entity as reference sequence</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">A Pointer to another Sequence entity as refence sequence.</Data><NamedCell
+    <Cell><Data ss:Type="String">A Pointer to another Sequence entity as reference sequence.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
