@@ -891,7 +891,7 @@ In addition, there is another method to get the capability statement, using the 
 </pre>
 <p>
 However as of STU3, this method is deprecated, and will be removed in a future version. Using OPTIONS like this
-is not conformant with HTTP, and creates challenges for <a href="http://enable-cors.org/">cross-origin resource sharing</a> support).
+is not conformant with HTTP, and creates challenges for <a href="http://enable-cors.org/">cross-origin resource sharing</a> support.
 </p>
 <p>
 Applications SHALL return a <a href="capabilitystatement.html">Capability Statement</a> that specifies which resource types and interactions are supported
@@ -922,6 +922,17 @@ This is different from the <code>capabilities</code> interaction:
 All servers are required to support the <code>capabilities</code> interaction, but servers may choose whether they wish to support the CapabilityStatement end-point,
 just like any other end-point.
 </p>
+
+<blockquote class="dstu-note">
+<a name="cap-st-note"> </a>
+<p>
+<b>Implementation Note:</b> In DSTU 2 and earlier, the resource that this interaction returned was named "Conformance".
+Clients often connect to a server, and use the <code>capabilities</code> interaction to check whether they are version 
+and/or feature compatible with the server. Such clients should be able to process either a Conformance or a 
+CapabilityStatement resource.
+</p>
+</blockquote>
+
 
 <a name="transaction"> </a>
 <h3>batch/transaction</h3>
