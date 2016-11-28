@@ -1073,7 +1073,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       for (String rn : definitions.sortedResourceNames()) {
         ResourceDefn r = definitions.getResourceByName(rn);
         if (r.getWg() == wg) {
-          b.append("  <tr><td><a href=\""+rn.toLowerCase()+"\">"+rn+"</a></td><td>"+r.getFmmLevel()+"</td></tr>\r\n");
+          b.append("  <tr><td><a href=\""+rn.toLowerCase()+".html\">"+rn+"</a></td><td>"+r.getFmmLevel()+"</td></tr>\r\n");
         }
       }
     }
