@@ -1054,10 +1054,31 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1 + genModifierList() + s3;
       else if (com[0].equals("missing-element-list"))
         src = s1 + genDefaultedList() + s3;
+      else if (com[0].equals("wgreport"))
+        src = s1 + genWGReport() + s3;
       else
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
     }
     return src;
+  }
+
+  private String genWGReport() throws Exception {
+    
+    StringBuilder b = new StringBuilder();
+    b.append("<table class=\"grid\">\r\n");
+    b.append("  <tr><td><b>Resource</b></td><td>FMM</td></tr>\r\n");
+    for (String n : sorted(definitions.getWorkgroups().keySet())) {
+      WorkGroup wg = definitions.getWorkgroups().get(n); 
+      b.append(" <tr><td colspan=\"2\"><b>"+n+" ("+wg.getName()+")</b></td></tr>\r\n");
+      for (String rn : definitions.sortedResourceNames()) {
+        ResourceDefn r = definitions.getResourceByName(rn);
+        if (r.getWg() == wg) {
+          b.append("  <tr><td><a href=\""+rn.toLowerCase()+"\">"+rn+"</a></td><td>"+r.getFmmLevel()+"</td></tr>\r\n");
+        }
+      }
+    }
+    b.append("</table>\r\n");
+    return b.toString();
   }
 
   private void updateDiffEngineDefinitions() {
@@ -4652,6 +4673,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1 + genModifierList() + s3;
       else if (com[0].equals("missing-element-list"))
         src = s1 + genDefaultedList() + s3;
+      else if (com[0].equals("wgreport"))
+        src = s1 + genWGReport() + s3;
       else 
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
     }
