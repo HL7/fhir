@@ -306,12 +306,13 @@
   RIM Mapping = .text
 
  -- Row 19 -----------------------------------
-  Element = MedicationAdministration.dosage.site[x]
+  Element = MedicationAdministration.dosage.site
   Card. = 0..1
-  Type = CodeableConcept | Reference(BodySite)
+  Type = CodeableConcept
   Binding = MedicationAdministrationSite
   Short Name = Body site administered to
   Definition = A coded specification of the anatomic site where the medication first entered the body.  For example, \"left arm\"
+  Comments = If the use case requires attributes from the BodySite resource (e.g. to identify and track separately) then use the standard extension [body-site-instance](extension-body-site-instance.html).  May be a summary code, or a reference to a very precise definition of the location, or both
   v2 Mapping = RXR-2 Administration Site / RXR-6 Administration Site Modifier
   RIM Mapping = approachSiteCode
 

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <MedicationDispense xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://hl7.org/fhir ../schema/medicationdispense.xsd"
-    xmlns="http://hl7.org/fhir">
+ xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationdispense.xsd"
+ xmlns="http://hl7.org/fhir">
     <id value="meddisp0329"/>
     <contained>
         <Medication>
@@ -130,13 +130,13 @@
                 <periodUnit value="d"/>
             </repeat>
         </timing>
-        <siteCodeableConcept>
+        <site>
             <coding>
                 <system value="http://snomed.info/sct"/>
                 <code value="72098002"/>
                 <display value="Entire left upper arm (body structure)"/>
             </coding>
-        </siteCodeableConcept>
+        </site>
         <route>
             <coding>
                 <system value="http://snomed.info/sct"/>

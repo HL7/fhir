@@ -92,13 +92,13 @@
   </reasonGiven>
   <dosage>
     <text value="KCl 20 mEq in 1 L 0.9%NS IV at 100 ml/hr" />
-    <siteCodeableConcept>
+    <site>
       <coding>
         <system value="http://snomed.info/sct"/>
         <code value="6073002"/>
         <display value="Structure of ligament of left superior vena cava"/>
       </coding>
-    </siteCodeableConcept>
+    </site>
     <route>
       <coding>
         <system value="http://snomed.info/sct"/>

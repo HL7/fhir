@@ -35,13 +35,13 @@
   </reasonGiven>
   <dosage>
     <text value="Insert one suppository rectally twice daily as needed for fever to a maximim of 3 per day"/>
-    <siteCodeableConcept>
+    <site>
       <coding>
         <system value="http://snomed.info/sct"/>
         <code value="34402009"/>
         <display value="Rectum structure"/>
       </coding>
-    </siteCodeableConcept>
+    </site>
     <dose>
       <value value="240"/>
       <unit value="mg"/>
