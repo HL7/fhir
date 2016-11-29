@@ -86,7 +86,6 @@ This includes cases where these related people are actually contributing to the 
 <p>It is not expected that these records will be used for recording the primary care provider; this information should be stored in
 the Patient.generalPractitioner field.</p>
 
-<!--
 <a name="gender"> </a>
 <h2>Patient Gender</h2>
 
@@ -96,14 +95,16 @@ The basic gender included in <code>Patient.gender</code> has a limited use, that
 In addition, to this gender, other kinds of gender may be represented:
 </p>
 <ul>
- <li>Birth Sex - the sex assigned at birth / on the birth registration. Some countries allow variations such as not yet determined, unknown, or undifferentiated, while others do not. The US realm defines a US Specific extension (ref to be provided) for this for Meaningful Use</li>
+ <li>Birth Sex - the sex assigned at birth / on the birth registration. Some countries allow variations such as not yet determined, unknown, or undifferentiated, while others do not. The US realm defines a US Specific extension for this for Meaningful Use</li>
  <li>Clinical Gender - an observation about the patient, typically using the <a href="loinc.html">LOINC</a> code <a href="http://loinc.org/76691-5">76691-5</a>). 
      LOINC also provides a <a href="http://r.details.loinc.org/AnswerList/LL3322-6.html">set of possible codes</a>, or SNOMED CT has the descendents of <a href="http://www.snomedbrowser.com/Codes/Details/285116001">285116001</a>: Gender identity finding</li>
 </ul>
 <p>
 Other related Observations may describe the Karyotypic/Genetic, Gonadal, Ductal, Phenotypic status of a patient.
 </p>
--->
+<p>
+For veterinary use the animal component also includes the genderStatus which indicates sterility information.
+</p>
 
 <a name="maternity"> </a>
 <h2>Mother and newborn relationships</h2>
