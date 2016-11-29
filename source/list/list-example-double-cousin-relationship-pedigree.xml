@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<List xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://hl7.org/fhir" xsi:schemaLocation="http://hl7.org/fhir ../../schema/list.xsd">
+  <id value="example-double-cousin-relationship"/>
+  <contained>
+    <FamilyMemberHistory>
+      <id value="1"/>
+      <patient>
+        <reference value="Patient/147051"/>
+        <display value="Pam Taylor"/>
+      </patient>
+      <status value="completed"/>
+      <name value="Mary"/>
+      <relationship>
+        <coding>
+          <system value="http://hl7.org/fhir/v3/RoleCode"/>
+          <code value="NMTH"/>
+          <display value="natural mother"/>
+        </coding>
+        <text value="natural mother"/>
+      </relationship>
+      <deceasedBoolean value="true"/>
+      <condition>
+        <code>
+          <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="73211009"/>
+            <display value="Diabetes mellitus"/>
+          </coding>
+          <text value="Diabetes mellitus"/>
+        </code>
+        <onsetAge>
+          <value value="45"/>
+          <unit value="yr"/>
+          <system value="http://unitsofmeasure.org"/>
+          <code value="a"/>
+        </onsetAge>
+      </condition>
+    </FamilyMemberHistory>
+  </contained>
+  <contained>
+    <FamilyMemberHistory>
+      <id value="2"/>
+      <patient>
+        <reference value="Patient/147051"/>
+        <display value="Pam Taylor"/>
+      </patient>
+      <status value="completed"/>
+      <name value="Bob"/>
+      <relationship>
+        <coding>
+          <system value="http://hl7.org/fhir/v3/RoleCode"/>
+          <code value="PUNCLE"/>
+          <display value="paternal uncle"/>
+        </coding>
+        <text value="paternal uncle"/>
+      </relationship>
+      <condition>
+        <code>
+          <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="1481000119100"/>
+            <display value="Diabetes mellitus type 2 without retinopathy"/>
+          </coding>
+          <text value="Diabetes mellitus type 2 without retinopathy"/>
+        </code>
+        <onsetAge>
+          <value value="35"/>
+          <unit value="yr"/>
+          <system value="http://unitsofmeasure.org"/>
+          <code value="a"/>
+        </onsetAge>
+      </condition>
+    </FamilyMemberHistory>
+  </contained>
+  <contained>
+    <FamilyMemberHistory>
+      <id value="3"/>
+      <patient>
+        <reference value="Patient/147051"/>
+        <display value="Pam Taylor"/>
+      </patient>
+      <status value="completed"/>
+      <name value="Jon"/>
+      <relationship>
+        <coding>
+          <system value="http://hl7.org/fhir/v3/RoleCode"/>
+          <code value="MUNCLE"/>
+          <display value="maternal uncle"/>
+        </coding>
+        <text value="maternal uncle"/>
+      </relationship>
+    </FamilyMemberHistory>
+  </contained>
+  <contained>
+    <FamilyMemberHistory>
+      <id value="4"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/family-member-history-genetics-sibling">
+        <extension url="type">
+            <valueCodeableConcept>
+                <coding>
+			<system value="http://hl7.org/fhir/v3/RoleCode"/>
+                    <code value="NSIS"/>
+                    <display value="natural sister"/>
+                </coding>
+                <text value="natural sister"/>
+            </valueCodeableConcept>
+        </extension>
+        <extension url="reference">
+            <valueReference>
+                <!--It is fake.-->
+                <reference value="FamilyMemberHistory/mother"/>
+                <display value="paternal grandmother"/>
+            </valueReference>
+        </extension>
+      </extension>
+      <patient>
+        <reference value="Patient/147051"/>
+        <display value="Pam Taylor"/>
+      </patient>
+      <status value="completed"/>
+      <name value="Alica"/>
+      <!--This is a new relationship that here is a maternal grandmother who is paternal grandmonther's sibling -->
+      <relationship>
+        <coding>
+          <system value="http://hl7.org/fhir/v3/RoleCode"/>
+          <code value="MGRMTH"/>
+          <display value="maternal grandmother"/>
+        </coding>
+        <text value="maternal grandmother"/>
+      </relationship>
+      <ageAge>
+        <value value="70"/>
+        <unit value="yr"/>
+        <system value="http://unitsofmeasure.org"/>
+        <code value="a"/>
+      </ageAge>
+    </FamilyMemberHistory>
+  </contained>
+  <contained>
+    <FamilyMemberHistory>
+      <id value="5"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/family-member-history-genetics-parent">
+        <extension url="type">
+          <valueCodeableConcept>
+            <coding>
+                <system value="http://hl7.org/fhir/v3/RoleCode"/>
+                <code value="MTH"/>
+                <display value="mother"/>
+            </coding>
+            <text value="mother"/>
+          </valueCodeableConcept>
+        </extension>
+        <extension url="reference">
+          <valueReference>
+            <reference value="FamilyMemberHistory/147146"/>
+            <display value="maternal grandmother"/>
+          </valueReference>
+        </extension>
+      </extension>
+      <patient>
+        <reference value="Patient/147051"/>
+        <display value="Pam Taylor"/>
+      </patient>
+      <status value="completed"/>
+      <name value="Aunt with Parent ID"/>
+      <relationship>
+        <coding>
+          <system value="http://hl7.org/fhir/v3/RoleCode"/>
+          <code value="MAUNT"/>
+          <display value="maternal aunt"/>
+        </coding>
+        <text value="maternal aunt"/>
+      </relationship>
+      <gender value="female"/>
+      <ageAge>
+        <value value="55"/>
+        <unit value="yr"/>
+        <system value="http://unitsofmeasure.org"/>
+        <code value="a"/>
+      </ageAge>
+    </FamilyMemberHistory>
+  </contained>
+  <contained>
+    <FamilyMemberHistory>
+      <id value="6"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/family-member-history-genetics-sibling">
+        <extension url="type">
+            <valueCodeableConcept>
+                <coding>
+                    <code value="NBRO"/>
+                    <display value="natural brother"/>
+                </coding>
+                <text value="natural brother"/>
+            </valueCodeableConcept>
+        </extension>
+        <extension url="reference">
+            <valueReference>
+                <!--It is fake.-->
+                <reference value="FamilyMemberHistory/father"/>
+                <display value="maternal grandfather"/>
+            </valueReference>
+        </extension>
+    </extension>
+      <patient>
+        <reference value="Patient/147051"/>
+        <display value="Pam Taylor"/>
+      </patient>
+      <status value="completed"/>
+      <name value="Paul"/>
+      <!--This is a new relationship that here is a maternal grandmother who is paternal grandmonther's sibling -->
+      <relationship>
+        <coding>
+          <system value="http://hl7.org/fhir/v3/RoleCode"/>
+          <code value="PGRFTH"/>
+          <display value="Paternal grandfather"/>
+        </coding>
+        <text value="Paternal grandfather"/>
+      </relationship>
+      <ageAge>
+        <value value="74"/>
+        <unit value="yr"/>
+        <system value="http://unitsofmeasure.org"/>
+        <code value="b"/>
+      </ageAge>
+    </FamilyMemberHistory>
+  </contained>
+  <status value="current"/>
+  <mode value="snapshot"/>
+  <code>
+    <coding>
+      <system value="http://loinc.org"/>
+      <code value="80738-8"/>
+      <display value="TPMT gene mutations found [Identifier] in Blood or Tissue by Sequencing Nominal"/>
+    </coding>
+    <text value="TPMT gene mutations found [Identifier] in Blood or Tissue by Sequencing Nominal"/>
+  </code>
+  <subject>
+    <reference value="Patient/147051"/>
+    <display value="Pam Taylor"/>
+  </subject>
+  <entry>
+    <item>
+      <reference value="#1"/>
+    </item>
+  </entry>
+  <entry>
+    <item>
+      <reference value="#2"/>
+    </item>
+  </entry>
+  <entry>
+    <item>
+      <reference value="#3"/>
+    </item>
+  </entry>
+  <entry>
+    <item>
+      <reference value="#4"/>
+    </item>
+  </entry>
+  <entry>
+    <item>
+      <reference value="#5"/>
+    </item>
+  </entry>
+  <entry>
+    <item>
+      <reference value="#6"/>
+    </item>
+  </entry>
+</List>

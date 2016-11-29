@@ -8,6 +8,13 @@
   Definition = Parental relationship types
   Conformance = required
 
+ -- Row 2 -----------------------------------
+  Binding Name = SiblingRelationshipType
+  Binding = Value Set
+  Reference = valueset-sibling-relationship-codes
+  Definition = Sibling relationship types
+  Conformance = required
+
 === Sheet FamilyMemberHistory-Genetic =====================================
 
  -- Row 1 -----------------------------------
@@ -23,13 +30,20 @@
   Type = Extension{#parent}
 
  -- Row 3 -----------------------------------
+  Element = FamilyMemberHistory.extension
+  Profile Name = Sibling
+  Card. = 0..*
+  Must Support = Y
+  Type = Extension{#sibling}
+
+ -- Row 4 -----------------------------------
   Element = FamilyMemberHistory.relationship
   Profile Name = Relationship
   Card. = 1..1
   Must Support = Y
   Type = CodeableConcept
 
- -- Row 4 -----------------------------------
+ -- Row 5 -----------------------------------
   Element = FamilyMemberHistory.gender
   Profile Name = Gender
   Card. = 0..1
@@ -37,59 +51,59 @@
   Type = code
   Binding = AdministrativeGender
 
- -- Row 5 -----------------------------------
+ -- Row 6 -----------------------------------
   Element = FamilyMemberHistory.born[x]
   Profile Name = BornAge
   Card. = 0..1
   Must Support = Y
   Type = Period | date | string
 
- -- Row 6 -----------------------------------
+ -- Row 7 -----------------------------------
   Element = FamilyMemberHistory.age[x]
   Profile Name = Age
   Card. = 0..1
   Must Support = Y
   Type = Age | Range | string
 
- -- Row 7 -----------------------------------
+ -- Row 8 -----------------------------------
   Element = FamilyMemberHistory.deceased[x]
   Profile Name = DeceasedAge
   Card. = 0..1
   Must Support = Y
   Type = boolean | Age | Range | date | string
 
- -- Row 8 -----------------------------------
+ -- Row 9 -----------------------------------
   Element = FamilyMemberHistory.extension
   Profile Name = Observation
   Card. = 0..*
   Must Support = Y
   Type = Extension{#observation}
 
- -- Row 9 -----------------------------------
+ -- Row 10 -----------------------------------
   Element = FamilyMemberHistory.condition
   Profile Name = Condition
   Card. = 0..*
   Must Support = Y
 
- -- Row 10 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = FamilyMemberHistory.condition.code
   Card. = 1..1
   Must Support = Y
   Type = CodeableConcept
 
- -- Row 11 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = FamilyMemberHistory.condition.outcome
   Card. = 0..1
   Must Support = Y
   Type = CodeableConcept
 
- -- Row 12 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = FamilyMemberHistory.condition.onset[x]
   Card. = 0..1
   Must Support = Y
   Type = Age | Range | Period | string
 
- -- Row 13 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = FamilyMemberHistory.condition.note
   Card. = 0..1
   Type = Annotation

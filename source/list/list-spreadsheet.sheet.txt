@@ -413,6 +413,12 @@
   Description = Example of current allergies list
   Filename = list-example-allergies.xml
 
+ -- Row 9 -----------------------------------
+  Name = Family History- double cousin relationship
+  Identity = example-double-cousin-relationship
+  Description = Simple genetic pedigree tree example with double cousin replationship
+  Filename = list-example-double-cousin-relationship-pedigree.xml
+
 === Sheet Examples =====================================
 
  -- Row 1 -----------------------------------
