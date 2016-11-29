@@ -489,6 +489,7 @@ The response to an update request has metadata / status, and optionally an Opera
 <code>Content-Type: application/fhir+json</code>
 <code>Date: Mon, 18 Aug 2014 01:43:30 GMT</code>
 <code>ETag: "2"</code>
+<code>Location: https://example.com/Patient/347/_history/2</code>
 <code> </code>
 <code>{</code>
 <code>  &quot;resourceType&quot;: &quot;OperationOutcome&quot;,</code>
@@ -505,7 +506,7 @@ The response to an update request has metadata / status, and optionally an Opera
 Notes:
 </p>
 <ul>
-  <li><b>ETag</b> (line 5) - This is the versionId of the new version</li>
+  <li><b>ETag</b> (line 5) - This is the versionId of the new version, and is also found in the location header (line 6)</li>
 </ul>
 
 <h3>Base Resource Content</h3>
