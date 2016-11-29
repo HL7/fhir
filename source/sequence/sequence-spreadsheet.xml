@@ -17,12 +17,12 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>9144</WindowHeight>
-  <WindowWidth>23040</WindowWidth>
+  <WindowHeight>5520</WindowHeight>
+  <WindowWidth>14568</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>801</TabRatio>
-  <ActiveSheet>3</ActiveSheet>
+  <ActiveSheet>1</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -957,7 +957,7 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>4</ActiveRow>
+     <ActiveRow>10</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1153,9 +1153,9 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">Unique ID for this particular sequence</Data><NamedCell
+    <Cell ss:StyleID="s92"><Data ss:Type="String">Unique ID for this particular sequence. This is a FHIR-defined id</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">A unique identifier for this particular sequence instance.</Data><NamedCell
+    <Cell ss:StyleID="s92"><Data ss:Type="String">A unique identifier for this particular sequence instance. This is a FHIR-defined id</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><Data ss:Type="String">Allows sequences to be distinguished and referenced</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1402,7 +1402,7 @@
     <Cell ss:StyleID="s99"><Data ss:Type="String">Sequence.referenceSeq.strand</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">1..1</Data><NamedCell
+    <Cell ss:StyleID="s91"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">integer</Data><NamedCell
@@ -1415,9 +1415,9 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Strand of DNA</Data><NamedCell
+    <Cell><Data ss:Type="String">Directionality of DNA ( +1/-1)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Strand of DNA. Available values are &quot;1&quot; for the plus strand and &quot;-1&quot; for the minus strand.</Data><NamedCell
+    <Cell><Data ss:Type="String">Directionality of DNA sequence. Available values are &quot;1&quot; for the plus strand (5' to 3')/Watson/Sense/positive  and &quot;-1&quot; for the minus strand(3' to 5')/Crick/Antisense/negative.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s94"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3365,12 +3365,13 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>125</Zoom>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>22</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>5</LeftColumnRightPane>
+   <LeftColumnRightPane>13</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -3382,12 +3383,12 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>27</ActiveRow>
-     <ActiveCol>13</ActiveCol>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>0</ActiveCol>
+     <RangeSelection>R3</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -4089,7 +4090,6 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>125</Zoom>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
