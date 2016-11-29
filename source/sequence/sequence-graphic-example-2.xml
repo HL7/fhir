@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Sequence>
+    <id value="graphic-example-2"/>
+    <type value="DNA"/>
+    <coordinateSystem value="0"/>
+    <referenceSeq>
+        <referenceSeqString value="CGCCATTG"/>
+        <strand value="1"/>
+        <windowStart value="0"/>
+        <windowEnd value="8"/>
+    </referenceSeq>
+    <pointer>
+        <reference value="Sequence/graphic-example-3"/>
+    </pointer>
+</Sequence>

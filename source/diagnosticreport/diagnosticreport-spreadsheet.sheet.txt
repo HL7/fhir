@@ -545,4 +545,11 @@
   Description = An example of a  principally narrative anatomic pathology report
   Filename = diagnosticreport-example-papsmear.xml
 
+ -- Row 16 -----------------------------------
+  Name = PGx Example
+  Identity = example-pgx
+  Description = An example of a PGx haplotype report
+  Filename = diagnosticreport-example-pgx.xml
+  Profile = Diagnostic Report-Genetics
+
 === Sheet Examples =====================================

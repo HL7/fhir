@@ -1,0 +1,35 @@
+<DiagnosticReport mlns="http://hl7.org/fhir">
+	<id value="example-pgx"/>
+	<status value="final"/>
+	<subject>
+		<reference value="Patient/899962"/>
+		<display value="Bob Smith"/>
+	</subject>
+	<code>
+		<coding>
+			<system value="https://system/PGxReport"/>
+			<code value="PGxReport"/>
+			<display value="Pharmacogenetics Report"/>
+		</coding>
+		<text value="Pharmacogenetics Report"/>
+	</code>
+	<effectiveDateTime value="2016-10-15T12:34:56+11:00"/>
+	<issued value="2016-10-20T14:00:05+11:00"/>
+	<performer>
+		<reference value="Organization/4829"/>
+	</performer>
+	<request>
+		<reference value="DiagnosticRequest/example-pgx"/>
+	</request>
+	<result>
+		<reference value="Observation/example-phenotype"/>
+	</result>
+	<presentedForm>
+		<contentType value="PDF"/>
+		<language value="en-us"/>
+		<data value="&lt;pdfInBase64Binary>"/>
+		<hash value="&lt;base64Binary>"/>
+		<title value="Pharmacogenetics Report"/>
+		<creation value="2016-10-20T20:00:00+11:00"/>
+	</presentedForm>
+</DiagnosticReport>

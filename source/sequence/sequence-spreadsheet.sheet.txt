@@ -272,146 +272,146 @@
  -- Row 1 -----------------------------------
   Id = 1
   Code = 1
-  Display = chromsome 1
-  Definition = chromsome 1
+  Display = chromosome 1
+  Definition = chromosome 1
 
  -- Row 2 -----------------------------------
   Id = 2
   Code = 2
-  Display = chromsome 2
-  Definition = chromsome 2
+  Display = chromosome 2
+  Definition = chromosome 2
 
  -- Row 3 -----------------------------------
   Id = 3
   Code = 3
-  Display = chromsome 3
-  Definition = chromsome 3
+  Display = chromosome 3
+  Definition = chromosome 3
 
  -- Row 4 -----------------------------------
   Id = 4
   Code = 4
-  Display = chromsome 4
-  Definition = chromsome 4
+  Display = chromosome 4
+  Definition = chromosome 4
 
  -- Row 5 -----------------------------------
   Id = 5
   Code = 5
-  Display = chromsome 5
-  Definition = chromsome 5
+  Display = chromosome 5
+  Definition = chromosome 5
 
  -- Row 6 -----------------------------------
   Id = 6
   Code = 6
-  Display = chromsome 6
-  Definition = chromsome 6
+  Display = chromosome 6
+  Definition = chromosome 6
 
  -- Row 7 -----------------------------------
   Id = 7
   Code = 7
-  Display = chromsome 7
-  Definition = chromsome 7
+  Display = chromosome 7
+  Definition = chromosome 7
 
  -- Row 8 -----------------------------------
   Id = 8
   Code = 8
-  Display = chromsome 8
-  Definition = chromsome 8
+  Display = chromosome 8
+  Definition = chromosome 8
 
  -- Row 9 -----------------------------------
   Id = 9
   Code = 9
-  Display = chromsome 9
-  Definition = chromsome 9
+  Display = chromosome 9
+  Definition = chromosome 9
 
  -- Row 10 -----------------------------------
   Id = 10
   Code = 10
-  Display = chromsome 10
-  Definition = chromsome 10
+  Display = chromosome 10
+  Definition = chromosome 10
 
  -- Row 11 -----------------------------------
   Id = 11
   Code = 11
-  Display = chromsome 11
-  Definition = chromsome 11
+  Display = chromosome 11
+  Definition = chromosome 11
 
  -- Row 12 -----------------------------------
   Id = 12
   Code = 12
-  Display = chromsome 12
-  Definition = chromsome 12
+  Display = chromosome 12
+  Definition = chromosome 12
 
  -- Row 13 -----------------------------------
   Id = 13
   Code = 13
-  Display = chromsome 13
-  Definition = chromsome 13
+  Display = chromosome 13
+  Definition = chromosome 13
 
  -- Row 14 -----------------------------------
   Id = 14
   Code = 14
-  Display = chromsome 14
-  Definition = chromsome 14
+  Display = chromosome 14
+  Definition = chromosome 14
 
  -- Row 15 -----------------------------------
   Id = 15
   Code = 15
-  Display = chromsome 15
-  Definition = chromsome 15
+  Display = chromosome 15
+  Definition = chromosome 15
 
  -- Row 16 -----------------------------------
   Id = 16
   Code = 16
-  Display = chromsome 16
-  Definition = chromsome 16
+  Display = chromosome 16
+  Definition = chromosome 16
 
  -- Row 17 -----------------------------------
   Id = 17
   Code = 17
-  Display = chromsome 17
-  Definition = chromsome 17
+  Display = chromosome 17
+  Definition = chromosome 17
 
  -- Row 18 -----------------------------------
   Id = 18
   Code = 18
-  Display = chromsome 18
-  Definition = chromsome 18
+  Display = chromosome 18
+  Definition = chromosome 18
 
  -- Row 19 -----------------------------------
   Id = 19
   Code = 19
-  Display = chromsome 19
-  Definition = chromsome 19
+  Display = chromosome 19
+  Definition = chromosome 19
 
  -- Row 20 -----------------------------------
   Id = 20
   Code = 20
-  Display = chromsome 20
-  Definition = chromsome 20
+  Display = chromosome 20
+  Definition = chromosome 20
 
  -- Row 21 -----------------------------------
   Id = 21
   Code = 21
-  Display = chromsome 21
-  Definition = chromsome 21
+  Display = chromosome 21
+  Definition = chromosome 21
 
  -- Row 22 -----------------------------------
   Id = 22
   Code = 22
-  Display = chromsome 22
-  Definition = chromsome 22
+  Display = chromosome 22
+  Definition = chromosome 22
 
  -- Row 23 -----------------------------------
   Id = 23
   Code = X
-  Display = chromsome X
-  Definition = chromsome X
+  Display = chromosome X
+  Definition = chromosome X
 
  -- Row 24 -----------------------------------
   Id = 24
   Code = Y
-  Display = chromsome Y
-  Definition = chromsome Y
+  Display = chromosome Y
+  Definition = chromosome Y
 
 === Sheet copy-number-event =====================================
 
@@ -507,7 +507,7 @@
 
  -- Row 3 -----------------------------------
   Element = Sequence.type
-  Card. = 1..1
+  Card. = 0..1
   Type = code
   Binding = sequenceType
   Short Name = AA | DNA | RNA
@@ -586,7 +586,7 @@
 
  -- Row 14 -----------------------------------
   Element = Sequence.referenceSeq.referenceSeqId
-  Card. = 1..1
+  Card. = 0..1
   Type = CodeableConcept
   Binding = sequenceReference
   Short Name = Reference identifier
@@ -995,5 +995,71 @@
   Identity = sequence-complex-variant
   Description = Example of representing complex variants in Sequence Resource
   Filename = sequence-complex-variant.xml
+
+ -- Row 4 -----------------------------------
+  Name = Variant refer to a haplotype observation
+  Identity = example-pgx-1
+  Description = Example of a single varaint on a reference Sequence related to a haplotype observation in PGx example
+  Filename = sequence-example-pgx-1.xml
+
+ -- Row 5 -----------------------------------
+  Name = Another variant refer to a haplotype observation
+  Identity = example-pgx-2
+  Description = Example of another single varaint on a reference Sequence related to a haplotype observation in PGx example, which will form with the other haplotype data to be a diplotype observation.
+  Filename = sequence-example-pgx-2.xml
+
+ -- Row 6 -----------------------------------
+  Name = TPMT sequence refer to a haplotype obs. -1
+  Identity = example-TPMT-one
+  Description = Example of a TPMT SNP data that support a haplotype observation
+  Filename = sequence-example-TPMT-one.xml
+
+ -- Row 7 -----------------------------------
+  Name = TPMT sequence refer to a haplotype obs. -2
+  Identity = example-TPMT-two
+  Description = Example of another TPMT SNP data that support a haplotype observation
+  Filename = sequence-example-TPMT-two.xml
+
+ -- Row 8 -----------------------------------
+  Name = Sequence graph scenario 1
+  Identity = graphic-example-1
+  Description = Sequence Graphic example-1
+  Filename = sequence-graphic-example-1.xml
+
+ -- Row 9 -----------------------------------
+  Name = Sequence graph scenario 2
+  Identity = graphic-example-2
+  Description = Sequence Graphic example-2
+  Filename = sequence-graphic-example-2.xml
+
+ -- Row 10 -----------------------------------
+  Name = Sequence graph scenario 3
+  Identity = graphic-example-3
+  Description = Sequence Graphic example-3
+  Filename = sequence-graphic-example-3.xml
+
+ -- Row 11 -----------------------------------
+  Name = Sequence graph scenario 4
+  Identity = graphic-example-4
+  Description = Sequence Graphic example-4
+  Filename = sequence-graphic-example-4.xml
+
+ -- Row 12 -----------------------------------
+  Name = Sequence graph scenario 5
+  Identity = graphic-example-5
+  Description = Sequence Graphic example-5
+  Filename = sequence-graphic-example-5.xml
+
+ -- Row 13 -----------------------------------
+  Name = Sequence example for 0-based coordinatesytem usage
+  Identity = coord-0-base
+  Description = Example of a record with 0-based coordinatesystem
+  Filename = coord-0base-example.xml
+
+ -- Row 14 -----------------------------------
+  Name = Sequence example for 1-based coordinatesytem usage
+  Identity = coord-1-base
+  Description = Example of a record with 1-based coordinatesystem
+  Filename = coord-1base-example.xml
 
 === Sheet Examples =====================================

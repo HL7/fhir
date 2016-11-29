@@ -1,0 +1,42 @@
+<Observation xmlns="http://hl7.org/fhir">
+	<id value="example-phenotype"/>
+	<extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsGene">
+		<valueCodeableConcept>
+			<coding>
+				<system value="http://www.genenames.org"/>
+				<code value="2623"/>
+				<display value="CYP2C9"/>
+			</coding>
+		</valueCodeableConcept>
+	</extension>
+	<status value="final"/>
+	<code>
+		<coding>
+			<system value="http://loinc.org"/>
+			<code value="79716-7"/>
+			<display value="CYP2C9 gene product metabolic activity interpretation"/>
+		</coding>
+	</code>
+	<subject>
+		<reference value="Patient/727127"/>
+		<display value="J*********** C***********"/>
+	</subject>
+	<issued value="2013-04-03T15:30:10+01:00"/>
+	<valueCodeableConcept>
+		<coding>
+			<system value="http://loinc.org"/>
+			<code value="LA25391-6"/>
+			<display value="Normal metabolizer"/>
+		</coding>
+	</valueCodeableConcept>
+	<specimen>
+		<reference value="Specimen/genetics-example1-somatic"/>
+		<display value="Molecular Specimen ID: MLD45-Z4-1234"/>
+	</specimen>
+	<related>
+		<type value="derived-from"/>
+		<target>
+			<reference value="Observation/example-diplotype1"/>
+		</target>
+	</related>
+</Observation>

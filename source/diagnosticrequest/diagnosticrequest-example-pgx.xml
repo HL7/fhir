@@ -1,0 +1,17 @@
+<DiagnosticRequest mlns="http://hl7.org/fhir">
+	<id value="example-pgx"/>
+	<code>
+		<coding>
+			<system value="http://loinc.org"/>
+			<code value="47403-1"/>
+			<display value="CYP2D6 gene targeted mutation analysis"/>
+		</coding>
+	</code>
+	<subject>
+		<reference value="Patient/899962"/>
+	</subject>
+	<authored value="2016-10-10T15:00:00-07:00"/>
+	<requester>
+		<reference value="Practitioner/12345"/>
+	</requester>
+</DiagnosticRequest>

@@ -1,0 +1,53 @@
+<!-->The method to register an extension, you can see the extension-11179-de-administrative-status.xml.html<-->
+<Observation xmlns="http://hl7.org/fhir">
+	<id value="example-haplotype1"/>
+	<status value="unknown"/>
+	<extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsGene">
+		<valueCodeableConcept>
+			<coding>
+				<system value="http://www.genenames.org"/>
+				<code value="2625"/>
+				<display value="CYP2D6"/>
+			</coding>
+		</valueCodeableConcept>
+	</extension>
+	<extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsSequence">
+		<valueReference>
+			<reference value="Sequence/example-sequence1"/>
+		</valueReference>
+	</extension>
+	<extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsSequence">
+		<valueReference>
+			<reference value="Sequence/example-sequence2"/>
+		</valueReference>
+	</extension>
+	<subject>
+		<reference value="Patient/727127"/>
+		<display value="J*********** C***********"/>
+	</subject>
+	<issued value="2013-04-03T15:30:10+01:00"/>
+	<valueCodeableConcept>
+		<coding>
+			<system value="http://pharmakb.org"/>
+			<code value="PA165971587"/>
+			<display value="*35B"/>
+		</coding>
+	</valueCodeableConcept>
+	<specimen>
+		<reference value="Specimen/genetics-example1-somatic"/>
+		<display value="Molecular Specimen ID: MLD45-Z4-1234"/>
+	</specimen>
+	<!-->If you do not like "related", you can delete this block<-->
+	<related>
+		<type value="derived-from"/>
+		<target>
+			<reference value="Sequence/example-pgx-1"/>
+		</target>
+	</related>
+	<related>
+		<type value="derived-from"/>
+		<target>
+			<reference value="Sequence/example-pgx-2"/>
+		</target>
+	</related>
+</Observation>

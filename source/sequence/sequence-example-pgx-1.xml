@@ -1,0 +1,29 @@
+<Sequence xmlns="http://hl7.org/fhir">
+    <id value="example-pgx-1"/>
+    <type value="DNA"/>
+    <coordinateSystem value="0"/>
+    <patient>
+        <reference value="Patient/example"/>
+    </patient>
+    <referenceSeq>
+        <referenceSeqId>
+          <coding>
+            <system value="http://www.ncbi.nlm.nih.gov/nuccore"/>
+            <code value="NG_007726.3"/>
+          </coding>
+        </referenceSeqId>
+        <strand value="1"/>
+        <windowStart value="55227970"/>
+        <windowEnd value="55227980"/>
+    </referenceSeq>
+    <variant>
+        <start value="55227976"/>
+        <end value="55227977"/>
+        <observedAllele value="G"/>
+        <referenceAllele value="T"/>
+        <variantPointer>
+          <reference value="Observation/example-haplotype1"/>
+          <display value="Target Haplotype Observation"/>
+        </variantPointer>
+    </variant>
+</Sequence>

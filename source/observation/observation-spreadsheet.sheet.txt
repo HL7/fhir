@@ -1232,6 +1232,55 @@
   Description = Example of an encoded BMD measurements of left femur
   Filename = observation-example-bmd.xml
 
+ -- Row 43 -----------------------------------
+  Name = Diplotype(with Haplotypes Ref)
+  Identity = example-diplotype1
+  Description = Example of diplotype data (with haplotypes observation as reference)
+  Filename = observation-example-diplotype1.xml
+  Profile = Observation-Genetics
+
+ -- Row 44 -----------------------------------
+  Name = Haplotype
+  Identity = example-haplotype1
+  Description = Example of haplotype data that is basis of a diplotype data
+  Filename = observation-example-haplotype1.xml
+  Profile = Observation-Genetics
+
+ -- Row 45 -----------------------------------
+  Name = Haplotype-2
+  Identity = example-haplotype2
+  Description = Example of another haplotype data that is basis of a diplotype data
+  Filename = observation-example-haplotype2.xml
+  Profile = Observation-Genetics
+
+ -- Row 46 -----------------------------------
+  Name = Phenotype
+  Identity = example-phenotype
+  Description = Example of phenotype data
+  Filename = observation-example-phenotype.xml
+  Profile = Observation-Genetics
+
+ -- Row 47 -----------------------------------
+  Name = TPMT-diplotype
+  Identity = example-TPMT-diplotype
+  Description = Example of a TPMT diplotype that link to two TPMT haplotype observations
+  Filename = observation-example-TPMT-diplotype.xml
+  Profile = Observation-Genetics
+
+ -- Row 48 -----------------------------------
+  Name = TPMT-haplotype-one
+  Identity = example-TPMT-haplotype-one
+  Description = Example of a TPMT haplotype observation
+  Filename = observation-example-TPMT-haplotype-one.xml
+  Profile = Observation-Genetics
+
+ -- Row 49 -----------------------------------
+  Name = TPMT-haplotype-two
+  Identity = example-TPMT-haplotype-two
+  Description = Example of another TPMT haplotype observation
+  Filename = observation-example-TPMT-haplotype-two.xml
+  Profile = Observation-Genetics
+
 === Sheet Examples =====================================
 
  -- Row 1 -----------------------------------

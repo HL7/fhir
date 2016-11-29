@@ -6807,7 +6807,7 @@
    <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Examples!R1C1:R2C7"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="43" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="50" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s160" ss:DefaultColumnWidth="260.39999999999998"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s160" ss:AutoFitWidth="0" ss:Width="143.4"/>
@@ -7210,6 +7210,62 @@
     <Cell><Data ss:Type="String">observation-example-bmd.xml</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">n</Data></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Diplotype(with Haplotypes Ref)</Data></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">Example of diplotype data (with haplotypes observation as reference)</Data></Cell>
+    <Cell><Data ss:Type="String">example-diplotype1</Data></Cell>
+    <Cell><Data ss:Type="String">observation-example-diplotype1.xml</Data></Cell>
+    <Cell><Data ss:Type="String">Observation-Genetics</Data></Cell>
+    <Cell><Data ss:Type="String">n</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Haplotype</Data></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">Example of haplotype data that is basis of a diplotype data</Data></Cell>
+    <Cell><Data ss:Type="String">example-haplotype1</Data></Cell>
+    <Cell><Data ss:Type="String">observation-example-haplotype1.xml</Data></Cell>
+    <Cell><Data ss:Type="String">Observation-Genetics</Data></Cell>
+    <Cell><Data ss:Type="String">n</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Haplotype-2</Data></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">Example of another haplotype data that is basis of a diplotype data</Data></Cell>
+    <Cell><Data ss:Type="String">example-haplotype2</Data></Cell>
+    <Cell><Data ss:Type="String">observation-example-haplotype2.xml</Data></Cell>
+    <Cell><Data ss:Type="String">Observation-Genetics</Data></Cell>
+    <Cell><Data ss:Type="String">n</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Phenotype</Data></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">Example of phenotype data</Data></Cell>
+    <Cell><Data ss:Type="String">example-phenotype</Data></Cell>
+    <Cell><Data ss:Type="String">observation-example-phenotype.xml</Data></Cell>
+    <Cell><Data ss:Type="String">Observation-Genetics</Data></Cell>
+    <Cell><Data ss:Type="String">n</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">TPMT-diplotype</Data></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">Example of a TPMT diplotype that link to two TPMT haplotype observations</Data></Cell>
+    <Cell><Data ss:Type="String">example-TPMT-diplotype</Data></Cell>
+    <Cell><Data ss:Type="String">observation-example-TPMT-diplotype.xml</Data></Cell>
+    <Cell><Data ss:Type="String">Observation-Genetics</Data></Cell>
+    <Cell><Data ss:Type="String">n</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">TPMT-haplotype-one</Data></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">Example of a TPMT haplotype observation </Data></Cell>
+    <Cell><Data ss:Type="String">example-TPMT-haplotype-one</Data></Cell>
+    <Cell><Data ss:Type="String">observation-example-TPMT-haplotype-one.xml</Data></Cell>
+    <Cell><Data ss:Type="String">Observation-Genetics</Data></Cell>
+    <Cell><Data ss:Type="String">n</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">TPMT-haplotype-two</Data></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">Example of another TPMT haplotype observation </Data></Cell>
+    <Cell><Data ss:Type="String">example-TPMT-haplotype-two</Data></Cell>
+    <Cell><Data ss:Type="String">observation-example-TPMT-haplotype-two.xml</Data></Cell>
+    <Cell><Data ss:Type="String">Observation-Genetics</Data></Cell>
+    <Cell><Data ss:Type="String">n</Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -7227,7 +7283,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>28</TopRowBottomPane>
+   <TopRowBottomPane>36</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -7244,8 +7300,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>35</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     <ActiveRow>49</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

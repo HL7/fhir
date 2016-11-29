@@ -16,7 +16,7 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>5508</WindowHeight>
+  <WindowHeight>5520</WindowHeight>
   <WindowWidth>14556</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
@@ -6435,7 +6435,7 @@
    <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Examples!R1C1:R2C7"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="39" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="40" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s159" ss:DefaultColumnWidth="260.39999999999998"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s159" ss:Width="89.4"/>
@@ -6504,6 +6504,15 @@
     <Cell ss:StyleID="s93"><Data ss:Type="String">ft4</Data></Cell>
     <Cell ss:StyleID="s93"><Data ss:Type="String">diagnosticrequest-example-ft4.xml</Data></Cell>
     <Cell ss:StyleID="s151"/>
+    <Cell ss:StyleID="s164"><Data ss:Type="String">n</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s163"><Data ss:Type="String">PGx</Data></Cell>
+    <Cell ss:StyleID="s93"/>
+    <Cell ss:StyleID="s94"><Data ss:Type="String">PGx Phenotype example</Data></Cell>
+    <Cell ss:StyleID="s93"><Data ss:Type="String">example-pgx</Data></Cell>
+    <Cell ss:StyleID="s93"><Data ss:Type="String">diagnosticrequest-example-pgx.xml</Data></Cell>
+    <Cell ss:StyleID="s165"><Data ss:Type="String">Diagnostic Request-Genetics</Data></Cell>
     <Cell ss:StyleID="s164"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -6848,7 +6857,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>5</ActiveRow>
+     <ActiveRow>8</ActiveRow>
      <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>

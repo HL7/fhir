@@ -389,13 +389,20 @@
   Filename = diagnosticrequest-example-ft4.xml
 
  -- Row 4 -----------------------------------
+  Name = PGx
+  Identity = example-pgx
+  Description = PGx Phenotype example
+  Filename = diagnosticrequest-example-pgx.xml
+  Profile = Diagnostic Request-Genetics
+
+ -- Row 5 -----------------------------------
   Name = Order-genetics-1
   Identity = og-example1
   Description = Order for ABCB4 gene mutation analysis
   Filename = diagnosticrequest-genetics-example-1.xml
   Profile = Diagnostic Request-Genetics
 
- -- Row 5 -----------------------------------
+ -- Row 6 -----------------------------------
   Name = !Order-genetics-2
   Identity = og-example2
   Description = Order for a specific variant

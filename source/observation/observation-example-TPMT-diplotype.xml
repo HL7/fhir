@@ -1,0 +1,39 @@
+<Observation xmlns="http://hl7.org/fhir">
+  <id value="example-TPMT-diplotype"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsGene">
+    <valueCodeableConcept>
+      <coding>
+        <system value="http://www.genenames.org"/>
+        <code value="12014"/>
+        <display value="TPMT"/>
+      </coding>
+    </valueCodeableConcept>
+  </extension>
+  <status value="final"/>
+  <code>
+    <coding>
+      <system value="http://snomed.info"/>
+      <code value="363779003"/>
+      <display value="Genotype determination"/>
+    </coding>
+    <text value="Diplotype Call"/>
+  </code>
+  <valueString value="*1/*4"/>
+  <subject>
+    <reference value="Patient/example"/>
+    <display value="E***********"/>
+  </subject>
+  <issued value="2013-04-03T15:30:10+01:00"/>
+  <related>
+    <type value="derived-from"/>
+    <target>
+      <reference value="Observation/example-TPMT-haplotype-one"/>
+    </target>
+  </related>
+  <related>
+    <type value="derived-from"/>
+    <target>
+      <reference value="Observation/example-TPMT-haplotype-two"/>
+    </target>
+  </related>
+</Observation>

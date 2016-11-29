@@ -1,0 +1,33 @@
+<Sequence xmlns="http://hl7.org/fhir">
+    <id value="example-TPMT-two"/>
+    <type value="DNA"/>
+    <coordinateSystem value="1"/>
+    <patient>
+        <reference value="Patient/example"/>
+    </patient>
+    <referenceSeq>
+        <chromosome>
+          <coding>
+            <system value="http://hl7.org/fhir/chromosome-human"/>
+            <code value="6"/>
+            <display value="chromosome 6"/>
+          </coding>
+        </chromosome>
+        <referenceSeqId>
+          <coding>
+            <system value="http://www.ncbi.nlm.nih.gov/nuccore"/>
+            <code value="NT_007592.15"/>
+          </coding>
+        </referenceSeqId>
+        <strand value="1"/>
+        <windowStart value="18130918"/>
+        <windowEnd value="18143955"/>
+    </referenceSeq>
+    <variant>
+        <start value="18131012"/>
+        <end value="18131012"/>
+        <observedAllele value="T"/>
+        <referenceAllele value="C"/>
+    </variant>
+    <observedSeq value="T-C-T-C-G-C-C-C"/>
+</Sequence>
