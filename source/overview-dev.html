@@ -41,21 +41,25 @@ variety of architectures and scenarios.
 <h3>Framework</h3>
 <p>
 FHIR is based on "Resources" which are the common building blocks
-for all exchanges.  All resources have the following features in <a href="resource.html">common</a>:
+for all exchanges. Resources are an instance-level representation of some kind of healthcare entity.
+All resources have the following features in <a href="resource.html">common</a>:
 </p>
 <ul>
- <li>A URL that identifies it</li>
+ <li>A URL that identifies the resource</li>
  <li>Common metadata</li>
  <li>A <a href="narrative.html">human-readable XHTML summary</a></li>
- <li>A set of defined common data elements</li>
+ <li>A set of defined data elements - a different set for each type of resource </li>
  <li>An <a href="extensibility.html">extensibility framework</a> to support variation in healthcare</li>
 </ul>
 <p>
-Resources are represented as either <a href="xml.html">XML</a>, <a href="json.html">JSON</a> or <a href="rdf.html">RDF</a> and there are currently <%resourcecount%>
+Resource instances are represented as either <a href="xml.html">XML</a>, <a href="json.html">JSON</a> or <a href="rdf.html">RDF</a> and there are currently <%resourcecount%>
 different <a href="resourcelist.html">resource types defined</a> in the FHIR specification.
 </p>
-
-<h3>Example Resource</h3>
+<p>
+This specification describes a set of resources - that is, a set of resource types that describe the set of resource instances that 
+can actually be exchanged. The term 'Resource' is sometimes used without clarifying whether it specically refers to types or instances - the context of sue makes this clear.
+</p>
+<h3>Example Resource Instance</h3>
 <p>
 This is an example of how a <a href="patient.html">patient</a> is represented as a FHIR object in <a href="json.html">JSON</a>. An <a href="xml.html">XML encoding</a> is also defined in the specification.
 </p>
@@ -110,15 +114,15 @@ This is an example of how a <a href="patient.html">patient</a> is represented as
 </div>
 
 <p>
-Each resource consists of:
+Each instance of a resource consists of:
 </p>
 <ul>
   <li><b>resourceType</b> (line 2) - Required: FHIR defines many different types of resources. See <a href="resourcelist.html">the full index</a></li>
-  <li><b>id</b> (line 3) - The id of the resource. Always present when a resource is exchanged, except during the create operation (below)</li>
+  <li><b>id</b> (line 3) - The id of this resource. Always present when a resource is exchanged, except during the create operation (below)</li>
   <li><b>meta</b> (lines 4 - 7) - Usually Present: <a href="resource.html#meta">Common use/context data to all resources</a> and managed by the infrastructure. Missing if there is no metadata</li>
   <li><b>text</b> (lines 8 - 11) - Recommended: XHTML that provides a <a href="narrative.html">human readable representation</a> for the resource</li>
   <li><b>extension</b> (lines 12 - 17) - Optional: <a href="extensibility.html">Extensions</a> defined by the extensibility framework</li>
-  <li><b>data</b> (lines 18 - 43) - Optional: data elements defined for each type of resource</li>
+  <li><b>data</b> (lines 18 - 43) - Optional: data elements - a different set, defined for each type of resource</li>
 </ul>
 <p>
 Note that although this specification always shows the JSON properties in the order that they are defined, many JSON libraries order properties by other criteria.
@@ -160,10 +164,10 @@ detail, granularity and nesting by various parties across the system.
 For example, in some cases a blood pressure measurement may be just a simple observation, a 
 vital sign measure, while in other cases can be a rich set of highly defined 
 data that includes things like controlled vocabularies for posture, exercise, etc. 
-The <a href="resourcelist.html">resources</a> defined in this specification 
+The <a href="resourcelist.html">resource types</a> defined in this specification 
 focus on the general, common use cases. Richer and more specific content 
 can be supported and standardized by <a href="profiling.html">defining "profiles"</a> on 
-the base resources. 
+the base resource types. 
 </p>
 
 <a name="versions"></a>
@@ -184,7 +188,7 @@ but this is not described on this page.
  
 <h3>Creating a resource</h3>
 <p>
-To <a href="http.html#create">create a resource</a>, send an HTTP POST request to the resource's respective end
+To <a href="http.html#create">create a resource</a>, send an HTTP POST request to the resource type's respective end
 point. 
 </p>
 <pre> 
@@ -220,7 +224,7 @@ Notes:
   <li><b>Authorization</b> (line 2) - see <a href="security.html">Security for FHIR</a></li>
   <li><b>Accept, Content-Type</b> (lines 3-4) - the content type for all FHIR resources as represented in JSON (or application/fhir+xml for the XML version). FHIR resources are always represented in UTF-8</li>
   <li><b>id</b> - The client does not need to provide an id for a resource that is being created - the server will assign one. If the client assigns one, the server will overwrite it</li>
-  <li>Resource Content, lines 8+ - There's no meta property at this point. The rest of the resource is the same content as above</li>
+  <li>Resource Content, lines 8+ - There's no meta property at this point. The rest of the resource is the same content as shown above</li>
 </ul>
 
 
@@ -299,7 +303,7 @@ Notes:
 
 <h3>Read Request</h3>
 <p>
-<a href="http.html#read">Reading a resource</a> is done by sending HTTP GET requests to the desired Resource
+<a href="http.html#read">Reading a resource</a> is done by sending HTTP GET requests to the desired Resource Type
 end-point.
 </p>
 <pre> 
@@ -365,7 +369,7 @@ Notes:
 <h3>Search Request</h3>
 <p>
 In addition to getting single known resources it's possible to find a collection of resources by
-<a href="http.html#search">searching the resource end-point</a> with a <a href="search.html">set of
+<a href="http.html#search">searching the resource type end-point</a> with a <a href="search.html">set of
 criteria</a> describing the set of resources that should be retrieved, and their order. The
 general pattern is:
 </p>
@@ -567,6 +571,10 @@ Implementers notes:
   <li><b>implicitRules</b> (line 17) - indicates that there is a <a href="profiling.html#agreement">custom agreement</a> about how the resources are used that must be understood in order to safely process the resource. Use of this is discouraged because it restricts sharing, but sometimes necessary</li>
   <li><b>language</b> (line 18) - The <a href="narrative.html#language">base language of the resource</a>. The resource is allowed to have content from other languages; this is just the base, but should be the main language of the resource</li>
 </ul>
+
+<p>
+The base properties of all resources are defined on the resource types <a href="resource.html">Resource</a> and <a href="domainresource.html">DomainResource</a>.
+</p>
 
 <p>
 Want more information? 
