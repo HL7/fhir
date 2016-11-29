@@ -256,7 +256,7 @@ do so.
 Notes:
 </p>
 <ul>
-  <li><b>HTTP/1.1 201</b> (line 1) - the operation was successful. Note that HTTP/1.1 is strongly recommended but not required</li>
+  <li><b>HTTP/1.1 201</b> (line 1) - the operation was successful. Note that use of <a href="https://www.w3.org/Protocols/rfc2616/rfc2616.html">HTTP v 1.1</a> is strongly recommended but not required</li>
   <li><b>ETag</b> (line 5) - used in the <a href="http.html#update">version aware update</a> pattern (if the server supports versioning)</li>
   <li><b>Location</b> (line 6) - the id the server assigned to the resource. The id in the URL must match the id in the resource when the resource is subsequently returned</li>
   <li><b>operationOutcome</b> (line 9) - OperationOutcome resources in this context have no id or meta element (they have no managed identity)</li>
