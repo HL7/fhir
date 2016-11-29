@@ -1,11 +1,11 @@
 ﻿
 === Sheet Bindings =====================================
 
-=== Sheet OrderForGenetics =====================================
+=== Sheet DiagnosticRequest-Genetics =====================================
 
  -- Row 1 -----------------------------------
   Element = DiagnosticRequest
-  Profile Name = OrderForGenetics
+  Profile Name = DiagnosticRequest-Genetics
 
  -- Row 2 -----------------------------------
   Element = DiagnosticRequest.extension

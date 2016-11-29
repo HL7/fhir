@@ -26,15 +26,15 @@
 
  -- Row 4 -----------------------------------
   Binding Name = LOINC 48019-4 answerlist
-  Binding = code list
-  Reference = #LOINC-48019-4-answerlist
+  Binding = value set
+  Reference = http://loinc.org/vs/48019-4
   Definition = LOINC answer list for Type of variation
   Conformance = example
 
  -- Row 5 -----------------------------------
   Binding Name = LOINC 48002-0 answerlist
-  Binding = code list
-  Reference = #LOINC-48002-0-answerlist
+  Binding = value set
+  Reference = http://loinc.org/vs/48002-0
   Definition = LOINC answer list for Genomic source class
   Conformance = example
 
@@ -47,8 +47,8 @@
 
  -- Row 7 -----------------------------------
   Binding Name = LOINC 53034-5 answerlist
-  Binding = code list
-  Reference = #LOINC-53034-5-answerlist
+  Binding = value set
+  Reference = http://loinc.org/vs/53034-5
   Definition = LOINC answer list for AllelicState
   Conformance = example
 
@@ -107,94 +107,6 @@
   Description = Type for repository
   Conformance = required
 
-=== Sheet LOINC-48019-4-answerlist =====================================
-
- -- Row 1 -----------------------------------
-  Id = 1
-  Code = LA9658-1
-  Display = Wild type
-  Definition = Wild type
-
- -- Row 2 -----------------------------------
-  Id = 2
-  Code = LA6692-3
-  Display = Deletion
-  Definition = Deletion
-
- -- Row 3 -----------------------------------
-  Id = 3
-  Code = LA6686-5
-  Display = Duplication
-  Definition = Duplication
-
- -- Row 4 -----------------------------------
-  Id = 4
-  Code = LA6687-3
-  Display = Insertion
-  Definition = Insertion
-
- -- Row 5 -----------------------------------
-  Id = 5
-  Code = LA6688-1
-  Display = Insertion/Deletion
-  Definition = Insertion/Deletion
-
- -- Row 6 -----------------------------------
-  Id = 6
-  Code = LA6689-9
-  Display = Inversion
-  Definition = Inversion
-
- -- Row 7 -----------------------------------
-  Id = 7
-  Code = LA6690-7
-  Display = Substitution
-  Definition = Substitution
-
-=== Sheet LOINC-48002-0-answerlist =====================================
-
- -- Row 1 -----------------------------------
-  Id = http://loinc.org
-  Code = LA6683-2
-  Display = Germline
-  Definition = Germline
-
- -- Row 2 -----------------------------------
-  Id = http://loinc.org
-  Code = LA6684-0
-  Display = Somatic
-  Definition = Somatic
-
- -- Row 3 -----------------------------------
-  Id = http://loinc.org
-  Code = LA10429-1
-  Display = Prenatal
-  Definition = Prenatal
-
- -- Row 4 -----------------------------------
-  Id = http://loinc.org
-  Code = LA18194-3
-  Display = Likely Germline
-  Definition = Likely Germline
-
- -- Row 5 -----------------------------------
-  Id = http://loinc.org
-  Code = LA18195-0
-  Display = Likely Somatic
-  Definition = Likely Somatic
-
- -- Row 6 -----------------------------------
-  Id = http://loinc.org
-  Code = LA18196-8
-  Display = Likely Prenatal
-  Definition = Likely Prenatal
-
- -- Row 7 -----------------------------------
-  Id = http://loinc.org
-  Code = LA18197-6
-  Display = Unknown Genomic Origin
-  Definition = Unknown Genomic Origin
-
 === Sheet variant-state =====================================
 
  -- Row 1 -----------------------------------
@@ -214,38 +126,6 @@
   Code = absent
   Display = absent
   Definition = result of the variant is missing
-
-=== Sheet LOINC-53034-5-answerlist =====================================
-
- -- Row 1 -----------------------------------
-  Id = 1
-  Code = LA6703-8
-  Display = Heteroplasmic
-  Definition = Heteroplasmic
-
- -- Row 2 -----------------------------------
-  Id = 2
-  Code = LA6704-6
-  Display = Homoplasmic
-  Definition = Homoplasmic
-
- -- Row 3 -----------------------------------
-  Id = 3
-  Code = LA6705-3
-  Display = Homozygous
-  Definition = Homozygous
-
- -- Row 4 -----------------------------------
-  Id = 4
-  Code = LA6706-1
-  Display = Heterozygous
-  Definition = Heterozygous
-
- -- Row 5 -----------------------------------
-  Id = 5
-  Code = LA6707-9
-  Display = Hemizygous
-  Definition = Hemizygous
 
 === Sheet sequence-type =====================================
 
@@ -567,7 +447,7 @@
   Card. = 0..1
   UML = up
   Short Name = Reference sequence
-  Definition = A reference sequence is a sequence that is used to represent an allele or variant.
+  Definition = A sequence that is used as a reference to describe variants that are present in a sequence analyzed.
 
  -- Row 12 -----------------------------------
   Element = Sequence.referenceSeq.chromosome

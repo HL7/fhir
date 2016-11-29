@@ -376,7 +376,7 @@
 
  -- Row 5 -----------------------------------
   Name = agent
-  Type = reference
+  Type = token
   Path = Provenance.agent.who[x]
 
  -- Row 6 -----------------------------------

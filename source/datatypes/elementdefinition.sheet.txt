@@ -624,7 +624,7 @@
   Type = *
   Short Name = Value must have at least these property values
   Definition = Specifies a value that the value in the instance SHALL follow - that is, any value in the pattern must be found in the instance. Other additional values may be found too. This is effectively constraint by example.  The values of elements present in the pattern must match exactly (case-sensitive, accent-sensitive, etc.).
-  Comments = Mostly used for fixing values of CodeableConcept. At present, pattern[x] is not recommended as a basis for slicing while issues related to this are investigated during the DSTU period
+  Comments = Mostly used for fixing values of CodeableConcept. At present, pattern[x] is not recommended as a basis for slicing while issues related to this are investigated during the STU period
   RIM Mapping = N/A (MIF territory)
 
  -- Row 34 -----------------------------------

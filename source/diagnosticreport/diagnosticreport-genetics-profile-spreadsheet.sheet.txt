@@ -41,11 +41,11 @@
   Display = Presumed benign
   Definition = Presumed benign
 
-=== Sheet ReportForGenetics =====================================
+=== Sheet DiagnosticReport-Genetics =====================================
 
  -- Row 1 -----------------------------------
   Element = DiagnosticReport
-  Profile Name = ReportForGenetics
+  Profile Name = DiagnosticReport-Genetics
 
  -- Row 2 -----------------------------------
   Element = DiagnosticReport.codedDiagnosis
