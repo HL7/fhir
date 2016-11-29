@@ -2,7 +2,7 @@
 === Sheet Bindings =====================================
 
  -- Row 1 -----------------------------------
-  Binding Name = HGNC-geneIdentfiers
+  Binding Name = HGNC-geneIdentifiers
   Binding = reference
   Reference = http://www.genenames.org
   Definition = International curated set of gene identifiers
@@ -78,11 +78,34 @@
   Description = SO-Sequence Ontology  is a collaborative ontology project for the definition of sequence features used in biological sequence annotation.
   Conformance = preferred
 
-=== Sheet ObservationForGenetics =====================================
+ -- Row 10 -----------------------------------
+  Binding Name = EBI-AlleleName
+  Binding = reference
+  Reference = http://www.ebi.ac.uk/
+  Description = The nomenclature from European Bioinformatics Institute to name the genetic Allele
+  Conformance = preferred
+
+ -- Row 11 -----------------------------------
+  Binding Name = !LOINC 48019-4 answerlist
+  Binding = code list
+  Reference = #LOINC-48019-4-answerlist
+  Definition = DNA sequence variant type
+  Description = Codified type for associated DNA sequence variant. DNA sequence variants use the HGVS notation, which implies the DNA sequence variant type.
+  Conformance = preferred
+
+ -- Row 12 -----------------------------------
+  Binding Name = !LOINC 48002-0 answerlist
+  Binding = code list
+  Reference = #LOINC-48002-0-answerlist
+  Definition = Genomic source class
+  Description = Source of sample used to determine the sequence in sequencing lab -- germline, somatic, prenatal.
+  Conformance = preferred
+
+=== Sheet Observation-Genetics =====================================
 
  -- Row 1 -----------------------------------
   Element = Observation
-  Profile Name = Genetics
+  Profile Name = Observation-Genetics
 
  -- Row 2 -----------------------------------
   Element = Observation.extension

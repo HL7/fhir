@@ -433,4 +433,10 @@
   Description = Provenance with signature for a Consent example
   Filename = provenance-consent-signature.xml
 
+ -- Row 4 -----------------------------------
+  Name = Biocompute Object
+  Identity = obj.1001
+  Description = Provenance  for Biocompute object examples
+  Filename = provenance_biocompute_object_example.xml
+
 === Sheet Examples =====================================

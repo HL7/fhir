@@ -363,7 +363,7 @@
   Type = spreadsheet
 
  -- Row 2 -----------------------------------
-  Name = Diagnostic Request for Genetics
+  Name = Diagnostic Request-Genetics
   IG Name = core
   Filename = diagnosticrequest-genetics-profile.xml
   Type = spreadsheet
@@ -393,13 +393,13 @@
   Identity = og-example1
   Description = Order for ABCB4 gene mutation analysis
   Filename = diagnosticrequest-genetics-example-1.xml
-  Profile = Diagnostic Request for Genetics
+  Profile = Diagnostic Request-Genetics
 
  -- Row 5 -----------------------------------
   Name = !Order-genetics-2
   Identity = og-example2
   Description = Order for a specific variant
   Filename = diagnosticrequest-genetics-example-2.xml
-  Profile = Diagnostic Request for Genetics
+  Profile = Diagnostic Request-Genetics
 
 === Sheet Examples =====================================

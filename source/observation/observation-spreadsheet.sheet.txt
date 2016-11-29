@@ -962,7 +962,7 @@
   Type = spreadsheet
 
  -- Row 11 -----------------------------------
-  Name = Observation for Genetics
+  Name = Observation-Genetics
   IG Name = core
   Filename = observation-genetics.xml
   Type = spreadsheet
@@ -1160,30 +1160,35 @@
   Identity = example-genetics-1
   Description = Genetics example 1
   Filename = observation-example-genetics-1.xml
+  Profile = Observation-Genetics
 
  -- Row 32 -----------------------------------
   Name = Genetics 2
   Identity = example-genetics-2
   Description = Genetics example 2
   Filename = observation-example-genetics-2.xml
+  Profile = Observation-Genetics
 
  -- Row 33 -----------------------------------
   Name = Genetics 3
   Identity = example-genetics-3
   Description = Genetics example 3
   Filename = observation-example-genetics-3.xml
+  Profile = Observation-Genetics
 
  -- Row 34 -----------------------------------
   Name = Genetics 4
   Identity = example-genetics-4
   Description = Genetics example 4
   Filename = observation-example-genetics-4.xml
+  Profile = Observation-Genetics
 
  -- Row 35 -----------------------------------
   Name = Genetics 5
   Identity = example-genetics-5
   Description = Genetics example 5
   Filename = observation-example-genetics-5.xml
+  Profile = Observation-Genetics
 
  -- Row 36 -----------------------------------
   Name = 1 minute Apgar Score

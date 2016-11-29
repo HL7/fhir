@@ -5765,7 +5765,7 @@
     <Cell><Data ss:Type="String">core</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s138"><Data ss:Type="String">Diagnostic Report for Genetics</Data></Cell>
+    <Cell ss:StyleID="s138"><Data ss:Type="String">Diagnostic Report-Genetics</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">diagnosticreport-genetics-profile-spreadsheet.xml</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">diagnosticreport-genetics-profile-spreadsheet.xml</Data></Cell>
     <Cell ss:StyleID="s120"><Data ss:Type="String">spreadsheet</Data></Cell>
@@ -5992,8 +5992,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>9</ActiveRow>
-     <ActiveCol>7</ActiveCol>
+     <ActiveRow>11</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -6160,7 +6159,7 @@
     <Cell ss:StyleID="s89"><Data ss:Type="String">An example of a genetics test report with Family member history</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">dg2</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">diagnosticreport-genetics-example-2-familyhistory.xml</Data></Cell>
-    <Cell ss:StyleID="s138"><Data ss:Type="String">Diagnostic Report for Genetics</Data></Cell>
+    <Cell ss:StyleID="s138"><Data ss:Type="String">Diagnostic Report-Genetics</Data></Cell>
     <Cell ss:StyleID="s144"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -6178,7 +6177,7 @@
     <Cell ss:StyleID="s89"><Data ss:Type="String">An example of a comprehensive bone marrow report</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">report</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">diagnosticreport-genetics-comprehensive-bone-marrow-report.xml</Data></Cell>
-    <Cell ss:StyleID="s138"><Data ss:Type="String">Diagnostic Report for Genetics</Data></Cell>
+    <Cell ss:StyleID="s138"><Data ss:Type="String">Diagnostic Report-Genetics</Data></Cell>
     <Cell ss:StyleID="s144"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -6395,7 +6394,7 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>7</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>4</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -6403,6 +6402,7 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -6410,8 +6410,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>13</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>14</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

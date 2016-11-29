@@ -438,7 +438,7 @@
   Type = spreadsheet
 
  -- Row 3 -----------------------------------
-  Name = Diagnostic Report for Genetics
+  Name = Diagnostic Report-Genetics
   IG Name = core
   Filename = diagnosticreport-genetics-profile-spreadsheet.xml
   Type = spreadsheet
@@ -523,7 +523,7 @@
   Identity = dg2
   Description = An example of a genetics test report with Family member history
   Filename = diagnosticreport-genetics-example-2-familyhistory.xml
-  Profile = Diagnostic Report for Genetics
+  Profile = Diagnostic Report-Genetics
 
  -- Row 13 -----------------------------------
   Name = HLA genotyping
@@ -537,7 +537,7 @@
   Identity = report
   Description = An example of a comprehensive bone marrow report
   Filename = diagnosticreport-genetics-comprehensive-bone-marrow-report.xml
-  Profile = Diagnostic Report for Genetics
+  Profile = Diagnostic Report-Genetics
 
  -- Row 15 -----------------------------------
   Name = Pap smear
