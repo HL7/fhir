@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Sequence xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/sequence.xsd">
+<Sequence xmlns="http://hl7.org/fhir">
     <id value="example"/>
     <type value="DNA"/>
     <coordinateSystem value ="0"/>
@@ -10,22 +10,23 @@
         <referenceSeqId>
           <coding>
             <system value="http://www.ncbi.nlm.nih.gov/nuccore"/>
-            <code value="NC_000007.14"/>
+            <code value="NC_000009.11"/>
           </coding>
         </referenceSeqId>
         <strand value="1"/>
-        <windowStart value="55227970"/>
-        <windowEnd value="55227980"/>
+        <windowStart value="22125500"/>
+        <windowEnd value="22125510"/>
     </referenceSeq>
     <variant>
-        <start value="55227976"/>
-        <end value="55227977"/>
-        <observedAllele value="T"/>
-        <referenceAllele value="A"/>
+        <start value="22125503"/>
+        <end value="22125504"/>
+        <observedAllele value="C"/>
+        <referenceAllele value="G"/>
     </variant>
     <repository>
-        <url value="https://www.googleapis.com/genomics/v1beta2"/>
-        <name value="ga4gh"/>
-        <variantId value="A1A2"/>
+        <type value="openapi"/>
+        <url value="http://grch37.rest.ensembl.org/ga4gh/variants/3:rs1333049?content-type=application/json"/>
+        <name value="GA4GH API"/>
+        <variantsetId value="3:rs1333049"/>
     </repository>
 </Sequence>
