@@ -130,10 +130,15 @@ Each entry element SHALL contain a resource.
 <h2>Resource URL &amp; Uniqueness rules in a bundle</h2>
 
 <p>
-Each entry in a batch must have a full Url which is the identity of the resource in
-the entry. Note that this is not a versioned reference to the resource, but its 
+Except for transactions and batches, Each entry in a <code>Bundle</code> must have a <code>fullUrl</code> 
+which is the identity of the resource in the entry. Note that this is not a versioned reference to the resource, but its 
 identity. Where a resource is not assigned a persistent identity that can be used
 in the bundle, a UUID should be used (urn:uuid:...).
+</p>
+<p>
+For transactions and batches, entries may not have fullURLs when the entry.request.method = POST, 
+and the resource has no identity. Note that even in this case, there may still be a fullURL in a 
+transaction on a POST so that relationships between resources can be represented (see <a href="http.html#transaction">Transactions</a>).
 </p>
 <p>
 In some bundles, a given resource can only appear once:
@@ -145,11 +150,11 @@ In some bundles, a given resource can only appear once:
  </tr>
  <tr>
   <td>document</td>
-  <td>no duplicates (weird edge cases - change tracking?)</td>
+  <td>no duplicates</td>
  </tr>
  <tr>
   <td>message</td>
-  <td>no duplicates (well, messaging deltas?)</td>
+  <td>no duplicates (generally not, unless noted explicitly in the event definition e.g. for messaging deltas?)</td>
  </tr>
  <tr>
   <td>transaction</td>

@@ -16,8 +16,8 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>11385</WindowHeight>
-  <WindowWidth>24645</WindowWidth>
+  <WindowHeight>10845</WindowHeight>
+  <WindowWidth>24690</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ActiveSheet>2</ActiveSheet>
@@ -805,7 +805,7 @@
   </Style>
  </Styles>
  <Names>
-  <NamedRange ss:Name="Invariantids" ss:RefersTo="=Invariants!R2C1:R43C1"/>
+  <NamedRange ss:Name="Invariantids" ss:RefersTo="=Invariants!R2C1:R42C1"/>
  </Names>
  <Worksheet ss:Name="Instructions">
   <Table ss:ExpandedColumnCount="2" ss:ExpandedRowCount="5" x:FullColumns="1"
@@ -3967,9 +3967,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>4</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>5</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -3977,15 +3977,15 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>3</ActiveRow>
-     <ActiveCol>14</ActiveCol>
+     <ActiveRow>10</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -4000,7 +4000,7 @@
    <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Invariants!R1C1:R1C7"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="11" ss:ExpandedRowCount="44" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="11" ss:ExpandedRowCount="43" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s101" ss:DefaultRowHeight="15">
    <Column ss:Index="2" ss:StyleID="s101" ss:AutoFitWidth="0" ss:Width="115.5"/>
    <Column ss:StyleID="s101" ss:Width="55.5"/>
@@ -4089,16 +4089,6 @@
     <Cell ss:StyleID="s90"><Data ss:Type="String">must be a resource unless there's a request or response</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">resource.exists() or request.exists() or response.exists()</Data></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">exists(f:resource) or exists(f:request) or exists(f:response)</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell ss:StyleID="s105"><Data ss:Type="Number">6</Data><NamedCell
-      ss:Name="Invariantids"/></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">fullUrl only when there's a resource</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">error</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">Bundle.entry</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">The fullUrl element must be present when a resource is present, and not present otherwise</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">fullUrl.empty() xor resource.exists()</Data></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">(not(exists(f:fullUrl)) and not(exists(f:resource))) or (exists(f:fullUrl) and exists(f:resource))</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="180">
     <Cell ss:StyleID="s105"><Data ss:Type="Number">7</Data><NamedCell
@@ -4461,8 +4451,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>9</ActiveRow>
-     <ActiveCol>6</ActiveCol>
+     <ActiveRow>5</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

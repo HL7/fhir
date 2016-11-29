@@ -164,14 +164,6 @@
   Severity = error
 
  -- Row 6 -----------------------------------
-  Id = 6
-  Context = Bundle.entry
-  English = The fullUrl element must be present when a resource is present, and not present otherwise
-  XPath = (not(exists(f:fullUrl)) and not(exists(f:resource))) or (exists(f:fullUrl) and exists(f:resource))
-  Expression = fullUrl.empty() xor resource.exists()
-  Severity = error
-
- -- Row 7 -----------------------------------
   Id = 7
   Context = Bundle
   English = FullUrl must be unique in a bundle, or else entries with the same fullUrl must have different meta.versionId
@@ -179,7 +171,7 @@
   Expression = entry.where(fullUrl).select(fullUrl&resource.meta.versionId).isDistinct()
   Severity = error
 
- -- Row 8 -----------------------------------
+ -- Row 7 -----------------------------------
   Id = 8
   Context = Bundle.entry
   English = fullUrl cannot be a version specific reference
@@ -187,7 +179,7 @@
   Expression = fullUrl.contains(\'/_history/\').not()
   Severity = error
 
- -- Row 9 -----------------------------------
+ -- Row 8 -----------------------------------
   Id = 9
   Context = Bundle
   English = A document must have an identifier with a system and a value

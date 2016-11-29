@@ -817,7 +817,7 @@ public class ProfileComparer {
           tfound = true; 
         } else if (!l.hasTargetProfile()) {
           tfound = true;
-          c.setProfile(r.getTargetProfile());
+          c.setTargetProfile(r.getTargetProfile());
         } else {
           StructureDefinition sdl = resolveProfile(ed, outcome, path, l.getProfile(), outcome.leftName());
           StructureDefinition sdr = resolveProfile(ed, outcome, path, r.getProfile(), outcome.rightName());

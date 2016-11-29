@@ -1945,7 +1945,10 @@ public class StructureMapUtilities {
           if (t != null) {
             if (pt.hasProfiles()) {
               for (String p : pt.getProfiles())
-                ednew.addType().setCode(t).setProfile(p);
+                if (t.equals("Reference"))
+                  ednew.addType().setCode(t).setTargetProfile(p);
+                else
+                  ednew.addType().setCode(t).setProfile(p);
             } else 
             ednew.addType().setCode(t);
       }
