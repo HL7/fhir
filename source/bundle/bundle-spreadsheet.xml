@@ -7162,7 +7162,7 @@
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s153"/>
     <Cell ss:StyleID="s153"><Data ss:Type="String">Collection</Data></Cell>
-    <Cell ss:StyleID="s153"><Data ss:Type="String">The bundle is a set of resources collected into a single document for ease of distribution.</Data></Cell>
+    <Cell ss:StyleID="s153"><Data ss:Type="String">The bundle is a set of resources collected into a single package for ease of distribution.</Data></Cell>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s144"/>
