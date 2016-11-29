@@ -32,7 +32,7 @@
   </software>
   <fhirVersion value="1.0.0"/>
 <!--  this can be either, but accepting unknown elements is 
-    preferred for forwards compatibility (Not that it matters during the DSTU period) -->
+    preferred for forwards compatibility (Not that it matters during the STU period) -->
   <acceptUnknown value="both"/>
 <!--  json is mandatory, for support of mobile clients  -->
   <format value="json"/>

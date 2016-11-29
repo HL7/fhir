@@ -8,7 +8,7 @@
 <blockquote class="dstu-note">
 <a name="dstu"> </a>
 <p>
-<b>DSTU Note:</b>  During the Trial use period, feedback is welcome on the following issue:
+<b>STU Note:</b>  During the Trial use period, feedback is welcome on the following issue:
 </p>
 <ul>
  <li>At present, the patient element is optional to allow experimentation with care plan templates, though the resource was not designed for this use</li>

@@ -20,7 +20,7 @@ Notes:
 <blockquote class="dstu-note">
 <a name="dstu"> </a>
 <p>
-<b>DSTU Note:</b> Feedback is welcome on two issues related to Composition:
+<b>STU Note:</b> Feedback is welcome on two issues related to Composition:
 </p>
 <ul>
  <li>For many compositions, the title is the same as the text or a display name of Composition.type (e.g., a "consultation" or "progress note"). Note that <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=7">CDA</a> does not make title mandatory, but there are no known cases where it is useful for title to be omitted, so it is mandatory here during the trial use period.</li>

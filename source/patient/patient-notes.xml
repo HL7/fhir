@@ -182,7 +182,7 @@ does not mandate that FHIR servers migrate information between such records on f
 <blockquote class="dstu-note">
 <a name="dstu"> </a>
 <p>
-<b>DSTU Note:</b>   We are seeking input from the implementer community on what effect linking/merging/unlinking should have on 
+<b>STU Note:</b>   We are seeking input from the implementer community on what effect linking/merging/unlinking should have on 
 other functionality such as the GET operation (where the result is the old version of the Patient), searching, reverse includes, etc.; e.g., should observation resources from all linked/merged patients be returned when querying for one of them?<br/>
 How should an unlink behavior be done? (Assuming that no data was "re-allocated" as part of merge)
 These suggested updated behaviors could be the subject of a future connectathon.
@@ -255,7 +255,7 @@ A <a href="patient-mpi-search.html">formal definition</a> for the MPI query is p
 <blockquote class="dstu-note">
 <a name="dstu-2"> </a>
 <p>
-<b>DSTU Note:</b>  This is the first draft of this approach, as a result of 
+<b>STU Note:</b>  This is the first draft of this approach, as a result of 
 connectathon testing.
 </p>
 <p>

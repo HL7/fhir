@@ -411,7 +411,7 @@
 <blockquote class="dstu-note">
 <a name="dstu"> </a>
 <p>
-<b>DSTU Note:</b> Implementer feedback on is sought on the values for Appointment.priority and how interoperable they are.
+<b>STU Note:</b> Implementer feedback on is sought on the values for Appointment.priority and how interoperable they are.
 Using an extension to record a codeableconcept for named values may be tested at a future connectathon.
 </p>
 <p>

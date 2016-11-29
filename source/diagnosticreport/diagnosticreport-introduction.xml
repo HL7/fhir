@@ -78,7 +78,7 @@ If you have a highly structured report, then use DiagnosticReport - it has data 
 <a name="dstu"> </a>
 <blockquote class="dstu-note">
 <p>
-<b>DSTU Note:</b> The relationship between the two resources is subject to ongoing evaluation during the trial use period.
+<b>STU Note:</b> The relationship between the two resources is subject to ongoing evaluation during the trial use period.
 </p>
 <p>
 Feedback is welcome <a href="http://wiki.hl7.org/index.php?title=FHIR_Specification_Feedback_(DSTU_2)">here</a>.

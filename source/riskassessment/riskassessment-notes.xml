@@ -4,7 +4,7 @@
 <blockquote class="dstu-note">
 <a name="dstu"> </a>
 <p>
-<b>DSTU Note:</b> There are several open issues around the risk assessment resource:
+<b>STU Note:</b> There are several open issues around the risk assessment resource:
 </p> 
   <ul>
     <li>Is there an existing code system we can use as a recommended value set for risk probabilties?</li>

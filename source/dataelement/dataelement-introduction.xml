@@ -66,7 +66,7 @@ ElementDefinition and <a href="questionnaire.html">Questionnaire</a>'s Question 
 <blockquote class="dstu-note">
 <a name="dstu"> </a>
 <p>
-<b>DSTU Note:</b>   Should a shared structure be used in <a href="structuredefinition.html">StructureDefinition</a>, <a href="questionnaire.html">Questionnaire</a> and <b>DataElement</b>
+<b>STU Note:</b>   Should a shared structure be used in <a href="structuredefinition.html">StructureDefinition</a>, <a href="questionnaire.html">Questionnaire</a> and <b>DataElement</b>
 to capture constraints on data elements, or is it acceptable for them to continue to be maintained in a separate, but "similar" manner?
 </p>
 <p>

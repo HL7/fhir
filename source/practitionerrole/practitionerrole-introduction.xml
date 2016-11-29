@@ -19,7 +19,7 @@ single service and the list of locations it is available. Both are acceptable op
 <h2>Boundaries and Relationships</h2>
 <blockquote class="dstu-note">
 <p><a name="dstu"> </a>
-<b>DSTU Note:</b>   The Role BackboneElement on the Practitioner is to be deprecated if this resource is accepted.
+<b>STU Note:</b>   The Role BackboneElement on the Practitioner is to be deprecated if this resource is accepted.
 </p>
 </blockquote>
 <p>
