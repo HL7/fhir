@@ -287,6 +287,11 @@
   Description = The practitioner can perform this role at for the organization
   Path = PractitionerRole.code
 
+ -- Row 10 -----------------------------------
+  Name = endpoint
+  Type = reference
+  Path = PractitionerRole.endpoint
+
 === Sheet Profiles =====================================
 
 === Sheet Examples =====================================

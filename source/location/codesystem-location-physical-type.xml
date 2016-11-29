@@ -46,7 +46,7 @@
   <concept>
     <code value="bd"/>
     <display value="Bed"/>
-    <definition value="A space that is allocated for sleeping/laying on."/>
+    <definition value="A space that is allocated for sleeping/laying on. This is not the physical bed/trolley that may be moved about, but the space it may occupy."/>
   </concept>
   <concept>
     <code value="ve"/>

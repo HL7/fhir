@@ -373,6 +373,11 @@
   Description = A use code specified in an address
   Path = Organization.address.use
 
+ -- Row 14 -----------------------------------
+  Name = endpoint
+  Type = reference
+  Path = Organization.endpoint
+
 === Sheet Profiles =====================================
 
  -- Row 1 -----------------------------------

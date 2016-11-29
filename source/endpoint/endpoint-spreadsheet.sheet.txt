@@ -5,7 +5,7 @@
   Binding Name = EndpointStatus
   Binding = code list
   Reference = #endpoint-status
-  Definition = The status of the encounter.
+  Definition = The status of the endpoint
   Conformance = required
 
  -- Row 2 -----------------------------------

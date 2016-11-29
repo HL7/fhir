@@ -328,6 +328,11 @@
   Description = Searches for locations that are managed by the provided organization
   Path = Location.managingOrganization
 
+ -- Row 15 -----------------------------------
+  Name = endpoint
+  Type = reference
+  Path = Location.endpoint
+
 === Sheet Profiles =====================================
 
  -- Row 1 -----------------------------------

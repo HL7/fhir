@@ -712,6 +712,12 @@
   Type = token
   Path = Encounter.class
 
+ -- Row 22 -----------------------------------
+  Name = service-provider
+  Type = reference
+  Path = Encounter.serviceProvider
+  Target Types = Organization
+
 === Sheet Profiles =====================================
 
  -- Row 1 -----------------------------------
