@@ -449,8 +449,8 @@
   Element = Sequence.coordinateSystem
   Card. = 1..1
   Type = integer
-  Short Name = Numbering used for sequence (0-based or 1-based)
-  Definition = Whether the sequence is numbered starting at 0 (0-based numbering or coordinates) or starting at 1 (1-based numbering). Values are \"0\" for 0-based numbering and \"1\" for one-based.
+  Short Name = Base number of coordinate system (0 for 0-based numbering or coordinates, inclusive start, exclusive end, 1 for 1-based numbering, inclusive start, inclusive end)
+  Definition = Whether the sequence is numbered starting at 0 (0-based numbering or coordinates, inclusive start, exclusive end) or starting at 1 (1-based numbering, inclusive start and inclusive end).
 
  -- Row 5 -----------------------------------
   Element = Sequence.patient
@@ -535,16 +535,16 @@
   Element = Sequence.referenceSeq.windowStart
   Card. = 1..1
   Type = integer
-  Short Name = Start position (inclusive) of the window on the  reference sequence
-  Definition = Start position (inclusive) of the window on the reference sequence.
+  Short Name = Start position of the window on the  reference sequence
+  Definition = Start position of the window on the reference sequence. If the coordinate system is either 0-based or 1-based, then start position is inclusive.
 
  -- Row 17 -----------------------------------
   Element = Sequence.referenceSeq.windowEnd
   Card. = 1..1
   UML = down
   Type = integer
-  Short Name = End position (exclusive) of the window on the reference sequence
-  Definition = End position (exclusive) of the window on the reference sequence.
+  Short Name = End position of the window on the reference sequence
+  Definition = End position of the window on the reference sequence. If the coordinate system is 0-based then end is is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.
 
  -- Row 18 -----------------------------------
   Element = Sequence.variant
@@ -556,15 +556,15 @@
   Element = Sequence.variant.start
   Card. = 0..1
   Type = integer
-  Short Name = Start position (inclusive) of the variant on the  reference sequence
-  Definition = Start position (inclusive) of the variant on the  reference sequence.
+  Short Name = Start position of the variant on the  reference sequence
+  Definition = Start position of the variant on the  reference sequence.If the coordinate system is either 0-based or 1-based, then start position is inclusive.
 
  -- Row 20 -----------------------------------
   Element = Sequence.variant.end
   Card. = 0..1
   Type = integer
-  Short Name = End position (exclusive) of the variant on the reference sequence
-  Definition = End position (exclusive) of the variant on the reference sequence.
+  Short Name = End position of the variant on the reference sequence
+  Definition = End position of the variant on the reference sequence.If the coordinate system is 0-based then end is is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.
 
  -- Row 21 -----------------------------------
   Element = Sequence.variant.observedAllele
@@ -619,15 +619,15 @@
   Element = Sequence.quality.start
   Card. = 0..1
   Type = integer
-  Short Name = Start position (inclusive) of the sequence
-  Definition = Start position (inclusive) of the sequence.
+  Short Name = Start position of the sequence
+  Definition = Start position of the sequence. If the coordinate system is either 0-based or 1-based, then start position is inclusive.
 
  -- Row 29 -----------------------------------
   Element = Sequence.quality.end
   Card. = 0..1
   Type = integer
-  Short Name = End position (exclusive) of the sequence
-  Definition = End position (exclusive) of the sequence.
+  Short Name = End position of the sequence
+  Definition = End position of the sequence.If the coordinate system is 0-based then end is is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.
 
  -- Row 30 -----------------------------------
   Element = Sequence.quality.score
@@ -787,15 +787,15 @@
   Element = Sequence.structureVariant.outer.start
   Card. = 0..1
   Type = integer
-  Short Name = Structural Variant Outer Start-End
-  Definition = Structural Variant Outer Start-End.
+  Short Name = Structural Variant Outer Start
+  Definition = Structural Variant Outer Start.If the coordinate system is either 0-based or 1-based, then start position is inclusive.
 
  -- Row 53 -----------------------------------
   Element = Sequence.structureVariant.outer.end
   Card. = 0..1
   Type = integer
-  Short Name = Structural Variant Outer Start-End
-  Definition = Structural Variant Outer Start-End.
+  Short Name = Structural Variant Outer End
+  Definition = Structural Variant Outer End. If the coordinate system is 0-based then end is is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.
 
  -- Row 54 -----------------------------------
   Element = Sequence.structureVariant.inner
@@ -808,15 +808,15 @@
   Element = Sequence.structureVariant.inner.start
   Card. = 0..1
   Type = integer
-  Short Name = Structural Variant Inner Start-End
-  Definition = Structural Variant Inner Start-End.
+  Short Name = Structural Variant Inner Start
+  Definition = Structural Variant Inner Start.If the coordinate system is either 0-based or 1-based, then start position is inclusive.
 
  -- Row 56 -----------------------------------
   Element = Sequence.structureVariant.inner.end
   Card. = 0..1
   Type = integer
-  Short Name = Structural Variant Inner Start-End
-  Definition = Structural Variant Inner Start-End.
+  Short Name = Structural Variant Inner End
+  Definition = Structural Variant Inner End. If the coordinate system is 0-based then end is is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.
 
 === Sheet Search =====================================
 
