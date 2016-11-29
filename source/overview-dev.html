@@ -166,7 +166,22 @@ can be supported and standardized by <a href="profiling.html">defining "profiles
 the base resources. 
 </p>
 
-
+<a name="versions"></a>
+<h3>Managing Versions</h3>
+<p>
+FHIR Servers do not have to support versioning, though they are strongly encouraged to do so. 
+There are three different levels of versioning support for FHIR servers:
+</p>
+<ul>
+ <li>Versioning and .meta.version are not supported (and usually, .meta.lastUpdated is not supported either)</li>
+ <li>Versioning and the	VersionId meta-property are supported, but a history of old versions is not kept</li>
+ <li>Versioning and the	VersionId meta-property are supported, and a history of old versions is available</li>
+</ul>
+<p>
+In addition, servers may require that <a href="http.html#concurrency">version</a> aware updates are used, to prevent over-writing changes, 
+but this is not described on this page.
+</p>
+ 
 <h3>Creating a resource</h3>
 <p>
 To <a href="http.html#create">create a resource</a>, send an HTTP POST request to the resource's respective end
@@ -242,7 +257,7 @@ Notes:
 </p>
 <ul>
   <li><b>HTTP/1.1 201</b> (line 1) - the operation was successful. Note that HTTP/1.1 is strongly recommended but not required</li>
-  <li><b>ETag</b> (line 5) - used in the <a href="http.html#update">version aware update</a> pattern</li>
+  <li><b>ETag</b> (line 5) - used in the <a href="http.html#update">version aware update</a> pattern (if the server supports versioning)</li>
   <li><b>Location</b> (line 6) - the id the server assigned to the resource. The id in the URL must match the id in the resource when the resource is subsequently returned</li>
   <li><b>operationOutcome</b> (line 9) - OperationOutcome resources in this context have no id or meta element (they have no managed identity)</li>
 </ul>
@@ -342,7 +357,7 @@ Notes:
 </p>
 <ul>
   <li><b>id</b> (line 9) - The id of the resource. This must match the id in the read request</li>
-  <li><b>versionId</b> (line 11) - The current version id of the resource. Best practice is that this value matches the ETag (see <a href="http.html#update">version aware update</a>), but clients must never assume this. Note that some servers do not track the version of the resource</li>
+  <li><b>versionId</b> (line 11) - The current version id of the resource (if the server supports versioning). Best practice is that this value matches the ETag (see <a href="http.html#update">version aware update</a>), but clients must never assume this</li>
   <li>Note that servers are not required to support versioning, but are strongly encouraged to do so</li>
   <li><b>lastUpdated</b> (line 12) - if present, this must match the value in the HTTP header</li>
 </ul>
@@ -425,7 +440,7 @@ Notes:
 <ul>
   <li><b>resourceType/type</b> (line 7/8) - the result of a search is always a bundle of type "searchset"</li>
   <li><b>id</b> (line 9) - An identifier assigned to this particular bundle. The server should assign a unique id to this bundle that it will not be re-used</li>
-  <li><b>meta.lastUpdated</b> (line 11) - This should match the HTTP header, and should be the date the search was executed, or more recent, depending on how the <a href="search.html#currency">server handles ongoing updates</a>. The lastUpdated data SHALL be the same or more recent than the most recent resource in the results</li>
+  <li><b>meta.lastUpdated</b> (line 11) - (if the server supports versioning) This should match the HTTP header, and should be the date the search was executed, or more recent, depending on how the <a href="search.html#currency">server handles ongoing updates</a>. The lastUpdated data SHALL be the same or more recent than the most recent resource in the results</li>
   <li><b>total</b> (line 13) - The total number of matches in the search results. Not the number of matches in this particular bundle, which may be a <a href="http.html#search">paged view into the results</a></li>
   <li><b>link</b> (line 14) - A set of named links that give related contexts to this bundle. Names defined in this specification: <a href="http.html#search">first</a>, <a href="http.html#search">prev</a>, <a href="http.html#search">next</a>, <a href="http.html#search">last</a>, <a href="http.html#search">self</a></li>
   <li><b>entry</b> (line 23) - Actual resources in this set of results</li>
@@ -473,7 +488,7 @@ Notes:
   <li><b>resourceType</b> (line 1) - "Patient" in the URL must match the resource type in the resource (line 9)</li>
   <li><b>resource id</b> (line 1, "347") - This must match the id in the resource (line 10)</li>
   <li><b>If-Match</b> (line 6) - if this is provided, it must match the value in meta.versionId (line 12), and the server must check the version integrity, or return 412 if it doesn't support versions</li>
-  <li><b>meta.lastUpdated</b> (line 10) - This value is ignored, and will be updated by the server</li>
+  <li><b>meta.lastUpdated</b> (line 10) - This value is ignored, and will be updated by the server (sometimes, if the server supports versioning)</li>
   <li><b>resource content</b> (line 14) - Not shown here, the same as Patient above</li>
 </ul>
 
@@ -506,7 +521,7 @@ The response to an update request has metadata / status, and optionally an Opera
 Notes:
 </p>
 <ul>
-  <li><b>ETag</b> (line 5) - This is the versionId of the new version, and is also found in the location header (line 6)</li>
+  <li><b>ETag</b> (line 5) - This is the versionId of the new version, and is also found in the location header (line 6) (if the server supports versioning)</li>
 </ul>
 
 <h3>Base Resource Content</h3>

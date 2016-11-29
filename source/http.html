@@ -327,7 +327,14 @@ For this reason, servers are allowed to not provide versioning support and this 
 that versioning is supported. Clients may elect to only interact with servers that do provide full
 versioning support. Systems declare their support for versioning
 in their <a href="capabilitystatement-definitions.html#CapabilityStatement.rest.resource.versioning">Capability Statements</a>.
+Where they can indicate one of three levels for versioning support:
 </p>
+<ul>
+ <li><b>no-version</b>: Versioning and meta.version is not supported (server) or used (client)</li>
+ <li><b>versioned</b>: Versioning and meta.version is supported (server) or used (client)</li>
+ <li><b>versioned-update</b>:	Versioning and meta.version is supported, and version aware updates are used - Version ID must be correct for updates (server) or will be specified (If-match header) for updates (client).
+</ul>
+ 
 <p>
 Server should always return the default timezone for <a href="search.html#date">date searches</a>
 in the HTTP Response headers using the Date header. Note: Servers are not required to have a
