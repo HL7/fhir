@@ -7,7 +7,7 @@
     <coding>
       <system value="http://loinc.org"/>
       <code value="55233-1"/>
-      <display value="Genetic analysis master panel"/>
+      <display value="Genetic analysis master panel--This is the parent OBR for the panel holding all of the associated observations that can be reported with a molecular genetics analysis result."/>
     </coding>
   </code>
   <subject>
