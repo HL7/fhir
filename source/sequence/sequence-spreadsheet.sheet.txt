@@ -27,14 +27,14 @@
  -- Row 4 -----------------------------------
   Binding Name = LOINC 48019-4 answerlist
   Binding = value set
-  Reference = http://loinc.org/vs/48019-4
+  Reference = http://loinc.org/vs/LL379-9
   Definition = LOINC answer list for Type of variation
   Conformance = example
 
  -- Row 5 -----------------------------------
   Binding Name = LOINC 48002-0 answerlist
   Binding = value set
-  Reference = http://loinc.org/vs/48002-0
+  Reference = http://loinc.org/vs/(LL378-1
   Definition = LOINC answer list for Genomic source class
   Conformance = example
 
@@ -48,7 +48,7 @@
  -- Row 7 -----------------------------------
   Binding Name = LOINC 53034-5 answerlist
   Binding = value set
-  Reference = http://loinc.org/vs/53034-5
+  Reference = http://loinc.org/vs/LL381-5
   Definition = LOINC answer list for AllelicState
   Conformance = example
 
