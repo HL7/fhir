@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Sequence>
+    <id value="sequence-complex-variant"/>
+    <type value="DNA"/>
+    <coordinateSystem value="1"/>
+    <referenceSeq>
+        <referenceSeqId>
+          <coding>
+            <system value="http://www.ncbi.nlm.nih.gov/nuccore"/>
+            <code value="NC_000002.12"/>
+          </coding>
+        </referenceSeqId>
+        <strand value="1"/>
+        <windowStart value="128273724"/>
+        <windowEnd value="128273754"/>
+    </referenceSeq>
+    <variant>
+        <start value="128273724"/>
+        <end value="128273736"/>
+        <observedAllele value="CTCATTGT"/>
+        <referenceAllele value="CTCCATTGCATGCGTT"/>
+        <cigar value="3M1D4M6N2M"/>
+    </variant>
+    
+</Sequence>

@@ -5566,29 +5566,36 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s154"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s154"><Data ss:Type="String">Example of Sequence</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s85"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s85"><Data ss:Type="String">Simple sequence example</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">example</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">sequence-example.xml</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s142"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s155"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s155"><Data ss:Type="String">n</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s156"/>
+    <Cell ss:StyleID="s156"><Data ss:Type="String">Sequence example for precisionFDA</Data></Cell>
     <Cell ss:StyleID="s80"/>
-    <Cell ss:Index="4" ss:StyleID="s80"/>
-    <Cell ss:StyleID="s91"/>
+    <Cell><Data ss:Type="String">Sequence example from precisionFDA</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">fda-example</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">sequence-example-fda.xml</Data></Cell>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s155"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="2" ss:StyleID="Default"/>
+    <Cell><Data ss:Type="String">Complex Variations</Data></Cell>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s157"/>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">Example of representing complex variants in Sequence Resource</Data></Cell>
+    <Cell ss:StyleID="s157"><Data ss:Type="String">sequence-complex-variant</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">sequence-complex-variant.xml</Data></Cell>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s158"/>
+    <Cell ss:StyleID="s158"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s159"/>
@@ -5926,9 +5933,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>3</ActiveRow>
-     <ActiveCol>6</ActiveCol>
-     <RangeSelection>R2C1:R4C7</RangeSelection>
+     <ActiveRow>7</ActiveRow>
+     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
