@@ -7,10 +7,10 @@
   <medicationCodeableConcept>
       <text value="Little Pink Pill for water retention"></text>
   </medicationCodeableConcept>  
-  <patient>
+  <subject>
     <reference value="Patient/pat1"/>
     <display value="Donald Duck"/> 
-  </patient>
+  </subject>
   <effectiveDateTime value="2014-02-01"></effectiveDateTime>
   <informationSource>
     <reference value="Patient/pat1"/>

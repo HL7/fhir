@@ -223,12 +223,12 @@
   w5 = what
 
  -- Row 5 -----------------------------------
-  Element = MedicationStatement.patient
+  Element = MedicationStatement.subject
   Card. = 1..1
   Summary = y
-  Type = Reference(Patient)
+  Type = Reference(Patient | Group)
   Short Name = Who is/was taking  the medication
-  Definition = The person or animal who is/was taking the medication.
+  Definition = The person, animal or group who is/was taking the medication.
   v2 Mapping = PID-3-Patient ID List
   RIM Mapping = SubstanceAdministration->subject->Patient
   w5 = who.focus
@@ -292,7 +292,7 @@
   RIM Mapping = SubstanceAdministration->Reason->Observation->Value
 
  -- Row 12 -----------------------------------
-  Element = MedicationStatement.reasonForUseCode
+  Element = MedicationStatement.reasonForUseCodeableConcept
   Card. = 0..*
   Type = CodeableConcept
   Binding = MedicationReason
@@ -304,9 +304,9 @@
  -- Row 13 -----------------------------------
   Element = MedicationStatement.reasonForUseReference
   Card. = 0..*
-  Type = Reference(Condition)
-  Short Name = Condition that supports why the medication is being/was taken
-  Definition = Condition that supports why the medication is being/was taken.
+  Type = Reference(Condition | Observation)
+  Short Name = Condition or observation that supports why the medication is being/was taken
+  Definition = Condition or observation that supports why the medication is being/was taken.
   Comments = This is a reference to a condition that is the reason why the medication is being/was taken.  If only a code exists, use reasonForUseCode.
   RIM Mapping = not mapped
 
@@ -358,10 +358,10 @@
   Path = MedicationStatement.medicationCodeableConcept
 
  -- Row 4 -----------------------------------
-  Name = patient
+  Name = subject
   Type = reference
-  Description = The identity of a patient to list statements  for
-  Path = MedicationStatement.patient
+  Description = The identity of a patient, animal or group to list statements for
+  Path = MedicationStatement.subject
 
  -- Row 5 -----------------------------------
   Name = effective

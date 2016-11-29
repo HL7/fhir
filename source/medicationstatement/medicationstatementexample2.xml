@@ -76,10 +76,10 @@
   <medicationReference> <!-- Linked to a RESOURCE Medication -->
     <reference value="#med0309"/>
   </medicationReference>
-  <patient>
+  <subject>
     <reference value="Patient/pat1"/>
     <display value="Donald Duck"/> 
-  </patient>
+  </subject>
   <effectiveDateTime value="2015-01-23"></effectiveDateTime>
   <informationSource>
     <reference value="Patient/pat1"/>

@@ -12,10 +12,10 @@
       <display value="Amoxicillin (product)"/>
     </coding>
   </medicationCodeableConcept>
-  <patient>
+  <subject>
     <reference value="Patient/pat1"/>
     <display value="Donald Duck"/> 
-  </patient>
+  </subject>
   <effectiveDateTime value="2014-01-23"></effectiveDateTime>
   <informationSource>
     <reference value="Patient/pat1"/>
@@ -23,13 +23,13 @@
   </informationSource>
   <dateAsserted value="2015-02-22"/>
   <notTaken value="n"/>
-  <reasonForUseCode>
+  <reasonForUseCodeableConcept>
     <coding>
       <system value="http://snomed.info/sct"/>
       <code value="65363002"/>
       <display value="Otitis Media"/>
     </coding>
-  </reasonForUseCode>
+  </reasonForUseCodeableConcept>
   <note>
     <text value="Patient indicates they miss the occasional dose" />
   </note>

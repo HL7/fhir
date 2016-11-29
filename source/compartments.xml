@@ -19,9 +19,9 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>15460</WindowHeight>
-  <WindowWidth>27760</WindowWidth>
-  <WindowTopX>0</WindowTopX>
+  <WindowHeight>15960</WindowHeight>
+  <WindowWidth>28160</WindowWidth>
+  <WindowTopX>640</WindowTopX>
   <WindowTopY>460</WindowTopY>
   <ActiveSheet>1</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
@@ -458,7 +458,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">MedicationStatement</Data></Cell>
-    <Cell><Data ss:Type="String">patient | source</Data></Cell>
+    <Cell><Data ss:Type="String">subject</Data></Cell>
     <Cell ss:Index="4"><Data ss:Type="String">source</Data></Cell>
     <Cell><Data ss:Type="String">source</Data></Cell>
    </Row>
@@ -713,7 +713,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>43</TopRowBottomPane>
+   <TopRowBottomPane>42</TopRowBottomPane>
    <ActivePane>2</ActivePane>
    <Panes>
     <Pane>
@@ -721,8 +721,8 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>63</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>64</ActiveRow>
+     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

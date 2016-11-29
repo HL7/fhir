@@ -11077,6 +11077,10 @@
     <display value="Temporary"/>
     <display value="Transitory (qualifier value)"/>
   </concept>
+  <concept id="1481000119100" display="Diabetes mellitus type 2 without retinopathy">
+    <display value="Diabetes mellitus type 2 without retinopathy"/>
+    <display value="Diabetes mellitus type 2 without retinopathy (disorder)"/>
+  </concept>
   <concept id="14866005" display="Hospital-based outpatient mental health clinic (environment)">
     <display value="Hospital-based outpatient mental health clinic"/>
     <display value="Hospital-based outpatient psychiatric clinic"/>
@@ -18035,6 +18039,11 @@
   <concept id="73191001" display="American merino sheep">
     <display value="American merino sheep"/>
     <display value="American merino sheep (organism)"/>
+  </concept>
+  <concept id="73211009" display="Diabetes mellitus">
+    <display value="Diabetes mellitus"/>
+    <display value="DM - Diabetes mellitus"/>
+    <display value="Diabetes mellitus (disorder)"/>
   </concept>
   <concept id="73425007" display="Inactive (qualifier value)">
     <display value="Inactive"/>

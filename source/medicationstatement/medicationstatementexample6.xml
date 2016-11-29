@@ -12,10 +12,10 @@
         <display value="Amoxicillin (product)"/>
       </coding>
   </medicationCodeableConcept>  
-  <patient>
+  <subject>
     <reference value="Patient/pat1"/>
     <display value="Donald Duck"/> 
-  </patient>
+  </subject>
   <effectiveDateTime value="2014-02-01"></effectiveDateTime>
   <informationSource>
     <reference value="RelatedPerson/peter"/>

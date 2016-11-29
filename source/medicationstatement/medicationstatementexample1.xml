@@ -81,10 +81,10 @@
   <medicationReference> <!-- Linked to a RESOURCE Medication -->
     <reference value="#med0309"/>
   </medicationReference> 
-  <patient>
+  <subject>
     <reference value="Patient/pat1"/>
     <display value="Donald Duck"/> 
-  </patient>
+  </subject>
   <effectiveDateTime value="2015-01-23"></effectiveDateTime>
   <informationSource>
     <reference value="Patient/pat1"/>
@@ -95,13 +95,13 @@
   </derivedFrom>
   <dateAsserted value="2015-02-22"/>
   <notTaken value="n"/>
-  <reasonForUseCode>
+  <reasonForUseCodeableConcept>
     <coding>
       <system value="http://snomed.info/sct"/>
       <code value="32914008"/>
       <display value="Restless Legs"/>
     </coding>
-  </reasonForUseCode>
+  </reasonForUseCodeableConcept>
   <note>
     <text value="Patient indicates they miss the occasional dose" />
   </note>

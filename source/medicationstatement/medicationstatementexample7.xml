@@ -30,10 +30,10 @@
   <medicationReference> <!-- Linked to a RESOURCE Medication -->
     <reference value="#med0315"/>
   </medicationReference>
-  <patient>
+  <subject>
     <reference value="Patient/pat1"/>
     <display value="Donald Duck"/> 
-  </patient>
+  </subject>
   <informationSource>
     <reference value="Patient/pat1"/>
     <display value="Donald Duck"/> 

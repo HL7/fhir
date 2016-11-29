@@ -9,9 +9,9 @@
     </div>
   </text> 
   <!--  -->
-  <patient>
+  <subject>
     <reference value="Patient/example"/>
-  </patient>
+  </subject>
   <status value="completed"/>
   <effectiveDateTime value="2012-06-01T14:30:00+14:00"/>
   <medicationReference>

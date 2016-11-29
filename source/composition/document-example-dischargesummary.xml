@@ -453,10 +453,10 @@
         <medicationCodeableConcept>
           <text value="Ventolin Inhaler"/>
         </medicationCodeableConcept>
-	<patient>
+	<subject>
           <reference value="http://fhir.healthintersections.com.au/open/Patient/d1"/>
           <display value="Peter Patient"/>
-        </patient>
+        </subject>
         <dateAsserted value="2013-05-05T16:13:03Z"/>
         <notTaken value="y"/>
         <reasonNotTaken>
