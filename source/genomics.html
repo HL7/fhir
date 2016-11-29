@@ -180,15 +180,6 @@ GA4GH Repository Example. If the Sequence resource refers to a GA4GH repository 
 </p>
 
 <h3>Usage Examples</h3>
-<p>
-We provide an <a href="sequence-example.html">example</a> on how to use the Sequence resource.
-</p>
-
-[%example Sequence/example 4%]
-
-<p>
-Source: <a href="sequence-example.xml.html">XML</a>, <a href="sequence-example.json.html">JSON</a>, <a href="sequence-example.ttl.html">Turtle</a>.
-</p>
 
 <img src="genomics-image15.jpg" alt="Sequence Graph" style="width:624px;height:468px;"/>
 <p>The diagram above describes 4 optional ways provided in the Sequence resource to encode sequencing data.</p>
@@ -200,7 +191,7 @@ Source: <a href="sequence-example.xml.html">XML</a>, <a href="sequence-example.j
 
 <h3>Structure Diagram</h3>
 
-[%profile-diff observationforgenetics%]
+<!--[%profile-diff observationforgenetics%]-->
 
 <h3>Description</h3>
 
@@ -262,43 +253,12 @@ The <a href="observationforgenetics.html">Observation-genetics profile</a> is us
 
 <h3>Usage Examples</h3>
 
-<h4>An Observation-genetics instance and its two related Observation instances for interpretations</h4>
-<p>
-  An <a href="observation-example-genetics-1.html">example</a> of an Observation-genetics instance which records a variant detected in the patient.
-</p>
-
-[%example Observation/example-genetics-1%]
-
-<p>
-Source: <a href="observation-example-genetics-1.xml.html">XML</a>, <a href="observation-example-genetics-1.json.html">JSON</a>, <a href="observation-example-genetics-1.ttl.html">Turtle</a>.
-</p>
-
-<p>
-  An <a href="observation-example-genetics-2.html">example</a> of an Observation instance which records knowledge-based clinical interpretations for the variant represented in A.
-</p>
-
-[%example Observation/example-genetics-2%]
-
-<p>
-Source: <a href="observation-example-genetics-2.xml.html">XML</a>, <a href="observation-example-genetics-2.json.html">JSON</a>, <a href="observation-example-genetics-2.ttl.html">Turtle</a>.
-</p>
-
-<p>
-  An <a href="observation-example-genetics-3.html">example</a> of an Observation instance which records PCR validation test for the variant in A.
-</p>
-
-[%example Observation/example-genetics-3%]
-
-<p>
-Source: <a href="observation-example-genetics-3.xml.html">XML</a>, <a href="observation-example-genetics-3.json.html">JSON</a>, <a href="observation-example-genetics-3.ttl.html">Turtle</a>.
-</p>
-
 <a name="diagnosticreport-genetics"> </a>
 <h2>DiagnosticReport-genetics Profile</h2>
 
 <h3>Structure Diagram</h3>
 
-[%profile-diff reportforgenetics%]
+<!--[%profile-diff reportforgenetics%]-->
 
 <p>
 This <a href="reportforgenetics.html">DiagnosticReport-genetics</a> is built on top of DiagnosticReport. The new profile is used to describe a genetics test report. The result element in DiagnosticReport will refer to the Observation resource that can lead to a bundle of genetic observations. And the element of code, effective[x], issued, performer, request, specimen are be used to describe the details of the genetic test. Extensions about AssessedCondition and FamilyMemberHistory are added. Overall, this profile extends the DiagnosticReport resource to enable reporting of structured genetic test results. In addition, it denotes condition context for genetic testing, which may influence reported variants and interpretations for large genomic testing panels.
@@ -341,26 +301,6 @@ This <a href="reportforgenetics.html">DiagnosticReport-genetics</a> is built on 
         </table>
 
 <h3>Usage Examples</h3>
-<p>
-An <a href="diagnosticreport-genetics-example-2-familyhistory.html">example</a> of a genetic test report for a patient with FamilyHistory.
-</p>
-
-[%example DiagnosticReport/dg2%]
-
-<p>
-Source: <a href="diagnosticreport-genetics-example-2-familyhistory.xml.html">XML</a>, <a href="diagnosticreport-genetics-example-2-familyhistory.json.html">JSON</a>, <a href="diagnosticreport-genetics-example-2-familyhistory.ttl.html">Turtle</a>.
-</p>
-
-<p>
-  An <a href="diagnosticreport-genetics-comprehensive-bone-marrow-report.html">example</a> of a comprehensive bone marrow report.
-</p>
-
-
-[%example DiagnosticReport/report%]
-
-<p>
-Source: <a href="diagnosticreport-genetics-comprehensive-bone-marrow-report.xml.html">XML</a>, <a href="diagnosticreport-genetics-comprehensive-bone-marrow-report.json.html">JSON</a>, <a href="diagnosticreport-genetics-comprehensive-bone-marrow-report.ttl.html">Turtle</a>.
-</p>
 
 
 
@@ -372,7 +312,7 @@ Source: <a href="diagnosticreport-genetics-comprehensive-bone-marrow-report.xml.
   A complex extension is added on top of the DiagnosticRequest resource. Here is the structure of the extension:
 </p>
 
-[%profile-diff orderforgenetics%]
+<!-- [%profile-diff orderforgenetics%] -->
 
 <h3>Description</h3>
 <p>
@@ -380,10 +320,6 @@ Source: <a href="diagnosticreport-genetics-comprehensive-bone-marrow-report.xml.
 </p>
 
 <h3>Usage Example</h3>
-<h4>An order for genetics test</h4>
-<p>
-  <a href="diagnosticrequest-genetics-example-1.html">Here</a> is a diagnostic request for testing 185delAG variant. The mother of the patient received results from a mutation panel (eg. MyRisk from Myriad) and she has a BRCA1 185delAG mutation. The clinician the would like to request to test the patient only for an 185delAG mutation. In this case, the diagnostic request for the patient will specify the sequence variant - 185delAG.
-</p>
 
 <a name="hla"> </a>
 <h2>HLA genotyping results Profile</h2>
