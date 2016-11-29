@@ -46,6 +46,7 @@ import org.hl7.fhir.dstu3.formats.XmlParser;
 import org.hl7.fhir.dstu3.model.ElementDefinition;
 import org.hl7.fhir.dstu3.model.ElementDefinition.AggregationMode;
 import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionConstraintComponent;
+import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionExampleComponent;
 import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionMappingComponent;
 import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionSlicingComponent;
 import org.hl7.fhir.dstu3.model.ElementDefinition.TypeRefComponent;
@@ -201,11 +202,25 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
     tableRowNE("Meaning if Missing", null, d.getMeaningWhenMissing());
     tableRowNE("Fixed Value", null, encodeValue(d.getFixed()));
     tableRowNE("Pattern Value", null, encodeValue(d.getPattern()));
-    tableRow("Example", null, encodeValue(d.getExample()));
+    tableRowNE("Example", null, encodeValues(d.getExample()));
     tableRowNE("Invariants", null, invariants(d.getConstraint()));
     tableRow("LOINC Code", null, getMapping(profile, d, Definitions.LOINC_MAPPING));
     tableRow("SNOMED-CT Code", null, getMapping(profile, d, Definitions.SNOMED_MAPPING));
    }
+
+  private String encodeValues(List<ElementDefinitionExampleComponent> examples) throws Exception {
+    StringBuilder b = new StringBuilder();
+    boolean first = false;
+    for (ElementDefinitionExampleComponent ex : examples) {
+      if (first)
+        first = false;
+      else
+        b.append("<br/>");
+      b.append("<b>"+Utilities.escapeXml(ex.getLabel())+"</b>:"+encodeValue(ex.getValue())+"\r\n");
+    }
+    return b.toString();
+    
+  }
 
   private String processSecondary(int mode, ElementDefinition value) throws Exception {
     switch (mode) {

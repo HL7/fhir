@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Nov 22, 2016 17:11+1100 for FHIR v1.7.0
+// Generated on Tue, Nov 29, 2016 09:59+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -1593,10 +1593,10 @@ public class Claim extends DomainResource {
         /**
          * The diagnosis.
          */
-        @Child(name = "diagnosis", type = {CodeableConcept.class}, order=2, min=1, max=1, modifier=false, summary=false)
+        @Child(name = "diagnosis", type = {CodeableConcept.class, Condition.class}, order=2, min=1, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Patient's diagnosis", formalDefinition="The diagnosis." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/icd-10")
-        protected CodeableConcept diagnosis;
+        protected Type diagnosis;
 
         /**
          * The type of the Diagnosis, for example: admitting,.
@@ -1614,7 +1614,7 @@ public class Claim extends DomainResource {
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/ex-diagnosisrelatedgroup")
         protected CodeableConcept packageCode;
 
-        private static final long serialVersionUID = 601522512L;
+        private static final long serialVersionUID = -350960873L;
 
     /**
      * Constructor
@@ -1626,7 +1626,7 @@ public class Claim extends DomainResource {
     /**
      * Constructor
      */
-      public DiagnosisComponent(PositiveIntType sequence, CodeableConcept diagnosis) {
+      public DiagnosisComponent(PositiveIntType sequence, Type diagnosis) {
         super();
         this.sequence = sequence;
         this.diagnosis = diagnosis;
@@ -1680,13 +1680,34 @@ public class Claim extends DomainResource {
         /**
          * @return {@link #diagnosis} (The diagnosis.)
          */
-        public CodeableConcept getDiagnosis() { 
-          if (this.diagnosis == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create DiagnosisComponent.diagnosis");
-            else if (Configuration.doAutoCreate())
-              this.diagnosis = new CodeableConcept(); // cc
+        public Type getDiagnosis() { 
           return this.diagnosis;
+        }
+
+        /**
+         * @return {@link #diagnosis} (The diagnosis.)
+         */
+        public CodeableConcept getDiagnosisCodeableConcept() throws FHIRException { 
+          if (!(this.diagnosis instanceof CodeableConcept))
+            throw new FHIRException("Type mismatch: the type CodeableConcept was expected, but "+this.diagnosis.getClass().getName()+" was encountered");
+          return (CodeableConcept) this.diagnosis;
+        }
+
+        public boolean hasDiagnosisCodeableConcept() { 
+          return this.diagnosis instanceof CodeableConcept;
+        }
+
+        /**
+         * @return {@link #diagnosis} (The diagnosis.)
+         */
+        public Reference getDiagnosisReference() throws FHIRException { 
+          if (!(this.diagnosis instanceof Reference))
+            throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.diagnosis.getClass().getName()+" was encountered");
+          return (Reference) this.diagnosis;
+        }
+
+        public boolean hasDiagnosisReference() { 
+          return this.diagnosis instanceof Reference;
         }
 
         public boolean hasDiagnosis() { 
@@ -1696,7 +1717,7 @@ public class Claim extends DomainResource {
         /**
          * @param value {@link #diagnosis} (The diagnosis.)
          */
-        public DiagnosisComponent setDiagnosis(CodeableConcept value) { 
+        public DiagnosisComponent setDiagnosis(Type value) { 
           this.diagnosis = value;
           return this;
         }
@@ -1781,7 +1802,7 @@ public class Claim extends DomainResource {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("sequence", "positiveInt", "Sequence of diagnosis which serves to order and provide a link.", 0, java.lang.Integer.MAX_VALUE, sequence));
-          childrenList.add(new Property("diagnosis", "CodeableConcept", "The diagnosis.", 0, java.lang.Integer.MAX_VALUE, diagnosis));
+          childrenList.add(new Property("diagnosis[x]", "CodeableConcept|Reference(Condition)", "The diagnosis.", 0, java.lang.Integer.MAX_VALUE, diagnosis));
           childrenList.add(new Property("type", "CodeableConcept", "The type of the Diagnosis, for example: admitting,.", 0, java.lang.Integer.MAX_VALUE, type));
           childrenList.add(new Property("packageCode", "CodeableConcept", "The package billing code, for example DRG, based on the assigned grouping code system.", 0, java.lang.Integer.MAX_VALUE, packageCode));
         }
@@ -1790,7 +1811,7 @@ public class Claim extends DomainResource {
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
         case 1349547969: /*sequence*/ return this.sequence == null ? new Base[0] : new Base[] {this.sequence}; // PositiveIntType
-        case 1196993265: /*diagnosis*/ return this.diagnosis == null ? new Base[0] : new Base[] {this.diagnosis}; // CodeableConcept
+        case 1196993265: /*diagnosis*/ return this.diagnosis == null ? new Base[0] : new Base[] {this.diagnosis}; // Type
         case 3575610: /*type*/ return this.type == null ? new Base[0] : this.type.toArray(new Base[this.type.size()]); // CodeableConcept
         case 908444499: /*packageCode*/ return this.packageCode == null ? new Base[0] : new Base[] {this.packageCode}; // CodeableConcept
         default: return super.getProperty(hash, name, checkValid);
@@ -1805,7 +1826,7 @@ public class Claim extends DomainResource {
           this.sequence = castToPositiveInt(value); // PositiveIntType
           break;
         case 1196993265: // diagnosis
-          this.diagnosis = castToCodeableConcept(value); // CodeableConcept
+          this.diagnosis = castToType(value); // Type
           break;
         case 3575610: // type
           this.getType().add(castToCodeableConcept(value)); // CodeableConcept
@@ -1822,8 +1843,8 @@ public class Claim extends DomainResource {
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("sequence"))
           this.sequence = castToPositiveInt(value); // PositiveIntType
-        else if (name.equals("diagnosis"))
-          this.diagnosis = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("diagnosis[x]"))
+          this.diagnosis = castToType(value); // Type
         else if (name.equals("type"))
           this.getType().add(castToCodeableConcept(value));
         else if (name.equals("packageCode"))
@@ -1836,7 +1857,7 @@ public class Claim extends DomainResource {
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 1349547969: throw new FHIRException("Cannot make property sequence as it is not a complex type"); // PositiveIntType
-        case 1196993265:  return getDiagnosis(); // CodeableConcept
+        case -1487009809:  return getDiagnosis(); // Type
         case 3575610:  return addType(); // CodeableConcept
         case 908444499:  return getPackageCode(); // CodeableConcept
         default: return super.makeProperty(hash, name);
@@ -1849,8 +1870,12 @@ public class Claim extends DomainResource {
         if (name.equals("sequence")) {
           throw new FHIRException("Cannot call addChild on a primitive type Claim.sequence");
         }
-        else if (name.equals("diagnosis")) {
+        else if (name.equals("diagnosisCodeableConcept")) {
           this.diagnosis = new CodeableConcept();
+          return this.diagnosis;
+        }
+        else if (name.equals("diagnosisReference")) {
+          this.diagnosis = new Reference();
           return this.diagnosis;
         }
         else if (name.equals("type")) {
@@ -2222,10 +2247,10 @@ public class Claim extends DomainResource {
         protected PositiveIntType sequence;
 
         /**
-         * The instance number of the Coverage which is the focus for adjudication. The Coverage against which the claim is to be adjudicated.
+         * A flag to indicate that this Coverage is the focus for adjudication. The Coverage against which the claim is to be adjudicated.
          */
         @Child(name = "focal", type = {BooleanType.class}, order=2, min=1, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Is the focal Coverage", formalDefinition="The instance number of the Coverage which is the focus for adjudication. The Coverage against which the claim is to be adjudicated." )
+        @Description(shortDefinition="Is the focal Coverage", formalDefinition="A flag to indicate that this Coverage is the focus for adjudication. The Coverage against which the claim is to be adjudicated." )
         protected BooleanType focal;
 
         /**
@@ -2339,7 +2364,7 @@ public class Claim extends DomainResource {
         }
 
         /**
-         * @return {@link #focal} (The instance number of the Coverage which is the focus for adjudication. The Coverage against which the claim is to be adjudicated.). This is the underlying object with id, value and extensions. The accessor "getFocal" gives direct access to the value
+         * @return {@link #focal} (A flag to indicate that this Coverage is the focus for adjudication. The Coverage against which the claim is to be adjudicated.). This is the underlying object with id, value and extensions. The accessor "getFocal" gives direct access to the value
          */
         public BooleanType getFocalElement() { 
           if (this.focal == null)
@@ -2359,7 +2384,7 @@ public class Claim extends DomainResource {
         }
 
         /**
-         * @param value {@link #focal} (The instance number of the Coverage which is the focus for adjudication. The Coverage against which the claim is to be adjudicated.). This is the underlying object with id, value and extensions. The accessor "getFocal" gives direct access to the value
+         * @param value {@link #focal} (A flag to indicate that this Coverage is the focus for adjudication. The Coverage against which the claim is to be adjudicated.). This is the underlying object with id, value and extensions. The accessor "getFocal" gives direct access to the value
          */
         public InsuranceComponent setFocalElement(BooleanType value) { 
           this.focal = value;
@@ -2367,14 +2392,14 @@ public class Claim extends DomainResource {
         }
 
         /**
-         * @return The instance number of the Coverage which is the focus for adjudication. The Coverage against which the claim is to be adjudicated.
+         * @return A flag to indicate that this Coverage is the focus for adjudication. The Coverage against which the claim is to be adjudicated.
          */
         public boolean getFocal() { 
           return this.focal == null || this.focal.isEmpty() ? false : this.focal.getValue();
         }
 
         /**
-         * @param value The instance number of the Coverage which is the focus for adjudication. The Coverage against which the claim is to be adjudicated.
+         * @param value A flag to indicate that this Coverage is the focus for adjudication. The Coverage against which the claim is to be adjudicated.
          */
         public InsuranceComponent setFocal(boolean value) { 
             if (this.focal == null)
@@ -2608,7 +2633,7 @@ public class Claim extends DomainResource {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("sequence", "positiveInt", "A service line item.", 0, java.lang.Integer.MAX_VALUE, sequence));
-          childrenList.add(new Property("focal", "boolean", "The instance number of the Coverage which is the focus for adjudication. The Coverage against which the claim is to be adjudicated.", 0, java.lang.Integer.MAX_VALUE, focal));
+          childrenList.add(new Property("focal", "boolean", "A flag to indicate that this Coverage is the focus for adjudication. The Coverage against which the claim is to be adjudicated.", 0, java.lang.Integer.MAX_VALUE, focal));
           childrenList.add(new Property("coverage", "Reference(Coverage)", "Reference to the program or plan identification, underwriter or payor.", 0, java.lang.Integer.MAX_VALUE, coverage));
           childrenList.add(new Property("businessArrangement", "string", "The contract number of a business agreement which describes the terms and conditions.", 0, java.lang.Integer.MAX_VALUE, businessArrangement));
           childrenList.add(new Property("preAuthRef", "string", "A list of references from the Insurer to which these services pertain.", 0, java.lang.Integer.MAX_VALUE, preAuthRef));
@@ -3084,9 +3109,16 @@ public class Claim extends DomainResource {
         protected List<PositiveIntType> procedureLinkId;
 
         /**
+         * Exceptions, special conditions and supporting information pplicable for this service or product line.
+         */
+        @Child(name = "informationLinkId", type = {PositiveIntType.class}, order=5, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Description(shortDefinition="Applicable exception and supporting information", formalDefinition="Exceptions, special conditions and supporting information pplicable for this service or product line." )
+        protected List<PositiveIntType> informationLinkId;
+
+        /**
          * The type of reveneu or cost center providing the product and/or service.
          */
-        @Child(name = "revenue", type = {CodeableConcept.class}, order=5, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "revenue", type = {CodeableConcept.class}, order=6, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Revenue or cost center code", formalDefinition="The type of reveneu or cost center providing the product and/or service." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/ex-revenue-center")
         protected CodeableConcept revenue;
@@ -3094,23 +3126,23 @@ public class Claim extends DomainResource {
         /**
          * Health Care Service Type Codes  to identify the classification of service or benefits.
          */
-        @Child(name = "category", type = {CodeableConcept.class}, order=6, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "category", type = {CodeableConcept.class}, order=7, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Type of service or product", formalDefinition="Health Care Service Type Codes  to identify the classification of service or benefits." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/benefit-subcategory")
         protected CodeableConcept category;
 
         /**
-         * If this is an actual service or product line, ie. not a Group, then use code to indicate the Professional Service or Product supplied (eg. CTP, HCPCS,USCLS,ICD10, NCPDP,DIN,ACHI,CCI). If a grouping item then use a group code to indicate the type of thing being grouped eg. 'glasses' or 'compound'.
+         * If this is an actual service or product line, ie. not a Group, then use code to indicate the Professional Service or Product supplied (eg. CTP, HCPCS,USCLS,ICD10, NCPDP,DIN,RXNorm,ACHI,CCI). If a grouping item then use a group code to indicate the type of thing being grouped eg. 'glasses' or 'compound'.
          */
-        @Child(name = "service", type = {CodeableConcept.class}, order=7, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Billing Code", formalDefinition="If this is an actual service or product line, ie. not a Group, then use code to indicate the Professional Service or Product supplied (eg. CTP, HCPCS,USCLS,ICD10, NCPDP,DIN,ACHI,CCI). If a grouping item then use a group code to indicate the type of thing being grouped eg. 'glasses' or 'compound'." )
+        @Child(name = "service", type = {CodeableConcept.class}, order=8, min=0, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="Billing Code", formalDefinition="If this is an actual service or product line, ie. not a Group, then use code to indicate the Professional Service or Product supplied (eg. CTP, HCPCS,USCLS,ICD10, NCPDP,DIN,RXNorm,ACHI,CCI). If a grouping item then use a group code to indicate the type of thing being grouped eg. 'glasses' or 'compound'." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/service-uscls")
         protected CodeableConcept service;
 
         /**
          * Item typification or modifiers codes, eg for Oral whether the treatment is cosmetic or associated with TMJ, or for medical whether the treatment was outside the clinic or out of office hours.
          */
-        @Child(name = "modifier", type = {CodeableConcept.class}, order=8, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Child(name = "modifier", type = {CodeableConcept.class}, order=9, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Service/Product billing modifiers", formalDefinition="Item typification or modifiers codes, eg for Oral whether the treatment is cosmetic or associated with TMJ, or for medical whether the treatment was outside the clinic or out of office hours." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/claim-modifiers")
         protected List<CodeableConcept> modifier;
@@ -3118,7 +3150,7 @@ public class Claim extends DomainResource {
         /**
          * For programs which require reason codes for the inclusion or covering of this billed item under the program or sub-program.
          */
-        @Child(name = "programCode", type = {CodeableConcept.class}, order=9, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Child(name = "programCode", type = {CodeableConcept.class}, order=10, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Program specific reason for item inclusion", formalDefinition="For programs which require reason codes for the inclusion or covering of this billed item under the program or sub-program." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/ex-program-code")
         protected List<CodeableConcept> programCode;
@@ -3126,14 +3158,14 @@ public class Claim extends DomainResource {
         /**
          * The date or dates when the enclosed suite of services were performed or completed.
          */
-        @Child(name = "serviced", type = {DateType.class, Period.class}, order=10, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "serviced", type = {DateType.class, Period.class}, order=11, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Date or dates of Service", formalDefinition="The date or dates when the enclosed suite of services were performed or completed." )
         protected Type serviced;
 
         /**
          * Where the service was provided.
          */
-        @Child(name = "location", type = {CodeableConcept.class, Address.class, Location.class}, order=11, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "location", type = {CodeableConcept.class, Address.class, Location.class}, order=12, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Place of service", formalDefinition="Where the service was provided." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/service-place")
         protected Type location;
@@ -3141,30 +3173,23 @@ public class Claim extends DomainResource {
         /**
          * The number of repetitions of a service or product.
          */
-        @Child(name = "quantity", type = {SimpleQuantity.class}, order=12, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "quantity", type = {SimpleQuantity.class}, order=13, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Count of Products or Services", formalDefinition="The number of repetitions of a service or product." )
         protected SimpleQuantity quantity;
 
         /**
          * If the item is a node then this is the fee for the product or service, otherwise this is the total of the fees for the children of the group.
          */
-        @Child(name = "unitPrice", type = {Money.class}, order=13, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "unitPrice", type = {Money.class}, order=14, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Fee, charge or cost per point", formalDefinition="If the item is a node then this is the fee for the product or service, otherwise this is the total of the fees for the children of the group." )
         protected Money unitPrice;
 
         /**
          * A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.
          */
-        @Child(name = "factor", type = {DecimalType.class}, order=14, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "factor", type = {DecimalType.class}, order=15, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Price scaling factor", formalDefinition="A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount." )
         protected DecimalType factor;
-
-        /**
-         * An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.
-         */
-        @Child(name = "points", type = {DecimalType.class}, order=15, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Difficulty scaling factor", formalDefinition="An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point." )
-        protected DecimalType points;
 
         /**
          * The quantity times the unit price for an addittional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.
@@ -3215,7 +3240,7 @@ public class Claim extends DomainResource {
         @Description(shortDefinition="Prosthetic details", formalDefinition="The materials and placement date of prior fixed prosthesis." )
         protected ProsthesisComponent prosthesis;
 
-        private static final long serialVersionUID = -1115579028L;
+        private static final long serialVersionUID = 2102127643L;
 
     /**
      * Constructor
@@ -3461,6 +3486,67 @@ public class Claim extends DomainResource {
         }
 
         /**
+         * @return {@link #informationLinkId} (Exceptions, special conditions and supporting information pplicable for this service or product line.)
+         */
+        public List<PositiveIntType> getInformationLinkId() { 
+          if (this.informationLinkId == null)
+            this.informationLinkId = new ArrayList<PositiveIntType>();
+          return this.informationLinkId;
+        }
+
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public ItemComponent setInformationLinkId(List<PositiveIntType> theInformationLinkId) { 
+          this.informationLinkId = theInformationLinkId;
+          return this;
+        }
+
+        public boolean hasInformationLinkId() { 
+          if (this.informationLinkId == null)
+            return false;
+          for (PositiveIntType item : this.informationLinkId)
+            if (!item.isEmpty())
+              return true;
+          return false;
+        }
+
+        /**
+         * @return {@link #informationLinkId} (Exceptions, special conditions and supporting information pplicable for this service or product line.)
+         */
+        public PositiveIntType addInformationLinkIdElement() {//2 
+          PositiveIntType t = new PositiveIntType();
+          if (this.informationLinkId == null)
+            this.informationLinkId = new ArrayList<PositiveIntType>();
+          this.informationLinkId.add(t);
+          return t;
+        }
+
+        /**
+         * @param value {@link #informationLinkId} (Exceptions, special conditions and supporting information pplicable for this service or product line.)
+         */
+        public ItemComponent addInformationLinkId(int value) { //1
+          PositiveIntType t = new PositiveIntType();
+          t.setValue(value);
+          if (this.informationLinkId == null)
+            this.informationLinkId = new ArrayList<PositiveIntType>();
+          this.informationLinkId.add(t);
+          return this;
+        }
+
+        /**
+         * @param value {@link #informationLinkId} (Exceptions, special conditions and supporting information pplicable for this service or product line.)
+         */
+        public boolean hasInformationLinkId(int value) { 
+          if (this.informationLinkId == null)
+            return false;
+          for (PositiveIntType v : this.informationLinkId)
+            if (v.equals(value)) // positiveInt
+              return true;
+          return false;
+        }
+
+        /**
          * @return {@link #revenue} (The type of reveneu or cost center providing the product and/or service.)
          */
         public CodeableConcept getRevenue() { 
@@ -3509,7 +3595,7 @@ public class Claim extends DomainResource {
         }
 
         /**
-         * @return {@link #service} (If this is an actual service or product line, ie. not a Group, then use code to indicate the Professional Service or Product supplied (eg. CTP, HCPCS,USCLS,ICD10, NCPDP,DIN,ACHI,CCI). If a grouping item then use a group code to indicate the type of thing being grouped eg. 'glasses' or 'compound'.)
+         * @return {@link #service} (If this is an actual service or product line, ie. not a Group, then use code to indicate the Professional Service or Product supplied (eg. CTP, HCPCS,USCLS,ICD10, NCPDP,DIN,RXNorm,ACHI,CCI). If a grouping item then use a group code to indicate the type of thing being grouped eg. 'glasses' or 'compound'.)
          */
         public CodeableConcept getService() { 
           if (this.service == null)
@@ -3525,7 +3611,7 @@ public class Claim extends DomainResource {
         }
 
         /**
-         * @param value {@link #service} (If this is an actual service or product line, ie. not a Group, then use code to indicate the Professional Service or Product supplied (eg. CTP, HCPCS,USCLS,ICD10, NCPDP,DIN,ACHI,CCI). If a grouping item then use a group code to indicate the type of thing being grouped eg. 'glasses' or 'compound'.)
+         * @param value {@link #service} (If this is an actual service or product line, ie. not a Group, then use code to indicate the Professional Service or Product supplied (eg. CTP, HCPCS,USCLS,ICD10, NCPDP,DIN,RXNorm,ACHI,CCI). If a grouping item then use a group code to indicate the type of thing being grouped eg. 'glasses' or 'compound'.)
          */
         public ItemComponent setService(CodeableConcept value) { 
           this.service = value;
@@ -3857,73 +3943,6 @@ public class Claim extends DomainResource {
         }
 
         /**
-         * @return {@link #points} (An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.). This is the underlying object with id, value and extensions. The accessor "getPoints" gives direct access to the value
-         */
-        public DecimalType getPointsElement() { 
-          if (this.points == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ItemComponent.points");
-            else if (Configuration.doAutoCreate())
-              this.points = new DecimalType(); // bb
-          return this.points;
-        }
-
-        public boolean hasPointsElement() { 
-          return this.points != null && !this.points.isEmpty();
-        }
-
-        public boolean hasPoints() { 
-          return this.points != null && !this.points.isEmpty();
-        }
-
-        /**
-         * @param value {@link #points} (An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.). This is the underlying object with id, value and extensions. The accessor "getPoints" gives direct access to the value
-         */
-        public ItemComponent setPointsElement(DecimalType value) { 
-          this.points = value;
-          return this;
-        }
-
-        /**
-         * @return An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.
-         */
-        public BigDecimal getPoints() { 
-          return this.points == null ? null : this.points.getValue();
-        }
-
-        /**
-         * @param value An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.
-         */
-        public ItemComponent setPoints(BigDecimal value) { 
-          if (value == null)
-            this.points = null;
-          else {
-            if (this.points == null)
-              this.points = new DecimalType();
-            this.points.setValue(value);
-          }
-          return this;
-        }
-
-        /**
-         * @param value An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.
-         */
-        public ItemComponent setPoints(long value) { 
-              this.points = new DecimalType();
-            this.points.setValue(value);
-          return this;
-        }
-
-        /**
-         * @param value An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.
-         */
-        public ItemComponent setPoints(double value) { 
-              this.points = new DecimalType();
-            this.points.setValue(value);
-          return this;
-        }
-
-        /**
          * @return {@link #net} (The quantity times the unit price for an addittional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.)
          */
         public Money getNet() { 
@@ -4182,9 +4201,10 @@ public class Claim extends DomainResource {
           childrenList.add(new Property("careTeamLinkId", "positiveInt", "CareTeam applicable for this service or product line.", 0, java.lang.Integer.MAX_VALUE, careTeamLinkId));
           childrenList.add(new Property("diagnosisLinkId", "positiveInt", "Diagnosis applicable for this service or product line.", 0, java.lang.Integer.MAX_VALUE, diagnosisLinkId));
           childrenList.add(new Property("procedureLinkId", "positiveInt", "Procedures applicable for this service or product line.", 0, java.lang.Integer.MAX_VALUE, procedureLinkId));
+          childrenList.add(new Property("informationLinkId", "positiveInt", "Exceptions, special conditions and supporting information pplicable for this service or product line.", 0, java.lang.Integer.MAX_VALUE, informationLinkId));
           childrenList.add(new Property("revenue", "CodeableConcept", "The type of reveneu or cost center providing the product and/or service.", 0, java.lang.Integer.MAX_VALUE, revenue));
           childrenList.add(new Property("category", "CodeableConcept", "Health Care Service Type Codes  to identify the classification of service or benefits.", 0, java.lang.Integer.MAX_VALUE, category));
-          childrenList.add(new Property("service", "CodeableConcept", "If this is an actual service or product line, ie. not a Group, then use code to indicate the Professional Service or Product supplied (eg. CTP, HCPCS,USCLS,ICD10, NCPDP,DIN,ACHI,CCI). If a grouping item then use a group code to indicate the type of thing being grouped eg. 'glasses' or 'compound'.", 0, java.lang.Integer.MAX_VALUE, service));
+          childrenList.add(new Property("service", "CodeableConcept", "If this is an actual service or product line, ie. not a Group, then use code to indicate the Professional Service or Product supplied (eg. CTP, HCPCS,USCLS,ICD10, NCPDP,DIN,RXNorm,ACHI,CCI). If a grouping item then use a group code to indicate the type of thing being grouped eg. 'glasses' or 'compound'.", 0, java.lang.Integer.MAX_VALUE, service));
           childrenList.add(new Property("modifier", "CodeableConcept", "Item typification or modifiers codes, eg for Oral whether the treatment is cosmetic or associated with TMJ, or for medical whether the treatment was outside the clinic or out of office hours.", 0, java.lang.Integer.MAX_VALUE, modifier));
           childrenList.add(new Property("programCode", "CodeableConcept", "For programs which require reason codes for the inclusion or covering of this billed item under the program or sub-program.", 0, java.lang.Integer.MAX_VALUE, programCode));
           childrenList.add(new Property("serviced[x]", "date|Period", "The date or dates when the enclosed suite of services were performed or completed.", 0, java.lang.Integer.MAX_VALUE, serviced));
@@ -4192,7 +4212,6 @@ public class Claim extends DomainResource {
           childrenList.add(new Property("quantity", "SimpleQuantity", "The number of repetitions of a service or product.", 0, java.lang.Integer.MAX_VALUE, quantity));
           childrenList.add(new Property("unitPrice", "Money", "If the item is a node then this is the fee for the product or service, otherwise this is the total of the fees for the children of the group.", 0, java.lang.Integer.MAX_VALUE, unitPrice));
           childrenList.add(new Property("factor", "decimal", "A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.", 0, java.lang.Integer.MAX_VALUE, factor));
-          childrenList.add(new Property("points", "decimal", "An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.", 0, java.lang.Integer.MAX_VALUE, points));
           childrenList.add(new Property("net", "Money", "The quantity times the unit price for an addittional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.", 0, java.lang.Integer.MAX_VALUE, net));
           childrenList.add(new Property("udi", "Reference(Device)", "List of Unique Device Identifiers associated with this line item.", 0, java.lang.Integer.MAX_VALUE, udi));
           childrenList.add(new Property("bodySite", "CodeableConcept", "Physical service site on the patient (limb, tooth, etc).", 0, java.lang.Integer.MAX_VALUE, bodySite));
@@ -4208,6 +4227,7 @@ public class Claim extends DomainResource {
         case -186757789: /*careTeamLinkId*/ return this.careTeamLinkId == null ? new Base[0] : this.careTeamLinkId.toArray(new Base[this.careTeamLinkId.size()]); // PositiveIntType
         case -1659207418: /*diagnosisLinkId*/ return this.diagnosisLinkId == null ? new Base[0] : this.diagnosisLinkId.toArray(new Base[this.diagnosisLinkId.size()]); // PositiveIntType
         case -532846744: /*procedureLinkId*/ return this.procedureLinkId == null ? new Base[0] : this.procedureLinkId.toArray(new Base[this.procedureLinkId.size()]); // PositiveIntType
+        case 1965585153: /*informationLinkId*/ return this.informationLinkId == null ? new Base[0] : this.informationLinkId.toArray(new Base[this.informationLinkId.size()]); // PositiveIntType
         case 1099842588: /*revenue*/ return this.revenue == null ? new Base[0] : new Base[] {this.revenue}; // CodeableConcept
         case 50511102: /*category*/ return this.category == null ? new Base[0] : new Base[] {this.category}; // CodeableConcept
         case 1984153269: /*service*/ return this.service == null ? new Base[0] : new Base[] {this.service}; // CodeableConcept
@@ -4218,7 +4238,6 @@ public class Claim extends DomainResource {
         case -1285004149: /*quantity*/ return this.quantity == null ? new Base[0] : new Base[] {this.quantity}; // SimpleQuantity
         case -486196699: /*unitPrice*/ return this.unitPrice == null ? new Base[0] : new Base[] {this.unitPrice}; // Money
         case -1282148017: /*factor*/ return this.factor == null ? new Base[0] : new Base[] {this.factor}; // DecimalType
-        case -982754077: /*points*/ return this.points == null ? new Base[0] : new Base[] {this.points}; // DecimalType
         case 108957: /*net*/ return this.net == null ? new Base[0] : new Base[] {this.net}; // Money
         case 115642: /*udi*/ return this.udi == null ? new Base[0] : this.udi.toArray(new Base[this.udi.size()]); // Reference
         case 1702620169: /*bodySite*/ return this.bodySite == null ? new Base[0] : new Base[] {this.bodySite}; // CodeableConcept
@@ -4244,6 +4263,9 @@ public class Claim extends DomainResource {
           break;
         case -532846744: // procedureLinkId
           this.getProcedureLinkId().add(castToPositiveInt(value)); // PositiveIntType
+          break;
+        case 1965585153: // informationLinkId
+          this.getInformationLinkId().add(castToPositiveInt(value)); // PositiveIntType
           break;
         case 1099842588: // revenue
           this.revenue = castToCodeableConcept(value); // CodeableConcept
@@ -4274,9 +4296,6 @@ public class Claim extends DomainResource {
           break;
         case -1282148017: // factor
           this.factor = castToDecimal(value); // DecimalType
-          break;
-        case -982754077: // points
-          this.points = castToDecimal(value); // DecimalType
           break;
         case 108957: // net
           this.net = castToMoney(value); // Money
@@ -4311,6 +4330,8 @@ public class Claim extends DomainResource {
           this.getDiagnosisLinkId().add(castToPositiveInt(value));
         else if (name.equals("procedureLinkId"))
           this.getProcedureLinkId().add(castToPositiveInt(value));
+        else if (name.equals("informationLinkId"))
+          this.getInformationLinkId().add(castToPositiveInt(value));
         else if (name.equals("revenue"))
           this.revenue = castToCodeableConcept(value); // CodeableConcept
         else if (name.equals("category"))
@@ -4331,8 +4352,6 @@ public class Claim extends DomainResource {
           this.unitPrice = castToMoney(value); // Money
         else if (name.equals("factor"))
           this.factor = castToDecimal(value); // DecimalType
-        else if (name.equals("points"))
-          this.points = castToDecimal(value); // DecimalType
         else if (name.equals("net"))
           this.net = castToMoney(value); // Money
         else if (name.equals("udi"))
@@ -4356,6 +4375,7 @@ public class Claim extends DomainResource {
         case -186757789: throw new FHIRException("Cannot make property careTeamLinkId as it is not a complex type"); // PositiveIntType
         case -1659207418: throw new FHIRException("Cannot make property diagnosisLinkId as it is not a complex type"); // PositiveIntType
         case -532846744: throw new FHIRException("Cannot make property procedureLinkId as it is not a complex type"); // PositiveIntType
+        case 1965585153: throw new FHIRException("Cannot make property informationLinkId as it is not a complex type"); // PositiveIntType
         case 1099842588:  return getRevenue(); // CodeableConcept
         case 50511102:  return getCategory(); // CodeableConcept
         case 1984153269:  return getService(); // CodeableConcept
@@ -4366,7 +4386,6 @@ public class Claim extends DomainResource {
         case -1285004149:  return getQuantity(); // SimpleQuantity
         case -486196699:  return getUnitPrice(); // Money
         case -1282148017: throw new FHIRException("Cannot make property factor as it is not a complex type"); // DecimalType
-        case -982754077: throw new FHIRException("Cannot make property points as it is not a complex type"); // DecimalType
         case 108957:  return getNet(); // Money
         case 115642:  return addUdi(); // Reference
         case 1702620169:  return getBodySite(); // CodeableConcept
@@ -4391,6 +4410,9 @@ public class Claim extends DomainResource {
         }
         else if (name.equals("procedureLinkId")) {
           throw new FHIRException("Cannot call addChild on a primitive type Claim.procedureLinkId");
+        }
+        else if (name.equals("informationLinkId")) {
+          throw new FHIRException("Cannot call addChild on a primitive type Claim.informationLinkId");
         }
         else if (name.equals("revenue")) {
           this.revenue = new CodeableConcept();
@@ -4441,9 +4463,6 @@ public class Claim extends DomainResource {
         else if (name.equals("factor")) {
           throw new FHIRException("Cannot call addChild on a primitive type Claim.factor");
         }
-        else if (name.equals("points")) {
-          throw new FHIRException("Cannot call addChild on a primitive type Claim.points");
-        }
         else if (name.equals("net")) {
           this.net = new Money();
           return this.net;
@@ -4488,6 +4507,11 @@ public class Claim extends DomainResource {
           for (PositiveIntType i : procedureLinkId)
             dst.procedureLinkId.add(i.copy());
         };
+        if (informationLinkId != null) {
+          dst.informationLinkId = new ArrayList<PositiveIntType>();
+          for (PositiveIntType i : informationLinkId)
+            dst.informationLinkId.add(i.copy());
+        };
         dst.revenue = revenue == null ? null : revenue.copy();
         dst.category = category == null ? null : category.copy();
         dst.service = service == null ? null : service.copy();
@@ -4506,7 +4530,6 @@ public class Claim extends DomainResource {
         dst.quantity = quantity == null ? null : quantity.copy();
         dst.unitPrice = unitPrice == null ? null : unitPrice.copy();
         dst.factor = factor == null ? null : factor.copy();
-        dst.points = points == null ? null : points.copy();
         dst.net = net == null ? null : net.copy();
         if (udi != null) {
           dst.udi = new ArrayList<Reference>();
@@ -4537,12 +4560,13 @@ public class Claim extends DomainResource {
         ItemComponent o = (ItemComponent) other;
         return compareDeep(sequence, o.sequence, true) && compareDeep(careTeamLinkId, o.careTeamLinkId, true)
            && compareDeep(diagnosisLinkId, o.diagnosisLinkId, true) && compareDeep(procedureLinkId, o.procedureLinkId, true)
-           && compareDeep(revenue, o.revenue, true) && compareDeep(category, o.category, true) && compareDeep(service, o.service, true)
-           && compareDeep(modifier, o.modifier, true) && compareDeep(programCode, o.programCode, true) && compareDeep(serviced, o.serviced, true)
-           && compareDeep(location, o.location, true) && compareDeep(quantity, o.quantity, true) && compareDeep(unitPrice, o.unitPrice, true)
-           && compareDeep(factor, o.factor, true) && compareDeep(points, o.points, true) && compareDeep(net, o.net, true)
-           && compareDeep(udi, o.udi, true) && compareDeep(bodySite, o.bodySite, true) && compareDeep(subSite, o.subSite, true)
-           && compareDeep(detail, o.detail, true) && compareDeep(prosthesis, o.prosthesis, true);
+           && compareDeep(informationLinkId, o.informationLinkId, true) && compareDeep(revenue, o.revenue, true)
+           && compareDeep(category, o.category, true) && compareDeep(service, o.service, true) && compareDeep(modifier, o.modifier, true)
+           && compareDeep(programCode, o.programCode, true) && compareDeep(serviced, o.serviced, true) && compareDeep(location, o.location, true)
+           && compareDeep(quantity, o.quantity, true) && compareDeep(unitPrice, o.unitPrice, true) && compareDeep(factor, o.factor, true)
+           && compareDeep(net, o.net, true) && compareDeep(udi, o.udi, true) && compareDeep(bodySite, o.bodySite, true)
+           && compareDeep(subSite, o.subSite, true) && compareDeep(detail, o.detail, true) && compareDeep(prosthesis, o.prosthesis, true)
+          ;
       }
 
       @Override
@@ -4554,13 +4578,14 @@ public class Claim extends DomainResource {
         ItemComponent o = (ItemComponent) other;
         return compareValues(sequence, o.sequence, true) && compareValues(careTeamLinkId, o.careTeamLinkId, true)
            && compareValues(diagnosisLinkId, o.diagnosisLinkId, true) && compareValues(procedureLinkId, o.procedureLinkId, true)
-           && compareValues(factor, o.factor, true) && compareValues(points, o.points, true);
+           && compareValues(informationLinkId, o.informationLinkId, true) && compareValues(factor, o.factor, true)
+          ;
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(sequence, careTeamLinkId, diagnosisLinkId
-          , procedureLinkId, revenue, category, service, modifier, programCode, serviced
-          , location, quantity, unitPrice, factor, points, net, udi, bodySite, subSite
+          , procedureLinkId, informationLinkId, revenue, category, service, modifier, programCode
+          , serviced, location, quantity, unitPrice, factor, net, udi, bodySite, subSite
           , detail, prosthesis);
       }
 
@@ -4642,23 +4667,16 @@ public class Claim extends DomainResource {
         protected DecimalType factor;
 
         /**
-         * An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.
-         */
-        @Child(name = "points", type = {DecimalType.class}, order=10, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Difficulty scaling factor", formalDefinition="An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point." )
-        protected DecimalType points;
-
-        /**
          * The quantity times the unit price for an addittional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.
          */
-        @Child(name = "net", type = {Money.class}, order=11, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "net", type = {Money.class}, order=10, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Total additional item cost", formalDefinition="The quantity times the unit price for an addittional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied." )
         protected Money net;
 
         /**
          * List of Unique Device Identifiers associated with this line item.
          */
-        @Child(name = "udi", type = {Device.class}, order=12, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Child(name = "udi", type = {Device.class}, order=11, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Unique Device Identifier", formalDefinition="List of Unique Device Identifiers associated with this line item." )
         protected List<Reference> udi;
         /**
@@ -4670,11 +4688,11 @@ public class Claim extends DomainResource {
         /**
          * Third tier of goods and services.
          */
-        @Child(name = "subDetail", type = {}, order=13, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Child(name = "subDetail", type = {}, order=12, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Additional items", formalDefinition="Third tier of goods and services." )
         protected List<SubDetailComponent> subDetail;
 
-        private static final long serialVersionUID = -609419850L;
+        private static final long serialVersionUID = 718584656L;
 
     /**
      * Constructor
@@ -5030,73 +5048,6 @@ public class Claim extends DomainResource {
         }
 
         /**
-         * @return {@link #points} (An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.). This is the underlying object with id, value and extensions. The accessor "getPoints" gives direct access to the value
-         */
-        public DecimalType getPointsElement() { 
-          if (this.points == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create DetailComponent.points");
-            else if (Configuration.doAutoCreate())
-              this.points = new DecimalType(); // bb
-          return this.points;
-        }
-
-        public boolean hasPointsElement() { 
-          return this.points != null && !this.points.isEmpty();
-        }
-
-        public boolean hasPoints() { 
-          return this.points != null && !this.points.isEmpty();
-        }
-
-        /**
-         * @param value {@link #points} (An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.). This is the underlying object with id, value and extensions. The accessor "getPoints" gives direct access to the value
-         */
-        public DetailComponent setPointsElement(DecimalType value) { 
-          this.points = value;
-          return this;
-        }
-
-        /**
-         * @return An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.
-         */
-        public BigDecimal getPoints() { 
-          return this.points == null ? null : this.points.getValue();
-        }
-
-        /**
-         * @param value An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.
-         */
-        public DetailComponent setPoints(BigDecimal value) { 
-          if (value == null)
-            this.points = null;
-          else {
-            if (this.points == null)
-              this.points = new DecimalType();
-            this.points.setValue(value);
-          }
-          return this;
-        }
-
-        /**
-         * @param value An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.
-         */
-        public DetailComponent setPoints(long value) { 
-              this.points = new DecimalType();
-            this.points.setValue(value);
-          return this;
-        }
-
-        /**
-         * @param value An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.
-         */
-        public DetailComponent setPoints(double value) { 
-              this.points = new DecimalType();
-            this.points.setValue(value);
-          return this;
-        }
-
-        /**
          * @return {@link #net} (The quantity times the unit price for an addittional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.)
          */
         public Money getNet() { 
@@ -5259,7 +5210,6 @@ public class Claim extends DomainResource {
           childrenList.add(new Property("quantity", "SimpleQuantity", "The number of repetitions of a service or product.", 0, java.lang.Integer.MAX_VALUE, quantity));
           childrenList.add(new Property("unitPrice", "Money", "If the item is a node then this is the fee for the product or service, otherwise this is the total of the fees for the children of the group.", 0, java.lang.Integer.MAX_VALUE, unitPrice));
           childrenList.add(new Property("factor", "decimal", "A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.", 0, java.lang.Integer.MAX_VALUE, factor));
-          childrenList.add(new Property("points", "decimal", "An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.", 0, java.lang.Integer.MAX_VALUE, points));
           childrenList.add(new Property("net", "Money", "The quantity times the unit price for an addittional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.", 0, java.lang.Integer.MAX_VALUE, net));
           childrenList.add(new Property("udi", "Reference(Device)", "List of Unique Device Identifiers associated with this line item.", 0, java.lang.Integer.MAX_VALUE, udi));
           childrenList.add(new Property("subDetail", "", "Third tier of goods and services.", 0, java.lang.Integer.MAX_VALUE, subDetail));
@@ -5277,7 +5227,6 @@ public class Claim extends DomainResource {
         case -1285004149: /*quantity*/ return this.quantity == null ? new Base[0] : new Base[] {this.quantity}; // SimpleQuantity
         case -486196699: /*unitPrice*/ return this.unitPrice == null ? new Base[0] : new Base[] {this.unitPrice}; // Money
         case -1282148017: /*factor*/ return this.factor == null ? new Base[0] : new Base[] {this.factor}; // DecimalType
-        case -982754077: /*points*/ return this.points == null ? new Base[0] : new Base[] {this.points}; // DecimalType
         case 108957: /*net*/ return this.net == null ? new Base[0] : new Base[] {this.net}; // Money
         case 115642: /*udi*/ return this.udi == null ? new Base[0] : this.udi.toArray(new Base[this.udi.size()]); // Reference
         case -828829007: /*subDetail*/ return this.subDetail == null ? new Base[0] : this.subDetail.toArray(new Base[this.subDetail.size()]); // SubDetailComponent
@@ -5316,9 +5265,6 @@ public class Claim extends DomainResource {
         case -1282148017: // factor
           this.factor = castToDecimal(value); // DecimalType
           break;
-        case -982754077: // points
-          this.points = castToDecimal(value); // DecimalType
-          break;
         case 108957: // net
           this.net = castToMoney(value); // Money
           break;
@@ -5353,8 +5299,6 @@ public class Claim extends DomainResource {
           this.unitPrice = castToMoney(value); // Money
         else if (name.equals("factor"))
           this.factor = castToDecimal(value); // DecimalType
-        else if (name.equals("points"))
-          this.points = castToDecimal(value); // DecimalType
         else if (name.equals("net"))
           this.net = castToMoney(value); // Money
         else if (name.equals("udi"))
@@ -5377,7 +5321,6 @@ public class Claim extends DomainResource {
         case -1285004149:  return getQuantity(); // SimpleQuantity
         case -486196699:  return getUnitPrice(); // Money
         case -1282148017: throw new FHIRException("Cannot make property factor as it is not a complex type"); // DecimalType
-        case -982754077: throw new FHIRException("Cannot make property points as it is not a complex type"); // DecimalType
         case 108957:  return getNet(); // Money
         case 115642:  return addUdi(); // Reference
         case -828829007:  return addSubDetail(); // SubDetailComponent
@@ -5420,9 +5363,6 @@ public class Claim extends DomainResource {
         else if (name.equals("factor")) {
           throw new FHIRException("Cannot call addChild on a primitive type Claim.factor");
         }
-        else if (name.equals("points")) {
-          throw new FHIRException("Cannot call addChild on a primitive type Claim.points");
-        }
         else if (name.equals("net")) {
           this.net = new Money();
           return this.net;
@@ -5457,7 +5397,6 @@ public class Claim extends DomainResource {
         dst.quantity = quantity == null ? null : quantity.copy();
         dst.unitPrice = unitPrice == null ? null : unitPrice.copy();
         dst.factor = factor == null ? null : factor.copy();
-        dst.points = points == null ? null : points.copy();
         dst.net = net == null ? null : net.copy();
         if (udi != null) {
           dst.udi = new ArrayList<Reference>();
@@ -5482,8 +5421,8 @@ public class Claim extends DomainResource {
         return compareDeep(sequence, o.sequence, true) && compareDeep(revenue, o.revenue, true) && compareDeep(category, o.category, true)
            && compareDeep(service, o.service, true) && compareDeep(modifier, o.modifier, true) && compareDeep(programCode, o.programCode, true)
            && compareDeep(quantity, o.quantity, true) && compareDeep(unitPrice, o.unitPrice, true) && compareDeep(factor, o.factor, true)
-           && compareDeep(points, o.points, true) && compareDeep(net, o.net, true) && compareDeep(udi, o.udi, true)
-           && compareDeep(subDetail, o.subDetail, true);
+           && compareDeep(net, o.net, true) && compareDeep(udi, o.udi, true) && compareDeep(subDetail, o.subDetail, true)
+          ;
       }
 
       @Override
@@ -5493,14 +5432,13 @@ public class Claim extends DomainResource {
         if (!(other instanceof DetailComponent))
           return false;
         DetailComponent o = (DetailComponent) other;
-        return compareValues(sequence, o.sequence, true) && compareValues(factor, o.factor, true) && compareValues(points, o.points, true)
-          ;
+        return compareValues(sequence, o.sequence, true) && compareValues(factor, o.factor, true);
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(sequence, revenue, category
-          , service, modifier, programCode, quantity, unitPrice, factor, points, net, udi
-          , subDetail);
+          , service, modifier, programCode, quantity, unitPrice, factor, net, udi, subDetail
+          );
       }
 
   public String fhirType() {
@@ -5581,23 +5519,16 @@ public class Claim extends DomainResource {
         protected DecimalType factor;
 
         /**
-         * An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.
-         */
-        @Child(name = "points", type = {DecimalType.class}, order=10, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Difficulty scaling factor", formalDefinition="An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point." )
-        protected DecimalType points;
-
-        /**
          * The quantity times the unit price for an addittional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.
          */
-        @Child(name = "net", type = {Money.class}, order=11, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "net", type = {Money.class}, order=10, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Net additional item cost", formalDefinition="The quantity times the unit price for an addittional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied." )
         protected Money net;
 
         /**
          * List of Unique Device Identifiers associated with this line item.
          */
-        @Child(name = "udi", type = {Device.class}, order=12, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Child(name = "udi", type = {Device.class}, order=11, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Unique Device Identifier", formalDefinition="List of Unique Device Identifiers associated with this line item." )
         protected List<Reference> udi;
         /**
@@ -5606,7 +5537,7 @@ public class Claim extends DomainResource {
         protected List<Device> udiTarget;
 
 
-        private static final long serialVersionUID = 2105867L;
+        private static final long serialVersionUID = -1210367567L;
 
     /**
      * Constructor
@@ -5962,73 +5893,6 @@ public class Claim extends DomainResource {
         }
 
         /**
-         * @return {@link #points} (An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.). This is the underlying object with id, value and extensions. The accessor "getPoints" gives direct access to the value
-         */
-        public DecimalType getPointsElement() { 
-          if (this.points == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create SubDetailComponent.points");
-            else if (Configuration.doAutoCreate())
-              this.points = new DecimalType(); // bb
-          return this.points;
-        }
-
-        public boolean hasPointsElement() { 
-          return this.points != null && !this.points.isEmpty();
-        }
-
-        public boolean hasPoints() { 
-          return this.points != null && !this.points.isEmpty();
-        }
-
-        /**
-         * @param value {@link #points} (An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.). This is the underlying object with id, value and extensions. The accessor "getPoints" gives direct access to the value
-         */
-        public SubDetailComponent setPointsElement(DecimalType value) { 
-          this.points = value;
-          return this;
-        }
-
-        /**
-         * @return An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.
-         */
-        public BigDecimal getPoints() { 
-          return this.points == null ? null : this.points.getValue();
-        }
-
-        /**
-         * @param value An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.
-         */
-        public SubDetailComponent setPoints(BigDecimal value) { 
-          if (value == null)
-            this.points = null;
-          else {
-            if (this.points == null)
-              this.points = new DecimalType();
-            this.points.setValue(value);
-          }
-          return this;
-        }
-
-        /**
-         * @param value An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.
-         */
-        public SubDetailComponent setPoints(long value) { 
-              this.points = new DecimalType();
-            this.points.setValue(value);
-          return this;
-        }
-
-        /**
-         * @param value An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.
-         */
-        public SubDetailComponent setPoints(double value) { 
-              this.points = new DecimalType();
-            this.points.setValue(value);
-          return this;
-        }
-
-        /**
          * @return {@link #net} (The quantity times the unit price for an addittional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.)
          */
         public Money getNet() { 
@@ -6138,7 +6002,6 @@ public class Claim extends DomainResource {
           childrenList.add(new Property("quantity", "SimpleQuantity", "The number of repetitions of a service or product.", 0, java.lang.Integer.MAX_VALUE, quantity));
           childrenList.add(new Property("unitPrice", "Money", "The fee for an addittional service or product or charge.", 0, java.lang.Integer.MAX_VALUE, unitPrice));
           childrenList.add(new Property("factor", "decimal", "A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.", 0, java.lang.Integer.MAX_VALUE, factor));
-          childrenList.add(new Property("points", "decimal", "An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.", 0, java.lang.Integer.MAX_VALUE, points));
           childrenList.add(new Property("net", "Money", "The quantity times the unit price for an addittional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.", 0, java.lang.Integer.MAX_VALUE, net));
           childrenList.add(new Property("udi", "Reference(Device)", "List of Unique Device Identifiers associated with this line item.", 0, java.lang.Integer.MAX_VALUE, udi));
         }
@@ -6155,7 +6018,6 @@ public class Claim extends DomainResource {
         case -1285004149: /*quantity*/ return this.quantity == null ? new Base[0] : new Base[] {this.quantity}; // SimpleQuantity
         case -486196699: /*unitPrice*/ return this.unitPrice == null ? new Base[0] : new Base[] {this.unitPrice}; // Money
         case -1282148017: /*factor*/ return this.factor == null ? new Base[0] : new Base[] {this.factor}; // DecimalType
-        case -982754077: /*points*/ return this.points == null ? new Base[0] : new Base[] {this.points}; // DecimalType
         case 108957: /*net*/ return this.net == null ? new Base[0] : new Base[] {this.net}; // Money
         case 115642: /*udi*/ return this.udi == null ? new Base[0] : this.udi.toArray(new Base[this.udi.size()]); // Reference
         default: return super.getProperty(hash, name, checkValid);
@@ -6193,9 +6055,6 @@ public class Claim extends DomainResource {
         case -1282148017: // factor
           this.factor = castToDecimal(value); // DecimalType
           break;
-        case -982754077: // points
-          this.points = castToDecimal(value); // DecimalType
-          break;
         case 108957: // net
           this.net = castToMoney(value); // Money
           break;
@@ -6227,8 +6086,6 @@ public class Claim extends DomainResource {
           this.unitPrice = castToMoney(value); // Money
         else if (name.equals("factor"))
           this.factor = castToDecimal(value); // DecimalType
-        else if (name.equals("points"))
-          this.points = castToDecimal(value); // DecimalType
         else if (name.equals("net"))
           this.net = castToMoney(value); // Money
         else if (name.equals("udi"))
@@ -6249,7 +6106,6 @@ public class Claim extends DomainResource {
         case -1285004149:  return getQuantity(); // SimpleQuantity
         case -486196699:  return getUnitPrice(); // Money
         case -1282148017: throw new FHIRException("Cannot make property factor as it is not a complex type"); // DecimalType
-        case -982754077: throw new FHIRException("Cannot make property points as it is not a complex type"); // DecimalType
         case 108957:  return getNet(); // Money
         case 115642:  return addUdi(); // Reference
         default: return super.makeProperty(hash, name);
@@ -6291,9 +6147,6 @@ public class Claim extends DomainResource {
         else if (name.equals("factor")) {
           throw new FHIRException("Cannot call addChild on a primitive type Claim.factor");
         }
-        else if (name.equals("points")) {
-          throw new FHIRException("Cannot call addChild on a primitive type Claim.points");
-        }
         else if (name.equals("net")) {
           this.net = new Money();
           return this.net;
@@ -6325,7 +6178,6 @@ public class Claim extends DomainResource {
         dst.quantity = quantity == null ? null : quantity.copy();
         dst.unitPrice = unitPrice == null ? null : unitPrice.copy();
         dst.factor = factor == null ? null : factor.copy();
-        dst.points = points == null ? null : points.copy();
         dst.net = net == null ? null : net.copy();
         if (udi != null) {
           dst.udi = new ArrayList<Reference>();
@@ -6345,8 +6197,7 @@ public class Claim extends DomainResource {
         return compareDeep(sequence, o.sequence, true) && compareDeep(revenue, o.revenue, true) && compareDeep(category, o.category, true)
            && compareDeep(service, o.service, true) && compareDeep(modifier, o.modifier, true) && compareDeep(programCode, o.programCode, true)
            && compareDeep(quantity, o.quantity, true) && compareDeep(unitPrice, o.unitPrice, true) && compareDeep(factor, o.factor, true)
-           && compareDeep(points, o.points, true) && compareDeep(net, o.net, true) && compareDeep(udi, o.udi, true)
-          ;
+           && compareDeep(net, o.net, true) && compareDeep(udi, o.udi, true);
       }
 
       @Override
@@ -6356,14 +6207,12 @@ public class Claim extends DomainResource {
         if (!(other instanceof SubDetailComponent))
           return false;
         SubDetailComponent o = (SubDetailComponent) other;
-        return compareValues(sequence, o.sequence, true) && compareValues(factor, o.factor, true) && compareValues(points, o.points, true)
-          ;
+        return compareValues(sequence, o.sequence, true) && compareValues(factor, o.factor, true);
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(sequence, revenue, category
-          , service, modifier, programCode, quantity, unitPrice, factor, points, net, udi
-          );
+          , service, modifier, programCode, quantity, unitPrice, factor, net, udi);
       }
 
   public String fhirType() {
@@ -6805,14 +6654,14 @@ public class Claim extends DomainResource {
     protected Resource prescriptionTarget;
 
     /**
-     * Original prescription which has been superceded by this prescription to support the dispensing of pharmacy services, medications or products.
+     * Original prescription which has been superceded by this prescription to support the dispensing of pharmacy services, medications or products. For example, a physician may prescribe a medication which the pharmacy determines is contraindicated, or for which the patient has an intolerance, and therefor issues a new precription for an alternate medication which has the same theraputic intent. The prescription from the pharmacy becomes the 'prescription' and that from the physician becomes the 'original prescription'.
      */
     @Child(name = "originalPrescription", type = {MedicationRequest.class}, order=18, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="Original Prescription", formalDefinition="Original prescription which has been superceded by this prescription to support the dispensing of pharmacy services, medications or products." )
+    @Description(shortDefinition="Original Prescription", formalDefinition="Original prescription which has been superceded by this prescription to support the dispensing of pharmacy services, medications or products. For example, a physician may prescribe a medication which the pharmacy determines is contraindicated, or for which the patient has an intolerance, and therefor issues a new precription for an alternate medication which has the same theraputic intent. The prescription from the pharmacy becomes the 'prescription' and that from the physician becomes the 'original prescription'." )
     protected Reference originalPrescription;
 
     /**
-     * The actual object that is the target of the reference (Original prescription which has been superceded by this prescription to support the dispensing of pharmacy services, medications or products.)
+     * The actual object that is the target of the reference (Original prescription which has been superceded by this prescription to support the dispensing of pharmacy services, medications or products. For example, a physician may prescribe a medication which the pharmacy determines is contraindicated, or for which the patient has an intolerance, and therefor issues a new precription for an alternate medication which has the same theraputic intent. The prescription from the pharmacy becomes the 'prescription' and that from the physician becomes the 'original prescription'.)
      */
     protected MedicationRequest originalPrescriptionTarget;
 
@@ -7636,7 +7485,7 @@ public class Claim extends DomainResource {
     }
 
     /**
-     * @return {@link #originalPrescription} (Original prescription which has been superceded by this prescription to support the dispensing of pharmacy services, medications or products.)
+     * @return {@link #originalPrescription} (Original prescription which has been superceded by this prescription to support the dispensing of pharmacy services, medications or products. For example, a physician may prescribe a medication which the pharmacy determines is contraindicated, or for which the patient has an intolerance, and therefor issues a new precription for an alternate medication which has the same theraputic intent. The prescription from the pharmacy becomes the 'prescription' and that from the physician becomes the 'original prescription'.)
      */
     public Reference getOriginalPrescription() { 
       if (this.originalPrescription == null)
@@ -7652,7 +7501,7 @@ public class Claim extends DomainResource {
     }
 
     /**
-     * @param value {@link #originalPrescription} (Original prescription which has been superceded by this prescription to support the dispensing of pharmacy services, medications or products.)
+     * @param value {@link #originalPrescription} (Original prescription which has been superceded by this prescription to support the dispensing of pharmacy services, medications or products. For example, a physician may prescribe a medication which the pharmacy determines is contraindicated, or for which the patient has an intolerance, and therefor issues a new precription for an alternate medication which has the same theraputic intent. The prescription from the pharmacy becomes the 'prescription' and that from the physician becomes the 'original prescription'.)
      */
     public Claim setOriginalPrescription(Reference value) { 
       this.originalPrescription = value;
@@ -7660,7 +7509,7 @@ public class Claim extends DomainResource {
     }
 
     /**
-     * @return {@link #originalPrescription} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Original prescription which has been superceded by this prescription to support the dispensing of pharmacy services, medications or products.)
+     * @return {@link #originalPrescription} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Original prescription which has been superceded by this prescription to support the dispensing of pharmacy services, medications or products. For example, a physician may prescribe a medication which the pharmacy determines is contraindicated, or for which the patient has an intolerance, and therefor issues a new precription for an alternate medication which has the same theraputic intent. The prescription from the pharmacy becomes the 'prescription' and that from the physician becomes the 'original prescription'.)
      */
     public MedicationRequest getOriginalPrescriptionTarget() { 
       if (this.originalPrescriptionTarget == null)
@@ -7672,7 +7521,7 @@ public class Claim extends DomainResource {
     }
 
     /**
-     * @param value {@link #originalPrescription} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Original prescription which has been superceded by this prescription to support the dispensing of pharmacy services, medications or products.)
+     * @param value {@link #originalPrescription} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Original prescription which has been superceded by this prescription to support the dispensing of pharmacy services, medications or products. For example, a physician may prescribe a medication which the pharmacy determines is contraindicated, or for which the patient has an intolerance, and therefor issues a new precription for an alternate medication which has the same theraputic intent. The prescription from the pharmacy becomes the 'prescription' and that from the physician becomes the 'original prescription'.)
      */
     public Claim setOriginalPrescriptionTarget(MedicationRequest value) { 
       this.originalPrescriptionTarget = value;
@@ -8225,7 +8074,7 @@ public class Claim extends DomainResource {
         childrenList.add(new Property("fundsReserve", "CodeableConcept", "In the case of a Pre-Determination/Pre-Authorization the provider may request that funds in the amount of the expected Benefit be reserved ('Patient' or 'Provider') to pay for the Benefits determined on the subsequent claim(s). 'None' explicitly indicates no funds reserving is requested.", 0, java.lang.Integer.MAX_VALUE, fundsReserve));
         childrenList.add(new Property("related", "", "Other claims which are related to this claim such as prior claim versions or for related services.", 0, java.lang.Integer.MAX_VALUE, related));
         childrenList.add(new Property("prescription", "Reference(MedicationRequest|VisionPrescription)", "Prescription to support the dispensing of Pharmacy or Vision products.", 0, java.lang.Integer.MAX_VALUE, prescription));
-        childrenList.add(new Property("originalPrescription", "Reference(MedicationRequest)", "Original prescription which has been superceded by this prescription to support the dispensing of pharmacy services, medications or products.", 0, java.lang.Integer.MAX_VALUE, originalPrescription));
+        childrenList.add(new Property("originalPrescription", "Reference(MedicationRequest)", "Original prescription which has been superceded by this prescription to support the dispensing of pharmacy services, medications or products. For example, a physician may prescribe a medication which the pharmacy determines is contraindicated, or for which the patient has an intolerance, and therefor issues a new precription for an alternate medication which has the same theraputic intent. The prescription from the pharmacy becomes the 'prescription' and that from the physician becomes the 'original prescription'.", 0, java.lang.Integer.MAX_VALUE, originalPrescription));
         childrenList.add(new Property("payee", "", "The party to be reimbursed for the services.", 0, java.lang.Integer.MAX_VALUE, payee));
         childrenList.add(new Property("referral", "Reference(ReferralRequest)", "The referral resource which lists the date, practitioner, reason and other supporting information.", 0, java.lang.Integer.MAX_VALUE, referral));
         childrenList.add(new Property("facility", "Reference(Location)", "Facility where the services were provided.", 0, java.lang.Integer.MAX_VALUE, facility));

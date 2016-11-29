@@ -1364,7 +1364,8 @@ public class ProfileGenerator {
     ce.setPattern(e.getPattern());
     ce.setDefaultValue(e.getDefaultValue());
     ce.setMeaningWhenMissing(e.getMeaningWhenMissing());
-    ce.setExample(e.getExample());
+    if (e.getExample() != null)
+      ce.addExample().setLabel("General").setValue(e.getExample());
     for (Integer i : e.getOtherExamples().keySet()) {
       Extension ex = ce.addExtension();
       ex.setUrl("http://hl7.org/fhir/StructureDefinition/structuredefinition-example");

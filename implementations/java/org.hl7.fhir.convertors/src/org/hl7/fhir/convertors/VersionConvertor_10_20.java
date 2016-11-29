@@ -953,7 +953,7 @@ public class VersionConvertor_10_20 {
     if (src.hasPattern())
       tgt.setPattern(convertType(src.getPattern()));
     if (src.hasExample())
-      tgt.setExample(convertType(src.getExample()));
+      tgt.addExample().setLabel("General").setValue(convertType(src.getExample()));
     if (src.hasMinValue())
       tgt.setMinValue(convertType(src.getMinValue()));
     if (src.hasMaxValue())
@@ -1012,7 +1012,8 @@ public class VersionConvertor_10_20 {
     tgt.setMeaningWhenMissing(src.getMeaningWhenMissing());
     tgt.setFixed(convertType(src.getFixed()));
     tgt.setPattern(convertType(src.getPattern()));
-    tgt.setExample(convertType(src.getExample()));
+    if (src.hasExample())
+      tgt.setExample(convertType(src.getExample().get(0).getValue()));
     tgt.setMinValue(convertType(src.getMinValue()));
     tgt.setMaxValue(convertType(src.getMaxValue()));
     tgt.setMaxLength(src.getMaxLength());
@@ -7818,7 +7819,7 @@ public class VersionConvertor_10_20 {
     tgt.setVaccineCode(convertCodeableConcept(src.getVaccineCode()));
     tgt.setPatient(convertReference(src.getPatient()));
     tgt.setWasNotGiven(src.getWasNotGiven());
-    tgt.setReported(src.getReported());
+    tgt.setPrimarySource(!src.getReported());
     tgt.setPerformer(convertReference(src.getPerformer()));
     tgt.setRequester(convertReference(src.getRequester()));
     tgt.setEncounter(convertReference(src.getEncounter()));
@@ -7852,7 +7853,7 @@ public class VersionConvertor_10_20 {
     tgt.setVaccineCode(convertCodeableConcept(src.getVaccineCode()));
     tgt.setPatient(convertReference(src.getPatient()));
     tgt.setWasNotGiven(src.getWasNotGiven());
-    tgt.setReported(src.getReported());
+    tgt.setReported(!src.getPrimarySource());
     tgt.setPerformer(convertReference(src.getPerformer()));
     tgt.setRequester(convertReference(src.getRequester()));
     tgt.setEncounter(convertReference(src.getEncounter()));
@@ -8660,7 +8661,7 @@ public class VersionConvertor_10_20 {
     tgt.setMedication(convertType(src.getMedication()));
     tgt.setPatient(convertReference(src.getPatient()));
     tgt.setEncounter(convertReference(src.getEncounter()));
-    tgt.setEffectiveTime(convertType(src.getEffectiveTime()));
+    tgt.setEffective(convertType(src.getEffectiveTime()));
 //    tgt.setPractitioner(convertReference(src.getPractitioner()));
     tgt.setPrescription(convertReference(src.getPrescription()));
     tgt.setNotGiven(src.getWasNotGiven());
@@ -8687,7 +8688,7 @@ public class VersionConvertor_10_20 {
     tgt.setMedication(convertType(src.getMedication()));
     tgt.setPatient(convertReference(src.getPatient()));
     tgt.setEncounter(convertReference(src.getEncounter()));
-    tgt.setEffectiveTime(convertType(src.getEffectiveTime()));
+    tgt.setEffectiveTime(convertType(src.getEffective()));
 //    tgt.setPractitioner(convertReference(src.getPractitioner()));
     tgt.setPrescription(convertReference(src.getPrescription()));
     tgt.setWasNotGiven(src.getNotGiven());

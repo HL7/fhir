@@ -29,6 +29,7 @@ import org.hl7.fhir.dstu3.model.ElementDefinition.AggregationMode;
 import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionBaseComponent;
 import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionBindingComponent;
 import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionConstraintComponent;
+import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionExampleComponent;
 import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionMappingComponent;
 import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionSlicingComponent;
 import org.hl7.fhir.dstu3.model.ElementDefinition.SlicingRules;
@@ -1104,13 +1105,17 @@ public class ProfileUtilities {
             derived.getPattern().setUserData(DERIVATION_EQUALS, true);
       }
 
-      if (derived.hasExample()) {
-        if (!Base.compareDeep(derived.getExample(), base.getExample(), false))
-          base.setExample(derived.getExample().copy());
+      for (ElementDefinitionExampleComponent ex : derived.getExample()) {
+        boolean found = false;
+        for (ElementDefinitionExampleComponent exS : base.getExample())
+          if (Base.compareDeep(ex, exS, false))
+            found = true;
+        if (!found)
+          base.addExample(ex.copy());
         else if (trimDifferential)
-          derived.setExample(null);
+          derived.getExample().remove(ex);
         else
-          derived.getExample().setUserData(DERIVATION_EQUALS, true);
+          ex.setUserData(DERIVATION_EQUALS, true);
       }
 
       if (derived.hasMaxLengthElement()) {
@@ -1184,7 +1189,7 @@ public class ProfileUtilities {
             for (TypeRefComponent ts : derived.getType()) {
               boolean ok = false;
               CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
-              for (TypeRefComponent td : base.getType()) {
+              for (TypeRefComponent td : base.getType()) {;
                 b.append(td.getCode());
                 if (td.hasCode() && (td.getCode().equals(ts.getCode()) || td.getCode().equals("Extension") ||
                     td.getCode().equals("Element") || td.getCode().equals("*") ||
@@ -2127,9 +2132,11 @@ public class ProfileUtilities {
             c.getPieces().add(checkForNoChange(definition.getPattern(), gen.new Piece(null, "Required Pattern: ", null).addStyle("font-weight:bold")));
             c.getPieces().add(checkForNoChange(definition.getPattern(), gen.new Piece(null, buildJson(definition.getPattern()), null).addStyle("color: darkgreen")));
           } else if (definition.hasExample()) {
-            if (!c.getPieces().isEmpty()) c.addPiece(gen.new Piece("br"));
-            c.getPieces().add(checkForNoChange(definition.getExample(), gen.new Piece(null, "Example: ", null).addStyle("font-weight:bold")));
-            c.getPieces().add(checkForNoChange(definition.getExample(), gen.new Piece(null, buildJson(definition.getExample()), null).addStyle("color: darkgreen")));
+            for (ElementDefinitionExampleComponent ex : definition.getExample()) {
+              if (!c.getPieces().isEmpty()) c.addPiece(gen.new Piece("br"));
+              c.getPieces().add(checkForNoChange(ex, gen.new Piece(null, "Example'"+("".equals("General")? "" : " "+ex.getLabel()+"'")+": ", null).addStyle("font-weight:bold")));
+              c.getPieces().add(checkForNoChange(ex, gen.new Piece(null, buildJson(ex.getValue()), null).addStyle("color: darkgreen")));
+            }
           }
           if (profile != null) {
             for (StructureDefinitionMappingComponent md : profile.getMapping()) {
@@ -2219,9 +2226,11 @@ public class ProfileUtilities {
             c.getPieces().add(checkForNoChange(definition.getPattern(), gen.new Piece(null, "Required Pattern: ", null).addStyle("font-weight:bold")));
             c.getPieces().add(checkForNoChange(definition.getPattern(), gen.new Piece(null, buildJson(definition.getPattern()), null).addStyle("color: darkgreen")));
           } else if (definition.hasExample()) {
-            if (!c.getPieces().isEmpty()) c.addPiece(gen.new Piece("br"));
-            c.getPieces().add(checkForNoChange(definition.getExample(), gen.new Piece(null, "Example: ", null).addStyle("font-weight:bold")));
-            c.getPieces().add(checkForNoChange(definition.getExample(), gen.new Piece(null, buildJson(definition.getExample()), null).addStyle("color: darkgreen")));
+            for (ElementDefinitionExampleComponent ex : definition.getExample()) {
+              if (!c.getPieces().isEmpty()) c.addPiece(gen.new Piece("br"));
+              c.getPieces().add(checkForNoChange(ex, gen.new Piece(null, "Example'"+("".equals("General")? "" : " "+ex.getLabel()+"'")+": ", null).addStyle("font-weight:bold")));
+              c.getPieces().add(checkForNoChange(ex, gen.new Piece(null, buildJson(ex.getValue()), null).addStyle("color: darkgreen")));
+            }
           }
           if (profile != null) {
             for (StructureDefinitionMappingComponent md : profile.getMapping()) {
@@ -2858,8 +2867,10 @@ public class ProfileUtilities {
     public Type getExampleValue(ElementDefinition ed) {
       if (ed.hasFixed())
         return ed.getFixed();
+      if (ed.hasExample())
+        return ed.getExample().get(0).getValue();
       else
-        return ed.getExample();
+        return null;
     }
 
     @Override

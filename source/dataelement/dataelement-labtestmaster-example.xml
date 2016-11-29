@@ -45,7 +45,10 @@
 			<code value="decimal"/>
 		</type>
 		<!--  Is this the FHIR datatype for the observation? ( ie the datatype when ordering the test) or the Result? ( ie. numeric, codeable concept or text for lab tests ) -->
-		<exampleDecimal value="10.0"/>
+		<example>
+      <label value="Simple"/>
+      <valueDecimal value="10.0"/>
+    </example>
 		<!--  Is this the an example result like "10.0"  for the observation/dataelement?  -->
 		<mapping>
 			<identity value="loinc"/>

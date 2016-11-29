@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Nov 22, 2016 17:11+1100 for FHIR v1.7.0
+// Generated on Tue, Nov 29, 2016 09:59+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -670,7 +670,7 @@ public class ExplanationOfBenefit extends DomainResource {
   }
 
     @Block()
-    public static class SpecialConditionComponent extends BackboneElement implements IBaseBackboneElement {
+    public static class SupportingInformationComponent extends BackboneElement implements IBaseBackboneElement {
         /**
          * The general class of the information supplied: information; exception; accident, employment; onset, etc.
          */
@@ -714,14 +714,14 @@ public class ExplanationOfBenefit extends DomainResource {
     /**
      * Constructor
      */
-      public SpecialConditionComponent() {
+      public SupportingInformationComponent() {
         super();
       }
 
     /**
      * Constructor
      */
-      public SpecialConditionComponent(CodeableConcept category) {
+      public SupportingInformationComponent(CodeableConcept category) {
         super();
         this.category = category;
       }
@@ -732,7 +732,7 @@ public class ExplanationOfBenefit extends DomainResource {
         public CodeableConcept getCategory() { 
           if (this.category == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create SpecialConditionComponent.category");
+              throw new Error("Attempt to auto-create SupportingInformationComponent.category");
             else if (Configuration.doAutoCreate())
               this.category = new CodeableConcept(); // cc
           return this.category;
@@ -745,7 +745,7 @@ public class ExplanationOfBenefit extends DomainResource {
         /**
          * @param value {@link #category} (The general class of the information supplied: information; exception; accident, employment; onset, etc.)
          */
-        public SpecialConditionComponent setCategory(CodeableConcept value) { 
+        public SupportingInformationComponent setCategory(CodeableConcept value) { 
           this.category = value;
           return this;
         }
@@ -756,7 +756,7 @@ public class ExplanationOfBenefit extends DomainResource {
         public CodeableConcept getCode() { 
           if (this.code == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create SpecialConditionComponent.code");
+              throw new Error("Attempt to auto-create SupportingInformationComponent.code");
             else if (Configuration.doAutoCreate())
               this.code = new CodeableConcept(); // cc
           return this.code;
@@ -769,7 +769,7 @@ public class ExplanationOfBenefit extends DomainResource {
         /**
          * @param value {@link #code} (System and code pertaining to the specific information regarding special conditions relating to the setting, treatment or patient  for which care is sought which may influence the adjudication.)
          */
-        public SpecialConditionComponent setCode(CodeableConcept value) { 
+        public SupportingInformationComponent setCode(CodeableConcept value) { 
           this.code = value;
           return this;
         }
@@ -814,7 +814,7 @@ public class ExplanationOfBenefit extends DomainResource {
         /**
          * @param value {@link #timing} (The date when or period to which this information refers.)
          */
-        public SpecialConditionComponent setTiming(Type value) { 
+        public SupportingInformationComponent setTiming(Type value) { 
           this.timing = value;
           return this;
         }
@@ -885,7 +885,7 @@ public class ExplanationOfBenefit extends DomainResource {
         /**
          * @param value {@link #value} (Additional data or information such as resources, documents, images etc. including references to the data or the actual inclusion of the data.)
          */
-        public SpecialConditionComponent setValue(Type value) { 
+        public SupportingInformationComponent setValue(Type value) { 
           this.value = value;
           return this;
         }
@@ -896,7 +896,7 @@ public class ExplanationOfBenefit extends DomainResource {
         public Coding getReason() { 
           if (this.reason == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create SpecialConditionComponent.reason");
+              throw new Error("Attempt to auto-create SupportingInformationComponent.reason");
             else if (Configuration.doAutoCreate())
               this.reason = new Coding(); // cc
           return this.reason;
@@ -909,7 +909,7 @@ public class ExplanationOfBenefit extends DomainResource {
         /**
          * @param value {@link #reason} (For example, provides the reason for: the additional stay, or missing tooth or any other situation where a reason code is required in addition to the content.)
          */
-        public SpecialConditionComponent setReason(Coding value) { 
+        public SupportingInformationComponent setReason(Coding value) { 
           this.reason = value;
           return this;
         }
@@ -1030,8 +1030,8 @@ public class ExplanationOfBenefit extends DomainResource {
           return super.addChild(name);
       }
 
-      public SpecialConditionComponent copy() {
-        SpecialConditionComponent dst = new SpecialConditionComponent();
+      public SupportingInformationComponent copy() {
+        SupportingInformationComponent dst = new SupportingInformationComponent();
         copyValues(dst);
         dst.category = category == null ? null : category.copy();
         dst.code = code == null ? null : code.copy();
@@ -1045,9 +1045,9 @@ public class ExplanationOfBenefit extends DomainResource {
       public boolean equalsDeep(Base other) {
         if (!super.equalsDeep(other))
           return false;
-        if (!(other instanceof SpecialConditionComponent))
+        if (!(other instanceof SupportingInformationComponent))
           return false;
-        SpecialConditionComponent o = (SpecialConditionComponent) other;
+        SupportingInformationComponent o = (SupportingInformationComponent) other;
         return compareDeep(category, o.category, true) && compareDeep(code, o.code, true) && compareDeep(timing, o.timing, true)
            && compareDeep(value, o.value, true) && compareDeep(reason, o.reason, true);
       }
@@ -1056,9 +1056,9 @@ public class ExplanationOfBenefit extends DomainResource {
       public boolean equalsShallow(Base other) {
         if (!super.equalsShallow(other))
           return false;
-        if (!(other instanceof SpecialConditionComponent))
+        if (!(other instanceof SupportingInformationComponent))
           return false;
-        SpecialConditionComponent o = (SpecialConditionComponent) other;
+        SupportingInformationComponent o = (SupportingInformationComponent) other;
         return true;
       }
 
@@ -1468,10 +1468,10 @@ public class ExplanationOfBenefit extends DomainResource {
         /**
          * The diagnosis.
          */
-        @Child(name = "diagnosis", type = {CodeableConcept.class}, order=2, min=1, max=1, modifier=false, summary=false)
+        @Child(name = "diagnosis", type = {CodeableConcept.class, Condition.class}, order=2, min=1, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Patient's list of diagnosis", formalDefinition="The diagnosis." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/icd-10")
-        protected CodeableConcept diagnosis;
+        protected Type diagnosis;
 
         /**
          * The type of the Diagnosis, for example: admitting,.
@@ -1489,7 +1489,7 @@ public class ExplanationOfBenefit extends DomainResource {
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/ex-diagnosisrelatedgroup")
         protected CodeableConcept packageCode;
 
-        private static final long serialVersionUID = 601522512L;
+        private static final long serialVersionUID = -350960873L;
 
     /**
      * Constructor
@@ -1501,7 +1501,7 @@ public class ExplanationOfBenefit extends DomainResource {
     /**
      * Constructor
      */
-      public DiagnosisComponent(PositiveIntType sequence, CodeableConcept diagnosis) {
+      public DiagnosisComponent(PositiveIntType sequence, Type diagnosis) {
         super();
         this.sequence = sequence;
         this.diagnosis = diagnosis;
@@ -1555,13 +1555,34 @@ public class ExplanationOfBenefit extends DomainResource {
         /**
          * @return {@link #diagnosis} (The diagnosis.)
          */
-        public CodeableConcept getDiagnosis() { 
-          if (this.diagnosis == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create DiagnosisComponent.diagnosis");
-            else if (Configuration.doAutoCreate())
-              this.diagnosis = new CodeableConcept(); // cc
+        public Type getDiagnosis() { 
           return this.diagnosis;
+        }
+
+        /**
+         * @return {@link #diagnosis} (The diagnosis.)
+         */
+        public CodeableConcept getDiagnosisCodeableConcept() throws FHIRException { 
+          if (!(this.diagnosis instanceof CodeableConcept))
+            throw new FHIRException("Type mismatch: the type CodeableConcept was expected, but "+this.diagnosis.getClass().getName()+" was encountered");
+          return (CodeableConcept) this.diagnosis;
+        }
+
+        public boolean hasDiagnosisCodeableConcept() { 
+          return this.diagnosis instanceof CodeableConcept;
+        }
+
+        /**
+         * @return {@link #diagnosis} (The diagnosis.)
+         */
+        public Reference getDiagnosisReference() throws FHIRException { 
+          if (!(this.diagnosis instanceof Reference))
+            throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.diagnosis.getClass().getName()+" was encountered");
+          return (Reference) this.diagnosis;
+        }
+
+        public boolean hasDiagnosisReference() { 
+          return this.diagnosis instanceof Reference;
         }
 
         public boolean hasDiagnosis() { 
@@ -1571,7 +1592,7 @@ public class ExplanationOfBenefit extends DomainResource {
         /**
          * @param value {@link #diagnosis} (The diagnosis.)
          */
-        public DiagnosisComponent setDiagnosis(CodeableConcept value) { 
+        public DiagnosisComponent setDiagnosis(Type value) { 
           this.diagnosis = value;
           return this;
         }
@@ -1656,7 +1677,7 @@ public class ExplanationOfBenefit extends DomainResource {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("sequence", "positiveInt", "Sequence of diagnosis which serves to order and provide a link.", 0, java.lang.Integer.MAX_VALUE, sequence));
-          childrenList.add(new Property("diagnosis", "CodeableConcept", "The diagnosis.", 0, java.lang.Integer.MAX_VALUE, diagnosis));
+          childrenList.add(new Property("diagnosis[x]", "CodeableConcept|Reference(Condition)", "The diagnosis.", 0, java.lang.Integer.MAX_VALUE, diagnosis));
           childrenList.add(new Property("type", "CodeableConcept", "The type of the Diagnosis, for example: admitting,.", 0, java.lang.Integer.MAX_VALUE, type));
           childrenList.add(new Property("packageCode", "CodeableConcept", "The package billing code, for example DRG, based on the assigned grouping code system.", 0, java.lang.Integer.MAX_VALUE, packageCode));
         }
@@ -1665,7 +1686,7 @@ public class ExplanationOfBenefit extends DomainResource {
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
         case 1349547969: /*sequence*/ return this.sequence == null ? new Base[0] : new Base[] {this.sequence}; // PositiveIntType
-        case 1196993265: /*diagnosis*/ return this.diagnosis == null ? new Base[0] : new Base[] {this.diagnosis}; // CodeableConcept
+        case 1196993265: /*diagnosis*/ return this.diagnosis == null ? new Base[0] : new Base[] {this.diagnosis}; // Type
         case 3575610: /*type*/ return this.type == null ? new Base[0] : this.type.toArray(new Base[this.type.size()]); // CodeableConcept
         case 908444499: /*packageCode*/ return this.packageCode == null ? new Base[0] : new Base[] {this.packageCode}; // CodeableConcept
         default: return super.getProperty(hash, name, checkValid);
@@ -1680,7 +1701,7 @@ public class ExplanationOfBenefit extends DomainResource {
           this.sequence = castToPositiveInt(value); // PositiveIntType
           break;
         case 1196993265: // diagnosis
-          this.diagnosis = castToCodeableConcept(value); // CodeableConcept
+          this.diagnosis = castToType(value); // Type
           break;
         case 3575610: // type
           this.getType().add(castToCodeableConcept(value)); // CodeableConcept
@@ -1697,8 +1718,8 @@ public class ExplanationOfBenefit extends DomainResource {
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("sequence"))
           this.sequence = castToPositiveInt(value); // PositiveIntType
-        else if (name.equals("diagnosis"))
-          this.diagnosis = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("diagnosis[x]"))
+          this.diagnosis = castToType(value); // Type
         else if (name.equals("type"))
           this.getType().add(castToCodeableConcept(value));
         else if (name.equals("packageCode"))
@@ -1711,7 +1732,7 @@ public class ExplanationOfBenefit extends DomainResource {
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 1349547969: throw new FHIRException("Cannot make property sequence as it is not a complex type"); // PositiveIntType
-        case 1196993265:  return getDiagnosis(); // CodeableConcept
+        case -1487009809:  return getDiagnosis(); // Type
         case 3575610:  return addType(); // CodeableConcept
         case 908444499:  return getPackageCode(); // CodeableConcept
         default: return super.makeProperty(hash, name);
@@ -1724,8 +1745,12 @@ public class ExplanationOfBenefit extends DomainResource {
         if (name.equals("sequence")) {
           throw new FHIRException("Cannot call addChild on a primitive type ExplanationOfBenefit.sequence");
         }
-        else if (name.equals("diagnosis")) {
+        else if (name.equals("diagnosisCodeableConcept")) {
           this.diagnosis = new CodeableConcept();
+          return this.diagnosis;
+        }
+        else if (name.equals("diagnosisReference")) {
+          this.diagnosis = new Reference();
           return this.diagnosis;
         }
         else if (name.equals("type")) {
@@ -2630,9 +2655,16 @@ public class ExplanationOfBenefit extends DomainResource {
         protected List<PositiveIntType> procedureLinkId;
 
         /**
+         * Exceptions, special conditions and supporting information pplicable for this service or product line.
+         */
+        @Child(name = "informationLinkId", type = {PositiveIntType.class}, order=5, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Description(shortDefinition="Applicable exception and supporting information", formalDefinition="Exceptions, special conditions and supporting information pplicable for this service or product line." )
+        protected List<PositiveIntType> informationLinkId;
+
+        /**
          * The type of reveneu or cost center providing the product and/or service.
          */
-        @Child(name = "revenue", type = {CodeableConcept.class}, order=5, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "revenue", type = {CodeableConcept.class}, order=6, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Revenue or cost center code", formalDefinition="The type of reveneu or cost center providing the product and/or service." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/ex-revenue-center")
         protected CodeableConcept revenue;
@@ -2640,7 +2672,7 @@ public class ExplanationOfBenefit extends DomainResource {
         /**
          * Health Care Service Type Codes  to identify the classification of service or benefits.
          */
-        @Child(name = "category", type = {CodeableConcept.class}, order=6, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "category", type = {CodeableConcept.class}, order=7, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Type of service or product", formalDefinition="Health Care Service Type Codes  to identify the classification of service or benefits." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/benefit-subcategory")
         protected CodeableConcept category;
@@ -2648,7 +2680,7 @@ public class ExplanationOfBenefit extends DomainResource {
         /**
          * If this is an actual service or product line, ie. not a Group, then use code to indicate the Professional Service or Product supplied (eg. CTP, HCPCS,USCLS,ICD10, NCPDP,DIN,ACHI,CCI). If a grouping item then use a group code to indicate the type of thing being grouped eg. 'glasses' or 'compound'.
          */
-        @Child(name = "service", type = {CodeableConcept.class}, order=7, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "service", type = {CodeableConcept.class}, order=8, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Billing Code", formalDefinition="If this is an actual service or product line, ie. not a Group, then use code to indicate the Professional Service or Product supplied (eg. CTP, HCPCS,USCLS,ICD10, NCPDP,DIN,ACHI,CCI). If a grouping item then use a group code to indicate the type of thing being grouped eg. 'glasses' or 'compound'." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/service-uscls")
         protected CodeableConcept service;
@@ -2656,7 +2688,7 @@ public class ExplanationOfBenefit extends DomainResource {
         /**
          * Item typification or modifiers codes, eg for Oral whether the treatment is cosmetic or associated with TMJ, or for medical whether the treatment was outside the clinic or out of office hours.
          */
-        @Child(name = "modifier", type = {CodeableConcept.class}, order=8, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Child(name = "modifier", type = {CodeableConcept.class}, order=9, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Service/Product billing modifiers", formalDefinition="Item typification or modifiers codes, eg for Oral whether the treatment is cosmetic or associated with TMJ, or for medical whether the treatment was outside the clinic or out of office hours." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/claim-modifiers")
         protected List<CodeableConcept> modifier;
@@ -2664,7 +2696,7 @@ public class ExplanationOfBenefit extends DomainResource {
         /**
          * For programs which require reson codes for the inclusion, covering, of this billed item under the program or sub-program.
          */
-        @Child(name = "programCode", type = {CodeableConcept.class}, order=9, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Child(name = "programCode", type = {CodeableConcept.class}, order=10, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Program specific reason for item inclusion", formalDefinition="For programs which require reson codes for the inclusion, covering, of this billed item under the program or sub-program." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/ex-program-code")
         protected List<CodeableConcept> programCode;
@@ -2672,14 +2704,14 @@ public class ExplanationOfBenefit extends DomainResource {
         /**
          * The date or dates when the enclosed suite of services were performed or completed.
          */
-        @Child(name = "serviced", type = {DateType.class, Period.class}, order=10, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "serviced", type = {DateType.class, Period.class}, order=11, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Date or dates of Service", formalDefinition="The date or dates when the enclosed suite of services were performed or completed." )
         protected Type serviced;
 
         /**
          * Where the service was provided.
          */
-        @Child(name = "location", type = {CodeableConcept.class, Address.class, Location.class}, order=11, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "location", type = {CodeableConcept.class, Address.class, Location.class}, order=12, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Place of service", formalDefinition="Where the service was provided." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/service-place")
         protected Type location;
@@ -2687,30 +2719,23 @@ public class ExplanationOfBenefit extends DomainResource {
         /**
          * The number of repetitions of a service or product.
          */
-        @Child(name = "quantity", type = {SimpleQuantity.class}, order=12, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "quantity", type = {SimpleQuantity.class}, order=13, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Count of Products or Services", formalDefinition="The number of repetitions of a service or product." )
         protected SimpleQuantity quantity;
 
         /**
          * If the item is a node then this is the fee for the product or service, otherwise this is the total of the fees for the children of the group.
          */
-        @Child(name = "unitPrice", type = {Money.class}, order=13, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "unitPrice", type = {Money.class}, order=14, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Fee, charge or cost per point", formalDefinition="If the item is a node then this is the fee for the product or service, otherwise this is the total of the fees for the children of the group." )
         protected Money unitPrice;
 
         /**
          * A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.
          */
-        @Child(name = "factor", type = {DecimalType.class}, order=14, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "factor", type = {DecimalType.class}, order=15, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Price scaling factor", formalDefinition="A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount." )
         protected DecimalType factor;
-
-        /**
-         * An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.
-         */
-        @Child(name = "points", type = {DecimalType.class}, order=15, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Difficulty scaling factor", formalDefinition="An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point." )
-        protected DecimalType points;
 
         /**
          * The quantity times the unit price for an addittional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.
@@ -2775,7 +2800,7 @@ public class ExplanationOfBenefit extends DomainResource {
         @Description(shortDefinition="Prosthetic details", formalDefinition="The materials and placement date of prior fixed prosthesis." )
         protected ProsthesisComponent prosthesis;
 
-        private static final long serialVersionUID = 634580346L;
+        private static final long serialVersionUID = 283646569L;
 
     /**
      * Constructor
@@ -3015,6 +3040,67 @@ public class ExplanationOfBenefit extends DomainResource {
           if (this.procedureLinkId == null)
             return false;
           for (PositiveIntType v : this.procedureLinkId)
+            if (v.equals(value)) // positiveInt
+              return true;
+          return false;
+        }
+
+        /**
+         * @return {@link #informationLinkId} (Exceptions, special conditions and supporting information pplicable for this service or product line.)
+         */
+        public List<PositiveIntType> getInformationLinkId() { 
+          if (this.informationLinkId == null)
+            this.informationLinkId = new ArrayList<PositiveIntType>();
+          return this.informationLinkId;
+        }
+
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public ItemComponent setInformationLinkId(List<PositiveIntType> theInformationLinkId) { 
+          this.informationLinkId = theInformationLinkId;
+          return this;
+        }
+
+        public boolean hasInformationLinkId() { 
+          if (this.informationLinkId == null)
+            return false;
+          for (PositiveIntType item : this.informationLinkId)
+            if (!item.isEmpty())
+              return true;
+          return false;
+        }
+
+        /**
+         * @return {@link #informationLinkId} (Exceptions, special conditions and supporting information pplicable for this service or product line.)
+         */
+        public PositiveIntType addInformationLinkIdElement() {//2 
+          PositiveIntType t = new PositiveIntType();
+          if (this.informationLinkId == null)
+            this.informationLinkId = new ArrayList<PositiveIntType>();
+          this.informationLinkId.add(t);
+          return t;
+        }
+
+        /**
+         * @param value {@link #informationLinkId} (Exceptions, special conditions and supporting information pplicable for this service or product line.)
+         */
+        public ItemComponent addInformationLinkId(int value) { //1
+          PositiveIntType t = new PositiveIntType();
+          t.setValue(value);
+          if (this.informationLinkId == null)
+            this.informationLinkId = new ArrayList<PositiveIntType>();
+          this.informationLinkId.add(t);
+          return this;
+        }
+
+        /**
+         * @param value {@link #informationLinkId} (Exceptions, special conditions and supporting information pplicable for this service or product line.)
+         */
+        public boolean hasInformationLinkId(int value) { 
+          if (this.informationLinkId == null)
+            return false;
+          for (PositiveIntType v : this.informationLinkId)
             if (v.equals(value)) // positiveInt
               return true;
           return false;
@@ -3417,73 +3503,6 @@ public class ExplanationOfBenefit extends DomainResource {
         }
 
         /**
-         * @return {@link #points} (An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.). This is the underlying object with id, value and extensions. The accessor "getPoints" gives direct access to the value
-         */
-        public DecimalType getPointsElement() { 
-          if (this.points == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ItemComponent.points");
-            else if (Configuration.doAutoCreate())
-              this.points = new DecimalType(); // bb
-          return this.points;
-        }
-
-        public boolean hasPointsElement() { 
-          return this.points != null && !this.points.isEmpty();
-        }
-
-        public boolean hasPoints() { 
-          return this.points != null && !this.points.isEmpty();
-        }
-
-        /**
-         * @param value {@link #points} (An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.). This is the underlying object with id, value and extensions. The accessor "getPoints" gives direct access to the value
-         */
-        public ItemComponent setPointsElement(DecimalType value) { 
-          this.points = value;
-          return this;
-        }
-
-        /**
-         * @return An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.
-         */
-        public BigDecimal getPoints() { 
-          return this.points == null ? null : this.points.getValue();
-        }
-
-        /**
-         * @param value An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.
-         */
-        public ItemComponent setPoints(BigDecimal value) { 
-          if (value == null)
-            this.points = null;
-          else {
-            if (this.points == null)
-              this.points = new DecimalType();
-            this.points.setValue(value);
-          }
-          return this;
-        }
-
-        /**
-         * @param value An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.
-         */
-        public ItemComponent setPoints(long value) { 
-              this.points = new DecimalType();
-            this.points.setValue(value);
-          return this;
-        }
-
-        /**
-         * @param value An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.
-         */
-        public ItemComponent setPoints(double value) { 
-              this.points = new DecimalType();
-            this.points.setValue(value);
-          return this;
-        }
-
-        /**
          * @return {@link #net} (The quantity times the unit price for an addittional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.)
          */
         public Money getNet() { 
@@ -3856,6 +3875,7 @@ public class ExplanationOfBenefit extends DomainResource {
           childrenList.add(new Property("careTeamLinkId", "positiveInt", "Careteam applicable for this service or product line.", 0, java.lang.Integer.MAX_VALUE, careTeamLinkId));
           childrenList.add(new Property("diagnosisLinkId", "positiveInt", "Diagnosis applicable for this service or product line.", 0, java.lang.Integer.MAX_VALUE, diagnosisLinkId));
           childrenList.add(new Property("procedureLinkId", "positiveInt", "Procedures applicable for this service or product line.", 0, java.lang.Integer.MAX_VALUE, procedureLinkId));
+          childrenList.add(new Property("informationLinkId", "positiveInt", "Exceptions, special conditions and supporting information pplicable for this service or product line.", 0, java.lang.Integer.MAX_VALUE, informationLinkId));
           childrenList.add(new Property("revenue", "CodeableConcept", "The type of reveneu or cost center providing the product and/or service.", 0, java.lang.Integer.MAX_VALUE, revenue));
           childrenList.add(new Property("category", "CodeableConcept", "Health Care Service Type Codes  to identify the classification of service or benefits.", 0, java.lang.Integer.MAX_VALUE, category));
           childrenList.add(new Property("service", "CodeableConcept", "If this is an actual service or product line, ie. not a Group, then use code to indicate the Professional Service or Product supplied (eg. CTP, HCPCS,USCLS,ICD10, NCPDP,DIN,ACHI,CCI). If a grouping item then use a group code to indicate the type of thing being grouped eg. 'glasses' or 'compound'.", 0, java.lang.Integer.MAX_VALUE, service));
@@ -3866,7 +3886,6 @@ public class ExplanationOfBenefit extends DomainResource {
           childrenList.add(new Property("quantity", "SimpleQuantity", "The number of repetitions of a service or product.", 0, java.lang.Integer.MAX_VALUE, quantity));
           childrenList.add(new Property("unitPrice", "Money", "If the item is a node then this is the fee for the product or service, otherwise this is the total of the fees for the children of the group.", 0, java.lang.Integer.MAX_VALUE, unitPrice));
           childrenList.add(new Property("factor", "decimal", "A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.", 0, java.lang.Integer.MAX_VALUE, factor));
-          childrenList.add(new Property("points", "decimal", "An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.", 0, java.lang.Integer.MAX_VALUE, points));
           childrenList.add(new Property("net", "Money", "The quantity times the unit price for an addittional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.", 0, java.lang.Integer.MAX_VALUE, net));
           childrenList.add(new Property("udi", "Reference(Device)", "List of Unique Device Identifiers associated with this line item.", 0, java.lang.Integer.MAX_VALUE, udi));
           childrenList.add(new Property("bodySite", "CodeableConcept", "Physical service site on the patient (limb, tooth, etc).", 0, java.lang.Integer.MAX_VALUE, bodySite));
@@ -3884,6 +3903,7 @@ public class ExplanationOfBenefit extends DomainResource {
         case -186757789: /*careTeamLinkId*/ return this.careTeamLinkId == null ? new Base[0] : this.careTeamLinkId.toArray(new Base[this.careTeamLinkId.size()]); // PositiveIntType
         case -1659207418: /*diagnosisLinkId*/ return this.diagnosisLinkId == null ? new Base[0] : this.diagnosisLinkId.toArray(new Base[this.diagnosisLinkId.size()]); // PositiveIntType
         case -532846744: /*procedureLinkId*/ return this.procedureLinkId == null ? new Base[0] : this.procedureLinkId.toArray(new Base[this.procedureLinkId.size()]); // PositiveIntType
+        case 1965585153: /*informationLinkId*/ return this.informationLinkId == null ? new Base[0] : this.informationLinkId.toArray(new Base[this.informationLinkId.size()]); // PositiveIntType
         case 1099842588: /*revenue*/ return this.revenue == null ? new Base[0] : new Base[] {this.revenue}; // CodeableConcept
         case 50511102: /*category*/ return this.category == null ? new Base[0] : new Base[] {this.category}; // CodeableConcept
         case 1984153269: /*service*/ return this.service == null ? new Base[0] : new Base[] {this.service}; // CodeableConcept
@@ -3894,7 +3914,6 @@ public class ExplanationOfBenefit extends DomainResource {
         case -1285004149: /*quantity*/ return this.quantity == null ? new Base[0] : new Base[] {this.quantity}; // SimpleQuantity
         case -486196699: /*unitPrice*/ return this.unitPrice == null ? new Base[0] : new Base[] {this.unitPrice}; // Money
         case -1282148017: /*factor*/ return this.factor == null ? new Base[0] : new Base[] {this.factor}; // DecimalType
-        case -982754077: /*points*/ return this.points == null ? new Base[0] : new Base[] {this.points}; // DecimalType
         case 108957: /*net*/ return this.net == null ? new Base[0] : new Base[] {this.net}; // Money
         case 115642: /*udi*/ return this.udi == null ? new Base[0] : this.udi.toArray(new Base[this.udi.size()]); // Reference
         case 1702620169: /*bodySite*/ return this.bodySite == null ? new Base[0] : new Base[] {this.bodySite}; // CodeableConcept
@@ -3922,6 +3941,9 @@ public class ExplanationOfBenefit extends DomainResource {
           break;
         case -532846744: // procedureLinkId
           this.getProcedureLinkId().add(castToPositiveInt(value)); // PositiveIntType
+          break;
+        case 1965585153: // informationLinkId
+          this.getInformationLinkId().add(castToPositiveInt(value)); // PositiveIntType
           break;
         case 1099842588: // revenue
           this.revenue = castToCodeableConcept(value); // CodeableConcept
@@ -3952,9 +3974,6 @@ public class ExplanationOfBenefit extends DomainResource {
           break;
         case -1282148017: // factor
           this.factor = castToDecimal(value); // DecimalType
-          break;
-        case -982754077: // points
-          this.points = castToDecimal(value); // DecimalType
           break;
         case 108957: // net
           this.net = castToMoney(value); // Money
@@ -3995,6 +4014,8 @@ public class ExplanationOfBenefit extends DomainResource {
           this.getDiagnosisLinkId().add(castToPositiveInt(value));
         else if (name.equals("procedureLinkId"))
           this.getProcedureLinkId().add(castToPositiveInt(value));
+        else if (name.equals("informationLinkId"))
+          this.getInformationLinkId().add(castToPositiveInt(value));
         else if (name.equals("revenue"))
           this.revenue = castToCodeableConcept(value); // CodeableConcept
         else if (name.equals("category"))
@@ -4015,8 +4036,6 @@ public class ExplanationOfBenefit extends DomainResource {
           this.unitPrice = castToMoney(value); // Money
         else if (name.equals("factor"))
           this.factor = castToDecimal(value); // DecimalType
-        else if (name.equals("points"))
-          this.points = castToDecimal(value); // DecimalType
         else if (name.equals("net"))
           this.net = castToMoney(value); // Money
         else if (name.equals("udi"))
@@ -4044,6 +4063,7 @@ public class ExplanationOfBenefit extends DomainResource {
         case -186757789: throw new FHIRException("Cannot make property careTeamLinkId as it is not a complex type"); // PositiveIntType
         case -1659207418: throw new FHIRException("Cannot make property diagnosisLinkId as it is not a complex type"); // PositiveIntType
         case -532846744: throw new FHIRException("Cannot make property procedureLinkId as it is not a complex type"); // PositiveIntType
+        case 1965585153: throw new FHIRException("Cannot make property informationLinkId as it is not a complex type"); // PositiveIntType
         case 1099842588:  return getRevenue(); // CodeableConcept
         case 50511102:  return getCategory(); // CodeableConcept
         case 1984153269:  return getService(); // CodeableConcept
@@ -4054,7 +4074,6 @@ public class ExplanationOfBenefit extends DomainResource {
         case -1285004149:  return getQuantity(); // SimpleQuantity
         case -486196699:  return getUnitPrice(); // Money
         case -1282148017: throw new FHIRException("Cannot make property factor as it is not a complex type"); // DecimalType
-        case -982754077: throw new FHIRException("Cannot make property points as it is not a complex type"); // DecimalType
         case 108957:  return getNet(); // Money
         case 115642:  return addUdi(); // Reference
         case 1702620169:  return getBodySite(); // CodeableConcept
@@ -4081,6 +4100,9 @@ public class ExplanationOfBenefit extends DomainResource {
         }
         else if (name.equals("procedureLinkId")) {
           throw new FHIRException("Cannot call addChild on a primitive type ExplanationOfBenefit.procedureLinkId");
+        }
+        else if (name.equals("informationLinkId")) {
+          throw new FHIRException("Cannot call addChild on a primitive type ExplanationOfBenefit.informationLinkId");
         }
         else if (name.equals("revenue")) {
           this.revenue = new CodeableConcept();
@@ -4130,9 +4152,6 @@ public class ExplanationOfBenefit extends DomainResource {
         }
         else if (name.equals("factor")) {
           throw new FHIRException("Cannot call addChild on a primitive type ExplanationOfBenefit.factor");
-        }
-        else if (name.equals("points")) {
-          throw new FHIRException("Cannot call addChild on a primitive type ExplanationOfBenefit.points");
         }
         else if (name.equals("net")) {
           this.net = new Money();
@@ -4184,6 +4203,11 @@ public class ExplanationOfBenefit extends DomainResource {
           for (PositiveIntType i : procedureLinkId)
             dst.procedureLinkId.add(i.copy());
         };
+        if (informationLinkId != null) {
+          dst.informationLinkId = new ArrayList<PositiveIntType>();
+          for (PositiveIntType i : informationLinkId)
+            dst.informationLinkId.add(i.copy());
+        };
         dst.revenue = revenue == null ? null : revenue.copy();
         dst.category = category == null ? null : category.copy();
         dst.service = service == null ? null : service.copy();
@@ -4202,7 +4226,6 @@ public class ExplanationOfBenefit extends DomainResource {
         dst.quantity = quantity == null ? null : quantity.copy();
         dst.unitPrice = unitPrice == null ? null : unitPrice.copy();
         dst.factor = factor == null ? null : factor.copy();
-        dst.points = points == null ? null : points.copy();
         dst.net = net == null ? null : net.copy();
         if (udi != null) {
           dst.udi = new ArrayList<Reference>();
@@ -4243,12 +4266,12 @@ public class ExplanationOfBenefit extends DomainResource {
         ItemComponent o = (ItemComponent) other;
         return compareDeep(sequence, o.sequence, true) && compareDeep(careTeamLinkId, o.careTeamLinkId, true)
            && compareDeep(diagnosisLinkId, o.diagnosisLinkId, true) && compareDeep(procedureLinkId, o.procedureLinkId, true)
-           && compareDeep(revenue, o.revenue, true) && compareDeep(category, o.category, true) && compareDeep(service, o.service, true)
-           && compareDeep(modifier, o.modifier, true) && compareDeep(programCode, o.programCode, true) && compareDeep(serviced, o.serviced, true)
-           && compareDeep(location, o.location, true) && compareDeep(quantity, o.quantity, true) && compareDeep(unitPrice, o.unitPrice, true)
-           && compareDeep(factor, o.factor, true) && compareDeep(points, o.points, true) && compareDeep(net, o.net, true)
-           && compareDeep(udi, o.udi, true) && compareDeep(bodySite, o.bodySite, true) && compareDeep(subSite, o.subSite, true)
-           && compareDeep(noteNumber, o.noteNumber, true) && compareDeep(adjudication, o.adjudication, true)
+           && compareDeep(informationLinkId, o.informationLinkId, true) && compareDeep(revenue, o.revenue, true)
+           && compareDeep(category, o.category, true) && compareDeep(service, o.service, true) && compareDeep(modifier, o.modifier, true)
+           && compareDeep(programCode, o.programCode, true) && compareDeep(serviced, o.serviced, true) && compareDeep(location, o.location, true)
+           && compareDeep(quantity, o.quantity, true) && compareDeep(unitPrice, o.unitPrice, true) && compareDeep(factor, o.factor, true)
+           && compareDeep(net, o.net, true) && compareDeep(udi, o.udi, true) && compareDeep(bodySite, o.bodySite, true)
+           && compareDeep(subSite, o.subSite, true) && compareDeep(noteNumber, o.noteNumber, true) && compareDeep(adjudication, o.adjudication, true)
            && compareDeep(detail, o.detail, true) && compareDeep(prosthesis, o.prosthesis, true);
       }
 
@@ -4261,14 +4284,14 @@ public class ExplanationOfBenefit extends DomainResource {
         ItemComponent o = (ItemComponent) other;
         return compareValues(sequence, o.sequence, true) && compareValues(careTeamLinkId, o.careTeamLinkId, true)
            && compareValues(diagnosisLinkId, o.diagnosisLinkId, true) && compareValues(procedureLinkId, o.procedureLinkId, true)
-           && compareValues(factor, o.factor, true) && compareValues(points, o.points, true) && compareValues(noteNumber, o.noteNumber, true)
-          ;
+           && compareValues(informationLinkId, o.informationLinkId, true) && compareValues(factor, o.factor, true)
+           && compareValues(noteNumber, o.noteNumber, true);
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(sequence, careTeamLinkId, diagnosisLinkId
-          , procedureLinkId, revenue, category, service, modifier, programCode, serviced
-          , location, quantity, unitPrice, factor, points, net, udi, bodySite, subSite
+          , procedureLinkId, informationLinkId, revenue, category, service, modifier, programCode
+          , serviced, location, quantity, unitPrice, factor, net, udi, bodySite, subSite
           , noteNumber, adjudication, detail, prosthesis);
       }
 
@@ -4676,23 +4699,16 @@ public class ExplanationOfBenefit extends DomainResource {
         protected DecimalType factor;
 
         /**
-         * An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.
-         */
-        @Child(name = "points", type = {DecimalType.class}, order=11, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Difficulty scaling factor", formalDefinition="An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point." )
-        protected DecimalType points;
-
-        /**
          * The quantity times the unit price for an addittional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.
          */
-        @Child(name = "net", type = {Money.class}, order=12, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "net", type = {Money.class}, order=11, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Total additional item cost", formalDefinition="The quantity times the unit price for an addittional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied." )
         protected Money net;
 
         /**
          * List of Unique Device Identifiers associated with this line item.
          */
-        @Child(name = "udi", type = {Device.class}, order=13, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Child(name = "udi", type = {Device.class}, order=12, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Unique Device Identifier", formalDefinition="List of Unique Device Identifiers associated with this line item." )
         protected List<Reference> udi;
         /**
@@ -4704,25 +4720,25 @@ public class ExplanationOfBenefit extends DomainResource {
         /**
          * A list of note references to the notes provided below.
          */
-        @Child(name = "noteNumber", type = {PositiveIntType.class}, order=14, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Child(name = "noteNumber", type = {PositiveIntType.class}, order=13, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="List of note numbers which apply", formalDefinition="A list of note references to the notes provided below." )
         protected List<PositiveIntType> noteNumber;
 
         /**
          * The adjudications results.
          */
-        @Child(name = "adjudication", type = {AdjudicationComponent.class}, order=15, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Child(name = "adjudication", type = {AdjudicationComponent.class}, order=14, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Detail adjudication", formalDefinition="The adjudications results." )
         protected List<AdjudicationComponent> adjudication;
 
         /**
          * Third tier of goods and services.
          */
-        @Child(name = "subDetail", type = {}, order=16, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Child(name = "subDetail", type = {}, order=15, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Additional items", formalDefinition="Third tier of goods and services." )
         protected List<SubDetailComponent> subDetail;
 
-        private static final long serialVersionUID = -1706769685L;
+        private static final long serialVersionUID = -276371489L;
 
     /**
      * Constructor
@@ -5103,73 +5119,6 @@ public class ExplanationOfBenefit extends DomainResource {
         }
 
         /**
-         * @return {@link #points} (An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.). This is the underlying object with id, value and extensions. The accessor "getPoints" gives direct access to the value
-         */
-        public DecimalType getPointsElement() { 
-          if (this.points == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create DetailComponent.points");
-            else if (Configuration.doAutoCreate())
-              this.points = new DecimalType(); // bb
-          return this.points;
-        }
-
-        public boolean hasPointsElement() { 
-          return this.points != null && !this.points.isEmpty();
-        }
-
-        public boolean hasPoints() { 
-          return this.points != null && !this.points.isEmpty();
-        }
-
-        /**
-         * @param value {@link #points} (An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.). This is the underlying object with id, value and extensions. The accessor "getPoints" gives direct access to the value
-         */
-        public DetailComponent setPointsElement(DecimalType value) { 
-          this.points = value;
-          return this;
-        }
-
-        /**
-         * @return An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.
-         */
-        public BigDecimal getPoints() { 
-          return this.points == null ? null : this.points.getValue();
-        }
-
-        /**
-         * @param value An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.
-         */
-        public DetailComponent setPoints(BigDecimal value) { 
-          if (value == null)
-            this.points = null;
-          else {
-            if (this.points == null)
-              this.points = new DecimalType();
-            this.points.setValue(value);
-          }
-          return this;
-        }
-
-        /**
-         * @param value An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.
-         */
-        public DetailComponent setPoints(long value) { 
-              this.points = new DecimalType();
-            this.points.setValue(value);
-          return this;
-        }
-
-        /**
-         * @param value An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.
-         */
-        public DetailComponent setPoints(double value) { 
-              this.points = new DecimalType();
-            this.points.setValue(value);
-          return this;
-        }
-
-        /**
          * @return {@link #net} (The quantity times the unit price for an addittional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.)
          */
         public Money getNet() { 
@@ -5447,7 +5396,6 @@ public class ExplanationOfBenefit extends DomainResource {
           childrenList.add(new Property("quantity", "SimpleQuantity", "The number of repetitions of a service or product.", 0, java.lang.Integer.MAX_VALUE, quantity));
           childrenList.add(new Property("unitPrice", "Money", "If the item is a node then this is the fee for the product or service, otherwise this is the total of the fees for the children of the group.", 0, java.lang.Integer.MAX_VALUE, unitPrice));
           childrenList.add(new Property("factor", "decimal", "A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.", 0, java.lang.Integer.MAX_VALUE, factor));
-          childrenList.add(new Property("points", "decimal", "An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.", 0, java.lang.Integer.MAX_VALUE, points));
           childrenList.add(new Property("net", "Money", "The quantity times the unit price for an addittional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.", 0, java.lang.Integer.MAX_VALUE, net));
           childrenList.add(new Property("udi", "Reference(Device)", "List of Unique Device Identifiers associated with this line item.", 0, java.lang.Integer.MAX_VALUE, udi));
           childrenList.add(new Property("noteNumber", "positiveInt", "A list of note references to the notes provided below.", 0, java.lang.Integer.MAX_VALUE, noteNumber));
@@ -5468,7 +5416,6 @@ public class ExplanationOfBenefit extends DomainResource {
         case -1285004149: /*quantity*/ return this.quantity == null ? new Base[0] : new Base[] {this.quantity}; // SimpleQuantity
         case -486196699: /*unitPrice*/ return this.unitPrice == null ? new Base[0] : new Base[] {this.unitPrice}; // Money
         case -1282148017: /*factor*/ return this.factor == null ? new Base[0] : new Base[] {this.factor}; // DecimalType
-        case -982754077: /*points*/ return this.points == null ? new Base[0] : new Base[] {this.points}; // DecimalType
         case 108957: /*net*/ return this.net == null ? new Base[0] : new Base[] {this.net}; // Money
         case 115642: /*udi*/ return this.udi == null ? new Base[0] : this.udi.toArray(new Base[this.udi.size()]); // Reference
         case -1110033957: /*noteNumber*/ return this.noteNumber == null ? new Base[0] : this.noteNumber.toArray(new Base[this.noteNumber.size()]); // PositiveIntType
@@ -5512,9 +5459,6 @@ public class ExplanationOfBenefit extends DomainResource {
         case -1282148017: // factor
           this.factor = castToDecimal(value); // DecimalType
           break;
-        case -982754077: // points
-          this.points = castToDecimal(value); // DecimalType
-          break;
         case 108957: // net
           this.net = castToMoney(value); // Money
           break;
@@ -5557,8 +5501,6 @@ public class ExplanationOfBenefit extends DomainResource {
           this.unitPrice = castToMoney(value); // Money
         else if (name.equals("factor"))
           this.factor = castToDecimal(value); // DecimalType
-        else if (name.equals("points"))
-          this.points = castToDecimal(value); // DecimalType
         else if (name.equals("net"))
           this.net = castToMoney(value); // Money
         else if (name.equals("udi"))
@@ -5586,7 +5528,6 @@ public class ExplanationOfBenefit extends DomainResource {
         case -1285004149:  return getQuantity(); // SimpleQuantity
         case -486196699:  return getUnitPrice(); // Money
         case -1282148017: throw new FHIRException("Cannot make property factor as it is not a complex type"); // DecimalType
-        case -982754077: throw new FHIRException("Cannot make property points as it is not a complex type"); // DecimalType
         case 108957:  return getNet(); // Money
         case 115642:  return addUdi(); // Reference
         case -1110033957: throw new FHIRException("Cannot make property noteNumber as it is not a complex type"); // PositiveIntType
@@ -5635,9 +5576,6 @@ public class ExplanationOfBenefit extends DomainResource {
         else if (name.equals("factor")) {
           throw new FHIRException("Cannot call addChild on a primitive type ExplanationOfBenefit.factor");
         }
-        else if (name.equals("points")) {
-          throw new FHIRException("Cannot call addChild on a primitive type ExplanationOfBenefit.points");
-        }
         else if (name.equals("net")) {
           this.net = new Money();
           return this.net;
@@ -5679,7 +5617,6 @@ public class ExplanationOfBenefit extends DomainResource {
         dst.quantity = quantity == null ? null : quantity.copy();
         dst.unitPrice = unitPrice == null ? null : unitPrice.copy();
         dst.factor = factor == null ? null : factor.copy();
-        dst.points = points == null ? null : points.copy();
         dst.net = net == null ? null : net.copy();
         if (udi != null) {
           dst.udi = new ArrayList<Reference>();
@@ -5714,8 +5651,8 @@ public class ExplanationOfBenefit extends DomainResource {
         return compareDeep(sequence, o.sequence, true) && compareDeep(type, o.type, true) && compareDeep(revenue, o.revenue, true)
            && compareDeep(category, o.category, true) && compareDeep(service, o.service, true) && compareDeep(modifier, o.modifier, true)
            && compareDeep(programCode, o.programCode, true) && compareDeep(quantity, o.quantity, true) && compareDeep(unitPrice, o.unitPrice, true)
-           && compareDeep(factor, o.factor, true) && compareDeep(points, o.points, true) && compareDeep(net, o.net, true)
-           && compareDeep(udi, o.udi, true) && compareDeep(noteNumber, o.noteNumber, true) && compareDeep(adjudication, o.adjudication, true)
+           && compareDeep(factor, o.factor, true) && compareDeep(net, o.net, true) && compareDeep(udi, o.udi, true)
+           && compareDeep(noteNumber, o.noteNumber, true) && compareDeep(adjudication, o.adjudication, true)
            && compareDeep(subDetail, o.subDetail, true);
       }
 
@@ -5726,14 +5663,14 @@ public class ExplanationOfBenefit extends DomainResource {
         if (!(other instanceof DetailComponent))
           return false;
         DetailComponent o = (DetailComponent) other;
-        return compareValues(sequence, o.sequence, true) && compareValues(factor, o.factor, true) && compareValues(points, o.points, true)
-           && compareValues(noteNumber, o.noteNumber, true);
+        return compareValues(sequence, o.sequence, true) && compareValues(factor, o.factor, true) && compareValues(noteNumber, o.noteNumber, true)
+          ;
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(sequence, type, revenue
-          , category, service, modifier, programCode, quantity, unitPrice, factor, points
-          , net, udi, noteNumber, adjudication, subDetail);
+          , category, service, modifier, programCode, quantity, unitPrice, factor, net
+          , udi, noteNumber, adjudication, subDetail);
       }
 
   public String fhirType() {
@@ -5822,23 +5759,16 @@ public class ExplanationOfBenefit extends DomainResource {
         protected DecimalType factor;
 
         /**
-         * An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.
-         */
-        @Child(name = "points", type = {DecimalType.class}, order=11, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Difficulty scaling factor", formalDefinition="An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point." )
-        protected DecimalType points;
-
-        /**
          * The quantity times the unit price for an addittional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.
          */
-        @Child(name = "net", type = {Money.class}, order=12, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "net", type = {Money.class}, order=11, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Net additional item cost", formalDefinition="The quantity times the unit price for an addittional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied." )
         protected Money net;
 
         /**
          * List of Unique Device Identifiers associated with this line item.
          */
-        @Child(name = "udi", type = {Device.class}, order=13, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Child(name = "udi", type = {Device.class}, order=12, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Unique Device Identifier", formalDefinition="List of Unique Device Identifiers associated with this line item." )
         protected List<Reference> udi;
         /**
@@ -5850,18 +5780,18 @@ public class ExplanationOfBenefit extends DomainResource {
         /**
          * A list of note references to the notes provided below.
          */
-        @Child(name = "noteNumber", type = {PositiveIntType.class}, order=14, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Child(name = "noteNumber", type = {PositiveIntType.class}, order=13, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="List of note numbers which apply", formalDefinition="A list of note references to the notes provided below." )
         protected List<PositiveIntType> noteNumber;
 
         /**
          * The adjudications results.
          */
-        @Child(name = "adjudication", type = {AdjudicationComponent.class}, order=15, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Child(name = "adjudication", type = {AdjudicationComponent.class}, order=14, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="SubDetail adjudication", formalDefinition="The adjudications results." )
         protected List<AdjudicationComponent> adjudication;
 
-        private static final long serialVersionUID = -74235786L;
+        private static final long serialVersionUID = 1621872130L;
 
     /**
      * Constructor
@@ -6242,73 +6172,6 @@ public class ExplanationOfBenefit extends DomainResource {
         }
 
         /**
-         * @return {@link #points} (An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.). This is the underlying object with id, value and extensions. The accessor "getPoints" gives direct access to the value
-         */
-        public DecimalType getPointsElement() { 
-          if (this.points == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create SubDetailComponent.points");
-            else if (Configuration.doAutoCreate())
-              this.points = new DecimalType(); // bb
-          return this.points;
-        }
-
-        public boolean hasPointsElement() { 
-          return this.points != null && !this.points.isEmpty();
-        }
-
-        public boolean hasPoints() { 
-          return this.points != null && !this.points.isEmpty();
-        }
-
-        /**
-         * @param value {@link #points} (An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.). This is the underlying object with id, value and extensions. The accessor "getPoints" gives direct access to the value
-         */
-        public SubDetailComponent setPointsElement(DecimalType value) { 
-          this.points = value;
-          return this;
-        }
-
-        /**
-         * @return An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.
-         */
-        public BigDecimal getPoints() { 
-          return this.points == null ? null : this.points.getValue();
-        }
-
-        /**
-         * @param value An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.
-         */
-        public SubDetailComponent setPoints(BigDecimal value) { 
-          if (value == null)
-            this.points = null;
-          else {
-            if (this.points == null)
-              this.points = new DecimalType();
-            this.points.setValue(value);
-          }
-          return this;
-        }
-
-        /**
-         * @param value An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.
-         */
-        public SubDetailComponent setPoints(long value) { 
-              this.points = new DecimalType();
-            this.points.setValue(value);
-          return this;
-        }
-
-        /**
-         * @param value An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.
-         */
-        public SubDetailComponent setPoints(double value) { 
-              this.points = new DecimalType();
-            this.points.setValue(value);
-          return this;
-        }
-
-        /**
          * @return {@link #net} (The quantity times the unit price for an addittional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.)
          */
         public Money getNet() { 
@@ -6533,7 +6396,6 @@ public class ExplanationOfBenefit extends DomainResource {
           childrenList.add(new Property("quantity", "SimpleQuantity", "The number of repetitions of a service or product.", 0, java.lang.Integer.MAX_VALUE, quantity));
           childrenList.add(new Property("unitPrice", "Money", "The fee for an addittional service or product or charge.", 0, java.lang.Integer.MAX_VALUE, unitPrice));
           childrenList.add(new Property("factor", "decimal", "A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.", 0, java.lang.Integer.MAX_VALUE, factor));
-          childrenList.add(new Property("points", "decimal", "An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.", 0, java.lang.Integer.MAX_VALUE, points));
           childrenList.add(new Property("net", "Money", "The quantity times the unit price for an addittional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.", 0, java.lang.Integer.MAX_VALUE, net));
           childrenList.add(new Property("udi", "Reference(Device)", "List of Unique Device Identifiers associated with this line item.", 0, java.lang.Integer.MAX_VALUE, udi));
           childrenList.add(new Property("noteNumber", "positiveInt", "A list of note references to the notes provided below.", 0, java.lang.Integer.MAX_VALUE, noteNumber));
@@ -6553,7 +6415,6 @@ public class ExplanationOfBenefit extends DomainResource {
         case -1285004149: /*quantity*/ return this.quantity == null ? new Base[0] : new Base[] {this.quantity}; // SimpleQuantity
         case -486196699: /*unitPrice*/ return this.unitPrice == null ? new Base[0] : new Base[] {this.unitPrice}; // Money
         case -1282148017: /*factor*/ return this.factor == null ? new Base[0] : new Base[] {this.factor}; // DecimalType
-        case -982754077: /*points*/ return this.points == null ? new Base[0] : new Base[] {this.points}; // DecimalType
         case 108957: /*net*/ return this.net == null ? new Base[0] : new Base[] {this.net}; // Money
         case 115642: /*udi*/ return this.udi == null ? new Base[0] : this.udi.toArray(new Base[this.udi.size()]); // Reference
         case -1110033957: /*noteNumber*/ return this.noteNumber == null ? new Base[0] : this.noteNumber.toArray(new Base[this.noteNumber.size()]); // PositiveIntType
@@ -6596,9 +6457,6 @@ public class ExplanationOfBenefit extends DomainResource {
         case -1282148017: // factor
           this.factor = castToDecimal(value); // DecimalType
           break;
-        case -982754077: // points
-          this.points = castToDecimal(value); // DecimalType
-          break;
         case 108957: // net
           this.net = castToMoney(value); // Money
           break;
@@ -6638,8 +6496,6 @@ public class ExplanationOfBenefit extends DomainResource {
           this.unitPrice = castToMoney(value); // Money
         else if (name.equals("factor"))
           this.factor = castToDecimal(value); // DecimalType
-        else if (name.equals("points"))
-          this.points = castToDecimal(value); // DecimalType
         else if (name.equals("net"))
           this.net = castToMoney(value); // Money
         else if (name.equals("udi"))
@@ -6665,7 +6521,6 @@ public class ExplanationOfBenefit extends DomainResource {
         case -1285004149:  return getQuantity(); // SimpleQuantity
         case -486196699:  return getUnitPrice(); // Money
         case -1282148017: throw new FHIRException("Cannot make property factor as it is not a complex type"); // DecimalType
-        case -982754077: throw new FHIRException("Cannot make property points as it is not a complex type"); // DecimalType
         case 108957:  return getNet(); // Money
         case 115642:  return addUdi(); // Reference
         case -1110033957: throw new FHIRException("Cannot make property noteNumber as it is not a complex type"); // PositiveIntType
@@ -6713,9 +6568,6 @@ public class ExplanationOfBenefit extends DomainResource {
         else if (name.equals("factor")) {
           throw new FHIRException("Cannot call addChild on a primitive type ExplanationOfBenefit.factor");
         }
-        else if (name.equals("points")) {
-          throw new FHIRException("Cannot call addChild on a primitive type ExplanationOfBenefit.points");
-        }
         else if (name.equals("net")) {
           this.net = new Money();
           return this.net;
@@ -6754,7 +6606,6 @@ public class ExplanationOfBenefit extends DomainResource {
         dst.quantity = quantity == null ? null : quantity.copy();
         dst.unitPrice = unitPrice == null ? null : unitPrice.copy();
         dst.factor = factor == null ? null : factor.copy();
-        dst.points = points == null ? null : points.copy();
         dst.net = net == null ? null : net.copy();
         if (udi != null) {
           dst.udi = new ArrayList<Reference>();
@@ -6784,8 +6635,8 @@ public class ExplanationOfBenefit extends DomainResource {
         return compareDeep(sequence, o.sequence, true) && compareDeep(type, o.type, true) && compareDeep(revenue, o.revenue, true)
            && compareDeep(category, o.category, true) && compareDeep(service, o.service, true) && compareDeep(modifier, o.modifier, true)
            && compareDeep(programCode, o.programCode, true) && compareDeep(quantity, o.quantity, true) && compareDeep(unitPrice, o.unitPrice, true)
-           && compareDeep(factor, o.factor, true) && compareDeep(points, o.points, true) && compareDeep(net, o.net, true)
-           && compareDeep(udi, o.udi, true) && compareDeep(noteNumber, o.noteNumber, true) && compareDeep(adjudication, o.adjudication, true)
+           && compareDeep(factor, o.factor, true) && compareDeep(net, o.net, true) && compareDeep(udi, o.udi, true)
+           && compareDeep(noteNumber, o.noteNumber, true) && compareDeep(adjudication, o.adjudication, true)
           ;
       }
 
@@ -6796,14 +6647,14 @@ public class ExplanationOfBenefit extends DomainResource {
         if (!(other instanceof SubDetailComponent))
           return false;
         SubDetailComponent o = (SubDetailComponent) other;
-        return compareValues(sequence, o.sequence, true) && compareValues(factor, o.factor, true) && compareValues(points, o.points, true)
-           && compareValues(noteNumber, o.noteNumber, true);
+        return compareValues(sequence, o.sequence, true) && compareValues(factor, o.factor, true) && compareValues(noteNumber, o.noteNumber, true)
+          ;
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(sequence, type, revenue
-          , category, service, modifier, programCode, quantity, unitPrice, factor, points
-          , net, udi, noteNumber, adjudication);
+          , category, service, modifier, programCode, quantity, unitPrice, factor, net
+          , udi, noteNumber, adjudication);
       }
 
   public String fhirType() {
@@ -8968,23 +8819,30 @@ public class ExplanationOfBenefit extends DomainResource {
         protected CodeableConcept subCategory;
 
         /**
+         * True if the indicated class of service is excluded from the plan, missing or False indicated the service is included in the coverage.
+         */
+        @Child(name = "excluded", type = {BooleanType.class}, order=3, min=0, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="Excluded from the plan", formalDefinition="True if the indicated class of service is excluded from the plan, missing or False indicated the service is included in the coverage." )
+        protected BooleanType excluded;
+
+        /**
          * A short name or tag for the benefit, for example MED01, or DENT2.
          */
-        @Child(name = "name", type = {StringType.class}, order=3, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "name", type = {StringType.class}, order=4, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Short name for the benefit", formalDefinition="A short name or tag for the benefit, for example MED01, or DENT2." )
         protected StringType name;
 
         /**
          * A richer description of the benefit, for example 'DENT2 covers 100% of basic, 50% of major but exclused Ortho, Implants and Costmetic services'.
          */
-        @Child(name = "description", type = {StringType.class}, order=4, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "description", type = {StringType.class}, order=5, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Description of the benefit", formalDefinition="A richer description of the benefit, for example 'DENT2 covers 100% of basic, 50% of major but exclused Ortho, Implants and Costmetic services'." )
         protected StringType description;
 
         /**
          * Network designation.
          */
-        @Child(name = "network", type = {CodeableConcept.class}, order=5, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "network", type = {CodeableConcept.class}, order=6, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="In or out of network", formalDefinition="Network designation." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/benefit-network")
         protected CodeableConcept network;
@@ -8992,7 +8850,7 @@ public class ExplanationOfBenefit extends DomainResource {
         /**
          * Unit designation: individual or family.
          */
-        @Child(name = "unit", type = {CodeableConcept.class}, order=6, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "unit", type = {CodeableConcept.class}, order=7, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Individual or family", formalDefinition="Unit designation: individual or family." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/benefit-unit")
         protected CodeableConcept unit;
@@ -9000,7 +8858,7 @@ public class ExplanationOfBenefit extends DomainResource {
         /**
          * The term or period of the values such as 'maximum lifetime benefit' or 'maximum annual vistis'.
          */
-        @Child(name = "term", type = {CodeableConcept.class}, order=7, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "term", type = {CodeableConcept.class}, order=8, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Annual or lifetime", formalDefinition="The term or period of the values such as 'maximum lifetime benefit' or 'maximum annual vistis'." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/benefit-term")
         protected CodeableConcept term;
@@ -9008,11 +8866,11 @@ public class ExplanationOfBenefit extends DomainResource {
         /**
          * Benefits Used to date.
          */
-        @Child(name = "financial", type = {}, order=8, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Child(name = "financial", type = {}, order=9, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Benefit Summary", formalDefinition="Benefits Used to date." )
         protected List<BenefitComponent> financial;
 
-        private static final long serialVersionUID = -32184081L;
+        private static final long serialVersionUID = 833826021L;
 
     /**
      * Constructor
@@ -9074,6 +8932,51 @@ public class ExplanationOfBenefit extends DomainResource {
          */
         public BenefitBalanceComponent setSubCategory(CodeableConcept value) { 
           this.subCategory = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #excluded} (True if the indicated class of service is excluded from the plan, missing or False indicated the service is included in the coverage.). This is the underlying object with id, value and extensions. The accessor "getExcluded" gives direct access to the value
+         */
+        public BooleanType getExcludedElement() { 
+          if (this.excluded == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create BenefitBalanceComponent.excluded");
+            else if (Configuration.doAutoCreate())
+              this.excluded = new BooleanType(); // bb
+          return this.excluded;
+        }
+
+        public boolean hasExcludedElement() { 
+          return this.excluded != null && !this.excluded.isEmpty();
+        }
+
+        public boolean hasExcluded() { 
+          return this.excluded != null && !this.excluded.isEmpty();
+        }
+
+        /**
+         * @param value {@link #excluded} (True if the indicated class of service is excluded from the plan, missing or False indicated the service is included in the coverage.). This is the underlying object with id, value and extensions. The accessor "getExcluded" gives direct access to the value
+         */
+        public BenefitBalanceComponent setExcludedElement(BooleanType value) { 
+          this.excluded = value;
+          return this;
+        }
+
+        /**
+         * @return True if the indicated class of service is excluded from the plan, missing or False indicated the service is included in the coverage.
+         */
+        public boolean getExcluded() { 
+          return this.excluded == null || this.excluded.isEmpty() ? false : this.excluded.getValue();
+        }
+
+        /**
+         * @param value True if the indicated class of service is excluded from the plan, missing or False indicated the service is included in the coverage.
+         */
+        public BenefitBalanceComponent setExcluded(boolean value) { 
+            if (this.excluded == null)
+              this.excluded = new BooleanType();
+            this.excluded.setValue(value);
           return this;
         }
 
@@ -9304,6 +9207,7 @@ public class ExplanationOfBenefit extends DomainResource {
           super.listChildren(childrenList);
           childrenList.add(new Property("category", "CodeableConcept", "Dental, Vision, Medical, Pharmacy, Rehab etc.", 0, java.lang.Integer.MAX_VALUE, category));
           childrenList.add(new Property("subCategory", "CodeableConcept", "Dental: basic, major, ortho; Vision exam, glasses, contacts; etc.", 0, java.lang.Integer.MAX_VALUE, subCategory));
+          childrenList.add(new Property("excluded", "boolean", "True if the indicated class of service is excluded from the plan, missing or False indicated the service is included in the coverage.", 0, java.lang.Integer.MAX_VALUE, excluded));
           childrenList.add(new Property("name", "string", "A short name or tag for the benefit, for example MED01, or DENT2.", 0, java.lang.Integer.MAX_VALUE, name));
           childrenList.add(new Property("description", "string", "A richer description of the benefit, for example 'DENT2 covers 100% of basic, 50% of major but exclused Ortho, Implants and Costmetic services'.", 0, java.lang.Integer.MAX_VALUE, description));
           childrenList.add(new Property("network", "CodeableConcept", "Network designation.", 0, java.lang.Integer.MAX_VALUE, network));
@@ -9317,6 +9221,7 @@ public class ExplanationOfBenefit extends DomainResource {
         switch (hash) {
         case 50511102: /*category*/ return this.category == null ? new Base[0] : new Base[] {this.category}; // CodeableConcept
         case 1365024606: /*subCategory*/ return this.subCategory == null ? new Base[0] : new Base[] {this.subCategory}; // CodeableConcept
+        case 1994055114: /*excluded*/ return this.excluded == null ? new Base[0] : new Base[] {this.excluded}; // BooleanType
         case 3373707: /*name*/ return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
         case -1724546052: /*description*/ return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
         case 1843485230: /*network*/ return this.network == null ? new Base[0] : new Base[] {this.network}; // CodeableConcept
@@ -9336,6 +9241,9 @@ public class ExplanationOfBenefit extends DomainResource {
           break;
         case 1365024606: // subCategory
           this.subCategory = castToCodeableConcept(value); // CodeableConcept
+          break;
+        case 1994055114: // excluded
+          this.excluded = castToBoolean(value); // BooleanType
           break;
         case 3373707: // name
           this.name = castToString(value); // StringType
@@ -9366,6 +9274,8 @@ public class ExplanationOfBenefit extends DomainResource {
           this.category = castToCodeableConcept(value); // CodeableConcept
         else if (name.equals("subCategory"))
           this.subCategory = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("excluded"))
+          this.excluded = castToBoolean(value); // BooleanType
         else if (name.equals("name"))
           this.name = castToString(value); // StringType
         else if (name.equals("description"))
@@ -9387,6 +9297,7 @@ public class ExplanationOfBenefit extends DomainResource {
         switch (hash) {
         case 50511102:  return getCategory(); // CodeableConcept
         case 1365024606:  return getSubCategory(); // CodeableConcept
+        case 1994055114: throw new FHIRException("Cannot make property excluded as it is not a complex type"); // BooleanType
         case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
         case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
         case 1843485230:  return getNetwork(); // CodeableConcept
@@ -9407,6 +9318,9 @@ public class ExplanationOfBenefit extends DomainResource {
         else if (name.equals("subCategory")) {
           this.subCategory = new CodeableConcept();
           return this.subCategory;
+        }
+        else if (name.equals("excluded")) {
+          throw new FHIRException("Cannot call addChild on a primitive type ExplanationOfBenefit.excluded");
         }
         else if (name.equals("name")) {
           throw new FHIRException("Cannot call addChild on a primitive type ExplanationOfBenefit.name");
@@ -9438,6 +9352,7 @@ public class ExplanationOfBenefit extends DomainResource {
         copyValues(dst);
         dst.category = category == null ? null : category.copy();
         dst.subCategory = subCategory == null ? null : subCategory.copy();
+        dst.excluded = excluded == null ? null : excluded.copy();
         dst.name = name == null ? null : name.copy();
         dst.description = description == null ? null : description.copy();
         dst.network = network == null ? null : network.copy();
@@ -9459,9 +9374,9 @@ public class ExplanationOfBenefit extends DomainResource {
           return false;
         BenefitBalanceComponent o = (BenefitBalanceComponent) other;
         return compareDeep(category, o.category, true) && compareDeep(subCategory, o.subCategory, true)
-           && compareDeep(name, o.name, true) && compareDeep(description, o.description, true) && compareDeep(network, o.network, true)
-           && compareDeep(unit, o.unit, true) && compareDeep(term, o.term, true) && compareDeep(financial, o.financial, true)
-          ;
+           && compareDeep(excluded, o.excluded, true) && compareDeep(name, o.name, true) && compareDeep(description, o.description, true)
+           && compareDeep(network, o.network, true) && compareDeep(unit, o.unit, true) && compareDeep(term, o.term, true)
+           && compareDeep(financial, o.financial, true);
       }
 
       @Override
@@ -9471,12 +9386,13 @@ public class ExplanationOfBenefit extends DomainResource {
         if (!(other instanceof BenefitBalanceComponent))
           return false;
         BenefitBalanceComponent o = (BenefitBalanceComponent) other;
-        return compareValues(name, o.name, true) && compareValues(description, o.description, true);
+        return compareValues(excluded, o.excluded, true) && compareValues(name, o.name, true) && compareValues(description, o.description, true)
+          ;
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(category, subCategory, name
-          , description, network, unit, term, financial);
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(category, subCategory, excluded
+          , name, description, network, unit, term, financial);
       }
 
   public String fhirType() {
@@ -9972,7 +9888,7 @@ public class ExplanationOfBenefit extends DomainResource {
      * Other claims which are related to this claim such as prior claim versions or for related services.
      */
     @Child(name = "related", type = {}, order=19, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-    @Description(shortDefinition="Related Claims which may be revelant to processing this claimn", formalDefinition="Other claims which are related to this claim such as prior claim versions or for related services." )
+    @Description(shortDefinition="Related Claims which may be revelant to processing this claim", formalDefinition="Other claims which are related to this claim such as prior claim versions or for related services." )
     protected List<RelatedClaimComponent> related;
 
     /**
@@ -9988,14 +9904,14 @@ public class ExplanationOfBenefit extends DomainResource {
     protected Resource prescriptionTarget;
 
     /**
-     * Original prescription which has been superceded by this prescription to support the dispensing of pharmacy services, medications or products.
+     * Original prescription which has been superceded by this prescription to support the dispensing of pharmacy services, medications or products. For example, a physician may prescribe a medication which the pharmacy determines is contraindicated, or for which the patient has an intolerance, and therefor issues a new precription for an alternate medication which has the same theraputic intent. The prescription from the pharmacy becomes the 'prescription' and that from the physician becomes the 'original prescription'.
      */
     @Child(name = "originalPrescription", type = {MedicationRequest.class}, order=21, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="Original Prescription", formalDefinition="Original prescription which has been superceded by this prescription to support the dispensing of pharmacy services, medications or products." )
+    @Description(shortDefinition="Original Prescription", formalDefinition="Original prescription which has been superceded by this prescription to support the dispensing of pharmacy services, medications or products. For example, a physician may prescribe a medication which the pharmacy determines is contraindicated, or for which the patient has an intolerance, and therefor issues a new precription for an alternate medication which has the same theraputic intent. The prescription from the pharmacy becomes the 'prescription' and that from the physician becomes the 'original prescription'." )
     protected Reference originalPrescription;
 
     /**
-     * The actual object that is the target of the reference (Original prescription which has been superceded by this prescription to support the dispensing of pharmacy services, medications or products.)
+     * The actual object that is the target of the reference (Original prescription which has been superceded by this prescription to support the dispensing of pharmacy services, medications or products. For example, a physician may prescribe a medication which the pharmacy determines is contraindicated, or for which the patient has an intolerance, and therefor issues a new precription for an alternate medication which has the same theraputic intent. The prescription from the pharmacy becomes the 'prescription' and that from the physician becomes the 'original prescription'.)
      */
     protected MedicationRequest originalPrescriptionTarget;
 
@@ -10011,7 +9927,7 @@ public class ExplanationOfBenefit extends DomainResource {
      */
     @Child(name = "information", type = {}, order=23, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Exceptions, special considerations, the condition, situation, prior or concurrent issues", formalDefinition="Additional information codes regarding exceptions, special considerations, the condition, situation, prior or concurrent issues. Often there are mutiple jurisdiction specific valuesets which are required." )
-    protected List<SpecialConditionComponent> information;
+    protected List<SupportingInformationComponent> information;
 
     /**
      * The members of the team who provided the overall service as well as their role and whether responsible and qualifications.
@@ -10133,7 +10049,7 @@ public class ExplanationOfBenefit extends DomainResource {
     @Description(shortDefinition="Balance by Benefit Category", formalDefinition="Balance by Benefit Category." )
     protected List<BenefitBalanceComponent> benefitBalance;
 
-    private static final long serialVersionUID = 1596759856L;
+    private static final long serialVersionUID = -1348622545L;
 
   /**
    * Constructor
@@ -11004,7 +10920,7 @@ public class ExplanationOfBenefit extends DomainResource {
     }
 
     /**
-     * @return {@link #originalPrescription} (Original prescription which has been superceded by this prescription to support the dispensing of pharmacy services, medications or products.)
+     * @return {@link #originalPrescription} (Original prescription which has been superceded by this prescription to support the dispensing of pharmacy services, medications or products. For example, a physician may prescribe a medication which the pharmacy determines is contraindicated, or for which the patient has an intolerance, and therefor issues a new precription for an alternate medication which has the same theraputic intent. The prescription from the pharmacy becomes the 'prescription' and that from the physician becomes the 'original prescription'.)
      */
     public Reference getOriginalPrescription() { 
       if (this.originalPrescription == null)
@@ -11020,7 +10936,7 @@ public class ExplanationOfBenefit extends DomainResource {
     }
 
     /**
-     * @param value {@link #originalPrescription} (Original prescription which has been superceded by this prescription to support the dispensing of pharmacy services, medications or products.)
+     * @param value {@link #originalPrescription} (Original prescription which has been superceded by this prescription to support the dispensing of pharmacy services, medications or products. For example, a physician may prescribe a medication which the pharmacy determines is contraindicated, or for which the patient has an intolerance, and therefor issues a new precription for an alternate medication which has the same theraputic intent. The prescription from the pharmacy becomes the 'prescription' and that from the physician becomes the 'original prescription'.)
      */
     public ExplanationOfBenefit setOriginalPrescription(Reference value) { 
       this.originalPrescription = value;
@@ -11028,7 +10944,7 @@ public class ExplanationOfBenefit extends DomainResource {
     }
 
     /**
-     * @return {@link #originalPrescription} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Original prescription which has been superceded by this prescription to support the dispensing of pharmacy services, medications or products.)
+     * @return {@link #originalPrescription} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Original prescription which has been superceded by this prescription to support the dispensing of pharmacy services, medications or products. For example, a physician may prescribe a medication which the pharmacy determines is contraindicated, or for which the patient has an intolerance, and therefor issues a new precription for an alternate medication which has the same theraputic intent. The prescription from the pharmacy becomes the 'prescription' and that from the physician becomes the 'original prescription'.)
      */
     public MedicationRequest getOriginalPrescriptionTarget() { 
       if (this.originalPrescriptionTarget == null)
@@ -11040,7 +10956,7 @@ public class ExplanationOfBenefit extends DomainResource {
     }
 
     /**
-     * @param value {@link #originalPrescription} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Original prescription which has been superceded by this prescription to support the dispensing of pharmacy services, medications or products.)
+     * @param value {@link #originalPrescription} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Original prescription which has been superceded by this prescription to support the dispensing of pharmacy services, medications or products. For example, a physician may prescribe a medication which the pharmacy determines is contraindicated, or for which the patient has an intolerance, and therefor issues a new precription for an alternate medication which has the same theraputic intent. The prescription from the pharmacy becomes the 'prescription' and that from the physician becomes the 'original prescription'.)
      */
     public ExplanationOfBenefit setOriginalPrescriptionTarget(MedicationRequest value) { 
       this.originalPrescriptionTarget = value;
@@ -11074,16 +10990,16 @@ public class ExplanationOfBenefit extends DomainResource {
     /**
      * @return {@link #information} (Additional information codes regarding exceptions, special considerations, the condition, situation, prior or concurrent issues. Often there are mutiple jurisdiction specific valuesets which are required.)
      */
-    public List<SpecialConditionComponent> getInformation() { 
+    public List<SupportingInformationComponent> getInformation() { 
       if (this.information == null)
-        this.information = new ArrayList<SpecialConditionComponent>();
+        this.information = new ArrayList<SupportingInformationComponent>();
       return this.information;
     }
 
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public ExplanationOfBenefit setInformation(List<SpecialConditionComponent> theInformation) { 
+    public ExplanationOfBenefit setInformation(List<SupportingInformationComponent> theInformation) { 
       this.information = theInformation;
       return this;
     }
@@ -11091,25 +11007,25 @@ public class ExplanationOfBenefit extends DomainResource {
     public boolean hasInformation() { 
       if (this.information == null)
         return false;
-      for (SpecialConditionComponent item : this.information)
+      for (SupportingInformationComponent item : this.information)
         if (!item.isEmpty())
           return true;
       return false;
     }
 
-    public SpecialConditionComponent addInformation() { //3
-      SpecialConditionComponent t = new SpecialConditionComponent();
+    public SupportingInformationComponent addInformation() { //3
+      SupportingInformationComponent t = new SupportingInformationComponent();
       if (this.information == null)
-        this.information = new ArrayList<SpecialConditionComponent>();
+        this.information = new ArrayList<SupportingInformationComponent>();
       this.information.add(t);
       return t;
     }
 
-    public ExplanationOfBenefit addInformation(SpecialConditionComponent t) { //3
+    public ExplanationOfBenefit addInformation(SupportingInformationComponent t) { //3
       if (t == null)
         return this;
       if (this.information == null)
-        this.information = new ArrayList<SpecialConditionComponent>();
+        this.information = new ArrayList<SupportingInformationComponent>();
       this.information.add(t);
       return this;
     }
@@ -11117,7 +11033,7 @@ public class ExplanationOfBenefit extends DomainResource {
     /**
      * @return The first repetition of repeating field {@link #information}, creating it if it does not already exist
      */
-    public SpecialConditionComponent getInformationFirstRep() { 
+    public SupportingInformationComponent getInformationFirstRep() { 
       if (getInformation().isEmpty()) {
         addInformation();
       }
@@ -11779,7 +11695,7 @@ public class ExplanationOfBenefit extends DomainResource {
         childrenList.add(new Property("disposition", "string", "A description of the status of the adjudication.", 0, java.lang.Integer.MAX_VALUE, disposition));
         childrenList.add(new Property("related", "", "Other claims which are related to this claim such as prior claim versions or for related services.", 0, java.lang.Integer.MAX_VALUE, related));
         childrenList.add(new Property("prescription", "Reference(MedicationRequest|VisionPrescription)", "Prescription to support the dispensing of Pharmacy or Vision products.", 0, java.lang.Integer.MAX_VALUE, prescription));
-        childrenList.add(new Property("originalPrescription", "Reference(MedicationRequest)", "Original prescription which has been superceded by this prescription to support the dispensing of pharmacy services, medications or products.", 0, java.lang.Integer.MAX_VALUE, originalPrescription));
+        childrenList.add(new Property("originalPrescription", "Reference(MedicationRequest)", "Original prescription which has been superceded by this prescription to support the dispensing of pharmacy services, medications or products. For example, a physician may prescribe a medication which the pharmacy determines is contraindicated, or for which the patient has an intolerance, and therefor issues a new precription for an alternate medication which has the same theraputic intent. The prescription from the pharmacy becomes the 'prescription' and that from the physician becomes the 'original prescription'.", 0, java.lang.Integer.MAX_VALUE, originalPrescription));
         childrenList.add(new Property("payee", "", "The party to be reimbursed for the services.", 0, java.lang.Integer.MAX_VALUE, payee));
         childrenList.add(new Property("information", "", "Additional information codes regarding exceptions, special considerations, the condition, situation, prior or concurrent issues. Often there are mutiple jurisdiction specific valuesets which are required.", 0, java.lang.Integer.MAX_VALUE, information));
         childrenList.add(new Property("careTeam", "", "The members of the team who provided the overall service as well as their role and whether responsible and qualifications.", 0, java.lang.Integer.MAX_VALUE, careTeam));
@@ -11827,7 +11743,7 @@ public class ExplanationOfBenefit extends DomainResource {
         case 460301338: /*prescription*/ return this.prescription == null ? new Base[0] : new Base[] {this.prescription}; // Reference
         case -1814015861: /*originalPrescription*/ return this.originalPrescription == null ? new Base[0] : new Base[] {this.originalPrescription}; // Reference
         case 106443592: /*payee*/ return this.payee == null ? new Base[0] : new Base[] {this.payee}; // PayeeComponent
-        case 1968600364: /*information*/ return this.information == null ? new Base[0] : this.information.toArray(new Base[this.information.size()]); // SpecialConditionComponent
+        case 1968600364: /*information*/ return this.information == null ? new Base[0] : this.information.toArray(new Base[this.information.size()]); // SupportingInformationComponent
         case -7323378: /*careTeam*/ return this.careTeam == null ? new Base[0] : this.careTeam.toArray(new Base[this.careTeam.size()]); // CareTeamComponent
         case 1196993265: /*diagnosis*/ return this.diagnosis == null ? new Base[0] : this.diagnosis.toArray(new Base[this.diagnosis.size()]); // DiagnosisComponent
         case -1095204141: /*procedure*/ return this.procedure == null ? new Base[0] : this.procedure.toArray(new Base[this.procedure.size()]); // ProcedureComponent
@@ -11923,7 +11839,7 @@ public class ExplanationOfBenefit extends DomainResource {
           this.payee = (PayeeComponent) value; // PayeeComponent
           break;
         case 1968600364: // information
-          this.getInformation().add((SpecialConditionComponent) value); // SpecialConditionComponent
+          this.getInformation().add((SupportingInformationComponent) value); // SupportingInformationComponent
           break;
         case -7323378: // careTeam
           this.getCareTeam().add((CareTeamComponent) value); // CareTeamComponent
@@ -12030,7 +11946,7 @@ public class ExplanationOfBenefit extends DomainResource {
         else if (name.equals("payee"))
           this.payee = (PayeeComponent) value; // PayeeComponent
         else if (name.equals("information"))
-          this.getInformation().add((SpecialConditionComponent) value);
+          this.getInformation().add((SupportingInformationComponent) value);
         else if (name.equals("careTeam"))
           this.getCareTeam().add((CareTeamComponent) value);
         else if (name.equals("diagnosis"))
@@ -12095,7 +12011,7 @@ public class ExplanationOfBenefit extends DomainResource {
         case 460301338:  return getPrescription(); // Reference
         case -1814015861:  return getOriginalPrescription(); // Reference
         case 106443592:  return getPayee(); // PayeeComponent
-        case 1968600364:  return addInformation(); // SpecialConditionComponent
+        case 1968600364:  return addInformation(); // SupportingInformationComponent
         case -7323378:  return addCareTeam(); // CareTeamComponent
         case 1196993265:  return addDiagnosis(); // DiagnosisComponent
         case -1095204141:  return addProcedure(); // ProcedureComponent
@@ -12317,8 +12233,8 @@ public class ExplanationOfBenefit extends DomainResource {
         dst.originalPrescription = originalPrescription == null ? null : originalPrescription.copy();
         dst.payee = payee == null ? null : payee.copy();
         if (information != null) {
-          dst.information = new ArrayList<SpecialConditionComponent>();
-          for (SpecialConditionComponent i : information)
+          dst.information = new ArrayList<SupportingInformationComponent>();
+          for (SupportingInformationComponent i : information)
             dst.information.add(i.copy());
         };
         if (careTeam != null) {
@@ -12422,6 +12338,32 @@ public class ExplanationOfBenefit extends DomainResource {
   public ResourceType getResourceType() {
     return ResourceType.ExplanationOfBenefit;
    }
+
+ /**
+   * Search parameter: <b>coverage</b>
+   * <p>
+   * Description: <b>The plan under which the claim was adjudicated</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>ExplanationOfBenefit.insurance.coverage</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="coverage", path="ExplanationOfBenefit.insurance.coverage", description="The plan under which the claim was adjudicated", type="reference", target={Coverage.class } )
+  public static final String SP_COVERAGE = "coverage";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>coverage</b>
+   * <p>
+   * Description: <b>The plan under which the claim was adjudicated</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>ExplanationOfBenefit.insurance.coverage</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam COVERAGE = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_COVERAGE);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>ExplanationOfBenefit:coverage</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_COVERAGE = new ca.uhn.fhir.model.api.Include("ExplanationOfBenefit:coverage").toLocked();
 
  /**
    * Search parameter: <b>identifier</b>

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Nov 22, 2016 17:11+1100 for FHIR v1.7.0
+// Generated on Tue, Nov 29, 2016 09:59+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -630,7 +630,7 @@ public class HumanName extends Type implements ICompositeType {
       return this;
     }
 
-
+ /**
   /**
    * Returns all repetitions of {@link #getGiven() given name} as a space separated string
    * 

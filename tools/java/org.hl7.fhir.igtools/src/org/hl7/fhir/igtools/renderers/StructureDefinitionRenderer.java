@@ -21,6 +21,7 @@ import org.hl7.fhir.dstu3.model.Coding;
 import org.hl7.fhir.dstu3.model.ElementDefinition;
 import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionBindingComponent;
 import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionConstraintComponent;
+import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionExampleComponent;
 import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionMappingComponent;
 import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionSlicingComponent;
 import org.hl7.fhir.dstu3.model.ElementDefinition.SlicingRules;
@@ -530,7 +531,7 @@ public class StructureDefinitionRenderer extends BaseRenderer {
     tableRowNE(b, "Meaning if Missing", null, d.getMeaningWhenMissing());
     tableRowNE(b, "Fixed Value", null, encodeValue(d.getFixed()));
     tableRowNE(b, "Pattern Value", null, encodeValue(d.getPattern()));
-    tableRow(b, "Example", null, encodeValue(d.getExample()));
+    tableRowNE(b, "Example", null, encodeValues(d.getExample()));
     tableRowNE(b, "Invariants", null, invariants(d.getConstraint()));
     tableRow(b, "LOINC Code", null, getMapping(profile, d, LOINC_MAPPING));
     tableRow(b, "SNOMED-CT Code", null, getMapping(profile, d, SNOMED_MAPPING));
@@ -812,6 +813,19 @@ public class StructureDefinitionRenderer extends BaseRenderer {
     }
   }
 
+  private String encodeValues(List<ElementDefinitionExampleComponent> examples) throws Exception {
+    StringBuilder b = new StringBuilder();
+    boolean first = false;
+    for (ElementDefinitionExampleComponent ex : examples) {
+      if (first)
+        first = false;
+      else
+        b.append("<br/>");
+      b.append("<b>"+Utilities.escapeXml(ex.getLabel())+"</b>:"+encodeValue(ex.getValue())+"\r\n");
+    }
+    return b.toString();
+    
+  }
   private String encodeValue(Type value) throws Exception {
     if (value == null || value.isEmpty())
       return null;

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Nov 22, 2016 17:11+1100 for FHIR v1.7.0
+// Generated on Tue, Nov 29, 2016 09:59+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -494,23 +494,30 @@ public class EligibilityResponse extends DomainResource {
         protected CodeableConcept subCategory;
 
         /**
+         * True if the indicated class of service is excluded from the plan, missing or False indicated the service is included in the coverage.
+         */
+        @Child(name = "excluded", type = {BooleanType.class}, order=3, min=0, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="Excluded from the plan", formalDefinition="True if the indicated class of service is excluded from the plan, missing or False indicated the service is included in the coverage." )
+        protected BooleanType excluded;
+
+        /**
          * A short name or tag for the benefit, for example MED01, or DENT2.
          */
-        @Child(name = "name", type = {StringType.class}, order=3, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "name", type = {StringType.class}, order=4, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Short name for the benefit", formalDefinition="A short name or tag for the benefit, for example MED01, or DENT2." )
         protected StringType name;
 
         /**
          * A richer description of the benefit, for example 'DENT2 covers 100% of basic, 50% of major but exclused Ortho, Implants and Costmetic services'.
          */
-        @Child(name = "description", type = {StringType.class}, order=4, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "description", type = {StringType.class}, order=5, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Description of the benefit", formalDefinition="A richer description of the benefit, for example 'DENT2 covers 100% of basic, 50% of major but exclused Ortho, Implants and Costmetic services'." )
         protected StringType description;
 
         /**
          * Network designation.
          */
-        @Child(name = "network", type = {CodeableConcept.class}, order=5, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "network", type = {CodeableConcept.class}, order=6, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="In or out of network", formalDefinition="Network designation." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/benefit-network")
         protected CodeableConcept network;
@@ -518,7 +525,7 @@ public class EligibilityResponse extends DomainResource {
         /**
          * Unit designation: individual or family.
          */
-        @Child(name = "unit", type = {CodeableConcept.class}, order=6, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "unit", type = {CodeableConcept.class}, order=7, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Individual or family", formalDefinition="Unit designation: individual or family." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/benefit-unit")
         protected CodeableConcept unit;
@@ -526,7 +533,7 @@ public class EligibilityResponse extends DomainResource {
         /**
          * The term or period of the values such as 'maximum lifetime benefit' or 'maximum annual vistis'.
          */
-        @Child(name = "term", type = {CodeableConcept.class}, order=7, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "term", type = {CodeableConcept.class}, order=8, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Annual or lifetime", formalDefinition="The term or period of the values such as 'maximum lifetime benefit' or 'maximum annual vistis'." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/benefit-term")
         protected CodeableConcept term;
@@ -534,11 +541,11 @@ public class EligibilityResponse extends DomainResource {
         /**
          * Benefits Used to date.
          */
-        @Child(name = "financial", type = {}, order=8, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Child(name = "financial", type = {}, order=9, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Benefit Summary", formalDefinition="Benefits Used to date." )
         protected List<BenefitComponent> financial;
 
-        private static final long serialVersionUID = -32184081L;
+        private static final long serialVersionUID = 833826021L;
 
     /**
      * Constructor
@@ -600,6 +607,51 @@ public class EligibilityResponse extends DomainResource {
          */
         public BenefitsComponent setSubCategory(CodeableConcept value) { 
           this.subCategory = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #excluded} (True if the indicated class of service is excluded from the plan, missing or False indicated the service is included in the coverage.). This is the underlying object with id, value and extensions. The accessor "getExcluded" gives direct access to the value
+         */
+        public BooleanType getExcludedElement() { 
+          if (this.excluded == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create BenefitsComponent.excluded");
+            else if (Configuration.doAutoCreate())
+              this.excluded = new BooleanType(); // bb
+          return this.excluded;
+        }
+
+        public boolean hasExcludedElement() { 
+          return this.excluded != null && !this.excluded.isEmpty();
+        }
+
+        public boolean hasExcluded() { 
+          return this.excluded != null && !this.excluded.isEmpty();
+        }
+
+        /**
+         * @param value {@link #excluded} (True if the indicated class of service is excluded from the plan, missing or False indicated the service is included in the coverage.). This is the underlying object with id, value and extensions. The accessor "getExcluded" gives direct access to the value
+         */
+        public BenefitsComponent setExcludedElement(BooleanType value) { 
+          this.excluded = value;
+          return this;
+        }
+
+        /**
+         * @return True if the indicated class of service is excluded from the plan, missing or False indicated the service is included in the coverage.
+         */
+        public boolean getExcluded() { 
+          return this.excluded == null || this.excluded.isEmpty() ? false : this.excluded.getValue();
+        }
+
+        /**
+         * @param value True if the indicated class of service is excluded from the plan, missing or False indicated the service is included in the coverage.
+         */
+        public BenefitsComponent setExcluded(boolean value) { 
+            if (this.excluded == null)
+              this.excluded = new BooleanType();
+            this.excluded.setValue(value);
           return this;
         }
 
@@ -830,6 +882,7 @@ public class EligibilityResponse extends DomainResource {
           super.listChildren(childrenList);
           childrenList.add(new Property("category", "CodeableConcept", "Dental, Vision, Medical, Pharmacy, Rehab etc.", 0, java.lang.Integer.MAX_VALUE, category));
           childrenList.add(new Property("subCategory", "CodeableConcept", "Dental: basic, major, ortho; Vision exam, glasses, contacts; etc.", 0, java.lang.Integer.MAX_VALUE, subCategory));
+          childrenList.add(new Property("excluded", "boolean", "True if the indicated class of service is excluded from the plan, missing or False indicated the service is included in the coverage.", 0, java.lang.Integer.MAX_VALUE, excluded));
           childrenList.add(new Property("name", "string", "A short name or tag for the benefit, for example MED01, or DENT2.", 0, java.lang.Integer.MAX_VALUE, name));
           childrenList.add(new Property("description", "string", "A richer description of the benefit, for example 'DENT2 covers 100% of basic, 50% of major but exclused Ortho, Implants and Costmetic services'.", 0, java.lang.Integer.MAX_VALUE, description));
           childrenList.add(new Property("network", "CodeableConcept", "Network designation.", 0, java.lang.Integer.MAX_VALUE, network));
@@ -843,6 +896,7 @@ public class EligibilityResponse extends DomainResource {
         switch (hash) {
         case 50511102: /*category*/ return this.category == null ? new Base[0] : new Base[] {this.category}; // CodeableConcept
         case 1365024606: /*subCategory*/ return this.subCategory == null ? new Base[0] : new Base[] {this.subCategory}; // CodeableConcept
+        case 1994055114: /*excluded*/ return this.excluded == null ? new Base[0] : new Base[] {this.excluded}; // BooleanType
         case 3373707: /*name*/ return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
         case -1724546052: /*description*/ return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
         case 1843485230: /*network*/ return this.network == null ? new Base[0] : new Base[] {this.network}; // CodeableConcept
@@ -862,6 +916,9 @@ public class EligibilityResponse extends DomainResource {
           break;
         case 1365024606: // subCategory
           this.subCategory = castToCodeableConcept(value); // CodeableConcept
+          break;
+        case 1994055114: // excluded
+          this.excluded = castToBoolean(value); // BooleanType
           break;
         case 3373707: // name
           this.name = castToString(value); // StringType
@@ -892,6 +949,8 @@ public class EligibilityResponse extends DomainResource {
           this.category = castToCodeableConcept(value); // CodeableConcept
         else if (name.equals("subCategory"))
           this.subCategory = castToCodeableConcept(value); // CodeableConcept
+        else if (name.equals("excluded"))
+          this.excluded = castToBoolean(value); // BooleanType
         else if (name.equals("name"))
           this.name = castToString(value); // StringType
         else if (name.equals("description"))
@@ -913,6 +972,7 @@ public class EligibilityResponse extends DomainResource {
         switch (hash) {
         case 50511102:  return getCategory(); // CodeableConcept
         case 1365024606:  return getSubCategory(); // CodeableConcept
+        case 1994055114: throw new FHIRException("Cannot make property excluded as it is not a complex type"); // BooleanType
         case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
         case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
         case 1843485230:  return getNetwork(); // CodeableConcept
@@ -933,6 +993,9 @@ public class EligibilityResponse extends DomainResource {
         else if (name.equals("subCategory")) {
           this.subCategory = new CodeableConcept();
           return this.subCategory;
+        }
+        else if (name.equals("excluded")) {
+          throw new FHIRException("Cannot call addChild on a primitive type EligibilityResponse.excluded");
         }
         else if (name.equals("name")) {
           throw new FHIRException("Cannot call addChild on a primitive type EligibilityResponse.name");
@@ -964,6 +1027,7 @@ public class EligibilityResponse extends DomainResource {
         copyValues(dst);
         dst.category = category == null ? null : category.copy();
         dst.subCategory = subCategory == null ? null : subCategory.copy();
+        dst.excluded = excluded == null ? null : excluded.copy();
         dst.name = name == null ? null : name.copy();
         dst.description = description == null ? null : description.copy();
         dst.network = network == null ? null : network.copy();
@@ -985,9 +1049,9 @@ public class EligibilityResponse extends DomainResource {
           return false;
         BenefitsComponent o = (BenefitsComponent) other;
         return compareDeep(category, o.category, true) && compareDeep(subCategory, o.subCategory, true)
-           && compareDeep(name, o.name, true) && compareDeep(description, o.description, true) && compareDeep(network, o.network, true)
-           && compareDeep(unit, o.unit, true) && compareDeep(term, o.term, true) && compareDeep(financial, o.financial, true)
-          ;
+           && compareDeep(excluded, o.excluded, true) && compareDeep(name, o.name, true) && compareDeep(description, o.description, true)
+           && compareDeep(network, o.network, true) && compareDeep(unit, o.unit, true) && compareDeep(term, o.term, true)
+           && compareDeep(financial, o.financial, true);
       }
 
       @Override
@@ -997,12 +1061,13 @@ public class EligibilityResponse extends DomainResource {
         if (!(other instanceof BenefitsComponent))
           return false;
         BenefitsComponent o = (BenefitsComponent) other;
-        return compareValues(name, o.name, true) && compareValues(description, o.description, true);
+        return compareValues(excluded, o.excluded, true) && compareValues(name, o.name, true) && compareValues(description, o.description, true)
+          ;
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(category, subCategory, name
-          , description, network, unit, term, financial);
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(category, subCategory, excluded
+          , name, description, network, unit, term, financial);
       }
 
   public String fhirType() {
@@ -1517,7 +1582,7 @@ public class EligibilityResponse extends DomainResource {
      * Original request resource reference.
      */
     @Child(name = "request", type = {EligibilityRequest.class}, order=7, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="Claim reference", formalDefinition="Original request resource reference." )
+    @Description(shortDefinition="Eligibility reference", formalDefinition="Original request resource reference." )
     protected Reference request;
 
     /**

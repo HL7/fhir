@@ -574,9 +574,13 @@ public class Publisher implements IWorkerContext.ILoggingService {
       throw new Exception("Unable to access or create the cache directory at "+vsCache);
     
     if (!igPack.isEmpty()) {
-      File igPackFile = new File(igPack);
-      log("Loading ig pack from specified path " + igPackFile.getAbsolutePath());
-      context = SimpleWorkerContext.fromPack(igPackFile.getAbsolutePath());
+      if (igPack.startsWith("http:")) {
+        throw new Error("cannot specify a web location for -spec at the moment"); /// gg to do this
+      } else {
+        File igPackFile = new File(igPack);
+        log("Loading ig pack from specified path " + igPackFile.getAbsolutePath());
+        context = SimpleWorkerContext.fromPack(igPackFile.getAbsolutePath());
+      }
     } else if (version.equals(Constants.VERSION)) {
       try {
         log("Load Validation Pack (internal)");

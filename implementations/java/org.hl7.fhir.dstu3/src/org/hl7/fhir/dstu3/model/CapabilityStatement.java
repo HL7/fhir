@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Nov 22, 2016 17:11+1100 for FHIR v1.7.0
+// Generated on Tue, Nov 29, 2016 09:59+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -47,7 +47,7 @@ import org.hl7.fhir.exceptions.FHIRException;
  * A Capability Statement documents a set of capabilities (behaviors) of a FHIR Server that may be used as a statement of actual server functionality or a statement of required or desired server implementation.
  */
 @ResourceDef(name="CapabilityStatement", profile="http://hl7.org/fhir/Profile/CapabilityStatement")
-@ChildOrder(names={"url", "version", "name", "title", "status", "experimental", "date", "publisher", "contact", "description", "useContext", "jurisdiction", "purpose", "copyright", "kind", "instantiates", "software", "implementation", "fhirVersion", "acceptUnknown", "format", "patchFormat", "profile", "rest", "messaging", "document"})
+@ChildOrder(names={"url", "version", "name", "title", "status", "experimental", "date", "publisher", "contact", "description", "useContext", "jurisdiction", "purpose", "copyright", "kind", "instantiates", "software", "implementation", "fhirVersion", "acceptUnknown", "format", "patchFormat", "implementationGuide", "profile", "rest", "messaging", "document"})
 public class CapabilityStatement extends MetadataResource implements IBaseConformance {
 
     public enum CapabilityStatementKind {
@@ -7458,9 +7458,16 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
     protected List<CodeType> patchFormat;
 
     /**
+     * A list of implementation guides that the server does (or should) support in their entirety.
+     */
+    @Child(name = "implementationGuide", type = {UriType.class}, order=10, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Description(shortDefinition="Implementation Guide supported", formalDefinition="A list of implementation guides that the server does (or should) support in their entirety." )
+    protected List<UriType> implementationGuide;
+
+    /**
      * A list of profiles that represent different use cases supported by the system. For a server, "supported by the system" means the system hosts/produces a set of resources that are conformant to a particular profile, and allows clients that use its services to search using this profile and to find appropriate data. For a client, it means the system will search by this profile and process data according to the guidance implicit in the profile. See further discussion in [Using Profiles]{profiling.html#profile-uses}.
      */
-    @Child(name = "profile", type = {StructureDefinition.class}, order=10, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "profile", type = {StructureDefinition.class}, order=11, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Profiles for use cases supported", formalDefinition="A list of profiles that represent different use cases supported by the system. For a server, \"supported by the system\" means the system hosts/produces a set of resources that are conformant to a particular profile, and allows clients that use its services to search using this profile and to find appropriate data. For a client, it means the system will search by this profile and process data according to the guidance implicit in the profile. See further discussion in [Using Profiles]{profiling.html#profile-uses}." )
     protected List<Reference> profile;
     /**
@@ -7472,25 +7479,25 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
     /**
      * A definition of the restful capabilities of the solution, if any.
      */
-    @Child(name = "rest", type = {}, order=11, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "rest", type = {}, order=12, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="If the endpoint is a RESTful one", formalDefinition="A definition of the restful capabilities of the solution, if any." )
     protected List<CapabilityStatementRestComponent> rest;
 
     /**
      * A description of the messaging capabilities of the solution.
      */
-    @Child(name = "messaging", type = {}, order=12, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "messaging", type = {}, order=13, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="If messaging is supported", formalDefinition="A description of the messaging capabilities of the solution." )
     protected List<CapabilityStatementMessagingComponent> messaging;
 
     /**
      * A document definition.
      */
-    @Child(name = "document", type = {}, order=13, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "document", type = {}, order=14, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Document definition", formalDefinition="A document definition." )
     protected List<CapabilityStatementDocumentComponent> document;
 
-    private static final long serialVersionUID = -1088252901L;
+    private static final long serialVersionUID = 227177541L;
 
   /**
    * Constructor
@@ -8564,6 +8571,67 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
     }
 
     /**
+     * @return {@link #implementationGuide} (A list of implementation guides that the server does (or should) support in their entirety.)
+     */
+    public List<UriType> getImplementationGuide() { 
+      if (this.implementationGuide == null)
+        this.implementationGuide = new ArrayList<UriType>();
+      return this.implementationGuide;
+    }
+
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public CapabilityStatement setImplementationGuide(List<UriType> theImplementationGuide) { 
+      this.implementationGuide = theImplementationGuide;
+      return this;
+    }
+
+    public boolean hasImplementationGuide() { 
+      if (this.implementationGuide == null)
+        return false;
+      for (UriType item : this.implementationGuide)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    /**
+     * @return {@link #implementationGuide} (A list of implementation guides that the server does (or should) support in their entirety.)
+     */
+    public UriType addImplementationGuideElement() {//2 
+      UriType t = new UriType();
+      if (this.implementationGuide == null)
+        this.implementationGuide = new ArrayList<UriType>();
+      this.implementationGuide.add(t);
+      return t;
+    }
+
+    /**
+     * @param value {@link #implementationGuide} (A list of implementation guides that the server does (or should) support in their entirety.)
+     */
+    public CapabilityStatement addImplementationGuide(String value) { //1
+      UriType t = new UriType();
+      t.setValue(value);
+      if (this.implementationGuide == null)
+        this.implementationGuide = new ArrayList<UriType>();
+      this.implementationGuide.add(t);
+      return this;
+    }
+
+    /**
+     * @param value {@link #implementationGuide} (A list of implementation guides that the server does (or should) support in their entirety.)
+     */
+    public boolean hasImplementationGuide(String value) { 
+      if (this.implementationGuide == null)
+        return false;
+      for (UriType v : this.implementationGuide)
+        if (v.equals(value)) // uri
+          return true;
+      return false;
+    }
+
+    /**
      * @return {@link #profile} (A list of profiles that represent different use cases supported by the system. For a server, "supported by the system" means the system hosts/produces a set of resources that are conformant to a particular profile, and allows clients that use its services to search using this profile and to find appropriate data. For a client, it means the system will search by this profile and process data according to the guidance implicit in the profile. See further discussion in [Using Profiles]{profiling.html#profile-uses}.)
      */
     public List<Reference> getProfile() { 
@@ -8821,6 +8889,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         childrenList.add(new Property("acceptUnknown", "code", "A code that indicates whether the application accepts unknown elements or extensions when reading resources.", 0, java.lang.Integer.MAX_VALUE, acceptUnknown));
         childrenList.add(new Property("format", "code", "A list of the formats supported by this implementation using their content types.", 0, java.lang.Integer.MAX_VALUE, format));
         childrenList.add(new Property("patchFormat", "code", "A list of the patch formats supported by this implementation using their content types.", 0, java.lang.Integer.MAX_VALUE, patchFormat));
+        childrenList.add(new Property("implementationGuide", "uri", "A list of implementation guides that the server does (or should) support in their entirety.", 0, java.lang.Integer.MAX_VALUE, implementationGuide));
         childrenList.add(new Property("profile", "Reference(StructureDefinition)", "A list of profiles that represent different use cases supported by the system. For a server, \"supported by the system\" means the system hosts/produces a set of resources that are conformant to a particular profile, and allows clients that use its services to search using this profile and to find appropriate data. For a client, it means the system will search by this profile and process data according to the guidance implicit in the profile. See further discussion in [Using Profiles]{profiling.html#profile-uses}.", 0, java.lang.Integer.MAX_VALUE, profile));
         childrenList.add(new Property("rest", "", "A definition of the restful capabilities of the solution, if any.", 0, java.lang.Integer.MAX_VALUE, rest));
         childrenList.add(new Property("messaging", "", "A description of the messaging capabilities of the solution.", 0, java.lang.Integer.MAX_VALUE, messaging));
@@ -8852,6 +8921,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         case -1862642142: /*acceptUnknown*/ return this.acceptUnknown == null ? new Base[0] : new Base[] {this.acceptUnknown}; // Enumeration<UnknownContentCode>
         case -1268779017: /*format*/ return this.format == null ? new Base[0] : this.format.toArray(new Base[this.format.size()]); // CodeType
         case 172338783: /*patchFormat*/ return this.patchFormat == null ? new Base[0] : this.patchFormat.toArray(new Base[this.patchFormat.size()]); // CodeType
+        case 156966506: /*implementationGuide*/ return this.implementationGuide == null ? new Base[0] : this.implementationGuide.toArray(new Base[this.implementationGuide.size()]); // UriType
         case -309425751: /*profile*/ return this.profile == null ? new Base[0] : this.profile.toArray(new Base[this.profile.size()]); // Reference
         case 3496916: /*rest*/ return this.rest == null ? new Base[0] : this.rest.toArray(new Base[this.rest.size()]); // CapabilityStatementRestComponent
         case -1440008444: /*messaging*/ return this.messaging == null ? new Base[0] : this.messaging.toArray(new Base[this.messaging.size()]); // CapabilityStatementMessagingComponent
@@ -8930,6 +9000,9 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         case 172338783: // patchFormat
           this.getPatchFormat().add(castToCode(value)); // CodeType
           break;
+        case 156966506: // implementationGuide
+          this.getImplementationGuide().add(castToUri(value)); // UriType
+          break;
         case -309425751: // profile
           this.getProfile().add(castToReference(value)); // Reference
           break;
@@ -8993,6 +9066,8 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
           this.getFormat().add(castToCode(value));
         else if (name.equals("patchFormat"))
           this.getPatchFormat().add(castToCode(value));
+        else if (name.equals("implementationGuide"))
+          this.getImplementationGuide().add(castToUri(value));
         else if (name.equals("profile"))
           this.getProfile().add(castToReference(value));
         else if (name.equals("rest"))
@@ -9030,6 +9105,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         case -1862642142: throw new FHIRException("Cannot make property acceptUnknown as it is not a complex type"); // Enumeration<UnknownContentCode>
         case -1268779017: throw new FHIRException("Cannot make property format as it is not a complex type"); // CodeType
         case 172338783: throw new FHIRException("Cannot make property patchFormat as it is not a complex type"); // CodeType
+        case 156966506: throw new FHIRException("Cannot make property implementationGuide as it is not a complex type"); // UriType
         case -309425751:  return addProfile(); // Reference
         case 3496916:  return addRest(); // CapabilityStatementRestComponent
         case -1440008444:  return addMessaging(); // CapabilityStatementMessagingComponent
@@ -9109,6 +9185,9 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         else if (name.equals("patchFormat")) {
           throw new FHIRException("Cannot call addChild on a primitive type CapabilityStatement.patchFormat");
         }
+        else if (name.equals("implementationGuide")) {
+          throw new FHIRException("Cannot call addChild on a primitive type CapabilityStatement.implementationGuide");
+        }
         else if (name.equals("profile")) {
           return addProfile();
         }
@@ -9179,6 +9258,11 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
           for (CodeType i : patchFormat)
             dst.patchFormat.add(i.copy());
         };
+        if (implementationGuide != null) {
+          dst.implementationGuide = new ArrayList<UriType>();
+          for (UriType i : implementationGuide)
+            dst.implementationGuide.add(i.copy());
+        };
         if (profile != null) {
           dst.profile = new ArrayList<Reference>();
           for (Reference i : profile)
@@ -9216,9 +9300,9 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         return compareDeep(purpose, o.purpose, true) && compareDeep(copyright, o.copyright, true) && compareDeep(kind, o.kind, true)
            && compareDeep(instantiates, o.instantiates, true) && compareDeep(software, o.software, true) && compareDeep(implementation, o.implementation, true)
            && compareDeep(fhirVersion, o.fhirVersion, true) && compareDeep(acceptUnknown, o.acceptUnknown, true)
-           && compareDeep(format, o.format, true) && compareDeep(patchFormat, o.patchFormat, true) && compareDeep(profile, o.profile, true)
-           && compareDeep(rest, o.rest, true) && compareDeep(messaging, o.messaging, true) && compareDeep(document, o.document, true)
-          ;
+           && compareDeep(format, o.format, true) && compareDeep(patchFormat, o.patchFormat, true) && compareDeep(implementationGuide, o.implementationGuide, true)
+           && compareDeep(profile, o.profile, true) && compareDeep(rest, o.rest, true) && compareDeep(messaging, o.messaging, true)
+           && compareDeep(document, o.document, true);
       }
 
       @Override
@@ -9231,13 +9315,13 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         return compareValues(purpose, o.purpose, true) && compareValues(copyright, o.copyright, true) && compareValues(kind, o.kind, true)
            && compareValues(instantiates, o.instantiates, true) && compareValues(fhirVersion, o.fhirVersion, true)
            && compareValues(acceptUnknown, o.acceptUnknown, true) && compareValues(format, o.format, true) && compareValues(patchFormat, o.patchFormat, true)
-          ;
+           && compareValues(implementationGuide, o.implementationGuide, true);
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(purpose, copyright, kind
           , instantiates, software, implementation, fhirVersion, acceptUnknown, format, patchFormat
-          , profile, rest, messaging, document);
+          , implementationGuide, profile, rest, messaging, document);
       }
 
   @Override
@@ -9596,6 +9680,26 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam EVENT = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_EVENT);
+
+ /**
+   * Search parameter: <b>guide</b>
+   * <p>
+   * Description: <b>Implementation Guide supported</b><br>
+   * Type: <b>uri</b><br>
+   * Path: <b>CapabilityStatement.implementationGuide</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="guide", path="CapabilityStatement.implementationGuide", description="Implementation Guide supported", type="uri" )
+  public static final String SP_GUIDE = "guide";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>guide</b>
+   * <p>
+   * Description: <b>Implementation Guide supported</b><br>
+   * Type: <b>uri</b><br>
+   * Path: <b>CapabilityStatement.implementationGuide</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.UriClientParam GUIDE = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_GUIDE);
 
  /**
    * Search parameter: <b>status</b>

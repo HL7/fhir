@@ -145,12 +145,12 @@ public class CSVWriter  extends TextStreamWriter  {
     line.addString(ed.getRequirements());
     line.addString(ed.getDefaultValue()!=null ? renderType(ed.getDefaultValue()) : "");
     line.addString(ed.getMeaningWhenMissing());
-    line.addString(ed.getFixed()!=null ? renderType(ed.getFixed()) : "");
-    line.addString(ed.getPattern()!=null ? renderType(ed.getPattern()) : "");
-    line.addString(ed.getExample()!=null ? renderType(ed.getExample()) : "");
-    line.addString(ed.getMinValue()!=null ? renderType(ed.getMinValue()) : "");
-    line.addString(ed.getMaxValue()!=null ? renderType(ed.getMaxValue()) : "");
-    line.addValue((ed.getMaxLength()!=0 ? Integer.toString(ed.getMaxLength()) : ""));
+    line.addString(ed.hasFixed() ? renderType(ed.getFixed()) : "");
+    line.addString(ed.hasPattern() ? renderType(ed.getPattern()) : "");
+    line.addString(ed.hasExample() ? renderType(ed.getExample().get(0).getValue()) : ""); // todo...?
+    line.addString(ed.hasMinValue() ? renderType(ed.getMinValue()) : "");
+    line.addString(ed.hasMaxValue() ? renderType(ed.getMaxValue()) : "");
+    line.addValue((ed.hasMaxLength() ? Integer.toString(ed.getMaxLength()) : ""));
     if (ed.hasBinding()) {
       line.addString(ed.getBinding().getStrength()!=null ? ed.getBinding().getStrength().toCode() : "");
       line.addString(ed.getBinding().getDescription());

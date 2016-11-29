@@ -1289,7 +1289,7 @@ public class ArgonautConverter extends ConverterBase {
 					Reference ref = new Reference().setReference("Practitioner/"+p.getId()).setDisplay(p.getUserString("display"));
 					imm.setPerformer(ref);
 				}
-				imm.setReported(!imm.hasPerformer());
+				imm.setPrimarySource(!imm.hasPerformer());
 				saveResource(imm);
 			}
 		}

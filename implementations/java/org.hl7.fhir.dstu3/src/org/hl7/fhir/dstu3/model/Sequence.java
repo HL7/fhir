@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Nov 22, 2016 17:11+1100 for FHIR v1.7.0
+// Generated on Tue, Nov 29, 2016 09:59+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -181,14 +181,14 @@ public class Sequence extends DomainResource {
         protected CodeableConcept referenceSeqId;
 
         /**
-         * A Pointer to another Sequence entity as refence sequence.
+         * A Pointer to another Sequence entity as reference sequence.
          */
         @Child(name = "referenceSeqPointer", type = {Sequence.class}, order=4, min=0, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="A Pointer to another Sequence entity as refence sequence", formalDefinition="A Pointer to another Sequence entity as refence sequence." )
+        @Description(shortDefinition="A Pointer to another Sequence entity as reference sequence", formalDefinition="A Pointer to another Sequence entity as reference sequence." )
         protected Reference referenceSeqPointer;
 
         /**
-         * The actual object that is the target of the reference (A Pointer to another Sequence entity as refence sequence.)
+         * The actual object that is the target of the reference (A Pointer to another Sequence entity as reference sequence.)
          */
         protected Sequence referenceSeqPointerTarget;
 
@@ -338,7 +338,7 @@ public class Sequence extends DomainResource {
         }
 
         /**
-         * @return {@link #referenceSeqPointer} (A Pointer to another Sequence entity as refence sequence.)
+         * @return {@link #referenceSeqPointer} (A Pointer to another Sequence entity as reference sequence.)
          */
         public Reference getReferenceSeqPointer() { 
           if (this.referenceSeqPointer == null)
@@ -354,7 +354,7 @@ public class Sequence extends DomainResource {
         }
 
         /**
-         * @param value {@link #referenceSeqPointer} (A Pointer to another Sequence entity as refence sequence.)
+         * @param value {@link #referenceSeqPointer} (A Pointer to another Sequence entity as reference sequence.)
          */
         public SequenceReferenceSeqComponent setReferenceSeqPointer(Reference value) { 
           this.referenceSeqPointer = value;
@@ -362,7 +362,7 @@ public class Sequence extends DomainResource {
         }
 
         /**
-         * @return {@link #referenceSeqPointer} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (A Pointer to another Sequence entity as refence sequence.)
+         * @return {@link #referenceSeqPointer} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (A Pointer to another Sequence entity as reference sequence.)
          */
         public Sequence getReferenceSeqPointerTarget() { 
           if (this.referenceSeqPointerTarget == null)
@@ -374,7 +374,7 @@ public class Sequence extends DomainResource {
         }
 
         /**
-         * @param value {@link #referenceSeqPointer} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (A Pointer to another Sequence entity as refence sequence.)
+         * @param value {@link #referenceSeqPointer} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (A Pointer to another Sequence entity as reference sequence.)
          */
         public SequenceReferenceSeqComponent setReferenceSeqPointerTarget(Sequence value) { 
           this.referenceSeqPointerTarget = value;
@@ -570,7 +570,7 @@ public class Sequence extends DomainResource {
           childrenList.add(new Property("chromosome", "CodeableConcept", "Structural unit composed of a nucleic acid molecule which controls its own replication through the interaction of specific proteins at one or more origins of replication ([SO:0000340](http://www.sequenceontology.org/browser/current_svn/term/SO:0000340)).", 0, java.lang.Integer.MAX_VALUE, chromosome));
           childrenList.add(new Property("genomeBuild", "string", "The Genome Build used for reference, following GRCh build versions e.g. 'GRCh 37'.  Version number must be included if a versioned release of a primary build was used.", 0, java.lang.Integer.MAX_VALUE, genomeBuild));
           childrenList.add(new Property("referenceSeqId", "CodeableConcept", "Reference identifier of reference sequence submitted to NCBI. It must match the type in the Sequence.type field. For example, the prefix, “NG_” identifies reference sequence for genes, “NM_” for messenger RNA transcripts, and “NP_” for amino acid sequences.", 0, java.lang.Integer.MAX_VALUE, referenceSeqId));
-          childrenList.add(new Property("referenceSeqPointer", "Reference(Sequence)", "A Pointer to another Sequence entity as refence sequence.", 0, java.lang.Integer.MAX_VALUE, referenceSeqPointer));
+          childrenList.add(new Property("referenceSeqPointer", "Reference(Sequence)", "A Pointer to another Sequence entity as reference sequence.", 0, java.lang.Integer.MAX_VALUE, referenceSeqPointer));
           childrenList.add(new Property("referenceSeqString", "string", "A Reference Sequence string.", 0, java.lang.Integer.MAX_VALUE, referenceSeqString));
           childrenList.add(new Property("strand", "integer", "Strand of DNA. Available values are \"1\" for the plus strand and \"-1\" for the minus strand.", 0, java.lang.Integer.MAX_VALUE, strand));
           childrenList.add(new Property("windowStart", "integer", "Start position (inclusive) of the window on the reference sequence.", 0, java.lang.Integer.MAX_VALUE, windowStart));

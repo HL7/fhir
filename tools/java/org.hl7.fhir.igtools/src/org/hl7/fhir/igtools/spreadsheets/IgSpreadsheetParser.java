@@ -759,7 +759,8 @@ public class IgSpreadsheetParser {
         }
       }
     }
-    e.setExample(processValue(sheet, row, "Example", sheet.getColumn(row, "Example"), e));
+    if (!Utilities.noString(sheet.getColumn(row, "Example"))) 
+      e.addExample().setLabel("General").setValue(processValue(sheet, row, "Example", sheet.getColumn(row, "Example"), e));
     processOtherExamples(e, sheet, row);
     String dh = sheet.getColumn(row, "Display Hint");
     if (!Utilities.noString(dh))
@@ -1194,7 +1195,8 @@ public class IgSpreadsheetParser {
       TypeParser tp = new TypeParser();
       List<TypeRef> types = tp.parse(sheet.getColumn(row, "Type"), true, metadata("extension.uri"), context, false);
       exv.getType().addAll(tp.convert(context, exv.getPath(), types, false, exv));
-      exv.setExample(processValue(sheet, row, "Example", sheet.getColumn(row, "Example"), exv));
+      if (!Utilities.noString(sheet.getColumn(row, "Example"))) 
+        exv.addExample().setLabel("General").setValue(processValue(sheet, row, "Example", sheet.getColumn(row, "Example"), exv));
     }
   }
 

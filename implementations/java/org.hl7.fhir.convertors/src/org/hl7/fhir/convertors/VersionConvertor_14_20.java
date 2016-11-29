@@ -1204,7 +1204,8 @@ public class VersionConvertor_14_20 {
       tgt.setMeaningWhenMissing(src.getMeaningWhenMissing());
     tgt.setFixed(convertType(src.getFixed()));
     tgt.setPattern(convertType(src.getPattern()));
-    tgt.setExample(convertType(src.getExample()));
+    if (src.hasExample())
+      tgt.addExample().setLabel("General").setValue(convertType(src.getExample()));
     tgt.setMinValue(convertType(src.getMinValue()));
     tgt.setMaxValue(convertType(src.getMaxValue()));
     if (src.hasMaxLength())
@@ -1266,7 +1267,8 @@ public class VersionConvertor_14_20 {
       tgt.setMeaningWhenMissing(src.getMeaningWhenMissing());
     tgt.setFixed(convertType(src.getFixed()));
     tgt.setPattern(convertType(src.getPattern()));
-    tgt.setExample(convertType(src.getExample()));
+    if (src.hasExample())
+      tgt.setExample(convertType(src.getExample().get(0).getValue()));
     tgt.setMinValue(convertType(src.getMinValue()));
     tgt.setMaxValue(convertType(src.getMaxValue()));
     if (src.hasMaxLength())
