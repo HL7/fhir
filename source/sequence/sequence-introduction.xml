@@ -3,8 +3,8 @@
     
 <h2>Scope and Usage</h2>
 <p>
-    The Sequence resource is designed to describe an atomic sequence which contains more than one bases but has at most one variation. Atomic sequences can be connected by link element and they will lead to sequence graph. By this method, a sequence can be reported. Complete genetic sequence information, of which specific genetic variations are a part, is reported by reference to the GA4GH repository.  Thus, the FHIR Sequence resource avoids large genomic payloads in a manner analogous to how the FHIR ImagingStudy resource references large images maintained in other systems.
-    This resource contextualizes well established standards from the field of clinical genetics into the standards of healthcare (e.g. HGNC - HUGO Gene Nomenclature Committee's international standard for gene names, symbols, and identifiers).
+    The Sequence resource is designed to describe an atomic sequence which contains the alignment sequencing test result and multiple variations. Atomic sequences can be connected by link element and they will lead to sequence graph. By this method, a sequence can be reported. Complete genetic sequence information, of which specific genetic variations are a part, is reported by reference to the GA4GH repository.  Thus, the FHIR Sequence resource avoids large genomic payloads in a manner analogous to how the FHIR ImagingStudy resource references large images maintained in other systems.
+    If there is any uncertainty with the use case of this resource , please refer Implementation Guide <a href="genomics.html">here </a>.
 </p>
 <h3>Genetic Standards and Resources include:</h3>
 <ul>
@@ -12,14 +12,14 @@
     <li>Reference Sequences: <a href="http://www.ncbi.nlm.nih.gov/refseq/">RefSeq</a> and <a href="http://www.ensembl.org/index.html">ENSEMBL</a> </li>
 </ul>
 <p>
-    This resource is designed to describe a sequence variation with clinical significance with information such as:
+    This resource is designed to describe sequence variations with clinical significance with information such as:
 </p>
     <ul>
         <li>Name of the variation represented</li>
         <li>Type of the variation</li>
         <li>Gene region occupied by the variation</li>
-        <li>Name of the gene</li>
         <li>Tissue source used to determine genotype of the variation</li>
+	 <li>Quality of the result</li>
     </ul>
 <p>
     It is strongly encouraged to provide all available information in this resource for any reported variants, because receiving systems (e.g. discovery research, outcomes analysis, and public health reporting) may use this information to normalize variants over time or across sources.  However, these data should not be used to dynamically correct/change variant representations for clinical use outside of the laboratory, due to insufficient information.
@@ -34,7 +34,7 @@
 <h2>Boundaries and Relationships</h2>
 
 <p>
-    Focus of the resource is to provide data <b>immediately</b> relevant to clinical decision-making. Hence data such as precise read of DNA sequences and sequence alignment are not included; such data are nonetheless accessible through references to <a href="http://ga4gh.org/#/">GA4GH</a> (Global Alliance for Genomics and Health) API.
+    Focus of the resource is to provide sequencing alignment data immediately relevant to what the interpretation on clinical decision-making originates from. Hence data such as precise read of DNA sequences and sequence alignment are not included; such data are nonetheless accessible through references to <a href="http://ga4gh.org/#/">GA4GH</a> (Global Alliance for Genomics and Health) API.
     
     The Sequence resource will be referenced by <a href="observation.html">Observation</a> to provide variant information. As clinical assessments/diagnosis of a patient are typically captured in the <a href="condition.html">Condition</a> resource or the ClinicalImpression resource, the Sequence resource can be referenced by the Condition resource to provide specific genetic data to support an assertions. This is analogous to how Condition references other resources, such as <a href="allergyintolerance.html">AllergyIntolerance</a>, <a href="procedure.html">Procedure</a>, and <a href="questionnaire.html">Questionnaire</a> resources.
 </p>
@@ -51,3 +51,4 @@ Provides additional detail on exactly how the resource is to be used
 -->
 
 </div>
+
