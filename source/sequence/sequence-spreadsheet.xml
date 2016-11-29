@@ -7,10 +7,10 @@
  xmlns:html="http://www.w3.org/TR/REC-html40">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>Microsoft Office User</LastAuthor>
+  <LastAuthor>Yi Wang</LastAuthor>
   <LastPrinted>2015-12-03T17:50:33Z</LastPrinted>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2016-07-07T18:43:05Z</LastSaved>
+  <LastSaved>2016-11-29T03:20:50Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -22,8 +22,7 @@
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>827</TabRatio>
-  <ActiveSheet>19</ActiveSheet>
-  <FirstVisibleSheet>18</FirstVisibleSheet>
+  <ActiveSheet>1</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -900,18 +899,6 @@
    <Protection/>
   </Style>
   <Style ss:ID="s174">
-   <Alignment ss:Horizontal="Right" ss:Vertical="Top"/>
-   <Borders/>
-   <Interior/>
-  </Style>
-  <Style ss:ID="s175">
-   <Alignment ss:Horizontal="Right" ss:Vertical="Top" ss:WrapText="1"/>
-   <Borders>
-    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
-   </Borders>
-   <Interior/>
-  </Style>
-  <Style ss:ID="s176">
    <Alignment ss:Vertical="Center" ss:WrapText="1"/>
    <Borders>
     <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"
@@ -922,6 +909,18 @@
      ss:Color="#000000"/>
    </Borders>
    <Font ss:FontName="ArialMT" x:Family="Swiss" ss:Color="#000000"/>
+  </Style>
+  <Style ss:ID="s175">
+   <Alignment ss:Horizontal="Right" ss:Vertical="Top"/>
+   <Borders/>
+   <Interior/>
+  </Style>
+  <Style ss:ID="s176">
+   <Alignment ss:Horizontal="Right" ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Interior/>
   </Style>
   <Style ss:ID="s177">
    <Alignment ss:Horizontal="Right" ss:Vertical="Top" ss:WrapText="1"/>
@@ -960,6 +959,7 @@
    </PageSetup>
    <Unsynced/>
    <Zoom>125</Zoom>
+   <TopRowVisible>3</TopRowVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
@@ -1186,7 +1186,7 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="14" ss:StyleID="s98"><Data ss:Type="String">AA | DNA | RNA</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s98"><Data ss:Type="String">Amino acid / cDNA transcript / RNA variant.</Data><NamedCell
+    <Cell ss:StyleID="s98"><Data ss:Type="String">Amino Acid Sequence/ DNA Sequence / RNA Sequence</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -1260,9 +1260,9 @@
     <Cell ss:Index="5"><Data ss:Type="String">Quantity</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="9" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="14" ss:StyleID="s98"><Data ss:Type="String">Quantity of the sequence </Data><NamedCell
+    <Cell ss:Index="14" ss:StyleID="s98"><Data ss:Type="String">The number of copies of the seqeunce of interest.  (RNASeq)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s98"><Data ss:Type="String">Quantity of the sequence. </Data><NamedCell
+    <Cell ss:StyleID="s98"><Data ss:Type="String">The number of copies of the seqeunce of interest. (RNASeq)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -3477,12 +3477,13 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>125</Zoom>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>34</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>5</LeftColumnRightPane>
+   <LeftColumnRightPane>14</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -3494,12 +3495,12 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>44</ActiveRow>
-     <ActiveCol>7</ActiveCol>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>0</ActiveCol>
+     <RangeSelection>R4</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -4854,8 +4855,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>1</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>16</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -5891,8 +5891,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>16</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+     <ActiveRow>15</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -6214,7 +6214,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>16</ActiveRow>
+     <ActiveRow>0</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -7537,45 +7538,45 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">LA9658-1 </Data></Cell>
-    <Cell ss:StyleID="s176"><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s176"><Data ss:Type="String">Wild type </Data></Cell>
-    <Cell ss:StyleID="s176"><Data ss:Type="String">Wild type </Data></Cell>
+    <Cell ss:StyleID="s174"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:Index="5" ss:StyleID="s174"><Data ss:Type="String">Wild type </Data></Cell>
+    <Cell ss:StyleID="s174"><Data ss:Type="String">Wild type </Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">LA6692-3 </Data></Cell>
-    <Cell ss:StyleID="s176"><Data ss:Type="Number">2</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s176"><Data ss:Type="String">Deletion </Data></Cell>
-    <Cell ss:StyleID="s176"><Data ss:Type="String">Deletion </Data></Cell>
+    <Cell ss:StyleID="s174"><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:Index="5" ss:StyleID="s174"><Data ss:Type="String">Deletion </Data></Cell>
+    <Cell ss:StyleID="s174"><Data ss:Type="String">Deletion </Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">LA6686-5</Data></Cell>
-    <Cell ss:StyleID="s176"><Data ss:Type="Number">3</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s176"><Data ss:Type="String">Duplication  </Data></Cell>
-    <Cell ss:StyleID="s176"><Data ss:Type="String">Duplication  </Data></Cell>
+    <Cell ss:StyleID="s174"><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:Index="5" ss:StyleID="s174"><Data ss:Type="String">Duplication  </Data></Cell>
+    <Cell ss:StyleID="s174"><Data ss:Type="String">Duplication  </Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">LA6687-3</Data></Cell>
-    <Cell ss:StyleID="s176"><Data ss:Type="Number">4</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s176"><Data ss:Type="String">Insertion  </Data></Cell>
-    <Cell ss:StyleID="s176"><Data ss:Type="String">Insertion  </Data></Cell>
+    <Cell ss:StyleID="s174"><Data ss:Type="Number">4</Data></Cell>
+    <Cell ss:Index="5" ss:StyleID="s174"><Data ss:Type="String">Insertion  </Data></Cell>
+    <Cell ss:StyleID="s174"><Data ss:Type="String">Insertion  </Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="24">
     <Cell><Data ss:Type="String">LA6688-1 </Data></Cell>
-    <Cell ss:StyleID="s176"><Data ss:Type="Number">5</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s176"><Data ss:Type="String">Insertion/Deletion </Data></Cell>
-    <Cell ss:StyleID="s176"><Data ss:Type="String">Insertion/Deletion </Data></Cell>
+    <Cell ss:StyleID="s174"><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:Index="5" ss:StyleID="s174"><Data ss:Type="String">Insertion/Deletion </Data></Cell>
+    <Cell ss:StyleID="s174"><Data ss:Type="String">Insertion/Deletion </Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">LA6689-9</Data></Cell>
-    <Cell ss:StyleID="s176"><Data ss:Type="Number">6</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s176"><Data ss:Type="String">Inversion  </Data></Cell>
-    <Cell ss:StyleID="s176"><Data ss:Type="String">Inversion  </Data></Cell>
+    <Cell ss:StyleID="s174"><Data ss:Type="Number">6</Data></Cell>
+    <Cell ss:Index="5" ss:StyleID="s174"><Data ss:Type="String">Inversion  </Data></Cell>
+    <Cell ss:StyleID="s174"><Data ss:Type="String">Inversion  </Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">LA6690-7</Data></Cell>
-    <Cell ss:StyleID="s176"><Data ss:Type="Number">7</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s176"><Data ss:Type="String">Substitution  </Data></Cell>
-    <Cell ss:StyleID="s176"><Data ss:Type="String">Substitution  </Data></Cell>
+    <Cell ss:StyleID="s174"><Data ss:Type="Number">7</Data></Cell>
+    <Cell ss:Index="5" ss:StyleID="s174"><Data ss:Type="String">Substitution  </Data></Cell>
+    <Cell ss:StyleID="s174"><Data ss:Type="String">Substitution  </Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -7639,69 +7640,69 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">LA9658-1</Data></Cell>
-    <Cell ss:StyleID="s176"><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s176"><Data ss:Type="String">Wild type  </Data></Cell>
-    <Cell ss:StyleID="s176"><Data ss:Type="String">Wild type  </Data></Cell>
+    <Cell ss:StyleID="s174"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:Index="5" ss:StyleID="s174"><Data ss:Type="String">Wild type  </Data></Cell>
+    <Cell ss:StyleID="s174"><Data ss:Type="String">Wild type  </Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">LA6692-3 </Data></Cell>
-    <Cell ss:StyleID="s176"><Data ss:Type="Number">2</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s176"><Data ss:Type="String">Deletion </Data></Cell>
-    <Cell ss:StyleID="s176"><Data ss:Type="String">Deletion </Data></Cell>
+    <Cell ss:StyleID="s174"><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:Index="5" ss:StyleID="s174"><Data ss:Type="String">Deletion </Data></Cell>
+    <Cell ss:StyleID="s174"><Data ss:Type="String">Deletion </Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">LA6686-5</Data></Cell>
-    <Cell ss:StyleID="s176"><Data ss:Type="Number">3</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s176"><Data ss:Type="String">Duplication  </Data></Cell>
-    <Cell ss:StyleID="s176"><Data ss:Type="String">Duplication  </Data></Cell>
+    <Cell ss:StyleID="s174"><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:Index="5" ss:StyleID="s174"><Data ss:Type="String">Duplication  </Data></Cell>
+    <Cell ss:StyleID="s174"><Data ss:Type="String">Duplication  </Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">LA6694-9 </Data></Cell>
-    <Cell ss:StyleID="s176"><Data ss:Type="Number">4</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s176"><Data ss:Type="String">Frameshift </Data></Cell>
-    <Cell ss:StyleID="s176"><Data ss:Type="String">Frameshift </Data></Cell>
+    <Cell ss:StyleID="s174"><Data ss:Type="Number">4</Data></Cell>
+    <Cell ss:Index="5" ss:StyleID="s174"><Data ss:Type="String">Frameshift </Data></Cell>
+    <Cell ss:StyleID="s174"><Data ss:Type="String">Frameshift </Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="24">
     <Cell><Data ss:Type="String">LA6695-6</Data></Cell>
-    <Cell ss:StyleID="s176"><Data ss:Type="Number">5</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s176"><Data ss:Type="String">Initiating Methionine  </Data></Cell>
-    <Cell ss:StyleID="s176"><Data ss:Type="String">Initiating Methionine  </Data></Cell>
+    <Cell ss:StyleID="s174"><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:Index="5" ss:StyleID="s174"><Data ss:Type="String">Initiating Methionine  </Data></Cell>
+    <Cell ss:StyleID="s174"><Data ss:Type="String">Initiating Methionine  </Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">LA6687-3</Data></Cell>
-    <Cell ss:StyleID="s176"><Data ss:Type="Number">6</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s176"><Data ss:Type="String">Insertion  </Data></Cell>
-    <Cell ss:StyleID="s176"><Data ss:Type="String">Insertion  </Data></Cell>
+    <Cell ss:StyleID="s174"><Data ss:Type="Number">6</Data></Cell>
+    <Cell ss:Index="5" ss:StyleID="s174"><Data ss:Type="String">Insertion  </Data></Cell>
+    <Cell ss:StyleID="s174"><Data ss:Type="String">Insertion  </Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="24">
     <Cell><Data ss:Type="String">LA9659-9</Data></Cell>
-    <Cell ss:StyleID="s176"><Data ss:Type="Number">7</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s176"><Data ss:Type="String">Insertion and Deletion  </Data></Cell>
-    <Cell ss:StyleID="s176"><Data ss:Type="String">Insertion and Deletion  </Data></Cell>
+    <Cell ss:StyleID="s174"><Data ss:Type="Number">7</Data></Cell>
+    <Cell ss:Index="5" ss:StyleID="s174"><Data ss:Type="String">Insertion and Deletion  </Data></Cell>
+    <Cell ss:StyleID="s174"><Data ss:Type="String">Insertion and Deletion  </Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">LA6698-0</Data></Cell>
-    <Cell ss:StyleID="s176"><Data ss:Type="Number">8</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s176"><Data ss:Type="String">Missense  </Data></Cell>
-    <Cell ss:StyleID="s176"><Data ss:Type="String">Missense  </Data></Cell>
+    <Cell ss:StyleID="s174"><Data ss:Type="Number">8</Data></Cell>
+    <Cell ss:Index="5" ss:StyleID="s174"><Data ss:Type="String">Missense  </Data></Cell>
+    <Cell ss:StyleID="s174"><Data ss:Type="String">Missense  </Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">LA6699-8</Data></Cell>
-    <Cell ss:StyleID="s176"><Data ss:Type="Number">9</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s176"><Data ss:Type="String">Nonsense  </Data></Cell>
-    <Cell ss:StyleID="s176"><Data ss:Type="String">Nonsense  </Data></Cell>
+    <Cell ss:StyleID="s174"><Data ss:Type="Number">9</Data></Cell>
+    <Cell ss:Index="5" ss:StyleID="s174"><Data ss:Type="String">Nonsense  </Data></Cell>
+    <Cell ss:StyleID="s174"><Data ss:Type="String">Nonsense  </Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">LA6700-4</Data></Cell>
-    <Cell ss:StyleID="s176"><Data ss:Type="Number">10</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s176"><Data ss:Type="String">Silent  </Data></Cell>
-    <Cell ss:StyleID="s176"><Data ss:Type="String">Silent  </Data></Cell>
+    <Cell ss:StyleID="s174"><Data ss:Type="Number">10</Data></Cell>
+    <Cell ss:Index="5" ss:StyleID="s174"><Data ss:Type="String">Silent  </Data></Cell>
+    <Cell ss:StyleID="s174"><Data ss:Type="String">Silent  </Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="24">
     <Cell><Data ss:Type="String">LA6701-2 </Data></Cell>
-    <Cell ss:StyleID="s176"><Data ss:Type="Number">11</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s176"><Data ss:Type="String">Stop Codon Mutation </Data></Cell>
-    <Cell ss:StyleID="s176"><Data ss:Type="String">Stop Codon Mutation </Data></Cell>
+    <Cell ss:StyleID="s174"><Data ss:Type="Number">11</Data></Cell>
+    <Cell ss:Index="5" ss:StyleID="s174"><Data ss:Type="String">Stop Codon Mutation </Data></Cell>
+    <Cell ss:StyleID="s174"><Data ss:Type="String">Stop Codon Mutation </Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -7772,45 +7773,45 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">LA6683-2</Data></Cell>
-    <Cell ss:StyleID="s176"><Data ss:Type="String">http://loinc.org</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s176"><Data ss:Type="String">Germline  </Data></Cell>
-    <Cell ss:StyleID="s176"><Data ss:Type="String">Germline  </Data></Cell>
+    <Cell ss:StyleID="s174"><Data ss:Type="String">http://loinc.org</Data></Cell>
+    <Cell ss:Index="5" ss:StyleID="s174"><Data ss:Type="String">Germline  </Data></Cell>
+    <Cell ss:StyleID="s174"><Data ss:Type="String">Germline  </Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">LA6684-0 </Data></Cell>
-    <Cell ss:StyleID="s176"><Data ss:Type="String">http://loinc.org</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s176"><Data ss:Type="String">Somatic </Data></Cell>
-    <Cell ss:StyleID="s176"><Data ss:Type="String">Somatic </Data></Cell>
+    <Cell ss:StyleID="s174"><Data ss:Type="String">http://loinc.org</Data></Cell>
+    <Cell ss:Index="5" ss:StyleID="s174"><Data ss:Type="String">Somatic </Data></Cell>
+    <Cell ss:StyleID="s174"><Data ss:Type="String">Somatic </Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">LA10429-1</Data></Cell>
-    <Cell ss:StyleID="s176"><Data ss:Type="String">http://loinc.org</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s176"><Data ss:Type="String">Prenatal </Data></Cell>
-    <Cell ss:StyleID="s176"><Data ss:Type="String">Prenatal </Data></Cell>
+    <Cell ss:StyleID="s174"><Data ss:Type="String">http://loinc.org</Data></Cell>
+    <Cell ss:Index="5" ss:StyleID="s174"><Data ss:Type="String">Prenatal </Data></Cell>
+    <Cell ss:StyleID="s174"><Data ss:Type="String">Prenatal </Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="24">
     <Cell><Data ss:Type="String">LA18194-3</Data></Cell>
-    <Cell ss:StyleID="s176"><Data ss:Type="String">http://loinc.org</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s176"><Data ss:Type="String">Likely Germline  </Data></Cell>
-    <Cell ss:StyleID="s176"><Data ss:Type="String">Likely Germline  </Data></Cell>
+    <Cell ss:StyleID="s174"><Data ss:Type="String">http://loinc.org</Data></Cell>
+    <Cell ss:Index="5" ss:StyleID="s174"><Data ss:Type="String">Likely Germline  </Data></Cell>
+    <Cell ss:StyleID="s174"><Data ss:Type="String">Likely Germline  </Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="24">
     <Cell><Data ss:Type="String">LA18195-0</Data></Cell>
-    <Cell ss:StyleID="s176"><Data ss:Type="String">http://loinc.org</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s176"><Data ss:Type="String">Likely Somatic  </Data></Cell>
-    <Cell ss:StyleID="s176"><Data ss:Type="String">Likely Somatic  </Data></Cell>
+    <Cell ss:StyleID="s174"><Data ss:Type="String">http://loinc.org</Data></Cell>
+    <Cell ss:Index="5" ss:StyleID="s174"><Data ss:Type="String">Likely Somatic  </Data></Cell>
+    <Cell ss:StyleID="s174"><Data ss:Type="String">Likely Somatic  </Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="24">
     <Cell><Data ss:Type="String">LA18196-8</Data></Cell>
-    <Cell ss:StyleID="s176"><Data ss:Type="String">http://loinc.org</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s176"><Data ss:Type="String">Likely Prenatal  </Data></Cell>
-    <Cell ss:StyleID="s176"><Data ss:Type="String">Likely Prenatal  </Data></Cell>
+    <Cell ss:StyleID="s174"><Data ss:Type="String">http://loinc.org</Data></Cell>
+    <Cell ss:Index="5" ss:StyleID="s174"><Data ss:Type="String">Likely Prenatal  </Data></Cell>
+    <Cell ss:StyleID="s174"><Data ss:Type="String">Likely Prenatal  </Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="36">
     <Cell><Data ss:Type="String">LA18197-6</Data></Cell>
-    <Cell ss:StyleID="s176"><Data ss:Type="String">http://loinc.org</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s176"><Data ss:Type="String">Unknown Genomic Origin  </Data></Cell>
-    <Cell ss:StyleID="s176"><Data ss:Type="String">Unknown Genomic Origin  </Data></Cell>
+    <Cell ss:StyleID="s174"><Data ss:Type="String">http://loinc.org</Data></Cell>
+    <Cell ss:Index="5" ss:StyleID="s174"><Data ss:Type="String">Unknown Genomic Origin  </Data></Cell>
+    <Cell ss:StyleID="s174"><Data ss:Type="String">Unknown Genomic Origin  </Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -7953,33 +7954,33 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">LA6703-8</Data></Cell>
-    <Cell ss:StyleID="s176"><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s176"><Data ss:Type="String">Heteroplasmic  </Data></Cell>
-    <Cell ss:StyleID="s176"><Data ss:Type="String">Heteroplasmic  </Data></Cell>
+    <Cell ss:StyleID="s174"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:Index="5" ss:StyleID="s174"><Data ss:Type="String">Heteroplasmic  </Data></Cell>
+    <Cell ss:StyleID="s174"><Data ss:Type="String">Heteroplasmic  </Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">LA6704-6 </Data></Cell>
-    <Cell ss:StyleID="s176"><Data ss:Type="Number">2</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s176"><Data ss:Type="String">Homoplasmic </Data></Cell>
-    <Cell ss:StyleID="s176"><Data ss:Type="String">Homoplasmic </Data></Cell>
+    <Cell ss:StyleID="s174"><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:Index="5" ss:StyleID="s174"><Data ss:Type="String">Homoplasmic </Data></Cell>
+    <Cell ss:StyleID="s174"><Data ss:Type="String">Homoplasmic </Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">LA6705-3</Data></Cell>
-    <Cell ss:StyleID="s176"><Data ss:Type="Number">3</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s176"><Data ss:Type="String">Homozygous  </Data></Cell>
-    <Cell ss:StyleID="s176"><Data ss:Type="String">Homozygous  </Data></Cell>
+    <Cell ss:StyleID="s174"><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:Index="5" ss:StyleID="s174"><Data ss:Type="String">Homozygous  </Data></Cell>
+    <Cell ss:StyleID="s174"><Data ss:Type="String">Homozygous  </Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">LA6706-1 </Data></Cell>
-    <Cell ss:StyleID="s176"><Data ss:Type="Number">4</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s176"><Data ss:Type="String">Heterozygous </Data></Cell>
-    <Cell ss:StyleID="s176"><Data ss:Type="String">Heterozygous </Data></Cell>
+    <Cell ss:StyleID="s174"><Data ss:Type="Number">4</Data></Cell>
+    <Cell ss:Index="5" ss:StyleID="s174"><Data ss:Type="String">Heterozygous </Data></Cell>
+    <Cell ss:StyleID="s174"><Data ss:Type="String">Heterozygous </Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">LA6707-9</Data></Cell>
-    <Cell ss:StyleID="s176"><Data ss:Type="Number">5</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s176"><Data ss:Type="String">Hemizygous  </Data></Cell>
-    <Cell ss:StyleID="s176"><Data ss:Type="String">Hemizygous  </Data></Cell>
+    <Cell ss:StyleID="s174"><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:Index="5" ss:StyleID="s174"><Data ss:Type="String">Hemizygous  </Data></Cell>
+    <Cell ss:StyleID="s174"><Data ss:Type="String">Hemizygous  </Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -8405,7 +8406,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="28.05">
     <Cell ss:StyleID="s159"><Data ss:Type="String">INDEL</Data></Cell>
-    <Cell ss:StyleID="s174"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s175"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s172"/>
     <Cell ss:StyleID="s172"><Data ss:Type="String">INDEL Comparison</Data></Cell>
@@ -8413,7 +8414,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="28.05">
     <Cell ss:StyleID="s154"><Data ss:Type="String">SNP</Data></Cell>
-    <Cell ss:StyleID="s175"><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:StyleID="s176"><Data ss:Type="Number">2</Data></Cell>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s171"/>
     <Cell ss:StyleID="s172"><Data ss:Type="String">SNP Comparison</Data></Cell>
@@ -8439,7 +8440,6 @@
     <HorizontalResolution>-4</HorizontalResolution>
     <VerticalResolution>-4</VerticalResolution>
    </Print>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
@@ -8486,7 +8486,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="28.05">
     <Cell ss:StyleID="s159"><Data ss:Type="String">directlink</Data></Cell>
-    <Cell ss:StyleID="s174"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s175"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s172"/>
     <Cell ss:StyleID="s172"><Data ss:Type="String">Click and see </Data></Cell>
