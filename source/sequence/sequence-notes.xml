@@ -2,4 +2,48 @@
 
 <!-- insert xhtml content here -->
 
+<h2>Notes:</h2>
+
+<h3>Sequence Coordinate System</h3>
+<p>
+	When saving the variant information, the nucleic acid will be numbered with order. Some files are using 0-based coordiantes (e.g. BCD file format) while some files are using 1-based coordinates (e.g. VCF file format) . The element coordinateSystem in Sequence Resource contains this information.
+</p>
+<p>
+	Sequence.coordinateSystem constraints within two possible values: 0 for 0-based system, which will mark the sequence from number 0, while 1 for 1-based system, which will begin marking the first position with number 1. The significant difference between two system is the end position. In 0-based system, the end position is <b>exclusive</b> , which means the last position will not be contained in the sequence window while in 1-based system, the end position is <b>inclusive</b> , which means the last position is included in the sequence window. Note both systems has an inclusive start position.
+
+</p>
+<p>
+	For example, ACGTGCAT will be numbered from 1 to 8 in 1-based system and will be numbered from 0 to 8 in 0-based system to mark flanks (i.e. place between two Nucleotide). So the interval [3,5] in 1-based system is GTG while interval [2,5) in 0-based system is same segment GTG.
+</p>
+
+<h3>Choice of Strand </h3>
+
+<p>
+There are lots of definition concerning with the Directionality of DNA or RNA. Here strand element in Sequence resource is defined to have constraints with value +1 and -1 , to indicate what is the direction for nucleotide series. In order to avoid confusion, we use +1 to express the "plus" strand (5' to 3') and -1 to express the "minus" strand (3' to 5'). Here is a very simple mapping that indicates which number the expression will be represented.
+  <table border="1">
+    <tr>
+      <td><b>+1</b></td>
+      <td><b>-1</b></td> 
+    </tr>
+    <tr>
+      <td>Watson</td>
+      <td>Crick</td>
+    </tr>
+    <tr>
+      <td>Sense</td>
+      <td>Antisense</td>
+    </tr>
+    <tr>
+      <td>positive</td>
+      <td>negative</td>
+    </tr>
+  </table>
+
+</p>
+
+<p>
+Here is a small-scale example: if 5' GCGATATCGCAAA 3' is the data, then GC..AAA is plus strand while AAA..CG is the minus strand. 
+
+</p>
 </div>
+
