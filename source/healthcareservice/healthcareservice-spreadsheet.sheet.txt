@@ -491,6 +491,14 @@
   Definition = List of the specific
   To Do = Need better description
 
+ -- Row 38 -----------------------------------
+  Element = HealthcareService.endpoint
+  Card. = 0..*
+  Type = Reference(Endpoint)
+  Short Name = Technical endpoints providing access to services operated for the location
+  Definition = Technical endpoints providing access to services operated for the specific healthcare services defined at this resource
+  Requirements = Organizations may have different systems covering different services at the different locations and need to be able to define the technical connection details for how to connect to them, and for what purpose
+
 === Sheet Search =====================================
 
  -- Row 1 -----------------------------------
@@ -551,6 +559,11 @@
   Type = token
   Description = The Healthcare Service is currently marked as active
   Path = HealthcareService.active
+
+ -- Row 11 -----------------------------------
+  Name = endpoint
+  Type = reference
+  Path = HealthcareService.endpoint
 
 === Sheet Profiles =====================================
 

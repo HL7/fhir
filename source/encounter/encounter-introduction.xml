@@ -37,6 +37,13 @@ This is always expected to be the same period as the encounter itself, where thi
 encounter is entered which captures this information which is a partOf this encounter instance.
 </p>
 
+<p>
+The Procedure and encounter have references to each other, and these should be to different procedures;
+one for the procedure that was performed during the encounter (stored in Prodecure.encounter), and another for cases
+where an encounter is a result of another procedure (stored in Encounter.indication) such as a followup encounter to
+resolve complications from an earlier procedure.
+</p>
+
 <h3>Status Management</h3>
 <p>
 During the life-cycle of an encounter it will pass through many statuses. Typically these are in order or the

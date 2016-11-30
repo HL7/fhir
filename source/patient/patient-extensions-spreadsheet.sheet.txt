@@ -8,6 +8,12 @@
   Definition = A Master Patient Index (MPI) assessment of whether a candidate patient record is a match or not.
   Conformance = required
 
+ -- Row 2 -----------------------------------
+  Binding Name = Religion
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/v3-ReligiousAffiliation
+  Conformance = extensible
+
 === Sheet patient-mpi-match =====================================
 
  -- Row 1 -----------------------------------
