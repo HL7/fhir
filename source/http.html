@@ -161,6 +161,7 @@ addresses have the same identity, and if both are served, they must both represe
 check that this is true. Note: the identity comparison for protocols other than http:/https: is undefined.
 </p>
 
+<a name="versioning"> </a>
 <h3>Resource Metadata and Versioning</h3>
 <p>
 Each resource has an associated set of <a href="resource.html#metadata">resource metadata elements</a>. These map to the HTTP request and response using the following fields:
@@ -540,6 +541,7 @@ update should return an HTTP <code>400</code> error and an operation outcome.
 resource, and the second overwrites the updates of the first, can be prevented using a combination
 of the <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.19">ETag</a> and
 <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.24">If-Match</a> header.
+This is also known as 'Optimistic Locking'.
 </p>
 <p>
 To support this usage, servers SHOULD always return an <code>ETag</code> header with each resource:
