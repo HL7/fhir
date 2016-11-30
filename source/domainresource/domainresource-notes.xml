@@ -1,8 +1,7 @@
 ﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <a name="search"> </a>
-<h2>Search Parameters</h2>
-<p>This resource doesn't define any common <a href="search.html">Search parameters</a></p>
+<h2>Searching Extensions</h2>
 <p>
 To search for extensions, define a search parameter for the extension. 
 All other search parameters are named aliases for existing content in
