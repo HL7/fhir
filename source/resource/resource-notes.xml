@@ -330,7 +330,7 @@ Many trading partner agreements will make rules about what claims can be made
 and when they must be tested, which will make the profile assertion more reliable. 
 </p>
 <p>
-The list of profiles on a resource is a set, where each profile is unique based the <code>value</code> of the URI.
+The list of profiles on a resource is a set, where each profile is unique based on the <code>value</code> of the URI.
 </p>
 
 <a name="security-labels"> </a>
