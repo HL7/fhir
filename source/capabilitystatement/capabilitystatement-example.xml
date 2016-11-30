@@ -130,18 +130,11 @@
         <definition value="http://hl7.org/fhir/SearchParameter/Patient-identifier"/>
         <type value="token"/>
         <documentation value="Only supports search by institution MRN"/>
-        <modifier value="missing"/>
      </searchParam>
       <searchParam>  
         <name value="careprovider"/>
         <definition value="http://hl7.org/fhir/SearchParameter/Patient-careprovider"/>
         <type value="reference"/>
-        <!-- there's not a lot of value in saying this, since it's the only 
-          choice anyway. but in other cases it's pretty important -->
-        <target value="Organization"/>
-        <modifier value="missing"/>
-        <chain value="name"/>
-        <chain value="identifier"/>
      </searchParam>
     </resource>
     <interaction>

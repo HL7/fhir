@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Nov 29, 2016 09:59+1100 for FHIR v1.7.0
+// Generated on Thu, Dec 1, 2016 06:32+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -83,7 +83,7 @@ public class Bundle extends Resource implements IBaseBundle {
          */
         SEARCHSET, 
         /**
-         * The bundle is a set of resources collected into a single document for ease of distribution.
+         * The bundle is a set of resources collected into a single package for ease of distribution.
          */
         COLLECTION, 
         /**
@@ -154,7 +154,7 @@ public class Bundle extends Resource implements IBaseBundle {
             case BATCHRESPONSE: return "The bundle is a batch response. Note that as a batch, some responses may indicate failure and others success.";
             case HISTORY: return "The bundle is a list of resources from a history interaction on a server.";
             case SEARCHSET: return "The bundle is a list of resources returned as a result of a search/query interaction, operation, or message.";
-            case COLLECTION: return "The bundle is a set of resources collected into a single document for ease of distribution.";
+            case COLLECTION: return "The bundle is a set of resources collected into a single package for ease of distribution.";
             default: return "?";
           }
         }

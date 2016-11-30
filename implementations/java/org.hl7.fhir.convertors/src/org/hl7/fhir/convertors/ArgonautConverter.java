@@ -1101,7 +1101,7 @@ public class ArgonautConverter extends ConverterBase {
 			ms.setId(context.baseId+"-medication-"+Integer.toString(i));
 			ms.setUserData("profile", "http://hl7.org/fhir/StructureDefinition/medicationstatement-daf-dafmedicationstatement");
 			i++;
-			ms.setPatient(context.subjectRef);
+			ms.setSubject(context.subjectRef);
 
 			boolean found = false;
 			for (Element e : cda.getChildren(sa, "id")) {

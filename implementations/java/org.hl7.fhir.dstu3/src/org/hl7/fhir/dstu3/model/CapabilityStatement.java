@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Nov 29, 2016 09:59+1100 for FHIR v1.7.0
+// Generated on Thu, Dec 1, 2016 06:32+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -1038,224 +1038,6 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
       return "?";
       }
     public String toSystem(ReferenceHandlingPolicy code) {
-      return code.getSystem();
-      }
-    }
-
-    public enum SearchModifierCode {
-        /**
-         * The search parameter returns resources that have a value or not.
-         */
-        MISSING, 
-        /**
-         * The search parameter returns resources that have a value that exactly matches the supplied parameter (the whole string, including casing and accents).
-         */
-        EXACT, 
-        /**
-         * The search parameter returns resources that include the supplied parameter value anywhere within the field being searched.
-         */
-        CONTAINS, 
-        /**
-         * The search parameter returns resources that do not contain a match .
-         */
-        NOT, 
-        /**
-         * The search parameter is processed as a string that searches text associated with the code/value - either CodeableConcept.text, Coding.display, or Identifier.type.text.
-         */
-        TEXT, 
-        /**
-         * The search parameter is a URI (relative or absolute) that identifies a value set, and the search parameter tests whether the coding is in the specified value set.
-         */
-        IN, 
-        /**
-         * The search parameter is a URI (relative or absolute) that identifies a value set, and the search parameter tests whether the coding is not in the specified value set.
-         */
-        NOTIN, 
-        /**
-         * The search parameter tests whether the value in a resource is subsumed by the specified value (is-a, or hierarchical relationships).
-         */
-        BELOW, 
-        /**
-         * The search parameter tests whether the value in a resource subsumes the specified value (is-a, or hierarchical relationships).
-         */
-        ABOVE, 
-        /**
-         * The search parameter only applies to the Resource Type specified as a modifier (e.g. the modifier is not actually :type, but :Patient etc.).
-         */
-        TYPE, 
-        /**
-         * added to help the parsers with the generic types
-         */
-        NULL;
-        public static SearchModifierCode fromCode(String codeString) throws FHIRException {
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("missing".equals(codeString))
-          return MISSING;
-        if ("exact".equals(codeString))
-          return EXACT;
-        if ("contains".equals(codeString))
-          return CONTAINS;
-        if ("not".equals(codeString))
-          return NOT;
-        if ("text".equals(codeString))
-          return TEXT;
-        if ("in".equals(codeString))
-          return IN;
-        if ("not-in".equals(codeString))
-          return NOTIN;
-        if ("below".equals(codeString))
-          return BELOW;
-        if ("above".equals(codeString))
-          return ABOVE;
-        if ("type".equals(codeString))
-          return TYPE;
-        if (Configuration.isAcceptInvalidEnums())
-          return null;
-        else
-          throw new FHIRException("Unknown SearchModifierCode code '"+codeString+"'");
-        }
-        public String toCode() {
-          switch (this) {
-            case MISSING: return "missing";
-            case EXACT: return "exact";
-            case CONTAINS: return "contains";
-            case NOT: return "not";
-            case TEXT: return "text";
-            case IN: return "in";
-            case NOTIN: return "not-in";
-            case BELOW: return "below";
-            case ABOVE: return "above";
-            case TYPE: return "type";
-            default: return "?";
-          }
-        }
-        public String getSystem() {
-          switch (this) {
-            case MISSING: return "http://hl7.org/fhir/search-modifier-code";
-            case EXACT: return "http://hl7.org/fhir/search-modifier-code";
-            case CONTAINS: return "http://hl7.org/fhir/search-modifier-code";
-            case NOT: return "http://hl7.org/fhir/search-modifier-code";
-            case TEXT: return "http://hl7.org/fhir/search-modifier-code";
-            case IN: return "http://hl7.org/fhir/search-modifier-code";
-            case NOTIN: return "http://hl7.org/fhir/search-modifier-code";
-            case BELOW: return "http://hl7.org/fhir/search-modifier-code";
-            case ABOVE: return "http://hl7.org/fhir/search-modifier-code";
-            case TYPE: return "http://hl7.org/fhir/search-modifier-code";
-            default: return "?";
-          }
-        }
-        public String getDefinition() {
-          switch (this) {
-            case MISSING: return "The search parameter returns resources that have a value or not.";
-            case EXACT: return "The search parameter returns resources that have a value that exactly matches the supplied parameter (the whole string, including casing and accents).";
-            case CONTAINS: return "The search parameter returns resources that include the supplied parameter value anywhere within the field being searched.";
-            case NOT: return "The search parameter returns resources that do not contain a match .";
-            case TEXT: return "The search parameter is processed as a string that searches text associated with the code/value - either CodeableConcept.text, Coding.display, or Identifier.type.text.";
-            case IN: return "The search parameter is a URI (relative or absolute) that identifies a value set, and the search parameter tests whether the coding is in the specified value set.";
-            case NOTIN: return "The search parameter is a URI (relative or absolute) that identifies a value set, and the search parameter tests whether the coding is not in the specified value set.";
-            case BELOW: return "The search parameter tests whether the value in a resource is subsumed by the specified value (is-a, or hierarchical relationships).";
-            case ABOVE: return "The search parameter tests whether the value in a resource subsumes the specified value (is-a, or hierarchical relationships).";
-            case TYPE: return "The search parameter only applies to the Resource Type specified as a modifier (e.g. the modifier is not actually :type, but :Patient etc.).";
-            default: return "?";
-          }
-        }
-        public String getDisplay() {
-          switch (this) {
-            case MISSING: return "Missing";
-            case EXACT: return "Exact";
-            case CONTAINS: return "Contains";
-            case NOT: return "Not";
-            case TEXT: return "Text";
-            case IN: return "In";
-            case NOTIN: return "Not In";
-            case BELOW: return "Below";
-            case ABOVE: return "Above";
-            case TYPE: return "Type";
-            default: return "?";
-          }
-        }
-    }
-
-  public static class SearchModifierCodeEnumFactory implements EnumFactory<SearchModifierCode> {
-    public SearchModifierCode fromCode(String codeString) throws IllegalArgumentException {
-      if (codeString == null || "".equals(codeString))
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("missing".equals(codeString))
-          return SearchModifierCode.MISSING;
-        if ("exact".equals(codeString))
-          return SearchModifierCode.EXACT;
-        if ("contains".equals(codeString))
-          return SearchModifierCode.CONTAINS;
-        if ("not".equals(codeString))
-          return SearchModifierCode.NOT;
-        if ("text".equals(codeString))
-          return SearchModifierCode.TEXT;
-        if ("in".equals(codeString))
-          return SearchModifierCode.IN;
-        if ("not-in".equals(codeString))
-          return SearchModifierCode.NOTIN;
-        if ("below".equals(codeString))
-          return SearchModifierCode.BELOW;
-        if ("above".equals(codeString))
-          return SearchModifierCode.ABOVE;
-        if ("type".equals(codeString))
-          return SearchModifierCode.TYPE;
-        throw new IllegalArgumentException("Unknown SearchModifierCode code '"+codeString+"'");
-        }
-        public Enumeration<SearchModifierCode> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
-            return null;
-          String codeString = ((PrimitiveType) code).asStringValue();
-          if (codeString == null || "".equals(codeString))
-            return null;
-        if ("missing".equals(codeString))
-          return new Enumeration<SearchModifierCode>(this, SearchModifierCode.MISSING);
-        if ("exact".equals(codeString))
-          return new Enumeration<SearchModifierCode>(this, SearchModifierCode.EXACT);
-        if ("contains".equals(codeString))
-          return new Enumeration<SearchModifierCode>(this, SearchModifierCode.CONTAINS);
-        if ("not".equals(codeString))
-          return new Enumeration<SearchModifierCode>(this, SearchModifierCode.NOT);
-        if ("text".equals(codeString))
-          return new Enumeration<SearchModifierCode>(this, SearchModifierCode.TEXT);
-        if ("in".equals(codeString))
-          return new Enumeration<SearchModifierCode>(this, SearchModifierCode.IN);
-        if ("not-in".equals(codeString))
-          return new Enumeration<SearchModifierCode>(this, SearchModifierCode.NOTIN);
-        if ("below".equals(codeString))
-          return new Enumeration<SearchModifierCode>(this, SearchModifierCode.BELOW);
-        if ("above".equals(codeString))
-          return new Enumeration<SearchModifierCode>(this, SearchModifierCode.ABOVE);
-        if ("type".equals(codeString))
-          return new Enumeration<SearchModifierCode>(this, SearchModifierCode.TYPE);
-        throw new FHIRException("Unknown SearchModifierCode code '"+codeString+"'");
-        }
-    public String toCode(SearchModifierCode code) {
-      if (code == SearchModifierCode.MISSING)
-        return "missing";
-      if (code == SearchModifierCode.EXACT)
-        return "exact";
-      if (code == SearchModifierCode.CONTAINS)
-        return "contains";
-      if (code == SearchModifierCode.NOT)
-        return "not";
-      if (code == SearchModifierCode.TEXT)
-        return "text";
-      if (code == SearchModifierCode.IN)
-        return "in";
-      if (code == SearchModifierCode.NOTIN)
-        return "not-in";
-      if (code == SearchModifierCode.BELOW)
-        return "below";
-      if (code == SearchModifierCode.ABOVE)
-        return "above";
-      if (code == SearchModifierCode.TYPE)
-        return "type";
-      return "?";
-      }
-    public String toSystem(SearchModifierCode code) {
       return code.getSystem();
       }
     }
@@ -4900,30 +4682,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         @Description(shortDefinition="Server-specific usage", formalDefinition="This allows documentation of any distinct behaviors about how the search parameter is used.  For example, text matching algorithms." )
         protected StringType documentation;
 
-        /**
-         * Types of resource (if a resource is referenced).
-         */
-        @Child(name = "target", type = {CodeType.class}, order=5, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-        @Description(shortDefinition="Types of resource (if a resource reference)", formalDefinition="Types of resource (if a resource is referenced)." )
-        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/resource-types")
-        protected List<CodeType> target;
-
-        /**
-         * A modifier supported for the search parameter.
-         */
-        @Child(name = "modifier", type = {CodeType.class}, order=6, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-        @Description(shortDefinition="missing | exact | contains | not | text | in | not-in | below | above | type", formalDefinition="A modifier supported for the search parameter." )
-        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/search-modifier-code")
-        protected List<Enumeration<SearchModifierCode>> modifier;
-
-        /**
-         * Contains the names of any search parameters which may be chained to the containing search parameter. Chained parameters may be added to search parameters of type reference, and specify that resources will only be returned if they contain a reference to a resource which matches the chained parameter value. Values for this field should be drawn from CapabilityStatement.rest.resource.searchParam.name on the target resource type.
-         */
-        @Child(name = "chain", type = {StringType.class}, order=7, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-        @Description(shortDefinition="Chained names supported", formalDefinition="Contains the names of any search parameters which may be chained to the containing search parameter. Chained parameters may be added to search parameters of type reference, and specify that resources will only be returned if they contain a reference to a resource which matches the chained parameter value. Values for this field should be drawn from CapabilityStatement.rest.resource.searchParam.name on the target resource type." )
-        protected List<StringType> chain;
-
-        private static final long serialVersionUID = -1020405086L;
+        private static final long serialVersionUID = 72133006L;
 
     /**
      * Constructor
@@ -5129,198 +4888,12 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
           return this;
         }
 
-        /**
-         * @return {@link #target} (Types of resource (if a resource is referenced).)
-         */
-        public List<CodeType> getTarget() { 
-          if (this.target == null)
-            this.target = new ArrayList<CodeType>();
-          return this.target;
-        }
-
-        /**
-         * @return Returns a reference to <code>this</code> for easy method chaining
-         */
-        public CapabilityStatementRestResourceSearchParamComponent setTarget(List<CodeType> theTarget) { 
-          this.target = theTarget;
-          return this;
-        }
-
-        public boolean hasTarget() { 
-          if (this.target == null)
-            return false;
-          for (CodeType item : this.target)
-            if (!item.isEmpty())
-              return true;
-          return false;
-        }
-
-        /**
-         * @return {@link #target} (Types of resource (if a resource is referenced).)
-         */
-        public CodeType addTargetElement() {//2 
-          CodeType t = new CodeType();
-          if (this.target == null)
-            this.target = new ArrayList<CodeType>();
-          this.target.add(t);
-          return t;
-        }
-
-        /**
-         * @param value {@link #target} (Types of resource (if a resource is referenced).)
-         */
-        public CapabilityStatementRestResourceSearchParamComponent addTarget(String value) { //1
-          CodeType t = new CodeType();
-          t.setValue(value);
-          if (this.target == null)
-            this.target = new ArrayList<CodeType>();
-          this.target.add(t);
-          return this;
-        }
-
-        /**
-         * @param value {@link #target} (Types of resource (if a resource is referenced).)
-         */
-        public boolean hasTarget(String value) { 
-          if (this.target == null)
-            return false;
-          for (CodeType v : this.target)
-            if (v.equals(value)) // code
-              return true;
-          return false;
-        }
-
-        /**
-         * @return {@link #modifier} (A modifier supported for the search parameter.)
-         */
-        public List<Enumeration<SearchModifierCode>> getModifier() { 
-          if (this.modifier == null)
-            this.modifier = new ArrayList<Enumeration<SearchModifierCode>>();
-          return this.modifier;
-        }
-
-        /**
-         * @return Returns a reference to <code>this</code> for easy method chaining
-         */
-        public CapabilityStatementRestResourceSearchParamComponent setModifier(List<Enumeration<SearchModifierCode>> theModifier) { 
-          this.modifier = theModifier;
-          return this;
-        }
-
-        public boolean hasModifier() { 
-          if (this.modifier == null)
-            return false;
-          for (Enumeration<SearchModifierCode> item : this.modifier)
-            if (!item.isEmpty())
-              return true;
-          return false;
-        }
-
-        /**
-         * @return {@link #modifier} (A modifier supported for the search parameter.)
-         */
-        public Enumeration<SearchModifierCode> addModifierElement() {//2 
-          Enumeration<SearchModifierCode> t = new Enumeration<SearchModifierCode>(new SearchModifierCodeEnumFactory());
-          if (this.modifier == null)
-            this.modifier = new ArrayList<Enumeration<SearchModifierCode>>();
-          this.modifier.add(t);
-          return t;
-        }
-
-        /**
-         * @param value {@link #modifier} (A modifier supported for the search parameter.)
-         */
-        public CapabilityStatementRestResourceSearchParamComponent addModifier(SearchModifierCode value) { //1
-          Enumeration<SearchModifierCode> t = new Enumeration<SearchModifierCode>(new SearchModifierCodeEnumFactory());
-          t.setValue(value);
-          if (this.modifier == null)
-            this.modifier = new ArrayList<Enumeration<SearchModifierCode>>();
-          this.modifier.add(t);
-          return this;
-        }
-
-        /**
-         * @param value {@link #modifier} (A modifier supported for the search parameter.)
-         */
-        public boolean hasModifier(SearchModifierCode value) { 
-          if (this.modifier == null)
-            return false;
-          for (Enumeration<SearchModifierCode> v : this.modifier)
-            if (v.getValue().equals(value)) // code
-              return true;
-          return false;
-        }
-
-        /**
-         * @return {@link #chain} (Contains the names of any search parameters which may be chained to the containing search parameter. Chained parameters may be added to search parameters of type reference, and specify that resources will only be returned if they contain a reference to a resource which matches the chained parameter value. Values for this field should be drawn from CapabilityStatement.rest.resource.searchParam.name on the target resource type.)
-         */
-        public List<StringType> getChain() { 
-          if (this.chain == null)
-            this.chain = new ArrayList<StringType>();
-          return this.chain;
-        }
-
-        /**
-         * @return Returns a reference to <code>this</code> for easy method chaining
-         */
-        public CapabilityStatementRestResourceSearchParamComponent setChain(List<StringType> theChain) { 
-          this.chain = theChain;
-          return this;
-        }
-
-        public boolean hasChain() { 
-          if (this.chain == null)
-            return false;
-          for (StringType item : this.chain)
-            if (!item.isEmpty())
-              return true;
-          return false;
-        }
-
-        /**
-         * @return {@link #chain} (Contains the names of any search parameters which may be chained to the containing search parameter. Chained parameters may be added to search parameters of type reference, and specify that resources will only be returned if they contain a reference to a resource which matches the chained parameter value. Values for this field should be drawn from CapabilityStatement.rest.resource.searchParam.name on the target resource type.)
-         */
-        public StringType addChainElement() {//2 
-          StringType t = new StringType();
-          if (this.chain == null)
-            this.chain = new ArrayList<StringType>();
-          this.chain.add(t);
-          return t;
-        }
-
-        /**
-         * @param value {@link #chain} (Contains the names of any search parameters which may be chained to the containing search parameter. Chained parameters may be added to search parameters of type reference, and specify that resources will only be returned if they contain a reference to a resource which matches the chained parameter value. Values for this field should be drawn from CapabilityStatement.rest.resource.searchParam.name on the target resource type.)
-         */
-        public CapabilityStatementRestResourceSearchParamComponent addChain(String value) { //1
-          StringType t = new StringType();
-          t.setValue(value);
-          if (this.chain == null)
-            this.chain = new ArrayList<StringType>();
-          this.chain.add(t);
-          return this;
-        }
-
-        /**
-         * @param value {@link #chain} (Contains the names of any search parameters which may be chained to the containing search parameter. Chained parameters may be added to search parameters of type reference, and specify that resources will only be returned if they contain a reference to a resource which matches the chained parameter value. Values for this field should be drawn from CapabilityStatement.rest.resource.searchParam.name on the target resource type.)
-         */
-        public boolean hasChain(String value) { 
-          if (this.chain == null)
-            return false;
-          for (StringType v : this.chain)
-            if (v.equals(value)) // string
-              return true;
-          return false;
-        }
-
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("name", "string", "The name of the search parameter used in the interface.", 0, java.lang.Integer.MAX_VALUE, name));
           childrenList.add(new Property("definition", "uri", "An absolute URI that is a formal reference to where this parameter was first defined, so that a client can be confident of the meaning of the search parameter (a reference to [[[SearchParameter.url]]]).", 0, java.lang.Integer.MAX_VALUE, definition));
           childrenList.add(new Property("type", "code", "The type of value a search parameter refers to, and how the content is interpreted.", 0, java.lang.Integer.MAX_VALUE, type));
           childrenList.add(new Property("documentation", "string", "This allows documentation of any distinct behaviors about how the search parameter is used.  For example, text matching algorithms.", 0, java.lang.Integer.MAX_VALUE, documentation));
-          childrenList.add(new Property("target", "code", "Types of resource (if a resource is referenced).", 0, java.lang.Integer.MAX_VALUE, target));
-          childrenList.add(new Property("modifier", "code", "A modifier supported for the search parameter.", 0, java.lang.Integer.MAX_VALUE, modifier));
-          childrenList.add(new Property("chain", "string", "Contains the names of any search parameters which may be chained to the containing search parameter. Chained parameters may be added to search parameters of type reference, and specify that resources will only be returned if they contain a reference to a resource which matches the chained parameter value. Values for this field should be drawn from CapabilityStatement.rest.resource.searchParam.name on the target resource type.", 0, java.lang.Integer.MAX_VALUE, chain));
         }
 
       @Override
@@ -5330,9 +4903,6 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         case -1014418093: /*definition*/ return this.definition == null ? new Base[0] : new Base[] {this.definition}; // UriType
         case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // Enumeration<SearchParamType>
         case 1587405498: /*documentation*/ return this.documentation == null ? new Base[0] : new Base[] {this.documentation}; // StringType
-        case -880905839: /*target*/ return this.target == null ? new Base[0] : this.target.toArray(new Base[this.target.size()]); // CodeType
-        case -615513385: /*modifier*/ return this.modifier == null ? new Base[0] : this.modifier.toArray(new Base[this.modifier.size()]); // Enumeration<SearchModifierCode>
-        case 94623425: /*chain*/ return this.chain == null ? new Base[0] : this.chain.toArray(new Base[this.chain.size()]); // StringType
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -5353,15 +4923,6 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         case 1587405498: // documentation
           this.documentation = castToString(value); // StringType
           break;
-        case -880905839: // target
-          this.getTarget().add(castToCode(value)); // CodeType
-          break;
-        case -615513385: // modifier
-          this.getModifier().add(new SearchModifierCodeEnumFactory().fromType(value)); // Enumeration<SearchModifierCode>
-          break;
-        case 94623425: // chain
-          this.getChain().add(castToString(value)); // StringType
-          break;
         default: super.setProperty(hash, name, value);
         }
 
@@ -5377,12 +4938,6 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
           this.type = new SearchParamTypeEnumFactory().fromType(value); // Enumeration<SearchParamType>
         else if (name.equals("documentation"))
           this.documentation = castToString(value); // StringType
-        else if (name.equals("target"))
-          this.getTarget().add(castToCode(value));
-        else if (name.equals("modifier"))
-          this.getModifier().add(new SearchModifierCodeEnumFactory().fromType(value));
-        else if (name.equals("chain"))
-          this.getChain().add(castToString(value));
         else
           super.setProperty(name, value);
       }
@@ -5394,9 +4949,6 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         case -1014418093: throw new FHIRException("Cannot make property definition as it is not a complex type"); // UriType
         case 3575610: throw new FHIRException("Cannot make property type as it is not a complex type"); // Enumeration<SearchParamType>
         case 1587405498: throw new FHIRException("Cannot make property documentation as it is not a complex type"); // StringType
-        case -880905839: throw new FHIRException("Cannot make property target as it is not a complex type"); // CodeType
-        case -615513385: throw new FHIRException("Cannot make property modifier as it is not a complex type"); // Enumeration<SearchModifierCode>
-        case 94623425: throw new FHIRException("Cannot make property chain as it is not a complex type"); // StringType
         default: return super.makeProperty(hash, name);
         }
 
@@ -5416,15 +4968,6 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         else if (name.equals("documentation")) {
           throw new FHIRException("Cannot call addChild on a primitive type CapabilityStatement.documentation");
         }
-        else if (name.equals("target")) {
-          throw new FHIRException("Cannot call addChild on a primitive type CapabilityStatement.target");
-        }
-        else if (name.equals("modifier")) {
-          throw new FHIRException("Cannot call addChild on a primitive type CapabilityStatement.modifier");
-        }
-        else if (name.equals("chain")) {
-          throw new FHIRException("Cannot call addChild on a primitive type CapabilityStatement.chain");
-        }
         else
           return super.addChild(name);
       }
@@ -5436,21 +4979,6 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         dst.definition = definition == null ? null : definition.copy();
         dst.type = type == null ? null : type.copy();
         dst.documentation = documentation == null ? null : documentation.copy();
-        if (target != null) {
-          dst.target = new ArrayList<CodeType>();
-          for (CodeType i : target)
-            dst.target.add(i.copy());
-        };
-        if (modifier != null) {
-          dst.modifier = new ArrayList<Enumeration<SearchModifierCode>>();
-          for (Enumeration<SearchModifierCode> i : modifier)
-            dst.modifier.add(i.copy());
-        };
-        if (chain != null) {
-          dst.chain = new ArrayList<StringType>();
-          for (StringType i : chain)
-            dst.chain.add(i.copy());
-        };
         return dst;
       }
 
@@ -5462,8 +4990,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
           return false;
         CapabilityStatementRestResourceSearchParamComponent o = (CapabilityStatementRestResourceSearchParamComponent) other;
         return compareDeep(name, o.name, true) && compareDeep(definition, o.definition, true) && compareDeep(type, o.type, true)
-           && compareDeep(documentation, o.documentation, true) && compareDeep(target, o.target, true) && compareDeep(modifier, o.modifier, true)
-           && compareDeep(chain, o.chain, true);
+           && compareDeep(documentation, o.documentation, true);
       }
 
       @Override
@@ -5474,13 +5001,12 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
           return false;
         CapabilityStatementRestResourceSearchParamComponent o = (CapabilityStatementRestResourceSearchParamComponent) other;
         return compareValues(name, o.name, true) && compareValues(definition, o.definition, true) && compareValues(type, o.type, true)
-           && compareValues(documentation, o.documentation, true) && compareValues(target, o.target, true) && compareValues(modifier, o.modifier, true)
-           && compareValues(chain, o.chain, true);
+           && compareValues(documentation, o.documentation, true);
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(name, definition, type, documentation
-          , target, modifier, chain);
+          );
       }
 
   public String fhirType() {
@@ -7411,7 +6937,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
      * Reference to a canonical URL of another CapabilityStatement that this software implements or uses. This capability statement is a published API description that corresponds to a business service. The rest of the capability statement does not need to repeat the details of the referenced resource, but can do so.
      */
     @Child(name = "instantiates", type = {UriType.class}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-    @Description(shortDefinition="Canonical URL of service implemented/used by software", formalDefinition="Reference to a canonical URL of another CapabilityStatement that this software implements or uses. This capability statement is a published API description that corresponds to a business service. The rest of the capability statement does not need to repeat the details of the referenced resource, but can do so." )
+    @Description(shortDefinition="Canonical URL of another capability statement this implements", formalDefinition="Reference to a canonical URL of another CapabilityStatement that this software implements or uses. This capability statement is a published API description that corresponds to a business service. The rest of the capability statement does not need to repeat the details of the referenced resource, but can do so." )
     protected List<UriType> instantiates;
 
     /**

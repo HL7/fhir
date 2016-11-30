@@ -4765,12 +4765,6 @@ public class VersionConvertor_10_20 {
     tgt.setDefinition(src.getDefinition());
     tgt.setType(convertSearchParamType(src.getType()));
     tgt.setDocumentation(src.getDocumentation());
-    for (org.hl7.fhir.dstu2.model.CodeType t : src.getTarget())
-      tgt.addTarget(t.getValue());
-    for (org.hl7.fhir.dstu2.model.Enumeration<org.hl7.fhir.dstu2.model.Conformance.SearchModifierCode> t : src.getModifier())
-      tgt.addModifier(convertSearchModifierCode(t.getValue()));
-    for (org.hl7.fhir.dstu2.model.StringType t : src.getChain())
-      tgt.addChain(t.getValue());
     return tgt;
   }
 
@@ -4783,49 +4777,7 @@ public class VersionConvertor_10_20 {
     tgt.setDefinition(src.getDefinition());
     tgt.setType(convertSearchParamType(src.getType()));
     tgt.setDocumentation(src.getDocumentation());
-    for (org.hl7.fhir.dstu3.model.CodeType t : src.getTarget())
-      tgt.addTarget(t.getValue());
-    for (org.hl7.fhir.dstu3.model.Enumeration<org.hl7.fhir.dstu3.model.CapabilityStatement.SearchModifierCode> t : src.getModifier())
-      tgt.addModifier(convertSearchModifierCode(t.getValue()));
-    for (org.hl7.fhir.dstu3.model.StringType t : src.getChain())
-      tgt.addChain(t.getValue());
     return tgt;
-  }
-
-  public org.hl7.fhir.dstu3.model.CapabilityStatement.SearchModifierCode convertSearchModifierCode(org.hl7.fhir.dstu2.model.Conformance.SearchModifierCode src) throws FHIRException {
-    if (src == null)
-      return null;
-    switch (src) {
-    case MISSING: return org.hl7.fhir.dstu3.model.CapabilityStatement.SearchModifierCode.MISSING;
-    case EXACT: return org.hl7.fhir.dstu3.model.CapabilityStatement.SearchModifierCode.EXACT;
-    case CONTAINS: return org.hl7.fhir.dstu3.model.CapabilityStatement.SearchModifierCode.CONTAINS;
-    case NOT: return org.hl7.fhir.dstu3.model.CapabilityStatement.SearchModifierCode.NOT;
-    case TEXT: return org.hl7.fhir.dstu3.model.CapabilityStatement.SearchModifierCode.TEXT;
-    case IN: return org.hl7.fhir.dstu3.model.CapabilityStatement.SearchModifierCode.IN;
-    case NOTIN: return org.hl7.fhir.dstu3.model.CapabilityStatement.SearchModifierCode.NOTIN;
-    case BELOW: return org.hl7.fhir.dstu3.model.CapabilityStatement.SearchModifierCode.BELOW;
-    case ABOVE: return org.hl7.fhir.dstu3.model.CapabilityStatement.SearchModifierCode.ABOVE;
-    case TYPE: return org.hl7.fhir.dstu3.model.CapabilityStatement.SearchModifierCode.TYPE;
-    default: return org.hl7.fhir.dstu3.model.CapabilityStatement.SearchModifierCode.NULL;
-    }
-  }
-
-  public org.hl7.fhir.dstu2.model.Conformance.SearchModifierCode convertSearchModifierCode(org.hl7.fhir.dstu3.model.CapabilityStatement.SearchModifierCode src) throws FHIRException {
-    if (src == null)
-      return null;
-    switch (src) {
-    case MISSING: return org.hl7.fhir.dstu2.model.Conformance.SearchModifierCode.MISSING;
-    case EXACT: return org.hl7.fhir.dstu2.model.Conformance.SearchModifierCode.EXACT;
-    case CONTAINS: return org.hl7.fhir.dstu2.model.Conformance.SearchModifierCode.CONTAINS;
-    case NOT: return org.hl7.fhir.dstu2.model.Conformance.SearchModifierCode.NOT;
-    case TEXT: return org.hl7.fhir.dstu2.model.Conformance.SearchModifierCode.TEXT;
-    case IN: return org.hl7.fhir.dstu2.model.Conformance.SearchModifierCode.IN;
-    case NOTIN: return org.hl7.fhir.dstu2.model.Conformance.SearchModifierCode.NOTIN;
-    case BELOW: return org.hl7.fhir.dstu2.model.Conformance.SearchModifierCode.BELOW;
-    case ABOVE: return org.hl7.fhir.dstu2.model.Conformance.SearchModifierCode.ABOVE;
-    case TYPE: return org.hl7.fhir.dstu2.model.Conformance.SearchModifierCode.TYPE;
-    default: return org.hl7.fhir.dstu2.model.Conformance.SearchModifierCode.NULL;
-    }
   }
 
   public org.hl7.fhir.dstu3.model.CapabilityStatement.SystemInteractionComponent convertSystemInteractionComponent(org.hl7.fhir.dstu2.model.Conformance.SystemInteractionComponent src) throws FHIRException {
@@ -6833,8 +6785,6 @@ public class VersionConvertor_10_20 {
     copyDomainResource(src, tgt);
     for (org.hl7.fhir.dstu2.model.Identifier t : src.getIdentifier())
       tgt.addIdentifier(convertIdentifier(t));
-    tgt.setRuleset(convertCoding(src.getRuleset()));
-    tgt.setOriginalRuleset(convertCoding(src.getOriginalRuleset()));
     tgt.setCreated(src.getCreated());
 //    tgt.setTarget(convertReference(src.getTarget()));
     tgt.setProvider(convertReference(src.getProvider()));
@@ -6852,8 +6802,6 @@ public class VersionConvertor_10_20 {
     copyDomainResource(src, tgt);
     for (org.hl7.fhir.dstu3.model.Identifier t : src.getIdentifier())
       tgt.addIdentifier(convertIdentifier(t));
-    tgt.setRuleset(convertCoding(src.getRuleset()));
-    tgt.setOriginalRuleset(convertCoding(src.getOriginalRuleset()));
     tgt.setCreated(src.getCreated());
 //    tgt.setTarget(convertReference(src.getTarget()));
 //    tgt.setProvider(convertReference(src.getProvider()));
@@ -6874,8 +6822,6 @@ public class VersionConvertor_10_20 {
     tgt.setRequest(convertReference(src.getRequest()));
 //    tgt.setOutcome(convertRemittanceOutcome(src.getOutcome()));
     tgt.setDisposition(src.getDisposition());
-    tgt.setRuleset(convertCoding(src.getRuleset()));
-    tgt.setOriginalRuleset(convertCoding(src.getOriginalRuleset()));
     tgt.setCreated(src.getCreated());
     tgt.setOrganization(convertReference(src.getOrganization()));
     tgt.setRequestProvider(convertReference(src.getRequestProvider()));
@@ -6893,8 +6839,6 @@ public class VersionConvertor_10_20 {
 //      tgt.setRequest(convertReference(src.getRequestReference()));
 //    tgt.setOutcome(convertRemittanceOutcome(src.getOutcome()));
     tgt.setDisposition(src.getDisposition());
-    tgt.setRuleset(convertCoding(src.getRuleset()));
-    tgt.setOriginalRuleset(convertCoding(src.getOriginalRuleset()));
     tgt.setCreated(src.getCreated());
 //      tgt.setOrganization(convertReference(src.getOrganizationReference()));
 //      tgt.setRequestProvider(convertReference(src.getRequestProviderReference()));
@@ -8736,7 +8680,8 @@ public class VersionConvertor_10_20 {
     org.hl7.fhir.dstu3.model.MedicationAdministration.MedicationAdministrationDosageComponent tgt = new org.hl7.fhir.dstu3.model.MedicationAdministration.MedicationAdministrationDosageComponent();
     copyElement(src, tgt);
     tgt.setText(src.getText());
-    tgt.setSite(convertType(src.getSite()));
+    if (src.hasSiteCodeableConcept())
+      tgt.setSite(convertCodeableConcept(src.getSiteCodeableConcept()));
     tgt.setRoute(convertCodeableConcept(src.getRoute()));
     tgt.setMethod(convertCodeableConcept(src.getMethod()));
 //    tgt.setQuantity(convertSimpleQuantity(src.getQuantity()));
@@ -8849,7 +8794,8 @@ public class VersionConvertor_10_20 {
 //    tgt.setAdditionalInstructions(convertCodeableConcept(src.getAdditionalInstructions()));
     tgt.setTiming(convertTiming(src.getTiming()));
     tgt.setAsNeeded(convertType(src.getAsNeeded()));
-    tgt.setSite(convertType(src.getSite()));
+    if (src.hasSiteCodeableConcept())
+      tgt.setSite(convertCodeableConcept(src.getSiteCodeableConcept()));
     tgt.setRoute(convertCodeableConcept(src.getRoute()));
     tgt.setMethod(convertCodeableConcept(src.getMethod()));
     tgt.setDose(convertType(src.getDose()));
@@ -8999,7 +8945,8 @@ public class VersionConvertor_10_20 {
 //    tgt.setAdditionalInstructions(convertCodeableConcept(src.getAdditionalInstructions()));
     tgt.setTiming(convertTiming(src.getTiming()));
     tgt.setAsNeeded(convertType(src.getAsNeeded()));
-    tgt.setSite(convertType(src.getSite()));
+    if (src.hasSiteCodeableConcept())
+      tgt.setSite(convertCodeableConcept(src.getSiteCodeableConcept()));
     tgt.setRoute(convertCodeableConcept(src.getRoute()));
     tgt.setMethod(convertCodeableConcept(src.getMethod()));
     tgt.setDose(convertType(src.getDose()));
@@ -9081,7 +9028,7 @@ public class VersionConvertor_10_20 {
       tgt.addIdentifier(convertIdentifier(t));
     tgt.setStatus(convertMedicationStatementStatus(src.getStatus()));
     tgt.setMedication(convertType(src.getMedication()));
-    tgt.setPatient(convertReference(src.getPatient()));
+    tgt.setSubject(convertReference(src.getPatient()));
     tgt.setEffective(convertType(src.getEffective()));
     tgt.setInformationSource(convertReference(src.getInformationSource()));
     for (org.hl7.fhir.dstu2.model.Reference t : src.getSupportingInformation())
@@ -9108,7 +9055,7 @@ public class VersionConvertor_10_20 {
       tgt.addIdentifier(convertIdentifier(t));
     tgt.setStatus(convertMedicationStatementStatus(src.getStatus()));
     tgt.setMedication(convertType(src.getMedication()));
-    tgt.setPatient(convertReference(src.getPatient()));
+    tgt.setPatient(convertReference(src.getSubject()));
     tgt.setEffective(convertType(src.getEffective()));
     tgt.setInformationSource(convertReference(src.getInformationSource()));
     for (org.hl7.fhir.dstu3.model.Reference t : src.getDerivedFrom())
@@ -9158,7 +9105,8 @@ public class VersionConvertor_10_20 {
     tgt.setText(src.getText());
     tgt.setTiming(convertTiming(src.getTiming()));
     tgt.setAsNeeded(convertType(src.getAsNeeded()));
-    tgt.setSite(convertType(src.getSite()));
+    if (src.hasSiteCodeableConcept())
+      tgt.setSite(convertCodeableConcept(src.getSiteCodeableConcept()));
     tgt.setRoute(convertCodeableConcept(src.getRoute()));
     tgt.setMethod(convertCodeableConcept(src.getMethod()));
 //    tgt.setQuantity(convertType(src.getQuantity()));

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Nov 29, 2016 09:59+1100 for FHIR v1.7.0
+// Generated on Thu, Dec 1, 2016 06:32+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -1018,9 +1018,9 @@ public class ElementDefinition extends Type implements ICompositeType {
 
         public ElementDefinitionBaseComponent(String path, int min, String max) {
           super();
-          setPath(path);
-          setMin(min);
-          setMax(max);
+          this.setPath(path);
+          this.setMin(min);
+          this.setMax(max);
     }
 
         /**
@@ -1741,7 +1741,7 @@ public class ElementDefinition extends Type implements ICompositeType {
         /**
          * The actual value for the element, which must be one of the types allowed for this element.
          */
-        @Child(name = "value", type = {}, order=2, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "value", type = {}, order=2, min=1, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Value of Example (one of allowed types)", formalDefinition="The actual value for the element, which must be one of the types allowed for this element." )
         protected org.hl7.fhir.dstu3.model.Type value;
 
@@ -1757,9 +1757,10 @@ public class ElementDefinition extends Type implements ICompositeType {
     /**
      * Constructor
      */
-      public ElementDefinitionExampleComponent(StringType label) {
+      public ElementDefinitionExampleComponent(StringType label, org.hl7.fhir.dstu3.model.Type value) {
         super();
         this.label = label;
+        this.value = value;
       }
 
         /**

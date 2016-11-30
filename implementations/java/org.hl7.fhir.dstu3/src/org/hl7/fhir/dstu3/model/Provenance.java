@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Nov 29, 2016 09:59+1100 for FHIR v1.7.0
+// Generated on Thu, Dec 1, 2016 06:32+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -1647,27 +1647,21 @@ public class Provenance extends DomainResource {
    * Search parameter: <b>agent</b>
    * <p>
    * Description: <b>Who participated</b><br>
-   * Type: <b>reference</b><br>
+   * Type: <b>token</b><br>
    * Path: <b>Provenance.agent.who[x]</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="agent", path="Provenance.agent.who", description="Who participated", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Device"), @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner"), @ca.uhn.fhir.model.api.annotation.Compartment(name="RelatedPerson") }, target={Device.class, Organization.class, Patient.class, Practitioner.class, RelatedPerson.class } )
+  @SearchParamDefinition(name="agent", path="Provenance.agent.who", description="Who participated", type="token", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Device"), @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner"), @ca.uhn.fhir.model.api.annotation.Compartment(name="RelatedPerson") } )
   public static final String SP_AGENT = "agent";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>agent</b>
    * <p>
    * Description: <b>Who participated</b><br>
-   * Type: <b>reference</b><br>
+   * Type: <b>token</b><br>
    * Path: <b>Provenance.agent.who[x]</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam AGENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_AGENT);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>Provenance:agent</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_AGENT = new ca.uhn.fhir.model.api.Include("Provenance:agent").toLocked();
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam AGENT = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_AGENT);
 
  /**
    * Search parameter: <b>patient</b>

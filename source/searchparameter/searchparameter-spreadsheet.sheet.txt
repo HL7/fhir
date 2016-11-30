@@ -8,6 +8,19 @@
   Definition = How a search parameter relates to the set of elements returned by evaluating its xpath query.
   Conformance = required
 
+ -- Row 2 -----------------------------------
+  Binding Name = SearchComparator
+  Binding = code list
+  Reference = #search-comparator
+  Definition = What Search Comparator Codes are supported in search
+  Conformance = required
+
+ -- Row 3 -----------------------------------
+  Binding Name = SearchModifierCode
+  Binding = code list
+  Reference = #search-modifier-code
+  Definition = A supported modifier for a search parameter.
+
 === Sheet search-xpath-usage =====================================
 
  -- Row 1 -----------------------------------
@@ -40,6 +53,124 @@
   Display = Other
   Definition = The interpretation of the xpath statement is unknown (and can\'t be automated).
 
+=== Sheet search-comparator =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = eq
+  Display = Equals
+  Definition = the value for the parameter in the resource is equal to the provided value
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = ne
+  Display = Not Equals
+  Definition = the value for the parameter in the resource is not equal to the provided value
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = gt
+  Display = Greater Than
+  Definition = the value for the parameter in the resource is greater than the provided value
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = lt
+  Display = Less Then
+  Definition = the value for the parameter in the resource is less than the provided value
+
+ -- Row 5 -----------------------------------
+  Id = 5
+  Code = ge
+  Display = Greater or Equals
+  Definition = the value for the parameter in the resource is greater or equal to the provided value
+
+ -- Row 6 -----------------------------------
+  Id = 6
+  Code = le
+  Display = Less of Equal
+  Definition = the value for the parameter in the resource is less or equal to the provided value
+
+ -- Row 7 -----------------------------------
+  Id = 7
+  Code = sa
+  Display = Starts After
+  Definition = the value for the parameter in the resource starts after the provided value
+
+ -- Row 8 -----------------------------------
+  Id = 8
+  Code = eb
+  Display = Ends Before
+  Definition = the value for the parameter in the resource ends before the provided value
+
+ -- Row 9 -----------------------------------
+  Id = 9
+  Code = ap
+  Display = Approximately
+  Definition = the value for the parameter in the resource is approximately the same to the provided value.
+
+=== Sheet search-modifier-code =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = missing
+  Display = Missing
+  Definition = The search parameter returns resources that have a value or not.
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = exact
+  Display = Exact
+  Definition = The search parameter returns resources that have a value that exactly matches the supplied parameter (the whole string, including casing and accents).
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = contains
+  Display = Contains
+  Definition = The search parameter returns resources that include the supplied parameter value anywhere within the field being searched.
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = not
+  Display = Not
+  Definition = The search parameter returns resources that do not contain a match .
+
+ -- Row 5 -----------------------------------
+  Id = 5
+  Code = text
+  Display = Text
+  Definition = The search parameter is processed as a string that searches text associated with the code/value - either CodeableConcept.text, Coding.display, or Identifier.type.text.
+
+ -- Row 6 -----------------------------------
+  Id = 6
+  Code = in
+  Display = In
+  Definition = The search parameter is a URI (relative or absolute) that identifies a value set, and the search parameter tests whether the coding is in the specified value set.
+
+ -- Row 7 -----------------------------------
+  Id = 7
+  Code = not-in
+  Display = Not In
+  Definition = The search parameter is a URI (relative or absolute) that identifies a value set, and the search parameter tests whether the coding is not in the specified value set.
+
+ -- Row 8 -----------------------------------
+  Id = 8
+  Code = below
+  Display = Below
+  Definition = The search parameter tests whether the value in a resource is subsumed by the specified value (is-a, or hierarchical relationships).
+
+ -- Row 9 -----------------------------------
+  Id = 9
+  Code = above
+  Display = Above
+  Definition = The search parameter tests whether the value in a resource subsumes the specified value (is-a, or hierarchical relationships).
+
+ -- Row 10 -----------------------------------
+  Id = 10
+  Code = type
+  Display = Type
+  Definition = The search parameter only applies to the Resource Type specified as a modifier (e.g. the modifier is not actually :type, but :Patient etc.).
+
 === Sheet Invariants =====================================
 
  -- Row 1 -----------------------------------
@@ -49,6 +180,13 @@
   XPath = not(exists(f:xpath)) or exists(f:xpathUsage)
   Expression = xpath.empty() or xpathUsage.exists()
   Severity = error
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Context = SearchParameter
+  English = Search parameters can only have chain names when the search parameter type is \'reference\'
+  XPath = not(exists(f:chain)) or (f:type/@value = \'reference\')
+  Expression = chain.empty() or type = \'reference\'
 
 === Sheet Data Elements =====================================
 
@@ -131,12 +269,20 @@
   Definition = The type of value a search parameter refers to, and how the content is interpreted
 
  -- Row 16 -----------------------------------
+  Element = SearchParameter.derivedFrom
+  Card. = 0..1
+  Type = uri
+  Short Name = Original Definition for the search parameter
+  Definition = Where this search parameter is originally defined. If a derivedFrom is provided, then the details in the search parameter must be consistent with the definition from which it is defined. I.e. the parameter should have the same meaning, and (usually) the functionality should be a proper subset of the underlying search parameter
+  Comments = The intent of this is that a server can designate that it provides support for E.g. the \"value-quantity\" search parameter defined in the specification itself (http://hl7.org/fhir/SearchParameter/Observation-value-quantity), but detail how it is supported by the server
+
+ -- Row 17 -----------------------------------
   Element = SearchParameter.description
   Card. = 1..1
   Summary = y
   Definition = & and how it used
 
- -- Row 17 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = SearchParameter.expression
   Card. = 0..1
   Inv. = 1
@@ -145,7 +291,7 @@
   Definition = A FluentPath expression that returns a set of elements for the search parameter
   Comments = Note that the elements returned by the expression are sometimes complex elements where logic is required to determine quite how to handle them; e.g. CodeableConcepts may contain text and/or multiple codings, where the codings themselves contain a code and a system
 
- -- Row 18 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = SearchParameter.xpath
   Card. = 0..1
   Inv. = 1
@@ -154,7 +300,7 @@
   Definition = An XPath expression that returns a set of elements for the search parameter
   Comments = Note that the elements returned by the XPath are sometimes complex elements where logic is required to determine quite how to handle them; e.g. CodeableConcepts may contain text and/or multiple codings, where the codings themselves contain a code and a system
 
- -- Row 19 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = SearchParameter.xpathUsage
   Card. = 0..1
   Inv. = 1
@@ -163,7 +309,7 @@
   Short Name = normal | phonetic | nearby | distance | other
   Definition = How the search parameter relates to the set of elements returned by evaluating the xpath query
 
- -- Row 20 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = SearchParameter.target
   Card. = 0..*
   Type = code
@@ -171,7 +317,32 @@
   Short Name = Types of resource (if a resource reference)
   Definition = Types of resource (if a resource is referenced)
 
- -- Row 21 -----------------------------------
+ -- Row 22 -----------------------------------
+  Element = SearchParameter.comparator
+  Card. = 0..*
+  Type = code
+  Binding = SearchComparator
+  Short Name = eq | ne | gt | lt | ge | le | sa | eb | ap
+  Definition = Comparators supported for the search parameter
+  Comments = If no comparators are listed, clients should not expect servers to support any comparators
+
+ -- Row 23 -----------------------------------
+  Element = SearchParameter.modifier
+  Card. = 0..*
+  Type = code
+  Binding = SearchModifierCode
+  Short Name = missing | exact | contains | not | text | in | not-in | below | above | type
+  Definition = A modifier supported for the search parameter
+
+ -- Row 24 -----------------------------------
+  Element = SearchParameter.chain
+  Card. = 0..*
+  Type = string
+  Short Name = Chained names supported
+  Definition = Contains the names of any search parameters which may be chained to the containing search parameter. Chained parameters may be added to search parameters of type reference, and specify that resources will only be returned if they contain a reference to a resource which matches the chained parameter value. Values for this field should be drawn from SearchParameter.code for a parameter on the target resource type
+  Comments = Systems are not required to list all the chain names they support, but if they don\'t list them, clients may not know to use them
+
+ -- Row 25 -----------------------------------
   Element = SearchParameter.component
   Card. = 0..*
   Type = Reference(SearchParameter)
@@ -205,6 +376,11 @@
   Type = reference
   Path = SearchParameter.component
 
+ -- Row 6 -----------------------------------
+  Name = derived-from
+  Type = uri
+  Path = SearchParameter.derivedFrom
+
 === Sheet Profiles =====================================
 
  -- Row 1 -----------------------------------
@@ -226,5 +402,11 @@
   Identity = example-extension
   Description = Search parameter for an extension example
   Filename = searchparameter-example-extension.xml
+
+ -- Row 3 -----------------------------------
+  Name = Reference
+  Identity = example-reference
+  Description = Search parameter for a reference example
+  Filename = searchparameter-example-reference.xml
 
 === Sheet Examples =====================================

@@ -3698,12 +3698,6 @@ public class VersionConvertor_14_20 {
     tgt.setType(convertSearchParamType(src.getType()));
     if (src.hasDocumentation())
       tgt.setDocumentation(src.getDocumentation());
-    for (org.hl7.fhir.dstu2016may.model.CodeType t : src.getTarget())
-      tgt.addTarget(t.getValue());
-    for (org.hl7.fhir.dstu2016may.model.Enumeration<org.hl7.fhir.dstu2016may.model.Conformance.SearchModifierCode> t : src.getModifier())
-      tgt.addModifier(convertSearchModifierCode(t.getValue()));
-    for (org.hl7.fhir.dstu2016may.model.StringType t : src.getChain())
-      tgt.addChain(t.getValue());
     return tgt;
   }
 
@@ -3718,50 +3712,7 @@ public class VersionConvertor_14_20 {
     tgt.setType(convertSearchParamType(src.getType()));
     if (src.hasDocumentation())
       tgt.setDocumentation(src.getDocumentation());
-    for (org.hl7.fhir.dstu3.model.CodeType t : src.getTarget())
-      tgt.addTarget(t.getValue());
-    for (org.hl7.fhir.dstu3.model.Enumeration<org.hl7.fhir.dstu3.model.CapabilityStatement.SearchModifierCode> t : src.getModifier())
-      tgt.addModifier(convertSearchModifierCode(t.getValue()));
-    for (org.hl7.fhir.dstu3.model.StringType t : src.getChain())
-      tgt.addChain(t.getValue());
     return tgt;
-  }
-
-
-  private static org.hl7.fhir.dstu3.model.CapabilityStatement.SearchModifierCode convertSearchModifierCode(org.hl7.fhir.dstu2016may.model.Conformance.SearchModifierCode src) throws FHIRException {
-    if (src == null)
-      return null;
-    switch (src) {
-    case MISSING: return org.hl7.fhir.dstu3.model.CapabilityStatement.SearchModifierCode.MISSING;
-    case EXACT: return org.hl7.fhir.dstu3.model.CapabilityStatement.SearchModifierCode.EXACT;
-    case CONTAINS: return org.hl7.fhir.dstu3.model.CapabilityStatement.SearchModifierCode.CONTAINS;
-    case NOT: return org.hl7.fhir.dstu3.model.CapabilityStatement.SearchModifierCode.NOT;
-    case TEXT: return org.hl7.fhir.dstu3.model.CapabilityStatement.SearchModifierCode.TEXT;
-    case IN: return org.hl7.fhir.dstu3.model.CapabilityStatement.SearchModifierCode.IN;
-    case NOTIN: return org.hl7.fhir.dstu3.model.CapabilityStatement.SearchModifierCode.NOTIN;
-    case BELOW: return org.hl7.fhir.dstu3.model.CapabilityStatement.SearchModifierCode.BELOW;
-    case ABOVE: return org.hl7.fhir.dstu3.model.CapabilityStatement.SearchModifierCode.ABOVE;
-    case TYPE: return org.hl7.fhir.dstu3.model.CapabilityStatement.SearchModifierCode.TYPE;
-    default: return org.hl7.fhir.dstu3.model.CapabilityStatement.SearchModifierCode.NULL;
-    }
-  }
-
-  private static org.hl7.fhir.dstu2016may.model.Conformance.SearchModifierCode convertSearchModifierCode(org.hl7.fhir.dstu3.model.CapabilityStatement.SearchModifierCode src) throws FHIRException {
-    if (src == null)
-      return null;
-    switch (src) {
-    case MISSING: return org.hl7.fhir.dstu2016may.model.Conformance.SearchModifierCode.MISSING;
-    case EXACT: return org.hl7.fhir.dstu2016may.model.Conformance.SearchModifierCode.EXACT;
-    case CONTAINS: return org.hl7.fhir.dstu2016may.model.Conformance.SearchModifierCode.CONTAINS;
-    case NOT: return org.hl7.fhir.dstu2016may.model.Conformance.SearchModifierCode.NOT;
-    case TEXT: return org.hl7.fhir.dstu2016may.model.Conformance.SearchModifierCode.TEXT;
-    case IN: return org.hl7.fhir.dstu2016may.model.Conformance.SearchModifierCode.IN;
-    case NOTIN: return org.hl7.fhir.dstu2016may.model.Conformance.SearchModifierCode.NOTIN;
-    case BELOW: return org.hl7.fhir.dstu2016may.model.Conformance.SearchModifierCode.BELOW;
-    case ABOVE: return org.hl7.fhir.dstu2016may.model.Conformance.SearchModifierCode.ABOVE;
-    case TYPE: return org.hl7.fhir.dstu2016may.model.Conformance.SearchModifierCode.TYPE;
-    default: return org.hl7.fhir.dstu2016may.model.Conformance.SearchModifierCode.NULL;
-    }
   }
 
   public static org.hl7.fhir.dstu3.model.CapabilityStatement.SystemInteractionComponent convertSystemInteractionComponent(org.hl7.fhir.dstu2016may.model.Conformance.SystemInteractionComponent src) throws FHIRException {

@@ -8008,9 +8008,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       for (SearchParameter sp : list) {
         if (sp.getBase().size() > 1) {
           SearchParameterDefn spd = definitions.getResourceByName(base).getSearchParams().get(sp.getCode());
-          b.append("<tr><td>"+sp.getCode()+"</td><td><a href=\"search.html#"+sp.getType().toCode()+"\">"+sp.getType().toCode()+"</a></td><td>"+processMarkdown("allsearchparams", spd.getDescription(), "")+"</td><td>"+Utilities.escapeXml(spd.getExpression())+"</td></tr>\r\n");
+          b.append("<tr><td title=\"http://hl7.org/fhir/SearchParameter/"+sp.getId()+"\">"+sp.getCode()+"</td><td><a href=\"search.html#"+sp.getType().toCode()+"\">"+sp.getType().toCode()+"</a></td><td>"+processMarkdown("allsearchparams", spd.getDescription(), "")+"</td><td>"+Utilities.escapeXml(spd.getExpression())+"</td></tr>\r\n");
         } else
-          b.append("<tr><td>"+sp.getCode()+"</td><td><a href=\"search.html#"+sp.getType().toCode()+"\">"+sp.getType().toCode()+"</a></td><td>"+processMarkdown("allsearchparams", sp.getDescription(), "")+"</td><td>"+Utilities.escapeXml(sp.getExpression())+"</td></tr>\r\n");
+          b.append("<tr><td title=\"http://hl7.org/fhir/SearchParameter/"+sp.getId()+"\">"+sp.getCode()+"</td><td><a href=\"search.html#"+sp.getType().toCode()+"\">"+sp.getType().toCode()+"</a></td><td>"+processMarkdown("allsearchparams", sp.getDescription(), "")+"</td><td>"+Utilities.escapeXml(sp.getExpression())+"</td></tr>\r\n");
       }
     }
   }
@@ -8021,7 +8021,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     public int compare(SearchParameter sp0, SearchParameter sp1) {
       return sp0.getCode().compareTo(sp1.getCode());
     }
-
   }
 
 
@@ -8041,7 +8040,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     if (list.size() > 0) {
       b.append("<tr><td colspan=\"4\" style=\"background-color: #dddddd\"><b>Common Search Parameters<a name=\"common\"> </a></b></td></tr>\r\n");
       for (SearchParameter sp : list) {
-        b.append("<tr><td>"+sp.getCode()+"<a name=\""+sp.getId()+"\"> </a></td><td><a href=\"search.html#"+sp.getType().toCode()+"\">"+sp.getType().toCode()+"</a></td><td>"+processMarkdown("allsearchparams", sp.getDescription(), "")+"</td><td>"+Utilities.escapeXml(sp.getExpression())+"</td></tr>\r\n");
+        b.append("<tr><td title=\"http://hl7.org/fhir/SearchParameter/"+sp.getId()+"\">"+sp.getCode()+"<a name=\""+sp.getId()+"\"> </a></td><td><a href=\"search.html#"+sp.getType().toCode()+"\">"+sp.getType().toCode()+"</a></td><td>"+processMarkdown("allsearchparams", sp.getDescription(), "")+"</td><td>"+Utilities.escapeXml(sp.getExpression())+"</td></tr>\r\n");
       }
     }
   }

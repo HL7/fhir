@@ -33,7 +33,9 @@ The SearchParameter resource declares:
 Implementers should be familiar with the 
 background and concepts described in <a href="search.html">Search</a> on the RESTful API before working with this resource.
 </p>
-
+<p>
+There is a <a href="searchparameter-registry.html">registry of all Search Parameters</a>.
+</p>
 </div>
 
 

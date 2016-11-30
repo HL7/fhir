@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <SearchParameter xmlns="http://hl7.org/fhir">
-  <id value="example"/>
+  <id value="example-reference"/>
   <url value="http://hl7.org/fhir/SearchParameter/example"/>
   <name value="Example Search Parameter"/>
   <status value="draft"/>
@@ -16,15 +16,17 @@
     </telecom>
   </contact>
   
-<!--  this is the canonical definition for the _id search parameter  -->
-  <purpose value="Need to search by identifier for various infrastructural cases - mainly retrieving packages, and matching as part of a chain"/>
-  <code value="_id"/>
-  <base value="Resource"/>
+  <purpose value="Need to search Condition by subject"/>
+  <code value="subject"/>
+  <base value="Condition"/>
   <type value="token"/>
-  <description value="Search by resource identifier - e.g. same as the read interaction, but can return included resources"/>
-  <xpath value="f:*/f:id"/>
+  <description value="Search by condition subject"/>
+  <expression value="Condition.subject"/>
   <xpathUsage value="normal"/>
-  <target value="[code]"/>
+  <target value="Organization"/>
+  <modifier value="missing"/>
+  <chain value="name"/>
+  <chain value="identifier"/>  
 </SearchParameter>
 
 

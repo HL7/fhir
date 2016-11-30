@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Nov 29, 2016 09:59+1100 for FHIR v1.7.0
+// Generated on Thu, Dec 1, 2016 06:32+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -198,10 +198,10 @@ public class MedicationAdministration extends DomainResource {
         /**
          * A coded specification of the anatomic site where the medication first entered the body.  For example, "left arm".
          */
-        @Child(name = "site", type = {CodeableConcept.class, BodySite.class}, order=2, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "site", type = {CodeableConcept.class}, order=2, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Body site administered to", formalDefinition="A coded specification of the anatomic site where the medication first entered the body.  For example, \"left arm\"." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/approach-site-codes")
-        protected Type site;
+        protected CodeableConcept site;
 
         /**
          * A code specifying the route or physiological path of administration of a therapeutic agent into or onto the patient.  For example, topical, intravenous, etc.
@@ -233,7 +233,7 @@ public class MedicationAdministration extends DomainResource {
         @Description(shortDefinition="Dose quantity per unit of time", formalDefinition="Identifies the speed with which the medication was or will be introduced into the patient.  Typically the rate for an infusion e.g. 100 ml per 1 hour or 100 ml/hr.  May also be expressed as a rate per unit of time e.g. 500 ml per 2 hours.  Other examples:  200 mcg/min or 200 mcg/1 minute; 1 liter/8 hours." )
         protected Type rate;
 
-        private static final long serialVersionUID = -1359632689L;
+        private static final long serialVersionUID = 1316915516L;
 
     /**
      * Constructor
@@ -294,34 +294,13 @@ public class MedicationAdministration extends DomainResource {
         /**
          * @return {@link #site} (A coded specification of the anatomic site where the medication first entered the body.  For example, "left arm".)
          */
-        public Type getSite() { 
+        public CodeableConcept getSite() { 
+          if (this.site == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create MedicationAdministrationDosageComponent.site");
+            else if (Configuration.doAutoCreate())
+              this.site = new CodeableConcept(); // cc
           return this.site;
-        }
-
-        /**
-         * @return {@link #site} (A coded specification of the anatomic site where the medication first entered the body.  For example, "left arm".)
-         */
-        public CodeableConcept getSiteCodeableConcept() throws FHIRException { 
-          if (!(this.site instanceof CodeableConcept))
-            throw new FHIRException("Type mismatch: the type CodeableConcept was expected, but "+this.site.getClass().getName()+" was encountered");
-          return (CodeableConcept) this.site;
-        }
-
-        public boolean hasSiteCodeableConcept() { 
-          return this.site instanceof CodeableConcept;
-        }
-
-        /**
-         * @return {@link #site} (A coded specification of the anatomic site where the medication first entered the body.  For example, "left arm".)
-         */
-        public Reference getSiteReference() throws FHIRException { 
-          if (!(this.site instanceof Reference))
-            throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.site.getClass().getName()+" was encountered");
-          return (Reference) this.site;
-        }
-
-        public boolean hasSiteReference() { 
-          return this.site instanceof Reference;
         }
 
         public boolean hasSite() { 
@@ -331,7 +310,7 @@ public class MedicationAdministration extends DomainResource {
         /**
          * @param value {@link #site} (A coded specification of the anatomic site where the medication first entered the body.  For example, "left arm".)
          */
-        public MedicationAdministrationDosageComponent setSite(Type value) { 
+        public MedicationAdministrationDosageComponent setSite(CodeableConcept value) { 
           this.site = value;
           return this;
         }
@@ -456,7 +435,7 @@ public class MedicationAdministration extends DomainResource {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("text", "string", "Free text dosage can be used for cases where the dosage administered is too complex to code. When coded dosage is present, the free text dosage may still be present for display to humans.\r\rThe dosage instructions should reflect the dosage of the medication that was administered.", 0, java.lang.Integer.MAX_VALUE, text));
-          childrenList.add(new Property("site[x]", "CodeableConcept|Reference(BodySite)", "A coded specification of the anatomic site where the medication first entered the body.  For example, \"left arm\".", 0, java.lang.Integer.MAX_VALUE, site));
+          childrenList.add(new Property("site", "CodeableConcept", "A coded specification of the anatomic site where the medication first entered the body.  For example, \"left arm\".", 0, java.lang.Integer.MAX_VALUE, site));
           childrenList.add(new Property("route", "CodeableConcept", "A code specifying the route or physiological path of administration of a therapeutic agent into or onto the patient.  For example, topical, intravenous, etc.", 0, java.lang.Integer.MAX_VALUE, route));
           childrenList.add(new Property("method", "CodeableConcept", "A coded value indicating the method by which the medication is intended to be or was introduced into or on the body.  This attribute will most often NOT be populated.  It is most commonly used for injections.  For example, Slow Push, Deep IV.", 0, java.lang.Integer.MAX_VALUE, method));
           childrenList.add(new Property("dose", "SimpleQuantity", "The amount of the medication given at one administration event.   Use this value when the administration is essentially an instantaneous event such as a swallowing a tablet or giving an injection.", 0, java.lang.Integer.MAX_VALUE, dose));
@@ -467,7 +446,7 @@ public class MedicationAdministration extends DomainResource {
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
         case 3556653: /*text*/ return this.text == null ? new Base[0] : new Base[] {this.text}; // StringType
-        case 3530567: /*site*/ return this.site == null ? new Base[0] : new Base[] {this.site}; // Type
+        case 3530567: /*site*/ return this.site == null ? new Base[0] : new Base[] {this.site}; // CodeableConcept
         case 108704329: /*route*/ return this.route == null ? new Base[0] : new Base[] {this.route}; // CodeableConcept
         case -1077554975: /*method*/ return this.method == null ? new Base[0] : new Base[] {this.method}; // CodeableConcept
         case 3089437: /*dose*/ return this.dose == null ? new Base[0] : new Base[] {this.dose}; // SimpleQuantity
@@ -484,7 +463,7 @@ public class MedicationAdministration extends DomainResource {
           this.text = castToString(value); // StringType
           break;
         case 3530567: // site
-          this.site = castToType(value); // Type
+          this.site = castToCodeableConcept(value); // CodeableConcept
           break;
         case 108704329: // route
           this.route = castToCodeableConcept(value); // CodeableConcept
@@ -507,8 +486,8 @@ public class MedicationAdministration extends DomainResource {
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("text"))
           this.text = castToString(value); // StringType
-        else if (name.equals("site[x]"))
-          this.site = castToType(value); // Type
+        else if (name.equals("site"))
+          this.site = castToCodeableConcept(value); // CodeableConcept
         else if (name.equals("route"))
           this.route = castToCodeableConcept(value); // CodeableConcept
         else if (name.equals("method"))
@@ -525,7 +504,7 @@ public class MedicationAdministration extends DomainResource {
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 3556653: throw new FHIRException("Cannot make property text as it is not a complex type"); // StringType
-        case 2099997657:  return getSite(); // Type
+        case 3530567:  return getSite(); // CodeableConcept
         case 108704329:  return getRoute(); // CodeableConcept
         case -1077554975:  return getMethod(); // CodeableConcept
         case 3089437:  return getDose(); // SimpleQuantity
@@ -540,12 +519,8 @@ public class MedicationAdministration extends DomainResource {
         if (name.equals("text")) {
           throw new FHIRException("Cannot call addChild on a primitive type MedicationAdministration.text");
         }
-        else if (name.equals("siteCodeableConcept")) {
+        else if (name.equals("site")) {
           this.site = new CodeableConcept();
-          return this.site;
-        }
-        else if (name.equals("siteReference")) {
-          this.site = new Reference();
           return this.site;
         }
         else if (name.equals("route")) {
