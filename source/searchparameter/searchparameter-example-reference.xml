@@ -19,7 +19,7 @@
   <purpose value="Need to search Condition by subject"/>
   <code value="subject"/>
   <base value="Condition"/>
-  <type value="token"/>
+  <type value="reference"/>
   <description value="Search by condition subject"/>
   <expression value="Condition.subject"/>
   <xpathUsage value="normal"/>
