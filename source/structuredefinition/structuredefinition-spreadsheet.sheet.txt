@@ -109,7 +109,7 @@
  -- Row 2 -----------------------------------
   Id = 2
   Context = StructureDefinition.mapping
-  English = Must have at a name or a uri (or both)
+  English = Must have at least a name or a uri (or both)
   XPath = exists(f:uri) or exists(f:name)
   Expression = name.exists() or uri.exists()
 

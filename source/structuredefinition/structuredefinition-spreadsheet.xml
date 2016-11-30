@@ -4366,7 +4366,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"><Data ss:Type="String">StructureDefinition.mapping</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">Must have at a name or a uri (or both)</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">Must have at least a name or a uri (or both)</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">name.exists() or uri.exists()</Data></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">exists(f:uri) or exists(f:name)</Data></Cell>
    </Row>
