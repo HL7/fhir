@@ -920,9 +920,11 @@ namespace, though some might be used on <a href="medicationrequest.html">Medicat
 others would appear on <a href="procedurerequest.html">ProcedureRequest</a> or <a href="diagnosticrequest.html">DiagnosticRequest</a>.
 </p>
 <p>
-If the identifier itself is naturally globally unique (e.g. an OID, a UUID, or a URI with no trailing local part), 
+If the identifier value itself is naturally a globally unique URI (e.g. an OID, a UUID, or a URI with no trailing local part), 
 then the <code>system</code> SHALL be "urn:ietf:rfc:3986", and the URI is in the <code>value</code> 
 (OIDs and UUIDs using urn:oid: and urn:uuid: - see <a href="datatypes-examples.html#Identifier">examples</a>).
+</p>
+<p>
 In some cases, the system may not be known - only the value is known (e.g. a simple device that scans a barcode), 
 or the system is known implicitly (simple exchange in a limited context, often driven by barcode readers). 
 In this case, no useful matching may be performed using the value unless the system can be safely inferred by the 
