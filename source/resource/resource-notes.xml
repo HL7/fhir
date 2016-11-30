@@ -89,7 +89,7 @@ Resource Metadata
 <p>
 Each resource contains an element "meta", of type "Meta", which is a set of 
 metadata that provides technical and workflow context to the resource. The 
-metadata items are all optional, though some of all of them may be required 
+metadata items are all optional, though some or all of them may be required 
 in particular implementations or contexts of use.
 </p>
 
