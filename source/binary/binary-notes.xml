@@ -19,8 +19,15 @@ unless specifically requested, the FHIR XML/JSON representation is not returned.
 </p>
 <p>
 Note that in the native binary representation, the normal resource <a href="resource.html#meta">metadata</a> 
-is not available directly, though some of it is replicated in the HTTP response headers.
+is not available directly, though some of it is replicated in the HTTP response headers. Specifically, the
+following elements of the resource have matching HTTP Headers:
 </p>
+<ul>
+ <li><b>Binary.meta.lastUpdated</b>: <code>Last-Modified</code></li>
+ <li><b>Binary.meta.versionId</b>: <code>ETag header</code></li>
+ <li><b>Binary.contentType</b>: <code>Content-Type</code></li>
+ <li><b>Binary.securityContext</b>: <code>X-Security-Context</code> - this is a FHIR specific extension, primarily intended to allow a the security context for a Binary resource to be specified when it is posted in native form</li>
+</ul>
 <p>
 When a binary is written the server (<a href="http.html#create">create</a>/<a href="http.html#update">update</a> - POST or PUT),
 the data is accepted as is and treated as a the binary content of a <code>Binary</code>, including when the content type is "application/fhir+xml" or "application/fhir+json",
@@ -43,60 +50,15 @@ Binary resources are not constrained, and therefore can be of any content type a
 Therefore extra care needs to be taken to validate the content of the Binary resource against 
 malicious or malformed content. For more details see <a href="security.html#narrative">Security of Narrative</a>.
 </p>
-<!--
-<a name="binary"> </a>
-<h3>Binary Support</h3>
 <p>
-FHIR servers can choose to support <a href="compartmentdefinition.html">Binary Resources</a>
-at the end-point [base]/Binary. The binary end-point accepts
-any kind of content, such as images and other media, documents (CDA, 
-PDF, Word etc.), plain text, XML or anything else, and stores the 
-content as is, along with the content type provided by the HTTP headers. 
-</p>
-<p>
-Binary resources function with the same interactions as described
-above. The _format  parameter has no meaning when used with binary 
-resources: they are always represented using their original content type.
-</p>
-<p>
-Note that on GET, POST, and PUT operations, the HTTP content-type
-header is the mime type of the binary resource, and the HTTP body is
-the resource in its binary form. (The <a href="xml.html#binary">XML</a> 
-and <a href="json.html#binary">JSON</a> Bundle Representations for binary 
-resources are only used in bundles). 
-</p>
-<div class="example">
-<p>
-Here is the request and response to a read operation on a CDA document:
-</p>
-<pre>
-GET /[path]/Binary/4 HTTP/1.1
-Host: [server]
-Accept: */*
-
-HTTP/1.1 200 OK
-Content-Type: text/xml
-Access-Control-Allow-Origin: *
-Last-Modified: Thu, 24 Oct 2013 00:41:55 +0000
-ETag: 1
-
-&lt;ClinicalDocument xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; 
-  xmlns=&quot;urn:hl7-org:v3&quot;xmlns:cda=&quot;urn:hl7-org:v3&quot;&gt;
-...  [snip] ...
-&lt;/ClinicalDocument&gt;
-</pre>
-</div>
-
-<p>
-Searching Binary resources may use the following parameters:
+Very often, the content of a binary resource is sensitive, and the server should apply 
+appropriate access control to the content. When the server itself generates the content, 
+it implicitly knows what access control to apply. When the client provides the binary to 
+the server itself, it uses the <code>securityContext</code> element (or the matching 
+<code>X-Security-Context</code> HTTP header) to inform the server that the Binary resource 
+should be treated as if it was the other resource. Typically, the other resource is a 
+DocumentReference or similar resource that refers directly to the Binary resource, but 
+that is not mandatory.
 </p>
 
-<table class="list">
-<tbody><tr><td><b>Name</b></td><td><b>Type</b></td><td><b>Description</b></td></tr>
-<tr><td>_id</td><td><a href="search.html#token">token</a></td><td>The logical resource id associated with the resource (must be supported by all servers)</td></tr>
-<tr><td>size</td><td><a href="search.html#number">number</a></td><td>Size of the resource in bytes</td></tr>
-<tr><td>contenttype</td><td><a href="search.html#token">token</a></td><td>Content Type of the resource</td></tr>
-</tbody></table>
-
--->
 </div>
