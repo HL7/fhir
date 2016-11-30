@@ -21,7 +21,7 @@ These are the device related resources
  <li><a href="devicecomponent.html">DeviceComponent</a> that the DeviceMetric is part of. This can be a DeviceComponent of any kind like a VirtualMedicalDevice (VMD), a MedicalDeviceSystem (MDS) , or a Channel</li>
 </ul>
 <p>
-In FHIR, the "Device" is the "administrative" resource for the device (it does not change much and has manufacturer information etc.), where as the DeviceComponent and DeviceMetric (which is really a kind of DeviceComponent) model the physical part, including operation status and is much more volatile.
+In FHIR, the "Device" is the "administrative" resource for the device (it does not change much and has manufacturer information etc.), whereas the DeviceComponent and DeviceMetric (which is really a kind of DeviceComponent) model the physical part, including operation status and is much more volatile.
 
 The physical composition of a Device is done by the DeviceComponents pointing to their "parent" component using <a href="devicecomponent-definitions.html#DeviceComponent.parent">DeviceComponent.parent</a>, e.g. channel to VMD and VMD to the MDS. All components point to the "logical" Device they belong to, using <a href="devicecomponent-definitions.html#DeviceComponent.source">DeviceComponent.source</a>.  Similarly, if for example you want to express which logical device your observation came from, you can just use Device, but if you need to be more specific observation can point to DeviceMetric which in turn points to the "logical" Device it belongs to, using <a href="devicecomponent-definitions.html#DeviceMetric.source">DeviceMetric.source</a>.</p>
 <p>
