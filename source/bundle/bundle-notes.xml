@@ -361,13 +361,13 @@ if these do not match, the resource is not in the bundle. <i>todo-bundle: how to
 Note that the application SHOULD not assume that the base
 service root is actually resolvable. In some circumstances, it will.
 If the bundle has just been received from a server as a result of
-a search or a history operation, the service root URL SHOULD match
+a search or a history operation, the service Base URL SHOULD match
 the URL that the client used (it is allowed not to in order to
 cater for proxies of various kinds). However in other
 circumstances, where the bundle itself has been exchanged onwards
 from the point of origin, and/or stored as an entity in its own
 right (e.g. a <a href="documents.html">clinical document</a>) the
-service root URL is merely a logical construct that holds within the
+service Base URL is merely a logical construct that holds within the
 bundle when resolving resources, and will have no meaning outside
 the bundle.
 </p>

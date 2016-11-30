@@ -1613,7 +1613,7 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">A network address on which the device may be contacted directly</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">If the device is running a FHIR server, the network address should  be the root URL from which a conformance statement may be retrieved.</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">If the device is running a FHIR server, the network address should  be the Base URL from which a conformance statement may be retrieved.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">.telecom</Data><NamedCell

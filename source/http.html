@@ -69,7 +69,7 @@ The interactions on this page are defined like this:
  <li>The first word is the HTTP verb used for the interaction</li>
  <li>Content surrounded by [] is mandatory, and will be replaced by the string literal identified. Possible insertion values:
    <ul>
-     <li><code>base</code>: The <a href="#root">Service Root URL</a></li>
+     <li><code>base</code>: The <a href="#root">Service Base URL</a></li>
      <li><code>mime-type</code>: The <a href="#mime-type">Mime Type</a></li>
      <li><code>type</code>: The name of a resource type (e.g. "Patient")</li>
      <li><code>id</code>: The <a href="resource.html#id">Logical Id</a> of a resource</li>
@@ -99,11 +99,11 @@ API defined, either by this specification or by implementers.
 
 <a name="root"> </a>
 <a name="general"> </a>
-<h3>Service Root URL</h3>
+<h3>Service Base URL</h3>
 <p>
-The Service Root URL is the address where all of the
+The Service Base URL is the address where all of the
 resources defined by this interface are found. The Service
-Root URL takes the form of
+Base URL takes the form of
 </p>
 <pre>
 http(s)://server{/path}
