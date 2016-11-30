@@ -21,6 +21,12 @@
   Definition = Code for a known / defined timing pattern.
   Conformance = preferred
 
+ -- Row 4 -----------------------------------
+  Binding Name = DayOfWeek
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/days-of-week
+  Conformance = required
+
 === Sheet event-timing =====================================
 
  -- Row 1 -----------------------------------
@@ -92,6 +98,30 @@
   System = http://hl7.org/fhir/v3/TimingEvent
   Code = PCV
   Definition = event occurs [offset] after dinner (from the Latin post cibus vespertinus)
+
+ -- Row 15 -----------------------------------
+  Id = 1
+  Code = MORN
+  Display = Morning
+  Definition = event occurs during the morning
+
+ -- Row 16 -----------------------------------
+  Id = 2
+  Code = AFT
+  Display = Afternoon
+  Definition = event occurs during the afternoon
+
+ -- Row 17 -----------------------------------
+  Id = 3
+  Code = EVE
+  Display = Evening
+  Definition = event occurs during the evening
+
+ -- Row 18 -----------------------------------
+  Id = 4
+  Code = NIGHT
+  Display = Night
+  Definition = event occurs during the night
 
 === Sheet units-of-time =====================================
 
@@ -258,6 +288,13 @@
   XPath = not(exists(f:offset)) or exists(f:when)
   Expression = offset.empty() or when.exists()
 
+ -- Row 10 -----------------------------------
+  Id = 10
+  Context = Timing.repeat
+  English = If there\'s a timeOfDay, there cannot be be a when, a frequency, or a period
+  XPath = not(exists(f:timeofDay)) or (not(exists(f:when)) and not(exists(f:frequency)) and not (exists(f:period)))
+  Expression = timeOfDay.exists() implies (when.empty() and frequency.empty() and period.empty())
+
 === Sheet Data Elements =====================================
 
  -- Row 1 -----------------------------------
@@ -386,6 +423,25 @@
   RIM Mapping = PIVL.phase.unit
 
  -- Row 15 -----------------------------------
+  Element = Timing.repeat.dayOfWeek
+  Card. = 0..*
+  Type = code
+  Binding = DayOfWeek
+  Short Name = mon | tue | wed | thu | fri | sat | sun
+  Definition = If one or more days of week is provided, then the action happens only on the specified day(s)
+  Comments = If no days are specified, the action is assumed to happen every day as otherwise specified
+  RIM Mapping = n/a
+
+ -- Row 16 -----------------------------------
+  Element = Timing.repeat.timeOfDay
+  Card. = 0..*
+  Type = time
+  Short Name = Time of day for action
+  Definition = Specified time of day for action to take place
+  Comments = When time of day is speciifed, it is inferred that the action happens every day (as filtered by dayofWeek) on the specified times. Frequency and Period cannot be used as well as timeOfDay
+  RIM Mapping = n/a
+
+ -- Row 17 -----------------------------------
   Element = Timing.repeat.when
   Card. = 0..1
   Type = code
@@ -395,14 +451,14 @@
   Requirements = Timings are frequently determined by occurrences such as waking, eating and sleep
   RIM Mapping = EIVL.event
 
- -- Row 16 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = Timing.repeat.offset
   Card. = 0..1
   Type = unsignedInt
   Short Name = Minutes from event (before or after)
   Definition = The number of minutes from the event. If the event code does not indicate whether the minutes is before or after the event, then the offset is assumed to be after the event
 
- -- Row 17 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = Timing.code
   Card. = 0..1
   Type = CodeableConcept

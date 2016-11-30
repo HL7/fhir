@@ -73,7 +73,7 @@
   Id = 7
   Code = collection
   Display = Collection
-  Definition = The bundle is a set of resources collected into a single document for ease of distribution.
+  Definition = The bundle is a set of resources collected into a single package for ease of distribution.
 
 === Sheet search-entry-mode =====================================
 

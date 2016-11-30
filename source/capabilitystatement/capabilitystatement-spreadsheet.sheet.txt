@@ -658,7 +658,7 @@
   Card. = 0..*
   Summary = y
   Type = uri
-  Short Name = Canonical URL of service implemented/used by software
+  Short Name = Canonical URL of another capability statement this implements
   Definition = Reference to a canonical URL of another CapabilityStatement that this software implements or uses. This capability statement is a published API description that corresponds to a business service. The rest of the capability statement does not need to repeat the details of the referenced resource, but can do so
   Comments = HL7 defines the following Services: [[[Terminology Service]]]\n\nMany [Implementation Guides](http://fhir.org/guides/registry) define additional services
 
