@@ -455,7 +455,9 @@ for each possible slice and applications can easily determine
 which slice an item in a list is. The intention is that 
 this can be done in generated code, e.g. using a switch/case 
 statement. When slicing elements with a choice of types, the 
-discriminator SHALL be "@type".
+discriminator SHALL be "@type". This is for a common usecase where 
+you want to profile an element that has a choice (like value[x]) of data types
+differently for the different types it may have.
 </p>
 <p>
 When a constraining structure designates one or more discriminators, it SHALL
