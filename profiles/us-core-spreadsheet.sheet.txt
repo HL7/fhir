@@ -2,7 +2,7 @@
 === Sheet Bindings =====================================
 
  -- Row 1 -----------------------------------
-  Binding Name = Religion
+  Binding Name = !Religion
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/v3-ReligiousAffiliation
   Definition = A code classifying a person\'s professed religion
@@ -11,7 +11,7 @@
  -- Row 2 -----------------------------------
   Binding Name = BirthSex
   Binding = value set
-  Reference = valueset-usrealm-birthsex
+  Reference = valueset-us-core-birthsex
   Definition = Code for sex assigned at birth
   Conformance = required
 
