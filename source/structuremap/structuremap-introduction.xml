@@ -13,7 +13,7 @@ The intention of the structure map resource is to allow a specialist in a
 formats and interoperability to specify the full relationships between 
 two structures (e.g. a CDA document and a set of FHIR resources), and 
 then many different systems - both testing and production clinical systems - can
-leverage that to autoamtically transform from one format to the other. 
+leverage that to automatically transform from one format to the other. 
 </p>
 <p>
 Maps are uni-directional: they map from the source structure to the 
