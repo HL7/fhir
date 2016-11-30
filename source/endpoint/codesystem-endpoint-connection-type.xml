@@ -70,4 +70,9 @@
 		<display value="Secure email" />
 		<definition value="email delivery using a digital certificate to encrypt the content using the public key, receiver must have the private key to decrypt the content" />
 	</concept>
+	<concept>
+		<code value="direct-project" />
+		<display value="Direct Project" />
+		<definition value="Direct Project information - http://wiki.directproject.org/"/>
+	</concept>
 </CodeSystem>
