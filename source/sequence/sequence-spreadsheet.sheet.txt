@@ -367,6 +367,20 @@
 
 === Sheet Invariants =====================================
 
+ -- Row 1 -----------------------------------
+  Id = 5
+  Context = Sequence.referenceSeq
+  English = GenomeBuild and chromosome must be both contained if either one of them is contained
+  XPath = (exists(f:chromosome) and exists(f:genomeBuild)) or (not(exists(f:chromosome)) and not(exists(f:genomeBuild)))
+  Expression = (chromosome.empty() and genomeBuild.empty()) or (chromosome.exists() and genomeBuild.exists())
+
+ -- Row 2 -----------------------------------
+  Id = 6
+  Context = Sequence.referenceSeq
+  English = Have and only have one of the following elements in referenceSeq : 1. genomeBuild ; 2 referenceSeqId; 3. referenceSeqPointer;  4. referenceSeqString;
+  XPath = count(f:genomeBuild)+count(f:referenceSeqId)+count(f:referenceSeqPointer)+count(f:referenceSeqString)=1
+  Expression = (genomeBuild.count()+referenceSeqId.count()+ referenceSeqPointer.count()+ referenceSeqString.count()) = 1
+
 === Sheet Data Elements =====================================
 
  -- Row 1 -----------------------------------

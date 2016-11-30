@@ -6,13 +6,6 @@
         <reference value="Patient/example"/>
     </patient>
     <referenceSeq>
-        <chromosome>
-          <coding>
-            <system value="http://hl7.org/fhir/chromosome-human"/>
-            <code value="6"/>
-            <display value="chromosome 6"/>
-          </coding>
-        </chromosome>
         <referenceSeqId>
           <coding>
             <system value="http://www.ncbi.nlm.nih.gov/nuccore"/>

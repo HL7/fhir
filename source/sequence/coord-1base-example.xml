@@ -5,14 +5,6 @@
     <type value="DNA"/>
     <coordinateSystem value="1"/>
     <referenceSeq>
-        <chromosome>
-            <coding>
-                <system value="http://hl7.org/fhir/ValueSet/chromosome-human"/>
-                <code value="1"/>
-                <display value="chromosome 1"/>
-            </coding>
-        </chromosome>
-        <genomeBuild value="GRCh 38"/>
         <referenceSeqString value="ACGTAGTC"/>
         <strand value="1"/>
         <windowStart value="1"/>

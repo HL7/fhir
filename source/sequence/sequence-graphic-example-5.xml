@@ -11,7 +11,6 @@
             <code value="NC_000002.12"/>
           </coding>
         </referenceSeqId>
-        <referenceSeqString value="CATG"/>
         <strand value="1"/>
         <windowStart value="128273732"/>
         <windowEnd value="128273736"/>
