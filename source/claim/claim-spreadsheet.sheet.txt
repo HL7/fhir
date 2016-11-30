@@ -186,21 +186,21 @@
   Conformance = example
 
  -- Row 27 -----------------------------------
-  Binding Name = OccurrenceCodes
+  Binding Name = !OccurrenceCodes
   Binding = value set
   Reference = valueset-occurrence-codes
   Definition = Occurrence codes
   Conformance = example
 
  -- Row 28 -----------------------------------
-  Binding Name = OccurrenceSpanCodes
+  Binding Name = !OccurrenceSpanCodes
   Binding = value set
   Reference = valueset-occurrence-span-codes
   Definition = Occurrence Span codes
   Conformance = example
 
  -- Row 29 -----------------------------------
-  Binding Name = ValueCodes
+  Binding Name = !ValueCodes
   Binding = value set
   Reference = valueset-value-codes
   Definition = Value code
@@ -895,7 +895,7 @@
   Requirements = Used by downstream payers to determine what balance remains and the net payable.
 
  -- Row 65 -----------------------------------
-  Element = Claim.insurance.originalRuleset
+  Element = !Claim.insurance.originalRuleset
   Card. = 0..1
   Type = Coding
   Binding = Ruleset

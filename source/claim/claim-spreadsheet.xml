@@ -16,11 +16,12 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>7290</WindowHeight>
-  <WindowWidth>20460</WindowWidth>
+  <WindowHeight>7260</WindowHeight>
+  <WindowWidth>15300</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>8</ActiveSheet>
+  <FirstVisibleSheet>4</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -3542,7 +3543,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="105" ss:StyleID="s78">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Claim.insurance.originalRuleset</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">!Claim.insurance.originalRuleset</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data><NamedCell
@@ -6026,11 +6027,10 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>120</Zoom>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>4</TopRowBottomPane>
+   <TopRowBottomPane>64</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -6047,8 +6047,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>6</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>65</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -9116,7 +9115,7 @@
     <Cell ss:StyleID="s123"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s164"><Data ss:Type="String">OccurrenceCodes</Data></Cell>
+    <Cell ss:StyleID="s164"><Data ss:Type="String">!OccurrenceCodes</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Occurrence codes</Data></Cell>
     <Cell ss:StyleID="s122"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s122"><Data ss:Type="String">example</Data></Cell>
@@ -9131,7 +9130,7 @@
     <Cell ss:StyleID="s123"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s164"><Data ss:Type="String">OccurrenceSpanCodes</Data></Cell>
+    <Cell ss:StyleID="s164"><Data ss:Type="String">!OccurrenceSpanCodes</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Occurrence Span codes</Data></Cell>
     <Cell ss:StyleID="s122"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s122"><Data ss:Type="String">example</Data></Cell>
@@ -9146,7 +9145,7 @@
     <Cell ss:StyleID="s123"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s164"><Data ss:Type="String">ValueCodes</Data></Cell>
+    <Cell ss:StyleID="s164"><Data ss:Type="String">!ValueCodes</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Value code</Data></Cell>
     <Cell ss:StyleID="s122"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s122"><Data ss:Type="String">example</Data></Cell>
@@ -9383,10 +9382,11 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>7</TopRowBottomPane>
+   <TopRowBottomPane>31</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -9403,7 +9403,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>8</ActiveRow>
+     <ActiveRow>29</ActiveRow>
      <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>

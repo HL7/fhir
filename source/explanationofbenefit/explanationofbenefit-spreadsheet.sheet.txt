@@ -184,21 +184,21 @@
   Conformance = example
 
  -- Row 27 -----------------------------------
-  Binding Name = OccurrenceCodes
+  Binding Name = !OccurrenceCodes
   Binding = value set
   Reference = valueset-occurrence-codes
   Definition = Occurrence codes
   Conformance = example
 
  -- Row 28 -----------------------------------
-  Binding Name = OccurrenceSpanCodes
+  Binding Name = !OccurrenceSpanCodes
   Binding = value set
   Reference = valueset-occurrence-span-codes
   Definition = Occurrence Span codes
   Conformance = example
 
  -- Row 29 -----------------------------------
-  Binding Name = ValueCodes
+  Binding Name = !ValueCodes
   Binding = value set
   Reference = valueset-value-codes
   Definition = Value code
@@ -418,7 +418,7 @@
   w5 = id
 
  -- Row 4 -----------------------------------
-  Element = ExplanationOfBenefit.ruleset
+  Element = !ExplanationOfBenefit.ruleset
   Card. = 0..1
   Aliases = BusinessVersion
   Type = Coding
@@ -428,7 +428,7 @@
   w5 = id.version
 
  -- Row 5 -----------------------------------
-  Element = ExplanationOfBenefit.originalRuleset
+  Element = !ExplanationOfBenefit.originalRuleset
   Card. = 0..1
   Aliases = OriginalBusinessVersion
   Type = Coding

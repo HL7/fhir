@@ -861,6 +861,7 @@
     <Cell ss:Index="11"><Data ss:Type="String">PA</Data></Cell>
     <Cell ss:Index="14" ss:StyleID="s81"/>
    </Row>
+   <!--
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s75"><Data ss:Type="String">Ruleset</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">The static and dynamic model to which contents conform, which may be business version or standard/version.</Data></Cell>
@@ -877,6 +878,7 @@
     <Cell ss:StyleID="s76"/>
     <Cell ss:StyleID="s83"/>
    </Row>
+   -->
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s75"><Data ss:Type="String">PayeeType</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">A code for the party to be reimbursed.</Data></Cell>
