@@ -33,10 +33,11 @@ Validating a resource means, checking that the the following aspects of the reso
 <li><b>Profiles</b>: Check that any rules in <a href="profiling.html">profiles have been followed</a> (including those listed in the 
   <a href="resource.html#Meta">Resource.meta.profile</a>, or in <a href="profiling.html#profile-uses">CapabilityStatement</a>, or 
   in an <a href="implementationguide.html">ImplementationGuide</a>, or otherwise required by context)</li>
+<li><b>Questionnaires</b>: Check that a <a href="questionnaireresponse.html">QuestionnaireResponse</a> is valid against it's matching <a href="questionnaire.html">Questionnaire</a></li>
 </ul>
 
 <p>
-There are multiple ways to validate resources. This table summarises the options
+There are multiple ways to validate resources. This table summarizes the options
 described in this specification, and which of the aspects above they can validate:
 </p>
 
@@ -52,6 +53,7 @@ described in this specification, and which of the aspects above they can validat
   <td><b>Bindings</b></td>
   <td><b>Invariants</b></td>
   <td><b>Profiles</b></td>
+  <td><b>Questionnaires</b></td>
  </tr>
 
  <tr>
@@ -65,6 +67,7 @@ described in this specification, and which of the aspects above they can validat
   <td></td> <!-- Bindings -->
   <td></td> <!-- Invariants -->
   <td></td> <!-- Profiles -->
+  <td></td> <!-- Questionnaires -->
  </tr>
 
  <tr>
@@ -78,6 +81,7 @@ described in this specification, and which of the aspects above they can validat
   <td></td> <!-- Bindings -->
   <td><img src="assets/images/tick.png"/></td> <!-- Invariants -->
   <td><img src="assets/images/tick.png"/><sup><b>1</b></sup></td> <!-- Profiles -->
+  <td></td> <!-- Questionnaires -->
  </tr>
  
  <tr>
@@ -91,7 +95,9 @@ described in this specification, and which of the aspects above they can validat
   <td></td> <!-- Bindings -->
   <td></td> <!-- Invariants -->
   <td><img src="assets/images/tick.png"/><sup><b>2</b></sup></td> <!-- Profiles -->
+  <td></td> <!-- Questionnaires -->
  </tr>
+
  <tr>
   <td><a href="rdf.html#schema">ShEx</a></td>
   <td></td> <!-- XML -->
@@ -103,6 +109,7 @@ described in this specification, and which of the aspects above they can validat
   <td><img src="assets/images/tick.png"/><sup><b>3</b></sup></td> <!-- Bindings -->
   <td></td> <!-- Invariants -->
   <td></td> <!-- Profiles -->
+  <td></td> <!-- Questionnaires -->
  </tr>
  <tr>
   <td><a href="#jar">Validator</a></td>
@@ -115,6 +122,7 @@ described in this specification, and which of the aspects above they can validat
   <td><img src="assets/images/tick.png"/></td> <!-- Bindings -->
   <td><img src="assets/images/tick.png"/></td> <!-- Invariants -->
   <td><img src="assets/images/tick.png"/></td> <!-- Profiles -->
+  <td><img src="assets/images/tick.png"/></td> <!-- Questionnaires -->
  </tr>
  <tr>
   <td><a href="#op">Validation Operation</a><sup><b>4</b></sup></td>
@@ -127,6 +135,7 @@ described in this specification, and which of the aspects above they can validat
   <td><img src="assets/images/tick.png"/></td> <!-- Bindings -->
   <td><img src="assets/images/tick.png"/></td> <!-- Invariants -->
   <td><img src="assets/images/tick.png"/></td> <!-- Profiles -->
+  <td><img src="assets/images/tick.png"/></td> <!-- Questionnaires -->
  </tr>
 </table>
 <p>

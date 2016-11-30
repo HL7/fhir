@@ -295,6 +295,13 @@
   XPath = not(exists(f:timeofDay)) or (not(exists(f:when)) and not(exists(f:frequency)) and not (exists(f:period)))
   Expression = timeOfDay.exists() implies (when.empty() and frequency.empty() and period.empty())
 
+ -- Row 11 -----------------------------------
+  Id = 11
+  Context = Timing.repeat
+  English = If there\'s a dayOfWeek, there cannot be be a frequency, or a period
+  XPath = not(exists(f:timeofDay)) or (not(exists(f:frequency)) and not (exists(f:period)))
+  Expression = dayOfWeek.exists() implies (frequency.empty() and period.empty())
+
 === Sheet Data Elements =====================================
 
  -- Row 1 -----------------------------------
@@ -429,7 +436,7 @@
   Binding = DayOfWeek
   Short Name = mon | tue | wed | thu | fri | sat | sun
   Definition = If one or more days of week is provided, then the action happens only on the specified day(s)
-  Comments = If no days are specified, the action is assumed to happen every day as otherwise specified
+  Comments = If no days are specified, the action is assumed to happen every day as otherwise specified. The elements frequency and period cannot be used as well as dayOfWeek
   RIM Mapping = n/a
 
  -- Row 16 -----------------------------------
@@ -438,7 +445,7 @@
   Type = time
   Short Name = Time of day for action
   Definition = Specified time of day for action to take place
-  Comments = When time of day is speciifed, it is inferred that the action happens every day (as filtered by dayofWeek) on the specified times. Frequency and Period cannot be used as well as timeOfDay
+  Comments = When time of day is speciifed, it is inferred that the action happens every day (as filtered by dayofWeek) on the specified times. The elements when, frequency and period cannot be used as well as timeOfDay
   RIM Mapping = n/a
 
  -- Row 17 -----------------------------------

@@ -180,6 +180,7 @@ import org.hl7.fhir.igtools.spreadsheets.TypeParser;
 import org.hl7.fhir.igtools.spreadsheets.TypeRef;
 import org.hl7.fhir.tools.converters.MarkDownPreProcessor;
 import org.hl7.fhir.tools.converters.ValueSetImporterV2;
+import org.hl7.fhir.tools.publisher.PageProcessor.ConstraintsSorter;
 import org.hl7.fhir.tools.publisher.PageProcessor.SearchParameterListSorter;
 import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.CSFileInputStream;
@@ -202,6 +203,7 @@ import org.w3c.dom.Document;
 import com.github.rjeschke.txtmark.Processor;
 
 public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferenceResolver  {
+
 
   public class PageEvaluationContext implements IEvaluationContext {
 
@@ -2917,6 +2919,23 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       return "";
   }
 
+  public class ConstraintsSorter implements Comparator<String> {
+
+    @Override
+    public int compare(String s0, String s1) {
+    String[] parts0 = s0.split("\\-");
+    String[] parts1 = s1.split("\\-");
+    if (parts0.length != 2 || parts1.length != 2)
+      return s0.compareTo(s1);
+    int comp = parts0[0].compareTo(parts1[0]);
+    if (comp == 0 && Utilities.isInteger(parts0[1]) && Utilities.isInteger(parts1[1]))
+      return new Integer(parts0[1]).compareTo(new Integer(parts1[1]));
+    else
+      return parts0[1].compareTo(parts1[1]);
+    }
+
+  }
+
   private String genConstraints(String name, String prefix) throws Exception {
     Map<String, String> invs = new HashMap<String, String>();
     if (definitions.getConstraints().containsKey(name)) {
@@ -2930,7 +2949,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     for (String n : invs.keySet()) {
       ids.add(n);
     }
-    Collections.sort(ids);
+    Collections.sort(ids, new ConstraintsSorter());
     StringBuilder b = new StringBuilder();
     for (String n : ids) {
       b.append(invs.get(n));
