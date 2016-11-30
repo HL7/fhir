@@ -46384,7 +46384,7 @@ end = Registration_State.until_date"/>
           </telecom>
         </contact>
         <date value="2014-01-31"/>
-        <description value="This extension associates a structure definition with a data dictionary - a collection of data elements that any instance of data that conforms to the structure definition must also conform to. The value of the extension is a uri the defines a query that identifies the collection of relevant data elements
+        <description value="This extension associates a structure definition with a data dictionary - a collection of data elements that any instance of data that conforms to the structure definition must also conform to. The value of the extension is a uri that defines a query that identifies the collection of relevant data elements
 
 This extension can be used on any structure definition that is a constraint on the resource types Observation and Questionnaire. THe profile specifies which elements are mandatory etc., but any elements in a resource that conforms to the structure definition must also conform to one of the defined data elements.
 
@@ -46406,7 +46406,7 @@ For Questionnaire:
           <element>
             <path value="Extension"/>
             <short value="Associates the structure definition with a collection of Data Elements"/>
-            <definition value="This extension associates a structure definition with a data dictionary - a collection of data elements that any instance of data that conforms to the structure definition must also conform to. The value of the extension is a uri the defines a query that identifies the collection of relevant data elements
+            <definition value="This extension associates a structure definition with a data dictionary - a collection of data elements that any instance of data that conforms to the structure definition must also conform to. The value of the extension is a uri that defines a query that identifies the collection of relevant data elements
 
 This extension can be used on any structure definition that is a constraint on the resource types Observation and Questionnaire. THe profile specifies which elements are mandatory etc., but any elements in a resource that conforms to the structure definition must also conform to one of the defined data elements.
 
@@ -46511,7 +46511,7 @@ For Questionnaire:
           <element>
             <path value="Extension"/>
             <short value="Associates the structure definition with a collection of Data Elements"/>
-            <definition value="This extension associates a structure definition with a data dictionary - a collection of data elements that any instance of data that conforms to the structure definition must also conform to. The value of the extension is a uri the defines a query that identifies the collection of relevant data elements
+            <definition value="This extension associates a structure definition with a data dictionary - a collection of data elements that any instance of data that conforms to the structure definition must also conform to. The value of the extension is a uri that defines a query that identifies the collection of relevant data elements
 
 This extension can be used on any structure definition that is a constraint on the resource types Observation and Questionnaire. THe profile specifies which elements are mandatory etc., but any elements in a resource that conforms to the structure definition must also conform to one of the defined data elements.
 
