@@ -170,7 +170,7 @@ the v3 methodology does support the introduction of an "updateMode" property to 
 for all or part of an instance.  Each element repetition is flagged with an updateMode to indicate whether the 
 element is to be added, removed, updated, etc.  Additional updateModes allow further control over updates.  As 
 with the <a href="comparison-v2.html#V2-updateMode">V2 discussion</a> above, implementers will need to generate a full snapshot of 
-each resource or will need to introduce modifier extensions to allow similar behavior to v3.
+each resource or or consider using the <a href="http.html#patch">Patch Operation</a> instead.
 </p>
 <p>
 <b>Additional considerations:</b> Most of the implementation considerations for interoperating between FHIR and 

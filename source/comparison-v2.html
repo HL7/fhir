@@ -192,8 +192,8 @@ whether particular segments represent information to be added, updated or delete
 populated with "null" (two consecutive double-quotes with no other characters) to note a field is 
 to be deleted.  An omitted element or repetition is generally interpreted as "retain existing data 
 unchanged".  This contrasts with the FHIR approach of requiring all data to be present as a snapshot.  
-Systems will either need to build in logic to generate a full snapshot of each resource or will need 
-to introduce modifier extensions to allow similar behavior to HL7 v2.
+Systems will either need to build in logic to generate a full snapshot of each resource or consider
+using the <a href="http.html#patch">Patch Operation</a> instead.
 </p>
 
 </div>
