@@ -243,6 +243,14 @@
   XPath = (f:kind/@value = \'logical\') or (true)
   Expression = kind = \'logical\' or (differential.element.type.code.all(hasValue() implies matches(\'^[a-zA-Z0-9]+$\')) and snapshot.element.type.code.all(hasValue() implies matches(\'^[a-zA-Z0-9]+$\')))
 
+ -- Row 20 -----------------------------------
+  Id = 20
+  Requirements = no slicing on root
+  Context = StructureDefinition.differential
+  English = No slicing on the root element
+  XPath = not(f:element[1]/f:slicing)
+  Expression = element.first().slicing.empty()
+
 === Sheet Data Elements =====================================
 
  -- Row 1 -----------------------------------

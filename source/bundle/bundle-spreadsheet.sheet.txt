@@ -380,8 +380,8 @@
   Card. = 0..1
   Type = string
   Short Name = The etag for the resource (if relevant)
-  Definition = The etag for the resource, it the operation for the entry produced a versioned resource
-  Comments = This has to match the version id in the header if a resource is included
+  Definition = The etag for the resource, it the operation for the entry produced a versioned resource (see [Resource Metadata and Versioning](http.html#versioning) and [Managing Resource Contention](http.html#concurrency))
+  Comments = Etags match the Resource.meta.versionId. The ETag has to match the version id in the header if a resource is included
 
  -- Row 26 -----------------------------------
   Element = Bundle.entry.response.lastModified
