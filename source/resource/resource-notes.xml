@@ -57,7 +57,7 @@ purpose, but is constrained to be a literal URL for implementation reasons.
 </p>
 <p>
 All resources that have an <code>identifier</code> element support searching
-by the identifier, so that records can located by that method. So if 
+by the identifier, so that records can be located by that method. So if 
 an <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 v2</a> message has the following OBR:
 </p>
 <pre>
