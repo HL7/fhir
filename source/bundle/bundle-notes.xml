@@ -230,6 +230,8 @@ How to resolve a reference in a bundle:
 <p>
 If the reference is version specific (either relative or absolute), then remove the version from the 
 URL before matching fullUrl, and then match the version based on <code>Resource.meta.versionId</code>.
+Note that the rules for resolving references in contained resources are the same as those for 
+resolving resources in the resource that contains the contained resource.
 </p>
 <p>
 Here is an example Bundle the demonstrates these rules:
