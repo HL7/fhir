@@ -3073,6 +3073,10 @@ public class Publisher implements IWorkerContext.ILoggingService {
         self.setDestDir(getNamedParam(args, "-destination"));
       } else {
         self.setConfigFile(getNamedParam(args, "-ig"));
+        if (Utilities.noString(self.getConfigFile()))
+          throw new Exception("No Implementation Guide Specified (-ig parameter)");
+        if (new File(self.getConfigFile()).isAbsolute())
+          self.setConfigFile(Utilities.path(System.getProperty("user.dir"), self.getConfigFile()));
       }
       self.setIgPack(getNamedParam(args, "-spec"));
       self.setTxServer(getNamedParam(args, "-tx"));
