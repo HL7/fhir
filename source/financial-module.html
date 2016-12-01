@@ -178,45 +178,52 @@ For more general considerations, see <a href="secpriv-module.html">the Security 
  </p>
  <table class="grid">
  <tr><td><b>Business Activity</b></td><td><b>Focal Resource</b></td></tr>
- <tr><td>Patient visits Provider</td></tr>
- <tr><td>Provider checks for valid insurance coverage</td><td>EligibilityRequest</td></tr>
- <tr><td>Insurer responds with coverage status and optinally plan details</td><td>EligibilityResponse</td></tr>
- <tr><td>Provider examines Patient and reviews treatment options</td></tr>
- <tr><td>Provider submits Pre-determination(s) for treatment options to determine potential reimbursement</td><td>Claim {use=exploratory}</td></tr>
- <tr><td>Insurer responds with potential reimbursement</td><td>ClaimResponse</td></tr>
- <tr><td>Provider and Patient determine treatment plan</td></tr>
- <tr><td>Treament plan submitted to Insurer to reserve funds</td><td>Claim {use=proposed}</td></tr>
- <tr><td>Insurer acknowledges recipt of pre-authorization</td><td>ClaimResponse</td></tr>
- <tr><td>Insurer requests additional information</td><td>CommunicationRequest</td></tr>
- <tr><td>Provider submits suppporting information</td><td>Communication</td></tr>
- <tr><td>Insurer provides adjudicated response to pre-authorization</td><td>ClaimResponse</td></tr>
- <tr><td>Provider check on status of pre-authorization</td><td>ProcessRequest {action=status}</td></tr>
- <tr><td>Insurer responds indicating adjudication is ready</td><td>ProcessResponse</td></tr>
- <tr><td>Provider retrieves response</td><td>READ or ProcessRequest {action=poll}</td></tr>
- <tr><td>Provider provides treatment</td></tr>
- <tr><td>Provider submits patients claim for reimbursement</td><td>Claim {use=complete}</td></tr>
- <tr><td>Insurer responds indicating adjudication is ready</td><td>ClaimResponse</td></tr>
- <tr><td>Patient leaves treatment setting</td></tr>
- <tr><td>Patient requests Explanation of Benefit for their PHR</td><td>READ</td></tr>
- <tr><td>Insurer responds</td><td>ExplanationOfBenefit</td></tr>
- <tr><td>Provider requests buld payment details</td><td>SEARCH or ProcessRequest {action=poll}</td></tr>
- <tr><td>Insurer responds</td><td>PaymentReconciliation</td></tr>
- <tr><td>Insurer notifies provider that payment has been issued</td><td>PaymentNotification</td></tr>
- <tr><td>Insurer notifies parties that payment has been received</td><td>PaymentNotification</td></tr>
+ <tr><td><b>Patient visits Provider</b></td></tr>
+ <tr><td>Provider checks for valid insurance coverage</td><td><a href="eligibilityrequest.html">EligibilityRequest</a></td></tr>
+ <tr><td>Insurer responds with coverage status and optional plan details</td><td><a href="eligibilityresponse.html">EligibilityResponse</a></td></tr>
+ <tr><td><b>Provider examines Patient and reviews treatment options</b></td></tr>
+ <tr><td>Provider submits Pre-determination(s) for treatment options to determine potential reimbursement</td><td><a href="claim.html">Claim</a> {use=exploratory}</td></tr>
+ <tr><td>Insurer responds with potential reimbursement</td><td><a href="claimresponse.html">ClaimResponse</a></td></tr>
+ <tr><td><b>Provider and Patient determine treatment plan</b></td></tr>
+ <tr><td>Treament plan submitted to Insurer to reserve funds</td><td><a href="claim.html">Claim</a> {use=proposed}</td></tr>
+ <tr><td>Insurer acknowledges receipt of pre-authorization</td><td><a href="claimresponse.html">ClaimResponse</a></td></tr>
+ <tr><td>Insurer requests additional information</td><td><a href="communicationrequest.html">CommunicationRequest</a></td></tr>
+ <tr><td>Provider submits supporting information</td><td><a href="communication.html">Communication</a></td></tr>
+ <tr><td>Insurer provides adjudicated response to pre-authorization</td><td><a href="claimresponse.html">ClaimResponse</a></td></tr>
+ <tr><td>Provider checks on status of pre-authorization processing</td><td><a href="processrequest.html">ProcessRequest</a> {action=status}</td></tr>
+ <tr><td>Insurer responds indicating adjudication is ready</td><td><a href="processresponse.html">ProcessResponse</a></td></tr>
+ <tr><td>Provider retrieves pre-authorization adjudication</td><td>READ or <a href="processrequest.html">ProcessRequest</a> {action=poll}</td></tr>
+ <tr><td><b>Provider provides treatment</b></td></tr>
+ <tr><td>Provider submits patient's claim for reimbursement</td><td><a href="claim.html">Claim</a> {use=complete}</td></tr>
+ <tr><td>Insurer responds with claim adjudication</td><td><a href="claimresponse.html">ClaimResponse</a></td></tr>
+ <tr><td><b>Patient leaves treatment setting</b></td></tr>
+ <tr><td>Patient requests an Explanation of Benefit for their Personal Health Record application</td><td>READ or <a href="processrequest.html">ProcessRequest</a> {action=poll}</td></tr>
+ <tr><td>Insurer responds with Explanation of Benefit</td><td><a href="explanationofbenefit.html">ExplanationOfBenefit</a></td></tr>
+ <tr><td>Provider requests the payment details associated with a bulk payment</td><td>SEARCH or <a href="processrequest.html">ProcessRequest</a> {action=poll}</td></tr>
+ <tr><td>Insurer responds with a Payment Reconciliation</td><td><a href="paymentreconciliation.html">PaymentReconciliation</a></td></tr>
+ <tr><td>Insurer notifies provider that payment has been issued</td><td><a href="paymentnotice.html">PaymentNotice</a></td></tr>
+ <tr><td>Insurer notifies parties that payment has been received</td><td><a href="paymentnotice.html">PaymentNotice</a></td></tr>
  </table>
+ <p/>
  
+<a name="secondary-use"> </a>
+<h3>Secondary Uses</h3> 
+<p>
+In addition to their primary use of conveying patient billing information to insurers for reimbursement either to the subscriber or the provider (assignment of benefit), many of the 
+financial resources, such as <a href="claim.html">Claim</a> and <a href="explanationofbenefit.html">ExplanationOfBenefit</a>, may be used to export data to other agencies to support reporting and analytics.
+</p>
 <a name="roadmap"> </a>
 <h3>Developmental Roadmap</h3>
 <p>
 The Financial Management Work Group (FM) is responsible for two subdomains:
 </p>
 <p>
-Financial Accounts and Billing (FIAB) - resources for accounts, charges (internal costsing transactions) and patient billing, and<br/>
-Financial Claims and Reimbursements (FICR) - insurance information, enrollement, eligibility, pre-authorization, claims, patient reporting and payments.
+Financial Accounts and Billing (FIAB) - resources for accounts, charges (internal costing transactions) and patient billing, and<br/>
+Financial Claims and Reimbursement (FICR) - insurance information, enrollement, eligibility, pre-authorization, claims, patient reporting and payments.
 </p>
 <p>
-To date FM has been focusing on the resources require to support the exchange of claims and related information between healthcare providers and insurers. The first draft of this work
-is nearing completion with the release of the first Standard for Trial use in STU3 of FHIR. Over the next year further refinements will be expected as we begin developing regional profiles 
+To date FM has been focusing on the resources required to support the exchange of claims and related information between healthcare providers and insurers. The first draft of this work
+is nearing completion with the release of the first Financial Standard for Trial Use in STU3 of FHIR. Over the next year further refinements will be expected as we begin developing regional profiles 
 and begin live pilots with resources.
 </p>
 <p>
