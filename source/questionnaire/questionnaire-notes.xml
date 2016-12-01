@@ -18,7 +18,7 @@ Observations to model Questionnaires. Such use cases should now use the Question
 <li>Display items allow the inclusion of instructions, background information and similar content within a questionnaire.</li>
 </ul>
 
-<a name="qversusr" />
+<a name="qversusr"> </a>
 <h3>Using Questionnaires versus using Resources</h3>
 <p>
 There is considerable overlap between the information covered by <b>Questionnaires</b> and other Resources (especially <a href="familymemberhistory.html">FamilyMemberHistory</a>,
@@ -160,7 +160,7 @@ Where the names are the same (ignoring case), the "answer" must use the specifie
   </tbody>
 </table>
 
-<a name="choices"/>
+<a name="choices"> </a>
 <h3>Permitted values for questions</h3>
 <p>
 Many questionnaires place constraints on the allowed list of values for a given question.  FHIR supports this notion through the <code>item.options</code> or the

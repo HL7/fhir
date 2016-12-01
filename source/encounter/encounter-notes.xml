@@ -10,7 +10,7 @@ is required.</li>
 <li>In future versions of FHIR, some kind of charge posting vehicle (e.g. Account) will be added.</li>
 </ul>
 </p>
-<a name="examples" />
+<a name="examples"> </a>
 <h2>Example usage</h2>
 <p>As stated, Encounter allows a flexible nesting of Encounters using the partOf element. For example:</p>
 <ul>
