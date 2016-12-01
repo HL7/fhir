@@ -289,7 +289,7 @@ The value set with a url that follows the pattern "[edition/version]?fhir_vs=ref
       &lt;system value=&quot;http://snomed.info/sct&quot;/&gt;
       &lt;!-- repeat: one concept element with a code for each concept that has an associated reference set --&gt;
       &lt;concept&gt;
-        &lt;code value=&quot;[concept]&quot;/&gt;
+        &lt;code value=&quot;[sctid]&quot;/&gt;
       &lt;/concept&gt;
       &lt;-- end repeat --&gt;
     &lt;/include&gt;
@@ -301,7 +301,7 @@ For each concept that is associated with a reference set, there will be one conc
 contained code that contains the concept id.
 </p>
 <p>
-A value set with a url that follows the pattern "[edition/version]?fhir_vs=refset/[sctid]" follows this template:
+A value set with a url that follows the pattern "[edition/version]?fhir_vs=refset/[conceptid]" follows this template:
 </p>
 <pre>
 &lt;ValueSet xmlns=&quot;http://hl7.org/fhir&quot;&gt;
