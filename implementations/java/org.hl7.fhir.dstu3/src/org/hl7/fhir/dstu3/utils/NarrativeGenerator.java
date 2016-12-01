@@ -2584,7 +2584,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     Map<String, String> versions = new HashMap<String, String>();
     for (ValueSetExpansionParameterComponent p : expansion.getParameter()) {
       if (p.getName().equals("version")) {
-        String[] parts = ((PrimitiveType) p.getValue()).asStringValue().split("\\?version\\=");
+        String[] parts = ((PrimitiveType) p.getValue()).asStringValue().split("\\|");
         if (parts.length == 2)
           versions.put(parts[0], parts[1]);
       }

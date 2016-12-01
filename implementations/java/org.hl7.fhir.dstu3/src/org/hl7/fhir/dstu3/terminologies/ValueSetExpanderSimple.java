@@ -342,8 +342,8 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
 		if (vso.getService() != null)
       throw new TerminologyServiceException("Unable to expand imported value set "+value);
 		if (vs.hasVersion())
-      if (!existsInParams(params, "version", new UriType(vs.getUrl()+"?version="+vs.getVersion())))
-        params.add(new ValueSetExpansionParameterComponent().setName("version").setValue(new UriType(vs.getUrl()+"?version="+vs.getVersion())));
+      if (!existsInParams(params, "version", new UriType(vs.getUrl()+"|"+vs.getVersion())))
+        params.add(new ValueSetExpansionParameterComponent().setName("version").setValue(new UriType(vs.getUrl()+"|"+vs.getVersion())));
 		for (ValueSetExpansionParameterComponent p : vso.getValueset().getExpansion().getParameter()) {
 			if (!existsInParams(params, p.getName(), p.getValue()))
 				params.add(p);
@@ -386,8 +386,8 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
       if (cs.getContent() != CodeSystemContentMode.COMPLETE)
         throw new TerminologyServiceException("Code system "+inc.getSystem().toString()+" is incomplete");
       if (cs.hasVersion())
-        if (!existsInParams(params, "version", new UriType(cs.getUrl()+"?version="+cs.getVersion())))
-          params.add(new ValueSetExpansionParameterComponent().setName("version").setValue(new UriType(cs.getUrl()+"?version="+cs.getVersion())));
+        if (!existsInParams(params, "version", new UriType(cs.getUrl()+"|"+cs.getVersion())))
+          params.add(new ValueSetExpansionParameterComponent().setName("version").setValue(new UriType(cs.getUrl()+"|"+cs.getVersion())));
 
       if (inc.getConcept().size() == 0 && inc.getFilter().size() == 0) {
         // special case - add all the code system

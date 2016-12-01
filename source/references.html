@@ -107,6 +107,7 @@ Notes:
    However conformance with this regex is no guarantee that the end-point is a FHIR server
    </li>
  <li>URLs are always considered to be case-sensitive</li>
+ <li>References SHALL be a reference to an actual FHIR resource, and SHALL be resolveable (allowing for access control, temporary unavailability, etc). Resolution can be either by retrieval from the URL, or, where applicable by resource type, by treating an absolute reference as a canonical URL (<a href="#canonical">see below</a>) and looking it up in a local registry/repository</li>
 </ul>
 <div class="example">
 <p>A relative reference to the <a href="patient.html">Patient</a> "034AB16" in an element named <code>context</code> on a FHIR RESTful server:</p>
