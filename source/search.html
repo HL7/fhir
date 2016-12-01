@@ -277,7 +277,7 @@ Servers are not required to implement any of the standard search parameters
  parameters.
 </p>
 
-<a name="ptypes" />
+<a name="ptypes"> </a>
 <h4>Search Parameter Types</h4>
 <p>Each search parameter is defined by a type that specifies how the search parameter
 behaves. These are the defined parameter types:
@@ -289,7 +289,7 @@ their behavior. The kinds of modifiers that available is dependent on the type
 of parameter being modified.
 </p>
 
-<a name="modifiers" />
+<a name="modifiers" > </a>
 <h4>Modifiers</h4>
 <p>Parameters are defined per resource.  Parameter names may specify a modifier as a suffix.
 The modifiers are separated from the parameter name by a colon. Modifiers are:</p>
@@ -312,7 +312,7 @@ an <a href="operationoutcome.html">OperationOutcome</a> with a <a href="operatio
 
 </p>
 
-<a name="prefix" />
+<a name="prefix"> </a>
 <h4>Prefixes</h4>
 <p>
 For the ordered parameter types of <a href="#number">number</a>, <a href="#date">date</a>, and <a href="#quantity">quantity</a>,
@@ -406,7 +406,7 @@ are identified:
 The proper use of these ranges is discussed further below.
 </p>
 
-<a name="number" />
+<a name="number"> </a>
 <h4>number</h4>
 <p>
 Sarching on a simple numerical value in a resource. Examples:
@@ -435,7 +435,7 @@ Here are some example searches:
 </table>
 
 
-<a name="date" />
+<a name="date"> </a>
 <h4>date</h4>
 <p>
 A date parameter searches on a date/time or period. As is usual for date/time related functionality, while the
@@ -498,7 +498,7 @@ To search for all the procedures in a patient compartment that occurred over a 2
 </pre>
 
 
-<a name="string" />
+<a name="string"> </a>
 <h4>string</h4>
 <p>
 For a simple string search, a string parameter serves as the input for a case- and accent-insensitive search against sequences of characters.
@@ -544,7 +544,7 @@ or a free-text style searches on names to achieve the best results.
 <!--
 A server defined search (link to search page) that may consider matching any of the string fields in the HumanName, including family, give, prefix, suffix, suffix, and/or text
  -->
-<a name="uri" />
+<a name="uri"> </a>
 <h4>uri</h4>
 <p>
 The uri parameter refers to a URI (<a href="https://tools.ietf.org/html/rfc3986">RFC 3986</a>) element.
@@ -690,7 +690,7 @@ Example searches:
 </table>
 
 
-<a name="quantity" />
+<a name="quantity"> </a>
 <h4>quantity</h4>
 <p>
 A quantity parameter searches on the <a href="datatypes.html#Quantity">Quantity</a> data type.
@@ -716,7 +716,7 @@ The search processor may choose to perform a search based on <a href="datatypes.
 </p>
 
 
-<a name="reference" />
+<a name="reference"> </a>
 <h4>reference</h4>
 <p>
 A reference parameter refers to <a href="references.html">references between resources</a>.  For example, find all
@@ -786,7 +786,7 @@ the patient search parameter, there is no need to specify ":Patient" as a modifi
 in the search value, as this must always be true.
 </p>
 
-<a name="chaining" />
+<a name="chaining"> </a>
 <h4>Chained parameters</h4>
 <p>
 In order to save a client from performing a series of search operations,
@@ -870,8 +870,8 @@ Feedback is welcome <a href="http://wiki.hl7.org/index.php?title=FHIR_Specificat
 </blockquote>
 
 
-<a name="composite" />
-<a name="combining" />
+<a name="composite"> </a>
+<a name="combining"> </a>
 <h4>Composite Search Parameters</h4>
 <p>
 Composite search parameters supports joining single values with a <code>$</code>. For example, the result
@@ -930,7 +930,7 @@ Examples of using composite parameters:
 </table>
 
 
-<a name="escaping" />
+<a name="escaping"> </a>
 <h4>Escaping Search Parameters</h4>
 <p>
 In the rules described above, special rules are defined for the characters <code>$</code>, <code>,</code>, and <code>|</code>.
@@ -1123,8 +1123,8 @@ these cases.
 <a name="return"> </a>
 <h3>Managing Returned Resources</h3>
 
-<a name="sort" />
-<a name="_sort" />
+<a name="sort"> </a>
+<a name="_sort"> </a>
 
 <h4>Sorting</h4>
 <p>
@@ -1541,7 +1541,7 @@ score in <a href="bundle-definitions.html#Bundle.entry.score">entry.score</a>:
 The score is a decimal number with a value between (and including) 0 and 1, where 1 is best match, and 0 is least match.
 </p>
 
-<a name="conformance" />
+<a name="conformance"> </a>
 <h3>Server Conformance</h3>
 <p>
 In order to allow the client to be confident about what search parameters

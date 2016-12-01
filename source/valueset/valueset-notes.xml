@@ -108,7 +108,7 @@ How filters are used with various code systems:
    <td>concept</td>
    <td>is-a</td>       
    <td>[code]</td>    
-   <td>Includes all codes that have a transitive is-a relationship with the concept identified by the value</td> 
+   <td>Includes all codes that have a transitive is-a relationship with the concept identified by the value (including the concept itself)</td> 
    <td><a href="valueset-relatedperson-relationshiptype.html">Relationship Type</a></td>
  </tr>
  <tr>

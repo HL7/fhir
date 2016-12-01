@@ -40,7 +40,8 @@ properties include:
  <li>Assigning scoring values to the concepts</li>
 </ul>
 <p>
-Properties are identified by their code (<code>CodeSystem.property.code</code>), which is used both internally within the 
+Properties are identified by their master URI (<code>CodeSystem.property.uri</code>), and then, by their 
+code (<code>CodeSystem.property.code</code>), which is used both internally within the 
 code system resource (<code>CodeSystem.concept.property.code</code>) and also externally, in the following
 places:
 </p>
@@ -89,6 +90,52 @@ relationships between properties (e.g. SNOMED CT). Servers providing support for
 to know full details about the underlying relationships in order to provide the correct information about 
 concepts and their properties, but this information does not surface in the resources or operations defined
 by the FHIR specification.
+</p>
+
+
+<a name="status"> </a>
+<h2>Concept Status</h2>
+
+<p>
+Many Code Systems have a 'status' associated with the concept. This may categorise the concept 
+as:
+</p>
+<ul>
+  <li>Experimental - provided for trial, but may be removed in the future</li>
+  <li>Active - in normal use</li>
+  <li>Deprecated - planned to be removed from use</li>
+  <li>Retired - still present for historical reasons, but no longer allowed to be used</li>
+</ul>
+<p>
+There is wide variation in the life cycles supported by the different code systems, the words
+they use to describe the various status values they use, and some code systems have additional 
+status values. HL7 uses Active and Retired. In addition to these status codes, concepts may be 
+also be labelled as "Abstract' (not to be used in some circumstances), and have dates associated 
+with their withdrawal or deprecation. All this information is represented as properties of 
+the concepts. In order to assist with consistency between code systems, the following 
+basic property URIs are defined:
+</p>
+<table class="grid">
+ <tr><td>http://hl7.org/fhir/concept-properties#status</td><td>A property that indicates the status of the concept. If the property is identified by this URL, then it SHALL use at least these status values (where appropriate):
+     <ul>
+      <li>active - the concept is for normal use (this is the default value)</li>
+      <li>experimental - provided for trial, but may be removed in the future</li>
+      <li>deprecated - planned to be removed from use</li>
+      <li>retired - still present for historical reasons, but no longer allowed to be used</li>
+     </ul>
+   </td></tr>
+ <tr><td>http://hl7.org/fhir/concept-properties#retirementDate</td><td>Date Concept was retired</td></tr>
+ <tr><td>http://hl7.org/fhir/concept-properties#deprecationDate</td><td>Date Concept was deprecated</td></tr>
+ <tr><td>http://hl7.org/fhir/concept-properties#parent</td><td>A parent of the concept in the heirarchy</td></tr>
+ <tr><td>http://hl7.org/fhir/concept-properties#child</td><td>A parent of the concept in the heirarchy</td></tr>
+ <tr><td>http://hl7.org/fhir/concept-properties#notSelectable</td><td>This concept is a grouping concept and not intended to be used in the normal use of the code system (though my be used for filters etc)</td></tr>
+</table> 
+<p>
+Typically, Code systems are presented heirachically, where the heirachy has <a href="codesystem-definitions.html#CodeSystem.hierarchyMeaning">a defined meaning</a>.
+For this reason, the parent and child properties are mostly only used when performing concept lookup. 
+Note that in some code systems, concepts may have multiple parents, so the parent property may repeat. 
+These code systems are not usually presented in a heirachical fashion in a <code>CodeSystem</code> if they are represented in a CodeSystem at all. If they are,
+then the <a href="extension-codesystem-subsumes.html">subsumes extension</a> must be used.
 </p>
 
 <a name="detailed-metadata"> </a>
