@@ -1081,7 +1081,7 @@ know identifying information - e.g. an identifier. This situations arises common
 transactions from v2 messages. The client could resolve that identifier to a logical id using
 a search, but that would mean that the resolution to a logical id does not occur within the
 same transaction as the commit (as well as significantly complicating the client). Because
-of this, in a transaction (and only in a trasaction), references to resources may be replaced
+of this, in a transaction (and only in a transaction), references to resources may be replaced
 by a search URI that describes how to find the correct reference:
 </p>
 <div class="example">
@@ -1119,7 +1119,7 @@ When processing transactions, servers SHALL:
  <li>check all references for search URIs</li>
  <li>For search URIs, use the search to locate matching resources</li>
  <li>if there are no matches, or multiple matches, the transaction fails, and an error is returned to the user</li>
- <li>if there is a single match, the server replaces the search URI wth a reference to the matching resource</li>
+ <li>if there is a single match, the server replaces the search URI with a reference to the matching resource</li>
 </ul>
 
 
