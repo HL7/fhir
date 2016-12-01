@@ -9,7 +9,7 @@ into a single package that may be the subject of workflow such as access control
 targeted delivery. 
 </p>
 <p>
-Typically, DocumentManifest resources are used in document indexing systems, such as <a href="http://wiki.ihe.net/index.php?title=Cross-Enterprise_Document_Sharing">IHE XDS</a> (see the <a href="xds.html">XDS specific profile</a>).
+Typically, DocumentManifest resources are used in document indexing systems, such as <a href="http://wiki.ihe.net/index.php?title=Cross-Enterprise_Document_Sharing">IHE XDS</a>.
 </p>
 </div>
 

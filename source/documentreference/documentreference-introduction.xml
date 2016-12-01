@@ -10,7 +10,7 @@ author, etc. can be displayed to the user), and has defined update management. T
 used with any document format that has a recognized mime type and that conforms to this definition.
 </p>
 <p>
-Typically, DocumentReference resources are used in document indexing systems, such as <a href="http://wiki.ihe.net/index.php?title=Cross-Enterprise_Document_Sharing">IHE XDS</a> (see the <a href="xds.html">XDS specific profile</a>),
+Typically, DocumentReference resources are used in document indexing systems, such as <a href="http://wiki.ihe.net/index.php?title=Cross-Enterprise_Document_Sharing">IHE XDS</a>,
 and are used to refer to:
 </p>
 <ul>
