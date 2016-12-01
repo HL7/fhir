@@ -10,7 +10,7 @@
 
 <div class="col-9">
 
-<a name="definitional-resources"/>
+<a name="definitional-resources"> </a>
 <h3>Definitional Resources</h3>
 <p>Part of defining knowledge artifacts such as order sets, protocols, and decision support rules is describing in a patient- or context-independent way the activities to be performed. For example, when defining an order set, the orderable items must be described with enough detail to enable the creation of the items when the order set is applied. These descriptions can be thought of as <i>templates</i> for the creation of patient- or context-specific resources and are often referred to as <i>definitional</i> resources, to distinguish them from <i>intent</i> resources (that signal an intention to take some action for a specific patient), as well as <i>event</i> resources (that signal that some action has actually been taken for a patient).</p>
 
@@ -38,7 +38,7 @@
 
 <p>For example, the following fragment illustrates a definition to create a referral request:</p>
 
-<a name="referral-request-activity-definition">
+<a name="referral-request-activity-definition"> </a>
 <pre><code>&lt;ActivityDefinition&gt;
   &lt;description value=&quot;refer to primary care mental-health integrated care program for evaluation and treatment
    of mental health conditions now&quot;/&gt;
@@ -59,13 +59,13 @@
   &lt;participantType value=&quot;practitioner&quot;/&gt;
 &lt;/ActivityDefinition&gt;
 </code></pre>
-</a>
+
 
 <p>Note the use of an expression to represent the value of the timing element as <code>Now()</code>.</p>
 
 <p>For medication activities, the ActivityDefinition resource has some basic elements such as the <i>product</i> and <i>quantity</i>, but there is not enough information to describe more complex dosing scenarios. In those cases, the <i>dynamicValue</i> expression elements can be used to describe the values for elements that are present on the target resource, but not in the definitional resource. For example:</p>
 
-<a name="medication-activity-definition">
+<a name="medication-activity-definition"> </a>
 <pre><code>&lt;ActivityDefinition&gt;
   &lt;id value=&quot;citalopramPrescription&quot;/&gt;
   &lt;status value=&quot;draft&quot;/&gt;
@@ -83,7 +83,6 @@
   &lt;/dynamicValue&gt;
 &lt;/ActivityDefinition&gt;
 </code></pre>
-</a>
 
 </div>
 [%file newfooter%]
