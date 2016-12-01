@@ -287,9 +287,10 @@
   Card. = 0..1
   Summary = y
   Type = boolean
-  Short Name = Include or exclude nested codes in the value set expansion
-  Definition = Controls whether or not the value set expansion includes nested codes (i.e. ValueSet.expansion.contains.contains).
-  Comments = Nested codes excluded if excludeNested is present and has a value of \"true\".
+  Short Name = Nested codes in the expansion or not
+  Definition = Controls whether or not the value set expansion nests codes or not (i.e. ValueSet.expansion.contains.contains).
+  Requirements = Heirahical contains are useful for UI use, but not when validating. Code Generation etc. may depend on context
+  Comments = Nested codes excluded if excludeNested is present and has a value of \"true\"
 
  -- Row 34 -----------------------------------
   Element = ExpansionProfile.excludeNotForUI

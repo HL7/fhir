@@ -199,7 +199,7 @@
   Element = Address.country
   Card. = 0..1
   Type = string
-  Short Name = Country (can be ISO 3166 3 letter code)
+  Short Name = Country (e.g. can be ISO 3166 2 or 3 letter code)
   Definition = Country - a nation as commonly understood or generally accepted
   Comments = ISO 3166 3 letter codes can be used in place of a full country name.
   v2 Mapping = XAD.6

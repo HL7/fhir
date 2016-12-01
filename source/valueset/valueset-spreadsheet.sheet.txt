@@ -722,7 +722,7 @@
  -- Row 13 -----------------------------------
   Name = expand.excludeNested
   Use = in
-  Documentation = Controls whether or not the value set expansion includes nested codes (i.e. ValueSet.expansion.contains.contains). Overrides the value in the expansion profile if there is one
+  Documentation = Controls whether or not the value set expansion nests codes or not (i.e. ValueSet.expansion.contains.contains). Overrides the value in the expansion profile if there is one
   Type = boolean
   Min = 0
   Max = 1
