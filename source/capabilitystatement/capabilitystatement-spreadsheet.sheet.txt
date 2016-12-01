@@ -505,7 +505,7 @@
  -- Row 10 -----------------------------------
   Id = 15
   Context = CapabilityStatement
-  English = Capability Statements of kind \'software\' do not have implementation elements
+  English = Capability Statements of kind \'instance\' do not have implementation elements
   XPath = not(exists(f:implementation)) or (f:kind/@value != \'capability\')
   Expression = implementation.empty() or kind != \'capability\'
 
