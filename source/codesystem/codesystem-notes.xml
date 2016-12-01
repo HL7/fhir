@@ -111,7 +111,7 @@ There is wide variation in the life cycles supported by the different code syste
 they use to describe the various status values they use, and some code systems have additional 
 status values. HL7 uses Active and Retired. In addition to these status codes, concepts may be 
 also be labelled as "Abstract' (not to be used in some circumstances), and have dates associated 
-with their withdrawal or deprecation. All this information is represented as properties of 
+with their retirement or deprecation. All this information is represented as properties of 
 the concepts. In order to assist with consistency between code systems, the following 
 basic property URIs are defined:
 </p>
@@ -126,15 +126,16 @@ basic property URIs are defined:
    </td></tr>
  <tr><td>http://hl7.org/fhir/concept-properties#retirementDate</td><td>Date Concept was retired</td></tr>
  <tr><td>http://hl7.org/fhir/concept-properties#deprecationDate</td><td>Date Concept was deprecated</td></tr>
- <tr><td>http://hl7.org/fhir/concept-properties#parent</td><td>A parent of the concept in the heirarchy</td></tr>
- <tr><td>http://hl7.org/fhir/concept-properties#child</td><td>A parent of the concept in the heirarchy</td></tr>
- <tr><td>http://hl7.org/fhir/concept-properties#notSelectable</td><td>This concept is a grouping concept and not intended to be used in the normal use of the code system (though my be used for filters etc)</td></tr>
+ <tr><td>http://hl7.org/fhir/concept-properties#parent</td><td>An immediate parent of the concept in the heirarchy</td></tr>
+ <tr><td>http://hl7.org/fhir/concept-properties#child</td><td>An immediate child of the concept in the heirarchy</td></tr>
+ <tr><td>http://hl7.org/fhir/concept-properties#notSelectable</td><td>This concept is a grouping concept and not intended to be used in 
+   the normal use of the code system (though my be used for filters etc). This is also known as 'Abstract'</td></tr>
 </table> 
 <p>
-Typically, Code systems are presented heirachically, where the heirachy has <a href="codesystem-definitions.html#CodeSystem.hierarchyMeaning">a defined meaning</a>.
+Typically, Code systems are presented hierachically, where the hierachy has <a href="codesystem-definitions.html#CodeSystem.hierarchyMeaning">a defined meaning</a>.
 For this reason, the parent and child properties are mostly only used when performing concept lookup. 
 Note that in some code systems, concepts may have multiple parents, so the parent property may repeat. 
-These code systems are not usually presented in a heirachical fashion in a <code>CodeSystem</code> if they are represented in a CodeSystem at all. If they are,
+These code systems are not usually presented in a hierachical fashion in a <code>CodeSystem</code> if they are represented in a CodeSystem at all. If they are,
 then the <a href="extension-codesystem-subsumes.html">subsumes extension</a> must be used.
 </p>
 
