@@ -4715,7 +4715,7 @@
     <Cell ss:StyleID="s91"><Data ss:Type="String">Kind rules #2</Data></Cell>
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s91"><Data ss:Type="String">CapabilityStatement</Data></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">Capability Statements of kind 'software' do not have implementation elements</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">Capability Statements of kind 'instance' do not have implementation elements</Data></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">implementation.empty() or kind != 'capability'</Data></Cell>
     <Cell ss:StyleID="s111"><Data ss:Type="String">not(exists(f:implementation)) or (f:kind/@value != 'capability')</Data></Cell>
    </Row>
