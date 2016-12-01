@@ -226,7 +226,7 @@ GET [base]/ValueSet/23/$expand?filter=abdo
 Expanding a value set that is specified by the client (using JSON):
 </p>
 <pre class="http">
-POST [base]/ValueSet/23/$expand
+POST [base]/ValueSet/$expand
 [other headers]
 
 {
@@ -875,8 +875,8 @@ the search could generate expansions, and then search for these expansions. This
   <li> the expansion of the subsumption might not be closed, and so the search operation cannot be correct </li>
 </ul>
 <p>
-An alternative approach is to generate a subsumption <a href="http://karwin.blogspot.com.au/2010/03/rendering-trees-with-closure-tables.html">closure table</a>,
-which lists all the possible relationships, and allows for rapid execution of these kind of queries. However this has other problems:
+An alternative approach is to generate a <a href="https://en.wikipedia.org/wiki/Transitive_closure#In_graph_theory">transitive closure table</a> 
+which lists all the possible transitive subsumption relationships, and <a href="http://karwin.blogspot.com.au/2010/03/rendering-trees-with-closure-tables.html">allows for rapid execution of these kind of queries</a> . However this has other problems:
 </p>
 <ul>
   <li> the subsumption table can be very large (&gt;500000 records for SNOMED CT), even though very few of the codes are used</li>

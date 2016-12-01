@@ -470,7 +470,7 @@
  -- Row 23 -----------------------------------
   Name = closure
   Use = System
-  Documentation = This operation provides support for ongoing maintenance of a client-side closure table based on server-side terminological logic. For details of how this is used, see [Maintaining a Closure Table](terminology-service.html#closure)
+  Documentation = This operation provides support for ongoing maintenance of a client-side [transitive closure table](https://en.wikipedia.org/wiki/Transitive_closure#In_graph_theory) based on server-side terminological logic. For details of how this is used, see [Maintaining a Closure Table](terminology-service.html#closure)
   Type = operation
   Example.Request = $closure-request.txt
   Example.Response = $closure-response.txt
