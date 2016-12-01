@@ -26,15 +26,15 @@
 
  -- Row 4 -----------------------------------
   Binding Name = LOINC 48019-4 answerlist
-  Binding = value set
-  Reference = http://loinc.org/vs/LL379-9
+  Binding = code list
+  Reference = #LOINC-48019-4-answerlist
   Definition = LOINC answer list for Type of variation
   Conformance = example
 
  -- Row 5 -----------------------------------
   Binding Name = LOINC 48002-0 answerlist
-  Binding = value set
-  Reference = http://loinc.org/vs/(LL378-1
+  Binding = code list
+  Reference = #LOINC-48002-0-answerlist
   Definition = LOINC answer list for Genomic source class
   Conformance = example
 
@@ -47,8 +47,8 @@
 
  -- Row 7 -----------------------------------
   Binding Name = LOINC 53034-5 answerlist
-  Binding = value set
-  Reference = http://loinc.org/vs/LL381-5
+  Binding = code list
+  Reference = #LOINC-53034-5-answerlist
   Definition = LOINC answer list for AllelicState
   Conformance = example
 
@@ -107,6 +107,94 @@
   Description = Type for repository
   Conformance = required
 
+=== Sheet LOINC-48019-4-answerlist =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = LA9658-1
+  Display = Wild type
+  Definition = Wild type
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = LA6692-3
+  Display = Deletion
+  Definition = Deletion
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = LA6686-5
+  Display = Duplication
+  Definition = Duplication
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = LA6687-3
+  Display = Insertion
+  Definition = Insertion
+
+ -- Row 5 -----------------------------------
+  Id = 5
+  Code = LA6688-1
+  Display = Insertion/Deletion
+  Definition = Insertion/Deletion
+
+ -- Row 6 -----------------------------------
+  Id = 6
+  Code = LA6689-9
+  Display = Inversion
+  Definition = Inversion
+
+ -- Row 7 -----------------------------------
+  Id = 7
+  Code = LA6690-7
+  Display = Substitution
+  Definition = Substitution
+
+=== Sheet LOINC-48002-0-answerlist =====================================
+
+ -- Row 1 -----------------------------------
+  Id = http://loinc.org
+  Code = LA6683-2
+  Display = Germline
+  Definition = Germline
+
+ -- Row 2 -----------------------------------
+  Id = http://loinc.org
+  Code = LA6684-0
+  Display = Somatic
+  Definition = Somatic
+
+ -- Row 3 -----------------------------------
+  Id = http://loinc.org
+  Code = LA10429-1
+  Display = Prenatal
+  Definition = Prenatal
+
+ -- Row 4 -----------------------------------
+  Id = http://loinc.org
+  Code = LA18194-3
+  Display = Likely Germline
+  Definition = Likely Germline
+
+ -- Row 5 -----------------------------------
+  Id = http://loinc.org
+  Code = LA18195-0
+  Display = Likely Somatic
+  Definition = Likely Somatic
+
+ -- Row 6 -----------------------------------
+  Id = http://loinc.org
+  Code = LA18196-8
+  Display = Likely Prenatal
+  Definition = Likely Prenatal
+
+ -- Row 7 -----------------------------------
+  Id = http://loinc.org
+  Code = LA18197-6
+  Display = Unknown Genomic Origin
+  Definition = Unknown Genomic Origin
+
 === Sheet variant-state =====================================
 
  -- Row 1 -----------------------------------
@@ -126,6 +214,38 @@
   Code = absent
   Display = absent
   Definition = result of the variant is missing
+
+=== Sheet LOINC-53034-5-answerlist =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = LA6703-8
+  Display = Heteroplasmic
+  Definition = Heteroplasmic
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = LA6704-6
+  Display = Homoplasmic
+  Definition = Homoplasmic
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = LA6705-3
+  Display = Homozygous
+  Definition = Homozygous
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = LA6706-1
+  Display = Heterozygous
+  Definition = Heterozygous
+
+ -- Row 5 -----------------------------------
+  Id = 5
+  Code = LA6707-9
+  Display = Hemizygous
+  Definition = Hemizygous
 
 === Sheet sequence-type =====================================
 
@@ -368,13 +488,27 @@
 === Sheet Invariants =====================================
 
  -- Row 1 -----------------------------------
+  Id = 3
+  Context = Sequence
+  English = Only 0 and 1 are valid for coordinateSystem
+  XPath = count(f:coordinateSystem[@value=0 and @value=1]) = 1
+  Expression = coordinateSystem = 1 or coordinateSystem = 0
+
+ -- Row 2 -----------------------------------
+  Id = 4
+  Context = Sequence.referenceSeq
+  English = Only +1 and -1 are valid for strand
+  XPath = not(exists(f:strand)) or count(f:strand[@value=-1 and @value=1]) = 1
+  Expression = strand.empty() or strand = 1 or strand = -1
+
+ -- Row 3 -----------------------------------
   Id = 5
   Context = Sequence.referenceSeq
   English = GenomeBuild and chromosome must be both contained if either one of them is contained
   XPath = (exists(f:chromosome) and exists(f:genomeBuild)) or (not(exists(f:chromosome)) and not(exists(f:genomeBuild)))
   Expression = (chromosome.empty() and genomeBuild.empty()) or (chromosome.exists() and genomeBuild.exists())
 
- -- Row 2 -----------------------------------
+ -- Row 4 -----------------------------------
   Id = 6
   Context = Sequence.referenceSeq
   English = Have and only have one of the following elements in referenceSeq : 1. genomeBuild ; 2 referenceSeqId; 3. referenceSeqPointer;  4. referenceSeqString;
@@ -526,7 +660,7 @@
   Element = Sequence.variant
   Card. = 0..*
   Short Name = Sequence variant
-  Definition = The definition of variant here originates from Sequence ontology ([variant_of](http://www.sequenceontology.org/browser/current_svn/term/variant_of)). This can represent amino acid or nucleic sequence change(including insertion,deletion,SNP,etc.)  It can represent some complex mutation or segment variation with the assist of CIGAR string.
+  Definition = The definition of variant here originates from Sequence ontology ([variant_of](http://www.sequenceontology.org/browser/current_svn/term/variant_of)). This element can represent amino acid or nucleic sequence change(including insertion,deletion,SNP,etc.)  It can represent some complex mutation or segment variation with the assist of CIGAR string.
 
  -- Row 21 -----------------------------------
   Element = Sequence.variant.start

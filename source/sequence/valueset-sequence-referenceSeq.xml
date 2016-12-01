@@ -15,5 +15,8 @@
     <include>
       <system value="http://www.ensembl.org"/>
     </include>
+    <include>
+      <system value="http://www.ncbi.nlm.nih.gov/nuccore"/>
+    </include>
   </compose>
 </ValueSet>
