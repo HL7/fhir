@@ -65,7 +65,7 @@ provide the details.
 Refer to the <a href="valueset.html#detailed-metadata">Code systems with detailed metadata</a> section of <a href="valueset.html">ValueSet</a> resource
 for additional discussion of the relationship between DataElement and code systems.
 </p>
-	<a name="standardization"/>
+	<a name="standardization"> </a>
 	<h3>Standardization through governance and registries</h3>
 	<p>
 As noted in the introduction, one of the main purposes for the use of data elements is 'standardization' - gaining consistent

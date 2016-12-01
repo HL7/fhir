@@ -1,6 +1,6 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
-<a name="linking"/>
+<a name="linking"> </a>
 <h2>Linking to Detected Issues</h2>
 <p>
 DetectedIssue follows the pattern of linking from the resource created "second".  As DetectedIssue originates in response to one or more other existing records, it points to those records rather than being pointed to from them.
@@ -12,7 +12,7 @@ In some cases, a detected issue might be associated with a single record.  When 
 If there is a strong need to point from an implicated resource to DetectedIssue and containment is not appropriate, an extension can be used.
 </p>
 
-<a name="workflow"/>
+<a name="workflow"> </a>
 <h2>Workflow Challenges</h2>
 <p>
 DetectedIssue is a resource that is frequently associated with workflow challenges where frequent alerts that are not clinically relevant result in clinicians tuning out (or turning off) the content and thus missing relevant alerts. Give consideration to this issue before making heavy use of this resource.

@@ -7493,7 +7493,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     if (pack.getExtensions().size() > 0) {
       s.append("<tr><td colspan=\"2\"><b>Extensions</b>: </td></tr>");
       for (StructureDefinition ed : pack.getExtensions())
-        s.append("<tr><td><a name=\"extension-").append(prefix+ed.getId()).append("\"/><a href=\"extension-").append(ed.getId().toLowerCase()).append(".html\">").append(Utilities.escapeXml(ed.getId()))
+        s.append("<tr><td><a name=\"extension-").append(prefix+ed.getId()).append("\"> </a><a href=\"extension-").append(ed.getId().toLowerCase()).append(".html\">").append(Utilities.escapeXml(ed.getId()))
                 .append("</a></td><td><b>").append(Utilities.escapeXml(ed.getName())).append("</b> : ").append(processMarkdown(pack.getId(), ed.getDescription(), prefix)).append("</td></tr>");
     }
     if (pack.getExamples().size() > 0) {

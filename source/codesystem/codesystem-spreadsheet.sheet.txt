@@ -440,7 +440,7 @@
   Card. = 0..*
   Type = @CodeSystem.concept
   Short Name = Child Concepts (is-a/contains/categorizes)
-  Definition = Defines children of a concept to produce a hierarchy of concepts. The nature of the relationships is variable (is-a/contains/categorizes) and can only be determined by examining the definitions of the concepts
+  Definition = Defines children of a concept to produce a hierarchy of concepts. The nature of the relationships is variable (is-a/contains/categorizes) - see hierarchyMeaning
 
 === Sheet Search =====================================
 
