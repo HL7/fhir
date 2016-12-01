@@ -17,6 +17,7 @@
   Type = Type
   Short Name = A reference from one resource to another
   Definition = A reference from one resource to another
+  Comments = References SHALL be a reference to an actual FHIR resource, and SHALL be resolveable (allowing for access control, temporary unavailability, etc). Resolution can be either by retrieval from the URL, or, where applicable by resource type, by treating an absolute reference as a canonical URL and looking it up in a local registry/repository
   RIM Mapping = The target of a resource reference is a RIM entry point (Act, Role, or Entity)
 
  -- Row 2 -----------------------------------

@@ -1,6 +1,14 @@
 ﻿
 === Sheet Bindings =====================================
 
+ -- Row 1 -----------------------------------
+  Binding Name = BodySite
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/body-site
+  Definition = Codes describing anatomical locations. May include laterality.
+  Description = SNOMED CT Body site concepts
+  Conformance = example
+
 === Sheet Invariants =====================================
 
 === Sheet Data Elements =====================================
@@ -14,12 +22,13 @@
   w5 = workflow.order
 
  -- Row 2 -----------------------------------
-  Element = DeviceUseStatement.bodySite[x]
+  Element = DeviceUseStatement.bodySite
   Card. = 0..1
-  Type = CodeableConcept|Reference(BodySite)
+  Type = CodeableConcept
+  Binding = BodySite
   Short Name = Target body site
   Definition = Indicates the site on the subject\'s body where the device was used ( i.e. the target site).
-  Requirements = Knowing where the device is targeted is important for tracking if multiple sites are possible.
+  Requirements = Knowing where the device is targeted is important for tracking if multiple sites are possible. If more information than just a code is required, use the extension [[[http://hl7.org/fhir/StructureDefinition/body-site-instance]]]
   RIM Mapping = targetSiteCode
 
  -- Row 3 -----------------------------------
