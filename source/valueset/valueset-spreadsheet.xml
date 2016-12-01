@@ -5010,7 +5010,7 @@
     <Cell ss:StyleID="s139"><Data ss:Type="String">boolean</Data></Cell>
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Controls whether or not the value set expansion includes nested codes (i.e. ValueSet.expansion.contains.contains). Overrides the value in the expansion profile if there is one</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Controls whether or not the value set expansion nests codes or not (i.e. ValueSet.expansion.contains.contains). Overrides the value in the expansion profile if there is one</Data></Cell>
     <Cell ss:StyleID="s140"/>
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s87"/>
@@ -5581,7 +5581,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>32</ActiveRow>
+     <ActiveRow>14</ActiveRow>
      <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
