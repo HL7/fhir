@@ -1547,7 +1547,7 @@ public class SpreadsheetParser {
 						throw new Exception("Example " + name + " file '" + file.getAbsolutePath() + "' not found parsing " + this.name);
           List<Example> list = defn.getExamples();
 					String pn = sheet.getColumn(row, "Profile");
-          if (!Utilities.noString(pn)) {
+          if (!Utilities.noString(pn) && !pn.startsWith("!")) {
             Profile ap = null;
             for (Profile r : defn.getConformancePackages()) {
               if (r.getTitle().equals(pn))
