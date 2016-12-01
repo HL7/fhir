@@ -4,7 +4,7 @@
  -- Row 1 -----------------------------------
   Binding Name = HGNC-geneIdentifiers
   Binding = reference
-  Reference = http://www.genenames.org
+  Reference = [Genenames](http://www.genenames.org)
   Definition = International curated set of gene identifiers
   Description = Gene Identifiers Reference
   Conformance = preferred
@@ -13,7 +13,7 @@
  -- Row 2 -----------------------------------
   Binding Name = HGVS-variantNomenclature
   Binding = reference
-  Reference = http://www.hgvs.org/mutnomen/
+  Reference = [HGVS-mutnomen](http://www.hgvs.org/mutnomen/)
   Definition = International nomenclature for variant naming
   Description = Sequence Variation Nomenclature
   Conformance = preferred
@@ -82,6 +82,7 @@
   Binding Name = EBI-AlleleName
   Binding = reference
   Reference = http://www.ebi.ac.uk/
+  Definition = EMBL-EBI database of AlleleName
   Description = The nomenclature from European Bioinformatics Institute to name the genetic Allele
   Conformance = preferred
 
@@ -109,7 +110,7 @@
 
  -- Row 2 -----------------------------------
   Element = Observation.extension
-  Profile Name = TranscriptReferenceSequenceId
+  Profile Name = !TranscriptReferenceSequenceId
   Card. = 0..1
   Type = Extension{#TranscriptReferenceSequenceId}
   Short Name = Transcript reference sequence ID
@@ -117,7 +118,7 @@
 
  -- Row 3 -----------------------------------
   Element = Observation.extension
-  Profile Name = ProteinReferenceSequenceId
+  Profile Name = !ProteinReferenceSequenceId
   Card. = 0..1
   Type = Extension{#ProteinReferenceSequenceId}
   Short Name = Protein reference sequence ID
@@ -125,9 +126,9 @@
 
  -- Row 4 -----------------------------------
   Element = Observation.extension
-  Profile Name = DNASequenceVariant
+  Profile Name = DNASequenceVariantName
   Card. = 0..1
-  Type = Extension{#DNASequenceVariant}
+  Type = Extension{#DNASequenceVariantName}
   Short Name = DNA sequence variant
   Definition = A\' is a variant (mutation) of A = definition every instance of A\' is either an immediate mutation of some instance of A, or there is a chain of immediate mutation processes linking A\' to some instance of A ([variant_of](http://www.sequenceontology.org/browser/current_svn/term/variant_of)). This element is the Human Genome Variation Society (HGVS) nomenclature for a single or set of DNA sequence variant(s) identified in testing. Reference sequence ID used for HGVS naming must be anotated.
 
@@ -149,9 +150,9 @@
 
  -- Row 7 -----------------------------------
   Element = Observation.extension
-  Profile Name = AminoAcidChange
+  Profile Name = A+R[-4]C+RC
   Card. = 0..1
-  Type = Extension{#AminoAcidChange}
+  Type = Extension{#AminoAcidChangeName}
   Short Name = Amino acid change
   Definition = Human Genome Variation Society (HGVS) nomenclature for an amino acid change. Reference sequence ID used for HGVS naming must be anotated. An amino acid is a sequence feature that corresponds to a single amino acid residue in a polypeptide ([SO:0001237](http://www.sequenceontology.org/browser/current_svn/term/SO:0001237)).
   To Do = Need OID for SO
@@ -166,9 +167,9 @@
 
  -- Row 9 -----------------------------------
   Element = Observation.extension
-  Profile Name = Gene
+  Profile Name = GeneSymbol
   Card. = 0..1
-  Type = Extension{#Gene}
+  Type = Extension{#GeneSymbol}
   Short Name = HGNC gene symbol
   Definition = A region (or regions) that includes all of the sequence elements necessary to encode a functional transcript. A gene may include regulatory regions, transcribed regions and/or other functional sequence regions ([SO:0000704](http://www.sequenceontology.org/browser/current_svn/term/SO:0000704)). This element is the official gene symbol approved by the HGNC, which is a short abbreviated form of the gene name ([HGNC](http://www.genenames.org)).
   Comments = Other systems or genes not defined in HGNC (e.g., BCR-ABL fusion gene) can be added by using a local extension.
@@ -233,7 +234,7 @@
 
  -- Row 17 -----------------------------------
   Element = Observation.extension
-  Profile Name = Sequence
+  Profile Name = !Sequence
   Card. = 0..*
   Type = Extension{#Sequence}
   Short Name = Sequence
@@ -253,28 +254,28 @@
   Name = gene-identifier
   Type = token
   Description = HGNC gene symbol and identifier
-  Path = Observation.extension(Gene)
+  Path = Observation.extension(GeneSymbol)
 
  -- Row 2 -----------------------------------
   Name = dna-variant
   Type = string
   Description = HGVS DNA variant
-  Path = Observation.extension(DNASequenceVariant)
+  Path = Observation.extension(DNASequenceVariantName)
 
  -- Row 3 -----------------------------------
   Name = amino-acid-change
   Type = string
   Description = HGVS Protein Change
-  Path = Observation.extension(AminoAcidChange)
+  Path = Observation.extension(AminoAcidChangeName)
 
  -- Row 4 -----------------------------------
   Name = gene-dnavariant
   Type = string
   Description = HGNC gene symbol and HGVS DNA Variant
-  Path = Observation.extension(Gene, DNASequenceVariant)
+  Path = Observation.extension(GeneSymbol, DNASequenceVariantName)
 
  -- Row 5 -----------------------------------
   Name = gene-amino-acid-change
   Type = string
   Description = HGNC gene symbol and HGVS Protein change
-  Path = Observation.extension(Gene, AminoAcidChange)
+  Path = Observation.extension(GeneSymbol, AminoAcidChangeName)

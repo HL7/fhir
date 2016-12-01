@@ -2,10 +2,10 @@
 
 <Observation xmlns="http://hl7.org/fhir">
   <id value="example-genetics-1"/>
-  <extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsDNASequenceVariant" >
+  <extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsDNASequenceVariantName" >
     <valueString value="NG_007726.3:g.146252T&gt;G" />
   </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsGene" >
+  <extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsGeneSymbol" >
     <valueCodeableConcept>
       <coding>
         <system value="http://www.genenames.org" />
