@@ -90,7 +90,8 @@ public class ExampleInspector {
     validator = new InstanceValidator(context);
     validator.setSuppressLoincSnomedMessages(true);
     validator.setResourceIdRule(IdStatus.REQUIRED);
-    validator.setBestPracticeWarningLevel(BestPracticeWarningLevel.Warning);    
+    validator.setBestPracticeWarningLevel(BestPracticeWarningLevel.Warning);
+    validator.getExtensionDomains().add("http://hl7.org/fhir/StructureDefinition/us-core-");
 
     xml = new XmlValidator(errorsInt, loadSchemas(), loadTransforms());
 
