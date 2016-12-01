@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet xmlns="http://hl7.org/fhir">
+	<id value="us-core-birthsex"/>
+	<url value="http://hl7.org/fhir/ValueSet/us-core-birthsex"/>
+	<version value="1.6.0"/>
+	<name value="US Core Birth Sex Value Set"/>
+	<status value="active"/>
+	<publisher value="US Realm Steering Committee"/>
+	<contact>
+		<telecom>
+			<system value="other"/>
+			<value value="http://hl7.org/fhir"/>
+		</telecom>
+	</contact>
+	<date value="2016-08-10"/>
+	<description value="Codes for assigning sex at birth as specified by the [Office of the National Coordinator for Health IT (ONC)](https://www.healthit.gov/newsroom/about-onc)"/>
+	<compose>
+		<include>
+			<system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
+			<concept>
+				<code value="F"/>
+				<display value="Female"/>
+			</concept>
+			<concept>
+				<code value="M"/>
+				<display value="Male"/>
+			</concept>
+		</include>
+		<include>
+			<system value="http://hl7.org/fhir/v3/NullFlavor"/>
+			<concept>
+				<code value="UNK"/>
+				<display value="Unknown"/>
+			</concept>
+		</include>
+	</compose>
+</ValueSet>
