@@ -865,6 +865,14 @@
   Max = 1
 
  -- Row 31 -----------------------------------
+  Name = validate-code.displayLanguage
+  Use = in
+  Documentation = Specifies the language to be used for description when validating the display property
+  Type = code
+  Min = 0
+  Max = 1
+
+ -- Row 32 -----------------------------------
   Name = validate-code.result
   Use = out
   Documentation = True if the concept details supplied are valid
@@ -872,7 +880,7 @@
   Min = 1
   Max = 1
 
- -- Row 32 -----------------------------------
+ -- Row 33 -----------------------------------
   Name = validate-code.message
   Use = out
   Documentation = Error details, if result = false. If this is provided when result = true, the message carries hints and warnings
@@ -880,7 +888,7 @@
   Min = 0
   Max = 1
 
- -- Row 33 -----------------------------------
+ -- Row 34 -----------------------------------
   Name = validate-code.display
   Use = out
   Documentation = A valid display for the concept if the system wishes to display this to a user
