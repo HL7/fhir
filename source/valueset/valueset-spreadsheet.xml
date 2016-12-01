@@ -21,7 +21,7 @@
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>893</TabRatio>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>4</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -4006,7 +4006,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -5159,14 +5158,14 @@
     <Cell><Data ss:Type="String">$validate-code-response.txt</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
-    <Cell ss:StyleID="s119"><Data ss:Type="String">validate-code.identifier</Data></Cell>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">validate-code.url</Data></Cell>
     <Cell ss:StyleID="s120"><Data ss:Type="String">in</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="Number">0</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s120"><Data ss:Type="String">uri</Data></Cell>
     <Cell ss:StyleID="s120"/>
     <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s136"><Data ss:Type="String">A logical value set identifier (i.e. ValueSet.url). The server must know the value set (e.g. it is defined explicitly in the server's value sets, or it is defined implicitly by some code system known to the server</Data></Cell>
+    <Cell ss:StyleID="s136"><Data ss:Type="String">Value set Canonical URL. The server must know the value set (e.g. it is defined explicitly in the server's value sets, or it is defined implicitly by some code system known to the server</Data></Cell>
     <Cell ss:StyleID="s137"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
@@ -5562,10 +5561,11 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>7</TopRowBottomPane>
+   <TopRowBottomPane>4</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -5582,7 +5582,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>14</ActiveRow>
+     <ActiveRow>20</ActiveRow>
      <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>

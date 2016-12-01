@@ -156,7 +156,7 @@ the following process should be followed:
       <li>If codes are listed, check that they are valid, and check their active status, and if ok, add them to the result set (the profile parameter to the $expand operation may be used to control whether active codes are included).</li>
       <li>If any filters are present, process them in order (as explained above), and add the intersection of their results to the result set.</li>
    </ul></li>
-   <li>For each <code>valueSet</code>, find the referenced value set by ValueSet.url, expand that (e.g., using the <a href="valueset-operations.html#expand">$expand</a> operation: GET [base]/ValueSet/$expand$identifier=[compose.import]), and add it to the result set. This means that expansion across imports is a recursive process.</li>
+   <li>For each <code>valueSet</code>, find the referenced value set by ValueSet.url, expand that (e.g., using the <a href="valueset-operations.html#expand">$expand</a> operation: GET [base]/ValueSet/$expand$url=[compose.include.valueSet]), and add it to the result set. This means that expansion across imports is a recursive process.</li>
    <li>Add the intersection of the result set from the system and the result sets from the value sets to the expansion</li>
   </ol>
  </li>
