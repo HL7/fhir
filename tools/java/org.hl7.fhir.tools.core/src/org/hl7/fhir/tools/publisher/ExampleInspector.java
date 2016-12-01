@@ -25,7 +25,7 @@ import org.hl7.fhir.dstu3.elementmodel.Manager.FhirFormat;
 import org.hl7.fhir.dstu3.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.dstu3.model.OperationOutcome.IssueType;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
-import org.hl7.fhir.dstu3.utils.FluentPathEngine;
+import org.hl7.fhir.dstu3.utils.FHIRPathEngine;
 import org.hl7.fhir.dstu3.validation.IResourceValidator.BestPracticeWarningLevel;
 import org.hl7.fhir.dstu3.validation.IResourceValidator.IdStatus;
 import org.hl7.fhir.dstu3.validation.InstanceValidator;
@@ -84,7 +84,7 @@ public class ExampleInspector {
   private int informationCount = 0;
 
   private org.everit.json.schema.Schema jschema;
-  private FluentPathEngine fpe;
+  private FHIRPathEngine fpe;
   
   public void prepare() throws FileNotFoundException, IOException, SAXException {
     validator = new InstanceValidator(context);
@@ -100,7 +100,7 @@ public class ExampleInspector {
       jschema = SchemaLoader.load(rawSchema);
     }
     
-    fpe = new FluentPathEngine(context);
+    fpe = new FHIRPathEngine(context);
   }
 
   private Map<String, byte[]> loadTransforms() throws FileNotFoundException, IOException {

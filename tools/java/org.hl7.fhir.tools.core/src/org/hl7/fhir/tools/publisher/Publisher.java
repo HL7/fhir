@@ -186,7 +186,7 @@ import org.hl7.fhir.dstu3.terminologies.CodeSystemUtilities;
 import org.hl7.fhir.dstu3.terminologies.LoincToDEConvertor;
 import org.hl7.fhir.dstu3.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
 import org.hl7.fhir.dstu3.terminologies.ValueSetUtilities;
-import org.hl7.fhir.dstu3.utils.FluentPathEngine;
+import org.hl7.fhir.dstu3.utils.FHIRPathEngine;
 import org.hl7.fhir.dstu3.utils.NarrativeGenerator;
 import org.hl7.fhir.dstu3.utils.QuestionnaireBuilder;
 import org.hl7.fhir.dstu3.utils.ResourceUtilities;
@@ -819,7 +819,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     
     page.log(" ...Check FHIR Path Expressions", LogMessageType.Process);
     StringBuilder b = new StringBuilder();
-    FluentPathEngine fp = new FluentPathEngine(page.getWorkerContext());
+    FHIRPathEngine fp = new FHIRPathEngine(page.getWorkerContext());
     fp.setHostServices(page.getExpressionResolver());
     for (FHIRPathUsage p : fpUsages) {
       checkExpression(b, fp, p);
@@ -829,7 +829,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     checkAllOk();
   }
 
-  private void checkExpression(StringBuilder b, FluentPathEngine fp, FHIRPathUsage p) {
+  private void checkExpression(StringBuilder b, FHIRPathEngine fp, FHIRPathUsage p) {
     b.append(p.getResource() + " (" + p.getContext() + "): " + p.getExpression()+"\r\n");
     try {
       if (!"n/a".equals(p.getExpression())) {

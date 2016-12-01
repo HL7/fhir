@@ -4,7 +4,7 @@
  -- Row 1 -----------------------------------
   Binding Name = HGNC-geneIdentifiers
   Binding = reference
-  Reference = [Genenames](http://www.genenames.org)
+  Reference = http://www.genenames.org
   Definition = International curated set of gene identifiers
   Description = Gene Identifiers Reference
   Conformance = preferred
@@ -13,7 +13,7 @@
  -- Row 2 -----------------------------------
   Binding Name = HGVS-variantNomenclature
   Binding = reference
-  Reference = [HGVS-mutnomen](http://www.hgvs.org/mutnomen/)
+  Reference = http://www.hgvs.org/mutnomen/
   Definition = International nomenclature for variant naming
   Description = Sequence Variation Nomenclature
   Conformance = preferred

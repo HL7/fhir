@@ -98,7 +98,7 @@ import org.hl7.fhir.dstu3.model.ValueSet;
 import org.hl7.fhir.dstu3.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.dstu3.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
 import org.hl7.fhir.dstu3.utils.EOperationOutcome;
-import org.hl7.fhir.dstu3.utils.FluentPathEngine;
+import org.hl7.fhir.dstu3.utils.FHIRPathEngine;
 import org.hl7.fhir.dstu3.utils.NarrativeGenerator;
 import org.hl7.fhir.dstu3.utils.StructureMapUtilities;
 import org.hl7.fhir.dstu3.utils.StructureMapUtilities.StructureMapAnalysis;
@@ -1583,7 +1583,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
   }
   
   private void validateExpressions(FetchedFile f, StructureDefinition sd) {
-    FluentPathEngine fpe = new FluentPathEngine(context);
+    FHIRPathEngine fpe = new FHIRPathEngine(context);
     for (ElementDefinition ed : sd.getSnapshot().getElement()) {
       for (ElementDefinitionConstraintComponent inv : ed.getConstraint()) {
         validateExpression(f, sd, fpe, ed, inv);
@@ -1591,7 +1591,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
     }
   }
 
-  private void validateExpression(FetchedFile f, StructureDefinition sd, FluentPathEngine fpe, ElementDefinition ed, ElementDefinitionConstraintComponent inv) {
+  private void validateExpression(FetchedFile f, StructureDefinition sd, FHIRPathEngine fpe, ElementDefinition ed, ElementDefinitionConstraintComponent inv) {
     if (inv.hasExpression()) {
       try {
         ExpressionNode n = (ExpressionNode) inv.getUserData("validator.expression.cache");

@@ -35,7 +35,7 @@ import org.hl7.fhir.dstu3.model.TimeType;
 import org.hl7.fhir.dstu3.model.TypeDetails;
 import org.hl7.fhir.dstu3.model.TypeDetails.ProfiledType;
 import org.hl7.fhir.dstu3.utils.FHIRLexer.FHIRLexerException;
-import org.hl7.fhir.dstu3.utils.FluentPathEngine.IEvaluationContext.FunctionDetails;
+import org.hl7.fhir.dstu3.utils.FHIRPathEngine.IEvaluationContext.FunctionDetails;
 import org.hl7.fhir.exceptions.DefinitionException;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.exceptions.PathEngineException;
@@ -51,7 +51,7 @@ import ca.uhn.fhir.util.ElementUtil;
  * @author Grahame Grieve
  *
  */
-public class FluentPathEngine {
+public class FHIRPathEngine {
   private IWorkerContext worker;
   private IEvaluationContext hostServices;
   private StringBuilder log = new StringBuilder();
@@ -134,7 +134,7 @@ public class FluentPathEngine {
   /**
    * @param worker - used when validating paths (@check), and used doing value set membership when executing tests (once that's defined)
    */
-  public FluentPathEngine(IWorkerContext worker) {
+  public FHIRPathEngine(IWorkerContext worker) {
     super();
     this.worker = worker;
     for (StructureDefinition sd : worker.allStructures()) {

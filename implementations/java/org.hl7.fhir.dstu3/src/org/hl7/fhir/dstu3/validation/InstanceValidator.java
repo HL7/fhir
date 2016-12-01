@@ -75,7 +75,7 @@ import org.hl7.fhir.dstu3.model.Type;
 import org.hl7.fhir.dstu3.model.UriType;
 import org.hl7.fhir.dstu3.model.ValueSet;
 import org.hl7.fhir.dstu3.model.ValueSet.ValueSetExpansionContainsComponent;
-import org.hl7.fhir.dstu3.utils.FluentPathEngine;
+import org.hl7.fhir.dstu3.utils.FHIRPathEngine;
 import org.hl7.fhir.dstu3.validation.ValidationMessage.Source;
 import org.hl7.fhir.exceptions.DefinitionException;
 import org.hl7.fhir.exceptions.FHIRException;
@@ -109,7 +109,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 
 
   private IWorkerContext context;
-  private FluentPathEngine fpe; 
+  private FHIRPathEngine fpe; 
 
   // configuration items
   private CheckDisplayOption checkDisplay;
@@ -260,7 +260,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
   public InstanceValidator(IWorkerContext theContext) {
     super();
     this.context = theContext;
-    fpe = new FluentPathEngine(context);
+    fpe = new FHIRPathEngine(context);
     source = Source.InstanceValidator;
   }
 

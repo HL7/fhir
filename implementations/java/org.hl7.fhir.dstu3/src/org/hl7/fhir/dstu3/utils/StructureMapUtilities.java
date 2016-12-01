@@ -66,7 +66,7 @@ import org.hl7.fhir.dstu3.model.ValueSet;
 import org.hl7.fhir.dstu3.model.ValueSet.ValueSetExpansionContainsComponent;
 import org.hl7.fhir.dstu3.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
 import org.hl7.fhir.dstu3.utils.FHIRLexer.FHIRLexerException;
-import org.hl7.fhir.dstu3.utils.FluentPathEngine.IEvaluationContext;
+import org.hl7.fhir.dstu3.utils.FHIRPathEngine.IEvaluationContext;
 import org.hl7.fhir.exceptions.DefinitionException;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.exceptions.PathEngineException;
@@ -148,7 +148,7 @@ public class StructureMapUtilities {
 	  
 	}
 	private IWorkerContext worker;
-	private FluentPathEngine fpe;
+	private FHIRPathEngine fpe;
 	private Map<String, StructureMap> library;
 	private ITransformerServices services;
   private ProfileKnowledgeProvider pkp;
@@ -160,7 +160,7 @@ public class StructureMapUtilities {
 		this.library = library;
 		this.services = services;
 		this.pkp = pkp;
-		fpe = new FluentPathEngine(worker);
+		fpe = new FHIRPathEngine(worker);
 		fpe.setHostServices(new FluentPathHostServices());
 	}
 
@@ -169,20 +169,20 @@ public class StructureMapUtilities {
 		this.worker = worker;
 		this.library = library;
 		this.services = services;
-		fpe = new FluentPathEngine(worker);
+		fpe = new FHIRPathEngine(worker);
 	}
 
   public StructureMapUtilities(IWorkerContext worker, Map<String, StructureMap> library) {
     super();
     this.worker = worker;
     this.library = library;
-    fpe = new FluentPathEngine(worker);
+    fpe = new FHIRPathEngine(worker);
   }
 
   public StructureMapUtilities(IWorkerContext worker) {
     super();
     this.worker = worker;
-    fpe = new FluentPathEngine(worker);
+    fpe = new FHIRPathEngine(worker);
   }
 
   public StructureMapUtilities(IWorkerContext worker, ITransformerServices services) {
@@ -194,7 +194,7 @@ public class StructureMapUtilities {
         library.put(bc.getUrl(), (StructureMap) bc);
     }
     this.services = services;
-    fpe = new FluentPathEngine(worker);
+    fpe = new FHIRPathEngine(worker);
   }
 
 	public static String render(StructureMap map) {

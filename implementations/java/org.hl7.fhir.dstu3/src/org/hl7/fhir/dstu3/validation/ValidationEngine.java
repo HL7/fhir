@@ -65,7 +65,7 @@ import org.hl7.fhir.dstu3.model.OperationOutcome.IssueType;
 import org.hl7.fhir.dstu3.model.OperationOutcome.OperationOutcomeIssueComponent;
 import org.hl7.fhir.dstu3.model.Questionnaire;
 import org.hl7.fhir.dstu3.model.Resource;
-import org.hl7.fhir.dstu3.utils.FluentPathEngine;
+import org.hl7.fhir.dstu3.utils.FHIRPathEngine;
 import org.hl7.fhir.dstu3.utils.NarrativeGenerator;
 import org.hl7.fhir.dstu3.utils.StructureMapUtilities;
 import org.hl7.fhir.dstu3.utils.ToolingExtensions;
@@ -124,7 +124,7 @@ import org.xml.sax.SAXException;
 public class ValidationEngine {
 
 	private SimpleWorkerContext context;
-  private FluentPathEngine fpe;
+  private FHIRPathEngine fpe;
   private Map<String, byte[]> binaries = new HashMap<String, byte[]>();
   private boolean doNative;
   private boolean noInvariantChecks;
@@ -168,7 +168,7 @@ public class ValidationEngine {
   private void loadDefinitions(String src) throws Exception {
     Map<String, byte[]> source = loadSource(src, "igpack.zip");   
     context = SimpleWorkerContext.fromDefinitions(source);
-    fpe = new FluentPathEngine(context);
+    fpe = new FHIRPathEngine(context);
     grabNatives(source, "http://hl7.org/fhir");
   }
 
@@ -230,7 +230,7 @@ public class ValidationEngine {
     return context;
   }
   
-  public FluentPathEngine getFpe() {
+  public FHIRPathEngine getFpe() {
     return fpe;
   }
   
