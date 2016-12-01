@@ -88,16 +88,16 @@
 
  -- Row 11 -----------------------------------
   Binding Name = !LOINC 48019-4 answerlist
-  Binding = value set
-  Reference = http://loinc.org/vs/LL379-9
+  Binding = code list
+  Reference = #LOINC-48019-4-answerlist
   Definition = DNA sequence variant type
   Description = Codified type for associated DNA sequence variant. DNA sequence variants use the HGVS notation, which implies the DNA sequence variant type.
   Conformance = preferred
 
  -- Row 12 -----------------------------------
   Binding Name = !LOINC 48002-0 answerlist
-  Binding = value set
-  Reference = http://loinc.org/vs/LL378-1
+  Binding = code list
+  Reference = #LOINC-48002-0-answerlist
   Definition = Genomic source class
   Description = Source of sample used to determine the sequence in sequencing lab -- germline, somatic, prenatal.
   Conformance = preferred
@@ -110,54 +110,22 @@
 
  -- Row 2 -----------------------------------
   Element = Observation.extension
-  Profile Name = !TranscriptReferenceSequenceId
-  Card. = 0..1
-  Type = Extension{#TranscriptReferenceSequenceId}
-  Short Name = Transcript reference sequence ID
-  Definition = Identifier for the transcribed reference sequence that is part of the genetic reference sequence that gets converted to messenger RNA. A transcript is an RNA synthesized on a DNA or RNA template by an RNA polymerase ([SO:0000673](http://www.sequenceontology.org/browser/current_svn/term/SO:0000673)).
-
- -- Row 3 -----------------------------------
-  Element = Observation.extension
-  Profile Name = !ProteinReferenceSequenceId
-  Card. = 0..1
-  Type = Extension{#ProteinReferenceSequenceId}
-  Short Name = Protein reference sequence ID
-  Definition = Reference identifier for protein transcript, with version, from NCBI\'s RefSeq or ENSEMBL. A protein is a sequence of amino acids linked by peptide bonds which may lack appreciable tertiary structure and may not be liable to irreversible denaturation ([SO:0000104](http://www.sequenceontology.org/browser/current_svn/term/SO:0000104)).
-
- -- Row 4 -----------------------------------
-  Element = Observation.extension
-  Profile Name = DNASequenceVariantName
-  Card. = 0..1
-  Type = Extension{#DNASequenceVariantName}
-  Short Name = DNA sequence variant
-  Definition = A\' is a variant (mutation) of A = definition every instance of A\' is either an immediate mutation of some instance of A, or there is a chain of immediate mutation processes linking A\' to some instance of A ([variant_of](http://www.sequenceontology.org/browser/current_svn/term/variant_of)). This element is the Human Genome Variation Society (HGVS) nomenclature for a single or set of DNA sequence variant(s) identified in testing. Reference sequence ID used for HGVS naming must be anotated.
-
- -- Row 5 -----------------------------------
-  Element = Observation.extension
-  Profile Name = DNAVariantId
-  Card. = 0..1
-  Type = Extension{#DNAVariantId}
-  Short Name = DNA sequence variant ID
-  Definition = Identifier for DNA sequence variant.  If a germline variant, ClinVar or dbSNP identifier should be used.  If a somatic variant, COSMIC identifier should be used, unless in ClinVar then either maybe used. Need to provide the code system used (ClinVar, dbSNP, COSMIC)
-
- -- Row 6 -----------------------------------
-  Element = Observation.extension
   Profile Name = DNASequenceVariantType
   Card. = 0..1
   Type = Extension{#DNASequenceVariantType}
   Short Name = DNA sequence variant type
   Definition = Codified type for associated DNA sequence variant. DNA sequence variants use the HGVS notation, which implies the DNA sequence variant type.
 
- -- Row 7 -----------------------------------
+ -- Row 3 -----------------------------------
   Element = Observation.extension
-  Profile Name = A+R[-4]C+RC
+  Profile Name = AminoAcidChangeName
   Card. = 0..1
   Type = Extension{#AminoAcidChangeName}
   Short Name = Amino acid change
   Definition = Human Genome Variation Society (HGVS) nomenclature for an amino acid change. Reference sequence ID used for HGVS naming must be anotated. An amino acid is a sequence feature that corresponds to a single amino acid residue in a polypeptide ([SO:0001237](http://www.sequenceontology.org/browser/current_svn/term/SO:0001237)).
   To Do = Need OID for SO
 
- -- Row 8 -----------------------------------
+ -- Row 4 -----------------------------------
   Element = Observation.extension
   Profile Name = AminoAcidChangeType
   Card. = 0..1
@@ -165,16 +133,16 @@
   Short Name = Amino Acid Change Type
   Definition = Codified type for associated Amino Acid Change.
 
- -- Row 9 -----------------------------------
+ -- Row 5 -----------------------------------
   Element = Observation.extension
   Profile Name = GeneSymbol
   Card. = 0..1
-  Type = Extension{#GeneSymbol}
+  Type = Extension{#Gene}
   Short Name = HGNC gene symbol
   Definition = A region (or regions) that includes all of the sequence elements necessary to encode a functional transcript. A gene may include regulatory regions, transcribed regions and/or other functional sequence regions ([SO:0000704](http://www.sequenceontology.org/browser/current_svn/term/SO:0000704)). This element is the official gene symbol approved by the HGNC, which is a short abbreviated form of the gene name ([HGNC](http://www.genenames.org)).
   Comments = Other systems or genes not defined in HGNC (e.g., BCR-ABL fusion gene) can be added by using a local extension.
 
- -- Row 10 -----------------------------------
+ -- Row 6 -----------------------------------
   Element = Observation.extension
   Profile Name = DNARegionName
   Card. = 0..1
@@ -183,7 +151,7 @@
   Definition = A human readable name for the region of interest. Typically Exon #, Intron # or other. NOTE: This is not standardized and is mainly for convenience and display purposes.
   To Do = Need OID for SO
 
- -- Row 11 -----------------------------------
+ -- Row 7 -----------------------------------
   Element = Observation.extension
   Profile Name = AlleleName
   Card. = 0..1
@@ -191,7 +159,7 @@
   Short Name = Name of allele
   Definition = An allele is one of a set of coexisting sequence variants of a gene ([SO:0001023](http://www.sequenceontology.org/browser/current_svn/term/SO:0001023)). This element is the common name for the allele.
 
- -- Row 12 -----------------------------------
+ -- Row 8 -----------------------------------
   Element = Observation.extension
   Profile Name = AllelicState
   Card. = 0..1
@@ -199,7 +167,7 @@
   Short Name = The level of occurrence of a single DNA sequence variant within a set of chromosomes: Heteroplasmic / Homoplasmic / Homozygous / Heterozygous / Hemizygous
   Definition = The level of occurrence of a single DNA Sequence Variant within a set of chromosomes. Heterozygous indicates the DNA sequence variant is only present in one of the two genes contained in homologous chromosomes. Homozygous indicates the DNA Sequence Variant is present in both genes contained in homologous chromosomes. Hemizygous indicates the DNA Sequence Variant exists in the only single copy of a gene in a non- homologous chromosome (the male X and Y chromosome are non-homologous). Hemiplasmic indicates that the DNA Sequence Variant is present in some but not all of the copies of mitochondrial DNA. Homoplasmic indicates that the DNA Sequence Variant is present in all of the copies of mitochondrial DNA.
 
- -- Row 13 -----------------------------------
+ -- Row 9 -----------------------------------
   Element = Observation.extension
   Profile Name = AllelicFrequency
   Card. = 0..1
@@ -207,7 +175,7 @@
   Short Name = Allele frequency
   Definition = A physical quality which inheres to the allele by virtue of the number instances of the allele within a population.
 
- -- Row 14 -----------------------------------
+ -- Row 10 -----------------------------------
   Element = Observation.extension
   Profile Name = CopyNumberEvent
   Card. = 0..1
@@ -216,7 +184,7 @@
   Definition = A variation that increases or decreases the copy number of a given region ([SO:0001019](http://www.sequenceontology.org/browser/current_svn/term/SO:0001019)). Values: amplification/deletion/LOH.
   Comments = Loss of heterozygosity (LOH) is a functional variant whereby the sequence alteration causes a loss of function of one allele of a gene ([SO:0001786](http://www.sequenceontology.org/browser/current_svn/term/SO:0001786)).
 
- -- Row 15 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = Observation.extension
   Profile Name = GenomicSourceClass
   Card. = 0..1
@@ -224,7 +192,7 @@
   Short Name = Genomic source class
   Definition = Source of sample used to determine the sequence in sequencing lab -- germline, somatic, prenatal.
 
- -- Row 16 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = Observation.extension
   Profile Name = PhaseSet
   Card. = 0..1
@@ -232,15 +200,15 @@
   Short Name = Phase set identifier (UUID/OID)
   Definition = Chromosomal phase set identifier (UUID/OID). All sequences with the same PhaseSet identifier are asserted to be on the same chromosome (cis).
 
- -- Row 17 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = Observation.extension
-  Profile Name = !Sequence
+  Profile Name = Sequence
   Card. = 0..*
   Type = Extension{#Sequence}
   Short Name = Sequence
   Definition = Refers to the Sequence resource, representing raw genetics data.
 
- -- Row 18 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = Observation.extension
   Profile Name = Interpretation
   Card. = 0..1
@@ -254,7 +222,7 @@
   Name = gene-identifier
   Type = token
   Description = HGNC gene symbol and identifier
-  Path = Observation.extension(GeneSymbol)
+  Path = Observation.extension(Gene)
 
  -- Row 2 -----------------------------------
   Name = dna-variant
@@ -272,10 +240,10 @@
   Name = gene-dnavariant
   Type = string
   Description = HGNC gene symbol and HGVS DNA Variant
-  Path = Observation.extension(GeneSymbol, DNASequenceVariantName)
+  Path = Observation.extension(Gene, DNASequenceVariantName)
 
  -- Row 5 -----------------------------------
   Name = gene-amino-acid-change
   Type = string
   Description = HGNC gene symbol and HGVS Protein change
-  Path = Observation.extension(GeneSymbol, AminoAcidChangeName)
+  Path = Observation.extension(Gene, AminoAcidChangeName)

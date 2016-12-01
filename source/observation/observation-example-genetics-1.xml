@@ -5,7 +5,7 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsDNASequenceVariantName" >
     <valueString value="NG_007726.3:g.146252T&gt;G" />
   </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsGeneSymbol" >
+  <extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsGene" >
     <valueCodeableConcept>
       <coding>
         <system value="http://www.genenames.org" />
