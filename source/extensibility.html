@@ -65,7 +65,7 @@ Notes:
  <li>The <code>url</code> is a mandatory attribute / property and identifies a retrievable <a href="structuredefinition.html">extension definition</a> that defines the content and meaning of the extension</li>
  <li>The <code>url</code> SHALL be a URL, not a URN (e.g. not an OID or a UUID), and it SHALL be the canonical URL of a StructureDefinition that defines the extension. Except for child extensions defined within a complex extensions, the URL SHALL be an absolute URL). The StructureDefinition that defines the extension SHOULD be available at the identified location so that resource processors can access the definition from the URL</li>
  <li>An extension SHALL have either a value (i.e. a value[x] element) or sub-extensions, but not both. If present, the value[x] element SHALL have content (value attribute or other elements)</li>
- <li>If it is not safe for an application processing the content of the resource to ignore the extension it must be represented diffferently, using <a href="#isModifier">a Modifier Extension</a></li>
+ <li>If it is not safe for an application processing the content of the resource to ignore the extension it must be represented differently, using <a href="#isModifier">a Modifier Extension</a></li>
  <li>The <i>value[x]</i> element has an actual name of "value" and then the TitleCased name of one of these defined types, and its contents are those as defined for that type:
   <ul class="dense">
    <li>valueInteger : <a href="datatypes.html#integer">integer</a></li>
