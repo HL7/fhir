@@ -1713,7 +1713,7 @@ public class ProfileGenerator {
       } else {
         for (ElementDefn child : src.getElements()) {
           if (child != url) {
-            if (child.getName().startsWith("value"))
+            if (child.getName().startsWith("value") && !child.getName().startsWith("valueSet"))
               convertElements(child, ed, thisPath+"."+child.getName());
             else {
               if (child.getElements().size() == 0 || !child.getElements().get(0).getName().equals("url")) {
@@ -1740,7 +1740,7 @@ public class ProfileGenerator {
 
   private boolean hasValue(ElementDefn child) {
     for (ElementDefn v : child.getElements()) {
-      if (v.getName().startsWith("value"))
+      if (v.getName().startsWith("value") && !child.getName().startsWith("valueSet"))
         return true;
     }
     return false;
