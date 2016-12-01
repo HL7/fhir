@@ -171,6 +171,10 @@ public class HTMLLinkChecker implements FileNotifier {
     if ("a".equals(node.getName())) {
       if (node.getAttributes().containsKey("name")) {
         e.anchors.add(node.getAttribute("name"));
+        if (Utilities.noString(node.allText())) { 
+          String msg = "Invalid \"a\" link in "+e.filename+" - name link has no text)";
+          reportError(e.filename, msg);      
+        }
       }
       else if (node.getAttributes().containsKey("href") || node.getAttributes().containsKey("xlink:href") ) {
       }

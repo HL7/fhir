@@ -9,7 +9,7 @@
   Conformance = required
 
  -- Row 2 -----------------------------------
-  Binding Name = BirthSex
+  Binding Name = !BirthSex
   Binding = value set
   Reference = valueset-us-core-birthsex
   Definition = Code for sex assigned at birth
