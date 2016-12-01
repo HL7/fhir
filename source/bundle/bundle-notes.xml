@@ -235,7 +235,7 @@ URL before matching fullUrl, and then match the version based on <code>Resource.
 Here is an example Bundle the demonstrates these rules:
 </p>
 <div class="example">
-<pre class="xml">
+<pre class="xml" fragment="Bundle">
 &lt;Bundle xmlns=&quot;http://hl7.org/fhir&quot;&gt;
   &lt;type value=&quot;collection&quot;/&gt;
 
@@ -247,7 +247,7 @@ Here is an example Bundle the demonstrates these rules:
          &lt;id value=&quot;23&quot;/&gt;
       &lt;/Patient&gt;
     &lt;/resource&gt;
-  &lt;entry&gt;
+  &lt;/entry&gt;
   
   &lt;!-- A patient that doesn't have a persistent home - but it does have 
       a UUID assigned for this bundle "locally identified" --&gt;
@@ -257,7 +257,7 @@ Here is an example Bundle the demonstrates these rules:
       &lt;Patient&gt;
       &lt;/Patient&gt;
     &lt;/resource&gt;
-  &lt;entry&gt;
+  &lt;/entry&gt;
   
   &lt;!-- a relative resource reference --&gt;
   &lt;entry&gt;
@@ -269,23 +269,23 @@ Here is an example Bundle the demonstrates these rules:
            &lt;!-- this is reference to the first resource above --&gt;
            &lt;reference value=&quot;Patient/23&quot;/&gt;
          &lt;/subject&gt;
-      &lt;/Organization&gt;
+      &lt;/Observation&gt;
     &lt;/resource&gt;
-  &lt;entry&gt;
+  &lt;/entry&gt;
 
   &lt;!-- an absolute reference --&gt;
   &lt;entry&gt;
-    &lt;fullUrl value=&quot;http://example.org/fhir/Observation/123&quot;/&gt;
+    &lt;fullUrl value=&quot;http://example.org/fhir/Observation/124&quot;/&gt;
     &lt;resource&gt;
       &lt;Observation&gt;
-         &lt;id value=&quot;123&quot;/&gt;
+         &lt;id value=&quot;124&quot;/&gt;
          &lt;subject&gt;
            &lt;!-- this is reference to the first resource above --&gt;
            &lt;reference value=&quot;http://example.org/fhir/Patient/23&quot;/&gt;
          &lt;/subject&gt;
-      &lt;/Organization&gt;
+      &lt;/Observation&gt;
     &lt;/resource&gt;
-  &lt;entry&gt;
+  &lt;/entry&gt;
 
   &lt;!-- reference to a locally identified resource --&gt;
   &lt;entry&gt;
@@ -299,21 +299,21 @@ Here is an example Bundle the demonstrates these rules:
          &lt;/subject&gt;
       &lt;/Observation&gt;
     &lt;/resource&gt;
-  &lt;entry&gt;
+  &lt;/entry&gt;
   
   &lt;!-- reference that doesn't resolve in this bundle --&gt;
   &lt;entry&gt;
-    &lt;fullUrl value=&quot;http://example.org/fhir/Observation/12&quot;/&gt;
+    &lt;fullUrl value=&quot;http://example.org/fhir/Observation/14&quot;/&gt;
     &lt;resource&gt;
       &lt;Observation&gt;
-         &lt;id value=&quot;12&quot;/&gt;
+         &lt;id value=&quot;14&quot;/&gt;
          &lt;subject&gt;
            &lt;!-- reference to a patient not found in this bundle --&gt;
            &lt;reference value=&quot;http://example.org/fhir-2/Patient/1&quot;/&gt;
          &lt;/subject&gt;
       &lt;/Observation&gt;
     &lt;/resource&gt;
-  &lt;entry&gt;
+  &lt;/entry&gt;
   
 &lt;/Bundle&gt;
 </pre>

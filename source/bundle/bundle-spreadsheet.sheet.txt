@@ -237,8 +237,8 @@
   Element = Bundle.link.relation
   Card. = 1..1
   Type = string
-  Short Name = http://www.iana.org/assignments/link-relations/link-relations.xhtml
-  Definition = A name which details the functional use for this link - see [[http://www.iana.org/assignments/link-relations/link-relations.xhtml]]
+  Short Name = See http://www.iana.org/assignments/link-relations/link-relations.xhtml#link-relations-1
+  Definition = A name which details the functional use for this link - see [http://www.iana.org/assignments/link-relations/link-relations.xhtml#link-relations-1](http://www.iana.org/assignments/link-relations/link-relations.xhtml#link-relations-1)
 
  -- Row 7 -----------------------------------
   Element = Bundle.link.url
