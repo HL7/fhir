@@ -31,7 +31,7 @@
    <a href="http://www.snomed.org/gl?t=glsct_st_ConceptId">Concept IDs</a>, 
    <a href="http://www.snomed.org/gl?t=glsct_se_Expression">Expressions</a> (<a href="http://snomed.org/compgrammar.pdf">grammar</a>) and
    <a href="http://www.snomed.org/tig?t=tsg2_metadata_refset_legacy">SNOMED Legacy codes</a>.<br/><br/>
-     SNOMED CT Description Ids are not valid as codes in FHIR, nor are other alternate identifiers associated with SNOMED CT Concepts using the RF2 identifier infrastructure. Expressions SHOULD NOT contain terms, only concept IDs </td></tr>
+     SNOMED CT Description Ids are not valid as codes in FHIR, nor are other alternate identifiers associated with SNOMED CT Concepts using the RF2 identifier infrastructure. Expressions SHOULD NOT contain terms, only concept IDs (note that when SNOMED CT Description Ids must be exchange, use the <a href="extension-coding-sctdescid.html">Description Id Extension</a></td></tr>
  <tr><td>Display</td><td>The correct display for a SNOMED CT concept is one of the preferred terms for the concept. Preferred terms are case sensitive. The Fully Specified Name is not an appropriate choice. 
     The source of preferred name comes from a Language Reference Set.
     
