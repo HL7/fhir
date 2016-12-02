@@ -89,12 +89,12 @@
        </coding>
 	  </relationship>
 
-      <issuer>
+      <payor>
 	    <identifier>
           <system value="http://www.bindb.com/bin"/>
           <value value="123456"/>
 	    </identifier>
-      </issuer>
+      </payor>
 	  
 	  <group>
 	    <plan value="CBI35"/>

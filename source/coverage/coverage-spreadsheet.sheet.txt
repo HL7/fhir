@@ -2,38 +2,52 @@
 === Sheet Bindings =====================================
 
  -- Row 1 -----------------------------------
-  Binding Name = CoverageType
+  Binding Name = !CoverageType
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/v3-ActCoverageTypeCode
   Definition = The type of insurance: public health, worker compensation; private accident, auto, private health, etc.).
   Conformance = example
 
  -- Row 2 -----------------------------------
+  Binding Name = CoverageType
+  Binding = value set
+  Reference = valueset-coverage-type
+  Definition = The type of insurance: public health, worker compensation; private accident, auto, private health, etc.) or a direct payment by an individual or organization.
+  Conformance = preferred
+
+ -- Row 3 -----------------------------------
   Binding Name = Exception
   Binding = value set
   Reference = valueset-coverage-exception
   Definition = The eligibility exception codes.
   Conformance = example
 
- -- Row 3 -----------------------------------
+ -- Row 4 -----------------------------------
   Binding Name = Relationship
   Binding = value set
   Reference = valueset-policyholder-relationship
   Definition = The relationship between the Policyholder and the Beneficiary (insured/covered party/patient).
   Conformance = example
 
- -- Row 4 -----------------------------------
+ -- Row 5 -----------------------------------
   Binding Name = CoverageStatus
   Binding = code list
   Reference = #coverage-status
   Definition = A code specifying the state of the resource instance.
   Conformance = required
 
- -- Row 5 -----------------------------------
+ -- Row 6 -----------------------------------
   Binding Name = CoverageLevel
   Binding = value set
   Reference = valueset-coverage-level
   Definition = The policy classifications, eg. Group, Plan, Class, etc.
+  Conformance = example
+
+ -- Row 7 -----------------------------------
+  Binding Name = CoverageSelfPay
+  Binding = value set
+  Reference = valueset-coverage-selfpay
+  Definition = Self Payment program codes
   Conformance = example
 
 === Sheet coverage-status =====================================
@@ -124,7 +138,7 @@
   w5 = status
 
  -- Row 4 -----------------------------------
-  Element = Coverage.isAgreement
+  Element = !Coverage.isAgreement
   Card. = 0..1
   Summary = Y
   Type = boolean
@@ -147,7 +161,7 @@
   Type = CodeableConcept
   Binding = CoverageType
   Short Name = Type of coverage
-  Definition = The type of coverage: social program, medical plan, accident coverage (workers compensation, auto), group health.
+  Definition = The type of coverage: social program, medical plan, accident coverage (workers compensation, auto), group health or payment by an individual or organization.
   Requirements = The order of application of coverages is dependent on the types of coverage.
   v2 Mapping = IN1-15
   w5 = class
@@ -225,7 +239,7 @@
   w5 = when.done
 
  -- Row 13 -----------------------------------
-  Element = Coverage.issuer
+  Element = Coverage.payor
   Card. = 0..*
   Summary = Y
   Type = Reference(Organization|Patient|RelatedPerson)
@@ -425,126 +439,132 @@
 === Sheet Search =====================================
 
  -- Row 1 -----------------------------------
-  Name = issuer
+  Name = payor
   Type = reference
-  Description = The identity of the insurer
-  Path = Coverage.issuer
+  Description = The identity of the insurer or party paying for services
+  Path = Coverage.payor
 
  -- Row 2 -----------------------------------
+  Name = !issuer
+  Type = reference
+  Description = The identity of the insurer or party paying for services
+  Path = Coverage.issuer
+
+ -- Row 3 -----------------------------------
   Name = !issuer-identifier
   Type = token
   Description = The identity of the insurer
   Path = Coverage.issuerIdentifier
 
- -- Row 3 -----------------------------------
+ -- Row 4 -----------------------------------
   Name = !issuer-reference
   Type = reference
   Description = The identity of the insurer
   Path = Coverage.issuerReference
 
- -- Row 4 -----------------------------------
+ -- Row 5 -----------------------------------
   Name = identifier
   Type = token
   Description = The primary identifier of the insured and the coverage
   Path = Coverage.identifier
 
- -- Row 5 -----------------------------------
+ -- Row 6 -----------------------------------
   Name = type
   Type = token
   Description = The kind of coverage (health plan, auto, Workers Compensation)
   Path = Coverage.type
 
- -- Row 6 -----------------------------------
+ -- Row 7 -----------------------------------
   Name = plan
   Type = string
   Description = A plan or policy identifier
   Path = Coverage.group.plan
 
- -- Row 7 -----------------------------------
+ -- Row 8 -----------------------------------
   Name = subplan
   Type = string
   Description = Sub-plan identifier
   Path = Coverage.group.subPlan
 
- -- Row 8 -----------------------------------
+ -- Row 9 -----------------------------------
   Name = group
   Type = string
   Description = Group identifier
   Path = Coverage.group.group
 
- -- Row 9 -----------------------------------
+ -- Row 10 -----------------------------------
   Name = subgroup
   Type = string
   Description = Sub-group identifier
   Path = Coverage.group.subGroup
 
- -- Row 10 -----------------------------------
+ -- Row 11 -----------------------------------
   Name = class
   Type = string
   Description = Class identifier
   Path = Coverage.group.class
 
- -- Row 11 -----------------------------------
+ -- Row 12 -----------------------------------
   Name = subclass
   Type = string
   Description = Sub-class identifier
   Path = Coverage.group.subClass
 
- -- Row 12 -----------------------------------
+ -- Row 13 -----------------------------------
   Name = dependent
   Type = string
   Description = Dependent number
   Path = Coverage.dependent
 
- -- Row 13 -----------------------------------
+ -- Row 14 -----------------------------------
   Name = sequence
   Type = string
   Description = Sequence number
   Path = Coverage.sequence
 
- -- Row 14 -----------------------------------
+ -- Row 15 -----------------------------------
   Name = !subject
   Type = reference
   Description = Covered party
   Path = Coverage.subject
 
- -- Row 15 -----------------------------------
+ -- Row 16 -----------------------------------
   Name = subscriber
   Type = reference
   Description = Reference to the subscriber
   Path = Coverage.subscriber
 
- -- Row 16 -----------------------------------
+ -- Row 17 -----------------------------------
   Name = beneficiary
   Type = reference
   Description = Covered party
   Path = Coverage.beneficiary
 
- -- Row 17 -----------------------------------
+ -- Row 18 -----------------------------------
   Name = !beneficiary-identifier
   Type = token
   Description = Covered party
   Path = Coverage.beneficiaryIdentifier
 
- -- Row 18 -----------------------------------
+ -- Row 19 -----------------------------------
   Name = !beneficiary-reference
   Type = reference
   Description = Covered party
   Path = Coverage.beneficiaryReference
 
- -- Row 19 -----------------------------------
+ -- Row 20 -----------------------------------
   Name = policyholder
   Type = reference
   Description = Reference to the policyholder
   Path = Coverage.policyHolder
 
- -- Row 20 -----------------------------------
+ -- Row 21 -----------------------------------
   Name = !planholder-identifier
   Type = token
   Description = Reference to the planholder
   Path = Coverage.planholderIdentifier
 
- -- Row 21 -----------------------------------
+ -- Row 22 -----------------------------------
   Name = !planholder-reference
   Type = reference
   Description = Reference to the planholder
@@ -571,5 +591,11 @@
   Identity = 7547E
   Description = European Health Insurance Card
   Filename = coverage-example-ehic.xml
+
+ -- Row 4 -----------------------------------
+  Name = General-SelfPay
+  Identity = SP1234
+  Description = Self Payment Example
+  Filename = coverage-example-selfpay.xml
 
 === Sheet Examples =====================================

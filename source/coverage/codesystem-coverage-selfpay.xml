@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <url value="http://hl7.org/fhir/coverage-selfpay"/>
+  <name value="Coverage Self Pay Codes"/>
+  <status value="draft"/>
+  <publisher value="Financial Management"/>
+  <contact>
+    <telecom>
+      <system value="other"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="This value set includes Coverage Self Pay codes."/>
+  <copyright value="HL7 International."/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="pay"/>
+    <display value="Pay"/>
+    <definition value="An individual or oraganization is paying directly for goods and services."/>
+  </concept>
+</CodeSystem>

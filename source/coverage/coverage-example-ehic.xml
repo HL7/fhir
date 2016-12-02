@@ -40,11 +40,11 @@
    <end value="2012-03-17"/>
  </period>
 
- <issuer>
+ <payor>
 	<identifier>
 	  <system value="http://ehic.com/insurer"/>
 	  <value value="123456789"/>
 	</identifier>
- </issuer>
+ </payor>
  
 </Coverage>

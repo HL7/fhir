@@ -41,9 +41,9 @@
    <end value="2012-03-17"/>
  </period>
 
- <issuer>
+ <payor>
   <reference value="Organization/2"/>
- </issuer>
+ </payor>
  
  <group>
    <group value="WESTAIR" />

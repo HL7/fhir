@@ -66,7 +66,7 @@
   Element = EligibilityRequest
   Type = DomainResource
   Short Name = Eligibility request
-  Definition = This resource provides the insurance eligibility details from the insurer regarding a specified coverage and optionally some class of service.
+  Definition = This resource provides the details  from the insurer to identify a specified coverage and optionally some class of service.
   w5 = financial.support
 
  -- Row 2 -----------------------------------

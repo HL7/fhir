@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Coverage xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/coverage.xsd">
+ <id value="SP1234"/>
+
+ <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">A human-readable rendering of a Self Pay Agreement.</div>
+  </text>
+
+ <identifier>
+   <system value="http://hospitalx.com/selfpayagreement"/>
+   <value value="SP12345678"/>
+ </identifier>
+  
+ <status value="active"/>
+  
+ <type>
+  <coding>
+    <system value="http://hl7.org/fhir/coverage-selfpay"/>
+    <code value="pay"/>
+    <display value="PAY"/>
+  </coding>
+ </type>
+
+ <subscriber>
+	<reference value="Patient/5"/>
+ </subscriber>
+ 
+ <beneficiary>
+	<reference value="Patient/5"/>
+ </beneficiary>
+ 
+ <relationship>
+  <coding>
+    <code value="self"/>
+  </coding>
+ </relationship>
+
+ <period> 
+   <end value="2012-03-17"/>
+ </period>
+
+ <payor>
+	<reference value="Patient/5"/>
+ </payor>
+ 
+</Coverage>
