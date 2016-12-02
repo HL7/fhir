@@ -3075,7 +3075,7 @@ public class Publisher implements IWorkerContext.ILoggingService {
         self.setConfigFile(getNamedParam(args, "-ig"));
         if (Utilities.noString(self.getConfigFile()))
           throw new Exception("No Implementation Guide Specified (-ig parameter)");
-        if (new File(self.getConfigFile()).isAbsolute())
+        if (!(new File(self.getConfigFile()).isAbsolute()))
           self.setConfigFile(Utilities.path(System.getProperty("user.dir"), self.getConfigFile()));
       }
       self.setIgPack(getNamedParam(args, "-spec"));

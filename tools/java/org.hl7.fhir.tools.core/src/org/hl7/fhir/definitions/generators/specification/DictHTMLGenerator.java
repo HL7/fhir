@@ -185,7 +185,7 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
     tableRowNE("Definition", null, page.processMarkdown(profile.getName(), d.getDefinition(), prefix));
     tableRowNE("Note", null, businessIdWarning(profile.getName(), tail(d.getPath())));
     tableRow("Control", "conformance-rules.html#conformance", describeCardinality(d) + summariseConditions(d.getCondition()));
-    tableRowNE("Binding", "terminologies.html", describeBinding(d));
+    tableRowNE("Terminology Binding", "terminologies.html", describeBinding(d));
     if (d.hasContentReference())
       tableRow("Type", null, "See "+d.getContentReference().substring(1));
     else
@@ -450,7 +450,7 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
 		tableRowNE("Definition", null, page.processMarkdown(path, e.getDefinition(), prefix));
     tableRowNE("Note", null, businessIdWarning(resourceName, e.getName()));
 		tableRow("Control", "conformance-rules.html#conformance", cardinality + (e.hasCondition() ? ": "+  e.getCondition(): ""));
-		tableRowNE("Binding", "terminologies.html", describeBinding(path, e));
+		tableRowNE("Terminology Binding", "terminologies.html", describeBinding(path, e));
 		if (!Utilities.noString(type) && type.startsWith("@"))
 		  tableRowNE("Type", null, "<a href=\"#"+type.substring(1)+"\">See "+type.substring(1)+"</a>");
 		else
@@ -494,16 +494,16 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
 	  if (!e.hasBinding())
 	    return null;
 	  
-	  StringBuilder b = new StringBuilder();
-	  BindingSpecification cd =  e.getBinding();
-	  if (cd.getValueSet() != null)
-      b.append(cd.getValueSet().getName()+": ");
-	  else if (!Utilities.noString(cd.getReference()))
-      b.append("<a href=\""+prefix+cd.getReference()+"\">"+e.getBinding().getName()+"</a>: ");
-	  else
-      b.append("<a href=\""+prefix+"terminologies.html#unbound\">"+e.getBinding().getName()+"</a>: ");
-	    
-    b.append(TerminologyNotesGenerator.describeBinding(prefix, cd, page));
+	  // name (description): [[ValueSet]], Strength = [[]]
+    StringBuilder b = new StringBuilder();
+    BindingSpecification cd =  e.getBinding();
+    if (cd.getValueSet() == null) {
+      if (!Utilities.noString(cd.getReference()))
+        b.append("<a href=\""+prefix+cd.getReference()+"\">"+e.getBinding().getName()+"</a>: ");
+      else
+        b.append("<a href=\""+prefix+"terminologies.html#unbound\">"+e.getBinding().getName()+"</a>: ");
+    } else  
+      b.append(TerminologyNotesGenerator.describeBinding(prefix, cd, page));
 //    if (cd.getBinding() == Binding.Unbound)
 //      b.append(" (Not Bound to any codes)");
 //    else

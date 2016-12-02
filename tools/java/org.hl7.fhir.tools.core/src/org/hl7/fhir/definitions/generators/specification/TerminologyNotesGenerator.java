@@ -316,7 +316,7 @@ public class TerminologyNotesGenerator extends OutputStreamWriter {
     if (cd.getValueSet() != null) {
       ValueSet vs = cd.getValueSet();
       String pp = (String) vs.getUserData("path");
-      return "<a href=\""+prefix+pp.replace(File.separatorChar, '/')+"\">"+cd.getDefinition()+"</a> ("+bs+mx+")";      
+      return "<a href=\""+prefix+pp.replace(File.separatorChar, '/')+"\">"+cd.getValueSet().getName()+"</a> ("+bs+mx+")";      
     } else if (cd.getBinding() == BindingSpecification.BindingMethod.ValueSet) {
       if (Utilities.noString(cd.getReference())) 
         return cd.getDescription();
