@@ -22,7 +22,7 @@
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>827</TabRatio>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>3</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -3501,13 +3501,12 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>125</Zoom>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>14</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -3515,15 +3514,14 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>9</ActiveRow>
-     <ActiveCol>0</ActiveCol>
-     <RangeSelection>R10</RangeSelection>
+     <ActiveRow>3</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -4084,8 +4082,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>7</ActiveRow>
-     <ActiveCol>6</ActiveCol>
+     <ActiveRow>4</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -4142,14 +4140,14 @@
     <Cell ss:StyleID="s131"><Data ss:Type="String">start</Data></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">number</Data></Cell>
     <Cell ss:StyleID="s91"/>
-    <Cell ss:StyleID="s132"><Data ss:Type="String">Sequence.variant.start</Data></Cell>
+    <Cell ss:StyleID="s132"><Data ss:Type="String">Sequence.referenceSeq.start</Data></Cell>
     <Cell ss:StyleID="s133"><Data ss:Type="String">Start position (0-based inclusive, 1-based inclusive, that means the nucleic acid or amino acid at this position will be included) of the reference sequence.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s131"><Data ss:Type="String">end</Data></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">number</Data></Cell>
     <Cell ss:StyleID="s91"/>
-    <Cell ss:StyleID="s132"><Data ss:Type="String">Sequence.variant.end</Data></Cell>
+    <Cell ss:StyleID="s132"><Data ss:Type="String">Sequence.referenceSeq.end</Data></Cell>
     <Cell ss:StyleID="s133"><Data ss:Type="String">End position (0-based exclusive, which menas the acid at this position will not be included, 1-based inclusive, which means the acid at this position will be included) of the reference sequence.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="21">
@@ -4158,7 +4156,8 @@
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s91"><Data ss:Type="String">chromosome &amp; start &amp; end</Data></Cell>
     <Cell ss:StyleID="s91"><ss:Data ss:Type="String"
-      xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000">Search parameter for region of the reference sequence string. This will refer to part of a locus or part of a gene where search region will be represented in </Font><B><Font
+      xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000">Search parameter for region of the reference </Font><B><Font
+        html:Color="#000000">DNA</Font></B><Font html:Color="#000000"> sequence string. This will refer to part of a locus or part of a gene where search region will be represented in </Font><B><Font
         html:Color="#000000">1-based system</Font></B><Font html:Color="#000000">. Since the coordinateSystem can either be 0-based or 1-based, this search query will include the result of both coordinateSystem that contains the equivalent segment of the gene or whole genome sequence. For example, a search for sequence can be represented as `coordinate=1$lt345$gt123`, this means it will search for the Sequence resource on chromosome 1 and with position &gt;123 and &lt;345, where in 1-based system resource, all strings within region 1:124-344 will be revealed, while in 0-based system resource, all strings within region 1:123-344 will be revealed. You may want to check detail about 0-based v.s. 1-based above.</Font></ss:Data></Cell>
     <Cell><Data ss:Type="String">Sequence.variant; %resource.referenceSeq.chromosome; start; end</Data></Cell>
    </Row>
@@ -4167,7 +4166,7 @@
     <Cell ss:StyleID="s91"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Sequence.type</Data></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">The type of the variant: Amino acid / cDNA transcript / RNA variant.</Data></Cell>
+    <Cell ss:StyleID="s98"><Data ss:Type="String">Amino Acid Sequence/ DNA Sequence / RNA Sequence</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="Default"><Data ss:Type="String">patient</Data></Cell>
@@ -4260,6 +4259,7 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>125</Zoom>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4279,8 +4279,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>5</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     <ActiveRow>4</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
