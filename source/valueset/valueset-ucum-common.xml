@@ -1562,11 +1562,11 @@
       </concept>
       <concept>
         <code value="dg"/>
-        <display value="decagram"/>
+        <display value="decigram"/>
       </concept>
       <concept>
         <code value="dL"/>
-        <display value="decaliter"/>
+        <display value="deciliter"/>
       </concept>
       <concept>
         <code value="dm"/>
