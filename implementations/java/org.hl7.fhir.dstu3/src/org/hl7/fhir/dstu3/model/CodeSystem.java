@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Dec 1, 2016 06:32+1100 for FHIR v1.7.0
+// Generated on Fri, Dec 2, 2016 10:28+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -328,6 +328,10 @@ public class CodeSystem extends MetadataResource {
          */
         GENERALIZES, 
         /**
+         * The specified property of the code has at least one value (if the specified value is true; if the specified value is false, then matches when the specified property of the code has no values)
+         */
+        EXISTS, 
+        /**
          * added to help the parsers with the generic types
          */
         NULL;
@@ -350,6 +354,8 @@ public class CodeSystem extends MetadataResource {
           return NOTIN;
         if ("generalizes".equals(codeString))
           return GENERALIZES;
+        if ("exists".equals(codeString))
+          return EXISTS;
         if (Configuration.isAcceptInvalidEnums())
           return null;
         else
@@ -365,6 +371,7 @@ public class CodeSystem extends MetadataResource {
             case IN: return "in";
             case NOTIN: return "not-in";
             case GENERALIZES: return "generalizes";
+            case EXISTS: return "exists";
             default: return "?";
           }
         }
@@ -378,6 +385,7 @@ public class CodeSystem extends MetadataResource {
             case IN: return "http://hl7.org/fhir/filter-operator";
             case NOTIN: return "http://hl7.org/fhir/filter-operator";
             case GENERALIZES: return "http://hl7.org/fhir/filter-operator";
+            case EXISTS: return "http://hl7.org/fhir/filter-operator";
             default: return "?";
           }
         }
@@ -391,6 +399,7 @@ public class CodeSystem extends MetadataResource {
             case IN: return "The specified property of the code is in the set of codes or concepts specified in the provided value (comma separated list).";
             case NOTIN: return "The specified property of the code is not in the set of codes or concepts specified in the provided value (comma separated list).";
             case GENERALIZES: return "Includes all concept ids that have a transitive is-a relationship from the concept Id provided as the value, including the provided concept itself (e.g. include parent codes)";
+            case EXISTS: return "The specified property of the code has at least one value (if the specified value is true; if the specified value is false, then matches when the specified property of the code has no values)";
             default: return "?";
           }
         }
@@ -404,6 +413,7 @@ public class CodeSystem extends MetadataResource {
             case IN: return "In Set";
             case NOTIN: return "Not in Set";
             case GENERALIZES: return "Generalizes (by Subsumption)";
+            case EXISTS: return "Exists";
             default: return "?";
           }
         }
@@ -430,6 +440,8 @@ public class CodeSystem extends MetadataResource {
           return FilterOperator.NOTIN;
         if ("generalizes".equals(codeString))
           return FilterOperator.GENERALIZES;
+        if ("exists".equals(codeString))
+          return FilterOperator.EXISTS;
         throw new IllegalArgumentException("Unknown FilterOperator code '"+codeString+"'");
         }
         public Enumeration<FilterOperator> fromType(Base code) throws FHIRException {
@@ -454,6 +466,8 @@ public class CodeSystem extends MetadataResource {
           return new Enumeration<FilterOperator>(this, FilterOperator.NOTIN);
         if ("generalizes".equals(codeString))
           return new Enumeration<FilterOperator>(this, FilterOperator.GENERALIZES);
+        if ("exists".equals(codeString))
+          return new Enumeration<FilterOperator>(this, FilterOperator.EXISTS);
         throw new FHIRException("Unknown FilterOperator code '"+codeString+"'");
         }
     public String toCode(FilterOperator code) {
@@ -473,6 +487,8 @@ public class CodeSystem extends MetadataResource {
         return "not-in";
       if (code == FilterOperator.GENERALIZES)
         return "generalizes";
+      if (code == FilterOperator.EXISTS)
+        return "exists";
       return "?";
       }
     public String toSystem(FilterOperator code) {
@@ -1418,10 +1434,10 @@ public class CodeSystem extends MetadataResource {
         protected List<ConceptPropertyComponent> property;
 
         /**
-         * Defines children of a concept to produce a hierarchy of concepts. The nature of the relationships is variable (is-a/contains/categorizes) and can only be determined by examining the definitions of the concepts.
+         * Defines children of a concept to produce a hierarchy of concepts. The nature of the relationships is variable (is-a/contains/categorizes) - see hierarchyMeaning.
          */
         @Child(name = "concept", type = {ConceptDefinitionComponent.class}, order=6, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-        @Description(shortDefinition="Child Concepts (is-a/contains/categorizes)", formalDefinition="Defines children of a concept to produce a hierarchy of concepts. The nature of the relationships is variable (is-a/contains/categorizes) and can only be determined by examining the definitions of the concepts." )
+        @Description(shortDefinition="Child Concepts (is-a/contains/categorizes)", formalDefinition="Defines children of a concept to produce a hierarchy of concepts. The nature of the relationships is variable (is-a/contains/categorizes) - see hierarchyMeaning." )
         protected List<ConceptDefinitionComponent> concept;
 
         private static final long serialVersionUID = 878320988L;
@@ -1691,7 +1707,7 @@ public class CodeSystem extends MetadataResource {
         }
 
         /**
-         * @return {@link #concept} (Defines children of a concept to produce a hierarchy of concepts. The nature of the relationships is variable (is-a/contains/categorizes) and can only be determined by examining the definitions of the concepts.)
+         * @return {@link #concept} (Defines children of a concept to produce a hierarchy of concepts. The nature of the relationships is variable (is-a/contains/categorizes) - see hierarchyMeaning.)
          */
         public List<ConceptDefinitionComponent> getConcept() { 
           if (this.concept == null)
@@ -1750,7 +1766,7 @@ public class CodeSystem extends MetadataResource {
           childrenList.add(new Property("definition", "string", "The formal definition of the concept. The code system resource does not make formal definitions required, because of the prevalence of legacy systems. However, they are highly recommended, as without them there is no formal meaning associated with the concept.", 0, java.lang.Integer.MAX_VALUE, definition));
           childrenList.add(new Property("designation", "", "Additional representations for the concept - other languages, aliases, specialized purposes, used for particular purposes, etc.", 0, java.lang.Integer.MAX_VALUE, designation));
           childrenList.add(new Property("property", "", "A property value for this concept.", 0, java.lang.Integer.MAX_VALUE, property));
-          childrenList.add(new Property("concept", "@CodeSystem.concept", "Defines children of a concept to produce a hierarchy of concepts. The nature of the relationships is variable (is-a/contains/categorizes) and can only be determined by examining the definitions of the concepts.", 0, java.lang.Integer.MAX_VALUE, concept));
+          childrenList.add(new Property("concept", "@CodeSystem.concept", "Defines children of a concept to produce a hierarchy of concepts. The nature of the relationships is variable (is-a/contains/categorizes) - see hierarchyMeaning.", 0, java.lang.Integer.MAX_VALUE, concept));
         }
 
       @Override

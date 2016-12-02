@@ -54,6 +54,7 @@ import org.hl7.fhir.definitions.model.Profile;
 import org.hl7.fhir.definitions.model.ProfiledType;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.SearchParameterDefn;
+import org.hl7.fhir.definitions.model.SearchParameterDefn.CompositeDefinition;
 import org.hl7.fhir.definitions.model.TypeDefn;
 import org.hl7.fhir.definitions.validation.FHIRPathUsage;
 import org.hl7.fhir.dstu3.conformance.ProfileUtilities;
@@ -1036,8 +1037,8 @@ public class ProfileGenerator {
         sp.setXpathUsage(spd.getxPathUsage());
       }
       if (sp.getType() == SearchParamType.COMPOSITE) {
-        for (String cs : spd.getComposites()) {
-          sp.addComponent().setReference("http://hl7.org/fhir/SearchParameter/"+rn+"-"+cs);
+        for (CompositeDefinition cs : spd.getComposites()) {
+          sp.addComponent().setExpression(cs.getExpression()).setDefinition(new Reference("http://hl7.org/fhir/SearchParameter/"+rn+"-"+cs.getDefinition()));
         }
       } 
       sp.addBase(p.getType());

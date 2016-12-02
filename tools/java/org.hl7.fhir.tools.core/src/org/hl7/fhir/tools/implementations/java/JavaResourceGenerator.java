@@ -372,8 +372,8 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
               }
             }
           } else {
-            String code0 = sp.getComposites().get(0);
-            String code1 = sp.getComposites().get(1);
+            String code0 = sp.getComposites().get(0).getDefinition();
+            String code1 = sp.getComposites().get(1).getDefinition();
             SearchParameterDefn comp0 = nameToSearchParamDef.get(code0);
             SearchParameterDefn comp1 = nameToSearchParamDef.get(code1);
             Validate.notNull(comp0, "Couldn't find composite component " + code0 + " - Values are: " + nameToSearchParamDef.keySet());

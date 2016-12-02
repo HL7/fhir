@@ -444,3 +444,156 @@
   Definition = Related Resource to this DocumentReference. If both id and ref are present they shall refer to the same thing.
   Comments = Order, DiagnosticRequest,  Procedure, EligibilityRequest, etc.
   RIM Mapping = ./outboundRelationship[typeCode=\"PERT\" and isNormalActRelationship()] / target[isNormalAct].text.reference
+
+=== Sheet Search =====================================
+
+ -- Row 1 -----------------------------------
+  Name = identifier
+  Type = token
+  Path = DocumentReference.masterIdentifier | DocumentReference.identifier
+
+ -- Row 2 -----------------------------------
+  Name = subject
+  Type = reference
+  Path = DocumentReference.subject
+
+ -- Row 3 -----------------------------------
+  Name = type
+  Type = token
+  Path = DocumentReference.type
+
+ -- Row 4 -----------------------------------
+  Name = class
+  Type = token
+  Path = DocumentReference.class
+
+ -- Row 5 -----------------------------------
+  Name = author
+  Type = reference
+  Path = DocumentReference.author
+
+ -- Row 6 -----------------------------------
+  Name = custodian
+  Type = reference
+  Path = DocumentReference.custodian
+
+ -- Row 7 -----------------------------------
+  Name = authenticator
+  Type = reference
+  Path = DocumentReference.authenticator
+
+ -- Row 8 -----------------------------------
+  Name = created
+  Type = date
+  Path = DocumentReference.created
+
+ -- Row 9 -----------------------------------
+  Name = indexed
+  Type = date
+  Path = DocumentReference.indexed
+
+ -- Row 10 -----------------------------------
+  Name = status
+  Type = token
+  Path = DocumentReference.status
+
+ -- Row 11 -----------------------------------
+  Name = relatesto
+  Type = reference
+  Path = DocumentReference.relatesTo.target
+
+ -- Row 12 -----------------------------------
+  Name = relation
+  Type = token
+  Path = DocumentReference.relatesTo.code
+
+ -- Row 13 -----------------------------------
+  Name = relationship
+  Type = composite
+  Description = Combination of relation and relatesTo
+  Path = relatesto & relation
+
+ -- Row 14 -----------------------------------
+  Name = description
+  Type = string
+  Path = DocumentReference.description
+
+ -- Row 15 -----------------------------------
+  Name = securitylabel
+  Type = token
+  Path = DocumentReference.securityLabel
+
+ -- Row 16 -----------------------------------
+  Name = format
+  Type = token
+  Path = DocumentReference.content.format
+
+ -- Row 17 -----------------------------------
+  Name = language
+  Type = token
+  Path = DocumentReference.content.attachment.language
+
+ -- Row 18 -----------------------------------
+  Name = location
+  Type = uri
+  Path = DocumentReference.content.attachment.url
+
+ -- Row 19 -----------------------------------
+  Name = event
+  Type = token
+  Path = DocumentReference.context.event
+
+ -- Row 20 -----------------------------------
+  Name = period
+  Type = date
+  Path = DocumentReference.context.period
+
+ -- Row 21 -----------------------------------
+  Name = facility
+  Type = token
+  Path = DocumentReference.context.facilityType
+
+ -- Row 22 -----------------------------------
+  Name = patient
+  Type = reference
+  Path = DocumentReference.subject
+  Target Types = Patient
+
+ -- Row 23 -----------------------------------
+  Name = setting
+  Type = token
+  Path = DocumentReference.context.practiceSetting
+
+ -- Row 24 -----------------------------------
+  Name = related-id
+  Type = token
+  Path = DocumentReference.context.related.identifier
+
+ -- Row 25 -----------------------------------
+  Name = related-ref
+  Type = reference
+  Path = DocumentReference.context.related.ref
+
+ -- Row 26 -----------------------------------
+  Name = encounter
+  Type = reference
+  Path = DocumentReference.context.encounter
+
+=== Sheet Profiles =====================================
+
+ -- Row 1 -----------------------------------
+  Name = !xds-profile
+  IG Name = ihe
+  Filename = xds-profile.xml
+  Type = spreadsheet
+
+=== Sheet Examples =====================================
+
+ -- Row 1 -----------------------------------
+  Name = XDS example
+  Identity = xds
+  Description = XDS example
+  Filename = xds-example.xml
+  Profile = !xds-profile
+
+=== Sheet Examples =====================================

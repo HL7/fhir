@@ -289,7 +289,7 @@
   Type = string
   Short Name = FluentPath expression that extracts the values
   Definition = A FluentPath expression that returns a set of elements for the search parameter
-  Comments = Note that the elements returned by the expression are sometimes complex elements where logic is required to determine quite how to handle them; e.g. CodeableConcepts may contain text and/or multiple codings, where the codings themselves contain a code and a system
+  Comments = Note that the elements returned by the expression are sometimes complex elements where logic is required to determine quite how to handle them; e.g. CodeableConcepts may contain text and/or multiple codings, where the codings themselves contain a code and a system. For composite search parameters, the outcome of the expression must a collection of base elements from which the composites are derived
 
  -- Row 19 -----------------------------------
   Element = SearchParameter.xpath
@@ -345,9 +345,23 @@
  -- Row 25 -----------------------------------
   Element = SearchParameter.component
   Card. = 0..*
-  Type = Reference(SearchParameter)
   Short Name = For Composite resources to define the parts
   Definition = Used to define the parts of a composite search parameter
+
+ -- Row 26 -----------------------------------
+  Element = SearchParameter.component.definition
+  Card. = 1..1
+  Type = Reference(SearchParameter)
+  Short Name = Defines how the part works
+  Definition = The definition of the search parameter that describes this part
+
+ -- Row 27 -----------------------------------
+  Element = SearchParameter.component.expression
+  Card. = 1..1
+  Type = string
+  Short Name = Subexpression relative to main expression
+  Definition = A sub-expression that defines how to extract values for this component from the output of the main SearchParameter.expression
+  Comments = This expression overrides the expression in the definition, and extracts the index values from the outcome of the composite expression
 
 === Sheet Search =====================================
 
@@ -374,7 +388,7 @@
  -- Row 5 -----------------------------------
   Name = component
   Type = reference
-  Path = SearchParameter.component
+  Path = SearchParameter.component.definition
 
  -- Row 6 -----------------------------------
   Name = derived-from

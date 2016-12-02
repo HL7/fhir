@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Thu, Dec 1, 2016 06:32+1100 for FHIR v1.7.0
+// Generated on Fri, Dec 2, 2016 10:28+1100 for FHIR v1.7.0
 
 import org.hl7.fhir.dstu3.model.DateType;
 import org.hl7.fhir.dstu3.model.DateTimeType;
@@ -1703,6 +1703,8 @@ public class RdfParser extends RdfParserBase {
     composeResource(t, "Binary", name, element, index);
     if (element.hasContentTypeElement())
       composeCode(t, "Binary", "contentType", element.getContentTypeElement(), -1);
+    if (element.hasSecurityContext())
+      composeReference(t, "Binary", "securityContext", element.getSecurityContext(), -1);
     if (element.hasContentElement())
       composeBase64Binary(t, "Binary", "content", element.getContentElement(), -1);
   }
@@ -2597,8 +2599,6 @@ public class RdfParser extends RdfParserBase {
       composeString(t, "Claim", "preAuthRef", element.getPreAuthRef().get(i), i);
     if (element.hasClaimResponse())
       composeReference(t, "Claim", "claimResponse", element.getClaimResponse(), -1);
-    if (element.hasOriginalRuleset())
-      composeCoding(t, "Claim", "originalRuleset", element.getOriginalRuleset(), -1);
   }
 
   protected void composeClaimAccidentComponent(Complex parent, String parentType, String name, Claim.AccidentComponent element, int index) {
@@ -4496,7 +4496,7 @@ public class RdfParser extends RdfParserBase {
     }
     composeDomainResource(t, "DeviceUseStatement", name, element, index);
     if (element.hasBodySite())
-      composeType(t, "DeviceUseStatement", "bodySite", element.getBodySite(), -1);
+      composeCodeableConcept(t, "DeviceUseStatement", "bodySite", element.getBodySite(), -1);
     if (element.hasWhenUsed())
       composePeriod(t, "DeviceUseStatement", "whenUsed", element.getWhenUsed(), -1);
     if (element.hasDevice())
@@ -5437,10 +5437,6 @@ public class RdfParser extends RdfParserBase {
     composeDomainResource(t, "ExplanationOfBenefit", name, element, index);
     for (int i = 0; i < element.getIdentifier().size(); i++)
       composeIdentifier(t, "ExplanationOfBenefit", "identifier", element.getIdentifier().get(i), i);
-    if (element.hasRuleset())
-      composeCoding(t, "ExplanationOfBenefit", "ruleset", element.getRuleset(), -1);
-    if (element.hasOriginalRuleset())
-      composeCoding(t, "ExplanationOfBenefit", "originalRuleset", element.getOriginalRuleset(), -1);
     if (element.hasStatusElement())
       composeEnum(t, "ExplanationOfBenefit", "status", element.getStatusElement(), -1);
     if (element.hasType())
@@ -10184,7 +10180,23 @@ public class RdfParser extends RdfParserBase {
     for (int i = 0; i < element.getChain().size(); i++)
       composeString(t, "SearchParameter", "chain", element.getChain().get(i), i);
     for (int i = 0; i < element.getComponent().size(); i++)
-      composeReference(t, "SearchParameter", "component", element.getComponent().get(i), i);
+      composeSearchParameterSearchParameterComponentComponent(t, "SearchParameter", "component", element.getComponent().get(i), i);
+  }
+
+  protected void composeSearchParameterSearchParameterComponentComponent(Complex parent, String parentType, String name, SearchParameter.SearchParameterComponentComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeBackboneElement(t, "component", name, element, index);
+    if (element.hasDefinition())
+      composeReference(t, "SearchParameter", "definition", element.getDefinition(), -1);
+    if (element.hasExpressionElement())
+      composeString(t, "SearchParameter", "expression", element.getExpressionElement(), -1);
   }
 
   protected void composeSequence(Complex parent, String parentType, String name, Sequence element, int index) {

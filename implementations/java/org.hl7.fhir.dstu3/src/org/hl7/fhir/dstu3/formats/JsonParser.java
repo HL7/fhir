@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Thu, Dec 1, 2016 06:32+1100 for FHIR v1.7.0
+// Generated on Fri, Dec 2, 2016 10:28+1100 for FHIR v1.7.0
 
 import org.hl7.fhir.dstu3.model.DateType;
 import org.hl7.fhir.dstu3.model.DateTimeType;
@@ -2441,6 +2441,8 @@ public class JsonParser extends JsonParserBase {
       res.setContentTypeElement(parseCode(json.get("contentType").getAsString()));
     if (json.has("_contentType"))
       parseElementProperties(json.getAsJsonObject("_contentType"), res.getContentTypeElement());
+    if (json.has("securityContext"))
+      res.setSecurityContext(parseReference(json.getAsJsonObject("securityContext")));
     if (json.has("content"))
       res.setContentElement(parseBase64Binary(json.get("content").getAsString()));
     if (json.has("_content"))
@@ -3774,8 +3776,6 @@ public class JsonParser extends JsonParserBase {
     };
     if (json.has("claimResponse"))
       res.setClaimResponse(parseReference(json.getAsJsonObject("claimResponse")));
-    if (json.has("originalRuleset"))
-      res.setOriginalRuleset(parseCoding(json.getAsJsonObject("originalRuleset")));
   }
 
   protected Claim.AccidentComponent parseClaimAccidentComponent(JsonObject json, Claim owner) throws IOException, FHIRFormatError {
@@ -6709,9 +6709,8 @@ public class JsonParser extends JsonParserBase {
 
   protected void parseDeviceUseStatementProperties(JsonObject json, DeviceUseStatement res) throws IOException, FHIRFormatError {
     parseDomainResourceProperties(json, res);
-    Type bodySite = parseType("bodySite", json);
-    if (bodySite != null)
-      res.setBodySite(bodySite);
+    if (json.has("bodySite"))
+      res.setBodySite(parseCodeableConcept(json.getAsJsonObject("bodySite")));
     if (json.has("whenUsed"))
       res.setWhenUsed(parsePeriod(json.getAsJsonObject("whenUsed")));
     if (json.has("device"))
@@ -8044,10 +8043,6 @@ public class JsonParser extends JsonParserBase {
         res.getIdentifier().add(parseIdentifier(array.get(i).getAsJsonObject()));
       }
     };
-    if (json.has("ruleset"))
-      res.setRuleset(parseCoding(json.getAsJsonObject("ruleset")));
-    if (json.has("originalRuleset"))
-      res.setOriginalRuleset(parseCoding(json.getAsJsonObject("originalRuleset")));
     if (json.has("status"))
       res.setStatusElement(parseEnumeration(json.get("status").getAsString(), ExplanationOfBenefit.ExplanationOfBenefitStatus.NULL, new ExplanationOfBenefit.ExplanationOfBenefitStatusEnumFactory()));
     if (json.has("_status"))
@@ -15281,9 +15276,25 @@ public class JsonParser extends JsonParserBase {
     if (json.has("component")) {
       JsonArray array = json.getAsJsonArray("component");
       for (int i = 0; i < array.size(); i++) {
-        res.getComponent().add(parseReference(array.get(i).getAsJsonObject()));
+        res.getComponent().add(parseSearchParameterSearchParameterComponentComponent(array.get(i).getAsJsonObject(), res));
       }
     };
+  }
+
+  protected SearchParameter.SearchParameterComponentComponent parseSearchParameterSearchParameterComponentComponent(JsonObject json, SearchParameter owner) throws IOException, FHIRFormatError {
+    SearchParameter.SearchParameterComponentComponent res = new SearchParameter.SearchParameterComponentComponent();
+    parseSearchParameterSearchParameterComponentComponentProperties(json, owner, res);
+    return res;
+  }
+
+  protected void parseSearchParameterSearchParameterComponentComponentProperties(JsonObject json, SearchParameter owner, SearchParameter.SearchParameterComponentComponent res) throws IOException, FHIRFormatError {
+    parseBackboneProperties(json, res);
+    if (json.has("definition"))
+      res.setDefinition(parseReference(json.getAsJsonObject("definition")));
+    if (json.has("expression"))
+      res.setExpressionElement(parseString(json.get("expression").getAsString()));
+    if (json.has("_expression"))
+      parseElementProperties(json.getAsJsonObject("_expression"), res.getExpressionElement());
   }
 
   protected Sequence parseSequence(JsonObject json) throws IOException, FHIRFormatError {
@@ -21908,6 +21919,9 @@ public class JsonParser extends JsonParserBase {
         composeCodeCore("contentType", element.getContentTypeElement(), false);
         composeCodeExtras("contentType", element.getContentTypeElement(), false);
       }
+      if (element.hasSecurityContext()) {
+        composeReference("securityContext", element.getSecurityContext());
+      }
       if (element.hasContentElement()) {
         composeBase64BinaryCore("content", element.getContentElement(), false);
         composeBase64BinaryExtras("content", element.getContentElement(), false);
@@ -23357,9 +23371,6 @@ public class JsonParser extends JsonParserBase {
       };
       if (element.hasClaimResponse()) {
         composeReference("claimResponse", element.getClaimResponse());
-      }
-      if (element.hasOriginalRuleset()) {
-        composeCoding("originalRuleset", element.getOriginalRuleset());
       }
   }
 
@@ -26531,7 +26542,7 @@ public class JsonParser extends JsonParserBase {
   protected void composeDeviceUseStatementInner(DeviceUseStatement element) throws IOException {
       composeDomainResourceElements(element);
       if (element.hasBodySite()) {
-        composeType("bodySite", element.getBodySite());
+        composeCodeableConcept("bodySite", element.getBodySite());
       }
       if (element.hasWhenUsed()) {
         composePeriod("whenUsed", element.getWhenUsed());
@@ -28023,12 +28034,6 @@ public class JsonParser extends JsonParserBase {
           composeIdentifier(null, e);
         closeArray();
       };
-      if (element.hasRuleset()) {
-        composeCoding("ruleset", element.getRuleset());
-      }
-      if (element.hasOriginalRuleset()) {
-        composeCoding("originalRuleset", element.getOriginalRuleset());
-      }
       if (element.hasStatusElement()) {
         composeEnumerationCore("status", element.getStatusElement(), new ExplanationOfBenefit.ExplanationOfBenefitStatusEnumFactory(), false);
         composeEnumerationExtras("status", element.getStatusElement(), new ExplanationOfBenefit.ExplanationOfBenefitStatusEnumFactory(), false);
@@ -35890,10 +35895,29 @@ public class JsonParser extends JsonParserBase {
       };
       if (element.hasComponent()) {
         openArray("component");
-        for (Reference e : element.getComponent()) 
-          composeReference(null, e);
+        for (SearchParameter.SearchParameterComponentComponent e : element.getComponent()) 
+          composeSearchParameterSearchParameterComponentComponent(null, e);
         closeArray();
       };
+  }
+
+  protected void composeSearchParameterSearchParameterComponentComponent(String name, SearchParameter.SearchParameterComponentComponent element) throws IOException {
+    if (element != null) {
+      open(name);
+      composeSearchParameterSearchParameterComponentComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeSearchParameterSearchParameterComponentComponentInner(SearchParameter.SearchParameterComponentComponent element) throws IOException {
+      composeBackbone(element);
+      if (element.hasDefinition()) {
+        composeReference("definition", element.getDefinition());
+      }
+      if (element.hasExpressionElement()) {
+        composeStringCore("expression", element.getExpressionElement(), false);
+        composeStringExtras("expression", element.getExpressionElement(), false);
+      }
   }
 
   protected void composeSequence(String name, Sequence element) throws IOException {

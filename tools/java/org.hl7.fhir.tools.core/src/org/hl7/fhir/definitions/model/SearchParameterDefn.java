@@ -5,6 +5,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import org.hl7.fhir.definitions.model.SearchParameterDefn.CompositeDefinition;
 import org.hl7.fhir.dstu3.model.ExpressionNode;
 import org.hl7.fhir.dstu3.model.SearchParameter;
 
@@ -38,6 +39,23 @@ POSSIBILITY OF SUCH DAMAGE.
 */
 
 public class SearchParameterDefn {
+  public static class CompositeDefinition {
+    private String definition;
+    private String expression;
+    public CompositeDefinition(String definition, String expression) {
+      super();
+      this.definition = definition;
+      this.expression = expression;
+    }
+    public String getDefinition() {
+      return definition;
+    }
+    public String getExpression() {
+      return expression;
+    }
+    
+  }
+
   public enum SearchType {
     composite, // search parameter is a composite of others
     number,  // search parameter must be a simple name 
@@ -56,7 +74,7 @@ public class SearchParameterDefn {
   private SearchParameter.XPathUsageType xPathUsage;
   private List<String> paths = new ArrayList<String>();
   private String expression;
-  private List<String> composites = new ArrayList<String>();
+  private List<CompositeDefinition> composites = new ArrayList<CompositeDefinition>();
   private Set<String> targets = new HashSet<String>();
   private Set<String> manualTargets = new HashSet<String>();
   private SearchParameter resource;
@@ -120,7 +138,7 @@ public class SearchParameterDefn {
     this.expression = expression;
   }
 
-  public List<String> getComposites() {
+  public List<CompositeDefinition> getComposites() {
     return composites;
   }
 

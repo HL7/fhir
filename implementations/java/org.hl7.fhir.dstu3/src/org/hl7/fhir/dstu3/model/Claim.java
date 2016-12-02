@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Dec 1, 2016 06:32+1100 for FHIR v1.7.0
+// Generated on Fri, Dec 2, 2016 10:28+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -2291,15 +2291,7 @@ public class Claim extends DomainResource {
          */
         protected ClaimResponse claimResponseTarget;
 
-        /**
-         * The style (standard) and version of the original material which was converted into this resource.
-         */
-        @Child(name = "originalRuleset", type = {Coding.class}, order=7, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Original version", formalDefinition="The style (standard) and version of the original material which was converted into this resource." )
-        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/ruleset")
-        protected Coding originalRuleset;
-
-        private static final long serialVersionUID = -1003564312L;
+        private static final long serialVersionUID = -1216535489L;
 
     /**
      * Constructor
@@ -2606,30 +2598,6 @@ public class Claim extends DomainResource {
           return this;
         }
 
-        /**
-         * @return {@link #originalRuleset} (The style (standard) and version of the original material which was converted into this resource.)
-         */
-        public Coding getOriginalRuleset() { 
-          if (this.originalRuleset == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create InsuranceComponent.originalRuleset");
-            else if (Configuration.doAutoCreate())
-              this.originalRuleset = new Coding(); // cc
-          return this.originalRuleset;
-        }
-
-        public boolean hasOriginalRuleset() { 
-          return this.originalRuleset != null && !this.originalRuleset.isEmpty();
-        }
-
-        /**
-         * @param value {@link #originalRuleset} (The style (standard) and version of the original material which was converted into this resource.)
-         */
-        public InsuranceComponent setOriginalRuleset(Coding value) { 
-          this.originalRuleset = value;
-          return this;
-        }
-
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("sequence", "positiveInt", "A service line item.", 0, java.lang.Integer.MAX_VALUE, sequence));
@@ -2638,7 +2606,6 @@ public class Claim extends DomainResource {
           childrenList.add(new Property("businessArrangement", "string", "The contract number of a business agreement which describes the terms and conditions.", 0, java.lang.Integer.MAX_VALUE, businessArrangement));
           childrenList.add(new Property("preAuthRef", "string", "A list of references from the Insurer to which these services pertain.", 0, java.lang.Integer.MAX_VALUE, preAuthRef));
           childrenList.add(new Property("claimResponse", "Reference(ClaimResponse)", "The Coverages adjudication details.", 0, java.lang.Integer.MAX_VALUE, claimResponse));
-          childrenList.add(new Property("originalRuleset", "Coding", "The style (standard) and version of the original material which was converted into this resource.", 0, java.lang.Integer.MAX_VALUE, originalRuleset));
         }
 
       @Override
@@ -2650,7 +2617,6 @@ public class Claim extends DomainResource {
         case 259920682: /*businessArrangement*/ return this.businessArrangement == null ? new Base[0] : new Base[] {this.businessArrangement}; // StringType
         case 522246568: /*preAuthRef*/ return this.preAuthRef == null ? new Base[0] : this.preAuthRef.toArray(new Base[this.preAuthRef.size()]); // StringType
         case 689513629: /*claimResponse*/ return this.claimResponse == null ? new Base[0] : new Base[] {this.claimResponse}; // Reference
-        case 1089373397: /*originalRuleset*/ return this.originalRuleset == null ? new Base[0] : new Base[] {this.originalRuleset}; // Coding
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -2677,9 +2643,6 @@ public class Claim extends DomainResource {
         case 689513629: // claimResponse
           this.claimResponse = castToReference(value); // Reference
           break;
-        case 1089373397: // originalRuleset
-          this.originalRuleset = castToCoding(value); // Coding
-          break;
         default: super.setProperty(hash, name, value);
         }
 
@@ -2699,8 +2662,6 @@ public class Claim extends DomainResource {
           this.getPreAuthRef().add(castToString(value));
         else if (name.equals("claimResponse"))
           this.claimResponse = castToReference(value); // Reference
-        else if (name.equals("originalRuleset"))
-          this.originalRuleset = castToCoding(value); // Coding
         else
           super.setProperty(name, value);
       }
@@ -2714,7 +2675,6 @@ public class Claim extends DomainResource {
         case 259920682: throw new FHIRException("Cannot make property businessArrangement as it is not a complex type"); // StringType
         case 522246568: throw new FHIRException("Cannot make property preAuthRef as it is not a complex type"); // StringType
         case 689513629:  return getClaimResponse(); // Reference
-        case 1089373397:  return getOriginalRuleset(); // Coding
         default: return super.makeProperty(hash, name);
         }
 
@@ -2742,10 +2702,6 @@ public class Claim extends DomainResource {
           this.claimResponse = new Reference();
           return this.claimResponse;
         }
-        else if (name.equals("originalRuleset")) {
-          this.originalRuleset = new Coding();
-          return this.originalRuleset;
-        }
         else
           return super.addChild(name);
       }
@@ -2763,7 +2719,6 @@ public class Claim extends DomainResource {
             dst.preAuthRef.add(i.copy());
         };
         dst.claimResponse = claimResponse == null ? null : claimResponse.copy();
-        dst.originalRuleset = originalRuleset == null ? null : originalRuleset.copy();
         return dst;
       }
 
@@ -2776,8 +2731,7 @@ public class Claim extends DomainResource {
         InsuranceComponent o = (InsuranceComponent) other;
         return compareDeep(sequence, o.sequence, true) && compareDeep(focal, o.focal, true) && compareDeep(coverage, o.coverage, true)
            && compareDeep(businessArrangement, o.businessArrangement, true) && compareDeep(preAuthRef, o.preAuthRef, true)
-           && compareDeep(claimResponse, o.claimResponse, true) && compareDeep(originalRuleset, o.originalRuleset, true)
-          ;
+           && compareDeep(claimResponse, o.claimResponse, true);
       }
 
       @Override
@@ -2793,7 +2747,7 @@ public class Claim extends DomainResource {
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(sequence, focal, coverage
-          , businessArrangement, preAuthRef, claimResponse, originalRuleset);
+          , businessArrangement, preAuthRef, claimResponse);
       }
 
   public String fhirType() {

@@ -65,6 +65,7 @@ import org.hl7.fhir.definitions.model.Profile;
 import org.hl7.fhir.definitions.model.Profile.ConformancePackageSourceType;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.SearchParameterDefn;
+import org.hl7.fhir.definitions.model.SearchParameterDefn.CompositeDefinition;
 import org.hl7.fhir.definitions.model.SearchParameterDefn.SearchType;
 import org.hl7.fhir.definitions.model.TypeDefn;
 import org.hl7.fhir.definitions.model.W5Entry;
@@ -940,14 +941,21 @@ public class SpreadsheetParser {
             throw new Exception("Search Param "+root2.getName()+"/"+n+" has no path at "+ getLocation(row));
             
           
-          List<String> pn = new ArrayList<String>(); 
           SearchParameterDefn sp = null;
           if (t == SearchType.composite) {
-            String[] pl = sheet.getColumn(row, "Path").split("\\&");
+            List<CompositeDefinition> pn = new ArrayList<CompositeDefinition>(); 
             if (Utilities.noString(d)) 
               throw new Exception("Search Param "+root2.getName()+"/"+n+" has no description "+ getLocation(row));
+
+            String[] pl = sheet.getColumn(row, "Path").split("\\&");
+            String[] pe = sheet.getColumn(row, "Expression").split("\\;");
+            if (pe.length != pl.length+1)
+              throw new Exception("Composite Search Param "+root2.getName()+"/"+n+" needs expressions "+ getLocation(row));
+            int i = 0;
             for (String pi : pl) {
               String p = pi.trim();
+              i++;
+              String e = pe[i].trim();
               if (!root2.getSearchParams().containsKey(p)) {
                 boolean found = false;
                 if (p.endsWith("[x]"))
@@ -958,11 +966,13 @@ public class SpreadsheetParser {
                 if (!found)                
                   throw new Exception("Composite Search Param "+root2.getName()+"/"+n+"  refers to an unknown component "+p+" at "+ getLocation(row));
               }
-              pn.add(p);
-              sp = new SearchParameterDefn(n, d, t, pu);
-              sp.getComposites().addAll(pn);
+              pn.add(new CompositeDefinition(p, e));
             }
+            sp = new SearchParameterDefn(n, d, t, pu);
+            sp.setExpression(pe[0].trim());
+            sp.getComposites().addAll(pn);
           } else {
+            List<String> pn = new ArrayList<String>(); 
             String[] pl = sheet.getColumn(row, "Path").split("\\|");
             for (String pi : pl) {
               String p = pi.trim();

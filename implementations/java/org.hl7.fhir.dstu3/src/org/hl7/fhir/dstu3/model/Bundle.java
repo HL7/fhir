@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Dec 1, 2016 06:32+1100 for FHIR v1.7.0
+// Generated on Fri, Dec 2, 2016 10:28+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -482,10 +482,10 @@ public class Bundle extends Resource implements IBaseBundle {
     @Block()
     public static class BundleLinkComponent extends BackboneElement implements IBaseBackboneElement {
         /**
-         * A name which details the functional use for this link - see [[http://www.iana.org/assignments/link-relations/link-relations.xhtml]].
+         * A name which details the functional use for this link - see [http://www.iana.org/assignments/link-relations/link-relations.xhtml#link-relations-1](http://www.iana.org/assignments/link-relations/link-relations.xhtml#link-relations-1).
          */
         @Child(name = "relation", type = {StringType.class}, order=1, min=1, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="http://www.iana.org/assignments/link-relations/link-relations.xhtml", formalDefinition="A name which details the functional use for this link - see [[http://www.iana.org/assignments/link-relations/link-relations.xhtml]]." )
+        @Description(shortDefinition="See http://www.iana.org/assignments/link-relations/link-relations.xhtml#link-relations-1", formalDefinition="A name which details the functional use for this link - see [http://www.iana.org/assignments/link-relations/link-relations.xhtml#link-relations-1](http://www.iana.org/assignments/link-relations/link-relations.xhtml#link-relations-1)." )
         protected StringType relation;
 
         /**
@@ -514,7 +514,7 @@ public class Bundle extends Resource implements IBaseBundle {
       }
 
         /**
-         * @return {@link #relation} (A name which details the functional use for this link - see [[http://www.iana.org/assignments/link-relations/link-relations.xhtml]].). This is the underlying object with id, value and extensions. The accessor "getRelation" gives direct access to the value
+         * @return {@link #relation} (A name which details the functional use for this link - see [http://www.iana.org/assignments/link-relations/link-relations.xhtml#link-relations-1](http://www.iana.org/assignments/link-relations/link-relations.xhtml#link-relations-1).). This is the underlying object with id, value and extensions. The accessor "getRelation" gives direct access to the value
          */
         public StringType getRelationElement() { 
           if (this.relation == null)
@@ -534,7 +534,7 @@ public class Bundle extends Resource implements IBaseBundle {
         }
 
         /**
-         * @param value {@link #relation} (A name which details the functional use for this link - see [[http://www.iana.org/assignments/link-relations/link-relations.xhtml]].). This is the underlying object with id, value and extensions. The accessor "getRelation" gives direct access to the value
+         * @param value {@link #relation} (A name which details the functional use for this link - see [http://www.iana.org/assignments/link-relations/link-relations.xhtml#link-relations-1](http://www.iana.org/assignments/link-relations/link-relations.xhtml#link-relations-1).). This is the underlying object with id, value and extensions. The accessor "getRelation" gives direct access to the value
          */
         public BundleLinkComponent setRelationElement(StringType value) { 
           this.relation = value;
@@ -542,14 +542,14 @@ public class Bundle extends Resource implements IBaseBundle {
         }
 
         /**
-         * @return A name which details the functional use for this link - see [[http://www.iana.org/assignments/link-relations/link-relations.xhtml]].
+         * @return A name which details the functional use for this link - see [http://www.iana.org/assignments/link-relations/link-relations.xhtml#link-relations-1](http://www.iana.org/assignments/link-relations/link-relations.xhtml#link-relations-1).
          */
         public String getRelation() { 
           return this.relation == null ? null : this.relation.getValue();
         }
 
         /**
-         * @param value A name which details the functional use for this link - see [[http://www.iana.org/assignments/link-relations/link-relations.xhtml]].
+         * @param value A name which details the functional use for this link - see [http://www.iana.org/assignments/link-relations/link-relations.xhtml#link-relations-1](http://www.iana.org/assignments/link-relations/link-relations.xhtml#link-relations-1).
          */
         public BundleLinkComponent setRelation(String value) { 
             if (this.relation == null)
@@ -605,7 +605,7 @@ public class Bundle extends Resource implements IBaseBundle {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("relation", "string", "A name which details the functional use for this link - see [[http://www.iana.org/assignments/link-relations/link-relations.xhtml]].", 0, java.lang.Integer.MAX_VALUE, relation));
+          childrenList.add(new Property("relation", "string", "A name which details the functional use for this link - see [http://www.iana.org/assignments/link-relations/link-relations.xhtml#link-relations-1](http://www.iana.org/assignments/link-relations/link-relations.xhtml#link-relations-1).", 0, java.lang.Integer.MAX_VALUE, relation));
           childrenList.add(new Property("url", "uri", "The reference details for the link.", 0, java.lang.Integer.MAX_VALUE, url));
         }
 
@@ -1929,10 +1929,10 @@ public class Bundle extends Resource implements IBaseBundle {
         protected UriType location;
 
         /**
-         * The etag for the resource, it the operation for the entry produced a versioned resource.
+         * The etag for the resource, it the operation for the entry produced a versioned resource (see [Resource Metadata and Versioning](http.html#versioning) and [Managing Resource Contention](http.html#concurrency)).
          */
         @Child(name = "etag", type = {StringType.class}, order=3, min=0, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="The etag for the resource (if relevant)", formalDefinition="The etag for the resource, it the operation for the entry produced a versioned resource." )
+        @Description(shortDefinition="The etag for the resource (if relevant)", formalDefinition="The etag for the resource, it the operation for the entry produced a versioned resource (see [Resource Metadata and Versioning](http.html#versioning) and [Managing Resource Contention](http.html#concurrency))." )
         protected StringType etag;
 
         /**
@@ -2061,7 +2061,7 @@ public class Bundle extends Resource implements IBaseBundle {
         }
 
         /**
-         * @return {@link #etag} (The etag for the resource, it the operation for the entry produced a versioned resource.). This is the underlying object with id, value and extensions. The accessor "getEtag" gives direct access to the value
+         * @return {@link #etag} (The etag for the resource, it the operation for the entry produced a versioned resource (see [Resource Metadata and Versioning](http.html#versioning) and [Managing Resource Contention](http.html#concurrency)).). This is the underlying object with id, value and extensions. The accessor "getEtag" gives direct access to the value
          */
         public StringType getEtagElement() { 
           if (this.etag == null)
@@ -2081,7 +2081,7 @@ public class Bundle extends Resource implements IBaseBundle {
         }
 
         /**
-         * @param value {@link #etag} (The etag for the resource, it the operation for the entry produced a versioned resource.). This is the underlying object with id, value and extensions. The accessor "getEtag" gives direct access to the value
+         * @param value {@link #etag} (The etag for the resource, it the operation for the entry produced a versioned resource (see [Resource Metadata and Versioning](http.html#versioning) and [Managing Resource Contention](http.html#concurrency)).). This is the underlying object with id, value and extensions. The accessor "getEtag" gives direct access to the value
          */
         public BundleEntryResponseComponent setEtagElement(StringType value) { 
           this.etag = value;
@@ -2089,14 +2089,14 @@ public class Bundle extends Resource implements IBaseBundle {
         }
 
         /**
-         * @return The etag for the resource, it the operation for the entry produced a versioned resource.
+         * @return The etag for the resource, it the operation for the entry produced a versioned resource (see [Resource Metadata and Versioning](http.html#versioning) and [Managing Resource Contention](http.html#concurrency)).
          */
         public String getEtag() { 
           return this.etag == null ? null : this.etag.getValue();
         }
 
         /**
-         * @param value The etag for the resource, it the operation for the entry produced a versioned resource.
+         * @param value The etag for the resource, it the operation for the entry produced a versioned resource (see [Resource Metadata and Versioning](http.html#versioning) and [Managing Resource Contention](http.html#concurrency)).
          */
         public BundleEntryResponseComponent setEtag(String value) { 
           if (Utilities.noString(value))
@@ -2181,7 +2181,7 @@ public class Bundle extends Resource implements IBaseBundle {
           super.listChildren(childrenList);
           childrenList.add(new Property("status", "string", "The status code returned by processing this entry. The status SHALL start with a 3 digit HTTP code (e.g. 404) and may contain the standard HTTP description associated with the status code.", 0, java.lang.Integer.MAX_VALUE, status));
           childrenList.add(new Property("location", "uri", "The location header created by processing this operation.", 0, java.lang.Integer.MAX_VALUE, location));
-          childrenList.add(new Property("etag", "string", "The etag for the resource, it the operation for the entry produced a versioned resource.", 0, java.lang.Integer.MAX_VALUE, etag));
+          childrenList.add(new Property("etag", "string", "The etag for the resource, it the operation for the entry produced a versioned resource (see [Resource Metadata and Versioning](http.html#versioning) and [Managing Resource Contention](http.html#concurrency)).", 0, java.lang.Integer.MAX_VALUE, etag));
           childrenList.add(new Property("lastModified", "instant", "The date/time that the resource was modified on the server.", 0, java.lang.Integer.MAX_VALUE, lastModified));
           childrenList.add(new Property("outcome", "Resource", "An OperationOutcome containing hints and warnings produced as part of processing this entry in a batch or transaction.", 0, java.lang.Integer.MAX_VALUE, outcome));
         }

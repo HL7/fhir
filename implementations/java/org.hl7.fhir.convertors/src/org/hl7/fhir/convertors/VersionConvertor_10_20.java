@@ -5980,7 +5980,8 @@ public class VersionConvertor_10_20 {
       return null;
     org.hl7.fhir.dstu3.model.DeviceUseStatement tgt = new org.hl7.fhir.dstu3.model.DeviceUseStatement();
     copyDomainResource(src, tgt);
-    tgt.setBodySite(convertType(src.getBodySite()));
+    if (src.hasBodySiteCodeableConcept())
+      tgt.setBodySite(convertCodeableConcept(src.getBodySiteCodeableConcept()));
     tgt.setWhenUsed(convertPeriod(src.getWhenUsed()));
     tgt.setDevice(convertReference(src.getDevice()));
     for (org.hl7.fhir.dstu2.model.Identifier t : src.getIdentifier())

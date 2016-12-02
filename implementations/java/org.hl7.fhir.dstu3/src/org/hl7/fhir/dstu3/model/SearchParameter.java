@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Dec 1, 2016 06:32+1100 for FHIR v1.7.0
+// Generated on Fri, Dec 2, 2016 10:28+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -608,6 +608,237 @@ public class SearchParameter extends MetadataResource {
       }
     }
 
+    @Block()
+    public static class SearchParameterComponentComponent extends BackboneElement implements IBaseBackboneElement {
+        /**
+         * The definition of the search parameter that describes this part.
+         */
+        @Child(name = "definition", type = {SearchParameter.class}, order=1, min=1, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="Defines how the part works", formalDefinition="The definition of the search parameter that describes this part." )
+        protected Reference definition;
+
+        /**
+         * The actual object that is the target of the reference (The definition of the search parameter that describes this part.)
+         */
+        protected SearchParameter definitionTarget;
+
+        /**
+         * A sub-expression that defines how to extract values for this component from the output of the main SearchParameter.expression.
+         */
+        @Child(name = "expression", type = {StringType.class}, order=2, min=1, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="Subexpression relative to main expression", formalDefinition="A sub-expression that defines how to extract values for this component from the output of the main SearchParameter.expression." )
+        protected StringType expression;
+
+        private static final long serialVersionUID = -1105563614L;
+
+    /**
+     * Constructor
+     */
+      public SearchParameterComponentComponent() {
+        super();
+      }
+
+    /**
+     * Constructor
+     */
+      public SearchParameterComponentComponent(Reference definition, StringType expression) {
+        super();
+        this.definition = definition;
+        this.expression = expression;
+      }
+
+        /**
+         * @return {@link #definition} (The definition of the search parameter that describes this part.)
+         */
+        public Reference getDefinition() { 
+          if (this.definition == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create SearchParameterComponentComponent.definition");
+            else if (Configuration.doAutoCreate())
+              this.definition = new Reference(); // cc
+          return this.definition;
+        }
+
+        public boolean hasDefinition() { 
+          return this.definition != null && !this.definition.isEmpty();
+        }
+
+        /**
+         * @param value {@link #definition} (The definition of the search parameter that describes this part.)
+         */
+        public SearchParameterComponentComponent setDefinition(Reference value) { 
+          this.definition = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #definition} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The definition of the search parameter that describes this part.)
+         */
+        public SearchParameter getDefinitionTarget() { 
+          if (this.definitionTarget == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create SearchParameterComponentComponent.definition");
+            else if (Configuration.doAutoCreate())
+              this.definitionTarget = new SearchParameter(); // aa
+          return this.definitionTarget;
+        }
+
+        /**
+         * @param value {@link #definition} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The definition of the search parameter that describes this part.)
+         */
+        public SearchParameterComponentComponent setDefinitionTarget(SearchParameter value) { 
+          this.definitionTarget = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #expression} (A sub-expression that defines how to extract values for this component from the output of the main SearchParameter.expression.). This is the underlying object with id, value and extensions. The accessor "getExpression" gives direct access to the value
+         */
+        public StringType getExpressionElement() { 
+          if (this.expression == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create SearchParameterComponentComponent.expression");
+            else if (Configuration.doAutoCreate())
+              this.expression = new StringType(); // bb
+          return this.expression;
+        }
+
+        public boolean hasExpressionElement() { 
+          return this.expression != null && !this.expression.isEmpty();
+        }
+
+        public boolean hasExpression() { 
+          return this.expression != null && !this.expression.isEmpty();
+        }
+
+        /**
+         * @param value {@link #expression} (A sub-expression that defines how to extract values for this component from the output of the main SearchParameter.expression.). This is the underlying object with id, value and extensions. The accessor "getExpression" gives direct access to the value
+         */
+        public SearchParameterComponentComponent setExpressionElement(StringType value) { 
+          this.expression = value;
+          return this;
+        }
+
+        /**
+         * @return A sub-expression that defines how to extract values for this component from the output of the main SearchParameter.expression.
+         */
+        public String getExpression() { 
+          return this.expression == null ? null : this.expression.getValue();
+        }
+
+        /**
+         * @param value A sub-expression that defines how to extract values for this component from the output of the main SearchParameter.expression.
+         */
+        public SearchParameterComponentComponent setExpression(String value) { 
+            if (this.expression == null)
+              this.expression = new StringType();
+            this.expression.setValue(value);
+          return this;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("definition", "Reference(SearchParameter)", "The definition of the search parameter that describes this part.", 0, java.lang.Integer.MAX_VALUE, definition));
+          childrenList.add(new Property("expression", "string", "A sub-expression that defines how to extract values for this component from the output of the main SearchParameter.expression.", 0, java.lang.Integer.MAX_VALUE, expression));
+        }
+
+      @Override
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -1014418093: /*definition*/ return this.definition == null ? new Base[0] : new Base[] {this.definition}; // Reference
+        case -1795452264: /*expression*/ return this.expression == null ? new Base[0] : new Base[] {this.expression}; // StringType
+        default: return super.getProperty(hash, name, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
+        switch (hash) {
+        case -1014418093: // definition
+          this.definition = castToReference(value); // Reference
+          break;
+        case -1795452264: // expression
+          this.expression = castToString(value); // StringType
+          break;
+        default: super.setProperty(hash, name, value);
+        }
+
+      }
+
+      @Override
+      public void setProperty(String name, Base value) throws FHIRException {
+        if (name.equals("definition"))
+          this.definition = castToReference(value); // Reference
+        else if (name.equals("expression"))
+          this.expression = castToString(value); // StringType
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -1014418093:  return getDefinition(); // Reference
+        case -1795452264: throw new FHIRException("Cannot make property expression as it is not a complex type"); // StringType
+        default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public Base addChild(String name) throws FHIRException {
+        if (name.equals("definition")) {
+          this.definition = new Reference();
+          return this.definition;
+        }
+        else if (name.equals("expression")) {
+          throw new FHIRException("Cannot call addChild on a primitive type SearchParameter.expression");
+        }
+        else
+          return super.addChild(name);
+      }
+
+      public SearchParameterComponentComponent copy() {
+        SearchParameterComponentComponent dst = new SearchParameterComponentComponent();
+        copyValues(dst);
+        dst.definition = definition == null ? null : definition.copy();
+        dst.expression = expression == null ? null : expression.copy();
+        return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof SearchParameterComponentComponent))
+          return false;
+        SearchParameterComponentComponent o = (SearchParameterComponentComponent) other;
+        return compareDeep(definition, o.definition, true) && compareDeep(expression, o.expression, true)
+          ;
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof SearchParameterComponentComponent))
+          return false;
+        SearchParameterComponentComponent o = (SearchParameterComponentComponent) other;
+        return compareValues(expression, o.expression, true);
+      }
+
+      public boolean isEmpty() {
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(definition, expression);
+      }
+
+  public String fhirType() {
+    return "SearchParameter.component";
+
+  }
+
+  }
+
     /**
      * Explains why this search parameter is needed and why it has been designed as it has.
      */
@@ -701,16 +932,11 @@ public class SearchParameter extends MetadataResource {
     /**
      * Used to define the parts of a composite search parameter.
      */
-    @Child(name = "component", type = {SearchParameter.class}, order=12, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "component", type = {}, order=12, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="For Composite resources to define the parts", formalDefinition="Used to define the parts of a composite search parameter." )
-    protected List<Reference> component;
-    /**
-     * The actual objects that are the target of the reference (Used to define the parts of a composite search parameter.)
-     */
-    protected List<SearchParameter> componentTarget;
+    protected List<SearchParameterComponentComponent> component;
 
-
-    private static final long serialVersionUID = -1696620052L;
+    private static final long serialVersionUID = -769368159L;
 
   /**
    * Constructor
@@ -1906,16 +2132,16 @@ public class SearchParameter extends MetadataResource {
     /**
      * @return {@link #component} (Used to define the parts of a composite search parameter.)
      */
-    public List<Reference> getComponent() { 
+    public List<SearchParameterComponentComponent> getComponent() { 
       if (this.component == null)
-        this.component = new ArrayList<Reference>();
+        this.component = new ArrayList<SearchParameterComponentComponent>();
       return this.component;
     }
 
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public SearchParameter setComponent(List<Reference> theComponent) { 
+    public SearchParameter setComponent(List<SearchParameterComponentComponent> theComponent) { 
       this.component = theComponent;
       return this;
     }
@@ -1923,25 +2149,25 @@ public class SearchParameter extends MetadataResource {
     public boolean hasComponent() { 
       if (this.component == null)
         return false;
-      for (Reference item : this.component)
+      for (SearchParameterComponentComponent item : this.component)
         if (!item.isEmpty())
           return true;
       return false;
     }
 
-    public Reference addComponent() { //3
-      Reference t = new Reference();
+    public SearchParameterComponentComponent addComponent() { //3
+      SearchParameterComponentComponent t = new SearchParameterComponentComponent();
       if (this.component == null)
-        this.component = new ArrayList<Reference>();
+        this.component = new ArrayList<SearchParameterComponentComponent>();
       this.component.add(t);
       return t;
     }
 
-    public SearchParameter addComponent(Reference t) { //3
+    public SearchParameter addComponent(SearchParameterComponentComponent t) { //3
       if (t == null)
         return this;
       if (this.component == null)
-        this.component = new ArrayList<Reference>();
+        this.component = new ArrayList<SearchParameterComponentComponent>();
       this.component.add(t);
       return this;
     }
@@ -1949,33 +2175,11 @@ public class SearchParameter extends MetadataResource {
     /**
      * @return The first repetition of repeating field {@link #component}, creating it if it does not already exist
      */
-    public Reference getComponentFirstRep() { 
+    public SearchParameterComponentComponent getComponentFirstRep() { 
       if (getComponent().isEmpty()) {
         addComponent();
       }
       return getComponent().get(0);
-    }
-
-    /**
-     * @deprecated Use Reference#setResource(IBaseResource) instead
-     */
-    @Deprecated
-    public List<SearchParameter> getComponentTarget() { 
-      if (this.componentTarget == null)
-        this.componentTarget = new ArrayList<SearchParameter>();
-      return this.componentTarget;
-    }
-
-    /**
-     * @deprecated Use Reference#setResource(IBaseResource) instead
-     */
-    @Deprecated
-    public SearchParameter addComponentTarget() { 
-      SearchParameter r = new SearchParameter();
-      if (this.componentTarget == null)
-        this.componentTarget = new ArrayList<SearchParameter>();
-      this.componentTarget.add(r);
-      return r;
     }
 
       protected void listChildren(List<Property> childrenList) {
@@ -2003,7 +2207,7 @@ public class SearchParameter extends MetadataResource {
         childrenList.add(new Property("comparator", "code", "Comparators supported for the search parameter.", 0, java.lang.Integer.MAX_VALUE, comparator));
         childrenList.add(new Property("modifier", "code", "A modifier supported for the search parameter.", 0, java.lang.Integer.MAX_VALUE, modifier));
         childrenList.add(new Property("chain", "string", "Contains the names of any search parameters which may be chained to the containing search parameter. Chained parameters may be added to search parameters of type reference, and specify that resources will only be returned if they contain a reference to a resource which matches the chained parameter value. Values for this field should be drawn from SearchParameter.code for a parameter on the target resource type.", 0, java.lang.Integer.MAX_VALUE, chain));
-        childrenList.add(new Property("component", "Reference(SearchParameter)", "Used to define the parts of a composite search parameter.", 0, java.lang.Integer.MAX_VALUE, component));
+        childrenList.add(new Property("component", "", "Used to define the parts of a composite search parameter.", 0, java.lang.Integer.MAX_VALUE, component));
       }
 
       @Override
@@ -2032,7 +2236,7 @@ public class SearchParameter extends MetadataResource {
         case -844673834: /*comparator*/ return this.comparator == null ? new Base[0] : this.comparator.toArray(new Base[this.comparator.size()]); // Enumeration<SearchComparator>
         case -615513385: /*modifier*/ return this.modifier == null ? new Base[0] : this.modifier.toArray(new Base[this.modifier.size()]); // Enumeration<SearchModifierCode>
         case 94623425: /*chain*/ return this.chain == null ? new Base[0] : this.chain.toArray(new Base[this.chain.size()]); // StringType
-        case -1399907075: /*component*/ return this.component == null ? new Base[0] : this.component.toArray(new Base[this.component.size()]); // Reference
+        case -1399907075: /*component*/ return this.component == null ? new Base[0] : this.component.toArray(new Base[this.component.size()]); // SearchParameterComponentComponent
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -2111,7 +2315,7 @@ public class SearchParameter extends MetadataResource {
           this.getChain().add(castToString(value)); // StringType
           break;
         case -1399907075: // component
-          this.getComponent().add(castToReference(value)); // Reference
+          this.getComponent().add((SearchParameterComponentComponent) value); // SearchParameterComponentComponent
           break;
         default: super.setProperty(hash, name, value);
         }
@@ -2167,7 +2371,7 @@ public class SearchParameter extends MetadataResource {
         else if (name.equals("chain"))
           this.getChain().add(castToString(value));
         else if (name.equals("component"))
-          this.getComponent().add(castToReference(value));
+          this.getComponent().add((SearchParameterComponentComponent) value);
         else
           super.setProperty(name, value);
       }
@@ -2198,7 +2402,7 @@ public class SearchParameter extends MetadataResource {
         case -844673834: throw new FHIRException("Cannot make property comparator as it is not a complex type"); // Enumeration<SearchComparator>
         case -615513385: throw new FHIRException("Cannot make property modifier as it is not a complex type"); // Enumeration<SearchModifierCode>
         case 94623425: throw new FHIRException("Cannot make property chain as it is not a complex type"); // StringType
-        case -1399907075:  return addComponent(); // Reference
+        case -1399907075:  return addComponent(); // SearchParameterComponentComponent
         default: return super.makeProperty(hash, name);
         }
 
@@ -2346,8 +2550,8 @@ public class SearchParameter extends MetadataResource {
             dst.chain.add(i.copy());
         };
         if (component != null) {
-          dst.component = new ArrayList<Reference>();
-          for (Reference i : component)
+          dst.component = new ArrayList<SearchParameterComponentComponent>();
+          for (SearchParameterComponentComponent i : component)
             dst.component.add(i.copy());
         };
         return dst;
@@ -2579,19 +2783,19 @@ public class SearchParameter extends MetadataResource {
  /**
    * Search parameter: <b>component</b>
    * <p>
-   * Description: <b>For Composite resources to define the parts</b><br>
+   * Description: <b>Defines how the part works</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>SearchParameter.component</b><br>
+   * Path: <b>SearchParameter.component.definition</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="component", path="SearchParameter.component", description="For Composite resources to define the parts", type="reference", target={SearchParameter.class } )
+  @SearchParamDefinition(name="component", path="SearchParameter.component.definition", description="Defines how the part works", type="reference", target={SearchParameter.class } )
   public static final String SP_COMPONENT = "component";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>component</b>
    * <p>
-   * Description: <b>For Composite resources to define the parts</b><br>
+   * Description: <b>Defines how the part works</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>SearchParameter.component</b><br>
+   * Path: <b>SearchParameter.component.definition</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam COMPONENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_COMPONENT);

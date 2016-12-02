@@ -789,112 +789,130 @@
   Path = Observation.component.valueString
 
  -- Row 10 -----------------------------------
-  Name = code-value-[x]
+  Name = code-value-quantity
   Type = composite
-  Description = Code and value parameter pair
-  Path = code & value[x]
+  Description = Code and quantity value parameter pair, including in components
+  Path = code & value-quantity
 
  -- Row 11 -----------------------------------
+  Name = code-value-concept
+  Type = composite
+  Description = Code and coded value parameter pair, including in components
+  Path = code & value-concept
+
+ -- Row 12 -----------------------------------
+  Name = code-value-date
+  Type = composite
+  Description = Code and date/time value parameter pair, including in components
+  Path = code & value-date
+
+ -- Row 13 -----------------------------------
+  Name = code-value-string
+  Type = composite
+  Description = Code and string value parameter pair, including in components
+  Path = code & value-string
+
+ -- Row 14 -----------------------------------
   Name = !component-code-value-[x]
   Type = composite
   Description = Both component code and one of the component value parameters
   Path = component-code & component-value[x]
 
- -- Row 12 -----------------------------------
+ -- Row 15 -----------------------------------
   Name = date
   Type = date
   Description = Obtained date/time. If the obtained element is a period, a date that falls in the period
   Path = Observation.effective[x]
 
- -- Row 13 -----------------------------------
+ -- Row 16 -----------------------------------
   Name = status
   Type = token
   Description = The status of the observation
   Path = Observation.status
 
- -- Row 14 -----------------------------------
+ -- Row 17 -----------------------------------
   Name = !reliability
   Type = token
   Description = The reliability of the observation
   Path = Observation.reliability
 
- -- Row 15 -----------------------------------
+ -- Row 18 -----------------------------------
   Name = subject
   Type = reference
   Description = The subject that the observation is about
   Path = Observation.subject
 
- -- Row 16 -----------------------------------
+ -- Row 19 -----------------------------------
   Name = performer
   Type = reference
   Description = Who performed the observation
   Path = Observation.performer
 
- -- Row 17 -----------------------------------
+ -- Row 20 -----------------------------------
   Name = specimen
   Type = reference
   Path = Observation.specimen
 
- -- Row 18 -----------------------------------
+ -- Row 21 -----------------------------------
   Name = related-type
   Type = token
   Path = Observation.related.type
 
- -- Row 19 -----------------------------------
+ -- Row 22 -----------------------------------
   Name = related-target
   Type = reference
   Path = Observation.related.target
 
- -- Row 20 -----------------------------------
+ -- Row 23 -----------------------------------
   Name = related
   Type = composite
   Description = Related Observations - search on related-type and related-target together
   Path = related-target & related-type
 
- -- Row 21 -----------------------------------
+ -- Row 24 -----------------------------------
   Name = encounter
   Type = reference
   Description = Healthcare event related to the observation
   Path = Observation.encounter
 
- -- Row 22 -----------------------------------
+ -- Row 25 -----------------------------------
   Name = data-absent-reason
   Type = token
   Description = The reason why the expected value in the element Observation.value[x] is missing.
   Path = Observation.dataAbsentReason|Observation.component.dataAbsentReason
 
- -- Row 23 -----------------------------------
+ -- Row 26 -----------------------------------
   Name = !component-data-absent-reason
   Type = token
   Description = The reason why the expected value in the element Observation.component.value[x] is missing.
   Path = Observation.component.dataAbsentReason
 
- -- Row 24 -----------------------------------
+ -- Row 27 -----------------------------------
   Name = patient
   Type = reference
   Description = The subject that the observation is about (if patient)
   Path = Observation.subject
   Target Types = Patient
 
- -- Row 25 -----------------------------------
+ -- Row 28 -----------------------------------
   Name = identifier
   Type = token
   Description = The unique id for a particular observation
   Path = Observation.identifier
 
- -- Row 26 -----------------------------------
+ -- Row 29 -----------------------------------
   Name = device
   Type = reference
   Description = The Device that generated the observation data.
   Path = Observation.device
 
- -- Row 27 -----------------------------------
+ -- Row 30 -----------------------------------
   Name = category
   Type = token
   Description = The classification of the type of observation
   Path = Observation.category
 
- -- Row 28 -----------------------------------
+ -- Row 31 -----------------------------------
   Name = method
   Type = token
   Description = The method used for the observation

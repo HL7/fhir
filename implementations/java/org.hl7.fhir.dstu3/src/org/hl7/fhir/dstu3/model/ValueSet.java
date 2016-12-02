@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Dec 1, 2016 06:32+1100 for FHIR v1.7.0
+// Generated on Fri, Dec 2, 2016 10:28+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -84,6 +84,10 @@ public class ValueSet extends MetadataResource {
          */
         GENERALIZES, 
         /**
+         * The specified property of the code has at least one value (if the specified value is true; if the specified value is false, then matches when the specified property of the code has no values)
+         */
+        EXISTS, 
+        /**
          * added to help the parsers with the generic types
          */
         NULL;
@@ -106,6 +110,8 @@ public class ValueSet extends MetadataResource {
           return NOTIN;
         if ("generalizes".equals(codeString))
           return GENERALIZES;
+        if ("exists".equals(codeString))
+          return EXISTS;
         if (Configuration.isAcceptInvalidEnums())
           return null;
         else
@@ -121,6 +127,7 @@ public class ValueSet extends MetadataResource {
             case IN: return "in";
             case NOTIN: return "not-in";
             case GENERALIZES: return "generalizes";
+            case EXISTS: return "exists";
             default: return "?";
           }
         }
@@ -134,6 +141,7 @@ public class ValueSet extends MetadataResource {
             case IN: return "http://hl7.org/fhir/filter-operator";
             case NOTIN: return "http://hl7.org/fhir/filter-operator";
             case GENERALIZES: return "http://hl7.org/fhir/filter-operator";
+            case EXISTS: return "http://hl7.org/fhir/filter-operator";
             default: return "?";
           }
         }
@@ -147,6 +155,7 @@ public class ValueSet extends MetadataResource {
             case IN: return "The specified property of the code is in the set of codes or concepts specified in the provided value (comma separated list).";
             case NOTIN: return "The specified property of the code is not in the set of codes or concepts specified in the provided value (comma separated list).";
             case GENERALIZES: return "Includes all concept ids that have a transitive is-a relationship from the concept Id provided as the value, including the provided concept itself (e.g. include parent codes)";
+            case EXISTS: return "The specified property of the code has at least one value (if the specified value is true; if the specified value is false, then matches when the specified property of the code has no values)";
             default: return "?";
           }
         }
@@ -160,6 +169,7 @@ public class ValueSet extends MetadataResource {
             case IN: return "In Set";
             case NOTIN: return "Not in Set";
             case GENERALIZES: return "Generalizes (by Subsumption)";
+            case EXISTS: return "Exists";
             default: return "?";
           }
         }
@@ -186,6 +196,8 @@ public class ValueSet extends MetadataResource {
           return FilterOperator.NOTIN;
         if ("generalizes".equals(codeString))
           return FilterOperator.GENERALIZES;
+        if ("exists".equals(codeString))
+          return FilterOperator.EXISTS;
         throw new IllegalArgumentException("Unknown FilterOperator code '"+codeString+"'");
         }
         public Enumeration<FilterOperator> fromType(Base code) throws FHIRException {
@@ -210,6 +222,8 @@ public class ValueSet extends MetadataResource {
           return new Enumeration<FilterOperator>(this, FilterOperator.NOTIN);
         if ("generalizes".equals(codeString))
           return new Enumeration<FilterOperator>(this, FilterOperator.GENERALIZES);
+        if ("exists".equals(codeString))
+          return new Enumeration<FilterOperator>(this, FilterOperator.EXISTS);
         throw new FHIRException("Unknown FilterOperator code '"+codeString+"'");
         }
     public String toCode(FilterOperator code) {
@@ -229,6 +243,8 @@ public class ValueSet extends MetadataResource {
         return "not-in";
       if (code == FilterOperator.GENERALIZES)
         return "generalizes";
+      if (code == FilterOperator.EXISTS)
+        return "exists";
       return "?";
       }
     public String toSystem(FilterOperator code) {
@@ -239,10 +255,10 @@ public class ValueSet extends MetadataResource {
     @Block()
     public static class ValueSetComposeComponent extends BackboneElement implements IBaseBackboneElement {
         /**
-         * If a locked date is defined, then the Content Logical Definition must be evaluated using the current version of all referenced code system(s) and value set instances as of the locked date.
+         * If a locked date is defined, then the Content Logical Definition must be evaluated using the current version as of the locked date for referenced code system(s) and value set instances where ValueSet.compose.include.version is not defined.
          */
         @Child(name = "lockedDate", type = {DateType.class}, order=1, min=0, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Fixed date for all referenced code systems and value sets", formalDefinition="If a locked date is defined, then the Content Logical Definition must be evaluated using the current version of all referenced code system(s) and value set instances as of the locked date." )
+        @Description(shortDefinition="Fixed date for version-less references (transitive)", formalDefinition="If a locked date is defined, then the Content Logical Definition must be evaluated using the current version as of the locked date for referenced code system(s) and value set instances where ValueSet.compose.include.version is not defined." )
         protected DateType lockedDate;
 
         /**
@@ -276,7 +292,7 @@ public class ValueSet extends MetadataResource {
       }
 
         /**
-         * @return {@link #lockedDate} (If a locked date is defined, then the Content Logical Definition must be evaluated using the current version of all referenced code system(s) and value set instances as of the locked date.). This is the underlying object with id, value and extensions. The accessor "getLockedDate" gives direct access to the value
+         * @return {@link #lockedDate} (If a locked date is defined, then the Content Logical Definition must be evaluated using the current version as of the locked date for referenced code system(s) and value set instances where ValueSet.compose.include.version is not defined.). This is the underlying object with id, value and extensions. The accessor "getLockedDate" gives direct access to the value
          */
         public DateType getLockedDateElement() { 
           if (this.lockedDate == null)
@@ -296,7 +312,7 @@ public class ValueSet extends MetadataResource {
         }
 
         /**
-         * @param value {@link #lockedDate} (If a locked date is defined, then the Content Logical Definition must be evaluated using the current version of all referenced code system(s) and value set instances as of the locked date.). This is the underlying object with id, value and extensions. The accessor "getLockedDate" gives direct access to the value
+         * @param value {@link #lockedDate} (If a locked date is defined, then the Content Logical Definition must be evaluated using the current version as of the locked date for referenced code system(s) and value set instances where ValueSet.compose.include.version is not defined.). This is the underlying object with id, value and extensions. The accessor "getLockedDate" gives direct access to the value
          */
         public ValueSetComposeComponent setLockedDateElement(DateType value) { 
           this.lockedDate = value;
@@ -304,14 +320,14 @@ public class ValueSet extends MetadataResource {
         }
 
         /**
-         * @return If a locked date is defined, then the Content Logical Definition must be evaluated using the current version of all referenced code system(s) and value set instances as of the locked date.
+         * @return If a locked date is defined, then the Content Logical Definition must be evaluated using the current version as of the locked date for referenced code system(s) and value set instances where ValueSet.compose.include.version is not defined.
          */
         public Date getLockedDate() { 
           return this.lockedDate == null ? null : this.lockedDate.getValue();
         }
 
         /**
-         * @param value If a locked date is defined, then the Content Logical Definition must be evaluated using the current version of all referenced code system(s) and value set instances as of the locked date.
+         * @param value If a locked date is defined, then the Content Logical Definition must be evaluated using the current version as of the locked date for referenced code system(s) and value set instances where ValueSet.compose.include.version is not defined.
          */
         public ValueSetComposeComponent setLockedDate(Date value) { 
           if (value == null)
@@ -477,7 +493,7 @@ public class ValueSet extends MetadataResource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("lockedDate", "date", "If a locked date is defined, then the Content Logical Definition must be evaluated using the current version of all referenced code system(s) and value set instances as of the locked date.", 0, java.lang.Integer.MAX_VALUE, lockedDate));
+          childrenList.add(new Property("lockedDate", "date", "If a locked date is defined, then the Content Logical Definition must be evaluated using the current version as of the locked date for referenced code system(s) and value set instances where ValueSet.compose.include.version is not defined.", 0, java.lang.Integer.MAX_VALUE, lockedDate));
           childrenList.add(new Property("inactive", "boolean", "Whether inactive codes - codes that are not approved for current use - are in the value set. If inactive = true, inactive codes are to be included in the expansion, if inactive = false, the inactive codes will not be included in the expansion. If absent, the behavior is determined by the implementation, or by the applicable ExpansionProfile (but generally, inactive codes would be expected to be included).", 0, java.lang.Integer.MAX_VALUE, inactive));
           childrenList.add(new Property("include", "", "Include one or more codes from a code system or other value set(s).", 0, java.lang.Integer.MAX_VALUE, include));
           childrenList.add(new Property("exclude", "@ValueSet.compose.include", "Exclude one or more codes from the value set based on code system filters and/or other value sets.", 0, java.lang.Integer.MAX_VALUE, exclude));
@@ -1666,8 +1682,8 @@ public class ValueSet extends MetadataResource {
         /**
          * The kind of operation to perform as a part of the filter criteria.
          */
-        @Child(name = "op", type = {CodeType.class}, order=2, min=1, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="= | is-a | descendent-of | is-not-a | regex | in | not-in | generalizes", formalDefinition="The kind of operation to perform as a part of the filter criteria." )
+        @Child(name = "op", type = {CodeType.class}, order=2, min=1, max=1, modifier=true, summary=false)
+        @Description(shortDefinition="= | is-a | descendent-of | is-not-a | regex | in | not-in | generalizes | exists", formalDefinition="The kind of operation to perform as a part of the filter criteria." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/filter-operator")
         protected Enumeration<FilterOperator> op;
 
