@@ -10,12 +10,18 @@
   <caseSensitive value="true"/>
   <content value="complete"/>
   <concept>
-    <code value="OralHealth-Basic"/>
+    <code value="oralhealth-basic"/>
+	<display value="OralHealth-Basic"/>
+	<definition value="Oral Health: examinations, diagnositics, cleaning and basic restorative services."/>
   </concept>
   <concept>
-    <code value="OralHealth-Major"/>
+    <code value="oralhealth-major"/>
+	<display value="OralHealth-Major"/>
+	<definition value="Oral Health: major treatment and restorative services."/>
   </concept>
   <concept>
-    <code value="OralHealth-Orthodontic"/>
+    <code value="oralhealth-orthodontic"/>
+	<display value="OralHealth-Orthodontic"/>
+	<definition value="Oral Health: orthodontic services, eg. braces."/>
   </concept>
 </CodeSystem>

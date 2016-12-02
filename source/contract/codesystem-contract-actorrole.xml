@@ -12,9 +12,11 @@
   <concept>
     <code value="practitioner"/>
     <display value="Practitioner"/>
-  </concept>
+    <definition value="Someone who provides health care related services to people or animals including both clinical and support services."/>
+	</concept>
   <concept>
     <code value="patient"/>
     <display value="Patient"/>
-  </concept>
+    <definition value="A receiver, human or animal, of health care related goods and services."/>
+	</concept>
 </CodeSystem>

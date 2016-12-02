@@ -11,11 +11,17 @@
   <content value="complete"/>
   <concept>
     <code value="payment"/>
+	<display value="Payment"/>
+	<definition value="The amount is partial or complete settlement of the amounts due."/>
   </concept>
   <concept>
     <code value="adjustment"/>
+	<display value="Adjustment"/>
+	<definition value="The amount is an adjustment regarding claims already paid."/>
   </concept>
   <concept>
     <code value="advance"/>
+	<display value="Advance"/>
+	<definition value="The amount is an advance against future claims."/>
   </concept>
 </CodeSystem>

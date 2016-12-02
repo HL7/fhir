@@ -11,8 +11,12 @@
   <content value="complete"/>
   <concept>
     <code value="paid"/>
+	<display value="Paid"/>
+	<definition value="The payment has been sent physically or electronically."/>
   </concept>
   <concept>
     <code value="cleared"/>
+	<display value="Cleared"/>
+	<definition value="The payment has been received by the payee."/>
   </concept>
 </CodeSystem>

@@ -12,8 +12,12 @@
   <content value="complete"/>
   <concept>
     <code value="1"/>
+	<display value="Form #1"/>
+	<definition value="Example: The #1 form to be used when printing this information."/>
   </concept>
   <concept>
     <code value="2"/>
+	<display value="Form #1"/>
+	<definition value="Example: The #2 form to be used when printing this information."/>
   </concept>
 </CodeSystem>

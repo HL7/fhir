@@ -12,11 +12,17 @@
   <content value="complete"/>
   <concept>
     <code value="patient"/>
+	<display value="Patient"/>
+	<definition value="The payor is requested to reserve funds for the provision of the named services by any provider for settlement of future claims related to this request."/>
   </concept>
   <concept>
     <code value="provider"/>
+	<display value="Provider"/>
+	<definition value="The payor is requested to reserve funds solely for the named provider for settlement of future claims related to this request."/>
   </concept>
   <concept>
     <code value="none"/>
+	<display value="None"/>
+	<definition value="The payor is not being requested to reserve any funds for the settlement of future claims."/>
   </concept>
 </CodeSystem>

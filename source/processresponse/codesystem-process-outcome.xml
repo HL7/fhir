@@ -11,11 +11,17 @@
   <content value="complete"/>
   <concept>
     <code value="complete"/>
+	<display value="Complete"/>
+	<definition value="The requested processing has completed."/>
   </concept>
   <concept>
     <code value="pended"/>
+	<display value="Pended"/>
+	<definition value="The requested processing has been suspended."/>
   </concept>
   <concept>
     <code value="error"/>
+	<display value="Error"/>
+	<definition value="The requested processing has terminated with some errors being found."/>
   </concept>
 </CodeSystem>

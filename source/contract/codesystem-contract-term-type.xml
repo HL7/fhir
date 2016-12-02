@@ -10,9 +10,13 @@
   <caseSensitive value="true"/>
   <content value="complete"/>
   <concept>
-    <code value="OralHealth"/>
-  </concept>
+    <code value="oralhealth"/>
+    <display value="OralHealth"/>
+	<definition value="Oral Health insurance terms and conditions."/> 
+	</concept>
   <concept>
-    <code value="Vision"/>
+    <code value="vision"/>
+	<display value="Vision"/>
+	<definition value="Vision insuracne terms and conditions."/>
   </concept>
 </CodeSystem>

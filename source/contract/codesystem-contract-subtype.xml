@@ -10,9 +10,13 @@
   <caseSensitive value="true"/>
   <content value="complete"/>
   <concept>
-    <code value="disclosure-CA"/>
+    <code value="disclosure-ca"/>
+	<display value="Disclosure-CA"/>
+	<definition value="Canadian health information displosure policy."/>
   </concept>
   <concept>
-    <code value="disclosure-US"/>
+    <code value="disclosure-us"/>
+	<display value="Disclosure-US"/>
+	<definition value="United States health information displosure policy."/>
   </concept>
 </CodeSystem>

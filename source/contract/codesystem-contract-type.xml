@@ -11,8 +11,26 @@
   <content value="complete"/>
   <concept>
     <code value="privacy"/>
+    <display value="Privacy"/>
+	<definition value="Privacy policy."/>
   </concept>
   <concept>
     <code value="disclosure"/>
+    <display value="Disclosure"/>
+	<definition value="Information disclosure policy."/>  
+  </concept>
+  <concept>
+    <code value="healthinsurance"/>
+    <display value="Health Insurance"/>
+	<definition value="Health Insurance policy."/>  
+  </concept>
+  <concept>
+    <code value="supply"/>
+    <display value="Supply Contract"/>
+	<definition value="Contract to supply goods or services."/>  
+  </concept>  <concept>
+    <code value="consent"/>
+    <display value="Consent"/>
+	<definition value="Consent Directive."/>  
   </concept>
 </CodeSystem>

@@ -11,8 +11,12 @@
   <content value="complete"/>
   <concept>
     <code value="action-a"/>
-  </concept>
+    <display value="Action A"/>
+	<definition value="Definition for Action A"/>
+	</concept>
   <concept>
     <code value="action-b"/>
+    <display value="Action B"/>
+	<definition value="Definition for Action B"/>
   </concept>
 </CodeSystem>
