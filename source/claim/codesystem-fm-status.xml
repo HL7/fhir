@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <url value="http://hl7.org/fhir/fm-status"/>
+  <name value="Financial Resource Status Codes"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <description value="This value set includes Status codes."/>
+  <copyright value="HL7 International."/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="active"/>
+    <display value="Active"/>
+    <definition value="The instance is currently in-force."/>
+  </concept>
+  <concept>
+    <code value="cancelled"/>
+    <display value="Cancelled"/>
+    <definition value="The instance is withdrawn, rescinded or reversed."/>
+  </concept>
+  <concept>
+    <code value="draft"/>
+    <display value="Draft"/>
+    <definition value="A new instance the contents of which is not complete."/>
+  </concept>
+  <concept>
+    <code value="entered-in-error"/>
+    <display value="Entered in Error"/>
+    <definition value="The instance was entered in error."/>
+  </concept>
+</CodeSystem>
