@@ -30,54 +30,32 @@
   Conformance = example
 
  -- Row 5 -----------------------------------
-  Binding Name = CoverageStatus
+  Binding Name = !CoverageStatus
   Binding = code list
   Reference = #coverage-status
   Definition = A code specifying the state of the resource instance.
   Conformance = required
 
  -- Row 6 -----------------------------------
+  Binding Name = CoverageStatus
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/fm-status
+  Definition = A code specifying the state of the resource instance.
+  Conformance = required
+
+ -- Row 7 -----------------------------------
   Binding Name = CoverageLevel
   Binding = value set
   Reference = valueset-coverage-level
   Definition = The policy classifications, eg. Group, Plan, Class, etc.
   Conformance = example
 
- -- Row 7 -----------------------------------
+ -- Row 8 -----------------------------------
   Binding Name = CoverageSelfPay
   Binding = value set
   Reference = valueset-coverage-selfpay
   Definition = Self Payment program codes
   Conformance = example
-
-=== Sheet coverage-status =====================================
-
- -- Row 1 -----------------------------------
-  Id = 1
-  Code = active
-  Display = Active
-  Definition = The resource instance is currently in-force.
-  v3 = ActStatus.active
-
- -- Row 2 -----------------------------------
-  Id = 2
-  Code = cancelled
-  Display = Cancelled
-  Definition = The resource instance is withdrawn, rescinded or reversed.
-
- -- Row 3 -----------------------------------
-  Id = 3
-  Code = draft
-  Display = Draft
-  Definition = A new resource instance the contents of which is not complete.
-  v3 = ActStatus.new
-
- -- Row 4 -----------------------------------
-  Id = 4
-  Code = entered-in-error
-  Display = Entered In Error
-  Definition = The resource instance was entered in error.
-  v3 = ActStatus.nullified
 
 === Sheet Invariants =====================================
 

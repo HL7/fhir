@@ -58,54 +58,32 @@
   Conformance = example
 
  -- Row 9 -----------------------------------
-  Binding Name = ClaimResponseStatus
+  Binding Name = !ClaimResponseStatus
   Binding = code list
   Reference = #claimresponse-status
   Definition = A code specifying the state of the resource instance.
   Conformance = required
 
  -- Row 10 -----------------------------------
+  Binding Name = ClaimResponseStatus
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/fm-status
+  Definition = A code specifying the state of the resource instance.
+  Conformance = required
+
+ -- Row 11 -----------------------------------
   Binding Name = RevenueCenter
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/ex-revenue-center
   Definition = Codes for the revenue or cost centers supplying the service and/or products.
   Conformance = example
 
- -- Row 11 -----------------------------------
+ -- Row 12 -----------------------------------
   Binding Name = Modifiers
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/claim-modifiers
   Definition = Item type or modifiers codes, eg for Oral whether the treatment is cosmetic or associated with TMJ, or an appliance was lost or stolen.
   Conformance = example
-
-=== Sheet claimresponse-status =====================================
-
- -- Row 1 -----------------------------------
-  Id = 1
-  Code = active
-  Display = Active
-  Definition = The resource instance is currently in-force.
-  v3 = ActStatus.active
-
- -- Row 2 -----------------------------------
-  Id = 2
-  Code = cancelled
-  Display = Cancelled
-  Definition = The resource instance is withdrawn, rescinded or reversed.
-
- -- Row 3 -----------------------------------
-  Id = 3
-  Code = draft
-  Display = Draft
-  Definition = A new resource instance the contents of which is not complete.
-  v3 = ActStatus.new
-
- -- Row 4 -----------------------------------
-  Id = 4
-  Code = entered-in-error
-  Display = Entered In Error
-  Definition = The resource instance was entered in error.
-  v3 = ActStatus.nullified
 
 === Sheet Invariants =====================================
 

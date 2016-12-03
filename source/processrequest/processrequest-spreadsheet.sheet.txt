@@ -8,9 +8,16 @@
   Definition = List of allowable action which this resource can request.
 
  -- Row 2 -----------------------------------
-  Binding Name = ProcessRequestStatus
+  Binding Name = !ProcessRequestStatus
   Binding = code list
   Reference = #processrequest-status
+  Definition = A code specifying the state of the resource instance.
+  Conformance = required
+
+ -- Row 3 -----------------------------------
+  Binding Name = ProcessRequestStatus
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/fm-status
   Definition = A code specifying the state of the resource instance.
   Conformance = required
 
@@ -39,35 +46,6 @@
   Code = status
   Display = Status Check
   Definition = Retrieve the processing status of the target resource.
-
-=== Sheet processrequest-status =====================================
-
- -- Row 1 -----------------------------------
-  Id = 1
-  Code = active
-  Display = Active
-  Definition = The resource instance is currently in-force.
-  v3 = ActStatus.active
-
- -- Row 2 -----------------------------------
-  Id = 2
-  Code = cancelled
-  Display = Cancelled
-  Definition = The resource instance is withdrawn, rescinded or reversed.
-
- -- Row 3 -----------------------------------
-  Id = 3
-  Code = draft
-  Display = Draft
-  Definition = A new resource instance the contents of which is not complete.
-  v3 = ActStatus.new
-
- -- Row 4 -----------------------------------
-  Id = 4
-  Code = entered-in-error
-  Display = Entered In Error
-  Definition = The resource instance was entered in error.
-  v3 = ActStatus.nullified
 
 === Sheet Invariants =====================================
 

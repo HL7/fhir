@@ -2,40 +2,18 @@
 === Sheet Bindings =====================================
 
  -- Row 1 -----------------------------------
-  Binding Name = EnrollmentResponseStatus
+  Binding Name = !EnrollmentResponseStatus
   Binding = code list
   Reference = #enrollmentresponse-status
   Definition = A code specifying the state of the resource instance.
   Conformance = required
 
-=== Sheet enrollmentresponse-status =====================================
-
- -- Row 1 -----------------------------------
-  Id = 1
-  Code = active
-  Display = Active
-  Definition = The resource instance is currently in-force.
-  v3 = ActStatus.active
-
  -- Row 2 -----------------------------------
-  Id = 2
-  Code = cancelled
-  Display = Cancelled
-  Definition = The resource instance is withdrawn, rescinded or reversed.
-
- -- Row 3 -----------------------------------
-  Id = 3
-  Code = draft
-  Display = Draft
-  Definition = A new resource instance the contents of which is not complete.
-  v3 = ActStatus.new
-
- -- Row 4 -----------------------------------
-  Id = 4
-  Code = entered-in-error
-  Display = Entered In Error
-  Definition = The resource instance was entered in error.
-  v3 = ActStatus.nullified
+  Binding Name = EnrollmentResponseStatus
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/fm-status
+  Definition = A code specifying the state of the resource instance.
+  Conformance = required
 
 === Sheet Invariants =====================================
 

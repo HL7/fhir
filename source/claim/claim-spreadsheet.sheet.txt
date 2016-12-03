@@ -302,13 +302,20 @@
   Conformance = example
 
  -- Row 44 -----------------------------------
-  Binding Name = ClaimStatus
+  Binding Name = !ClaimStatus
   Binding = code list
   Reference = #claim-status
   Definition = A code specifying the state of the resource instance.
   Conformance = required
 
  -- Row 45 -----------------------------------
+  Binding Name = ClaimStatus
+  Binding = value set
+  Reference = valueset-fm-status
+  Definition = A code specifying the state of the resource instance.
+  Conformance = required
+
+ -- Row 46 -----------------------------------
   Binding Name = RevenueCenter
   Binding = value set
   Reference = valueset-ex-revenue-center
@@ -366,35 +373,6 @@
   Code = relatedperson
   Display = RelatedPerson
   Definition = RelatedPerson resource
-
-=== Sheet claim-status =====================================
-
- -- Row 1 -----------------------------------
-  Id = 1
-  Code = active
-  Display = Active
-  Definition = The resource instance is currently in-force.
-  v3 = ActStatus.active
-
- -- Row 2 -----------------------------------
-  Id = 2
-  Code = cancelled
-  Display = Cancelled
-  Definition = The resource instance is withdrawn, rescinded or reversed.
-
- -- Row 3 -----------------------------------
-  Id = 3
-  Code = draft
-  Display = Draft
-  Definition = A new resource instance the contents of which is not complete.
-  v3 = ActStatus.new
-
- -- Row 4 -----------------------------------
-  Id = 4
-  Code = entered-in-error
-  Display = Entered In Error
-  Definition = The resource instance was entered in error.
-  v3 = ActStatus.nullified
 
 === Sheet Invariants =====================================
 
