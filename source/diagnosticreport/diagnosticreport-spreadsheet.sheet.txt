@@ -160,7 +160,7 @@
 
  -- Row 6 -----------------------------------
   Element = DiagnosticReport.subject
-  Card. = 1..1
+  Card. = 0..1
   Aliases = Patient
   Summary = y
   Type = Reference(Patient|Group|Device|Location)
@@ -185,7 +185,7 @@
 
  -- Row 8 -----------------------------------
   Element = DiagnosticReport.effective[x]
-  Card. = 1..1
+  Card. = 0..1
   Aliases = Observation time, Effective Time
   Summary = y
   Type = dateTime|Period
@@ -199,7 +199,7 @@
 
  -- Row 9 -----------------------------------
   Element = DiagnosticReport.issued
-  Card. = 1..1
+  Card. = 0..1
   Aliases = Date Created, Date published, Date Issued
   Summary = y
   Type = instant
@@ -214,7 +214,7 @@
 
  -- Row 10 -----------------------------------
   Element = DiagnosticReport.performer
-  Card. = 1..*
+  Card. = 0..*
   Aliases = Laboratory, Service, Practitioner, Department, Company
   Summary = y
   Type = Reference(Practitioner|Organization)
