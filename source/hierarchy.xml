@@ -68,6 +68,11 @@ signatures.html
         <page title="Detailed Descriptions" filename="datatypes-definitions.html"/>
         <page title="Mappings" filename="datatypes-mappings.html"/>
       </page>
+      <page title="MetaData Types" filename="metadatatypes.html">
+        <page title="Examples" filename="metadatatypes-examples.html"/>
+        <page title="Detailed Descriptions" filename="metadatatypes-definitions.html"/>
+        <page title="Mappings" filename="metadatatypes-mappings.html"/>
+      </page>
       <page title="Coming Challenges" filename="change.html"/>
       <!-- base types -->
       <page title="Element" filename="element.html">
@@ -315,41 +320,6 @@ signatures.html
       <page type="resource" resource="RequestGroup"/>
       <page type="resource" resource="Measure"/>
       <page type="resource" resource="MeasureReport"/>
-      <page title="ContactDetail" filename="contactdetail.html">
-        <page title="ContactDetail Examples" filename="contactdetail-examples.html"/>
-        <page title="ContactDetail Detailed Descriptions" filename="contactdetail-definitions.html"/>
-        <page title="ContactDetail Mappings" filename="contactdetail-mappings.html"/>
-      </page>
-      <page title="Contributor" filename="contributor.html">
-        <page title="Contributor Examples" filename="contributor-examples.html"/>
-        <page title="Contributor Detailed Descriptions" filename="contributor-definitions.html"/>
-        <page title="Contributor Mappings" filename="contributor-mappings.html"/>
-      </page>
-      <page title="RelatedArtifact" filename="relatedartifact.html">
-        <page title="RelatedArtifact Examples" filename="relatedartifact-examples.html"/>
-        <page title="RelatedArtifact Detailed Descriptions" filename="relatedartifact-definitions.html"/>
-        <page title="RelatedArtifact Mappings" filename="relatedartifact-mappings.html"/>
-      </page>
-      <page title="UsageContext" filename="usagecontext.html">
-        <page title="UsageContext Examples" filename="usagecontext-examples.html"/>
-        <page title="UsageContext Detailed Descriptions" filename="usagecontext-definitions.html"/>
-        <page title="UsageContext Mappings" filename="usagecontext-mappings.html"/>
-      </page>
-      <page title="DataRequirement" filename="datarequirement.html">
-        <page title="DataRequirement Examples" filename="datarequirement-examples.html"/>
-        <page title="DataRequirement Detailed Descriptions" filename="datarequirement-definitions.html"/>
-        <page title="DataRequirement Mappings" filename="datarequirement-mappings.html"/>
-      </page>
-      <page title="ParameterDefinition" filename="parameterdefinition.html">
-        <page title="ParameterDefinition Examples" filename="parameterdefinition-examples.html"/>
-        <page title="ParameterDefinition Detailed Descriptions" filename="parameterdefinition-definitions.html"/>
-        <page title="ParameterDefinition Mappings" filename="parameterdefinition-mappings.html"/>
-      </page>
-      <page title="TriggerDefinition" filename="triggerdefinition.html">
-        <page title="TriggerDefinition Examples" filename="triggerdefinition-examples.html"/>
-        <page title="TriggerDefinition Detailed Descriptions" filename="triggerdefinition-definitions.html"/>
-        <page title="TriggerDefinition Mappings" filename="triggerdefinition-mappings.html"/>
-      </page>
     </page>
   </page>
 

@@ -1,0 +1,308 @@
+<!DOCTYPE HTML>
+      
+[%settitle Data Types%]
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"> 
+<head>
+[%file newheader%]
+</head>
+<body>
+[%file newnavbar%]
+
+<div class="col-9">
+
+<%mdtheader base%>  
+
+<h1>MetaData Types</h1>
+<table class="cols"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="resource.html#maturity">Maturity Level</a>: 3</td><td id="ballot"><a href="help.html#status">Ballot Status</a>: <a href="history.html#pubs">STU 3</a></td></tr></table>
+
+
+<p>
+The FHIR specification defines a set of data types that are used for the 
+resource elements. There are four categories of data types: 
+</p>
+<ol>
+  <li><a href="datatypes.html#primitive">simple / primitive types, which are single elements with a primitive value</a></li>
+  <li><a href="datatypes.html#complex">General purpose complex types, which are re-usable clusters of elements</a></li>
+  <li>Complex data types for metadata</li>
+  <li>Special purpose data types: <a href="reference.html#Reference">Reference</a>, <a href="narrative.html#Narrative">Narrative</a>, <a href="extesnsibility.html#Extension">Extension</a>, <a href="resource.html#Meta">Meta</a>, and <a href="dosageinstruction.html#DosageInstruction">DosageInstruction</a></li>
+</ol>  
+<p>
+This page describes the metadata types. 
+</p>
+
+<p><b>Table of Contents</b></p>
+<table class="grid">
+ <tr>
+  <td><a href="#ContactDetail">ContactDetail</a></td>
+  <td><a href="#Contributor">Contributor</a></td>
+  <td><a href="#DataRequirement">DataRequirement</a></td>
+  <td><a href="#ParameterDefinition">ParameterDefinition</a></td>
+ </tr>
+ <tr>
+  <td><a href="#RelatedArtifact">RelatedArtifact</a></td>
+  <td><a href="#TriggerDefinition">TriggerDefinition</a></td>
+  <td><a href="#UsageContext">UsageContext</a></td>
+ </tr>
+</table>
+
+<a name="ContactDetail"> </a>
+<a name="contactdetail"> </a>
+<h3 style="margin-bottom: 1px">ContactDetail</h3>
+<p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
+See also <a href="metadatatypes-examples.html#ContactDetail">Examples</a>, <a href="metadatatypes-definitions.html#ContactDetail">Detailed Descriptions</a> and <a href="metadatatypes-mappings.html#ContactDetail">Mappings</a>.
+</p>
+
+<p>The ContactDetail structure defines general contact details.</p>
+
+[%dt ContactDetail 1%]
+
+<div class="use">
+<p><b>Constraints</b></p>
+[%dt.constraints ContactDetail%]
+</div>
+
+<p>
+ContactDetail is used in the following places: [%dtusage ContactDetail%]
+</p>
+
+<a name="interpretation"> </a>
+<h4>Interpretation of ContactDetail in different contexts</h4>
+
+<!-- TODO -->
+<p>
+&nbsp;
+</p>
+
+<a name="Contributor"> </a>
+<a name="contributor"> </a>
+<h3 style="margin-bottom: 1px">Contributor</h3>
+<p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
+See also <a href="metadatatypes-examples.html#Contributor">Examples</a>, <a href="metadatatypes-definitions.html#Contributor">Detailed Descriptions</a> and <a href="metadatatypes-mappings.html#Contributor">Mappings</a>.
+</p>
+
+[%dt Contributor 1%]
+
+
+<div class="use">
+<p><b>Constraints</b></p>
+[%dt.constraints Contributor%]
+</div>
+
+<p>
+Contributor is used in the following places: [%dtusage Contributor%]
+</p>
+
+<a name="interpretation"> </a>
+<h4>Interpretation of Contributor in different contexts</h4>
+
+<!-- TODO -->
+<p>
+&nbsp;
+</p>
+
+<a name="DataRequirement"> </a>
+<a name="datarequirement"> </a>
+<h3 style="margin-bottom: 1px">DataRequirement</h3>
+<p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
+See also <a href="metadatatypes-examples.html#DataRequirement">Examples</a>, <a href="metadatatypes-definitions.html#DataRequirement">Detailed Descriptions</a> and <a href="metadatatypes-mappings.html#DataRequirement">Mappings</a>.
+</p>
+
+<p>The DataRequirement structure defines a general data requirement for a knowledge asset such as a decision support rule or quality measure.</p>
+
+[%dt DataRequirement 1%]
+
+<div class="use">
+<p><b>Constraints</b></p>
+[%dt.constraints DataRequirement%]
+</div>
+
+<p>A DataRequirement differs from a parameter in that it specifies the data to be provided in terms of the type of data, and specific filters on code-valued and/or date-valued attributes. Data requirements are not named because they are referenced by type within the evaluation context.</p>
+
+<p>Data requirements are used by knowledge modules to communicate the set of required data to a consumer in a way that is computable (as opposed to a set of named parameters which must be integrated by hand based on the meaning of the parameter as communicated through the documentation).</p>
+
+<p>DataRequirements are typically used to communicate patient-dependent information such as MedicationStatements and Encounters, whereas Parameters are typically used to communicate patient-independent information such as configuration values.</p>
+
+<p>For example, consider the following CQL expression:</p>
+
+<pre><code>define "Total Colectomy Procedures":
+  [Procedure: "Total Colectomy Value Set"] P
+    where P.performedPeriod during "Measurement Period"
+</code></pre>
+
+<p>The criteria is looking for procedures matching the "Total Colectomy Value Set" that were performed during the "Measurement Period". In this case, "Measurement Period" is a parameter, referenced by name, whereas the reference to Procedure uses the name of the resource type, and so constitutes a data requirement of the criteria:</p>
+
+<pre><code>&lt;dataRequirement&gt;
+	&lt;type value=&quot;Procedure&quot;/&gt;
+	&lt;codeFilter&gt;
+		&lt;path value=&quot;code&quot;/&gt;
+		&lt;valueSetString value=&quot;Total Colectomy Value Set&quot;/&gt;
+	&lt;/codeFilter&gt;
+	&lt;dateFilter&gt;
+		&lt;path value=&quot;performedPeriod&quot;/&gt;
+		&lt;valuePeriod&gt;
+			&lt;start value=&quot;2016-01-01&quot;/&gt;
+			&lt;end value=&quot;2016-12-31&quot;/&gt;
+		&lt;/valuePeriod&gt;
+	&lt;/dateFilter&gt;
+&lt;/dataRequirement&gt;
+</code></pre>
+
+<p>
+&nbsp;
+</p>
+<a name="ParameterDefinition"> </a>
+<a name="parameterdefinition"> </a>
+<h3 style="margin-bottom: 1px">ParameterDefinition</h3>
+<p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
+See also <a href="metadatatypes-examples.html#ParameterDefinition">Examples</a>, <a href="metadatatypes-definitions.html#ParameterDefinition">Detailed Descriptions</a> and <a href="metadatatypes-mappings.html#ParameterDefinition">Mappings</a>.
+</p>
+
+<p>The ParameterDefinition structure defines a parameter to a knowledge asset such as a decision support rule or quality measure.</p>
+
+<p>Parameters are typically used to communicate patient-independent information such as configuration values, whereas DataRequirements are typically used to communicate patient-dependent information such as MedicationStatements and Encounters.</p>
+
+[%dt ParameterDefinition 1%]
+
+<div class="use">
+<p><b>Constraints</b></p>
+[%dt.constraints ParameterDefinition%]
+</div>
+
+<p>
+&nbsp;
+</p>
+<a name="RelatedArtifact"> </a>
+<a name="relatedartifact"> </a>
+<h3 style="margin-bottom: 1px">RelatedArtifact</h3>
+<p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
+See also <a href="metadatatypes-examples.html#RelatedArtifact">Examples</a>, <a href="metadatatypes-definitions.html#RelatedArtifact">Detailed Descriptions</a> and <a href="metadatatypes-mappings.html#RelatedArtifact">Mappings</a>.
+</p>
+
+
+<p>The RelatedArtifact structure defines resources related to a module such as previous and next versions of documents, documentation, citations, etc. Note that the name <i>resource</i> here is being used in a more general sense than the FHIR-specific Resource. The related resource may be a FHIR resource, or it may be another type of resource, represented using the Attachment data type.</p>
+
+[%dt RelatedArtifact 1%]
+
+
+<div class="use">
+<p><b>Constraints</b></p>
+[%dt.constraints RelatedArtifact%]
+</div>
+
+<p>
+RelatedArtifact is used in the following places: [%dtusage RelatedArtifact%]
+</p>
+
+<a name="interpretation"> </a>
+<h4>Interpretation of RelatedArtifact in different contexts</h4>
+
+<!-- TODO -->
+
+<p>
+&nbsp;
+</p>
+<a name="TriggerDefinition"> </a>
+<a name="triggerdefinition"> </a>
+<h3 style="margin-bottom: 1px">TriggerDefinition</h3>
+<p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
+See also <a href="metadatatypes-examples.html#TriggerDefinition">Examples</a>, <a href="metadatatypes-definitions.html#TriggerDefinition">Detailed Descriptions</a> and <a href="metadatatypes-mappings.html#TriggerDefinition">Mappings</a>.
+</p>
+
+
+<p>The TriggerDefinition structure defines when a knowledge artifact is expected to be evaluated. The structure can represent three main kinds of triggering events:</p>
+
+<ul>
+	<li>Named Event</li>
+	<li>Scheduled Event</li>
+	<li>Data Event</li>
+</ul>
+
+<p>A named event is an event identified by the implementation environment. This allows any event generated within the implementation environment to be used as a trigger, but it requires pre-coordination of the names involved with the consuming environments.</p>
+
+<p>A scheduled event occurs on a fixed or periodic schedule.</p>
+
+<p>And finally, a data event occurs in response to some data-related event in the integrated environment such as a record being added or updated. The data-of-interest for a data event is described using a <a href="metadatatypes.html#DataRequirement">DataRequirement</a>. This allows for systems to automatically invoke based on data activity occurring within the system.</p>
+
+[%dt TriggerDefinition 1%]
+
+
+<div class="use">
+<p><b>Constraints</b></p>
+[%dt.constraints TriggerDefinition%]
+</div>
+
+<p>
+&nbsp;
+</p>
+<a name="UsageContext"> </a>
+<a name="usagecontext"> </a>
+<h3 style="margin-bottom: 1px">UsageContext</h3>
+<p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
+See also <a href="metadatatypes-examples.html#UsageContext">Examples</a>, <a href="metadatatypes-definitions.html#UsageContext">Detailed Descriptions</a> and <a href="metadatatypes-mappings.html#UsageContext">Mappings</a>.
+</p>
+
+
+<p>The UsageContext structure defines the context of use for a module.</p>
+
+[%dt UsageContext 1%]
+
+
+<div class="use">
+<p><b>Constraints</b></p>
+[%dt.constraints UsageContext%]
+</div>
+
+<p>
+UsageContext is used in the following places: [%dtusage UsageContext%]
+</p>
+
+<a name="interpretation"> </a>
+<h2>Interpretation of UsageContext in different contexts</h2>
+
+<!-- TODO -->
+<p>
+&nbsp;
+</p>
+
+</div>
+
+[%file newfooter%]
+
+  <script src="external/jquery/jquery.js"> </script>
+<script src="jquery-ui.min.js"> </script>
+<script>
+ try {
+   var currentTabIndex = sessionStorage.getItem('fhir-resource-tab-index');
+ } catch(exception){ 
+ }
+ if (!currentTabIndex)
+   currentTabIndex = '0';
+
+$( '#tabs-ContactDetail' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
+$( '#tabs-Contributor' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
+$( '#tabs-DataRequirement' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
+$( '#tabs-ParameterDefinition' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
+$( '#tabs-RelatedArtifact' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
+$( '#tabs-TriggerDefinition' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
+$( '#tabs-UsageContext' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
+     
+     
+function store(currentTab) {
+  try {
+    sessionStorage.setItem('fhir-resource-tab-index', currentTab);
+  } catch(exception){ 
+  }
+  $( '#tabs-ContactDetail' ).tabs('option', 'active', currentTab);
+  $( '#tabs-Contributor' ).tabs('option', 'active', currentTab);
+  $( '#tabs-DataRequirement' ).tabs('option', 'active', currentTab);
+  $( '#tabs-ParameterDefinition' ).tabs('option', 'active', currentTab);
+  $( '#tabs-RelatedArtifact' ).tabs('option', 'active', currentTab);
+  $( '#tabs-TriggerDefinition' ).tabs('option', 'active', currentTab);
+  $( '#tabs-UsageContext' ).tabs('option', 'active', currentTab);
+  document.activeElement.blur();
+}     
+</script>
+
+  
+</body>
+</html>

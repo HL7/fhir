@@ -963,13 +963,13 @@
   Name = start
   Type = number
   Description = Start position (0-based inclusive, 1-based inclusive, that means the nucleic acid or amino acid at this position will be included) of the reference sequence.
-  Path = Sequence.variant.start
+  Path = Sequence.referenceSeq.windowStart
 
  -- Row 3 -----------------------------------
   Name = end
   Type = number
   Description = End position (0-based exclusive, which menas the acid at this position will not be included, 1-based inclusive, which means the acid at this position will be included) of the reference sequence.
-  Path = Sequence.variant.end
+  Path = Sequence.referenceSeq.windowEnd
 
  -- Row 4 -----------------------------------
   Name = coordinate

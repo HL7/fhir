@@ -17,9 +17,16 @@
 
 <p>
 The FHIR specification defines a set of data types that are used for the 
-resource elements. There are two categories of data types: simple / primitive types, which are single elements, and complex types, which are re-usable clusters of elements.
-This page describes the common reusable data types. See also the <a href="datatypes-examples.html">Examples</a>, <a href="datatypes-definitions.html">Detailed Descriptions</a> and 
-<a href="datatypes-mappings.html">Mappings</a>.
+resource elements. There are four categories of data types: 
+</p>
+<ol>
+  <li>simple / primitive types, which are single elements with a primitive value</li>
+  <li>General purpose complex types, which are re-usable clusters of elements</li>
+  <li><a href="metadatatypes.html">Complex data types for metadata</a></li>
+  <li>Special purpose data types: <a href="reference.html#Reference">Reference</a>, <a href="narrative.html#Narrative">Narrative</a>, <a href="extesnsibility.html#Extension">Extension</a>, <a href="resource.html#Meta">Meta</a>, and <a href="dosageinstruction.html#DosageInstruction">DosageInstruction</a></li>
+</ol>  
+<p>
+This page describes the common reusable data types. 
 </p>
 
 <p><b>Table of Contents</b></p>
@@ -43,7 +50,7 @@ Legend: White = abstract type. Light blue = concrete types. Light Pink = Profile
 <a name="imports"> </a>
 <p>
 The following table describes the primitive types that are used in this specification. Primitive types are those with only a value, and no additional elements as children (though, like 
-all types, they have <a href="extensibility.html">extensions</a>).
+all types, they have <a href="extensibility.html">extensions</a>). See also the <a href="datatypes-examples.html#primitives">Examples</a>.
 </p>
 
 

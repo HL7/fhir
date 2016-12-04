@@ -1,0 +1,20 @@
+﻿{
+  "url": "http://hl7.org/fhir/ValueSet/coverage-type",
+  "outcomes": [
+    {
+      "hash": "#|http://hl7.org/fhir/coverage-selfpay|null|pay|PAY",
+      "severity": "error",
+      "message": "Unable to provide support for code system http://hl7.org/fhir/coverage-selfpay"
+    },
+    {
+      "hash": "#|http://hl7.org/fhir/v3/ActCode|null|EHCPOL|extended healthcare",
+      "severity": "error",
+      "message": "Unable to provide support for code system http://hl7.org/fhir/coverage-selfpay"
+    },
+    {
+      "hash": "#|http://hl7.org/fhir/v3/ActCode|null|EHCPOL|null",
+      "severity": "error",
+      "message": "Unable to provide support for code system http://hl7.org/fhir/coverage-selfpay"
+    }
+  ]
+}
