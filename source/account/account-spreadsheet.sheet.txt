@@ -170,6 +170,34 @@
   Definition = Provides additional information about what the account tracks and how it is used
   RIM Mapping = .subjectOf.observationEvent[code=\"annotation\"].value
 
+ -- Row 14 -----------------------------------
+  Element = Account.guarantor
+  Card. = 0..*
+  Type = =Guarantor
+  Short Name = Responsible for the account
+  Definition = Parties financially responsible for the account.
+
+ -- Row 15 -----------------------------------
+  Element = Account.guarantor.party
+  Card. = 1..1
+  Type = Reference(Patient|RelatedPerson|Organization)
+  Short Name = Responsible entity
+  Definition = The entity who is responsible.
+
+ -- Row 16 -----------------------------------
+  Element = Account.guarantor.onHold
+  Card. = 0..1
+  Type = boolean
+  Short Name = Credit or other hold applied
+  Definition = A guarantor may be placed on credit hold or otherwise have their role temporarily suspended.
+
+ -- Row 17 -----------------------------------
+  Element = Account.guarantor.period
+  Card. = 0..1
+  Type = Period
+  Short Name = Guarrantee account during
+  Definition = The timeframe during which the guarantor accepts responsibility for the account.
+
 === Sheet Search =====================================
 
  -- Row 1 -----------------------------------

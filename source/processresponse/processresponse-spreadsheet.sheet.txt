@@ -141,14 +141,14 @@
   CDAnet v4 Mapping = G42
 
  -- Row 16 -----------------------------------
-  Element = ProcessResponse.notes
+  Element = ProcessResponse.note
   Card. = 0..*
   UML = right
   Short Name = Notes
   Definition = Suite of processing note or additional requirements is the processing has been held.
 
  -- Row 17 -----------------------------------
-  Element = ProcessResponse.notes.type
+  Element = ProcessResponse.note.type
   Card. = 0..1
   Type = CodeableConcept
   Binding = NoteType
@@ -156,7 +156,7 @@
   Definition = The note purpose: Print/Display.
 
  -- Row 18 -----------------------------------
-  Element = ProcessResponse.notes.text
+  Element = ProcessResponse.note.text
   Card. = 0..1
   Type = string
   Short Name = Notes text
