@@ -108,7 +108,7 @@
   Binding = DiagnosticRequestStatus
   Short Name = draft | active | suspended | completed | entered-in-error | cancelled
   Definition = The status of the order
-  Comments = Typically the system placing the order sets the status to \"requested\". Thereafter, the order is maintained by the receiver that updates the status as the request is handled
+  Comments = The status is generally fully in the control of the requester - they determine whether the order is draft or active and, after it has been activated, competed, cancelled or suspended. States relating to the activities of the performer are reflected on either the corresponding event (see [Event Pattern](event.html) for general discussion) or using the [Task](task.html) resource
   RIM Mapping = .statusCode also influenced by whether a ControlAct fulfillment requeste exists, whether a promise exists, status of the review component, whether a fulfilling observation exists, whether a refusal exists
   Committee Notes = [#3720][#10296]
   w5 = status

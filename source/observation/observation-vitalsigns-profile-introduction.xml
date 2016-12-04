@@ -3,7 +3,7 @@
 		<h2>
 			<span class="mw-headline" id="Introduction">Introduction</span>
 		</h2>
-		<p>The FHIR Vitals Signs profile sets a minimum expectations for the Observation Resource to record, search and fetch the vital signs associated with a patient. When a FHIR implementation supports any of the vital signs listed below, the implementation <strong>SHALL</strong> conform to this profile for the vitals sign observation.</p>
+		<p>The FHIR Vitals Signs profile sets a minimum expectations for the Observation Resource to record, search and fetch the vital signs associated with a patient that include the primary vitals signs plus additional measurements such as height weigth and BMI. When a FHIR implementation supports any of the vital signs listed below, the implementation <strong>SHALL</strong> conform to this profile for the vitals sign observation.</p>
 		<p>This profile identifies the required core elements and values. Support for basic mandatory searching of resources are defined below in the Quick Start section. It is based on the <a href="http://argonautwiki.hl7.org">Argonaut DSTU2 Vital Signs Profile</a>.</p>
 	</div>
 	<div>
@@ -44,12 +44,12 @@ profile:</p>
 			<strong>Profile specific implementation guidance:</strong>
 		</p>
 		<ul>
-			<li>This table represents a minimum set of vital sign concepts, the required LOINC codes, and UCUM units of measure codes used for representing vitals signs observations. These are <a href="terminologies.html#extensible">extensible</a> bindings and require that when a system supports of any of these vital signs concepts, they must represent them using these codes. In addition, if you have a blood pressure observation, you must have both a systolic and a diastolic component, though one or both may have dataAbsentReason instead of a value.</li>
+			<li>This table represents a minimum set of vital sign concepts , the required LOINC codes, and UCUM units of measure codes used for representing vitals signs observations. These are <a href="terminologies.html#extensible">extensible</a> bindings and require that when a system supports of any of these vital signs concepts, they must represent them using these codes. In addition, if you have a blood pressure observation, you must have both a systolic and a diastolic component, though one or both may have dataAbsentReason instead of a value.</li>
 			<li>
 				Alternate codes may be provided in addition to the standard LOINC and UCUM codes defined here.  The examples illustrate using other codes as translations.
 			</li>
 			<li>
-				Other profiles may make rules about which vital sign must be present or must be present as part of a panel.
+				Other profiles may make rules about which vital sign must be present or must be present as part of a panel or expand the list to include other vital sign.
 			</li>
 		</ul>
 		<table class="grid">
