@@ -810,6 +810,7 @@ public class ProfileGenerator {
     p.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.URL, "http://hl7.org/fhir"));
     if (r.getWg() != null)
       p.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.URL, r.getWg().getUrl()));
+    ToolingExtensions.setCodeExtension(p, ToolingExtensions.EXT_WORKGROUP, r.getWg().getCode());
     p.setDescription("Base StructureDefinition for "+r.getRoot().getName()+" Resource");
     p.setPurpose(r.getRoot().getRequirements());
     if (!p.hasPurpose())
@@ -910,6 +911,11 @@ public class ProfileGenerator {
     else
       p.setDate(genDate.getTime());
 
+    if (pack.hasMetadata("fmm-level"))
+      ToolingExtensions.addIntegerExtension(p, ToolingExtensions.EXT_FMM_LEVEL, Integer.parseInt(pack.getFmmLevel()));
+    if (pack.hasMetadata("workgroup"))
+      ToolingExtensions.setCodeExtension(p, ToolingExtensions.EXT_WORKGROUP, pack.getWg());
+    
     if (pack.hasMetadata("status")) 
       p.setStatus(PublicationStatus.fromCode(pack.metadata("status")));
     if (pack.getMetadata().containsKey("code"))
@@ -1851,8 +1857,10 @@ public class ProfileGenerator {
     p.setName(r.getRoot().getName());
     p.setPublisher("Health Level Seven International"+(r.getWg() == null ? " "+igd.getCommittee() : " ("+r.getWg().getName()+")"));
     p.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.URL, "http://hl7.org/fhir"));
-    if (r.getWg() != null)
+    if (r.getWg() != null) {
       p.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.URL, r.getWg().getUrl()));
+      ToolingExtensions.setCodeExtension(p, ToolingExtensions.EXT_WORKGROUP, r.getWg().getCode());
+    }
     p.setDescription("Logical Model: "+r.getDefinition());
     p.setPurpose(r.getRoot().getRequirements());
     if (!p.hasPurpose())

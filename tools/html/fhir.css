@@ -76,6 +76,18 @@ table.cols td {
 	background-color: #ffffe6;
 }
 
+table.colsd {
+	width: 100%;
+}
+
+table.colsd td {
+  border: 1px grey solid;
+	border-spacing: 0;
+	padding: 5px;
+	border-collapse: collapse;
+	background-color: salmon;
+}
+
 table.list td {
         border-top: 1px silver solid;
 	border-spacing: 0;

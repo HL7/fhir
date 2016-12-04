@@ -100,6 +100,7 @@ public class ToolingExtensions {
   public static final String EXT_RESOURCE_CATEGORY = "http://hl7.org/fhir/StructureDefinition/structuredefinition-category";
   public static final String EXT_TABLE_NAME = "http://hl7.org/fhir/StructureDefinition/structuredefinition-table-name";
   public static final String EXT_OO_FILE = "http://hl7.org/fhir/StructureDefinition/operationoutcome-file";
+  public static final String EXT_WORKGROUP = "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg";
 
 
 
@@ -204,6 +205,12 @@ public class ToolingExtensions {
       return null;
     if (ex.getValue() instanceof UriType)
       return ((UriType) ex.getValue()).getValue();
+    if (ex.getValue() instanceof CodeType)
+      return ((CodeType) ex.getValue()).getValue();
+    if (ex.getValue() instanceof IntegerType)
+      return ((IntegerType) ex.getValue()).asStringValue();
+    if ((ex.getValue() instanceof MarkdownType))
+      return ((MarkdownType) ex.getValue()).getValue();
     if (!(ex.getValue() instanceof StringType))
       return null;
     return ((StringType) ex.getValue()).getValue();
@@ -217,6 +224,8 @@ public class ToolingExtensions {
       return ((StringType) ex.getValue()).getValue();
     if ((ex.getValue() instanceof UriType))
       return ((UriType) ex.getValue()).getValue();
+    if (ex.getValue() instanceof CodeType)
+      return ((CodeType) ex.getValue()).getValue();
     if ((ex.getValue() instanceof MarkdownType))
       return ((MarkdownType) ex.getValue()).getValue();
     return null;
@@ -354,6 +363,14 @@ public class ToolingExtensions {
       ext.setValue(new StringType(value));
     else
       resource.getExtension().add(new Extension(new UriType(uri)).setValue(new StringType(value)));
+  }
+
+  public static void setCodeExtension(DomainResource resource, String uri, String value) {
+    Extension ext = getExtension(resource, uri);
+    if (ext != null)
+      ext.setValue(new CodeType(value));
+    else
+      resource.getExtension().add(new Extension(new UriType(uri)).setValue(new CodeType(value)));
   }
 
 //  public static String getOID(CodeSystem define) {

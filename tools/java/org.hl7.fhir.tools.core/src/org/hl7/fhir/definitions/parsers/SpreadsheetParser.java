@@ -113,6 +113,7 @@ import org.hl7.fhir.dstu3.model.UuidType;
 import org.hl7.fhir.dstu3.model.ValueSet;
 import org.hl7.fhir.dstu3.terminologies.CodeSystemUtilities;
 import org.hl7.fhir.dstu3.terminologies.ValueSetUtilities;
+import org.hl7.fhir.dstu3.utils.ToolingExtensions;
 import org.hl7.fhir.dstu3.validation.ValidationMessage;
 import org.hl7.fhir.igtools.spreadsheets.CodeSystemConvertor;
 import org.hl7.fhir.igtools.spreadsheets.MappingSpace;
@@ -2122,6 +2123,11 @@ public class SpreadsheetParser {
     ex.setAbstract(false);
     ex.setFhirVersion(version);
 
+    if (ap.hasMetadata("fmm-level"))
+      ToolingExtensions.addIntegerExtension(ex, ToolingExtensions.EXT_FMM_LEVEL, Integer.parseInt(ap.getFmmLevel()));
+    if (ap.hasMetadata("workgroup"))
+      ToolingExtensions.setCodeExtension(ex, ToolingExtensions.EXT_WORKGROUP, ap.getWg());
+    
     ToolResourceUtilities.updateUsage(ex, ap.getCategory());
 	  String name = sheet.getColumn(row, "Code");
 	  String context = null;

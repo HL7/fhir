@@ -6,10 +6,12 @@ import java.util.List;
 import java.util.Map;
 
 import org.hl7.fhir.dstu3.model.Composition;
+import org.hl7.fhir.dstu3.model.MetadataResource;
 import org.hl7.fhir.dstu3.model.SearchParameter;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
 import org.hl7.fhir.dstu3.model.ValueSet;
 import org.hl7.fhir.igtools.spreadsheets.MappingSpace;
+import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
 
 // a named set of profiles and extensions
@@ -172,6 +174,31 @@ public class Profile {
   }
   public List<Operation> getOperations() {
     return operations;
+  }
+  public String getFmmLevel() {
+    return metadata("fmm-level");
+  }
+  public String getWg() {
+    return metadata("workgroup");
+  }
+  public String describeKind() {
+    CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
+    if (!profiles.isEmpty())
+      b.append("profiles");
+    if (!extensions.isEmpty())
+      b.append("extensions");
+    if (!valuesets.isEmpty())
+      b.append("valuesets");
+    if (!searchParameters.isEmpty())
+      b.append("search parameters");
+    return b.toString();
+  }
+  public MetadataResource getCandidateResource() {
+    if (!profiles.isEmpty())
+      return profiles.get(0).getResource();
+    if (!extensions.isEmpty())
+      return extensions.get(0);
+    return null;
   }
 
   

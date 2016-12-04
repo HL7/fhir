@@ -138,6 +138,7 @@ import org.hl7.fhir.dstu3.model.ExpressionNode.CollectionStatus;
 import org.hl7.fhir.dstu3.model.ImplementationGuide.ImplementationGuidePackageComponent;
 import org.hl7.fhir.dstu3.model.ImplementationGuide.ImplementationGuidePackageResourceComponent;
 import org.hl7.fhir.dstu3.model.ImplementationGuide.ImplementationGuidePageComponent;
+import org.hl7.fhir.dstu3.model.MetadataResource;
 import org.hl7.fhir.dstu3.model.NamingSystem;
 import org.hl7.fhir.dstu3.model.NamingSystem.NamingSystemIdentifierType;
 import org.hl7.fhir.dstu3.model.NamingSystem.NamingSystemUniqueIdComponent;
@@ -1036,7 +1037,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       else if (com[0].equals("ig.wgt"))
         src = s1+ig.getCommittee()+s3;
       else if (com[0].equals("ig.fmm"))
-        src = s1+ig.getFmm()+s3;
+        src = s1+getFmmFromlevel(ig.getFmm())+s3;
       else if (com[0].equals("ig.ballot"))
         src = s1+ig.getBallot()+s3;
       else if (com[0].equals("operations")) {
@@ -1536,6 +1537,15 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     StringBuilder s = new StringBuilder();
     
     s.append("<table class=\"list\">\r\n");
+    s.append("<tr>");
+    s.append("<td><b>id</b></td>");
+    s.append("<td><b>Description</b></td>");
+    s.append("<td><b><a href=\"\">Conf.</a></b></td>");
+    s.append("<td><b>Type</b></td>");
+    s.append("<td><b>Context</b></td>");
+    s.append("<td><b><a href=\"resource.html#maturity\">FMM</a></b></td>");
+    s.append("</tr>");
+
     List<String> names = new ArrayList<String>();
     names.addAll(workerContext.getExtensionDefinitions().keySet());
     Collections.sort(names);
@@ -1550,7 +1560,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
             if (ig.getCode().equals(ToolResourceUtilities.getUsage(ed))) {
               if (!started) {
                 started = true;
-                genStructureExampleCategory(s, ig.getName());            
+                genStructureExampleCategory(s, ig.getName(), "6");            
               }
               genExtensionRow(ig, s, ed);
             }
@@ -1601,6 +1611,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     } else
       throw new Error("Not done yet");
     s.append("</td>");
+    s.append("<td>"+ToolingExtensions.readStringExtension(ed, ToolingExtensions.EXT_FMM_LEVEL)+"</td>");
 //    s.append("<td><a href=\"extension-"+ed.getId().toLowerCase()+ ".xml.html\">XML</a></td>");
 //    s.append("<td><a href=\"extension-"+ed.getId().toLowerCase()+ ".json.html\">JSON</a></td>");
     s.append("</tr>");
@@ -1914,6 +1925,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     b.append("  <tr>\r\n");
     b.append("    <td><b>Name</b></td>\r\n");
     b.append("    <td><b>Description</b></td>\r\n");
+    b.append("    <td><b>Kind</b></td>\r\n");
+    b.append("    <td><b><a href=\"resource.html#Maturity\">FMM</a></b></td>");
     b.append("  </tr>\r\n");
     
     b.append("  <tr>\r\n");
@@ -1928,19 +1941,23 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       b.append("  <tr>\r\n");
       b.append("    <td><a href=\"").append(ig.getPrefix()+ap.getId()).append(".html\">").append(Utilities.escapeXml(ap.getTitle())).append("</a></td>\r\n");
       b.append("    <td>").append(Utilities.escapeXml(ap.getDescription())).append("</td>\r\n");
+      b.append("    <td>").append(Utilities.escapeXml(ap.describeKind())).append("</td>\r\n");
+      b.append("    <td>").append(Utilities.escapeXml(ap.getFmmLevel())).append("</td>\r\n");
       b.append(" </tr>\r\n");
     }
     for (String n : definitions.sortedResourceNames()) {
       ResourceDefn r = definitions.getResourceByName(n);
       if (!r.getConformancePackages().isEmpty()) {
         b.append("  <tr>\r\n");
-        b.append("    <td colspan=\"2\"><b>"+r.getName()+"</b></td>\r\n");
+        b.append("    <td colspan=\"4\"><b>"+r.getName()+"</b></td>\r\n");
         b.append("  </tr>\r\n");
         for (Profile p : r.getConformancePackages()) {
           ImplementationGuideDefn ig = definitions.getIgs().get(p.getCategory());
           b.append("  <tr>\r\n");
           b.append("    <td><a href=\""+ig.getPrefix()+p.getId()+".html\">"+Utilities.escapeXml(p.getTitle())+"</a></td>\r\n");
           b.append("    <td>"+Utilities.escapeXml(p.getDescription())+"</td>\r\n");
+          b.append("    <td>"+Utilities.escapeXml(p.describeKind())+"</td>\r\n");
+          b.append("    <td>"+Utilities.escapeXml(p.getFmmLevel())+"</td>\r\n");
           b.append(" </tr>\r\n");
         }
       }
@@ -5819,13 +5836,13 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
 
     // base types
     s.append("<table class=\"list\">\r\n");
-    genStructureExampleCategory(s, "Abstract Types");
+    genStructureExampleCategory(s, "Abstract Types", "3");
     genStructureExample(s, "element.html", "element.profile", "element", "Element");
     genStructureExample(s, "backboneelement.html", "backboneelement.profile", "backboneelement", "BackBoneElement");
     genStructureExample(s, "resource.html", "resource.profile", "resource", "Resource");
     genStructureExample(s, "domainresource.html", "domainresource.profile", "domainresource", "DomainResource");
     
-    genStructureExampleCategory(s, "Primitive Types");
+    genStructureExampleCategory(s, "Primitive Types", "3");
     List<String> names = new ArrayList<String>();
     names.addAll(definitions.getPrimitives().keySet());
     Collections.sort(names);
@@ -5834,7 +5851,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       genStructureExample(s, "datatypes.html#"+dc.getCode(), dc.getCode().toLowerCase()+".profile", dc.getCode().toLowerCase(), dc.getCode());
     }
 
-    genStructureExampleCategory(s, "Data Types");
+    genStructureExampleCategory(s, "Data Types", "3");
     names.clear();
     names.addAll(definitions.getTypes().keySet());
     names.addAll(definitions.getStructures().keySet());
@@ -5855,7 +5872,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
 
     s.append("<table class=\"list\">\r\n");
 
-    genStructureExampleCategory(s, "Resources");
+    genStructureExampleCategory(s, "Resources", "3");
     for (String n : definitions.sortedResourceNames()) {
       ResourceDefn r = definitions.getResources().get(n);
       genStructureExample(s, r.getName().toLowerCase()+".html", r.getName().toLowerCase()+".profile", r.getName().toLowerCase(), r.getName());
@@ -5885,7 +5902,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         if (ig == p.getUsage()) {
           if (!started) {
             started = true;
-            genStructureExampleCategory(s, ig.getName());            
+            genStructureExampleCategory(s, ig.getName(), "3");            
           }
           String prefix = ig.isCore() ? "" : ig.getCode()+"/";
           genStructureExample(s, prefix+ p.getId().toLowerCase()+".html", prefix+ p.getId().toLowerCase()+".profile", p.getId().toLowerCase(), p.getTitle());
@@ -5908,7 +5925,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         if (ig.getCode().equals(ToolResourceUtilities.getUsage(ed))) {
           if (!started) {
             started = true;
-            genStructureExampleCategory(s, ig.getName());            
+            genStructureExampleCategory(s, ig.getName(), "3");            
           }
           String prefix = ig.isCore() ? "" : ig.getCode()+"/";
           genStructureExample(s, prefix+ "extension-"+ed.getId().toLowerCase()+".html", prefix+ "extension-"+ed.getId().toLowerCase(), ed.getId().toLowerCase(), ed.getUrl().startsWith("http://hl7.org/fhir/StructureDefinition/") ? ed.getUrl().substring(40) : ed.getUrl(), ed.getName());
@@ -5952,9 +5969,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     return s.toString();
   }
 
-  private void genStructureExampleCategory(StringBuilder s, String heading) {
+  private void genStructureExampleCategory(StringBuilder s, String heading, String span) {
     s.append("<tr>");
-    s.append("<td colspan=\"3\"><b>"+Utilities.escapeXml(heading)+"</b></td>");
+    s.append("<td colspan=\""+span+"\"><b>"+Utilities.escapeXml(heading)+"</b></td>");
     s.append("</tr>");
 
   }
@@ -6265,8 +6282,15 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+searchHeader(level)+s3;
       else if (com[0].startsWith("!"))
         src = s1 + s3;  
-      else if (com[0].equals("fmm-style")) 
+      else if (com[0].equals("wg")) { 
+        String wg = pack.getWg();
+        src = s1+(wg == null || !definitions.getWorkgroups().containsKey(wg) ?  "(No assigned work group)" : "<a _target=\"blank\" href=\""+definitions.getWorkgroups().get(wg).getUrl()+"\">"+definitions.getWorkgroups().get(wg).getName()+"</a> Work Group")+s3;
+      } else if (com[0].equals("fmm-style")) 
         src = s1+("0".equals(pack.getFmmLevel()) ? "colsd" : "cols")+s3;
+      else if (com[0].equals("fmm")) 
+        src = s1+getFmmFromlevel(pack.getFmmLevel())+s3;
+      else if (com[0].equals("profile-context")) 
+        src = s1+getProfileContext(pack.getCandidateResource())+s3;
       else if (com[0].equals("resurl")) {
          if (Utilities.noString(pack.metadata("id")))
            src = s1+s3;
@@ -6276,6 +6300,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         throw new Exception("Instruction <%"+s2+"%> not understood parsing resource "+filename);
     }
     return src;
+  }
+
+  private String getProfileContext(MetadataResource metadataResource) {
+    return "todo";
   }
 
   private String generateProfileExamples(Profile pack, ConstraintStructure profile) {
@@ -6694,6 +6722,17 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+searchHeader(level)+s3;
       else if (com[0].startsWith("!"))
         src = s1 + s3;  
+      else if (com[0].equals("wg")) { 
+        String wg = ToolingExtensions.readStringExtension(ed, ToolingExtensions.EXT_WORKGROUP);
+        src = s1+(wg == null || !definitions.getWorkgroups().containsKey(wg) ?  "(No assigned work group)" : "<a _target=\"blank\" href=\""+definitions.getWorkgroups().get(wg).getUrl()+"\">"+definitions.getWorkgroups().get(wg).getName()+"</a> Work Group")+s3;
+      } else if (com[0].equals("fmm-style"))  {
+        String fmm = ToolingExtensions.readStringExtension(ed, ToolingExtensions.EXT_FMM_LEVEL);
+        src = s1+(fmm == null || "0".equals(fmm) ? "colsd" : "cols")+s3;
+      } else if (com[0].equals("fmm")) {
+        String fmm = ToolingExtensions.readStringExtension(ed, ToolingExtensions.EXT_FMM_LEVEL);
+        src = s1+getFmmFromlevel(fmm)+s3;
+      } else if (com[0].equals("profile-context")) 
+        src = s1+getProfileContext(ed)+s3;
       else 
         throw new Exception("Instruction <%"+s2+"%> not understood parsing resource "+filename);
     }
@@ -7754,6 +7793,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     if (rd == null)
       throw new Exception("unable to find resource '"+resourceName+"'");
     return "&nbsp;<a href=\"resource.html#maturity\" style=\"color: maroon; hover: maroon; visited; maroon; opacity: 0.7\" title=\"Maturity Level\">"+rd.getFmmLevel()+"</a>";
+  }
+  private String getFmmFromlevel(String level) throws Exception {
+    return "&nbsp;<a href=\"resource.html#maturity\" style=\"color: maroon; hover: maroon; visited; maroon; opacity: 0.7\" title=\"Maturity Level\">"+(level == null ? "0" : level)+"</a>";
   }
   
   private String getXcm(String param) {

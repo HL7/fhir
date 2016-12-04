@@ -1012,7 +1012,7 @@
     <Cell><Data ss:Type="Number">1</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">committee</Data></Cell>
+    <Cell><Data ss:Type="String">workgroup</Data></Cell>
     <Cell><Data ss:Type="String">oo</Data></Cell>
    </Row>
   </Table>
@@ -1048,7 +1048,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>21</ActiveRow>
+     <ActiveRow>20</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
