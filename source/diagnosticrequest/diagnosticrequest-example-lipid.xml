@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<DiagnosticRequest xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file://ERICS-AIR/ehaas/Documents/FHIR/build/schema/diagnosticrequest.xsd">
+<DiagnosticRequest xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns="http://hl7.org/fhir">
 	<id value="lipid"/>
 	<contained>
 		<Observation>
@@ -37,12 +37,7 @@
 		<value value="2345234234234"/>
 	</identifier>
 	<status value="active"/>
-	<stage>
-		<coding>
-			<system value="http://hl7.org/fhir/request-stage"/>
-			<code value="original-order"/>
-		</coding>
-	</stage>
+	<intent value="original-order"/>
 	<code>
 		<coding>
 			<system value="http://acme.org/tests"/>
@@ -63,13 +58,13 @@
 	<performer>
 		<reference value="Practitioner/example"/>
 	</performer>
-	<reason>
+	<reasonCode>
 		<coding>
 			<system value="http://hl7.org/fhir/sid/icd-9"/>
 			<code value="V173"/>
 			<display value="Fam hx-ischem heart dis"/>
 		</coding>
-	</reason>
+	</reasonCode>
 	<supportingInformation>
 		<reference value="#fasting"/>
 	</supportingInformation>

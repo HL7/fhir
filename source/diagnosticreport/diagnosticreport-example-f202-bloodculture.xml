@@ -1,79 +1,76 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <DiagnosticReport xmlns="http://hl7.org/fhir">
-  <id value="f202"/>
-  <contained>
-<DiagnosticRequest>
-	<id value="req"/>
-	<stage>
+	<id value="f202"/>
+	<contained>
+		<DiagnosticRequest>
+			<id value="req"/>
+			<status value="active"/>
+			<intent value="original-order"/>
+			<code>
+				<coding>
+					<system value="http://snomed.info/sct"/>
+					<code value="104177005"/>
+					<display value="Blood culture for bacteria, including anaerobic screen"/>
+				</coding>
+			</code>
+			<subject>
+				<reference value="Patient/f201"/>
+				<display value="Roel"/>
+			</subject>
+			<context>
+				<reference value="Encounter/f203"/>
+				<display value="Roel&apos;s encounter on March eleventh 2013"/>
+			</context>
+			<requester>
+				<reference value="Practitioner/f201"/>
+				<display value="Dokter Bronsig"/>
+			</requester>
+		</DiagnosticRequest>
+	</contained>
+	<status value="final"/>
+	<category>
+		<!-- Lab test -->
 		<coding>
-			<system value="http://hl7.org/fhir/request-stage"/>
-			<code value="original-order"/>
+			<system value="http://snomed.info/sct"/>
+			<code value="15220000"/>
+			<display value="Laboratory test"/>
 		</coding>
-	</stage>
-<code>
-    <coding>
-      <system value="http://snomed.info/sct"/>
-      <code value="104177005"/>
-      <display value="Blood culture for bacteria, including anaerobic screen"/>
-    </coding>
-  </code>	<subject>
+		<coding>
+			<system value="http://hl7.org/fhir/v2/0074"/>
+			<code value="LAB"/>
+		</coding>
+	</category>
+	<code>
+		<coding>
+			<system value="http://snomed.info/sct"/>
+			<code value="104177005"/>
+			<display value="Blood culture for bacteria, including anaerobic screen"/>
+		</coding>
+	</code>
+	<subject>
 		<reference value="Patient/f201"/>
 		<display value="Roel"/>
 	</subject>
-	<context>
-		<reference value="Encounter/f203"/>
-		<display value="Roel&apos;s encounter on March eleventh 2013"/>
-	</context>
-	<requester>
-		<reference value="Practitioner/f201"/>
-		<display value="Dokter Bronsig"/>
-	</requester>
-</DiagnosticRequest>
-  </contained>
-  <status value="final"/>
-  <category>
-  <!-- Lab test -->
-    <coding>
-      <system value="http://snomed.info/sct"/>
-      <code value="15220000"/>
-      <display value="Laboratory test"/>
-    </coding>
-    <coding>
-      <system value="http://hl7.org/fhir/v2/0074"/>
-      <code value="LAB"/>
-    </coding>
-  </category>
-  <code>
-    <coding>
-      <system value="http://snomed.info/sct"/>
-      <code value="104177005"/>
-      <display value="Blood culture for bacteria, including anaerobic screen"/>
-    </coding>
-  </code>
-  <subject>
-    <reference value="Patient/f201"/>
-    <display value="Roel"/>
-  </subject>
-  <effectiveDateTime value="2013-03-11T03:45:00+01:00"/>
-  <issued value="2013-03-11T10:28:00+01:00"/>
-  <performer>
-    <reference value="Organization/f201"/>
-    <display value="AUMC"/>
-  </performer>
-<!-- No identifier was available -->
-  <request>
-    <reference value="#req"/>
-  </request>
-  <result>
-    <reference value="Observation/f206"/>
-    <display value="Results for staphylococcus analysis on Roel's blood culture"/>
-  </result>
-  <conclusion value="Blood culture tested positive on staphylococcus aureus"/>
-  <codedDiagnosis>
-    <coding>
-      <system value="http://snomed.info/sct"/>
-      <code value="428763004"/>
-      <display value="Bacteremia due to staphylococcus"/>
-    </coding>
-  </codedDiagnosis>
+	<effectiveDateTime value="2013-03-11T03:45:00+01:00"/>
+	<issued value="2013-03-11T10:28:00+01:00"/>
+	<performer>
+		<reference value="Organization/f201"/>
+		<display value="AUMC"/>
+	</performer>
+	<!-- No identifier was available -->
+	<request>
+		<reference value="#req"/>
+	</request>
+	<result>
+		<reference value="Observation/f206"/>
+		<display value="Results for staphylococcus analysis on Roel's blood culture"/>
+	</result>
+	<conclusion value="Blood culture tested positive on staphylococcus aureus"/>
+	<codedDiagnosis>
+		<coding>
+			<system value="http://snomed.info/sct"/>
+			<code value="428763004"/>
+			<display value="Bacteremia due to staphylococcus"/>
+		</coding>
+	</codedDiagnosis>
 </DiagnosticReport>

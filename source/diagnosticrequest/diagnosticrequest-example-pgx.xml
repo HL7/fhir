@@ -1,5 +1,7 @@
-<DiagnosticRequest mlns="http://hl7.org/fhir">
+<DiagnosticRequest  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://build.fhir.org/device.xsd" xmlns="http://hl7.org/fhir">
 	<id value="example-pgx"/>
+	<status value = "active"/>
+	<intent value = "original-order"/>
 	<code>
 		<coding>
 			<system value="http://loinc.org"/>

@@ -4,7 +4,7 @@
  -- Row 1 -----------------------------------
   Binding Name = DiagnosticRequestStatus
   Binding = value set
-  Reference = valueset-request-status
+  Reference = http://hl7.org/fhir/ValueSet/request-status
   Definition = The status of a diagnostic order.
   Conformance = required
 
@@ -25,11 +25,11 @@
   Conformance = example
 
  -- Row 4 -----------------------------------
-  Binding Name = DiagnosticRequestStage
+  Binding Name = DiagnosticRequestIntent
   Binding = value set
-  Reference = valueset-diagnostic-request-stage
+  Reference = http://hl7.org/fhir/ValueSet/request-intent
   Definition = The kind of diagnostic request
-  Conformance = extensible
+  Conformance = required
 
  -- Row 5 -----------------------------------
   Binding Name = DiagnosticRequestParticipantRole
@@ -37,6 +37,13 @@
   Reference = http://hl7.org/fhir/ValueSet/participant-role
   Definition = Indicates specific responsibility of an individual within the care team, such as \"Primary physician\", \"Team coordinator\", \"Caregiver\", etc.
   Conformance = example
+
+ -- Row 6 -----------------------------------
+  Binding Name = DiagnosticRequestSPriority
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/request-priority
+  Definition = Identifies the level of importance to be assigned to actioning the request
+  Conformance = required
 
 === Sheet Invariants =====================================
 
@@ -93,15 +100,18 @@
  -- Row 6 -----------------------------------
   Element = DiagnosticRequest.requisition
   Card. = 0..1
+  Aliases = grouperId;  groupIdentifier
   Summary = Y
   Type = Identifier
-  Short Name = Identifier of composite request
-  Definition = Composite request this is part of
+  Short Name = Composite Request ID
+  Definition = A shared identifier common to all diagnostic requests that were authorized more or less simultaneously by a single author, representing the composite or group identifier.
+  Requirements = Some business processes need to know if multiple items were ordered as part of the same \"requisition\" for billing or other purposes.
+  Comments = Requests are linked either by a \"basedOn\" relationship (i.e. one request is fulfilling another) or by having a common requisition. Requests that are part of the same requisition are generally treated independently from the perspective of changing their state or maintaining them after initial creation.
   Committee Notes = [#10296]
 
  -- Row 7 -----------------------------------
   Element = DiagnosticRequest.status
-  Card. = 0..1
+  Card. = 1..1
   Is Modifier = Y
   Summary = Y
   Type = code
@@ -114,18 +124,30 @@
   w5 = status
 
  -- Row 8 -----------------------------------
-  Element = DiagnosticRequest.stage
+  Element = DiagnosticRequest.intent
   Card. = 1..1
   Is Modifier = Y
   Summary = Y
-  Type = CodeableConcept
-  Binding = DiagnosticRequestStage
+  Type = code
+  Binding = DiagnosticRequestIntent
   Short Name = proposal | plan | original-order | reflex-order
   Definition = Whether the request is a proposal, plan, an original order or a reflex order.
   Committee Notes = [#3720][#10296]
   w5 = class
 
  -- Row 9 -----------------------------------
+  Element = DiagnosticRequest.priority
+  Card. = 0..1
+  Summary = Y
+  Type = code
+  Binding = DiagnosticRequestSPriority
+  Short Name = routine | urgent | asap | stat
+  Definition = Indicates how quickly the {{title}} should be addressed with respect to other requests.
+  Committee Notes = [#3720][#10296]
+  Missing Meaning = If missing, this task should be performed with normal priority
+  w5 = class
+
+ -- Row 10 -----------------------------------
   Element = DiagnosticRequest.code
   Card. = 1..1
   Summary = Y
@@ -139,7 +161,7 @@
   Committee Notes = [#10296]
   w5 = what
 
- -- Row 10 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = DiagnosticRequest.subject
   Card. = 1..1
   Summary = Y
@@ -150,7 +172,7 @@
   Committee Notes = [#10296]
   w5 = who.focus
 
- -- Row 11 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = DiagnosticRequest.context
   Card. = 0..1
   Summary = Y
@@ -161,7 +183,7 @@
   Committee Notes = [#10296]
   w5 = context
 
- -- Row 12 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = DiagnosticRequest.occurrence[x]
   Card. = 0..1
   Summary = Y
@@ -172,8 +194,8 @@
   Committee Notes = [#10296]
   w5 = when.planned
 
- -- Row 13 -----------------------------------
-  Element = DiagnosticRequest.authored
+ -- Row 14 -----------------------------------
+  Element = DiagnosticRequest.authoredOn
   Card. = 0..1
   Summary = Y
   Type = dateTime
@@ -182,7 +204,7 @@
   Committee Notes = [#10296]
   w5 = when.recorded
 
- -- Row 14 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = DiagnosticRequest.requester
   Card. = 0..1
   Summary = Y
@@ -194,7 +216,7 @@
   Committee Notes = [#10296] originally proposed references: Reference(Device | Patient | Practitioner | RelatedPerson  | Organization?)  felt that patient and relatedPerson don’t request tests
   w5 = who.author
 
- -- Row 15 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = DiagnosticRequest.performerType
   Card. = 0..1
   Summary = Y
@@ -206,7 +228,7 @@
   Committee Notes = [#10296]
   w5 = who.actor
 
- -- Row 16 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = DiagnosticRequest.performer
   Card. = 0..1
   Summary = Y
@@ -218,20 +240,32 @@
   Committee Notes = [#10296]
   w5 = who.actor
 
- -- Row 17 -----------------------------------
-  Element = DiagnosticRequest.reason
+ -- Row 18 -----------------------------------
+  Element = DiagnosticRequest.reasonCode
   Card. = 0..*
   Summary = Y
   Type = CodeableConcept
   Binding = DiagnosticRequestReason
   Short Name = Explanation/Justification for test
-  Definition = An explanation or justification for why this diagnostic investigation is being requested.   This is often for billing purposes.  May relate to the resources referred to in supportingInformation.
+  Definition = An explanation or justification for why this diagnostic investigation is being requested in coded or textual form.   This is often for billing purposes.  May relate to the resources referred to in supportingInformation.
   Comments = This may be used to decide how the diagnostic investigation will be performed, or even if it will be performed at all.   Use CodeableConcept text element if the data is free (uncoded) text as shown in the [CT Scan example](diagnosticrequest-example-di.html).
   RIM Mapping = .reasonCode
   Committee Notes = 7134. [#10296]  need to add reference as another inline element
   w5 = why
 
- -- Row 18 -----------------------------------
+ -- Row 19 -----------------------------------
+  Element = DiagnosticRequest.reasonReference
+  Card. = 0..*
+  Summary = Y
+  Type = Reference(Condition | Observation)
+  Short Name = Explanation/Justification for test
+  Definition = Indicates another resource that provides a justification for why this diagnostic investigation is being requested.   May relate to the resources referred to in supportingInformation.
+  Comments = This may be used to decide how the diagnostic investigation will be performed, or even if it will be performed at all.   Use CodeableConcept text element if the data is free (uncoded) text as shown in the [CT Scan example](diagnosticrequest-example-di.html).
+  RIM Mapping = .reasonCode
+  Committee Notes = 7134. [#10296]  need to add reference as another inline element
+  w5 = why
+
+ -- Row 20 -----------------------------------
   Element = DiagnosticRequest.supportingInformation
   Card. = 0..*
   Aliases = Ask at order entry question, AOE
@@ -243,7 +277,7 @@
   RIM Mapping = outboundRelationship[typeCode=SPRT]/target[classCode=ACT, moodCode=EVN]
   Committee Notes = [#3113][#3739][#10296]
 
- -- Row 19 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = DiagnosticRequest.note
   Card. = 0..*
   Type = Annotation
@@ -252,7 +286,7 @@
   RIM Mapping = .inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=\"annotation\"].value
   Committee Notes = 7134,8147,[#10296]
 
- -- Row 20 -----------------------------------
+ -- Row 22 -----------------------------------
   Element = DiagnosticRequest.relevantHistory
   Card. = 0..*
   Type = Reference(Provenance)
@@ -267,7 +301,7 @@
   Name = author-date
   Type = date
   Description = When the request transitioned to being actionable
-  Path = DiagnosticRequest.authored
+  Path = DiagnosticRequest.authoredOn
 
  -- Row 2 -----------------------------------
   Name = based-on
@@ -276,10 +310,10 @@
   Path = DiagnosticRequest.basedOn
 
  -- Row 3 -----------------------------------
-  Name = stage
+  Name = intent
   Type = token
   Description = proposal | plan | original-order |reflex-order
-  Path = DiagnosticRequest.stage
+  Path = DiagnosticRequest.intent
 
  -- Row 4 -----------------------------------
   Name = code
@@ -353,6 +387,12 @@
   Type = reference
   Description = Individual the service is ordered for
   Path = DiagnosticRequest.subject
+
+ -- Row 16 -----------------------------------
+  Name = priority
+  Type = token
+  Description = routine | urgent | asap | stat
+  Path = DiagnosticRequest.priority
 
 === Sheet Profiles =====================================
 

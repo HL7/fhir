@@ -5,18 +5,16 @@
 		<status value="generated"/>
 		<div xmlns="http://www.w3.org/1999/xhtml">[Put rendering here]</div>
 	</text>
-		<!-- insert contents here -->
+	<!-- insert contents here -->
 	<status value="active"/>
-	<stage>
-		<coding>
-			<code value="original-order"/>
-		</coding>
-	</stage>
+	<intent value="original-order">
+	</intent>
 	<code>
 		<coding>
-			<code value="example"></code>
+			<code value="example"/>
 		</coding>
 	</code>
-	<subject><reference value="Patient/example"></reference></subject>
-
+	<subject>
+		<reference value="Patient/example"/>
+	</subject>
 </DiagnosticRequest>

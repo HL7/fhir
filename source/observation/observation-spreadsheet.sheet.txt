@@ -342,7 +342,7 @@
   Short Name = Classification of  type of observation
   Definition = A code that classifies the general type of observation being made.
   Requirements = Used for filtering what observations are retreived and displayed.
-  Comments = There may be multiple axis of categoriization depending on the context or use case for retrieving or displaying the resource.  The level of granularity is defined by the category concepts in the value set.   More fine-grained filtering can be performed using the metadata and/or terminology hierarchy in Observation.code.
+  Comments = There may be multiple axis of categoriization depending on the context or use case for retrieving or displaying the resource.  The level of granularity is defined by the category concepts in the value set.
   RIM Mapping = .outboundRelationship[typeCode=\"COMP].target[classCode=\"LIST\", moodCode=\"EVN\"].code
   Committee Notes = #7879
   w5 = class

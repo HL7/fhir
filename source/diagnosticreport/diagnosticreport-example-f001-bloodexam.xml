@@ -1,28 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <DiagnosticReport xmlns="http://hl7.org/fhir">
-  <id value="f001"/>
-  <contained>
-<DiagnosticRequest>
-	<id value="req"/>
-	<extension url="http://example.org/bodysitecode">
-		<valueCodeableConcept>
-			<coding>
-				<system value="http://snomed.info/sct"/>
-				<code value="14975008"/>
-				<display value="Forearm structure"/>
-			</coding>
-		</valueCodeableConcept>
-	</extension>
+	<id value="f001"/>
+	<contained>
+		<DiagnosticRequest>
+			<id value="req"/>
+			<extension url="http://example.org/bodysitecode">
+				<valueCodeableConcept>
+					<coding>
+						<system value="http://snomed.info/sct"/>
+						<code value="14975008"/>
+						<display value="Forearm structure"/>
+					</coding>
+				</valueCodeableConcept>
+			</extension>
+			<identifier>
+				<system value="http://www.bmc.nl/zorgportal/identifiers/labresults"/>
+				<value value="L2381"/>
+			</identifier>
+			<status value="active"/>
+			<intent value="original-order"/>
+			<code>
+				<coding>
+					<system value="http://loinc.org"/>
+					<code value="58410-2"/>
+					<display value="Complete blood count (hemogram) panel - Blood by Automated count"/>
+				</coding>
+			</code>
+			<subject>
+				<reference value="Patient/f001"/>
+				<display value="P. van den Heuvel"/>
+			</subject>
+			<context>
+				<reference value="Encounter/f001"/>
+			</context>
+			<requester>
+				<reference value="Practitioner/f001"/>
+				<display value="E.van den Broek"/>
+			</requester>
+			<note>
+				<text value="patient almost fainted during procedure"/>
+			</note>
+		</DiagnosticRequest>
+	</contained>
 	<identifier>
-		<system value="http://www.bmc.nl/zorgportal/identifiers/labresults"/>
-		<value value="L2381"/>
+		<use value="official"/>
+		<system value="http://www.bmc.nl/zorgportal/identifiers/reports"/>
+		<value value="nr1239044"/>
 	</identifier>
-	<stage>
+	<status value="final"/>
+	<category>
 		<coding>
-			<system value="http://hl7.org/fhir/request-stage"/>
-			<code value="original-order"/>
+			<system value="http://snomed.info/sct"/>
+			<code value="252275004"/>
+			<display value="Haematology test"/>
 		</coding>
-	</stage>
+		<coding>
+			<system value="http://hl7.org/fhir/v2/0074"/>
+			<code value="HM"/>
+		</coding>
+	</category>
 	<code>
 		<coding>
 			<system value="http://loinc.org"/>
@@ -30,75 +66,35 @@
 			<display value="Complete blood count (hemogram) panel - Blood by Automated count"/>
 		</coding>
 	</code>
+	<!--  ISO 8601  -->
 	<subject>
 		<reference value="Patient/f001"/>
 		<display value="P. van den Heuvel"/>
 	</subject>
-	<context>
-		<reference value="Encounter/f001"/>
-	</context>
-	<requester>
-		<reference value="Practitioner/f001"/>
-		<display value="E.van den Broek"/>
-	</requester>
-	<note>
-		<text value="patient almost fainted during procedure"/>
-	</note>
-</DiagnosticRequest>
-  </contained>
-  <identifier>
-    <use value="official"/>
-    <system value="http://www.bmc.nl/zorgportal/identifiers/reports"/>
-    <value value="nr1239044"/>
-  </identifier>
-  <status value="final"/>
-  <category>
-    <coding>
-      <system value="http://snomed.info/sct"/>
-      <code value="252275004"/>
-      <display value="Haematology test"/>
-    </coding>
-    <coding>
-      <system value="http://hl7.org/fhir/v2/0074"/>
-      <code value="HM"/>
-    </coding>
-  </category>
-  <code>
-    <coding>
-      <system value="http://loinc.org"/>
-      <code value="58410-2"/>
-      <display value="Complete blood count (hemogram) panel - Blood by Automated count"/>
-    </coding>
-  </code>
-<!--  ISO 8601  -->
-  <subject>
-    <reference value="Patient/f001"/>
-    <display value="P. van den Heuvel"/>
-  </subject>
-  <effectiveDateTime value="2013-04-02"/>
-<!--  OID: 2.16.840.1.113883.4.642.1.7  -->
-  <issued value="2013-05-15T19:32:52+01:00"/>
-  <performer>
-    <reference value="Organization/f001"/>
-    <display value="Burgers University Medical Centre"/>
-  </performer>
-  <request>
-    <reference value="#req"/>
-  </request>
-  <result>
-    <reference value="Observation/f001"/>
-  </result>
-  <result>
-    <reference value="Observation/f002"/>
-  </result>
-  <result>
-    <reference value="Observation/f003"/>
-  </result>
-  <result>
-    <reference value="Observation/f004"/>
-  </result>
-  <result>
-    <reference value="Observation/f005"/>
-  </result>
-  <conclusion value="Core lab"/>
+	<effectiveDateTime value="2013-04-02"/>
+	<!--  OID: 2.16.840.1.113883.4.642.1.7  -->
+	<issued value="2013-05-15T19:32:52+01:00"/>
+	<performer>
+		<reference value="Organization/f001"/>
+		<display value="Burgers University Medical Centre"/>
+	</performer>
+	<request>
+		<reference value="#req"/>
+	</request>
+	<result>
+		<reference value="Observation/f001"/>
+	</result>
+	<result>
+		<reference value="Observation/f002"/>
+	</result>
+	<result>
+		<reference value="Observation/f003"/>
+	</result>
+	<result>
+		<reference value="Observation/f004"/>
+	</result>
+	<result>
+		<reference value="Observation/f005"/>
+	</result>
+	<conclusion value="Core lab"/>
 </DiagnosticReport>

@@ -21,12 +21,7 @@
 		</extension>
 	</extension>
 	<status value="active"/>
-	<stage>
-		<coding>
-			<system value="http://hl7.org/fhir/request-stage"/>
-			<code value="original-order"/>
-		</coding>
-	</stage>
+	<intent value="original-order"/>
 	<subject>
 		<reference value="Patient/example"/>
 	</subject>

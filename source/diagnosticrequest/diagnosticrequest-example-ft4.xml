@@ -2,12 +2,7 @@
 <DiagnosticRequest xmlns:xhtml="http://www.w3.org/1999/xhtml">
 	<id value="ft4"/>
 	<status value="active"/>
-	<stage>
-		<coding>
-			<system value="http://hl7.org/fhir/request-stage"/>
-			<code value="reflex-order"/>
-		</coding>
-	</stage>
+	<intent value="reflex-order"/>
 	<code>
 		<coding>
 			<system value="http://loinc.org"/>
