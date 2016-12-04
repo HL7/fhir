@@ -1,102 +1,99 @@
-<Composition
-    xmlns="http://hl7.org/fhir">
-    <id value="CCDA-on-FHIR-Progress-Note-Document-Example"/>
+<Composition xmlns="http://hl7.org/fhir">
+    <id value="CCDA-on-FHIR-Progress-Note-Document-Example" />
     <meta>
-        <versionId value="1"/>
-        <lastUpdated value="2016-06-15T08:16:14Z"/>
-        <profile value="http://hl7.org/fhir/ccda/StructureDefinition/CCDA_on_FHIR_Progress_Note"/>
+        <versionId value="1" />
+        <lastUpdated value="2016-06-15T08:16:14Z" />
+        <profile value="http://hl7.org/fhir/ccda/StructureDefinition/CCDA_on_FHIR_Progress_Note" />
     </meta>
     <text>
-        <status value="generated"/>
-        <div
-            xmlns="http://www.w3.org/1999/xhtml">
+        <status value="generated" />
+        <div xmlns="http://www.w3.org/1999/xhtml">
             <p>Progress Note document for Henry Jones</p>
             <p>Managed by Community Health and Hospitals</p>
         </div>
     </text>
     <extension url="http://hl7.org/fhir/ccda/StructureDefinition/ccda-data-enterer-extension">
-        <valueUri value="http://fhir3.healthintersections.com.au/open/Practitioner/2679baa7-5dac-4d22-81ae-daded84500"/>
+        <valueUri value="http://fhir3.healthintersections.com.au/open/Practitioner/2679baa7-5dac-4d22-81ae-daded84500" />
     </extension>
     <extension url="http://hl7.org/fhir/ccda/StructureDefinition/ccda-informant-extension">
-        <valueUri value="http://fhir3.healthintersections.com.au/open/Practitioner/2679baa7-5dac-4d22-81ae-daded84500"/>
+        <valueUri value="http://fhir3.healthintersections.com.au/open/Practitioner/2679baa7-5dac-4d22-81ae-daded84500" />
     </extension>
     <extension url="http://hl7.org/fhir/ccda/StructureDefinition/ccda-information-recipient-extension">
-        <valueUri value="http://fhir3.healthintersections.com.au/open/Practitioner/2679baa7-5dac-4d22-81ae-daded84500"/>
+        <valueUri value="http://fhir3.healthintersections.com.au/open/Practitioner/2679baa7-5dac-4d22-81ae-daded84500" />
     </extension>
     <!-- <extension url="http://hl7.org/fhir/ccda/StructureDefinition/ccda-participant-extension"><valueUri value="http://fhirtest.uhn.ca/baseDstu3/RelatedPerson/117466"/></extension>-->
     <extension url="http://hl7.org/fhir/ccda/StructureDefinition/ccda-performer-extension">
-        <valueUri value="http://fhir3.healthintersections.com.au/open/Practitioner/2679baa7-5dac-4d22-81ae-daded84500"/>
+        <valueUri value="http://fhir3.healthintersections.com.au/open/Practitioner/2679baa7-5dac-4d22-81ae-daded84500" />
     </extension>
     <extension url="http://hl7.org/fhir/ccda/StructureDefinition/ccda-authorization-extension">
-        <valueUri value="http://hl7.org/fhir/ccda/StructureDefinition/ccda-consent"/>
+        <valueUri value="http://hl7.org/fhir/ccda/StructureDefinition/ccda-consent" />
     </extension>
     <identifier>
-        <system value="http://hl7.org/fhir/ccda/StructureDefinition/CCDA_on_FHIR_Progress_Note"/>
-        <value value="1"/>
+        <system value="http://hl7.org/fhir/ccda/StructureDefinition/CCDA_on_FHIR_Progress_Note" />
+        <value value="1" />
     </identifier>
-    <date value="2016-03-22T09:10:14Z"/>
+    <date value="2016-03-22T09:10:14Z" />
     <type>
         <coding>
-            <system value="http://loinc.org"/>
-            <code value="11506-3"/>
-            <display value="Provider-unspecified Progress note"/>
+            <system value="http://loinc.org" />
+            <code value="11506-3" />
+            <display value="Provider-unspecified Progress note" />
         </coding>
     </type>
-    <title value="Progress Note"/>
-    <status value="preliminary"/>
-    <confidentiality value="N"/>
+    <title value="Progress Note" />
+    <status value="preliminary" />
+    <confidentiality value="N" />
     <!--  Patient Resource -->
     <subject>
-        <reference value="http://fhir3.healthintersections.com.au/open/Patient/c493f2f2-28d5-49ab-90e8-9e8be341f7"/>
-        <display value="Henry Jones"/>
+        <reference value="http://fhir3.healthintersections.com.au/open/Patient/c493f2f2-28d5-49ab-90e8-9e8be341f7" />
+        <display value="Henry Jones" />
     </subject>
     <!--  Practitioner Resource -->
     <author>
-        <reference value="http://fhir3.healthintersections.com.au/open/Practitioner/2679baa7-5dac-4d22-81ae-daded84500"/>
-        <display value="Adam Everyman, MD"/>
+        <reference value="http://fhir3.healthintersections.com.au/open/Practitioner/2679baa7-5dac-4d22-81ae-daded84500" />
+        <display value="Adam Everyman, MD" />
     </author>
     <attester>
-        <mode value="legal"/>
-        <time value="2012-01-04T09:10:14Z"/>
+        <mode value="legal" />
+        <time value="2012-01-04T09:10:14Z" />
         <party>
-            <reference value="http://fhir3.healthintersections.com.au/open/Practitioner/2679baa7-5dac-4d22-81ae-daded84500"/>
-            <display value="Adam Everyman, MD"/>
+            <reference value="http://fhir3.healthintersections.com.au/open/Practitioner/2679baa7-5dac-4d22-81ae-daded84500" />
+            <display value="Adam Everyman, MD" />
         </party>
     </attester>
     <!--  Organization Resource -->
     <custodian>
-        <reference value="http://fhir3.healthintersections.com.au/open/Organization/1213e1ae-afc2-4a7c-8ed3-43b7a4e3d7"/>
-        <display value="Community Health and Hospitals"/>
+        <reference value="http://fhir3.healthintersections.com.au/open/Organization/1213e1ae-afc2-4a7c-8ed3-43b7a4e3d7" />
+        <display value="Community Health and Hospitals" />
     </custodian>
     <event>
         <code>
             <coding>
-                <system value="http://hl7.org/fhir/v3/ActClass"/>
-                <code value="PCPR"/>
-                <display value="Care Provision"/>
+                <system value="http://hl7.org/fhir/v3/ActClass" />
+                <code value="PCPR" />
+                <display value="Care Provision" />
             </coding>
         </code>
         <period>
-            <start value="2015-11-18"/>
-            <end value="2015-12-12"/>
+            <start value="2015-11-18" />
+            <end value="2015-12-12" />
         </period>
     </event>
     <!--  Encounter Resource -->
     <!-- <encounter><reference value="http://fhirtest.uhn.ca/baseDstu3/Encounter/117630"/></encounter>-->
     <!--  Allergies and Intolerances Section Narrative -->
     <section>
-        <title value="Allergies and Intolerances Section"/>
+        <title value="Allergies and Intolerances Section" />
         <code>
             <coding>
-                <system value="http://loinc.org"/>
-                <code value="48765-2"/>
-                <display value="Allergies and adverse reactions"/>
+                <system value="http://loinc.org" />
+                <code value="48765-2" />
+                <display value="Allergies and adverse reactions" />
             </coding>
         </code>
         <text>
-            <status value="generated"/>
-            <div
-                xmlns="http://www.w3.org/1999/xhtml">
+            <status value="generated" />
+            <div xmlns="http://www.w3.org/1999/xhtml">
                 <table>
                     <tr>
                         <td>
@@ -125,12 +122,12 @@
                 </table>
             </div>
         </text>
-        <mode value="snapshot"/>
+        <mode value="snapshot" />
         <orderedBy>
             <coding>
-                <system value="http://hl7.org/fhir/list-order"/>
-                <code value="event-date"/>
-                <display value="Sorted by Event Date"/>
+                <system value="http://hl7.org/fhir/list-order" />
+                <code value="event-date" />
+                <display value="Sorted by Event Date" />
             </coding>
         </orderedBy>
         <!--  Allergies and Intolerances Section Resource -->
@@ -138,18 +135,17 @@
     </section>
     <!--  Assessment Section Narrative -->
     <section>
-        <title value=" Assessment Section"/>
+        <title value=" Assessment Section" />
         <code>
             <coding>
-                <system value="http://loinc.org"/>
-                <code value="51848-0"/>
-                <display value="Assessment (evaluation)"/>
+                <system value="http://loinc.org" />
+                <code value="51848-0" />
+                <display value="Assessment (evaluation)" />
             </coding>
         </code>
         <text>
-            <status value="generated"/>
-            <div
-                xmlns="http://www.w3.org/1999/xhtml">
+            <status value="generated" />
+            <div xmlns="http://www.w3.org/1999/xhtml">
                 <p>Obesity.</p>
                 <p>Uncontrolled brittle Type II diabetic.</p>
                 <p>Shortness of breath, mild wheezing.</p>
@@ -159,20 +155,18 @@
     </section>
     <!--  Assessment and Plan Section Narrative -->
     <section>
-        <title value="Assessment and Plan Section"/>
+        <title value="Assessment and Plan Section" />
         <code>
             <coding>
-                <system value="http://loinc.org"/>
-                <code value="51847-2"/>
-                <display value="Assessment (evaluation) and plan"/>
+                <system value="http://loinc.org" />
+                <code value="51847-2" />
+                <display value="Assessment (evaluation) and plan" />
             </coding>
         </code>
         <text>
-            <status value="generated"/>
-            <div
-                xmlns="http://www.w3.org/1999/xhtml">
-                <p>Recurrent GI bleed of unknown etiology; hypotension perhaps
-                    secondary to this but as likely secondary to polypharmacy</p>
+            <status value="generated" />
+            <div xmlns="http://www.w3.org/1999/xhtml">
+                <p>Recurrent GI bleed of unknown etiology; hypotension perhaps secondary to this but as likely secondary to polypharmacy</p>
                 <p>Acute on chronic anemia secondary to #1.</p>
                 <p>Azotemia, acute renal failure with volume loss secondary tom#1.</p>
                 <p>Hyperkalemia secondary to #3 and on ACE and K+ supplement.</p>
@@ -182,54 +176,51 @@
     </section>
     <!--  Chief Complaint Section Narrative -->
     <section>
-        <title value="Chief Complaint Section"/>
+        <title value="Chief Complaint Section" />
         <code>
             <coding>
-                <system value="http://loinc.org"/>
-                <code value="10154-3"/>
-                <display value="Chief complaint"/>
+                <system value="http://loinc.org" />
+                <code value="10154-3" />
+                <display value="Chief complaint" />
             </coding>
         </code>
         <text>
-            <status value="generated"/>
-            <div
-                xmlns="http://www.w3.org/1999/xhtml">
+            <status value="generated" />
+            <div xmlns="http://www.w3.org/1999/xhtml">
                 <p>Dark Stools</p>
             </div>
         </text>
     </section>
     <!--  Instructions Section Narrative -->
     <section>
-        <title value="Instructions Section"/>
+        <title value="Instructions Section" />
         <code>
             <coding>
-                <system value="http://loinc.org"/>
-                <code value="69730-0"/>
-                <display value=" Instructions"/>
+                <system value="http://loinc.org" />
+                <code value="69730-0" />
+                <display value=" Instructions" />
             </coding>
         </code>
         <text>
-            <status value="generated"/>
-            <div
-                xmlns="http://www.w3.org/1999/xhtml">
+            <status value="generated" />
+            <div xmlns="http://www.w3.org/1999/xhtml">
                 <p>Patient may have low grade fever, mild joint pain and injection area tenderness.</p>
             </div>
         </text>
     </section>
     <!--  Interventions Section Narrative -->
     <section>
-        <title value="Interventions Section"/>
+        <title value="Interventions Section" />
         <code>
             <coding>
-                <system value="http://loinc.org"/>
-                <code value="62387-6"/>
-                <display value="Interventions provided"/>
+                <system value="http://loinc.org" />
+                <code value="62387-6" />
+                <display value="Interventions provided" />
             </coding>
         </code>
         <text>
-            <status value="generated"/>
-            <div
-                xmlns="http://www.w3.org/1999/xhtml">
+            <status value="generated" />
+            <div xmlns="http://www.w3.org/1999/xhtml">
                 <table>
                     <tr>
                         <td>
@@ -263,18 +254,17 @@
     </section>
     <!--  Nutrition Section Narrative -->
     <section>
-        <title value=" Nutrition Section"/>
+        <title value=" Nutrition Section" />
         <code>
             <coding>
-                <system value="http://loinc.org"/>
-                <code value="61144-2"/>
-                <display value="Diet and nutrition"/>
+                <system value="http://loinc.org" />
+                <code value="61144-2" />
+                <display value="Diet and nutrition" />
             </coding>
         </code>
         <text>
-            <status value="generated"/>
-            <div
-                xmlns="http://www.w3.org/1999/xhtml">
+            <status value="generated" />
+            <div xmlns="http://www.w3.org/1999/xhtml">
                 <table>
                     <tr>
                         <td>
@@ -303,18 +293,17 @@
     </section>
     <!--  Physical Exam Section Narrative -->
     <section>
-        <title value="Physical Exam Section"/>
+        <title value="Physical Exam Section" />
         <code>
             <coding>
-                <system value="http://loinc.org"/>
-                <code value="29545-1"/>
-                <display value="Physical findings"/>
+                <system value="http://loinc.org" />
+                <code value="29545-1" />
+                <display value="Physical findings" />
             </coding>
         </code>
         <text>
-            <status value="generated"/>
-            <div
-                xmlns="http://www.w3.org/1999/xhtml">
+            <status value="generated" />
+            <div xmlns="http://www.w3.org/1999/xhtml">
                 <p>HEENT: All normal to examination.</p>
                 <p>&gt;HEART: RRR, no murmur.</p>
                 <p>THORAX &amp; LUNGS: Clear without rhonchi or wheeze.</p>
@@ -326,18 +315,17 @@
     </section>
     <!--  Objective Section Narrative -->
     <section>
-        <title value="Objective Section"/>
+        <title value="Objective Section" />
         <code>
             <coding>
-                <system value="http://loinc.org"/>
-                <code value="61149-1"/>
-                <display value="Objective"/>
+                <system value="http://loinc.org" />
+                <code value="61149-1" />
+                <display value="Objective" />
             </coding>
         </code>
         <text>
-            <status value="generated"/>
-            <div
-                xmlns="http://www.w3.org/1999/xhtml">
+            <status value="generated" />
+            <div xmlns="http://www.w3.org/1999/xhtml">
                 <p>Chest: clear to ausc. No rales, normal breath sounds</p>
                 <p>Heart: RR, PMI in normal location and no heave or evidence ofcardiomegaly,normal heart sounds, no murm or gallop</p>
             </div>
@@ -345,18 +333,17 @@
     </section>
     <!--  Subjective Section Narrative -->
     <section>
-        <title value="Subjective Section"/>
+        <title value="Subjective Section" />
         <code>
             <coding>
-                <system value="http://loinc.org"/>
-                <code value="61150-9"/>
-                <display value="Subjective"/>
+                <system value="http://loinc.org" />
+                <code value="61150-9" />
+                <display value="Subjective" />
             </coding>
         </code>
         <text>
-            <status value="generated"/>
-            <div
-                xmlns="http://www.w3.org/1999/xhtml">
+            <status value="generated" />
+            <div xmlns="http://www.w3.org/1999/xhtml">
                 <p>Complaints of rectal bleeding, fatigue and a change in bowel patterns.</p>
                 <p>Has several days of constipation alternating with diarrhea.</p>
             </div>
@@ -364,38 +351,35 @@
     </section>
     <!--  Review of Systems Section Narrative -->
     <section>
-        <title value="Review of Systems Section"/>
+        <title value="Review of Systems Section" />
         <code>
             <coding>
-                <system value="http://loinc.org"/>
-                <code value="10187-3"/>
-                <display value="Review of systems"/>
+                <system value="http://loinc.org" />
+                <code value="10187-3" />
+                <display value="Review of systems" />
             </coding>
         </code>
         <text>
-            <status value="generated"/>
-            <div
-                xmlns="http://www.w3.org/1999/xhtml">
-                <p>Patient denies recent history of fever or malaise. Positive for weakness and
-                    shortness of breath. Several episodes of abdominal tenderness. No recent headaches. 
-                    Positive for osteoarthritis in hips, knees and hands. </p>
+            <status value="generated" />
+            <div xmlns="http://www.w3.org/1999/xhtml">
+                <p>Patient denies recent history of fever or malaise. Positive for weakness and shortness of breath. Several episodes of abdominal
+                    tenderness. No recent headaches. Positive for osteoarthritis in hips, knees and hands. </p>
             </div>
         </text>
     </section>
     <!--  Medication Section Narrative -->
     <section>
-        <title value="Medication Section"/>
+        <title value="Medication Section" />
         <code>
             <coding>
-                <system value="http://loinc.org"/>
-                <code value="10160-0"/>
-                <display value="History of Medication Use"/>
+                <system value="http://loinc.org" />
+                <code value="10160-0" />
+                <display value="History of Medication Use" />
             </coding>
         </code>
         <text>
-            <status value="generated"/>
-            <div
-                xmlns="http://www.w3.org/1999/xhtml">
+            <status value="generated" />
+            <div xmlns="http://www.w3.org/1999/xhtml">
                 <table>
                     <tr>
                         <td>
@@ -430,23 +414,22 @@
         </text>
         <!--  Medication Section Resource -->
         <entry>
-            <reference value="http://fhir3.healthintersections.com.au/open/Medication/73bdc4a1-736c-4d79-8f42-620a19a367"/>
+            <reference value="http://fhir3.healthintersections.com.au/open/Medication/73bdc4a1-736c-4d79-8f42-620a19a367" />
         </entry>
     </section>
     <!--  Plan of Treatment Section Narrative -->
     <section>
-        <title value="Plan of Treatment Section"/>
+        <title value="Plan of Treatment Section" />
         <code>
             <coding>
-                <system value="http://loinc.org"/>
-                <code value="18776-5"/>
-                <display value="Plan of treatment"/>
+                <system value="http://loinc.org" />
+                <code value="18776-5" />
+                <display value="Plan of treatment" />
             </coding>
         </code>
         <text>
-            <status value="generated"/>
-            <div
-                xmlns="http://www.w3.org/1999/xhtml">
+            <status value="generated" />
+            <div xmlns="http://www.w3.org/1999/xhtml">
                 <table>
                     <tr>
                         <td>
@@ -475,18 +458,17 @@
     </section>
     <!--  Problem Section Narrative -->
     <section>
-        <title value="Problem Section"/>
+        <title value="Problem Section" />
         <code>
             <coding>
-                <system value="http://loinc.org"/>
-                <code value="11450-4"/>
-                <display value="Problem list"/>
+                <system value="http://loinc.org" />
+                <code value="11450-4" />
+                <display value="Problem list" />
             </coding>
         </code>
         <text>
-            <status value="generated"/>
-            <div
-                xmlns="http://www.w3.org/1999/xhtml">
+            <status value="generated" />
+            <div xmlns="http://www.w3.org/1999/xhtml">
                 <table>
                     <tr>
                         <td>
@@ -520,18 +502,17 @@
     </section>
     <!--  Results Section Narrative -->
     <section>
-        <title value="Results Section"/>
+        <title value="Results Section" />
         <code>
             <coding>
-                <system value="http://loinc.org"/>
-                <code value="30954-2"/>
-                <display value="Relevant diagnostic tests and laboratory data"/>
+                <system value="http://loinc.org" />
+                <code value="30954-2" />
+                <display value="Relevant diagnostic tests and laboratory data" />
             </coding>
         </code>
         <text>
-            <status value="generated"/>
-            <div
-                xmlns="http://www.w3.org/1999/xhtml">
+            <status value="generated" />
+            <div xmlns="http://www.w3.org/1999/xhtml">
                 <table>
                     <tr>
                         <td>
@@ -558,23 +539,22 @@
         </text>
         <!-- Results Section Observation Resource -->
         <entry>
-            <reference value="http://fhir3.healthintersections.com.au/open/Observation/dce96908-11fc-49e0-9d55-7442b0eff9"/>
+            <reference value="http://fhir3.healthintersections.com.au/open/Observation/dce96908-11fc-49e0-9d55-7442b0eff9" />
         </entry>
     </section>
     <!--  Vital Signs Section Narrative -->
     <section>
-        <title value="Vital Signs Section"/>
+        <title value="Vital Signs Section" />
         <code>
             <coding>
-                <system value="http://loinc.org"/>
-                <code value="8716-3"/>
-                <display value="Vital signs"/>
+                <system value="http://loinc.org" />
+                <code value="8716-3" />
+                <display value="Vital signs" />
             </coding>
         </code>
         <text>
-            <status value="generated"/>
-            <div
-                xmlns="http://www.w3.org/1999/xhtml">
+            <status value="generated" />
+            <div xmlns="http://www.w3.org/1999/xhtml">
                 <table>
                     <tr>
                         <td>
@@ -597,7 +577,7 @@
         </text>
         <!--  Vital Signs Section Observation Resource -->
         <entry>
-            <reference value="http://fhir3.healthintersections.com.au/open/Observation/bc96946f-c13f-4a7c-a396-92f8523763"/>
+            <reference value="http://fhir3.healthintersections.com.au/open/Observation/bc96946f-c13f-4a7c-a396-92f8523763" />
         </entry>
     </section>
 </Composition>
