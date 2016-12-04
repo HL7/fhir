@@ -4,7 +4,7 @@
     <meta>
         <versionId value="1"/>
         <lastUpdated value="2016-06-15T08:16:14Z"/>
-        <profile value="http://hl7.org/fhir/ccda/StructureDefinition/CCDA_on_FHIR_Continuity_of_Care_Document"/>
+        <profile value="http://hl7.org/fhir/ccda/StructureDefinition/CCDA-on-FHIR-Continuity-of-Care-Document"/>
     </meta>
     <text>
         <status value="generated"/>
@@ -37,7 +37,7 @@
     </extension>
     <!-- <extension url="http://hl7.org/fhir/ccda/StructureDefinition/CCDA-on-FHIR-Authorization"><valueReference><reference value="http://hl7.org/fhir/ccda/StructureDefinition/CCDA-on-FHIR-Consent"/></valueReference></extension>-->
     <identifier>
-        <system value="http://hl7.org/fhir/ccda/StructureDefinition/CCDA_on_FHIR_Continuity_of_Care_Document"/>
+        <system value="http://hl7.org/fhir/ccda/StructureDefinition/CCDA-on-FHIR-Continuity-of-Care-Document"/>
         <value value="1"/>
     </identifier>
     <date value="2016-02-14T09:10:14Z"/>
