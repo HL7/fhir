@@ -3,7 +3,8 @@
     <url value="http://hl7.org/fhir/ccda/ValueSet/2.16.840.1.113883.1.11.20.2.3" />
     <name value="ReferralDocumentType" />
     <status value="active" />
-    <description value="A referral note provides a consulting physician specified patient information about the patient referred. Specific URL Pending" />
+    <description
+        value="A referral note provides a consulting physician specified patient information about the patient referred. Specific URL Pending" />
     <compose>
         <include>
             <system value="urn:oid:2.16.840.1.113883.6.1" />
@@ -190,8 +191,8 @@
         </include>
     </compose>
     <expansion>
-        <identifier value="urn:uuid:4637a66c-2f80-4d0b-8599-5e267575c71c" />
-        <timestamp value="2016-11-23T03:03:26-05:00" />
+        <identifier value="urn:uuid:9001d67a-d12a-4384-a7ea-5803398f3019" />
+        <timestamp value="2016-12-03T17:27:13.8455709-05:00" />
         <contains>
             <system value="urn:oid:2.16.840.1.113883.6.1" />
             <code value="57133-1" />

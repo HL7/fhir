@@ -1,0 +1,9 @@
+<ValueSet xmlns="http://hl7.org/fhir">
+    <id value="v3-ConfidentialityClassification" />
+    <url value="http://hl7.org/fhir/ValueSet/v3-ConfidentialityClassification" />
+    <name value="v3-ConfidentialityClassification" />
+    <status value="draft" />
+    <description
+        value="Set of codes used to value Act.Confidentiality and Role.Confidentiality attribute in accordance with the definition for concept domain &quot;Confidentiality&quot;."
+     />
+</ValueSet>

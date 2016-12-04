@@ -78,8 +78,8 @@
         </include>
     </compose>
     <expansion>
-        <identifier value="urn:uuid:c787a09d-d48c-48a1-b7ba-e114e7f013e8" />
-        <timestamp value="2016-11-23T03:03:26-05:00" />
+        <identifier value="urn:uuid:7d51a8d0-52cc-428d-8c5a-80f8ef48b6ae" />
+        <timestamp value="2016-12-03T17:27:13.8767709-05:00" />
         <contains>
             <system value="urn:oid:2.16.840.1.113883.6.1" />
             <code value="28570-0" />

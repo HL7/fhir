@@ -3,7 +3,8 @@
     <url value="http://hl7.org/fhir/ccda/ValueSet/2.16.840.1.113883.11.20.9.59" />
     <name value="DIRSectionTypeCodes" />
     <status value="active" />
-    <description value="The Section Type codes used by DIR are all narrative document sections. The codes in this table are drawn from LOINC (http://www.loinc.org/) and DICOM (http://medical.nema.org/). The section/code should be selected from LOINC or DICOM for sections not listed in this table." />
+    <description
+        value="The Section Type codes used by DIR are all narrative document sections. The codes in this table are drawn from LOINC (http://www.loinc.org/) and DICOM (http://medical.nema.org/). The section/code should be selected from LOINC or DICOM for sections not listed in this table." />
     <compose>
         <include>
             <system value="urn:oid:1.2.840.10008.2.16.4" />
@@ -137,8 +138,8 @@
         </include>
     </compose>
     <expansion>
-        <identifier value="urn:uuid:9fb80f35-6af1-40e3-afbe-8bd373760746" />
-        <timestamp value="2016-11-23T03:03:27-05:00" />
+        <identifier value="urn:uuid:6a22653c-7256-4b4f-b027-fdb13da5a74d" />
+        <timestamp value="2016-12-03T17:27:14.5963709-05:00" />
         <contains>
             <system value="urn:oid:1.2.840.10008.2.16.4" />
             <code value="121181" />

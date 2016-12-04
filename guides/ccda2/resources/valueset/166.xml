@@ -118,8 +118,8 @@
         </include>
     </compose>
     <expansion>
-        <identifier value="urn:uuid:807802ba-4f79-448e-9d36-f65009c94c96" />
-        <timestamp value="2016-11-23T03:03:27-05:00" />
+        <identifier value="urn:uuid:50118dc5-e80b-416b-a465-e3cf5f507544" />
+        <timestamp value="2016-12-03T17:27:14.6617709-05:00" />
         <contains>
             <system value="urn:oid:2.16.840.1.113883.6.1" />
             <code value="11506-3" />

@@ -1,0 +1,75 @@
+<div class="row">
+    <div class="inner-wrapper">
+        <div class="col-9">
+            <p style="background-color: #ffdddd; border:1px solid maroon; padding: 5px;">This is a pre-release of a future version of CCDA on FHIR
+                (expected to be STU 1). There is no current official version.<br />For a full list of available versions, see the <a
+                    href="http://hl7.org/fhir/us/ccda/history.html">Directory of published versions <img style="text-align: baseline"
+                        src="external.png" /></a>.</p>
+            <a name="CCDA"> </a>
+            <h2>C-CDA on FHIR Implementation Guide (IG)</h2>
+            <h3>Summary</h3>
+            <p><a href="http://hl7.org/implement/standards/product_brief.cfm?product_id=408">C-CDA</a> is one of the most widely implemented
+                implementation guides for CDA and covers a significant scope of clinical care. Its target of the 'common/essential' elements of
+                healthcare is closely aligned with FHIR's focus on the '80%'. There is significant interest in industry and government in the ability
+                to interoperate between CDA and FHIR and C-CDA is a logical starting point. Implementers and regulators have both expressed an
+                interest in the ability to map between FHIR and C-CDA.</p>
+            <p>This Implementation Guide defines a series of FHIR profiles on the Composition resource to represent the various document types in
+                C-CDA. This release does not directly map every C-CDA template to FHIR profiles, rather tries to accomplish the C-CDA use case using
+                Composition resource profiles created under this project (the equivalent of Level 2 CDA documents), and linking to the profiles
+                created under the Data Access Framework (DAF) project for any coded entries that would normally be included in C-CDA sections. The
+                hope is that this results in a simpler, more streamlined standard that reuses existing work and focuses on the 80% that implementers
+                actually need in production systems (the hope is that DAF represents that 80% needed for coded entries).</p>
+            <p>The Composition profiles in this IG do not require coded data in any section. This is a departure from C-CDA, which requires coded data
+                for Problems, Results, Medications, etc. his departure is intentional, as the C-CDA requirement for one or more coded entries in these
+                sections resulted in some very complicated workarounds using nullFlavors to handle the fact that sometimes a patient is not on any
+                medications, or has no current problems. In general, FHIR takes the approach that if something is nullable, it should simply be
+                optional to ease the burden on implementers, thus C-CDA on FHIR does not require any coded entries, but rather uses the "required if
+                known" approach, meaning that if an implementer's system has data for a section that requires data under Meaningful Use, they need to
+                sent it, but if they have no data there is no need for a null entry. </p>
+            <p>We encourage feedback on these Composition profiles, and the general approach to the project as a whole. We also encourage implementers
+                who wish to see more of the coded data from C-CDA mapped to FHIR to comment on the DAF project and make their requests known there.
+                Once DAF creates new profiles, this project can reference them.</p>
+            <h3>Scope</h3>
+            <p>To represent Consolidated CDA Templates for Clinical Notes (C-CDA) 2.1 templates using FHIR profiles.<br /> This first stage of the
+                project defines all the C-CDA document-level profiles on the Composition resource and contained sections.<br /><br /> Any coded data
+                used by sections will be accomplished by referencing relevant U.S. Data Access Framework (DAF) FHIR profiles. </p>
+
+            <h3>References</h3>
+            <table class="codes">
+                <tbody>
+                    <tr>
+                        <td>
+                            <b>Name</b>
+                        </td>
+                        <td>
+                            <b>Definition</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="http://hl7.org/implement/standards/product_brief.cfm?product_id=379">HL7 Implementation Guide for CDA Release 2:
+                                Consolidated CDA Templates for Clinical Notes</a>
+                        </td>
+                        <td>The Consolidated CDA (C-CDA) implementation guide contains a library of CDA templates, incorporating and harmonizing
+                            previous efforts from Health Level Seven (HL7), Integrating the Healthcare Enterprise (IHE), and Health Information
+                            Technology Standards Panel (HITSP). It represents harmonization of the HL7 Health Story guides, HITSP C32, related
+                            components of IHE Patient Care Coordination (IHE PCC), and Continuity of Care (CCD). C-CDA Release 1 included all required
+                            CDA templates in Final Rules for Stage 1 Meaningful Use and 45 CFR Part 170 â€“ Health Information Technology: Initial Set
+                            of Standards, Implementation Specifications, and Certification Criteria for Electronic Health Record Technology; Final
+                            Rule.</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="http://hl7.org/fhir/us/daf/2016Sep/index.html">U.S. Data Access Framework (DAF) FHIR Implementation Guide
+                                (IG)</a>
+                        </td>
+                        <td>A U.S. Realm guide for making use of FHIR resources to support queries between systems within an enterprise and across
+                            enterprises</td>
+                    </tr>
+                </tbody>
+            </table>
+
+
+        </div>
+    </div>
+</div>
