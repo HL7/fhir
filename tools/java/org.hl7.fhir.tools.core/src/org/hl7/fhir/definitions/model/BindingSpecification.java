@@ -425,7 +425,7 @@ public class BindingSpecification {
     code.setDefinition(c.getDefinition());
     code.setParent(parent);
     code.setSystem(system);
-    code.setAbstract(CodeSystemUtilities.isAbstract(cs, c));
+    code.setAbstract(CodeSystemUtilities.isNotSelectable(cs, c));
     allCodes.add(code);
     for (ConceptDefinitionComponent cc : c.getConcept())
       processCode(cs, cc, system, c.getCode());

@@ -967,7 +967,7 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
           gson.name("definition");
           gson.beginObject();
           gson.name("abstract");
-          gson.value(CodeSystemUtilities.isAbstract(null, vr.asConceptDefinition()));
+          gson.value(CodeSystemUtilities.isNotSelectable(null, vr.asConceptDefinition()));
           gson.name("code");
           gson.value(vr.asConceptDefinition().getCode());
           gson.name("definition");

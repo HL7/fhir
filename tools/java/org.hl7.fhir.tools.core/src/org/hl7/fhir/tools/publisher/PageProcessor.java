@@ -6287,11 +6287,13 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       else if (com[0].equals("wg")) { 
         String wg = pack.getWg();
         src = s1+(wg == null || !definitions.getWorkgroups().containsKey(wg) ?  "(No assigned work group)" : "<a _target=\"blank\" href=\""+definitions.getWorkgroups().get(wg).getUrl()+"\">"+definitions.getWorkgroups().get(wg).getName()+"</a> Work Group")+s3;
-      } else if (com[0].equals("fmm-style")) 
-        src = s1+("0".equals(pack.getFmmLevel()) ? "colsd" : "cols")+s3;
-      else if (com[0].equals("fmm")) 
-        src = s1+getFmmFromlevel(genlevel(level), pack.getFmmLevel())+s3;
-      else if (com[0].equals("profile-context")) 
+      } else if (com[0].equals("fmm-style")) {
+        String fmm = pack.getFmmLevel();
+        src = s1+(fmm == null || "0".equals(fmm) ? "colsd" : "cols")+s3;
+      } else if (com[0].equals("fmm")) {
+        String fmm = pack.getFmmLevel();
+        src = s1+getFmmFromlevel(genlevel(level), fmm)+s3;
+      } else if (com[0].equals("profile-context")) 
         src = s1+getProfileContext(pack.getCandidateResource(), genlevel(level))+s3;
       else if (com[0].equals("resurl")) {
          if (Utilities.noString(pack.metadata("id")))
@@ -7812,7 +7814,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     return "&nbsp;<a href=\"resource.html#maturity\" style=\"color: maroon; hover: maroon; visited; maroon; opacity: 0.7\" title=\"Maturity Level\">"+rd.getFmmLevel()+"</a>";
   }
   private String getFmmFromlevel(String prefix, String level) throws Exception {
-    return "&nbsp;<a href=\""+prefix+"resource.html#maturity\" style=\"color: maroon; hover: maroon; visited; maroon; opacity: 0.7\" title=\"Maturity Level\">Maturity Level</a>: "+(level == null ? "0" : level);
+    return "&nbsp;<a href=\""+prefix+"resource.html#maturity\" style=\"color: maroon; hover: maroon; visited; maroon; opacity: 0.7\" title=\"Maturity Level\">Maturity Level</a>: "+(Utilities.noString(level) ? "0" : level);
   }
   
   private String getXcm(String param) {

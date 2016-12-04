@@ -25,9 +25,9 @@ public class CodeSystemUtilities {
     return false;
   }
 
-  public static boolean isAbstract(CodeSystem cs, ConceptDefinitionComponent def) {
+  public static boolean isNotSelectable(CodeSystem cs, ConceptDefinitionComponent def) {
     for (ConceptPropertyComponent p : def.getProperty()) {
-      if (p.getCode().equals("abstract") && p.hasValue() && p.getValue() instanceof BooleanType) 
+      if (p.getCode().equals("notSelectable") && p.hasValue() && p.getValue() instanceof BooleanType) 
         return ((BooleanType) p.getValue()).getValue();
     }
     return false;
@@ -40,7 +40,7 @@ public class CodeSystemUtilities {
 
   public static void setInactive(CodeSystem cs, ConceptDefinitionComponent concept) {
     defineInactiveProperty(cs);
-    concept.addProperty().setCode("notSelectable").setValue(new BooleanType(true));    
+    concept.addProperty().setCode("inactive").setValue(new BooleanType(true));    
   }
 
   public static void setDeprecated(CodeSystem cs, ConceptDefinitionComponent concept, DateTimeType date) {

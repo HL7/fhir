@@ -156,6 +156,8 @@ import com.github.rjeschke.txtmark.Processor;
 
 public class NarrativeGenerator implements INarrativeGenerator {
 
+  private static final String ABSTRACT_CODE_HINT = "This code is not selectable ('Abstract')";
+
   public interface IReferenceResolver {
 
     ResourceWithReference resolve(String url);
@@ -2894,15 +2896,21 @@ public class NarrativeGenerator implements INarrativeGenerator {
 
     td.addText(s);
     Resource e = context.fetchCodeSystem(c.getSystem());
-    if (e == null)
-      td.addText(c.getCode());
-    else {
+    if (e == null) {
+      if (c.getAbstract())
+        td.i().setAttribute("title", ABSTRACT_CODE_HINT).addText(c.getCode());
+      else
+        td.addText(c.getCode());
+    } else {
       String href = prefix+getCsRef(e);
       if (href.contains("#"))
         href = href + "-"+Utilities.nmtokenize(c.getCode());
       else
         href = href + "#"+e.getId()+"-"+Utilities.nmtokenize(c.getCode());
-      td.ah(href).addText(c.getCode());
+      if (c.getAbstract())
+        td.ah(href).setAttribute("title", ABSTRACT_CODE_HINT).i().addText(c.getCode());
+      else
+        td.ah(href).addText(c.getCode());
     }
     if (doSystem) {
       td = tr.td();

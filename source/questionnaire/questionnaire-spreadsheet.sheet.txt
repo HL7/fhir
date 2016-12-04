@@ -440,7 +440,7 @@
   Inv. = 11
   Type = code
   Binding = QuestionnaireItemType
-  Short Name = group | display | question | boolean | decimal | integer | date | dateTime +
+  Short Name = group | display | boolean | decimal | integer | date | dateTime +
   Definition = Identifies the type of questionnaire item this is - whether text for display, a grouping of other items or a particular type of data to be captured (string, integer, coded choice, etc.)
   Requirements = Defines the format in which the user is to be prompted for the answer
   Comments = Additional constraints on the type of answer can be conveyed by extensions. Value may come from the ElementDefinition referred to by .definition

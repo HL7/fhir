@@ -13123,7 +13123,7 @@ public org.hl7.fhir.dstu2.model.ValueSet.ConceptDefinitionComponent convertCodeS
       return null;
     org.hl7.fhir.dstu2.model.ValueSet.ConceptDefinitionComponent tgt = new org.hl7.fhir.dstu2.model.ValueSet.ConceptDefinitionComponent();
     copyElement(src, tgt);
-    tgt.setAbstract(CodeSystemUtilities.isAbstract(cs, src));
+    tgt.setAbstract(CodeSystemUtilities.isNotSelectable(cs, src));
     tgt.setCode(src.getCode());
     tgt.setDefinition(src.getDefinition());
     tgt.setDisplay(src.getDisplay());
@@ -13237,7 +13237,7 @@ public org.hl7.fhir.dstu2.model.ValueSet.ConceptDefinitionDesignationComponent c
     ct.setCode(cs.getCode());
     ct.setDisplay(cs.getDisplay());
     ct.setDefinition(cs.getDefinition());
-    if (CodeSystemUtilities.isAbstract(srcCS, cs))
+    if (CodeSystemUtilities.isNotSelectable(srcCS, cs))
       ct.setAbstract(true);
     for (org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionDesignationComponent csd : cs.getDesignation()) {
       org.hl7.fhir.dstu2.model.ValueSet.ConceptDefinitionDesignationComponent cst = new org.hl7.fhir.dstu2.model.ValueSet.ConceptDefinitionDesignationComponent();

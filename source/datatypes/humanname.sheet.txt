@@ -62,10 +62,11 @@
  -- Row 7 -----------------------------------
   Id = 7
   Code = maiden
-  Display = Maiden
-  Definition = A name used prior to marriage. Marriage naming customs vary greatly around the world. This name use is for use by applications that collect and store \"maiden\" names. Though the concept of maiden name is often gender specific, the use of this term is not gender specific. The use of this term does not imply any particular history for a person\'s name, nor should the maiden name be determined algorithmically.
+  Display = Name changed for Marriage
+  Definition = A name used prior to changing name because of marriage. This name use is for use by applications that collect and store names that were used prior to a marriage. Marriage naming customs vary greatly around the world, and are constantly changing. This term is not gender specific. The use of this term does not imply any particular history for a person\'s name
   v2 = ~0200.M
   v3 = =EntityNameUseR2.M
+  Parent = old
 
 === Sheet Invariants =====================================
 

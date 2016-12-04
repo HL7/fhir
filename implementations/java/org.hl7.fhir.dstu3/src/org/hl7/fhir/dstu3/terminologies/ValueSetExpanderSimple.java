@@ -163,7 +163,7 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
   private void addCodeAndDescendents(CodeSystem cs, String system, ConceptDefinitionComponent def, ValueSetExpansionContainsComponent parent, ExpansionProfile profile, List<ValueSet> filters) throws FHIRException {
 		if (!CodeSystemUtilities.isDeprecated(cs, def)) {
 		  ValueSetExpansionContainsComponent np = null;
-      boolean abs = CodeSystemUtilities.isAbstract(cs, def);
+      boolean abs = CodeSystemUtilities.isNotSelectable(cs, def);
       boolean inc = CodeSystemUtilities.isInactive(cs, def);      
       if (canBeHeirarchy || !abs)
         np = addCode(system, def.getCode(), def.getDisplay(), parent, def.getDesignation(), profile, abs, inc, filters);
@@ -428,7 +428,7 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
           if (def != null) {
             if (isNotBlank(def.getDisplay()) && isNotBlank(fc.getValue())) {
               if (def.getDisplay().contains(fc.getValue())) {
-                addCode(inc.getSystem(), def.getCode(), def.getDisplay(), null, def.getDesignation(), profile, CodeSystemUtilities.isAbstract(cs,  def), CodeSystemUtilities.isInactive(cs, def), imports);
+                addCode(inc.getSystem(), def.getCode(), def.getDisplay(), null, def.getDesignation(), profile, CodeSystemUtilities.isNotSelectable(cs,  def), CodeSystemUtilities.isInactive(cs, def), imports);
               }
             }
           }
