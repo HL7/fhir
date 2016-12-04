@@ -6,7 +6,7 @@
     <description value="A value set of LOINC document codes for Procedure Notes.&#xD;&#xA;&#xD;&#xA;Specific URL Pending" />
     <compose>
         <include>
-            <system value="urn:oid:2.16.840.1.113883.6.1" />
+            <system value="http://loinc.org" />
             <concept>
                 <code value="28570-0" />
                 <display value="Provider-unspecified Procedure note" />
@@ -81,87 +81,87 @@
         <identifier value="urn:uuid:7d51a8d0-52cc-428d-8c5a-80f8ef48b6ae" />
         <timestamp value="2016-12-03T17:27:13.8767709-05:00" />
         <contains>
-            <system value="urn:oid:2.16.840.1.113883.6.1" />
+            <system value="http://loinc.org" />
             <code value="28570-0" />
             <display value="Provider-unspecified Procedure note" />
         </contains>
         <contains>
-            <system value="urn:oid:2.16.840.1.113883.6.1" />
+            <system value="http://loinc.org" />
             <code value="11505-5" />
             <display value="Physician procedure note" />
         </contains>
         <contains>
-            <system value="urn:oid:2.16.840.1.113883.6.1" />
+            <system value="http://loinc.org" />
             <code value="18744-3" />
             <display value="Bronchoscopy study" />
         </contains>
         <contains>
-            <system value="urn:oid:2.16.840.1.113883.6.1" />
+            <system value="http://loinc.org" />
             <code value="18745-0" />
             <display value="Cardiac catheterization study" />
         </contains>
         <contains>
-            <system value="urn:oid:2.16.840.1.113883.6.1" />
+            <system value="http://loinc.org" />
             <code value="18746-8" />
             <display value="Colonoscopy study" />
         </contains>
         <contains>
-            <system value="urn:oid:2.16.840.1.113883.6.1" />
+            <system value="http://loinc.org" />
             <code value="18751-8" />
             <display value="Endoscopy study" />
         </contains>
         <contains>
-            <system value="urn:oid:2.16.840.1.113883.6.1" />
+            <system value="http://loinc.org" />
             <code value="18753-4" />
             <display value="Flexible sigmoidoscopy study" />
         </contains>
         <contains>
-            <system value="urn:oid:2.16.840.1.113883.6.1" />
+            <system value="http://loinc.org" />
             <code value="18836-7" />
             <display value="Cardiac stress study Procedure" />
         </contains>
         <contains>
-            <system value="urn:oid:2.16.840.1.113883.6.1" />
+            <system value="http://loinc.org" />
             <code value="28577-5" />
             <display value="Dentist procedure note" />
         </contains>
         <contains>
-            <system value="urn:oid:2.16.840.1.113883.6.1" />
+            <system value="http://loinc.org" />
             <code value="28625-2" />
             <display value="Podiatry procedure note" />
         </contains>
         <contains>
-            <system value="urn:oid:2.16.840.1.113883.6.1" />
+            <system value="http://loinc.org" />
             <code value="29757-2" />
             <display value="Colposcopy study" />
         </contains>
         <contains>
-            <system value="urn:oid:2.16.840.1.113883.6.1" />
+            <system value="http://loinc.org" />
             <code value="33721-2" />
             <display value="Bone marrow Pathology biopsy report" />
         </contains>
         <contains>
-            <system value="urn:oid:2.16.840.1.113883.6.1" />
+            <system value="http://loinc.org" />
             <code value="34121-4" />
             <display value="Interventional procedure note" />
         </contains>
         <contains>
-            <system value="urn:oid:2.16.840.1.113883.6.1" />
+            <system value="http://loinc.org" />
             <code value="34896-1" />
             <display value="Cardiovascular disease Interventional procedure note" />
         </contains>
         <contains>
-            <system value="urn:oid:2.16.840.1.113883.6.1" />
+            <system value="http://loinc.org" />
             <code value="34899-5" />
             <display value="Gastroenterology Interventional procedure note" />
         </contains>
         <contains>
-            <system value="urn:oid:2.16.840.1.113883.6.1" />
+            <system value="http://loinc.org" />
             <code value="47048-4" />
             <display value="Diagnostic interventional study report Interventional radiology" />
         </contains>
         <contains>
-            <system value="urn:oid:2.16.840.1.113883.6.1" />
+            <system value="http://loinc.org" />
             <code value="48807-2" />
             <display value="Bone marrow aspiration report" />
         </contains>

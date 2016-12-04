@@ -6,7 +6,7 @@
     <description value="A value set of LOINC document codes for discharge summaries.&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;Specific URL Pending" />
     <compose>
         <include>
-            <system value="urn:oid:2.16.840.1.113883.6.1" />
+            <system value="http://loinc.org" />
             <concept>
                 <code value="18842-5" />
                 <display value="Discharge summary" />
@@ -41,37 +41,37 @@
         <identifier value="urn:uuid:040f5f26-4b01-4461-9595-49dc3a8ce633" />
         <timestamp value="2016-12-03T17:27:13.7831709-05:00" />
         <contains>
-            <system value="urn:oid:2.16.840.1.113883.6.1" />
+            <system value="http://loinc.org" />
             <code value="18842-5" />
             <display value="Discharge summary" />
         </contains>
         <contains>
-            <system value="urn:oid:2.16.840.1.113883.6.1" />
+            <system value="http://loinc.org" />
             <code value="11490-0" />
             <display value="Physician Discharge summary" />
         </contains>
         <contains>
-            <system value="urn:oid:2.16.840.1.113883.6.1" />
+            <system value="http://loinc.org" />
             <code value="28655-9" />
             <display value="Physician attending Discharge summary" />
         </contains>
         <contains>
-            <system value="urn:oid:2.16.840.1.113883.6.1" />
+            <system value="http://loinc.org" />
             <code value="29761-4" />
             <display value="Dentist Discharge summary" />
         </contains>
         <contains>
-            <system value="urn:oid:2.16.840.1.113883.6.1" />
+            <system value="http://loinc.org" />
             <code value="34745-0" />
             <display value="Nurse Discharge summary" />
         </contains>
         <contains>
-            <system value="urn:oid:2.16.840.1.113883.6.1" />
+            <system value="http://loinc.org" />
             <code value="34105-7" />
             <display value="Hospital Discharge summary" />
         </contains>
         <contains>
-            <system value="urn:oid:2.16.840.1.113883.6.1" />
+            <system value="http://loinc.org" />
             <code value="34106-5" />
             <display value="Physician Hospital Discharge summary" />
         </contains>
