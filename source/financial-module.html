@@ -202,7 +202,7 @@ For more general considerations, see <a href="secpriv-module.html">the Security 
  <tr><td>Provider requests the payment details associated with a bulk payment</td><td>SEARCH or <a href="processrequest.html">ProcessRequest</a> {action=poll}</td></tr>
  <tr><td>Insurer responds with a Payment Reconciliation</td><td><a href="paymentreconciliation.html">PaymentReconciliation</a></td></tr>
  <tr><td>Insurer notifies provider that payment has been issued</td><td><a href="paymentnotice.html">PaymentNotice</a></td></tr>
- <tr><td>Insurer notifies parties that payment has been received</td><td><a href="paymentnotice.html">PaymentNotice</a></td></tr>
+ <tr><td>Insurer notifies parties that payment funds have been received</td><td><a href="paymentnotice.html">PaymentNotice</a></td></tr>
  </table>
  <p/>
  
@@ -212,6 +212,24 @@ For more general considerations, see <a href="secpriv-module.html">the Security 
 In addition to their primary use of conveying patient billing information to insurers for reimbursement either to the subscriber or the provider (assignment of benefit), many of the 
 financial resources, such as <a href="claim.html">Claim</a> and <a href="explanationofbenefit.html">ExplanationOfBenefit</a>, may be used to export data to other agencies to support reporting and analytics.
 </p>
+
+<a name="attachments"> </a>
+<h3>Attachments - Supporting Information</h3> 
+<p>
+There is often a need to provide supporting information, commonly referred to as <b>attachments</b>, to document the need for a service and/or to confirm that the good or service was actually authorized or rendered. 
+This information may be in many forms, including: scanned documents, PDFs, word processing files, XRays, images, CDAs and FHIR Resources. 
+</p>
+<p>
+Supporting information may be provided, as a reference or the actual material, to support the <a href="claim.html">Claim</a> (complete claim or Pre-Authorization) or <a href="explanationofbenefit.html">ExplanationOfBenefit</a> in a variety of manners:
+</p>
+<ul>
+<li><b>Included</b>: in the <i>{resource}</i>.information section;</li>
+<li><b>Unsolicited</b>: in a <a href="communication.html">Communication</a> which refers to the Claim or Explanation Of Benefit; or</li>
+<li><b>Solicited</b>: in a <a href="communication.html">Communication</a> in response to a <a href="communicationrequest.html">CommunicationRequest</a> from the insurer requesting more information; or</li>
+<li><b>Input</b>: in the input parameters of a FHIR operation or Task.input element if a <a href="task.html">Task</a> resource is used.</li>
+</ul>
+<p/>
+
 <a name="roadmap"> </a>
 <h3>Developmental Roadmap</h3>
 <p>
