@@ -351,7 +351,7 @@ public class ValueSetImporterV2 extends ValueSetImporterBase {
     vs.setName("v2 table " + id);
     vs.setPublisher("HL7, Inc");
     vs.setVersion(MAX_VER);
-    vs.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.OTHER, "http://hl7.org"));
+    vs.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.URL, "http://hl7.org"));
     vs.setStatus(PublicationStatus.ACTIVE);
     vs.setExperimental(true);
     vs.setDateElement(new DateTimeType(date)); 
@@ -488,7 +488,7 @@ public class ValueSetImporterV2 extends ValueSetImporterBase {
     vs.setName("v2 table " + id);
     vs.setPublisher("HL7, Inc");
     vs.setVersion(MAX_VER);
-    vs.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.OTHER, "http://hl7.org"));
+    vs.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.URL, "http://hl7.org"));
     vs.setStatus(PublicationStatus.ACTIVE);
     vs.setExperimental(true);
     vs.setDateElement(new DateTimeType(date)); 
@@ -647,7 +647,7 @@ public class ValueSetImporterV2 extends ValueSetImporterBase {
     vs.setUrl("http://hl7.org/fhir/ValueSet/"+vs.getId());
     vs.setName("v2 table " + id + ", Version " + version);
     vs.setPublisher("HL7, Inc");
-    vs.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.OTHER, "http://hl7.org"));
+    vs.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.URL, "http://hl7.org"));
     vs.setStatus(PublicationStatus.ACTIVE);
     vs.setExperimental(false);
     vs.setVersion(id);

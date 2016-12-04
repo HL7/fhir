@@ -11,7 +11,7 @@
 	<manufacturer value="Acme Devices, Inc"/>
 	<version value="10.23-23423"/>
 	<contact>
-		<system value="other"/>
+		<system value="url"/>
 		<value value="http://acme.com"/>
 	</contact>
 	<url value="http://acme.com/goodhealth/ehr/"/>

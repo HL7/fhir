@@ -23,7 +23,7 @@
   <contact>
     <name value="HL7 Australia FHIR Team"/>
     <telecom>
-      <system value="other"/>
+      <system value="url"/>
       <value value="http://hl7-australia.wikispaces.com/FHIR+Australia"/>
     </telecom>
   </contact> 

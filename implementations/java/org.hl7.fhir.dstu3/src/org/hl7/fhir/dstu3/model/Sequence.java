@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Dec 2, 2016 10:28+1100 for FHIR v1.7.0
+// Generated on Mon, Dec 5, 2016 07:11+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -4008,70 +4008,58 @@ public class Sequence extends DomainResource {
     protected Organization performerTarget;
 
     /**
-     * The reference pointer to the entity and the event realted with the creation of the resource.
-     */
-    @Child(name = "provenance", type = {Provenance.class}, order=7, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="The provenance of this resource", formalDefinition="The reference pointer to the entity and the event realted with the creation of the resource." )
-    protected Reference provenance;
-
-    /**
-     * The actual object that is the target of the reference (The reference pointer to the entity and the event realted with the creation of the resource.)
-     */
-    protected Provenance provenanceTarget;
-
-    /**
      * The number of copies of the seqeunce of interest. (RNASeq).
      */
-    @Child(name = "quantity", type = {Quantity.class}, order=8, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "quantity", type = {Quantity.class}, order=7, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="The number of copies of the seqeunce of interest.  (RNASeq)", formalDefinition="The number of copies of the seqeunce of interest. (RNASeq)." )
     protected Quantity quantity;
 
     /**
      * A sequence that is used as a reference to describe variants that are present in a sequence analyzed.
      */
-    @Child(name = "referenceSeq", type = {}, order=9, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "referenceSeq", type = {}, order=8, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Reference sequence", formalDefinition="A sequence that is used as a reference to describe variants that are present in a sequence analyzed." )
     protected SequenceReferenceSeqComponent referenceSeq;
 
     /**
      * The definition of variant here originates from Sequence ontology ([variant_of](http://www.sequenceontology.org/browser/current_svn/term/variant_of)). This element can represent amino acid or nucleic sequence change(including insertion,deletion,SNP,etc.)  It can represent some complex mutation or segment variation with the assist of CIGAR string.
      */
-    @Child(name = "variant", type = {}, order=10, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "variant", type = {}, order=9, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Sequence variant", formalDefinition="The definition of variant here originates from Sequence ontology ([variant_of](http://www.sequenceontology.org/browser/current_svn/term/variant_of)). This element can represent amino acid or nucleic sequence change(including insertion,deletion,SNP,etc.)  It can represent some complex mutation or segment variation with the assist of CIGAR string." )
     protected List<SequenceVariantComponent> variant;
 
     /**
      * Sequence that was observed. It is the result marked by referenceSeq along with variant records on referenceSeq. This shall starts from referenceSeq.windowStart and end by referenceSeq.windowEnd.
      */
-    @Child(name = "observedSeq", type = {StringType.class}, order=11, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "observedSeq", type = {StringType.class}, order=10, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Observed sequence", formalDefinition="Sequence that was observed. It is the result marked by referenceSeq along with variant records on referenceSeq. This shall starts from referenceSeq.windowStart and end by referenceSeq.windowEnd." )
     protected StringType observedSeq;
 
     /**
      * An experimental feature attribute that defines the quality of the feature in a quantitative way, such as a phred quality score ([SO:0001686](http://www.sequenceontology.org/browser/current_svn/term/SO:0001686)).
      */
-    @Child(name = "quality", type = {}, order=12, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "quality", type = {}, order=11, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Sequence quality", formalDefinition="An experimental feature attribute that defines the quality of the feature in a quantitative way, such as a phred quality score ([SO:0001686](http://www.sequenceontology.org/browser/current_svn/term/SO:0001686))." )
     protected List<SequenceQualityComponent> quality;
 
     /**
      * Coverage (read depth or depth) is the average number of reads representing a given nucleotide in the reconstructed sequence.
      */
-    @Child(name = "readCoverage", type = {IntegerType.class}, order=13, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "readCoverage", type = {IntegerType.class}, order=12, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Average number of reads representing a given nucleotide in the reconstructed sequence", formalDefinition="Coverage (read depth or depth) is the average number of reads representing a given nucleotide in the reconstructed sequence." )
     protected IntegerType readCoverage;
 
     /**
      * Configurations of the external repository. The repository shall store target's observedSeq or records related with target's observedSeq.
      */
-    @Child(name = "repository", type = {}, order=14, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "repository", type = {}, order=13, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="External repository which contains detailed report related with observedSeq in this resource", formalDefinition="Configurations of the external repository. The repository shall store target's observedSeq or records related with target's observedSeq." )
     protected List<SequenceRepositoryComponent> repository;
 
     /**
      * Pointer to next atomic sequence which at most contains one variant.
      */
-    @Child(name = "pointer", type = {Sequence.class}, order=15, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "pointer", type = {Sequence.class}, order=14, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Pointer to next atomic sequence", formalDefinition="Pointer to next atomic sequence which at most contains one variant." )
     protected List<Reference> pointer;
     /**
@@ -4083,11 +4071,11 @@ public class Sequence extends DomainResource {
     /**
      * Structural variant.
      */
-    @Child(name = "structureVariant", type = {}, order=16, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "structureVariant", type = {}, order=15, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Structural variant", formalDefinition="Structural variant." )
     protected List<SequenceStructureVariantComponent> structureVariant;
 
-    private static final long serialVersionUID = 1548845265L;
+    private static final long serialVersionUID = 2091706446L;
 
   /**
    * Constructor
@@ -4424,50 +4412,6 @@ public class Sequence extends DomainResource {
      */
     public Sequence setPerformerTarget(Organization value) { 
       this.performerTarget = value;
-      return this;
-    }
-
-    /**
-     * @return {@link #provenance} (The reference pointer to the entity and the event realted with the creation of the resource.)
-     */
-    public Reference getProvenance() { 
-      if (this.provenance == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create Sequence.provenance");
-        else if (Configuration.doAutoCreate())
-          this.provenance = new Reference(); // cc
-      return this.provenance;
-    }
-
-    public boolean hasProvenance() { 
-      return this.provenance != null && !this.provenance.isEmpty();
-    }
-
-    /**
-     * @param value {@link #provenance} (The reference pointer to the entity and the event realted with the creation of the resource.)
-     */
-    public Sequence setProvenance(Reference value) { 
-      this.provenance = value;
-      return this;
-    }
-
-    /**
-     * @return {@link #provenance} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The reference pointer to the entity and the event realted with the creation of the resource.)
-     */
-    public Provenance getProvenanceTarget() { 
-      if (this.provenanceTarget == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create Sequence.provenance");
-        else if (Configuration.doAutoCreate())
-          this.provenanceTarget = new Provenance(); // aa
-      return this.provenanceTarget;
-    }
-
-    /**
-     * @param value {@link #provenance} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The reference pointer to the entity and the event realted with the creation of the resource.)
-     */
-    public Sequence setProvenanceTarget(Provenance value) { 
-      this.provenanceTarget = value;
       return this;
     }
 
@@ -4909,7 +4853,6 @@ public class Sequence extends DomainResource {
         childrenList.add(new Property("specimen", "Reference(Specimen)", "Specimen used for sequencing.", 0, java.lang.Integer.MAX_VALUE, specimen));
         childrenList.add(new Property("device", "Reference(Device)", "The method for sequencing, for example, chip information.", 0, java.lang.Integer.MAX_VALUE, device));
         childrenList.add(new Property("performer", "Reference(Organization)", "The organization or lab that should be responsible for this result.", 0, java.lang.Integer.MAX_VALUE, performer));
-        childrenList.add(new Property("provenance", "Reference(Provenance)", "The reference pointer to the entity and the event realted with the creation of the resource.", 0, java.lang.Integer.MAX_VALUE, provenance));
         childrenList.add(new Property("quantity", "Quantity", "The number of copies of the seqeunce of interest. (RNASeq).", 0, java.lang.Integer.MAX_VALUE, quantity));
         childrenList.add(new Property("referenceSeq", "", "A sequence that is used as a reference to describe variants that are present in a sequence analyzed.", 0, java.lang.Integer.MAX_VALUE, referenceSeq));
         childrenList.add(new Property("variant", "", "The definition of variant here originates from Sequence ontology ([variant_of](http://www.sequenceontology.org/browser/current_svn/term/variant_of)). This element can represent amino acid or nucleic sequence change(including insertion,deletion,SNP,etc.)  It can represent some complex mutation or segment variation with the assist of CIGAR string.", 0, java.lang.Integer.MAX_VALUE, variant));
@@ -4931,7 +4874,6 @@ public class Sequence extends DomainResource {
         case -2132868344: /*specimen*/ return this.specimen == null ? new Base[0] : new Base[] {this.specimen}; // Reference
         case -1335157162: /*device*/ return this.device == null ? new Base[0] : new Base[] {this.device}; // Reference
         case 481140686: /*performer*/ return this.performer == null ? new Base[0] : new Base[] {this.performer}; // Reference
-        case 99746337: /*provenance*/ return this.provenance == null ? new Base[0] : new Base[] {this.provenance}; // Reference
         case -1285004149: /*quantity*/ return this.quantity == null ? new Base[0] : new Base[] {this.quantity}; // Quantity
         case -502547180: /*referenceSeq*/ return this.referenceSeq == null ? new Base[0] : new Base[] {this.referenceSeq}; // SequenceReferenceSeqComponent
         case 236785797: /*variant*/ return this.variant == null ? new Base[0] : this.variant.toArray(new Base[this.variant.size()]); // SequenceVariantComponent
@@ -4969,9 +4911,6 @@ public class Sequence extends DomainResource {
           break;
         case 481140686: // performer
           this.performer = castToReference(value); // Reference
-          break;
-        case 99746337: // provenance
-          this.provenance = castToReference(value); // Reference
           break;
         case -1285004149: // quantity
           this.quantity = castToQuantity(value); // Quantity
@@ -5021,8 +4960,6 @@ public class Sequence extends DomainResource {
           this.device = castToReference(value); // Reference
         else if (name.equals("performer"))
           this.performer = castToReference(value); // Reference
-        else if (name.equals("provenance"))
-          this.provenance = castToReference(value); // Reference
         else if (name.equals("quantity"))
           this.quantity = castToQuantity(value); // Quantity
         else if (name.equals("referenceSeq"))
@@ -5055,7 +4992,6 @@ public class Sequence extends DomainResource {
         case -2132868344:  return getSpecimen(); // Reference
         case -1335157162:  return getDevice(); // Reference
         case 481140686:  return getPerformer(); // Reference
-        case 99746337:  return getProvenance(); // Reference
         case -1285004149:  return getQuantity(); // Quantity
         case -502547180:  return getReferenceSeq(); // SequenceReferenceSeqComponent
         case 236785797:  return addVariant(); // SequenceVariantComponent
@@ -5096,10 +5032,6 @@ public class Sequence extends DomainResource {
         else if (name.equals("performer")) {
           this.performer = new Reference();
           return this.performer;
-        }
-        else if (name.equals("provenance")) {
-          this.provenance = new Reference();
-          return this.provenance;
         }
         else if (name.equals("quantity")) {
           this.quantity = new Quantity();
@@ -5153,7 +5085,6 @@ public class Sequence extends DomainResource {
         dst.specimen = specimen == null ? null : specimen.copy();
         dst.device = device == null ? null : device.copy();
         dst.performer = performer == null ? null : performer.copy();
-        dst.provenance = provenance == null ? null : provenance.copy();
         dst.quantity = quantity == null ? null : quantity.copy();
         dst.referenceSeq = referenceSeq == null ? null : referenceSeq.copy();
         if (variant != null) {
@@ -5199,9 +5130,9 @@ public class Sequence extends DomainResource {
         Sequence o = (Sequence) other;
         return compareDeep(identifier, o.identifier, true) && compareDeep(type, o.type, true) && compareDeep(coordinateSystem, o.coordinateSystem, true)
            && compareDeep(patient, o.patient, true) && compareDeep(specimen, o.specimen, true) && compareDeep(device, o.device, true)
-           && compareDeep(performer, o.performer, true) && compareDeep(provenance, o.provenance, true) && compareDeep(quantity, o.quantity, true)
-           && compareDeep(referenceSeq, o.referenceSeq, true) && compareDeep(variant, o.variant, true) && compareDeep(observedSeq, o.observedSeq, true)
-           && compareDeep(quality, o.quality, true) && compareDeep(readCoverage, o.readCoverage, true) && compareDeep(repository, o.repository, true)
+           && compareDeep(performer, o.performer, true) && compareDeep(quantity, o.quantity, true) && compareDeep(referenceSeq, o.referenceSeq, true)
+           && compareDeep(variant, o.variant, true) && compareDeep(observedSeq, o.observedSeq, true) && compareDeep(quality, o.quality, true)
+           && compareDeep(readCoverage, o.readCoverage, true) && compareDeep(repository, o.repository, true)
            && compareDeep(pointer, o.pointer, true) && compareDeep(structureVariant, o.structureVariant, true)
           ;
       }
@@ -5220,8 +5151,8 @@ public class Sequence extends DomainResource {
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, type, coordinateSystem
-          , patient, specimen, device, performer, provenance, quantity, referenceSeq, variant
-          , observedSeq, quality, readCoverage, repository, pointer, structureVariant);
+          , patient, specimen, device, performer, quantity, referenceSeq, variant, observedSeq
+          , quality, readCoverage, repository, pointer, structureVariant);
       }
 
   @Override
@@ -5252,17 +5183,17 @@ public class Sequence extends DomainResource {
  /**
    * Search parameter: <b>coordinate</b>
    * <p>
-   * Description: <b>Search parameter for region of the reference sequence string. This will refer to part of a locus or part of a gene where search region will be represented in 1-based system. Since the coordinateSystem can either be 0-based or 1-based, this search query will include the result of both coordinateSystem that contains the equivalent segment of the gene or whole genome sequence. For example, a search for sequence can be represented as `coordinate=1$lt345$gt123`, this means it will search for the Sequence resource on chromosome 1 and with position >123 and <345, where in 1-based system resource, all strings within region 1:124-344 will be revealed, while in 0-based system resource, all strings within region 1:123-344 will be revealed. You may want to check detail about 0-based v.s. 1-based above.</b><br>
+   * Description: <b>Search parameter for region of the reference DNA sequence string. This will refer to part of a locus or part of a gene where search region will be represented in 1-based system. Since the coordinateSystem can either be 0-based or 1-based, this search query will include the result of both coordinateSystem that contains the equivalent segment of the gene or whole genome sequence. For example, a search for sequence can be represented as `coordinate=1$lt345$gt123`, this means it will search for the Sequence resource on chromosome 1 and with position >123 and <345, where in 1-based system resource, all strings within region 1:124-344 will be revealed, while in 0-based system resource, all strings within region 1:123-344 will be revealed. You may want to check detail about 0-based v.s. 1-based above.</b><br>
    * Type: <b>composite</b><br>
    * Path: <b></b><br>
    * </p>
    */
-  @SearchParamDefinition(name="coordinate", path="", description="Search parameter for region of the reference sequence string. This will refer to part of a locus or part of a gene where search region will be represented in 1-based system. Since the coordinateSystem can either be 0-based or 1-based, this search query will include the result of both coordinateSystem that contains the equivalent segment of the gene or whole genome sequence. For example, a search for sequence can be represented as `coordinate=1$lt345$gt123`, this means it will search for the Sequence resource on chromosome 1 and with position >123 and <345, where in 1-based system resource, all strings within region 1:124-344 will be revealed, while in 0-based system resource, all strings within region 1:123-344 will be revealed. You may want to check detail about 0-based v.s. 1-based above.", type="composite", compositeOf={"chromosome", "start"} )
+  @SearchParamDefinition(name="coordinate", path="Sequence.variant", description="Search parameter for region of the reference DNA sequence string. This will refer to part of a locus or part of a gene where search region will be represented in 1-based system. Since the coordinateSystem can either be 0-based or 1-based, this search query will include the result of both coordinateSystem that contains the equivalent segment of the gene or whole genome sequence. For example, a search for sequence can be represented as `coordinate=1$lt345$gt123`, this means it will search for the Sequence resource on chromosome 1 and with position >123 and <345, where in 1-based system resource, all strings within region 1:124-344 will be revealed, while in 0-based system resource, all strings within region 1:123-344 will be revealed. You may want to check detail about 0-based v.s. 1-based above.", type="composite", compositeOf={"chromosome", "start"} )
   public static final String SP_COORDINATE = "coordinate";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>coordinate</b>
    * <p>
-   * Description: <b>Search parameter for region of the reference sequence string. This will refer to part of a locus or part of a gene where search region will be represented in 1-based system. Since the coordinateSystem can either be 0-based or 1-based, this search query will include the result of both coordinateSystem that contains the equivalent segment of the gene or whole genome sequence. For example, a search for sequence can be represented as `coordinate=1$lt345$gt123`, this means it will search for the Sequence resource on chromosome 1 and with position >123 and <345, where in 1-based system resource, all strings within region 1:124-344 will be revealed, while in 0-based system resource, all strings within region 1:123-344 will be revealed. You may want to check detail about 0-based v.s. 1-based above.</b><br>
+   * Description: <b>Search parameter for region of the reference DNA sequence string. This will refer to part of a locus or part of a gene where search region will be represented in 1-based system. Since the coordinateSystem can either be 0-based or 1-based, this search query will include the result of both coordinateSystem that contains the equivalent segment of the gene or whole genome sequence. For example, a search for sequence can be represented as `coordinate=1$lt345$gt123`, this means it will search for the Sequence resource on chromosome 1 and with position >123 and <345, where in 1-based system resource, all strings within region 1:124-344 will be revealed, while in 0-based system resource, all strings within region 1:123-344 will be revealed. You may want to check detail about 0-based v.s. 1-based above.</b><br>
    * Type: <b>composite</b><br>
    * Path: <b></b><br>
    * </p>
@@ -5320,17 +5251,17 @@ public class Sequence extends DomainResource {
    * <p>
    * Description: <b>Start position (0-based inclusive, 1-based inclusive, that means the nucleic acid or amino acid at this position will be included) of the reference sequence.</b><br>
    * Type: <b>number</b><br>
-   * Path: <b>Sequence.variant.start</b><br>
+   * Path: <b>Sequence.referenceSeq.windowStart</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="start", path="Sequence.variant.start", description="Start position (0-based inclusive, 1-based inclusive, that means the nucleic acid or amino acid at this position will be included) of the reference sequence.", type="number" )
+  @SearchParamDefinition(name="start", path="Sequence.referenceSeq.windowStart", description="Start position (0-based inclusive, 1-based inclusive, that means the nucleic acid or amino acid at this position will be included) of the reference sequence.", type="number" )
   public static final String SP_START = "start";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>start</b>
    * <p>
    * Description: <b>Start position (0-based inclusive, 1-based inclusive, that means the nucleic acid or amino acid at this position will be included) of the reference sequence.</b><br>
    * Type: <b>number</b><br>
-   * Path: <b>Sequence.variant.start</b><br>
+   * Path: <b>Sequence.referenceSeq.windowStart</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.NumberClientParam START = new ca.uhn.fhir.rest.gclient.NumberClientParam(SP_START);
@@ -5340,17 +5271,17 @@ public class Sequence extends DomainResource {
    * <p>
    * Description: <b>End position (0-based exclusive, which menas the acid at this position will not be included, 1-based inclusive, which means the acid at this position will be included) of the reference sequence.</b><br>
    * Type: <b>number</b><br>
-   * Path: <b>Sequence.variant.end</b><br>
+   * Path: <b>Sequence.referenceSeq.windowEnd</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="end", path="Sequence.variant.end", description="End position (0-based exclusive, which menas the acid at this position will not be included, 1-based inclusive, which means the acid at this position will be included) of the reference sequence.", type="number" )
+  @SearchParamDefinition(name="end", path="Sequence.referenceSeq.windowEnd", description="End position (0-based exclusive, which menas the acid at this position will not be included, 1-based inclusive, which means the acid at this position will be included) of the reference sequence.", type="number" )
   public static final String SP_END = "end";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>end</b>
    * <p>
    * Description: <b>End position (0-based exclusive, which menas the acid at this position will not be included, 1-based inclusive, which means the acid at this position will be included) of the reference sequence.</b><br>
    * Type: <b>number</b><br>
-   * Path: <b>Sequence.variant.end</b><br>
+   * Path: <b>Sequence.referenceSeq.windowEnd</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.NumberClientParam END = new ca.uhn.fhir.rest.gclient.NumberClientParam(SP_END);
@@ -5358,17 +5289,17 @@ public class Sequence extends DomainResource {
  /**
    * Search parameter: <b>type</b>
    * <p>
-   * Description: <b>The type of the variant: Amino acid / cDNA transcript / RNA variant.</b><br>
+   * Description: <b>Amino Acid Sequence/ DNA Sequence / RNA Sequence</b><br>
    * Type: <b>token</b><br>
    * Path: <b>Sequence.type</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="type", path="Sequence.type", description="The type of the variant: Amino acid / cDNA transcript / RNA variant.", type="token" )
+  @SearchParamDefinition(name="type", path="Sequence.type", description="Amino Acid Sequence/ DNA Sequence / RNA Sequence", type="token" )
   public static final String SP_TYPE = "type";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>type</b>
    * <p>
-   * Description: <b>The type of the variant: Amino acid / cDNA transcript / RNA variant.</b><br>
+   * Description: <b>Amino Acid Sequence/ DNA Sequence / RNA Sequence</b><br>
    * Type: <b>token</b><br>
    * Path: <b>Sequence.type</b><br>
    * </p>

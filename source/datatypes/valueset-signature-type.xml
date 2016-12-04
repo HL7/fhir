@@ -9,7 +9,7 @@
   <publisher value="ASTM"/>
   <contact>
     <telecom>
-      <system value="other"/>
+      <system value="url"/>
       <value value="http://www.astm.org/"/>
     </telecom>
   </contact>

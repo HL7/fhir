@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Dec 2, 2016 10:28+1100 for FHIR v1.7.0
+// Generated on Mon, Dec 5, 2016 07:11+1100 for FHIR v1.7.0
 
 
 import org.hl7.fhir.instance.model.api.*;
@@ -2355,7 +2355,7 @@ public class Enumerations {
          */
         DOMAINRESOURCE, 
         /**
-         * This resource provides the insurance eligibility details from the insurer regarding a specified coverage and optionally some class of service.
+         * This resource provides the details  from the insurer to identify a specified coverage and optionally some class of service.
          */
         ELIGIBILITYREQUEST, 
         /**
@@ -3483,7 +3483,7 @@ public class Enumerations {
             case DOCUMENTMANIFEST: return "A manifest that defines a set of documents.";
             case DOCUMENTREFERENCE: return "A reference to a document .";
             case DOMAINRESOURCE: return "A resource that includes narrative, extensions, and contained resources.";
-            case ELIGIBILITYREQUEST: return "This resource provides the insurance eligibility details from the insurer regarding a specified coverage and optionally some class of service.";
+            case ELIGIBILITYREQUEST: return "This resource provides the details  from the insurer to identify a specified coverage and optionally some class of service.";
             case ELIGIBILITYRESPONSE: return "This resource provides eligibility and plan details from the processing of an Eligibility resource.";
             case ENCOUNTER: return "An interaction between a patient and healthcare provider(s) for the purpose of providing healthcare service(s) or assessing the health status of a patient.";
             case ENDPOINT: return "The technical details of an endpoint that can be used for electronic services, such as for web services providing XDS.b or a REST endpoint for another FHIR server. This may include any security context information.";
@@ -5178,7 +5178,7 @@ public class Enumerations {
          */
         DOMAINRESOURCE, 
         /**
-         * This resource provides the insurance eligibility details from the insurer regarding a specified coverage and optionally some class of service.
+         * This resource provides the details  from the insurer to identify a specified coverage and optionally some class of service.
          */
         ELIGIBILITYREQUEST, 
         /**
@@ -6290,7 +6290,7 @@ public class Enumerations {
             case DOCUMENTMANIFEST: return "A manifest that defines a set of documents.";
             case DOCUMENTREFERENCE: return "A reference to a document .";
             case DOMAINRESOURCE: return "A resource that includes narrative, extensions, and contained resources.";
-            case ELIGIBILITYREQUEST: return "This resource provides the insurance eligibility details from the insurer regarding a specified coverage and optionally some class of service.";
+            case ELIGIBILITYREQUEST: return "This resource provides the details  from the insurer to identify a specified coverage and optionally some class of service.";
             case ELIGIBILITYRESPONSE: return "This resource provides eligibility and plan details from the processing of an Eligibility resource.";
             case ENCOUNTER: return "An interaction between a patient and healthcare provider(s) for the purpose of providing healthcare service(s) or assessing the health status of a patient.";
             case ENDPOINT: return "The technical details of an endpoint that can be used for electronic services, such as for web services providing XDS.b or a REST endpoint for another FHIR server. This may include any security context information.";
@@ -8309,7 +8309,7 @@ public class Enumerations {
          */
         DOMAINRESOURCE, 
         /**
-         * This resource provides the insurance eligibility details from the insurer regarding a specified coverage and optionally some class of service.
+         * This resource provides the details  from the insurer to identify a specified coverage and optionally some class of service.
          */
         ELIGIBILITYREQUEST, 
         /**
@@ -9151,7 +9151,7 @@ public class Enumerations {
             case DOCUMENTMANIFEST: return "A manifest that defines a set of documents.";
             case DOCUMENTREFERENCE: return "A reference to a document .";
             case DOMAINRESOURCE: return "A resource that includes narrative, extensions, and contained resources.";
-            case ELIGIBILITYREQUEST: return "This resource provides the insurance eligibility details from the insurer regarding a specified coverage and optionally some class of service.";
+            case ELIGIBILITYREQUEST: return "This resource provides the details  from the insurer to identify a specified coverage and optionally some class of service.";
             case ELIGIBILITYRESPONSE: return "This resource provides eligibility and plan details from the processing of an Eligibility resource.";
             case ENCOUNTER: return "An interaction between a patient and healthcare provider(s) for the purpose of providing healthcare service(s) or assessing the health status of a patient.";
             case ENDPOINT: return "The technical details of an endpoint that can be used for electronic services, such as for web services providing XDS.b or a REST endpoint for another FHIR server. This may include any security context information.";

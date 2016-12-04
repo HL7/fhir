@@ -47,11 +47,17 @@
   v2 = ~0202.BP
 
  -- Row 5 -----------------------------------
+  Id = 6
+  Code = url
+  Display = URL
+  Definition = A contact that is not a phone, fax, pager or email address and is expressed as a URL.  This is intended for various personal contacts including blogs, Skype, Twitter, Facebook, etc. Do not use for email addresses.
+  v2 = <0202.Internet(for non-email kinds of addresses)
+
+ -- Row 6 -----------------------------------
   Id = 4
   Code = other
-  Display = URL
-  Definition = A contact that is not a phone, fax, or email address. The format of the value SHOULD be a URL. This is intended for various personal contacts including blogs, Twitter, Facebook, etc. Do not use for email addresses. If this is not a URL, then it will require human interpretation.
-  v2 = <0202.Internet(for non-email kinds of addresses)
+  Display = Other
+  Definition = A contact that is not a phone, fax, page or email address and is not expressible as a URL.  E.g. Internal mail address.  This SHOULD NOT be used for contacts that are expressible as a URL (e.g. Skype, Twitter, Facebook, etc.)  Extensions may be used to distinguish \"other\" contact types.
 
 === Sheet contact-point-use =====================================
 
@@ -120,7 +126,7 @@
   Inv. = 2
   Type = code
   Binding = ContactPointSystem
-  Short Name = phone | fax | email | pager | other
+  Short Name = phone | fax | email | pager | url | other
   Definition = Telecommunications form for contact point - what communications system is required to make use of the contact
   v2 Mapping = XTN.3
   RIM Mapping = ./scheme

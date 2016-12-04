@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Dec 2, 2016 10:28+1100 for FHIR v1.7.0
+// Generated on Mon, Dec 5, 2016 07:11+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -1579,7 +1579,7 @@ public class Group extends DomainResource {
    * Path: <b></b><br>
    * </p>
    */
-  @SearchParamDefinition(name="characteristic-value", path="", description="A composite of both characteristic and value", type="composite", compositeOf={"characteristic", "value"} )
+  @SearchParamDefinition(name="characteristic-value", path="Group.characteristic", description="A composite of both characteristic and value", type="composite", compositeOf={"characteristic", "value"} )
   public static final String SP_CHARACTERISTIC_VALUE = "characteristic-value";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>characteristic-value</b>

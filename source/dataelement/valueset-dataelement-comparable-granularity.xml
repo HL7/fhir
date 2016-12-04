@@ -6,7 +6,7 @@
   <publisher value="Office of the National Coordinator for Health IT"/>
   <contact>
     <telecom>
-      <system value="other"/>
+      <system value="url"/>
       <value value="http://healthit.gov"/>
     </telecom>
   </contact>

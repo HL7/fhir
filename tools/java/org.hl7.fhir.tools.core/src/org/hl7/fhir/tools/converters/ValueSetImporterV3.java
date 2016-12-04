@@ -183,7 +183,7 @@ public class ValueSetImporterV3 extends ValueSetImporterBase {
     vs.setUrl("http://hl7.org/fhir/ValueSet/" + vs.getId());
     vs.setName("v3 Code System " + id);
     vs.setPublisher("HL7, Inc");
-    vs.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.OTHER, "http://hl7.org"));
+    vs.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.URL, "http://hl7.org"));
     vs.setStatus(PublicationStatus.ACTIVE);
     
     vs.setId("v3-" + FormatUtilities.makeId(id));
@@ -451,7 +451,7 @@ public class ValueSetImporterV3 extends ValueSetImporterBase {
       vs.setDescription("No Description Provided");
     }
     vs.setPublisher("HL7 v3");
-    vs.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.OTHER, "http://www.hl7.org"));
+    vs.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.URL, "http://www.hl7.org"));
     vs.setStatus(PublicationStatus.ACTIVE);
     vs.setExperimental(false);
 
@@ -498,7 +498,7 @@ public class ValueSetImporterV3 extends ValueSetImporterBase {
       vs.setDescription("No Description Provided");
     }
     vs.setPublisher("HL7 v3");
-    vs.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.OTHER, "http://www.hl7.org"));
+    vs.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.URL, "http://www.hl7.org"));
     vs.setStatus(PublicationStatus.ACTIVE);
     vs.setExperimental(false);
 

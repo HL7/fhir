@@ -7,7 +7,7 @@
   <publisher value="National Electrical Manufacturers Association (DICOM)"/>
   <contact>
     <telecom>
-      <system value="other"/>
+      <system value="url"/>
       <value value="http://medical.nema.org/medical/dicom/current/output/html/part16.html#sect_CID_29"/>
     </telecom>
   </contact>

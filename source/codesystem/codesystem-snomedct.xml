@@ -44,7 +44,7 @@ support a particular edition/version
   <publisher value="IHTSDO"/>
   <contact>
     <telecom>
-      <system value="other"/>
+      <system value="url"/>
       <value value="http://ihtsdo.org"/>
     </telecom>
   </contact>

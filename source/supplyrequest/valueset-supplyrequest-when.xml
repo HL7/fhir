@@ -6,7 +6,7 @@
 	<publisher value="HL7 International - Orders &amp; Observations WG"/>
 	<contact>
 		<telecom>
-			<system value="other"/>
+			<system value="url"/>
 			<value value="http://www.hl7.org/Special/committees/orders/"/>
 		</telecom>
 	</contact>

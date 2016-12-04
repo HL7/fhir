@@ -10,7 +10,7 @@
   <publisher value="HL7 Orders and Observations Workgroup"/>
   <contact>
     <telecom>
-      <system value="other"/>
+      <system value="url"/>
       <value value="http://www.hl7.org/Special/committees/orders/index.cfm"/>
     </telecom>
   </contact>

@@ -3,7 +3,7 @@
 	<publisher value="HL7 Clinical Genomics Team"/>
 	<contact>
 		<telecom>
-			<system value="other"/>
+			<system value="url"/>
 			<value value="http://hl7.org/fhir"/>
 		</telecom>
 	</contact>

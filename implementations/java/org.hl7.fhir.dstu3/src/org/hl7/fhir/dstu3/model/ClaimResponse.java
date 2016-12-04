@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Dec 2, 2016 10:28+1100 for FHIR v1.7.0
+// Generated on Mon, Dec 5, 2016 07:11+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -52,19 +52,19 @@ public class ClaimResponse extends DomainResource {
 
     public enum ClaimResponseStatus {
         /**
-         * The resource instance is currently in-force.
+         * The instance is currently in-force.
          */
         ACTIVE, 
         /**
-         * The resource instance is withdrawn, rescinded or reversed.
+         * The instance is withdrawn, rescinded or reversed.
          */
         CANCELLED, 
         /**
-         * A new resource instance the contents of which is not complete.
+         * A new instance the contents of which is not complete.
          */
         DRAFT, 
         /**
-         * The resource instance was entered in error.
+         * The instance was entered in error.
          */
         ENTEREDINERROR, 
         /**
@@ -98,19 +98,19 @@ public class ClaimResponse extends DomainResource {
         }
         public String getSystem() {
           switch (this) {
-            case ACTIVE: return "http://hl7.org/fhir/claimresponse-status";
-            case CANCELLED: return "http://hl7.org/fhir/claimresponse-status";
-            case DRAFT: return "http://hl7.org/fhir/claimresponse-status";
-            case ENTEREDINERROR: return "http://hl7.org/fhir/claimresponse-status";
+            case ACTIVE: return "http://hl7.org/fhir/fm-status";
+            case CANCELLED: return "http://hl7.org/fhir/fm-status";
+            case DRAFT: return "http://hl7.org/fhir/fm-status";
+            case ENTEREDINERROR: return "http://hl7.org/fhir/fm-status";
             default: return "?";
           }
         }
         public String getDefinition() {
           switch (this) {
-            case ACTIVE: return "The resource instance is currently in-force.";
-            case CANCELLED: return "The resource instance is withdrawn, rescinded or reversed.";
-            case DRAFT: return "A new resource instance the contents of which is not complete.";
-            case ENTEREDINERROR: return "The resource instance was entered in error.";
+            case ACTIVE: return "The instance is currently in-force.";
+            case CANCELLED: return "The instance is withdrawn, rescinded or reversed.";
+            case DRAFT: return "A new instance the contents of which is not complete.";
+            case ENTEREDINERROR: return "The instance was entered in error.";
             default: return "?";
           }
         }
@@ -119,7 +119,7 @@ public class ClaimResponse extends DomainResource {
             case ACTIVE: return "Active";
             case CANCELLED: return "Cancelled";
             case DRAFT: return "Draft";
-            case ENTEREDINERROR: return "Entered In Error";
+            case ENTEREDINERROR: return "Entered in Error";
             default: return "?";
           }
         }
@@ -4350,7 +4350,7 @@ public class ClaimResponse extends DomainResource {
      */
     @Child(name = "status", type = {CodeType.class}, order=1, min=0, max=1, modifier=true, summary=true)
     @Description(shortDefinition="active | cancelled | draft | entered-in-error", formalDefinition="The status of the resource instance." )
-    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/claimresponse-status")
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/fm-status")
     protected Enumeration<ClaimResponseStatus> status;
 
     /**
@@ -4504,13 +4504,25 @@ public class ClaimResponse extends DomainResource {
     protected List<NoteComponent> note;
 
     /**
+     * Request for additional supporting or authorizing information, such as: documents, images or resources.
+     */
+    @Child(name = "communicationRequest", type = {CommunicationRequest.class}, order=20, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Description(shortDefinition="Request for additional information", formalDefinition="Request for additional supporting or authorizing information, such as: documents, images or resources." )
+    protected List<Reference> communicationRequest;
+    /**
+     * The actual objects that are the target of the reference (Request for additional supporting or authorizing information, such as: documents, images or resources.)
+     */
+    protected List<CommunicationRequest> communicationRequestTarget;
+
+
+    /**
      * Financial instrument by which payment information for health care.
      */
-    @Child(name = "insurance", type = {}, order=20, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "insurance", type = {}, order=21, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Insurance or medical plan", formalDefinition="Financial instrument by which payment information for health care." )
     protected List<InsuranceComponent> insurance;
 
-    private static final long serialVersionUID = 11970246L;
+    private static final long serialVersionUID = 1883063635L;
 
   /**
    * Constructor
@@ -5300,6 +5312,81 @@ public class ClaimResponse extends DomainResource {
     }
 
     /**
+     * @return {@link #communicationRequest} (Request for additional supporting or authorizing information, such as: documents, images or resources.)
+     */
+    public List<Reference> getCommunicationRequest() { 
+      if (this.communicationRequest == null)
+        this.communicationRequest = new ArrayList<Reference>();
+      return this.communicationRequest;
+    }
+
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public ClaimResponse setCommunicationRequest(List<Reference> theCommunicationRequest) { 
+      this.communicationRequest = theCommunicationRequest;
+      return this;
+    }
+
+    public boolean hasCommunicationRequest() { 
+      if (this.communicationRequest == null)
+        return false;
+      for (Reference item : this.communicationRequest)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    public Reference addCommunicationRequest() { //3
+      Reference t = new Reference();
+      if (this.communicationRequest == null)
+        this.communicationRequest = new ArrayList<Reference>();
+      this.communicationRequest.add(t);
+      return t;
+    }
+
+    public ClaimResponse addCommunicationRequest(Reference t) { //3
+      if (t == null)
+        return this;
+      if (this.communicationRequest == null)
+        this.communicationRequest = new ArrayList<Reference>();
+      this.communicationRequest.add(t);
+      return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #communicationRequest}, creating it if it does not already exist
+     */
+    public Reference getCommunicationRequestFirstRep() { 
+      if (getCommunicationRequest().isEmpty()) {
+        addCommunicationRequest();
+      }
+      return getCommunicationRequest().get(0);
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
+    public List<CommunicationRequest> getCommunicationRequestTarget() { 
+      if (this.communicationRequestTarget == null)
+        this.communicationRequestTarget = new ArrayList<CommunicationRequest>();
+      return this.communicationRequestTarget;
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
+    public CommunicationRequest addCommunicationRequestTarget() { 
+      CommunicationRequest r = new CommunicationRequest();
+      if (this.communicationRequestTarget == null)
+        this.communicationRequestTarget = new ArrayList<CommunicationRequest>();
+      this.communicationRequestTarget.add(r);
+      return r;
+    }
+
+    /**
      * @return {@link #insurance} (Financial instrument by which payment information for health care.)
      */
     public List<InsuranceComponent> getInsurance() { 
@@ -5374,6 +5461,7 @@ public class ClaimResponse extends DomainResource {
         childrenList.add(new Property("reserved", "Coding", "Status of funds reservation (For provider, for Patient, None).", 0, java.lang.Integer.MAX_VALUE, reserved));
         childrenList.add(new Property("form", "CodeableConcept", "The form to be used for printing the content.", 0, java.lang.Integer.MAX_VALUE, form));
         childrenList.add(new Property("note", "", "Note text.", 0, java.lang.Integer.MAX_VALUE, note));
+        childrenList.add(new Property("communicationRequest", "Reference(CommunicationRequest)", "Request for additional supporting or authorizing information, such as: documents, images or resources.", 0, java.lang.Integer.MAX_VALUE, communicationRequest));
         childrenList.add(new Property("insurance", "", "Financial instrument by which payment information for health care.", 0, java.lang.Integer.MAX_VALUE, insurance));
       }
 
@@ -5400,6 +5488,7 @@ public class ClaimResponse extends DomainResource {
         case -350385368: /*reserved*/ return this.reserved == null ? new Base[0] : new Base[] {this.reserved}; // Coding
         case 3148996: /*form*/ return this.form == null ? new Base[0] : new Base[] {this.form}; // CodeableConcept
         case 3387378: /*note*/ return this.note == null ? new Base[0] : this.note.toArray(new Base[this.note.size()]); // NoteComponent
+        case -2071896615: /*communicationRequest*/ return this.communicationRequest == null ? new Base[0] : this.communicationRequest.toArray(new Base[this.communicationRequest.size()]); // Reference
         case 73049818: /*insurance*/ return this.insurance == null ? new Base[0] : this.insurance.toArray(new Base[this.insurance.size()]); // InsuranceComponent
         default: return super.getProperty(hash, name, checkValid);
         }
@@ -5469,6 +5558,9 @@ public class ClaimResponse extends DomainResource {
         case 3387378: // note
           this.getNote().add((NoteComponent) value); // NoteComponent
           break;
+        case -2071896615: // communicationRequest
+          this.getCommunicationRequest().add(castToReference(value)); // Reference
+          break;
         case 73049818: // insurance
           this.getInsurance().add((InsuranceComponent) value); // InsuranceComponent
           break;
@@ -5519,6 +5611,8 @@ public class ClaimResponse extends DomainResource {
           this.form = castToCodeableConcept(value); // CodeableConcept
         else if (name.equals("note"))
           this.getNote().add((NoteComponent) value);
+        else if (name.equals("communicationRequest"))
+          this.getCommunicationRequest().add(castToReference(value));
         else if (name.equals("insurance"))
           this.getInsurance().add((InsuranceComponent) value);
         else
@@ -5548,6 +5642,7 @@ public class ClaimResponse extends DomainResource {
         case -350385368:  return getReserved(); // Coding
         case 3148996:  return getForm(); // CodeableConcept
         case 3387378:  return addNote(); // NoteComponent
+        case -2071896615:  return addCommunicationRequest(); // Reference
         case 73049818:  return addInsurance(); // InsuranceComponent
         default: return super.makeProperty(hash, name);
         }
@@ -5628,6 +5723,9 @@ public class ClaimResponse extends DomainResource {
         else if (name.equals("note")) {
           return addNote();
         }
+        else if (name.equals("communicationRequest")) {
+          return addCommunicationRequest();
+        }
         else if (name.equals("insurance")) {
           return addInsurance();
         }
@@ -5683,6 +5781,11 @@ public class ClaimResponse extends DomainResource {
           for (NoteComponent i : note)
             dst.note.add(i.copy());
         };
+        if (communicationRequest != null) {
+          dst.communicationRequest = new ArrayList<Reference>();
+          for (Reference i : communicationRequest)
+            dst.communicationRequest.add(i.copy());
+        };
         if (insurance != null) {
           dst.insurance = new ArrayList<InsuranceComponent>();
           for (InsuranceComponent i : insurance)
@@ -5709,8 +5812,8 @@ public class ClaimResponse extends DomainResource {
            && compareDeep(item, o.item, true) && compareDeep(addItem, o.addItem, true) && compareDeep(error, o.error, true)
            && compareDeep(totalCost, o.totalCost, true) && compareDeep(unallocDeductable, o.unallocDeductable, true)
            && compareDeep(totalBenefit, o.totalBenefit, true) && compareDeep(payment, o.payment, true) && compareDeep(reserved, o.reserved, true)
-           && compareDeep(form, o.form, true) && compareDeep(note, o.note, true) && compareDeep(insurance, o.insurance, true)
-          ;
+           && compareDeep(form, o.form, true) && compareDeep(note, o.note, true) && compareDeep(communicationRequest, o.communicationRequest, true)
+           && compareDeep(insurance, o.insurance, true);
       }
 
       @Override
@@ -5728,7 +5831,7 @@ public class ClaimResponse extends DomainResource {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, status, created
           , insurer, requestProvider, requestOrganization, request, outcome, disposition, payeeType
           , item, addItem, error, totalCost, unallocDeductable, totalBenefit, payment, reserved
-          , form, note, insurance);
+          , form, note, communicationRequest, insurance);
       }
 
   @Override

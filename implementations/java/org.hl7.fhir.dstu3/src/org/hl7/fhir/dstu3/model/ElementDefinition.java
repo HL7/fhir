@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Dec 2, 2016 10:28+1100 for FHIR v1.7.0
+// Generated on Mon, Dec 5, 2016 07:11+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -1017,12 +1017,11 @@ public class ElementDefinition extends Type implements ICompositeType {
       }
 
         public ElementDefinitionBaseComponent(String path, int min, String max) {
-          super();
           this.setPath(path);
           this.setMin(min);
           this.setMax(max);
-    }
-
+       }
+  
         /**
          * @return {@link #path} (The Path that identifies the base element - this matches the ElementDefinition.path for that element. Across FHIR, there is only one base definition of any element - that is, an element definition on a [[[StructureDefinition]]] without a StructureDefinition.base.). This is the underlying object with id, value and extensions. The accessor "getPath" gives direct access to the value
          */

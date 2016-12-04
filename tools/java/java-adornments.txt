@@ -32,6 +32,12 @@
       return getPath();
   }
     
+  public ElementDefinitionBaseComponent(String path, int min, String max) {
+    this.setPath(path);
+    this.setMin(min);
+    this.setMax(max);
+  }
+    
 ----
 
 -- StructureMap.imports --

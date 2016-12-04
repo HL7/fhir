@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Dec 2, 2016 10:28+1100 for FHIR v1.7.0
+// Generated on Mon, Dec 5, 2016 07:11+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -179,7 +179,7 @@ public class Device extends DomainResource {
     /**
      * Code or identifier to identify a kind of device.
      */
-    @Child(name = "type", type = {CodeableConcept.class}, order=3, min=1, max=1, modifier=false, summary=false)
+    @Child(name = "type", type = {CodeableConcept.class}, order=3, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="What kind of device this is", formalDefinition="Code or identifier to identify a kind of device." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/device-kind")
     protected CodeableConcept type;
@@ -290,14 +290,6 @@ public class Device extends DomainResource {
    */
     public Device() {
       super();
-    }
-
-  /**
-   * Constructor
-   */
-    public Device(CodeableConcept type) {
-      super();
-      this.type = type;
     }
 
     /**

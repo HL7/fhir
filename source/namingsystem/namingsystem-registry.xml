@@ -15,7 +15,7 @@
         <publisher value="United States Social Security Administration"/>
         <contact>  
           <telecom>
-            <system value="other"/>
+            <system value="url"/>
             <value value="http://www.ssa.gov/"/>
           </telecom>
         </contact>
@@ -56,7 +56,7 @@
         <publisher value="Centers for Medicare &amp; Medicaid Services"/>
         <contact>  
           <telecom>
-            <system value="other"/>
+            <system value="url"/>
             <value value="https://www.medicare.gov/"/>
           </telecom>
         </contact>
@@ -97,7 +97,7 @@
         <publisher value="Centers for Medicare and Medicaid Services"/>
         <contact>  
           <telecom>
-            <system value="other"/>
+            <system value="url"/>
             <value value="http://www.cms.gov/"/>
           </telecom>
         </contact>

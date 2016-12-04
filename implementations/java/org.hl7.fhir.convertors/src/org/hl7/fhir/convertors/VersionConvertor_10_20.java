@@ -876,6 +876,7 @@ public class VersionConvertor_10_20 {
     case EMAIL: return org.hl7.fhir.dstu2.model.ContactPoint.ContactPointSystem.EMAIL;
     case PAGER: return org.hl7.fhir.dstu2.model.ContactPoint.ContactPointSystem.PAGER;
     case OTHER: return org.hl7.fhir.dstu2.model.ContactPoint.ContactPointSystem.OTHER;
+    case URL: return org.hl7.fhir.dstu2.model.ContactPoint.ContactPointSystem.OTHER;
     default: return org.hl7.fhir.dstu2.model.ContactPoint.ContactPointSystem.NULL;
     }
   }

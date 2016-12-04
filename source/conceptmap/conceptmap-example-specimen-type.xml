@@ -11,13 +11,13 @@
     <publisher value="FHIR project team (original source: LabMCoP)"/>
     <contact>
         <telecom>
-            <system value="other"/>
+            <system value="url"/>
             <value value="http://hl7.org/fhir"/>
         </telecom>
     </contact>
     <contact>
         <telecom>
-            <system value="other"/>
+            <system value="url"/>
             <value value="http://www.phconnect.org/group/laboratorymessagingcommunityofpractice/forum/attachment/download?id=3649725%3AUploadedFile%3A145786"/>
         </telecom>
     </contact>

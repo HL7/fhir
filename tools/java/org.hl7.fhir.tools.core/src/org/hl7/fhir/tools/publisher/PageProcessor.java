@@ -1346,7 +1346,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   private String getPublisherUrl(NamingSystem ns) {
     for (ContactDetail c : ns.getContact()) {
       for (ContactPoint cp : c.getTelecom()) {
-        if ((cp.getSystem() == ContactPointSystem.OTHER || cp.getSystem() == null) && (cp.hasValue() && (cp.getValue().startsWith("http:") || cp.getValue().startsWith("https:"))))
+        if ((cp.getSystem() == ContactPointSystem.URL || cp.getSystem() == null) && (cp.hasValue() && (cp.getValue().startsWith("http:") || cp.getValue().startsWith("https:"))))
           return cp.getValue();
       }
     }
@@ -1641,7 +1641,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   private String vsSource(ValueSet vs) {
     if (vs == null)
       return "by the FHIR project";
-    if (vs == null || vs.getContact().isEmpty() || vs.getContact().get(0).getTelecom().isEmpty() || vs.getContact().get(0).getTelecom().get(0).getSystem() != ContactPointSystem.OTHER || vs.getContact().get(0).getTelecom().get(0).getValue().startsWith("http://hl7.org/fhir"))
+    if (vs == null || vs.getContact().isEmpty() || vs.getContact().get(0).getTelecom().isEmpty() || vs.getContact().get(0).getTelecom().get(0).getSystem() != ContactPointSystem.URL || vs.getContact().get(0).getTelecom().get(0).getValue().startsWith("http://hl7.org/fhir"))
       return "by the FHIR project";
     return " at <a href=\""+vs.getContact().get(0).getTelecom().get(0).getValue()+"\">"+vs.getContact().get(0).getTelecom().get(0).getValue()+"</a>";
   }
@@ -1649,7 +1649,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   private String csSource(CodeSystem cs) {
     if (cs == null)
       return "by the FHIR project";
-    if (cs == null || cs.getContact().isEmpty() || cs.getContact().get(0).getTelecom().isEmpty() || cs.getContact().get(0).getTelecom().get(0).getSystem() != ContactPointSystem.OTHER || cs.getContact().get(0).getTelecom().get(0).getValue().startsWith("http://hl7.org/fhir"))
+    if (cs == null || cs.getContact().isEmpty() || cs.getContact().get(0).getTelecom().isEmpty() || cs.getContact().get(0).getTelecom().get(0).getSystem() != ContactPointSystem.URL || cs.getContact().get(0).getTelecom().get(0).getValue().startsWith("http://hl7.org/fhir"))
       return "by the FHIR project";
     return " at <a href=\""+cs.getContact().get(0).getTelecom().get(0).getValue()+"\">"+cs.getContact().get(0).getTelecom().get(0).getValue()+"</a>";
   }
@@ -5128,6 +5128,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+searchHeader(level)+s3;
       else if (com[0].equals("diff-analysis")) 
         src = s1+diffEngine.getDiffAsHtml(resource.getProfile())+s3;
+      else if (com[0].equals("fmm-style")) 
+        src = s1+("0".equals(resource.getFmmLevel()) ? "colsd" : "cols")+s3;
       else if (com[0].equals("resurl")) {
         if (isAggregationEndpoint(resource.getName()))
           src = s1+s3;
@@ -6263,6 +6265,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+searchHeader(level)+s3;
       else if (com[0].startsWith("!"))
         src = s1 + s3;  
+      else if (com[0].equals("fmm-style")) 
+        src = s1+("0".equals(pack.getFmmLevel()) ? "colsd" : "cols")+s3;
       else if (com[0].equals("resurl")) {
          if (Utilities.noString(pack.metadata("id")))
            src = s1+s3;

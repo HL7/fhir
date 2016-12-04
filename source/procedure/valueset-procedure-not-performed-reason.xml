@@ -7,7 +7,7 @@
   <publisher value="Health Level Seven, Inc. - CQI WG"/>
   <contact>
     <telecom>
-      <system value="other"/>
+      <system value="url"/>
       <value value="http://hl7.org/special/committees/CQI"/>
     </telecom>
   </contact>

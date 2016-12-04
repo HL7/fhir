@@ -317,7 +317,7 @@ public class IgSpreadsheetParser {
       sd.setName("Profile "+sd.getId());
     sd.setPublisher(metadata("author.name"));
     if (hasMetadata("author.reference"))
-      sd.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.OTHER, metadata("author.reference")));
+      sd.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.URL, metadata("author.reference")));
     if (hasMetadata("date"))
       sd.setDateElement(Factory.newDateTime(metadata("date").substring(0, 10)));
     else
@@ -467,7 +467,7 @@ public class IgSpreadsheetParser {
         vs.getStatusElement().setValueAsString(st);
         String ws = sheet.getColumn(row, "Website");
         if (ws != null)
-          vs.getContactFirstRep().getTelecomFirstRep().setSystem(ContactPointSystem.OTHER).setValue(ws);
+          vs.getContactFirstRep().getTelecomFirstRep().setSystem(ContactPointSystem.URL).setValue(ws);
         String em = sheet.getColumn(row, "Website");
         if (em != null)
           vs.getContactFirstRep().addTelecom().setSystem(ContactPointSystem.EMAIL).setValue(em);
@@ -1039,7 +1039,7 @@ public class IgSpreadsheetParser {
 
     ex.setPublisher(metadata("author.name"));
     if (hasMetadata("author.reference"))
-      ex.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.OTHER, metadata("author.reference")));
+      ex.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.URL, metadata("author.reference")));
     //  <code> opt Zero+ Coding assist with indexing and finding</code>
     if (hasMetadata("date"))
       ex.setDateElement(Factory.newDateTime(metadata("date").substring(0, 10)));

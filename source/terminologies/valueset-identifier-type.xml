@@ -14,7 +14,7 @@
   <publisher value="HL7 (FHIR Project)"/>
   <contact>
     <telecom>
-      <system value="other"/>
+      <system value="url"/>
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>

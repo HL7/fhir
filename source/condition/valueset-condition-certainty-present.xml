@@ -7,13 +7,13 @@
   <publisher value="QICore Project team"/>
   <contact>
     <telecom>
-      <system value="other"/>
+      <system value="url"/>
       <value value="http://www.hl7.org/Special/committees/cqi/"/>
     </telecom>
   </contact>
   <contact>
     <telecom>
-      <system value="other"/>
+      <system value="url"/>
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>

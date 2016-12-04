@@ -15,13 +15,13 @@
   <publisher value="DAF Project"/>
   <contact>
     <telecom>
-      <system value="other"/>
+      <system value="url"/>
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
   <contact>
     <telecom>
-      <system value="other"/>
+      <system value="url"/>
       <value value="http://wiki.siframework.org/Data+Access+Framework+Homepage"/>
     </telecom>
   </contact>

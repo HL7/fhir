@@ -9,7 +9,7 @@
   <publisher value="Australian Bureau of Statistics"/>
   <contact>
     <telecom>
-      <system value="other"/>
+      <system value="url"/>
       <value value="http://www.abs.gov.au/ausstats/abs@.nsf/mf/1220.0"/>
     </telecom>
   </contact>

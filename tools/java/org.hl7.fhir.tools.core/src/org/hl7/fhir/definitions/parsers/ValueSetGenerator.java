@@ -220,7 +220,7 @@ public class ValueSetGenerator {
     if (!vs.hasPublisher())
       vs.setPublisher("HL7 (FHIR Project)");
     if (!vs.hasContact()) {
-      vs.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.OTHER, Utilities.noString(bs.getWebSite()) ? "http://hl7.org/fhir" : bs.getWebSite()));
+      vs.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.URL, Utilities.noString(bs.getWebSite()) ? "http://hl7.org/fhir" : bs.getWebSite()));
       vs.getContact().get(0).getTelecom().add(Factory.newContactPoint(ContactPointSystem.EMAIL, Utilities.noString(bs.getEmail()) ? "fhir@lists.hl7.org" : bs.getEmail()));
     }
     if (!vs.hasDescription())
@@ -260,7 +260,7 @@ public class ValueSetGenerator {
     vs.setUserData("path", "valueset-"+vs.getId()+".html");
     
     ContactDetail c = vs.addContact();
-    c.addTelecom().setSystem(ContactPointSystem.OTHER).setValue("http://hl7.org/fhir");
+    c.addTelecom().setSystem(ContactPointSystem.URL).setValue("http://hl7.org/fhir");
     c.addTelecom().setSystem(ContactPointSystem.EMAIL).setValue("fhir@lists.hl7.org");
     vs.setDescription("Operation Outcome codes used by FHIR test servers (see Implementation file translations.xml)");
     vs.setStatus(PublicationStatus.DRAFT);

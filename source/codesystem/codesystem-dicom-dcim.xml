@@ -9,7 +9,7 @@
   <publisher value="NEMA/DICOM"/>
   <contact>
     <telecom>
-      <system value="other"/>
+      <system value="url"/>
       <value value="http://medical.nema.org/medical/dicom/current/output/chtml/part16/chapter_D.html"/>
     </telecom>
   </contact>

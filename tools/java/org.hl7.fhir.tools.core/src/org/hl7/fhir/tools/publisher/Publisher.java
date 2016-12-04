@@ -1304,7 +1304,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     cpd.setExperimental(true);
     cpd.setDate(page.getGenDate().getTime());
     cpd.setPublisher("FHIR Project Team");
-    cpd.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.OTHER, "http://hl7.org/fhir"));
+    cpd.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.URL, "http://hl7.org/fhir"));
     cpd.setCode(CompartmentType.fromCode(c.getTitle()));
     cpd.setSearch(true);
     for (String rn : page.getDefinitions().sortedResourceNames()) {
@@ -1352,7 +1352,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     cpbs.setExperimental(true);
     cpbs.setDate(page.getGenDate().getTime());
     cpbs.setPublisher("FHIR Project Team");
-    cpbs.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.OTHER, "http://hl7.org/fhir"));
+    cpbs.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.URL, "http://hl7.org/fhir"));
     cpbs.setKind(CapabilityStatementKind.CAPABILITY);
     cpbs.setSoftware(new CapabilityStatementSoftwareComponent());
     cpbs.getSoftware().setName("Insert your softwware name here...");
@@ -3068,7 +3068,7 @@ public class Publisher implements URIResolver, SectionNumberer {
           p.setAbstract(true);
           p.setPublisher("Health Level Seven International (" + rd.getWg() + ")");
           p.setName(rd.getName());
-          p.addContact().addTelecom().setSystem(ContactPointSystem.OTHER).setValue("http://hl7.org/fhir");
+          p.addContact().addTelecom().setSystem(ContactPointSystem.URL).setValue("http://hl7.org/fhir");
           SearchParameter sp = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), page.getVersion(), dataElements, fpUsages).makeSearchParam(p, rd.getName()+"-"+spd.getCode(), rd.getName(), spd);
           spd.setResource(sp);
         }
