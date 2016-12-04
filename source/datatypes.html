@@ -20,13 +20,13 @@ The FHIR specification defines a set of data types that are used for the
 resource elements. There are four categories of data types: 
 </p>
 <ol>
-  <li>simple / primitive types, which are single elements with a primitive value</li>
-  <li>General purpose complex types, which are re-usable clusters of elements</li>
+  <li>Simple / primitive types, which are single elements with a primitive value (<a href="#primitive">below</a>)</li>
+  <li>General purpose complex types, which are re-usable clusters of elements (<a href="#xomplex">below</a>)</li>
   <li><a href="metadatatypes.html">Complex data types for metadata</a></li>
   <li>Special purpose data types: <a href="references.html#Reference">Reference</a>, <a href="narrative.html#Narrative">Narrative</a>, <a href="extensibility.html#Extension">Extension</a>, <a href="resource.html#Meta">Meta</a>, and <a href="dosageinstruction.html#DosageInstruction">DosageInstruction</a></li>
 </ol>  
 <p>
-This page describes the common reusable data types. 
+This page describes the general purpose data types. 
 </p>
 
 <p><b>Table of Contents</b></p>
@@ -413,7 +413,8 @@ then the correct course of action is undefined, though some media types may defi
 character set and/or the correct character set may be able to be determined by inspection of the content.
 </p>
 <p>
-The <code>hash</code> is included so that applications can verify that the content returned by the URL has not changed. 
+The <code>hash</code> is included so that applications can verify that the content returned by the URL has not changed. The <code>hash</code> and <code>size</code>
+relate to the data before it is represented in base64 form.
 </p>
 <p>
 In many cases where Attachment is used, the cardinality is &gt;1. A valid use of repeats is to convey the same content in different mime types and languages.

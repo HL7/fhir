@@ -77,7 +77,7 @@
   Summary = y
   Type = unsignedInt
   Short Name = Number of bytes of content (if url provided)
-  Definition = The number of bytes of data that make up this attachment.
+  Definition = The number of bytes of data that make up this attachment (before base64 encoding, if that is done).
   Requirements = Representing the size allows applications to determine whether they should fetch the content automatically in advance, or refuse to fetch it at all
   Comments = The number of bytes is redundant if the data is provided as a base64binary, but is useful if the data is provided as a url reference
   RIM Mapping = N/A (needs data type R3 proposal)
@@ -88,8 +88,9 @@
   Summary = y
   Type = base64Binary
   Short Name = Hash of the data (sha-1, base64ed)
-  Definition = The calculated hash of the data using SHA-1. Represented using base64
+  Definition = The calculated hash of the data using SHA-1. Represented using base64.
   Requirements = Included so that applications can verify that the contents of a location have not changed and so that a signature of the content can implicitly sign the content of an image without having to include the data in the instance or reference the url in the signature
+  Comments = The hash is calculated on the data prior to base64 encoding, if the data is based64 encoded
   RIM Mapping = .integrityCheck[parent::ED/integrityCheckAlgorithm=\"SHA-1\"]
 
  -- Row 8 -----------------------------------
