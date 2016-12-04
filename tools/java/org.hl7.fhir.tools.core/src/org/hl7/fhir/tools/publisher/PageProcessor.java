@@ -1037,7 +1037,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       else if (com[0].equals("ig.wgt"))
         src = s1+ig.getCommittee()+s3;
       else if (com[0].equals("ig.fmm"))
-        src = s1+getFmmFromlevel(ig.getFmm())+s3;
+        src = s1+getFmmFromlevel(genlevel(level), ig.getFmm())+s3;
       else if (com[0].equals("ig.ballot"))
         src = s1+ig.getBallot()+s3;
       else if (com[0].equals("operations")) {
@@ -6288,7 +6288,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       } else if (com[0].equals("fmm-style")) 
         src = s1+("0".equals(pack.getFmmLevel()) ? "colsd" : "cols")+s3;
       else if (com[0].equals("fmm")) 
-        src = s1+getFmmFromlevel(pack.getFmmLevel())+s3;
+        src = s1+getFmmFromlevel(genlevel(level), pack.getFmmLevel())+s3;
       else if (com[0].equals("profile-context")) 
         src = s1+getProfileContext(pack.getCandidateResource())+s3;
       else if (com[0].equals("resurl")) {
@@ -6730,7 +6730,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+(fmm == null || "0".equals(fmm) ? "colsd" : "cols")+s3;
       } else if (com[0].equals("fmm")) {
         String fmm = ToolingExtensions.readStringExtension(ed, ToolingExtensions.EXT_FMM_LEVEL);
-        src = s1+getFmmFromlevel(fmm)+s3;
+        src = s1+getFmmFromlevel(genlevel(level), fmm)+s3;
       } else if (com[0].equals("profile-context")) 
         src = s1+getProfileContext(ed)+s3;
       else 
@@ -7794,8 +7794,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       throw new Exception("unable to find resource '"+resourceName+"'");
     return "&nbsp;<a href=\"resource.html#maturity\" style=\"color: maroon; hover: maroon; visited; maroon; opacity: 0.7\" title=\"Maturity Level\">"+rd.getFmmLevel()+"</a>";
   }
-  private String getFmmFromlevel(String level) throws Exception {
-    return "&nbsp;<a href=\"resource.html#maturity\" style=\"color: maroon; hover: maroon; visited; maroon; opacity: 0.7\" title=\"Maturity Level\">"+(level == null ? "0" : level)+"</a>";
+  private String getFmmFromlevel(String level, String prefix) throws Exception {
+    return "&nbsp;<a href=\""+prefix+"resource.html#maturity\" style=\"color: maroon; hover: maroon; visited; maroon; opacity: 0.7\" title=\"Maturity Level\">"+(level == null ? "0" : level)+"</a>";
   }
   
   private String getXcm(String param) {
