@@ -119,9 +119,9 @@
       "template-base": "instance-template-format.html",
       "base": "ValueSet-176.html"
     },
-    "ValueSet/208": {
+    "ValueSet/2.16.840.1.113883.11.20.9.31": {
       "template-base": "instance-template-format.html",
-      "base": "ValueSet-208.html"
+      "base": "ValueSet-2.16.840.1.113883.11.20.9.31.html"
     },
     "ValueSet/2426": {
       "template-base": "instance-template-format.html",

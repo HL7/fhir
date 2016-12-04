@@ -35,7 +35,7 @@
             <label value="Consultation Note" />
             <short value="Consultation Note" />
             <definition
-                value="SHALL contain exactly one [1..1] type, which SHALL be selected from ValueSet ConsultDocumentType urn:oid:2.16.840.1.113883.11.20.9.31 DYNAMIC (CONF:2219-1320)." />
+                value="SHALL contain exactly one [1..1] type, which SHALL be selected from ValueSet ConsultDocumentType http://hl7.org/fhir/ccda/ValueSet/2.16.840.1.113883.11.20.9.31 DYNAMIC (CONF:2219-1320)." />
             <min value="1" />
             <max value="1" />
             <type>
@@ -44,7 +44,7 @@
             <binding>
                 <strength value="required" />
                 <valueSetReference>
-                    <reference value="urn:oid:2.16.840.1.113883.11.20.9.31" />
+                    <reference value="http://hl7.org/fhir/ccda/ValueSet/2.16.840.1.113883.11.20.9.31" />
                     <display value="ConsultDocumentType" />
                 </valueSetReference>
             </binding>
