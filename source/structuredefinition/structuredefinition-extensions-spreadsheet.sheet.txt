@@ -10,6 +10,13 @@
   Oid = 2.16.840.1.113883.3.1937.98.11.8
   Status = active
 
+ -- Row 2 -----------------------------------
+  Binding Name = HL7Workgroup
+  Binding = code list
+  Reference = #hl7-work-group
+  Definition = An HL7 administrative unit that owns artifacts in the FHIR specification
+  Conformance = required
+
 === Sheet template-status-code =====================================
 
  -- Row 1 -----------------------------------
@@ -59,5 +66,145 @@
   Code = terminated
   Display = Terminated
   Definition = A design is determined to be erroneous or not fit for the intended purpose and should no longer be used, even for historical purposes. No new designs can be developed for this template. The associated template no longer needs to be published, but if published, is shown in the terminated state
+
+=== Sheet hl7-work-group =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = cbcc
+  Display = Community Based Collaborative Care
+  Definition = Community Based Collaborative Care (http://www.hl7.org/Special/committees/cbcc/index.cfm)
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = cds
+  Display = Clinical Decision Support
+  Definition = Clinical Decision Support (http://www.hl7.org/Special/committees/dss/index.cfm)
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = cqi
+  Display = Clinical Quality Information
+  Definition = Clinical Quality Information (http://www.hl7.org/Special/committees/cqi/index.cfm)
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = cg
+  Display = Clinical Genomics
+  Definition = Clinical Genomics (http://www.hl7.org/Special/committees/clingenomics/index.cfm)
+
+ -- Row 5 -----------------------------------
+  Id = 5
+  Code = dev
+  Display = Health Care Devices
+  Definition = Health Care Devices (http://www.hl7.org/Special/committees/healthcaredevices/index.cfm)
+
+ -- Row 6 -----------------------------------
+  Id = 6
+  Code = ehr
+  Display = Electronic Health Records
+  Definition = Electronic Health Records (http://www.hl7.org/special/committees/ehr/index.cfm)
+
+ -- Row 7 -----------------------------------
+  Id = 7
+  Code = fhir
+  Display = FHIR Infrastructure
+  Definition = FHIR Infrastructure (http://www.hl7.org/Special/committees/fiwg/index.cfm)
+
+ -- Row 8 -----------------------------------
+  Id = 8
+  Code = fm
+  Display = Financial Management
+  Definition = Financial Management (http://www.hl7.org/Special/committees/fm/index.cfm)
+
+ -- Row 9 -----------------------------------
+  Id = 9
+  Code = hsi
+  Display = Health Standards Integration
+  Definition = Health Standards Integration (http://www.hl7.org/Special/committees/hsi/index.cfm)
+
+ -- Row 10 -----------------------------------
+  Id = 10
+  Code = ii
+  Display = Imaging Integration
+  Definition = Imaging Integration (http://www.hl7.org/Special/committees/imagemgt/index.cfm)
+
+ -- Row 11 -----------------------------------
+  Id = 11
+  Code = inm
+  Display = Infrastructure And Messaging
+  Definition = Infrastructure And Messaging (http://www.hl7.org/special/committees/inm/index.cfm)
+
+ -- Row 12 -----------------------------------
+  Id = 12
+  Code = its
+  Display = Implementable Technology Specifications
+  Definition = Implementable Technology Specifications (http://www.hl7.org/special/committees/xml/index.cfm)
+
+ -- Row 13 -----------------------------------
+  Id = 13
+  Code = oo
+  Display = Orders and Observations
+  Definition = Orders and Observations (http://www.hl7.org/Special/committees/orders/index.cfm)
+
+ -- Row 14 -----------------------------------
+  Id = 14
+  Code = pa
+  Display = Patient Administration
+  Definition = Patient Administration (http://www.hl7.org/Special/committees/pafm/index.cfm)
+
+ -- Row 15 -----------------------------------
+  Id = 15
+  Code = pc
+  Display = Patient Care
+  Definition = Patient Care (http://www.hl7.org/Special/committees/patientcare/index.cfm)
+
+ -- Row 16 -----------------------------------
+  Id = 16
+  Code = pher
+  Display = Public Health and Emergency Response
+  Definition = Public Health and Emergency Response (http://www.hl7.org/Special/committees/pher/index.cfm)
+
+ -- Row 17 -----------------------------------
+  Id = 17
+  Code = phx
+  Display = Pharmacy
+  Definition = Pharmacy (http://www.hl7.org/Special/committees/medication/index.cfm)
+
+ -- Row 18 -----------------------------------
+  Id = 18
+  Code = rcrim
+  Display = Regulated Clinical Research Information Management
+  Definition = Regulated Clinical Research Information Management (http://www.hl7.org/Special/committees/rcrim/index.cfm)
+
+ -- Row 19 -----------------------------------
+  Id = 19
+  Code = sd
+  Display = Structured Documents
+  Definition = Structured Documents (http://www.hl7.org/Special/committees/structure/index.cfm)
+
+ -- Row 20 -----------------------------------
+  Id = 20
+  Code = sec
+  Display = Security
+  Definition = Security (http://www.hl7.org/Special/committees/secure/index.cfm)
+
+ -- Row 21 -----------------------------------
+  Id = 21
+  Code = us
+  Display = US Realm Taskforce
+  Definition = US Realm Taskforce (http://wiki.hl7.org/index.php?title=US_Realm_Task_Force)
+
+ -- Row 22 -----------------------------------
+  Id = 22
+  Code = vocab
+  Display = Vocabulary
+  Definition = Vocabulary (http://www.hl7.org/Special/committees/Vocab/index.cfm)
+
+ -- Row 23 -----------------------------------
+  Id = 23
+  Code = aid
+  Display = Application Implementation and Design
+  Definition = Application Implementation and Design (http://www.hl7.org/Special/committees/java/index.cfm)
 
 === Sheet Search =====================================

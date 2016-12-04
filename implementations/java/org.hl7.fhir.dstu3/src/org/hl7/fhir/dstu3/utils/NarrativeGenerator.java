@@ -125,6 +125,7 @@ import org.hl7.fhir.dstu3.model.Timing;
 import org.hl7.fhir.dstu3.model.Timing.EventTiming;
 import org.hl7.fhir.dstu3.model.Timing.TimingRepeatComponent;
 import org.hl7.fhir.dstu3.model.Timing.UnitsOfTime;
+import org.hl7.fhir.dstu3.model.Type;
 import org.hl7.fhir.dstu3.model.UriType;
 import org.hl7.fhir.dstu3.model.ValueSet;
 import org.hl7.fhir.dstu3.model.ValueSet.ConceptReferenceComponent;
@@ -1610,7 +1611,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     return null;
   }
 
-  private String displayCodeableConcept(CodeableConcept cc) {
+  public String displayCodeableConcept(CodeableConcept cc) {
     String s = cc.getText();
     if (Utilities.noString(s)) {
       for (Coding c : cc.getCoding()) {
@@ -1673,6 +1674,22 @@ public class NarrativeGenerator implements INarrativeGenerator {
       x.tx("?");
     if (q.getLow().hasUnit())
       x.tx(" "+q.getLow().getUnit());
+  }
+
+  public String displayRange(Range q) {
+    StringBuilder b = new StringBuilder();
+    if (q.hasLow())
+      b.append(q.getLow().getValue().toString());
+    else
+      b.append("?");
+    b.append("-");
+    if (q.hasHigh())
+      b.append(q.getHigh().getValue().toString());
+    else
+      b.append("?");
+    if (q.getLow().hasUnit())
+      b.append(" "+q.getLow().getUnit());
+    return b.toString();
   }
 
   private void renderHumanName(HumanName name, XhtmlNode x) {
@@ -3442,6 +3459,17 @@ public class NarrativeGenerator implements INarrativeGenerator {
   }
 
 
+  public String genType(Type type) throws DefinitionException {
+    if (type instanceof Coding)
+      return gen((Coding) type);
+    if (type instanceof CodeableConcept)
+      return displayCodeableConcept((CodeableConcept) type);
+    if (type instanceof Quantity)
+      return displayQuantity((Quantity) type);
+    if (type instanceof Range)
+      return displayRange((Range) type);
+    return null;
+  }
 	private String gen(Extension extension) throws DefinitionException {
 		if (extension.getValue() instanceof CodeType)
 			return ((CodeType) extension.getValue()).getValue();
@@ -3451,7 +3479,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
 	  throw new DefinitionException("Unhandled type "+extension.getValue().getClass().getName());
   }
 
-	private String gen(CodeableConcept code) {
+	public String gen(CodeableConcept code) {
 		if (code == null)
 	  	return null;
 		if (code.hasText())
@@ -3461,7 +3489,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
 		return null;
 	}
 
-	private String gen(Coding code) {
+	public String gen(Coding code) {
 	  if (code == null)
 	  	return null;
 	  if (code.hasDisplayElement())

@@ -155,6 +155,7 @@ import org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionMappingCo
 import org.hl7.fhir.dstu3.model.Type;
 import org.hl7.fhir.dstu3.model.TypeDetails;
 import org.hl7.fhir.dstu3.model.UriType;
+import org.hl7.fhir.dstu3.model.UsageContext;
 import org.hl7.fhir.dstu3.model.ValueSet;
 import org.hl7.fhir.dstu3.model.ValueSet.ConceptReferenceComponent;
 import org.hl7.fhir.dstu3.model.ValueSet.ConceptSetComponent;
@@ -173,6 +174,7 @@ import org.hl7.fhir.dstu3.utils.Translations;
 import org.hl7.fhir.dstu3.utils.client.FHIRToolingClient;
 import org.hl7.fhir.dstu3.validation.ValidationMessage;
 import org.hl7.fhir.dstu3.validation.ValidationMessage.Source;
+import org.hl7.fhir.exceptions.DefinitionException;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.exceptions.PathEngineException;
 import org.hl7.fhir.exceptions.UcumException;
@@ -1540,7 +1542,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     s.append("<tr>");
     s.append("<td><b>id</b></td>");
     s.append("<td><b>Description</b></td>");
-    s.append("<td><b><a href=\"\">Conf.</a></b></td>");
+    s.append("<td><b><a href=\"defining-extensions.html#cardinality\">Conf.</a></b></td>");
     s.append("<td><b>Type</b></td>");
     s.append("<td><b>Context</b></td>");
     s.append("<td><b><a href=\"resource.html#maturity\">FMM</a></b></td>");
@@ -6290,7 +6292,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       else if (com[0].equals("fmm")) 
         src = s1+getFmmFromlevel(genlevel(level), pack.getFmmLevel())+s3;
       else if (com[0].equals("profile-context")) 
-        src = s1+getProfileContext(pack.getCandidateResource())+s3;
+        src = s1+getProfileContext(pack.getCandidateResource(), genlevel(level))+s3;
       else if (com[0].equals("resurl")) {
          if (Utilities.noString(pack.metadata("id")))
            src = s1+s3;
@@ -6302,8 +6304,23 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     return src;
   }
 
-  private String getProfileContext(MetadataResource metadataResource) {
-    return "todo";
+  private String getProfileContext(MetadataResource mr, String prefix) throws DefinitionException {
+    NarrativeGenerator gen = new NarrativeGenerator(prefix, "", workerContext, this);
+    CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
+    for (UsageContext uc :  mr.getUseContext()) {
+      String vs = gen.genType(uc.getValue());
+      if (vs != null)
+        b.append(gen.gen(uc.getCode())+": "+vs);
+    }
+    for (CodeableConcept cc : mr.getJurisdiction()) {
+      b.append("Country: "+gen.displayCodeableConcept(cc));
+    }
+    if (mr.getExperimental())
+      b.append("Not Intended for Production use");
+    if (b.length() == 0)
+      return "Context: Any";
+    else
+      return "Context: "+b.toString();
   }
 
   private String generateProfileExamples(Profile pack, ConstraintStructure profile) {
@@ -6732,7 +6749,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         String fmm = ToolingExtensions.readStringExtension(ed, ToolingExtensions.EXT_FMM_LEVEL);
         src = s1+getFmmFromlevel(genlevel(level), fmm)+s3;
       } else if (com[0].equals("profile-context")) 
-        src = s1+getProfileContext(ed)+s3;
+        src = s1+getProfileContext(ed, genlevel(level))+s3;
       else 
         throw new Exception("Instruction <%"+s2+"%> not understood parsing resource "+filename);
     }
@@ -7794,8 +7811,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       throw new Exception("unable to find resource '"+resourceName+"'");
     return "&nbsp;<a href=\"resource.html#maturity\" style=\"color: maroon; hover: maroon; visited; maroon; opacity: 0.7\" title=\"Maturity Level\">"+rd.getFmmLevel()+"</a>";
   }
-  private String getFmmFromlevel(String level, String prefix) throws Exception {
-    return "&nbsp;<a href=\""+prefix+"resource.html#maturity\" style=\"color: maroon; hover: maroon; visited; maroon; opacity: 0.7\" title=\"Maturity Level\">"+(level == null ? "0" : level)+"</a>";
+  private String getFmmFromlevel(String prefix, String level) throws Exception {
+    return "&nbsp;<a href=\""+prefix+"resource.html#maturity\" style=\"color: maroon; hover: maroon; visited; maroon; opacity: 0.7\" title=\"Maturity Level\">Maturity Level</a>: "+(level == null ? "0" : level);
   }
   
   private String getXcm(String param) {
