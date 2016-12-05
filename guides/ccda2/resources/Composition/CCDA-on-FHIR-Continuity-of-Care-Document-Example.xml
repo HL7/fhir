@@ -4,7 +4,7 @@
     <meta>
         <versionId value="1"/>
         <lastUpdated value="2016-06-15T08:16:14Z"/>
-        <profile value="http://hl7.org/fhir/ccda/StructureDefinition/CCDA_on_FHIR_Continuity_of_Care_Document"/>
+        <profile value="http://hl7.org/fhir/ccda/StructureDefinition/CCDA-on-FHIR-Continuity-of-Care-Document"/>
     </meta>
     <text>
         <status value="generated"/>
@@ -17,7 +17,7 @@
     <!--  <extension url="http://hl7.org/fhir/ccda/StructureDefinition/CCDA-on-FHIR-Data-Enterer"><valueReference><reference value="http://fhir3.healthintersections.com.au/open/Practitioner/2679baa7-5dac-4d22-81ae-daded84500"/></valueReference></extension><extension url="http://hl7.org/fhir/ccda/StructureDefinition/CCDA-on-FHIR-Informant"><valueReference><reference value="http://fhir3.healthintersections.com.au/open/Practitioner/2679baa7-5dac-4d22-81ae-daded84500"/></valueReference></extension><extension url="http://hl7.org/fhir/ccda/StructureDefinition/CCDA-on-FHIR-Information-Recipient"><valueReference><reference value="http://fhir3.healthintersections.com.au/open/Practitioner/2679baa7-5dac-4d22-81ae-daded84500"/></valueReference></extension><extension url="http://hl7.org/fhir/ccda/StructureDefinition/CCDA-on-FHIR-Participant"><valueReference><reference value="http://fhirtest.uhn.ca/baseDstu3/RelatedPerson/117466"/></valueReference></extension><extension url="http://hl7.org/fhir/ccda/StructureDefinition/CCDA-on-FHIR-Performer"><valueReference><reference value="http://fhir3.healthintersections.com.au/open/Practitioner/2679baa7-5dac-4d22-81ae-daded84500"/></valueReference></extension>-->
     <!-- <extension url="http://hl7.org/fhir/ccda/StructureDefinition/CCDA-on-FHIR-Authorization"><valueReference><reference value="http://hl7.org/fhir/ccda/StructureDefinition/CCDA-on-FHIR-Consent"/></valueReference></extension>-->
     <identifier>
-        <system value="http://hl7.org/fhir/ccda/StructureDefinition/CCDA_on_FHIR_Continuity_of_Care_Document"/>
+        <system value="http://hl7.org/fhir/ccda/StructureDefinition/CCDA-on-FHIR-Continuity-of-Care-Document"/>
         <value value="1"/>
     </identifier>
     <date value="2016-02-14T09:10:14Z"/>

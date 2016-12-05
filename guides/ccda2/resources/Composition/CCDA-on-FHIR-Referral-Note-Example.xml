@@ -4,7 +4,7 @@
     <meta>
         <versionId value="1"/>
         <lastUpdated value="2016-06-15T08:16:14Z"/>
-        <profile value="http://hl7.org/fhir/ccda/StructureDefinition/CCDA_on_FHIR_Referral_Note"/>
+        <profile value="http://hl7.org/fhir/ccda/StructureDefinition/CCDA-on-FHIR-Referral-Note"/>
     </meta>
     <text>
         <status value="generated"/>
@@ -16,7 +16,7 @@
     </text>
     <!-- <extension url="http://hl7.org/fhir/ccda/StructureDefinition/ccda-data-enterer-extension"><valueUri value="http://fhir3.healthintersections.com.au/open/Composition/d7f70d66-da7d-40cd-8268-d49d273bac"/></extension><extension url="http://hl7.org/fhir/ccda/StructureDefinition/ccda-informant-extension"><valueUri value="http://fhir3.healthintersections.com.au/open/Practitioner/2679baa7-5dac-4d22-81ae-daded84500"/></extension><extension url="http://hl7.org/fhir/ccda/StructureDefinition/ccda-information-recipient-extension"><valueUri value="http://fhir3.healthintersections.com.au/open/Practitioner/2679baa7-5dac-4d22-81ae-daded84500"/></extension><extension url="http://hl7.org/fhir/ccda/StructureDefinition/ccda-participant-extension"><valueUri value="http://fhirtest.uhn.ca/baseDstu3/RelatedPerson/117466"/></extension><extension url="http://hl7.org/fhir/ccda/StructureDefinition/ccda-performer-extension"><valueUri value="http://fhir3.healthintersections.com.au/open/Practitioner/2679baa7-5dac-4d22-81ae-daded84500"/></extension><extension url="http://hl7.org/fhir/ccda/StructureDefinition/ccda-authorization-extension"><valueUri value="http://hl7.org/fhir/ccda/StructureDefinition/ccda-consent"/></extension>-->
     <identifier>
-        <system value="http://hl7.org/fhir/ccda/StructureDefinition/CCDA_on_FHIR_Referral_Note"/>
+        <system value="http://hl7.org/fhir/ccda/StructureDefinition/CCDA-on-FHIR-Referral-Note"/>
         <value value="1"/>
     </identifier>
     <date value="2016-03-22T09:10:14Z"/>
