@@ -307,4 +307,11 @@
 		<id>workflow</id>
 		<sort>34</sort>
 	</space>
+	<space>
+		<url>http://clinicaltrials.gov</url>
+		<columnName>clinicaltrials.gov Mapping</columnName>
+		<title>ClinicalTrials.gov Mapping</title>
+		<id>clinicaltrials-gov</id>
+		<sort>35</sort>
+	</space>
 </mappingSpaces>
