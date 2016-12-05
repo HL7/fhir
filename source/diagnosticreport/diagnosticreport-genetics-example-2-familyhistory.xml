@@ -31,7 +31,7 @@
           <id value="f1-genetics"/>
           <extension url="http://hl7.org/fhir/StructureDefinition/family-member-history-genetics-observation">
               <valueReference>
-                  <reference value="DiagnosticReport/dgf1"/>
+                  <reference value="Observation/dgf1"/>
               </valueReference>
           </extension>
           <patient>

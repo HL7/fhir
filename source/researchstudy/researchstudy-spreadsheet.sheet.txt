@@ -84,12 +84,13 @@
 
  -- Row 2 -----------------------------------
   Element = ResearchStudy.identifier
-  Card. = 0..1
+  Card. = 0..*
   Summary = Y
   Type = Identifier
   Short Name = Business Identifer for study
   Definition = Identifiers assigned to this research study by the sponsor or other systems
   Requirements = Allows identification of the research study as it is known by various participating systems and in a way that remains consistent across servers
+  clinicaltrials.gov Mapping = Organization\'s Unique Protocol ID; Secondary IDs
   RIM Mapping = .identifier
   w5 = id
 
@@ -100,6 +101,7 @@
   Type = string
   Short Name = Name for this study
   Definition = A short, descriptive user-friendly label for the study
+  clinicaltrials.gov Mapping = Brief Title
 
  -- Row 4 -----------------------------------
   Element = ResearchStudy.protocol
@@ -108,6 +110,7 @@
   Type = Reference(PlanDefinition)
   Short Name = Steps followed in executing study
   Definition = The set of steps expected to be performed as part of the execution of the study
+  clinicaltrials.gov Mapping = Interventions; Arm/Intervention Cross-Reference
   RIM Mapping = .outboundRelationship[typeCode=DEFN].target
 
  -- Row 5 -----------------------------------
@@ -142,6 +145,7 @@
   Binding = ResearchStudyCategory
   Short Name = Classifications for the study
   Definition = Codes categorizing the type of study such as investigational vs. observational, type of blinding, type of randomization, safety vs. efficacy, etc.
+  clinicaltrials.gov Mapping = Study Type; Primary Purpose; Study Phase; Interventional Model; Masking; Allocation; study Classification; Observational Study Model; Time Perspective; Biospecimen Retention
 
  -- Row 8 -----------------------------------
   Element = ResearchStudy.focus
@@ -151,6 +155,7 @@
   Binding = ResearchStudyFocus
   Short Name = Drugs, devices, conditions, etc. under study
   Definition = The condition(s), medication(s), food(s), therapy(ies), device(s) or other concerns or interventions that the study is seeking to gain more information about
+  clinicaltrials.gov Mapping = Conditions or Focus of Study
   w5 = what
 
  -- Row 9 -----------------------------------
@@ -160,6 +165,7 @@
   Type = ContactDetail
   Short Name = Contact details for the study
   Definition = Contact details to assist a user in learning more about or engaging with the study
+  clinicaltrials.gov Mapping = Central Contact; Central Contact Backup; Overall Study Officials; Facility Contact & Backup (if Study tied to only one location); Investigators
 
  -- Row 10 -----------------------------------
   Element = ResearchStudy.relatedArtifact
@@ -167,6 +173,7 @@
   Type = RelatedArtifact
   Short Name = References and dependencies
   Definition = Citations, references and other related documents
+  clinicaltrials.gov Mapping = Citations, Links, Available Study Data/Documents
 
  -- Row 11 -----------------------------------
   Element = ResearchStudy.keyword
@@ -176,6 +183,7 @@
   Binding = ResearchStudyKeyword
   Short Name = Used to search for the study
   Definition = Key terms to aid in searching for or filtering the study
+  clinicaltrials.gov Mapping = Keywords
 
  -- Row 12 -----------------------------------
   Element = ResearchStudy.jurisdiction
@@ -192,6 +200,7 @@
   Type = markdown
   Short Name = What this is study doing
   Definition = A full description of how the study is being conducted
+  clinicaltrials.gov Mapping = Detailed Description
 
  -- Row 14 -----------------------------------
   Element = ResearchStudy.enrollment
@@ -202,6 +211,7 @@
   Short Name = Inclusion & exclusion criteria
   Definition = Reference to a Group that defines the criteria for and quantity of subjects participating in the study.  E.g. \" 200 female Europeans between the ages of 20 and 45 with early onset diabetes\"
   Comments = The Group referenced should not generally enumerate specific subjects.  Subjects will be linked to the study using the ResearchSubject resource.
+  clinicaltrials.gov Mapping = Enrollment; Number of Groups/Cohorts (= number of \"enrollment\" instances); Groups (Group/Cohort Label = Group.name; Group/Cohort Description = Group.description); Eligibility (Group criteria)
   To Do = .participation[typeCode=SBJ].role
   w5 = who.focus
 
@@ -214,6 +224,7 @@
   Short Name = When the study began and ended
   Definition = Identifies the start date and the expected (or actual, depending on status) end date for the study.
   Requirements = [The list of types may be constrained as appropriate for the type of event]
+  clinicaltrials.gov Mapping = Study Start Date (start); Study Completion Date (end)
   To Do = .effectiveTime
   w5 = when.done
 
@@ -224,6 +235,7 @@
   Type = Reference(Organization)
   Short Name = Organization responsible for the study
   Definition = The organization responsible for the execution of the study
+  clinicaltrials.gov Mapping = Sponsor
   To Do = .participation[typeCode=PRF].role[scoper.determinerCode=INSTANCE]
   w5 = who.actor
 
@@ -234,6 +246,7 @@
   Type = Reference(Practitioner)
   Short Name = Individual responsible for the study
   Definition = Indicates the individual who has primary oversite of the execution of the study
+  clinicaltrials.gov Mapping = Principal Investigator
   w5 = who.actor
 
  -- Row 18 -----------------------------------
@@ -243,6 +256,7 @@
   Type = Reference(Location)
   Short Name = Location involved in study execution
   Definition = Clinic, hospital or other healthcare location that is participating in the study
+  clinicaltrials.gov Mapping = Facility
   w5 = where
 
  -- Row 19 -----------------------------------
@@ -252,6 +266,7 @@
   Type = CodeableConcept
   Short Name = Reason for terminating study early
   Definition = A description and/or code explaining the premature termination of the study
+  clinicaltrials.gov Mapping = Why Study Stopped
   w5 = why
 
  -- Row 20 -----------------------------------
@@ -267,6 +282,7 @@
   Card. = 0..*
   Short Name = Defined path through the study for a subject
   Definition = Describes an expected sequence of events for one of the participants of a study.  E.g. Exposure to drug A, wash-out, exposure to drug B, wash-out, follow-up
+  clinicaltrials.gov Mapping = Arms
 
  -- Row 22 -----------------------------------
   Element = ResearchStudy.arm.name
@@ -274,6 +290,7 @@
   Type = string
   Short Name = Label for study arm
   Definition = Unique, human-readable label for this arm of the study
+  clinicaltrials.gov Mapping = Arm Label
 
  -- Row 23 -----------------------------------
   Element = ResearchStudy.arm.code
@@ -281,6 +298,7 @@
   Type = CodeableConcept
   Short Name = Categorization of arm
   Definition = E.g. Experimental, active comparator, placebo comparator
+  clinicaltrials.gov Mapping = Arm Type
 
  -- Row 24 -----------------------------------
   Element = ResearchStudy.arm.description
@@ -288,6 +306,7 @@
   Type = string
   Short Name = Short explanation of study path
   Definition = A succinct description of the path through the study that would be followed by a subject adhering to this arm.
+  clinicaltrials.gov Mapping = Arm Description
 
 === Sheet Search =====================================
 

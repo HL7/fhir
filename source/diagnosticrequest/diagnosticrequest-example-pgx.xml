@@ -12,7 +12,7 @@
 	<subject>
 		<reference value="Patient/899962"/>
 	</subject>
-	<authored value="2016-10-10T15:00:00-07:00"/>
+	<authoredOn value="2016-10-10T15:00:00-07:00"/>
 	<requester>
 		<reference value="Practitioner/12345"/>
 	</requester>

@@ -3,6 +3,7 @@
 <DiagnosticReport xmlns="http://hl7.org/fhir">
     <id value="hla-1"/>
     <text>
+      <status value="extensions"/>
       <div xmlns="http://www.w3.org/1999/xhtml">
         <h3>HLA-A,-B,-C Genotyping Report for Marry Chalmers (MRN: 12345) </h3>
         <pre>
@@ -18,36 +19,8 @@
         <p>Please refer the <a href="genomics.html#hla">implementation guide </a> for this usage example.</p>
       </div>
     </text>
-    <code>
-      <coding>
-        <system value="http://loinc.org"/>
-        <code value="53767-0"/>
-        <display value="HLA-A+B+C SBT [Interpretation] by High resolution"/>
-      </coding>
-    </code>
-    <category>
-      <coding>
-        <system value="http://hl7.org/fhir/ValueSet/diagnostic-service-sections"/>
-        <code value="GE"/>
-        <display value="Genetics"/>
-      </coding>
-    </category>
-    <subject>
-      <reference value="Patient/123"/>
-      <display value="Mary Chalmers"/>
-    </subject>
-    <specimen>
-      <reference value="Specimen/456"/>
-      <display value="buccal swab"/>
-    </specimen>
-    <request>
-      <reference value="DiagnosticRequest/789"/>
-      <display value="Order for HLA-A,-B,-C genotyping"/>
-    </request>
-    <effectiveDateTime value="2015-05-26T15:30:10+01:00"/>
-    <issued value="2014-05-16T10:28:00+01:00"/> 
     <extension xmlns="http://hl7.org/fhir" url="http://hl7.org/fhir/StructureDefinition/hla-genotyping-resultsAlleleAsignmentDate">
-      <valueDate value="2014-05-16T10:28:00+01:00"/>
+      <valueDate value="2014-05-16"/>
     </extension>
     <extension xmlns="http://hl7.org/fhir" url="http://hl7.org/fhir/StructureDefinition/hla-genotyping-resultsAlleleDatabase">
       <valueCodeableConcept>
@@ -75,6 +48,35 @@
         <text value="Next Generation Sequencing of exons 2 and 3 of HLA Class I genes"/>
       </valueCodeableConcept>
     </extension>
+    <status value="final"/>
+    <category>
+      <coding>
+        <system value="http://hl7.org/fhir/ValueSet/diagnostic-service-sections"/>
+        <code value="GE"/>
+        <display value="Genetics"/>
+      </coding>
+    </category>
+    <code>
+      <coding>
+        <system value="http://loinc.org"/>
+        <code value="53767-0"/>
+        <display value="HLA-A+B+C SBT [Interpretation] by High resolution"/>
+      </coding>
+    </code>
+    <subject>
+      <reference value="Patient/123"/>
+      <display value="Mary Chalmers"/>
+    </subject>
+    <effectiveDateTime value="2015-05-26T15:30:10+01:00"/>
+    <issued value="2014-05-16T10:28:00+01:00"/> 
+    <request>
+      <reference value="DiagnosticRequest/789"/>
+      <display value="Order for HLA-A,-B,-C genotyping"/>
+    </request>
+    <specimen>
+      <reference value="Specimen/456"/>
+      <display value="buccal swab"/>
+    </specimen>
     <result>
       <reference value="Observation/111"/>
       <display value="Genotype Observation for for HLA-A"/>

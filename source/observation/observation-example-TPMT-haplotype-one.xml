@@ -1,14 +1,5 @@
 <Observation xmlns="http://hl7.org/fhir">
   <id value="example-TPMT-haplotype-one"/>
-  <status value="unknown"/>
-  <code>
-    <coding>
-      <system value="http://snomed.info"/>
-      <code value="363779003"/>
-      <display value="Genotype determination"/>
-    </coding>
-    <text value="Haplotype Call"/>
-  </code>
   <extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsGene">
     <valueCodeableConcept>
       <coding>
@@ -18,6 +9,15 @@
       </coding>
     </valueCodeableConcept>
   </extension>
+  <status value="unknown"/>
+  <code>
+    <coding>
+      <system value="http://snomed.info"/>
+      <code value="363779003"/>
+      <display value="Genotype determination"/>
+    </coding>
+    <text value="Haplotype Call"/>
+  </code>
   <subject>
     <reference value="Patient/example"/>
     <display value="E***********"/>

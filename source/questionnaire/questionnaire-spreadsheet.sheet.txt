@@ -567,7 +567,7 @@
   Inv. = 8
   Type = boolean | decimal | integer | date | dateTime | instant | time | string | uri | Attachment | Coding | Quantity | Reference(Any)
   Short Name = Default value when item is first rendered
-  Definition = The value that should be pre-populated when rendering the questionnaire for user input.
+  Definition = The value that should be defaulted when rendering the questionnaire for user input
   Requirements = In some workflows, having defaults saves time.
   Comments = The user is allowed to change the value and override the default (unless marked as read-only). If the user doesn\'t change the value, then this initial value will be persisted when the QuestionnaireResponse is initially created.
   RIM Mapping = N/A - MIF rather than RIM level
@@ -796,8 +796,8 @@
  -- Row 16 -----------------------------------
   Name = populatehtml.form
   Use = out
-  Documentation = The URL for the web form  that supports capturing the information defined by questionnaire, possibly partially (or fully)-populated with a set of answers for the specified Questionnaire
-  Type = uri
+  Documentation = The generated HTML page that supports capturing the information defined by questionnaire, possibly partially (or fully)-populated with a set of answers for the specified Questionnaire
+  Type = Binary
   Min = 1
   Max = 1
 
@@ -862,8 +862,8 @@
  -- Row 24 -----------------------------------
   Name = populatelink.link
   Use = out
-  Documentation = The generated HTML page that supports capturing the information defined by questionnaire, possibly partially (or fully)-populated with a set of answers for the specified Questionnaire
-  Type = Binary
+  Documentation = The URL for the web form  that supports capturing the information defined by questionnaire, possibly partially (or fully)-populated with a set of answers for the specified Questionnaire
+  Type = uri
   Min = 1
   Max = 1
 

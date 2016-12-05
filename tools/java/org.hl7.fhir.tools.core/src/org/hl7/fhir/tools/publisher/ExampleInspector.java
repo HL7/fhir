@@ -53,7 +53,7 @@ public class ExampleInspector {
     }
   }
 
-  private static final boolean VALIDATE_BY_PROFILE = false;
+  private static final boolean VALIDATE_BY_PROFILE = true;
   private static final boolean VALIDATE_BY_SCHEMATRON = false;
   private static final boolean VALIDATE_BY_JSON_SCHEMA = false;
   

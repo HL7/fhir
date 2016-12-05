@@ -420,7 +420,7 @@
   Short Name = Comments about the use of this element
   Definition = Explanatory notes and implementation guidance about the data element, including notes about how to use the data properly, exceptions to proper use, etc.
   Comments = If it is possible to capture usage rules using constraints, that mechanism should be used in preference to this element
-  v2 Mapping = NTE, OM.32, OM1.33, OM1.39
+  v2 Mapping = NTE, OM1.32, OM1.33, OM1.39
   RIM Mapping = ./inboundRelationship[typeCode=SUBJ]/source[classCode=LIST, moodCode=EVN]/code
   11179 Mapping = (Administered_Item).explanatory_comment
   LOINC Code = COMMENTS

@@ -18,12 +18,12 @@
     </coding>
     <text value="Diplotype Call"/>
   </code>
-  <valueString value="*1/*4"/>
   <subject>
     <reference value="Patient/example"/>
     <display value="E***********"/>
   </subject>
   <issued value="2013-04-03T15:30:10+01:00"/>
+  <valueString value="*1/*4"/>
   <related>
     <type value="derived-from"/>
     <target>
