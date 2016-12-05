@@ -13,7 +13,7 @@ in order to support consistent definitions for schema and UML derived code.
 <body>
 [%file newnavbar%]
 
-<div class="col-9">
+<div class="col-12">
 <table class="cols"><tr><td id="wg">Work Group <a _target="blank" href="[%wg oo%]">[%wgt oo%]</a><a _target="blank" href="[%wg pher%]">[%wgt pher%]</a> </td><td id="ballot"><a href="help.html#status">Ballot Status</a>: <a href="history.html#pubs">n/a</a></td></tr></table>
 
 <a name="root"> </a>
@@ -58,9 +58,22 @@ The Diagnostics Module provides an overview and guide to the FHIR content that a
     <img src="diagnostic-module-resources.png" alt="Image showing the diagnostic resources" width="800px"/>
     
 <p>
-Also, see the <a href="genomics.html">Genomics Implementation Guidance</a> for additional information about how to use the 
-Diagnostic resources for Clinical Genomic Reporting and Analysis.
+<blockquote>
+    <em>Note:</em> See the <a href="genomics.html">Genomics Implementation Guidance</a> for additional information about how to use the
+    Diagnostic resources for Clinical Genomic Reporting and Analysis.
+</blockquote>
 </p>
+    <table class="bare">
+        <tr><td><b>Name</b></td><td><b>Aliases</b></td><td><b>Description</b></td></tr>
+        [%res-item Observation%]
+        [%res-item DiagnosticReport%]
+        [%res-item DiagnosticRequest%]
+        [%res-item ImagingStudy%]
+        [%res-item ImagingManifest%]
+        [%res-item Sequence%]
+        [%res-item Specimen%]
+        [%res-item BodySite%]
+    </table>
 
 <a name="secpriv"> </a>
 <h3>Security and Privacy</h3>
@@ -72,7 +85,7 @@ The diagnostic resources often represent patient-related data, and as such are s
 <h3>Common use Cases</h3>
 <p>
 Diagnostic resources are commonly used as to order and report clinical diagnostics:
-
+</p>
 <ul>
 <li>Ordering a Laboratory Test such as a <a href="diagnosticrequest-example-lipid.html">lipid panel</a></li>
 <li>Reporting a Laboratory Test such as a <a href="diagnosticreport-example-lipids.html">lipid panel</a></li>
@@ -81,11 +94,9 @@ Diagnostic resources are commonly used as to order and report clinical diagnosti
 <li>Ordering a genetics test  such as a <a href="diagnosticrequest-genetics-example-1.html">gene mutation analysis </a></li>
 <li>Reporting a genetics test such as <a href="diagnosticreport-hla-genetics-results-example.html">HLA genotyping</a></li>
 </ul>
-
-
-
+<p>
 There are many ways to use these resources independently as well.  The Observation resource in particular is central to capturing many measurements and events in healthcare and is often used outside the context of diagnostic orders and reports.
-
+</p>
 <ul>
 <li>recording vital signs such as <a href="observation-example-f202-temperature.html">temperature</a></li>
 <li>recording other observations such as patient's social history like tobacco use</li>
@@ -93,7 +104,7 @@ There are many ways to use these resources independently as well.  The Observati
 <li>recording clinical assessment tool scores such as an <a href="observation-example-5minute-apgar-score.html">Apgar score</a>.</li>
 <li>identifying and describing a <a href="specimen-example-serum.html">specimen</a> or <a href="bodysite-example-tumor.html">body site</a></li>
 </ul>
-</p>
+
 
 <a name="roadmap"> </a>
 <h3>Developmental Roadmap</h3>

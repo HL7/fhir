@@ -13,7 +13,7 @@ in order to support consistent definitions for schema and UML derived code.
 <body>
 [%file newnavbar%]
 
-<div class="col-9">
+<div class="col-12">
 <table class="cols"><tr><td id="wg">Work Group <a _target="blank" href="[%wg pa%]">[%wgt pa%]</a><a _target="blank" href="[%wg pher%]">[%wgt pher%]</a> </td><td id="ballot"><a href="help.html#status">Ballot Status</a>: <a href="history.html#pubs">n/a</a></td></tr></table>
 
 <a name="root"> </a>
@@ -30,14 +30,39 @@ This module is concerned with resources and functionality in 2 main domains:
 	<li>Recording of Immunizations given (or not given), and recommendations for an individual patient at a point in time.</li>
 </ul>
 
-<h3>Resources</h3>
+    <a name="index"> </a>
+    <h3>Index</h3>
+    <table width="100%" style="table-layout: fixed">
+        <tr>
+            <td>
+                <ul>
+                    <li><a href="medicationrequest.html">MedicationRequest</a></li>
+                    <li><a href="medicationdispense.html">MedicationDispense</a></li>
+                    <li><a href="medicationadministration.html">MedicationAdministration</a></li>
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    <li><a href="medicationstatement.html">MedicationStatement</a></li>
+                    <li><a href="medication.html">Medication</a></li>
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    <li><a href="immunization.html">Immunization</a></li>
+                    <li><a href="immunizationrecommendation.html">ImmunizationRecommendation</a></li>
+                </ul>
+            </td>
+        </tr>
+    </table>
 
 
 
-<table class="grid">
-
-	<tr><td colspan="2"><strong>Medications</strong></td></tr>
-	<tr>
+<a name="meds"> </a>
+<h4>Medications</h4>
+<table class="bare">
+    <tr><td><b>Name</b></td><td><b>Description</b></td></tr>
+	<tr bgcolor="#EFEFEF">
 		<td valign="top"><a href="medicationrequest.html">MedicationRequest</a></td>
 		<td>
 		<p>Represents an instruction for the administration of medication to a patient - both in the inpatient (hospital) and
@@ -53,7 +78,7 @@ This module is concerned with resources and functionality in 2 main domains:
 		<td><a href="medicationdispense.html">MedicationDispense</a></td>
 		<td>The provision of a supply of a medication with the intention that it is subsequently consumed by a patient
 			(usually in response to a prescription).</td></tr>
-	<tr>
+	<tr bgcolor="#EFEFEF">
 		<td><a href="medicationadministration.html">MedicationAdministration</a></td>
 		<td>A record of a patient actually consuming a medicine, or if it has otherwise been administered to them</td></tr>
 	<tr>
@@ -73,7 +98,7 @@ This module is concerned with resources and functionality in 2 main domains:
 
 
 		</td></tr>
-	<tr>
+	<tr bgcolor="#EFEFEF">
 		<td><a href="medication.html">Medication</a></td>
 		<td>The medication resource represents an actual medication that can be given to a patient, and referenced by the
 			other medication resources. In many cases, this resource is not needed and the drug is indicated by
@@ -81,9 +106,12 @@ This module is concerned with resources and functionality in 2 main domains:
 		it may be desired to indicate more details than the simple drug (such as the packaging, whether it is a generic medication
 			or the active and inactive ingredients)
 		and so the Medication resource can be used for this.</td></tr>
-	<tr>
-		<td colspan="2"><strong>Immunizations</strong></td></tr>
-	<tr>
+</table>
+    <a name="imm"> </a>
+    <h4>Immunizations</h4>
+    <table class="bare">
+        <tr><td><b>Name</b></td><td><b>Description</b></td></tr>
+	<tr bgcolor="#EFEFEF">
 		<td><a href="immunization.html">Immunization</a></td>
 		<td>The Immunization resource is intended to cover the recording of current and historical administration of vaccines
 			to patients across all healthcare disciplines in all care settings and all regions.
