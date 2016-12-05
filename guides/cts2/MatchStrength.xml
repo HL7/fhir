@@ -14,7 +14,7 @@
    </contact>
    <date value="2016-02-08T19:11:02-07:00"/>
    <description value="represents the relative strength of the result of a search. Represented as a real number $\mathbb{R}$ such that $0.0 &amp;lt; MatchStrength \leq 1.0$."/>
-   <fhirVersion value="1.6.0"/>
+   <fhirVersion value="1.8.0"/>
    <kind value="logical"/>
    <abstract value="false"/>
    <baseDefinition value="http://hl7.org/fhir/StructureDefinition/decimal"/>

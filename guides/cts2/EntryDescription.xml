@@ -14,7 +14,7 @@
    </contact>
    <date value="2016-02-08T19:11:02-07:00"/>
    <description value="EntryDescription is a subclass of OpaqueData. The purpose behind this is that there are certain textual fields that some CTS2 service implementations may want constrain. As an example,&#xa;&#x9;&#x9;&#x9;&#x9;&#x9;Designation text is of type \\ EntryDescription, but implementations may want to restrict the OpaqueData&#xa;&#x9;&#x9;&#x9;&#x9;value attribute to a simple string rather than xs:anyType. When OpaqueData appears directly as a model element, implementations must be able to support the full OpaqueData model. EntryDescription,&#xa;&#x9;&#x9;&#x9;&#x9;however, may be constrained by implementations or specialized PSMs."/>
-   <fhirVersion value="1.6.0"/>
+   <fhirVersion value="1.8.0"/>
    <kind value="logical"/>
    <abstract value="false"/>
    <baseDefinition value="{http://www.omg.org/spec/CTS2/1.1/Core}OpaqueData"/>

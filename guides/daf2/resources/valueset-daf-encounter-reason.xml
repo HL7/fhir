@@ -27,7 +27,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.2.591"/>
   </identifier>
-  <version value="1.6.0"/>
+  <version value="1.8.0"/>
   <name value="DAF Encounter Diagnoses"/>
   <status value="draft"/>
   <experimental value="true"/>

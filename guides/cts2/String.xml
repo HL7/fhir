@@ -14,7 +14,7 @@
    </contact>
    <date value="2016-02-08T19:11:02-07:00"/>
    <description value="a non-empty sequence of characters. As terminological resourcesare often multilingual, it is expected that most CTS2 Platform SpecificModels (PSMs) will require that the String implementation&#xa;&#x9;&#x9;&#x9;&#x9;supportinternational character sets."/>
-   <fhirVersion value="1.6.0"/>
+   <fhirVersion value="1.8.0"/>
    <kind value="logical"/>
    <abstract value="false"/>
    <baseDefinition value="http://hl7.org/fhir/StructureDefinition/string"/>

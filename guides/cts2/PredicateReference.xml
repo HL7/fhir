@@ -14,7 +14,7 @@
    </contact>
    <date value="2016-02-08T19:11:02-07:00"/>
    <description value="An EntityReference that serves the role of predicate. Note that this varies slightly from the base class of NameAndMeaningReference because the name attribute is a namespace/name&#xa;&#x9;&#x9;&#x9;&#x9;combination rather than a simple name scoped exclusively by the domain."/>
-   <fhirVersion value="1.6.0"/>
+   <fhirVersion value="1.8.0"/>
    <kind value="logical"/>
    <abstract value="false"/>
    <baseDefinition value="{http://www.omg.org/spec/CTS2/1.1/Core}URIAndEntityName"/>

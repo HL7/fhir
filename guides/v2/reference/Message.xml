@@ -23,7 +23,7 @@
   <date value="2016-08-25T13:46:22+10:00"/>
   <description value="Message (the Logical Model for Version 2)"/>
   <purpose value="To support v2 -&gt; FHIR mapping and v2 validation"/>
-  <fhirVersion value="1.7.0"/>
+  <fhirVersion value="1.8.0"/>
   <kind value="logical"/>
   <abstract value="false"/>
   <type value="Message"/>

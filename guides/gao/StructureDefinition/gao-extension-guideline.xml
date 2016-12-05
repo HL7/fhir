@@ -19,7 +19,7 @@
   <date value="2015-09-22T20:02:49+10:00"></date>
   <description value="References the guidelines or policies under which the evaluation was created"></description>
   <requirements value="This field SHALL be provided unless the evaluation was issued manually, in which case it is optional."></requirements>
-  <fhirVersion value="1.6.0"></fhirVersion>
+  <fhirVersion value="1.8.0"></fhirVersion>
   <kind value="complex-type"></kind>
   <abstract value="false"></abstract>
   <contextType value="resource"></contextType>

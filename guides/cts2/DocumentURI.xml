@@ -14,7 +14,7 @@
    </contact>
    <date value="2016-02-08T19:11:02-07:00"/>
    <description value="a reference to a &quot;work&quot; in the bibliographic sense. It is not necessary that a DocumentURI be directly or indirectly resolvable to a digital resource - it may simply be the name of a book, publication or&#xa;&#x9;&#x9;&#x9;&#x9;other abstraction."/>
-   <fhirVersion value="1.6.0"/>
+   <fhirVersion value="1.8.0"/>
    <kind value="logical"/>
    <abstract value="false"/>
    <baseDefinition value="{http://www.omg.org/spec/CTS2/1.1/Core}PersistentURI"/>

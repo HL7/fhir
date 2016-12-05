@@ -14,7 +14,7 @@
    </contact>
    <date value="2016-02-08T19:11:02-07:00"/>
    <description value="A&#xa;&#x9;&#x9;&#x9;&#x9;DirectoryEntry that identifies the elements of a resource description that appear in every directory of resources of a particular type. ResourceDescriptionDirectoryEntry is an abstract type and is realized in&#xa;&#x9;&#x9;&#x9;&#x9;the implementing subtypes listed in CTS2ResourceType"/>
-   <fhirVersion value="1.6.0"/>
+   <fhirVersion value="1.8.0"/>
    <kind value="logical"/>
    <abstract value="false"/>
    <baseDefinition value="{http://www.omg.org/spec/CTS2/1.1/Core}DirectoryEntry"/>
