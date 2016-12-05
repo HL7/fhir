@@ -23,6 +23,12 @@ represents a diagnostic service that can perform the investigation as a request 
 The diagnostic service will update the request as the work is performed, and then finally
 issue a report that references the requests that it fulfills.
 </p>
+<p>
+The DiagnosticRequest resource allows requesting only a single investigation. 
+If a workflow requires requesting multiple items simultaneously, this is done using multiple instances of this resource. 
+These instances can be linked in different ways, depending on the needs of the workflow. For guidance, refer to <a href="request.html#compound">the Request pattern</a>
+</p>
+
 	</div>
 	<div>
  <a name="bnr"> </a>

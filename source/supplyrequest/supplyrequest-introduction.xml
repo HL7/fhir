@@ -12,6 +12,13 @@ used in the treatment of patients as well as supply movement within an instituti
 materials management to a service unit (nurse station).  This resource does not include the provisioning of transportation
 services.
 </p>
+<p>
+The SupplyRequest resource allows requesting only a single item. 
+If a workflow requires requesting multiple items simultaneously, this is done using multiple instances of this resource. 
+These instances can be linked in different ways, depending on the needs of the workflow. For guidance, refer to <a href="request.html#compound">the Request pattern</a>
+</p>
+
+
 	</div>
 	<div>
 		<a name="bnr"> </a>
