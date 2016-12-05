@@ -469,11 +469,88 @@ Implicitly, a missing lower boundary is "less than" any actual date.  A missing 
 The use of the prefixes:
 </p>
 <table class="grid">
- <tr><td><code>[parameter]=eq2013-01-14</code></td><td>matches 2013-01-14T00:00 (obviously) and also 2013-01-14T10:00 but not 2013-01-15T00:00</td></tr>
- <tr><td><code>[parameter]=ne2013-01-14</code></td><td>matches 2013-01-15T00:00 but not 2013-01-14T00:00 or 2013-01-14T10:00</td></tr>
- <tr><td><code>[parameter]=lt2013-01-14T10:00</code></td><td>Includes the time 2013-01-14, because it includes the part of 14-Jan 2013 before 10am </td></tr>
- <tr><td><code>[parameter]=gt2013-01-14T10:00</code></td><td>Includes the time 2013-01-14, because it includes the part of 14-Jan 2013 after 10am</td></tr>
- <tr><td><code>[parameter]=ge2013-03-14</code></td><td>Incldues a period "from 21-Jan 2013 onwards", because that period may include times after 14-Mar 2013</td></tr>
+ <tr>
+   <td><code>[parameter]=eq2013-01-14</code></td>
+   <td>
+    <ul>
+     <li style="list-style-image: url('assets/images/tick2.gif')">2013-01-14T00:00 matches (obviously)</li>
+     <li style="list-style-image: url('assets/images/tick2.gif')">2013-01-14T10:00 matches</li>
+     <li style="list-style-image: url('assets/images/cross.png')">2013-01-15T00:00 does not match - it's not in the range</li>
+    </ul>
+   </td>
+ </tr>
+ <tr>
+   <td><code>[parameter]=ne2013-01-14</code></td>
+   <td>
+    <ul>
+     <li style="list-style-image: url('assets/images/tick2.gif')">2013-01-15T00:00 matches - it's not in the range</li>
+     <li style="list-style-image: url('assets/images/cross.png')">2013-01-14T00:00 does not match - it's in the range</li>
+     <li style="list-style-image: url('assets/images/cross.png')">2013-01-14T10:00 does not match - it's in the range</li>
+    </ul>
+   </td>
+ </tr>
+ <tr>
+   <td><code>[parameter]=lt2013-01-14T10:00</code></td>
+   <td>
+    <ul>
+     <li style="list-style-image: url('assets/images/tick2.gif')">2013-01-14 matches, because it includes the part of 14-Jan 2013 before 10am</li>
+    </ul>
+   </td>
+ </tr>
+ <tr> 
+   <td><code>[parameter]=gt2013-01-14T10:00</code></td>
+   <td>
+    <ul>
+     <li style="list-style-image: url('assets/images/tick2.gif')">2013-01-14 matches, because it includes the part of 14-Jan 2013 after 10am</li>
+    </ul>
+   </td>
+ </tr>
+ <tr>
+   <td><code>[parameter]=ge2013-03-14</code></td>
+   <td>
+    <ul>
+     <li style="list-style-image: url('assets/images/tick2.gif')">"from 21-Jan 2013 onwards" is included because that period may include times after 14-Mar 2013</li>
+    </ul>
+   </td>
+ </tr>
+ <tr>
+   <td><code>[parameter]=le2013-03-14</code></td>
+   <td>
+    <ul>
+     <li style="list-style-image: url('assets/images/tick2.gif')">"from 21-Jan 2013 onwards" is included because that period may include times before 14-Mar 2013</li>
+    </ul>
+   </td>
+  </tr>
+ <tr>
+   <td><code>[parameter]=sa2013-03-14</code></td>
+   <td>
+    <ul>
+     <li style="list-style-image: url('assets/images/tick2.gif')">"from 15-Mar 2013 onwards" is included because that period starts after 14-Mar 2013</li>
+     <li style="list-style-image: url('assets/images/cross.png')">"from 21-Jan 2013 onwards" is not included because that period starts before 14-Mar 2013</li>
+     <li style="list-style-image: url('assets/images/cross.png')">"before and including 21-Jan 2013" is not included because that period starts (and ends) before 14-Mar 2013</li>
+    </ul>
+   </td>
+  </tr>
+ <tr>
+   <td><code>[parameter]=eb2013-03-14</code></td>
+   <td>
+    <ul>
+     <li style="list-style-image: url('assets/images/cross.png')">"from 15-Mar 2013 onwards" is not included because that period starts after 14-Mar 2013</li>
+     <li style="list-style-image: url('assets/images/cross.png')">"from 21-Jan 2013 onwards" is not included because that period starts before 14-Mar 2013, but does not end before it</li>
+     <li style="list-style-image: url('assets/images/tick2.gif')">"before and including 21-Jan 2013" is not included because that period ends before 14-Mar 2013</li>
+    </ul>
+   </td>
+  </tr>
+ <tr>
+   <td><code>[parameter]=ap2013-03-14</code></td>
+   <td>
+    <ul>
+     <li style="list-style-image: url('assets/images/cross.gif')">14-Mar 2013 is included - as it exactly matches</li>
+     <li style="list-style-image: url('assets/images/cross.png')">21-Jan 2013 is not included because that is near 14-Mar 2013</li>
+     <li style="list-style-image: url('assets/images/cross.png')">15-Jun 2015 is not included - as it is not near 14-Mar 2013. Note that the exact value here is at the discretion of the system</li>
+    </ul>
+   </td>
+  </tr>
 </table>
 <p>
 Other notes:
