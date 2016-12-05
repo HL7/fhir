@@ -146,5 +146,10 @@
       "template-base": "instance-template-format.html",
       "base": "ValueSet-2.16.840.1.113883.11.20.8.1.html"
     }
+    ,
+    "ValueSet/v3-ConfidentialityClassification": {
+      "template-base": "instance-template-format.html",
+      "base": "ValueSet-v3-ConfidentialityClassification.html"
+    }
   }
 }

@@ -208,13 +208,13 @@
                 <display value="ReferralDocumentType" />
             </sourceReference>
         </resource>
-        <!--<resource>
+        <resource>
             <example value="false" />
             <sourceReference>
-                <reference value="ValueSet/4368" />
+                <reference value="ValueSet/v3-ConfidentialityClassification" />
                 <display value="v3-ConfidentialityClassification" />
             </sourceReference>
-        </resource>-->
+        </resource>
         <resource>
             <example value="true" />
             <sourceReference>
