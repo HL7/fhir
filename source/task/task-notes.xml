@@ -4,7 +4,7 @@
   <p>
      Tasks are often have titles (eg "My Tasks", "Outstanding Tasks for Patient X") which can be presented in a list.  The task title should go into the Task.code as a coded concept and/or text.
   </p>
-  <a name="statemachine"></a>
+  <a name="statemachine"> </a>
   <h2>Task state machine</h2>
   <p>
     The following diagram reflects the "typical" state machine for Task.  Note that not all states will be supported by all workflows
