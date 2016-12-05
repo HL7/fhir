@@ -1,53 +1,38 @@
 <Composition
     xmlns="http://hl7.org/fhir">
-    <id value="CCDA-on-FHIR-History-and-Physical-Document-Example"/>
+    <id value="CCDA-on-FHIR-Consultation-Note-Example"/>
     <meta>
         <versionId value="1"/>
         <lastUpdated value="2016-06-15T08:16:14Z"/>
-        <profile value="http://hl7.org/fhir/ccda/StructureDefinition/CCDA-on-FHIR-History-and-Physical"/>
+        <profile value="http://hl7.org/fhir/ccda/StructureDefinition/CCDA_on_FHIR_Consultation_Note"/>
     </meta>
     <text>
         <status value="generated"/>
         <div
             xmlns="http://www.w3.org/1999/xhtml">
-            <p>History and Physical document for Henry Jones</p>
+            <p>Consultation Note document for Henry Jones</p>
             <p>Managed by Community Health and Hospitals</p>
         </div>
     </text>
-    <extension url="http://hl7.org/fhir/ccda/StructureDefinition/CCDA-on-FHIR-Data-Enterer">
-        <valueUri value="http://fhir3.healthintersections.com.au/open/Practitioner/2679baa7-5dac-4d22-81ae-daded84500"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/ccda/StructureDefinition/CCDA-on-FHIR-Informant">
-        <valueUri value="http://fhir3.healthintersections.com.au/open/Practitioner/2679baa7-5dac-4d22-81ae-daded84500"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/ccda/StructureDefinition/CCDA-on-FHIR-Information-Recipient">
-        <valueUri value="http://fhir3.healthintersections.com.au/open/Practitioner/2679baa7-5dac-4d22-81ae-daded84500"/>
-    </extension>
-    <!-- <extension url="http://hl7.org/fhir/ccda/StructureDefinition/CCDA-on-FHIR-participant"><valueUri value="http://fhirtest.uhn.ca/baseDstu3/RelatedPerson/117466"/></extension>-->
-    <extension url="http://hl7.org/fhir/ccda/StructureDefinition/CCDA-on-FHIR-Performer">
-        <valueUri value="http://fhir3.healthintersections.com.au/open/Practitioner/2679baa7-5dac-4d22-81ae-daded84500"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/ccda/StructureDefinition/CCDA-on-FHIR-Authorization">
-        <valueUri value="http://hl7.org/fhir/ccda/StructureDefinition/CCDA-on-FHIR-consent"/>
-    </extension>
+    <!-- <extension url="http://hl7.org/fhir/ccda/StructureDefinition/ccda-data-enterer-extension"><valueUri value="http://fhir3.healthintersections.com.au/open/Practitioner/2679baa7-5dac-4d22-81ae-daded84500"/></extension><extension url="http://hl7.org/fhir/ccda/StructureDefinition/ccda-informant-extension"><valueUri value="http://fhir3.healthintersections.com.au/open/Practitioner/2679baa7-5dac-4d22-81ae-daded84500"/></extension><extension url="http://hl7.org/fhir/ccda/StructureDefinition/ccda-information-recipient-extension"><valueUri value="http://fhir3.healthintersections.com.au/open/Practitioner/2679baa7-5dac-4d22-81ae-daded84500"/></extension><extension url="http://hl7.org/fhir/ccda/StructureDefinition/ccda-participant-extension"><valueUri value="http://fhirtest.uhn.ca/baseDstu3/RelatedPerson/117466"/></extension><extension url="http://hl7.org/fhir/ccda/StructureDefinition/ccda-performer-extension"><valueUri value="http://fhir3.healthintersections.com.au/open/Practitioner/2679baa7-5dac-4d22-81ae-daded84500"/></extension><extension url="http://hl7.org/fhir/ccda/StructureDefinition/ccda-authorization-extension"><valueUri value="http://hl7.org/fhir/ccda/StructureDefinition/ccda-consent"/></extension>-->
     <identifier>
-        <system value="http://hl7.org/fhir/ccda/StructureDefinition/CCDA-on-FHIR-History-and-Physical"/>
+        <system value="http://hl7.org/fhir/ccda/StructureDefinition/CCDA_on_FHIR_Consultation_Note"/>
         <value value="1"/>
     </identifier>
     <date value="2016-02-28T09:10:14Z"/>
     <type>
         <coding>
             <system value="http://loinc.org"/>
-            <code value="34117-2"/>
-            <display value="History and Physical Note"/>
+            <code value="11488-4"/>
+            <display value="Consult Note"/>
         </coding>
     </type>
-    <title value="History and Physical"/>
+    <title value="Consultation Note"/>
     <status value="preliminary"/>
     <confidentiality value="N"/>
     <!--  Patient Resource -->
     <subject>
-        <reference value="http://fhir3.healthintersections.com.au/open/Practitioner/2679baa7-5dac-4d22-81ae-daded84500"/>
+        <reference value="http://fhir3.healthintersections.com.au/open/Patient/c493f2f2-28d5-49ab-90e8-9e8be341f7"/>
         <display value="Henry Jones"/>
     </subject>
     <!--  Practitioner Resource -->
@@ -82,7 +67,40 @@
         </period>
     </event>
     <!--  Encounter Resource -->
-    <!--  <encounter><reference value="http://fhirtest.uhn.ca/baseDstu3/Encounter/117630"/></encounter>-->
+    <encounter>
+        <reference value="http://fhirtest.uhn.ca/baseDstu3/Encounter/117630"/>
+    </encounter>
+    <!--  Advance Directive Section Narrative -->
+    <section>
+        <title value="Advance Directives Section"/>
+        <code>
+            <coding>
+                <system value="http://loinc.org"/>
+                <code value="42348-3"/>
+                <display value="Advance directives"/>
+            </coding>
+        </code>
+        <text>
+            <status value="generated"/>
+            <div
+                xmlns="http://www.w3.org/1999/xhtml">
+                <table>
+                    <tr>
+                        <td>
+                            <b>Name</b>
+                        </td>
+                        <td>
+                            <b>Applies Period</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Resuscitation</td>
+                        <td>2015/01/01 - 2016/12/31</td>
+                    </tr>
+                </table>
+            </div>
+        </text>
+    </section>
     <!--  Allergies and Intolerances Section Narrative -->
     <section>
         <title value="Allergies and Intolerances Section"/>
@@ -133,8 +151,8 @@
                 <display value="Sorted by Event Date"/>
             </coding>
         </orderedBy>
-        <!--  Allergies and Intolerances Section Resource -->
-        <!-- <entry><reference value="http://fhirtest.uhn.ca/baseDstu3/AllergyIntolerance/117632"/></entry>-->
+        <!--  Allergies and Intolerances Section Resource-->
+        <!--  <entry><reference value="http://fhirtest.uhn.ca/baseDstu3/AllergyIntolerance/117632"/></entry>-->
     </section>
     <!--  Assessment Section Narrative -->
     <section>
@@ -256,7 +274,58 @@
             </div>
         </text>
         <!--  Family History Section Resource -->
-        <!-- <entry><reference value="http://fhirtest.uhn.ca/baseDstu3/FamilyMemberHistory/117652"/></entry>-->
+        <!--   <entry><reference value="http://fhirtest.uhn.ca/baseDstu3/FamilyMemberHistory/117652"/></entry>-->
+    </section>
+    <!--  Functional Status Section Narrative -->
+    <section>
+        <title value="Functional Status Section"/>
+        <code>
+            <coding>
+                <system value="http://loinc.org"/>
+                <code value="47420-5"/>
+                <display value="Functional status"/>
+            </coding>
+        </code>
+        <text>
+            <status value="generated"/>
+            <div
+                xmlns="http://www.w3.org/1999/xhtml">
+                <table>
+                    <tr>
+                        <td>
+                            <b>Functional or Cognitive Finding</b>
+                        </td>
+                        <td>
+                            <b>Observation</b>
+                        </td>
+                        <td>
+                            <b>Observation Date</b>
+                        </td>
+                        <td>
+                            <b>Condition Status</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Ambulation (Dependent to Independent</td>
+                        <td>Independently able</td>
+                        <td>2010/03/11</td>
+                        <td>Active</td>
+                    </tr>
+                    <tr>
+                        <td>Finding of Functional Performance and Activity</td>
+                        <td>Dyspnea</td>
+                        <td>2008/02/16</td>
+                        <td>Active</td>
+                    </tr>
+                    <tr>
+                        <td>Cognitive Function Finding</td>
+                        <td>Memory Impairment</td>
+                        <td>2014/04/29</td>
+                        <td>Active</td>
+                    </tr>
+                </table>
+            </div>
+        </text>
     </section>
     <!--  General Status Section Narrative -->
     <section>
@@ -290,36 +359,9 @@
             <status value="generated"/>
             <div
                 xmlns="http://www.w3.org/1999/xhtml">
-                <table>
-                    <tr>
-                        <td>
-                            <b>Problem Name</b>
-                        </td>
-                        <td>
-                            <b>Type</b>
-                        </td>
-                        <td>
-                            <b>Onset Date</b>
-                        </td>
-                        <td>
-                            <b>Abatement Date</b>
-                        </td>
-                        <td>
-                            <b>Status</b>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Fever</td>
-                        <td>Condition</td>
-                        <td>2016-04-01</td>
-                        <td>2016-04-14</td>
-                        <td>Complete</td>
-                    </tr>
-                </table>
+                <p>See History of Present Illness</p>
             </div>
         </text>
-        <!--  History of Past Illness Section Condition Resource-->
-        <!--  <entry><reference value="http://fhirtest.uhn.ca/baseDstu3/Condition/117648"/></entry>-->
     </section>
     <!--  History of Present Illness Section Narrative -->
     <section>
@@ -347,7 +389,7 @@
             </div>
         </text>
     </section>
-    <!--  Immunizations Section Narrative -->
+    <!--  Immunization Section Narrative -->
     <section>
         <title value="Immunizations Section"/>
         <code>
@@ -386,21 +428,38 @@
             <reference value="http://fhir3.healthintersections.com.au/open/Immunization/de43e197-62fb-4337-81bd-8523b9a8af"/>
         </entry>
     </section>
-    <!--  Instructions Section Narrative -->
+    <!--  Medical Equiptment Section Narrative -->
     <section>
-        <title value="Instructions Section"/>
+        <title value="Medical Equipment Section"/>
         <code>
             <coding>
                 <system value="http://loinc.org"/>
-                <code value="69730-0"/>
-                <display value=" Instructions"/>
+                <code value="46264-8"/>
+                <display value="Medical equipment"/>
             </coding>
         </code>
         <text>
             <status value="generated"/>
             <div
                 xmlns="http://www.w3.org/1999/xhtml">
-                <p>Patient may have low grade fever, mild joint pain and injection area tenderness.</p>
+                <table>
+                    <tr>
+                        <td>
+                            <b>Supply/Device</b>
+                        </td>
+                        <td>
+                            <b>Date Supplied</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Automatic Implantable cardioverter/defbrillator</td>
+                        <td>2008/11/16</td>
+                    </tr>
+                    <tr>
+                        <td>Wheelchair</td>
+                        <td>1999/12/01</td>
+                    </tr>
+                </table>
             </div>
         </text>
     </section>
@@ -454,6 +513,102 @@
         <entry>
             <reference value="http://fhir3.healthintersections.com.au/open/Medication/73bdc4a1-736c-4d79-8f42-620a19a367"/>
         </entry>
+    </section>
+    <section>
+        <title value="Mental Status Section"/>
+        <code>
+            <coding>
+                <system value="http://loinc.org"/>
+                <code value="10190-7"/>
+                <display value="Mental status"/>
+            </coding>
+        </code>
+        <text>
+            <status value="generated"/>
+            <div
+                xmlns="http://www.w3.org/1999/xhtml">
+                <table border="1" width="100%">
+                    <thead>
+                        <tr>
+                            <td>
+                                <b>Mental Status Findings</b>
+                            </td>
+                            <td>
+                                <b>Effective Dates</b>
+                            </td>
+                            <td>
+                                <b>Condition Status</b>
+                            </td>
+                        </tr>
+                    </thead>
+                    <tr>
+                        <td>Mental Function</td>
+                        <td>July 31, 2013</td>
+                        <td>Impaired</td>
+                    </tr>
+                    <tr>
+                        <td>Cognitive Abilities</td>
+                        <td>July 31, 2013</td>
+                        <td>Judgement, Intact</td>
+                    </tr>
+                    <tr>
+                        <td>Cognitive Function</td>
+                        <td>July 31, 2013</td>
+                        <td>Aggressive Behavior</td>
+                    </tr>
+                    <tr>
+                        <td>Cognitive Function</td>
+                        <td>July 31, 2013</td>
+                        <td>Difficulty understanding own emotions</td>
+                    </tr>
+                    <tr>
+                        <td>Cognitive Function</td>
+                        <td>July 31, 2013</td>
+                        <td>Difficulty communicating Thoughts </td>
+                    </tr>
+                </table>
+            </div>
+        </text>
+    </section>
+    <!--  Nutrition Section Narrative -->
+    <section>
+        <title value=" Nutrition Section"/>
+        <code>
+            <coding>
+                <system value="http://loinc.org"/>
+                <code value="61144-2"/>
+                <display value="Diet and nutrition"/>
+            </coding>
+        </code>
+        <text>
+            <status value="generated"/>
+            <div
+                xmlns="http://www.w3.org/1999/xhtml">
+                <table>
+                    <tr>
+                        <td>
+                            <b>Date</b>
+                        </td>
+                        <td>
+                            <b>Nutritional Status</b>
+                        </td>
+                        <td>
+                            <b>Diet</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2005/12/29</td>
+                        <td>Well nourished</td>
+                        <td>Low sodium diet, excessive carbohydrate</td>
+                    </tr>
+                    <tr>
+                        <td>2010/05/26</td>
+                        <td>Slight dehydration</td>
+                        <td>High protein, low fibre</td>
+                    </tr>
+                </table>
+            </div>
+        </text>
     </section>
     <!--  Physical Exam Section Narrative -->
     <section>
@@ -561,7 +716,7 @@
             </div>
         </text>
         <!--  Problem Section Condition Resource -->
-        <!--  <entry><reference value="http://fhirtest.uhn.ca/baseDstu3/Condition/117648"/></entry>-->
+        <!--   <entry><reference value="http://fhirtest.uhn.ca/baseDstu3/Condition/117648"/></entry>-->
     </section>
     <!--  Procedures Section Narrative -->
     <section>
@@ -666,7 +821,7 @@
                 </table>
             </div>
         </text>
-        <!--  Result Section Observation Resource -->
+        <!--  Results Section Observation Resource -->
         <entry>
             <reference value="http://fhir3.healthintersections.com.au/open/Observation/dce96908-11fc-49e0-9d55-7442b0eff9"/>
         </entry>

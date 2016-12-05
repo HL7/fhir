@@ -1,60 +1,45 @@
-<Composition xmlns="http://hl7.org/fhir">
-    <id value="CCDA-on-FHIR-Consultation-Note-Document-Example"/>
+<Composition
+    xmlns="http://hl7.org/fhir">
+    <id value="CCDA-on-FHIR-History-and-Physical-Example"/>
     <meta>
-        <versionId value="1"/>    
+        <versionId value="1"/>
         <lastUpdated value="2016-06-15T08:16:14Z"/>
-        <profile value="http://hl7.org/fhir/ccda/StructureDefinition/CCDA-on-FHIR-Consultation-Note"/>
+        <profile value="http://hl7.org/fhir/ccda/StructureDefinition/CCDA_on_FHIR_History_and_Physical"/>
     </meta>
     <text>
         <status value="generated"/>
-        <div xmlns="http://www.w3.org/1999/xhtml">
-            <p>Consultation Note document for Henry Jones</p>
+        <div
+            xmlns="http://www.w3.org/1999/xhtml">
+            <p>History and Physical document for Henry Jones</p>
             <p>Managed by Community Health and Hospitals</p>
         </div>
     </text>
-    <extension url="http://hl7.org/fhir/ccda/StructureDefinition/CCDA-on-FHIR-Data-Enterer">
-        <valueUri value="http://fhir3.healthintersections.com.au/open/Practitioner/2679baa7-5dac-4d22-81ae-daded84500"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/ccda/StructureDefinition/CCDA-on-FHIR-Informant">
-        <valueUri value="http://fhir3.healthintersections.com.au/open/Practitioner/2679baa7-5dac-4d22-81ae-daded84500"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/ccda/StructureDefinition/CCDA-on-FHIR-Information-Recipient">
-        <valueUri value="http://fhir3.healthintersections.com.au/open/Practitioner/2679baa7-5dac-4d22-81ae-daded84500"/>
-    </extension>
-    <!--<extension url="http://hl7.org/fhir/ccda/StructureDefinition/CCDA-on-FHIR-participant">
-        <valueUri value="http://fhirtest.uhn.ca/baseDstu3/RelatedPerson/117466"/>
-    </extension>-->
-    <extension url="http://hl7.org/fhir/ccda/StructureDefinition/CCDA-on-FHIR-Performer">
-        <valueUri value="http://fhir3.healthintersections.com.au/open/Practitioner/2679baa7-5dac-4d22-81ae-daded84500"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/ccda/StructureDefinition/CCDA-on-FHIR-Authorization">
-        <valueUri value="http://hl7.org/fhir/ccda/StructureDefinition/CCDA-on-FHIR-consent"/>
-    </extension>
+    <!-- <extension url="http://hl7.org/fhir/ccda/StructureDefinition/ccda-data-enterer-extension"><valueUri value="http://fhir3.healthintersections.com.au/open/Practitioner/2679baa7-5dac-4d22-81ae-daded84500"/></extension><extension url="http://hl7.org/fhir/ccda/StructureDefinition/ccda-informant-extension"><valueUri value="http://fhir3.healthintersections.com.au/open/Practitioner/2679baa7-5dac-4d22-81ae-daded84500"/></extension><extension url="http://hl7.org/fhir/ccda/StructureDefinition/ccda-information-recipient-extension"><valueUri value="http://fhir3.healthintersections.com.au/open/Practitioner/2679baa7-5dac-4d22-81ae-daded84500"/></extension><extension url="http://hl7.org/fhir/ccda/StructureDefinition/ccda-participant-extension"><valueUri value="http://fhirtest.uhn.ca/baseDstu3/RelatedPerson/117466"/></extension><extension url="http://hl7.org/fhir/ccda/StructureDefinition/ccda-performer-extension"><valueUri value="http://fhir3.healthintersections.com.au/open/Practitioner/2679baa7-5dac-4d22-81ae-daded84500"/></extension><extension url="http://hl7.org/fhir/ccda/StructureDefinition/ccda-authorization-extension"><valueUri value="http://hl7.org/fhir/ccda/StructureDefinition/ccda-consent"/></extension>-->
     <identifier>
-        <system value="http://hl7.org/fhir/ccda/StructureDefinition/CCDA-on-FHIR-Consultation-Note"/>
+        <system value="http://hl7.org/fhir/ccda/StructureDefinition/CCDA_on_FHIR_History_and_Physical"/>
         <value value="1"/>
     </identifier>
     <date value="2016-02-28T09:10:14Z"/>
     <type>
         <coding>
             <system value="http://loinc.org"/>
-            <code value="11488-4"/>
-            <display value="Consult Note"/>
+            <code value="34117-2"/>
+            <display value="History and Physical Note"/>
         </coding>
     </type>
-    <title value="Consultation Note"/>
+    <title value="History and Physical"/>
     <status value="preliminary"/>
     <confidentiality value="N"/>
     <!--  Patient Resource -->
     <subject>
-        <reference value="http://fhir3.healthintersections.com.au/open/Patient/c493f2f2-28d5-49ab-90e8-9e8be341f7"/>
+        <reference value="http://fhir3.healthintersections.com.au/open/Practitioner/2679baa7-5dac-4d22-81ae-daded84500"/>
         <display value="Henry Jones"/>
     </subject>
     <!--  Practitioner Resource -->
     <author>
         <reference value="http://fhir3.healthintersections.com.au/open/Practitioner/2679baa7-5dac-4d22-81ae-daded84500"/>
         <display value="Adam Everyman, MD"/>
-    </author> 
+    </author>
     <attester>
         <mode value="legal"/>
         <time value="2012-01-04T09:10:14Z"/>
@@ -82,39 +67,7 @@
         </period>
     </event>
     <!--  Encounter Resource -->
-    <encounter>
-        <reference value="http://fhirtest.uhn.ca/baseDstu3/Encounter/117630"/>
-    </encounter>
-    <!--  Advance Directive Section Narrative -->
-    <section>
-        <title value="Advance Directives Section"/>
-        <code>
-            <coding>
-                <system value="http://loinc.org"/>
-                <code value="42348-3"/>
-                <display value="Advance directives"/>
-            </coding>
-        </code>
-        <text>
-            <status value="generated"/>
-            <div xmlns="http://www.w3.org/1999/xhtml">
-                <table>
-                    <tr>
-                        <td>
-                            <b>Name</b>
-                        </td>
-                        <td>
-                            <b>Applies Period</b>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Resuscitation</td>
-                        <td>2015/01/01 - 2016/12/31</td>
-                    </tr>
-                </table>
-            </div>
-        </text>
-    </section>
+    <!--  <encounter><reference value="http://fhirtest.uhn.ca/baseDstu3/Encounter/117630"/></encounter>-->
     <!--  Allergies and Intolerances Section Narrative -->
     <section>
         <title value="Allergies and Intolerances Section"/>
@@ -127,7 +80,8 @@
         </code>
         <text>
             <status value="generated"/>
-            <div xmlns="http://www.w3.org/1999/xhtml">
+            <div
+                xmlns="http://www.w3.org/1999/xhtml">
                 <table>
                     <tr>
                         <td>
@@ -164,10 +118,8 @@
                 <display value="Sorted by Event Date"/>
             </coding>
         </orderedBy>
-        <!--  Allergies and Intolerances Section Resource-->
-      <!--  <entry>
-            <reference value="http://fhirtest.uhn.ca/baseDstu3/AllergyIntolerance/117632"/>
-        </entry>-->
+        <!--  Allergies and Intolerances Section Resource -->
+        <!-- <entry><reference value="http://fhirtest.uhn.ca/baseDstu3/AllergyIntolerance/117632"/></entry>-->
     </section>
     <!--  Assessment Section Narrative -->
     <section>
@@ -181,7 +133,8 @@
         </code>
         <text>
             <status value="generated"/>
-            <div xmlns="http://www.w3.org/1999/xhtml">
+            <div
+                xmlns="http://www.w3.org/1999/xhtml">
                 <p>Obesity.</p>
                 <p>Uncontrolled brittle Type II diabetic.</p>
                 <p>Shortness of breath, mild wheezing.</p>
@@ -201,7 +154,8 @@
         </code>
         <text>
             <status value="generated"/>
-            <div xmlns="http://www.w3.org/1999/xhtml">
+            <div
+                xmlns="http://www.w3.org/1999/xhtml">
                 <p>Recurrent GI bleed of unknown etiology; hypotension perhaps
                     secondary to this but as likely secondary to polypharmacy</p>
                 <p>Acute on chronic anemia secondary to #1.</p>
@@ -223,7 +177,8 @@
         </code>
         <text>
             <status value="generated"/>
-            <div xmlns="http://www.w3.org/1999/xhtml">
+            <div
+                xmlns="http://www.w3.org/1999/xhtml">
                 <p>Cramping, bloating, and constipation.</p>
             </div>
         </text>
@@ -240,7 +195,8 @@
         </code>
         <text>
             <status value="generated"/>
-            <div xmlns="http://www.w3.org/1999/xhtml">
+            <div
+                xmlns="http://www.w3.org/1999/xhtml">
                 <p>Dark Stools</p>
             </div>
         </text>
@@ -257,7 +213,8 @@
         </code>
         <text>
             <status value="generated"/>
-            <div xmlns="http://www.w3.org/1999/xhtml">
+            <div
+                xmlns="http://www.w3.org/1999/xhtml">
                 <table>
                     <tr>
                         <td>
@@ -284,59 +241,7 @@
             </div>
         </text>
         <!--  Family History Section Resource -->
-     <!--   <entry>
-            <reference value="http://fhirtest.uhn.ca/baseDstu3/FamilyMemberHistory/117652"/>
-        </entry>-->
-    </section>
-    <!--  Functional Status Section Narrative -->
-    <section>
-        <title value="Functional Status Section"/>
-        <code>
-            <coding>
-                <system value="http://loinc.org"/>
-                <code value="47420-5"/>
-                <display value="Functional status"/>
-            </coding>
-        </code>
-        <text>
-            <status value="generated"/>
-            <div xmlns="http://www.w3.org/1999/xhtml">
-                <table>
-                    <tr>
-                        <td>
-                            <b>Functional or Cognitive Finding</b>
-                        </td>
-                        <td>
-                            <b>Observation</b>
-                        </td>
-                        <td>
-                            <b>Observation Date</b>
-                        </td>
-                        <td>
-                            <b>Condition Status</b>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Ambulation (Dependent to Independent</td>
-                        <td>Independently able</td>
-                        <td>2010/03/11</td>
-                        <td>Active</td>
-                    </tr>
-                    <tr>
-                        <td>Finding of Functional Performance and Activity</td>
-                        <td>Dyspnea</td>
-                        <td>2008/02/16</td>
-                        <td>Active</td>
-                    </tr>
-                    <tr>
-                        <td>Cognitive Function Finding</td>
-                        <td>Memory Impairment</td>
-                        <td>2014/04/29</td>
-                        <td>Active</td>
-                    </tr>
-                </table>
-            </div>
-        </text>
+        <!-- <entry><reference value="http://fhirtest.uhn.ca/baseDstu3/FamilyMemberHistory/117652"/></entry>-->
     </section>
     <!--  General Status Section Narrative -->
     <section>
@@ -350,7 +255,8 @@
         </code>
         <text>
             <status value="generated"/>
-            <div xmlns="http://www.w3.org/1999/xhtml">
+            <div
+                xmlns="http://www.w3.org/1999/xhtml">
                 <p>Alert and in good spirits, no acute distress.</p>
             </div>
         </text>
@@ -367,10 +273,38 @@
         </code>
         <text>
             <status value="generated"/>
-            <div xmlns="http://www.w3.org/1999/xhtml">
-                <p>See History of Present Illness</p>
+            <div
+                xmlns="http://www.w3.org/1999/xhtml">
+                <table>
+                    <tr>
+                        <td>
+                            <b>Problem Name</b>
+                        </td>
+                        <td>
+                            <b>Type</b>
+                        </td>
+                        <td>
+                            <b>Onset Date</b>
+                        </td>
+                        <td>
+                            <b>Abatement Date</b>
+                        </td>
+                        <td>
+                            <b>Status</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Fever</td>
+                        <td>Condition</td>
+                        <td>2016-04-01</td>
+                        <td>2016-04-14</td>
+                        <td>Complete</td>
+                    </tr>
+                </table>
             </div>
         </text>
+        <!--  History of Past Illness Section Condition Resource-->
+        <!--  <entry><reference value="http://fhirtest.uhn.ca/baseDstu3/Condition/117648"/></entry>-->
     </section>
     <!--  History of Present Illness Section Narrative -->
     <section>
@@ -384,7 +318,8 @@
         </code>
         <text>
             <status value="generated"/>
-            <div xmlns="http://www.w3.org/1999/xhtml">
+            <div
+                xmlns="http://www.w3.org/1999/xhtml">
                 <p>This patient was only recently discharged for a recurrent GI bleed as described below. </p>
                 <p>He presented to the ER today c/o a dark stool yesterday but a normal brown
                     stool today. On exam he was hypotensive in the 80?s resolved after .... .... .... </p>
@@ -397,7 +332,7 @@
             </div>
         </text>
     </section>
-    <!--  Immunization Section Narrative -->
+    <!--  Immunizations Section Narrative -->
     <section>
         <title value="Immunizations Section"/>
         <code>
@@ -409,7 +344,8 @@
         </code>
         <text>
             <status value="generated"/>
-            <div xmlns="http://www.w3.org/1999/xhtml">
+            <div
+                xmlns="http://www.w3.org/1999/xhtml">
                 <table>
                     <tr>
                         <td>
@@ -435,37 +371,21 @@
             <reference value="http://fhir3.healthintersections.com.au/open/Immunization/de43e197-62fb-4337-81bd-8523b9a8af"/>
         </entry>
     </section>
-    <!--  Medical Equiptment Section Narrative -->
+    <!--  Instructions Section Narrative -->
     <section>
-        <title value="Medical Equipment Section"/>
+        <title value="Instructions Section"/>
         <code>
             <coding>
                 <system value="http://loinc.org"/>
-                <code value="46264-8"/>
-                <display value="Medical equipment"/>
+                <code value="69730-0"/>
+                <display value=" Instructions"/>
             </coding>
         </code>
         <text>
             <status value="generated"/>
-            <div xmlns="http://www.w3.org/1999/xhtml">
-                <table>
-                    <tr>
-                        <td>
-                            <b>Supply/Device</b>
-                        </td>
-                        <td>
-                            <b>Date Supplied</b>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Automatic Implantable cardioverter/defbrillator</td>
-                        <td>2008/11/16</td>
-                    </tr>
-                    <tr>
-                        <td>Wheelchair</td>
-                        <td>1999/12/01</td>
-                    </tr>
-                </table>
+            <div
+                xmlns="http://www.w3.org/1999/xhtml">
+                <p>Patient may have low grade fever, mild joint pain and injection area tenderness.</p>
             </div>
         </text>
     </section>
@@ -481,7 +401,8 @@
         </code>
         <text>
             <status value="generated"/>
-            <div xmlns="http://www.w3.org/1999/xhtml">
+            <div
+                xmlns="http://www.w3.org/1999/xhtml">
                 <table>
                     <tr>
                         <td>
@@ -519,100 +440,6 @@
             <reference value="http://fhir3.healthintersections.com.au/open/Medication/73bdc4a1-736c-4d79-8f42-620a19a367"/>
         </entry>
     </section>
-    <section>
-        <title value="Mental Status Section"/>
-        <code>
-            <coding>
-                <system value="http://loinc.org"/>
-                <code value="10190-7"/>
-                <display value="Mental status"/>
-            </coding>
-        </code>
-        <text>
-            <status value="generated"/>
-            <div xmlns="http://www.w3.org/1999/xhtml">
-                <table border="1" width="100%">
-                    <thead>
-                        <tr>
-                            <td>
-                                <b>Mental Status Findings</b>
-                            </td>
-                            <td>
-                                <b>Effective Dates</b>
-                            </td>
-                            <td>
-                                <b>Condition Status</b>
-                            </td>
-                        </tr>
-                    </thead>
-                        <tr>
-                            <td>Mental Function</td>
-                            <td>July 31, 2013</td>
-                            <td>Impaired</td>
-                        </tr>
-                        <tr>
-                            <td>Cognitive Abilities</td>
-                            <td>July 31, 2013</td>
-                            <td>Judgement, Intact</td>
-                        </tr>
-                        <tr>
-                            <td>Cognitive Function</td>
-                            <td>July 31, 2013</td>
-                            <td>Aggressive Behavior</td>
-                        </tr>
-                        <tr>
-                            <td>Cognitive Function</td>
-                            <td>July 31, 2013</td>
-                            <td>Difficulty understanding own emotions</td>
-                        </tr>
-                        <tr>
-                            <td>Cognitive Function</td>
-                            <td>July 31, 2013</td>
-                            <td>Difficulty communicating Thoughts </td>
-                        </tr>
-                </table>
-            </div>
-        </text>
-    </section>
-    <!--  Nutrition Section Narrative -->
-    <section>
-        <title value=" Nutrition Section"/>
-        <code>
-            <coding>
-                <system value="http://loinc.org"/>
-                <code value="61144-2"/>
-                <display value="Diet and nutrition"/>
-            </coding>
-        </code>
-        <text>
-            <status value="generated"/>
-            <div xmlns="http://www.w3.org/1999/xhtml">
-                <table>
-                    <tr>
-                        <td>
-                            <b>Date</b>
-                        </td>
-                        <td>
-                            <b>Nutritional Status</b>
-                        </td>
-                        <td>
-                            <b>Diet</b>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2005/12/29</td>
-                        <td>Well nourished</td>
-                        <td>Low sodium diet, excessive carbohydrate</td>
-                    </tr>
-                    <tr>
-                        <td>2010/05/26</td>
-                        <td>Slight dehydration</td>
-                        <td>High protein, low fibre</td>
-                    </tr>
-                </table>
-            </div>
-        </text>
-    </section>
     <!--  Physical Exam Section Narrative -->
     <section>
         <title value="Physical Exam Section"/>
@@ -625,7 +452,8 @@
         </code>
         <text>
             <status value="generated"/>
-            <div xmlns="http://www.w3.org/1999/xhtml">
+            <div
+                xmlns="http://www.w3.org/1999/xhtml">
                 <p>HEENT: All normal to examination.</p>
                 <p>&gt;HEART: RRR, no murmur.</p>
                 <p>THORAX &amp; LUNGS: Clear without rhonchi or wheeze.</p>
@@ -647,7 +475,8 @@
         </code>
         <text>
             <status value="generated"/>
-            <div xmlns="http://www.w3.org/1999/xhtml">
+            <div
+                xmlns="http://www.w3.org/1999/xhtml">
                 <table>
                     <tr>
                         <td>
@@ -686,7 +515,8 @@
         </code>
         <text>
             <status value="generated"/>
-            <div xmlns="http://www.w3.org/1999/xhtml">
+            <div
+                xmlns="http://www.w3.org/1999/xhtml">
                 <table>
                     <tr>
                         <td>
@@ -716,9 +546,7 @@
             </div>
         </text>
         <!--  Problem Section Condition Resource -->
-     <!--   <entry>
-            <reference value="http://fhirtest.uhn.ca/baseDstu3/Condition/117648"/>
-        </entry>-->
+        <!--  <entry><reference value="http://fhirtest.uhn.ca/baseDstu3/Condition/117648"/></entry>-->
     </section>
     <!--  Procedures Section Narrative -->
     <section>
@@ -732,7 +560,8 @@
         </code>
         <text>
             <status value="generated"/>
-            <div xmlns="http://www.w3.org/1999/xhtml">
+            <div
+                xmlns="http://www.w3.org/1999/xhtml">
                 <table>
                     <tr>
                         <td>
@@ -778,7 +607,8 @@
         </code>
         <text>
             <status value="generated"/>
-            <div xmlns="http://www.w3.org/1999/xhtml">
+            <div
+                xmlns="http://www.w3.org/1999/xhtml">
                 <p>Tenderness of lower abdomen</p>
             </div>
         </text>
@@ -795,7 +625,8 @@
         </code>
         <text>
             <status value="generated"/>
-            <div xmlns="http://www.w3.org/1999/xhtml">
+            <div
+                xmlns="http://www.w3.org/1999/xhtml">
                 <table>
                     <tr>
                         <td>
@@ -820,7 +651,7 @@
                 </table>
             </div>
         </text>
-        <!--  Results Section Observation Resource -->
+        <!--  Result Section Observation Resource -->
         <entry>
             <reference value="http://fhir3.healthintersections.com.au/open/Observation/dce96908-11fc-49e0-9d55-7442b0eff9"/>
         </entry>
@@ -837,7 +668,8 @@
         </code>
         <text>
             <status value="generated"/>
-            <div xmlns="http://www.w3.org/1999/xhtml">
+            <div
+                xmlns="http://www.w3.org/1999/xhtml">
                 <p>Patient denies recent history of fever or malaise. Positive for weakness and
                    shortness of breath. Several episodes of abdominal tenderness. No recent headaches. 
                    Positive for osteoarthritis in hips, knees and hands. </p>
@@ -856,7 +688,8 @@
         </code>
         <text>
             <status value="generated"/>
-            <div xmlns="http://www.w3.org/1999/xhtml">
+            <div
+                xmlns="http://www.w3.org/1999/xhtml">
                 <table>
                     <tr>
                         <td>
@@ -894,7 +727,8 @@
         </code>
         <text>
             <status value="generated"/>
-            <div xmlns="http://www.w3.org/1999/xhtml">
+            <div
+                xmlns="http://www.w3.org/1999/xhtml">
                 <table>
                     <tr>
                         <td>

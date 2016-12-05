@@ -10,13 +10,18 @@
     "qa": "qa",
     "specification": "http://hl7-fhir.github.io/"
   },
+  "dependencyList": [{
+    "name": "USCore",
+    "location": "hl7.org/fhir/us/core",
+    "source": "../daf2/output"
+  }],
   "defaults": {
     "Any": {
       "template-format": "instance-template-format.html",
       "template-base": "instance-template-base.html"
     },
     "StructureDefinition": {
-      "template-format": "instance-template-sd.html"
+      "template-format": "instance-template-format.html"
     },
     "Composition": {
       "template-format": "instance-template-format-example.html",
@@ -37,7 +42,7 @@
   "sct-edition": "http://snomed.info/sct/731000124108",
   "resources": {
     "StructureDefinition/CCDA-on-FHIR-US-Realm-Header": {
-      "template-base": "instance-template-sd.html",
+      "template-base": "instance-template-sd-no-example.html",
       "base": "StructureDefinition-CCDA-on-FHIR-US-Realm-Header.html"
     },
     "StructureDefinition/CCDA-on-FHIR-Continuity-of-Care-Document": {
@@ -113,7 +118,7 @@
       "base": "StructureDefinition-CCDA-on-FHIR-Authorization.html"
     },
     "StructureDefinition/CCDA-on-FHIR-Transfer-Summary": {
-      "template-base": "instance-template-sd.html",
+      "template-base": "instance-template-sd-no-example.html",
       "base": "StructureDefinition-CCDA-on-FHIR-Transfer-Summary.html"
     },
     "ValueSet/2.16.840.1.113883.11.20.4.1": {

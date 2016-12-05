@@ -1,0 +1,130 @@
+<Composition
+    xmlns="http://hl7.org/fhir">
+    <id value="CCDA-on-FHIR-Diagnostic-Imaging-Example"/>
+    <meta>
+        <versionId value="1"/>
+        <lastUpdated value="2016-06-15T08:16:14Z"/>
+        <profile value="http://hl7.org/fhir/ccda/StructureDefinition/CCDA_on_FHIR_Diagnostic_Imaging"/>
+    </meta>
+    <text>
+        <status value="generated"/>
+        <div
+            xmlns="http://www.w3.org/1999/xhtml">
+            <p>Diagnostic Imaging Report document for Henry Jones</p>
+            <p>Managed by Community Health and Hospitals</p>
+        </div>
+    </text>
+    <!--<extension url="http://hl7.org/fhir/ccda/StructureDefinition/ccda-data-enterer-extension"><valueUri value="http://fhir3.healthintersections.com.au/open/Practitioner/2679baa7-5dac-4d22-81ae-daded84500"/></extension><extension url="http://hl7.org/fhir/ccda/StructureDefinition/ccda-informant-extension"><valueUri value="http://fhir3.healthintersections.com.au/open/Practitioner/2679baa7-5dac-4d22-81ae-daded84500"/></extension><extension url="http://hl7.org/fhir/ccda/StructureDefinition/ccda-information-recipient-extension"><valueUri value="http://fhir3.healthintersections.com.au/open/Practitioner/2679baa7-5dac-4d22-81ae-daded84500"/></extension><extension url="http://hl7.org/fhir/ccda/StructureDefinition/ccda-participant-extension"><valueUri value="http://fhirtest.uhn.ca/baseDstu3/RelatedPerson/117466"/></extension><extension url="http://hl7.org/fhir/ccda/StructureDefinition/ccda-performer-extension"><valueUri value="http://fhir3.healthintersections.com.au/open/Practitioner/2679baa7-5dac-4d22-81ae-daded84500"/></extension><extension url="http://hl7.org/fhir/ccda/StructureDefinition/ccda-authorization-extension"><valueUri value="http://hl7.org/fhir/ccda/StructureDefinition/ccda-consent"/></extension>-->
+    <identifier>
+        <system value="http://hl7.org/fhir/ccda/StructureDefinition/CCDA_on_FHIR_Diagnostic_Imaging"/>
+        <value value="1"/>
+    </identifier>
+    <date value="2016-03-22T09:10:14Z"/>
+    <type>
+        <coding>
+            <system value="http://loinc.org"/>
+            <code value="18748-4"/>
+            <display value="Diagnostic Imaging Report"/>
+        </coding>
+    </type>
+    <title value="Diagnostic Imaging Report"/>
+    <status value="preliminary"/>
+    <confidentiality value="N"/>
+    <!--  Patient Resource -->
+    <subject>
+        <reference value="http://fhir3.healthintersections.com.au/open/Patient/c493f2f2-28d5-49ab-90e8-9e8be341f7"/>
+        <display value="Henry Jones"/>
+    </subject>
+    <!--  Practitioner Resource -->
+    <author>
+        <reference value="http://fhir3.healthintersections.com.au/open/Practitioner/2679baa7-5dac-4d22-81ae-daded84500"/>
+        <display value="Adam Everyman, MD"/>
+    </author>
+    <attester>
+        <mode value="legal"/>
+        <time value="2012-01-04T09:10:14Z"/>
+        <party>
+            <reference value="http://fhir3.healthintersections.com.au/open/Practitioner/2679baa7-5dac-4d22-81ae-daded84500"/>
+            <display value="Adam Everyman, MD"/>
+        </party>
+    </attester>
+    <!--  Organization Resource -->
+    <custodian>
+        <reference value="http://fhir3.healthintersections.com.au/open/Organization/1213e1ae-afc2-4a7c-8ed3-43b7a4e3d7"/>
+        <display value="Community Health and Hospitals"/>
+    </custodian>
+    <event>
+        <code>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="73761001"/>
+                <display value="Colonoscopy"/>
+            </coding>
+        </code>
+        <period>
+            <start value="2015-11-18"/>
+            <end value="2015-12-12"/>
+        </period>
+    </event>
+    <!--  Encounter Resource -->
+    <!-- <encounter><reference value="http://fhirtest.uhn.ca/baseDstu3/Encounter/117630"/></encounter>-->
+    <!--  Findings Section Narrative -->
+    <section>
+        <title value="Findings Section"/>
+        <code>
+            <coding>
+                <system value="urn:oid:1.2.840.10008.2.16.4"/>
+                <code value="121070"/>
+                <display value="Findings"/>
+            </coding>
+        </code>
+        <text>
+            <status value="generated"/>
+            <div
+                xmlns="http://www.w3.org/1999/xhtml">
+                <p>The cardiomediastinum is within normal limits. The trachea is midline. 
+                    The previously described opacity at the medial right lung base has cleared. 
+                    There are no new infiltrates. There is a new round density at the left hilus, 
+                    superiorly (diameter about 45mm). A CT scan is recommended for further evaluation. 
+                    The pleural spaces are clear. The visualized musculoskeletal structures and the
+                    upper abdomen are stable and unremarkable.</p>
+            </div>
+        </text>
+    </section>
+    <!--  DICOM Object Catalog Section Narrative -->
+    <section>
+        <title value="DICOM Object Catalog Section"/>
+        <code>
+            <coding>
+                <system value="urn:oid:1.2.840.10008.2.16.4"/>
+                <code value="121181"/>
+                <display value="DICOM Object Catalog"/>
+            </coding>
+        </code>
+        <text>
+            <status value="generated"/>
+            <div
+                xmlns="http://www.w3.org/1999/xhtml">
+                <p>Computed Radiography Image Storage</p>
+            </div>
+        </text>
+    </section>
+    <!--  Indications for Procedure Section Narrative -->
+    <section>
+        <title value="Indications for Procedure Section"/>
+        <code>
+            <coding>
+                <system value="urn:oid:1.2.840.10008.2.16.4"/>
+                <code value="121109"/>
+                <display value="Indications for Procedure"/>
+            </coding>
+        </code>
+        <text>
+            <status value="generated"/>
+            <div
+                xmlns="http://www.w3.org/1999/xhtml">
+                <p>Suspected lung tumor</p>
+            </div>
+        </text>
+    </section>
+</Composition>

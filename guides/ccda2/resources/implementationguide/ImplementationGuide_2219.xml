@@ -218,71 +218,71 @@
         <resource>
             <example value="true" />
             <sourceReference>
-                <reference value="Composition/CCDA-on-FHIR-Care-Plan-Document-Example" />
-                <display value="C-CDA_on_FHIR_Care_Plan_Document_Example" />
+                <reference value="Composition/CCDA-on-FHIR-Care-Plan-Example" />
+                <display value="C-CDA-on-FHIR-Care-Plan-Example" />
             </sourceReference>
         </resource>
         <resource>
             <example value="true" />
             <sourceReference>
-                <reference value="Composition/CCDA-on-FHIR-Consultation-Note-Document-Example" />
-                <display value="C-CDA_on_FHIR_Consultation_Note_Document_Example" />
+                <reference value="Composition/CCDA-on-FHIR-Consultation-Note-Example" />
+                <display value="C-CDA-on-FHIR-Consultation-Note-Example" />
             </sourceReference>
         </resource>
         <resource>
             <example value="true" />
             <sourceReference>
                 <reference value="Composition/CCDA-on-FHIR-Continuity-of-Care-Document-Example" />
-                <display value="C-CDA_on_FHIR_Continuity_of_Care_Document_Example" />
+                <display value="C-CDA-on-FHIR-Continuity-of-Care-Document-Example" />
             </sourceReference>
         </resource>
         <resource>
             <example value="true" />
             <sourceReference>
-                <reference value="Composition/CCDA-on-FHIR-Diagnostic-Imaging-Document-Example" />
-                <display value="C-CDA_on_FHIR_Diagnostic_Imaging_Document_Example" />
+                <reference value="Composition/CCDA-on-FHIR-Diagnostic-Imaging-Example" />
+                <display value="C-CDA-on-FHIR-Diagnostic-Imaging-Example" />
             </sourceReference>
         </resource>
         <resource>
             <example value="true" />
             <sourceReference>
-                <reference value="Composition/CCDA-on-FHIR-Discharge-Summary-Document-Example" />
-                <display value="C-CDA_on_FHIR_Discharge_Summary_Document_Example" />
+                <reference value="Composition/CCDA-on-FHIR-Discharge-Summary-Example" />
+                <display value="C-CDA-on-FHIR-Discharge-Summary-Example" />
             </sourceReference>
         </resource>
         <resource>
             <example value="true" />
             <sourceReference>
-                <reference value="Composition/CCDA-on-FHIR-History-and-Physical-Document-Example" />
-                <display value="C-CDA_on_FHIR_History_and_Physical_Document_Example" />
+                <reference value="Composition/CCDA-on-FHIR-History-and-Physical-Example" />
+                <display value="C-CDA-on-FHIR-History-and-Physical-Example" />
             </sourceReference>
         </resource>
         <resource>
             <example value="true" />
             <sourceReference>
-                <reference value="Composition/CCDA-on-FHIR-Operative-Note-Document-Example" />
-                <display value="C-CDA_on_FHIR_Operative_Note_Document_Example" />
+                <reference value="Composition/CCDA-on-FHIR-Operative-Note-Example" />
+                <display value="C-CDA-on-FHIR-Operative-Note-Example" />
             </sourceReference>
         </resource>
         <resource>
             <example value="true" />
             <sourceReference>
-                <reference value="Composition/CCDA-on-FHIR-Procedure-Note-Document-Example" />
-                <display value="C-CDA_on_FHIR_Procedure_Note_Document_Example" />
+                <reference value="Composition/CCDA-on-FHIR-Procedure-Note-Example" />
+                <display value="C-CDA-on-FHIR-Procedure-Note-Example" />
             </sourceReference>
         </resource>
         <resource>
             <example value="true" />
             <sourceReference>
-                <reference value="Composition/CCDA-on-FHIR-Progress-Note-Document-Example" />
-                <display value="C-CDA_on_FHIR_Progress_Note_Document_Example" />
+                <reference value="Composition/CCDA-on-FHIR-Progress-Note-Example" />
+                <display value="C-CDA-on-FHIR-Progress-Note-Example" />
             </sourceReference>
         </resource>
         <resource>
             <example value="true" />
             <sourceReference>
-                <reference value="Composition/CCDA-on-FHIR-Referral-Note-Document-Example" />
-                <display value="C-CDA_on_FHIR_Referral_Note_Document_Example" />
+                <reference value="Composition/CCDA-on-FHIR-Referral-Note-Example" />
+                <display value="C-CDA-on-FHIR-Referral-Note-Example" />
             </sourceReference>
         </resource>
     </package>
