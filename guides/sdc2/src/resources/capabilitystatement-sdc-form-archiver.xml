@@ -135,7 +135,6 @@
         </tbody>
       </table>
       <br/>
-      <br/>
       <h3>
         <a href="{{site.data.fhir.path}}questionnaireresponse.html">QuestionnaireResponse</a>
       </h3>
@@ -181,7 +180,6 @@
           </tr>
         </tbody>
       </table>
-      <br/>
       <br/>
       <h3>
         <a href="{{site.data.fhir.path}}binary.html">Binary</a>
@@ -229,7 +227,6 @@
         </tbody>
       </table>
       <br/>
-      <br/>
       <h3>
         <a href="{{site.data.fhir.path}}documentreference.html">DocumentReference</a>
       </h3>
@@ -275,7 +272,6 @@
           </tr>
         </tbody>
       </table>
-      <br/>
       <br/>
       <h3>
         <a href="{{site.data.fhir.path}}provenance.html">Provenance</a>

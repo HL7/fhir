@@ -170,7 +170,7 @@
   </ul>
   <p>
     In addition to the above, there's another relevant role:<br/>
-    When looking up data elements, the <i>SDC Form Designer</i> will communicate use of the <a href="{{site.data.refs.sdcde}}/capabilitystatement-sdc-de-registry.html">SDC Data Element 
+    When looking up data elements, the <i>SDC Form Designer</i> will communicate use of the <a href="{{site.data.refs.sdcde}}/capabilitystatement-sdc-de-registry">SDC Data Element 
     Registry</a>, which is defined in the <a href="{{site.data.refs.sdcde}}/sdcde.html">SDC Data Element Exchange</a> implementation guide.
   </p>
   <p>
@@ -182,12 +182,12 @@
   <p>
     <img alt="Diagram showing interaction between Form Designer, Form Manager and Data Element Registry" src="sdc-form-curation.png"/>
   </p>
-  <br/>
   <p>
+    <br/>
     <b>Figure 3: Form Population</b>
   </p>
   <p>
-    <img alt="Diagram showing interaction between Form Filler, Form Manager, Form Receiver, Form Archiver and Data Element Registry" src="sdc-form-population.png"/>
+   <img alt="Diagram showing interaction between Form Filler, Form Manager, Form Receiver, Form Archiver and Data Element Registry" src="sdc-form-population.png"/>
   </p>
   <br/>
   <a name="resources"> </a>
@@ -271,9 +271,9 @@
   <p>
     The <a href="{{site.data.fhir.path}}questionnaire.html">Questionnaire</a> resource defines a set of custom operations to support generation of completed questionnaires,
     possibly automatically filling in some of the answers using existing system information.  This could be information passed to the system on which the operation is 
-    invoked (as a CDA document, FHIR bundle or other recognized source) or using data the system already has locally.  The three operations are as follows:
+    invoked (as a CDA document, FHIR bundle or other recognized source) or using data the system already has locally. The three operations are as follows:
   </p>
-  <table>
+  <table cellpadding="5">
     <tbody>
       <tr>
         <th>Operation</th>
@@ -286,9 +286,10 @@
         <td>
           This operation supports generating a <a href="{{site.data.fhir.path}}questionnaireresponse.html">QuestionnaireResponse</a> instance based on a specified
           <a href="{{site.data.fhir.path}}questionnaire.html">Questionnaire</a>.  If matching data is available for any of the questions and the server supports 
-          the pre-population capability, the answers for those questions will be filled in in the QuestionnaireResponse instance.
-          answers will 
+          the pre-population capability, the answers for those questions will be filled in the QuestionnaireResponse instance.
         </td>
+	  </tr>
+	  <tr>
         <td>
           <a href="{{site.data.fhir.path}}questionnaire-operations.html#populatehtml">populatehtml</a>
         </td>
@@ -298,6 +299,12 @@
           generated the form and/or the recipient(s) designated by the <a href="{{site.data.fhir.path}}questionnaire.html">Questionnaire</a>.  If matching data is available 
           for any of the questions and the server supports the pre-population capability, the form will initially render with the answers for those questions filled in.
         </td>
+	  </tr>
+	  <tr>
+		<td>
+		</td>
+	  </tr>
+	  <tr>
         <td>
           <a href="{{site.data.fhir.path}}questionnaire-operations.html#populatelink">populatelink</a>
         </td>
@@ -330,6 +337,8 @@
       as well as indirectly either by <code>identifier</code> or <code>questionnaire</code>
     </li>
     <li>Support passing a single C-CDA* document as a <a href="{{site.data.fhir.path}}http.html#binary">Binary</a> resource using the <code>content</code> parameter</li>
+    <li>Be able to accept an incoming partially-populated <a href="{{site.data.fhir.path}}questionnaireresponse.html">QuestionnaireResponse</a> and render it as if they had retrieved a saved partially-completed <a href="{{site.data.fhir.path}}questionnaireresponse.html">QuestionnaireResponse</a></li>
+    <li> It is the responsibility of the <a href="capabilitystatement-sdc-form-filler.html">SDC Form Filler</a> to ensure the form is valid after a human has reviewed and edited the form.</li>
   </ul>
   <p>
     * While C-CDA is the focus for compliance with this release of the SDC specification, systems are encouraged to support additional formats.  Candidates

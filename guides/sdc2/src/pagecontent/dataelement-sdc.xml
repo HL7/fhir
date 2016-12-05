@@ -69,8 +69,7 @@
 	</ul>
 	<p>
   These extensions can be used on absolutely any string element on <a href="{{site.data.fhir.path}}questionnaire.html">Questionnaire</a>, 
-  <a href="{{site.data.fhir.path}}valueset.html">ValueSet</a>, one of 
-  the data types or any other resource.  The base string should be the primary language of the questionnaire.  It is what will be rendered by systems that do
+  <a href="{{site.data.fhir.path}}valueset.html">ValueSet</a> or any other resource.  The base string should be the primary language of the questionnaire.  It is what will be rendered by systems that do
   not support the translation extension or by systems whose language preference is other than one of the languages provided.
   </p>
 	<p>
