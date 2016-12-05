@@ -1996,7 +1996,6 @@ public class NarrativeGenerator implements INarrativeGenerator {
             p.tx(", ");
           addTelecom(p, c);
         }
-        p.tx("; ");
       }
       p.tx(")");
     }
@@ -2284,7 +2283,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
       p.tx("Fax: "+c.getValue());
     } else if (c.getSystem() == ContactPointSystem.EMAIL) {
       p.ah( "mailto:"+c.getValue()).addText(c.getValue());
-    } else if (c.getSystem() == ContactPointSystem.OTHER) {
+    } else if (c.getSystem() == ContactPointSystem.URL) {
       if (c.getValue().length() > 30)
         p.ah(c.getValue()).addText(c.getValue().substring(0, 30)+"...");
       else
