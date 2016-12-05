@@ -43,7 +43,7 @@
                 <rules value="open" />
             </slicing>
             <definition
-                value="MAY contain zero or more [0..*] C-CDA on FHIR Authorization (identifier: http://hl7.org/fhir/ccda/StructureDefinition/CCDA_on_FHIR_Authorization) (CONF:2219-2012)."
+                value="MAY contain zero or more [0..*] C-CDA on FHIR Authorization (identifier: http://hl7.org/fhir/ccda/StructureDefinition/CCDA-on-FHIR-Authorization) (CONF:2219-2012)."
              />
         </element>
         <element id="109450">
@@ -52,12 +52,12 @@
             <label value="dataEnterer" />
             <short value="dataEnterer" />
             <definition
-                value="MAY contain zero or one [0..1] C-CDA on FHIR Data Enterer (identifier: http://hl7.org/fhir/ccda/StructureDefinition/CCDA_on_FHIR_Data_Enterer) (CONF:2219-1844)." />
+                value="MAY contain zero or one [0..1] C-CDA on FHIR Data Enterer (identifier: http://hl7.org/fhir/ccda/StructureDefinition/CCDA-on-FHIR-Data-Enterer) (CONF:2219-1844)." />
             <min value="0" />
             <max value="1" />
             <type>
                 <code value="Extension" />
-                <profile value="http://hl7.org/fhir/ccda/StructureDefinition/CCDA_on_FHIR_Data_Enterer" />
+                <profile value="http://hl7.org/fhir/ccda/StructureDefinition/CCDA-on-FHIR-Data-Enterer" />
             </type>
         </element>
         <element id="111022">
@@ -66,12 +66,12 @@
             <label value="informant" />
             <short value="informant" />
             <definition
-                value="MAY contain zero or more [0..*] C-CDA on FHIR Informant (identifier: http://hl7.org/fhir/ccda/StructureDefinition/CCDA_on_FHIR_Informant) (CONF:2219-1849)." />
+                value="MAY contain zero or more [0..*] C-CDA on FHIR Informant (identifier: http://hl7.org/fhir/ccda/StructureDefinition/CCDA-on-FHIR-Informant) (CONF:2219-1849)." />
             <min value="0" />
             <max value="*" />
             <type>
                 <code value="Extension" />
-                <profile value="http://hl7.org/fhir/ccda/StructureDefinition/CCDA_on_FHIR_Informant" />
+                <profile value="http://hl7.org/fhir/ccda/StructureDefinition/CCDA-on-FHIR-Informant" />
             </type>
         </element>
         <element id="111031">
@@ -80,12 +80,12 @@
             <label value="informationRecipient" />
             <short value="informationRecipient" />
             <definition
-                value="MAY contain zero or more [0..*] C-CDA on FHIR Information Recipient (identifier: http://hl7.org/fhir/ccda/StructureDefinition/CCDA_on_FHIR_Information_Recipient) (CONF:2219-1856)." />
+                value="MAY contain zero or more [0..*] C-CDA on FHIR Information Recipient (identifier: http://hl7.org/fhir/ccda/StructureDefinition/CCDA-on-FHIR-Information-Recipient) (CONF:2219-1856)." />
             <min value="0" />
             <max value="*" />
             <type>
                 <code value="Extension" />
-                <profile value="http://hl7.org/fhir/ccda/StructureDefinition/CCDA_on_FHIR_Information_Recipient" />
+                <profile value="http://hl7.org/fhir/ccda/StructureDefinition/CCDA-on-FHIR-Information-Recipient" />
             </type>
         </element>
         <element id="111036">
@@ -94,12 +94,12 @@
             <label value="participant" />
             <short value="participant" />
             <definition
-                value="MAY contain zero or more [0..*] C-CDA on FHIR Participant (identifier: http://hl7.org/fhir/ccda/StructureDefinition/CCDA_on_FHIR_Participant) (CONF:2219-1861)." />
+                value="MAY contain zero or more [0..*] C-CDA on FHIR Participant (identifier: http://hl7.org/fhir/ccda/StructureDefinition/CCDA-on-FHIR-Participant) (CONF:2219-1861)." />
             <min value="0" />
             <max value="*" />
             <type>
                 <code value="Extension" />
-                <profile value="http://hl7.org/fhir/ccda/StructureDefinition/CCDA_on_FHIR_Participant" />
+                <profile value="http://hl7.org/fhir/ccda/StructureDefinition/CCDA-on-FHIR-Participant" />
             </type>
         </element>
         <element id="111046">
@@ -108,12 +108,12 @@
             <label value="performer" />
             <short value="performer" />
             <definition
-                value="SHOULD contain zero or more [0..*] C-CDA on FHIR Performer (identifier: http://hl7.org/fhir/ccda/StructureDefinition/CCDA_on_FHIR_Performer) (CONF:2219-1869)." />
+                value="SHOULD contain zero or more [0..*] C-CDA on FHIR Performer (identifier: http://hl7.org/fhir/ccda/StructureDefinition/CCDA-on-FHIR-Performer) (CONF:2219-1869)." />
             <min value="0" />
             <max value="*" />
             <type>
                 <code value="Extension" />
-                <profile value="http://hl7.org/fhir/ccda/StructureDefinition/CCDA_on_FHIR_Performer" />
+                <profile value="http://hl7.org/fhir/ccda/StructureDefinition/CCDA-on-FHIR-Performer" />
             </type>
         </element>
         <element id="111189">
@@ -122,12 +122,12 @@
             <label value="authorization" />
             <short value="authorization" />
             <definition
-                value="MAY contain zero or more [0..*] C-CDA on FHIR Authorization (identifier: http://hl7.org/fhir/ccda/StructureDefinition/CCDA_on_FHIR_Authorization) (CONF:2219-2012)." />
+                value="MAY contain zero or more [0..*] C-CDA on FHIR Authorization (identifier: http://hl7.org/fhir/ccda/StructureDefinition/CCDA-on-FHIR-Authorization) (CONF:2219-2012)." />
             <min value="0" />
             <max value="*" />
             <type>
                 <code value="Extension" />
-                <profile value="http://hl7.org/fhir/ccda/StructureDefinition/CCDA_on_FHIR_Authorization" />
+                <profile value="http://hl7.org/fhir/ccda/StructureDefinition/CCDA-on-FHIR-Authorization" />
             </type>
         </element>
         <element id="101452">
