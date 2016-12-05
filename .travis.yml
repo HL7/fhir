@@ -35,5 +35,3 @@ after_success:
   - echo -e "Host 174.129.20.244\n  Compression yes\n  StrictHostKeyChecking no\n  User fhir_upload\n  IdentityFile ~/deploy.build.fhir.org" > ~/.ssh/config
   - tar czf - * | ssh 174.129.20.244 "mkdir -p /var/www/uploading/$TRAVIS_BUILD_ID && cd /var/www/uploading/$TRAVIS_BUILD_ID && ((while true; do sleep 10; du -hs .; done) & tar xvzf - && date --iso-8601 > /var/www/uploading/$TRAVIS_BUILD_ID/done.txt && kill %1)"
   - ssh 174.129.20.244 "test -e /var/www/uploading/$TRAVIS_BUILD_ID/done.txt && mv /var/www/build.fhir.org /tmp && mv /var/www/uploading/$TRAVIS_BUILD_ID /var/www/build.fhir.org && rm -rf /tmp/build.fhir.org"
-  - aws s3 cp . s3://fhir-build-test --recursive --quiet
-  - aws s3 sync . s3://fhir-build-test --delete --quiet
