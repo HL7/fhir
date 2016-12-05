@@ -16,7 +16,7 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>21330</WindowHeight>
+  <WindowHeight>21930</WindowHeight>
   <WindowWidth>-19456</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
@@ -1522,7 +1522,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">grouped-by | subsumes | part-of | classified-with</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">grouped-by | is-a | part-of | classified-with</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">The meaning of the heirarchy of concepts</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -4514,7 +4514,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>34</TopRowBottomPane>
+   <TopRowBottomPane>13</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -4531,8 +4531,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>45</ActiveRow>
-     <ActiveCol>15</ActiveCol>
+     <ActiveRow>20</ActiveRow>
+     <ActiveCol>13</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -5506,7 +5506,7 @@
     <Cell ss:StyleID="s117"><Data ss:Type="String">operation</Data></Cell>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s117"><Data ss:Type="String">Subsumption Testing</Data></Cell>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">Test whether code &quot;sub&quot; is subsumed by code &quot;super&quot; given the semantics of subsumption in the underlying code system</Data></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">Test whether code &quot;sub&quot; is subsumed by code &quot;super&quot; given the semantics of subsumption in the underlying code system (see hierarchyMeaning)</Data></Cell>
     <Cell ss:StyleID="s129"/>
     <Cell><Data ss:Type="String">$subsumes-request.txt</Data></Cell>
     <Cell><Data ss:Type="String">$subsumes-response.txt</Data></Cell>
@@ -7779,10 +7779,10 @@
     <Cell><Data ss:Type="String">No particular relationship between the concepts can be assumed, except what can be determined by inspection of the definitions of the elements (possible reasons to use this: importing from a source where this is not defined, or where various parts of the heirarchy have different meanings)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">subsumes</Data></Cell>
+    <Cell><Data ss:Type="String">is-a</Data></Cell>
     <Cell><Data ss:Type="Number">2</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">Subsumes</Data></Cell>
-    <Cell><Data ss:Type="String">A hierarchy where the child concepts are &quot;a kind of&quot; the parent (typically an IS-A relationship.)</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">Is-A</Data></Cell>
+    <Cell><Data ss:Type="String">A hierarchy where the child concepts have an IS-A relationship with the parents - that is, all the properties of the parent are also true for it's child concepts</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">part-of</Data></Cell>
@@ -7829,8 +7829,7 @@
     <Pane>
      <Number>3</Number>
      <ActiveRow>3</ActiveRow>
-     <ActiveCol>3</ActiveCol>
-     <RangeSelection>R3C4:R4C4</RangeSelection>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

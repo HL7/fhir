@@ -79,47 +79,23 @@ code systems should be done with care to avoid creating definitional confusion.
 <a name="csnote"> </a>
 <h3>Code systems Note</h3>
 <p>
-How filters are used with various code systems:
+Each <a href="codesystem.html">Code System</a> defines which filters can be 
+used in <code>ValueSet.compose.include.filter</code>. All code systems have
+<a href="codesystem.html#filter">base filters</a> and any additional 
+filters defined in in (<a href="codesystem-definitions.html#CodeSystem.filter">CodeSystem.filter)</a>.
+</p>
+<p>
+This specification also defines filters for various published code systems:
 </p>
 <ul>
- <li><a href="loinc.html">Using LOINC with FHIR</a></li>
- <li><a href="snomedct.html">Using SNOMED CT with FHIR</a></li>
- <li><a href="rxnorm.html">Using RxNorm with FHIR</a></li>
- <li><a href="ucum.html">Using UCUM with FHIR</a></li>
- <li><a href="ncimeta.html">Using NCI Metathesaurus with FHIR</a></li>
- <li><a href="cpt.html">Using CPT with FHIR</a></li>
- <li><a href="ndfrt.html">Using NDF-RT with FHIR</a></li>
- <li><a href="unii.html">Using UNII with FHIR</a></li>
- <li><a href="ndc.html">Using NDC with FHIR</a></li>
- <li><a href="cvx.html">Using CVX with FHIR</a></li>
+ <li><a href="loinc.html#filters">LOINC Filters</a></li>
+ <li><a href="snomedct.html#filters">Using CT Filters</a></li>
+ <li><a href="rxnorm.html#filters">RxNorm Filters</a></li>
+ <li><a href="ucum.html#filters">UCUM Filters</a></li>
+ <li><a href="ncimeta.html#filters">Using Metathesaurus Filters</a></li>
+ <li><a href="cpt.html#filters">CPT Filters</a></li>
+ <li><a href="ndfrt.html#filters">NDF-RT Filters</a></li>
 </ul>
-
-<table class="grid">
- <tr>
-   <th>System</th>    
-   <th>Property Name</th> 
-   <th>Operation</th> 
-   <th>Value</th>        
-   <th>Definition</th>
-   <th>Example</th>
- </tr>
- <tr>
-   <td><a href="https://www.hl7.org/implement/standards/product_brief.cfm?product_id=186">HL7 v3</a> Code systems</td> 
-   <td>concept</td>
-   <td>is-a</td>       
-   <td>[code]</td>    
-   <td>Includes all codes that have a transitive is-a relationship with the concept identified by the value (including the concept itself)</td> 
-   <td><a href="valueset-relatedperson-relationshiptype.html">Relationship Type</a></td>
- </tr>
- <tr>
-   <td><a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 v2</a> Tables</td> 
-   <td></td>
-   <td></td>       
-   <td></td>    
-   <td>(no filters defined)</td> 
-   <td></td>
- </tr>
-</table>
 
 <a name="expansion"> </a>
 <h2>Value Set Expansion</h2>

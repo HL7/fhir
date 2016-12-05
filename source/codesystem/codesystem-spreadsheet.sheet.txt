@@ -110,9 +110,9 @@
 
  -- Row 2 -----------------------------------
   Id = 2
-  Code = subsumes
-  Display = Subsumes
-  Definition = A hierarchy where the child concepts are \"a kind of\" the parent (typically an IS-A relationship.)
+  Code = is-a
+  Display = Is-A
+  Definition = A hierarchy where the child concepts have an IS-A relationship with the parents - that is, all the properties of the parent are also true for it\'s child concepts
 
  -- Row 3 -----------------------------------
   Id = 3
@@ -223,7 +223,7 @@
   Summary = y
   Type = code
   Binding = CodeSystemHierarchyMeaning
-  Short Name = grouped-by | subsumes | part-of | classified-with
+  Short Name = grouped-by | is-a | part-of | classified-with
   Definition = The meaning of the heirarchy of concepts
 
  -- Row 20 -----------------------------------
@@ -688,7 +688,7 @@
  -- Row 24 -----------------------------------
   Name = subsumes
   Use = Resource | Instance
-  Documentation = Test whether code \"sub\" is subsumed by code \"super\" given the semantics of subsumption in the underlying code system
+  Documentation = Test whether code \"sub\" is subsumed by code \"super\" given the semantics of subsumption in the underlying code system (see hierarchyMeaning)
   Type = operation
   Example.Request = $subsumes-request.txt
   Example.Response = $subsumes-response.txt

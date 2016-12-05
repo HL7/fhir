@@ -9,7 +9,7 @@
   <description value="The role that a provenance participant played"/>
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/provenance-participant-role"/>
-  <hierarchyMeaning value="subsumes"/>
+  <hierarchyMeaning value="is-a"/>
   <content value="complete"/>
   <concept>
     <code value="enterer"/>

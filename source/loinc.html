@@ -25,6 +25,7 @@
  <tr><td>Code</td><td>The LOINC Code Identifier e.g. 21176-3. LOINC codes are not case sensitive. In addition, LOINC part codes and LOINC answer string ids can be used where appropriate</td></tr>
  <tr><td>Display</td><td>Use either the SHORTNAME or LONG_COMMON_NAME field for the display</td></tr>
  <tr><td>Inactive</td><td>codes with Property ACTIVE=DEPRECATED are considered inactive</td></tr>
+ <tr><td>Subsumption</td><td>LOINC defines the Multi-Axial Hierarchy, which is the basis for subsumption logic in LOINC</td></tr>
  <tr><td>Filter Properties</td><td>Several properties are defined as described below</td></tr>
 </table>
 
@@ -118,6 +119,7 @@ servers SHALL return the version being used (see above) in the <code>version</co
 Other properties are at the discretion of the server and the client.
 </p>
 
+<a name="filters"> </a>
 <h3>LOINC Filters</h3>
 
 <p>

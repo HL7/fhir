@@ -231,7 +231,7 @@ public class ValueSetImporterV3 extends ValueSetImporterBase {
     cs.setContent(CodeSystemContentMode.COMPLETE);
     cs.setValueSet(vs.getUrl());
     vs.setImmutable(true);
-    cs.setHierarchyMeaning(CodeSystemHierarchyMeaning.SUBSUMES);
+    cs.setHierarchyMeaning(CodeSystemHierarchyMeaning.ISA);
     
     String partOfName = getRelationship(e, "ComponentOf");  
     if (partOfName != null) {

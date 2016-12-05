@@ -8,7 +8,7 @@
   <description value="This value set defines a set of codes that can be used to indicate the meaning/use of a reference range."/>
   <copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement."/>
   <caseSensitive value="true"/>
-  <hierarchyMeaning value="subsumes"/>
+  <hierarchyMeaning value="is-a"/>
   <content value="complete"/>
   <property>
     <code value="abstract"/>

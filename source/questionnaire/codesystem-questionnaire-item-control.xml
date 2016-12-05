@@ -8,7 +8,7 @@
   <description value="Starter set of user interface control/display mechanisms that might be used when rendering an item in a questionnaire."/>
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/questionnaire-item-control"/>
-  <hierarchyMeaning value="subsumes"/>
+  <hierarchyMeaning value="is-a"/>
   <content value="complete"/>
   <property>
     <code value="abstract"/>

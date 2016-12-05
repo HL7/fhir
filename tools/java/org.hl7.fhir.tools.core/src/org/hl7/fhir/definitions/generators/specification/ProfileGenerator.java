@@ -302,7 +302,7 @@ public class ProfileGenerator {
     ec2.setShort("xml:id (or equivalent in JSON)");
     ec2.getType().add(new TypeRefComponent().setCode("id"));
     generateElementDefinition(ec2, ec1);
-    ec2.setBase(new ElementDefinitionBaseComponent("Element.id", 0, "1"));
+    ec2.makeBase("Element.id", 0, "1");
 
     makeExtensionSlice("extension", p, p.getSnapshot(), null, type.getCode());
 
@@ -438,7 +438,7 @@ public class ProfileGenerator {
     ec2.setShort("xml:id (or equivalent in JSON)");
     ec2.getType().add(new TypeRefComponent().setCode("id"));
     generateElementDefinition(ec2, ec1);
-    ec2.setBase(new ElementDefinitionBaseComponent("Element.id", 0, "1"));
+    ec2.makeBase("Element.id", 0, "1");
 
     ElementDefinition ex = makeExtensionSlice("extension", p, p.getSnapshot(), null, "xhtml");
     ex.setMax("0");
@@ -549,7 +549,7 @@ public class ProfileGenerator {
     ecA.setComments(type.getComment());
     ecA.setMin(0);
     ecA.setMax("*");
-    ecA.setBase(new ElementDefinitionBaseComponent(type.getCode(), 0, "*"));
+    ecA.makeBase(type.getCode(), 0, "*");
     addElementConstraints("Element", ecA);
 
 //    generateElementDefinition(ecA, null);
@@ -566,7 +566,7 @@ public class ProfileGenerator {
     ecB.setShort("Primitive value for " +type.getCode());
     ecB.setMin(0);
     ecB.setMax("1");
-    ecB.setBase(new ElementDefinitionBaseComponent(type.getBase()+".value", 0, "1"));
+    ecB.makeBase(type.getBase()+".value", 0, "1");
     t = ecB.addType();
     t.setCodeElement(new UriType());
     t.getFormatCommentsPre().add("Note: primitive values do not have an assigned type. e.g. this is compiler magic. XML, JSON and RDF types provided by extension");

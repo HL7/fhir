@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 5, 2016 07:11+1100 for FHIR v1.7.0
+// Generated on Mon, Dec 5, 2016 12:27+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -73,7 +73,7 @@ public class HumanName extends Type implements ICompositeType {
          */
         OLD, 
         /**
-         * A name used prior to marriage. Marriage naming customs vary greatly around the world. This name use is for use by applications that collect and store "maiden" names. Though the concept of maiden name is often gender specific, the use of this term is not gender specific. The use of this term does not imply any particular history for a person's name, nor should the maiden name be determined algorithmically.
+         * A name used prior to changing name because of marriage. This name use is for use by applications that collect and store names that were used prior to a marriage. Marriage naming customs vary greatly around the world, and are constantly changing. This term is not gender specific. The use of this term does not imply any particular history for a person's name
          */
         MAIDEN, 
         /**
@@ -134,7 +134,7 @@ public class HumanName extends Type implements ICompositeType {
             case NICKNAME: return "A name that is used to address the person in an informal manner, but is not part of their formal or usual name";
             case ANONYMOUS: return "Anonymous assigned name, alias, or pseudonym (used to protect a person's identity for privacy reasons)";
             case OLD: return "This name is no longer in use (or was never correct, but retained for records)";
-            case MAIDEN: return "A name used prior to marriage. Marriage naming customs vary greatly around the world. This name use is for use by applications that collect and store \"maiden\" names. Though the concept of maiden name is often gender specific, the use of this term is not gender specific. The use of this term does not imply any particular history for a person's name, nor should the maiden name be determined algorithmically.";
+            case MAIDEN: return "A name used prior to changing name because of marriage. This name use is for use by applications that collect and store names that were used prior to a marriage. Marriage naming customs vary greatly around the world, and are constantly changing. This term is not gender specific. The use of this term does not imply any particular history for a person's name";
             default: return "?";
           }
         }
@@ -146,7 +146,7 @@ public class HumanName extends Type implements ICompositeType {
             case NICKNAME: return "Nickname";
             case ANONYMOUS: return "Anonymous";
             case OLD: return "Old";
-            case MAIDEN: return "Maiden";
+            case MAIDEN: return "Name changed for Marriage";
             default: return "?";
           }
         }

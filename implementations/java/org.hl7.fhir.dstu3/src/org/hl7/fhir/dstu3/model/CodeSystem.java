@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 5, 2016 07:11+1100 for FHIR v1.7.0
+// Generated on Mon, Dec 5, 2016 12:27+1100 for FHIR v1.7.0
 
 import java.util.*;
 
@@ -56,9 +56,9 @@ public class CodeSystem extends MetadataResource {
          */
         GROUPEDBY, 
         /**
-         * A hierarchy where the child concepts are "a kind of" the parent (typically an IS-A relationship.)
+         * A hierarchy where the child concepts have an IS-A relationship with the parents - that is, all the properties of the parent are also true for it's child concepts
          */
-        SUBSUMES, 
+        ISA, 
         /**
          * Child elements list the individual parts of a composite whole (e.g. bodysite)
          */
@@ -76,8 +76,8 @@ public class CodeSystem extends MetadataResource {
                 return null;
         if ("grouped-by".equals(codeString))
           return GROUPEDBY;
-        if ("subsumes".equals(codeString))
-          return SUBSUMES;
+        if ("is-a".equals(codeString))
+          return ISA;
         if ("part-of".equals(codeString))
           return PARTOF;
         if ("classified-with".equals(codeString))
@@ -90,7 +90,7 @@ public class CodeSystem extends MetadataResource {
         public String toCode() {
           switch (this) {
             case GROUPEDBY: return "grouped-by";
-            case SUBSUMES: return "subsumes";
+            case ISA: return "is-a";
             case PARTOF: return "part-of";
             case CLASSIFIEDWITH: return "classified-with";
             default: return "?";
@@ -99,7 +99,7 @@ public class CodeSystem extends MetadataResource {
         public String getSystem() {
           switch (this) {
             case GROUPEDBY: return "http://hl7.org/fhir/codesystem-hierarchy-meaning";
-            case SUBSUMES: return "http://hl7.org/fhir/codesystem-hierarchy-meaning";
+            case ISA: return "http://hl7.org/fhir/codesystem-hierarchy-meaning";
             case PARTOF: return "http://hl7.org/fhir/codesystem-hierarchy-meaning";
             case CLASSIFIEDWITH: return "http://hl7.org/fhir/codesystem-hierarchy-meaning";
             default: return "?";
@@ -108,7 +108,7 @@ public class CodeSystem extends MetadataResource {
         public String getDefinition() {
           switch (this) {
             case GROUPEDBY: return "No particular relationship between the concepts can be assumed, except what can be determined by inspection of the definitions of the elements (possible reasons to use this: importing from a source where this is not defined, or where various parts of the heirarchy have different meanings)";
-            case SUBSUMES: return "A hierarchy where the child concepts are \"a kind of\" the parent (typically an IS-A relationship.)";
+            case ISA: return "A hierarchy where the child concepts have an IS-A relationship with the parents - that is, all the properties of the parent are also true for it's child concepts";
             case PARTOF: return "Child elements list the individual parts of a composite whole (e.g. bodysite)";
             case CLASSIFIEDWITH: return "Child concepts in the hierarchy may have only one parent and there is a presumption that the code system is a \"closed world\" meaning all things must be in the hierarchy. This results in concepts such as \"not otherwise clasified.\"";
             default: return "?";
@@ -117,7 +117,7 @@ public class CodeSystem extends MetadataResource {
         public String getDisplay() {
           switch (this) {
             case GROUPEDBY: return "Grouped By";
-            case SUBSUMES: return "Subsumes";
+            case ISA: return "Is-A";
             case PARTOF: return "Part Of";
             case CLASSIFIEDWITH: return "Classified With";
             default: return "?";
@@ -132,8 +132,8 @@ public class CodeSystem extends MetadataResource {
                 return null;
         if ("grouped-by".equals(codeString))
           return CodeSystemHierarchyMeaning.GROUPEDBY;
-        if ("subsumes".equals(codeString))
-          return CodeSystemHierarchyMeaning.SUBSUMES;
+        if ("is-a".equals(codeString))
+          return CodeSystemHierarchyMeaning.ISA;
         if ("part-of".equals(codeString))
           return CodeSystemHierarchyMeaning.PARTOF;
         if ("classified-with".equals(codeString))
@@ -148,8 +148,8 @@ public class CodeSystem extends MetadataResource {
             return null;
         if ("grouped-by".equals(codeString))
           return new Enumeration<CodeSystemHierarchyMeaning>(this, CodeSystemHierarchyMeaning.GROUPEDBY);
-        if ("subsumes".equals(codeString))
-          return new Enumeration<CodeSystemHierarchyMeaning>(this, CodeSystemHierarchyMeaning.SUBSUMES);
+        if ("is-a".equals(codeString))
+          return new Enumeration<CodeSystemHierarchyMeaning>(this, CodeSystemHierarchyMeaning.ISA);
         if ("part-of".equals(codeString))
           return new Enumeration<CodeSystemHierarchyMeaning>(this, CodeSystemHierarchyMeaning.PARTOF);
         if ("classified-with".equals(codeString))
@@ -159,8 +159,8 @@ public class CodeSystem extends MetadataResource {
     public String toCode(CodeSystemHierarchyMeaning code) {
       if (code == CodeSystemHierarchyMeaning.GROUPEDBY)
         return "grouped-by";
-      if (code == CodeSystemHierarchyMeaning.SUBSUMES)
-        return "subsumes";
+      if (code == CodeSystemHierarchyMeaning.ISA)
+        return "is-a";
       if (code == CodeSystemHierarchyMeaning.PARTOF)
         return "part-of";
       if (code == CodeSystemHierarchyMeaning.CLASSIFIEDWITH)
@@ -2536,7 +2536,7 @@ public class CodeSystem extends MetadataResource {
      * The meaning of the heirarchy of concepts.
      */
     @Child(name = "hierarchyMeaning", type = {CodeType.class}, order=5, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="grouped-by | subsumes | part-of | classified-with", formalDefinition="The meaning of the heirarchy of concepts." )
+    @Description(shortDefinition="grouped-by | is-a | part-of | classified-with", formalDefinition="The meaning of the heirarchy of concepts." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/codesystem-hierarchy-meaning")
     protected Enumeration<CodeSystemHierarchyMeaning> hierarchyMeaning;
 

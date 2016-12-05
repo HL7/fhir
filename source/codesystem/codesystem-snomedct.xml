@@ -67,7 +67,7 @@ support a particular edition/version
 
     why present a fragment? It's not clear what the use case for doing that is, and is recommended not to do so.
     -->
-  <hierarchyMeaning value="subsumes"/> 
+  <hierarchyMeaning value="is-a"/> 
   <compositional value="true"/> <!-- servers that do not support post-coordination may report this has false -->
   <versionNeeded value="false"/>
   

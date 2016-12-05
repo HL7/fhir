@@ -25,6 +25,7 @@
  <tr><td>Code</td><td>The Concept Unique Identifier (CUI) is used for the code value for a Metathesaurus concept</td></tr>
  <tr><td>Display</td><td>The name should be used as the display for English usage (e.g. "<i>Aerosol Dose Form</i>" for CUI C1112870)</td></tr>
  <tr><td>Inactive</td><td>Todo: Describe how it is determined which concepts are inactive</td></tr>
+ <tr><td>Subsumption</td><td>No Subsumption relationships are defined for the NCI Metathesaurus</td></tr>
  <tr><td>Filter Properties</td><td>None are described yet</td></tr>
 </table>
 
@@ -56,6 +57,7 @@ For example, the correct display name for a CUI is
   select STR from rxnconso where RXCUI = :code and SAB = 'RXNORM' and TTY &lt;&gt; 'SY'
 </pre>.
 
+<a name="filters"> </a>
 <h3>NCI metathesaurus Filter Properties</h3>
 
 <p>

@@ -32,13 +32,15 @@
       return getPath();
   }
     
-  public ElementDefinitionBaseComponent(String path, int min, String max) {
-    this.setPath(path);
-    this.setMin(min);
-    this.setMax(max);
+  public void makeBase(String path, int min, String max) {
+    ElementDefinitionBaseComponent self = getBase();
+    self.setPath(path);
+    self.setMin(min);
+    self.setMax(max);
   }
-    
+  
 ----
+
 
 -- StructureMap.imports --
 import org.hl7.fhir.dstu3.utils.StructureMapUtilities;

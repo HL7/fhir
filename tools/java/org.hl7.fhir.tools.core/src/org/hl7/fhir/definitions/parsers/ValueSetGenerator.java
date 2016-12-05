@@ -274,7 +274,7 @@ public class ValueSetGenerator {
     DocumentBuilder builder = factory.newDocumentBuilder();
     Document doc = builder.parse(new File(Utilities.path(folder, "..", "..", "implementations", "translations.xml")));
     Element n = XMLUtil.getFirstChild(doc.getDocumentElement());
-    cs.setHierarchyMeaning(CodeSystemHierarchyMeaning.SUBSUMES);
+    cs.setHierarchyMeaning(CodeSystemHierarchyMeaning.ISA);
     while (n != null) {
       if ("true".equals(n.getAttribute("ecode"))) {
         String code = n.getAttribute("id");

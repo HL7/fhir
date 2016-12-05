@@ -512,6 +512,7 @@ HTTP/1.1 200 OK
 <h3>Subsumption testing</h3>
 <p>
 To test whether <i>code A</i> subsumes <i>code B</i>, perform a $subsumes operation.
+Subsumption testing is based on <a href="codesystem.html#subsumption">the CodeSystem definition of subsumption</a>.
 The client passes the server the following information:
 </p>
 <ul>
@@ -521,7 +522,7 @@ The client passes the server the following information:
 </ul>
 <p>
 If the client passes Codings, it is allowed to use system values that are different from the system in which subsumption testing is to be performed.
-In this case, the server SHALL return an error unless the relationships between the code systems is well defined.
+In this case, the server SHALL return an error unless the relationships between the various code systems is well defined.
 </p>
 <p>
 If the concepts can be compared, then the server returns an outcome code:
@@ -849,7 +850,7 @@ HTTP/1.1 200 OK
 <h3>Maintaining a Closure Table</h3>
 
 <p>
-The 5 operations Expand, Lookup, Validate, subsumes, and Translate account for most operational requirements
+The 5 operations Expand, Lookup, Validate, Subsumes, and Translate account for most operational requirements
 associated with terminology use. However there is one difficult but important use case that
 they do not address, which is integrating terminologically based logic into application searches.
 </p>
@@ -914,6 +915,7 @@ The <a href="conceptmap-operations.html#closure">$closure operation</a> takes 2 
 </ul>
 <p>
 The operation returns a concept map which has a list of mappings that represent new entries to make in the closure table.
+The subsumption testing performed when building a closure table is the same as for the <code>$subsumes</code> operation, and is based on <a href="codesystem.html#subsumption">the CodeSystem definition of subsumption</a>.
 </p>
 <p>
 The closure table can be resynchronized by passing an additional "version" parameter, which is a value taken from the
