@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Mon, Dec 5, 2016 12:27+1100 for FHIR v1.7.0
+// Generated on Mon, Dec 5, 2016 23:44+1100 for FHIR v1.8.0
 
 import org.hl7.fhir.dstu3.model.DateType;
 import org.hl7.fhir.dstu3.model.DateTimeType;
@@ -6327,8 +6327,10 @@ public class XmlParser extends XmlParserBase {
         res.setRequisition(parseIdentifier(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("status")) {
         res.setStatusElement(parseEnumeration(xpp, DiagnosticRequest.DiagnosticRequestStatus.NULL, new DiagnosticRequest.DiagnosticRequestStatusEnumFactory()));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("stage")) {
-        res.setStage(parseCodeableConcept(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("intent")) {
+        res.setIntentElement(parseEnumeration(xpp, DiagnosticRequest.DiagnosticRequestIntent.NULL, new DiagnosticRequest.DiagnosticRequestIntentEnumFactory()));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("priority")) {
+        res.setPriorityElement(parseEnumeration(xpp, DiagnosticRequest.DiagnosticRequestSPriority.NULL, new DiagnosticRequest.DiagnosticRequestSPriorityEnumFactory()));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("code")) {
         res.setCode(parseCodeableConcept(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("subject")) {
@@ -6337,16 +6339,18 @@ public class XmlParser extends XmlParserBase {
         res.setContext(parseReference(xpp));
       } else if (eventType == XmlPullParser.START_TAG && nameIsTypeName(xpp, "occurrence")) {
         res.setOccurrence(parseType("occurrence", xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("authored")) {
-        res.setAuthoredElement(parseDateTime(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("authoredOn")) {
+        res.setAuthoredOnElement(parseDateTime(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("requester")) {
         res.setRequester(parseReference(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("performerType")) {
         res.setPerformerType(parseCodeableConcept(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("performer")) {
         res.setPerformer(parseReference(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("reason")) {
-        res.getReason().add(parseCodeableConcept(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("reasonCode")) {
+        res.getReasonCode().add(parseCodeableConcept(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("reasonReference")) {
+        res.getReasonReference().add(parseReference(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("supportingInformation")) {
         res.getSupportingInformation().add(parseReference(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("note")) {
@@ -13463,7 +13467,7 @@ public class XmlParser extends XmlParserBase {
 
   protected boolean parseResearchStudyContent(int eventType, XmlPullParser xpp, ResearchStudy res) throws XmlPullParserException, IOException, FHIRFormatError {
       if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("identifier")) {
-        res.setIdentifier(parseIdentifier(xpp));
+        res.getIdentifier().add(parseIdentifier(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("title")) {
         res.setTitleElement(parseString(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("protocol")) {
@@ -24189,9 +24193,10 @@ public class XmlParser extends XmlParserBase {
       }
       if (element.hasStatusElement())
         composeEnumeration("status", element.getStatusElement(), new DiagnosticRequest.DiagnosticRequestStatusEnumFactory());
-      if (element.hasStage()) {
-        composeCodeableConcept("stage", element.getStage());
-      }
+      if (element.hasIntentElement())
+        composeEnumeration("intent", element.getIntentElement(), new DiagnosticRequest.DiagnosticRequestIntentEnumFactory());
+      if (element.hasPriorityElement())
+        composeEnumeration("priority", element.getPriorityElement(), new DiagnosticRequest.DiagnosticRequestSPriorityEnumFactory());
       if (element.hasCode()) {
         composeCodeableConcept("code", element.getCode());
       }
@@ -24203,8 +24208,8 @@ public class XmlParser extends XmlParserBase {
       }
       if (element.hasOccurrence()) {
         composeType("occurrence", element.getOccurrence());
-      }      if (element.hasAuthoredElement()) {
-        composeDateTime("authored", element.getAuthoredElement());
+      }      if (element.hasAuthoredOnElement()) {
+        composeDateTime("authoredOn", element.getAuthoredOnElement());
       }
       if (element.hasRequester()) {
         composeReference("requester", element.getRequester());
@@ -24215,9 +24220,13 @@ public class XmlParser extends XmlParserBase {
       if (element.hasPerformer()) {
         composeReference("performer", element.getPerformer());
       }
-      if (element.hasReason()) { 
-        for (CodeableConcept e : element.getReason()) 
-          composeCodeableConcept("reason", e);
+      if (element.hasReasonCode()) { 
+        for (CodeableConcept e : element.getReasonCode()) 
+          composeCodeableConcept("reasonCode", e);
+      }
+      if (element.hasReasonReference()) { 
+        for (Reference e : element.getReasonReference()) 
+          composeReference("reasonReference", e);
       }
       if (element.hasSupportingInformation()) { 
         for (Reference e : element.getSupportingInformation()) 
@@ -31675,8 +31684,9 @@ public class XmlParser extends XmlParserBase {
 
   protected void composeResearchStudyElements(ResearchStudy element) throws IOException {
       composeDomainResourceElements(element);
-      if (element.hasIdentifier()) {
-        composeIdentifier("identifier", element.getIdentifier());
+      if (element.hasIdentifier()) { 
+        for (Identifier e : element.getIdentifier()) 
+          composeIdentifier("identifier", e);
       }
       if (element.hasTitleElement()) {
         composeString("title", element.getTitleElement());

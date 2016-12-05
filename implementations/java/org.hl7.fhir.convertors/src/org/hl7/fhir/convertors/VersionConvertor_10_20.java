@@ -6029,7 +6029,7 @@ public class VersionConvertor_10_20 {
     tgt.setContext(convertReference(src.getEncounter()));
     tgt.setRequester(convertReference(src.getOrderer()));
     for (org.hl7.fhir.dstu2.model.CodeableConcept t : src.getReason())
-      tgt.addReason(convertCodeableConcept(t));
+      tgt.addReasonCode(convertCodeableConcept(t));
     for (org.hl7.fhir.dstu2.model.Reference t : src.getSupportingInformation())
       tgt.addSupportingInformation(convertReference(t));
 //    for (org.hl7.fhir.dstu2.model.Reference t : src.getSpecimen())
@@ -6050,7 +6050,7 @@ public class VersionConvertor_10_20 {
     tgt.setSubject(convertReference(src.getSubject()));
     tgt.setEncounter(convertReference(src.getContext()));
     tgt.setOrderer(convertReference(src.getRequester()));
-    for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getReason())
+    for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getReasonCode())
       tgt.addReason(convertCodeableConcept(t));
     for (org.hl7.fhir.dstu3.model.Reference t : src.getSupportingInformation())
       tgt.addSupportingInformation(convertReference(t));

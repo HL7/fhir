@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 5, 2016 12:27+1100 for FHIR v1.7.0
+// Generated on Mon, Dec 5, 2016 23:44+1100 for FHIR v1.8.0
 
 import java.util.*;
 
@@ -74,7 +74,7 @@ public class Task extends DomainResource {
          */
         READY, 
         /**
-         * The request for action has been withdrawn prior to commencement of activity
+         * the task was not completed (more or less) as requested
          */
         CANCELLED, 
         /**
@@ -175,7 +175,7 @@ public class Task extends DomainResource {
             case ACCEPTED: return "The potential performer has agreed to execute the task but has not yet started work";
             case REJECTED: return "The potential performer who claimed ownership of the task has decided not to execute it prior to performing any action.";
             case READY: return "Task is ready to be performed, but no action has yet been taken.  Used in place of requested/received/accepted/rejected when request assignment and acceptance is a given.";
-            case CANCELLED: return "The request for action has been withdrawn prior to commencement of activity";
+            case CANCELLED: return "the task was not completed (more or less) as requested";
             case INPROGRESS: return "Task has been started but is not yet complete.";
             case ONHOLD: return "Task has been started but work has been paused";
             case FAILED: return "The task was attempted but could not be completed due to some error.";
@@ -1757,13 +1757,13 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     protected Type definition;
 
     /**
-     * Identifies a plan, proposal or order that this task has been created in fulfillment of.
+     * BasedOn refers to a higher-level authorization that triggered the creation of the task.  It references a "request" resource such as a DiagnosticRequest, MedicationRequest, ProcedureRequest, CarePlan, etc. which is distinct from the "request" resource the task is seeking to fulfil.  This latter resource is referenced by FocusOn.  For example, based on a DiagnosticRequest (= BasedOn), a task is created to fulfil a procedureRequest ( = FocusOn ) to collect a specimen from a patient.
      */
     @Child(name = "basedOn", type = {Reference.class}, order=2, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-    @Description(shortDefinition="Request fulfilled by this task", formalDefinition="Identifies a plan, proposal or order that this task has been created in fulfillment of." )
+    @Description(shortDefinition="Request fulfilled by this task", formalDefinition="BasedOn refers to a higher-level authorization that triggered the creation of the task.  It references a \"request\" resource such as a DiagnosticRequest, MedicationRequest, ProcedureRequest, CarePlan, etc. which is distinct from the \"request\" resource the task is seeking to fulfil.  This latter resource is referenced by FocusOn.  For example, based on a DiagnosticRequest (= BasedOn), a task is created to fulfil a procedureRequest ( = FocusOn ) to collect a specimen from a patient." )
     protected List<Reference> basedOn;
     /**
-     * The actual objects that are the target of the reference (Identifies a plan, proposal or order that this task has been created in fulfillment of.)
+     * The actual objects that are the target of the reference (BasedOn refers to a higher-level authorization that triggered the creation of the task.  It references a "request" resource such as a DiagnosticRequest, MedicationRequest, ProcedureRequest, CarePlan, etc. which is distinct from the "request" resource the task is seeking to fulfil.  This latter resource is referenced by FocusOn.  For example, based on a DiagnosticRequest (= BasedOn), a task is created to fulfil a procedureRequest ( = FocusOn ) to collect a specimen from a patient.)
      */
     protected List<Resource> basedOnTarget;
 
@@ -2087,7 +2087,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     }
 
     /**
-     * @return {@link #basedOn} (Identifies a plan, proposal or order that this task has been created in fulfillment of.)
+     * @return {@link #basedOn} (BasedOn refers to a higher-level authorization that triggered the creation of the task.  It references a "request" resource such as a DiagnosticRequest, MedicationRequest, ProcedureRequest, CarePlan, etc. which is distinct from the "request" resource the task is seeking to fulfil.  This latter resource is referenced by FocusOn.  For example, based on a DiagnosticRequest (= BasedOn), a task is created to fulfil a procedureRequest ( = FocusOn ) to collect a specimen from a patient.)
      */
     public List<Reference> getBasedOn() { 
       if (this.basedOn == null)
@@ -3149,7 +3149,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "The business identifier for this task.", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("definition[x]", "uri|Reference(ActivityDefinition)", "A reference to a formal or informal definition of the task.  For example, a protocol, a step within a defined workflow definition, etc.", 0, java.lang.Integer.MAX_VALUE, definition));
-        childrenList.add(new Property("basedOn", "Reference(Any)", "Identifies a plan, proposal or order that this task has been created in fulfillment of.", 0, java.lang.Integer.MAX_VALUE, basedOn));
+        childrenList.add(new Property("basedOn", "Reference(Any)", "BasedOn refers to a higher-level authorization that triggered the creation of the task.  It references a \"request\" resource such as a DiagnosticRequest, MedicationRequest, ProcedureRequest, CarePlan, etc. which is distinct from the \"request\" resource the task is seeking to fulfil.  This latter resource is referenced by FocusOn.  For example, based on a DiagnosticRequest (= BasedOn), a task is created to fulfil a procedureRequest ( = FocusOn ) to collect a specimen from a patient.", 0, java.lang.Integer.MAX_VALUE, basedOn));
         childrenList.add(new Property("groupIdentifier", "Identifier", "An identifier that links together multiple tasks and other requests that were created in the same context.", 0, java.lang.Integer.MAX_VALUE, groupIdentifier));
         childrenList.add(new Property("partOf", "Reference(Task)", "Task that this particular task is part of.", 0, java.lang.Integer.MAX_VALUE, partOf));
         childrenList.add(new Property("status", "code", "The current status of the task.", 0, java.lang.Integer.MAX_VALUE, status));

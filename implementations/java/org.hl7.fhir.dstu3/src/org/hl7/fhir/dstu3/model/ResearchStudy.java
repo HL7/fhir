@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 5, 2016 12:27+1100 for FHIR v1.7.0
+// Generated on Mon, Dec 5, 2016 23:44+1100 for FHIR v1.8.0
 
 import java.util.*;
 
@@ -480,9 +480,9 @@ public class ResearchStudy extends DomainResource {
     /**
      * Identifiers assigned to this research study by the sponsor or other systems.
      */
-    @Child(name = "identifier", type = {Identifier.class}, order=0, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "identifier", type = {Identifier.class}, order=0, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Business Identifer for study", formalDefinition="Identifiers assigned to this research study by the sponsor or other systems." )
-    protected Identifier identifier;
+    protected List<Identifier> identifier;
 
     /**
      * A short, descriptive user-friendly label for the study.
@@ -649,7 +649,7 @@ public class ResearchStudy extends DomainResource {
     @Description(shortDefinition="Defined path through the study for a subject", formalDefinition="Describes an expected sequence of events for one of the participants of a study.  E.g. Exposure to drug A, wash-out, exposure to drug B, wash-out, follow-up." )
     protected List<ResearchStudyArmComponent> arm;
 
-    private static final long serialVersionUID = 1849585485L;
+    private static final long serialVersionUID = -1804662501L;
 
   /**
    * Constructor
@@ -669,25 +669,54 @@ public class ResearchStudy extends DomainResource {
     /**
      * @return {@link #identifier} (Identifiers assigned to this research study by the sponsor or other systems.)
      */
-    public Identifier getIdentifier() { 
+    public List<Identifier> getIdentifier() { 
       if (this.identifier == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ResearchStudy.identifier");
-        else if (Configuration.doAutoCreate())
-          this.identifier = new Identifier(); // cc
+        this.identifier = new ArrayList<Identifier>();
       return this.identifier;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public ResearchStudy setIdentifier(List<Identifier> theIdentifier) { 
+      this.identifier = theIdentifier;
+      return this;
+    }
+
     public boolean hasIdentifier() { 
-      return this.identifier != null && !this.identifier.isEmpty();
+      if (this.identifier == null)
+        return false;
+      for (Identifier item : this.identifier)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    public Identifier addIdentifier() { //3
+      Identifier t = new Identifier();
+      if (this.identifier == null)
+        this.identifier = new ArrayList<Identifier>();
+      this.identifier.add(t);
+      return t;
+    }
+
+    public ResearchStudy addIdentifier(Identifier t) { //3
+      if (t == null)
+        return this;
+      if (this.identifier == null)
+        this.identifier = new ArrayList<Identifier>();
+      this.identifier.add(t);
+      return this;
     }
 
     /**
-     * @param value {@link #identifier} (Identifiers assigned to this research study by the sponsor or other systems.)
+     * @return The first repetition of repeating field {@link #identifier}, creating it if it does not already exist
      */
-    public ResearchStudy setIdentifier(Identifier value) { 
-      this.identifier = value;
-      return this;
+    public Identifier getIdentifierFirstRep() { 
+      if (getIdentifier().isEmpty()) {
+        addIdentifier();
+      }
+      return getIdentifier().get(0);
     }
 
     /**
@@ -1720,7 +1749,7 @@ public class ResearchStudy extends DomainResource {
       @Override
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : new Base[] {this.identifier}; // Identifier
+        case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
         case 110371416: /*title*/ return this.title == null ? new Base[0] : new Base[] {this.title}; // StringType
         case -989163880: /*protocol*/ return this.protocol == null ? new Base[0] : this.protocol.toArray(new Base[this.protocol.size()]); // Reference
         case -995410646: /*partOf*/ return this.partOf == null ? new Base[0] : this.partOf.toArray(new Base[this.partOf.size()]); // Reference
@@ -1749,7 +1778,7 @@ public class ResearchStudy extends DomainResource {
       public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -1618432855: // identifier
-          this.identifier = castToIdentifier(value); // Identifier
+          this.getIdentifier().add(castToIdentifier(value)); // Identifier
           break;
         case 110371416: // title
           this.title = castToString(value); // StringType
@@ -1816,7 +1845,7 @@ public class ResearchStudy extends DomainResource {
       @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("identifier"))
-          this.identifier = castToIdentifier(value); // Identifier
+          this.getIdentifier().add(castToIdentifier(value));
         else if (name.equals("title"))
           this.title = castToString(value); // StringType
         else if (name.equals("protocol"))
@@ -1862,7 +1891,7 @@ public class ResearchStudy extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1618432855:  return getIdentifier(); // Identifier
+        case -1618432855:  return addIdentifier(); // Identifier
         case 110371416: throw new FHIRException("Cannot make property title as it is not a complex type"); // StringType
         case -989163880:  return addProtocol(); // Reference
         case -995410646:  return addPartOf(); // Reference
@@ -1890,8 +1919,7 @@ public class ResearchStudy extends DomainResource {
       @Override
       public Base addChild(String name) throws FHIRException {
         if (name.equals("identifier")) {
-          this.identifier = new Identifier();
-          return this.identifier;
+          return addIdentifier();
         }
         else if (name.equals("title")) {
           throw new FHIRException("Cannot call addChild on a primitive type ResearchStudy.title");
@@ -1966,7 +1994,11 @@ public class ResearchStudy extends DomainResource {
       public ResearchStudy copy() {
         ResearchStudy dst = new ResearchStudy();
         copyValues(dst);
-        dst.identifier = identifier == null ? null : identifier.copy();
+        if (identifier != null) {
+          dst.identifier = new ArrayList<Identifier>();
+          for (Identifier i : identifier)
+            dst.identifier.add(i.copy());
+        };
         dst.title = title == null ? null : title.copy();
         if (protocol != null) {
           dst.protocol = new ArrayList<Reference>();

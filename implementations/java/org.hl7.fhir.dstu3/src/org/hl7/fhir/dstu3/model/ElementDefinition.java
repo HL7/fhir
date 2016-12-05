@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 5, 2016 12:27+1100 for FHIR v1.7.0
+// Generated on Mon, Dec 5, 2016 23:44+1100 for FHIR v1.8.0
 
 import java.util.*;
 
@@ -5977,7 +5977,7 @@ public class ElementDefinition extends Type implements ICompositeType {
     else
       return getPath();
   }
-      
+    
   public void makeBase(String path, int min, String max) {
     ElementDefinitionBaseComponent self = getBase();
     self.setPath(path);
@@ -5985,6 +5985,7 @@ public class ElementDefinition extends Type implements ICompositeType {
     self.setMax(max);
   }
   
+
 // end addition
 
 }

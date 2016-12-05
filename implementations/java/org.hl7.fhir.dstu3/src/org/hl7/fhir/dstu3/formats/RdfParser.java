@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Mon, Dec 5, 2016 12:27+1100 for FHIR v1.7.0
+// Generated on Mon, Dec 5, 2016 23:44+1100 for FHIR v1.8.0
 
 import org.hl7.fhir.dstu3.model.DateType;
 import org.hl7.fhir.dstu3.model.DateTimeType;
@@ -4621,8 +4621,10 @@ public class RdfParser extends RdfParserBase {
       composeIdentifier(t, "DiagnosticRequest", "requisition", element.getRequisition(), -1);
     if (element.hasStatusElement())
       composeEnum(t, "DiagnosticRequest", "status", element.getStatusElement(), -1);
-    if (element.hasStage())
-      composeCodeableConcept(t, "DiagnosticRequest", "stage", element.getStage(), -1);
+    if (element.hasIntentElement())
+      composeEnum(t, "DiagnosticRequest", "intent", element.getIntentElement(), -1);
+    if (element.hasPriorityElement())
+      composeEnum(t, "DiagnosticRequest", "priority", element.getPriorityElement(), -1);
     if (element.hasCode())
       composeCodeableConcept(t, "DiagnosticRequest", "code", element.getCode(), -1);
     if (element.hasSubject())
@@ -4631,16 +4633,18 @@ public class RdfParser extends RdfParserBase {
       composeReference(t, "DiagnosticRequest", "context", element.getContext(), -1);
     if (element.hasOccurrence())
       composeType(t, "DiagnosticRequest", "occurrence", element.getOccurrence(), -1);
-    if (element.hasAuthoredElement())
-      composeDateTime(t, "DiagnosticRequest", "authored", element.getAuthoredElement(), -1);
+    if (element.hasAuthoredOnElement())
+      composeDateTime(t, "DiagnosticRequest", "authoredOn", element.getAuthoredOnElement(), -1);
     if (element.hasRequester())
       composeReference(t, "DiagnosticRequest", "requester", element.getRequester(), -1);
     if (element.hasPerformerType())
       composeCodeableConcept(t, "DiagnosticRequest", "performerType", element.getPerformerType(), -1);
     if (element.hasPerformer())
       composeReference(t, "DiagnosticRequest", "performer", element.getPerformer(), -1);
-    for (int i = 0; i < element.getReason().size(); i++)
-      composeCodeableConcept(t, "DiagnosticRequest", "reason", element.getReason().get(i), i);
+    for (int i = 0; i < element.getReasonCode().size(); i++)
+      composeCodeableConcept(t, "DiagnosticRequest", "reasonCode", element.getReasonCode().get(i), i);
+    for (int i = 0; i < element.getReasonReference().size(); i++)
+      composeReference(t, "DiagnosticRequest", "reasonReference", element.getReasonReference().get(i), i);
     for (int i = 0; i < element.getSupportingInformation().size(); i++)
       composeReference(t, "DiagnosticRequest", "supportingInformation", element.getSupportingInformation().get(i), i);
     for (int i = 0; i < element.getNote().size(); i++)
@@ -9965,8 +9969,8 @@ public class RdfParser extends RdfParserBase {
       t = parent.predicate("fhir:"+parentType+'.'+name);
     }
     composeDomainResource(t, "ResearchStudy", name, element, index);
-    if (element.hasIdentifier())
-      composeIdentifier(t, "ResearchStudy", "identifier", element.getIdentifier(), -1);
+    for (int i = 0; i < element.getIdentifier().size(); i++)
+      composeIdentifier(t, "ResearchStudy", "identifier", element.getIdentifier().get(i), i);
     if (element.hasTitleElement())
       composeString(t, "ResearchStudy", "title", element.getTitleElement(), -1);
     for (int i = 0; i < element.getProtocol().size(); i++)

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 5, 2016 12:27+1100 for FHIR v1.7.0
+// Generated on Mon, Dec 5, 2016 23:44+1100 for FHIR v1.8.0
 
 import java.util.*;
 
@@ -611,10 +611,10 @@ Any information provided in these elements overrides the information from the de
         protected List<QuestionnaireItemOptionComponent> option;
 
         /**
-         * The value that should be pre-populated when rendering the questionnaire for user input.
+         * The value that should be defaulted when rendering the questionnaire for user input.
          */
         @Child(name = "initial", type = {BooleanType.class, DecimalType.class, IntegerType.class, DateType.class, DateTimeType.class, InstantType.class, TimeType.class, StringType.class, UriType.class, Attachment.class, Coding.class, Quantity.class, Reference.class}, order=14, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Default value when item is first rendered", formalDefinition="The value that should be pre-populated when rendering the questionnaire for user input." )
+        @Description(shortDefinition="Default value when item is first rendered", formalDefinition="The value that should be defaulted when rendering the questionnaire for user input." )
         protected Type initial;
 
         /**
@@ -1302,14 +1302,14 @@ Any information provided in these elements overrides the information from the de
         }
 
         /**
-         * @return {@link #initial} (The value that should be pre-populated when rendering the questionnaire for user input.)
+         * @return {@link #initial} (The value that should be defaulted when rendering the questionnaire for user input.)
          */
         public Type getInitial() { 
           return this.initial;
         }
 
         /**
-         * @return {@link #initial} (The value that should be pre-populated when rendering the questionnaire for user input.)
+         * @return {@link #initial} (The value that should be defaulted when rendering the questionnaire for user input.)
          */
         public BooleanType getInitialBooleanType() throws FHIRException { 
           if (!(this.initial instanceof BooleanType))
@@ -1322,7 +1322,7 @@ Any information provided in these elements overrides the information from the de
         }
 
         /**
-         * @return {@link #initial} (The value that should be pre-populated when rendering the questionnaire for user input.)
+         * @return {@link #initial} (The value that should be defaulted when rendering the questionnaire for user input.)
          */
         public DecimalType getInitialDecimalType() throws FHIRException { 
           if (!(this.initial instanceof DecimalType))
@@ -1335,7 +1335,7 @@ Any information provided in these elements overrides the information from the de
         }
 
         /**
-         * @return {@link #initial} (The value that should be pre-populated when rendering the questionnaire for user input.)
+         * @return {@link #initial} (The value that should be defaulted when rendering the questionnaire for user input.)
          */
         public IntegerType getInitialIntegerType() throws FHIRException { 
           if (!(this.initial instanceof IntegerType))
@@ -1348,7 +1348,7 @@ Any information provided in these elements overrides the information from the de
         }
 
         /**
-         * @return {@link #initial} (The value that should be pre-populated when rendering the questionnaire for user input.)
+         * @return {@link #initial} (The value that should be defaulted when rendering the questionnaire for user input.)
          */
         public DateType getInitialDateType() throws FHIRException { 
           if (!(this.initial instanceof DateType))
@@ -1361,7 +1361,7 @@ Any information provided in these elements overrides the information from the de
         }
 
         /**
-         * @return {@link #initial} (The value that should be pre-populated when rendering the questionnaire for user input.)
+         * @return {@link #initial} (The value that should be defaulted when rendering the questionnaire for user input.)
          */
         public DateTimeType getInitialDateTimeType() throws FHIRException { 
           if (!(this.initial instanceof DateTimeType))
@@ -1374,7 +1374,7 @@ Any information provided in these elements overrides the information from the de
         }
 
         /**
-         * @return {@link #initial} (The value that should be pre-populated when rendering the questionnaire for user input.)
+         * @return {@link #initial} (The value that should be defaulted when rendering the questionnaire for user input.)
          */
         public InstantType getInitialInstantType() throws FHIRException { 
           if (!(this.initial instanceof InstantType))
@@ -1387,7 +1387,7 @@ Any information provided in these elements overrides the information from the de
         }
 
         /**
-         * @return {@link #initial} (The value that should be pre-populated when rendering the questionnaire for user input.)
+         * @return {@link #initial} (The value that should be defaulted when rendering the questionnaire for user input.)
          */
         public TimeType getInitialTimeType() throws FHIRException { 
           if (!(this.initial instanceof TimeType))
@@ -1400,7 +1400,7 @@ Any information provided in these elements overrides the information from the de
         }
 
         /**
-         * @return {@link #initial} (The value that should be pre-populated when rendering the questionnaire for user input.)
+         * @return {@link #initial} (The value that should be defaulted when rendering the questionnaire for user input.)
          */
         public StringType getInitialStringType() throws FHIRException { 
           if (!(this.initial instanceof StringType))
@@ -1413,7 +1413,7 @@ Any information provided in these elements overrides the information from the de
         }
 
         /**
-         * @return {@link #initial} (The value that should be pre-populated when rendering the questionnaire for user input.)
+         * @return {@link #initial} (The value that should be defaulted when rendering the questionnaire for user input.)
          */
         public UriType getInitialUriType() throws FHIRException { 
           if (!(this.initial instanceof UriType))
@@ -1426,7 +1426,7 @@ Any information provided in these elements overrides the information from the de
         }
 
         /**
-         * @return {@link #initial} (The value that should be pre-populated when rendering the questionnaire for user input.)
+         * @return {@link #initial} (The value that should be defaulted when rendering the questionnaire for user input.)
          */
         public Attachment getInitialAttachment() throws FHIRException { 
           if (!(this.initial instanceof Attachment))
@@ -1439,7 +1439,7 @@ Any information provided in these elements overrides the information from the de
         }
 
         /**
-         * @return {@link #initial} (The value that should be pre-populated when rendering the questionnaire for user input.)
+         * @return {@link #initial} (The value that should be defaulted when rendering the questionnaire for user input.)
          */
         public Coding getInitialCoding() throws FHIRException { 
           if (!(this.initial instanceof Coding))
@@ -1452,7 +1452,7 @@ Any information provided in these elements overrides the information from the de
         }
 
         /**
-         * @return {@link #initial} (The value that should be pre-populated when rendering the questionnaire for user input.)
+         * @return {@link #initial} (The value that should be defaulted when rendering the questionnaire for user input.)
          */
         public Quantity getInitialQuantity() throws FHIRException { 
           if (!(this.initial instanceof Quantity))
@@ -1465,7 +1465,7 @@ Any information provided in these elements overrides the information from the de
         }
 
         /**
-         * @return {@link #initial} (The value that should be pre-populated when rendering the questionnaire for user input.)
+         * @return {@link #initial} (The value that should be defaulted when rendering the questionnaire for user input.)
          */
         public Reference getInitialReference() throws FHIRException { 
           if (!(this.initial instanceof Reference))
@@ -1482,7 +1482,7 @@ Any information provided in these elements overrides the information from the de
         }
 
         /**
-         * @param value {@link #initial} (The value that should be pre-populated when rendering the questionnaire for user input.)
+         * @param value {@link #initial} (The value that should be defaulted when rendering the questionnaire for user input.)
          */
         public QuestionnaireItemComponent setInitial(Type value) { 
           this.initial = value;
@@ -1557,7 +1557,7 @@ Any information provided in these elements overrides the information from the de
           childrenList.add(new Property("maxLength", "integer", "The maximum number of characters that are permitted in the answer to be considered a \"valid\" QuestionnaireResponse.", 0, java.lang.Integer.MAX_VALUE, maxLength));
           childrenList.add(new Property("options", "Reference(ValueSet)", "Reference to a value set containing a list of codes representing permitted answers for the question.", 0, java.lang.Integer.MAX_VALUE, options));
           childrenList.add(new Property("option", "", "For a \"choice\" question, identifies one of the permitted answers for the question.", 0, java.lang.Integer.MAX_VALUE, option));
-          childrenList.add(new Property("initial[x]", "boolean|decimal|integer|date|dateTime|instant|time|string|uri|Attachment|Coding|Quantity|Reference(Any)", "The value that should be pre-populated when rendering the questionnaire for user input.", 0, java.lang.Integer.MAX_VALUE, initial));
+          childrenList.add(new Property("initial[x]", "boolean|decimal|integer|date|dateTime|instant|time|string|uri|Attachment|Coding|Quantity|Reference(Any)", "The value that should be defaulted when rendering the questionnaire for user input.", 0, java.lang.Integer.MAX_VALUE, initial));
           childrenList.add(new Property("item", "@Questionnaire.item", "Allows text, questions and other groups to be nested beneath a question or group.", 0, java.lang.Integer.MAX_VALUE, item));
         }
 
