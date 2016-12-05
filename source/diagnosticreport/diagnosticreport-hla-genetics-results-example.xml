@@ -19,9 +19,11 @@
         <p>Please refer the <a href="genomics.html#hla">implementation guide </a> for this usage example.</p>
       </div>
     </text>
+    <!--
     <extension xmlns="http://hl7.org/fhir" url="http://hl7.org/fhir/StructureDefinition/hla-genotyping-resultsAlleleAsignmentDate">
       <valueDate value="2014-05-16"/>
     </extension>
+    -->
     <extension xmlns="http://hl7.org/fhir" url="http://hl7.org/fhir/StructureDefinition/hla-genotyping-resultsAlleleDatabase">
       <valueCodeableConcept>
         <coding>

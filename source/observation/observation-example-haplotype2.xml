@@ -1,7 +1,6 @@
 <!-->The method to register an extension, you can see the extension-11179-de-administrative-status.xml.html<-->
 <Observation xmlns="http://hl7.org/fhir">
     <id value="example-haplotype2"/>
-    <status value="unknown"/>
     <extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsGene">
         <valueCodeableConcept>
             <coding>
@@ -21,6 +20,7 @@
             <reference value="Sequence/example-sequence2"/>
         </valueReference>
     </extension>
+    <status value="unknown"/>
     <code>
       <coding>
         <system value="http://loinc.org"/>
