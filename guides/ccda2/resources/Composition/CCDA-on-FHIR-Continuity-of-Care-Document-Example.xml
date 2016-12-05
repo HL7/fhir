@@ -6,6 +6,7 @@
         <lastUpdated value="2016-06-15T08:16:14Z"/>
         <profile value="http://hl7.org/fhir/ccda/StructureDefinition/CCDA-on-FHIR-Continuity-of-Care-Document"/>
     </meta>
+    <language value="EN-us"/>
     <text>
         <status value="generated"/>
         <div
