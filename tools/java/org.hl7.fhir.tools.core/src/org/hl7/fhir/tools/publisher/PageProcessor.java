@@ -1613,7 +1613,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     } else
       throw new Error("Not done yet");
     s.append("</td>");
-    s.append("<td>"+ToolingExtensions.readStringExtension(ed, ToolingExtensions.EXT_FMM_LEVEL)+"</td>");
+    String fmm = ToolingExtensions.readStringExtension(ed, ToolingExtensions.EXT_FMM_LEVEL);
+    s.append("<td>"+(Utilities.noString(fmm) ? "0" : fmm)+"</td>");
 //    s.append("<td><a href=\"extension-"+ed.getId().toLowerCase()+ ".xml.html\">XML</a></td>");
 //    s.append("<td><a href=\"extension-"+ed.getId().toLowerCase()+ ".json.html\">JSON</a></td>");
     s.append("</tr>");

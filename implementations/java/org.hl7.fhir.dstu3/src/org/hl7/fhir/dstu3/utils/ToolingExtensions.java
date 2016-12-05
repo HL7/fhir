@@ -226,6 +226,8 @@ public class ToolingExtensions {
       return ((UriType) ex.getValue()).getValue();
     if (ex.getValue() instanceof CodeType)
       return ((CodeType) ex.getValue()).getValue();
+    if (ex.getValue() instanceof IntegerType)
+      return ((IntegerType) ex.getValue()).asStringValue();
     if ((ex.getValue() instanceof MarkdownType))
       return ((MarkdownType) ex.getValue()).getValue();
     return null;
