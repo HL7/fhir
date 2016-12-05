@@ -22,19 +22,8 @@
     },
     "StructureDefinition": {
       "template-format": "instance-template-format.html"
-    },
-    "Composition": {
-      "template-format": "instance-template-format-example.html",
-      "template-base": "instance-template-example.html"
-    },
-    "Extension": {
-      "template-format": "instance-template-format-example.html",
-      "template-base": "instance-template-example.html"
-    },
-    "Contract": {
-      "template-format": "instance-template-format-example.html",
-      "template-base": "instance-template-example.html"
     }
+    
   },
   "canonicalBase": "http://hl7.org/fhir/ccda",
   "source": "ImplementationGuide/ImplementationGuide_2219.xml",
