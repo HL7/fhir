@@ -3,27 +3,27 @@ package org.hl7.fhir.tools.implementations.java;
 Copyright (c) 2011+, HL7, Inc
 All rights reserved.
 
-Redistribution and use in source and binary forms, with or without modification, 
+Redistribution and use in source and binary forms, with or without modification,
 are permitted provided that the following conditions are met:
 
- * Redistributions of source code must retain the above copyright notice, this 
+ * Redistributions of source code must retain the above copyright notice, this
    list of conditions and the following disclaimer.
- * Redistributions in binary form must reproduce the above copyright notice, 
-   this list of conditions and the following disclaimer in the documentation 
+ * Redistributions in binary form must reproduce the above copyright notice,
+   this list of conditions and the following disclaimer in the documentation
    and/or other materials provided with the distribution.
- * Neither the name of HL7 nor the names of its contributors may be used to 
-   endorse or promote products derived from this software without specific 
+ * Neither the name of HL7 nor the names of its contributors may be used to
+   endorse or promote products derived from this software without specific
    prior written permission.
 
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
-ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
-WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
-IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
-INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
-NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
-PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
-WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
-ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 POSSIBILITY OF SUCH DAMAGE.
 
 */
@@ -79,7 +79,7 @@ public class JavaBaseGenerator extends OutputStreamWriter {
 	}
 
 	protected String getTypename(TypeRef type) throws Exception {
-		if (type.getParams().size() == 1) {			
+		if (type.getParams().size() == 1) {
 			if (type.isResourceReference())
 				return "Reference";
 			else if (type.getName().equals("Interval"))
@@ -111,7 +111,7 @@ public class JavaBaseGenerator extends OutputStreamWriter {
 	protected String getTitle(String name) {
 		return Utilities.noString(name) ? "Value" : name.substring(0, 1).toUpperCase()+ name.substring(1);
 	}
-	
+
 
   protected List<ConceptDefinitionComponent> listAllCodes(CodeSystem cs) {
     List<ConceptDefinitionComponent> result = new ArrayList<ConceptDefinitionComponent>();
@@ -131,7 +131,9 @@ public class JavaBaseGenerator extends OutputStreamWriter {
       cc = "ASTERISK";
     if (Utilities.isOid(cc))
       cc = "OID_"+cc;
-    if (cc.equals("<"))
+    if (cc.equals("%"))
+      cc = "pct";
+    else if (cc.equals("<"))
       cc = "less_Than";
     else if (cc.equals("<="))
       cc = "less_Or_Equal";
@@ -150,6 +152,7 @@ public class JavaBaseGenerator extends OutputStreamWriter {
     cc = cc.replace("<", "_").replace(">", "_");
     cc = cc.replace(".", "_").replace("/", "_");
     cc = cc.replace(":", "_");
+    cc = cc.replace("%", "pct");
     if (Utilities.isInteger(cc.substring(0, 1)))
       cc = "_"+cc;
     cc = cc.toUpperCase();
@@ -164,5 +167,5 @@ public class JavaBaseGenerator extends OutputStreamWriter {
         return false;
     return true;
   }
-	
+
 }
