@@ -1,6 +1,5 @@
 <Observation xmlns="http://hl7.org/fhir">
        <id value="example-diplotype1"/>
-       <status value="unknown"/>
        <extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsGene">
 		<valueCodeableConcept>
 			<coding>

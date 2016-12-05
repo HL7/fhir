@@ -19,7 +19,8 @@
                 "James"
             ],
             "use": "official",
-            "family": "Chalmers",
+            "family": "Chalmers"
+        }, {
             "given": ["Jim"],
             "use": "usual"
         }
