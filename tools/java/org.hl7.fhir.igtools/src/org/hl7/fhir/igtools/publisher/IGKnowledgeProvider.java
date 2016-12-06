@@ -21,6 +21,8 @@ import org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionKind;
 import org.hl7.fhir.dstu3.model.StructureDefinition.TypeDerivationRule;
 import org.hl7.fhir.dstu3.model.UriType;
 import org.hl7.fhir.dstu3.model.ValueSet;
+import org.hl7.fhir.dstu3.utils.NarrativeGenerator.IReferenceResolver;
+import org.hl7.fhir.dstu3.utils.NarrativeGenerator.ResourceWithReference;
 import org.hl7.fhir.dstu3.validation.ValidationMessage;
 import org.hl7.fhir.dstu3.validation.ValidationMessage.Source;
 import org.hl7.fhir.utilities.Utilities;
@@ -386,4 +388,5 @@ public class IGKnowledgeProvider implements ProfileKnowledgeProvider, ParserBase
   public IWorkerContext getContext() {
     return context;
   }
+
 }

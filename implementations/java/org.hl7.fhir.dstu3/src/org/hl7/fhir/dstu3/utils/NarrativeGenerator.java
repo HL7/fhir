@@ -90,6 +90,7 @@ import org.hl7.fhir.dstu3.model.ContactPoint.ContactPointSystem;
 import org.hl7.fhir.dstu3.model.DateTimeType;
 import org.hl7.fhir.dstu3.model.DiagnosticReport;
 import org.hl7.fhir.dstu3.model.DomainResource;
+import org.hl7.fhir.dstu3.model.DosageInstruction;
 import org.hl7.fhir.dstu3.model.ElementDefinition;
 import org.hl7.fhir.dstu3.model.ElementDefinition.TypeRefComponent;
 import org.hl7.fhir.dstu3.model.Enumeration;
@@ -451,7 +452,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     }
 
   }
-  private class ResurceWrapperMetaElement implements ResourceWrapper {
+  public class ResurceWrapperMetaElement implements ResourceWrapper {
     private org.hl7.fhir.dstu3.elementmodel.Element wrapped;
     private List<ResourceWrapper> list;
     private List<PropertyWrapper> list2;
@@ -502,7 +503,10 @@ public class NarrativeGenerator implements INarrativeGenerator {
         list2 = new ArrayList<NarrativeGenerator.PropertyWrapper>();
         for (ElementDefinition child : children) {
           List<org.hl7.fhir.dstu3.elementmodel.Element> elements = new ArrayList<org.hl7.fhir.dstu3.elementmodel.Element>();
-          wrapped.getNamedChildrenWithWildcard(tail(child.getPath()), elements);
+          if (child.getPath().endsWith("[x]"))
+            wrapped.getNamedChildrenWithWildcard(tail(child.getPath()), elements);
+          else
+            wrapped.getNamedChildren(tail(child.getPath()), elements);
           list2.add(new PropertyWrapperMetaElement(definition, child, elements));
         }
       }
@@ -748,10 +752,10 @@ public class NarrativeGenerator implements INarrativeGenerator {
 
   }
 
-  private class ResourceWrapperDirect implements ResourceWrapper {
+  public class ResourceWrapperDirect implements ResourceWrapper {
     private Resource wrapped;
 
-    private ResourceWrapperDirect(Resource wrapped) {
+    public ResourceWrapperDirect(Resource wrapped) {
       super();
       if (wrapped == null)
         throw new Error("wrapped == null");
@@ -1178,7 +1182,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     else if (e instanceof IdType)
       x.addText(((IdType) e).getValue());
     else if (e instanceof Extension)
-      x.tx("Extensions: Todo");
+      return;
     else if (e instanceof InstantType)
       x.addText(((InstantType) e).toHumanDisplay());
     else if (e instanceof DateTimeType)
@@ -1272,6 +1276,9 @@ public class NarrativeGenerator implements INarrativeGenerator {
     if (ew == null)
       return false;
     Base e = ew.getBase();
+    if (e == null)
+      return false;
+     
     Map<String, String> displayHints = readDisplayHints(defn);
 
     if (name.endsWith("[x]"))
@@ -1289,6 +1296,9 @@ public class NarrativeGenerator implements INarrativeGenerator {
     } else if (e instanceof IdType) {
       x.addText(name+": "+((IdType) e).getValue());
       return true;
+    } else if (e instanceof UriType) {
+      x.addText(name+": "+((UriType) e).getValue());
+      return true;
     } else if (e instanceof DateTimeType) {
       x.addText(name+": "+((DateTimeType) e).toHumanDisplay());
       return true;
@@ -1296,8 +1306,8 @@ public class NarrativeGenerator implements INarrativeGenerator {
       x.addText(name+": "+((InstantType) e).toHumanDisplay());
       return true;
     } else if (e instanceof Extension) {
-      x.tx("Extensions: todo");
-      return true;
+//      x.tx("Extensions: todo");
+      return false;
     } else if (e instanceof org.hl7.fhir.dstu3.model.DateType) {
       x.addText(name+": "+((org.hl7.fhir.dstu3.model.DateType) e).toHumanDisplay());
       return true;
@@ -1370,6 +1380,14 @@ public class NarrativeGenerator implements INarrativeGenerator {
     } else if (e instanceof Narrative) {
       return false;
     } else if (e instanceof Resource) {
+      return false;
+    } else if (e instanceof ContactDetail) {
+      return false;
+    } else if (e instanceof Range) {
+      return false;
+    } else if (e instanceof Meta) {
+      return false;
+    } else if (e instanceof DosageInstruction) {
       return false;
     } else if (!(e instanceof Attachment))
       throw new NotImplementedException("type "+e.getClass().getName()+" not handled yet");

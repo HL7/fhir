@@ -101,6 +101,8 @@ import org.hl7.fhir.dstu3.utils.EOperationOutcome;
 import org.hl7.fhir.dstu3.utils.FHIRPathEngine;
 import org.hl7.fhir.dstu3.utils.NarrativeGenerator;
 import org.hl7.fhir.dstu3.utils.StructureMapUtilities;
+import org.hl7.fhir.dstu3.utils.NarrativeGenerator.IReferenceResolver;
+import org.hl7.fhir.dstu3.utils.NarrativeGenerator.ResourceWithReference;
 import org.hl7.fhir.dstu3.utils.StructureMapUtilities.StructureMapAnalysis;
 import org.hl7.fhir.dstu3.utils.formats.Turtle;
 import org.hl7.fhir.dstu3.validation.InstanceValidator;
@@ -168,7 +170,7 @@ import com.google.gson.JsonPrimitive;
  *
  */
 
-public class Publisher implements IWorkerContext.ILoggingService {
+public class Publisher implements IWorkerContext.ILoggingService, IReferenceResolver {
   
   public static final boolean USE_COMMONS_EXEC = true;
 
@@ -245,6 +247,8 @@ public class Publisher implements IWorkerContext.ILoggingService {
 
   private String adHocTmpDir;
 
+  private NarrativeGenerator gen;
+
   public void execute(boolean clearCache) throws Exception {
     globalStart = System.nanoTime();
     initialize(clearCache);
@@ -291,9 +295,26 @@ public class Publisher implements IWorkerContext.ILoggingService {
       log("Done");
   }
 
+  @Override
+  public ResourceWithReference resolve(String url) {
+    String[] parts = url.split("\\/");
+    if (parts.length != 2)
+      return null;
+    for (FetchedFile f : fileList) {
+      for (FetchedResource r : f.getResources()) {
+        if (r.getElement() != null && r.getElement().fhirType().equals(parts[0]) && r.getId().equals(parts[1])) {
+          String path = igpkp.getLinkFor(r);
+          return new ResourceWithReference(path, gen.new ResurceWrapperMetaElement(r.getElement()));
+        }
+      }
+    }
+    return null;
+    
+  }
+
   private void generateNarratives() throws IOException, EOperationOutcome, FHIRException {
     dlog("gen narratives");
-    NarrativeGenerator gen = new NarrativeGenerator("", "", context);
+    gen = new NarrativeGenerator("", "", context, this);
     for (FetchedFile f : fileList) {
       for (FetchedResource r : f.getResources()) {
         dlog("narrative for "+f.getName()+" : "+r.getId());
