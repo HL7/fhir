@@ -828,6 +828,8 @@ public class Publisher implements IWorkerContext.ILoggingService {
     String filename;
     if (source.startsWith("http:") || source.startsWith("https:"))
       filename = fetchFromURL(source, name);
+    else if (Utilities.isAbsoluteFileName(source))
+      filename = Utilities.path(source, "definitions.json.zip");
     else
       filename = Utilities.path(Utilities.getDirectoryForFile(configFile), source, "definitions.json.zip");
     ZipInputStream zip = new ZipInputStream(new FileInputStream(filename));

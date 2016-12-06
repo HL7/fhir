@@ -84,6 +84,7 @@ http://example.com
 http://tools.ietf.org/html/bcp47
 urn:iso:std:iso:4217
 http://hl7.org/fhir/service-uscls
+http://www.ama-assn.org/go/cpt
 http://snomed.info
 http://acme.lab
 http://hl7.org.fhir/substance-category

@@ -14,6 +14,6 @@
 #diagram .box_more .box { display: table-cell; -webkit-box-flex: 1; -moz-box-flex: 1; box-flex: 1; -webkit-flex: 1 1 8em; -moz-flex: 1 1 8em; -ms-flex: 1 1 8em; flex: 1 1 8em; min-height: 9em; }
 #diagram .box_more .box .head { border-bottom: 1px solid grey; border-bottom-left-radius: 0; border-bottom-right-radius: 0; }
 
-#diagram .level-text {border-bottom: solid grey 1px} 
+#diagram .level-text-x {border-bottom: solid grey 1px} 
 
 /*# sourceMappingURL=diagram.css.map */

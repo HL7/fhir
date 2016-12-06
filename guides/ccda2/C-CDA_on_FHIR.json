@@ -8,12 +8,13 @@
     "temp": "temp",
     "output": "output",
     "qa": "qa",
-    "specification": "http://hl7-fhir.github.io/"
+    "txCache" : "txCache",
+    "specification": "http://build.fhir.org/"
   },
   "dependencyList": [{
     "name": "USCore",
     "location": "hl7.org/fhir/us/core",
-    "source": "../daf2/output"
+    "source": "C:\\work\\org.hl7.fhir.us\\core\\output"
   }],
   "defaults": {
     "Any": {

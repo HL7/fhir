@@ -1000,6 +1000,19 @@ public class Utilities {
   }
 
 
+  public static boolean isAbsoluteFileName(String source) {
+    if (isWindows())
+      return (source.length() > 2 && source.charAt(1) == ':') || source.startsWith("\\\\");
+    else
+      return source.startsWith("//");
+  }
+
+
+  private static boolean isWindows() {
+    return System.getProperty("os.name").startsWith("Windows");
+  }
+
+
 
 
 }

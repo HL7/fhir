@@ -180,10 +180,25 @@ notes: do not list revision in the version
 		<td>
       <p><b>FHIR QA Release, Dec 6, 2016</b><a name="v1.8.0"> </a></p>
       <p>
-      STU 3 QA Release, and also the basis for several implementation guide ballots and the <a href="http://wiki.hl7.org/index.php?title=FHIR_Connectathon_14">San Antonio Jan 2017 Connectathon</a>
+      STU 3 Candidate, and also the basis for several implementation guide ballots and the <a href="http://wiki.hl7.org/index.php?title=FHIR_Connectathon_14">San Antonio Jan 2017 Connectathon</a>
       </p>
-      <p>Details: todo</p>
+      <p><b>Breaking Changes Summary:</b></p>
+      <ul>
+        <li>Change <a href="datatypes.html#HumanName">HumanName</a>.family from 0..* to 0..1</li> 
+        <li>Rename MedicationOrder and DiagnosticOrder to  <a href="medicationrequest.html">MedicationRequest</a> and <a href="diagnosticrequest.html">DiagnosticRequest</a>, and make a series of changes to align with the <a href="request.html">Request Pattern</a></li>
+        <li>Add cross resource search + rework composite parameter expressions</li>
+        <li>Harmonise resource metadata across the Terminology, Conformance, and Knowledge resources</li>
+        <li>Change the way <a href="references.html#canonical">versioned references to canonical URLs</a> are handled</li>
+        <li>REST - servers must <a href="http.html#create">return a location header</a> on a create</li>
+        <li><a href="condition.html">Condition</a> status elements reworked</li>
+      </ul>
+      <p>
+        These are only the more significant changes, there were many 100s of changes made in response to ballot comments and ongoing implementation experience.
+        These include breaking changes to may resources. Structural changes are <a href="diff.html">summarised here</a>.
+      </p>
     </td>
+	</tr>
+	<tr>
 		<td>1.6.0</td>
 		<td>
       <p><b>FHIR STU3 ballot, Aug 11, 2016</b><a name="v1.6.0"> </a></p>
