@@ -25,13 +25,9 @@ notifications:
 before_install:
   - openssl aes-256-cbc -K $encrypted_7d142fa10e4e_key -iv $encrypted_7d142fa10e4e_iv -in deploy.build.fhir.org.enc -out ~/deploy.build.fhir.org -d
   - chmod 600 ~/deploy.build.fhir.org
-  - mkdir ~/.aws
-  - mv aws.config ~/.aws/config
-  - chmod 600 ~/.aws/config
-  - sudo pip install awscli
 
 after_success:
   - cd publish
-  - echo -e "Host 174.129.20.244\n  Compression yes\n  StrictHostKeyChecking no\n  User fhir_upload\n  IdentityFile ~/deploy.build.fhir.org" > ~/.ssh/config
-  - tar czf - * | ssh 174.129.20.244 "mkdir -p /var/www/uploading/$TRAVIS_BUILD_ID && cd /var/www/uploading/$TRAVIS_BUILD_ID && ((while true; do sleep 10; du -hs .; done) & tar xzf - && date --iso-8601 > /var/www/uploading/$TRAVIS_BUILD_ID/done.txt && kill %1)"
-  - ssh 174.129.20.244 "test -e /var/www/uploading/$TRAVIS_BUILD_ID/done.txt && mv /var/www/build.fhir.org /tmp && mv /var/www/uploading/$TRAVIS_BUILD_ID /var/www/build.fhir.org && rm -rf /tmp/build.fhir.org"
+  - echo -e "Host build.fhir.org\n  Compression yes\n  StrictHostKeyChecking no\n  User fhir_upload\n  IdentityFile ~/deploy.build.fhir.org" > ~/.ssh/config
+  - tar czf - * | ssh build.fhir.org "mkdir -p /var/www/uploading/$TRAVIS_BUILD_ID && cd /var/www/uploading/$TRAVIS_BUILD_ID && ((while true; do sleep 10; du -hs .; done) & tar xzf - && date --iso-8601 > /var/www/uploading/$TRAVIS_BUILD_ID/done.txt && kill %1)"
+  - ssh build.fhir.org "test -e /var/www/uploading/$TRAVIS_BUILD_ID/done.txt && mv /var/www/build.fhir.org /tmp && mv /var/www/uploading/$TRAVIS_BUILD_ID /var/www/build.fhir.org && rm -rf /tmp/build.fhir.org"
