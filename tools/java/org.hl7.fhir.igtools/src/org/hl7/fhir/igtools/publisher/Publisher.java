@@ -308,6 +308,17 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
         }
       }
     }
+    for (SpecMapManager sp : specMaps) {
+      String fp = sp.getBase()+"/"+url;
+      String path;
+      try {
+        path = sp.getPath(fp);
+      } catch (Exception e) {
+        path = null;
+      }
+      if (path != null)
+        return new ResourceWithReference(path, null);
+    }
     return null;
     
   }
