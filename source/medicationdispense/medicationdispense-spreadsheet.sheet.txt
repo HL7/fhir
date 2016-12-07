@@ -252,6 +252,7 @@
   Type = SimpleQuantity
   Short Name = Amount of medication expressed as a timing amount
   Definition = The amount of medication expressed as a timing amount.
+  v2 Mapping = RXD-12-Total Daily Dose
   RIM Mapping = effectiveUseTime
 
  -- Row 13 -----------------------------------
