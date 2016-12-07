@@ -1,0 +1,47 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://hl7.org/fhir/us/core/ValueSet/us-core-narrative-status> a fhir:ValueSet;
+  fhir:nodeRole fhir:treeRoot;
+  fhir:Resource.id [ fhir:value "us-core-narrative-status"];
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ];
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h2>Narrative Status</h2><div><p>This value set limits the text status for the resource narrative.</p>\n</div><p><b>Copyright Statement:</b> HL7</p><p>This value set includes codes from the following code systems:</p><ul><li>Include these codes as defined in <a href=\"http://hl7.org/fhir/2017Jan/codesystem-narrative-status.html\">http://hl7.org/fhir/narrative-status</a><table class=\"none\"><tr><td><b>Code</b></td><td><b>Display</b></td></tr><tr><td>additional</td><td>additional</td><td>The contents of the narrative may contain additional information not found in the structured data. Note that there is no computable way to determine what the extra information is, other than by human inspection</td></tr><tr><td>generated</td><td>generated</td><td>The contents of the narrative are entirely generated from the structured data in the content.</td></tr></table></li></ul></div>"
+  ];
+  fhir:ValueSet.url [ fhir:value "http://hl7.org/fhir/us/core/ValueSet/us-core-narrative-status"];
+  fhir:ValueSet.name [ fhir:value "Narrative Status"];
+  fhir:ValueSet.status [ fhir:value "draft"];
+  fhir:ValueSet.publisher [ fhir:value "FHIR Project Team"];
+  fhir:ValueSet.contact [
+     fhir:index 0;
+     fhir:ContactDetail.telecom [
+       fhir:index 0;
+       fhir:ContactPoint.system [ fhir:value "other" ];
+       fhir:ContactPoint.value [ fhir:value "http://hl7.org/fhir" ]
+     ]
+  ];
+  fhir:ValueSet.date [ fhir:value "2016-12-06T16:45:17-05:00"^^xsd:dateTime];
+  fhir:ValueSet.description [ fhir:value "This value set limits the text status for the resource narrative."];
+  fhir:ValueSet.copyright [ fhir:value "HL7"];
+  fhir:ValueSet.compose [
+     fhir:ValueSet.compose.include [
+       fhir:index 0;
+       fhir:ValueSet.compose.include.system [ fhir:value "http://hl7.org/fhir/narrative-status" ];
+       fhir:ValueSet.compose.include.concept [
+         fhir:index 0;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "additional" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "additional" ]
+       ], [
+         fhir:index 1;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "generated" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "generated" ]
+       ]
+     ]
+  ] .
+
+# -------------------------------------------------------------------------------------
+

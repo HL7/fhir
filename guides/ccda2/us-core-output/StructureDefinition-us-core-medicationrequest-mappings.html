@@ -1,0 +1,339 @@
+  <!DOCTYPE HTML>
+
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+   <meta charset="UTF-8"/>
+  <title></title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="US Core Implemenation Guide" />
+<meta name="author" content="http://www.hl7.org"/>
+
+  <link href="fhir.css" rel="stylesheet"/>
+
+   <!-- Bootstrap core CSS -->
+  <link href="dist/css/bootstrap.css" rel="stylesheet"/>
+  <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+  <!-- Project extras -->
+  <link href="assets/css/project.css" rel="stylesheet"/>
+  <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+	<link href="jquery-ui.css" rel="stylesheet"/>
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png"/>
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png"/>
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png"/>
+  <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png"/>
+  <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+
+
+<body>
+
+ <div id="segment-header" class="segment">  <!-- segment-header -->
+  <div class="container">  <!-- container -->
+   <a id="logo" no-external="true" href="http://hl7.org/fhir"><img alt="logo fhir" src="assets/images/fhir-logo-www.png"/> </a>
+   <div id="hl7-status">
+    <b>US-Core CI Build</b>
+   </div>
+
+   <div id="hl7-nav">
+     <a id="hl7-logo" no-external="true" href="http://www.hl7.org">
+     <img height="50" alt="visit the hl7 website" width="42" src="assets/images/hl7-logo.png"/>
+    </a>
+   </div>
+   <div id="hl7-nav"><a id="hl7-logo" no-external="true" href="http://hl7.org/fhir/search.cfm"><img height="50"  alt="US-Core" src="assets/images/usbanner.png"/></a></div>
+  </div>
+  <div class="container">  <!-- container -->
+ </div></div>  <!-- /segment-header -->
+
+ <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+  <div id="stripe"> </div>
+  <div class="container">  <!-- container -->
+   <!-- HEADER CONTENT -->
+
+   <nav class="navbar navbar-inverse">
+    <div class="container">
+     <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+      <span class="icon-bar"> </span>
+      <span class="icon-bar"> </span>
+      <span class="icon-bar"> </span>
+     </button>
+     <a class="navbar-brand hidden" href="http://hl7.org/fhir/2017Janindex.html">FHIR</a>
+     <div class="nav-collapse collapse navbar-inverse-collapse">
+      <ul class="nav navbar-nav">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="definitions.html">General Guidance</a></li>
+              <li><a href="profiles.html">US Core Profiles</a></li>
+              <li><a href="extensions.html">Extensions</a></li>
+              <li><a href="valuesets.html">Value Sets</a></li>
+              <li><a href="searchparams.html">Search Parameters</a></li>
+              <li><a href="capstmnts.html">Capability Statements</a></li>
+              <li><a href="security.html">Security</a></li>
+              <li><a href="downloads.html">Downloads</a></li>
+            </ul>
+
+     </div>  <!-- /.nav-collapse -->
+    </div>  <!-- /.container -->
+   </nav>  <!-- /.navbar -->
+
+  <!-- /HEADER CONTENT -->
+  </div>  <!-- /container -->
+ </div>  <!-- /segment-navbar -->
+
+
+<!-- ============BreadCrumb=============== -->
+
+  </div>  <!-- /container -->
+ </div>  <!-- /segment-breadcrumb -->
+
+ <div id="segment-content" class="segment">  <!-- segment-content -->
+ <div class="container">  <!-- container -->
+            <div class="row">
+             <div class="inner-wrapper">
+
+
+<div class="col-9">
+
+  <!-- ============CONTENT CONTENT=============== -->
+
+<ul class="nav nav-tabs"><li><a href="StructureDefinition-us-core-medicationrequest.html">Content</a></li><li><a href="StructureDefinition-us-core-medicationrequest-definitions.html">Detailed Descriptions</a></li><li class="active"><a href="#">Mappings</a></li><li><a href="StructureDefinition-us-core-medicationrequest.xml.html">XML</a></li><li><a href="StructureDefinition-us-core-medicationrequest.json.html">JSON</a></li></ul>
+
+<h4><span class="sectioncount">D.4.1.4<a name="D.4.1.4"> </a></span> StructureDefinition: US Core Medication Request Profile - Mappings <a title="link to here" class="self-link" href="StructureDefinition-us-core-medicationrequest-definitions.html#D.4.1.4"><img src="target.png"/></a></h4>
+
+<p>Mappings for the StructureDefinition-us-core-medicationrequest Profile.</p>
+
+<a name="script10.6"> </a><h3>Mappings for Mapping to NCPDP SCRIPT 10.6 (http://ncpdp.org/SCRIPT10_6)</h3><table class="grid">
+ <tr><td colspan="3"><b>US Core Medication Request Profile</b></td></tr>
+ <tr><td>MedicationRequest</td><td>USCoreMedicationRequest</td><td>Message/Body/NewRx</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;id</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;meta</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;implicitRules</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;language</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;text</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;contained</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;extension</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;modifierExtension</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;identifier</td><td></td><td>Message/Header/PrescriberOrderNumber</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;definition</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;basedOn</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;requisition</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;status</td><td></td><td>no mapping</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;stage</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;medication[x]</td><td></td><td>Message/Body/NewRx/MedicationPrescribed  Medication.code.coding.code = Message/Body/NewRx/MedicationPrescribed/DrugCoded/ProductCode  Medication.code.coding.system = Message/Body/NewRx/MedicationPrescribed/DrugCoded/ProductCodeQualifier  Medication.code.coding.display = Message/Body/NewRx/MedicationPrescribed/DrugDescription</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;patient</td><td></td><td>Message/Body/NewRx/Patient  (need detail to link to specific patient … Patient.Identification in SCRIPT)</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;context</td><td></td><td>no mapping</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;supportingInformation</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;dateWritten</td><td></td><td>Message/Body/NewRx/MedicationPrescribed/WrittenDate</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;requester</td><td></td><td>Message/Body/NewRx/Prescriber  (need detail to link to specific prescriber … Prescriber.Identification in SCRIPT)</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;reasonCode</td><td></td><td>Message/Body/NewRx/MedicationPrescribed/Diagnosis/Primary/Value</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;reasonReference</td><td></td><td>no mapping</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;note</td><td></td><td>Message/Body/NewRx/MedicationPrescribed/Note</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;category</td><td></td><td>Message/Body/NewRx/MedicationPrescribed/Directions  or   Message/Body/NewRx/MedicationPrescribed/StructuredSIG</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;dosageInstruction</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;dispenseRequest</td><td></td><td>Message/Body/NewRx/MedicationPrescribed/ExpirationDate</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;extension</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;modifierExtension</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;validityPeriod</td><td></td><td>Message/Body/NewRx/MedicationPrescribed/Refills</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;numberOfRepeatsAllowed</td><td></td><td>Message/Body/NewRx/MedicationPrescribed/Quantity</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;quantity</td><td></td><td>Message/Body/NewRx/MedicationPrescribed/DaysSupply</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;expectedSupplyDuration</td><td></td><td>Message/Body/NewRx/MedicationPrescribed/Substitutions</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;performer</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;substitution</td><td></td><td>specific values within Message/Body/NewRx/MedicationPrescribed/Substitutions</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;extension</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;modifierExtension</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;allowed</td><td></td><td>specific values within Message/Body/NewRx/MedicationPrescribed/Substitutions</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;reason</td><td></td><td>not mapped</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;priorPrescription</td><td></td><td>not mapped</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;eventHistory</td><td></td><td></td> </tr>
+</table>
+<a name="rim"> </a><h3>Mappings for RIM Mapping (http://hl7.org/v3)</h3><table class="grid">
+ <tr><td colspan="3"><b>US Core Medication Request Profile</b></td></tr>
+ <tr><td>MedicationRequest</td><td>USCoreMedicationRequest</td><td>Entity. Role, or Act</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;id</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;meta</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;implicitRules</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;language</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;text</td><td></td><td>Act.text?</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;contained</td><td></td><td>N/A</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;extension</td><td></td><td>N/A</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;modifierExtension</td><td></td><td>N/A</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;identifier</td><td></td><td>id</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;definition</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;basedOn</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;requisition</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;status</td><td></td><td>statusCode</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;stage</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;medication[x]</td><td></td><td>consumable.administrableMedication</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;patient</td><td></td><td>subject.role</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;context</td><td></td><td>componentOf.patientEncounter</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;supportingInformation</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;dateWritten</td><td></td><td>author.time</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;requester</td><td></td><td>author.role</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;reasonCode</td><td></td><td>reason.observation.reasonCode</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;reasonReference</td><td></td><td>reason.observation[code=ASSERTION].value</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;note</td><td></td><td>.inboundRelationship[typeCode=SUBJ]/source[classCode=OBS,moodCode=EVN,code=&quot;annotation&quot;].value</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;category</td><td></td><td>not mapped</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;dosageInstruction</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;dispenseRequest</td><td></td><td>component.supplyEvent</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id</td><td></td><td>n/a</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;extension</td><td></td><td>n/a</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;modifierExtension</td><td></td><td>N/A</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;validityPeriod</td><td></td><td>effectiveTime</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;numberOfRepeatsAllowed</td><td></td><td>repeatNumber</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;quantity</td><td></td><td>quantity</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;expectedSupplyDuration</td><td></td><td>expectedUseTime</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;performer</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;substitution</td><td></td><td>subjectOf.substitutionPersmission</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id</td><td></td><td>n/a</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;extension</td><td></td><td>n/a</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;modifierExtension</td><td></td><td>N/A</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;allowed</td><td></td><td>code</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;reason</td><td></td><td>reasonCode</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;priorPrescription</td><td></td><td>.outboundRelationship[typeCode=?RPLC or ?SUCC]/target[classCode=SBADM,moodCode=RQO]</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;eventHistory</td><td></td><td></td> </tr>
+</table>
+<a name="w5"> </a><h3>Mappings for W5 Mapping (http://hl7.org/fhir/w5)</h3><table class="grid">
+ <tr><td colspan="3"><b>US Core Medication Request Profile</b></td></tr>
+ <tr><td>MedicationRequest</td><td>USCoreMedicationRequest</td><td>clinical.medication</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;id</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;meta</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;implicitRules</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;language</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;text</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;contained</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;extension</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;modifierExtension</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;identifier</td><td></td><td>id</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;definition</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;basedOn</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;requisition</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;status</td><td></td><td>status</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;stage</td><td></td><td>class</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;medication[x]</td><td></td><td>what</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;patient</td><td></td><td>who.focus</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;context</td><td></td><td>context</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;supportingInformation</td><td></td><td>context</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;dateWritten</td><td></td><td>when.recorded</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;requester</td><td></td><td>who.actor</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;reasonCode</td><td></td><td>why</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;reasonReference</td><td></td><td>why</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;note</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;category</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;dosageInstruction</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;dispenseRequest</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;extension</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;modifierExtension</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;validityPeriod</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;numberOfRepeatsAllowed</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;quantity</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;expectedSupplyDuration</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;performer</td><td></td><td>who</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;substitution</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;extension</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;modifierExtension</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;allowed</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;reason</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;priorPrescription</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;eventHistory</td><td></td><td></td> </tr>
+</table>
+<a name="v2"> </a><h3>Mappings for HL7 v2 Mapping (http://hl7.org/v2)</h3><table class="grid">
+ <tr><td colspan="3"><b>US Core Medication Request Profile</b></td></tr>
+ <tr><td>MedicationRequest</td><td>USCoreMedicationRequest</td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;id</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;meta</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;implicitRules</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;language</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;text</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;contained</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;extension</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;modifierExtension</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;identifier</td><td></td><td>ORC-2-Placer Order Number / ORC-3-Filler Order Number</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;definition</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;basedOn</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;requisition</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;status</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;stage</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;medication[x]</td><td></td><td>RXE-2-Give Code / RXO-1-Requested Give Code / RXC-2-Component Code</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;patient</td><td></td><td>PID-3-Patient ID List</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;context</td><td></td><td>PV1-19-Visit Number</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;supportingInformation</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;dateWritten</td><td></td><td>RXE-32-Original Order Date/Time / ORC-9-Date/Time of Transaction</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;requester</td><td></td><td>RXE-13-Ordering Provider's DEA Number / RXO-14-Ordering Provider's DEA Number / RXE-14-Pharmacist/Treatment Supplier's Verifier ID / RXO-15-Pharmacist/Treatment Supplier's Verifier ID / ORC-12-Ordering Provider / PRT-5-Participation Person: PRT-4-Participation='OP' (all but last deprecated)</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;reasonCode</td><td></td><td>ORC-16-Order Control Code Reason /RXE-27-Give Indication/RXO-20-Indication / RXD-21-Indication / RXG-22-Indication / RXA-19-Indication</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;reasonReference</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;note</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;category</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;dosageInstruction</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;dispenseRequest</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;extension</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;modifierExtension</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;validityPeriod</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;numberOfRepeatsAllowed</td><td></td><td>RXE-12-Number of Refills</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;quantity</td><td></td><td>RXD-4-Actual Dispense Amount / RXD-5.1-Actual Dispense Units.code / RXD-5.3-Actual Dispense Units.name of coding system</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;expectedSupplyDuration</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;performer</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;substitution</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;extension</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;modifierExtension</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;allowed</td><td></td><td>RXO-9-Allow Substitutions / RXE-9-Substitution Status</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;reason</td><td></td><td>RXE-9 Substition status</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;priorPrescription</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;eventHistory</td><td></td><td></td> </tr>
+</table>
+
+
+  <!-- ==============END CONTENT END CONTENT=================== -->
+
+<p></p>
+ </div>
+
+    </div>  <!-- /inner-wrapper -->
+            </div>  <!-- /row -->
+        </div>  <!-- /container -->
+
+    </div>  <!-- /segment-content -->
+
+
+
+</div>
+
+    </div>  <!-- /inner-wrapper -->
+            </div>  <!-- /row -->
+        </div>  <!-- /container -->
+
+    </div>  <!-- /segment-content -->
+
+
+<div id="segment-footer" class="segment">  <!-- segment-footer -->
+  <div class="container">  <!-- container -->
+   <div class="inner-wrapper">
+    <p>
+        US-Core &copy; FHIR STU3 (IG Publisher v1.8.0-10514) generated on Tue, Dec 6, 2016 16:45-0500. |
+             <!--  <a style="color: #81BEF7" rel="license" <!-- <href="../license.html"><img style="border-style: none;" alt="CC0" src="cc0.png"/></a> -->
+                <a style="color: #81BEF7" rel="license" href="http://hl7.org/fhir/2017Janlicense.html"><img style="border-style: none;" alt="CC0" src="cc0.png"/></a> 
+        </span>
+        </p>
+   </div>  <!-- /inner-wrapper -->
+  </div>  <!-- /container -->
+ </div>  <!-- /segment-footer -->
+  <!-- disqus thread -->
+  <!-- disqus -->
+  <!-- end disqus -->
+
+ <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+  <div class="container">  <!-- container -->
+  </div>  <!-- /container -->
+ </div>  <!-- /segment-post-footer -->
+
+</body>
+</html>
+
+</body>
+</html>

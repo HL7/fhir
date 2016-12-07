@@ -1,0 +1,55 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://hl7.org/fhir/us/core/Practitioner/practitioner-1> a fhir:Practitioner;
+  fhir:nodeRole fhir:treeRoot;
+  fhir:Resource.id [ fhir:value "practitioner-1"];
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitiioner";
+       fhir:index 0
+     ]
+  ];
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ];
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: practitioner-1</p><p><b>meta</b>: </p><p><b>identifier</b>: 9941339108, 25456</p><p><b>name</b>: Ronald Bone </p><p><b>address</b>: 1003 Healthcare Drive Amherst MA 01002 (HOME)</p></div>"
+  ];
+  fhir:Practitioner.identifier [
+     fhir:index 0;
+     fhir:Identifier.system [ fhir:value "http://hl7.org.fhir/sid/us-npi" ];
+     fhir:Identifier.value [ fhir:value "9941339108" ]
+  ], [
+     fhir:index 1;
+     fhir:Identifier.system [ fhir:value "http://www.acme.org/practitioners" ];
+     fhir:Identifier.value [ fhir:value "25456" ]
+  ];
+  fhir:Practitioner.name [
+     fhir:index 0;
+     fhir:HumanName.family [ fhir:value "Bone" ];
+     fhir:HumanName.given [
+       fhir:value "Ronald";
+       fhir:index 0
+     ];
+     fhir:HumanName.prefix [
+       fhir:value "Dr";
+       fhir:index 0
+     ]
+  ];
+  fhir:Practitioner.address [
+     fhir:index 0;
+     fhir:Address.use [ fhir:value "home" ];
+     fhir:Address.line [
+       fhir:value "1003 Healthcare Drive";
+       fhir:index 0
+     ];
+     fhir:Address.city [ fhir:value "Amherst" ];
+     fhir:Address.state [ fhir:value "MA" ];
+     fhir:Address.postalCode [ fhir:value "01002" ]
+  ] .
+
+# -------------------------------------------------------------------------------------
+

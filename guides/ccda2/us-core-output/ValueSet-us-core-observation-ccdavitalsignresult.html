@@ -1,0 +1,184 @@
+<!DOCTYPE HTML>
+
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+   <meta charset="UTF-8"/>
+  <title></title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="US Core Implemenation Guide" />
+<meta name="author" content="http://www.hl7.org"/>
+
+  <link href="fhir.css" rel="stylesheet"/>
+
+   <!-- Bootstrap core CSS -->
+  <link href="dist/css/bootstrap.css" rel="stylesheet"/>
+  <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+  <!-- Project extras -->
+  <link href="assets/css/project.css" rel="stylesheet"/>
+  <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+	<link href="jquery-ui.css" rel="stylesheet"/>
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png"/>
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png"/>
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png"/>
+  <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png"/>
+  <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+
+
+<body>
+
+ <div id="segment-header" class="segment">  <!-- segment-header -->
+  <div class="container">  <!-- container -->
+   <a id="logo" no-external="true" href="http://hl7.org/fhir"><img alt="logo fhir" src="assets/images/fhir-logo-www.png"/> </a>
+   <div id="hl7-status">
+    <b>US-Core CI Build</b>
+   </div>
+
+   <div id="hl7-nav">
+     <a id="hl7-logo" no-external="true" href="http://www.hl7.org">
+     <img height="50" alt="visit the hl7 website" width="42" src="assets/images/hl7-logo.png"/>
+    </a>
+   </div>
+   <div id="hl7-nav"><a id="hl7-logo" no-external="true" href="http://hl7.org/fhir/search.cfm"><img height="50"  alt="US-Core" src="assets/images/usbanner.png"/></a></div>
+  </div>
+  <div class="container">  <!-- container -->
+ </div></div>  <!-- /segment-header -->
+
+ <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+  <div id="stripe"> </div>
+  <div class="container">  <!-- container -->
+   <!-- HEADER CONTENT -->
+
+   <nav class="navbar navbar-inverse">
+    <div class="container">
+     <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+      <span class="icon-bar"> </span>
+      <span class="icon-bar"> </span>
+      <span class="icon-bar"> </span>
+     </button>
+     <a class="navbar-brand hidden" href="http://hl7.org/fhir/2017Janindex.html">FHIR</a>
+     <div class="nav-collapse collapse navbar-inverse-collapse">
+      <ul class="nav navbar-nav">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="definitions.html">General Guidance</a></li>
+              <li><a href="profiles.html">US Core Profiles</a></li>
+              <li><a href="extensions.html">Extensions</a></li>
+              <li><a href="valuesets.html">Value Sets</a></li>
+              <li><a href="searchparams.html">Search Parameters</a></li>
+              <li><a href="capstmnts.html">Capability Statements</a></li>
+              <li><a href="security.html">Security</a></li>
+              <li><a href="downloads.html">Downloads</a></li>
+            </ul>
+
+     </div>  <!-- /.nav-collapse -->
+    </div>  <!-- /.container -->
+   </nav>  <!-- /.navbar -->
+
+  <!-- /HEADER CONTENT -->
+  </div>  <!-- /container -->
+ </div>  <!-- /segment-navbar -->
+
+
+
+<!-- ============BreadCrumbs=============== -->
+
+  </div>  <!-- /container -->
+ </div>  <!-- /segment-breadcrumb -->
+
+ <div id="segment-content" class="segment">  <!-- segment-content -->
+ <div class="container">  <!-- container -->
+            <div class="row">
+             <div class="inner-wrapper">
+
+
+<div class="col-9">
+
+  <!-- ============CONTENT CONTENT=============== -->
+
+<!--
+<h2>US Core Vital Sign Codes</h2>
+
+<p>
+Formats: <a href="ValueSet-us-core-observation-ccdavitalsignresult.xml.html">XML</a>, <a href="ValueSet-us-core-observation-ccdavitalsignresult.json.html">JSON</a>, <a href="ValueSet-us-core-observation-ccdavitalsignresult.ttl.html">Turtle</a>
+</p>
+
+-->
+
+<!-- include ValueSet-us-core-observation-ccdavitalsignresult-html.xhtml   -->
+
+<table class="grid">
+ <tbody><tr><td>Defining URL:</td><td>http://hl7.org/fhir/us/core/ValueSet/us-core-observation-ccdavitalsignresult</td></tr>
+ <tr><td>Name:</td><td>US Core Vital Sign Codes</td></tr>
+ <tr><td>Definition:</td><td><p>This value set indicates the allowed vital sign result types. The vocabulary selected for this value set  based on ONC 2015 Edition Common Clinical Data Set (CCDS) for vitals.    Note the concept Blood pressure systolic and diastolic (55284-4) is used to group the related observations Systolic blood pressure (8480-6) and Diastolic blood pressure (8462-4). It SHALL NOT be used alone, but both 8480-6 and 8462-2 SHALL also be valued.</p>
+</td></tr>
+ <tr><td>Publisher:</td><td>FHIR Project</td></tr>
+ <tr><td>OID:</td><td>2.16.840.1.113883.3.88.12.80.62(for OID based terminology systems)</td></tr>
+ <tr><td>Copyright:</td><td>This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use</td></tr>
+ <tr><td>Source Resource</td><td><a href="ValueSet-us-core-observation-ccdavitalsignresult.xml.html">XML</a> / <a href="ValueSet-us-core-observation-ccdavitalsignresult.json.html">JSON</a> / <a href="ValueSet-us-core-observation-ccdavitalsignresult.ttl.html">Turtle</a></td></tr>
+</tbody></table>
+
+
+This value set is used by:
+
+
+<ul>
+ <li><a href="StructureDefinition-us-core-vitalsigns.html">US Core Vital Signs Profile</a></li>
+</ul>
+
+
+<div xmlns="http://www.w3.org/1999/xhtml"><h2>US Core Vital Sign Codes</h2><div><p>This value set indicates the allowed vital sign result types. The vocabulary selected for this value set  based on ONC 2015 Edition Common Clinical Data Set (CCDS) for vitals.    Note the concept Blood pressure systolic and diastolic (55284-4) is used to group the related observations Systolic blood pressure (8480-6) and Diastolic blood pressure (8462-4). It SHALL NOT be used alone, but both 8480-6 and 8462-2 SHALL also be valued.</p>
+</div><p><b>Copyright Statement:</b> This content from LOINC&reg; is copyright &copy; 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use</p><p>This value set includes codes from the following code systems:</p><ul><li>Include these codes as defined in http://loinc.org<table class="none"><tr><td><b>Code</b></td><td><b>Display</b></td></tr><tr><td>8716-3</td><td>Vital signs</td><td/></tr><tr><td>9279-1</td><td>Respiratory rate</td><td/></tr><tr><td>8867-4</td><td>Heart rate</td><td/></tr><tr><td>59408-5</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td/></tr><tr><td>8310-5</td><td>Body temperature</td><td/></tr><tr><td>8302-2</td><td>Body height</td><td/></tr><tr><td>8306-3</td><td>Body height --lying</td><td/></tr><tr><td>8287-5</td><td>Head Occipital-frontal circumference by Tape measure</td><td/></tr><tr><td>29463-7</td><td>Body weight</td><td/></tr><tr><td>39156-5</td><td>Body mass index (BMI) [Ratio]</td><td/></tr><tr><td>55284-4</td><td>Blood pressure systolic and diastolic</td><td/></tr><tr><td>8480-6</td><td>Systolic blood pressure</td><td/></tr><tr><td>8462-4</td><td>Diastolic blood pressure</td><td/></tr></table></li></ul></div>
+
+<h3>Expansion</h3>
+
+<div xmlns="http://www.w3.org/1999/xhtml"><p>This value set contains 13 concepts</p><p>All codes from system <code>http://loinc.org</code></p><table class="codes"><tr><td><b>Code</b></td><td><b>Display</b></td></tr><tr><td><a name="http---loinc.org-8716-3"> </a>8716-3</td><td>Vital signs</td></tr><tr><td><a name="http---loinc.org-9279-1"> </a>9279-1</td><td>Respiratory rate</td></tr><tr><td><a name="http---loinc.org-8867-4"> </a>8867-4</td><td>Heart rate</td></tr><tr><td><a name="http---loinc.org-59408-5"> </a>59408-5</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td></tr><tr><td><a name="http---loinc.org-8310-5"> </a>8310-5</td><td>Body temperature</td></tr><tr><td><a name="http---loinc.org-8302-2"> </a>8302-2</td><td>Body height</td></tr><tr><td><a name="http---loinc.org-8306-3"> </a>8306-3</td><td>Body height --lying</td></tr><tr><td><a name="http---loinc.org-8287-5"> </a>8287-5</td><td>Head Occipital-frontal circumference by Tape measure</td></tr><tr><td><a name="http---loinc.org-29463-7"> </a>29463-7</td><td>Body weight</td></tr><tr><td><a name="http---loinc.org-39156-5"> </a>39156-5</td><td>Body mass index (BMI) [Ratio]</td></tr><tr><td><a name="http---loinc.org-55284-4"> </a>55284-4</td><td>Blood pressure systolic and diastolic</td></tr><tr><td><a name="http---loinc.org-8480-6"> </a>8480-6</td><td>Systolic blood pressure</td></tr><tr><td><a name="http---loinc.org-8462-4"> </a>8462-4</td><td>Diastolic blood pressure</td></tr></table></div>
+
+  <!-- ==============END CONTENT END CONTENT=================== -->
+
+<p></p>
+ </div>
+
+    </div>  <!-- /inner-wrapper -->
+            </div>  <!-- /row -->
+        </div>  <!-- /container -->
+
+    </div>  <!-- /segment-content -->
+
+
+
+</div>
+
+    </div>  <!-- /inner-wrapper -->
+            </div>  <!-- /row -->
+        </div>  <!-- /container -->
+
+    </div>  <!-- /segment-content -->
+
+
+<div id="segment-footer" class="segment">  <!-- segment-footer -->
+  <div class="container">  <!-- container -->
+   <div class="inner-wrapper">
+    <p>
+        US-Core &copy; FHIR STU3 (IG Publisher v1.8.0-10514) generated on Tue, Dec 6, 2016 16:45-0500. |
+             <!--  <a style="color: #81BEF7" rel="license" <!-- <href="../license.html"><img style="border-style: none;" alt="CC0" src="cc0.png"/></a> -->
+                <a style="color: #81BEF7" rel="license" href="http://hl7.org/fhir/2017Janlicense.html"><img style="border-style: none;" alt="CC0" src="cc0.png"/></a> 
+        </span>
+        </p>
+   </div>  <!-- /inner-wrapper -->
+  </div>  <!-- /container -->
+ </div>  <!-- /segment-footer -->
+  <!-- disqus thread -->
+  <!-- disqus -->
+  <!-- end disqus -->
+
+ <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+  <div class="container">  <!-- container -->
+  </div>  <!-- /container -->
+ </div>  <!-- /segment-post-footer -->
+
+</body>
+</html>
+

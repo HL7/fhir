@@ -1,0 +1,80 @@
+{
+  "resourceType": "ValueSet",
+  "id": "us-core-observation-ccdasmokingstatus",
+  "meta": {
+    "lastUpdated": "2016-05-25T16:59:08.250+10:00",
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/ValueSet-shareable-definition"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h2>Smoking Status</h2><div><p>This value set indicates the current smoking status of a patient.</p>\n</div><p><b>Copyright Statement:</b> This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement</p><p>This value set includes codes from the following code systems:</p><ul><li>Include these codes as defined in <a href=\"http://hl7.org/fhir/2017Jan/codesystem-snomedct.html\">http://snomed.info/sct</a><table class=\"none\"><tr><td><b>Code</b></td><td><b>Display</b></td></tr><tr><td>449868002</td><td>Current every day smoker</td><td/></tr><tr><td>428041000124106</td><td>Current some day smoker</td><td/></tr><tr><td>8517006</td><td>Former smoker</td><td/></tr><tr><td>266919005</td><td>Never smoker</td><td/></tr><tr><td>77176002</td><td>Smoker, current status unknown</td><td/></tr><tr><td>266927001</td><td>Unknown if ever smoked</td><td/></tr><tr><td>428071000124103</td><td>Current Heavy tobacco smoker</td><td/></tr><tr><td>428061000124105</td><td>Current Light tobacco smoker</td><td/></tr></table></li></ul></div>"
+  },
+  "url": "http://hl7.org/fhir/us/core/ValueSet/us-core-observation-ccdasmokingstatus",
+  "identifier": [
+    {
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.2.602"
+    }
+  ],
+  "version": "1.6.0",
+  "name": "Smoking Status",
+  "status": "active",
+  "experimental": true,
+  "publisher": "FHIR OO CDA Template team",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "other",
+          "value": "http://hl7.org/fhir"
+        }
+      ]
+    }
+  ],
+  "date": "2016-08-10",
+  "description": "This value set indicates the current smoking status of a patient.",
+  "copyright": "This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement",
+  "compose": {
+    "include": [
+      {
+        "system": "http://snomed.info/sct",
+        "concept": [
+          {
+            "code": "449868002",
+            "display": "Current every day smoker"
+          },
+          {
+            "code": "428041000124106",
+            "display": "Current some day smoker"
+          },
+          {
+            "code": "8517006",
+            "display": "Former smoker"
+          },
+          {
+            "code": "266919005",
+            "display": "Never smoker"
+          },
+          {
+            "code": "77176002",
+            "display": "Smoker, current status unknown"
+          },
+          {
+            "code": "266927001",
+            "display": "Unknown if ever smoked"
+          },
+          {
+            "code": "428071000124103",
+            "display": "Current Heavy tobacco smoker"
+          },
+          {
+            "code": "428061000124105",
+            "display": "Current Light tobacco smoker"
+          }
+        ]
+      }
+    ]
+  }
+}

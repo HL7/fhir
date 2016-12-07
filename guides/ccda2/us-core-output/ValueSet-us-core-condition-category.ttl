@@ -1,0 +1,42 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://hl7.org/fhir/us/core/ValueSet/us-core-condition-category> a fhir:ValueSet;
+  fhir:nodeRole fhir:treeRoot;
+  fhir:Resource.id [ fhir:value "us-core-condition-category"];
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ];
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h2>US Core Condition Category Codes</h2><div><p>The US core Condition Category Codes support the separate concepts of problems and health concerns in Condition.category in order for API consumers to be able to separate health concerns and problems. However this is not mandatory for 2015 certification</p>\n</div><p>This value set includes codes from the following code systems:</p><ul><li>Include all codes defined in <a href=\"http://hl7.org/fhir/2017Jan/codesystem-condition-category.html\">http://hl7.org/fhir/condition-category</a></li><li>Include these codes as defined in <a href=\"CodeSystem-condition-category.html\">http://hl7.org/fhir/us/core/CodeSystem/condition-category</a><table class=\"none\"><tr><td><b>Code</b></td><td><b>Display</b></td></tr><tr><td>problem</td><td>Problem</td><td>The patients problems as identified by the provider(s). Items on the provider’s problem list</td></tr><tr><td>health-concern</td><td>Health Concern</td><td>Additional health concerns from other stakeholders which are outside the provider’s problem list.</td></tr></table></li></ul></div>"
+  ];
+  fhir:ValueSet.url [ fhir:value "http://hl7.org/fhir/us/core/ValueSet/us-core-condition-category"];
+  fhir:ValueSet.name [ fhir:value "US Core Condition Category Codes"];
+  fhir:ValueSet.status [ fhir:value "draft"];
+  fhir:ValueSet.publisher [ fhir:value "HL7 (FHIR Project)"];
+  fhir:ValueSet.date [ fhir:value "2016-08-10"^^xsd:date];
+  fhir:ValueSet.description [ fhir:value "The US core Condition Category Codes support the separate concepts of problems and health concerns in Condition.category in order for API consumers to be able to separate health concerns and problems. However this is not mandatory for 2015 certification"];
+  fhir:ValueSet.purpose [ fhir:value "So API consumers can separate health concerns and problems."];
+  fhir:ValueSet.compose [
+     fhir:ValueSet.compose.include [
+       fhir:index 0;
+       fhir:ValueSet.compose.include.system [ fhir:value "http://hl7.org/fhir/condition-category" ]
+     ], [
+       fhir:index 1;
+       fhir:ValueSet.compose.include.system [ fhir:value "http://hl7.org/fhir/us/core/CodeSystem/condition-category" ];
+       fhir:ValueSet.compose.include.concept [
+         fhir:index 0;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "problem" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Problem" ]
+       ], [
+         fhir:index 1;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "health-concern" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Health Concern" ]
+       ]
+     ]
+  ] .
+
+# -------------------------------------------------------------------------------------
+

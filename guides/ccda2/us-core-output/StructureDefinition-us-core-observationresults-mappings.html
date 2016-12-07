@@ -1,0 +1,356 @@
+  <!DOCTYPE HTML>
+
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+   <meta charset="UTF-8"/>
+  <title></title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="US Core Implemenation Guide" />
+<meta name="author" content="http://www.hl7.org"/>
+
+  <link href="fhir.css" rel="stylesheet"/>
+
+   <!-- Bootstrap core CSS -->
+  <link href="dist/css/bootstrap.css" rel="stylesheet"/>
+  <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+  <!-- Project extras -->
+  <link href="assets/css/project.css" rel="stylesheet"/>
+  <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+	<link href="jquery-ui.css" rel="stylesheet"/>
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png"/>
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png"/>
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png"/>
+  <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png"/>
+  <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+
+
+<body>
+
+ <div id="segment-header" class="segment">  <!-- segment-header -->
+  <div class="container">  <!-- container -->
+   <a id="logo" no-external="true" href="http://hl7.org/fhir"><img alt="logo fhir" src="assets/images/fhir-logo-www.png"/> </a>
+   <div id="hl7-status">
+    <b>US-Core CI Build</b>
+   </div>
+
+   <div id="hl7-nav">
+     <a id="hl7-logo" no-external="true" href="http://www.hl7.org">
+     <img height="50" alt="visit the hl7 website" width="42" src="assets/images/hl7-logo.png"/>
+    </a>
+   </div>
+   <div id="hl7-nav"><a id="hl7-logo" no-external="true" href="http://hl7.org/fhir/search.cfm"><img height="50"  alt="US-Core" src="assets/images/usbanner.png"/></a></div>
+  </div>
+  <div class="container">  <!-- container -->
+ </div></div>  <!-- /segment-header -->
+
+ <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+  <div id="stripe"> </div>
+  <div class="container">  <!-- container -->
+   <!-- HEADER CONTENT -->
+
+   <nav class="navbar navbar-inverse">
+    <div class="container">
+     <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+      <span class="icon-bar"> </span>
+      <span class="icon-bar"> </span>
+      <span class="icon-bar"> </span>
+     </button>
+     <a class="navbar-brand hidden" href="http://hl7.org/fhir/2017Janindex.html">FHIR</a>
+     <div class="nav-collapse collapse navbar-inverse-collapse">
+      <ul class="nav navbar-nav">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="definitions.html">General Guidance</a></li>
+              <li><a href="profiles.html">US Core Profiles</a></li>
+              <li><a href="extensions.html">Extensions</a></li>
+              <li><a href="valuesets.html">Value Sets</a></li>
+              <li><a href="searchparams.html">Search Parameters</a></li>
+              <li><a href="capstmnts.html">Capability Statements</a></li>
+              <li><a href="security.html">Security</a></li>
+              <li><a href="downloads.html">Downloads</a></li>
+            </ul>
+
+     </div>  <!-- /.nav-collapse -->
+    </div>  <!-- /.container -->
+   </nav>  <!-- /.navbar -->
+
+  <!-- /HEADER CONTENT -->
+  </div>  <!-- /container -->
+ </div>  <!-- /segment-navbar -->
+
+
+<!-- ============BreadCrumb=============== -->
+
+  </div>  <!-- /container -->
+ </div>  <!-- /segment-breadcrumb -->
+
+ <div id="segment-content" class="segment">  <!-- segment-content -->
+ <div class="container">  <!-- container -->
+            <div class="row">
+             <div class="inner-wrapper">
+
+
+<div class="col-9">
+
+  <!-- ============CONTENT CONTENT=============== -->
+
+<ul class="nav nav-tabs"><li><a href="StructureDefinition-us-core-observationresults.html">Content</a></li><li><a href="StructureDefinition-us-core-observationresults-definitions.html">Detailed Descriptions</a></li><li class="active"><a href="#">Mappings</a></li><li><a href="StructureDefinition-us-core-observationresults.xml.html">XML</a></li><li><a href="StructureDefinition-us-core-observationresults.json.html">JSON</a></li></ul>
+
+<h4><span class="sectioncount">D.4.1.4<a name="D.4.1.4"> </a></span> StructureDefinition: US Core Result Observation - Mappings <a title="link to here" class="self-link" href="StructureDefinition-us-core-observationresults-definitions.html#D.4.1.4"><img src="target.png"/></a></h4>
+
+<p>Mappings for the StructureDefinition-us-core-observationresults Profile.</p>
+
+<a name="v2"> </a><h3>Mappings for HL7 v2 Mapping (http://hl7.org/v2)</h3><table class="grid">
+ <tr><td colspan="3"><b>US Core Result Observation</b></td></tr>
+ <tr><td>Observation</td><td>USCoreObss</td><td>OBX</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;id</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;meta</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;implicitRules</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;language</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;text</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;contained</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;extension</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;modifierExtension</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;identifier</td><td></td><td>OBX.21  For OBX segments from systems without OBX-21 support a combination of ORC/OBR and OBX must be negotiated between trading partners to uniquely identify the OBX segment. Depending on how V2 has been implemented each of these may be an option: 1) OBR-3 + OBX-3 + OBX-4 or 2) OBR-3 + OBR-4 + OBX-3 + OBX-4 or 2) some other way to uniquely ID the OBR/ORC + OBX-3 + OBX-4.</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;status</td><td></td><td>OBX-11</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;category</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;code</td><td></td><td>OBX-3</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;extension</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coding</td><td></td><td>C*E.1-8, C*E.10-22</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;extension</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;system</td><td></td><td>C*E.3</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;version</td><td></td><td>C*E.7</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;code</td><td></td><td>C*E.1</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;display</td><td></td><td>C*E.2 - but note this is not well followed</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;userSelected</td><td></td><td>Sometimes implied by being first</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text</td><td></td><td>C*E.9. But note many systems use C*E.2 for this</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;subject</td><td></td><td>PID-3</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;encounter</td><td></td><td>PV1</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;effective[x]</td><td></td><td>OBX-14, and/or OBX-19 after v2.4  (depends on who observation made)</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;issued</td><td></td><td>OBR.22 (or MSH.7), or perhaps OBX-19 (depends on who observation made)</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;performer</td><td></td><td>OBX.15 / (Practitioner)  OBX-16,  PRT-5:PRT-4='RO' /  (Device)  OBX-18 , PRT-10:PRT-4='EQUIP' / (Organization)  OBX-23,  PRT-8:PRT-4='PO'</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;value[x]</td><td></td><td>OBX.2, OBX.5, OBX.6</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;value[x]</td><td>USCoreValueType</td><td>OBX.2, OBX.5, OBX.6</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;valueQuantity</td><td>USCoreValueQuantity</td><td>OBX.2, OBX.5, OBX.6</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;valueCodeableConcept</td><td>USCoreValueCode</td><td>OBX.2, OBX.5, OBX.6</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;dataAbsentReason</td><td></td><td>N/A</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;interpretation</td><td></td><td>OBX-8</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;comment</td><td></td><td>NTE.3 (partner NTE to OBX, or sometimes another (child?) OBX)</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;bodySite</td><td></td><td>OBX-20</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;method</td><td></td><td>OBX-17</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;specimen</td><td></td><td>SPM segment</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;device</td><td></td><td>OBX-17 / PRT -10</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;referenceRange</td><td></td><td>OBX.7</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;extension</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;modifierExtension</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;low</td><td></td><td>OBX-7</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;high</td><td></td><td>OBX-7</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;meaning</td><td></td><td>OBX-10?</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;age</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text</td><td></td><td>OBX-7</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;related</td><td></td><td>Relationships established by OBX-4 usage</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;extension</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;modifierExtension</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type</td><td></td><td>N/A</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;target</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;component</td><td></td><td>containment by OBX-4?</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;extension</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;modifierExtension</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;code</td><td></td><td>OBX-3</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;value[x]</td><td></td><td>OBX.2, OBX.5, OBX.6</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dataAbsentReason</td><td></td><td>N/A</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;interpretation</td><td></td><td>OBX-8</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;referenceRange</td><td></td><td>OBX.7</td> </tr>
+</table>
+<a name="rim"> </a><h3>Mappings for RIM Mapping (http://hl7.org/v3)</h3><table class="grid">
+ <tr><td colspan="3"><b>US Core Result Observation</b></td></tr>
+ <tr><td>Observation</td><td>USCoreObss</td><td>Entity. Role, or Act</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;id</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;meta</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;implicitRules</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;language</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;text</td><td></td><td>Act.text?</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;contained</td><td></td><td>N/A</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;extension</td><td></td><td>N/A</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;modifierExtension</td><td></td><td>N/A</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;identifier</td><td></td><td>id</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;status</td><td></td><td>status  Amended &amp; Final are differentiated by whether it is the subject of a ControlAct event with a type of &quot;revise&quot;</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;category</td><td></td><td>.outboundRelationship[typeCode=&quot;COMP].target[classCode=&quot;LIST&quot;, moodCode=&quot;EVN&quot;].code</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;code</td><td></td><td>code</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id</td><td></td><td>n/a</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;extension</td><td></td><td>n/a</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coding</td><td></td><td>union(., ./translation)</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id</td><td></td><td>n/a</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;extension</td><td></td><td>n/a</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;system</td><td></td><td>./codeSystem</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;version</td><td></td><td>./codeSystemVersion</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;code</td><td></td><td>./code</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;display</td><td></td><td>CV.displayName</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;userSelected</td><td></td><td>CD.codingRationale</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text</td><td></td><td>./originalText[mediaType/code=&quot;text/plain&quot;]/data</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;subject</td><td></td><td>participation[typeCode=SBJ]</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;encounter</td><td></td><td>inboundRelationship[typeCode=COMP].source[classCode=ENC, moodCode=EVN]</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;effective[x]</td><td></td><td>effectiveTime</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;issued</td><td></td><td>participation[typeCode=AUT].time</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;performer</td><td></td><td>participation[typeCode=PRF]</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;value[x]</td><td></td><td>value</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;value[x]</td><td>USCoreValueType</td><td>value</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;valueQuantity</td><td>USCoreValueQuantity</td><td>value</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;valueCodeableConcept</td><td>USCoreValueCode</td><td>value</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;dataAbsentReason</td><td></td><td>value.nullFlavor</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;interpretation</td><td></td><td>interpretationCode</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;comment</td><td></td><td>subjectOf.observationEvent[code=&quot;annotation&quot;].value</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;bodySite</td><td></td><td>targetSiteCode</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;method</td><td></td><td>methodCode</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;specimen</td><td></td><td>participation[typeCode=SPC].specimen</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;device</td><td></td><td>participation[typeCode=DEV]</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;referenceRange</td><td></td><td>outboundRelationship[typeCode=REFV]/target[classCode=OBS, moodCode=EVN]</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id</td><td></td><td>n/a</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;extension</td><td></td><td>n/a</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;modifierExtension</td><td></td><td>N/A</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;low</td><td></td><td>value:IVL_PQ.low</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;high</td><td></td><td>value:IVL_PQ.high</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;meaning</td><td></td><td>interpretationCode</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;age</td><td></td><td>outboundRelationship[typeCode=PRCN].targetObservationCriterion[code=&quot;age&quot;].value</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text</td><td></td><td>value:ST</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;related</td><td></td><td>outBoundRelationship</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id</td><td></td><td>n/a</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;extension</td><td></td><td>n/a</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;modifierExtension</td><td></td><td>N/A</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type</td><td></td><td>.typeCode</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;target</td><td></td><td>.targetObservation</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;component</td><td></td><td>outBoundRelationship[typeCode=COMP]</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id</td><td></td><td>n/a</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;extension</td><td></td><td>n/a</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;modifierExtension</td><td></td><td>N/A</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;code</td><td></td><td>code</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;value[x]</td><td></td><td>value</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dataAbsentReason</td><td></td><td>value.nullFlavor</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;interpretation</td><td></td><td>interpretationCode</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;referenceRange</td><td></td><td>outboundRelationship[typeCode=REFV]/target[classCode=OBS, moodCode=EVN]</td> </tr>
+</table>
+<a name="w5"> </a><h3>Mappings for W5 Mapping (http://hl7.org/fhir/w5)</h3><table class="grid">
+ <tr><td colspan="3"><b>US Core Result Observation</b></td></tr>
+ <tr><td>Observation</td><td>USCoreObss</td><td>clinical.diagnostics</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;id</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;meta</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;implicitRules</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;language</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;text</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;contained</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;extension</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;modifierExtension</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;identifier</td><td></td><td>id</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;status</td><td></td><td>status</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;category</td><td></td><td>class</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;code</td><td></td><td>what</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;extension</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coding</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;extension</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;system</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;version</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;code</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;display</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;userSelected</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;subject</td><td></td><td>who.focus</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;encounter</td><td></td><td>context</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;effective[x]</td><td></td><td>when.done</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;issued</td><td></td><td>when.recorded</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;performer</td><td></td><td>who.actor</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;value[x]</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;value[x]</td><td>USCoreValueType</td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;valueQuantity</td><td>USCoreValueQuantity</td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;valueCodeableConcept</td><td>USCoreValueCode</td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;dataAbsentReason</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;interpretation</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;comment</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;bodySite</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;method</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;specimen</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;device</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;referenceRange</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;extension</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;modifierExtension</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;low</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;high</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;meaning</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;age</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;related</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;extension</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;modifierExtension</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;target</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;component</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;extension</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;modifierExtension</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;code</td><td></td><td>what</td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;value[x]</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dataAbsentReason</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;interpretation</td><td></td><td></td> </tr>
+ <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;referenceRange</td><td></td><td></td> </tr>
+</table>
+
+
+  <!-- ==============END CONTENT END CONTENT=================== -->
+
+<p></p>
+ </div>
+
+    </div>  <!-- /inner-wrapper -->
+            </div>  <!-- /row -->
+        </div>  <!-- /container -->
+
+    </div>  <!-- /segment-content -->
+
+
+
+</div>
+
+    </div>  <!-- /inner-wrapper -->
+            </div>  <!-- /row -->
+        </div>  <!-- /container -->
+
+    </div>  <!-- /segment-content -->
+
+
+<div id="segment-footer" class="segment">  <!-- segment-footer -->
+  <div class="container">  <!-- container -->
+   <div class="inner-wrapper">
+    <p>
+        US-Core &copy; FHIR STU3 (IG Publisher v1.8.0-10514) generated on Tue, Dec 6, 2016 16:45-0500. |
+             <!--  <a style="color: #81BEF7" rel="license" <!-- <href="../license.html"><img style="border-style: none;" alt="CC0" src="cc0.png"/></a> -->
+                <a style="color: #81BEF7" rel="license" href="http://hl7.org/fhir/2017Janlicense.html"><img style="border-style: none;" alt="CC0" src="cc0.png"/></a> 
+        </span>
+        </p>
+   </div>  <!-- /inner-wrapper -->
+  </div>  <!-- /container -->
+ </div>  <!-- /segment-footer -->
+  <!-- disqus thread -->
+  <!-- disqus -->
+  <!-- end disqus -->
+
+ <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+  <div class="container">  <!-- container -->
+  </div>  <!-- /container -->
+ </div>  <!-- /segment-post-footer -->
+
+</body>
+</html>
+
+</body>
+</html>

@@ -1,0 +1,336 @@
+<!DOCTYPE HTML>
+
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+   <meta charset="UTF-8"/>
+  <title></title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="US Core Implemenation Guide" />
+<meta name="author" content="http://www.hl7.org"/>
+
+  <link href="fhir.css" rel="stylesheet"/>
+
+   <!-- Bootstrap core CSS -->
+  <link href="dist/css/bootstrap.css" rel="stylesheet"/>
+  <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+  <!-- Project extras -->
+  <link href="assets/css/project.css" rel="stylesheet"/>
+  <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+	<link href="jquery-ui.css" rel="stylesheet"/>
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png"/>
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png"/>
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png"/>
+  <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png"/>
+  <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+
+
+<body>
+
+ <div id="segment-header" class="segment">  <!-- segment-header -->
+  <div class="container">  <!-- container -->
+   <a id="logo" no-external="true" href="http://hl7.org/fhir"><img alt="logo fhir" src="assets/images/fhir-logo-www.png"/> </a>
+   <div id="hl7-status">
+    <b>US-Core CI Build</b>
+   </div>
+
+   <div id="hl7-nav">
+     <a id="hl7-logo" no-external="true" href="http://www.hl7.org">
+     <img height="50" alt="visit the hl7 website" width="42" src="assets/images/hl7-logo.png"/>
+    </a>
+   </div>
+   <div id="hl7-nav"><a id="hl7-logo" no-external="true" href="http://hl7.org/fhir/search.cfm"><img height="50"  alt="US-Core" src="assets/images/usbanner.png"/></a></div>
+  </div>
+  <div class="container">  <!-- container -->
+ </div></div>  <!-- /segment-header -->
+
+ <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+  <div id="stripe"> </div>
+  <div class="container">  <!-- container -->
+   <!-- HEADER CONTENT -->
+
+   <nav class="navbar navbar-inverse">
+    <div class="container">
+     <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+      <span class="icon-bar"> </span>
+      <span class="icon-bar"> </span>
+      <span class="icon-bar"> </span>
+     </button>
+     <a class="navbar-brand hidden" href="http://hl7.org/fhir/2017Janindex.html">FHIR</a>
+     <div class="nav-collapse collapse navbar-inverse-collapse">
+      <ul class="nav navbar-nav">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="definitions.html">General Guidance</a></li>
+              <li><a href="profiles.html">US Core Profiles</a></li>
+              <li><a href="extensions.html">Extensions</a></li>
+              <li><a href="valuesets.html">Value Sets</a></li>
+              <li><a href="searchparams.html">Search Parameters</a></li>
+              <li><a href="capstmnts.html">Capability Statements</a></li>
+              <li><a href="security.html">Security</a></li>
+              <li><a href="downloads.html">Downloads</a></li>
+            </ul>
+
+     </div>  <!-- /.nav-collapse -->
+    </div>  <!-- /.container -->
+   </nav>  <!-- /.navbar -->
+
+  <!-- /HEADER CONTENT -->
+  </div>  <!-- /container -->
+ </div>  <!-- /segment-navbar -->
+
+
+
+  <!-- ============BreadCrumb=============== -->
+
+  </div>  <!-- /container -->
+ </div>  <!-- /segment-breadcrumb -->
+
+ <div id="segment-content" class="segment">  <!-- segment-content -->
+ <div class="container">  <!-- container -->
+            <div class="row">
+             <div class="inner-wrapper">
+
+
+<div class="col-9">
+
+  <!-- ============CONTENT CONTENT=============== -->
+
+<p style="background-color: gold; border:1px solid maroon; padding: 5px;">
+This is the Current Draft of the US-Core FHIR Implementation Guide. See the <a href="http://hl7.org/fhir/us/core/history.html">Directory of published versions <img src="external.png" style="text-align: baseline"></a>
+</p>
+
+<h2>US Core Implementation Guide</h2>
+
+
+<h2 id="introduction">Introduction</h2>
+
+<p>The data elements, extension, and terminology used in the US Core Implemenation Guide are based upon <a href="https://www.healthit.gov/sites/default/files/2015Ed_CCG_CCDS.pdf">ONC 2015 Edition Common Clinical Data Set (CCDS)</a> as well as essential administrative and conformance requirements.   These requirements were originally developed, balloted, and published in FHIR DSTU2 as part of the <a href="http://www.healthit.gov/newsroom/about-onc">ONC</a> sponsored <a href="http://wiki.siframework.org/Data+Access+Framework+Homepage">Data Access Framework (DAF)</a> project and were subsequently updated to define the minimum mandatory conformance requirements needed for accessing patient data as defined by the <a href="http://argonautwiki.hl7.org/index.php?title=Main_Page">Argonaut</a> pilot implementations.  In addition to Argonaut, these profiles are used by the [DAF-Research], <a href="https://oncprojectracking.healthit.gov/wiki/display/TechLabSC/CQF+Home">QI-Core</a>, and <a href="http://www.opencimi.org">CIMI</a> and are intended to be a common core for other US Realm guides.</p>
+
+<h2 id="us-core-actors">US Core Actors</h2>
+
+<p>The following actors are part of the US Core IG.</p>
+
+<ul>
+  <li>US Core Requestor: An application that initiates a data access request to retrieve patient data. This can be thought of as the client in a client-server interaction.</li>
+  <li>US Core Responder: A product that responds to the data access request providing patient data. This can be thought of as the server in a client-server interaction.</li>
+</ul>
+
+<h2 id="us-core-profiles">US Core Profiles</h2>
+
+<p>The US Core Profiles are intended to meet the 2015 Edition certification criterion for Patient Selection 170.315(g)(7) and Application Access – Data Category Request 170.315(g)(8). They were created for each of the 2015 Edition Common Clinical Data Set.  The Location, Organization and Practitioner Profiles are not called out specifically in the certification criteria but are included because they are directly referenced by other profiles.  Where applicable the US Core Profiles are based on the HL7 U.S. Data Access Framework ([DAF]) FHIR DSTU2 Implementation Guide. However, the requirements per resource are a subset of those of the DAF implementation guide.</p>
+
+<p>The table below lists the FHIR Resources used for the corresponding 2015 Edition Common Clinical Data Set (CCDS) Data elements:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>No</th>
+      <th>CCDS Data Element</th>
+      <th>FHR Resource</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>(1)</td>
+      <td>Patient Name</td>
+      <td>Patient</td>
+    </tr>
+    <tr>
+      <td>(2)</td>
+      <td>Sex</td>
+      <td>Patient</td>
+    </tr>
+    <tr>
+      <td>(3)</td>
+      <td>Date of birth</td>
+      <td>Patient</td>
+    </tr>
+    <tr>
+      <td>(4)</td>
+      <td>Race</td>
+      <td>Patient</td>
+    </tr>
+    <tr>
+      <td>(5)</td>
+      <td>Ethnicity</td>
+      <td>Patient</td>
+    </tr>
+    <tr>
+      <td>(6)</td>
+      <td>Preferred language</td>
+      <td>Patient</td>
+    </tr>
+    <tr>
+      <td>(7)</td>
+      <td>Smoking status</td>
+      <td>Observation</td>
+    </tr>
+    <tr>
+      <td>(8)</td>
+      <td>Problems</td>
+      <td>Condition</td>
+    </tr>
+    <tr>
+      <td>(9)</td>
+      <td>Medications</td>
+      <td>Medication, MedicationStatement, MedicationRequest</td>
+    </tr>
+    <tr>
+      <td>(10)</td>
+      <td>Medication allergies</td>
+      <td>AllergyIntolerance</td>
+    </tr>
+    <tr>
+      <td>(11)</td>
+      <td>Laboratory test(s)</td>
+      <td>Observation, DiagnosticReport</td>
+    </tr>
+    <tr>
+      <td>(12)</td>
+      <td>Laboratory value(s)/result(s)</td>
+      <td>Observation, DiagnosticReport</td>
+    </tr>
+    <tr>
+      <td>(13)</td>
+      <td>Vital signs</td>
+      <td>Observation</td>
+    </tr>
+    <tr>
+      <td>(14)</td>
+      <td>(no longer required)</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>(15)</td>
+      <td>Procedures</td>
+      <td>Procedure</td>
+    </tr>
+    <tr>
+      <td>(16)</td>
+      <td>Care team member(s)</td>
+      <td>CareTeam</td>
+    </tr>
+    <tr>
+      <td>(17)</td>
+      <td>Immunizations</td>
+      <td>Immunization</td>
+    </tr>
+    <tr>
+      <td>(18)</td>
+      <td>Unique device identifier(s) for a patient’s implantable device(s)</td>
+      <td>Device</td>
+    </tr>
+    <tr>
+      <td>(19)</td>
+      <td>Assessment and plan of treatment</td>
+      <td>CarePlan</td>
+    </tr>
+    <tr>
+      <td>(20)</td>
+      <td>Goals</td>
+      <td>Goal</td>
+    </tr>
+    <tr>
+      <td>(21)</td>
+      <td>Health concerns</td>
+      <td>Condition</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><em>Note on Searches based on a date or date range:</em></p>
+
+<p>Allergies, Immunizations, Medications, Problems and Health Concerns, UDI, Smoking Status do not require a date range search since a system should return all relevant resources.</p>
+
+<p>Date range search requirements are included in the Quick Start section for the following resources - Vital Signs, Laboratory Results, Goals, Procedures, and Assessment and Plan of Treatment.</p>
+
+<p>The list of US Core Profiles is shown below.  Each profile defines the minimum mandatory elements, extensions and terminology requirements that <strong>MUST</strong> be present. For each profile requirements and guidance are given in a simple narrative summary. A formal hierarchical table that presents a <a href="http://hl7.org/fhir/formats.html#table">logical view</a> of the content in both a differential and snapshot view is also provided along with references to appropriate terminologies and examples.</p>
+
+<li><a href="StructureDefinition-us-core-allergyintolerance.html">US Core Allergies Profile</a> US Core Allergies Profile</li>
+<li><a href="StructureDefinition-us-core-careplan.html">US Core CarePlan Profile</a> US Core CarePlan Profile</li>
+<li><a href="StructureDefinition-us-core-careteam.html">US Core CareTeam Profile</a> US Core CareTeam Profile</li>
+<li><a href="StructureDefinition-us-core-condition.html">US Core Condition Profile</a> US Core Condition Profile</li>
+<li><a href="StructureDefinition-us-core-device.html">US Core Implanted Device Profile</a> US Core Implanted Device Profile</li>
+<li><a href="StructureDefinition-us-core-diagnosticreport.html">US Core Diagnostic Report Profile</a> US Core Diagnostic Report Profile</li>
+<li><a href="StructureDefinition-us-core-goal.html">US Core Goal Profile</a> US Core Goal Profile</li>
+<li><a href="StructureDefinition-us-core-immunization.html">US Core Immunization Profile</a> US Core Immunization Profile</li>
+<li><a href="StructureDefinition-us-core-location.html">US Core Location Profile</a> US Core Location Profile</li>
+<li><a href="StructureDefinition-us-core-medication.html">US Core Medication Profile</a> US Core Medication Profile</li>
+<li><a href="StructureDefinition-us-core-medicationrequest.html">US Core Medication Request Profile</a> US Core Medication Request Profile</li>
+<li><a href="StructureDefinition-us-core-medicationstatement.html">US Core Medication Statement Profile</a> US Core Medication Statement Profile</li>
+<li><a href="StructureDefinition-us-core-observationresults.html">US Core Result Observation</a> US Core Result Observation</li>
+<li><a href="StructureDefinition-us-core-smokingstatus.html">US Core Smoking Status Observation Profile</a> US Core Smoking Status Observation Profile</li>
+<li><a href="StructureDefinition-us-core-vitalsigns.html">US Core Vital Signs Profile</a> US Core Vital Signs Profile</li>
+<li><a href="StructureDefinition-us-core-organization.html">US Core Organization Profile</a> US Core Organization Profile</li>
+<li><a href="StructureDefinition-us-core-patient.html">US Core Patient Profile</a> US Core Patient Profile</li>
+<li><a href="StructureDefinition-us-core-pract.html">US Core Practitioner</a> US Core Practitioner</li>
+<li><a href="StructureDefinition-us-core-procedure.html">US Core Procedure Profile</a> US Core Procedure Profile</li>
+
+<h2 id="us-core-conformance-requirements">US-Core Conformance Requirements</h2>
+
+<p>This section outlines conformance requirements for each of the US-Core actors identifying the specific profiles that need to be supported, the specific RESTful operations that need to be supported, and the search parameters that need to be supported. Note: The individual US-Core profiles identify the structural constraints, terminology bindings and invariants, however, implementers must refer to the conformance requirements for details on the RESTful operations, specific profiles and the search parameters applicable to each of the US-Core actors.</p>
+
+<ul>
+  <li><a href="CapabilityStatement-client.html">Conformance requirements for the US-Core Client</a> (Requestor Actor) which is responsible for creating and initiating the queries for information about an individual patient.</li>
+  <li><a href="CapabilityStatement-server.html">Conformance requirements for the US-Core Server</a> (Responder Actor) which is responsible for providing responses to the queries submitted by the US-Core Requestors. Systems implementing this capability statement should meet the ONC 2015 Common Clinical Data Set (CCDS) access requirement for Patient Selection 170.315(g)(7) and Application Access - Data Category Request 170.315(g)(8).</li>
+</ul>
+
+<hr />
+
+<p>Primary Authors: Brett Marquard, Nagesh Bashyam, Eric Haas</p>
+
+<p>Secondary Authors: Grahame Grieve, Lloyd McKenzie</p>
+
+
+
+
+
+  <!-- ==============END CONTENT END CONTENT=================== -->
+
+<p></p>
+ </div>
+
+    </div>  <!-- /inner-wrapper -->
+            </div>  <!-- /row -->
+        </div>  <!-- /container -->
+
+    </div>  <!-- /segment-content -->
+
+
+    
+</div>
+
+    </div>  <!-- /inner-wrapper -->
+            </div>  <!-- /row -->
+        </div>  <!-- /container -->
+
+    </div>  <!-- /segment-content -->
+
+
+<div id="segment-footer" class="segment">  <!-- segment-footer -->
+  <div class="container">  <!-- container -->
+   <div class="inner-wrapper">
+    <p>
+        US-Core &copy; FHIR STU3 (IG Publisher v1.8.0-10514) generated on Tue, Dec 6, 2016 16:45-0500. |
+             <!--  <a style="color: #81BEF7" rel="license" <!-- <href="../license.html"><img style="border-style: none;" alt="CC0" src="cc0.png"/></a> -->
+                <a style="color: #81BEF7" rel="license" href="http://hl7.org/fhir/2017Janlicense.html"><img style="border-style: none;" alt="CC0" src="cc0.png"/></a> 
+        </span>
+        </p>
+   </div>  <!-- /inner-wrapper -->
+  </div>  <!-- /container -->
+ </div>  <!-- /segment-footer -->
+  <!-- disqus thread -->
+  <!-- disqus -->
+  <!-- end disqus -->
+
+ <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+  <div class="container">  <!-- container -->
+  </div>  <!-- /container -->
+ </div>  <!-- /segment-post-footer -->
+
+</body>
+</html>
+

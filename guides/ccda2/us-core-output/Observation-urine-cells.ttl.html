@@ -1,0 +1,218 @@
+<!DOCTYPE HTML>
+
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+   <meta charset="UTF-8"/>
+  <title></title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="US Core Implemenation Guide" />
+<meta name="author" content="http://www.hl7.org"/>
+
+  <link href="fhir.css" rel="stylesheet"/>
+
+   <!-- Bootstrap core CSS -->
+  <link href="dist/css/bootstrap.css" rel="stylesheet"/>
+  <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+  <!-- Project extras -->
+  <link href="assets/css/project.css" rel="stylesheet"/>
+  <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+	<link href="jquery-ui.css" rel="stylesheet"/>
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png"/>
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png"/>
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png"/>
+  <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png"/>
+  <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+
+
+<body>
+
+ <div id="segment-header" class="segment">  <!-- segment-header -->
+  <div class="container">  <!-- container -->
+   <a id="logo" no-external="true" href="http://hl7.org/fhir"><img alt="logo fhir" src="assets/images/fhir-logo-www.png"/> </a>
+   <div id="hl7-status">
+    <b>US-Core CI Build</b>
+   </div>
+
+   <div id="hl7-nav">
+     <a id="hl7-logo" no-external="true" href="http://www.hl7.org">
+     <img height="50" alt="visit the hl7 website" width="42" src="assets/images/hl7-logo.png"/>
+    </a>
+   </div>
+   <div id="hl7-nav"><a id="hl7-logo" no-external="true" href="http://hl7.org/fhir/search.cfm"><img height="50"  alt="US-Core" src="assets/images/usbanner.png"/></a></div>
+  </div>
+  <div class="container">  <!-- container -->
+ </div></div>  <!-- /segment-header -->
+
+ <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+  <div id="stripe"> </div>
+  <div class="container">  <!-- container -->
+   <!-- HEADER CONTENT -->
+
+   <nav class="navbar navbar-inverse">
+    <div class="container">
+     <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+      <span class="icon-bar"> </span>
+      <span class="icon-bar"> </span>
+      <span class="icon-bar"> </span>
+     </button>
+     <a class="navbar-brand hidden" href="http://hl7.org/fhir/2017Janindex.html">FHIR</a>
+     <div class="nav-collapse collapse navbar-inverse-collapse">
+      <ul class="nav navbar-nav">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="definitions.html">General Guidance</a></li>
+              <li><a href="profiles.html">US Core Profiles</a></li>
+              <li><a href="extensions.html">Extensions</a></li>
+              <li><a href="valuesets.html">Value Sets</a></li>
+              <li><a href="searchparams.html">Search Parameters</a></li>
+              <li><a href="capstmnts.html">Capability Statements</a></li>
+              <li><a href="security.html">Security</a></li>
+              <li><a href="downloads.html">Downloads</a></li>
+            </ul>
+
+     </div>  <!-- /.nav-collapse -->
+    </div>  <!-- /.container -->
+   </nav>  <!-- /.navbar -->
+
+  <!-- /HEADER CONTENT -->
+  </div>  <!-- /container -->
+ </div>  <!-- /segment-navbar -->
+
+
+
+
+
+  </div>  <!-- /container -->
+ </div>  <!-- /segment-breadcrumb -->
+
+ <div id="segment-content" class="segment">  <!-- segment-content -->
+ <div class="container">  <!-- container -->
+            <div class="row">
+             <div class="inner-wrapper">
+
+
+<div class="col-9">
+
+  <!-- ============CONTENT CONTENT=============== -->
+
+<h2>{title?}</h2>
+
+<pre class="rdf">
+@prefix fhir: &lt;http://hl7.org/fhir/&gt; .
+@prefix loinc: &lt;http://loinc.org/owl#&gt; .
+@prefix owl: &lt;http://www.w3.org/2002/07/owl#&gt; .
+@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+@prefix xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt; .
+
+# - resource -------------------------------------------------------------------
+
+&lt;Observation/urine-cells&gt; a fhir:Observation;
+  <a href="http://hl7.org/fhir/2017Jan/rdf.html#tree-root">fhir:nodeRole</a> fhir:treeRoot;
+  <a href="http://hl7.org/fhir/2017Jan/observation.html#Observation.id">fhir:Resource.id</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#id">fhir:value</a> &quot;urine-cells&quot;];
+  <a href="http://hl7.org/fhir/2017Jan/observation.html#Observation.meta">fhir:Resource.meta</a> [
+     <a href="http://hl7.org/fhir/2017Jan/datatypes.html#Meta#Meta.versionId">fhir:Meta.versionId</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#id">fhir:value</a> &quot;206624&quot; ];
+     <a href="http://hl7.org/fhir/2017Jan/datatypes.html#Meta#Meta.lastUpdated">fhir:Meta.lastUpdated</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#instant">fhir:value</a> &quot;2016-04-18T04:23:12.123+00:00&quot;^^xsd:dateTime ];
+     <a href="http://hl7.org/fhir/2017Jan/datatypes.html#Meta#Meta.profile">fhir:Meta.profile</a> [
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">fhir:value</a> &quot;http://hl7.org/fhir/us/core/StructureDefinition/us-core-observationresults&quot;;
+       <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 0     ]
+  ];
+  <a href="http://hl7.org/fhir/2017Jan/observation.html#Observation.text">fhir:DomainResource.text</a> [
+     <a href="http://hl7.org/fhir/2017Jan/datatypes.html#Narrative#Narrative.status">fhir:Narrative.status</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#code">fhir:value</a> &quot;generated&quot; ];
+     fhir:Narrative.div &quot;&lt;div xmlns=\&quot;http://www.w3.org/1999/xhtml\&quot;&gt;&lt;p&gt;&lt;b&gt;Generated Narrative with Details&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;id&lt;/b&gt;: urine-cells&lt;/p&gt;&lt;p&gt;&lt;b&gt;meta&lt;/b&gt;: &lt;/p&gt;&lt;p&gt;&lt;b&gt;status&lt;/b&gt;: final&lt;/p&gt;&lt;p&gt;&lt;b&gt;category&lt;/b&gt;: Laboratory &lt;span style=\&quot;background: LightGoldenRodYellow\&quot;&gt;(Details : {http://hl7.org/fhir/observation-category code 'laboratory' = 'Laboratory', given as 'Laboratory'})&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;code&lt;/b&gt;: EPITHELIAL CELLS &lt;span style=\&quot;background: LightGoldenRodYellow\&quot;&gt;(Details : {LOINC code '5787-7' = 'Epithelial cells [#/area] in Urine sediment by Microscopy high power field', given as 'Epithelial cells [#/area] in Urine sediment by Microscopy high power field'})&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;subject&lt;/b&gt;: &lt;a href=\&quot;Patient-example.html\&quot;&gt;Amy Shaw. Generated Summary: id: example; Medical Record Number = 1032702 (USUAL); active; Amy V. Shaw ; ph: 555-555-5555(HOME), amy.shaw@example.com; gender: null; birthDate: Feb 20, 2007&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;effective&lt;/b&gt;: Jul 5, 2005&lt;/p&gt;&lt;p&gt;&lt;b&gt;value&lt;/b&gt;: 1-5 cells/HPF&lt;/p&gt;&lt;h3&gt;ReferenceRanges&lt;/h3&gt;&lt;table class=\&quot;grid\&quot;&gt;&lt;tr&gt;&lt;td&gt;-&lt;/td&gt;&lt;td&gt;&lt;b&gt;Text&lt;/b&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;*&lt;/td&gt;&lt;td&gt;None Seen/HPF&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;&quot;
+  ];
+  <a href="http://hl7.org/fhir/2017Jan/observation.html#Observation.status">fhir:Observation.status</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#code">fhir:value</a> &quot;final&quot;];
+  <a href="http://hl7.org/fhir/2017Jan/observation.html#Observation.category">fhir:Observation.category</a> [
+     <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 0;
+     <a href="http://hl7.org/fhir/2017Jan/datatypes.html#CodeableConcept#CodeableConcept.coding">fhir:CodeableConcept.coding</a> [
+       <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 0;
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#Coding#Coding.system">fhir:Coding.system</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">fhir:value</a> &quot;http://hl7.org/fhir/observation-category&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#Coding#Coding.code">fhir:Coding.code</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#code">fhir:value</a> &quot;laboratory&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#Coding#Coding.display">fhir:Coding.display</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;Laboratory&quot; ]     ];
+     <a href="http://hl7.org/fhir/2017Jan/datatypes.html#CodeableConcept#CodeableConcept.text">fhir:CodeableConcept.text</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;Laboratory&quot; ]
+  ];
+  <a href="http://hl7.org/fhir/2017Jan/observation.html#Observation.code">fhir:Observation.code</a> [
+     <a href="http://hl7.org/fhir/2017Jan/datatypes.html#CodeableConcept#CodeableConcept.coding">fhir:CodeableConcept.coding</a> [
+       <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 0;
+       <a href="http://hl7.org/fhir/2017Jan/rdf.html#concept">fhir:concept</a> loinc:5787-7;
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#Coding#Coding.system">fhir:Coding.system</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">fhir:value</a> &quot;http://loinc.org&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#Coding#Coding.code">fhir:Coding.code</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#code">fhir:value</a> &quot;5787-7&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#Coding#Coding.display">fhir:Coding.display</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;Epithelial cells [#/area] in Urine sediment by Microscopy high power field&quot; ]     ];
+     <a href="http://hl7.org/fhir/2017Jan/datatypes.html#CodeableConcept#CodeableConcept.text">fhir:CodeableConcept.text</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;EPITHELIAL CELLS&quot; ]
+  ];
+  <a href="http://hl7.org/fhir/2017Jan/observation.html#Observation.subject">fhir:Observation.subject</a> [
+     <a href="http://hl7.org/fhir/2017Jan/datatypes.html#Reference#Reference.reference">fhir:Reference.reference</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;Patient/example&quot; ];
+     <a href="http://hl7.org/fhir/2017Jan/datatypes.html#Reference#Reference.display">fhir:Reference.display</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;Amy Shaw&quot; ]
+  ];
+  <a href="http://hl7.org/fhir/2017Jan/observation.html#Observation.effective[x]">fhir:Observation.effectiveDateTime</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#dateTime">fhir:value</a> &quot;2005-07-05&quot;^^xsd:date];
+  <a href="http://hl7.org/fhir/2017Jan/observation.html#Observation.value[x]">fhir:Observation.valueRange</a> [
+     <a href="http://hl7.org/fhir/2017Jan/datatypes.html#Range#Range.low">fhir:Range.low</a> [
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#Quantity#Quantity.value">fhir:Quantity.value</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#decimal">fhir:value</a> &quot;1&quot;^^xsd:decimal ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#Quantity#Quantity.unit">fhir:Quantity.unit</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;cells/HPF&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#Quantity#Quantity.system">fhir:Quantity.system</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">fhir:value</a> &quot;http://unitsofmeasure.org&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#Quantity#Quantity.code">fhir:Quantity.code</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#code">fhir:value</a> &quot;/[HPF]&quot; ]     ];
+     <a href="http://hl7.org/fhir/2017Jan/datatypes.html#Range#Range.high">fhir:Range.high</a> [
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#Quantity#Quantity.value">fhir:Quantity.value</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#decimal">fhir:value</a> &quot;5&quot;^^xsd:decimal ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#Quantity#Quantity.unit">fhir:Quantity.unit</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;cells/HPF&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#Quantity#Quantity.system">fhir:Quantity.system</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">fhir:value</a> &quot;http://unitsofmeasure.org&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#Quantity#Quantity.code">fhir:Quantity.code</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#code">fhir:value</a> &quot;/[HPF]&quot; ]     ]
+  ];
+  <a href="http://hl7.org/fhir/2017Jan/observation.html#Observation.referenceRange">fhir:Observation.referenceRange</a> [
+     <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 0;
+     <a href="http://hl7.org/fhir/2017Jan/observation.html#Observation.referenceRange.text">fhir:Observation.referenceRange.text</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;None Seen/HPF&quot; ]
+  ].
+
+</pre>
+
+
+
+  <!-- ==============END CONTENT END CONTENT=================== -->
+
+<p></p>
+ </div>
+
+    </div>  <!-- /inner-wrapper -->
+            </div>  <!-- /row -->
+        </div>  <!-- /container -->
+
+    </div>  <!-- /segment-content -->
+
+
+
+
+
+</div>
+
+    </div>  <!-- /inner-wrapper -->
+            </div>  <!-- /row -->
+        </div>  <!-- /container -->
+
+    </div>  <!-- /segment-content -->
+
+
+<div id="segment-footer" class="segment">  <!-- segment-footer -->
+  <div class="container">  <!-- container -->
+   <div class="inner-wrapper">
+    <p>
+        US-Core &copy; FHIR STU3 (IG Publisher v1.8.0-10514) generated on Tue, Dec 6, 2016 16:45-0500. |
+             <!--  <a style="color: #81BEF7" rel="license" <!-- <href="../license.html"><img style="border-style: none;" alt="CC0" src="cc0.png"/></a> -->
+                <a style="color: #81BEF7" rel="license" href="http://hl7.org/fhir/2017Janlicense.html"><img style="border-style: none;" alt="CC0" src="cc0.png"/></a> 
+        </span>
+        </p>
+   </div>  <!-- /inner-wrapper -->
+  </div>  <!-- /container -->
+ </div>  <!-- /segment-footer -->
+  <!-- disqus thread -->
+  <!-- disqus -->
+  <!-- end disqus -->
+
+ <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+  <div class="container">  <!-- container -->
+  </div>  <!-- /container -->
+ </div>  <!-- /segment-post-footer -->
+
+</body>
+</html>
+

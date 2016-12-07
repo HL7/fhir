@@ -1,0 +1,85 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://hl7.org/fhir/us/core/ValueSet/us-core-observation-ccdasmokingstatus> a fhir:ValueSet;
+  fhir:nodeRole fhir:treeRoot;
+  fhir:Resource.id [ fhir:value "us-core-observation-ccdasmokingstatus"];
+  fhir:Resource.meta [
+     fhir:Meta.lastUpdated [ fhir:value "2016-05-25T16:59:08.250+10:00"^^xsd:dateTime ];
+     fhir:Meta.profile [
+       fhir:value "http://hl7.org/fhir/StructureDefinition/ValueSet-shareable-definition";
+       fhir:index 0
+     ]
+  ];
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ];
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h2>Smoking Status</h2><div><p>This value set indicates the current smoking status of a patient.</p>\n</div><p><b>Copyright Statement:</b> This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement</p><p>This value set includes codes from the following code systems:</p><ul><li>Include these codes as defined in <a href=\"http://hl7.org/fhir/2017Jan/codesystem-snomedct.html\">http://snomed.info/sct</a><table class=\"none\"><tr><td><b>Code</b></td><td><b>Display</b></td></tr><tr><td>449868002</td><td>Current every day smoker</td><td/></tr><tr><td>428041000124106</td><td>Current some day smoker</td><td/></tr><tr><td>8517006</td><td>Former smoker</td><td/></tr><tr><td>266919005</td><td>Never smoker</td><td/></tr><tr><td>77176002</td><td>Smoker, current status unknown</td><td/></tr><tr><td>266927001</td><td>Unknown if ever smoked</td><td/></tr><tr><td>428071000124103</td><td>Current Heavy tobacco smoker</td><td/></tr><tr><td>428061000124105</td><td>Current Light tobacco smoker</td><td/></tr></table></li></ul></div>"
+  ];
+  fhir:ValueSet.url [ fhir:value "http://hl7.org/fhir/us/core/ValueSet/us-core-observation-ccdasmokingstatus"];
+  fhir:ValueSet.identifier [
+     fhir:index 0;
+     fhir:Identifier.system [ fhir:value "urn:ietf:rfc:3986" ];
+     fhir:Identifier.value [ fhir:value "urn:oid:2.16.840.1.113883.4.642.2.602" ]
+  ];
+  fhir:ValueSet.version [ fhir:value "1.6.0"];
+  fhir:ValueSet.name [ fhir:value "Smoking Status"];
+  fhir:ValueSet.status [ fhir:value "active"];
+  fhir:ValueSet.experimental [ fhir:value "true"^^xsd:boolean];
+  fhir:ValueSet.publisher [ fhir:value "FHIR OO CDA Template team"];
+  fhir:ValueSet.contact [
+     fhir:index 0;
+     fhir:ContactDetail.telecom [
+       fhir:index 0;
+       fhir:ContactPoint.system [ fhir:value "other" ];
+       fhir:ContactPoint.value [ fhir:value "http://hl7.org/fhir" ]
+     ]
+  ];
+  fhir:ValueSet.date [ fhir:value "2016-08-10"^^xsd:date];
+  fhir:ValueSet.description [ fhir:value "This value set indicates the current smoking status of a patient."];
+  fhir:ValueSet.copyright [ fhir:value "This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"];
+  fhir:ValueSet.compose [
+     fhir:ValueSet.compose.include [
+       fhir:index 0;
+       fhir:ValueSet.compose.include.system [ fhir:value "http://snomed.info/sct" ];
+       fhir:ValueSet.compose.include.concept [
+         fhir:index 0;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "449868002" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Current every day smoker" ]
+       ], [
+         fhir:index 1;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "428041000124106" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Current some day smoker" ]
+       ], [
+         fhir:index 2;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "8517006" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Former smoker" ]
+       ], [
+         fhir:index 3;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "266919005" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Never smoker" ]
+       ], [
+         fhir:index 4;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "77176002" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Smoker, current status unknown" ]
+       ], [
+         fhir:index 5;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "266927001" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Unknown if ever smoked" ]
+       ], [
+         fhir:index 6;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "428071000124103" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Current Heavy tobacco smoker" ]
+       ], [
+         fhir:index 7;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "428061000124105" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Current Light tobacco smoker" ]
+       ]
+     ]
+  ] .
+
+# -------------------------------------------------------------------------------------
+

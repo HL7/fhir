@@ -1,0 +1,182 @@
+<!DOCTYPE HTML>
+
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+   <meta charset="UTF-8"/>
+  <title></title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="US Core Implemenation Guide" />
+<meta name="author" content="http://www.hl7.org"/>
+
+  <link href="fhir.css" rel="stylesheet"/>
+
+   <!-- Bootstrap core CSS -->
+  <link href="dist/css/bootstrap.css" rel="stylesheet"/>
+  <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+  <!-- Project extras -->
+  <link href="assets/css/project.css" rel="stylesheet"/>
+  <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+	<link href="jquery-ui.css" rel="stylesheet"/>
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png"/>
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png"/>
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png"/>
+  <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png"/>
+  <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+
+
+<body>
+
+ <div id="segment-header" class="segment">  <!-- segment-header -->
+  <div class="container">  <!-- container -->
+   <a id="logo" no-external="true" href="http://hl7.org/fhir"><img alt="logo fhir" src="assets/images/fhir-logo-www.png"/> </a>
+   <div id="hl7-status">
+    <b>US-Core CI Build</b>
+   </div>
+
+   <div id="hl7-nav">
+     <a id="hl7-logo" no-external="true" href="http://www.hl7.org">
+     <img height="50" alt="visit the hl7 website" width="42" src="assets/images/hl7-logo.png"/>
+    </a>
+   </div>
+   <div id="hl7-nav"><a id="hl7-logo" no-external="true" href="http://hl7.org/fhir/search.cfm"><img height="50"  alt="US-Core" src="assets/images/usbanner.png"/></a></div>
+  </div>
+  <div class="container">  <!-- container -->
+ </div></div>  <!-- /segment-header -->
+
+ <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+  <div id="stripe"> </div>
+  <div class="container">  <!-- container -->
+   <!-- HEADER CONTENT -->
+
+   <nav class="navbar navbar-inverse">
+    <div class="container">
+     <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+      <span class="icon-bar"> </span>
+      <span class="icon-bar"> </span>
+      <span class="icon-bar"> </span>
+     </button>
+     <a class="navbar-brand hidden" href="http://hl7.org/fhir/2017Janindex.html">FHIR</a>
+     <div class="nav-collapse collapse navbar-inverse-collapse">
+      <ul class="nav navbar-nav">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="definitions.html">General Guidance</a></li>
+              <li><a href="profiles.html">US Core Profiles</a></li>
+              <li><a href="extensions.html">Extensions</a></li>
+              <li><a href="valuesets.html">Value Sets</a></li>
+              <li><a href="searchparams.html">Search Parameters</a></li>
+              <li><a href="capstmnts.html">Capability Statements</a></li>
+              <li><a href="security.html">Security</a></li>
+              <li><a href="downloads.html">Downloads</a></li>
+            </ul>
+
+     </div>  <!-- /.nav-collapse -->
+    </div>  <!-- /.container -->
+   </nav>  <!-- /.navbar -->
+
+  <!-- /HEADER CONTENT -->
+  </div>  <!-- /container -->
+ </div>  <!-- /segment-navbar -->
+
+
+
+<!-- ============BreadCrumbs=============== -->
+
+  </div>  <!-- /container -->
+ </div>  <!-- /segment-breadcrumb -->
+
+ <div id="segment-content" class="segment">  <!-- segment-content -->
+ <div class="container">  <!-- container -->
+            <div class="row">
+             <div class="inner-wrapper">
+
+
+<div class="col-9">
+
+  <!-- ============CONTENT CONTENT=============== -->
+
+<!--
+<h2>US Core Birth Sex Value Set</h2>
+
+<p>
+Formats: <a href="ValueSet-us-core-birthsex.xml.html">XML</a>, <a href="ValueSet-us-core-birthsex.json.html">JSON</a>, <a href="ValueSet-us-core-birthsex.ttl.html">Turtle</a>
+</p>
+
+-->
+
+<!-- include ValueSet-us-core-birthsex-html.xhtml   -->
+
+<table class="grid">
+ <tbody><tr><td>Defining URL:</td><td>http://hl7.org/fhir/us/core/ValueSet/us-core-birthsex</td></tr>
+ <tr><td>Name:</td><td>US Core Birth Sex Value Set</td></tr>
+ <tr><td>Definition:</td><td><p>Codes for assigning sex at birth as specified by the <a href="https://www.healthit.gov/newsroom/about-onc">Office of the National Coordinator for Health IT (ONC)</a></p>
+</td></tr>
+ <tr><td>Publisher:</td><td>US Realm Steering Committee</td></tr>
+ <tr><td>Source Resource</td><td><a href="ValueSet-us-core-birthsex.xml.html">XML</a> / <a href="ValueSet-us-core-birthsex.json.html">JSON</a> / <a href="ValueSet-us-core-birthsex.ttl.html">Turtle</a></td></tr>
+</tbody></table>
+
+
+This value set is used by:
+
+
+<ul>
+ <li><a href="StructureDefinition-us-core-birthsex.html">US Core Birth Sex Extension</a></li>
+</ul>
+
+
+<div xmlns="http://www.w3.org/1999/xhtml"><h2>US Core Birth Sex Value Set</h2><div><p>Codes for assigning sex at birth as specified by the <a href="https://www.healthit.gov/newsroom/about-onc">Office of the National Coordinator for Health IT (ONC)</a></p>
+</div><p>This value set includes codes from the following code systems:</p><ul><li>Include these codes as defined in <a href="http://hl7.org/fhir/2017Jan/v3/AdministrativeGender/cs.html">http://hl7.org/fhir/v3/AdministrativeGender</a><table class="none"><tr><td><b>Code</b></td><td><b>Display</b></td></tr><tr><td>F</td><td>Female</td><td>Female</td></tr><tr><td>M</td><td>Male</td><td>Male</td></tr></table></li><li>Include these codes as defined in <a href="http://hl7.org/fhir/2017Jan/v3/NullFlavor/cs.html">http://hl7.org/fhir/v3/NullFlavor</a><table class="none"><tr><td><b>Code</b></td><td><b>Display</b></td></tr><tr><td>UNK</td><td>Unknown</td><td>Description:A proper value is applicable, but not known.                                                      Usage Notes: This means the actual value is not known.  If the only thing that is unknown is how to properly express the value in the necessary constraints (value set, datatype, etc.), then the OTH or UNC flavor should be used.  No properties should be included for a datatype with this property unless:                                                      Those properties themselves directly translate to a semantic of &quot;unknown&quot;.  (E.g. a local code sent as a translation that conveys 'unknown')                            Those properties further qualify the nature of what is unknown.  (E.g. specifying a use code of &quot;H&quot; and a URL prefix of &quot;tel:&quot; to convey that it is the home phone number that is unknown.)</td></tr></table></li></ul></div>
+
+<h3>Expansion</h3>
+
+<div xmlns="http://www.w3.org/1999/xhtml"><p>This value set contains 3 concepts</p><p style="border: black 1px dotted; background-color: #EEEEEE; padding: 8px">Expansion based on http://hl7.org/fhir/v3/NullFlavor version 2016-11-11, http://hl7.org/fhir/v3/AdministrativeGender version 2016-11-11</p><table class="codes"><tr><td><b>Code</b></td><td><b>System</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td><a name="http---hl7.org-fhir-v3-AdministrativeGender-F"> </a><a href="http://hl7.org/fhir/2017Jan/v3/AdministrativeGender/cs.html#v3-AdministrativeGender-F">F</a></td><td>http://hl7.org/fhir/v3/AdministrativeGender</td><td>Female</td><td>Female</td></tr><tr><td><a name="http---hl7.org-fhir-v3-AdministrativeGender-M"> </a><a href="http://hl7.org/fhir/2017Jan/v3/AdministrativeGender/cs.html#v3-AdministrativeGender-M">M</a></td><td>http://hl7.org/fhir/v3/AdministrativeGender</td><td>Male</td><td>Male</td></tr><tr><td><a name="http---hl7.org-fhir-v3-NullFlavor-UNK"> </a><a href="http://hl7.org/fhir/2017Jan/v3/NullFlavor/cs.html#v3-NullFlavor-UNK">UNK</a></td><td>http://hl7.org/fhir/v3/NullFlavor</td><td>Unknown</td><td>Description:A proper value is applicable, but not known.                                                      Usage Notes: This means the actual value is not known.  If the only thing that is unknown is how to properly express the value in the necessary constraints (value set, datatype, etc.), then the OTH or UNC flavor should be used.  No properties should be included for a datatype with this property unless:                                                      Those properties themselves directly translate to a semantic of &quot;unknown&quot;.  (E.g. a local code sent as a translation that conveys 'unknown')                            Those properties further qualify the nature of what is unknown.  (E.g. specifying a use code of &quot;H&quot; and a URL prefix of &quot;tel:&quot; to convey that it is the home phone number that is unknown.)</td></tr></table></div>
+
+  <!-- ==============END CONTENT END CONTENT=================== -->
+
+<p></p>
+ </div>
+
+    </div>  <!-- /inner-wrapper -->
+            </div>  <!-- /row -->
+        </div>  <!-- /container -->
+
+    </div>  <!-- /segment-content -->
+
+
+
+</div>
+
+    </div>  <!-- /inner-wrapper -->
+            </div>  <!-- /row -->
+        </div>  <!-- /container -->
+
+    </div>  <!-- /segment-content -->
+
+
+<div id="segment-footer" class="segment">  <!-- segment-footer -->
+  <div class="container">  <!-- container -->
+   <div class="inner-wrapper">
+    <p>
+        US-Core &copy; FHIR STU3 (IG Publisher v1.8.0-10514) generated on Tue, Dec 6, 2016 16:45-0500. |
+             <!--  <a style="color: #81BEF7" rel="license" <!-- <href="../license.html"><img style="border-style: none;" alt="CC0" src="cc0.png"/></a> -->
+                <a style="color: #81BEF7" rel="license" href="http://hl7.org/fhir/2017Janlicense.html"><img style="border-style: none;" alt="CC0" src="cc0.png"/></a> 
+        </span>
+        </p>
+   </div>  <!-- /inner-wrapper -->
+  </div>  <!-- /container -->
+ </div>  <!-- /segment-footer -->
+  <!-- disqus thread -->
+  <!-- disqus -->
+  <!-- end disqus -->
+
+ <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+  <div class="container">  <!-- container -->
+  </div>  <!-- /container -->
+ </div>  <!-- /segment-post-footer -->
+
+</body>
+</html>
+

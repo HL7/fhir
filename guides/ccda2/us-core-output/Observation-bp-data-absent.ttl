@@ -1,0 +1,97 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix loinc: <http://loinc.org/owl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://hl7.org/fhir/us/core/Observation/bp-data-absent> a fhir:Observation;
+  fhir:nodeRole fhir:treeRoot;
+  fhir:Resource.id [ fhir:value "bp-data-absent"];
+  fhir:Resource.meta [
+     fhir:Meta.versionId [ fhir:value "1" ];
+     fhir:Meta.lastUpdated [ fhir:value "2016-03-19T16:48:35Z"^^xsd:dateTime ]
+  ];
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ];
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\">1999-07-02: Blood pressure 109/- mmHg (data absent reason: Unknown) </div>"
+  ];
+  fhir:Observation.status [ fhir:value "final"];
+  fhir:Observation.category [
+     fhir:index 0;
+     fhir:CodeableConcept.coding [
+       fhir:index 0;
+       fhir:Coding.system [ fhir:value "http://hl7.org/fhir/observation-category" ];
+       fhir:Coding.code [ fhir:value "vital-signs" ];
+       fhir:Coding.display [ fhir:value "Vital Signs" ]
+     ];
+     fhir:CodeableConcept.text [ fhir:value "Vital Signs" ]
+  ];
+  fhir:Observation.code [
+     fhir:CodeableConcept.coding [
+       fhir:index 0;
+       fhir:concept loinc:55284-4;
+       fhir:Coding.system [ fhir:value "http://loinc.org" ];
+       fhir:Coding.code [ fhir:value "55284-4" ];
+       fhir:Coding.display [ fhir:value "Blood pressure systolic and diastolic" ]
+     ];
+     fhir:CodeableConcept.text [ fhir:value "Blood pressure systolic and diastolic" ]
+  ];
+  fhir:Observation.subject [
+     fhir:link <http://hl7.org/fhir/us/core/Patient/example>;
+     fhir:Reference.reference [ fhir:value "Patient/example" ];
+     fhir:Reference.display [ fhir:value "Amy Shaw" ]
+  ];
+  fhir:Observation.encounter [
+     fhir:link <http://hl7.org/fhir/us/core/Encounter/691>;
+     fhir:Reference.reference [ fhir:value "Encounter/691" ]
+  ];
+  fhir:Observation.effectiveDateTime [ fhir:value "1999-07-02"^^xsd:date];
+  fhir:Observation.component [
+     fhir:index 0;
+     fhir:Observation.component.code [
+       fhir:CodeableConcept.coding [
+         fhir:index 0;
+         fhir:concept loinc:8480-6;
+         fhir:Coding.system [ fhir:value "http://loinc.org" ];
+         fhir:Coding.code [ fhir:value "8480-6" ];
+         fhir:Coding.display [ fhir:value "Systolic blood pressure" ]
+       ];
+       fhir:CodeableConcept.text [ fhir:value "Systolic blood pressure" ]
+     ];
+     fhir:Observation.component.valueQuantity [
+       fhir:Quantity.value [ fhir:value "109"^^xsd:decimal ];
+       fhir:Quantity.unit [ fhir:value "mmHg" ];
+       fhir:Quantity.system [ fhir:value "http://unitsofmeasure.org" ];
+       fhir:Quantity.code [ fhir:value "mm[Hg]" ]
+     ]
+  ], [
+     fhir:index 1;
+     fhir:Observation.component.code [
+       fhir:CodeableConcept.coding [
+         fhir:index 0;
+         fhir:concept loinc:8462-4;
+         fhir:Coding.system [ fhir:value "http://loinc.org" ];
+         fhir:Coding.code [ fhir:value "8462-4" ];
+         fhir:Coding.display [ fhir:value "Diastolic blood pressure" ]
+       ];
+       fhir:CodeableConcept.text [ fhir:value "Diastolic blood pressure" ]
+     ];
+     fhir:Observation.component.dataAbsentReason [
+       fhir:CodeableConcept.coding [
+         fhir:index 0;
+         fhir:Coding.system [ fhir:value "http://hl7.org/fhir/data-absent-reason" ];
+         fhir:Coding.code [ fhir:value "unknown" ];
+         fhir:Coding.display [ fhir:value "Unknown" ]
+       ];
+       fhir:CodeableConcept.text [ fhir:value "Unknown" ]
+     ]
+  ] .
+
+<http://hl7.org/fhir/us/core/Patient/example> a fhir:us .
+
+<http://hl7.org/fhir/us/core/Encounter/691> a fhir:us .
+
+# -------------------------------------------------------------------------------------
+

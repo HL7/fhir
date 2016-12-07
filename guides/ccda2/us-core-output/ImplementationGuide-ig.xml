@@ -1,0 +1,1214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ImplementationGuide xmlns="http://hl7.org/fhir">
+  <id value="ig"/>
+  <url value="http://hl7.org/fhir/us/core/ImplementationGuide/ig"/>
+  <name value="Implementation Guide Template"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <publisher value="FHIR Project"/>
+  <package>
+    <name value="base"/>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="Observation-weight.html"/>
+      </extension>
+      <example value="true"/>
+      <sourceReference>
+        <reference value="Observation/weight"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="Observation-vitals-panel.html"/>
+      </extension>
+      <example value="true"/>
+      <sourceReference>
+        <reference value="Observation/vitals-panel"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="Observation-usg.html"/>
+      </extension>
+      <example value="true"/>
+      <sourceReference>
+        <reference value="Observation/usg"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="Bundle-uscore-ms3.html"/>
+      </extension>
+      <example value="true"/>
+      <sourceReference>
+        <reference value="Bundle/uscore-ms3"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="MedicationStatement-uscore-ms2.html"/>
+      </extension>
+      <example value="true"/>
+      <sourceReference>
+        <reference value="MedicationStatement/uscore-ms2"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="MedicationStatement-uscore-ms1.html"/>
+      </extension>
+      <example value="true"/>
+      <sourceReference>
+        <reference value="MedicationStatement/uscore-ms1"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="Bundle-uscore-mo3.html"/>
+      </extension>
+      <example value="true"/>
+      <sourceReference>
+        <reference value="Bundle/uscore-mo3"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="MedicationRequest-uscore-mo2.html"/>
+      </extension>
+      <example value="true"/>
+      <sourceReference>
+        <reference value="MedicationRequest/uscore-mo2"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="MedicationRequest-uscore-mo1.html"/>
+      </extension>
+      <example value="true"/>
+      <sourceReference>
+        <reference value="MedicationRequest/uscore-mo1"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="Medication-uscore-med2.html"/>
+      </extension>
+      <example value="true"/>
+      <sourceReference>
+        <reference value="Medication/uscore-med2"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="Medication-uscore-med1.html"/>
+      </extension>
+      <example value="true"/>
+      <sourceReference>
+        <reference value="Medication/uscore-med1"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="Observation-urobilinogen.html"/>
+      </extension>
+      <example value="true"/>
+      <sourceReference>
+        <reference value="Observation/urobilinogen"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="Observation-urine-wbcs.html"/>
+      </extension>
+      <example value="true"/>
+      <sourceReference>
+        <reference value="Observation/urine-wbcs"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="Observation-urine-sediment.html"/>
+      </extension>
+      <example value="true"/>
+      <sourceReference>
+        <reference value="Observation/urine-sediment"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="Observation-urine-rbcs.html"/>
+      </extension>
+      <example value="true"/>
+      <sourceReference>
+        <reference value="Observation/urine-rbcs"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="Observation-urine-protein.html"/>
+      </extension>
+      <example value="true"/>
+      <sourceReference>
+        <reference value="Observation/urine-protein"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="Observation-urine-ph.html"/>
+      </extension>
+      <example value="true"/>
+      <sourceReference>
+        <reference value="Observation/urine-ph"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="Observation-urine-nitrite.html"/>
+      </extension>
+      <example value="true"/>
+      <sourceReference>
+        <reference value="Observation/urine-nitrite"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="Observation-urine-leukocyte-esterase.html"/>
+      </extension>
+      <example value="true"/>
+      <sourceReference>
+        <reference value="Observation/urine-leukocyte-esterase"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="Observation-urine-ketone.html"/>
+      </extension>
+      <example value="true"/>
+      <sourceReference>
+        <reference value="Observation/urine-ketone"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="Observation-urine-hemoglobin.html"/>
+      </extension>
+      <example value="true"/>
+      <sourceReference>
+        <reference value="Observation/urine-hemoglobin"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="Observation-urine-glucose.html"/>
+      </extension>
+      <example value="true"/>
+      <sourceReference>
+        <reference value="Observation/urine-glucose"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="Observation-urine-epi-cells.html"/>
+      </extension>
+      <example value="true"/>
+      <sourceReference>
+        <reference value="Observation/urine-epi-cells"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="Observation-urine-color.html"/>
+      </extension>
+      <example value="true"/>
+      <sourceReference>
+        <reference value="Observation/urine-color"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="Observation-urine-clarity.html"/>
+      </extension>
+      <example value="true"/>
+      <sourceReference>
+        <reference value="Observation/urine-clarity"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="Observation-urine-cells.html"/>
+      </extension>
+      <example value="true"/>
+      <sourceReference>
+        <reference value="Observation/urine-cells"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="Observation-urine-bilirubin.html"/>
+      </extension>
+      <example value="true"/>
+      <sourceReference>
+        <reference value="Observation/urine-bilirubin"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="Observation-urine-bacteria.html"/>
+      </extension>
+      <example value="true"/>
+      <sourceReference>
+        <reference value="Observation/urine-bacteria"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="DiagnosticReport-urinalysis.html"/>
+      </extension>
+      <example value="true"/>
+      <sourceReference>
+        <reference value="DiagnosticReport/urinalysis"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="Device-udi-1.html"/>
+      </extension>
+      <example value="true"/>
+      <sourceReference>
+        <reference value="Device/udi-1"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="Observation-temperature.html"/>
+      </extension>
+      <example value="true"/>
+      <sourceReference>
+        <reference value="Observation/temperature"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="Observation-some-day-smoker.html"/>
+      </extension>
+      <example value="true"/>
+      <sourceReference>
+        <reference value="Observation/some-day-smoker"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="Observation-serum-total-bilirubin.html"/>
+      </extension>
+      <example value="true"/>
+      <sourceReference>
+        <reference value="Observation/serum-total-bilirubin"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="Observation-serum-sodium.html"/>
+      </extension>
+      <example value="true"/>
+      <sourceReference>
+        <reference value="Observation/serum-sodium"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="Observation-serum-potassium.html"/>
+      </extension>
+      <example value="true"/>
+      <sourceReference>
+        <reference value="Observation/serum-potassium"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="Observation-serum-creatinine.html"/>
+      </extension>
+      <example value="true"/>
+      <sourceReference>
+        <reference value="Observation/serum-creatinine"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="Observation-serum-co2.html"/>
+      </extension>
+      <example value="true"/>
+      <sourceReference>
+        <reference value="Observation/serum-co2"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="Observation-serum-chloride.html"/>
+      </extension>
+      <example value="true"/>
+      <sourceReference>
+        <reference value="Observation/serum-chloride"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="Observation-serum-calcium.html"/>
+      </extension>
+      <example value="true"/>
+      <sourceReference>
+        <reference value="Observation/serum-calcium"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="Observation-respiratory-rate.html"/>
+      </extension>
+      <example value="true"/>
+      <sourceReference>
+        <reference value="Observation/respiratory-rate"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="Procedure-rehab.html"/>
+      </extension>
+      <example value="true"/>
+      <sourceReference>
+        <reference value="Procedure/rehab"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="Practitioner-practitioner-1.html"/>
+      </extension>
+      <example value="true"/>
+      <sourceReference>
+        <reference value="Practitioner/practitioner-1"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="Patient-example.html"/>
+      </extension>
+      <example value="true"/>
+      <sourceReference>
+        <reference value="Patient/example"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="Observation-oxygen-saturation.html"/>
+      </extension>
+      <example value="true"/>
+      <sourceReference>
+        <reference value="Observation/oxygen-saturation"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="Observation-neutrophils.html"/>
+      </extension>
+      <example value="true"/>
+      <sourceReference>
+        <reference value="Observation/neutrophils"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="DiagnosticReport-metabolic-panel.html"/>
+      </extension>
+      <example value="true"/>
+      <sourceReference>
+        <reference value="DiagnosticReport/metabolic-panel"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="Observation-mchc.html"/>
+      </extension>
+      <example value="true"/>
+      <sourceReference>
+        <reference value="Observation/mchc"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="Observation-length.html"/>
+      </extension>
+      <example value="true"/>
+      <sourceReference>
+        <reference value="Observation/length"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="Immunization-imm-1.html"/>
+      </extension>
+      <example value="true"/>
+      <sourceReference>
+        <reference value="Immunization/imm-1"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="Location-hl7east.html"/>
+      </extension>
+      <example value="true"/>
+      <sourceReference>
+        <reference value="Location/hl7east"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="Observation-hemoglobin.html"/>
+      </extension>
+      <example value="true"/>
+      <sourceReference>
+        <reference value="Observation/hemoglobin"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="Observation-height.html"/>
+      </extension>
+      <example value="true"/>
+      <sourceReference>
+        <reference value="Observation/height"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="Observation-heart-rate.html"/>
+      </extension>
+      <example value="true"/>
+      <sourceReference>
+        <reference value="Observation/heart-rate"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="Observation-head-circumference.html"/>
+      </extension>
+      <example value="true"/>
+      <sourceReference>
+        <reference value="Observation/head-circumference"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="Condition-hc1.html"/>
+      </extension>
+      <example value="true"/>
+      <sourceReference>
+        <reference value="Condition/hc1"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="Goal-goal-1.html"/>
+      </extension>
+      <example value="true"/>
+      <sourceReference>
+        <reference value="Goal/goal-1"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="Observation-erythrocytes.html"/>
+      </extension>
+      <example value="true"/>
+      <sourceReference>
+        <reference value="Observation/erythrocytes"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="Condition-example.html"/>
+      </extension>
+      <example value="true"/>
+      <sourceReference>
+        <reference value="Condition/example"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="Careplan-colonoscopy.html"/>
+      </extension>
+      <example value="true"/>
+      <sourceReference>
+        <reference value="CarePlan/colonoscopy"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="DiagnosticReport-cbc.html"/>
+      </extension>
+      <example value="true"/>
+      <sourceReference>
+        <reference value="DiagnosticReport/cbc"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="Careteam-example.html"/>
+      </extension>
+      <example value="true"/>
+      <sourceReference>
+        <reference value="CareTeam/example"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="Observation-BUN.html"/>
+      </extension>
+      <example value="true"/>
+      <sourceReference>
+        <reference value="Observation/BUN"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="Observation-bp-data-absent.html"/>
+      </extension>
+      <example value="true"/>
+      <sourceReference>
+        <reference value="Observation/bp-data-absent"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="Observation-bmi.html"/>
+      </extension>
+      <example value="true"/>
+      <sourceReference>
+        <reference value="Observation/bmi"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="Observation-blood-pressure.html"/>
+      </extension>
+      <example value="true"/>
+      <sourceReference>
+        <reference value="Observation/blood-pressure"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="Observation-blood-glucose.html"/>
+      </extension>
+      <example value="true"/>
+      <sourceReference>
+        <reference value="Observation/blood-glucose"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="AllergyIntolerance-example.html"/>
+      </extension>
+      <example value="true"/>
+      <sourceReference>
+        <reference value="AllergyIntolerance/example"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="Organization-acme-lab.html"/>
+      </extension>
+      <example value="true"/>
+      <sourceReference>
+        <reference value="Organization/acme-lab"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-us-core-ucum.html"/>
+      </extension>
+      <example value="false"/>
+      <sourceReference>
+        <reference value="ValueSet/us-core-ucum"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-us-core-substance.html"/>
+      </extension>
+      <example value="false"/>
+      <sourceReference>
+        <reference value="ValueSet/us-core-substance"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-us-core-substance-sct.html"/>
+      </extension>
+      <example value="false"/>
+      <sourceReference>
+        <reference value="ValueSet/us-core-substance-sct"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-us-core-substance-rxnorm.html"/>
+      </extension>
+      <example value="false"/>
+      <sourceReference>
+        <reference value="ValueSet/us-core-substance-rxnorm"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-us-core-substance-ndfrt.html"/>
+      </extension>
+      <example value="false"/>
+      <sourceReference>
+        <reference value="ValueSet/us-core-substance-ndfrt"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-us-core-provider-specialty.html"/>
+      </extension>
+      <example value="false"/>
+      <sourceReference>
+        <reference value="ValueSet/us-core-provider-specialty"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-us-core-provider-role.html"/>
+      </extension>
+      <example value="false"/>
+      <sourceReference>
+        <reference value="ValueSet/us-core-provider-role"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-us-core-procedure-type.html"/>
+      </extension>
+      <example value="false"/>
+      <sourceReference>
+        <reference value="ValueSet/us-core-procedure-type"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-us-core-procedure-icd10pcs.html"/>
+      </extension>
+      <example value="false"/>
+      <sourceReference>
+        <reference value="ValueSet/us-core-procedure-icd10pcs"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-us-core-problem.html"/>
+      </extension>
+      <example value="false"/>
+      <sourceReference>
+        <reference value="ValueSet/us-core-problem"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-us-core-observation-value-codes.html"/>
+      </extension>
+      <example value="false"/>
+      <sourceReference>
+        <reference value="ValueSet/us-core-observation-value-codes"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-us-core-observation-ccdavitalsignresult.html"/>
+      </extension>
+      <example value="false"/>
+      <sourceReference>
+        <reference value="ValueSet/us-core-observation-ccdavitalsignresult"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-us-core-observation-ccdasmokingstatus.html"/>
+      </extension>
+      <example value="false"/>
+      <sourceReference>
+        <reference value="ValueSet/us-core-observation-ccdasmokingstatus"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-us-core-ndc-vaccine-codes.html"/>
+      </extension>
+      <example value="false"/>
+      <sourceReference>
+        <reference value="ValueSet/us-core-ndc-vaccine-codes"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-us-core-narrative-status.html"/>
+      </extension>
+      <example value="false"/>
+      <sourceReference>
+        <reference value="ValueSet/us-core-narrative-status"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-us-core-medication-codes.html"/>
+      </extension>
+      <example value="false"/>
+      <sourceReference>
+        <reference value="ValueSet/us-core-medication-codes"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-us-core-immunization-status.html"/>
+      </extension>
+      <example value="false"/>
+      <sourceReference>
+        <reference value="ValueSet/us-core-immunization-status"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-us-core-cvx.html"/>
+      </extension>
+      <example value="false"/>
+      <sourceReference>
+        <reference value="ValueSet/us-core-cvx"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-us-core-condition-category.html"/>
+      </extension>
+      <example value="false"/>
+      <sourceReference>
+        <reference value="ValueSet/us-core-condition-category"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-us-core-careteam-status.html"/>
+      </extension>
+      <example value="false"/>
+      <sourceReference>
+        <reference value="ValueSet/us-core-careteam-status"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-us-core-careteam-provider-roles.html"/>
+      </extension>
+      <example value="false"/>
+      <sourceReference>
+        <reference value="ValueSet/us-core-careteam-provider-roles"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-us-core-birthsex.html"/>
+      </extension>
+      <example value="false"/>
+      <sourceReference>
+        <reference value="ValueSet/us-core-birthsex"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-omb-race.html"/>
+      </extension>
+      <example value="false"/>
+      <sourceReference>
+        <reference value="ValueSet/omb-race"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-omb-ethnicity.html"/>
+      </extension>
+      <example value="false"/>
+      <sourceReference>
+        <reference value="ValueSet/omb-ethnicity"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-detailed-race.html"/>
+      </extension>
+      <example value="false"/>
+      <sourceReference>
+        <reference value="ValueSet/detailed-race"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-detailed-ethnicity.html"/>
+      </extension>
+      <example value="false"/>
+      <sourceReference>
+        <reference value="ValueSet/detailed-ethnicity"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="SearchParameter-us-core-race.html"/>
+      </extension>
+      <example value="false"/>
+      <sourceReference>
+        <reference value="SearchParameter/us-core-race"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="SearchParameter-us-core-ethnicity.html"/>
+      </extension>
+      <example value="false"/>
+      <sourceReference>
+        <reference value="SearchParameter/us-core-ethnicity"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="CodeSystem-condition-category.html"/>
+      </extension>
+      <example value="false"/>
+      <sourceReference>
+        <reference value="CodeSystem/condition-category"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="CodeSystem-careteam-status.html"/>
+      </extension>
+      <example value="false"/>
+      <sourceReference>
+        <reference value="CodeSystem/careteam-status"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="CodeSystem-careplan-category.html"/>
+      </extension>
+      <example value="false"/>
+      <sourceReference>
+        <reference value="CodeSystem/careplan-category"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="CapabilityStatement-server.html"/>
+      </extension>
+      <example value="false"/>
+      <sourceReference>
+        <reference value="CapabilityStatement/server"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="CapabilityStatement-client.html"/>
+      </extension>
+      <example value="false"/>
+      <sourceReference>
+        <reference value="CapabilityStatement/client"/>
+      </sourceReference>
+    </resource>
+  </package>
+  <package>
+    <name value="U.S.  Core AllergyIntolerance Profile"/>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="StructureDefinition-us-core-allergyintolerance.html"/>
+      </extension>
+      <example value="false"/>
+      <name value="US Core Allergies Profile"/>
+      <sourceReference>
+        <reference value="StructureDefinition/us-core-allergyintolerance"/>
+      </sourceReference>
+    </resource>
+  </package>
+  <package>
+    <name value="U.S.  Core CarePlan Profile"/>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="StructureDefinition-us-core-careplan.html"/>
+      </extension>
+      <example value="false"/>
+      <name value="US Core CarePlan Profile"/>
+      <sourceReference>
+        <reference value="StructureDefinition/us-core-careplan"/>
+      </sourceReference>
+    </resource>
+  </package>
+  <package>
+    <name value="U.S.  Core CareTeam Profile"/>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="StructureDefinition-us-core-careteam.html"/>
+      </extension>
+      <example value="false"/>
+      <name value="US Core CareTeam Profile"/>
+      <sourceReference>
+        <reference value="StructureDefinition/us-core-careteam"/>
+      </sourceReference>
+    </resource>
+  </package>
+  <package>
+    <name value="U.S.  Core Condition (a.k.a Problem) Profile"/>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="StructureDefinition-us-core-condition.html"/>
+      </extension>
+      <example value="false"/>
+      <name value="US Core Condition Profile"/>
+      <sourceReference>
+        <reference value="StructureDefinition/us-core-condition"/>
+      </sourceReference>
+    </resource>
+  </package>
+  <package>
+    <name value="U.S.  Core Device Profile"/>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="StructureDefinition-us-core-device.html"/>
+      </extension>
+      <example value="false"/>
+      <name value="US Core Implanted Device Profile"/>
+      <sourceReference>
+        <reference value="StructureDefinition/us-core-device"/>
+      </sourceReference>
+    </resource>
+  </package>
+  <package>
+    <name value="U.S.  Core DiagnosticReport Profile"/>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="StructureDefinition-us-core-diagnosticreport.html"/>
+      </extension>
+      <example value="false"/>
+      <name value="US Core Diagnostic Report Profile"/>
+      <sourceReference>
+        <reference value="StructureDefinition/us-core-diagnosticreport"/>
+      </sourceReference>
+    </resource>
+  </package>
+  <package>
+    <name value="U.S.  Core Goal Profile"/>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="StructureDefinition-us-core-goal.html"/>
+      </extension>
+      <example value="false"/>
+      <name value="US Core Goal Profile"/>
+      <sourceReference>
+        <reference value="StructureDefinition/us-core-goal"/>
+      </sourceReference>
+    </resource>
+  </package>
+  <package>
+    <name value="U.S.  Core Immunization Profile"/>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="StructureDefinition-us-core-immunization.html"/>
+      </extension>
+      <example value="false"/>
+      <name value="US Core Immunization Profile"/>
+      <sourceReference>
+        <reference value="StructureDefinition/us-core-immunization"/>
+      </sourceReference>
+    </resource>
+  </package>
+  <package>
+    <name value="U.S.  Core Location Profile"/>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="StructureDefinition-us-core-location.html"/>
+      </extension>
+      <example value="false"/>
+      <name value="US Core Location Profile"/>
+      <sourceReference>
+        <reference value="StructureDefinition/us-core-location"/>
+      </sourceReference>
+    </resource>
+  </package>
+  <package>
+    <name value="U.S.  Core Medication Profile"/>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="StructureDefinition-us-core-medication.html"/>
+      </extension>
+      <example value="false"/>
+      <name value="US Core Medication Profile"/>
+      <sourceReference>
+        <reference value="StructureDefinition/us-core-medication"/>
+      </sourceReference>
+    </resource>
+  </package>
+  <package>
+    <name value="U.S.  Core MedicationRequest Profile"/>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="StructureDefinition-us-core-medicationrequest.html"/>
+      </extension>
+      <example value="false"/>
+      <name value="US Core Medication Request Profile"/>
+      <sourceReference>
+        <reference value="StructureDefinition/us-core-medicationrequest"/>
+      </sourceReference>
+    </resource>
+  </package>
+  <package>
+    <name value="U.S.  Core MedicationStatement Profile"/>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="StructureDefinition-us-core-medicationstatement.html"/>
+      </extension>
+      <example value="false"/>
+      <name value="US Core Medication Statement Profile"/>
+      <sourceReference>
+        <reference value="StructureDefinition/us-core-medicationstatement"/>
+      </sourceReference>
+    </resource>
+  </package>
+  <package>
+    <name value="U.S.  Core Results Profile"/>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="StructureDefinition-us-core-observationresults.html"/>
+      </extension>
+      <example value="false"/>
+      <name value="US Core Result Observation"/>
+      <sourceReference>
+        <reference value="StructureDefinition/us-core-observationresults"/>
+      </sourceReference>
+    </resource>
+  </package>
+  <package>
+    <name value="U.S.  Core Smoking Status Profile"/>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="StructureDefinition-us-core-smokingstatus.html"/>
+      </extension>
+      <example value="false"/>
+      <name value="US Core Smoking Status Observation Profile"/>
+      <sourceReference>
+        <reference value="StructureDefinition/us-core-smokingstatus"/>
+      </sourceReference>
+    </resource>
+  </package>
+  <package>
+    <name value="U.S.  Core Vital Signs Profile"/>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="StructureDefinition-us-core-vitalsigns.html"/>
+      </extension>
+      <example value="false"/>
+      <name value="US Core Vital Signs Profile"/>
+      <sourceReference>
+        <reference value="StructureDefinition/us-core-vitalsigns"/>
+      </sourceReference>
+    </resource>
+  </package>
+  <package>
+    <name value="U.S. US Core Organization Core Profile"/>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="StructureDefinition-us-core-organization.html"/>
+      </extension>
+      <example value="false"/>
+      <name value="US Core Organization Profile"/>
+      <sourceReference>
+        <reference value="StructureDefinition/us-core-organization"/>
+      </sourceReference>
+    </resource>
+  </package>
+  <package>
+    <name value="U.S.  Core Patient Profile"/>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="StructureDefinition-us-core-direct.html"/>
+      </extension>
+      <example value="false"/>
+      <name value="Email is a &quot;direct&quot; email"/>
+      <sourceReference>
+        <reference value="StructureDefinition/us-core-direct"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="StructureDefinition-us-core-birthsex.html"/>
+      </extension>
+      <example value="false"/>
+      <name value="US Core Birth Sex Extension"/>
+      <sourceReference>
+        <reference value="StructureDefinition/us-core-birthsex"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="StructureDefinition-us-core-race.html"/>
+      </extension>
+      <example value="false"/>
+      <name value="US Core Race Extension"/>
+      <sourceReference>
+        <reference value="StructureDefinition/us-core-race"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="StructureDefinition-us-core-ethnicity.html"/>
+      </extension>
+      <example value="false"/>
+      <name value="US Core ethnicity Extension"/>
+      <sourceReference>
+        <reference value="StructureDefinition/us-core-ethnicity"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="StructureDefinition-us-core-patient.html"/>
+      </extension>
+      <example value="false"/>
+      <name value="US Core Patient Profile"/>
+      <sourceReference>
+        <reference value="StructureDefinition/us-core-patient"/>
+      </sourceReference>
+    </resource>
+  </package>
+  <package>
+    <name value="U.S.  Core Practitioner Profile"/>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="StructureDefinition-us-core-pract.html"/>
+      </extension>
+      <example value="false"/>
+      <name value="US Core Practitioner"/>
+      <sourceReference>
+        <reference value="StructureDefinition/us-core-pract"/>
+      </sourceReference>
+    </resource>
+  </package>
+  <package>
+    <name value="U.S.  Core Procedure Profile"/>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="StructureDefinition-us-core-procedure.html"/>
+      </extension>
+      <example value="false"/>
+      <name value="US Core Procedure Profile"/>
+      <sourceReference>
+        <reference value="StructureDefinition/us-core-procedure"/>
+      </sourceReference>
+    </resource>
+  </package>
+  <page>
+    <source value="index.html"/>
+    <title value="blah"/>
+    <kind value="page"/>
+  </page>
+</ImplementationGuide>

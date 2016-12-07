@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Immunization xmlns="http://hl7.org/fhir">
+  <id value="imm-1"/>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: imm-1</p><p><b>status</b>: completed</p><p><b>date</b>: Jan 8, 2016</p><p><b>vaccineCode</b>: influenza, injectable, quadrivalent <span style="background: LightGoldenRodYellow">(Details : {http://hl7.org/fhir/sid/cvx code '158' = 'influenza, injectable, quadrivalent', given as 'influenza, injectable, quadrivalent'}; {http://hl7.org/fhir/sid/ndc code '49281-0623-78' = '49281-0623-78', given as 'FLUZONE QUADRIVALENT'})</span></p><p><b>patient</b>: <a href="Patient-example.html">Amy Shaw. Generated Summary: id: example; Medical Record Number = 1032702 (USUAL); active; Amy V. Shaw ; ph: 555-555-5555(HOME), amy.shaw@example.com; gender: null; birthDate: Feb 20, 2007</a></p><p><b>wasNotGiven</b>: false</p><p><b>primarySource</b>: false</p></div>
+  </text>
+  <status value="completed"/>
+  <date value="2016-01-08"/>
+  <vaccineCode>
+    <coding>
+      <system value="http://hl7.org/fhir/sid/cvx"/>
+      <code value="158"/>
+      <display value="influenza, injectable, quadrivalent"/>
+    </coding>
+    <coding>
+      <system value="http://hl7.org/fhir/sid/ndc"/>
+      <code value="49281-0623-78"/>
+      <display value="FLUZONE QUADRIVALENT"/>
+    </coding>
+  </vaccineCode>
+  <patient>
+    <reference value="Patient/example"/>
+    <display value="Amy Shaw"/>
+  </patient>
+  <wasNotGiven value="false"/>
+  <primarySource value="false"/>
+</Immunization>

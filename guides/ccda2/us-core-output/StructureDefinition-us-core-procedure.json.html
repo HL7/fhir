@@ -1,0 +1,1908 @@
+<!DOCTYPE HTML>
+
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+   <meta charset="UTF-8"/>
+  <title></title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="US Core Implemenation Guide" />
+<meta name="author" content="http://www.hl7.org"/>
+
+  <link href="fhir.css" rel="stylesheet"/>
+
+   <!-- Bootstrap core CSS -->
+  <link href="dist/css/bootstrap.css" rel="stylesheet"/>
+  <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+  <!-- Project extras -->
+  <link href="assets/css/project.css" rel="stylesheet"/>
+  <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+	<link href="jquery-ui.css" rel="stylesheet"/>
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png"/>
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png"/>
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png"/>
+  <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png"/>
+  <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+
+
+<body>
+
+ <div id="segment-header" class="segment">  <!-- segment-header -->
+  <div class="container">  <!-- container -->
+   <a id="logo" no-external="true" href="http://hl7.org/fhir"><img alt="logo fhir" src="assets/images/fhir-logo-www.png"/> </a>
+   <div id="hl7-status">
+    <b>US-Core CI Build</b>
+   </div>
+
+   <div id="hl7-nav">
+     <a id="hl7-logo" no-external="true" href="http://www.hl7.org">
+     <img height="50" alt="visit the hl7 website" width="42" src="assets/images/hl7-logo.png"/>
+    </a>
+   </div>
+   <div id="hl7-nav"><a id="hl7-logo" no-external="true" href="http://hl7.org/fhir/search.cfm"><img height="50"  alt="US-Core" src="assets/images/usbanner.png"/></a></div>
+  </div>
+  <div class="container">  <!-- container -->
+ </div></div>  <!-- /segment-header -->
+
+ <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+  <div id="stripe"> </div>
+  <div class="container">  <!-- container -->
+   <!-- HEADER CONTENT -->
+
+   <nav class="navbar navbar-inverse">
+    <div class="container">
+     <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+      <span class="icon-bar"> </span>
+      <span class="icon-bar"> </span>
+      <span class="icon-bar"> </span>
+     </button>
+     <a class="navbar-brand hidden" href="http://hl7.org/fhir/2017Janindex.html">FHIR</a>
+     <div class="nav-collapse collapse navbar-inverse-collapse">
+      <ul class="nav navbar-nav">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="definitions.html">General Guidance</a></li>
+              <li><a href="profiles.html">US Core Profiles</a></li>
+              <li><a href="extensions.html">Extensions</a></li>
+              <li><a href="valuesets.html">Value Sets</a></li>
+              <li><a href="searchparams.html">Search Parameters</a></li>
+              <li><a href="capstmnts.html">Capability Statements</a></li>
+              <li><a href="security.html">Security</a></li>
+              <li><a href="downloads.html">Downloads</a></li>
+            </ul>
+
+     </div>  <!-- /.nav-collapse -->
+    </div>  <!-- /.container -->
+   </nav>  <!-- /.navbar -->
+
+  <!-- /HEADER CONTENT -->
+  </div>  <!-- /container -->
+ </div>  <!-- /segment-navbar -->
+
+
+
+
+
+  </div>  <!-- /container -->
+ </div>  <!-- /segment-breadcrumb -->
+
+ <div id="segment-content" class="segment">  <!-- segment-content -->
+ <div class="container">  <!-- container -->
+            <div class="row">
+             <div class="inner-wrapper">
+
+
+<div class="col-9">
+
+  <!-- ============CONTENT CONTENT=============== -->
+
+<h2>US Core Procedure Profile</h2>
+
+<pre class="json">
+{
+  "<a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition">resourceType</a>" : "StructureDefinition",
+  "<a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.id">id</a>" : "us-core-procedure",
+  "<a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.text">text</a>" : {
+    "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#Narrative#Narrative.status">status</a>" : "generated",
+    "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#Narrative#Narrative.div">div</a>" : "&lt;div xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;&lt;p&gt;&lt;b&gt;Generated Narrative with Details&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;url&lt;/b&gt;: &lt;a href=&quot;http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure&quot;&gt;http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;name&lt;/b&gt;: US Core Procedure Profile&lt;/p&gt;&lt;p&gt;&lt;b&gt;status&lt;/b&gt;: DRAFT&lt;/p&gt;&lt;p&gt;&lt;b&gt;date&lt;/b&gt;: Aug 1, 2016&lt;/p&gt;&lt;p&gt;&lt;b&gt;publisher&lt;/b&gt;: Health Level Seven International (FHIR-Infrastructure)&lt;/p&gt;&lt;p&gt;&lt;b&gt;contact&lt;/b&gt;: &lt;/p&gt;&lt;p&gt;&lt;b&gt;url&lt;/b&gt;: &lt;a href=&quot;http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure&quot;&gt;http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;name&lt;/b&gt;: US Core Procedure Profile&lt;/p&gt;&lt;p&gt;&lt;b&gt;status&lt;/b&gt;: DRAFT&lt;/p&gt;&lt;p&gt;&lt;b&gt;publisher&lt;/b&gt;: Health Level Seven International (FHIR-Infrastructure)&lt;/p&gt;&lt;p&gt;&lt;b&gt;contact&lt;/b&gt;: &lt;/p&gt;&lt;p&gt;&lt;b&gt;date&lt;/b&gt;: Aug 1, 2016&lt;/p&gt;&lt;blockquote&gt;&lt;p&gt;&lt;b&gt;mapping&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;identity&lt;/b&gt;: rim&lt;/p&gt;&lt;p&gt;&lt;b&gt;uri&lt;/b&gt;: &lt;a href=&quot;http://hl7.org/v3&quot;&gt;http://hl7.org/v3&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;name&lt;/b&gt;: RIM Mapping&lt;/p&gt;&lt;/blockquote&gt;&lt;blockquote&gt;&lt;p&gt;&lt;b&gt;mapping&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;identity&lt;/b&gt;: w5&lt;/p&gt;&lt;p&gt;&lt;b&gt;uri&lt;/b&gt;: &lt;a href=&quot;http://hl7.org/fhir/w5&quot;&gt;http://hl7.org/fhir/w5&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;name&lt;/b&gt;: W5 Mapping&lt;/p&gt;&lt;/blockquote&gt;&lt;blockquote&gt;&lt;p&gt;&lt;b&gt;mapping&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;identity&lt;/b&gt;: v2&lt;/p&gt;&lt;p&gt;&lt;b&gt;uri&lt;/b&gt;: &lt;a href=&quot;http://hl7.org/v2&quot;&gt;http://hl7.org/v2&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;name&lt;/b&gt;: HL7 v2 Mapping&lt;/p&gt;&lt;/blockquote&gt;&lt;p&gt;&lt;b&gt;kind&lt;/b&gt;: RESOURCE&lt;/p&gt;&lt;p&gt;&lt;b&gt;abstract&lt;/b&gt;: false&lt;/p&gt;&lt;p&gt;&lt;b&gt;type&lt;/b&gt;: Procedure&lt;/p&gt;&lt;p&gt;&lt;b&gt;baseDefinition&lt;/b&gt;: &lt;a href=&quot;http://hl7.org/fhir/StructureDefinition/Procedure&quot;&gt;http://hl7.org/fhir/StructureDefinition/Procedure&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;derivation&lt;/b&gt;: CONSTRAINT&lt;/p&gt;&lt;h3&gt;Snapshots&lt;/h3&gt;&lt;table class=&quot;grid&quot;&gt;&lt;tr&gt;&lt;td&gt;-&lt;/td&gt;&lt;td&gt;&lt;b&gt;Element&lt;/b&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;*&lt;/td&gt;&lt;td&gt;todo-bundle&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;h3&gt;Differentials&lt;/h3&gt;&lt;table class=&quot;grid&quot;&gt;&lt;tr&gt;&lt;td&gt;-&lt;/td&gt;&lt;td&gt;&lt;b&gt;Element&lt;/b&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;*&lt;/td&gt;&lt;td&gt;todo-bundle&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;"
+  },
+  "<a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.url">url</a>" : "http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure",
+  "<a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.name">name</a>" : "US Core Procedure Profile",
+  "<a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.status">status</a>" : "draft",
+  "<a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.publisher">publisher</a>" : "Health Level Seven International (FHIR-Infrastructure)",
+  "<a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.contact">contact</a>" : [
+    {
+      "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ContactDetail#ContactDetail.telecom">telecom</a>" : [
+        {
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ContactPoint#ContactPoint.system">system</a>" : "url",
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ContactPoint#ContactPoint.value">value</a>" : "http://www.healthit.gov"
+        }
+      ]
+    }
+  ],
+  "<a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.date">date</a>" : "2016-08-01",
+  "<a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.mapping">mapping</a>" : [
+    {
+      "<a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.mapping.identity">identity</a>" : "rim",
+      "<a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.mapping.uri">uri</a>" : "http://hl7.org/v3",
+      "<a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.mapping.name">name</a>" : "RIM Mapping"
+    },
+    {
+      "<a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.mapping.identity">identity</a>" : "w5",
+      "<a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.mapping.uri">uri</a>" : "http://hl7.org/fhir/w5",
+      "<a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.mapping.name">name</a>" : "W5 Mapping"
+    },
+    {
+      "<a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.mapping.identity">identity</a>" : "v2",
+      "<a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.mapping.uri">uri</a>" : "http://hl7.org/v2",
+      "<a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.mapping.name">name</a>" : "HL7 v2 Mapping"
+    }
+  ],
+  "<a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.kind">kind</a>" : "resource",
+  "<a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.abstract">abstract</a>" : false,
+  "<a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.type">type</a>" : "Procedure",
+  "<a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.baseDefinition">baseDefinition</a>" : "http://hl7.org/fhir/StructureDefinition/Procedure",
+  "<a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.derivation">derivation</a>" : "constraint",
+  "<a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.snapshot">snapshot</a>" : {
+    "<a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.snapshot.element">element</a>" : [
+      {
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "Procedure:uscoreprocedure",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "Procedure",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.sliceName">sliceName</a>" : "USCoreProcedure",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.short">short</a>" : "US Core Procedure Profile",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>" : "The US Core Condition Profile is based upon the core FHIR Procedure Resource and created to meet the 2015 Edition Common Clinical Data Set 'Procedures' requirements.",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">min</a>" : 0,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">max</a>" : "*",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>" : {
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a>" : "Procedure",
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a>" : 0,
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a>" : "*"
+        },
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.constraint">constraint</a>" : [
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.constraint.key">key</a>" : "dom-2",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.constraint.severity">severity</a>" : "error",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.constraint.human">human</a>" : "If the resource is contained in another resource, it SHALL NOT contain nested Resources",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.constraint.expression">expression</a>" : "contained.contained.empty()",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.constraint.xpath">xpath</a>" : "not(parent::f:contained and f:contained)",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.constraint.source">source</a>" : "DomainResource"
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.constraint.key">key</a>" : "dom-1",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.constraint.severity">severity</a>" : "error",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.constraint.human">human</a>" : "If the resource is contained in another resource, it SHALL NOT contain any narrative",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.constraint.expression">expression</a>" : "contained.text.empty()",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.constraint.xpath">xpath</a>" : "not(parent::f:contained and f:text)",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.constraint.source">source</a>" : "DomainResource"
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.constraint.key">key</a>" : "dom-4",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.constraint.severity">severity</a>" : "error",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.constraint.human">human</a>" : "If a resource is contained in another resource, it SHALL NOT have a meta.versionId or a meta.lastUpdated",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.constraint.expression">expression</a>" : "contained.meta.versionId.empty() and contained.meta.lastUpdated.empty()",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.constraint.xpath">xpath</a>" : "not(exists(f:contained/*/f:meta/f:versionId)) and not(exists(f:contained/*/f:meta/f:lastUpdated))",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.constraint.source">source</a>" : "DomainResource"
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.constraint.key">key</a>" : "dom-3",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.constraint.severity">severity</a>" : "error",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.constraint.human">human</a>" : "If the resource is contained in another resource, it SHALL be referred to from elsewhere in the resource",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.constraint.expression">expression</a>" : "contained.where(('#'+id in %resource.descendants().reference).not()).empty()",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.constraint.xpath">xpath</a>" : "not(exists(for $id in f:contained/*/@id return $id[not(ancestor::f:contained/parent::*/descendant::f:reference/@value=concat('#', $id))]))",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.constraint.source">source</a>" : "DomainResource"
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.constraint.key">key</a>" : "pro-1",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.constraint.severity">severity</a>" : "error",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.constraint.human">human</a>" : "Reason not performed is only permitted if notPerformed indicator is true",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.constraint.expression">expression</a>" : "reasonNotPerformed.empty() or notPerformed = true",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.constraint.xpath">xpath</a>" : "not(exists(f:reasonNotPerformed)) or f:notPerformed/@value=true()",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.constraint.source">source</a>" : "Procedure"
+          }
+        ],
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mustSupport">mustSupport</a>" : false,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.isSummary">isSummary</a>" : false,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping">mapping</a>" : [
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "rim",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : "Entity. Role, or Act"
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "rim",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : "Procedure[moodCode=EVN]"
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "w5",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : "clinical.general"
+          }
+        ]
+      },
+      {
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "Procedure:uscoreprocedure.id",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "Procedure.id",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.short">short</a>" : "Logical id of this artifact",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>" : "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.comments">comments</a>" : "The only time that a resource does not have an id is when it is being submitted to the server using a create operation.",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">min</a>" : 0,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">max</a>" : "1",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>" : {
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a>" : "Resource.id",
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a>" : 0,
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a>" : "1"
+        },
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>" : [
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "id"
+          }
+        ],
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.isSummary">isSummary</a>" : true
+      },
+      {
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "Procedure:uscoreprocedure.meta",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "Procedure.meta",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.short">short</a>" : "Metadata about the resource",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>" : "The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content may not always be associated with version changes to the resource.",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">min</a>" : 0,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">max</a>" : "1",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>" : {
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a>" : "Resource.meta",
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a>" : 0,
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a>" : "1"
+        },
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>" : [
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "Meta"
+          }
+        ],
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.isSummary">isSummary</a>" : true
+      },
+      {
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "Procedure:uscoreprocedure.implicitRules",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "Procedure.implicitRules",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.short">short</a>" : "A set of rules under which this content was created",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>" : "A reference to a set of rules that were followed when the resource was constructed, and which must be understood when processing the content.",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.comments">comments</a>" : "Asserting this rule set restricts the content to be only understood by a limited set of trading partners. This inherently limits the usefulness of the data in the long term. However, the existing health eco-system is highly fractured, and not yet ready to define, collect, and exchange data in a generally computable sense. Wherever possible, implementers and/or specification writers should avoid using this element as much as possible.",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">min</a>" : 0,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">max</a>" : "1",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>" : {
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a>" : "Resource.implicitRules",
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a>" : 0,
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a>" : "1"
+        },
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>" : [
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "uri"
+          }
+        ],
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.isModifier">isModifier</a>" : true,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.isSummary">isSummary</a>" : true
+      },
+      {
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "Procedure:uscoreprocedure.language",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "Procedure.language",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.short">short</a>" : "Language of the resource content",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>" : "The base language in which the resource is written.",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.comments">comments</a>" : "Language is provided to support indexing and accessibility (typically, services such as text to speech use the language tag). The html language tag in the narrative applies  to the narrative. The language tag on the resource may be used to specify the language of other presentations generated from the data in the resource  Not all the content has to be in the base language. The Resource.language should not be assumed to apply to the narrative automatically. If a language is specified, it should it also be specified on the div element in the html (see rules in HTML5 for information about the relationship between xml:lang and the html lang attribute).",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">min</a>" : 0,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">max</a>" : "1",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>" : {
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a>" : "Resource.language",
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a>" : 0,
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a>" : "1"
+        },
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>" : [
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "code"
+          }
+        ],
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding">binding</a>" : {
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding.extension">extension</a>" : [
+            {
+              "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#Extension#Extension.url">url</a>" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet",
+              "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#Extension#Extension.value[x]">valueReference</a>" : {
+                "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#Reference#Reference.reference">reference</a>" : "http://hl7.org/fhir/ValueSet/all-languages"
+              }
+            }
+          ],
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding.strength">strength</a>" : "extensible",
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding.description">description</a>" : "A human language.",
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding.valueSet[x]">valueSetReference</a>" : {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#Reference#Reference.reference">reference</a>" : "http://hl7.org/fhir/ValueSet/languages"
+          }
+        }
+      },
+      {
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "Procedure:uscoreprocedure.text",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "Procedure.text",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.short">short</a>" : "Text summary of the resource, for human interpretation",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>" : "A human-readable narrative that contains a summary of the resource, and may be used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative. Resource definitions may define what content should be represented in the narrative to ensure clinical safety.",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.comments">comments</a>" : "Contained resources do not have narrative. Resources that are not contained SHOULD have a narrative. In some cases, a resource may only have text with little or no additional discrete data (as long as all minOccurs=1 elements are satisfied).  This may be necessary for data from legacy systems where information is captured as a &quot;text blob&quot; or where text is additionally entered raw or narrated and encoded in formation is added later.",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.alias">alias</a>" : [
+          "narrative",
+          "html",
+          "xhtml",
+          "display"
+        ],
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">min</a>" : 0,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">max</a>" : "1",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>" : {
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a>" : "DomainResource.text",
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a>" : 0,
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a>" : "1"
+        },
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>" : [
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "Narrative"
+          }
+        ],
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.condition">condition</a>" : [
+          "dom-1"
+        ],
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping">mapping</a>" : [
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "rim",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : "Act.text?"
+          }
+        ]
+      },
+      {
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "Procedure:uscoreprocedure.contained",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "Procedure.contained",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.short">short</a>" : "Contained, inline Resources",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>" : "These resources do not have an independent existence apart from the resource that contains them - they cannot be identified independently, and nor can they have their own independent transaction scope.",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.comments">comments</a>" : "This should never be done when the content can be identified properly, as once identification is lost, it is extremely difficult (and context dependent) to restore it again.",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.alias">alias</a>" : [
+          "inline resources",
+          "anonymous resources",
+          "contained resources"
+        ],
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">min</a>" : 0,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">max</a>" : "*",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>" : {
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a>" : "DomainResource.contained",
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a>" : 0,
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a>" : "*"
+        },
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>" : [
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "Resource"
+          }
+        ],
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping">mapping</a>" : [
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "rim",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : "N/A"
+          }
+        ]
+      },
+      {
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "Procedure:uscoreprocedure.extension",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "Procedure.extension",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.short">short</a>" : "Additional Content defined by implementations",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>" : "May be used to represent additional information that is not part of the basic definition of the resource. In order to make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.comments">comments</a>" : "There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.alias">alias</a>" : [
+          "extensions",
+          "user content"
+        ],
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">min</a>" : 0,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">max</a>" : "*",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>" : {
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a>" : "DomainResource.extension",
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a>" : 0,
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a>" : "*"
+        },
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>" : [
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "Extension"
+          }
+        ],
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping">mapping</a>" : [
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "rim",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : "N/A"
+          }
+        ]
+      },
+      {
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "Procedure:uscoreprocedure.modifierExtension",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "Procedure.modifierExtension",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.short">short</a>" : "Extensions that cannot be ignored",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>" : "May be used to represent additional information that is not part of the basic definition of the resource, and that modifies the understanding of the element that contains it. Usually modifier elements provide negation or qualification. In order to make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.comments">comments</a>" : "There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.alias">alias</a>" : [
+          "extensions",
+          "user content"
+        ],
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">min</a>" : 0,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">max</a>" : "*",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>" : {
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a>" : "DomainResource.modifierExtension",
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a>" : 0,
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a>" : "*"
+        },
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>" : [
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "Extension"
+          }
+        ],
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.isModifier">isModifier</a>" : true,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping">mapping</a>" : [
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "rim",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : "N/A"
+          }
+        ]
+      },
+      {
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "Procedure:uscoreprocedure.identifier",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "Procedure.identifier",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.short">short</a>" : "External Identifiers for this procedure",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>" : "This records identifiers associated with this procedure that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.requirements">requirements</a>" : "Need to allow connection to a wider workflow.",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">min</a>" : 0,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">max</a>" : "*",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>" : {
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a>" : "Procedure.identifier",
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a>" : 0,
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a>" : "*"
+        },
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>" : [
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "Identifier"
+          }
+        ],
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.isSummary">isSummary</a>" : true,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping">mapping</a>" : [
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "v2",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : "Some combination of ORC-2 / ORC-3 / OBR-2 / OBR-3 / IPC-1 / IPC-2 / IPC-3 / IPC-4"
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "rim",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : ".id"
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "w5",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : "id"
+          }
+        ]
+      },
+      {
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "Procedure:uscoreprocedure.status",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "Procedure.status",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.short">short</a>" : "in-progress | aborted | completed | entered-in-error | unknown",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>" : "A code specifying the state of the procedure. Generally this will be in-progress or completed state.",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.comments">comments</a>" : "The unknown code is not to be used to convey other statuses.  The unknown code should be used when one of the statuses applies, but the authoring system doesn't know the current state of the procedure.",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">min</a>" : 1,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">max</a>" : "1",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>" : {
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a>" : "Procedure.status",
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a>" : 1,
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a>" : "1"
+        },
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>" : [
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "code"
+          }
+        ],
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mustSupport">mustSupport</a>" : true,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.isModifier">isModifier</a>" : true,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.isSummary">isSummary</a>" : false,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding">binding</a>" : {
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding.strength">strength</a>" : "required",
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding.valueSet[x]">valueSetReference</a>" : {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#Reference#Reference.reference">reference</a>" : "http://hl7.org/fhir/ValueSet/procedure-status"
+          }
+        },
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping">mapping</a>" : [
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "w5",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : "status"
+          }
+        ]
+      },
+      {
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "Procedure:uscoreprocedure.category",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "Procedure.category",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.short">short</a>" : "Classification of the procedure",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>" : "A code that classifies the procedure for searching, sorting and display purposes (e.g. &quot;Surgical Procedure&quot;).",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">min</a>" : 0,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">max</a>" : "1",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>" : {
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a>" : "Procedure.category",
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a>" : 0,
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a>" : "1"
+        },
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>" : [
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "CodeableConcept"
+          }
+        ],
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.isSummary">isSummary</a>" : true,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding">binding</a>" : {
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding.strength">strength</a>" : "example",
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding.description">description</a>" : "A code that classifies a procedure for searching, sorting and display purposes.",
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding.valueSet[x]">valueSetReference</a>" : {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#Reference#Reference.reference">reference</a>" : "http://hl7.org/fhir/ValueSet/procedure-category"
+          }
+        },
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping">mapping</a>" : [
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "rim",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : ".outboundRelationship[typeCode=&quot;COMP].target[classCode=&quot;LIST&quot;, moodCode=&quot;EVN&quot;].code"
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "w5",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : "class"
+          }
+        ]
+      },
+      {
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "Procedure:uscoreprocedure.code",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "Procedure.code",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.short">short</a>" : "SNOMED-CT | ICD-10 | CPT-4",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>" : "The specific procedure that is performed. Use text if the exact nature of the procedure cannot be coded (e.g. &quot;Laparoscopic Appendectomy&quot;).",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">min</a>" : 1,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">max</a>" : "1",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>" : {
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a>" : "Procedure.code",
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a>" : 1,
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a>" : "1"
+        },
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>" : [
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "CodeableConcept"
+          }
+        ],
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mustSupport">mustSupport</a>" : true,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.isSummary">isSummary</a>" : false,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding">binding</a>" : {
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding.strength">strength</a>" : "example",
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding.description">description</a>" : "A code to identify a specific procedure .",
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding.valueSet[x]">valueSetReference</a>" : {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#Reference#Reference.reference">reference</a>" : "http://hl7.org/fhir/ValueSet/procedure-code"
+          }
+        },
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping">mapping</a>" : [
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "v2",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : "OBR-44/OBR-45"
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "rim",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : ".code"
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "w5",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : "what"
+          }
+        ]
+      },
+      {
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "Procedure:uscoreprocedure.code.id",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "Procedure.code.id",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.representation">representation</a>" : [
+          "xmlAttr"
+        ],
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.short">short</a>" : "xml:id (or equivalent in JSON)",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>" : "unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">min</a>" : 0,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">max</a>" : "1",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>" : {
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a>" : "Element.id",
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a>" : 0,
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a>" : "1"
+        },
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>" : [
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "string"
+          }
+        ],
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping">mapping</a>" : [
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "rim",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : "n/a"
+          }
+        ]
+      },
+      {
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "Procedure:uscoreprocedure.code.extension",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "Procedure.code.extension",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.short">short</a>" : "Additional Content defined by implementations",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>" : "May be used to represent additional information that is not part of the basic definition of the element. In order to make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.comments">comments</a>" : "There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.alias">alias</a>" : [
+          "extensions",
+          "user content"
+        ],
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">min</a>" : 0,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">max</a>" : "*",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>" : {
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a>" : "Element.extension",
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a>" : 0,
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a>" : "*"
+        },
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>" : [
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "Extension"
+          }
+        ],
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping">mapping</a>" : [
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "rim",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : "n/a"
+          }
+        ]
+      },
+      {
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "Procedure:uscoreprocedure.code.coding",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "Procedure.code.coding",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.slicing">slicing</a>" : {
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.slicing.discriminator">discriminator</a>" : [
+            "code"
+          ],
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.slicing.rules">rules</a>" : "open"
+        },
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.short">short</a>" : "Code defined by a terminology system",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>" : "A reference to a code defined by a terminology system.",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.comments">comments</a>" : "Codes may be defined very casually in enumerations, or code lists, up to very formal definitions such as SNOMED CT - see the HL7 v3 Core Principles for more information.  Ordering of codings is undefined and SHALL NOT be used to infer meaning. Generally, at most only one of the coding values will be labelled as UserSelected = true.",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.requirements">requirements</a>" : "Allows for translations and alternate encodings within a code system.  Also supports communication of the same instance to systems requiring different encodings.",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">min</a>" : 0,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">max</a>" : "*",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>" : {
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a>" : "CodeableConcept.coding",
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a>" : 0,
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a>" : "*"
+        },
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>" : [
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "Coding"
+          }
+        ],
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.isSummary">isSummary</a>" : true,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping">mapping</a>" : [
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "v2",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : "C*E.1-8, C*E.10-22"
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "rim",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : "union(., ./translation)"
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "orim",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : "fhir:CodeableConcept.coding rdfs:subPropertyOf dt:CD.coding"
+          }
+        ]
+      },
+      {
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "Procedure:uscoreprocedure.code.coding:uscoreprocedurecode",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "Procedure.code.coding",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.sliceName">sliceName</a>" : "USCoreProcedureCode",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.short">short</a>" : "Code defined by a terminology system",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>" : "A reference to a code defined by a terminology system.",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.comments">comments</a>" : "Codes may be defined very casually in enumerations, or code lists, up to very formal definitions such as SNOMED CT - see the HL7 v3 Core Principles for more information.  Ordering of codings is undefined and SHALL NOT be used to infer meaning. Generally, at most only one of the coding values will be labelled as UserSelected = true.",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.requirements">requirements</a>" : "Allows for translations and alternate encodings within a code system.  Also supports communication of the same instance to systems requiring different encodings.",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">min</a>" : 1,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">max</a>" : "1",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>" : {
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a>" : "CodeableConcept.coding",
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a>" : 0,
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a>" : "*"
+        },
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>" : [
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "Coding"
+          }
+        ],
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mustSupport">mustSupport</a>" : true,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.isSummary">isSummary</a>" : false,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding">binding</a>" : {
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding.strength">strength</a>" : "required",
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding.description">description</a>" : "Codes describing the Procedure Type",
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding.valueSet[x]">valueSetReference</a>" : {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#Reference#Reference.reference">reference</a>" : "http://hl7.org/fhir/us/core/ValueSet/us-core-procedure-type"
+          }
+        },
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping">mapping</a>" : [
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "v2",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : "C*E.1-8, C*E.10-22"
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "rim",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : "union(., ./translation)"
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "orim",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : "fhir:CodeableConcept.coding rdfs:subPropertyOf dt:CD.coding"
+          }
+        ]
+      },
+      {
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "Procedure:uscoreprocedure.code.coding",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "Procedure.code.coding",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.short">short</a>" : "Code defined by a terminology system",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>" : "A reference to a code defined by a terminology system.",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.comments">comments</a>" : "Codes may be defined very casually in enumerations, or code lists, up to very formal definitions such as SNOMED CT - see the HL7 v3 Core Principles for more information.  Ordering of codings is undefined and SHALL NOT be used to infer meaning. Generally, at most only one of the coding values will be labelled as UserSelected = true.",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.requirements">requirements</a>" : "Allows for translations and alternate encodings within a code system.  Also supports communication of the same instance to systems requiring different encodings.",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">min</a>" : 0,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">max</a>" : "1",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>" : {
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a>" : "CodeableConcept.coding",
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a>" : 0,
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a>" : "*"
+        },
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>" : [
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "Coding"
+          }
+        ],
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mustSupport">mustSupport</a>" : true,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.isSummary">isSummary</a>" : false,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding">binding</a>" : {
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding.strength">strength</a>" : "required",
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding.description">description</a>" : "Optional ICD-10PCS Code translations describing the Procedure Type",
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding.valueSet[x]">valueSetReference</a>" : {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#Reference#Reference.reference">reference</a>" : "http://hl7.org/fhir/us/core/ValueSet/us-core-procedure-icd10pcs"
+          }
+        },
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping">mapping</a>" : [
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "v2",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : "C*E.1-8, C*E.10-22"
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "rim",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : "union(., ./translation)"
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "orim",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : "fhir:CodeableConcept.coding rdfs:subPropertyOf dt:CD.coding"
+          }
+        ]
+      },
+      {
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "Procedure:uscoreprocedure.code.text",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "Procedure.code.text",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.short">short</a>" : "Plain text representation of the concept",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>" : "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.comments">comments</a>" : "Very often the text is the same as a displayName of one of the codings.",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.requirements">requirements</a>" : "The codes from the terminologies do not always capture the correct meaning with all the nuances of the human using them, or sometimes there is no appropriate code at all. In these cases, the text is used to capture the full meaning of the source.",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">min</a>" : 0,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">max</a>" : "1",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>" : {
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a>" : "CodeableConcept.text",
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a>" : 0,
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a>" : "1"
+        },
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>" : [
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "string"
+          }
+        ],
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.isSummary">isSummary</a>" : true,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping">mapping</a>" : [
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "v2",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : "C*E.9. But note many systems use C*E.2 for this"
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "rim",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : "./originalText[mediaType/code=&quot;text/plain&quot;]/data"
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "orim",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : "fhir:CodeableConcept.text rdfs:subPropertyOf dt:CD.originalText"
+          }
+        ]
+      },
+      {
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "Procedure:uscoreprocedure.subject",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "Procedure.subject",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.short">short</a>" : "Who the procedure was performed on",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>" : "The person, animal or group on which the procedure was performed.",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">min</a>" : 1,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">max</a>" : "1",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>" : {
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a>" : "Procedure.subject",
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a>" : 1,
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a>" : "1"
+        },
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>" : [
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "Reference",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.targetProfile">targetProfile</a>" : "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
+          }
+        ],
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mustSupport">mustSupport</a>" : true,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.isSummary">isSummary</a>" : false,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping">mapping</a>" : [
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "v2",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : "PID-3"
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "rim",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : ".participation[typeCode=SBJ].role"
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "w5",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : "who.focus"
+          }
+        ]
+      },
+      {
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "Procedure:uscoreprocedure.encounter",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "Procedure.encounter",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.short">short</a>" : "The encounter associated with the procedure",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>" : "The encounter during which the procedure was performed.",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">min</a>" : 0,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">max</a>" : "1",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>" : {
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a>" : "Procedure.encounter",
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a>" : 0,
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a>" : "1"
+        },
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>" : [
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "Reference",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.targetProfile">targetProfile</a>" : "http://hl7.org/fhir/StructureDefinition/Encounter"
+          }
+        ],
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.isSummary">isSummary</a>" : true,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping">mapping</a>" : [
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "v2",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : "PV1-19"
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "rim",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : ".inboundRelationship[typeCode=COMP].source[classCode=ENC, moodCode=EVN]"
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "w5",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : "context"
+          }
+        ]
+      },
+      {
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "Procedure:uscoreprocedure.performed[x]",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "Procedure.performed[x]",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.short">short</a>" : "Date/Period the procedure was performed",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>" : "The date(time)/period over which the procedure was performed. Allows a period to support complex procedures that span more than one date, and also allows for the length of the procedure to be captured.",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">min</a>" : 1,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">max</a>" : "1",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>" : {
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a>" : "Procedure.performed[x]",
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a>" : 0,
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a>" : "1"
+        },
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>" : [
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "dateTime"
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "Period"
+          }
+        ],
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mustSupport">mustSupport</a>" : true,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.isSummary">isSummary</a>" : false,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping">mapping</a>" : [
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "v2",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : "OBR-7"
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "rim",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : ".effectiveTime"
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "w5",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : "when.done"
+          }
+        ]
+      },
+      {
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "Procedure:uscoreprocedure.performer",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "Procedure.performer",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.short">short</a>" : "The people who performed the procedure",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>" : "Limited to 'real' people rather than equipment.",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">min</a>" : 0,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">max</a>" : "*",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>" : {
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a>" : "Procedure.performer",
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a>" : 0,
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a>" : "*"
+        },
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>" : [
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "BackboneElement"
+          }
+        ],
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.constraint">constraint</a>" : [
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.constraint.key">key</a>" : "ele-1",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.constraint.severity">severity</a>" : "error",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.constraint.human">human</a>" : "All FHIR elements must have a @value or children",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.constraint.expression">expression</a>" : "children().count() &gt; id.count()",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.constraint.xpath">xpath</a>" : "@value|f:*|h:div",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.constraint.source">source</a>" : "Element"
+          }
+        ],
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.isSummary">isSummary</a>" : true,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping">mapping</a>" : [
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "rim",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : ".participation[typeCode=PFM]"
+          }
+        ]
+      },
+      {
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "Procedure:uscoreprocedure.performer.id",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "Procedure.performer.id",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.representation">representation</a>" : [
+          "xmlAttr"
+        ],
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.short">short</a>" : "xml:id (or equivalent in JSON)",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>" : "unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">min</a>" : 0,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">max</a>" : "1",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>" : {
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a>" : "Element.id",
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a>" : 0,
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a>" : "1"
+        },
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>" : [
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "string"
+          }
+        ],
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping">mapping</a>" : [
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "rim",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : "n/a"
+          }
+        ]
+      },
+      {
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "Procedure:uscoreprocedure.performer.extension",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "Procedure.performer.extension",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.short">short</a>" : "Additional Content defined by implementations",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>" : "May be used to represent additional information that is not part of the basic definition of the element. In order to make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.comments">comments</a>" : "There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.alias">alias</a>" : [
+          "extensions",
+          "user content"
+        ],
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">min</a>" : 0,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">max</a>" : "*",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>" : {
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a>" : "Element.extension",
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a>" : 0,
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a>" : "*"
+        },
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>" : [
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "Extension"
+          }
+        ],
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping">mapping</a>" : [
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "rim",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : "n/a"
+          }
+        ]
+      },
+      {
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "Procedure:uscoreprocedure.performer.modifierExtension",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "Procedure.performer.modifierExtension",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.short">short</a>" : "Extensions that cannot be ignored",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>" : "May be used to represent additional information that is not part of the basic definition of the element, and that modifies the understanding of the element that contains it. Usually modifier elements provide negation or qualification. In order to make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.comments">comments</a>" : "There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.alias">alias</a>" : [
+          "extensions",
+          "user content",
+          "modifiers"
+        ],
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">min</a>" : 0,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">max</a>" : "*",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>" : {
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a>" : "BackboneElement.modifierExtension",
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a>" : 0,
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a>" : "*"
+        },
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>" : [
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "Extension"
+          }
+        ],
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.isModifier">isModifier</a>" : true,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.isSummary">isSummary</a>" : true,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping">mapping</a>" : [
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "rim",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : "N/A"
+          }
+        ]
+      },
+      {
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "Procedure:uscoreprocedure.performer.actor",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "Procedure.performer.actor",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.short">short</a>" : "The reference to the practitioner",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>" : "The practitioner who was involved in the procedure.",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">min</a>" : 0,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">max</a>" : "1",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>" : {
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a>" : "Procedure.performer.actor",
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a>" : 0,
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a>" : "1"
+        },
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>" : [
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "Reference",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.targetProfile">targetProfile</a>" : "http://hl7.org/fhir/StructureDefinition/Practitioner"
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "Reference",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.targetProfile">targetProfile</a>" : "http://hl7.org/fhir/StructureDefinition/Organization"
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "Reference",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.targetProfile">targetProfile</a>" : "http://hl7.org/fhir/StructureDefinition/Patient"
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "Reference",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.targetProfile">targetProfile</a>" : "http://hl7.org/fhir/StructureDefinition/RelatedPerson"
+          }
+        ],
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.isSummary">isSummary</a>" : true,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping">mapping</a>" : [
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "v2",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : "ORC-19/PRT-5"
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "rim",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : ".role"
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "w5",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : "who.actor"
+          }
+        ]
+      },
+      {
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "Procedure:uscoreprocedure.performer.role",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "Procedure.performer.role",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.short">short</a>" : "The role the actor was in",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>" : "For example: surgeon, anaethetist, endoscopist.",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">min</a>" : 0,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">max</a>" : "1",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>" : {
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a>" : "Procedure.performer.role",
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a>" : 0,
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a>" : "1"
+        },
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>" : [
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "CodeableConcept"
+          }
+        ],
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.isSummary">isSummary</a>" : true,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding">binding</a>" : {
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding.strength">strength</a>" : "example",
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding.description">description</a>" : "A code that identifies the role of a performer of the procedure.",
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding.valueSet[x]">valueSetReference</a>" : {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#Reference#Reference.reference">reference</a>" : "http://hl7.org/fhir/ValueSet/performer-role"
+          }
+        },
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping">mapping</a>" : [
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "v2",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : "Some combination of STF-18 / PRA-3 / PRT-4 / ROL-3 / ORC-12 / OBR-16 / PV1-7 / PV1-8 / PV1-9 / PV1-17 / OBX-25"
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "rim",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : ".functionCode"
+          }
+        ]
+      },
+      {
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "Procedure:uscoreprocedure.location",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "Procedure.location",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.short">short</a>" : "Where the procedure happened",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>" : "The location where the procedure actually happened.  E.g. a newborn at home, a tracheostomy at a restaurant.",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.requirements">requirements</a>" : "Ties a procedure to where the records are likely kept.",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">min</a>" : 0,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">max</a>" : "1",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>" : {
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a>" : "Procedure.location",
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a>" : 0,
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a>" : "1"
+        },
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>" : [
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "Reference",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.targetProfile">targetProfile</a>" : "http://hl7.org/fhir/StructureDefinition/Location"
+          }
+        ],
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.isSummary">isSummary</a>" : true,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping">mapping</a>" : [
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "w5",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : "where"
+          }
+        ]
+      },
+      {
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "Procedure:uscoreprocedure.reasonReference",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "Procedure.reasonReference",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.short">short</a>" : "Condition that is the reason the procedure performed",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>" : "The condition that is the reason why the procedure was performed.",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.comments">comments</a>" : "e.g. endoscopy for dilatation and biopsy, combination diagnosis and therapeutic.",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">min</a>" : 0,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">max</a>" : "*",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>" : {
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a>" : "Procedure.reasonReference",
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a>" : 0,
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a>" : "*"
+        },
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>" : [
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "Reference",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.targetProfile">targetProfile</a>" : "http://hl7.org/fhir/StructureDefinition/Condition"
+          }
+        ],
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.isSummary">isSummary</a>" : true,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping">mapping</a>" : [
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "rim",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : ".reasonCode"
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "w5",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : "why"
+          }
+        ]
+      },
+      {
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "Procedure:uscoreprocedure.reasonCode",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "Procedure.reasonCode",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.short">short</a>" : "Coded reason procedure performed",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>" : "The coded reason why the procedure was performed. This may be coded entity of some type, or may simply be present as text.",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">min</a>" : 0,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">max</a>" : "*",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>" : {
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a>" : "Procedure.reasonCode",
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a>" : 0,
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a>" : "*"
+        },
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>" : [
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "CodeableConcept"
+          }
+        ],
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.isSummary">isSummary</a>" : true,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding">binding</a>" : {
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding.strength">strength</a>" : "example",
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding.description">description</a>" : "A code that identifies the reason a procedure is  required.",
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding.valueSet[x]">valueSetReference</a>" : {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#Reference#Reference.reference">reference</a>" : "http://hl7.org/fhir/ValueSet/procedure-reason"
+          }
+        },
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping">mapping</a>" : [
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "rim",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : ".reasonCode"
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "w5",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : "why"
+          }
+        ]
+      },
+      {
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "Procedure:uscoreprocedure.notPerformed",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "Procedure.notPerformed",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.short">short</a>" : "True if procedure was not performed as scheduled",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>" : "Set this to true if the record is saying that the procedure was NOT performed.",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.comments">comments</a>" : "If true, it means the procedure did not occur as described.  Typically it would be accompanied by attributes describing the type of activity.  It might also be accompanied by body site information or time information (i.e. no procedure was done to the left arm or no procedure was done in this 2-year period).  Specifying additional information such as performer, outcome, etc. is generally inappropriate.  For example, it's not that useful to say &quot;There was no appendectomy done at 12:03pm June 6th by Dr. Smith with a successful outcome&quot; as it implies that there *could* have been an appendectomy done at any other time, by any other clinician or with any other outcome.",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">min</a>" : 0,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">max</a>" : "1",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>" : {
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a>" : "Procedure.notPerformed",
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a>" : 0,
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a>" : "1"
+        },
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>" : [
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "boolean"
+          }
+        ],
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.defaultValue[x]">defaultValueBoolean</a>" : false,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.isModifier">isModifier</a>" : true,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.isSummary">isSummary</a>" : true,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping">mapping</a>" : [
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "rim",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : ".actionNegationInd"
+          }
+        ]
+      },
+      {
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "Procedure:uscoreprocedure.reasonNotPerformed",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "Procedure.reasonNotPerformed",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.short">short</a>" : "Reason procedure was not performed",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>" : "A code indicating why the procedure was not performed.",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">min</a>" : 0,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">max</a>" : "*",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>" : {
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a>" : "Procedure.reasonNotPerformed",
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a>" : 0,
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a>" : "*"
+        },
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>" : [
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "CodeableConcept"
+          }
+        ],
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.condition">condition</a>" : [
+          "pro-1"
+        ],
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding">binding</a>" : {
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding.strength">strength</a>" : "example",
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding.description">description</a>" : "A code that identifies the reason a procedure was not performed.",
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding.valueSet[x]">valueSetReference</a>" : {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#Reference#Reference.reference">reference</a>" : "http://hl7.org/fhir/ValueSet/procedure-not-performed-reason"
+          }
+        },
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping">mapping</a>" : [
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "rim",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : ".reason.Observation.value"
+          }
+        ]
+      },
+      {
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "Procedure:uscoreprocedure.bodySite",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "Procedure.bodySite",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.short">short</a>" : "Target body sites",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>" : "Detailed and structured anatomical location information. Multiple locations are allowed - e.g. multiple punch biopsies of a lesion.",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">min</a>" : 0,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">max</a>" : "*",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>" : {
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a>" : "Procedure.bodySite",
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a>" : 0,
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a>" : "*"
+        },
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>" : [
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "CodeableConcept"
+          }
+        ],
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.isSummary">isSummary</a>" : true,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding">binding</a>" : {
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding.strength">strength</a>" : "example",
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding.description">description</a>" : "Codes describing anatomical locations. May include laterality.",
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding.valueSet[x]">valueSetReference</a>" : {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#Reference#Reference.reference">reference</a>" : "http://hl7.org/fhir/ValueSet/body-site"
+          }
+        },
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping">mapping</a>" : [
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "v2",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : "OBX-20"
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "rim",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : ".targetSiteCode"
+          }
+        ]
+      },
+      {
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "Procedure:uscoreprocedure.outcome",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "Procedure.outcome",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.short">short</a>" : "The result of procedure",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>" : "The outcome of the procedure - did it resolve reasons for the procedure being performed?",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.comments">comments</a>" : "If outcome contains narrative text only, it can be captured using the CodeableConcept.text.",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">min</a>" : 0,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">max</a>" : "1",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>" : {
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a>" : "Procedure.outcome",
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a>" : 0,
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a>" : "1"
+        },
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>" : [
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "CodeableConcept"
+          }
+        ],
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.isSummary">isSummary</a>" : true,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding">binding</a>" : {
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding.strength">strength</a>" : "example",
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding.description">description</a>" : "An outcome of a procedure - whether it was resolved or otherwise.",
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding.valueSet[x]">valueSetReference</a>" : {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#Reference#Reference.reference">reference</a>" : "http://hl7.org/fhir/ValueSet/procedure-outcome"
+          }
+        },
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping">mapping</a>" : [
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "rim",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : ".outboundRelationship[typeCode=OUT].target.text"
+          }
+        ]
+      },
+      {
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "Procedure:uscoreprocedure.report",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "Procedure.report",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.short">short</a>" : "Any report resulting from the procedure",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>" : "This could be a histology result, pathology report, surgical report, etc..",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.comments">comments</a>" : "There could potentially be multiple reports - e.g. if this was a procedure which took multiple biopsies resulting in a number of anatomical pathology reports.",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">min</a>" : 0,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">max</a>" : "*",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>" : {
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a>" : "Procedure.report",
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a>" : 0,
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a>" : "*"
+        },
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>" : [
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "Reference",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.targetProfile">targetProfile</a>" : "http://hl7.org/fhir/StructureDefinition/DiagnosticReport"
+          }
+        ],
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping">mapping</a>" : [
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "rim",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : ".inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN]"
+          }
+        ]
+      },
+      {
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "Procedure:uscoreprocedure.complication",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "Procedure.complication",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.short">short</a>" : "Complication following the procedure",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>" : "Any complications that occurred during the procedure, or in the immediate post-performance period. These are generally tracked separately from the notes, which will typically describe the procedure itself rather than any 'post procedure' issues.",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.comments">comments</a>" : "If complications are only expressed by the narrative text, they can be captured using the CodeableConcept.text.",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">min</a>" : 0,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">max</a>" : "*",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>" : {
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a>" : "Procedure.complication",
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a>" : 0,
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a>" : "*"
+        },
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>" : [
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "CodeableConcept"
+          }
+        ],
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding">binding</a>" : {
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding.strength">strength</a>" : "example",
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding.description">description</a>" : "Codes describing complications that resulted from a procedure.",
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding.valueSet[x]">valueSetReference</a>" : {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#Reference#Reference.reference">reference</a>" : "http://hl7.org/fhir/ValueSet/condition-code"
+          }
+        },
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping">mapping</a>" : [
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "rim",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : "Need specialization of OUT for this."
+          }
+        ]
+      },
+      {
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "Procedure:uscoreprocedure.followUp",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "Procedure.followUp",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.short">short</a>" : "Instructions for follow up",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>" : "If the procedure required specific follow up - e.g. removal of sutures. The followup may be represented as a simple note, or could potentially be more complex in which case the CarePlan resource can be used.",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">min</a>" : 0,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">max</a>" : "*",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>" : {
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a>" : "Procedure.followUp",
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a>" : 0,
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a>" : "*"
+        },
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>" : [
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "CodeableConcept"
+          }
+        ],
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding">binding</a>" : {
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding.strength">strength</a>" : "example",
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding.description">description</a>" : "Specific follow up required for a procedure e.g. removal of sutures.",
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding.valueSet[x]">valueSetReference</a>" : {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#Reference#Reference.reference">reference</a>" : "http://hl7.org/fhir/ValueSet/procedure-followup"
+          }
+        },
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping">mapping</a>" : [
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "rim",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : ".outboundRelationship[typeCode=COMP].target[classCode=ACT, moodCode=INT].code"
+          }
+        ]
+      },
+      {
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "Procedure:uscoreprocedure.request",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "Procedure.request",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.short">short</a>" : "A request for this procedure",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>" : "A reference to a resource that contains details of the request for this procedure.",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">min</a>" : 0,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">max</a>" : "1",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>" : {
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a>" : "Procedure.request",
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a>" : 0,
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a>" : "1"
+        },
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>" : [
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "Reference",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.targetProfile">targetProfile</a>" : "http://hl7.org/fhir/StructureDefinition/CarePlan"
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "Reference",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.targetProfile">targetProfile</a>" : "http://hl7.org/fhir/StructureDefinition/DiagnosticRequest"
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "Reference",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.targetProfile">targetProfile</a>" : "http://hl7.org/fhir/StructureDefinition/ProcedureRequest"
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "Reference",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.targetProfile">targetProfile</a>" : "http://hl7.org/fhir/StructureDefinition/ReferralRequest"
+          }
+        ]
+      },
+      {
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "Procedure:uscoreprocedure.notes",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "Procedure.notes",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.short">short</a>" : "Additional information about the procedure",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>" : "Any other notes about the procedure.  E.g. the operative notes.",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">min</a>" : 0,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">max</a>" : "*",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>" : {
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a>" : "Procedure.notes",
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a>" : 0,
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a>" : "*"
+        },
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>" : [
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "Annotation"
+          }
+        ],
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping">mapping</a>" : [
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "v2",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : "NTE"
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "rim",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : ".inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=&quot;annotation&quot;].value"
+          }
+        ]
+      },
+      {
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "Procedure:uscoreprocedure.focalDevice",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "Procedure.focalDevice",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.short">short</a>" : "Device changed in procedure",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>" : "A device that is implanted, removed or otherwise manipulated (calibration, battery replacement, fitting a prosthesis, attaching a wound-vac, etc.) as a focal portion of the Procedure.",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">min</a>" : 0,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">max</a>" : "*",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>" : {
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a>" : "Procedure.focalDevice",
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a>" : 0,
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a>" : "*"
+        },
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>" : [
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "BackboneElement"
+          }
+        ],
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.constraint">constraint</a>" : [
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.constraint.key">key</a>" : "ele-1",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.constraint.severity">severity</a>" : "error",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.constraint.human">human</a>" : "All FHIR elements must have a @value or children",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.constraint.expression">expression</a>" : "children().count() &gt; id.count()",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.constraint.xpath">xpath</a>" : "@value|f:*|h:div",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.constraint.source">source</a>" : "Element"
+          }
+        ]
+      },
+      {
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "Procedure:uscoreprocedure.focalDevice.id",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "Procedure.focalDevice.id",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.representation">representation</a>" : [
+          "xmlAttr"
+        ],
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.short">short</a>" : "xml:id (or equivalent in JSON)",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>" : "unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">min</a>" : 0,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">max</a>" : "1",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>" : {
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a>" : "Element.id",
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a>" : 0,
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a>" : "1"
+        },
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>" : [
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "string"
+          }
+        ],
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping">mapping</a>" : [
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "rim",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : "n/a"
+          }
+        ]
+      },
+      {
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "Procedure:uscoreprocedure.focalDevice.extension",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "Procedure.focalDevice.extension",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.short">short</a>" : "Additional Content defined by implementations",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>" : "May be used to represent additional information that is not part of the basic definition of the element. In order to make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.comments">comments</a>" : "There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.alias">alias</a>" : [
+          "extensions",
+          "user content"
+        ],
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">min</a>" : 0,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">max</a>" : "*",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>" : {
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a>" : "Element.extension",
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a>" : 0,
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a>" : "*"
+        },
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>" : [
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "Extension"
+          }
+        ],
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping">mapping</a>" : [
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "rim",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : "n/a"
+          }
+        ]
+      },
+      {
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "Procedure:uscoreprocedure.focalDevice.modifierExtension",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "Procedure.focalDevice.modifierExtension",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.short">short</a>" : "Extensions that cannot be ignored",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>" : "May be used to represent additional information that is not part of the basic definition of the element, and that modifies the understanding of the element that contains it. Usually modifier elements provide negation or qualification. In order to make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.comments">comments</a>" : "There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.alias">alias</a>" : [
+          "extensions",
+          "user content",
+          "modifiers"
+        ],
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">min</a>" : 0,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">max</a>" : "*",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>" : {
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a>" : "BackboneElement.modifierExtension",
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a>" : 0,
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a>" : "*"
+        },
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>" : [
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "Extension"
+          }
+        ],
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.isModifier">isModifier</a>" : true,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.isSummary">isSummary</a>" : true,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping">mapping</a>" : [
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "rim",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : "N/A"
+          }
+        ]
+      },
+      {
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "Procedure:uscoreprocedure.focalDevice.action",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "Procedure.focalDevice.action",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.short">short</a>" : "Kind of change to device",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>" : "The kind of change that happened to the device during the procedure.",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">min</a>" : 0,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">max</a>" : "1",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>" : {
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a>" : "Procedure.focalDevice.action",
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a>" : 0,
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a>" : "1"
+        },
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>" : [
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "CodeableConcept"
+          }
+        ],
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding">binding</a>" : {
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding.strength">strength</a>" : "required",
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding.description">description</a>" : "A kind of change that happened to the device during the procedure.",
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding.valueSet[x]">valueSetReference</a>" : {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#Reference#Reference.reference">reference</a>" : "http://hl7.org/fhir/ValueSet/device-action"
+          }
+        }
+      },
+      {
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "Procedure:uscoreprocedure.focalDevice.manipulated",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "Procedure.focalDevice.manipulated",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.short">short</a>" : "Device that was changed",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>" : "The device that was manipulated (changed) during the procedure.",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">min</a>" : 1,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">max</a>" : "1",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>" : {
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a>" : "Procedure.focalDevice.manipulated",
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a>" : 1,
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a>" : "1"
+        },
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>" : [
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "Reference",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.targetProfile">targetProfile</a>" : "http://hl7.org/fhir/StructureDefinition/Device"
+          }
+        ]
+      },
+      {
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "Procedure:uscoreprocedure.usedReference",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "Procedure.usedReference",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.short">short</a>" : "Items used during procedure",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>" : "Identifies medications, devices and any other substance used as part of the procedure.",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.comments">comments</a>" : "For devices actually implanted or removed, use Procedure.device.",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.requirements">requirements</a>" : "Used for tracking contamination, etc.",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">min</a>" : 0,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">max</a>" : "*",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>" : {
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a>" : "Procedure.usedReference",
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a>" : 0,
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a>" : "*"
+        },
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>" : [
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "Reference",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.targetProfile">targetProfile</a>" : "http://hl7.org/fhir/StructureDefinition/Device"
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "Reference",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.targetProfile">targetProfile</a>" : "http://hl7.org/fhir/StructureDefinition/Medication"
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "Reference",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.targetProfile">targetProfile</a>" : "http://hl7.org/fhir/StructureDefinition/Substance"
+          }
+        ]
+      },
+      {
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "Procedure:uscoreprocedure.usedCode",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "Procedure.usedCode",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.short">short</a>" : "Coded items used during the procedure",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>" : "Identifies coded items that were used as part of the procedure.",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.comments">comments</a>" : "For devices actually implanted or removed, use Procedure.device.",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">min</a>" : 0,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">max</a>" : "*",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>" : {
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a>" : "Procedure.usedCode",
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a>" : 0,
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a>" : "*"
+        },
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>" : [
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "CodeableConcept"
+          }
+        ],
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding">binding</a>" : {
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding.strength">strength</a>" : "example",
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding.description">description</a>" : "Codes describing items used during a procedure"
+        }
+      },
+      {
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "Procedure:uscoreprocedure.component",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "Procedure.component",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.short">short</a>" : "Events related to the procedure",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>" : "Identifies medication administrations, other procedures or observations that are related to this procedure.",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">min</a>" : 0,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">max</a>" : "*",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>" : {
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a>" : "Procedure.component",
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a>" : 0,
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a>" : "*"
+        },
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>" : [
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "Reference",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.targetProfile">targetProfile</a>" : "http://hl7.org/fhir/StructureDefinition/MedicationAdministration"
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "Reference",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.targetProfile">targetProfile</a>" : "http://hl7.org/fhir/StructureDefinition/Procedure"
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "Reference",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.targetProfile">targetProfile</a>" : "http://hl7.org/fhir/StructureDefinition/Observation"
+          }
+        ]
+      }
+    ]
+  },
+  "<a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.differential">differential</a>" : {
+    "<a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.differential.element">element</a>" : [
+      {
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "Procedure:uscoreprocedure",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "Procedure",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.sliceName">sliceName</a>" : "USCoreProcedure",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.short">short</a>" : "US Core Procedure Profile",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>" : "The US Core Condition Profile is based upon the core FHIR Procedure Resource and created to meet the 2015 Edition Common Clinical Data Set 'Procedures' requirements.",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mustSupport">mustSupport</a>" : false,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.isModifier">isModifier</a>" : false,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.isSummary">isSummary</a>" : false
+      },
+      {
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "Procedure:uscoreprocedure.status",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "Procedure.status",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">min</a>" : 1,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">max</a>" : "1",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>" : [
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "code"
+          }
+        ],
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mustSupport">mustSupport</a>" : true,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.isModifier">isModifier</a>" : false,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.isSummary">isSummary</a>" : false,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding">binding</a>" : {
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding.strength">strength</a>" : "required",
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding.valueSet[x]">valueSetReference</a>" : {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#Reference#Reference.reference">reference</a>" : "http://hl7.org/fhir/ValueSet/procedure-status"
+          }
+        }
+      },
+      {
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "Procedure:uscoreprocedure.code",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "Procedure.code",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.short">short</a>" : "SNOMED-CT | ICD-10 | CPT-4",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">min</a>" : 1,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">max</a>" : "1",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>" : [
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "CodeableConcept"
+          }
+        ],
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mustSupport">mustSupport</a>" : true,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.isModifier">isModifier</a>" : false,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.isSummary">isSummary</a>" : false
+      },
+      {
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "Procedure:uscoreprocedure.code.coding:uscoreprocedurecode",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "Procedure.code.coding",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.sliceName">sliceName</a>" : "USCoreProcedureCode",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.slicing">slicing</a>" : {
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.slicing.discriminator">discriminator</a>" : [
+            "code"
+          ],
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.slicing.rules">rules</a>" : "open"
+        },
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">min</a>" : 1,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">max</a>" : "1",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>" : [
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "Coding"
+          }
+        ],
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mustSupport">mustSupport</a>" : true,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.isModifier">isModifier</a>" : false,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.isSummary">isSummary</a>" : false,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding">binding</a>" : {
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding.strength">strength</a>" : "required",
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding.description">description</a>" : "Codes describing the Procedure Type",
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding.valueSet[x]">valueSetReference</a>" : {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#Reference#Reference.reference">reference</a>" : "http://hl7.org/fhir/us/core/ValueSet/us-core-procedure-type"
+          }
+        }
+      },
+      {
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "Procedure:uscoreprocedure.code.coding",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "Procedure.code.coding",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">min</a>" : 0,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">max</a>" : "1",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>" : [
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "Coding"
+          }
+        ],
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mustSupport">mustSupport</a>" : true,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.isModifier">isModifier</a>" : false,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.isSummary">isSummary</a>" : false,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding">binding</a>" : {
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding.strength">strength</a>" : "required",
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding.description">description</a>" : "Optional ICD-10PCS Code translations describing the Procedure Type",
+          "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding.valueSet[x]">valueSetReference</a>" : {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#Reference#Reference.reference">reference</a>" : "http://hl7.org/fhir/us/core/ValueSet/us-core-procedure-icd10pcs"
+          }
+        }
+      },
+      {
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "Procedure:uscoreprocedure.subject",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "Procedure.subject",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">min</a>" : 1,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">max</a>" : "1",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>" : [
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "Reference",
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.targetProfile">targetProfile</a>" : "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
+          }
+        ],
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mustSupport">mustSupport</a>" : true,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.isModifier">isModifier</a>" : false,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.isSummary">isSummary</a>" : false
+      },
+      {
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "Procedure:uscoreprocedure.performed[x]",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "Procedure.performed[x]",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">min</a>" : 1,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">max</a>" : "1",
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>" : [
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "dateTime"
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "Period"
+          }
+        ],
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mustSupport">mustSupport</a>" : true,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.isModifier">isModifier</a>" : false,
+        "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.isSummary">isSummary</a>" : false
+      }
+    ]
+  }
+}</pre>
+
+
+  <!-- ==============END CONTENT END CONTENT=================== -->
+
+<p></p>
+ </div>
+
+    </div>  <!-- /inner-wrapper -->
+            </div>  <!-- /row -->
+        </div>  <!-- /container -->
+
+    </div>  <!-- /segment-content -->
+
+
+
+
+
+</div>
+
+    </div>  <!-- /inner-wrapper -->
+            </div>  <!-- /row -->
+        </div>  <!-- /container -->
+
+    </div>  <!-- /segment-content -->
+
+
+<div id="segment-footer" class="segment">  <!-- segment-footer -->
+  <div class="container">  <!-- container -->
+   <div class="inner-wrapper">
+    <p>
+        US-Core &copy; FHIR STU3 (IG Publisher v1.8.0-10514) generated on Tue, Dec 6, 2016 16:45-0500. |
+             <!--  <a style="color: #81BEF7" rel="license" <!-- <href="../license.html"><img style="border-style: none;" alt="CC0" src="cc0.png"/></a> -->
+                <a style="color: #81BEF7" rel="license" href="http://hl7.org/fhir/2017Janlicense.html"><img style="border-style: none;" alt="CC0" src="cc0.png"/></a> 
+        </span>
+        </p>
+   </div>  <!-- /inner-wrapper -->
+  </div>  <!-- /container -->
+ </div>  <!-- /segment-footer -->
+  <!-- disqus thread -->
+  <!-- disqus -->
+  <!-- end disqus -->
+
+ <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+  <div class="container">  <!-- container -->
+  </div>  <!-- /container -->
+ </div>  <!-- /segment-post-footer -->
+
+</body>
+</html>
+

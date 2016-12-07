@@ -1,0 +1,62 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix loinc: <http://loinc.org/owl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://hl7.org/fhir/us/core/Observation/oxygen-saturation> a fhir:Observation;
+  fhir:nodeRole fhir:treeRoot;
+  fhir:Resource.id [ fhir:value "oxygen-saturation"];
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "http://hl7.org/fhir/us/core/StructureDefinition/us-core-observationresults";
+       fhir:index 0
+     ]
+  ];
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ];
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: oxygen-saturation</p><p><b>meta</b>: </p><p><b>status</b>: final</p><p><b>category</b>: Vital Signs <span style=\"background: LightGoldenRodYellow\">(Details : {http://hl7.org/fhir/observation-category code 'vital-signs' = 'Vital Signs', given as 'Vital Signs'})</span></p><p><b>code</b>: oxygen_saturation <span style=\"background: LightGoldenRodYellow\">(Details : {LOINC code '59408-5' = 'Oxygen saturation in Arterial blood by Pulse oximetry', given as 'Oxygen saturation in Arterial blood by Pulse oximetry '})</span></p><p><b>subject</b>: <a href=\"Patient-example.html\">Amy Shaw. Generated Summary: id: example; Medical Record Number = 1032702 (USUAL); active; Amy V. Shaw ; ph: 555-555-5555(HOME), amy.shaw@example.com; gender: null; birthDate: Feb 20, 2007</a></p><p><b>encounter</b>: GP Visit</p><p><b>effective</b>: Jul 2, 1999</p><p><b>value</b>: 99.0 %O2<span style=\"background: LightGoldenRodYellow\"> (Details: UCUM code % = '%')</span></p></div>"
+  ];
+  fhir:Observation.status [ fhir:value "final"];
+  fhir:Observation.category [
+     fhir:index 0;
+     fhir:CodeableConcept.coding [
+       fhir:index 0;
+       fhir:Coding.system [ fhir:value "http://hl7.org/fhir/observation-category" ];
+       fhir:Coding.code [ fhir:value "vital-signs" ];
+       fhir:Coding.display [ fhir:value "Vital Signs" ]
+     ];
+     fhir:CodeableConcept.text [ fhir:value "Vital Signs" ]
+  ];
+  fhir:Observation.code [
+     fhir:CodeableConcept.coding [
+       fhir:index 0;
+       fhir:concept loinc:59408-5;
+       fhir:Coding.system [ fhir:value "http://loinc.org" ];
+       fhir:Coding.code [ fhir:value "59408-5" ];
+       fhir:Coding.display [ fhir:value "Oxygen saturation in Arterial blood by Pulse oximetry " ]
+     ];
+     fhir:CodeableConcept.text [ fhir:value "oxygen_saturation" ]
+  ];
+  fhir:Observation.subject [
+     fhir:link <http://hl7.org/fhir/us/core/Patient/example>;
+     fhir:Reference.reference [ fhir:value "Patient/example" ];
+     fhir:Reference.display [ fhir:value "Amy Shaw" ]
+  ];
+  fhir:Observation.encounter [
+     fhir:Reference.display [ fhir:value "GP Visit" ]
+  ];
+  fhir:Observation.effectiveDateTime [ fhir:value "1999-07-02"^^xsd:date];
+  fhir:Observation.valueQuantity [
+     fhir:Quantity.value [ fhir:value "99.0"^^xsd:decimal ];
+     fhir:Quantity.unit [ fhir:value "%O2" ];
+     fhir:Quantity.system [ fhir:value "http://unitsofmeasure.org" ];
+     fhir:Quantity.code [ fhir:value "%" ]
+  ] .
+
+<http://hl7.org/fhir/us/core/Patient/example> a fhir:us .
+
+# -------------------------------------------------------------------------------------
+

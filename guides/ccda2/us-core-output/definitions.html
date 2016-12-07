@@ -1,0 +1,370 @@
+<!DOCTYPE HTML>
+
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+   <meta charset="UTF-8"/>
+  <title></title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="US Core Implemenation Guide" />
+<meta name="author" content="http://www.hl7.org"/>
+
+  <link href="fhir.css" rel="stylesheet"/>
+
+   <!-- Bootstrap core CSS -->
+  <link href="dist/css/bootstrap.css" rel="stylesheet"/>
+  <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+  <!-- Project extras -->
+  <link href="assets/css/project.css" rel="stylesheet"/>
+  <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+	<link href="jquery-ui.css" rel="stylesheet"/>
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png"/>
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png"/>
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png"/>
+  <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png"/>
+  <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+
+
+<body>
+
+ <div id="segment-header" class="segment">  <!-- segment-header -->
+  <div class="container">  <!-- container -->
+   <a id="logo" no-external="true" href="http://hl7.org/fhir"><img alt="logo fhir" src="assets/images/fhir-logo-www.png"/> </a>
+   <div id="hl7-status">
+    <b>US-Core CI Build</b>
+   </div>
+
+   <div id="hl7-nav">
+     <a id="hl7-logo" no-external="true" href="http://www.hl7.org">
+     <img height="50" alt="visit the hl7 website" width="42" src="assets/images/hl7-logo.png"/>
+    </a>
+   </div>
+   <div id="hl7-nav"><a id="hl7-logo" no-external="true" href="http://hl7.org/fhir/search.cfm"><img height="50"  alt="US-Core" src="assets/images/usbanner.png"/></a></div>
+  </div>
+  <div class="container">  <!-- container -->
+ </div></div>  <!-- /segment-header -->
+
+ <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+  <div id="stripe"> </div>
+  <div class="container">  <!-- container -->
+   <!-- HEADER CONTENT -->
+
+   <nav class="navbar navbar-inverse">
+    <div class="container">
+     <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+      <span class="icon-bar"> </span>
+      <span class="icon-bar"> </span>
+      <span class="icon-bar"> </span>
+     </button>
+     <a class="navbar-brand hidden" href="http://hl7.org/fhir/2017Janindex.html">FHIR</a>
+     <div class="nav-collapse collapse navbar-inverse-collapse">
+      <ul class="nav navbar-nav">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="definitions.html">General Guidance</a></li>
+              <li><a href="profiles.html">US Core Profiles</a></li>
+              <li><a href="extensions.html">Extensions</a></li>
+              <li><a href="valuesets.html">Value Sets</a></li>
+              <li><a href="searchparams.html">Search Parameters</a></li>
+              <li><a href="capstmnts.html">Capability Statements</a></li>
+              <li><a href="security.html">Security</a></li>
+              <li><a href="downloads.html">Downloads</a></li>
+            </ul>
+
+     </div>  <!-- /.nav-collapse -->
+    </div>  <!-- /.container -->
+   </nav>  <!-- /.navbar -->
+
+  <!-- /HEADER CONTENT -->
+  </div>  <!-- /container -->
+ </div>  <!-- /segment-navbar -->
+
+
+
+
+  </div>  <!-- /container -->
+ </div>  <!-- /segment-breadcrumb -->
+
+ <div id="segment-content" class="segment">  <!-- segment-content -->
+ <div class="container">  <!-- container -->
+            <div class="row">
+             <div class="inner-wrapper">
+
+
+<div class="col-9">
+
+  <!-- ============CONTENT CONTENT=============== -->
+
+<p>﻿</p>
+
+<h2 id="definitions-interpretations-and-requirements-common-to-all-us-core-actors">Definitions, Interpretations and Requirements common to all US-Core actors</h2>
+
+<p>This section outlines important definitions and interpretations used in the US-Core IG.
+The conformance verbs used are defined in <a href="http://hl7.org/fhir/2017Jan/conformance-rules.html">FHIR Conformance Rules</a>.</p>
+
+<h3 id="must-support">Must Support</h3>
+<p>In the context of US-Core, Supported on any data element SHALL be interpreted as follows:</p>
+
+<ul>
+  <li>US-Core Responders SHALL be capable of including the data element as part of the query results as specified by the US-Core conformance resources.</li>
+  <li>US-Core Requestors SHALL be capable of processing resource instances containing the data elements. In other words US-Core Requestors SHOULD be capable of displaying the data elements for human use or storing it for other purposes.</li>
+  <li>In situations where information on a particular data element is not present and the reason for absence is unknown, US-Core Responders SHALL NOT include the data elements in the resource instance returned as part of the query results.</li>
+  <li>When querying US-Core Responders, US-Core Requestors SHALL interpret missing data elements within resource instances as data not present in the US-Core Responder’s systems.</li>
+  <li>In situations where information on a particular data element is missing and the US-Core Responder knows the precise reason for the absence of data, US-Core Responders SHALL send the reason for the missing information using values (such as nullFlavors) from the value set where they exist or using the dataAbsentReason extension.</li>
+  <li>
+    <p>US-Core Requestors SHALL be able to process resource instances containing data elements asserting missing information.</p>
+  </li>
+  <li>NOTE: US-Core Responders who do not have the capability to store or return a data element tagged as Supported in US-Core profiles can still claim conformance to the US-Core profiles per the US-Core conformance resources.</li>
+  <li>NOTE: The above definition of Supported is derived from HL7v2 concept “Required but may be empty - RE” described in HL7v2 V28_CH02B_Conformance.doc.</li>
+  <li>NOTE: Readers are advised to understand [FHIR Terminology] requirements, <a href="http://hl7.org/fhir/2017Jan/http.html">FHIR RESTful API</a> based on the [HTTP] protocol, along with [FHIR Data Types], [FHIR Search] and [FHIR Resource] formats before implementing US-Core requirements.</li>
+</ul>
+
+<h3 id="extensible-binding-for-codeableconcept-datatype">Extensible binding for CodeableConcept Datatype</h3>
+
+<p>Extensible binding to a value set definition for this IG means that if the data type is CodeableConcept, then one of the coding values SHALL be from the specified value set if a code applies, but if no suitable code exists in the value set, alternate code(s) may be provided in its place. <strong>If only text available, then just text may be used.</strong></p>
+
+<h3 id="required-binding-for-code-and-codeableconcept-datatype">Required binding for Code and CodeableConcept Datatype</h3>
+
+<p>Required binding to a value set definition for this IG means that one of the codes from the specified value set SHALL be used. For CodeableConcept you may have additional codings elements as translations as is discussed below. If only text is available or the local (proprietary, system) cannot be mapped to one of the required codes the The <a href="http://hl7.org/fhir/2017Jan/extensibility.html#2.20.0.2.2">core specification</a> provides guidance which we have summarized:</p>
+
+<ol>
+  <li>Send the resource with coded element element empty</li>
+  <li>Use the <a href="http://hl7.org/fhir/2017Jan/extension-data-absent-reason.html">DataAbsentReason Extension</a> in the data type</li>
+  <li>Use the code ‘unsupported’ - The source system wasn’t capable of supporting this element.</li>
+</ol>
+
+<p>Note that is will still be ambiguous when using a status based queries</p>
+
+<p>Example: AllergyIntolerance resource with a status that is text only or cannot be mapped to the status value set.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>\{
+   "resourceType”:“AllergyIntolerance”,
+   ...
+   “status”:{
+    “url” : “[http://hl7.org/fhir/2017Jan/StructureDefinition/data-absent-reason]”,
+   “valueCode” : “unsupported”
+    ...
+  },
+ }
+</code></pre>
+</div>
+
+<h3 id="using-multiple-codes-with-codeableconcept-datatype">Using multiple codes with CodeableConcept Datatype</h3>
+
+<p>Atlernate codes may be provided in addition to the standards codes defined in required or extensible value sets. The alternate codes are called “translations”. These translations may be equivalent to or narrower in meaning to the standard concept code.</p>
+
+<p>Example of multiple translation for Body Weight concept code.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>"code": {
+    "coding": [
+     {
+        "system": "http://loinc.org",  //NOTE:this is the standard concept defined in the value set//
+        "code": "29463-7",
+        "display": "Body Weight"
+      },
+//NOTE:this is a translation to a more specific concept
+     {
+        "system": "http://loinc.org",
+        "code": "3141-9",
+        "display": "Body Weight Measured"
+      },
+//NOTE:this is a translation to a different code system (Snomed CT)
+     {
+        "system": "http://snomed.info/sct",
+        "code":  “364589006”,
+        "display": "Body Weight"
+      }
+//NOTE:this is a translation to a locally defined code
+     {
+        "system": "http://AcmeHealthCare.org",
+        "code":  “BWT”,
+        "display": "Body Weight"
+      }
+    ],
+    "text": "weight"
+  },
+</code></pre>
+</div>
+
+<p>Example of translation of NDC vaccine code to CVX code.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>"vaccineCode" : {
+    "coding" : [
+      {
+        "system" : "http://hl7.org/fhir/2017Jan/sid/cvx",
+        "code" : "158",
+        "display" : "influenza, injectable, quadrivalent"
+      },
+      {
+        "system" : "http://hl7.org/fhir/2017Jan/sid/ndc",
+        "code" : "49281-0623-78",
+        "display" : "FLUZONE QUADRIVALENT"
+      }
+    ]
+  },
+</code></pre>
+</div>
+
+<h3 id="using-ucum-in-the-quantity-datatype">Using UCUM in the <a href="http://hl7.org/fhir/2017Jan/datatypes.html#quantity">Quantity</a> datatype</h3>
+
+<p>The <a href="StructureDefinition-us-core-vitalsigns.html">US Core Vital Signs Profile</a> and <a href="StructureDefinition-us-core-observationresults.html">US Core Result Observation Profile</a> require using <a href="http://unitsofmeasure.org">UCUM</a> units. This guidance specifies how to represent the Quantity datatype when the ccorrect UCUM units are missing or the units are missing altogether which will likely occur in the real world.  If the wrong UCUM units are used for the vitals signs listed in the Vital Signs Profile, that should lead to a validation failure.</p>
+
+<p><strong>UCUM code provided</strong></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code> "valueQuantity": {
+    "value": 26.0,
+    "unit": "g/mL",
+   "system": "http://unitsofmeasure.org",
+   "code": "g/mL"
+  }
+</code></pre>
+</div>
+
+<p><strong>free text units (no UCUM units)</strong>: if have no UCUM units then represent units only in <code class="highlighter-rouge">units</code> element</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code> "valueQuantity": {
+    "value": 26.0,
+    "unit": "RR",
+     }
+</code></pre>
+</div>
+
+<p><strong>no units</strong></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>      "valueQuantity": {
+    "value": 26.0
+ }
+</code></pre>
+</div>
+
+<h3 id="readfetch-resource-notation">Read(Fetch) resource notation:</h3>
+
+<p>The interactions on IG page are defined like this:</p>
+
+<p><strong><code class="highlighter-rouge">GET [base]/[Resource-type]/[id] {parameters}</code></strong></p>
+
+<ul>
+  <li>GET is the HTTP verb used for fetching a resource</li>
+  <li>Content surrounded by [] is mandatory, and will be replaced by the string literal identified.
+    <ul>
+      <li>base: The Service Root URL (e.g. “<a href="https://fhir-open-api-dstu2.smarthealthit.org">https://fhir-open-api-dstu2.smarthealthit.org</a>”)</li>
+      <li>Resource-type: The name of a resource type (e.g. “Patient”)</li>
+      <li>id: The Logical Id of a resource(e.g. “24342”)</li>
+    </ul>
+  </li>
+  <li>Content surrounded by {} is optional
+    <ul>
+      <li>parameters: URL parameters as defined for the particular interaction (e.g.”?_format=xml”}</li>
+    </ul>
+  </li>
+</ul>
+
+<p>For more information see the <a href="http://hl7.org/fhir/2017Jan/http.html">FHIR RESTful API</a></p>
+
+<h3 id="search-syntax">Search Syntax</h3>
+
+<p>In the simplest case, a search is executed by performing a GET operation in the RESTful framework:</p>
+
+<p><strong>GET [base]/[Resource-type]?name=value&amp;…</strong></p>
+
+<p>For this RESTful search (see definition in RESTful API), the parameters are a series of name=[value] pairs encoded in the URL. The search parameter names are defined for each resource. For example the Observation resource the name “code” for search on the LOINC code. See <a href="http://hl7.org/fhir/2017Jan/search.html">Searching</a> for more information about searching in REST, messaging, and services.</p>
+
+<h3 id="syntax-for-searches-limited-by-patient">Syntax for searches limited by patient</h3>
+
+<p>There are three ways to search for resources associated with a specific patient depending on the context and implementation. These three searches result in the same outcome.:</p>
+
+<ol>
+  <li>An explicitly defined patient that controls which set of resources are being searched by resource type:</li>
+</ol>
+
+<p><strong>GET [base]/[Resource-type]?patient=24342{&amp;otherparameters}</strong></p>
+
+<p>Note that all the search interactions in this IG are published using the above syntax.</p>
+
+<p>However there are several variations to this syntax: (see [Issue #39])</p>
+
+<ul>
+  <li>GET [base]/[Resource-type]?Subject=[id]{&amp;other parameters}</li>
+  <li>GET [base]/[Resource-type]?Subject=Patient/[id]{&amp;other parameters}</li>
+  <li>GET [base]/[Resource-type]?Subject._id=[id]{&amp;other parameters}</li>
+  <li>GET [base]/[Resource-type]?subject:Patient=[id]{&amp;other parameters}</li>
+  <li>GET [base]/[Resource-type]?subject:Patient=Patient/[id]{&amp;other parameters}</li>
+  <li>GET [base]/[Resource-type]?subject:Patient=<a href="https://%5Burl%5D/Patient/id">https://%5Burl%5D/Patient/id</a>{&amp;other parameters}</li>
+  <li>GET [base]/[Resource-type]?subject:Patient._id=[id]{&amp;other parameters}</li>
+  <li>GET [base]/[Resource-type]?patient:Patient=<a href="https://%5Burl%5D/Patient/id">https://%5Burl%5D/Patient/id</a>{&amp;other parameters}</li>
+</ul>
+
+<ol>
+  <li>if the patient is implicit in the context (e.g. UC-1 above or using SMART), then this search applies:</li>
+</ol>
+
+<p><strong>GET [base]/[Resource-type]?other-parameters</strong></p>
+
+<p>NOTE:</p>
+
+<ul>
+  <li>Patient <a href="http://hl7.org/fhir/2017Jan/compartmentdefinition.html">compartment</a> based search with a specified resource type in that compartment is not suported for this IG.</li>
+</ul>
+
+<!-- -->
+
+<ul>
+  <li>In addition, US Core servers will not resolve full URLs that are external to their environment.</li>
+</ul>
+
+<h3 id="guidance-on-limiting-the-number-of-search-results">Guidance on limiting the number of search results</h3>
+
+<p>In order to manage the number of search results returned, the server may choose to return the results in a series of pages. The search result set contains the URLs that the client uses to request additional pages from the search set. For a simple RESTful search, the page links are contained in the returned bundle as links. See the <a href="http://hl7.org/fhir/2017Jan/extensibility.html#2.20.0.2.2">core specification</a> for more information</p>
+
+<hr />
+
+
+
+  <!-- ==============END CONTENT END CONTENT=================== -->
+
+<p></p>
+ </div>
+
+    </div>  <!-- /inner-wrapper -->
+            </div>  <!-- /row -->
+        </div>  <!-- /container -->
+
+    </div>  <!-- /segment-content -->
+
+
+    
+</div>
+
+    </div>  <!-- /inner-wrapper -->
+            </div>  <!-- /row -->
+        </div>  <!-- /container -->
+
+    </div>  <!-- /segment-content -->
+
+
+<div id="segment-footer" class="segment">  <!-- segment-footer -->
+  <div class="container">  <!-- container -->
+   <div class="inner-wrapper">
+    <p>
+        US-Core &copy; FHIR STU3 (IG Publisher v1.8.0-10514) generated on Tue, Dec 6, 2016 16:45-0500. |
+             <!--  <a style="color: #81BEF7" rel="license" <!-- <href="../license.html"><img style="border-style: none;" alt="CC0" src="cc0.png"/></a> -->
+                <a style="color: #81BEF7" rel="license" href="http://hl7.org/fhir/2017Janlicense.html"><img style="border-style: none;" alt="CC0" src="cc0.png"/></a> 
+        </span>
+        </p>
+   </div>  <!-- /inner-wrapper -->
+  </div>  <!-- /container -->
+ </div>  <!-- /segment-footer -->
+  <!-- disqus thread -->
+  <!-- disqus -->
+  <!-- end disqus -->
+
+ <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+  <div class="container">  <!-- container -->
+  </div>  <!-- /container -->
+ </div>  <!-- /segment-post-footer -->
+
+</body>
+</html>
+

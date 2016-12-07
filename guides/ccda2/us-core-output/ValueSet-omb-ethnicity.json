@@ -1,0 +1,31 @@
+{
+  "resourceType": "ValueSet",
+  "id": "omb-ethnicity",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h2>OMB Ethnicity Categories</h2><div><p>The codes for the ethnicity categories - 'Hispanic or Latino' and 'Non Hispanic or Latino' - as defined by the <a href=\"https://www.whitehouse.gov/omb/fedreg_1997standards\">OMB Standards for Maintaining, Collecting, and Presenting Federal Data on Race and Ethnicity, Statistical Policy Directive No. 15, as revised, October 30, 1997</a>.</p>\n</div><p>This value set includes codes from the following code systems:</p><ul><li>Include these codes as defined in http://hl7.org/fhir/ValueSet/v3-Ethnicity<table class=\"none\"><tr><td><b>Code</b></td><td><b>Display</b></td></tr><tr><td>2135-2</td><td>Hispanic or Latino</td><td/></tr><tr><td>2186-5</td><td>Non Hispanic or Latino</td><td/></tr></table></li></ul></div>"
+  },
+  "url": "http://hl7.org/fhir/us/core/ValueSet/omb-ethnicity",
+  "name": "OMB Ethnicity Categories",
+  "status": "draft",
+  "publisher": "USRealm Task Force",
+  "date": "2016-08-30",
+  "description": "The codes for the ethnicity categories - 'Hispanic or Latino' and 'Non Hispanic or Latino' - as defined by the [OMB Standards for Maintaining, Collecting, and Presenting Federal Data on Race and Ethnicity, Statistical Policy Directive No. 15, as revised, October 30, 1997](https://www.whitehouse.gov/omb/fedreg_1997standards).",
+  "compose": {
+    "include": [
+      {
+        "system": "http://hl7.org/fhir/ValueSet/v3-Ethnicity",
+        "concept": [
+          {
+            "code": "2135-2",
+            "display": "Hispanic or Latino"
+          },
+          {
+            "code": "2186-5",
+            "display": "Non Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  }
+}

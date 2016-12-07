@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Observation xmlns="http://hl7.org/fhir">
+  <id value="weight"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-vitalsigns"/>
+  </meta>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: weight</p><p><b>meta</b>: </p><p><b>status</b>: final</p><p><b>category</b>: Vital Signs <span style="background: LightGoldenRodYellow">(Details : {http://hl7.org/fhir/observation-category code 'vital-signs' = 'Vital Signs', given as 'Vital Signs'})</span></p><p><b>code</b>: weight <span style="background: LightGoldenRodYellow">(Details : {LOINC code '29463-7' = 'Body weight', given as 'Body Weight'})</span></p><p><b>subject</b>: <a href="Patient-example.html">Amy Shaw. Generated Summary: id: example; Medical Record Number = 1032702 (USUAL); active; Amy V. Shaw ; ph: 555-555-5555(HOME), amy.shaw@example.com; gender: null; birthDate: Feb 20, 2007</a></p><p><b>encounter</b>: GP Visit</p><p><b>effective</b>: Jul 2, 1999</p><p><b>value</b>: 20.09414 kg<span style="background: LightGoldenRodYellow"> (Details: UCUM code kg = 'kg')</span></p></div>
+  </text>
+  <status value="final"/>
+  <category>
+    <coding>
+      <system value="http://hl7.org/fhir/observation-category"/>
+      <code value="vital-signs"/>
+      <display value="Vital Signs"/>
+    </coding>
+    <text value="Vital Signs"/>
+  </category>
+  <code>
+    <coding>
+      <system value="http://loinc.org"/>
+      <code value="29463-7"/>
+      <display value="Body Weight"/>
+    </coding>
+    <text value="weight"/>
+  </code>
+  <subject>
+    <reference value="Patient/example"/>
+    <display value="Amy Shaw"/>
+  </subject>
+  <encounter>
+    <display value="GP Visit"/>
+  </encounter>
+  <effectiveDateTime value="1999-07-02"/>
+  <valueQuantity>
+    <value value="20.09414"/>
+    <unit value="kg"/>
+    <system value="http://unitsofmeasure.org"/>
+    <code value="kg"/>
+  </valueQuantity>
+</Observation>

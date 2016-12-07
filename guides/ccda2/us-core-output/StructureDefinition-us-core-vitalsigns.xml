@@ -1,0 +1,2239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="us-core-vitalsigns"/>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p><b>Generated Narrative with Details</b></p><p><b>url</b>: <a href="http://hl7.org/fhir/us/core/StructureDefinition/us-core-vitalsigns">http://hl7.org/fhir/us/core/StructureDefinition/us-core-vitalsigns</a></p><p><b>name</b>: US Core Vital Signs Profile</p><p><b>status</b>: DRAFT</p><p><b>date</b>: Aug 1, 2016</p><p><b>publisher</b>: Health Level Seven International (FHIR-Infrastructure)</p><p><b>contact</b>: </p><p><b>url</b>: <a href="http://hl7.org/fhir/us/core/StructureDefinition/us-core-vitalsigns">http://hl7.org/fhir/us/core/StructureDefinition/us-core-vitalsigns</a></p><p><b>name</b>: US Core Vital Signs Profile</p><p><b>status</b>: DRAFT</p><p><b>publisher</b>: Health Level Seven International (FHIR-Infrastructure)</p><p><b>contact</b>: </p><p><b>date</b>: Aug 1, 2016</p><blockquote><p><b>mapping</b></p><p><b>identity</b>: v2</p><p><b>uri</b>: <a href="http://hl7.org/v2">http://hl7.org/v2</a></p><p><b>name</b>: HL7 v2 Mapping</p></blockquote><blockquote><p><b>mapping</b></p><p><b>identity</b>: rim</p><p><b>uri</b>: <a href="http://hl7.org/v3">http://hl7.org/v3</a></p><p><b>name</b>: RIM Mapping</p></blockquote><blockquote><p><b>mapping</b></p><p><b>identity</b>: w5</p><p><b>uri</b>: <a href="http://hl7.org/fhir/w5">http://hl7.org/fhir/w5</a></p><p><b>name</b>: W5 Mapping</p></blockquote><p><b>kind</b>: RESOURCE</p><p><b>abstract</b>: false</p><p><b>type</b>: Observation</p><p><b>baseDefinition</b>: <a href="http://hl7.org/fhir/StructureDefinition/Observation">http://hl7.org/fhir/StructureDefinition/Observation</a></p><p><b>derivation</b>: CONSTRAINT</p><h3>Snapshots</h3><table class="grid"><tr><td>-</td><td><b>Element</b></td></tr><tr><td>*</td><td>todo-bundle</td></tr></table><h3>Differentials</h3><table class="grid"><tr><td>-</td><td><b>Element</b></td></tr><tr><td>*</td><td>todo-bundle</td></tr></table></div>
+  </text>
+  <url value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-vitalsigns"/>
+  <name value="US Core Vital Signs Profile"/>
+  <status value="draft"/>
+  <publisher value="Health Level Seven International (FHIR-Infrastructure)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.healthit.gov"/>
+    </telecom>
+  </contact>
+  <date value="2016-08-01"/>
+  <mapping>
+    <identity value="v2"/>
+    <uri value="http://hl7.org/v2"/>
+    <name value="HL7 v2 Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="w5"/>
+    <uri value="http://hl7.org/fhir/w5"/>
+    <name value="W5 Mapping"/>
+  </mapping>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="Observation"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Observation"/>
+  <derivation value="constraint"/>
+  <snapshot>
+    <element id="Observation:uscorevitalsigns">
+      <path value="Observation"/>
+      <sliceName value="USCoreVitalSigns"/>
+      <short value="US Core Vital Signs Profile"/>
+      <definition value="The US Core Vital Signs Profile is based upon the core FHIR Observation Resource and created to meet the 2015 Edition Common Clinical Data Set &#39;Vital Signs&#39; requirements."/>
+      <comments value="Used for simple observations such as device measurements, laboratory atomic results, vital signs, height, weight, smoking status, comments, etc.  Other resources are used to provide context for observations such as lab reports, etc."/>
+      <alias value="Vital Signs"/>
+      <alias value="Measurement"/>
+      <alias value="Results"/>
+      <alias value="Tests"/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="Observation"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <constraint>
+        <key value="dom-2"/>
+        <severity value="error"/>
+        <human value="If the resource is contained in another resource, it SHALL NOT contain nested Resources"/>
+        <expression value="contained.contained.empty()"/>
+        <xpath value="not(parent::f:contained and f:contained)"/>
+        <source value="DomainResource"/>
+      </constraint>
+      <constraint>
+        <key value="dom-1"/>
+        <severity value="error"/>
+        <human value="If the resource is contained in another resource, it SHALL NOT contain any narrative"/>
+        <expression value="contained.text.empty()"/>
+        <xpath value="not(parent::f:contained and f:text)"/>
+        <source value="DomainResource"/>
+      </constraint>
+      <constraint>
+        <key value="dom-4"/>
+        <severity value="error"/>
+        <human value="If a resource is contained in another resource, it SHALL NOT have a meta.versionId or a meta.lastUpdated"/>
+        <expression value="contained.meta.versionId.empty() and contained.meta.lastUpdated.empty()"/>
+        <xpath value="not(exists(f:contained/*/f:meta/f:versionId)) and not(exists(f:contained/*/f:meta/f:lastUpdated))"/>
+        <source value="DomainResource"/>
+      </constraint>
+      <constraint>
+        <key value="dom-3"/>
+        <severity value="error"/>
+        <human value="If the resource is contained in another resource, it SHALL be referred to from elsewhere in the resource"/>
+        <expression value="contained.where((&#39;#&#39;+id in %resource.descendants().reference).not()).empty()"/>
+        <xpath value="not(exists(for $id in f:contained/*/@id return $id[not(ancestor::f:contained/parent::*/descendant::f:reference/@value=concat(&#39;#&#39;, $id))]))"/>
+        <source value="DomainResource"/>
+      </constraint>
+      <constraint>
+        <key value="obs-7"/>
+        <severity value="error"/>
+        <human value="If code is the same as a component code then the value element associated with the code SHALL NOT be present"/>
+        <expression value="value.empty() or code!=component.code"/>
+        <xpath value="not(exists(f:value)) or not(count(for $coding in f:code/f:coding return parent::*/f:component/f:code/f:coding[f:code/@value=$coding/f:code/@value and f:system/@value=$coding/f:system/@value])=0)"/>
+        <source value="Observation"/>
+      </constraint>
+      <constraint>
+        <key value="obs-6"/>
+        <severity value="error"/>
+        <human value="dataAbsentReason SHALL only be present if Observation.value[x] is not present"/>
+        <expression value="dataAbsentReason.empty() or value.empty()"/>
+        <xpath value="not(exists(f:dataAbsentReason)) or (not(exists(*[starts-with(local-name(.), &#39;value&#39;)])))"/>
+        <source value="Observation"/>
+      </constraint>
+      <constraint>
+        <key value="us-core-2"/>
+        <severity value="error"/>
+        <human value="If there is no component or related element then either a value[x] or a data absent reason must be present"/>
+        <expression value="component.value.exists() or dataAbsentReason.exists()"/>
+        <xpath value="exists(f:component) or exists(f:related) or exists(f:*[starts-with(local-name(.), &#39;value)]) or exists(f:dataAbsentReason)"/>
+      </constraint>
+      <mustSupport value="false"/>
+      <isSummary value="false"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value="Entity. Role, or Act"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="OBX"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="Observation[classCode=OBS, moodCode=EVN]"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="clinical.diagnostics"/>
+      </mapping>
+    </element>
+    <element id="Observation:uscorevitalsigns.id">
+      <path value="Observation.id"/>
+      <short value="Logical id of this artifact"/>
+      <definition value="The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes."/>
+      <comments value="The only time that a resource does not have an id is when it is being submitted to the server using a create operation."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="Resource.id"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="id"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="Observation:uscorevitalsigns.meta">
+      <path value="Observation.meta"/>
+      <short value="Metadata about the resource"/>
+      <definition value="The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content may not always be associated with version changes to the resource."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="Resource.meta"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="Meta"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="Observation:uscorevitalsigns.implicitRules">
+      <path value="Observation.implicitRules"/>
+      <short value="A set of rules under which this content was created"/>
+      <definition value="A reference to a set of rules that were followed when the resource was constructed, and which must be understood when processing the content."/>
+      <comments value="Asserting this rule set restricts the content to be only understood by a limited set of trading partners. This inherently limits the usefulness of the data in the long term. However, the existing health eco-system is highly fractured, and not yet ready to define, collect, and exchange data in a generally computable sense. Wherever possible, implementers and/or specification writers should avoid using this element as much as possible."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="Resource.implicitRules"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="uri"/>
+      </type>
+      <isModifier value="true"/>
+      <isSummary value="true"/>
+    </element>
+    <element id="Observation:uscorevitalsigns.language">
+      <path value="Observation.language"/>
+      <short value="Language of the resource content"/>
+      <definition value="The base language in which the resource is written."/>
+      <comments value="Language is provided to support indexing and accessibility (typically, services such as text to speech use the language tag). The html language tag in the narrative applies  to the narrative. The language tag on the resource may be used to specify the language of other presentations generated from the data in the resource  Not all the content has to be in the base language. The Resource.language should not be assumed to apply to the narrative automatically. If a language is specified, it should it also be specified on the div element in the html (see rules in HTML5 for information about the relationship between xml:lang and the html lang attribute)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="Resource.language"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="code"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet">
+          <valueReference>
+            <reference value="http://hl7.org/fhir/ValueSet/all-languages"/>
+          </valueReference>
+        </extension>
+        <strength value="extensible"/>
+        <description value="A human language."/>
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/languages"/>
+        </valueSetReference>
+      </binding>
+    </element>
+    <element id="Observation:uscorevitalsigns.text">
+      <path value="Observation.text"/>
+      <short value="Text summary of the resource, for human interpretation"/>
+      <definition value="A human-readable narrative that contains a summary of the resource, and may be used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative. Resource definitions may define what content should be represented in the narrative to ensure clinical safety."/>
+      <comments value="Contained resources do not have narrative. Resources that are not contained SHOULD have a narrative. In some cases, a resource may only have text with little or no additional discrete data (as long as all minOccurs=1 elements are satisfied).  This may be necessary for data from legacy systems where information is captured as a &quot;text blob&quot; or where text is additionally entered raw or narrated and encoded in formation is added later."/>
+      <alias value="narrative"/>
+      <alias value="html"/>
+      <alias value="xhtml"/>
+      <alias value="display"/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="DomainResource.text"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="Narrative"/>
+      </type>
+      <condition value="dom-1"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value="Act.text?"/>
+      </mapping>
+    </element>
+    <element id="Observation:uscorevitalsigns.contained">
+      <path value="Observation.contained"/>
+      <short value="Contained, inline Resources"/>
+      <definition value="These resources do not have an independent existence apart from the resource that contains them - they cannot be identified independently, and nor can they have their own independent transaction scope."/>
+      <comments value="This should never be done when the content can be identified properly, as once identification is lost, it is extremely difficult (and context dependent) to restore it again."/>
+      <alias value="inline resources"/>
+      <alias value="anonymous resources"/>
+      <alias value="contained resources"/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="DomainResource.contained"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="Resource"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+    </element>
+    <element id="Observation:uscorevitalsigns.extension">
+      <path value="Observation.extension"/>
+      <short value="Additional Content defined by implementations"/>
+      <definition value="May be used to represent additional information that is not part of the basic definition of the resource. In order to make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension."/>
+      <comments value="There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone."/>
+      <alias value="extensions"/>
+      <alias value="user content"/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="DomainResource.extension"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="Extension"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+    </element>
+    <element id="Observation:uscorevitalsigns.modifierExtension">
+      <path value="Observation.modifierExtension"/>
+      <short value="Extensions that cannot be ignored"/>
+      <definition value="May be used to represent additional information that is not part of the basic definition of the resource, and that modifies the understanding of the element that contains it. Usually modifier elements provide negation or qualification. In order to make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions."/>
+      <comments value="There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone."/>
+      <alias value="extensions"/>
+      <alias value="user content"/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="DomainResource.modifierExtension"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="Extension"/>
+      </type>
+      <isModifier value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+    </element>
+    <element id="Observation:uscorevitalsigns.identifier">
+      <path value="Observation.identifier"/>
+      <short value="Unique Id for this particular observation"/>
+      <definition value="A unique identifier for the simple observation instance."/>
+      <requirements value="Allows observations to be distinguished and referenced."/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="Observation.identifier"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="Identifier"/>
+      </type>
+      <mapping>
+        <identity value="v2"/>
+        <map value="OBX.21  For OBX segments from systems without OBX-21 support a combination of ORC/OBR and OBX must be negotiated between trading partners to uniquely identify the OBX segment. Depending on how V2 has been implemented each of these may be an option: 1) OBR-3 + OBX-3 + OBX-4 or 2) OBR-3 + OBR-4 + OBX-3 + OBX-4 or 2) some other way to uniquely ID the OBR/ORC + OBX-3 + OBX-4."/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="id"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="id"/>
+      </mapping>
+    </element>
+    <element id="Observation:uscorevitalsigns.status">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-display-hint">
+        <valueString value="default: final"/>
+      </extension>
+      <path value="Observation.status"/>
+      <short value="registered | preliminary | final | amended +"/>
+      <definition value="The status of the result value."/>
+      <requirements value="Need to track the status of individual results. Some results are finalized before the whole report is finalized."/>
+      <min value="1"/>
+      <max value="1"/>
+      <base>
+        <path value="Observation.status"/>
+        <min value="1"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="code"/>
+      </type>
+      <mustSupport value="true"/>
+      <isModifier value="true"/>
+      <isSummary value="false"/>
+      <binding>
+        <strength value="required"/>
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/observation-status"/>
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="v2"/>
+        <map value="OBX-11"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="status  Amended &amp; Final are differentiated by whether it is the subject of a ControlAct event with a type of &quot;revise&quot;"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="status"/>
+      </mapping>
+    </element>
+    <element id="Observation:uscorevitalsigns.category">
+      <path value="Observation.category"/>
+      <short value="Classification of  type of observation"/>
+      <definition value="A code that classifies the general type of observation being made."/>
+      <comments value="There may be multiple axis of categoriization depending on the context or use case for retrieving or displaying the resource.  The level of granularity is defined by the category concepts in the value set."/>
+      <requirements value="Used for filtering what observations are retreived and displayed."/>
+      <min value="1"/>
+      <max value="1"/>
+      <base>
+        <path value="Observation.category"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <patternCodeableConcept>
+        <coding>
+          <system value="http://hl7.org/fhir/observation-category"/>
+          <code value="vital-signs"/>
+        </coding>
+      </patternCodeableConcept>
+      <mustSupport value="true"/>
+      <isSummary value="false"/>
+      <binding>
+        <strength value="example"/>
+        <description value="Codes for high level observation categories ."/>
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/observation-category"/>
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=&quot;COMP].target[classCode=&quot;LIST&quot;, moodCode=&quot;EVN&quot;].code"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="class"/>
+      </mapping>
+    </element>
+    <element id="Observation:uscorevitalsigns.code">
+      <path value="Observation.code"/>
+      <short value="Coded Responses from C-CDA Vital Sign Results"/>
+      <definition value="Describes what was observed. Sometimes this is called the observation &quot;name&quot;."/>
+      <requirements value="5. SHALL contain exactly one [1..1] code, where the @code SHOULD be selected from ValueSet HITSP Vital Sign Result Type 2.16.840.1.113883.3.88.12.80.62 DYNAMIC (CONF:7301)."/>
+      <min value="1"/>
+      <max value="1"/>
+      <base>
+        <path value="Observation.code"/>
+        <min value="1"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <mustSupport value="true"/>
+      <isSummary value="false"/>
+      <binding>
+        <strength value="extensible"/>
+        <description value="This identifies the vital sign result type."/>
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/us/core/ValueSet/us-core-observation-ccdavitalsignresult"/>
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="v2"/>
+        <map value="OBX-3"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="code"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="what"/>
+      </mapping>
+    </element>
+    <element id="Observation:uscorevitalsigns.subject">
+      <path value="Observation.subject"/>
+      <short value="Who and/or what this is about"/>
+      <definition value="The patient, or group of patients, location, or device whose characteristics (direct or indirect) are described by the observation and into whose record the observation is placed.  Comments: Indirect characteristics may be those of a specimen, fetus, donor,  other observer (for example a relative or EMT), or any observation made about the subject."/>
+      <comments value="One would expect this element to be a cardinality  of 1..1.  The only circumstance in which the subject can be missing is when the observation is made by a device that does not know the patient. In this case, the observation SHALL be matched to a patient through some context/channel matching technique, and at this point, the observation should be updated.  If the target of the observation is different than the subject, the general extension [observation-focal-subject](extension-observation-focal-subject.html).  may be used.  However, the distinction between the patient&#39;s own value for an observation versus that of the fetus, or the donor or blood product unit, etc., are often specified in the observation code."/>
+      <requirements value="Observations have no value if you don&#39;t know who or what they&#39;re about."/>
+      <min value="1"/>
+      <max value="1"/>
+      <base>
+        <path value="Observation.subject"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"/>
+      </type>
+      <mustSupport value="true"/>
+      <isSummary value="false"/>
+      <mapping>
+        <identity value="v2"/>
+        <map value="PID-3"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="participation[typeCode=SBJ]"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="who.focus"/>
+      </mapping>
+    </element>
+    <element id="Observation:uscorevitalsigns.encounter">
+      <path value="Observation.encounter"/>
+      <short value="Healthcare event during which this observation is made"/>
+      <definition value="The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made."/>
+      <requirements value="For some observations it may be important to know the link between an observation and a particular encounter."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="Observation.encounter"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Encounter"/>
+      </type>
+      <mapping>
+        <identity value="v2"/>
+        <map value="PV1"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="inboundRelationship[typeCode=COMP].source[classCode=ENC, moodCode=EVN]"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="context"/>
+      </mapping>
+    </element>
+    <element id="Observation:uscorevitalsigns.effective[x]">
+      <path value="Observation.effective[x]"/>
+      <short value="Often just a dateTime for Vital Signs"/>
+      <definition value="The time or time-period the observed value is asserted as being true. For biological subjects - e.g. human patients - this is usually called the &quot;physiologically relevant time&quot;. This is usually either the time of the procedure or of specimen collection, but very often the source of the date/time is not known, only the date/time itself."/>
+      <comments value="At least a date should be present unless this observation is a historical report."/>
+      <requirements value="Knowing when an observation was deemed true is important to its relevance as well as determining trends."/>
+      <min value="1"/>
+      <max value="1"/>
+      <base>
+        <path value="Observation.effective[x]"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <type>
+        <code value="Period"/>
+      </type>
+      <constraint>
+        <key value="us-core-1"/>
+        <severity value="error"/>
+        <human value="Datetime must be at least to day."/>
+        <expression value="length() &gt;= 8"/>
+        <xpath value="f:matches(effectiveDateTime,/\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d([+-][0-2]\d:[0-5]\d|Z)/)"/>
+      </constraint>
+      <mustSupport value="true"/>
+      <isSummary value="false"/>
+      <mapping>
+        <identity value="v2"/>
+        <map value="OBX-14, and/or OBX-19 after v2.4  (depends on who observation made)"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="effectiveTime"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="when.done"/>
+      </mapping>
+    </element>
+    <element id="Observation:uscorevitalsigns.issued">
+      <path value="Observation.issued"/>
+      <short value="Date/Time this was made available"/>
+      <definition value="The date and time this observation was made available to providers, typically after the results have been reviewed and verified."/>
+      <comments value="Updated when the result is updated."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="Observation.issued"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="instant"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="v2"/>
+        <map value="OBR.22 (or MSH.7), or perhaps OBX-19 (depends on who observation made)"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="participation[typeCode=AUT].time"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="when.recorded"/>
+      </mapping>
+    </element>
+    <element id="Observation:uscorevitalsigns.performer">
+      <path value="Observation.performer"/>
+      <short value="Who is responsible for the observation"/>
+      <definition value="Who was responsible for asserting the observed value as &quot;true&quot;."/>
+      <requirements value="May give a degree of confidence in the observation and also indicates where follow-up questions should be directed."/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="Observation.performer"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+      </type>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+      </type>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+      </type>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="v2"/>
+        <map value="OBX.15 / (Practitioner)  OBX-16,  PRT-5:PRT-4=&#39;RO&#39; /  (Device)  OBX-18 , PRT-10:PRT-4=&#39;EQUIP&#39; / (Organization)  OBX-23,  PRT-8:PRT-4=&#39;PO&#39;"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="participation[typeCode=PRF]"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="who.actor"/>
+      </mapping>
+    </element>
+    <element id="Observation:uscorevitalsigns.valueQuantity">
+      <path value="Observation.valueQuantity"/>
+      <short value="Vital Sign Value recorded with UCUM"/>
+      <definition value="The information determined as a result of making the observation, if the information has a simple value."/>
+      <comments value="Normally, an observation will have either a value or a set of related observations. A few observations (e.g. Apgar score) may have both a value and related observations (for an Apgar score, the observations from which the measure is derived). If a value is present, the datatype for this element should be determined by Observation.code. This element has a variable name depending on the type as follows: valueQuantity, valueCodeableConcept, valueString, valueRange, valueRatio, valueSampledData, valueAttachment, valueTime, valueDateTime, or valuePeriod. (The name format is &quot;&#39;value&#39; + the type name&quot; with a capital on the first letter of the type).   If the data element is usually coded or if the type associated with the Observation.value defines a coded value, use CodeableConcept instead of string datatype even if the value is uncoded text.  A value set is bound to the ValueCodeableConcept element.  For boolean values use valueCodeableConcept and select codes from [HL7 Version 2 Table 0136](v2/0136/index.html). These &quot;yes/no&quot; concepts can be mapped to the display name &quot;true/false&quot; or other mutually exclusive terms that may be needed.   For further discussion and examples see the  [notes section](observation.html#4.20.4) below."/>
+      <requirements value="9. SHALL contain exactly one [1..1] value with @xsi:type=&quot;PQ&quot; (CONF:7305)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="Observation.value[x]"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="Quantity"/>
+      </type>
+      <condition value="obs-7"/>
+      <mustSupport value="true"/>
+      <isSummary value="false"/>
+      <binding>
+        <strength value="extensible"/>
+        <description value="Common UCUM units for recording Vital Signs"/>
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/ucum-vitals-common"/>
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="v2"/>
+        <map value="OBX.2, OBX.5, OBX.6"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="value"/>
+      </mapping>
+    </element>
+    <element id="Observation:uscorevitalsigns.valueQuantity.id">
+      <path value="Observation.valueQuantity.id"/>
+      <representation value="xmlAttr"/>
+      <short value="xml:id (or equivalent in JSON)"/>
+      <definition value="unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="Element.id"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="string"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
+    <element id="Observation:uscorevitalsigns.valueQuantity.extension">
+      <path value="Observation.valueQuantity.extension"/>
+      <short value="Additional Content defined by implementations"/>
+      <definition value="May be used to represent additional information that is not part of the basic definition of the element. In order to make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension."/>
+      <comments value="There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone."/>
+      <alias value="extensions"/>
+      <alias value="user content"/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="Element.extension"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="Extension"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
+    <element id="Observation:uscorevitalsigns.valueQuantity.value">
+      <path value="Observation.valueQuantity.value"/>
+      <short value="Numerical value (with implicit precision)"/>
+      <definition value="The value of the measured amount. The value includes an implicit precision in the presentation of the value."/>
+      <comments value="The implicit precision in the value should always be honored. Monetary values have their own rules for handling precision (refer to standard accounting text books)."/>
+      <requirements value="Precision is handled implicitly in almost all cases of measurement."/>
+      <min value="1"/>
+      <max value="1"/>
+      <base>
+        <path value="Quantity.value"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="decimal"/>
+      </type>
+      <mustSupport value="true"/>
+      <isSummary value="false"/>
+      <mapping>
+        <identity value="v2"/>
+        <map value="SN.2  / CQ - N/A"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="PQ.value, CO.value, MO.value, IVL.high or IVL.low depending on the value"/>
+      </mapping>
+    </element>
+    <element id="Observation:uscorevitalsigns.valueQuantity.comparator">
+      <path value="Observation.valueQuantity.comparator"/>
+      <short value="&lt; | &lt;= | &gt;= | &gt; - how to understand the value"/>
+      <definition value="How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is &quot;&lt;&quot; , then the real value is &lt; stated value."/>
+      <comments value="This is labeled as &quot;Is Modifier&quot; because the comparator modifies the interpretation of the value significantly. If there is no comparator, then there is no modification of the value."/>
+      <requirements value="Need a framework for handling measures where the value is &lt;5ug/L or &gt;400mg/L due to the limitations of measuring methodology."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="Quantity.comparator"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="code"/>
+      </type>
+      <meaningWhenMissing value="If there is no comparator, then there is no modification of the value"/>
+      <isModifier value="true"/>
+      <isSummary value="true"/>
+      <binding>
+        <strength value="required"/>
+        <description value="How the Quantity should be understood and represented."/>
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/quantity-comparator"/>
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="v2"/>
+        <map value="SN.1  / CQ.1"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="IVL properties"/>
+      </mapping>
+    </element>
+    <element id="Observation:uscorevitalsigns.valueQuantity.unit">
+      <path value="Observation.valueQuantity.unit"/>
+      <short value="Unit representation"/>
+      <definition value="A human-readable form of the unit."/>
+      <requirements value="There are many representations for units of measure and in many contexts, particular representations are fixed and required. I.e. mcg for micrograms."/>
+      <min value="1"/>
+      <max value="1"/>
+      <base>
+        <path value="Quantity.unit"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="string"/>
+      </type>
+      <mustSupport value="true"/>
+      <isSummary value="false"/>
+      <mapping>
+        <identity value="v2"/>
+        <map value="(see OBX.6 etc.) / CQ.2"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="PQ.unit"/>
+      </mapping>
+    </element>
+    <element id="Observation:uscorevitalsigns.valueQuantity.system">
+      <path value="Observation.valueQuantity.system"/>
+      <short value="System that defines coded unit form"/>
+      <definition value="The identification of the system that provides the coded form of the unit."/>
+      <requirements value="Need to know the system that defines the coded form of the unit."/>
+      <min value="1"/>
+      <max value="1"/>
+      <base>
+        <path value="Quantity.system"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="uri"/>
+      </type>
+      <fixedUri value="http://unitsofmeasure.org"/>
+      <condition value="qty-3"/>
+      <mustSupport value="true"/>
+      <isSummary value="false"/>
+      <mapping>
+        <identity value="v2"/>
+        <map value="(see OBX.6 etc.) / CQ.2"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="CO.codeSystem, PQ.translation.codeSystem"/>
+      </mapping>
+    </element>
+    <element id="Observation:uscorevitalsigns.valueQuantity.code">
+      <path value="Observation.valueQuantity.code"/>
+      <short value="Coded responses from the common UCUM units for vital signs value set."/>
+      <definition value="A computer processable form of the unit in some unit representation system."/>
+      <comments value="The preferred system is UCUM, but SNOMED CT can also be used (for customary units) or ISO 4217 for currency.  The context of use may additionally require a code from a particular system."/>
+      <requirements value="Need a computable form of the unit that is fixed across all forms. UCUM provides this for quantities, but SNOMED CT provides many units of interest."/>
+      <min value="1"/>
+      <max value="1"/>
+      <base>
+        <path value="Quantity.code"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="code"/>
+      </type>
+      <mustSupport value="true"/>
+      <isSummary value="false"/>
+      <mapping>
+        <identity value="v2"/>
+        <map value="(see OBX.6 etc.) / CQ.2"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="PQ.code, MO.currency, PQ.translation.code"/>
+      </mapping>
+    </element>
+    <element id="Observation:uscorevitalsigns.dataAbsentReason">
+      <path value="Observation.dataAbsentReason"/>
+      <short value="Why the result is missing"/>
+      <definition value="Provides a reason why the expected value in the element Observation.value[x] is missing."/>
+      <comments value="Null or exceptional values can be represented two ways in FHIR Observations.  One way is to simply include them in the value set and represent the exceptions in the value.  For example, measurement values for a serology test could be  &quot;detected&quot;, &quot;not detected&quot;, &quot;inconclusive&quot;, or  &quot;specimen unsatisfactory&quot;.   The alternate way is to use the value element for actual observations and use the explicit dataAbsentReason element to record exceptional values.  For example, the dataAbsentReason code &quot;error&quot; could be used when the measurement was not completed.  Because of these options, use-case agreements are required to interpret general observations for exceptional values."/>
+      <requirements value="For many results it is necessary to handle exceptional values in measurements."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="Observation.dataAbsentReason"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <condition value="obs-6"/>
+      <mustSupport value="true"/>
+      <isSummary value="false"/>
+      <binding>
+        <strength value="extensible"/>
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/observation-valueabsentreason"/>
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="v2"/>
+        <map value="N/A"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="value.nullFlavor"/>
+      </mapping>
+    </element>
+    <element id="Observation:uscorevitalsigns.interpretation">
+      <path value="Observation.interpretation"/>
+      <short value="High, low, normal, etc."/>
+      <definition value="The assessment made based on the result of the observation.  Intended as a simple compact code often placed adjacent to the result value in reports and flow sheets to signal the meaning/normalcy status of the result. Otherwise known as abnormal flag."/>
+      <requirements value="For some results, particularly numeric results, an interpretation is necessary to fully understand the significance of a result."/>
+      <alias value="Abnormal Flag"/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="Observation.interpretation"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <strength value="extensible"/>
+        <description value="Codes identifying interpretations of observations."/>
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/observation-interpretation"/>
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="v2"/>
+        <map value="OBX-8"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="interpretationCode"/>
+      </mapping>
+    </element>
+    <element id="Observation:uscorevitalsigns.comment">
+      <path value="Observation.comment"/>
+      <short value="Comments about result"/>
+      <definition value="May include statements about significant, unexpected or unreliable values, or information about the source of the value where this may be relevant to the interpretation of the result."/>
+      <requirements value="Need to be able to provide free text additional information."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="Observation.comment"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="string"/>
+      </type>
+      <mapping>
+        <identity value="v2"/>
+        <map value="NTE.3 (partner NTE to OBX, or sometimes another (child?) OBX)"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="subjectOf.observationEvent[code=&quot;annotation&quot;].value"/>
+      </mapping>
+    </element>
+    <element id="Observation:uscorevitalsigns.bodySite">
+      <path value="Observation.bodySite"/>
+      <short value="Observed body part"/>
+      <definition value="Indicates the site on the subject&#39;s body where the observation was made (i.e. the target site)."/>
+      <comments value="Only used if not implicit in code found in Observation.code.  In many systems, this may be represented as a related observation instead of an inline component.   If the use case requires BodySite to be handled as a separate resource (e.g. to identify and track separately) then use The standard extension[ body-site-instance](extension-body-site-instance.html)."/>
+      <requirements value="Knowing where the observation is made is important for tracking if multiple sites are possible."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="Observation.bodySite"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <strength value="example"/>
+        <description value="Codes describing anatomical locations. May include laterality."/>
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/body-site"/>
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="v2"/>
+        <map value="OBX-20"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="targetSiteCode"/>
+      </mapping>
+    </element>
+    <element id="Observation:uscorevitalsigns.method">
+      <path value="Observation.method"/>
+      <short value="How it was done"/>
+      <definition value="Indicates the mechanism used to perform the observation."/>
+      <comments value="Only used if not implicit in code for Observation.code."/>
+      <requirements value="In some cases, method can impact results and is thus used for determining whether results can be compared or determining significance of results."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="Observation.method"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <strength value="example"/>
+        <description value="Methods for simple observations."/>
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/observation-methods"/>
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="v2"/>
+        <map value="OBX-17"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="methodCode"/>
+      </mapping>
+    </element>
+    <element id="Observation:uscorevitalsigns.specimen">
+      <path value="Observation.specimen"/>
+      <short value="Specimen used for this observation"/>
+      <definition value="The specimen that was used when this observation was made."/>
+      <comments value="Observations are not made on specimens themselves; they are made on a subject, but usually by the means of a specimen. Note that although specimens are often involved, they are not always tracked and reported explicitly. Also note that observation resources may be used in contexts that track the specimen explicitly (e.g. Diagnostic Report)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="Observation.specimen"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Specimen"/>
+      </type>
+      <mapping>
+        <identity value="v2"/>
+        <map value="SPM segment"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="participation[typeCode=SPC].specimen"/>
+      </mapping>
+    </element>
+    <element id="Observation:uscorevitalsigns.device">
+      <path value="Observation.device"/>
+      <short value="(Measurement) Device"/>
+      <definition value="The device used to generate the observation data."/>
+      <comments value="An extension should be used if further typing of the device is needed.  Devices used to support obtaining an observation can be represented using either extension or through the Observation.related element."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="Observation.device"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+      </type>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceMetric"/>
+      </type>
+      <mapping>
+        <identity value="v2"/>
+        <map value="OBX-17 / PRT -10"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="participation[typeCode=DEV]"/>
+      </mapping>
+    </element>
+    <element id="Observation:uscorevitalsigns.referenceRange">
+      <path value="Observation.referenceRange"/>
+      <short value="Provides guide for interpretation"/>
+      <definition value="Guidance on how to interpret the value by comparison to a normal or recommended range."/>
+      <comments value="Most observations only have one generic reference range. Systems MAY choose to restrict to only supplying the relevant reference range based on knowledge about the patient (e.g. specific to the patient&#39;s age, gender, weight and other factors), but this may not be possible or appropriate. Whenever more than one reference range is supplied, the differences between them SHOULD be provided in the reference range and/or age properties."/>
+      <requirements value="Knowing what values are considered &quot;normal&quot; can help evaluate the significance of a particular result. Need to be able to provide multiple reference ranges for different contexts."/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="Observation.referenceRange"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <constraint>
+        <key value="ele-1"/>
+        <severity value="error"/>
+        <human value="All FHIR elements must have a @value or children"/>
+        <expression value="children().count() &gt; id.count()"/>
+        <xpath value="@value|f:*|h:div"/>
+        <source value="Element"/>
+      </constraint>
+      <constraint>
+        <key value="obs-3"/>
+        <severity value="error"/>
+        <human value="Must have at least a low or a high or text"/>
+        <expression value="low.exists() or high.exists() or text.exists()"/>
+        <xpath value="(exists(f:low) or exists(f:high)or exists(f:text))"/>
+      </constraint>
+      <mapping>
+        <identity value="v2"/>
+        <map value="OBX.7"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="outboundRelationship[typeCode=REFV]/target[classCode=OBS, moodCode=EVN]"/>
+      </mapping>
+    </element>
+    <element id="Observation:uscorevitalsigns.referenceRange.id">
+      <path value="Observation.referenceRange.id"/>
+      <representation value="xmlAttr"/>
+      <short value="xml:id (or equivalent in JSON)"/>
+      <definition value="unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="Element.id"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="string"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
+    <element id="Observation:uscorevitalsigns.referenceRange.extension">
+      <path value="Observation.referenceRange.extension"/>
+      <short value="Additional Content defined by implementations"/>
+      <definition value="May be used to represent additional information that is not part of the basic definition of the element. In order to make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension."/>
+      <comments value="There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone."/>
+      <alias value="extensions"/>
+      <alias value="user content"/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="Element.extension"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="Extension"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
+    <element id="Observation:uscorevitalsigns.referenceRange.modifierExtension">
+      <path value="Observation.referenceRange.modifierExtension"/>
+      <short value="Extensions that cannot be ignored"/>
+      <definition value="May be used to represent additional information that is not part of the basic definition of the element, and that modifies the understanding of the element that contains it. Usually modifier elements provide negation or qualification. In order to make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions."/>
+      <comments value="There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone."/>
+      <alias value="extensions"/>
+      <alias value="user content"/>
+      <alias value="modifiers"/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="BackboneElement.modifierExtension"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="Extension"/>
+      </type>
+      <isModifier value="true"/>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+    </element>
+    <element id="Observation:uscorevitalsigns.referenceRange.low">
+      <path value="Observation.referenceRange.low"/>
+      <short value="Low Range, if relevant"/>
+      <definition value="The value of the low bound of the reference range.  The low bound of the reference range endpoint is inclusive of the value (e.g.  reference range is &gt;=5 - &lt;=9).   If the low bound is omitted,  it is assumed to be meaningless (e.g. reference range is &lt;=2.3)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="Observation.referenceRange.low"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="Quantity"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/SimpleQuantity"/>
+      </type>
+      <condition value="obs-3"/>
+      <mapping>
+        <identity value="v2"/>
+        <map value="OBX-7"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="value:IVL_PQ.low"/>
+      </mapping>
+    </element>
+    <element id="Observation:uscorevitalsigns.referenceRange.high">
+      <path value="Observation.referenceRange.high"/>
+      <short value="High Range, if relevant"/>
+      <definition value="The value of the high bound of the reference range.  The high bound of the reference range endpoint is inclusive of the value (e.g.  reference range is &gt;=5 - &lt;=9).   If the high bound is omitted,  it is assumed to be meaningless (e.g. reference range is &gt;= 2.3)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="Observation.referenceRange.high"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="Quantity"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/SimpleQuantity"/>
+      </type>
+      <condition value="obs-3"/>
+      <mapping>
+        <identity value="v2"/>
+        <map value="OBX-7"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="value:IVL_PQ.high"/>
+      </mapping>
+    </element>
+    <element id="Observation:uscorevitalsigns.referenceRange.meaning">
+      <path value="Observation.referenceRange.meaning"/>
+      <short value="Reference range qualifier"/>
+      <definition value="Codes to indicate the the target population this reference range applies to.  For example, a reference range may be based on the normal population or a particular sex, race, therapeutic status, or endocrine or reproductive status."/>
+      <comments value="This SHOULD be populated if there is more than one range.  If this element is not present then the norma population is assumed."/>
+      <requirements value="Need to be able to say what kind of reference range this is - normal, recommended, therapeutic, etc  - for proper interpretation."/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="Observation.referenceRange.meaning"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <strength value="example"/>
+        <description value="Code for the meaning of a reference range."/>
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/referencerange-meaning"/>
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="v2"/>
+        <map value="OBX-10?"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="interpretationCode"/>
+      </mapping>
+    </element>
+    <element id="Observation:uscorevitalsigns.referenceRange.age">
+      <path value="Observation.referenceRange.age"/>
+      <short value="Applicable age range, if relevant"/>
+      <definition value="The age at which this reference range is applicable. This is a neonatal age (e.g. number of weeks at term) if the meaning says so."/>
+      <requirements value="Some analytes vary greatly over age."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="Observation.referenceRange.age"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="Range"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="outboundRelationship[typeCode=PRCN].targetObservationCriterion[code=&quot;age&quot;].value"/>
+      </mapping>
+    </element>
+    <element id="Observation:uscorevitalsigns.referenceRange.text">
+      <path value="Observation.referenceRange.text"/>
+      <short value="Text based reference range in an observation"/>
+      <definition value="Text based reference range in an observation which may be used when a quantitative range is not appropriate for an observation.  An example would be a reference value of &quot;Negative&quot; or a list or table of &#39;normals&#39;."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="Observation.referenceRange.text"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="string"/>
+      </type>
+      <mapping>
+        <identity value="v2"/>
+        <map value="OBX-7"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="value:ST"/>
+      </mapping>
+    </element>
+    <element id="Observation:uscorevitalsigns.related">
+      <path value="Observation.related"/>
+      <short value="Used when reporting systolic and diastolic blood pressure."/>
+      <definition value="A  reference to another resource (usually another Observation) whose relationship is defined by the relationship type code."/>
+      <comments value="For a discussion on the ways Observations can assembled in groups together see [Notes below](observation.html#4.20.4)."/>
+      <requirements value="Normally, an observation will have either a value or a set of related observations. A few observations (e.g. Apgar score) may have both a value and a set of related observations or sometimes QuestionnaireResponse  from which the measure is derived."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="Observation.related"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <constraint>
+        <key value="ele-1"/>
+        <severity value="error"/>
+        <human value="All FHIR elements must have a @value or children"/>
+        <expression value="children().count() &gt; id.count()"/>
+        <xpath value="@value|f:*|h:div"/>
+        <source value="Element"/>
+      </constraint>
+      <mustSupport value="true"/>
+      <isSummary value="false"/>
+      <mapping>
+        <identity value="v2"/>
+        <map value="Relationships established by OBX-4 usage"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="outBoundRelationship"/>
+      </mapping>
+    </element>
+    <element id="Observation:uscorevitalsigns.related.id">
+      <path value="Observation.related.id"/>
+      <representation value="xmlAttr"/>
+      <short value="xml:id (or equivalent in JSON)"/>
+      <definition value="unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="Element.id"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="string"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
+    <element id="Observation:uscorevitalsigns.related.extension">
+      <path value="Observation.related.extension"/>
+      <short value="Additional Content defined by implementations"/>
+      <definition value="May be used to represent additional information that is not part of the basic definition of the element. In order to make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension."/>
+      <comments value="There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone."/>
+      <alias value="extensions"/>
+      <alias value="user content"/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="Element.extension"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="Extension"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
+    <element id="Observation:uscorevitalsigns.related.modifierExtension">
+      <path value="Observation.related.modifierExtension"/>
+      <short value="Extensions that cannot be ignored"/>
+      <definition value="May be used to represent additional information that is not part of the basic definition of the element, and that modifies the understanding of the element that contains it. Usually modifier elements provide negation or qualification. In order to make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions."/>
+      <comments value="There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone."/>
+      <alias value="extensions"/>
+      <alias value="user content"/>
+      <alias value="modifiers"/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="BackboneElement.modifierExtension"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="Extension"/>
+      </type>
+      <isModifier value="true"/>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+    </element>
+    <element id="Observation:uscorevitalsigns.related.type">
+      <path value="Observation.related.type"/>
+      <short value="has-member | derived-from | sequel-to | replaces | qualified-by | interfered-by"/>
+      <definition value="A code specifying the kind of relationship that exists with the target resource."/>
+      <comments value="&quot;derived-from&quot; is only logical choice when referencing QuestionnaireAnswer resource."/>
+      <requirements value="A relationship type SHOULD be provided."/>
+      <min value="1"/>
+      <max value="1"/>
+      <base>
+        <path value="Observation.related.type"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="code"/>
+      </type>
+      <fixedCode value="has-member"/>
+      <mustSupport value="true"/>
+      <isSummary value="false"/>
+      <binding>
+        <strength value="required"/>
+        <description value="Codes specifying how two observations are related."/>
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/observation-relationshiptypes"/>
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="v2"/>
+        <map value="N/A"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".typeCode"/>
+      </mapping>
+    </element>
+    <element id="Observation:uscorevitalsigns.related.target">
+      <path value="Observation.related.target"/>
+      <short value="Resource that is related to this one"/>
+      <definition value="A reference to the observation or [QuestionnaireResponse](questionnaireresponse.html#) resource that is related to this observation."/>
+      <min value="1"/>
+      <max value="1"/>
+      <base>
+        <path value="Observation.related.target"/>
+        <min value="1"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-vitalsigns"/>
+      </type>
+      <mustSupport value="true"/>
+      <isSummary value="false"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".targetObservation"/>
+      </mapping>
+    </element>
+    <element id="Observation:uscorevitalsigns.component">
+      <path value="Observation.component"/>
+      <short value="Used when reporting systolic and diastolic blood pressure."/>
+      <definition value="Some observations have multiple component observations.  These component observations are expressed as separate code value pairs that share the same attributes.  Examples include systolic and diastolic component observations for blood pressure measurement and multiple component observations for genetics observations."/>
+      <comments value="For a discussion on the ways Observations can assembled in groups together see [Notes](observation.html#notes) below."/>
+      <requirements value="Component observations share the same attributes in the Observation resource as the primary observation and are always treated a part of a single observation (they are not separable).   However, the reference range for the primary observation value is not inherited by the component values and is required when appropriate for each component observation."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="Observation.component"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <constraint>
+        <key value="ele-1"/>
+        <severity value="error"/>
+        <human value="All FHIR elements must have a @value or children"/>
+        <expression value="children().count() &gt; id.count()"/>
+        <xpath value="@value|f:*|h:div"/>
+        <source value="Element"/>
+      </constraint>
+      <constraint>
+        <key value="us-core-3"/>
+        <severity value="error"/>
+        <human value="If there is no a value a data absent reason must be present"/>
+        <expression value="value.exists() or dataAbsentReason.exists()"/>
+        <xpath value="exists(f:*[starts-with(local-name(.), &#39;value)]) or exists(f:dataAbsentReason)"/>
+      </constraint>
+      <mustSupport value="true"/>
+      <isSummary value="false"/>
+      <mapping>
+        <identity value="v2"/>
+        <map value="containment by OBX-4?"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="outBoundRelationship[typeCode=COMP]"/>
+      </mapping>
+    </element>
+    <element id="Observation:uscorevitalsigns.component.id">
+      <path value="Observation.component.id"/>
+      <representation value="xmlAttr"/>
+      <short value="xml:id (or equivalent in JSON)"/>
+      <definition value="unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="Element.id"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="string"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
+    <element id="Observation:uscorevitalsigns.component.extension">
+      <path value="Observation.component.extension"/>
+      <short value="Additional Content defined by implementations"/>
+      <definition value="May be used to represent additional information that is not part of the basic definition of the element. In order to make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension."/>
+      <comments value="There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone."/>
+      <alias value="extensions"/>
+      <alias value="user content"/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="Element.extension"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="Extension"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
+    <element id="Observation:uscorevitalsigns.component.modifierExtension">
+      <path value="Observation.component.modifierExtension"/>
+      <short value="Extensions that cannot be ignored"/>
+      <definition value="May be used to represent additional information that is not part of the basic definition of the element, and that modifies the understanding of the element that contains it. Usually modifier elements provide negation or qualification. In order to make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions."/>
+      <comments value="There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone."/>
+      <alias value="extensions"/>
+      <alias value="user content"/>
+      <alias value="modifiers"/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="BackboneElement.modifierExtension"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="Extension"/>
+      </type>
+      <isModifier value="true"/>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+    </element>
+    <element id="Observation:uscorevitalsigns.component.code">
+      <path value="Observation.component.code"/>
+      <short value="Type of component observation (code / type)"/>
+      <definition value="Describes what was observed. Sometimes this is called the observation &quot;code&quot;."/>
+      <requirements value="Knowing what kind of observation is being made is essential to understanding the observation."/>
+      <min value="1"/>
+      <max value="1"/>
+      <base>
+        <path value="Observation.component.code"/>
+        <min value="1"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <mustSupport value="true"/>
+      <isSummary value="false"/>
+      <binding>
+        <strength value="extensible"/>
+        <description value="This identifies the vital sign result type."/>
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/us/core/ValueSet/us-core-observation-ccdavitalsignresult"/>
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="v2"/>
+        <map value="OBX-3"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="code"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="what"/>
+      </mapping>
+    </element>
+    <element id="Observation:uscorevitalsigns.component.valueQuantity">
+      <path value="Observation.component.valueQuantity"/>
+      <short value="Vital Sign Value recorded with UCUM"/>
+      <definition value="The information determined as a result of making the observation, if the information has a simple value."/>
+      <comments value="Normally, an observation will have either a value or a set of related observations. A few observations (e.g. Apgar score) may have both a value and related observations (for an Apgar score, the observations from which the measure is derived). If a value is present, the datatype for this element should be determined by Observation.code. A CodeableConcept with just a text would be used instead of a string if the field was usually coded, or if the type associated with the Observation.code defines a coded value.   For boolean values use valueCodeableConcept and select codes from &lt;http://hl7.org/fhir/ValueSet/v2-0136&gt; (These &quot;yes/no&quot; concepts can be mapped to the display name &quot;true/false&quot; or other mutually exclusive terms that may be needed&quot;).  The element, Observation.value[x], has a variable name depending on the type as follows: valueQuantity, valueCodeableConcept, valueRatio, valueChoice, valuePeriod, valueSampleData, or valueString (The name format is &quot;&#39;value&#39; + the type name&quot; with a capital on the first letter of the type)."/>
+      <requirements value="9. SHALL contain exactly one [1..1] value with @xsi:type=&quot;PQ&quot; (CONF:7305)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="Observation.component.value[x]"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="Quantity"/>
+      </type>
+      <mustSupport value="true"/>
+      <isSummary value="false"/>
+      <binding>
+        <strength value="extensible"/>
+        <description value="Common UCUM units for recording Vital Signs"/>
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/ucum-vitals-common"/>
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="v2"/>
+        <map value="OBX.2, OBX.5, OBX.6"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="value"/>
+      </mapping>
+    </element>
+    <element id="Observation:uscorevitalsigns.component.valueQuantity.id">
+      <path value="Observation.component.valueQuantity.id"/>
+      <representation value="xmlAttr"/>
+      <short value="xml:id (or equivalent in JSON)"/>
+      <definition value="unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="Element.id"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="string"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
+    <element id="Observation:uscorevitalsigns.component.valueQuantity.extension">
+      <path value="Observation.component.valueQuantity.extension"/>
+      <short value="Additional Content defined by implementations"/>
+      <definition value="May be used to represent additional information that is not part of the basic definition of the element. In order to make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension."/>
+      <comments value="There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone."/>
+      <alias value="extensions"/>
+      <alias value="user content"/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="Element.extension"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="Extension"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
+    <element id="Observation:uscorevitalsigns.component.valueQuantity.value">
+      <path value="Observation.component.valueQuantity.value"/>
+      <short value="Numerical value (with implicit precision)"/>
+      <definition value="The value of the measured amount. The value includes an implicit precision in the presentation of the value."/>
+      <comments value="The implicit precision in the value should always be honored. Monetary values have their own rules for handling precision (refer to standard accounting text books)."/>
+      <requirements value="Precision is handled implicitly in almost all cases of measurement."/>
+      <min value="1"/>
+      <max value="1"/>
+      <base>
+        <path value="Quantity.value"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="decimal"/>
+      </type>
+      <mustSupport value="true"/>
+      <isSummary value="false"/>
+      <mapping>
+        <identity value="v2"/>
+        <map value="SN.2  / CQ - N/A"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="PQ.value, CO.value, MO.value, IVL.high or IVL.low depending on the value"/>
+      </mapping>
+    </element>
+    <element id="Observation:uscorevitalsigns.component.valueQuantity.comparator">
+      <path value="Observation.component.valueQuantity.comparator"/>
+      <short value="&lt; | &lt;= | &gt;= | &gt; - how to understand the value"/>
+      <definition value="How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is &quot;&lt;&quot; , then the real value is &lt; stated value."/>
+      <comments value="This is labeled as &quot;Is Modifier&quot; because the comparator modifies the interpretation of the value significantly. If there is no comparator, then there is no modification of the value."/>
+      <requirements value="Need a framework for handling measures where the value is &lt;5ug/L or &gt;400mg/L due to the limitations of measuring methodology."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="Quantity.comparator"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="code"/>
+      </type>
+      <meaningWhenMissing value="If there is no comparator, then there is no modification of the value"/>
+      <isModifier value="true"/>
+      <isSummary value="true"/>
+      <binding>
+        <strength value="required"/>
+        <description value="How the Quantity should be understood and represented."/>
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/quantity-comparator"/>
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="v2"/>
+        <map value="SN.1  / CQ.1"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="IVL properties"/>
+      </mapping>
+    </element>
+    <element id="Observation:uscorevitalsigns.component.valueQuantity.unit">
+      <path value="Observation.component.valueQuantity.unit"/>
+      <short value="Unit representation"/>
+      <definition value="A human-readable form of the unit."/>
+      <requirements value="There are many representations for units of measure and in many contexts, particular representations are fixed and required. I.e. mcg for micrograms."/>
+      <min value="1"/>
+      <max value="1"/>
+      <base>
+        <path value="Quantity.unit"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="string"/>
+      </type>
+      <mustSupport value="true"/>
+      <isSummary value="false"/>
+      <mapping>
+        <identity value="v2"/>
+        <map value="(see OBX.6 etc.) / CQ.2"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="PQ.unit"/>
+      </mapping>
+    </element>
+    <element id="Observation:uscorevitalsigns.component.valueQuantity.system">
+      <path value="Observation.component.valueQuantity.system"/>
+      <short value="System that defines coded unit form"/>
+      <definition value="The identification of the system that provides the coded form of the unit."/>
+      <requirements value="Need to know the system that defines the coded form of the unit."/>
+      <min value="1"/>
+      <max value="1"/>
+      <base>
+        <path value="Quantity.system"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="uri"/>
+      </type>
+      <fixedUri value="http://unitsofmeasure.org"/>
+      <condition value="qty-3"/>
+      <mustSupport value="true"/>
+      <isSummary value="false"/>
+      <mapping>
+        <identity value="v2"/>
+        <map value="(see OBX.6 etc.) / CQ.2"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="CO.codeSystem, PQ.translation.codeSystem"/>
+      </mapping>
+    </element>
+    <element id="Observation:uscorevitalsigns.component.valueQuantity.code">
+      <path value="Observation.component.valueQuantity.code"/>
+      <short value="Coded responses from the common UCUM units for vital signs value set."/>
+      <definition value="A computer processable form of the unit in some unit representation system."/>
+      <comments value="The preferred system is UCUM, but SNOMED CT can also be used (for customary units) or ISO 4217 for currency.  The context of use may additionally require a code from a particular system."/>
+      <requirements value="Need a computable form of the unit that is fixed across all forms. UCUM provides this for quantities, but SNOMED CT provides many units of interest."/>
+      <min value="1"/>
+      <max value="1"/>
+      <base>
+        <path value="Quantity.code"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="code"/>
+      </type>
+      <mustSupport value="true"/>
+      <isSummary value="false"/>
+      <mapping>
+        <identity value="v2"/>
+        <map value="(see OBX.6 etc.) / CQ.2"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="PQ.code, MO.currency, PQ.translation.code"/>
+      </mapping>
+    </element>
+    <element id="Observation:uscorevitalsigns.component.dataAbsentReason">
+      <path value="Observation.component.dataAbsentReason"/>
+      <short value="Why the component result is missing"/>
+      <definition value="Provides a reason why the expected value in the element Observation.value[x] is missing."/>
+      <comments value="&quot;Null&quot; or exceptional values can be represented two ways in FHIR Observations.  One way is to simply include them in the value set and represent the exceptions in the value.  For example, measurement values for a serology test could be  &quot;detected&quot;, &quot;not detected&quot;, &quot;inconclusive&quot;, or  &quot;test not done&quot;.   The alternate way is to use the value element for actual observations and use the explicit dataAbsentReason element to record exceptional values.  For example, the dataAbsentReason code &quot;error&quot; could be used when the measurement was not completed.  Because of these options, use-case agreements are required to interpret general observations for exceptional values."/>
+      <requirements value="For many results it is necessary to handle exceptional values in measurements."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="Observation.component.dataAbsentReason"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <condition value="obs-6"/>
+      <mustSupport value="true"/>
+      <isSummary value="false"/>
+      <binding>
+        <strength value="extensible"/>
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/observation-valueabsentreason"/>
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="v2"/>
+        <map value="N/A"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="value.nullFlavor"/>
+      </mapping>
+    </element>
+    <element id="Observation:uscorevitalsigns.component.interpretation">
+      <path value="Observation.component.interpretation"/>
+      <short value="High, low, normal, etc."/>
+      <definition value="The assessment made based on the result of the observation.  Intended as a simple compact code often placed adjacent to the result value in reports and flow sheets to signal the meaning/normalcy status of the result. Otherwise known as abnormal flag."/>
+      <comments value="The component interpretation is applies only to the indivual component value.  For an overall interpretation all components together use Observation.interpretation element."/>
+      <requirements value="For some results, particularly numeric results, an interpretation is necessary to fully understand the significance of a result."/>
+      <alias value="Abnormal Flag"/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="Observation.component.interpretation"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <strength value="extensible"/>
+        <description value="Codes identifying interpretations of observations."/>
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/observation-interpretation"/>
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="v2"/>
+        <map value="OBX-8"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="interpretationCode"/>
+      </mapping>
+    </element>
+    <element id="Observation:uscorevitalsigns.component.referenceRange">
+      <path value="Observation.component.referenceRange"/>
+      <short value="Provides guide for interpretation of component result"/>
+      <definition value="Guidance on how to interpret the value by comparison to a normal or recommended range."/>
+      <comments value="Most observations only have one generic reference range. Systems MAY choose to restrict to only supplying the relevant reference range based on knowledge about the patient (e.g. specific to the patient&#39;s age, gender, weight and other factors), but this may not be possible or appropriate. Whenever more than one reference range is supplied, the differences between them SHOULD be provided in the reference range and/or age properties."/>
+      <requirements value="Knowing what values are considered &quot;normal&quot; can help evaluate the significance of a particular result. Need to be able to provide multiple reference ranges for different contexts."/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="Observation.component.referenceRange"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <contentReference value="#Observation:uscorevitalsigns.referenceRange"/>
+      <mapping>
+        <identity value="v2"/>
+        <map value="OBX.7"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="outboundRelationship[typeCode=REFV]/target[classCode=OBS, moodCode=EVN]"/>
+      </mapping>
+    </element>
+  </snapshot>
+  <differential>
+    <element id="Observation:uscorevitalsigns">
+      <path value="Observation"/>
+      <sliceName value="USCoreVitalSigns"/>
+      <short value="US Core Vital Signs Profile"/>
+      <definition value="The US Core Vital Signs Profile is based upon the core FHIR Observation Resource and created to meet the 2015 Edition Common Clinical Data Set &#39;Vital Signs&#39; requirements."/>
+      <alias value="Vital Signs"/>
+      <alias value="Measurement"/>
+      <alias value="Results"/>
+      <alias value="Tests"/>
+      <constraint>
+        <key value="us-core-2"/>
+        <severity value="error"/>
+        <human value="If there is no component or related element then either a value[x] or a data absent reason must be present"/>
+        <expression value="component.value.exists() or dataAbsentReason.exists()"/>
+        <xpath value="exists(f:component) or exists(f:related) or exists(f:*[starts-with(local-name(.), &#39;value)]) or exists(f:dataAbsentReason)"/>
+      </constraint>
+      <mustSupport value="false"/>
+      <isModifier value="false"/>
+      <isSummary value="false"/>
+    </element>
+    <element id="Observation:uscorevitalsigns.status">
+      <path value="Observation.status"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <mustSupport value="true"/>
+      <isModifier value="false"/>
+      <isSummary value="false"/>
+      <binding>
+        <strength value="required"/>
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/observation-status"/>
+        </valueSetReference>
+      </binding>
+    </element>
+    <element id="Observation:uscorevitalsigns.category">
+      <path value="Observation.category"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <patternCodeableConcept>
+        <coding>
+          <system value="http://hl7.org/fhir/observation-category"/>
+          <code value="vital-signs"/>
+        </coding>
+      </patternCodeableConcept>
+      <mustSupport value="true"/>
+      <isModifier value="false"/>
+      <isSummary value="false"/>
+    </element>
+    <element id="Observation:uscorevitalsigns.code">
+      <path value="Observation.code"/>
+      <short value="Coded Responses from C-CDA Vital Sign Results"/>
+      <requirements value="5. SHALL contain exactly one [1..1] code, where the @code SHOULD be selected from ValueSet HITSP Vital Sign Result Type 2.16.840.1.113883.3.88.12.80.62 DYNAMIC (CONF:7301)."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <mustSupport value="true"/>
+      <isModifier value="false"/>
+      <isSummary value="false"/>
+      <binding>
+        <strength value="extensible"/>
+        <description value="This identifies the vital sign result type."/>
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/us/core/ValueSet/us-core-observation-ccdavitalsignresult"/>
+        </valueSetReference>
+      </binding>
+    </element>
+    <element id="Observation:uscorevitalsigns.subject">
+      <path value="Observation.subject"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"/>
+      </type>
+      <mustSupport value="true"/>
+      <isModifier value="false"/>
+      <isSummary value="false"/>
+    </element>
+    <element id="Observation:uscorevitalsigns.effective[x]">
+      <path value="Observation.effective[x]"/>
+      <short value="Often just a dateTime for Vital Signs"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <type>
+        <code value="Period"/>
+      </type>
+      <constraint>
+        <key value="us-core-1"/>
+        <severity value="error"/>
+        <human value="Datetime must be at least to day."/>
+        <expression value="length() &gt;= 8"/>
+        <xpath value="f:matches(effectiveDateTime,/\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d([+-][0-2]\d:[0-5]\d|Z)/)"/>
+      </constraint>
+      <mustSupport value="true"/>
+      <isModifier value="false"/>
+      <isSummary value="false"/>
+    </element>
+    <element id="Observation:uscorevitalsigns.valueQuantity">
+      <path value="Observation.valueQuantity"/>
+      <short value="Vital Sign Value recorded with UCUM"/>
+      <requirements value="9. SHALL contain exactly one [1..1] value with @xsi:type=&quot;PQ&quot; (CONF:7305)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Quantity"/>
+      </type>
+      <mustSupport value="true"/>
+      <isModifier value="false"/>
+      <isSummary value="false"/>
+      <binding>
+        <strength value="extensible"/>
+        <description value="Common UCUM units for recording Vital Signs"/>
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/ucum-vitals-common"/>
+        </valueSetReference>
+      </binding>
+    </element>
+    <element id="Observation:uscorevitalsigns.valueQuantity.value">
+      <path value="Observation.valueQuantity.value"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="decimal"/>
+      </type>
+      <mustSupport value="true"/>
+      <isModifier value="false"/>
+      <isSummary value="false"/>
+    </element>
+    <element id="Observation:uscorevitalsigns.valueQuantity.unit">
+      <path value="Observation.valueQuantity.unit"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <mustSupport value="true"/>
+      <isModifier value="false"/>
+      <isSummary value="false"/>
+    </element>
+    <element id="Observation:uscorevitalsigns.valueQuantity.system">
+      <path value="Observation.valueQuantity.system"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="uri"/>
+      </type>
+      <fixedUri value="http://unitsofmeasure.org"/>
+      <mustSupport value="true"/>
+      <isModifier value="false"/>
+      <isSummary value="false"/>
+    </element>
+    <element id="Observation:uscorevitalsigns.valueQuantity.code">
+      <path value="Observation.valueQuantity.code"/>
+      <short value="Coded responses from the common UCUM units for vital signs value set."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <mustSupport value="true"/>
+      <isModifier value="false"/>
+      <isSummary value="false"/>
+    </element>
+    <element id="Observation:uscorevitalsigns.dataAbsentReason">
+      <path value="Observation.dataAbsentReason"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <mustSupport value="true"/>
+      <isModifier value="false"/>
+      <isSummary value="false"/>
+      <binding>
+        <strength value="extensible"/>
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/observation-valueabsentreason"/>
+        </valueSetReference>
+      </binding>
+    </element>
+    <element id="Observation:uscorevitalsigns.related">
+      <path value="Observation.related"/>
+      <short value="Used when reporting systolic and diastolic blood pressure."/>
+      <min value="0"/>
+      <max value="1"/>
+      <mustSupport value="true"/>
+      <isModifier value="false"/>
+      <isSummary value="false"/>
+    </element>
+    <element id="Observation:uscorevitalsigns.related.type">
+      <path value="Observation.related.type"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <fixedCode value="has-member"/>
+      <mustSupport value="true"/>
+      <isModifier value="false"/>
+      <isSummary value="false"/>
+    </element>
+    <element id="Observation:uscorevitalsigns.related.target">
+      <path value="Observation.related.target"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-vitalsigns"/>
+      </type>
+      <mustSupport value="true"/>
+      <isModifier value="false"/>
+      <isSummary value="false"/>
+    </element>
+    <element id="Observation:uscorevitalsigns.component">
+      <path value="Observation.component"/>
+      <short value="Used when reporting systolic and diastolic blood pressure."/>
+      <min value="0"/>
+      <max value="1"/>
+      <constraint>
+        <key value="us-core-3"/>
+        <severity value="error"/>
+        <human value="If there is no a value a data absent reason must be present"/>
+        <expression value="value.exists() or dataAbsentReason.exists()"/>
+        <xpath value="exists(f:*[starts-with(local-name(.), &#39;value)]) or exists(f:dataAbsentReason)"/>
+      </constraint>
+      <mustSupport value="true"/>
+      <isModifier value="false"/>
+      <isSummary value="false"/>
+    </element>
+    <element id="Observation:uscorevitalsigns.component.code">
+      <path value="Observation.component.code"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <mustSupport value="true"/>
+      <isModifier value="false"/>
+      <isSummary value="false"/>
+      <binding>
+        <strength value="extensible"/>
+        <description value="This identifies the vital sign result type."/>
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/us/core/ValueSet/us-core-observation-ccdavitalsignresult"/>
+        </valueSetReference>
+      </binding>
+    </element>
+    <element id="Observation:uscorevitalsigns.component.valueQuantity">
+      <path value="Observation.component.valueQuantity"/>
+      <short value="Vital Sign Value recorded with UCUM"/>
+      <requirements value="9. SHALL contain exactly one [1..1] value with @xsi:type=&quot;PQ&quot; (CONF:7305)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Quantity"/>
+      </type>
+      <mustSupport value="true"/>
+      <isModifier value="false"/>
+      <isSummary value="false"/>
+      <binding>
+        <strength value="extensible"/>
+        <description value="Common UCUM units for recording Vital Signs"/>
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/ucum-vitals-common"/>
+        </valueSetReference>
+      </binding>
+    </element>
+    <element id="Observation:uscorevitalsigns.component.valueQuantity.value">
+      <path value="Observation.component.valueQuantity.value"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="decimal"/>
+      </type>
+      <mustSupport value="true"/>
+      <isModifier value="false"/>
+      <isSummary value="false"/>
+    </element>
+    <element id="Observation:uscorevitalsigns.component.valueQuantity.unit">
+      <path value="Observation.component.valueQuantity.unit"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <mustSupport value="true"/>
+      <isModifier value="false"/>
+      <isSummary value="false"/>
+    </element>
+    <element id="Observation:uscorevitalsigns.component.valueQuantity.system">
+      <path value="Observation.component.valueQuantity.system"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="uri"/>
+      </type>
+      <fixedUri value="http://unitsofmeasure.org"/>
+      <mustSupport value="true"/>
+      <isModifier value="false"/>
+      <isSummary value="false"/>
+    </element>
+    <element id="Observation:uscorevitalsigns.component.valueQuantity.code">
+      <path value="Observation.component.valueQuantity.code"/>
+      <short value="Coded responses from the common UCUM units for vital signs value set."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <mustSupport value="true"/>
+      <isModifier value="false"/>
+      <isSummary value="false"/>
+    </element>
+    <element id="Observation:uscorevitalsigns.component.dataAbsentReason">
+      <path value="Observation.component.dataAbsentReason"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <mustSupport value="true"/>
+      <isModifier value="false"/>
+      <isSummary value="false"/>
+      <binding>
+        <strength value="extensible"/>
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/observation-valueabsentreason"/>
+        </valueSetReference>
+      </binding>
+    </element>
+  </differential>
+</StructureDefinition>

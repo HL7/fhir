@@ -1,0 +1,38 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://hl7.org/fhir/us/core/ValueSet/us-core-provider-role> a fhir:ValueSet;
+  fhir:nodeRole fhir:treeRoot;
+  fhir:Resource.id [ fhir:value "us-core-provider-role"];
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ];
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n			<h2>US Core Provider Role (NUCC)</h2>\n			<div>\n				<p>Provider roles codes which are composed of the NUCC Health Care Provider Taxonomy\n					Code Set for providers. Only concepts with a classification and no specialization are included.</p>\n			</div>\n			<p><b>Copyright Statement:</b> TODO: Permission to Use and Distribute the Health Care\n				Provider Taxonomy Code Set</p>\n			<p>This value set includes codes from the following code systems:</p>\n			<ul>\n				<li>Include only concepts with a classification and no specialization from: http://nucc.org/provider-taxonomy</li>\n			</ul>\n		</div>"
+  ];
+  fhir:ValueSet.url [ fhir:value "http://hl7.org/fhir/us/core/ValueSet/us-core-provider-role"];
+  fhir:ValueSet.name [ fhir:value "US Core Provider Role (NUCC)"];
+  fhir:ValueSet.status [ fhir:value "draft"];
+  fhir:ValueSet.publisher [ fhir:value "FHIR Project Team"];
+  fhir:ValueSet.contact [
+     fhir:index 0;
+     fhir:ContactDetail.telecom [
+       fhir:index 0;
+       fhir:ContactPoint.system [ fhir:value "other" ];
+       fhir:ContactPoint.value [ fhir:value "http://hl7.org/fhir" ]
+     ]
+  ];
+  fhir:ValueSet.date [ fhir:value "2016-08-10"^^xsd:date];
+  fhir:ValueSet.description [ fhir:value "Provider roles codes which are composed of the NUCC Health Care Provider Taxonomy Code Set classification codes for providers. Only concepts with a classification and no specialization are included. "];
+  fhir:ValueSet.copyright [ fhir:value "TODO: Permission to Use and Distribute the Health Care Provider Taxonomy Code Set"];
+  fhir:ValueSet.compose [
+     fhir:ValueSet.compose.include [
+       fhir:index 0;
+       fhir:ValueSet.compose.include.system [ fhir:value "http://nucc.org/provider-taxonomy" ]
+     ]
+  ] .
+
+# -------------------------------------------------------------------------------------
+

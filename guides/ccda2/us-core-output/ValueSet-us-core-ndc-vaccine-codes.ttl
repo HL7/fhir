@@ -1,0 +1,1839 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://hl7.org/fhir/us/core/ValueSet/us-core-ndc-vaccine-codes> a fhir:ValueSet;
+  fhir:nodeRole fhir:treeRoot;
+  fhir:Resource.id [ fhir:value "us-core-ndc-vaccine-codes"];
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ];
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h2>Vaccine National Drug Code (NDC)</h2><div><p>This value set includes all the Vaccine National Drug Codes (NDC).  This source of this data is provided by the <a href=\"https://www2a.cdc.gov/vaccines/iis/iisstandards/ndc_crosswalk.asp\">CDC</a></p>\n</div><p>This value set includes codes from the following code systems:</p><ul><li>Include these codes as defined in http://hl7.org/fhir/sid/ndc<table class=\"none\"><tr><td><b>Code</b></td><td><b>Display</b></td></tr><tr><td>49281-0589-58</td><td>Menactra</td><td/></tr><tr><td>49281-0623-78</td><td>FLUZONE QUADRIVALENT</td><td/></tr><tr><td>49281-0515-00</td><td>Fluzone Quadrivalent, peds</td><td/></tr><tr><td>49281-0415-88</td><td>Fluzone Quadrivalent PF</td><td/></tr><tr><td>49281-0415-58</td><td>FLUZONE QUADRIVALENT PF</td><td/></tr><tr><td>33332-0115-11</td><td>AFLURIA</td><td/></tr><tr><td>33332-0015-02</td><td>AFLURIA</td><td/></tr><tr><td>66019-0302-01</td><td>FluMist Quadrivalent</td><td/></tr><tr><td>42874-0015-01</td><td>Flublok</td><td/></tr><tr><td>66521-0118-12</td><td>Fluvirin</td><td/></tr><tr><td>66521-0118-11</td><td>Fluvirin</td><td/></tr><tr><td>58160-0883-41</td><td>FLUARIX</td><td/></tr><tr><td>66521-0000-11</td><td>Fluad</td><td/></tr><tr><td>69401-0000-01</td><td>Vivotif</td><td/></tr><tr><td>66019-0301-01</td><td>FluMist Quadrivalent</td><td/></tr><tr><td>33332-0014-02</td><td>AFLURIA</td><td/></tr><tr><td>33332-0114-11</td><td>AFLURIA</td><td/></tr><tr><td>63851-0613-11</td><td>Flucelvax</td><td/></tr><tr><td>66521-0117-11</td><td>FLUVIRIN</td><td/></tr><tr><td>66521-0117-12</td><td>Fluvirin</td><td/></tr><tr><td>00006-4093-01</td><td>RECOMBIVAX HB</td><td/></tr><tr><td>00006-4094-01</td><td>RECOMBIVAX HB</td><td/></tr><tr><td>00006-4095-01</td><td>VAQTA</td><td/></tr><tr><td>00006-4096-01</td><td>VAQTA</td><td/></tr><tr><td>00006-4963-01</td><td>ZOSTAVAX</td><td/></tr><tr><td>00006-4963-01</td><td>ZOSTAVAX</td><td/></tr><tr><td>42874-0014-01</td><td>Flublok</td><td/></tr><tr><td>49281-0414-88</td><td>Fluzone Quadrivalent PF</td><td/></tr><tr><td>49281-0395-88</td><td>Fluzone HD</td><td/></tr><tr><td>49281-0709-48</td><td>FLUZONE Intradermal</td><td/></tr><tr><td>58160-0881-41</td><td>FLUARIX</td><td/></tr><tr><td>58160-0809-01</td><td>MENHIBRIX</td><td/></tr><tr><td>62577-0613-11</td><td>Flucelvax</td><td/></tr><tr><td>19515-0893-02</td><td>FLULAVAL</td><td/></tr><tr><td>49281-0621-78</td><td>FLUZONE QUADRIVALENT</td><td/></tr><tr><td>00005-0100-01</td><td>Trumenba</td><td/></tr><tr><td>00005-0100-01</td><td>Trumenba</td><td/></tr><tr><td>00005-0100-01</td><td>Trumenba</td><td/></tr><tr><td>00006-4047-01</td><td>RotaTeq</td><td/></tr><tr><td>00006-4109-01</td><td>GARDASIL</td><td/></tr><tr><td>62577-0613-11</td><td>Flucelvax</td><td/></tr><tr><td>00006-4121-01</td><td>GARDASIL 9</td><td/></tr><tr><td>00006-4119-01</td><td>GARDASIL 9</td><td/></tr><tr><td>00006-4119-01</td><td>GARDASIL 9</td><td/></tr><tr><td>63851-0511-11</td><td>RabAvert</td><td/></tr><tr><td>49281-0562-58</td><td>QUADRACEL</td><td/></tr><tr><td>46028-0114-11</td><td>Bexsero</td><td/></tr><tr><td>46028-0114-11</td><td>Bexsero</td><td/></tr><tr><td>00006-4171-01</td><td>ProQuad</td><td/></tr><tr><td>13533-0131-00</td><td>Tetanus and Diphtheria Toxoids Adsorbed</td><td/></tr><tr><td>49281-0396-78</td><td>FLUZONE</td><td/></tr><tr><td>49281-0397-88</td><td>FLUZONE High-Dose</td><td/></tr><tr><td>62577-0614-11</td><td>Flucelvax</td><td/></tr><tr><td>58160-0903-41</td><td>FLUARIX QUADRIVALENT</td><td/></tr><tr><td>19515-0898-01</td><td>Flulaval Quadrivalent</td><td/></tr><tr><td>19515-0901-41</td><td>Flulaval Quadrivalent</td><td/></tr><tr><td>49281-0393-88</td><td>FLUZONE High-Dose</td><td/></tr><tr><td>58160-0810-43</td><td>INFANRIX</td><td/></tr><tr><td>58160-0810-01</td><td>INFANRIX</td><td/></tr><tr><td>49281-0790-38</td><td>Typhim Vi</td><td/></tr><tr><td>49281-0790-88</td><td>Typhim Vi</td><td/></tr><tr><td>49281-0640-15</td><td>INFLUENZA A (H1N1) 2009 MONOVALENT VACCINE</td><td/></tr><tr><td>49281-0650-10</td><td>INFLUENZA A (H1N1) 2009 MONOVALENT VACCINE</td><td/></tr><tr><td>49281-0650-90</td><td>INFLUENZA A (H1N1) 2009 MONOVALENT VACCINE</td><td/></tr><tr><td>49281-0650-25</td><td>INFLUENZA A (H1N1) 2009 MONOVALENT VACCINE</td><td/></tr><tr><td>49281-0650-70</td><td>INFLUENZA A (H1N1) 2009 MONOVALENT VACCINE</td><td/></tr><tr><td>49281-0650-50</td><td>INFLUENZA A (H1N1) 2009 MONOVALENT VACCINE</td><td/></tr><tr><td>49281-0707-48</td><td>FLUZONE</td><td/></tr><tr><td>66019-0110-01</td><td>FluMist</td><td/></tr><tr><td>00006-4681-01</td><td>M-M-R II</td><td/></tr><tr><td>49281-0215-58</td><td>TENIVAC</td><td/></tr><tr><td>49281-0215-88</td><td>TENIVAC</td><td/></tr><tr><td>46028-0218-11</td><td>Meningococcal (Groups A) CRM197 Oligosaccharide Co</td><td/></tr><tr><td>49281-0387-65</td><td>FLUZONE</td><td/></tr><tr><td>49281-0386-15</td><td>FLUZONE</td><td/></tr><tr><td>49281-0010-10</td><td>FLUZONE</td><td/></tr><tr><td>49281-0010-25</td><td>Fluzone</td><td/></tr><tr><td>49281-0010-50</td><td>FLUZONE</td><td/></tr><tr><td>54868-0980-00</td><td>M-M-R II</td><td/></tr><tr><td>58160-0830-43</td><td>CERVARIX</td><td/></tr><tr><td>58160-0830-05</td><td>CERVARIX</td><td/></tr><tr><td>00005-1971-01</td><td>PREVNAR 13</td><td/></tr><tr><td>00005-1971-01</td><td>PREVNAR 13</td><td/></tr><tr><td>00005-1971-01</td><td>PREVNAR 13</td><td/></tr><tr><td>17478-0131-00</td><td>Tetanus and Diphtheria Toxoids Adsorbed</td><td/></tr><tr><td>58160-0812-43</td><td>KINRIX</td><td/></tr><tr><td>58160-0812-01</td><td>KINRIX</td><td/></tr><tr><td>66019-0108-01</td><td>FluMist</td><td/></tr><tr><td>00006-4898-01</td><td>COMVAX</td><td/></tr><tr><td>58160-0809-01</td><td>MENHIBRIX</td><td/></tr><tr><td>63851-0612-11</td><td>Flucelvax</td><td/></tr><tr><td>00006-4992-01</td><td>RECOMBIVAX HB</td><td/></tr><tr><td>00006-4981-01</td><td>RECOMBIVAX HB</td><td/></tr><tr><td>00006-4980-00</td><td>RECOMBIVAX HB</td><td/></tr><tr><td>00006-4093-01</td><td>RECOMBIVAX HB</td><td/></tr><tr><td>00006-4094-01</td><td>RECOMBIVAX HB</td><td/></tr><tr><td>00006-4109-01</td><td>GARDASIL</td><td/></tr><tr><td>66521-0112-02</td><td>FLUVIRIN</td><td/></tr><tr><td>66521-0112-10</td><td>FLUVIRIN</td><td/></tr><tr><td>66019-0107-01</td><td>FluMist</td><td/></tr><tr><td>49281-0225-58</td><td>DIPHTHERIA AND TETANUS TOXOIDS ADSORBED</td><td/></tr><tr><td>49281-0705-55</td><td>FLUZONE</td><td/></tr><tr><td>42515-0001-00</td><td>IXIARO</td><td/></tr><tr><td>58160-0879-41</td><td>FLUARIX</td><td/></tr><tr><td>58160-0880-41</td><td>FLUARIX</td><td/></tr><tr><td>58160-0820-01</td><td>ENGERIX-B</td><td/></tr><tr><td>58160-0820-43</td><td>ENGERIX-B</td><td/></tr><tr><td>58160-0821-01</td><td>ENGERIX-B</td><td/></tr><tr><td>58160-0821-43</td><td>ENGERIX-B</td><td/></tr><tr><td>58160-0821-05</td><td>ENGERIX-B</td><td/></tr><tr><td>42874-0012-01</td><td>Flublok</td><td/></tr><tr><td>49281-0278-10</td><td>DIPHTHERIA AND TETANUS TOXOIDS ADSORBED</td><td/></tr><tr><td>66019-0109-01</td><td>FluMist</td><td/></tr><tr><td>19515-0890-02</td><td>FLULAVAL</td><td/></tr><tr><td>19515-0889-02</td><td>FLULAVAL</td><td/></tr><tr><td>58160-0900-41</td><td>FLUARIX QUADRIVALENT</td><td/></tr><tr><td>49281-0860-78</td><td>IPOL</td><td/></tr><tr><td>49281-0860-88</td><td>IPOL</td><td/></tr><tr><td>49281-0389-65</td><td>FLUZONE High-Dose</td><td/></tr><tr><td>49281-0388-15</td><td>FLUZONE</td><td/></tr><tr><td>49281-0011-10</td><td>FLUZONE</td><td/></tr><tr><td>49281-0011-50</td><td>FLUZONE</td><td/></tr><tr><td>49281-0703-55</td><td>FLUZONE Intradermal</td><td/></tr><tr><td>49281-0111-25</td><td>FLUZONE</td><td/></tr><tr><td>66521-0200-10</td><td>Influenza A (H1N1) 2009 Monovalent Vaccine</td><td/></tr><tr><td>66521-0200-02</td><td>Influenza A (H1N1) 2009 Monovalent Vaccine</td><td/></tr><tr><td>49281-0298-10</td><td>TRIPEDIA</td><td/></tr><tr><td>58160-0806-01</td><td>HIBERIX</td><td/></tr><tr><td>33332-0013-02</td><td>AFLURIA</td><td/></tr><tr><td>33332-0113-11</td><td>AFLURIA</td><td/></tr><tr><td>49281-0391-65</td><td>FLUZONE High-Dose</td><td/></tr><tr><td>49281-0012-50</td><td>FLUZONE</td><td/></tr><tr><td>49281-0012-10</td><td>FLUZONE</td><td/></tr><tr><td>49281-0112-25</td><td>FLUZONE</td><td/></tr><tr><td>49281-0390-15</td><td>FLUZONE</td><td/></tr><tr><td>00006-4897-01</td><td>PedvaxHIB</td><td/></tr><tr><td>49281-0291-83</td><td>DECAVAC</td><td/></tr><tr><td>49281-0291-10</td><td>DECAVAC</td><td/></tr><tr><td>49281-0413-88</td><td>FLUZONE QUADRIVALENT</td><td/></tr><tr><td>49281-0413-58</td><td>FLUZONE QUADRIVALENT</td><td/></tr><tr><td>49281-0513-00</td><td>FLUZONE QUADRIVALENT</td><td/></tr><tr><td>66521-0113-02</td><td>Fluvirin</td><td/></tr><tr><td>66521-0113-10</td><td>Fluvirin</td><td/></tr><tr><td>00005-1970-49</td><td>Prevnar</td><td/></tr><tr><td>00006-4047-01</td><td>RotaTeq</td><td/></tr><tr><td>58160-0811-43</td><td>PEDIARIX</td><td/></tr><tr><td>58160-0811-41</td><td>PEDIARIX</td><td/></tr><tr><td>00006-4827-01</td><td>VARIVAX</td><td/></tr><tr><td>00006-4826-01</td><td>VARIVAX</td><td/></tr><tr><td>58160-0842-41</td><td>BOOSTRIX</td><td/></tr><tr><td>58160-0842-01</td><td>BOOSTRIX</td><td/></tr><tr><td>58160-0842-43</td><td>BOOSTRIX</td><td/></tr><tr><td>58160-0842-05</td><td>BOOSTRIX</td><td/></tr><tr><td>66019-0300-01</td><td>FluMist Quadrivalent</td><td/></tr><tr><td>49281-0589-58</td><td>Menactra</td><td/></tr><tr><td>00006-4095-01</td><td>VAQTA</td><td/></tr><tr><td>00006-4096-01</td><td>VAQTA</td><td/></tr><tr><td>00006-4831-01</td><td>VAQTA</td><td/></tr><tr><td>63851-0511-11</td><td>RabAvert</td><td/></tr><tr><td>66019-0200-01</td><td>Influenza A H1N1 2009 Monovalent Vaccine Live Intr</td><td/></tr><tr><td>14362-0111-03</td><td>Tetanus and Diphtheria Toxoids Adsorbed</td><td/></tr><tr><td>33332-0519-01</td><td>Influenza A</td><td/></tr><tr><td>33332-0519-25</td><td>Influenza A</td><td/></tr><tr><td>33332-0629-10</td><td>Influenza A</td><td/></tr><tr><td>58160-0825-43</td><td>HAVRIX</td><td/></tr><tr><td>58160-0825-01</td><td>HAVRIX</td><td/></tr><tr><td>58160-0826-43</td><td>HAVRIX</td><td/></tr><tr><td>58160-0826-05</td><td>HAVRIX</td><td/></tr><tr><td>58160-0826-01</td><td>HAVRIX</td><td/></tr><tr><td>33332-0010-01</td><td>AFLURIA</td><td/></tr><tr><td>33332-0110-10</td><td>AFLURIA</td><td/></tr><tr><td>66521-0115-10</td><td>Fluvirin</td><td/></tr><tr><td>66521-0115-02</td><td>Fluvirin</td><td/></tr><tr><td>00006-4133-01</td><td>Tetanus and Diphtheria Toxoids Adsorbed</td><td/></tr><tr><td>54868-4320-09</td><td>PNEUMOVAX 23</td><td/></tr><tr><td>54868-3339-09</td><td>PNEUMOVAX 23</td><td/></tr><tr><td>00052-0603-01</td><td>BCG VACCINE</td><td/></tr><tr><td>64678-0211-05</td><td>BioThrax</td><td/></tr><tr><td>00006-4739-01</td><td>PNEUMOVAX 23</td><td/></tr><tr><td>00006-4943-01</td><td>PNEUMOVAX 23</td><td/></tr><tr><td>49281-0013-58</td><td>FLUZONE</td><td/></tr><tr><td>49281-0013-88</td><td>FLUZONE</td><td/></tr><tr><td>49281-0392-78</td><td>FLUZONE</td><td/></tr><tr><td>49281-0113-00</td><td>FLUZONE</td><td/></tr><tr><td>49281-0820-10</td><td>TETANUS TOXOID ADSORBED</td><td/></tr><tr><td>49281-0800-83</td><td>TETANUS TOXOID ADSORBED</td><td/></tr><tr><td>49281-0400-88</td><td>Adacel</td><td/></tr><tr><td>49281-0286-58</td><td>DAPTACEL</td><td/></tr><tr><td>49281-0286-58</td><td>DAPTACEL</td><td/></tr><tr><td>49281-0286-58</td><td>DAPTACEL</td><td/></tr><tr><td>58160-0815-41</td><td>TWINRIX</td><td/></tr><tr><td>58160-0815-43</td><td>TWINRIX</td><td/></tr><tr><td>58160-0815-05</td><td>TWINRIX</td><td/></tr><tr><td>58160-0815-43</td><td>TWINRIX</td><td/></tr><tr><td>58160-0815-01</td><td>TWINRIX</td><td/></tr><tr><td>66521-0114-10</td><td>Fluvirin</td><td/></tr><tr><td>76420-0482-01</td><td>FLUVIRIN</td><td/></tr><tr><td>19515-0895-01</td><td>Flulaval Quadrivalent</td><td/></tr><tr><td>00006-4999-01</td><td>ProQuad</td><td/></tr><tr><td>49281-0545-15</td><td>ACTHIB</td><td/></tr><tr><td>51285-0174-02</td><td>Adenovirus Type 4 Vaccine, Live, Oral</td><td/></tr><tr><td>49281-0248-58</td><td>IMOVAX RABIES</td><td/></tr><tr><td>49281-0487-58</td><td>MENOMUNE - A/C/Y/W-135 COMBINED</td><td/></tr><tr><td>49281-0915-58</td><td>YF-VAX</td><td/></tr><tr><td>49281-0547-58</td><td>ACTHIB</td><td/></tr><tr><td>58160-0851-01</td><td>ROTARIX</td><td/></tr><tr><td>49281-0915-68</td><td>YF-VAX</td><td/></tr><tr><td>49281-0488-78</td><td>MENOMUNE - A/C/Y/W-135 COMBINED</td><td/></tr><tr><td>46028-0219-11</td><td>Meningococcal (Groups C, Y, W-135) CRM197 Oligosac</td><td/></tr><tr><td>51285-0175-02</td><td>Adenovirus Type 7 Vaccine, Live, Oral</td><td/></tr><tr><td>49281-0560-05</td><td>DTAP-IPV</td><td/></tr><tr><td>49281-0400-58</td><td>Adacel</td><td/></tr><tr><td>49281-0400-58</td><td>Adacel</td><td/></tr><tr><td>42874-0013-01</td><td>Flublok</td><td/></tr><tr><td>66521-0116-11</td><td>FLUVIRIN</td><td/></tr><tr><td>66521-0116-12</td><td>FLUVIRIN</td><td/></tr><tr><td>00006-4045-01</td><td>GARDASIL</td><td/></tr><tr><td>00006-4045-01</td><td>GARDASIL</td><td/></tr><tr><td>00006-4995-01</td><td>RECOMBIVAX HB</td><td/></tr><tr><td>00006-4995-01</td><td>RECOMBIVAX HB</td><td/></tr><tr><td>00006-4841-01</td><td>VAQTA</td><td/></tr><tr><td>00006-4841-01</td><td>VAQTA</td><td/></tr><tr><td>58160-0804-01</td><td>INFLUENZA (H5N1), adjuvanted</td><td/></tr><tr><td>58160-0802-02</td><td>AS03 Adjuvant</td><td/></tr><tr><td>58160-0901-41</td><td>FLUARIX QUADRIVALENT</td><td/></tr><tr><td>00006-4837-01</td><td>PNEUMOVAX 23</td><td/></tr><tr><td>19515-0891-01</td><td>Flulaval Quadrivalent</td><td/></tr><tr><td>19515-0893-02</td><td>FLULAVAL</td><td/></tr><tr><td>19515-0894-41</td><td>Flulaval Quadrivalent</td><td/></tr><tr><td>49281-0514-00</td><td>Fluzone Quadrivalent, Peds</td><td/></tr><tr><td>49281-0394-78</td><td>FLUZONE</td><td/></tr><tr><td>49281-0014-88</td><td>FLUZONE</td><td/></tr><tr><td>49281-0414-58</td><td>FLUZONE QUADRIVALENT PF</td><td/></tr></table></li></ul></div>"
+  ];
+  fhir:ValueSet.url [ fhir:value "http://hl7.org/fhir/us/core/ValueSet/us-core-ndc-vaccine-codes"];
+  fhir:ValueSet.name [ fhir:value "Vaccine National Drug Code (NDC)"];
+  fhir:ValueSet.status [ fhir:value "draft"];
+  fhir:ValueSet.publisher [ fhir:value "HL7 (FHIR Project)"];
+  fhir:ValueSet.date [ fhir:value "2016-08-10"^^xsd:date];
+  fhir:ValueSet.description [ fhir:value "This value set includes all the Vaccine National Drug Codes (NDC).  This source of this data is provided by the [CDC] (https://www2a.cdc.gov/vaccines/iis/iisstandards/ndc_crosswalk.asp)"];
+  fhir:ValueSet.purpose [ fhir:value "Codes that are used as translations for CVS code for implementation of the Argonaut Immunization IG and MU2015 certification."];
+  fhir:ValueSet.compose [
+     fhir:ValueSet.compose.include [
+       fhir:index 0;
+       fhir:ValueSet.compose.include.system [ fhir:value "http://hl7.org/fhir/sid/ndc" ];
+       fhir:ValueSet.compose.include.concept [
+         fhir:index 0;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "49281-0589-58" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Menactra" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "NEISSERIA MENINGITIDIS GROUP A CAPSULAR POLYSACCHARIDE DIPHTHERIA TOXOID CONJUGATE ANTIGEN, NEISSERI" ]
+         ]
+       ], [
+         fhir:index 1;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "49281-0623-78" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "FLUZONE QUADRIVALENT" ]
+       ], [
+         fhir:index 2;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "49281-0515-00" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Fluzone Quadrivalent, peds" ]
+       ], [
+         fhir:index 3;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "49281-0415-88" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Fluzone Quadrivalent PF" ]
+       ], [
+         fhir:index 4;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "49281-0415-58" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "FLUZONE QUADRIVALENT PF" ]
+       ], [
+         fhir:index 5;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "33332-0115-11" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "AFLURIA" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "INFLUENZA A VIRUS" ]
+         ]
+       ], [
+         fhir:index 6;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "33332-0015-02" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "AFLURIA" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "INFLUENZA A VIRUS" ]
+         ]
+       ], [
+         fhir:index 7;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "66019-0302-01" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "FluMist Quadrivalent" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "INFLUENZA VACCINE LIVE INTRANASAL" ]
+         ]
+       ], [
+         fhir:index 8;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "42874-0015-01" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Flublok" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "influenza virus vaccine" ]
+         ]
+       ], [
+         fhir:index 9;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "66521-0118-12" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Fluvirin" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "INFLUENZA  VIRUS" ]
+         ]
+       ], [
+         fhir:index 10;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "66521-0118-11" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Fluvirin" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "Influenza Virus Vaccine" ]
+         ]
+       ], [
+         fhir:index 11;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "58160-0883-41" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "FLUARIX" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "INFLUENZA VIRUS VACCINE" ]
+         ]
+       ], [
+         fhir:index 12;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "66521-0000-11" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Fluad" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "TRIVALENT INFLUENZA WITH ADJUVANT 2015/2016" ]
+         ]
+       ], [
+         fhir:index 13;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "69401-0000-01" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Vivotif" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "SALMONELLA TYPHI TY21A" ]
+         ]
+       ], [
+         fhir:index 14;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "66019-0301-01" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "FluMist Quadrivalent" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "INFLUENZA VACCINE LIVE INTRANASAL" ]
+         ]
+       ], [
+         fhir:index 15;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "33332-0014-02" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "AFLURIA" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "INFLUENZA A VIRUS A/CALIFORNIA/7/2009 X-181 (H1N1) ANTIGEN (PROPIOLACTONE INACTIVATED), INFLUENZA A" ]
+         ]
+       ], [
+         fhir:index 16;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "33332-0114-11" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "AFLURIA" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "INFLUENZA A VIRUS A/CALIFORNIA/7/2009 X-181 (H1N1) ANTIGEN (PROPIOLACTONE INACTIVATED), INFLUENZA A" ]
+         ]
+       ], [
+         fhir:index 17;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "63851-0613-11" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Flucelvax" ]
+       ], [
+         fhir:index 18;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "66521-0117-11" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "FLUVIRIN" ]
+       ], [
+         fhir:index 19;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "66521-0117-12" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Fluvirin" ]
+       ], [
+         fhir:index 20;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "00006-4093-01" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "RECOMBIVAX HB" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "HEPATITIS B VACCINE (RECOMBINANT)" ]
+         ]
+       ], [
+         fhir:index 21;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "00006-4094-01" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "RECOMBIVAX HB" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "HEPATITIS B VACCINE (RECOMBINANT)" ]
+         ]
+       ], [
+         fhir:index 22;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "00006-4095-01" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "VAQTA" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "HEPATITIS A VACCINE, INACTIVATED" ]
+         ]
+       ], [
+         fhir:index 23;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "00006-4096-01" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "VAQTA" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "HEPATITIS A VACCINE, INACTIVATED" ]
+         ]
+       ], [
+         fhir:index 24;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "00006-4963-01" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "ZOSTAVAX" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "ZOSTER VACCINE LIVE" ]
+         ]
+       ], [
+         fhir:index 25;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "00006-4963-01" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "ZOSTAVAX" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "ZOSTER VACCINE LIVE" ]
+         ]
+       ], [
+         fhir:index 26;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "42874-0014-01" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Flublok" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "influenza virus vaccine" ]
+         ]
+       ], [
+         fhir:index 27;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "49281-0414-88" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Fluzone Quadrivalent PF" ]
+       ], [
+         fhir:index 28;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "49281-0395-88" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Fluzone HD" ]
+       ], [
+         fhir:index 29;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "49281-0709-48" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "FLUZONE Intradermal" ]
+       ], [
+         fhir:index 30;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "58160-0881-41" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "FLUARIX" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "INFLUENZA VIRUS VACCINE" ]
+         ]
+       ], [
+         fhir:index 31;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "58160-0809-01" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "MENHIBRIX" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "MENINGOCOCCAL GROUPS C AND Y AND HAEMOPHILUS B TETANUS TOXOID CONJUGATE VACCINE" ]
+         ]
+       ], [
+         fhir:index 32;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "62577-0613-11" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Flucelvax" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "INFLUENZA A VIRUS A/BRISBANE/10/2010 (H1N1) ANTIGEN (MDCK CELL DERIVED, PROPIOLACTONE INACTIVATED)," ]
+         ]
+       ], [
+         fhir:index 33;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "19515-0893-02" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "FLULAVAL" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "INFLUENZA VIRUS VACCINE" ]
+         ]
+       ], [
+         fhir:index 34;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "49281-0621-78" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "FLUZONE QUADRIVALENT" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "INFLUENZA A VIRUS A/CALIFORNIA/7/2009 X-179A (H1N1) ANTIGEN (FORMALDEHYDE INACTIVATED), INFLUENZA A" ]
+         ]
+       ], [
+         fhir:index 35;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "00005-0100-01" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Trumenba" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "Meningococcal B, recombinant" ]
+         ]
+       ], [
+         fhir:index 36;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "00005-0100-01" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Trumenba" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "Meningococcal B, recombinant" ]
+         ]
+       ], [
+         fhir:index 37;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "00005-0100-01" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Trumenba" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "Meningococcal B, recombinant" ]
+         ]
+       ], [
+         fhir:index 38;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "00006-4047-01" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "RotaTeq" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "ROTAVIRUS VACCINE, LIVE, ORAL, PENTAVALENT" ]
+         ]
+       ], [
+         fhir:index 39;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "00006-4109-01" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "GARDASIL" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "HUMAN PAPILLOMAVIRUS QUADRIVALENT (TYPES 6, 11, 16, AND 18) VACCINE, RECOMBINANT" ]
+         ]
+       ], [
+         fhir:index 40;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "62577-0613-11" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Flucelvax" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "INFLUENZA A VIRUS A/BRISBANE/10/2010 (H1N1) ANTIGEN (MDCK CELL DERIVED, PROPIOLACTONE INACTIVATED)," ]
+         ]
+       ], [
+         fhir:index 41;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "00006-4121-01" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "GARDASIL 9" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "HUMAN PAPILLOMAVIRUS 9-VALENT VACCINE, RECOMBINANT" ]
+         ]
+       ], [
+         fhir:index 42;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "00006-4119-01" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "GARDASIL 9" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "HUMAN PAPILLOMAVIRUS 9-VALENT VACCINE, RECOMBINANT" ]
+         ]
+       ], [
+         fhir:index 43;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "00006-4119-01" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "GARDASIL 9" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "HUMAN PAPILLOMAVIRUS 9-VALENT VACCINE, RECOMBINANT" ]
+         ]
+       ], [
+         fhir:index 44;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "63851-0511-11" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "RabAvert" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "RABIES VACCINE" ]
+         ]
+       ], [
+         fhir:index 45;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "49281-0562-58" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "QUADRACEL" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "DTAP, IPV" ]
+         ]
+       ], [
+         fhir:index 46;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "46028-0114-11" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Bexsero" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "NEISSERIA MENINGITIDIS SEROGROUP B NHBA FUSION PROTEIN ANTIGEN, NEISSERIA MENINGITIDIS SEROGROUP B F" ]
+         ]
+       ], [
+         fhir:index 47;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "46028-0114-11" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Bexsero" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "NEISSERIA MENINGITIDIS SEROGROUP B NHBA FUSION PROTEIN ANTIGEN, NEISSERIA MENINGITIDIS SEROGROUP B F" ]
+         ]
+       ], [
+         fhir:index 48;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "00006-4171-01" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "ProQuad" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "MEASLES, MUMPS, RUBELLA AND VARICELLA VIRUS VACCINE LIVE" ]
+         ]
+       ], [
+         fhir:index 49;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "13533-0131-00" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Tetanus and Diphtheria Toxoids Adsorbed" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "TETANUS AND DIPHTHERIA TOXOIDS ADSORBED" ]
+         ]
+       ], [
+         fhir:index 50;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "49281-0396-78" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "FLUZONE" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "INFLUENZA A VIRUS A/CALIFORNIA/7/2009 X-179A (H1N1) ANTIGEN (FORMALDEHYDE INACTIVATED), INFLUENZA A" ]
+         ]
+       ], [
+         fhir:index 51;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "49281-0397-88" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "FLUZONE High-Dose" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "INFLUENZA A VIRUS A/CALIFORNIA/7/2009 X-179A (H1N1) ANTIGEN (FORMALDEHYDE INACTIVATED), INFLUENZA A" ]
+         ]
+       ], [
+         fhir:index 52;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "62577-0614-11" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Flucelvax" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "INFLUENZA A VIRUS A/BRISBANE/10/2010 (H1N1) ANTIGEN (MDCK CELL DERIVED, PROPIOLACTONE INACTIVATED)," ]
+         ]
+       ], [
+         fhir:index 53;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "58160-0903-41" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "FLUARIX QUADRIVALENT" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "INFLUENZA VIRUS VACCINE" ]
+         ]
+       ], [
+         fhir:index 54;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "19515-0898-01" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Flulaval Quadrivalent" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "INFLUENZA VIRUS VACCINE" ]
+         ]
+       ], [
+         fhir:index 55;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "19515-0901-41" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Flulaval Quadrivalent" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "INFLUENZA VIRUS VACCINE" ]
+         ]
+       ], [
+         fhir:index 56;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "49281-0393-88" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "FLUZONE High-Dose" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "INFLUENZA A VIRUS A/CALIFORNIA/7/2009 X-179A (H1N1) ANTIGEN (FORMALDEHYDE INACTIVATED), INFLUENZA A" ]
+         ]
+       ], [
+         fhir:index 57;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "58160-0810-43" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "INFANRIX" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "DIPHTHERIA AND TETANUS TOXOIDS AND ACELLULAR PERTUSSIS VACCINE ADSORBED" ]
+         ]
+       ], [
+         fhir:index 58;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "58160-0810-01" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "INFANRIX" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "DIPHTHERIA AND TETANUS TOXOIDS AND ACELLULAR PERTUSSIS VACCINE ADSORBED" ]
+         ]
+       ], [
+         fhir:index 59;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "49281-0790-38" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Typhim Vi" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "SALMONELLA TYPHI TY2 VI POLYSACCHARIDE ANTIGEN" ]
+         ]
+       ], [
+         fhir:index 60;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "49281-0790-88" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Typhim Vi" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "SALMONELLA TYPHI TY2 VI POLYSACCHARIDE ANTIGEN" ]
+         ]
+       ], [
+         fhir:index 61;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "49281-0640-15" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "INFLUENZA A (H1N1) 2009 MONOVALENT VACCINE" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "INFLUENZA A VIRUS A/CALIFORNIA/7/2009(H1N1)-LIKE ANTIGEN (FORMALDEHYDE INACTIVATED)" ]
+         ]
+       ], [
+         fhir:index 62;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "49281-0650-10" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "INFLUENZA A (H1N1) 2009 MONOVALENT VACCINE" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "INFLUENZA A VIRUS A/CALIFORNIA/7/2009(H1N1)-LIKE ANTIGEN (FORMALDEHYDE INACTIVATED)" ]
+         ]
+       ], [
+         fhir:index 63;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "49281-0650-90" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "INFLUENZA A (H1N1) 2009 MONOVALENT VACCINE" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "INFLUENZA A VIRUS A/CALIFORNIA/7/2009(H1N1)-LIKE ANTIGEN (FORMALDEHYDE INACTIVATED)" ]
+         ]
+       ], [
+         fhir:index 64;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "49281-0650-25" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "INFLUENZA A (H1N1) 2009 MONOVALENT VACCINE" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "INFLUENZA A VIRUS A/CALIFORNIA/7/2009(H1N1)-LIKE ANTIGEN (FORMALDEHYDE INACTIVATED)" ]
+         ]
+       ], [
+         fhir:index 65;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "49281-0650-70" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "INFLUENZA A (H1N1) 2009 MONOVALENT VACCINE" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "INFLUENZA A VIRUS A/CALIFORNIA/7/2009(H1N1)-LIKE ANTIGEN (FORMALDEHYDE INACTIVATED)" ]
+         ]
+       ], [
+         fhir:index 66;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "49281-0650-50" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "INFLUENZA A (H1N1) 2009 MONOVALENT VACCINE" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "INFLUENZA A VIRUS A/CALIFORNIA/7/2009(H1N1)-LIKE ANTIGEN (FORMALDEHYDE INACTIVATED)" ]
+         ]
+       ], [
+         fhir:index 67;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "49281-0707-48" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "FLUZONE" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "INFLUENZA A VIRUS A/CALIFORNIA/7/2009 X-179A (H1N1) ANTIGEN (FORMALDEHYDE INACTIVATED), INFLUENZA A" ]
+         ]
+       ], [
+         fhir:index 68;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "66019-0110-01" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "FluMist" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "INFLUENZA VACCINE LIVE INTRANASAL" ]
+         ]
+       ], [
+         fhir:index 69;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "00006-4681-01" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "M-M-R II" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "MEASLES, MUMPS, AND RUBELLA VIRUS VACCINE LIVE" ]
+         ]
+       ], [
+         fhir:index 70;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "49281-0215-58" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "TENIVAC" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "CLOSTRIDIUM TETANI TOXOID ANTIGEN (FORMALDEHYDE INACTIVATED) AND CORYNEBACTERIUM DIPHTHERIAE TOXOID" ]
+         ]
+       ], [
+         fhir:index 71;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "49281-0215-88" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "TENIVAC" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "CLOSTRIDIUM TETANI TOXOID ANTIGEN (FORMALDEHYDE INACTIVATED) AND CORYNEBACTERIUM DIPHTHERIAE TOXOID" ]
+         ]
+       ], [
+         fhir:index 72;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "46028-0218-11" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Meningococcal (Groups A) CRM197 Oligosaccharide Co" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "MENA VACCINE" ]
+         ]
+       ], [
+         fhir:index 73;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "49281-0387-65" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "FLUZONE" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "INFLUENZA A VIRUS A/CALIFORNIA/7/2009 X-179A (H1N1) ANTIGEN (FORMALDEHYDE INACTIVATED), INFLUENZA A" ]
+         ]
+       ], [
+         fhir:index 74;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "49281-0386-15" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "FLUZONE" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "INFLUENZA A VIRUS A/CALIFORNIA/7/2009 X-179A (H1N1) ANTIGEN (FORMALDEHYDE INACTIVATED), INFLUENZA A" ]
+         ]
+       ], [
+         fhir:index 75;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "49281-0010-10" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "FLUZONE" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "INFLUENZA A VIRUS A/CALIFORNIA/7/2009 X-179A (H1N1) ANTIGEN (FORMALDEHYDE INACTIVATED), INFLUENZA A" ]
+         ]
+       ], [
+         fhir:index 76;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "49281-0010-25" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Fluzone" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "INFLUENZA A VIRUS A/CALIFORNIA/7/2009(H1N1)-LIKE HEMAGGLUTININ ANTIGEN (PROPIOLACTONE INACTIVATED)," ]
+         ]
+       ], [
+         fhir:index 77;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "49281-0010-50" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "FLUZONE" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "INFLUENZA A VIRUS A/CALIFORNIA/7/2009 X-179A (H1N1) ANTIGEN (FORMALDEHYDE INACTIVATED), INFLUENZA A" ]
+         ]
+       ], [
+         fhir:index 78;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "54868-0980-00" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "M-M-R II" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "MEASLES, MUMPS, AND RUBELLA VIRUS VACCINE LIVE" ]
+         ]
+       ], [
+         fhir:index 79;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "58160-0830-43" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "CERVARIX" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "HUMAN PAPILLOMAVIRUS BIVALENT (TYPES 16 AND 18) VACCINE, RECOMBINANT" ]
+         ]
+       ], [
+         fhir:index 80;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "58160-0830-05" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "CERVARIX" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "HUMAN PAPILLOMAVIRUS BIVALENT (TYPES 16 AND 18) VACCINE, RECOMBINANT" ]
+         ]
+       ], [
+         fhir:index 81;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "00005-1971-01" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "PREVNAR 13" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "PNEUMOCOCCAL 13-VALENT CONJUGATE VACCINE" ]
+         ]
+       ], [
+         fhir:index 82;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "00005-1971-01" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "PREVNAR 13" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "PNEUMOCOCCAL 13-VALENT CONJUGATE VACCINE" ]
+         ]
+       ], [
+         fhir:index 83;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "00005-1971-01" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "PREVNAR 13" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "PNEUMOCOCCAL 13-VALENT CONJUGATE VACCINE" ]
+         ]
+       ], [
+         fhir:index 84;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "17478-0131-00" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Tetanus and Diphtheria Toxoids Adsorbed" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "TETANUS AND DIPHTHERIA TOXOIDS ADSORBED" ]
+         ]
+       ], [
+         fhir:index 85;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "58160-0812-43" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "KINRIX" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "DIPHTHERIA AND TETANUS TOXOIDS AND ACELLULAR PERTUSSIS ADSORBED AND INACTIVATED POLIOVIRUS VACCINE" ]
+         ]
+       ], [
+         fhir:index 86;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "58160-0812-01" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "KINRIX" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "DIPHTHERIA AND TETANUS TOXOIDS AND ACELLULAR PERTUSSIS ADSORBED AND INACTIVATED POLIOVIRUS VACCINE" ]
+         ]
+       ], [
+         fhir:index 87;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "66019-0108-01" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "FluMist" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "INFLUENZA VACCINE LIVE INTRANASAL" ]
+         ]
+       ], [
+         fhir:index 88;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "00006-4898-01" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "COMVAX" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "HAEMOPHILUS B CONJUGATE (MENINGOCOCCAL PROTEIN CONJUGATE) AND HEPATITIS B (RECOMBINANT) VACCINE" ]
+         ]
+       ], [
+         fhir:index 89;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "58160-0809-01" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "MENHIBRIX" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "MENINGOCOCCAL GROUPS C AND Y AND HAEMOPHILUS B TETANUS TOXOID CONJUGATE VACCINE" ]
+         ]
+       ], [
+         fhir:index 90;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "63851-0612-11" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Flucelvax" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "INFLUENZA A VIRUS A/BRISBANE/10/2010 (H1N1) ANTIGEN (MDCK CELL DERIVED, PROPIOLACTONE INACTIVATED)," ]
+         ]
+       ], [
+         fhir:index 91;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "00006-4992-01" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "RECOMBIVAX HB" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "HEPATITIS B VACCINE (RECOMBINANT)" ]
+         ]
+       ], [
+         fhir:index 92;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "00006-4981-01" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "RECOMBIVAX HB" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "HEPATITIS B VACCINE (RECOMBINANT)" ]
+         ]
+       ], [
+         fhir:index 93;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "00006-4980-00" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "RECOMBIVAX HB" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "HEPATITIS B VACCINE (RECOMBINANT)" ]
+         ]
+       ], [
+         fhir:index 94;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "00006-4093-01" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "RECOMBIVAX HB" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "HEPATITIS B VACCINE (RECOMBINANT)" ]
+         ]
+       ], [
+         fhir:index 95;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "00006-4094-01" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "RECOMBIVAX HB" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "HEPATITIS B VACCINE (RECOMBINANT)" ]
+         ]
+       ], [
+         fhir:index 96;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "00006-4109-01" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "GARDASIL" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "HUMAN PAPILLOMAVIRUS QUADRIVALENT (TYPES 6, 11, 16, AND 18) VACCINE, RECOMBINANT" ]
+         ]
+       ], [
+         fhir:index 97;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "66521-0112-02" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "FLUVIRIN" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "INFLUENZA A VIRUS A/CALIFORNIA/7/2009 X-181 (H1N1) HEMAGGLUTININ ANTIGEN (PROPIOLACTONE INACTIVATED)" ]
+         ]
+       ], [
+         fhir:index 98;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "66521-0112-10" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "FLUVIRIN" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "INFLUENZA A VIRUS A/CALIFORNIA/7/2009 X-181 (H1N1) HEMAGGLUTININ ANTIGEN (PROPIOLACTONE INACTIVATED)" ]
+         ]
+       ], [
+         fhir:index 99;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "66019-0107-01" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "FluMist" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "INFLUENZA VACCINE LIVE INTRANASAL" ]
+         ]
+       ], [
+         fhir:index 100;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "49281-0225-58" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "DIPHTHERIA AND TETANUS TOXOIDS ADSORBED" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "CORYNEBACTERIUM DIPHTHERIAE TOXOID ANTIGEN (FORMALDEHYDE INACTIVATED) AND CLOSTRIDIUM TETANI TOXOID" ]
+         ]
+       ], [
+         fhir:index 101;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "49281-0705-55" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "FLUZONE" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "INFLUENZA A VIRUS A/CALIFORNIA/7/2009 X-179A (H1N1) ANTIGEN (FORMALDEHYDE INACTIVATED), INFLUENZA A" ]
+         ]
+       ], [
+         fhir:index 102;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "42515-0001-00" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "IXIARO" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "JAPANESE ENCEPHALITIS VACCINE, INACTIVATED, ADSORBED" ]
+         ]
+       ], [
+         fhir:index 103;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "58160-0879-41" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "FLUARIX" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "INFLUENZA VIRUS VACCINE" ]
+         ]
+       ], [
+         fhir:index 104;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "58160-0880-41" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "FLUARIX" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "INFLUENZA VIRUS VACCINE" ]
+         ]
+       ], [
+         fhir:index 105;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "58160-0820-01" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "ENGERIX-B" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "HEPATITIS B VACCINE (RECOMBINANT)" ]
+         ]
+       ], [
+         fhir:index 106;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "58160-0820-43" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "ENGERIX-B" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "HEPATITIS B VACCINE (RECOMBINANT)" ]
+         ]
+       ], [
+         fhir:index 107;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "58160-0821-01" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "ENGERIX-B" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "HEPATITIS B VACCINE (RECOMBINANT)" ]
+         ]
+       ], [
+         fhir:index 108;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "58160-0821-43" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "ENGERIX-B" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "HEPATITIS B VACCINE (RECOMBINANT)" ]
+         ]
+       ], [
+         fhir:index 109;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "58160-0821-05" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "ENGERIX-B" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "HEPATITIS B VACCINE (RECOMBINANT)" ]
+         ]
+       ], [
+         fhir:index 110;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "42874-0012-01" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Flublok" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "INFLUENZA VACCINE" ]
+         ]
+       ], [
+         fhir:index 111;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "49281-0278-10" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "DIPHTHERIA AND TETANUS TOXOIDS ADSORBED" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "CORYNEBACTERIUM DIPHTHERIAE TOXOID ANTIGEN (FORMALDEHYDE INACTIVATED) AND CLOSTRIDIUM TETANI TOXOID" ]
+         ]
+       ], [
+         fhir:index 112;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "66019-0109-01" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "FluMist" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "INFLUENZA VACCINE LIVE INTRANASAL" ]
+         ]
+       ], [
+         fhir:index 113;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "19515-0890-02" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "FLULAVAL" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "INFLUENZA VIRUS VACCINE" ]
+         ]
+       ], [
+         fhir:index 114;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "19515-0889-02" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "FLULAVAL" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "INFLUENZA VIRUS VACCINE" ]
+         ]
+       ], [
+         fhir:index 115;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "58160-0900-41" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "FLUARIX QUADRIVALENT" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "INFLUENZA VIRUS VACCINE" ]
+         ]
+       ], [
+         fhir:index 116;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "49281-0860-78" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "IPOL" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "POLIOVIRUS TYPE 1 ANTIGEN (FORMALDEHYDE INACTIVATED), POLIOVIRUS TYPE 2 ANTIGEN (FORMALDEHYDE INACTI" ]
+         ]
+       ], [
+         fhir:index 117;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "49281-0860-88" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "IPOL" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "POLIOVIRUS TYPE 1 ANTIGEN (FORMALDEHYDE INACTIVATED), POLIOVIRUS TYPE 2 ANTIGEN (FORMALDEHYDE INACTI" ]
+         ]
+       ], [
+         fhir:index 118;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "49281-0389-65" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "FLUZONE High-Dose" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "INFLUENZA A VIRUS A/CALIFORNIA/7/2009 X-179A (H1N1) ANTIGEN (FORMALDEHYDE INACTIVATED), INFLUENZA A" ]
+         ]
+       ], [
+         fhir:index 119;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "49281-0388-15" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "FLUZONE" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "INFLUENZA A VIRUS A/CALIFORNIA/7/2009 X-179A (H1N1) ANTIGEN (FORMALDEHYDE INACTIVATED), INFLUENZA A" ]
+         ]
+       ], [
+         fhir:index 120;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "49281-0011-10" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "FLUZONE" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "INFLUENZA A VIRUS A/CALIFORNIA/7/2009 X-179A (H1N1) ANTIGEN (FORMALDEHYDE INACTIVATED), INFLUENZA A" ]
+         ]
+       ], [
+         fhir:index 121;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "49281-0011-50" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "FLUZONE" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "INFLUENZA A VIRUS A/CALIFORNIA/7/2009 X-179A (H1N1) ANTIGEN (FORMALDEHYDE INACTIVATED), INFLUENZA A" ]
+         ]
+       ], [
+         fhir:index 122;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "49281-0703-55" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "FLUZONE Intradermal" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "INFLUENZA A VIRUS A/CALIFORNIA/7/2009 X-179A (H1N1) ANTIGEN (FORMALDEHYDE INACTIVATED), INFLUENZA A" ]
+         ]
+       ], [
+         fhir:index 123;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "49281-0111-25" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "FLUZONE" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "INFLUENZA A VIRUS A/CALIFORNIA/7/2009 X-179A (H1N1) ANTIGEN (FORMALDEHYDE INACTIVATED), INFLUENZA A" ]
+         ]
+       ], [
+         fhir:index 124;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "66521-0200-10" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Influenza A (H1N1) 2009 Monovalent Vaccine" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "Influenza A (H1N1) 2009 Monovalent Vaccine" ]
+         ]
+       ], [
+         fhir:index 125;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "66521-0200-02" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Influenza A (H1N1) 2009 Monovalent Vaccine" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "Influenza A (H1N1) 2009 Monovalent Vaccine" ]
+         ]
+       ], [
+         fhir:index 126;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "49281-0298-10" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "TRIPEDIA" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "CORYNEBACTERIUM DIPHTHERIAE TOXOID ANTIGEN (FORMALDEHYDE INACTIVATED), CLOSTRIDIUM TETANI TOXOID ANT" ]
+         ]
+       ], [
+         fhir:index 127;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "58160-0806-01" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "HIBERIX" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "HAEMOPHILUS B CONJUGATE VACCINE (TETANUS TOXOID CONJUGATE)" ]
+         ]
+       ], [
+         fhir:index 128;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "33332-0013-02" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "AFLURIA" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "INFLUENZA A VIRUS A/CALIFORNIA/7/2009 X-181 (H1N1) ANTIGEN (PROPIOLACTONE INACTIVATED), INFLUENZA A" ]
+         ]
+       ], [
+         fhir:index 129;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "33332-0113-11" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "AFLURIA" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "INFLUENZA A VIRUS A/CALIFORNIA/7/2009 X-181 (H1N1) ANTIGEN (PROPIOLACTONE INACTIVATED), INFLUENZA A" ]
+         ]
+       ], [
+         fhir:index 130;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "49281-0391-65" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "FLUZONE High-Dose" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "INFLUENZA A VIRUS A/CALIFORNIA/7/2009 X-179A (H1N1) ANTIGEN (FORMALDEHYDE INACTIVATED), INFLUENZA A" ]
+         ]
+       ], [
+         fhir:index 131;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "49281-0012-50" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "FLUZONE" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "INFLUENZA A VIRUS A/CALIFORNIA/7/2009 X-179A (H1N1) ANTIGEN (FORMALDEHYDE INACTIVATED), INFLUENZA A" ]
+         ]
+       ], [
+         fhir:index 132;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "49281-0012-10" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "FLUZONE" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "INFLUENZA A VIRUS A/CALIFORNIA/7/2009 X-179A (H1N1) ANTIGEN (FORMALDEHYDE INACTIVATED), INFLUENZA A" ]
+         ]
+       ], [
+         fhir:index 133;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "49281-0112-25" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "FLUZONE" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "INFLUENZA A VIRUS A/CALIFORNIA/7/2009 X-179A (H1N1) ANTIGEN (FORMALDEHYDE INACTIVATED), INFLUENZA A" ]
+         ]
+       ], [
+         fhir:index 134;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "49281-0390-15" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "FLUZONE" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "INFLUENZA A VIRUS A/CALIFORNIA/7/2009 X-179A (H1N1) ANTIGEN (FORMALDEHYDE INACTIVATED), INFLUENZA A" ]
+         ]
+       ], [
+         fhir:index 135;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "00006-4897-01" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "PedvaxHIB" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "HAEMOPHILUS B CONJUGATE VACCINE (MENINGOCOCCAL PROTEIN CONJUGATE)" ]
+         ]
+       ], [
+         fhir:index 136;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "49281-0291-83" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "DECAVAC" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "CLOSTRIDIUM TETANI TOXOID ANTIGEN (FORMALDEHYDE INACTIVATED) AND CORYNEBACTERIUM DIPHTHERIAE TOXOID" ]
+         ]
+       ], [
+         fhir:index 137;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "49281-0291-10" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "DECAVAC" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "CLOSTRIDIUM TETANI TOXOID ANTIGEN (FORMALDEHYDE INACTIVATED) AND CORYNEBACTERIUM DIPHTHERIAE TOXOID" ]
+         ]
+       ], [
+         fhir:index 138;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "49281-0413-88" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "FLUZONE QUADRIVALENT" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "INFLUENZA A VIRUS A/CALIFORNIA/7/2009 X-179A (H1N1) ANTIGEN (FORMALDEHYDE INACTIVATED), INFLUENZA A" ]
+         ]
+       ], [
+         fhir:index 139;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "49281-0413-58" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "FLUZONE QUADRIVALENT" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "INFLUENZA A VIRUS A/CALIFORNIA/7/2009 X-179A (H1N1) ANTIGEN (FORMALDEHYDE INACTIVATED), INFLUENZA A" ]
+         ]
+       ], [
+         fhir:index 140;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "49281-0513-00" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "FLUZONE QUADRIVALENT" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "INFLUENZA A VIRUS A/CALIFORNIA/7/2009 X-179A (H1N1) ANTIGEN (FORMALDEHYDE INACTIVATED), INFLUENZA A" ]
+         ]
+       ], [
+         fhir:index 141;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "66521-0113-02" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Fluvirin" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "Influenza Virus Vaccine" ]
+         ]
+       ], [
+         fhir:index 142;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "66521-0113-10" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Fluvirin" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "INFLUENZA A VIRUS A/CHRISTCHURCH/16/2010 NIB-74 (H1N1) ANTIGEN (PROPIOLACTONE INACTIVATED), INFLUENZ" ]
+         ]
+       ], [
+         fhir:index 143;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "00005-1970-49" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Prevnar" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "PNEUMOCOCCAL 7-VALENT" ]
+         ]
+       ], [
+         fhir:index 144;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "00006-4047-01" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "RotaTeq" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "ROTAVIRUS VACCINE, LIVE, ORAL, PENTAVALENT" ]
+         ]
+       ], [
+         fhir:index 145;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "58160-0811-43" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "PEDIARIX" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "DIPHTHERIA AND TETANUS TOXOIDS AND ACELLULAR PERTUSSIS ADSORBED, HEPATITIS B (RECOMBINANT) AND INACT" ]
+         ]
+       ], [
+         fhir:index 146;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "58160-0811-41" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "PEDIARIX" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "DIPHTHERIA AND TETANUS TOXOIDS AND ACELLULAR PERTUSSIS ADSORBED, HEPATITIS B (RECOMBINANT) AND INACT" ]
+         ]
+       ], [
+         fhir:index 147;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "00006-4827-01" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "VARIVAX" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "VARICELLA VIRUS VACCINE LIVE" ]
+         ]
+       ], [
+         fhir:index 148;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "00006-4826-01" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "VARIVAX" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "VARICELLA VIRUS VACCINE LIVE" ]
+         ]
+       ], [
+         fhir:index 149;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "58160-0842-41" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "BOOSTRIX" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "TETANUS TOXOID, REDUCED DIPHTHERIA TOXOID AND ACELLULAR PERTUSSIS VACCINE, ADSORBED" ]
+         ]
+       ], [
+         fhir:index 150;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "58160-0842-01" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "BOOSTRIX" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "TETANUS TOXOID, REDUCED DIPHTHERIA TOXOID AND ACELLULAR PERTUSSIS VACCINE, ADSORBED" ]
+         ]
+       ], [
+         fhir:index 151;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "58160-0842-43" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "BOOSTRIX" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "TETANUS TOXOID, REDUCED DIPHTHERIA TOXOID AND ACELLULAR PERTUSSIS VACCINE, ADSORBED" ]
+         ]
+       ], [
+         fhir:index 152;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "58160-0842-05" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "BOOSTRIX" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "TETANUS TOXOID, REDUCED DIPHTHERIA TOXOID AND ACELLULAR PERTUSSIS VACCINE, ADSORBED" ]
+         ]
+       ], [
+         fhir:index 153;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "66019-0300-01" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "FluMist Quadrivalent" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "INFLUENZA VACCINE LIVE INTRANASAL" ]
+         ]
+       ], [
+         fhir:index 154;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "49281-0589-58" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Menactra" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "NEISSERIA MENINGITIDIS GROUP A CAPSULAR POLYSACCHARIDE DIPHTHERIA TOXOID CONJUGATE ANTIGEN, NEISSERI" ]
+         ]
+       ], [
+         fhir:index 155;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "00006-4095-01" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "VAQTA" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "HEPATITIS A VACCINE, INACTIVATED" ]
+         ]
+       ], [
+         fhir:index 156;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "00006-4096-01" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "VAQTA" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "HEPATITIS A VACCINE, INACTIVATED" ]
+         ]
+       ], [
+         fhir:index 157;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "00006-4831-01" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "VAQTA" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "HEPATITIS A VACCINE, INACTIVATED" ]
+         ]
+       ], [
+         fhir:index 158;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "63851-0511-11" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "RabAvert" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "RABIES VACCINE" ]
+         ]
+       ], [
+         fhir:index 159;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "66019-0200-01" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Influenza A H1N1 2009 Monovalent Vaccine Live Intr" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "INFLUENZA A H1N1 2009 MONOVALENT VACCINE LIVE INTRANASAL" ]
+         ]
+       ], [
+         fhir:index 160;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "14362-0111-03" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Tetanus and Diphtheria Toxoids Adsorbed" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "TETANUS AND DIPHTHERIA TOXOIDS ADSORBED" ]
+         ]
+       ], [
+         fhir:index 161;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "33332-0519-01" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Influenza A" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "INFLUENZA A VIRUS A/CALIFORNIA/7/2009(H1N1)-LIKE ANTIGEN (PROPIOLACTONE INACTIVATED)" ]
+         ]
+       ], [
+         fhir:index 162;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "33332-0519-25" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Influenza A" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "INFLUENZA A VIRUS A/CALIFORNIA/7/2009(H1N1)-LIKE ANTIGEN (PROPIOLACTONE INACTIVATED)" ]
+         ]
+       ], [
+         fhir:index 163;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "33332-0629-10" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Influenza A" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "INFLUENZA A VIRUS A/CALIFORNIA/7/2009(H1N1)-LIKE ANTIGEN (PROPIOLACTONE INACTIVATED)" ]
+         ]
+       ], [
+         fhir:index 164;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "58160-0825-43" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "HAVRIX" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "HEPATITIS A VACCINE" ]
+         ]
+       ], [
+         fhir:index 165;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "58160-0825-01" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "HAVRIX" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "HEPATITIS A VACCINE" ]
+         ]
+       ], [
+         fhir:index 166;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "58160-0826-43" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "HAVRIX" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "HEPATITIS A VACCINE" ]
+         ]
+       ], [
+         fhir:index 167;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "58160-0826-05" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "HAVRIX" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "HEPATITIS A VACCINE" ]
+         ]
+       ], [
+         fhir:index 168;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "58160-0826-01" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "HAVRIX" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "HEPATITIS A VACCINE" ]
+         ]
+       ], [
+         fhir:index 169;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "33332-0010-01" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "AFLURIA" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "INFLUENZA A VIRUS A/CALIFORNIA/7/2009 X-181 (H1N1) HEMAGGLUTININ ANTIGEN (PROPIOLACTONE INACTIVATED)" ]
+         ]
+       ], [
+         fhir:index 170;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "33332-0110-10" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "AFLURIA" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "INFLUENZA A VIRUS A/CALIFORNIA/7/2009 X-181 (H1N1) HEMAGGLUTININ ANTIGEN (PROPIOLACTONE INACTIVATED)" ]
+         ]
+       ], [
+         fhir:index 171;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "66521-0115-10" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Fluvirin" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "Influenza Virus Vaccine" ]
+         ]
+       ], [
+         fhir:index 172;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "66521-0115-02" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Fluvirin" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "INFLUENZA A VIRUS A/CALIFORNIA/7/2009 X-179A (H1N1) ANTIGEN (FORMALDEHYDE INACTIVATED), INFLUENZA A" ]
+         ]
+       ], [
+         fhir:index 173;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "00006-4133-01" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Tetanus and Diphtheria Toxoids Adsorbed" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "TETANUS AND DIPHTHERIA TOXOIDS ADSORBED" ]
+         ]
+       ], [
+         fhir:index 174;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "54868-4320-09" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "PNEUMOVAX 23" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "PNEUMOCOCCAL VACCINE POLYVALENT" ]
+         ]
+       ], [
+         fhir:index 175;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "54868-3339-09" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "PNEUMOVAX 23" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "PNEUMOCOCCAL VACCINE POLYVALENT" ]
+         ]
+       ], [
+         fhir:index 176;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "00052-0603-01" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "BCG VACCINE" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "BACILLUS CALMETTE-GUERIN SUBSTRAIN TICE LIVE ANTIGEN" ]
+         ]
+       ], [
+         fhir:index 177;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "64678-0211-05" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "BioThrax" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "BACILLUS ANTHRACIS" ]
+         ]
+       ], [
+         fhir:index 178;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "00006-4739-01" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "PNEUMOVAX 23" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "PNEUMOCOCCAL VACCINE POLYVALENT" ]
+         ]
+       ], [
+         fhir:index 179;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "00006-4943-01" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "PNEUMOVAX 23" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "PNEUMOCOCCAL VACCINE POLYVALENT" ]
+         ]
+       ], [
+         fhir:index 180;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "49281-0013-58" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "FLUZONE" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "INFLUENZA A VIRUS A/CALIFORNIA/7/2009 X-179A (H1N1) ANTIGEN (FORMALDEHYDE INACTIVATED), INFLUENZA A" ]
+         ]
+       ], [
+         fhir:index 181;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "49281-0013-88" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "FLUZONE" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "INFLUENZA A VIRUS A/CALIFORNIA/7/2009 X-179A (H1N1) ANTIGEN (FORMALDEHYDE INACTIVATED), INFLUENZA A" ]
+         ]
+       ], [
+         fhir:index 182;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "49281-0392-78" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "FLUZONE" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "INFLUENZA A VIRUS A/CALIFORNIA/7/2009 X-179A (H1N1) ANTIGEN (FORMALDEHYDE INACTIVATED), INFLUENZA A" ]
+         ]
+       ], [
+         fhir:index 183;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "49281-0113-00" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "FLUZONE" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "INFLUENZA A VIRUS A/CALIFORNIA/7/2009 X-179A (H1N1) ANTIGEN (FORMALDEHYDE INACTIVATED), INFLUENZA A" ]
+         ]
+       ], [
+         fhir:index 184;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "49281-0820-10" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "TETANUS TOXOID ADSORBED" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "CLOSTRIDIUM TETANI TOXOID ANTIGEN (FORMALDEHYDE INACTIVATED)" ]
+         ]
+       ], [
+         fhir:index 185;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "49281-0800-83" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "TETANUS TOXOID ADSORBED" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "CLOSTRIDIUM TETANI TOXOID ANTIGEN (FORMALDEHYDE INACTIVATED)" ]
+         ]
+       ], [
+         fhir:index 186;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "49281-0400-88" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Adacel" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "CLOSTRIDIUM TETANI TOXOID ANTIGEN (FORMALDEHYDE INACTIVATED), CORYNEBACTERIUM DIPHTHERIAE TOXOID ANT" ]
+         ]
+       ], [
+         fhir:index 187;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "49281-0286-58" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "DAPTACEL" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "CORYNEBACTERIUM DIPHTHERIAE TOXOID ANTIGEN (FORMALDEHYDE INACTIVATED), CLOSTRIDIUM TETANI TOXOID ANT" ]
+         ]
+       ], [
+         fhir:index 188;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "49281-0286-58" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "DAPTACEL" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "CORYNEBACTERIUM DIPHTHERIAE TOXOID ANTIGEN (FORMALDEHYDE INACTIVATED), CLOSTRIDIUM TETANI TOXOID ANT" ]
+         ]
+       ], [
+         fhir:index 189;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "49281-0286-58" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "DAPTACEL" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "CORYNEBACTERIUM DIPHTHERIAE TOXOID ANTIGEN (FORMALDEHYDE INACTIVATED), CLOSTRIDIUM TETANI TOXOID ANT" ]
+         ]
+       ], [
+         fhir:index 190;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "58160-0815-41" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "TWINRIX" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "HEPATITIS A AND HEPATITIS B (RECOMBINANT) VACCINE" ]
+         ]
+       ], [
+         fhir:index 191;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "58160-0815-43" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "TWINRIX" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "HEPATITIS A AND HEPATITIS B (RECOMBINANT) VACCINE" ]
+         ]
+       ], [
+         fhir:index 192;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "58160-0815-05" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "TWINRIX" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "HEPATITIS A AND HEPATITIS B (RECOMBINANT) VACCINE" ]
+         ]
+       ], [
+         fhir:index 193;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "58160-0815-43" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "TWINRIX" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "HEPATITIS A AND HEPATITIS B (RECOMBINANT) VACCINE" ]
+         ]
+       ], [
+         fhir:index 194;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "58160-0815-01" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "TWINRIX" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "HEPATITIS A AND HEPATITIS B (RECOMBINANT) VACCINE" ]
+         ]
+       ], [
+         fhir:index 195;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "66521-0114-10" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Fluvirin" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "INFLUENZA A VIRUS A/CHRISTCHURCH/16/2010 NIB-74 (H1N1) ANTIGEN (PROPIOLACTONE INACTIVATED), INFLUENZ" ]
+         ]
+       ], [
+         fhir:index 196;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "76420-0482-01" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "FLUVIRIN" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "INFLUENZA A VIRUS A/CALIFORNIA/7/2009(H1N1)-LIKE HEMAGGLUTININ ANTIGEN (PROPIOLACTONE INACTIVATED)," ]
+         ]
+       ], [
+         fhir:index 197;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "19515-0895-01" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Flulaval Quadrivalent" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "INFLUENZA VIRUS VACCINE" ]
+         ]
+       ], [
+         fhir:index 198;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "00006-4999-01" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "ProQuad" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "MEASLES, MUMPS, RUBELLA AND VARICELLA VIRUS VACCINE LIVE" ]
+         ]
+       ], [
+         fhir:index 199;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "49281-0545-15" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "ACTHIB" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "HAEMOPHILUS B CONJUGATE VACCINE (TETANUS TOXOID CONJUGATE)" ]
+         ]
+       ], [
+         fhir:index 200;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "51285-0174-02" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Adenovirus Type 4 Vaccine, Live, Oral" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "ADENOVIRUS TYPE 4 VACCINE, LIVE, ORAL" ]
+         ]
+       ], [
+         fhir:index 201;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "49281-0248-58" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "IMOVAX RABIES" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "RABIES VIRUS STRAIN PM-1503-3M ANTIGEN (PROPIOLACTONE INACTIVATED)" ]
+         ]
+       ], [
+         fhir:index 202;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "49281-0487-58" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "MENOMUNE - A/C/Y/W-135 COMBINED" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "NEISSERIA MENINGITIDIS GROUP A CAPSULAR POLYSACCHARIDE ANTIGEN, NEISSERIA MENINGITIDIS GROUP C CAPSU" ]
+         ]
+       ], [
+         fhir:index 203;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "49281-0915-58" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "YF-VAX" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "YELLOW FEVER VIRUS LIVE ANTIGEN, A" ]
+         ]
+       ], [
+         fhir:index 204;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "49281-0547-58" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "ACTHIB" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "HAEMOPHILUS INFLUENZAE TYPE B STRAIN 1482 CAPSULAR POLYSACCHARIDE TETANUS TOXOID CONJUGATE ANTIGEN" ]
+         ]
+       ], [
+         fhir:index 205;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "58160-0851-01" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "ROTARIX" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "ROTAVIRUS VACCINE, LIVE, ORAL" ]
+         ]
+       ], [
+         fhir:index 206;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "49281-0915-68" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "YF-VAX" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "YELLOW FEVER VIRUS LIVE ANTIGEN, A" ]
+         ]
+       ], [
+         fhir:index 207;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "49281-0488-78" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "MENOMUNE - A/C/Y/W-135 COMBINED" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "NEISSERIA MENINGITIDIS GROUP A POLYSACCHARIDE ANTIGEN, A, NEISSERIA MENINGITIDIS GROUP C POLYSACCHAR" ]
+         ]
+       ], [
+         fhir:index 208;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "46028-0219-11" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Meningococcal (Groups C, Y, W-135) CRM197 Oligosac" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "MENC, Y, W-135 VACCINE" ]
+         ]
+       ], [
+         fhir:index 209;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "51285-0175-02" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Adenovirus Type 7 Vaccine, Live, Oral" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "ADENOVIRUS TYPE 7 VACCINE, LIVE, ORAL" ]
+         ]
+       ], [
+         fhir:index 210;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "49281-0560-05" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "DTAP-IPV" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "DIPHTHERIA AND TETANUS TOXOIDS AND ACELLULAR PERTUSSIS ADSORBED, INACTIVATED POLIOVIRUS" ]
+         ]
+       ], [
+         fhir:index 211;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "49281-0400-58" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Adacel" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "CLOSTRIDIUM TETANI TOXOID ANTIGEN (FORMALDEHYDE INACTIVATED), CORYNEBACTERIUM DIPHTHERIAE TOXOID ANT" ]
+         ]
+       ], [
+         fhir:index 212;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "49281-0400-58" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Adacel" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "CLOSTRIDIUM TETANI TOXOID ANTIGEN (FORMALDEHYDE INACTIVATED), CORYNEBACTERIUM DIPHTHERIAE TOXOID ANT" ]
+         ]
+       ], [
+         fhir:index 213;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "42874-0013-01" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Flublok" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "INFLUENZA VACCINE" ]
+         ]
+       ], [
+         fhir:index 214;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "66521-0116-11" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "FLUVIRIN" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "influenza a virus a/christchurch , influenza a virus a/texas   , influenza b virus b/massachusetts" ]
+         ]
+       ], [
+         fhir:index 215;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "66521-0116-12" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "FLUVIRIN" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "influenza a virus a/christchurch , influenza a virus a/texas   , influenza b virus b/massachusetts" ]
+         ]
+       ], [
+         fhir:index 216;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "00006-4045-01" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "GARDASIL" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "HUMAN PAPILLOMAVIRUS QUADRIVALENT (TYPES 6, 11, 16, AND 18) VACCINE, RECOMBINANT" ]
+         ]
+       ], [
+         fhir:index 217;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "00006-4045-01" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "GARDASIL" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "HUMAN PAPILLOMAVIRUS QUADRIVALENT (TYPES 6, 11, 16, AND 18) VACCINE, RECOMBINANT" ]
+         ]
+       ], [
+         fhir:index 218;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "00006-4995-01" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "RECOMBIVAX HB" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "HEPATITIS B VACCINE (RECOMBINANT)" ]
+         ]
+       ], [
+         fhir:index 219;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "00006-4995-01" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "RECOMBIVAX HB" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "HEPATITIS B VACCINE (RECOMBINANT)" ]
+         ]
+       ], [
+         fhir:index 220;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "00006-4841-01" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "VAQTA" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "HEPATITIS A VACCINE, INACTIVATED" ]
+         ]
+       ], [
+         fhir:index 221;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "00006-4841-01" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "VAQTA" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "HEPATITIS A VACCINE, INACTIVATED" ]
+         ]
+       ], [
+         fhir:index 222;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "58160-0804-01" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "INFLUENZA (H5N1), adjuvanted" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "INFLUENZA (H5N1) MONOVALENT, ADJUVANTED" ]
+         ]
+       ], [
+         fhir:index 223;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "58160-0802-02" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "AS03 Adjuvant" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "Adjuvant" ]
+         ]
+       ], [
+         fhir:index 224;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "58160-0901-41" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "FLUARIX QUADRIVALENT" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "INFLUENZA VIRUS VACCINE" ]
+         ]
+       ], [
+         fhir:index 225;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "00006-4837-01" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "PNEUMOVAX 23" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "PNEUMOCOCCAL VACCINE POLYVALENT" ]
+         ]
+       ], [
+         fhir:index 226;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "19515-0891-01" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Flulaval Quadrivalent" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "INFLUENZA VIRUS VACCINE" ]
+         ]
+       ], [
+         fhir:index 227;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "19515-0893-02" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "FLULAVAL" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "INFLUENZA VIRUS VACCINE" ]
+         ]
+       ], [
+         fhir:index 228;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "19515-0894-41" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Flulaval Quadrivalent" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "INFLUENZA VIRUS VACCINE" ]
+         ]
+       ], [
+         fhir:index 229;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "49281-0514-00" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Fluzone Quadrivalent, Peds" ]
+       ], [
+         fhir:index 230;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "49281-0394-78" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "FLUZONE" ]
+       ], [
+         fhir:index 231;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "49281-0014-88" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "FLUZONE" ]
+       ], [
+         fhir:index 232;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "49281-0414-58" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "FLUZONE QUADRIVALENT PF" ]
+       ]
+     ]
+  ] .
+
+# -------------------------------------------------------------------------------------
+

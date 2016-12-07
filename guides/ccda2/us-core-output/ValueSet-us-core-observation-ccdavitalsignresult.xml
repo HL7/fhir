@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="us-core-observation-ccdavitalsignresult"/>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><h2>US Core Vital Sign Codes</h2><div><p>This value set indicates the allowed vital sign result types. The vocabulary selected for this value set  based on ONC 2015 Edition Common Clinical Data Set (CCDS) for vitals.    Note the concept Blood pressure systolic and diastolic (55284-4) is used to group the related observations Systolic blood pressure (8480-6) and Diastolic blood pressure (8462-4). It SHALL NOT be used alone, but both 8480-6 and 8462-2 SHALL also be valued.</p>
+</div><p><b>Copyright Statement:</b> This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use</p><p>This value set includes codes from the following code systems:</p><ul><li>Include these codes as defined in http://loinc.org<table class="none"><tr><td><b>Code</b></td><td><b>Display</b></td></tr><tr><td>8716-3</td><td>Vital signs</td><td/></tr><tr><td>9279-1</td><td>Respiratory rate</td><td/></tr><tr><td>8867-4</td><td>Heart rate</td><td/></tr><tr><td>59408-5</td><td>Oxygen saturation in Arterial blood by Pulse oximetry</td><td/></tr><tr><td>8310-5</td><td>Body temperature</td><td/></tr><tr><td>8302-2</td><td>Body height</td><td/></tr><tr><td>8306-3</td><td>Body height --lying</td><td/></tr><tr><td>8287-5</td><td>Head Occipital-frontal circumference by Tape measure</td><td/></tr><tr><td>29463-7</td><td>Body weight</td><td/></tr><tr><td>39156-5</td><td>Body mass index (BMI) [Ratio]</td><td/></tr><tr><td>55284-4</td><td>Blood pressure systolic and diastolic</td><td/></tr><tr><td>8480-6</td><td>Systolic blood pressure</td><td/></tr><tr><td>8462-4</td><td>Diastolic blood pressure</td><td/></tr></table></li></ul></div>
+  </text>
+  <url value="http://hl7.org/fhir/us/core/ValueSet/us-core-observation-ccdavitalsignresult"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.3.88.12.80.62"/>
+  </identifier>
+  <version value="1.6.0"/>
+  <name value="US Core Vital Sign Codes"/>
+  <status value="active"/>
+  <publisher value="FHIR Project"/>
+  <contact>
+    <telecom>
+      <system value="other"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <date value="2016-08-10"/>
+  <description value="This value set indicates the allowed vital sign result types. The vocabulary selected for this value set  based on ONC 2015 Edition Common Clinical Data Set (CCDS) for vitals.    Note the concept Blood pressure systolic and diastolic (55284-4) is used to group the related observations Systolic blood pressure (8480-6) and Diastolic blood pressure (8462-4). It SHALL NOT be used alone, but both 8480-6 and 8462-2 SHALL also be valued."/>
+  <copyright value="This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use"/>
+  <compose>
+    <include>
+      <system value="http://loinc.org"/>
+      <concept>
+        <code value="8716-3"/>
+      </concept>
+      <concept>
+        <code value="9279-1"/>
+      </concept>
+      <concept>
+        <code value="8867-4"/>
+      </concept>
+      <concept>
+        <code value="59408-5"/>
+      </concept>
+      <concept>
+        <code value="8310-5"/>
+      </concept>
+      <concept>
+        <code value="8302-2"/>
+      </concept>
+      <concept>
+        <code value="8306-3"/>
+      </concept>
+      <concept>
+        <code value="8287-5"/>
+      </concept>
+      <concept>
+        <code value="29463-7"/>
+      </concept>
+      <concept>
+        <code value="39156-5"/>
+      </concept>
+      <concept>
+        <code value="55284-4"/>
+      </concept>
+      <concept>
+        <code value="8480-6"/>
+      </concept>
+      <concept>
+        <code value="8462-4"/>
+      </concept>
+    </include>
+  </compose>
+</ValueSet>

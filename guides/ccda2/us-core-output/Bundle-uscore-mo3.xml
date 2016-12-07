@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="uscore-mo3"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest"/>
+  </meta>
+  <type value="searchset"/>
+  <total value="1"/>
+  <link>
+    <relation value="self"/>
+    <url value="http://fhir3.healthintersections.com.au/open/MedicationRequest?search-id=4085956e-63b8-402d-b181-325040fdb9&amp;&amp;_id=uscore%2Dmo3&amp;_include=MedicationRequest%3Amedication&amp;_sort=_id"/>
+  </link>
+  <entry>
+    <fullUrl value="http://fhir3.healthintersections.com.au/open/MedicationRequest/uscore-mo3"/>
+    <resource>
+      <MedicationRequest>
+        <id value="uscore-mo3"/>
+        <meta>
+          <profile value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationstatement"/>
+        </meta>
+      <!--  this is an example using an external reference to a medication resource
+  -->
+        <status value="active"/>
+        <stage>
+          <coding>
+            <system value="http://hl7.org/fhir/request-stage"/>
+            <code value="original-order"/>
+          </coding>
+          <text value="Orginal Order"/>
+        </stage>
+      <!--   either a code or a reference to the medication being prescribed. As described earlier, this could be contained, separately    within a bundle or simply a reference to a remote server.  -->
+        <medicationReference>
+          <reference value="Medication/uscore-med2"/>
+          <display value="Nizatidine 15 MG/ML Oral Solution [Axid]"/>
+        </medicationReference>
+        <patient>
+          <reference value="Patient-example.html"/>
+          <display value="Amy Shaw"/>
+        </patient>
+        <dateWritten value="2008-04-05"/>
+        <requester>
+          <reference value="Practitioner-practitioner-1.html"/>
+          <display value="Ronald Bone, MD"/>
+        </requester>
+      </MedicationRequest>
+    </resource>
+    <search>
+      <mode value="match"/>
+    </search>
+  </entry>
+  <entry>
+    <fullUrl value="/Medication/uscore-med2"/>
+    <resource>
+      <Medication>
+        <id value="uscore-med2"/>
+        <meta>
+          <versionId value="1"/>
+          <lastUpdated value="2016-11-29T19:45:46Z"/>
+        </meta>
+        <code>
+          <coding>
+            <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
+            <code value="582620"/>
+            <display value="Nizatidine 15 MG/ML Oral Solution [Axid]"/>
+          </coding>
+          <text value="Nizatidine 15 MG/ML Oral Solution [Axid]"/>
+        </code>
+      </Medication>
+    </resource>
+    <search>
+      <mode value="include"/>
+    </search>
+  </entry>
+</Bundle>

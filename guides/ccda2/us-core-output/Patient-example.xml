@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Patient xmlns="http://hl7.org/fhir">
+  <id value="example"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"/>
+  </meta>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml">
+			<p>
+				<b>Generated Narrative with Details</b>
+			</p>
+			<p>
+				<b>id</b>: example</p>
+			<p>
+				<b>identifier</b>: Medical Record Number = 1032702 (USUAL)</p>
+			<p>
+				<b>active</b>: true</p>
+			<p>
+				<b>name</b>: Amy V. Shaw </p>
+			<p>
+				<b>telecom</b>: ph: 555-555-5555(HOME), amy.shaw@example.com</p>
+			<p>
+				<b>gender</b>: </p>
+			<p>
+				<b>birthsex</b>: Female</p>
+			<p>
+				<b>birthDate</b>: Feb 20, 2007</p>
+			<p>
+				<b>address</b>: 49 Meadow St Mounds OK 74047 US </p>
+			<p>
+				<b>race</b>: White, American Indian or Alaska Native, Asian, Shoshone, Filipino</p>
+			<p>
+				<b>ethnicity</b>: Hispanic or Latino, Dominican, Mexican</p>
+		</div>
+  </text>
+  <extension url="http://hl7.org/fhir/us/core/StructureDefinition/us-core-race">
+    <extension url="ombCategory">
+      <valueCoding>
+        <system value="http://hl7.org/fhir/v3/Race"/>
+        <code value="2106-3"/>
+        <display value="White"/>
+      </valueCoding>
+    </extension>
+    <extension url="ombCategory">
+      <valueCoding>
+        <system value="http://hl7.org/fhir/v3/Race"/>
+        <code value="1002-5"/>
+        <display value="American Indian or Alaska Native"/>
+      </valueCoding>
+    </extension>
+    <extension url="ombCategory">
+      <valueCoding>
+        <system value="http://hl7.org/fhir/v3/Race"/>
+        <code value="2028-9"/>
+        <display value="Asian"/>
+      </valueCoding>
+    </extension>
+    <extension url="detailed">
+      <valueCoding>
+        <system value="http://hl7.org/fhir/v3/Race"/>
+        <code value="1586-7"/>
+        <display value="Shoshone"/>
+      </valueCoding>
+    </extension>
+    <extension url="detailed">
+      <valueCoding>
+        <system value="http://hl7.org/fhir/v3/Race"/>
+        <code value="2036-2"/>
+        <display value="Filipino"/>
+      </valueCoding>
+    </extension>
+  </extension>
+  <extension url="http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity">
+    <extension url="ombCategory">
+      <valueCoding>
+        <system value="http://hl7.org/fhir/v3/Ethnicity"/>
+        <code value="2135-2"/>
+        <display value="Hispanic or Latino"/>
+      </valueCoding>
+    </extension>
+    <extension url="detailed">
+      <valueCoding>
+        <system value="http://hl7.org/fhir/v3/Ethnicity"/>
+        <code value="2184-0"/>
+        <display value="Dominican"/>
+      </valueCoding>
+    </extension>
+    <extension url="detailed">
+      <valueCoding>
+        <system value="http://hl7.org/fhir/us/v3/Ethnicity"/>
+        <code value="2148-5"/>
+        <display value="Mexican"/>
+      </valueCoding>
+    </extension>
+  </extension>
+  <extension url="http://hl7.org/fhir/us/core/StructureDefinition/us-core-birthsex">
+    <valueCode value="F"/>
+  </extension>
+  <identifier>
+    <use value="usual"/>
+    <type>
+      <coding>
+        <system value="http://hl7.org/fhir/v2/0203"/>
+        <code value="MR"/>
+        <display value="Medical Record Number"/>
+      </coding>
+      <text value="Medical Record Number"/>
+    </type>
+    <system value="http://hospital.smarthealthit.org"/>
+    <value value="1032702"/>
+  </identifier>
+  <active value="true"/>
+  <name>
+    <family value="Shaw"/>
+    <given value="Amy"/>
+    <given value="V."/>
+  </name>
+  <telecom>
+    <system value="phone"/>
+    <value value="555-555-5555"/>
+    <use value="home"/>
+  </telecom>
+  <telecom>
+    <system value="email"/>
+    <value value="amy.shaw@example.com"/>
+  </telecom>
+  <gender/>
+  <birthDate value="2007-02-20"/>
+  <address>
+    <line value="49 Meadow St"/>
+    <city value="Mounds"/>
+    <state value="OK"/>
+    <postalCode value="74047"/>
+    <country value="US"/>
+  </address>
+</Patient>

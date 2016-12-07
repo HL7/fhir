@@ -1,0 +1,70 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix loinc: <http://loinc.org/owl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sct: <http://snomed.info/id/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://hl7.org/fhir/us/core/Observation/urine-glucose> a fhir:Observation;
+  fhir:nodeRole fhir:treeRoot;
+  fhir:Resource.id [ fhir:value "urine-glucose"];
+  fhir:Resource.meta [
+     fhir:Meta.versionId [ fhir:value "206444" ];
+     fhir:Meta.lastUpdated [ fhir:value "2016-04-18T03:35:42.751+00:00"^^xsd:dateTime ];
+     fhir:Meta.profile [
+       fhir:value "http://hl7.org/fhir/us/core/StructureDefinition/us-core-observationresults";
+       fhir:index 0
+     ]
+  ];
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ];
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: urine-glucose</p><p><b>meta</b>: </p><p><b>status</b>: final</p><p><b>category</b>: Laboratory <span style=\"background: LightGoldenRodYellow\">(Details : {http://hl7.org/fhir/observation-category code 'laboratory' = 'Laboratory', given as 'Laboratory'})</span></p><p><b>code</b>: GLUCOSE <span style=\"background: LightGoldenRodYellow\">(Details : {LOINC code '25428-4' = 'Glucose [Presence] in Urine by Test strip', given as 'Glucose [Presence] in Urine by Test strip'})</span></p><p><b>subject</b>: <a href=\"Patient-example.html\">Amy Shaw. Generated Summary: id: example; Medical Record Number = 1032702 (USUAL); active; Amy V. Shaw ; ph: 555-555-5555(HOME), amy.shaw@example.com; gender: null; birthDate: Feb 20, 2007</a></p><p><b>effective</b>: Jul 5, 2005</p><p><b>value</b>: Negative <span style=\"background: LightGoldenRodYellow\">(Details : {SNOMED CT code '260385009' = '260385009', given as 'Negative'})</span></p><h3>ReferenceRanges</h3><table class=\"grid\"><tr><td>-</td><td><b>Text</b></td></tr><tr><td>*</td><td>Negative</td></tr></table></div>"
+  ];
+  fhir:Observation.status [ fhir:value "final"];
+  fhir:Observation.category [
+     fhir:index 0;
+     fhir:CodeableConcept.coding [
+       fhir:index 0;
+       fhir:Coding.system [ fhir:value "http://hl7.org/fhir/observation-category" ];
+       fhir:Coding.code [ fhir:value "laboratory" ];
+       fhir:Coding.display [ fhir:value "Laboratory" ]
+     ];
+     fhir:CodeableConcept.text [ fhir:value "Laboratory" ]
+  ];
+  fhir:Observation.code [
+     fhir:CodeableConcept.coding [
+       fhir:index 0;
+       fhir:concept loinc:25428-4;
+       fhir:Coding.system [ fhir:value "http://loinc.org" ];
+       fhir:Coding.code [ fhir:value "25428-4" ];
+       fhir:Coding.display [ fhir:value "Glucose [Presence] in Urine by Test strip" ]
+     ];
+     fhir:CodeableConcept.text [ fhir:value "GLUCOSE" ]
+  ];
+  fhir:Observation.subject [
+     fhir:link <http://hl7.org/fhir/us/core/Patient/example>;
+     fhir:Reference.reference [ fhir:value "Patient/example" ];
+     fhir:Reference.display [ fhir:value "Amy Shaw" ]
+  ];
+  fhir:Observation.effectiveDateTime [ fhir:value "2005-07-05"^^xsd:date];
+  fhir:Observation.valueCodeableConcept [
+     fhir:CodeableConcept.coding [
+       fhir:index 0;
+       fhir:concept sct:260385009;
+       fhir:Coding.system [ fhir:value "http://snomed.info/sct" ];
+       fhir:Coding.code [ fhir:value "260385009" ];
+       fhir:Coding.display [ fhir:value "Negative" ]
+     ];
+     fhir:CodeableConcept.text [ fhir:value "Negative" ]
+  ];
+  fhir:Observation.referenceRange [
+     fhir:index 0;
+     fhir:Observation.referenceRange.text [ fhir:value "Negative" ]
+  ] .
+
+<http://hl7.org/fhir/us/core/Patient/example> a fhir:us .
+
+# -------------------------------------------------------------------------------------
+

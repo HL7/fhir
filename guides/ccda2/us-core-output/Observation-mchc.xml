@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Observation xmlns="http://hl7.org/fhir">
+  <id value="mchc"/>
+  <meta>
+    <versionId value="879"/>
+    <lastUpdated value="2016-03-09T15:29:57.124+00:00"/>
+    <profile value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-observationresults"/>
+  </meta>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: mchc</p><p><b>meta</b>: </p><p><b>status</b>: final</p><p><b>category</b>: Laboratory <span style="background: LightGoldenRodYellow">(Details : {http://hl7.org/fhir/observation-category code 'laboratory' = 'Laboratory', given as 'Laboratory'})</span></p><p><b>code</b>: MCHC RBC Auto-mCnc <span style="background: LightGoldenRodYellow">(Details : {LOINC code '786-4' = 'Erythrocyte mean corpuscular hemoglobin concentration [Mass/volume] by Automated count', given as 'MCHC RBC Auto-mCnc'})</span></p><p><b>subject</b>: <a href="Patient-example.html">Amy Shaw. Generated Summary: id: example; Medical Record Number = 1032702 (USUAL); active; Amy V. Shaw ; ph: 555-555-5555(HOME), amy.shaw@example.com; gender: null; birthDate: Feb 20, 2007</a></p><p><b>effective</b>: Jul 5, 2005</p><p><b>value</b>: 34.7 g/dL</p><h3>ReferenceRanges</h3><table class="grid"><tr><td>-</td><td><b>Low</b></td><td><b>High</b></td><td><b>Meaning</b></td></tr><tr><td>*</td><td>30.0 g/dL<span style="background: LightGoldenRodYellow"> (Details: UCUM code g/dL = 'g/dL')</span></td><td>34.0 g/dL<span style="background: LightGoldenRodYellow"> (Details: UCUM code g/dL = 'g/dL')</span></td><td>Normal Range <span style="background: LightGoldenRodYellow">(Details : {http://hl7.org/fhir/referencerange-meaning code 'normal' = 'Normal Range', given as 'Normal Range'})</span></td></tr></table></div>
+  </text>
+  <status value="final"/>
+  <category>
+    <coding>
+      <system value="http://hl7.org/fhir/observation-category"/>
+      <code value="laboratory"/>
+      <display value="Laboratory"/>
+    </coding>
+    <text value="Laboratory"/>
+  </category>
+  <code>
+    <coding>
+      <system value="http://loinc.org"/>
+      <code value="786-4"/>
+      <display value="MCHC RBC Auto-mCnc"/>
+    </coding>
+    <text value="MCHC RBC Auto-mCnc"/>
+  </code>
+  <subject>
+    <reference value="Patient/example"/>
+    <display value="Amy Shaw"/>
+  </subject>
+  <effectiveDateTime value="2005-07-05"/>
+  <valueQuantity>
+    <value value="34.7"/>
+    <unit value="g/dL"/>
+    <system value="http://unitsofmeasure.org"/>
+  </valueQuantity>
+  <referenceRange>
+    <low>
+      <value value="30.0"/>
+      <unit value="g/dL"/>
+      <system value="http://unitsofmeasure.org"/>
+      <code value="g/dL"/>
+    </low>
+    <high>
+      <value value="34.0"/>
+      <unit value="g/dL"/>
+      <system value="http://unitsofmeasure.org"/>
+      <code value="g/dL"/>
+    </high>
+    <meaning>
+      <coding>
+        <system value="http://hl7.org/fhir/referencerange-meaning"/>
+        <code value="normal"/>
+        <display value="Normal Range"/>
+      </coding>
+      <text value="Normal Range"/>
+    </meaning>
+  </referenceRange>
+</Observation>

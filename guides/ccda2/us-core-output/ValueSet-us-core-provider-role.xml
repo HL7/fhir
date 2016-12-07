@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="us-core-provider-role"/>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml">
+			<h2>US Core Provider Role (NUCC)</h2>
+			<div>
+				<p>Provider roles codes which are composed of the NUCC Health Care Provider Taxonomy
+					Code Set for providers. Only concepts with a classification and no specialization are included.</p>
+			</div>
+			<p><b>Copyright Statement:</b> TODO: Permission to Use and Distribute the Health Care
+				Provider Taxonomy Code Set</p>
+			<p>This value set includes codes from the following code systems:</p>
+			<ul>
+				<li>Include only concepts with a classification and no specialization from: http://nucc.org/provider-taxonomy</li>
+			</ul>
+		</div>
+  </text>
+  <url value="http://hl7.org/fhir/us/core/ValueSet/us-core-provider-role"/>
+  <name value="US Core Provider Role (NUCC)"/>
+  <status value="draft"/>
+  <publisher value="FHIR Project Team"/>
+  <contact>
+    <telecom>
+      <system value="other"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <date value="2016-08-10"/>
+  <description value="Provider roles codes which are composed of the NUCC Health Care Provider Taxonomy Code Set classification codes for providers. Only concepts with a classification and no specialization are included. "/>
+  <copyright value="TODO: Permission to Use and Distribute the Health Care Provider Taxonomy Code Set"/>
+  <compose>
+    <include>
+      <system value="http://nucc.org/provider-taxonomy"/>
+    </include>
+  </compose>
+</ValueSet>

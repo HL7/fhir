@@ -1,0 +1,41 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://hl7.org/fhir/us/core/Immunization/imm-1> a fhir:Immunization;
+  fhir:nodeRole fhir:treeRoot;
+  fhir:Resource.id [ fhir:value "imm-1"];
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ];
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: imm-1</p><p><b>status</b>: completed</p><p><b>date</b>: Jan 8, 2016</p><p><b>vaccineCode</b>: influenza, injectable, quadrivalent <span style=\"background: LightGoldenRodYellow\">(Details : {http://hl7.org/fhir/sid/cvx code '158' = 'influenza, injectable, quadrivalent', given as 'influenza, injectable, quadrivalent'}; {http://hl7.org/fhir/sid/ndc code '49281-0623-78' = '49281-0623-78', given as 'FLUZONE QUADRIVALENT'})</span></p><p><b>patient</b>: <a href=\"Patient-example.html\">Amy Shaw. Generated Summary: id: example; Medical Record Number = 1032702 (USUAL); active; Amy V. Shaw ; ph: 555-555-5555(HOME), amy.shaw@example.com; gender: null; birthDate: Feb 20, 2007</a></p><p><b>wasNotGiven</b>: false</p><p><b>primarySource</b>: false</p></div>"
+  ];
+  fhir:Immunization.status [ fhir:value "completed"];
+  fhir:Immunization.date [ fhir:value "2016-01-08"^^xsd:date];
+  fhir:Immunization.vaccineCode [
+     fhir:CodeableConcept.coding [
+       fhir:index 0;
+       fhir:Coding.system [ fhir:value "http://hl7.org/fhir/sid/cvx" ];
+       fhir:Coding.code [ fhir:value "158" ];
+       fhir:Coding.display [ fhir:value "influenza, injectable, quadrivalent" ]
+     ], [
+       fhir:index 1;
+       fhir:Coding.system [ fhir:value "http://hl7.org/fhir/sid/ndc" ];
+       fhir:Coding.code [ fhir:value "49281-0623-78" ];
+       fhir:Coding.display [ fhir:value "FLUZONE QUADRIVALENT" ]
+     ]
+  ];
+  fhir:Immunization.patient [
+     fhir:link <http://hl7.org/fhir/us/core/Patient/example>;
+     fhir:Reference.reference [ fhir:value "Patient/example" ];
+     fhir:Reference.display [ fhir:value "Amy Shaw" ]
+  ];
+  fhir:Immunization.wasNotGiven [ fhir:value "false"^^xsd:boolean];
+  fhir:Immunization.primarySource [ fhir:value "false"^^xsd:boolean] .
+
+<http://hl7.org/fhir/us/core/Patient/example> a fhir:us .
+
+# -------------------------------------------------------------------------------------
+

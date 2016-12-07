@@ -1,0 +1,767 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="us-core-medicationstatement"/>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p><b>Generated Narrative with Details</b></p><p><b>url</b>: <a href="http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationstatement">http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationstatement</a></p><p><b>name</b>: US Core Medication Statement Profile</p><p><b>status</b>: DRAFT</p><p><b>date</b>: Aug 1, 2016</p><p><b>publisher</b>: Health Level Seven International (FHIR-Infrastructure)</p><p><b>contact</b>: </p><p><b>url</b>: <a href="http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationstatement">http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationstatement</a></p><p><b>name</b>: US Core Medication Statement Profile</p><p><b>status</b>: DRAFT</p><p><b>publisher</b>: Health Level Seven International (FHIR-Infrastructure)</p><p><b>contact</b>: </p><p><b>date</b>: Aug 1, 2016</p><blockquote><p><b>mapping</b></p><p><b>identity</b>: rim</p><p><b>uri</b>: <a href="http://hl7.org/v3">http://hl7.org/v3</a></p><p><b>name</b>: RIM Mapping</p></blockquote><blockquote><p><b>mapping</b></p><p><b>identity</b>: w5</p><p><b>uri</b>: <a href="http://hl7.org/fhir/w5">http://hl7.org/fhir/w5</a></p><p><b>name</b>: W5 Mapping</p></blockquote><blockquote><p><b>mapping</b></p><p><b>identity</b>: v2</p><p><b>uri</b>: <a href="http://hl7.org/v2">http://hl7.org/v2</a></p><p><b>name</b>: HL7 v2 Mapping</p></blockquote><p><b>kind</b>: RESOURCE</p><p><b>abstract</b>: false</p><p><b>type</b>: MedicationStatement</p><p><b>baseDefinition</b>: <a href="http://hl7.org/fhir/StructureDefinition/MedicationStatement">http://hl7.org/fhir/StructureDefinition/MedicationStatement</a></p><p><b>derivation</b>: CONSTRAINT</p><h3>Snapshots</h3><table class="grid"><tr><td>-</td><td><b>Element</b></td></tr><tr><td>*</td><td>todo-bundle</td></tr></table><h3>Differentials</h3><table class="grid"><tr><td>-</td><td><b>Element</b></td></tr><tr><td>*</td><td>todo-bundle</td></tr></table></div>
+  </text>
+  <url value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationstatement"/>
+  <name value="US Core Medication Statement Profile"/>
+  <status value="draft"/>
+  <publisher value="Health Level Seven International (FHIR-Infrastructure)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.healthit.gov"/>
+    </telecom>
+  </contact>
+  <date value="2016-08-01"/>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="w5"/>
+    <uri value="http://hl7.org/fhir/w5"/>
+    <name value="W5 Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="v2"/>
+    <uri value="http://hl7.org/v2"/>
+    <name value="HL7 v2 Mapping"/>
+  </mapping>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="MedicationStatement"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/MedicationStatement"/>
+  <derivation value="constraint"/>
+  <snapshot>
+    <element id="MedicationStatement:uscoremedicationstatement">
+      <path value="MedicationStatement"/>
+      <sliceName value="USCoreMedicationStatement"/>
+      <short value="US Core Medication Statement Profile"/>
+      <definition value="The US Core Medication Statement Profile is based upon the core FHIR MedicationStatement Resource and created to meet the 2015 Edition Common Clinical Data Set &#39;Medications&#39; requirements."/>
+      <comments value="When interpreting a medicationStatement, the value of the status and NotTaken needed to be considered: MedicationStatement.status + MedicationStatement.wasNotTaken Status=Active + NotTaken=T = Not currently taking Status=Completed + NotTaken=T = Not taken in the past Status=Intended + NotTaken=T = No intention of taking Status=Active + NotTaken=F = Taking, but not as prescribed Status=Active + NotTaken=F = Taking Status=Intended +NotTaken= F = Will be taking (not started) Status=Completed + NotTaken=F = Taken in past Status=In Error + NotTaken=N/A = In Error."/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="MedicationStatement"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <constraint>
+        <key value="dom-2"/>
+        <severity value="error"/>
+        <human value="If the resource is contained in another resource, it SHALL NOT contain nested Resources"/>
+        <expression value="contained.contained.empty()"/>
+        <xpath value="not(parent::f:contained and f:contained)"/>
+        <source value="DomainResource"/>
+      </constraint>
+      <constraint>
+        <key value="dom-1"/>
+        <severity value="error"/>
+        <human value="If the resource is contained in another resource, it SHALL NOT contain any narrative"/>
+        <expression value="contained.text.empty()"/>
+        <xpath value="not(parent::f:contained and f:text)"/>
+        <source value="DomainResource"/>
+      </constraint>
+      <constraint>
+        <key value="dom-4"/>
+        <severity value="error"/>
+        <human value="If a resource is contained in another resource, it SHALL NOT have a meta.versionId or a meta.lastUpdated"/>
+        <expression value="contained.meta.versionId.empty() and contained.meta.lastUpdated.empty()"/>
+        <xpath value="not(exists(f:contained/*/f:meta/f:versionId)) and not(exists(f:contained/*/f:meta/f:lastUpdated))"/>
+        <source value="DomainResource"/>
+      </constraint>
+      <constraint>
+        <key value="dom-3"/>
+        <severity value="error"/>
+        <human value="If the resource is contained in another resource, it SHALL be referred to from elsewhere in the resource"/>
+        <expression value="contained.where((&#39;#&#39;+id in %resource.descendants().reference).not()).empty()"/>
+        <xpath value="not(exists(for $id in f:contained/*/@id return $id[not(ancestor::f:contained/parent::*/descendant::f:reference/@value=concat(&#39;#&#39;, $id))]))"/>
+        <source value="DomainResource"/>
+      </constraint>
+      <constraint>
+        <key value="mst-1"/>
+        <severity value="error"/>
+        <human value="Reason not taken is only permitted if notTaken is Yes"/>
+        <expression value="reasonNotTaken.empty() or notTaken=&#39;y&#39;"/>
+        <xpath value="not(exists(f:reasonNotTaken) and (f:notTaken/@value=&#39;n&#39; or f:notTaken/@value=&#39;unk&#39;))"/>
+        <source value="MedicationStatement"/>
+      </constraint>
+      <mustSupport value="false"/>
+      <isSummary value="false"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value="Entity. Role, or Act"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="SubstanceAdministration"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="clinical.medication"/>
+      </mapping>
+    </element>
+    <element id="MedicationStatement:uscoremedicationstatement.id">
+      <path value="MedicationStatement.id"/>
+      <short value="Logical id of this artifact"/>
+      <definition value="The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes."/>
+      <comments value="The only time that a resource does not have an id is when it is being submitted to the server using a create operation."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="Resource.id"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="id"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="MedicationStatement:uscoremedicationstatement.meta">
+      <path value="MedicationStatement.meta"/>
+      <short value="Metadata about the resource"/>
+      <definition value="The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content may not always be associated with version changes to the resource."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="Resource.meta"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="Meta"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="MedicationStatement:uscoremedicationstatement.implicitRules">
+      <path value="MedicationStatement.implicitRules"/>
+      <short value="A set of rules under which this content was created"/>
+      <definition value="A reference to a set of rules that were followed when the resource was constructed, and which must be understood when processing the content."/>
+      <comments value="Asserting this rule set restricts the content to be only understood by a limited set of trading partners. This inherently limits the usefulness of the data in the long term. However, the existing health eco-system is highly fractured, and not yet ready to define, collect, and exchange data in a generally computable sense. Wherever possible, implementers and/or specification writers should avoid using this element as much as possible."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="Resource.implicitRules"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="uri"/>
+      </type>
+      <isModifier value="true"/>
+      <isSummary value="true"/>
+    </element>
+    <element id="MedicationStatement:uscoremedicationstatement.language">
+      <path value="MedicationStatement.language"/>
+      <short value="Language of the resource content"/>
+      <definition value="The base language in which the resource is written."/>
+      <comments value="Language is provided to support indexing and accessibility (typically, services such as text to speech use the language tag). The html language tag in the narrative applies  to the narrative. The language tag on the resource may be used to specify the language of other presentations generated from the data in the resource  Not all the content has to be in the base language. The Resource.language should not be assumed to apply to the narrative automatically. If a language is specified, it should it also be specified on the div element in the html (see rules in HTML5 for information about the relationship between xml:lang and the html lang attribute)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="Resource.language"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="code"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet">
+          <valueReference>
+            <reference value="http://hl7.org/fhir/ValueSet/all-languages"/>
+          </valueReference>
+        </extension>
+        <strength value="extensible"/>
+        <description value="A human language."/>
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/languages"/>
+        </valueSetReference>
+      </binding>
+    </element>
+    <element id="MedicationStatement:uscoremedicationstatement.text">
+      <path value="MedicationStatement.text"/>
+      <short value="Text summary of the resource, for human interpretation"/>
+      <definition value="A human-readable narrative that contains a summary of the resource, and may be used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative. Resource definitions may define what content should be represented in the narrative to ensure clinical safety."/>
+      <comments value="Contained resources do not have narrative. Resources that are not contained SHOULD have a narrative. In some cases, a resource may only have text with little or no additional discrete data (as long as all minOccurs=1 elements are satisfied).  This may be necessary for data from legacy systems where information is captured as a &quot;text blob&quot; or where text is additionally entered raw or narrated and encoded in formation is added later."/>
+      <alias value="narrative"/>
+      <alias value="html"/>
+      <alias value="xhtml"/>
+      <alias value="display"/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="DomainResource.text"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="Narrative"/>
+      </type>
+      <condition value="dom-1"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value="Act.text?"/>
+      </mapping>
+    </element>
+    <element id="MedicationStatement:uscoremedicationstatement.contained">
+      <path value="MedicationStatement.contained"/>
+      <short value="Contained, inline Resources"/>
+      <definition value="These resources do not have an independent existence apart from the resource that contains them - they cannot be identified independently, and nor can they have their own independent transaction scope."/>
+      <comments value="This should never be done when the content can be identified properly, as once identification is lost, it is extremely difficult (and context dependent) to restore it again."/>
+      <alias value="inline resources"/>
+      <alias value="anonymous resources"/>
+      <alias value="contained resources"/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="DomainResource.contained"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="Resource"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+    </element>
+    <element id="MedicationStatement:uscoremedicationstatement.extension">
+      <path value="MedicationStatement.extension"/>
+      <short value="Additional Content defined by implementations"/>
+      <definition value="May be used to represent additional information that is not part of the basic definition of the resource. In order to make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension."/>
+      <comments value="There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone."/>
+      <alias value="extensions"/>
+      <alias value="user content"/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="DomainResource.extension"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="Extension"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+    </element>
+    <element id="MedicationStatement:uscoremedicationstatement.modifierExtension">
+      <path value="MedicationStatement.modifierExtension"/>
+      <short value="Extensions that cannot be ignored"/>
+      <definition value="May be used to represent additional information that is not part of the basic definition of the resource, and that modifies the understanding of the element that contains it. Usually modifier elements provide negation or qualification. In order to make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions."/>
+      <comments value="There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone."/>
+      <alias value="extensions"/>
+      <alias value="user content"/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="DomainResource.modifierExtension"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="Extension"/>
+      </type>
+      <isModifier value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+    </element>
+    <element id="MedicationStatement:uscoremedicationstatement.identifier">
+      <path value="MedicationStatement.identifier"/>
+      <short value="External identifier"/>
+      <definition value="External identifier - FHIR will generate its own internal identifiers (probably URLs) which do not need to be explicitly managed by the resource.  The identifier here is one that would be used by another non-FHIR system - for example an automated medication pump would provide a record each time it operated; an administration while the patient was off the ward might be made with a different system and entered after the event.  Particularly important if these records have to be updated."/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="MedicationStatement.identifier"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="Identifier"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="SubstanceAdministration.id"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="id"/>
+      </mapping>
+    </element>
+    <element id="MedicationStatement:uscoremedicationstatement.status">
+      <path value="MedicationStatement.status"/>
+      <short value="active | completed | entered-in-error | intended | stopped | on-hold"/>
+      <definition value="A code representing the patient or other source&#39;s judgment about the state of the medication used that this statement is about.  Generally this will be active or completed."/>
+      <comments value="MedicationStatement is a statement at a point in time.  The status is only representative at the point when it was asserted.  The value set for MedicationStatement.status contains codes that assert the status of the use of the medication by the patient (for example, stopped or on hold) as well as codes that assert the status of the medication statement itself (for example, entered in error)."/>
+      <min value="1"/>
+      <max value="1"/>
+      <base>
+        <path value="MedicationStatement.status"/>
+        <min value="1"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="code"/>
+      </type>
+      <mustSupport value="true"/>
+      <isModifier value="true"/>
+      <isSummary value="false"/>
+      <binding>
+        <strength value="required"/>
+        <description value="A set of codes indicating the current status of a MedicationStatement."/>
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/medication-statement-status"/>
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".statusCode"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="status"/>
+      </mapping>
+    </element>
+    <element id="MedicationStatement:uscoremedicationstatement.medication[x]">
+      <path value="MedicationStatement.medication[x]"/>
+      <short value="What medication was taken"/>
+      <definition value="Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications."/>
+      <comments value="If only a code is specified, then it needs to be a code for a specific product.  If more information is required, then the use of the medication resource is recommended.  Note: do not use Medication.name to describe the medication this statement concerns. When the only available information is a text description of the medication, Medication.code.text should be used."/>
+      <min value="1"/>
+      <max value="1"/>
+      <base>
+        <path value="MedicationStatement.medication[x]"/>
+        <min value="1"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-medication"/>
+      </type>
+      <mustSupport value="true"/>
+      <isSummary value="false"/>
+      <binding>
+        <strength value="extensible"/>
+        <description value="Prescribable medications"/>
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/us/core/ValueSet/us-core-medication-codes"/>
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value="SubstanceAdministration&gt;Component&gt;SubstanceAdministrationRequest.consumable"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="what"/>
+      </mapping>
+    </element>
+    <element id="MedicationStatement:uscoremedicationstatement.subject">
+      <path value="MedicationStatement.subject"/>
+      <short value="Who is/was taking  the medication"/>
+      <definition value="The person, animal or group who is/was taking the medication."/>
+      <min value="1"/>
+      <max value="1"/>
+      <base>
+        <path value="MedicationStatement.subject"/>
+        <min value="1"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"/>
+      </type>
+      <mustSupport value="true"/>
+      <isSummary value="false"/>
+      <mapping>
+        <identity value="v2"/>
+        <map value="PID-3-Patient ID List"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="SubstanceAdministration-&gt;subject-&gt;Patient"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="who.focus"/>
+      </mapping>
+    </element>
+    <element id="MedicationStatement:uscoremedicationstatement.effective[x]">
+      <path value="MedicationStatement.effective[x]"/>
+      <short value="Over what period was medication consumed?"/>
+      <definition value="The interval of time during which it is being asserted that the patient was taking the medication (or was not taking, when the wasNotGiven element is true)."/>
+      <comments value="If the medication is still being taken at the time the statement is recorded, the &quot;end&quot; date will be omitted."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="MedicationStatement.effective[x]"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <type>
+        <code value="Period"/>
+      </type>
+      <mustSupport value="true"/>
+      <isSummary value="false"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value="SubstanceAdministration.effectiveTime"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="when.done"/>
+      </mapping>
+    </element>
+    <element id="MedicationStatement:uscoremedicationstatement.informationSource">
+      <path value="MedicationStatement.informationSource"/>
+      <short value="Person or organization that provided the information about the taking of this medication"/>
+      <definition value="The person or organization that provided the information about the taking of this medication. Note: Use derivedFrom when a MedicationStatement is derived from other resources, e.g Claim or MedicationRequest."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="MedicationStatement.informationSource"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+      </type>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+      </type>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+      </type>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=INF].role[classCode=PAT, or  codes for Practioner or Related Person (if PAT is the informer, then syntax for self-reported =true)"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="who.source"/>
+      </mapping>
+    </element>
+    <element id="MedicationStatement:uscoremedicationstatement.derivedFrom">
+      <path value="MedicationStatement.derivedFrom"/>
+      <short value="Additional supporting information"/>
+      <definition value="Allows linking the MedicationStatement to the underlying MedicationRequest, or to other information that supports or is used to derive the MedicationStatement."/>
+      <comments value="Likely references would be to MedicationRequest, MedicationDispense, Claim, Observation or QuestionnaireAnswers."/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="MedicationStatement.derivedFrom"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=SPRT]/target[classCode=ACT,moodCode=EVN]"/>
+      </mapping>
+    </element>
+    <element id="MedicationStatement:uscoremedicationstatement.dateAsserted">
+      <path value="MedicationStatement.dateAsserted"/>
+      <short value="When the statement was asserted?"/>
+      <definition value="The date when the medication statement was asserted by the information source."/>
+      <min value="1"/>
+      <max value="1"/>
+      <base>
+        <path value="MedicationStatement.dateAsserted"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <mustSupport value="true"/>
+      <isSummary value="false"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=AUT].time"/>
+      </mapping>
+    </element>
+    <element id="MedicationStatement:uscoremedicationstatement.notTaken">
+      <path value="MedicationStatement.notTaken"/>
+      <short value="y | n | unk"/>
+      <definition value="Indicator of the certainty of whether the medication was taken by the patient."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="MedicationStatement.notTaken"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="code"/>
+      </type>
+      <isModifier value="true"/>
+      <isSummary value="true"/>
+      <binding>
+        <strength value="required"/>
+        <description value="A coded concept identifying level of certainty if patient has taken or has not taken the medication"/>
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/medication-statement-nottaken"/>
+        </valueSetReference>
+      </binding>
+    </element>
+    <element id="MedicationStatement:uscoremedicationstatement.reasonNotTaken">
+      <path value="MedicationStatement.reasonNotTaken"/>
+      <short value="True if asserting medication was not given"/>
+      <definition value="A code indicating why the medication was not taken."/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="MedicationStatement.reasonNotTaken"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <condition value="mst-1"/>
+      <binding>
+        <strength value="example"/>
+        <description value="A coded concept indicating the reason why the medication was not taken"/>
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/reason-medication-not-taken-codes"/>
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value="SubstanceAdministration-&gt;Reason-&gt;Observation-&gt;Value"/>
+      </mapping>
+    </element>
+    <element id="MedicationStatement:uscoremedicationstatement.reasonForUseCodeableConcept">
+      <path value="MedicationStatement.reasonForUseCodeableConcept"/>
+      <short value="Reason for why the medication is being/was taken"/>
+      <definition value="A reason for why the medication is being/was taken."/>
+      <comments value="This could be a diagnosis code. If a full condition record exists or additional detail is needed, use reasonForUseReference."/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="MedicationStatement.reasonForUseCodeableConcept"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <strength value="example"/>
+        <description value="A coded concept identifying why the medication is being taken."/>
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/condition-code"/>
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".reasonCode"/>
+      </mapping>
+    </element>
+    <element id="MedicationStatement:uscoremedicationstatement.reasonForUseReference">
+      <path value="MedicationStatement.reasonForUseReference"/>
+      <short value="Condition or observation that supports why the medication is being/was taken"/>
+      <definition value="Condition or observation that supports why the medication is being/was taken."/>
+      <comments value="This is a reference to a condition that is the reason why the medication is being/was taken.  If only a code exists, use reasonForUseCode."/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="MedicationStatement.reasonForUseReference"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Condition"/>
+      </type>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Observation"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="not mapped"/>
+      </mapping>
+    </element>
+    <element id="MedicationStatement:uscoremedicationstatement.note">
+      <path value="MedicationStatement.note"/>
+      <short value="Further information about the statement"/>
+      <definition value="Provides extra information about the medication statement that is not conveyed by the other attributes."/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="MedicationStatement.note"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="Annotation"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".inboundRelationship[typeCode=SUBJ]/source[classCode=OBS,moodCode=EVN,code=&quot;annotation&quot;].value"/>
+      </mapping>
+    </element>
+    <element id="MedicationStatement:uscoremedicationstatement.category">
+      <path value="MedicationStatement.category"/>
+      <short value="Type of medication usage"/>
+      <definition value="Indicates where type of medication statement and where the medication is expected to be consumed or administered."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="MedicationStatement.category"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="code"/>
+      </type>
+      <binding>
+        <strength value="example"/>
+        <description value="A coded concept identifying where the medication included in the medicationstatement is expected to be consumed or administered"/>
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/medication-statement-category"/>
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value="not mapped"/>
+      </mapping>
+    </element>
+    <element id="MedicationStatement:uscoremedicationstatement.dosage">
+      <path value="MedicationStatement.dosage"/>
+      <short value="Details of how medication was taken"/>
+      <definition value="Indicates how the medication is/was used by the patient."/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="MedicationStatement.dosage"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="DosageInstruction"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="SubstanceAdministration&gt;Component&gt;SubstanceAdministrationRequest"/>
+      </mapping>
+    </element>
+  </snapshot>
+  <differential>
+    <element id="MedicationStatement:uscoremedicationstatement">
+      <path value="MedicationStatement"/>
+      <sliceName value="USCoreMedicationStatement"/>
+      <short value="US Core Medication Statement Profile"/>
+      <definition value="The US Core Medication Statement Profile is based upon the core FHIR MedicationStatement Resource and created to meet the 2015 Edition Common Clinical Data Set &#39;Medications&#39; requirements."/>
+      <mustSupport value="false"/>
+      <isModifier value="false"/>
+      <isSummary value="false"/>
+    </element>
+    <element id="MedicationStatement:uscoremedicationstatement.status">
+      <path value="MedicationStatement.status"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <mustSupport value="true"/>
+      <isModifier value="false"/>
+      <isSummary value="false"/>
+      <binding>
+        <strength value="required"/>
+        <description value="A set of codes indicating the current status of a MedicationStatement."/>
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/medication-statement-status"/>
+        </valueSetReference>
+      </binding>
+    </element>
+    <element id="MedicationStatement:uscoremedicationstatement.medication[x]">
+      <path value="MedicationStatement.medication[x]"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-medication"/>
+      </type>
+      <mustSupport value="true"/>
+      <isModifier value="false"/>
+      <isSummary value="false"/>
+      <binding>
+        <strength value="extensible"/>
+        <description value="Prescribable medications"/>
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/us/core/ValueSet/us-core-medication-codes"/>
+        </valueSetReference>
+      </binding>
+    </element>
+    <element id="MedicationStatement:uscoremedicationstatement.subject">
+      <path value="MedicationStatement.subject"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"/>
+      </type>
+      <mustSupport value="true"/>
+      <isModifier value="false"/>
+      <isSummary value="false"/>
+    </element>
+    <element id="MedicationStatement:uscoremedicationstatement.effective[x]">
+      <path value="MedicationStatement.effective[x]"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <type>
+        <code value="Period"/>
+      </type>
+      <mustSupport value="true"/>
+      <isModifier value="false"/>
+      <isSummary value="false"/>
+    </element>
+    <element id="MedicationStatement:uscoremedicationstatement.dateAsserted">
+      <path value="MedicationStatement.dateAsserted"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <mustSupport value="true"/>
+      <isModifier value="false"/>
+      <isSummary value="false"/>
+    </element>
+  </differential>
+</StructureDefinition>

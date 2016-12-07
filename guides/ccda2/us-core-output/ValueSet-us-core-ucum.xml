@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="us-core-ucum"/>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><h2>UCUM units</h2><div><p><a href="http://unitsofmeasure.org/">UCUM</a> unit for coded form of units</p>
+</div><p><b>Copyright Statement:</b> UCUM is Copyright © 1999-2013 Regenstrief Institute, Inc. and The UCUM Organization, Indianapolis, IN. All rights reserved. See http://unitsofmeasure.org/trac//wiki/TermsOfUse for details</p><p>This value set includes codes from the following code systems:</p><ul><li>Include all codes defined in http://unitsofmeasure.org</li></ul></div>
+  </text>
+  <url value="http://hl7.org/fhir/us/core/ValueSet/us-core-ucum"/>
+  <version value="1.6.0"/>
+  <name value="UCUM units"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <publisher value="FHIR Project"/>
+  <contact>
+    <telecom>
+      <system value="other"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <date value="2016-08-10"/>
+  <description value="[UCUM](http://unitsofmeasure.org/) unit for coded form of units"/>
+  <copyright value="UCUM is Copyright © 1999-2013 Regenstrief Institute, Inc. and The UCUM Organization, Indianapolis, IN. All rights reserved. See http://unitsofmeasure.org/trac//wiki/TermsOfUse for details"/>
+  <extensible value="true"/>
+  <compose>
+    <include>
+      <system value="http://unitsofmeasure.org"/>
+    </include>
+  </compose>
+</ValueSet>

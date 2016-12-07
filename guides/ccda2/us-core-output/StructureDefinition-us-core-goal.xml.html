@@ -1,0 +1,1058 @@
+<!DOCTYPE HTML>
+
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+   <meta charset="UTF-8"/>
+  <title></title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="US Core Implemenation Guide" />
+<meta name="author" content="http://www.hl7.org"/>
+
+  <link href="fhir.css" rel="stylesheet"/>
+
+   <!-- Bootstrap core CSS -->
+  <link href="dist/css/bootstrap.css" rel="stylesheet"/>
+  <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+  <!-- Project extras -->
+  <link href="assets/css/project.css" rel="stylesheet"/>
+  <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+	<link href="jquery-ui.css" rel="stylesheet"/>
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png"/>
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png"/>
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png"/>
+  <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png"/>
+  <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+
+
+<body>
+
+ <div id="segment-header" class="segment">  <!-- segment-header -->
+  <div class="container">  <!-- container -->
+   <a id="logo" no-external="true" href="http://hl7.org/fhir"><img alt="logo fhir" src="assets/images/fhir-logo-www.png"/> </a>
+   <div id="hl7-status">
+    <b>US-Core CI Build</b>
+   </div>
+
+   <div id="hl7-nav">
+     <a id="hl7-logo" no-external="true" href="http://www.hl7.org">
+     <img height="50" alt="visit the hl7 website" width="42" src="assets/images/hl7-logo.png"/>
+    </a>
+   </div>
+   <div id="hl7-nav"><a id="hl7-logo" no-external="true" href="http://hl7.org/fhir/search.cfm"><img height="50"  alt="US-Core" src="assets/images/usbanner.png"/></a></div>
+  </div>
+  <div class="container">  <!-- container -->
+ </div></div>  <!-- /segment-header -->
+
+ <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+  <div id="stripe"> </div>
+  <div class="container">  <!-- container -->
+   <!-- HEADER CONTENT -->
+
+   <nav class="navbar navbar-inverse">
+    <div class="container">
+     <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+      <span class="icon-bar"> </span>
+      <span class="icon-bar"> </span>
+      <span class="icon-bar"> </span>
+     </button>
+     <a class="navbar-brand hidden" href="http://hl7.org/fhir/2017Janindex.html">FHIR</a>
+     <div class="nav-collapse collapse navbar-inverse-collapse">
+      <ul class="nav navbar-nav">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="definitions.html">General Guidance</a></li>
+              <li><a href="profiles.html">US Core Profiles</a></li>
+              <li><a href="extensions.html">Extensions</a></li>
+              <li><a href="valuesets.html">Value Sets</a></li>
+              <li><a href="searchparams.html">Search Parameters</a></li>
+              <li><a href="capstmnts.html">Capability Statements</a></li>
+              <li><a href="security.html">Security</a></li>
+              <li><a href="downloads.html">Downloads</a></li>
+            </ul>
+
+     </div>  <!-- /.nav-collapse -->
+    </div>  <!-- /.container -->
+   </nav>  <!-- /.navbar -->
+
+  <!-- /HEADER CONTENT -->
+  </div>  <!-- /container -->
+ </div>  <!-- /segment-navbar -->
+
+
+
+
+
+  </div>  <!-- /container -->
+ </div>  <!-- /segment-breadcrumb -->
+
+ <div id="segment-content" class="segment">  <!-- segment-content -->
+ <div class="container">  <!-- container -->
+            <div class="row">
+             <div class="inner-wrapper">
+
+
+<div class="col-9">
+
+  <!-- ============CONTENT CONTENT=============== -->
+
+<h2>US Core Goal Profile</h2>
+
+<pre class="xml">
+
+&lt;<a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition">StructureDefinition</a> xmlns=&quot;http://hl7.org/fhir&quot;&gt;
+  &lt;<a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.id">id</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#id">value</a>=&quot;us-core-goal&quot;/&gt;
+  &lt;<a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.text">text</a>&gt;
+    &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#Narrative#Narrative.status">status</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#code">value</a>=&quot;generated&quot;/&gt;
+    &lt;div xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;&lt;p&gt;&lt;b&gt;Generated Narrative with Details&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;url&lt;/b&gt;: &lt;a href=&quot;http://hl7.org/fhir/us/core/StructureDefinition/us-core-goal&quot;&gt;http://hl7.org/fhir/us/core/StructureDefinition/us-core-goal&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;name&lt;/b&gt;: US Core Goal Profile&lt;/p&gt;&lt;p&gt;&lt;b&gt;status&lt;/b&gt;: DRAFT&lt;/p&gt;&lt;p&gt;&lt;b&gt;date&lt;/b&gt;: Aug 1, 2016&lt;/p&gt;&lt;p&gt;&lt;b&gt;publisher&lt;/b&gt;: Health Level Seven International (FHIR-Infrastructure)&lt;/p&gt;&lt;p&gt;&lt;b&gt;contact&lt;/b&gt;: &lt;/p&gt;&lt;p&gt;&lt;b&gt;url&lt;/b&gt;: &lt;a href=&quot;http://hl7.org/fhir/us/core/StructureDefinition/us-core-goal&quot;&gt;http://hl7.org/fhir/us/core/StructureDefinition/us-core-goal&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;name&lt;/b&gt;: US Core Goal Profile&lt;/p&gt;&lt;p&gt;&lt;b&gt;status&lt;/b&gt;: DRAFT&lt;/p&gt;&lt;p&gt;&lt;b&gt;publisher&lt;/b&gt;: Health Level Seven International (FHIR-Infrastructure)&lt;/p&gt;&lt;p&gt;&lt;b&gt;contact&lt;/b&gt;: &lt;/p&gt;&lt;p&gt;&lt;b&gt;date&lt;/b&gt;: Aug 1, 2016&lt;/p&gt;&lt;blockquote&gt;&lt;p&gt;&lt;b&gt;mapping&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;identity&lt;/b&gt;: v2&lt;/p&gt;&lt;p&gt;&lt;b&gt;uri&lt;/b&gt;: &lt;a href=&quot;http://hl7.org/v2&quot;&gt;http://hl7.org/v2&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;name&lt;/b&gt;: HL7 v2 Mapping&lt;/p&gt;&lt;/blockquote&gt;&lt;blockquote&gt;&lt;p&gt;&lt;b&gt;mapping&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;identity&lt;/b&gt;: rim&lt;/p&gt;&lt;p&gt;&lt;b&gt;uri&lt;/b&gt;: &lt;a href=&quot;http://hl7.org/v3&quot;&gt;http://hl7.org/v3&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;name&lt;/b&gt;: RIM Mapping&lt;/p&gt;&lt;/blockquote&gt;&lt;blockquote&gt;&lt;p&gt;&lt;b&gt;mapping&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;identity&lt;/b&gt;: w5&lt;/p&gt;&lt;p&gt;&lt;b&gt;uri&lt;/b&gt;: &lt;a href=&quot;http://hl7.org/fhir/w5&quot;&gt;http://hl7.org/fhir/w5&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;name&lt;/b&gt;: W5 Mapping&lt;/p&gt;&lt;/blockquote&gt;&lt;p&gt;&lt;b&gt;kind&lt;/b&gt;: RESOURCE&lt;/p&gt;&lt;p&gt;&lt;b&gt;abstract&lt;/b&gt;: false&lt;/p&gt;&lt;p&gt;&lt;b&gt;type&lt;/b&gt;: Goal&lt;/p&gt;&lt;p&gt;&lt;b&gt;baseDefinition&lt;/b&gt;: &lt;a href=&quot;http://hl7.org/fhir/StructureDefinition/Goal&quot;&gt;http://hl7.org/fhir/StructureDefinition/Goal&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;derivation&lt;/b&gt;: CONSTRAINT&lt;/p&gt;&lt;h3&gt;Snapshots&lt;/h3&gt;&lt;table class=&quot;grid&quot;&gt;&lt;tr&gt;&lt;td&gt;-&lt;/td&gt;&lt;td&gt;&lt;b&gt;Element&lt;/b&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;*&lt;/td&gt;&lt;td&gt;todo-bundle&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;h3&gt;Differentials&lt;/h3&gt;&lt;table class=&quot;grid&quot;&gt;&lt;tr&gt;&lt;td&gt;-&lt;/td&gt;&lt;td&gt;&lt;b&gt;Element&lt;/b&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;*&lt;/td&gt;&lt;td&gt;todo-bundle&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
+  &lt;/text&gt;
+  &lt;<a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.url">url</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">value</a>=&quot;http://hl7.org/fhir/us/core/StructureDefinition/us-core-goal&quot;/&gt;
+  &lt;<a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.name">name</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;US Core Goal Profile&quot;/&gt;
+  &lt;<a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.status">status</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#code">value</a>=&quot;draft&quot;/&gt;
+  &lt;<a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.publisher">publisher</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;Health Level Seven International (FHIR-Infrastructure)&quot;/&gt;
+  &lt;<a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.contact">contact</a>&gt;
+    &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ContactDetail#ContactDetail.telecom">telecom</a>&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ContactPoint#ContactPoint.system">system</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#code">value</a>=&quot;url&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ContactPoint#ContactPoint.value">value</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;http://www.healthit.gov&quot;/&gt;
+    &lt;/telecom&gt;
+  &lt;/contact&gt;
+  &lt;<a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.date">date</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#dateTime">value</a>=&quot;2016-08-01&quot;/&gt;
+  &lt;<a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.mapping">mapping</a>&gt;
+    &lt;<a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.mapping.identity">identity</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#id">value</a>=&quot;v2&quot;/&gt;
+    &lt;<a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.mapping.uri">uri</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">value</a>=&quot;http://hl7.org/v2&quot;/&gt;
+    &lt;<a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.mapping.name">name</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;HL7 v2 Mapping&quot;/&gt;
+  &lt;/mapping&gt;
+  &lt;<a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.mapping">mapping</a>&gt;
+    &lt;<a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.mapping.identity">identity</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#id">value</a>=&quot;rim&quot;/&gt;
+    &lt;<a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.mapping.uri">uri</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">value</a>=&quot;http://hl7.org/v3&quot;/&gt;
+    &lt;<a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.mapping.name">name</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;RIM Mapping&quot;/&gt;
+  &lt;/mapping&gt;
+  &lt;<a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.mapping">mapping</a>&gt;
+    &lt;<a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.mapping.identity">identity</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#id">value</a>=&quot;w5&quot;/&gt;
+    &lt;<a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.mapping.uri">uri</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">value</a>=&quot;http://hl7.org/fhir/w5&quot;/&gt;
+    &lt;<a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.mapping.name">name</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;W5 Mapping&quot;/&gt;
+  &lt;/mapping&gt;
+  &lt;<a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.kind">kind</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#code">value</a>=&quot;resource&quot;/&gt;
+  &lt;<a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.abstract">abstract</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#boolean">value</a>=&quot;false&quot;/&gt;
+  &lt;<a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.type">type</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#code">value</a>=&quot;Goal&quot;/&gt;
+  &lt;<a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.baseDefinition">baseDefinition</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">value</a>=&quot;http://hl7.org/fhir/StructureDefinition/Goal&quot;/&gt;
+  &lt;<a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.derivation">derivation</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#code">value</a>=&quot;constraint&quot;/&gt;
+  &lt;<a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.snapshot">snapshot</a>&gt;
+    &lt;<a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.snapshot.element">element</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">id</a>=&quot;Goal:uscoregoal&quot;&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">path</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;Goal&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.sliceName">sliceName</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;USCoreGoal&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.short">short</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;US Core Goal Profile&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>
+                  <a href="http://hl7.org/fhir/2017Jan/datatypes.html#markdown">value</a>=&quot;The US Core Goal Profile is based upon the core FHIR Goal Resource and created to meet the 2015 Edition Common Clinical Data Set &amp;#39;Goals&amp;#39; requirements.&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.comments">comments</a>
+                <a href="http://hl7.org/fhir/2017Jan/datatypes.html#markdown">value</a>=&quot;Goal can be achieving a particular change or merely maintaining a current state or even slowing a decline.&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">min</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#integer">value</a>=&quot;0&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">max</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;*&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;Goal&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#integer">value</a>=&quot;0&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;*&quot;/&gt;
+      &lt;/base&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.constraint">constraint</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.constraint.key">key</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#id">value</a>=&quot;dom-2&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.constraint.severity">severity</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#code">value</a>=&quot;error&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.constraint.human">human</a>
+               <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;If the resource is contained in another resource, it SHALL NOT contain nested Resources&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.constraint.expression">expression</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;contained.contained.empty()&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.constraint.xpath">xpath</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;not(parent::f:contained and f:contained)&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.constraint.source">source</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">value</a>=&quot;DomainResource&quot;/&gt;
+      &lt;/constraint&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.constraint">constraint</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.constraint.key">key</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#id">value</a>=&quot;dom-1&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.constraint.severity">severity</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#code">value</a>=&quot;error&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.constraint.human">human</a>
+               <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;If the resource is contained in another resource, it SHALL NOT contain any narrative&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.constraint.expression">expression</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;contained.text.empty()&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.constraint.xpath">xpath</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;not(parent::f:contained and f:text)&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.constraint.source">source</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">value</a>=&quot;DomainResource&quot;/&gt;
+      &lt;/constraint&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.constraint">constraint</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.constraint.key">key</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#id">value</a>=&quot;dom-4&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.constraint.severity">severity</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#code">value</a>=&quot;error&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.constraint.human">human</a>
+               <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;If a resource is contained in another resource, it SHALL NOT have a meta.versionId or a meta.lastUpdated&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.constraint.expression">expression</a>
+                    <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;contained.meta.versionId.empty() and contained.meta.lastUpdated.empty()&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.constraint.xpath">xpath</a>
+               <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;not(exists(f:contained/*/f:meta/f:versionId)) and not(exists(f:contained/*/f:meta/f:lastUpdated))&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.constraint.source">source</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">value</a>=&quot;DomainResource&quot;/&gt;
+      &lt;/constraint&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.constraint">constraint</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.constraint.key">key</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#id">value</a>=&quot;dom-3&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.constraint.severity">severity</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#code">value</a>=&quot;error&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.constraint.human">human</a>
+               <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;If the resource is contained in another resource, it SHALL be referred to from elsewhere in the resource&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.constraint.expression">expression</a>
+                    <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;contained.where((&amp;#39;#&amp;#39;+id in %resource.descendants().reference).not()).empty()&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.constraint.xpath">xpath</a>
+               <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;not(exists(for $id in f:contained/*/@id return $id[not(ancestor::f:contained/parent::*/descendant::f:reference/@value=concat(&amp;#39;#&amp;#39;, $id))]))&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.constraint.source">source</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">value</a>=&quot;DomainResource&quot;/&gt;
+      &lt;/constraint&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mustSupport">mustSupport</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#boolean">value</a>=&quot;false&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.isSummary">isSummary</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#boolean">value</a>=&quot;false&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping">mapping</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#id">value</a>=&quot;rim&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;Entity. Role, or Act&quot;/&gt;
+      &lt;/mapping&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping">mapping</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#id">value</a>=&quot;v2&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;GOL.1&quot;/&gt;
+      &lt;/mapping&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping">mapping</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#id">value</a>=&quot;rim&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;.outboundRelationship[typeCode&amp;lt;=OBJ].&quot;/&gt;
+      &lt;/mapping&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping">mapping</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#id">value</a>=&quot;w5&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;clinical.careprovision&quot;/&gt;
+      &lt;/mapping&gt;
+    &lt;/element&gt;
+    &lt;<a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.snapshot.element">element</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">id</a>=&quot;Goal:uscoregoal.id&quot;&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">path</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;Goal.id&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.short">short</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;Logical id of this artifact&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>
+                  <a href="http://hl7.org/fhir/2017Jan/datatypes.html#markdown">value</a>=&quot;The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.comments">comments</a>
+                <a href="http://hl7.org/fhir/2017Jan/datatypes.html#markdown">value</a>=&quot;The only time that a resource does not have an id is when it is being submitted to the server using a create operation.&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">min</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#integer">value</a>=&quot;0&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">max</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;1&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;Resource.id&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#integer">value</a>=&quot;0&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;1&quot;/&gt;
+      &lt;/base&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">value</a>=&quot;id&quot;/&gt;
+      &lt;/type&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.isSummary">isSummary</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#boolean">value</a>=&quot;true&quot;/&gt;
+    &lt;/element&gt;
+    &lt;<a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.snapshot.element">element</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">id</a>=&quot;Goal:uscoregoal.meta&quot;&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">path</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;Goal.meta&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.short">short</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;Metadata about the resource&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>
+                  <a href="http://hl7.org/fhir/2017Jan/datatypes.html#markdown">value</a>=&quot;The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content may not always be associated with version changes to the resource.&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">min</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#integer">value</a>=&quot;0&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">max</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;1&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;Resource.meta&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#integer">value</a>=&quot;0&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;1&quot;/&gt;
+      &lt;/base&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">value</a>=&quot;Meta&quot;/&gt;
+      &lt;/type&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.isSummary">isSummary</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#boolean">value</a>=&quot;true&quot;/&gt;
+    &lt;/element&gt;
+    &lt;<a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.snapshot.element">element</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">id</a>=&quot;Goal:uscoregoal.implicitRules&quot;&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">path</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;Goal.implicitRules&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.short">short</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;A set of rules under which this content was created&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>
+                  <a href="http://hl7.org/fhir/2017Jan/datatypes.html#markdown">value</a>=&quot;A reference to a set of rules that were followed when the resource was constructed, and which must be understood when processing the content.&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.comments">comments</a>
+                <a href="http://hl7.org/fhir/2017Jan/datatypes.html#markdown">value</a>=&quot;Asserting this rule set restricts the content to be only understood by a limited set of trading partners. This inherently limits the usefulness of the data in the long term. However, the existing health eco-system is highly fractured, and not yet ready to define, collect, and exchange data in a generally computable sense. Wherever possible, implementers and/or specification writers should avoid using this element as much as possible.&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">min</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#integer">value</a>=&quot;0&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">max</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;1&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;Resource.implicitRules&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#integer">value</a>=&quot;0&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;1&quot;/&gt;
+      &lt;/base&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">value</a>=&quot;uri&quot;/&gt;
+      &lt;/type&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.isModifier">isModifier</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#boolean">value</a>=&quot;true&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.isSummary">isSummary</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#boolean">value</a>=&quot;true&quot;/&gt;
+    &lt;/element&gt;
+    &lt;<a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.snapshot.element">element</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">id</a>=&quot;Goal:uscoregoal.language&quot;&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">path</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;Goal.language&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.short">short</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;Language of the resource content&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#markdown">value</a>=&quot;The base language in which the resource is written.&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.comments">comments</a>
+                <a href="http://hl7.org/fhir/2017Jan/datatypes.html#markdown">value</a>=&quot;Language is provided to support indexing and accessibility (typically, services such as text to speech use the language tag). The html language tag in the narrative applies  to the narrative. The language tag on the resource may be used to specify the language of other presentations generated from the data in the resource  Not all the content has to be in the base language. The Resource.language should not be assumed to apply to the narrative automatically. If a language is specified, it should it also be specified on the div element in the html (see rules in HTML5 for information about the relationship between xml:lang and the html lang attribute).&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">min</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#integer">value</a>=&quot;0&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">max</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;1&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;Resource.language&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#integer">value</a>=&quot;0&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;1&quot;/&gt;
+      &lt;/base&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">value</a>=&quot;code&quot;/&gt;
+      &lt;/type&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding">binding</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding.extension">extension</a>
+                   <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">url</a>=&quot;http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet&quot;&gt;
+          &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#Extension#Extension.value[x]">valueReference</a>&gt;
+            &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#Reference#Reference.reference">reference</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;http://hl7.org/fhir/ValueSet/all-languages&quot;/&gt;
+          &lt;/valueReference&gt;
+        &lt;/extension&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding.strength">strength</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#code">value</a>=&quot;extensible&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding.description">description</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;A human language.&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding.valueSet[x]">valueSetReference</a>&gt;
+          &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#Reference#Reference.reference">reference</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;http://hl7.org/fhir/ValueSet/languages&quot;/&gt;
+        &lt;/valueSetReference&gt;
+      &lt;/binding&gt;
+    &lt;/element&gt;
+    &lt;<a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.snapshot.element">element</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">id</a>=&quot;Goal:uscoregoal.text&quot;&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">path</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;Goal.text&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.short">short</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;Text summary of the resource, for human interpretation&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>
+                  <a href="http://hl7.org/fhir/2017Jan/datatypes.html#markdown">value</a>=&quot;A human-readable narrative that contains a summary of the resource, and may be used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &amp;quot;clinically safe&amp;quot; for a human to just read the narrative. Resource definitions may define what content should be represented in the narrative to ensure clinical safety.&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.comments">comments</a>
+                <a href="http://hl7.org/fhir/2017Jan/datatypes.html#markdown">value</a>=&quot;Contained resources do not have narrative. Resources that are not contained SHOULD have a narrative. In some cases, a resource may only have text with little or no additional discrete data (as long as all minOccurs=1 elements are satisfied).  This may be necessary for data from legacy systems where information is captured as a &amp;quot;text blob&amp;quot; or where text is additionally entered raw or narrated and encoded in formation is added later.&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.alias">alias</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;narrative&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.alias">alias</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;html&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.alias">alias</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;xhtml&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.alias">alias</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;display&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">min</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#integer">value</a>=&quot;0&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">max</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;1&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;DomainResource.text&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#integer">value</a>=&quot;0&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;1&quot;/&gt;
+      &lt;/base&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">value</a>=&quot;Narrative&quot;/&gt;
+      &lt;/type&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.condition">condition</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#id">value</a>=&quot;dom-1&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping">mapping</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#id">value</a>=&quot;rim&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;Act.text?&quot;/&gt;
+      &lt;/mapping&gt;
+    &lt;/element&gt;
+    &lt;<a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.snapshot.element">element</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">id</a>=&quot;Goal:uscoregoal.contained&quot;&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">path</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;Goal.contained&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.short">short</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;Contained, inline Resources&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>
+                  <a href="http://hl7.org/fhir/2017Jan/datatypes.html#markdown">value</a>=&quot;These resources do not have an independent existence apart from the resource that contains them - they cannot be identified independently, and nor can they have their own independent transaction scope.&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.comments">comments</a>
+                <a href="http://hl7.org/fhir/2017Jan/datatypes.html#markdown">value</a>=&quot;This should never be done when the content can be identified properly, as once identification is lost, it is extremely difficult (and context dependent) to restore it again.&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.alias">alias</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;inline resources&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.alias">alias</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;anonymous resources&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.alias">alias</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;contained resources&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">min</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#integer">value</a>=&quot;0&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">max</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;*&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;DomainResource.contained&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#integer">value</a>=&quot;0&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;*&quot;/&gt;
+      &lt;/base&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">value</a>=&quot;Resource&quot;/&gt;
+      &lt;/type&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping">mapping</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#id">value</a>=&quot;rim&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;N/A&quot;/&gt;
+      &lt;/mapping&gt;
+    &lt;/element&gt;
+    &lt;<a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.snapshot.element">element</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">id</a>=&quot;Goal:uscoregoal.extension&quot;&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">path</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;Goal.extension&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.short">short</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;Additional Content defined by implementations&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>
+                  <a href="http://hl7.org/fhir/2017Jan/datatypes.html#markdown">value</a>=&quot;May be used to represent additional information that is not part of the basic definition of the resource. In order to make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.comments">comments</a>
+                <a href="http://hl7.org/fhir/2017Jan/datatypes.html#markdown">value</a>=&quot;There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.alias">alias</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;extensions&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.alias">alias</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;user content&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">min</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#integer">value</a>=&quot;0&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">max</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;*&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;DomainResource.extension&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#integer">value</a>=&quot;0&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;*&quot;/&gt;
+      &lt;/base&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">value</a>=&quot;Extension&quot;/&gt;
+      &lt;/type&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping">mapping</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#id">value</a>=&quot;rim&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;N/A&quot;/&gt;
+      &lt;/mapping&gt;
+    &lt;/element&gt;
+    &lt;<a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.snapshot.element">element</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">id</a>=&quot;Goal:uscoregoal.modifierExtension&quot;&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">path</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;Goal.modifierExtension&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.short">short</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;Extensions that cannot be ignored&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>
+                  <a href="http://hl7.org/fhir/2017Jan/datatypes.html#markdown">value</a>=&quot;May be used to represent additional information that is not part of the basic definition of the resource, and that modifies the understanding of the element that contains it. Usually modifier elements provide negation or qualification. In order to make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.comments">comments</a>
+                <a href="http://hl7.org/fhir/2017Jan/datatypes.html#markdown">value</a>=&quot;There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.alias">alias</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;extensions&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.alias">alias</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;user content&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">min</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#integer">value</a>=&quot;0&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">max</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;*&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;DomainResource.modifierExtension&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#integer">value</a>=&quot;0&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;*&quot;/&gt;
+      &lt;/base&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">value</a>=&quot;Extension&quot;/&gt;
+      &lt;/type&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.isModifier">isModifier</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#boolean">value</a>=&quot;true&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping">mapping</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#id">value</a>=&quot;rim&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;N/A&quot;/&gt;
+      &lt;/mapping&gt;
+    &lt;/element&gt;
+    &lt;<a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.snapshot.element">element</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">id</a>=&quot;Goal:uscoregoal.identifier&quot;&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">path</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;Goal.identifier&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.short">short</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;External Ids for this goal&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>
+                  <a href="http://hl7.org/fhir/2017Jan/datatypes.html#markdown">value</a>=&quot;This records identifiers associated with this care plan that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.requirements">requirements</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#markdown">value</a>=&quot;Need to allow connection to a wider workflow.&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">min</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#integer">value</a>=&quot;0&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">max</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;*&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;Goal.identifier&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#integer">value</a>=&quot;0&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;*&quot;/&gt;
+      &lt;/base&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">value</a>=&quot;Identifier&quot;/&gt;
+      &lt;/type&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping">mapping</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#id">value</a>=&quot;rim&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;.id&quot;/&gt;
+      &lt;/mapping&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping">mapping</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#id">value</a>=&quot;w5&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;id&quot;/&gt;
+      &lt;/mapping&gt;
+    &lt;/element&gt;
+    &lt;<a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.snapshot.element">element</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">id</a>=&quot;Goal:uscoregoal.status&quot;&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">path</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;Goal.status&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.short">short</a>
+             <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;proposed | planned | accepted | rejected | in-progress | achieved | sustaining | on-hold | cancelled | on-target | ahead-of-target | behind-target | entered-in-error&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#markdown">value</a>=&quot;Type of plan.&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.requirements">requirements</a>
+                    <a href="http://hl7.org/fhir/2017Jan/datatypes.html#markdown">value</a>=&quot;Identifies what &amp;quot;kind&amp;quot; of plan this is to support differentiation between multiple co-existing plans; e.g. &amp;quot;Home health&amp;quot;, &amp;quot;psychiatric&amp;quot;, &amp;quot;asthma&amp;quot;, &amp;quot;disease management&amp;quot;, &amp;quot;wellness plan&amp;quot;, etc.&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">min</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#integer">value</a>=&quot;1&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">max</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;1&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;Goal.status&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#integer">value</a>=&quot;1&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;1&quot;/&gt;
+      &lt;/base&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">value</a>=&quot;code&quot;/&gt;
+      &lt;/type&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mustSupport">mustSupport</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#boolean">value</a>=&quot;true&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.isModifier">isModifier</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#boolean">value</a>=&quot;true&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.isSummary">isSummary</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#boolean">value</a>=&quot;false&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding">binding</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding.strength">strength</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#code">value</a>=&quot;required&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding.valueSet[x]">valueSetReference</a>&gt;
+          &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#Reference#Reference.reference">reference</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;http://hl7.org/fhir/ValueSet/goal-status&quot;/&gt;
+        &lt;/valueSetReference&gt;
+      &lt;/binding&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping">mapping</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#id">value</a>=&quot;v2&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;GOL-18-goal life cycle status&quot;/&gt;
+      &lt;/mapping&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping">mapping</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#id">value</a>=&quot;rim&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>
+             <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;.statusCode in-progress = active (classCode = OBJ) achieved = complete sustaining = active (classCode=OBJC) cancelled = aborted&quot;/&gt;
+      &lt;/mapping&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping">mapping</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#id">value</a>=&quot;w5&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;status&quot;/&gt;
+      &lt;/mapping&gt;
+    &lt;/element&gt;
+    &lt;<a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.snapshot.element">element</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">id</a>=&quot;Goal:uscoregoal.category&quot;&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">path</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;Goal.category&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.short">short</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;E.g. Treatment, dietary, behavioral, etc.&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#markdown">value</a>=&quot;Indicates a category the goal falls within.&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.requirements">requirements</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#markdown">value</a>=&quot;Allows goals to be filtered and sorted.&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">min</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#integer">value</a>=&quot;0&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">max</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;*&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;Goal.category&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#integer">value</a>=&quot;0&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;*&quot;/&gt;
+      &lt;/base&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">value</a>=&quot;CodeableConcept&quot;/&gt;
+      &lt;/type&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.isSummary">isSummary</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#boolean">value</a>=&quot;true&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding">binding</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding.strength">strength</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#code">value</a>=&quot;example&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding.description">description</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;Codes for grouping and sorting goals&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding.valueSet[x]">valueSetReference</a>&gt;
+          &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#Reference#Reference.reference">reference</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;http://hl7.org/fhir/ValueSet/goal-category&quot;/&gt;
+        &lt;/valueSetReference&gt;
+      &lt;/binding&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping">mapping</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#id">value</a>=&quot;w5&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;class&quot;/&gt;
+      &lt;/mapping&gt;
+    &lt;/element&gt;
+    &lt;<a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.snapshot.element">element</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">id</a>=&quot;Goal:uscoregoal.priority&quot;&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">path</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;Goal.priority&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.short">short</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;high | medium |low&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>
+                  <a href="http://hl7.org/fhir/2017Jan/datatypes.html#markdown">value</a>=&quot;Identifies the mutually agreed level of importance associated with reaching/sustaining the goal.&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.comments">comments</a>
+                <a href="http://hl7.org/fhir/2017Jan/datatypes.html#markdown">value</a>=&quot;Extensions are available to track priorities as established by each participant (i.e. Priority from the patient&amp;#39;s perspective, different practitioners&amp;#39; perspectives, family member&amp;#39;s perspectives)  The ordinal extension on Coding can be used to convey a numerically comparable ranking to priority.  (Keep in mind that different coding systems may use a &amp;quot;low value=important&amp;quot;.&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.requirements">requirements</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#markdown">value</a>=&quot;Used for sorting and presenting goals.&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">min</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#integer">value</a>=&quot;0&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">max</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;1&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;Goal.priority&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#integer">value</a>=&quot;0&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;1&quot;/&gt;
+      &lt;/base&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">value</a>=&quot;CodeableConcept&quot;/&gt;
+      &lt;/type&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.isSummary">isSummary</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#boolean">value</a>=&quot;true&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding">binding</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding.strength">strength</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#code">value</a>=&quot;preferred&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding.description">description</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;The level of importance associated with a goal&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding.valueSet[x]">valueSetReference</a>&gt;
+          &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#Reference#Reference.reference">reference</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;http://hl7.org/fhir/ValueSet/goal-priority&quot;/&gt;
+        &lt;/valueSetReference&gt;
+      &lt;/binding&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping">mapping</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#id">value</a>=&quot;rim&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;.priorityCode&quot;/&gt;
+      &lt;/mapping&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping">mapping</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#id">value</a>=&quot;w5&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;grade&quot;/&gt;
+      &lt;/mapping&gt;
+    &lt;/element&gt;
+    &lt;<a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.snapshot.element">element</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">id</a>=&quot;Goal:uscoregoal.description&quot;&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">path</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;Goal.description&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.short">short</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;Code or text describing goal&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#markdown">value</a>=&quot;proposed | draft | active | completed | cancelled.&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.comments">comments</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#markdown">value</a>=&quot;If no code is available, use CodeableConcept.text.&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.requirements">requirements</a>
+                    <a href="http://hl7.org/fhir/2017Jan/datatypes.html#markdown">value</a>=&quot;Indicates whether the plan is currently being acted upon, represents future intentions or is now a historical record.&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">min</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#integer">value</a>=&quot;1&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">max</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;1&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;Goal.description&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#integer">value</a>=&quot;1&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;1&quot;/&gt;
+      &lt;/base&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">value</a>=&quot;CodeableConcept&quot;/&gt;
+      &lt;/type&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mustSupport">mustSupport</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#boolean">value</a>=&quot;true&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.isSummary">isSummary</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#boolean">value</a>=&quot;false&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding">binding</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding.strength">strength</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#code">value</a>=&quot;example&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding.description">description</a>
+                     <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;Codes providing the details of a particular goal.  This will generally be system or implementation guide-specific.  In many systems, only the text element will be used.&quot;/&gt;
+      &lt;/binding&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping">mapping</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#id">value</a>=&quot;v2&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;GOL-3.2-goal ID.text&quot;/&gt;
+      &lt;/mapping&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping">mapping</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#id">value</a>=&quot;rim&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;.text&quot;/&gt;
+      &lt;/mapping&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping">mapping</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#id">value</a>=&quot;w5&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;what&quot;/&gt;
+      &lt;/mapping&gt;
+    &lt;/element&gt;
+    &lt;<a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.snapshot.element">element</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">id</a>=&quot;Goal:uscoregoal.subject&quot;&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">path</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;Goal.subject&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.short">short</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;Who this goal is intended for&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#markdown">value</a>=&quot;Who care plan is for.&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.requirements">requirements</a>
+                    <a href="http://hl7.org/fhir/2017Jan/datatypes.html#markdown">value</a>=&quot;Identifies the patient or group whose intended care is described by the plan.&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">min</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#integer">value</a>=&quot;1&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">max</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;1&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;Goal.subject&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#integer">value</a>=&quot;0&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;1&quot;/&gt;
+      &lt;/base&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">value</a>=&quot;Reference&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.targetProfile">targetProfile</a>
+                       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">value</a>=&quot;http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient&quot;/&gt;
+      &lt;/type&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mustSupport">mustSupport</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#boolean">value</a>=&quot;true&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.isSummary">isSummary</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#boolean">value</a>=&quot;false&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping">mapping</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#id">value</a>=&quot;v2&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;PID-3-patient ID list&quot;/&gt;
+      &lt;/mapping&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping">mapping</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#id">value</a>=&quot;rim&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;.participation[typeCode=PAT].role[classCode=PAT]&quot;/&gt;
+      &lt;/mapping&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping">mapping</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#id">value</a>=&quot;w5&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;who.focus&quot;/&gt;
+      &lt;/mapping&gt;
+    &lt;/element&gt;
+    &lt;<a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.snapshot.element">element</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">id</a>=&quot;Goal:uscoregoal.start[x]&quot;&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">path</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;Goal.start[x]&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.short">short</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;When goal pursuit begins&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>
+                  <a href="http://hl7.org/fhir/2017Jan/datatypes.html#markdown">value</a>=&quot;The date or event after which the goal should begin being pursued.&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.requirements">requirements</a>
+                    <a href="http://hl7.org/fhir/2017Jan/datatypes.html#markdown">value</a>=&quot;Goals can be established prior to there being an intention to start pursuing them; e.g. Goals for post-surgical recovery established prior to surgery.&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">min</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#integer">value</a>=&quot;0&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">max</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;1&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;Goal.start[x]&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#integer">value</a>=&quot;0&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;1&quot;/&gt;
+      &lt;/base&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">value</a>=&quot;date&quot;/&gt;
+      &lt;/type&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">value</a>=&quot;CodeableConcept&quot;/&gt;
+      &lt;/type&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.isSummary">isSummary</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#boolean">value</a>=&quot;true&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding">binding</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding.strength">strength</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#code">value</a>=&quot;example&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding.description">description</a>
+                     <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;Codes describing events that can trigger the initiation of a goal&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding.valueSet[x]">valueSetReference</a>&gt;
+          &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#Reference#Reference.reference">reference</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;http://hl7.org/fhir/ValueSet/goal-start-event&quot;/&gt;
+        &lt;/valueSetReference&gt;
+      &lt;/binding&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping">mapping</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#id">value</a>=&quot;w5&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;when.planned&quot;/&gt;
+      &lt;/mapping&gt;
+    &lt;/element&gt;
+    &lt;<a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.snapshot.element">element</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">id</a>=&quot;Goal:uscoregoal.target[x]&quot;&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">path</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;Goal.target[x]&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.short">short</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;Reach goal on or before&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>
+                  <a href="http://hl7.org/fhir/2017Jan/datatypes.html#markdown">value</a>=&quot;Indicates either the date or the duration after start by which the goal should be met.&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.requirements">requirements</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#markdown">value</a>=&quot;Identifies when the goal should be evaluated.&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">min</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#integer">value</a>=&quot;0&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">max</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;1&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;Goal.target[x]&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#integer">value</a>=&quot;0&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;1&quot;/&gt;
+      &lt;/base&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">value</a>=&quot;date&quot;/&gt;
+      &lt;/type&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">value</a>=&quot;Duration&quot;/&gt;
+      &lt;/type&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.isSummary">isSummary</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#boolean">value</a>=&quot;true&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping">mapping</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#id">value</a>=&quot;w5&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;when.done&quot;/&gt;
+      &lt;/mapping&gt;
+    &lt;/element&gt;
+    &lt;<a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.snapshot.element">element</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">id</a>=&quot;Goal:uscoregoal.statusDate&quot;&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">path</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;Goal.statusDate&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.short">short</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;When goal status took effect&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>
+                  <a href="http://hl7.org/fhir/2017Jan/datatypes.html#markdown">value</a>=&quot;Identifies when the current status.  I.e. When initially created, when achieved, when cancelled, etc.&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.comments">comments</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#markdown">value</a>=&quot;To see the date for past statuses, query history.&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">min</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#integer">value</a>=&quot;0&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">max</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;1&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;Goal.statusDate&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#integer">value</a>=&quot;0&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;1&quot;/&gt;
+      &lt;/base&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">value</a>=&quot;date&quot;/&gt;
+      &lt;/type&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.isSummary">isSummary</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#boolean">value</a>=&quot;true&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping">mapping</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#id">value</a>=&quot;w5&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;when.recorded&quot;/&gt;
+      &lt;/mapping&gt;
+    &lt;/element&gt;
+    &lt;<a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.snapshot.element">element</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">id</a>=&quot;Goal:uscoregoal.statusReason&quot;&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">path</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;Goal.statusReason&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.short">short</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;Reason for current status&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#markdown">value</a>=&quot;Captures the reason for the current status.&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.comments">comments</a>
+                <a href="http://hl7.org/fhir/2017Jan/datatypes.html#markdown">value</a>=&quot;This will typically be captured for statuses such as rejected, on-hold or cancelled, but could be present for others.&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">min</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#integer">value</a>=&quot;0&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">max</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;*&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;Goal.statusReason&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#integer">value</a>=&quot;0&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;*&quot;/&gt;
+      &lt;/base&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">value</a>=&quot;CodeableConcept&quot;/&gt;
+      &lt;/type&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding">binding</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding.strength">strength</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#code">value</a>=&quot;example&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding.description">description</a>
+                     <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;Codes to identify the reason for a goal&amp;#39;s current status&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding.valueSet[x]">valueSetReference</a>&gt;
+          &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#Reference#Reference.reference">reference</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;http://hl7.org/fhir/ValueSet/goal-status-reason&quot;/&gt;
+        &lt;/valueSetReference&gt;
+      &lt;/binding&gt;
+    &lt;/element&gt;
+    &lt;<a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.snapshot.element">element</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">id</a>=&quot;Goal:uscoregoal.expressedBy&quot;&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">path</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;Goal.expressedBy&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.short">short</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;Who&amp;#39;s responsible for creating Goal?&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>
+                  <a href="http://hl7.org/fhir/2017Jan/datatypes.html#markdown">value</a>=&quot;Indicates whose goal this is - patient goal, practitioner goal, etc.&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.comments">comments</a>
+                <a href="http://hl7.org/fhir/2017Jan/datatypes.html#markdown">value</a>=&quot;This is the individual reponsible for establishing the goal, not necessarily who recorded it.  (For that, use the Provenance resource.).&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">min</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#integer">value</a>=&quot;0&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">max</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;1&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;Goal.expressedBy&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#integer">value</a>=&quot;0&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;1&quot;/&gt;
+      &lt;/base&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">value</a>=&quot;Reference&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.targetProfile">targetProfile</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">value</a>=&quot;http://hl7.org/fhir/StructureDefinition/Patient&quot;/&gt;
+      &lt;/type&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">value</a>=&quot;Reference&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.targetProfile">targetProfile</a>
+                       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">value</a>=&quot;http://hl7.org/fhir/StructureDefinition/Practitioner&quot;/&gt;
+      &lt;/type&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">value</a>=&quot;Reference&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.targetProfile">targetProfile</a>
+                       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">value</a>=&quot;http://hl7.org/fhir/StructureDefinition/RelatedPerson&quot;/&gt;
+      &lt;/type&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.isSummary">isSummary</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#boolean">value</a>=&quot;true&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping">mapping</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#id">value</a>=&quot;w5&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;who.source&quot;/&gt;
+      &lt;/mapping&gt;
+    &lt;/element&gt;
+    &lt;<a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.snapshot.element">element</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">id</a>=&quot;Goal:uscoregoal.addresses&quot;&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">path</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;Goal.addresses&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.short">short</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;Issues addressed by this goal&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>
+                  <a href="http://hl7.org/fhir/2017Jan/datatypes.html#markdown">value</a>=&quot;The identified conditions and other health record elements that are intended to be addressed by the goal.&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.requirements">requirements</a>
+                    <a href="http://hl7.org/fhir/2017Jan/datatypes.html#markdown">value</a>=&quot;Allows specific goals to explicitly linked to the concerns they&amp;#39;re dealing with - makes the goal more understandable.&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">min</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#integer">value</a>=&quot;0&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">max</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;*&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;Goal.addresses&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#integer">value</a>=&quot;0&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;*&quot;/&gt;
+      &lt;/base&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">value</a>=&quot;Reference&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.targetProfile">targetProfile</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">value</a>=&quot;http://hl7.org/fhir/StructureDefinition/Condition&quot;/&gt;
+      &lt;/type&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">value</a>=&quot;Reference&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.targetProfile">targetProfile</a>
+                       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">value</a>=&quot;http://hl7.org/fhir/StructureDefinition/Observation&quot;/&gt;
+      &lt;/type&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">value</a>=&quot;Reference&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.targetProfile">targetProfile</a>
+                       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">value</a>=&quot;http://hl7.org/fhir/StructureDefinition/MedicationStatement&quot;/&gt;
+      &lt;/type&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">value</a>=&quot;Reference&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.targetProfile">targetProfile</a>
+                       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">value</a>=&quot;http://hl7.org/fhir/StructureDefinition/NutritionRequest&quot;/&gt;
+      &lt;/type&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">value</a>=&quot;Reference&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.targetProfile">targetProfile</a>
+                       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">value</a>=&quot;http://hl7.org/fhir/StructureDefinition/ProcedureRequest&quot;/&gt;
+      &lt;/type&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">value</a>=&quot;Reference&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.targetProfile">targetProfile</a>
+                       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">value</a>=&quot;http://hl7.org/fhir/StructureDefinition/RiskAssessment&quot;/&gt;
+      &lt;/type&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping">mapping</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#id">value</a>=&quot;rim&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;.outboundRelationship[typeCode=SUBJ].target[classCode=CONC]&quot;/&gt;
+      &lt;/mapping&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping">mapping</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#id">value</a>=&quot;w5&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;why&quot;/&gt;
+      &lt;/mapping&gt;
+    &lt;/element&gt;
+    &lt;<a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.snapshot.element">element</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">id</a>=&quot;Goal:uscoregoal.note&quot;&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">path</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;Goal.note&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.short">short</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;Comments about the goal&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#markdown">value</a>=&quot;Any comments related to the goal.&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.comments">comments</a>
+                <a href="http://hl7.org/fhir/2017Jan/datatypes.html#markdown">value</a>=&quot;May be used for progress notes, concerns or other related information that doesn&amp;#39;t actually describe the goal itself.&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.requirements">requirements</a>
+                    <a href="http://hl7.org/fhir/2017Jan/datatypes.html#markdown">value</a>=&quot;There&amp;#39;s a need to capture information about the goal that doesn&amp;#39;t actually describe the goal.&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">min</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#integer">value</a>=&quot;0&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">max</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;*&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;Goal.note&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#integer">value</a>=&quot;0&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;*&quot;/&gt;
+      &lt;/base&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">value</a>=&quot;Annotation&quot;/&gt;
+      &lt;/type&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping">mapping</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#id">value</a>=&quot;v2&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;GOL-16-goal evaluation + NTE?&quot;/&gt;
+      &lt;/mapping&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping">mapping</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#id">value</a>=&quot;rim&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>
+             <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;.inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=&amp;quot;annotation&amp;quot;].value&quot;/&gt;
+      &lt;/mapping&gt;
+    &lt;/element&gt;
+    &lt;<a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.snapshot.element">element</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">id</a>=&quot;Goal:uscoregoal.outcome&quot;&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">path</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;Goal.outcome&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.short">short</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;What result was achieved regarding the goal?&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>
+                  <a href="http://hl7.org/fhir/2017Jan/datatypes.html#markdown">value</a>=&quot;Identifies the change (or lack of change) at the point where the goal was deemed to be cancelled or achieved.&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.comments">comments</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#markdown">value</a>=&quot;Note that this should not duplicate the goal status.&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.requirements">requirements</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#markdown">value</a>=&quot;Outcome tracking is a key aspect of care planning.&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">min</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#integer">value</a>=&quot;0&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">max</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;*&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;Goal.outcome&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#integer">value</a>=&quot;0&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;*&quot;/&gt;
+      &lt;/base&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">value</a>=&quot;BackboneElement&quot;/&gt;
+      &lt;/type&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.constraint">constraint</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.constraint.key">key</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#id">value</a>=&quot;ele-1&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.constraint.severity">severity</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#code">value</a>=&quot;error&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.constraint.human">human</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;All FHIR elements must have a @value or children&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.constraint.expression">expression</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;children().count() &amp;gt; id.count()&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.constraint.xpath">xpath</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;@value|f:*|h:div&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.constraint.source">source</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">value</a>=&quot;Element&quot;/&gt;
+      &lt;/constraint&gt;
+    &lt;/element&gt;
+    &lt;<a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.snapshot.element">element</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">id</a>=&quot;Goal:uscoregoal.outcome.id&quot;&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">path</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;Goal.outcome.id&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.representation">representation</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#code">value</a>=&quot;xmlAttr&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.short">short</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;xml:id (or equivalent in JSON)&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>
+                  <a href="http://hl7.org/fhir/2017Jan/datatypes.html#markdown">value</a>=&quot;unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">min</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#integer">value</a>=&quot;0&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">max</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;1&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;Element.id&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#integer">value</a>=&quot;0&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;1&quot;/&gt;
+      &lt;/base&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">value</a>=&quot;string&quot;/&gt;
+      &lt;/type&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping">mapping</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#id">value</a>=&quot;rim&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;n/a&quot;/&gt;
+      &lt;/mapping&gt;
+    &lt;/element&gt;
+    &lt;<a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.snapshot.element">element</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">id</a>=&quot;Goal:uscoregoal.outcome.extension&quot;&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">path</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;Goal.outcome.extension&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.short">short</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;Additional Content defined by implementations&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>
+                  <a href="http://hl7.org/fhir/2017Jan/datatypes.html#markdown">value</a>=&quot;May be used to represent additional information that is not part of the basic definition of the element. In order to make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.comments">comments</a>
+                <a href="http://hl7.org/fhir/2017Jan/datatypes.html#markdown">value</a>=&quot;There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.alias">alias</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;extensions&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.alias">alias</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;user content&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">min</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#integer">value</a>=&quot;0&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">max</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;*&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;Element.extension&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#integer">value</a>=&quot;0&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;*&quot;/&gt;
+      &lt;/base&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">value</a>=&quot;Extension&quot;/&gt;
+      &lt;/type&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping">mapping</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#id">value</a>=&quot;rim&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;n/a&quot;/&gt;
+      &lt;/mapping&gt;
+    &lt;/element&gt;
+    &lt;<a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.snapshot.element">element</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">id</a>=&quot;Goal:uscoregoal.outcome.modifierExtension&quot;&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">path</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;Goal.outcome.modifierExtension&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.short">short</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;Extensions that cannot be ignored&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>
+                  <a href="http://hl7.org/fhir/2017Jan/datatypes.html#markdown">value</a>=&quot;May be used to represent additional information that is not part of the basic definition of the element, and that modifies the understanding of the element that contains it. Usually modifier elements provide negation or qualification. In order to make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.comments">comments</a>
+                <a href="http://hl7.org/fhir/2017Jan/datatypes.html#markdown">value</a>=&quot;There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.alias">alias</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;extensions&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.alias">alias</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;user content&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.alias">alias</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;modifiers&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">min</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#integer">value</a>=&quot;0&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">max</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;*&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;BackboneElement.modifierExtension&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#integer">value</a>=&quot;0&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;*&quot;/&gt;
+      &lt;/base&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">value</a>=&quot;Extension&quot;/&gt;
+      &lt;/type&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.isModifier">isModifier</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#boolean">value</a>=&quot;true&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.isSummary">isSummary</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#boolean">value</a>=&quot;true&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping">mapping</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#id">value</a>=&quot;rim&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;N/A&quot;/&gt;
+      &lt;/mapping&gt;
+    &lt;/element&gt;
+    &lt;<a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.snapshot.element">element</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">id</a>=&quot;Goal:uscoregoal.outcome.result[x]&quot;&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">path</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;Goal.outcome.result[x]&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.short">short</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;Code or observation that resulted from goal&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#markdown">value</a>=&quot;Details of what&amp;#39;s changed (or not changed).&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">min</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#integer">value</a>=&quot;0&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">max</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;1&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;Goal.outcome.result[x]&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#integer">value</a>=&quot;0&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;1&quot;/&gt;
+      &lt;/base&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">value</a>=&quot;CodeableConcept&quot;/&gt;
+      &lt;/type&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">value</a>=&quot;Reference&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.targetProfile">targetProfile</a>
+                       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">value</a>=&quot;http://hl7.org/fhir/StructureDefinition/Observation&quot;/&gt;
+      &lt;/type&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding">binding</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding.strength">strength</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#code">value</a>=&quot;example&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding.description">description</a>
+                     <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;The result of the goal; e.g. &amp;quot;25% increase in shoulder mobility&amp;quot;, &amp;quot;Anxiety reduced to moderate levels&amp;quot;.  &amp;quot;15 kg weight loss sustained over 6 months&amp;quot;&quot;/&gt;
+      &lt;/binding&gt;
+    &lt;/element&gt;
+  &lt;/snapshot&gt;
+  &lt;<a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.differential">differential</a>&gt;
+    &lt;<a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.differential.element">element</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">id</a>=&quot;Goal:uscoregoal&quot;&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">path</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;Goal&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.sliceName">sliceName</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;USCoreGoal&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.short">short</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;US Core Goal Profile&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>
+                  <a href="http://hl7.org/fhir/2017Jan/datatypes.html#markdown">value</a>=&quot;The US Core Goal Profile is based upon the core FHIR Goal Resource and created to meet the 2015 Edition Common Clinical Data Set &amp;#39;Goals&amp;#39; requirements.&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mustSupport">mustSupport</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#boolean">value</a>=&quot;false&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.isModifier">isModifier</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#boolean">value</a>=&quot;false&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.isSummary">isSummary</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#boolean">value</a>=&quot;false&quot;/&gt;
+    &lt;/element&gt;
+    &lt;<a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.differential.element">element</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">id</a>=&quot;Goal:uscoregoal.status&quot;&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">path</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;Goal.status&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#markdown">value</a>=&quot;Type of plan.&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.requirements">requirements</a>
+                    <a href="http://hl7.org/fhir/2017Jan/datatypes.html#markdown">value</a>=&quot;Identifies what &amp;quot;kind&amp;quot; of plan this is to support differentiation between multiple co-existing plans; e.g. &amp;quot;Home health&amp;quot;, &amp;quot;psychiatric&amp;quot;, &amp;quot;asthma&amp;quot;, &amp;quot;disease management&amp;quot;, &amp;quot;wellness plan&amp;quot;, etc.&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">min</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#integer">value</a>=&quot;1&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">max</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;1&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">value</a>=&quot;code&quot;/&gt;
+      &lt;/type&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mustSupport">mustSupport</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#boolean">value</a>=&quot;true&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.isModifier">isModifier</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#boolean">value</a>=&quot;false&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.isSummary">isSummary</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#boolean">value</a>=&quot;false&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding">binding</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding.strength">strength</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#code">value</a>=&quot;required&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding.valueSet[x]">valueSetReference</a>&gt;
+          &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#Reference#Reference.reference">reference</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;http://hl7.org/fhir/ValueSet/goal-status&quot;/&gt;
+        &lt;/valueSetReference&gt;
+      &lt;/binding&gt;
+    &lt;/element&gt;
+    &lt;<a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.differential.element">element</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">id</a>=&quot;Goal:uscoregoal.description&quot;&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">path</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;Goal.description&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#markdown">value</a>=&quot;proposed | draft | active | completed | cancelled.&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.requirements">requirements</a>
+                    <a href="http://hl7.org/fhir/2017Jan/datatypes.html#markdown">value</a>=&quot;Indicates whether the plan is currently being acted upon, represents future intentions or is now a historical record.&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">min</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#integer">value</a>=&quot;1&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">max</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;1&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">value</a>=&quot;CodeableConcept&quot;/&gt;
+      &lt;/type&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mustSupport">mustSupport</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#boolean">value</a>=&quot;true&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.isModifier">isModifier</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#boolean">value</a>=&quot;false&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.isSummary">isSummary</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#boolean">value</a>=&quot;false&quot;/&gt;
+    &lt;/element&gt;
+    &lt;<a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.differential.element">element</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">id</a>=&quot;Goal:uscoregoal.subject&quot;&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">path</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;Goal.subject&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#markdown">value</a>=&quot;Who care plan is for.&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.requirements">requirements</a>
+                    <a href="http://hl7.org/fhir/2017Jan/datatypes.html#markdown">value</a>=&quot;Identifies the patient or group whose intended care is described by the plan.&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">min</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#integer">value</a>=&quot;1&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">max</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">value</a>=&quot;1&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">value</a>=&quot;Reference&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.targetProfile">targetProfile</a>
+                       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">value</a>=&quot;http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient&quot;/&gt;
+      &lt;/type&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mustSupport">mustSupport</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#boolean">value</a>=&quot;true&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.isModifier">isModifier</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#boolean">value</a>=&quot;false&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.isSummary">isSummary</a> <a href="http://hl7.org/fhir/2017Jan/datatypes.html#boolean">value</a>=&quot;false&quot;/&gt;
+    &lt;/element&gt;
+  &lt;/differential&gt;
+&lt;/StructureDefinition&gt;</pre>
+
+
+  <!-- ==============END CONTENT END CONTENT=================== -->
+
+<p></p>
+ </div>
+
+    </div>  <!-- /inner-wrapper -->
+            </div>  <!-- /row -->
+        </div>  <!-- /container -->
+
+    </div>  <!-- /segment-content -->
+
+
+
+
+
+</div>
+
+    </div>  <!-- /inner-wrapper -->
+            </div>  <!-- /row -->
+        </div>  <!-- /container -->
+
+    </div>  <!-- /segment-content -->
+
+
+<div id="segment-footer" class="segment">  <!-- segment-footer -->
+  <div class="container">  <!-- container -->
+   <div class="inner-wrapper">
+    <p>
+        US-Core &copy; FHIR STU3 (IG Publisher v1.8.0-10514) generated on Tue, Dec 6, 2016 16:45-0500. |
+             <!--  <a style="color: #81BEF7" rel="license" <!-- <href="../license.html"><img style="border-style: none;" alt="CC0" src="cc0.png"/></a> -->
+                <a style="color: #81BEF7" rel="license" href="http://hl7.org/fhir/2017Janlicense.html"><img style="border-style: none;" alt="CC0" src="cc0.png"/></a> 
+        </span>
+        </p>
+   </div>  <!-- /inner-wrapper -->
+  </div>  <!-- /container -->
+ </div>  <!-- /segment-footer -->
+  <!-- disqus thread -->
+  <!-- disqus -->
+  <!-- end disqus -->
+
+ <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+  <div class="container">  <!-- container -->
+  </div>  <!-- /container -->
+ </div>  <!-- /segment-post-footer -->
+
+</body>
+</html>
+

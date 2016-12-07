@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Device xmlns="http://hl7.org/fhir">
+  <id value="udi-1"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-device"/>
+  </meta>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: udi-1</p><p><b>meta</b>: </p><p><b>udiCarrier</b>: Universal Device Identifier = {01}09504000059118{17}141120{10}7654321D{21}10987654d321</p><p><b>status</b>: available</p><p><b>type</b>: Coated femoral stem prosthesis, modular <span style="background: LightGoldenRodYellow">(Details : {SNOMED CT code '468063009' = '468063009', given as 'Coated femoral stem prosthesis, modular'})</span></p><p><b>patient</b>: <a href="Patient-example.html">Amy Shaw </a></p></div>
+  </text>
+  <udiCarrier>
+    <type>
+      <coding>
+        <system value="http://hl7.org/fhir/identifier-type"/>
+        <code value="UDI"/>
+      </coding>
+    </type>
+    <system value="http://hl7.org/fhir/NamingSystem/fda-udi"/>
+    <value value="{01}09504000059118{17}141120{10}7654321D{21}10987654d321"/>
+  </udiCarrier>
+  <status value="available"/>
+  <type>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="468063009"/>
+      <display value="Coated femoral stem prosthesis, modular"/>
+    </coding>
+  </type>
+  <patient>
+    <reference value="Patient-example.html"/>
+    <display value="Amy Shaw "/>
+  </patient>
+</Device>

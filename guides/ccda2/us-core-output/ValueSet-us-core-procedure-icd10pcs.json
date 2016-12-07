@@ -1,0 +1,40 @@
+{
+  "resourceType": "ValueSet",
+  "id": "us-core-procedure-icd10pcs",
+  "meta": {
+    "lastUpdated": "2016-05-25T16:59:08.250+10:00",
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/ValueSet-shareable-definition"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h2>US Core Procedure Type ICD-10-PCS Codes</h2><div><p>This value set defines a set of codes from ICD10-PCS that can be used to indicate a type of procedure performed</p>\n</div><p><b>Copyright Statement:</b> The International Classification of Diseases, Tenth Revision, Procedure Coding System (ICD-10-PCS) was developed for the Centers for Medicare and Medicaid Services (CMS).  CMS is the U.S. governmental agency responsible for overseeing all changes and modifications to the ICD-10-PCS.</p><p>This value set includes codes from the following code systems:</p><ul><li>Include all codes defined in http://www.icd10data.com/icd10pcs</li></ul></div>"
+  },
+  "url": "http://hl7.org/fhir/us/core/ValueSet/us-core-procedure-icd10pcs",
+  "version": "1.6.0",
+  "name": "US Core Procedure Type ICD-10-PCS Codes",
+  "status": "draft",
+  "experimental": true,
+  "publisher": "FHIR Project team",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "other",
+          "value": "http://hl7.org/fhir"
+        }
+      ]
+    }
+  ],
+  "date": "2016-08-10",
+  "description": "This value set defines a set of codes from ICD10-PCS that can be used to indicate a type of procedure performed",
+  "copyright": "The International Classification of Diseases, Tenth Revision, Procedure Coding System (ICD-10-PCS) was developed for the Centers for Medicare and Medicaid Services (CMS).  CMS is the U.S. governmental agency responsible for overseeing all changes and modifications to the ICD-10-PCS.",
+  "compose": {
+    "include": [
+      {
+        "system": "http://www.icd10data.com/icd10pcs"
+      }
+    ]
+  }
+}

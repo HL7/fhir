@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Condition xmlns="http://hl7.org/fhir">
+  <id value="example"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"/>
+  </meta>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: example</p><p><b>meta</b>: </p><p><b>clinicalStatus</b>: active</p><p><b>verificationStatus</b>: confirmed</p><p><b>category</b>: Problem <span style="background: LightGoldenRodYellow">(Details : {http://hl7.org/fhir/us/core/CodeSystem/condition-category code 'problem' = 'Problem', given as 'Problem'})</span></p><p><b>code</b>: Single liveborn, born in hospital, delivered without mention of cesarean section <span style="background: LightGoldenRodYellow">(Details : {SNOMED CT code '442311008' = '442311008', given as 'Single liveborn, born in hospital, delivered without mention of cesarean section'})</span></p><p><b>subject</b>: <a href="Patient-example.html">Amy V. Shaw</a></p><p><b>assertedDate</b>: Aug 10, 2016</p></div>
+  </text>
+  <clinicalStatus value="active"/>
+  <verificationStatus value="confirmed"/>
+  <category>
+    <coding>
+      <system value="http://hl7.org/fhir/us/core/CodeSystem/condition-category"/>
+      <code value="problem"/>
+      <display value="Problem"/>
+    </coding>
+    <text value="Problem"/>
+  </category>
+  <code>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="442311008"/>
+      <display value="Single liveborn, born in hospital, delivered without mention of cesarean section"/>
+    </coding>
+    <text value="Single liveborn, born in hospital, delivered without mention of cesarean section"/>
+  </code>
+  <subject>
+    <reference value="Patient-example.html"/>
+    <display value="Amy V. Shaw"/>
+  </subject>
+  <assertedDate value="2016-08-10"/>
+</Condition>

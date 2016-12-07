@@ -1,0 +1,59 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://hl7.org/fhir/us/core/ValueSet/us-core-immunization-status> a fhir:ValueSet;
+  fhir:nodeRole fhir:treeRoot;
+  fhir:Resource.id [ fhir:value "us-core-immunization-status"];
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ];
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n      <p>Immunization codes constrained from the DSTU core to include only 'completed' and 'enter-in-error'  which are the only two clinically relevent values.</p>\n      <p>Codes that may be used for implementation of the Argonaut Immunization IG and MU2015 certification.</p>\n      <p/>\n      <table border=\"1\" cellpadding=\"5\" cellspacing=\"0\">\n        <tr>\n          <th>Code</th>\n          <th>Display</th>\n          <th>Definition</th>\n        </tr>\n        <tr class=\"odd\">\n          <td>completed</td>\n          <td>Completed</td>\n          <td>All actions that are implied by the administration have occurred.</td>\n        </tr>\n        <tr class=\"even\">\n          <td>entered-in-error</td>\n          <td>Entered in Error</td>\n          <td>The administration was entered in error and therefore nullified.</td>\n        </tr>\n      </table>\n    </div>"
+  ];
+  fhir:ValueSet.url [ fhir:value "http://hl7.org/fhir/us/core/ValueSet/us-core-immunization-status"];
+  fhir:ValueSet.name [ fhir:value "Immunization Status"];
+  fhir:ValueSet.status [ fhir:value "draft"];
+  fhir:ValueSet.publisher [ fhir:value "FHIR Project Team"];
+  fhir:ValueSet.contact [
+     fhir:index 0;
+     fhir:ContactDetail.telecom [
+       fhir:index 0;
+       fhir:ContactPoint.system [ fhir:value "other" ];
+       fhir:ContactPoint.value [ fhir:value "http://hl7.org/fhir" ]
+     ]
+  ];
+  fhir:ValueSet.date [ fhir:value "2016-12-06T16:45:17-05:00"^^xsd:dateTime];
+  fhir:ValueSet.description [ fhir:value "Immunization codes constrained from the STU core to include only 'completed' and 'enter-in-error'  which are the only two clinically relevent values."];
+  fhir:ValueSet.purpose [ fhir:value "Codes that may be used for implementation of the Argonaut Immunization IG and MU2015 certification."];
+  fhir:ValueSet.compose [
+     fhir:ValueSet.compose.include [
+       fhir:index 0;
+       fhir:ValueSet.compose.include.system [ fhir:value "http://hl7.org/fhir/medication-admin-status" ];
+       fhir:ValueSet.compose.include.concept [
+         fhir:index 0;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "completed" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Completed" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "All actions that are implied by the administration have occurred" ]
+         ]
+       ]
+     ], [
+       fhir:index 1;
+       fhir:ValueSet.compose.include.system [ fhir:value "http://hl7.org/fhir/medication-admin-status" ];
+       fhir:ValueSet.compose.include.concept [
+         fhir:index 0;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "entered-in-error" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Entered in Error" ];
+         fhir:ValueSet.compose.include.concept.designation [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.designation.value [ fhir:value "The administration was entered in error and therefore nullified" ]
+         ]
+       ]
+     ]
+  ] .
+
+# -------------------------------------------------------------------------------------
+

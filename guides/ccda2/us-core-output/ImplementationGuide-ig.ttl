@@ -1,0 +1,1863 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://hl7.org/fhir/us/core/ImplementationGuide/ig> a fhir:ImplementationGuide;
+  fhir:nodeRole fhir:treeRoot;
+  fhir:Resource.id [ fhir:value "ig"];
+  fhir:ImplementationGuide.url [ fhir:value "http://hl7.org/fhir/us/core/ImplementationGuide/ig"];
+  fhir:ImplementationGuide.name [ fhir:value "Implementation Guide Template"];
+  fhir:ImplementationGuide.status [ fhir:value "draft"];
+  fhir:ImplementationGuide.experimental [ fhir:value "true"^^xsd:boolean];
+  fhir:ImplementationGuide.publisher [ fhir:value "FHIR Project"];
+  fhir:ImplementationGuide.package [
+     fhir:index 0;
+     fhir:ImplementationGuide.package.name [ fhir:value "base" ];
+     fhir:ImplementationGuide.package.resource [
+       fhir:index 0;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "Observation-weight.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "true"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/Observation/weight>;
+         fhir:Reference.reference [ fhir:value "Observation/weight" ]
+       ]
+     ], [
+       fhir:index 1;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "Observation-vitals-panel.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "true"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/Observation/vitals-panel>;
+         fhir:Reference.reference [ fhir:value "Observation/vitals-panel" ]
+       ]
+     ], [
+       fhir:index 2;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "Observation-usg.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "true"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/Observation/usg>;
+         fhir:Reference.reference [ fhir:value "Observation/usg" ]
+       ]
+     ], [
+       fhir:index 3;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "Bundle-uscore-ms3.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "true"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/Bundle/uscore-ms3>;
+         fhir:Reference.reference [ fhir:value "Bundle/uscore-ms3" ]
+       ]
+     ], [
+       fhir:index 4;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "MedicationStatement-uscore-ms2.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "true"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/MedicationStatement/uscore-ms2>;
+         fhir:Reference.reference [ fhir:value "MedicationStatement/uscore-ms2" ]
+       ]
+     ], [
+       fhir:index 5;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "MedicationStatement-uscore-ms1.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "true"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/MedicationStatement/uscore-ms1>;
+         fhir:Reference.reference [ fhir:value "MedicationStatement/uscore-ms1" ]
+       ]
+     ], [
+       fhir:index 6;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "Bundle-uscore-mo3.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "true"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/Bundle/uscore-mo3>;
+         fhir:Reference.reference [ fhir:value "Bundle/uscore-mo3" ]
+       ]
+     ], [
+       fhir:index 7;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "MedicationRequest-uscore-mo2.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "true"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/MedicationRequest/uscore-mo2>;
+         fhir:Reference.reference [ fhir:value "MedicationRequest/uscore-mo2" ]
+       ]
+     ], [
+       fhir:index 8;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "MedicationRequest-uscore-mo1.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "true"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/MedicationRequest/uscore-mo1>;
+         fhir:Reference.reference [ fhir:value "MedicationRequest/uscore-mo1" ]
+       ]
+     ], [
+       fhir:index 9;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "Medication-uscore-med2.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "true"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/Medication/uscore-med2>;
+         fhir:Reference.reference [ fhir:value "Medication/uscore-med2" ]
+       ]
+     ], [
+       fhir:index 10;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "Medication-uscore-med1.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "true"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/Medication/uscore-med1>;
+         fhir:Reference.reference [ fhir:value "Medication/uscore-med1" ]
+       ]
+     ], [
+       fhir:index 11;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "Observation-urobilinogen.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "true"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/Observation/urobilinogen>;
+         fhir:Reference.reference [ fhir:value "Observation/urobilinogen" ]
+       ]
+     ], [
+       fhir:index 12;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "Observation-urine-wbcs.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "true"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/Observation/urine-wbcs>;
+         fhir:Reference.reference [ fhir:value "Observation/urine-wbcs" ]
+       ]
+     ], [
+       fhir:index 13;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "Observation-urine-sediment.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "true"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/Observation/urine-sediment>;
+         fhir:Reference.reference [ fhir:value "Observation/urine-sediment" ]
+       ]
+     ], [
+       fhir:index 14;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "Observation-urine-rbcs.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "true"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/Observation/urine-rbcs>;
+         fhir:Reference.reference [ fhir:value "Observation/urine-rbcs" ]
+       ]
+     ], [
+       fhir:index 15;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "Observation-urine-protein.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "true"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/Observation/urine-protein>;
+         fhir:Reference.reference [ fhir:value "Observation/urine-protein" ]
+       ]
+     ], [
+       fhir:index 16;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "Observation-urine-ph.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "true"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/Observation/urine-ph>;
+         fhir:Reference.reference [ fhir:value "Observation/urine-ph" ]
+       ]
+     ], [
+       fhir:index 17;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "Observation-urine-nitrite.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "true"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/Observation/urine-nitrite>;
+         fhir:Reference.reference [ fhir:value "Observation/urine-nitrite" ]
+       ]
+     ], [
+       fhir:index 18;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "Observation-urine-leukocyte-esterase.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "true"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/Observation/urine-leukocyte-esterase>;
+         fhir:Reference.reference [ fhir:value "Observation/urine-leukocyte-esterase" ]
+       ]
+     ], [
+       fhir:index 19;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "Observation-urine-ketone.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "true"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/Observation/urine-ketone>;
+         fhir:Reference.reference [ fhir:value "Observation/urine-ketone" ]
+       ]
+     ], [
+       fhir:index 20;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "Observation-urine-hemoglobin.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "true"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/Observation/urine-hemoglobin>;
+         fhir:Reference.reference [ fhir:value "Observation/urine-hemoglobin" ]
+       ]
+     ], [
+       fhir:index 21;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "Observation-urine-glucose.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "true"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/Observation/urine-glucose>;
+         fhir:Reference.reference [ fhir:value "Observation/urine-glucose" ]
+       ]
+     ], [
+       fhir:index 22;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "Observation-urine-epi-cells.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "true"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/Observation/urine-epi-cells>;
+         fhir:Reference.reference [ fhir:value "Observation/urine-epi-cells" ]
+       ]
+     ], [
+       fhir:index 23;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "Observation-urine-color.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "true"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/Observation/urine-color>;
+         fhir:Reference.reference [ fhir:value "Observation/urine-color" ]
+       ]
+     ], [
+       fhir:index 24;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "Observation-urine-clarity.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "true"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/Observation/urine-clarity>;
+         fhir:Reference.reference [ fhir:value "Observation/urine-clarity" ]
+       ]
+     ], [
+       fhir:index 25;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "Observation-urine-cells.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "true"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/Observation/urine-cells>;
+         fhir:Reference.reference [ fhir:value "Observation/urine-cells" ]
+       ]
+     ], [
+       fhir:index 26;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "Observation-urine-bilirubin.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "true"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/Observation/urine-bilirubin>;
+         fhir:Reference.reference [ fhir:value "Observation/urine-bilirubin" ]
+       ]
+     ], [
+       fhir:index 27;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "Observation-urine-bacteria.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "true"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/Observation/urine-bacteria>;
+         fhir:Reference.reference [ fhir:value "Observation/urine-bacteria" ]
+       ]
+     ], [
+       fhir:index 28;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "DiagnosticReport-urinalysis.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "true"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/DiagnosticReport/urinalysis>;
+         fhir:Reference.reference [ fhir:value "DiagnosticReport/urinalysis" ]
+       ]
+     ], [
+       fhir:index 29;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "Device-udi-1.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "true"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/Device/udi-1>;
+         fhir:Reference.reference [ fhir:value "Device/udi-1" ]
+       ]
+     ], [
+       fhir:index 30;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "Observation-temperature.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "true"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/Observation/temperature>;
+         fhir:Reference.reference [ fhir:value "Observation/temperature" ]
+       ]
+     ], [
+       fhir:index 31;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "Observation-some-day-smoker.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "true"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/Observation/some-day-smoker>;
+         fhir:Reference.reference [ fhir:value "Observation/some-day-smoker" ]
+       ]
+     ], [
+       fhir:index 32;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "Observation-serum-total-bilirubin.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "true"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/Observation/serum-total-bilirubin>;
+         fhir:Reference.reference [ fhir:value "Observation/serum-total-bilirubin" ]
+       ]
+     ], [
+       fhir:index 33;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "Observation-serum-sodium.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "true"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/Observation/serum-sodium>;
+         fhir:Reference.reference [ fhir:value "Observation/serum-sodium" ]
+       ]
+     ], [
+       fhir:index 34;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "Observation-serum-potassium.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "true"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/Observation/serum-potassium>;
+         fhir:Reference.reference [ fhir:value "Observation/serum-potassium" ]
+       ]
+     ], [
+       fhir:index 35;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "Observation-serum-creatinine.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "true"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/Observation/serum-creatinine>;
+         fhir:Reference.reference [ fhir:value "Observation/serum-creatinine" ]
+       ]
+     ], [
+       fhir:index 36;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "Observation-serum-co2.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "true"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/Observation/serum-co2>;
+         fhir:Reference.reference [ fhir:value "Observation/serum-co2" ]
+       ]
+     ], [
+       fhir:index 37;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "Observation-serum-chloride.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "true"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/Observation/serum-chloride>;
+         fhir:Reference.reference [ fhir:value "Observation/serum-chloride" ]
+       ]
+     ], [
+       fhir:index 38;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "Observation-serum-calcium.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "true"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/Observation/serum-calcium>;
+         fhir:Reference.reference [ fhir:value "Observation/serum-calcium" ]
+       ]
+     ], [
+       fhir:index 39;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "Observation-respiratory-rate.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "true"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/Observation/respiratory-rate>;
+         fhir:Reference.reference [ fhir:value "Observation/respiratory-rate" ]
+       ]
+     ], [
+       fhir:index 40;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "Procedure-rehab.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "true"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/Procedure/rehab>;
+         fhir:Reference.reference [ fhir:value "Procedure/rehab" ]
+       ]
+     ], [
+       fhir:index 41;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "Practitioner-practitioner-1.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "true"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/Practitioner/practitioner-1>;
+         fhir:Reference.reference [ fhir:value "Practitioner/practitioner-1" ]
+       ]
+     ], [
+       fhir:index 42;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "Patient-example.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "true"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/Patient/example>;
+         fhir:Reference.reference [ fhir:value "Patient/example" ]
+       ]
+     ], [
+       fhir:index 43;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "Observation-oxygen-saturation.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "true"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/Observation/oxygen-saturation>;
+         fhir:Reference.reference [ fhir:value "Observation/oxygen-saturation" ]
+       ]
+     ], [
+       fhir:index 44;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "Observation-neutrophils.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "true"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/Observation/neutrophils>;
+         fhir:Reference.reference [ fhir:value "Observation/neutrophils" ]
+       ]
+     ], [
+       fhir:index 45;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "DiagnosticReport-metabolic-panel.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "true"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/DiagnosticReport/metabolic-panel>;
+         fhir:Reference.reference [ fhir:value "DiagnosticReport/metabolic-panel" ]
+       ]
+     ], [
+       fhir:index 46;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "Observation-mchc.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "true"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/Observation/mchc>;
+         fhir:Reference.reference [ fhir:value "Observation/mchc" ]
+       ]
+     ], [
+       fhir:index 47;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "Observation-length.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "true"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/Observation/length>;
+         fhir:Reference.reference [ fhir:value "Observation/length" ]
+       ]
+     ], [
+       fhir:index 48;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "Immunization-imm-1.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "true"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/Immunization/imm-1>;
+         fhir:Reference.reference [ fhir:value "Immunization/imm-1" ]
+       ]
+     ], [
+       fhir:index 49;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "Location-hl7east.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "true"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/Location/hl7east>;
+         fhir:Reference.reference [ fhir:value "Location/hl7east" ]
+       ]
+     ], [
+       fhir:index 50;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "Observation-hemoglobin.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "true"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/Observation/hemoglobin>;
+         fhir:Reference.reference [ fhir:value "Observation/hemoglobin" ]
+       ]
+     ], [
+       fhir:index 51;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "Observation-height.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "true"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/Observation/height>;
+         fhir:Reference.reference [ fhir:value "Observation/height" ]
+       ]
+     ], [
+       fhir:index 52;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "Observation-heart-rate.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "true"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/Observation/heart-rate>;
+         fhir:Reference.reference [ fhir:value "Observation/heart-rate" ]
+       ]
+     ], [
+       fhir:index 53;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "Observation-head-circumference.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "true"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/Observation/head-circumference>;
+         fhir:Reference.reference [ fhir:value "Observation/head-circumference" ]
+       ]
+     ], [
+       fhir:index 54;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "Condition-hc1.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "true"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/Condition/hc1>;
+         fhir:Reference.reference [ fhir:value "Condition/hc1" ]
+       ]
+     ], [
+       fhir:index 55;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "Goal-goal-1.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "true"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/Goal/goal-1>;
+         fhir:Reference.reference [ fhir:value "Goal/goal-1" ]
+       ]
+     ], [
+       fhir:index 56;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "Observation-erythrocytes.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "true"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/Observation/erythrocytes>;
+         fhir:Reference.reference [ fhir:value "Observation/erythrocytes" ]
+       ]
+     ], [
+       fhir:index 57;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "Condition-example.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "true"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/Condition/example>;
+         fhir:Reference.reference [ fhir:value "Condition/example" ]
+       ]
+     ], [
+       fhir:index 58;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "Careplan-colonoscopy.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "true"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/CarePlan/colonoscopy>;
+         fhir:Reference.reference [ fhir:value "CarePlan/colonoscopy" ]
+       ]
+     ], [
+       fhir:index 59;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "DiagnosticReport-cbc.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "true"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/DiagnosticReport/cbc>;
+         fhir:Reference.reference [ fhir:value "DiagnosticReport/cbc" ]
+       ]
+     ], [
+       fhir:index 60;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "Careteam-example.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "true"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/CareTeam/example>;
+         fhir:Reference.reference [ fhir:value "CareTeam/example" ]
+       ]
+     ], [
+       fhir:index 61;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "Observation-BUN.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "true"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/Observation/BUN>;
+         fhir:Reference.reference [ fhir:value "Observation/BUN" ]
+       ]
+     ], [
+       fhir:index 62;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "Observation-bp-data-absent.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "true"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/Observation/bp-data-absent>;
+         fhir:Reference.reference [ fhir:value "Observation/bp-data-absent" ]
+       ]
+     ], [
+       fhir:index 63;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "Observation-bmi.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "true"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/Observation/bmi>;
+         fhir:Reference.reference [ fhir:value "Observation/bmi" ]
+       ]
+     ], [
+       fhir:index 64;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "Observation-blood-pressure.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "true"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/Observation/blood-pressure>;
+         fhir:Reference.reference [ fhir:value "Observation/blood-pressure" ]
+       ]
+     ], [
+       fhir:index 65;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "Observation-blood-glucose.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "true"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/Observation/blood-glucose>;
+         fhir:Reference.reference [ fhir:value "Observation/blood-glucose" ]
+       ]
+     ], [
+       fhir:index 66;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "AllergyIntolerance-example.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "true"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/AllergyIntolerance/example>;
+         fhir:Reference.reference [ fhir:value "AllergyIntolerance/example" ]
+       ]
+     ], [
+       fhir:index 67;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "Organization-acme-lab.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "true"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/Organization/acme-lab>;
+         fhir:Reference.reference [ fhir:value "Organization/acme-lab" ]
+       ]
+     ], [
+       fhir:index 68;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "ValueSet-us-core-ucum.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "false"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/ValueSet/us-core-ucum>;
+         fhir:Reference.reference [ fhir:value "ValueSet/us-core-ucum" ]
+       ]
+     ], [
+       fhir:index 69;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "ValueSet-us-core-substance.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "false"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/ValueSet/us-core-substance>;
+         fhir:Reference.reference [ fhir:value "ValueSet/us-core-substance" ]
+       ]
+     ], [
+       fhir:index 70;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "ValueSet-us-core-substance-sct.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "false"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/ValueSet/us-core-substance-sct>;
+         fhir:Reference.reference [ fhir:value "ValueSet/us-core-substance-sct" ]
+       ]
+     ], [
+       fhir:index 71;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "ValueSet-us-core-substance-rxnorm.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "false"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/ValueSet/us-core-substance-rxnorm>;
+         fhir:Reference.reference [ fhir:value "ValueSet/us-core-substance-rxnorm" ]
+       ]
+     ], [
+       fhir:index 72;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "ValueSet-us-core-substance-ndfrt.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "false"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/ValueSet/us-core-substance-ndfrt>;
+         fhir:Reference.reference [ fhir:value "ValueSet/us-core-substance-ndfrt" ]
+       ]
+     ], [
+       fhir:index 73;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "ValueSet-us-core-provider-specialty.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "false"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/ValueSet/us-core-provider-specialty>;
+         fhir:Reference.reference [ fhir:value "ValueSet/us-core-provider-specialty" ]
+       ]
+     ], [
+       fhir:index 74;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "ValueSet-us-core-provider-role.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "false"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/ValueSet/us-core-provider-role>;
+         fhir:Reference.reference [ fhir:value "ValueSet/us-core-provider-role" ]
+       ]
+     ], [
+       fhir:index 75;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "ValueSet-us-core-procedure-type.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "false"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/ValueSet/us-core-procedure-type>;
+         fhir:Reference.reference [ fhir:value "ValueSet/us-core-procedure-type" ]
+       ]
+     ], [
+       fhir:index 76;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "ValueSet-us-core-procedure-icd10pcs.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "false"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/ValueSet/us-core-procedure-icd10pcs>;
+         fhir:Reference.reference [ fhir:value "ValueSet/us-core-procedure-icd10pcs" ]
+       ]
+     ], [
+       fhir:index 77;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "ValueSet-us-core-problem.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "false"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/ValueSet/us-core-problem>;
+         fhir:Reference.reference [ fhir:value "ValueSet/us-core-problem" ]
+       ]
+     ], [
+       fhir:index 78;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "ValueSet-us-core-observation-value-codes.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "false"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/ValueSet/us-core-observation-value-codes>;
+         fhir:Reference.reference [ fhir:value "ValueSet/us-core-observation-value-codes" ]
+       ]
+     ], [
+       fhir:index 79;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "ValueSet-us-core-observation-ccdavitalsignresult.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "false"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/ValueSet/us-core-observation-ccdavitalsignresult>;
+         fhir:Reference.reference [ fhir:value "ValueSet/us-core-observation-ccdavitalsignresult" ]
+       ]
+     ], [
+       fhir:index 80;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "ValueSet-us-core-observation-ccdasmokingstatus.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "false"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/ValueSet/us-core-observation-ccdasmokingstatus>;
+         fhir:Reference.reference [ fhir:value "ValueSet/us-core-observation-ccdasmokingstatus" ]
+       ]
+     ], [
+       fhir:index 81;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "ValueSet-us-core-ndc-vaccine-codes.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "false"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/ValueSet/us-core-ndc-vaccine-codes>;
+         fhir:Reference.reference [ fhir:value "ValueSet/us-core-ndc-vaccine-codes" ]
+       ]
+     ], [
+       fhir:index 82;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "ValueSet-us-core-narrative-status.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "false"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/ValueSet/us-core-narrative-status>;
+         fhir:Reference.reference [ fhir:value "ValueSet/us-core-narrative-status" ]
+       ]
+     ], [
+       fhir:index 83;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "ValueSet-us-core-medication-codes.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "false"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/ValueSet/us-core-medication-codes>;
+         fhir:Reference.reference [ fhir:value "ValueSet/us-core-medication-codes" ]
+       ]
+     ], [
+       fhir:index 84;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "ValueSet-us-core-immunization-status.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "false"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/ValueSet/us-core-immunization-status>;
+         fhir:Reference.reference [ fhir:value "ValueSet/us-core-immunization-status" ]
+       ]
+     ], [
+       fhir:index 85;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "ValueSet-us-core-cvx.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "false"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/ValueSet/us-core-cvx>;
+         fhir:Reference.reference [ fhir:value "ValueSet/us-core-cvx" ]
+       ]
+     ], [
+       fhir:index 86;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "ValueSet-us-core-condition-category.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "false"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/ValueSet/us-core-condition-category>;
+         fhir:Reference.reference [ fhir:value "ValueSet/us-core-condition-category" ]
+       ]
+     ], [
+       fhir:index 87;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "ValueSet-us-core-careteam-status.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "false"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/ValueSet/us-core-careteam-status>;
+         fhir:Reference.reference [ fhir:value "ValueSet/us-core-careteam-status" ]
+       ]
+     ], [
+       fhir:index 88;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "ValueSet-us-core-careteam-provider-roles.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "false"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/ValueSet/us-core-careteam-provider-roles>;
+         fhir:Reference.reference [ fhir:value "ValueSet/us-core-careteam-provider-roles" ]
+       ]
+     ], [
+       fhir:index 89;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "ValueSet-us-core-birthsex.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "false"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/ValueSet/us-core-birthsex>;
+         fhir:Reference.reference [ fhir:value "ValueSet/us-core-birthsex" ]
+       ]
+     ], [
+       fhir:index 90;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "ValueSet-omb-race.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "false"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/ValueSet/omb-race>;
+         fhir:Reference.reference [ fhir:value "ValueSet/omb-race" ]
+       ]
+     ], [
+       fhir:index 91;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "ValueSet-omb-ethnicity.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "false"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/ValueSet/omb-ethnicity>;
+         fhir:Reference.reference [ fhir:value "ValueSet/omb-ethnicity" ]
+       ]
+     ], [
+       fhir:index 92;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "ValueSet-detailed-race.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "false"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/ValueSet/detailed-race>;
+         fhir:Reference.reference [ fhir:value "ValueSet/detailed-race" ]
+       ]
+     ], [
+       fhir:index 93;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "ValueSet-detailed-ethnicity.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "false"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/ValueSet/detailed-ethnicity>;
+         fhir:Reference.reference [ fhir:value "ValueSet/detailed-ethnicity" ]
+       ]
+     ], [
+       fhir:index 94;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "SearchParameter-us-core-race.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "false"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/SearchParameter/us-core-race>;
+         fhir:Reference.reference [ fhir:value "SearchParameter/us-core-race" ]
+       ]
+     ], [
+       fhir:index 95;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "SearchParameter-us-core-ethnicity.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "false"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/SearchParameter/us-core-ethnicity>;
+         fhir:Reference.reference [ fhir:value "SearchParameter/us-core-ethnicity" ]
+       ]
+     ], [
+       fhir:index 96;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "CodeSystem-condition-category.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "false"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/CodeSystem/condition-category>;
+         fhir:Reference.reference [ fhir:value "CodeSystem/condition-category" ]
+       ]
+     ], [
+       fhir:index 97;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "CodeSystem-careteam-status.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "false"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/CodeSystem/careteam-status>;
+         fhir:Reference.reference [ fhir:value "CodeSystem/careteam-status" ]
+       ]
+     ], [
+       fhir:index 98;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "CodeSystem-careplan-category.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "false"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/CodeSystem/careplan-category>;
+         fhir:Reference.reference [ fhir:value "CodeSystem/careplan-category" ]
+       ]
+     ], [
+       fhir:index 99;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "CapabilityStatement-server.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "false"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/CapabilityStatement/server>;
+         fhir:Reference.reference [ fhir:value "CapabilityStatement/server" ]
+       ]
+     ], [
+       fhir:index 100;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "CapabilityStatement-client.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "false"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/CapabilityStatement/client>;
+         fhir:Reference.reference [ fhir:value "CapabilityStatement/client" ]
+       ]
+     ]
+  ], [
+     fhir:index 1;
+     fhir:ImplementationGuide.package.name [ fhir:value "U.S.  Core AllergyIntolerance Profile" ];
+     fhir:ImplementationGuide.package.resource [
+       fhir:index 0;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "StructureDefinition-us-core-allergyintolerance.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "false"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.name [ fhir:value "US Core Allergies Profile" ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/StructureDefinition/us-core-allergyintolerance>;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/us-core-allergyintolerance" ]
+       ]
+     ]
+  ], [
+     fhir:index 2;
+     fhir:ImplementationGuide.package.name [ fhir:value "U.S.  Core CarePlan Profile" ];
+     fhir:ImplementationGuide.package.resource [
+       fhir:index 0;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "StructureDefinition-us-core-careplan.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "false"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.name [ fhir:value "US Core CarePlan Profile" ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/StructureDefinition/us-core-careplan>;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/us-core-careplan" ]
+       ]
+     ]
+  ], [
+     fhir:index 3;
+     fhir:ImplementationGuide.package.name [ fhir:value "U.S.  Core CareTeam Profile" ];
+     fhir:ImplementationGuide.package.resource [
+       fhir:index 0;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "StructureDefinition-us-core-careteam.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "false"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.name [ fhir:value "US Core CareTeam Profile" ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/StructureDefinition/us-core-careteam>;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/us-core-careteam" ]
+       ]
+     ]
+  ], [
+     fhir:index 4;
+     fhir:ImplementationGuide.package.name [ fhir:value "U.S.  Core Condition (a.k.a Problem) Profile" ];
+     fhir:ImplementationGuide.package.resource [
+       fhir:index 0;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "StructureDefinition-us-core-condition.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "false"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.name [ fhir:value "US Core Condition Profile" ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition>;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/us-core-condition" ]
+       ]
+     ]
+  ], [
+     fhir:index 5;
+     fhir:ImplementationGuide.package.name [ fhir:value "U.S.  Core Device Profile" ];
+     fhir:ImplementationGuide.package.resource [
+       fhir:index 0;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "StructureDefinition-us-core-device.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "false"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.name [ fhir:value "US Core Implanted Device Profile" ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/StructureDefinition/us-core-device>;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/us-core-device" ]
+       ]
+     ]
+  ], [
+     fhir:index 6;
+     fhir:ImplementationGuide.package.name [ fhir:value "U.S.  Core DiagnosticReport Profile" ];
+     fhir:ImplementationGuide.package.resource [
+       fhir:index 0;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "StructureDefinition-us-core-diagnosticreport.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "false"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.name [ fhir:value "US Core Diagnostic Report Profile" ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/StructureDefinition/us-core-diagnosticreport>;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/us-core-diagnosticreport" ]
+       ]
+     ]
+  ], [
+     fhir:index 7;
+     fhir:ImplementationGuide.package.name [ fhir:value "U.S.  Core Goal Profile" ];
+     fhir:ImplementationGuide.package.resource [
+       fhir:index 0;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "StructureDefinition-us-core-goal.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "false"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.name [ fhir:value "US Core Goal Profile" ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/StructureDefinition/us-core-goal>;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/us-core-goal" ]
+       ]
+     ]
+  ], [
+     fhir:index 8;
+     fhir:ImplementationGuide.package.name [ fhir:value "U.S.  Core Immunization Profile" ];
+     fhir:ImplementationGuide.package.resource [
+       fhir:index 0;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "StructureDefinition-us-core-immunization.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "false"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.name [ fhir:value "US Core Immunization Profile" ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/StructureDefinition/us-core-immunization>;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/us-core-immunization" ]
+       ]
+     ]
+  ], [
+     fhir:index 9;
+     fhir:ImplementationGuide.package.name [ fhir:value "U.S.  Core Location Profile" ];
+     fhir:ImplementationGuide.package.resource [
+       fhir:index 0;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "StructureDefinition-us-core-location.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "false"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.name [ fhir:value "US Core Location Profile" ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/StructureDefinition/us-core-location>;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/us-core-location" ]
+       ]
+     ]
+  ], [
+     fhir:index 10;
+     fhir:ImplementationGuide.package.name [ fhir:value "U.S.  Core Medication Profile" ];
+     fhir:ImplementationGuide.package.resource [
+       fhir:index 0;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "StructureDefinition-us-core-medication.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "false"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.name [ fhir:value "US Core Medication Profile" ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/StructureDefinition/us-core-medication>;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/us-core-medication" ]
+       ]
+     ]
+  ], [
+     fhir:index 11;
+     fhir:ImplementationGuide.package.name [ fhir:value "U.S.  Core MedicationRequest Profile" ];
+     fhir:ImplementationGuide.package.resource [
+       fhir:index 0;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "StructureDefinition-us-core-medicationrequest.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "false"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.name [ fhir:value "US Core Medication Request Profile" ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest>;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/us-core-medicationrequest" ]
+       ]
+     ]
+  ], [
+     fhir:index 12;
+     fhir:ImplementationGuide.package.name [ fhir:value "U.S.  Core MedicationStatement Profile" ];
+     fhir:ImplementationGuide.package.resource [
+       fhir:index 0;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "StructureDefinition-us-core-medicationstatement.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "false"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.name [ fhir:value "US Core Medication Statement Profile" ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationstatement>;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/us-core-medicationstatement" ]
+       ]
+     ]
+  ], [
+     fhir:index 13;
+     fhir:ImplementationGuide.package.name [ fhir:value "U.S.  Core Results Profile" ];
+     fhir:ImplementationGuide.package.resource [
+       fhir:index 0;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "StructureDefinition-us-core-observationresults.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "false"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.name [ fhir:value "US Core Result Observation" ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/StructureDefinition/us-core-observationresults>;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/us-core-observationresults" ]
+       ]
+     ]
+  ], [
+     fhir:index 14;
+     fhir:ImplementationGuide.package.name [ fhir:value "U.S.  Core Smoking Status Profile" ];
+     fhir:ImplementationGuide.package.resource [
+       fhir:index 0;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "StructureDefinition-us-core-smokingstatus.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "false"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.name [ fhir:value "US Core Smoking Status Observation Profile" ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/StructureDefinition/us-core-smokingstatus>;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/us-core-smokingstatus" ]
+       ]
+     ]
+  ], [
+     fhir:index 15;
+     fhir:ImplementationGuide.package.name [ fhir:value "U.S.  Core Vital Signs Profile" ];
+     fhir:ImplementationGuide.package.resource [
+       fhir:index 0;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "StructureDefinition-us-core-vitalsigns.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "false"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.name [ fhir:value "US Core Vital Signs Profile" ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/StructureDefinition/us-core-vitalsigns>;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/us-core-vitalsigns" ]
+       ]
+     ]
+  ], [
+     fhir:index 16;
+     fhir:ImplementationGuide.package.name [ fhir:value "U.S. US Core Organization Core Profile" ];
+     fhir:ImplementationGuide.package.resource [
+       fhir:index 0;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "StructureDefinition-us-core-organization.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "false"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.name [ fhir:value "US Core Organization Profile" ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization>;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/us-core-organization" ]
+       ]
+     ]
+  ], [
+     fhir:index 17;
+     fhir:ImplementationGuide.package.name [ fhir:value "U.S.  Core Patient Profile" ];
+     fhir:ImplementationGuide.package.resource [
+       fhir:index 0;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "StructureDefinition-us-core-direct.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "false"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.name [ fhir:value "Email is a \"direct\" email" ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/StructureDefinition/us-core-direct>;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/us-core-direct" ]
+       ]
+     ], [
+       fhir:index 1;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "StructureDefinition-us-core-birthsex.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "false"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.name [ fhir:value "US Core Birth Sex Extension" ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/StructureDefinition/us-core-birthsex>;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/us-core-birthsex" ]
+       ]
+     ], [
+       fhir:index 2;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "StructureDefinition-us-core-race.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "false"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.name [ fhir:value "US Core Race Extension" ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/StructureDefinition/us-core-race>;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/us-core-race" ]
+       ]
+     ], [
+       fhir:index 3;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "StructureDefinition-us-core-ethnicity.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "false"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.name [ fhir:value "US Core ethnicity Extension" ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity>;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/us-core-ethnicity" ]
+       ]
+     ], [
+       fhir:index 4;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "StructureDefinition-us-core-patient.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "false"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.name [ fhir:value "US Core Patient Profile" ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient>;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/us-core-patient" ]
+       ]
+     ]
+  ], [
+     fhir:index 18;
+     fhir:ImplementationGuide.package.name [ fhir:value "U.S.  Core Practitioner Profile" ];
+     fhir:ImplementationGuide.package.resource [
+       fhir:index 0;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "StructureDefinition-us-core-pract.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "false"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.name [ fhir:value "US Core Practitioner" ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/StructureDefinition/us-core-pract>;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/us-core-pract" ]
+       ]
+     ]
+  ], [
+     fhir:index 19;
+     fhir:ImplementationGuide.package.name [ fhir:value "U.S.  Core Procedure Profile" ];
+     fhir:ImplementationGuide.package.resource [
+       fhir:index 0;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "StructureDefinition-us-core-procedure.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.example [ fhir:value "false"^^xsd:boolean ];
+       fhir:ImplementationGuide.package.resource.name [ fhir:value "US Core Procedure Profile" ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure>;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/us-core-procedure" ]
+       ]
+     ]
+  ];
+  fhir:ImplementationGuide.page [
+     fhir:ImplementationGuide.page.source [ fhir:value "index.html" ];
+     fhir:ImplementationGuide.page.title [ fhir:value "blah" ];
+     fhir:ImplementationGuide.page.kind [ fhir:value "page" ]
+  ] .
+
+<http://hl7.org/fhir/us/core/Observation/weight> a fhir:us .
+
+<http://hl7.org/fhir/us/core/Observation/vitals-panel> a fhir:us .
+
+<http://hl7.org/fhir/us/core/Observation/usg> a fhir:us .
+
+<http://hl7.org/fhir/us/core/Bundle/uscore-ms3> a fhir:us .
+
+<http://hl7.org/fhir/us/core/MedicationStatement/uscore-ms2> a fhir:us .
+
+<http://hl7.org/fhir/us/core/MedicationStatement/uscore-ms1> a fhir:us .
+
+<http://hl7.org/fhir/us/core/Bundle/uscore-mo3> a fhir:us .
+
+<http://hl7.org/fhir/us/core/MedicationRequest/uscore-mo2> a fhir:us .
+
+<http://hl7.org/fhir/us/core/MedicationRequest/uscore-mo1> a fhir:us .
+
+<http://hl7.org/fhir/us/core/Medication/uscore-med2> a fhir:us .
+
+<http://hl7.org/fhir/us/core/Medication/uscore-med1> a fhir:us .
+
+<http://hl7.org/fhir/us/core/Observation/urobilinogen> a fhir:us .
+
+<http://hl7.org/fhir/us/core/Observation/urine-wbcs> a fhir:us .
+
+<http://hl7.org/fhir/us/core/Observation/urine-sediment> a fhir:us .
+
+<http://hl7.org/fhir/us/core/Observation/urine-rbcs> a fhir:us .
+
+<http://hl7.org/fhir/us/core/Observation/urine-protein> a fhir:us .
+
+<http://hl7.org/fhir/us/core/Observation/urine-ph> a fhir:us .
+
+<http://hl7.org/fhir/us/core/Observation/urine-nitrite> a fhir:us .
+
+<http://hl7.org/fhir/us/core/Observation/urine-leukocyte-esterase> a fhir:us .
+
+<http://hl7.org/fhir/us/core/Observation/urine-ketone> a fhir:us .
+
+<http://hl7.org/fhir/us/core/Observation/urine-hemoglobin> a fhir:us .
+
+<http://hl7.org/fhir/us/core/Observation/urine-glucose> a fhir:us .
+
+<http://hl7.org/fhir/us/core/Observation/urine-epi-cells> a fhir:us .
+
+<http://hl7.org/fhir/us/core/Observation/urine-color> a fhir:us .
+
+<http://hl7.org/fhir/us/core/Observation/urine-clarity> a fhir:us .
+
+<http://hl7.org/fhir/us/core/Observation/urine-cells> a fhir:us .
+
+<http://hl7.org/fhir/us/core/Observation/urine-bilirubin> a fhir:us .
+
+<http://hl7.org/fhir/us/core/Observation/urine-bacteria> a fhir:us .
+
+<http://hl7.org/fhir/us/core/DiagnosticReport/urinalysis> a fhir:us .
+
+<http://hl7.org/fhir/us/core/Device/udi-1> a fhir:us .
+
+<http://hl7.org/fhir/us/core/Observation/temperature> a fhir:us .
+
+<http://hl7.org/fhir/us/core/Observation/some-day-smoker> a fhir:us .
+
+<http://hl7.org/fhir/us/core/Observation/serum-total-bilirubin> a fhir:us .
+
+<http://hl7.org/fhir/us/core/Observation/serum-sodium> a fhir:us .
+
+<http://hl7.org/fhir/us/core/Observation/serum-potassium> a fhir:us .
+
+<http://hl7.org/fhir/us/core/Observation/serum-creatinine> a fhir:us .
+
+<http://hl7.org/fhir/us/core/Observation/serum-co2> a fhir:us .
+
+<http://hl7.org/fhir/us/core/Observation/serum-chloride> a fhir:us .
+
+<http://hl7.org/fhir/us/core/Observation/serum-calcium> a fhir:us .
+
+<http://hl7.org/fhir/us/core/Observation/respiratory-rate> a fhir:us .
+
+<http://hl7.org/fhir/us/core/Procedure/rehab> a fhir:us .
+
+<http://hl7.org/fhir/us/core/Practitioner/practitioner-1> a fhir:us .
+
+<http://hl7.org/fhir/us/core/Patient/example> a fhir:us .
+
+<http://hl7.org/fhir/us/core/Observation/oxygen-saturation> a fhir:us .
+
+<http://hl7.org/fhir/us/core/Observation/neutrophils> a fhir:us .
+
+<http://hl7.org/fhir/us/core/DiagnosticReport/metabolic-panel> a fhir:us .
+
+<http://hl7.org/fhir/us/core/Observation/mchc> a fhir:us .
+
+<http://hl7.org/fhir/us/core/Observation/length> a fhir:us .
+
+<http://hl7.org/fhir/us/core/Immunization/imm-1> a fhir:us .
+
+<http://hl7.org/fhir/us/core/Location/hl7east> a fhir:us .
+
+<http://hl7.org/fhir/us/core/Observation/hemoglobin> a fhir:us .
+
+<http://hl7.org/fhir/us/core/Observation/height> a fhir:us .
+
+<http://hl7.org/fhir/us/core/Observation/heart-rate> a fhir:us .
+
+<http://hl7.org/fhir/us/core/Observation/head-circumference> a fhir:us .
+
+<http://hl7.org/fhir/us/core/Condition/hc1> a fhir:us .
+
+<http://hl7.org/fhir/us/core/Goal/goal-1> a fhir:us .
+
+<http://hl7.org/fhir/us/core/Observation/erythrocytes> a fhir:us .
+
+<http://hl7.org/fhir/us/core/Condition/example> a fhir:us .
+
+<http://hl7.org/fhir/us/core/CarePlan/colonoscopy> a fhir:us .
+
+<http://hl7.org/fhir/us/core/DiagnosticReport/cbc> a fhir:us .
+
+<http://hl7.org/fhir/us/core/CareTeam/example> a fhir:us .
+
+<http://hl7.org/fhir/us/core/Observation/BUN> a fhir:us .
+
+<http://hl7.org/fhir/us/core/Observation/bp-data-absent> a fhir:us .
+
+<http://hl7.org/fhir/us/core/Observation/bmi> a fhir:us .
+
+<http://hl7.org/fhir/us/core/Observation/blood-pressure> a fhir:us .
+
+<http://hl7.org/fhir/us/core/Observation/blood-glucose> a fhir:us .
+
+<http://hl7.org/fhir/us/core/AllergyIntolerance/example> a fhir:us .
+
+<http://hl7.org/fhir/us/core/Organization/acme-lab> a fhir:us .
+
+<http://hl7.org/fhir/us/core/ValueSet/us-core-ucum> a fhir:us .
+
+<http://hl7.org/fhir/us/core/ValueSet/us-core-substance> a fhir:us .
+
+<http://hl7.org/fhir/us/core/ValueSet/us-core-substance-sct> a fhir:us .
+
+<http://hl7.org/fhir/us/core/ValueSet/us-core-substance-rxnorm> a fhir:us .
+
+<http://hl7.org/fhir/us/core/ValueSet/us-core-substance-ndfrt> a fhir:us .
+
+<http://hl7.org/fhir/us/core/ValueSet/us-core-provider-specialty> a fhir:us .
+
+<http://hl7.org/fhir/us/core/ValueSet/us-core-provider-role> a fhir:us .
+
+<http://hl7.org/fhir/us/core/ValueSet/us-core-procedure-type> a fhir:us .
+
+<http://hl7.org/fhir/us/core/ValueSet/us-core-procedure-icd10pcs> a fhir:us .
+
+<http://hl7.org/fhir/us/core/ValueSet/us-core-problem> a fhir:us .
+
+<http://hl7.org/fhir/us/core/ValueSet/us-core-observation-value-codes> a fhir:us .
+
+<http://hl7.org/fhir/us/core/ValueSet/us-core-observation-ccdavitalsignresult> a fhir:us .
+
+<http://hl7.org/fhir/us/core/ValueSet/us-core-observation-ccdasmokingstatus> a fhir:us .
+
+<http://hl7.org/fhir/us/core/ValueSet/us-core-ndc-vaccine-codes> a fhir:us .
+
+<http://hl7.org/fhir/us/core/ValueSet/us-core-narrative-status> a fhir:us .
+
+<http://hl7.org/fhir/us/core/ValueSet/us-core-medication-codes> a fhir:us .
+
+<http://hl7.org/fhir/us/core/ValueSet/us-core-immunization-status> a fhir:us .
+
+<http://hl7.org/fhir/us/core/ValueSet/us-core-cvx> a fhir:us .
+
+<http://hl7.org/fhir/us/core/ValueSet/us-core-condition-category> a fhir:us .
+
+<http://hl7.org/fhir/us/core/ValueSet/us-core-careteam-status> a fhir:us .
+
+<http://hl7.org/fhir/us/core/ValueSet/us-core-careteam-provider-roles> a fhir:us .
+
+<http://hl7.org/fhir/us/core/ValueSet/us-core-birthsex> a fhir:us .
+
+<http://hl7.org/fhir/us/core/ValueSet/omb-race> a fhir:us .
+
+<http://hl7.org/fhir/us/core/ValueSet/omb-ethnicity> a fhir:us .
+
+<http://hl7.org/fhir/us/core/ValueSet/detailed-race> a fhir:us .
+
+<http://hl7.org/fhir/us/core/ValueSet/detailed-ethnicity> a fhir:us .
+
+<http://hl7.org/fhir/us/core/SearchParameter/us-core-race> a fhir:us .
+
+<http://hl7.org/fhir/us/core/SearchParameter/us-core-ethnicity> a fhir:us .
+
+<http://hl7.org/fhir/us/core/CodeSystem/condition-category> a fhir:us .
+
+<http://hl7.org/fhir/us/core/CodeSystem/careteam-status> a fhir:us .
+
+<http://hl7.org/fhir/us/core/CodeSystem/careplan-category> a fhir:us .
+
+<http://hl7.org/fhir/us/core/CapabilityStatement/server> a fhir:us .
+
+<http://hl7.org/fhir/us/core/CapabilityStatement/client> a fhir:us .
+
+<http://hl7.org/fhir/us/core/StructureDefinition/us-core-allergyintolerance> a fhir:us .
+
+<http://hl7.org/fhir/us/core/StructureDefinition/us-core-careplan> a fhir:us .
+
+<http://hl7.org/fhir/us/core/StructureDefinition/us-core-careteam> a fhir:us .
+
+<http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition> a fhir:us .
+
+<http://hl7.org/fhir/us/core/StructureDefinition/us-core-device> a fhir:us .
+
+<http://hl7.org/fhir/us/core/StructureDefinition/us-core-diagnosticreport> a fhir:us .
+
+<http://hl7.org/fhir/us/core/StructureDefinition/us-core-goal> a fhir:us .
+
+<http://hl7.org/fhir/us/core/StructureDefinition/us-core-immunization> a fhir:us .
+
+<http://hl7.org/fhir/us/core/StructureDefinition/us-core-location> a fhir:us .
+
+<http://hl7.org/fhir/us/core/StructureDefinition/us-core-medication> a fhir:us .
+
+<http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest> a fhir:us .
+
+<http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationstatement> a fhir:us .
+
+<http://hl7.org/fhir/us/core/StructureDefinition/us-core-observationresults> a fhir:us .
+
+<http://hl7.org/fhir/us/core/StructureDefinition/us-core-smokingstatus> a fhir:us .
+
+<http://hl7.org/fhir/us/core/StructureDefinition/us-core-vitalsigns> a fhir:us .
+
+<http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization> a fhir:us .
+
+<http://hl7.org/fhir/us/core/StructureDefinition/us-core-direct> a fhir:us .
+
+<http://hl7.org/fhir/us/core/StructureDefinition/us-core-birthsex> a fhir:us .
+
+<http://hl7.org/fhir/us/core/StructureDefinition/us-core-race> a fhir:us .
+
+<http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity> a fhir:us .
+
+<http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient> a fhir:us .
+
+<http://hl7.org/fhir/us/core/StructureDefinition/us-core-pract> a fhir:us .
+
+<http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure> a fhir:us .
+
+# -------------------------------------------------------------------------------------
+

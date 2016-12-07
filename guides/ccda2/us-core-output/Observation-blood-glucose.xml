@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Observation xmlns="http://hl7.org/fhir">
+  <id value="blood-glucose"/>
+  <meta>
+    <versionId value="1165"/>
+    <lastUpdated value="2016-03-09T15:29:58.328+00:00"/>
+    <profile value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-observationresults"/>
+  </meta>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: blood-glucose</p><p><b>meta</b>: </p><p><b>status</b>: final</p><p><b>category</b>: Laboratory <span style="background: LightGoldenRodYellow">(Details : {http://hl7.org/fhir/observation-category code 'laboratory' = 'Laboratory', given as 'Laboratory'})</span></p><p><b>code</b>: Glucose Bld-mCnc <span style="background: LightGoldenRodYellow">(Details : {LOINC code '2339-0' = 'Glucose [Mass/volume] in Blood', given as 'Glucose Bld-mCnc'})</span></p><p><b>subject</b>: <a href="Patient-example.html">Amy Shaw. Generated Summary: id: example; Medical Record Number = 1032702 (USUAL); active; Amy V. Shaw ; ph: 555-555-5555(HOME), amy.shaw@example.com; gender: null; birthDate: Feb 20, 2007</a></p><p><b>effective</b>: Jul 5, 2005</p><p><b>value</b>: 76.0 mg/dL</p><h3>ReferenceRanges</h3><table class="grid"><tr><td>-</td><td><b>Low</b></td><td><b>High</b></td><td><b>Meaning</b></td></tr><tr><td>*</td><td>40.0 mg/dL<span style="background: LightGoldenRodYellow"> (Details: UCUM code mg/dL = 'mg/dL')</span></td><td>109.0 mg/dL<span style="background: LightGoldenRodYellow"> (Details: UCUM code mg/dL = 'mg/dL')</span></td><td>Normal Range <span style="background: LightGoldenRodYellow">(Details : {http://hl7.org/fhir/referencerange-meaning code 'normal' = 'Normal Range', given as 'Normal Range'})</span></td></tr></table></div>
+  </text>
+  <status value="final"/>
+  <category>
+    <coding>
+      <system value="http://hl7.org/fhir/observation-category"/>
+      <code value="laboratory"/>
+      <display value="Laboratory"/>
+    </coding>
+    <text value="Laboratory"/>
+  </category>
+  <code>
+    <coding>
+      <system value="http://loinc.org"/>
+      <code value="2339-0"/>
+      <display value="Glucose Bld-mCnc"/>
+    </coding>
+    <text value="Glucose Bld-mCnc"/>
+  </code>
+  <subject>
+    <reference value="Patient/example"/>
+    <display value="Amy Shaw"/>
+  </subject>
+  <effectiveDateTime value="2005-07-05"/>
+  <valueQuantity>
+    <value value="76.0"/>
+    <unit value="mg/dL"/>
+    <system value="http://unitsofmeasure.org"/>
+  </valueQuantity>
+  <referenceRange>
+    <low>
+      <value value="40.0"/>
+      <unit value="mg/dL"/>
+      <system value="http://unitsofmeasure.org"/>
+      <code value="mg/dL"/>
+    </low>
+    <high>
+      <value value="109.0"/>
+      <unit value="mg/dL"/>
+      <system value="http://unitsofmeasure.org"/>
+      <code value="mg/dL"/>
+    </high>
+    <meaning>
+      <coding>
+        <system value="http://hl7.org/fhir/referencerange-meaning"/>
+        <code value="normal"/>
+        <display value="Normal Range"/>
+      </coding>
+      <text value="Normal Range"/>
+    </meaning>
+  </referenceRange>
+</Observation>

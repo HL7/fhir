@@ -1,0 +1,45 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sct: <http://snomed.info/id/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://hl7.org/fhir/us/core/Procedure/rehab> a fhir:Procedure;
+  fhir:nodeRole fhir:treeRoot;
+  fhir:Resource.id [ fhir:value "rehab"];
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure";
+       fhir:index 0
+     ]
+  ];
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ];
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: rehab</p><p><b>meta</b>: </p><p><b>status</b>: completed</p><p><b>code</b>: Alcohol rehabilitation <span style=\"background: LightGoldenRodYellow\">(Details : {SNOMED CT code '35637008' = '35637008', given as 'Alcohol rehabilitation'}; {http://www.icd10data.com/icd10pcs code 'HZ30ZZZ' = 'HZ30ZZZ', given as 'Individual Counseling for Substance Abuse Treatment, Cognitive'})</span></p><p><b>subject</b>: <a href=\"Patient-example.html\">Amy Shaw </a></p><p><b>performed</b>: May 23, 2002</p></div>"
+  ];
+  fhir:Procedure.status [ fhir:value "completed"];
+  fhir:Procedure.code [
+     fhir:CodeableConcept.coding [
+       fhir:index 0;
+       fhir:concept sct:35637008;
+       fhir:Coding.system [ fhir:value "http://snomed.info/sct" ];
+       fhir:Coding.code [ fhir:value "35637008" ];
+       fhir:Coding.display [ fhir:value "Alcohol rehabilitation" ]
+     ], [
+       fhir:index 1;
+       fhir:Coding.system [ fhir:value "http://www.icd10data.com/icd10pcs" ];
+       fhir:Coding.code [ fhir:value "HZ30ZZZ" ];
+       fhir:Coding.display [ fhir:value "Individual Counseling for Substance Abuse Treatment, Cognitive" ]
+     ];
+     fhir:CodeableConcept.text [ fhir:value "Alcohol rehabilitation" ]
+  ];
+  fhir:Procedure.subject [
+     fhir:Reference.reference [ fhir:value "Patient-example.html" ];
+     fhir:Reference.display [ fhir:value "Amy Shaw " ]
+  ];
+  fhir:Procedure.performedDateTime [ fhir:value "2002-05-23"^^xsd:date] .
+
+# -------------------------------------------------------------------------------------
+

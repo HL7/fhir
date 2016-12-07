@@ -1,0 +1,1464 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="us-core-procedure"/>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p><b>Generated Narrative with Details</b></p><p><b>url</b>: <a href="http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure">http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure</a></p><p><b>name</b>: US Core Procedure Profile</p><p><b>status</b>: DRAFT</p><p><b>date</b>: Aug 1, 2016</p><p><b>publisher</b>: Health Level Seven International (FHIR-Infrastructure)</p><p><b>contact</b>: </p><p><b>url</b>: <a href="http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure">http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure</a></p><p><b>name</b>: US Core Procedure Profile</p><p><b>status</b>: DRAFT</p><p><b>publisher</b>: Health Level Seven International (FHIR-Infrastructure)</p><p><b>contact</b>: </p><p><b>date</b>: Aug 1, 2016</p><blockquote><p><b>mapping</b></p><p><b>identity</b>: rim</p><p><b>uri</b>: <a href="http://hl7.org/v3">http://hl7.org/v3</a></p><p><b>name</b>: RIM Mapping</p></blockquote><blockquote><p><b>mapping</b></p><p><b>identity</b>: w5</p><p><b>uri</b>: <a href="http://hl7.org/fhir/w5">http://hl7.org/fhir/w5</a></p><p><b>name</b>: W5 Mapping</p></blockquote><blockquote><p><b>mapping</b></p><p><b>identity</b>: v2</p><p><b>uri</b>: <a href="http://hl7.org/v2">http://hl7.org/v2</a></p><p><b>name</b>: HL7 v2 Mapping</p></blockquote><p><b>kind</b>: RESOURCE</p><p><b>abstract</b>: false</p><p><b>type</b>: Procedure</p><p><b>baseDefinition</b>: <a href="http://hl7.org/fhir/StructureDefinition/Procedure">http://hl7.org/fhir/StructureDefinition/Procedure</a></p><p><b>derivation</b>: CONSTRAINT</p><h3>Snapshots</h3><table class="grid"><tr><td>-</td><td><b>Element</b></td></tr><tr><td>*</td><td>todo-bundle</td></tr></table><h3>Differentials</h3><table class="grid"><tr><td>-</td><td><b>Element</b></td></tr><tr><td>*</td><td>todo-bundle</td></tr></table></div>
+  </text>
+  <url value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure"/>
+  <name value="US Core Procedure Profile"/>
+  <status value="draft"/>
+  <publisher value="Health Level Seven International (FHIR-Infrastructure)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.healthit.gov"/>
+    </telecom>
+  </contact>
+  <date value="2016-08-01"/>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="w5"/>
+    <uri value="http://hl7.org/fhir/w5"/>
+    <name value="W5 Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="v2"/>
+    <uri value="http://hl7.org/v2"/>
+    <name value="HL7 v2 Mapping"/>
+  </mapping>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="Procedure"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
+  <derivation value="constraint"/>
+  <snapshot>
+    <element id="Procedure:uscoreprocedure">
+      <path value="Procedure"/>
+      <sliceName value="USCoreProcedure"/>
+      <short value="US Core Procedure Profile"/>
+      <definition value="The US Core Condition Profile is based upon the core FHIR Procedure Resource and created to meet the 2015 Edition Common Clinical Data Set &#39;Procedures&#39; requirements."/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="Procedure"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <constraint>
+        <key value="dom-2"/>
+        <severity value="error"/>
+        <human value="If the resource is contained in another resource, it SHALL NOT contain nested Resources"/>
+        <expression value="contained.contained.empty()"/>
+        <xpath value="not(parent::f:contained and f:contained)"/>
+        <source value="DomainResource"/>
+      </constraint>
+      <constraint>
+        <key value="dom-1"/>
+        <severity value="error"/>
+        <human value="If the resource is contained in another resource, it SHALL NOT contain any narrative"/>
+        <expression value="contained.text.empty()"/>
+        <xpath value="not(parent::f:contained and f:text)"/>
+        <source value="DomainResource"/>
+      </constraint>
+      <constraint>
+        <key value="dom-4"/>
+        <severity value="error"/>
+        <human value="If a resource is contained in another resource, it SHALL NOT have a meta.versionId or a meta.lastUpdated"/>
+        <expression value="contained.meta.versionId.empty() and contained.meta.lastUpdated.empty()"/>
+        <xpath value="not(exists(f:contained/*/f:meta/f:versionId)) and not(exists(f:contained/*/f:meta/f:lastUpdated))"/>
+        <source value="DomainResource"/>
+      </constraint>
+      <constraint>
+        <key value="dom-3"/>
+        <severity value="error"/>
+        <human value="If the resource is contained in another resource, it SHALL be referred to from elsewhere in the resource"/>
+        <expression value="contained.where((&#39;#&#39;+id in %resource.descendants().reference).not()).empty()"/>
+        <xpath value="not(exists(for $id in f:contained/*/@id return $id[not(ancestor::f:contained/parent::*/descendant::f:reference/@value=concat(&#39;#&#39;, $id))]))"/>
+        <source value="DomainResource"/>
+      </constraint>
+      <constraint>
+        <key value="pro-1"/>
+        <severity value="error"/>
+        <human value="Reason not performed is only permitted if notPerformed indicator is true"/>
+        <expression value="reasonNotPerformed.empty() or notPerformed = true"/>
+        <xpath value="not(exists(f:reasonNotPerformed)) or f:notPerformed/@value=true()"/>
+        <source value="Procedure"/>
+      </constraint>
+      <mustSupport value="false"/>
+      <isSummary value="false"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value="Entity. Role, or Act"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="Procedure[moodCode=EVN]"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="clinical.general"/>
+      </mapping>
+    </element>
+    <element id="Procedure:uscoreprocedure.id">
+      <path value="Procedure.id"/>
+      <short value="Logical id of this artifact"/>
+      <definition value="The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes."/>
+      <comments value="The only time that a resource does not have an id is when it is being submitted to the server using a create operation."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="Resource.id"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="id"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="Procedure:uscoreprocedure.meta">
+      <path value="Procedure.meta"/>
+      <short value="Metadata about the resource"/>
+      <definition value="The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content may not always be associated with version changes to the resource."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="Resource.meta"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="Meta"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="Procedure:uscoreprocedure.implicitRules">
+      <path value="Procedure.implicitRules"/>
+      <short value="A set of rules under which this content was created"/>
+      <definition value="A reference to a set of rules that were followed when the resource was constructed, and which must be understood when processing the content."/>
+      <comments value="Asserting this rule set restricts the content to be only understood by a limited set of trading partners. This inherently limits the usefulness of the data in the long term. However, the existing health eco-system is highly fractured, and not yet ready to define, collect, and exchange data in a generally computable sense. Wherever possible, implementers and/or specification writers should avoid using this element as much as possible."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="Resource.implicitRules"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="uri"/>
+      </type>
+      <isModifier value="true"/>
+      <isSummary value="true"/>
+    </element>
+    <element id="Procedure:uscoreprocedure.language">
+      <path value="Procedure.language"/>
+      <short value="Language of the resource content"/>
+      <definition value="The base language in which the resource is written."/>
+      <comments value="Language is provided to support indexing and accessibility (typically, services such as text to speech use the language tag). The html language tag in the narrative applies  to the narrative. The language tag on the resource may be used to specify the language of other presentations generated from the data in the resource  Not all the content has to be in the base language. The Resource.language should not be assumed to apply to the narrative automatically. If a language is specified, it should it also be specified on the div element in the html (see rules in HTML5 for information about the relationship between xml:lang and the html lang attribute)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="Resource.language"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="code"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet">
+          <valueReference>
+            <reference value="http://hl7.org/fhir/ValueSet/all-languages"/>
+          </valueReference>
+        </extension>
+        <strength value="extensible"/>
+        <description value="A human language."/>
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/languages"/>
+        </valueSetReference>
+      </binding>
+    </element>
+    <element id="Procedure:uscoreprocedure.text">
+      <path value="Procedure.text"/>
+      <short value="Text summary of the resource, for human interpretation"/>
+      <definition value="A human-readable narrative that contains a summary of the resource, and may be used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative. Resource definitions may define what content should be represented in the narrative to ensure clinical safety."/>
+      <comments value="Contained resources do not have narrative. Resources that are not contained SHOULD have a narrative. In some cases, a resource may only have text with little or no additional discrete data (as long as all minOccurs=1 elements are satisfied).  This may be necessary for data from legacy systems where information is captured as a &quot;text blob&quot; or where text is additionally entered raw or narrated and encoded in formation is added later."/>
+      <alias value="narrative"/>
+      <alias value="html"/>
+      <alias value="xhtml"/>
+      <alias value="display"/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="DomainResource.text"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="Narrative"/>
+      </type>
+      <condition value="dom-1"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value="Act.text?"/>
+      </mapping>
+    </element>
+    <element id="Procedure:uscoreprocedure.contained">
+      <path value="Procedure.contained"/>
+      <short value="Contained, inline Resources"/>
+      <definition value="These resources do not have an independent existence apart from the resource that contains them - they cannot be identified independently, and nor can they have their own independent transaction scope."/>
+      <comments value="This should never be done when the content can be identified properly, as once identification is lost, it is extremely difficult (and context dependent) to restore it again."/>
+      <alias value="inline resources"/>
+      <alias value="anonymous resources"/>
+      <alias value="contained resources"/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="DomainResource.contained"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="Resource"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+    </element>
+    <element id="Procedure:uscoreprocedure.extension">
+      <path value="Procedure.extension"/>
+      <short value="Additional Content defined by implementations"/>
+      <definition value="May be used to represent additional information that is not part of the basic definition of the resource. In order to make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension."/>
+      <comments value="There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone."/>
+      <alias value="extensions"/>
+      <alias value="user content"/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="DomainResource.extension"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="Extension"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+    </element>
+    <element id="Procedure:uscoreprocedure.modifierExtension">
+      <path value="Procedure.modifierExtension"/>
+      <short value="Extensions that cannot be ignored"/>
+      <definition value="May be used to represent additional information that is not part of the basic definition of the resource, and that modifies the understanding of the element that contains it. Usually modifier elements provide negation or qualification. In order to make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions."/>
+      <comments value="There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone."/>
+      <alias value="extensions"/>
+      <alias value="user content"/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="DomainResource.modifierExtension"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="Extension"/>
+      </type>
+      <isModifier value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+    </element>
+    <element id="Procedure:uscoreprocedure.identifier">
+      <path value="Procedure.identifier"/>
+      <short value="External Identifiers for this procedure"/>
+      <definition value="This records identifiers associated with this procedure that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation)."/>
+      <requirements value="Need to allow connection to a wider workflow."/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="Procedure.identifier"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="Identifier"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="v2"/>
+        <map value="Some combination of ORC-2 / ORC-3 / OBR-2 / OBR-3 / IPC-1 / IPC-2 / IPC-3 / IPC-4"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".id"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="id"/>
+      </mapping>
+    </element>
+    <element id="Procedure:uscoreprocedure.status">
+      <path value="Procedure.status"/>
+      <short value="in-progress | aborted | completed | entered-in-error | unknown"/>
+      <definition value="A code specifying the state of the procedure. Generally this will be in-progress or completed state."/>
+      <comments value="The unknown code is not to be used to convey other statuses.  The unknown code should be used when one of the statuses applies, but the authoring system doesn&#39;t know the current state of the procedure."/>
+      <min value="1"/>
+      <max value="1"/>
+      <base>
+        <path value="Procedure.status"/>
+        <min value="1"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="code"/>
+      </type>
+      <mustSupport value="true"/>
+      <isModifier value="true"/>
+      <isSummary value="false"/>
+      <binding>
+        <strength value="required"/>
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/procedure-status"/>
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="w5"/>
+        <map value="status"/>
+      </mapping>
+    </element>
+    <element id="Procedure:uscoreprocedure.category">
+      <path value="Procedure.category"/>
+      <short value="Classification of the procedure"/>
+      <definition value="A code that classifies the procedure for searching, sorting and display purposes (e.g. &quot;Surgical Procedure&quot;)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="Procedure.category"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <strength value="example"/>
+        <description value="A code that classifies a procedure for searching, sorting and display purposes."/>
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/procedure-category"/>
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=&quot;COMP].target[classCode=&quot;LIST&quot;, moodCode=&quot;EVN&quot;].code"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="class"/>
+      </mapping>
+    </element>
+    <element id="Procedure:uscoreprocedure.code">
+      <path value="Procedure.code"/>
+      <short value="SNOMED-CT | ICD-10 | CPT-4"/>
+      <definition value="The specific procedure that is performed. Use text if the exact nature of the procedure cannot be coded (e.g. &quot;Laparoscopic Appendectomy&quot;)."/>
+      <min value="1"/>
+      <max value="1"/>
+      <base>
+        <path value="Procedure.code"/>
+        <min value="1"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <mustSupport value="true"/>
+      <isSummary value="false"/>
+      <binding>
+        <strength value="example"/>
+        <description value="A code to identify a specific procedure ."/>
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/procedure-code"/>
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="v2"/>
+        <map value="OBR-44/OBR-45"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".code"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="what"/>
+      </mapping>
+    </element>
+    <element id="Procedure:uscoreprocedure.code.id">
+      <path value="Procedure.code.id"/>
+      <representation value="xmlAttr"/>
+      <short value="xml:id (or equivalent in JSON)"/>
+      <definition value="unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="Element.id"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="string"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
+    <element id="Procedure:uscoreprocedure.code.extension">
+      <path value="Procedure.code.extension"/>
+      <short value="Additional Content defined by implementations"/>
+      <definition value="May be used to represent additional information that is not part of the basic definition of the element. In order to make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension."/>
+      <comments value="There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone."/>
+      <alias value="extensions"/>
+      <alias value="user content"/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="Element.extension"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="Extension"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
+    <element id="Procedure:uscoreprocedure.code.coding">
+      <path value="Procedure.code.coding"/>
+      <slicing>
+        <discriminator value="code"/>
+        <rules value="open"/>
+      </slicing>
+      <short value="Code defined by a terminology system"/>
+      <definition value="A reference to a code defined by a terminology system."/>
+      <comments value="Codes may be defined very casually in enumerations, or code lists, up to very formal definitions such as SNOMED CT - see the HL7 v3 Core Principles for more information.  Ordering of codings is undefined and SHALL NOT be used to infer meaning. Generally, at most only one of the coding values will be labelled as UserSelected = true."/>
+      <requirements value="Allows for translations and alternate encodings within a code system.  Also supports communication of the same instance to systems requiring different encodings."/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="CodeableConcept.coding"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="Coding"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="v2"/>
+        <map value="C*E.1-8, C*E.10-22"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="union(., ./translation)"/>
+      </mapping>
+      <mapping>
+        <identity value="orim"/>
+        <map value="fhir:CodeableConcept.coding rdfs:subPropertyOf dt:CD.coding"/>
+      </mapping>
+    </element>
+    <element id="Procedure:uscoreprocedure.code.coding:uscoreprocedurecode">
+      <path value="Procedure.code.coding"/>
+      <sliceName value="USCoreProcedureCode"/>
+      <short value="Code defined by a terminology system"/>
+      <definition value="A reference to a code defined by a terminology system."/>
+      <comments value="Codes may be defined very casually in enumerations, or code lists, up to very formal definitions such as SNOMED CT - see the HL7 v3 Core Principles for more information.  Ordering of codings is undefined and SHALL NOT be used to infer meaning. Generally, at most only one of the coding values will be labelled as UserSelected = true."/>
+      <requirements value="Allows for translations and alternate encodings within a code system.  Also supports communication of the same instance to systems requiring different encodings."/>
+      <min value="1"/>
+      <max value="1"/>
+      <base>
+        <path value="CodeableConcept.coding"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="Coding"/>
+      </type>
+      <mustSupport value="true"/>
+      <isSummary value="false"/>
+      <binding>
+        <strength value="required"/>
+        <description value="Codes describing the Procedure Type"/>
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/us/core/ValueSet/us-core-procedure-type"/>
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="v2"/>
+        <map value="C*E.1-8, C*E.10-22"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="union(., ./translation)"/>
+      </mapping>
+      <mapping>
+        <identity value="orim"/>
+        <map value="fhir:CodeableConcept.coding rdfs:subPropertyOf dt:CD.coding"/>
+      </mapping>
+    </element>
+    <element id="Procedure:uscoreprocedure.code.coding">
+      <path value="Procedure.code.coding"/>
+      <short value="Code defined by a terminology system"/>
+      <definition value="A reference to a code defined by a terminology system."/>
+      <comments value="Codes may be defined very casually in enumerations, or code lists, up to very formal definitions such as SNOMED CT - see the HL7 v3 Core Principles for more information.  Ordering of codings is undefined and SHALL NOT be used to infer meaning. Generally, at most only one of the coding values will be labelled as UserSelected = true."/>
+      <requirements value="Allows for translations and alternate encodings within a code system.  Also supports communication of the same instance to systems requiring different encodings."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="CodeableConcept.coding"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="Coding"/>
+      </type>
+      <mustSupport value="true"/>
+      <isSummary value="false"/>
+      <binding>
+        <strength value="required"/>
+        <description value="Optional ICD-10PCS Code translations describing the Procedure Type"/>
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/us/core/ValueSet/us-core-procedure-icd10pcs"/>
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="v2"/>
+        <map value="C*E.1-8, C*E.10-22"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="union(., ./translation)"/>
+      </mapping>
+      <mapping>
+        <identity value="orim"/>
+        <map value="fhir:CodeableConcept.coding rdfs:subPropertyOf dt:CD.coding"/>
+      </mapping>
+    </element>
+    <element id="Procedure:uscoreprocedure.code.text">
+      <path value="Procedure.code.text"/>
+      <short value="Plain text representation of the concept"/>
+      <definition value="A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user."/>
+      <comments value="Very often the text is the same as a displayName of one of the codings."/>
+      <requirements value="The codes from the terminologies do not always capture the correct meaning with all the nuances of the human using them, or sometimes there is no appropriate code at all. In these cases, the text is used to capture the full meaning of the source."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="CodeableConcept.text"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="v2"/>
+        <map value="C*E.9. But note many systems use C*E.2 for this"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="./originalText[mediaType/code=&quot;text/plain&quot;]/data"/>
+      </mapping>
+      <mapping>
+        <identity value="orim"/>
+        <map value="fhir:CodeableConcept.text rdfs:subPropertyOf dt:CD.originalText"/>
+      </mapping>
+    </element>
+    <element id="Procedure:uscoreprocedure.subject">
+      <path value="Procedure.subject"/>
+      <short value="Who the procedure was performed on"/>
+      <definition value="The person, animal or group on which the procedure was performed."/>
+      <min value="1"/>
+      <max value="1"/>
+      <base>
+        <path value="Procedure.subject"/>
+        <min value="1"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"/>
+      </type>
+      <mustSupport value="true"/>
+      <isSummary value="false"/>
+      <mapping>
+        <identity value="v2"/>
+        <map value="PID-3"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=SBJ].role"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="who.focus"/>
+      </mapping>
+    </element>
+    <element id="Procedure:uscoreprocedure.encounter">
+      <path value="Procedure.encounter"/>
+      <short value="The encounter associated with the procedure"/>
+      <definition value="The encounter during which the procedure was performed."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="Procedure.encounter"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Encounter"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="v2"/>
+        <map value="PV1-19"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".inboundRelationship[typeCode=COMP].source[classCode=ENC, moodCode=EVN]"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="context"/>
+      </mapping>
+    </element>
+    <element id="Procedure:uscoreprocedure.performed[x]">
+      <path value="Procedure.performed[x]"/>
+      <short value="Date/Period the procedure was performed"/>
+      <definition value="The date(time)/period over which the procedure was performed. Allows a period to support complex procedures that span more than one date, and also allows for the length of the procedure to be captured."/>
+      <min value="1"/>
+      <max value="1"/>
+      <base>
+        <path value="Procedure.performed[x]"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <type>
+        <code value="Period"/>
+      </type>
+      <mustSupport value="true"/>
+      <isSummary value="false"/>
+      <mapping>
+        <identity value="v2"/>
+        <map value="OBR-7"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".effectiveTime"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="when.done"/>
+      </mapping>
+    </element>
+    <element id="Procedure:uscoreprocedure.performer">
+      <path value="Procedure.performer"/>
+      <short value="The people who performed the procedure"/>
+      <definition value="Limited to &#39;real&#39; people rather than equipment."/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="Procedure.performer"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <constraint>
+        <key value="ele-1"/>
+        <severity value="error"/>
+        <human value="All FHIR elements must have a @value or children"/>
+        <expression value="children().count() &gt; id.count()"/>
+        <xpath value="@value|f:*|h:div"/>
+        <source value="Element"/>
+      </constraint>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=PFM]"/>
+      </mapping>
+    </element>
+    <element id="Procedure:uscoreprocedure.performer.id">
+      <path value="Procedure.performer.id"/>
+      <representation value="xmlAttr"/>
+      <short value="xml:id (or equivalent in JSON)"/>
+      <definition value="unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="Element.id"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="string"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
+    <element id="Procedure:uscoreprocedure.performer.extension">
+      <path value="Procedure.performer.extension"/>
+      <short value="Additional Content defined by implementations"/>
+      <definition value="May be used to represent additional information that is not part of the basic definition of the element. In order to make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension."/>
+      <comments value="There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone."/>
+      <alias value="extensions"/>
+      <alias value="user content"/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="Element.extension"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="Extension"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
+    <element id="Procedure:uscoreprocedure.performer.modifierExtension">
+      <path value="Procedure.performer.modifierExtension"/>
+      <short value="Extensions that cannot be ignored"/>
+      <definition value="May be used to represent additional information that is not part of the basic definition of the element, and that modifies the understanding of the element that contains it. Usually modifier elements provide negation or qualification. In order to make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions."/>
+      <comments value="There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone."/>
+      <alias value="extensions"/>
+      <alias value="user content"/>
+      <alias value="modifiers"/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="BackboneElement.modifierExtension"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="Extension"/>
+      </type>
+      <isModifier value="true"/>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+    </element>
+    <element id="Procedure:uscoreprocedure.performer.actor">
+      <path value="Procedure.performer.actor"/>
+      <short value="The reference to the practitioner"/>
+      <definition value="The practitioner who was involved in the procedure."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="Procedure.performer.actor"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+      </type>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+      </type>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+      </type>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="v2"/>
+        <map value="ORC-19/PRT-5"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".role"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="who.actor"/>
+      </mapping>
+    </element>
+    <element id="Procedure:uscoreprocedure.performer.role">
+      <path value="Procedure.performer.role"/>
+      <short value="The role the actor was in"/>
+      <definition value="For example: surgeon, anaethetist, endoscopist."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="Procedure.performer.role"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <strength value="example"/>
+        <description value="A code that identifies the role of a performer of the procedure."/>
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/performer-role"/>
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="v2"/>
+        <map value="Some combination of STF-18 / PRA-3 / PRT-4 / ROL-3 / ORC-12 / OBR-16 / PV1-7 / PV1-8 / PV1-9 / PV1-17 / OBX-25"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".functionCode"/>
+      </mapping>
+    </element>
+    <element id="Procedure:uscoreprocedure.location">
+      <path value="Procedure.location"/>
+      <short value="Where the procedure happened"/>
+      <definition value="The location where the procedure actually happened.  E.g. a newborn at home, a tracheostomy at a restaurant."/>
+      <requirements value="Ties a procedure to where the records are likely kept."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="Procedure.location"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="where"/>
+      </mapping>
+    </element>
+    <element id="Procedure:uscoreprocedure.reasonReference">
+      <path value="Procedure.reasonReference"/>
+      <short value="Condition that is the reason the procedure performed"/>
+      <definition value="The condition that is the reason why the procedure was performed."/>
+      <comments value="e.g. endoscopy for dilatation and biopsy, combination diagnosis and therapeutic."/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="Procedure.reasonReference"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Condition"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".reasonCode"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="why"/>
+      </mapping>
+    </element>
+    <element id="Procedure:uscoreprocedure.reasonCode">
+      <path value="Procedure.reasonCode"/>
+      <short value="Coded reason procedure performed"/>
+      <definition value="The coded reason why the procedure was performed. This may be coded entity of some type, or may simply be present as text."/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="Procedure.reasonCode"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <strength value="example"/>
+        <description value="A code that identifies the reason a procedure is  required."/>
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/procedure-reason"/>
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".reasonCode"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="why"/>
+      </mapping>
+    </element>
+    <element id="Procedure:uscoreprocedure.notPerformed">
+      <path value="Procedure.notPerformed"/>
+      <short value="True if procedure was not performed as scheduled"/>
+      <definition value="Set this to true if the record is saying that the procedure was NOT performed."/>
+      <comments value="If true, it means the procedure did not occur as described.  Typically it would be accompanied by attributes describing the type of activity.  It might also be accompanied by body site information or time information (i.e. no procedure was done to the left arm or no procedure was done in this 2-year period).  Specifying additional information such as performer, outcome, etc. is generally inappropriate.  For example, it&#39;s not that useful to say &quot;There was no appendectomy done at 12:03pm June 6th by Dr. Smith with a successful outcome&quot; as it implies that there *could* have been an appendectomy done at any other time, by any other clinician or with any other outcome."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="Procedure.notPerformed"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="boolean"/>
+      </type>
+      <defaultValueBoolean value="false"/>
+      <isModifier value="true"/>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".actionNegationInd"/>
+      </mapping>
+    </element>
+    <element id="Procedure:uscoreprocedure.reasonNotPerformed">
+      <path value="Procedure.reasonNotPerformed"/>
+      <short value="Reason procedure was not performed"/>
+      <definition value="A code indicating why the procedure was not performed."/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="Procedure.reasonNotPerformed"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <condition value="pro-1"/>
+      <binding>
+        <strength value="example"/>
+        <description value="A code that identifies the reason a procedure was not performed."/>
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/procedure-not-performed-reason"/>
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".reason.Observation.value"/>
+      </mapping>
+    </element>
+    <element id="Procedure:uscoreprocedure.bodySite">
+      <path value="Procedure.bodySite"/>
+      <short value="Target body sites"/>
+      <definition value="Detailed and structured anatomical location information. Multiple locations are allowed - e.g. multiple punch biopsies of a lesion."/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="Procedure.bodySite"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <strength value="example"/>
+        <description value="Codes describing anatomical locations. May include laterality."/>
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/body-site"/>
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="v2"/>
+        <map value="OBX-20"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".targetSiteCode"/>
+      </mapping>
+    </element>
+    <element id="Procedure:uscoreprocedure.outcome">
+      <path value="Procedure.outcome"/>
+      <short value="The result of procedure"/>
+      <definition value="The outcome of the procedure - did it resolve reasons for the procedure being performed?"/>
+      <comments value="If outcome contains narrative text only, it can be captured using the CodeableConcept.text."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="Procedure.outcome"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <strength value="example"/>
+        <description value="An outcome of a procedure - whether it was resolved or otherwise."/>
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/procedure-outcome"/>
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=OUT].target.text"/>
+      </mapping>
+    </element>
+    <element id="Procedure:uscoreprocedure.report">
+      <path value="Procedure.report"/>
+      <short value="Any report resulting from the procedure"/>
+      <definition value="This could be a histology result, pathology report, surgical report, etc.."/>
+      <comments value="There could potentially be multiple reports - e.g. if this was a procedure which took multiple biopsies resulting in a number of anatomical pathology reports."/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="Procedure.report"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DiagnosticReport"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN]"/>
+      </mapping>
+    </element>
+    <element id="Procedure:uscoreprocedure.complication">
+      <path value="Procedure.complication"/>
+      <short value="Complication following the procedure"/>
+      <definition value="Any complications that occurred during the procedure, or in the immediate post-performance period. These are generally tracked separately from the notes, which will typically describe the procedure itself rather than any &#39;post procedure&#39; issues."/>
+      <comments value="If complications are only expressed by the narrative text, they can be captured using the CodeableConcept.text."/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="Procedure.complication"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <strength value="example"/>
+        <description value="Codes describing complications that resulted from a procedure."/>
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/condition-code"/>
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value="Need specialization of OUT for this."/>
+      </mapping>
+    </element>
+    <element id="Procedure:uscoreprocedure.followUp">
+      <path value="Procedure.followUp"/>
+      <short value="Instructions for follow up"/>
+      <definition value="If the procedure required specific follow up - e.g. removal of sutures. The followup may be represented as a simple note, or could potentially be more complex in which case the CarePlan resource can be used."/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="Procedure.followUp"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <strength value="example"/>
+        <description value="Specific follow up required for a procedure e.g. removal of sutures."/>
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/procedure-followup"/>
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=COMP].target[classCode=ACT, moodCode=INT].code"/>
+      </mapping>
+    </element>
+    <element id="Procedure:uscoreprocedure.request">
+      <path value="Procedure.request"/>
+      <short value="A request for this procedure"/>
+      <definition value="A reference to a resource that contains details of the request for this procedure."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="Procedure.request"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CarePlan"/>
+      </type>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DiagnosticRequest"/>
+      </type>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ProcedureRequest"/>
+      </type>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ReferralRequest"/>
+      </type>
+    </element>
+    <element id="Procedure:uscoreprocedure.notes">
+      <path value="Procedure.notes"/>
+      <short value="Additional information about the procedure"/>
+      <definition value="Any other notes about the procedure.  E.g. the operative notes."/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="Procedure.notes"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="Annotation"/>
+      </type>
+      <mapping>
+        <identity value="v2"/>
+        <map value="NTE"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=&quot;annotation&quot;].value"/>
+      </mapping>
+    </element>
+    <element id="Procedure:uscoreprocedure.focalDevice">
+      <path value="Procedure.focalDevice"/>
+      <short value="Device changed in procedure"/>
+      <definition value="A device that is implanted, removed or otherwise manipulated (calibration, battery replacement, fitting a prosthesis, attaching a wound-vac, etc.) as a focal portion of the Procedure."/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="Procedure.focalDevice"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <constraint>
+        <key value="ele-1"/>
+        <severity value="error"/>
+        <human value="All FHIR elements must have a @value or children"/>
+        <expression value="children().count() &gt; id.count()"/>
+        <xpath value="@value|f:*|h:div"/>
+        <source value="Element"/>
+      </constraint>
+    </element>
+    <element id="Procedure:uscoreprocedure.focalDevice.id">
+      <path value="Procedure.focalDevice.id"/>
+      <representation value="xmlAttr"/>
+      <short value="xml:id (or equivalent in JSON)"/>
+      <definition value="unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="Element.id"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="string"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
+    <element id="Procedure:uscoreprocedure.focalDevice.extension">
+      <path value="Procedure.focalDevice.extension"/>
+      <short value="Additional Content defined by implementations"/>
+      <definition value="May be used to represent additional information that is not part of the basic definition of the element. In order to make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension."/>
+      <comments value="There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone."/>
+      <alias value="extensions"/>
+      <alias value="user content"/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="Element.extension"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="Extension"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
+    <element id="Procedure:uscoreprocedure.focalDevice.modifierExtension">
+      <path value="Procedure.focalDevice.modifierExtension"/>
+      <short value="Extensions that cannot be ignored"/>
+      <definition value="May be used to represent additional information that is not part of the basic definition of the element, and that modifies the understanding of the element that contains it. Usually modifier elements provide negation or qualification. In order to make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions."/>
+      <comments value="There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone."/>
+      <alias value="extensions"/>
+      <alias value="user content"/>
+      <alias value="modifiers"/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="BackboneElement.modifierExtension"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="Extension"/>
+      </type>
+      <isModifier value="true"/>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+    </element>
+    <element id="Procedure:uscoreprocedure.focalDevice.action">
+      <path value="Procedure.focalDevice.action"/>
+      <short value="Kind of change to device"/>
+      <definition value="The kind of change that happened to the device during the procedure."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="Procedure.focalDevice.action"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <strength value="required"/>
+        <description value="A kind of change that happened to the device during the procedure."/>
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/device-action"/>
+        </valueSetReference>
+      </binding>
+    </element>
+    <element id="Procedure:uscoreprocedure.focalDevice.manipulated">
+      <path value="Procedure.focalDevice.manipulated"/>
+      <short value="Device that was changed"/>
+      <definition value="The device that was manipulated (changed) during the procedure."/>
+      <min value="1"/>
+      <max value="1"/>
+      <base>
+        <path value="Procedure.focalDevice.manipulated"/>
+        <min value="1"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+      </type>
+    </element>
+    <element id="Procedure:uscoreprocedure.usedReference">
+      <path value="Procedure.usedReference"/>
+      <short value="Items used during procedure"/>
+      <definition value="Identifies medications, devices and any other substance used as part of the procedure."/>
+      <comments value="For devices actually implanted or removed, use Procedure.device."/>
+      <requirements value="Used for tracking contamination, etc."/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="Procedure.usedReference"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+      </type>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Medication"/>
+      </type>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Substance"/>
+      </type>
+    </element>
+    <element id="Procedure:uscoreprocedure.usedCode">
+      <path value="Procedure.usedCode"/>
+      <short value="Coded items used during the procedure"/>
+      <definition value="Identifies coded items that were used as part of the procedure."/>
+      <comments value="For devices actually implanted or removed, use Procedure.device."/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="Procedure.usedCode"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <strength value="example"/>
+        <description value="Codes describing items used during a procedure"/>
+      </binding>
+    </element>
+    <element id="Procedure:uscoreprocedure.component">
+      <path value="Procedure.component"/>
+      <short value="Events related to the procedure"/>
+      <definition value="Identifies medication administrations, other procedures or observations that are related to this procedure."/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="Procedure.component"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationAdministration"/>
+      </type>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
+      </type>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Observation"/>
+      </type>
+    </element>
+  </snapshot>
+  <differential>
+    <element id="Procedure:uscoreprocedure">
+      <path value="Procedure"/>
+      <sliceName value="USCoreProcedure"/>
+      <short value="US Core Procedure Profile"/>
+      <definition value="The US Core Condition Profile is based upon the core FHIR Procedure Resource and created to meet the 2015 Edition Common Clinical Data Set &#39;Procedures&#39; requirements."/>
+      <mustSupport value="false"/>
+      <isModifier value="false"/>
+      <isSummary value="false"/>
+    </element>
+    <element id="Procedure:uscoreprocedure.status">
+      <path value="Procedure.status"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <mustSupport value="true"/>
+      <isModifier value="false"/>
+      <isSummary value="false"/>
+      <binding>
+        <strength value="required"/>
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/procedure-status"/>
+        </valueSetReference>
+      </binding>
+    </element>
+    <element id="Procedure:uscoreprocedure.code">
+      <path value="Procedure.code"/>
+      <short value="SNOMED-CT | ICD-10 | CPT-4"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <mustSupport value="true"/>
+      <isModifier value="false"/>
+      <isSummary value="false"/>
+    </element>
+    <element id="Procedure:uscoreprocedure.code.coding:uscoreprocedurecode">
+      <path value="Procedure.code.coding"/>
+      <sliceName value="USCoreProcedureCode"/>
+      <slicing>
+        <discriminator value="code"/>
+        <rules value="open"/>
+      </slicing>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Coding"/>
+      </type>
+      <mustSupport value="true"/>
+      <isModifier value="false"/>
+      <isSummary value="false"/>
+      <binding>
+        <strength value="required"/>
+        <description value="Codes describing the Procedure Type"/>
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/us/core/ValueSet/us-core-procedure-type"/>
+        </valueSetReference>
+      </binding>
+    </element>
+    <element id="Procedure:uscoreprocedure.code.coding">
+      <path value="Procedure.code.coding"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Coding"/>
+      </type>
+      <mustSupport value="true"/>
+      <isModifier value="false"/>
+      <isSummary value="false"/>
+      <binding>
+        <strength value="required"/>
+        <description value="Optional ICD-10PCS Code translations describing the Procedure Type"/>
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/us/core/ValueSet/us-core-procedure-icd10pcs"/>
+        </valueSetReference>
+      </binding>
+    </element>
+    <element id="Procedure:uscoreprocedure.subject">
+      <path value="Procedure.subject"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"/>
+      </type>
+      <mustSupport value="true"/>
+      <isModifier value="false"/>
+      <isSummary value="false"/>
+    </element>
+    <element id="Procedure:uscoreprocedure.performed[x]">
+      <path value="Procedure.performed[x]"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <type>
+        <code value="Period"/>
+      </type>
+      <mustSupport value="true"/>
+      <isModifier value="false"/>
+      <isSummary value="false"/>
+    </element>
+  </differential>
+</StructureDefinition>

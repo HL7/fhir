@@ -1,0 +1,49 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sct: <http://snomed.info/id/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://hl7.org/fhir/us/core/Device/udi-1> a fhir:Device;
+  fhir:nodeRole fhir:treeRoot;
+  fhir:Resource.id [ fhir:value "udi-1"];
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "http://hl7.org/fhir/us/core/StructureDefinition/us-core-device";
+       fhir:index 0
+     ]
+  ];
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ];
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: udi-1</p><p><b>meta</b>: </p><p><b>udiCarrier</b>: Universal Device Identifier = {01}09504000059118{17}141120{10}7654321D{21}10987654d321</p><p><b>status</b>: available</p><p><b>type</b>: Coated femoral stem prosthesis, modular <span style=\"background: LightGoldenRodYellow\">(Details : {SNOMED CT code '468063009' = '468063009', given as 'Coated femoral stem prosthesis, modular'})</span></p><p><b>patient</b>: <a href=\"Patient-example.html\">Amy Shaw </a></p></div>"
+  ];
+  fhir:Device.udiCarrier [
+     fhir:Identifier.type [
+       fhir:CodeableConcept.coding [
+         fhir:index 0;
+         fhir:Coding.system [ fhir:value "http://hl7.org/fhir/identifier-type" ];
+         fhir:Coding.code [ fhir:value "UDI" ]
+       ]
+     ];
+     fhir:Identifier.system [ fhir:value "http://hl7.org/fhir/NamingSystem/fda-udi" ];
+     fhir:Identifier.value [ fhir:value "{01}09504000059118{17}141120{10}7654321D{21}10987654d321" ]
+  ];
+  fhir:Device.status [ fhir:value "available"];
+  fhir:Device.type [
+     fhir:CodeableConcept.coding [
+       fhir:index 0;
+       fhir:concept sct:468063009;
+       fhir:Coding.system [ fhir:value "http://snomed.info/sct" ];
+       fhir:Coding.code [ fhir:value "468063009" ];
+       fhir:Coding.display [ fhir:value "Coated femoral stem prosthesis, modular" ]
+     ]
+  ];
+  fhir:Device.patient [
+     fhir:Reference.reference [ fhir:value "Patient-example.html" ];
+     fhir:Reference.display [ fhir:value "Amy Shaw " ]
+  ] .
+
+# -------------------------------------------------------------------------------------
+

@@ -1,0 +1,38 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://hl7.org/fhir/us/core/ValueSet/us-core-provider-specialty> a fhir:ValueSet;
+  fhir:nodeRole fhir:treeRoot;
+  fhir:Resource.id [ fhir:value "us-core-provider-specialty"];
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ];
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h2>US Core Provider Speciality (NUCC)</h2><div><p>Provider speciality roles codes which are composed of the NUCC Health Care Provider Taxonomy Code Set for providers</p>\n</div><p><b>Copyright Statement:</b> TODO: Permission to Use and Distribute the Health Care Provider Taxonomy Code Set</p><p>This value set includes codes from the following code systems:</p><ul><li>Include all codes defined in http://nucc.org/provider-taxonomy</li></ul></div>"
+  ];
+  fhir:ValueSet.url [ fhir:value "http://hl7.org/fhir/us/core/ValueSet/us-core-provider-specialty"];
+  fhir:ValueSet.name [ fhir:value "US Core Provider Speciality (NUCC)"];
+  fhir:ValueSet.status [ fhir:value "draft"];
+  fhir:ValueSet.publisher [ fhir:value "FHIR Project Team"];
+  fhir:ValueSet.contact [
+     fhir:index 0;
+     fhir:ContactDetail.telecom [
+       fhir:index 0;
+       fhir:ContactPoint.system [ fhir:value "other" ];
+       fhir:ContactPoint.value [ fhir:value "http://hl7.org/fhir" ]
+     ]
+  ];
+  fhir:ValueSet.date [ fhir:value "2016-08-10"^^xsd:date];
+  fhir:ValueSet.description [ fhir:value "Provider speciality roles codes which are composed of the NUCC Health Care Provider Taxonomy Code Set for providers"];
+  fhir:ValueSet.copyright [ fhir:value "TODO: Permission to Use and Distribute the Health Care Provider Taxonomy Code Set"];
+  fhir:ValueSet.compose [
+     fhir:ValueSet.compose.include [
+       fhir:index 0;
+       fhir:ValueSet.compose.include.system [ fhir:value "http://nucc.org/provider-taxonomy" ]
+     ]
+  ] .
+
+# -------------------------------------------------------------------------------------
+

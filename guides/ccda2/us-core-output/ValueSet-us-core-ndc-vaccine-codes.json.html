@@ -1,0 +1,2205 @@
+<!DOCTYPE HTML>
+
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+   <meta charset="UTF-8"/>
+  <title></title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="US Core Implemenation Guide" />
+<meta name="author" content="http://www.hl7.org"/>
+
+  <link href="fhir.css" rel="stylesheet"/>
+
+   <!-- Bootstrap core CSS -->
+  <link href="dist/css/bootstrap.css" rel="stylesheet"/>
+  <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+  <!-- Project extras -->
+  <link href="assets/css/project.css" rel="stylesheet"/>
+  <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+	<link href="jquery-ui.css" rel="stylesheet"/>
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png"/>
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png"/>
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png"/>
+  <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png"/>
+  <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+
+
+<body>
+
+ <div id="segment-header" class="segment">  <!-- segment-header -->
+  <div class="container">  <!-- container -->
+   <a id="logo" no-external="true" href="http://hl7.org/fhir"><img alt="logo fhir" src="assets/images/fhir-logo-www.png"/> </a>
+   <div id="hl7-status">
+    <b>US-Core CI Build</b>
+   </div>
+
+   <div id="hl7-nav">
+     <a id="hl7-logo" no-external="true" href="http://www.hl7.org">
+     <img height="50" alt="visit the hl7 website" width="42" src="assets/images/hl7-logo.png"/>
+    </a>
+   </div>
+   <div id="hl7-nav"><a id="hl7-logo" no-external="true" href="http://hl7.org/fhir/search.cfm"><img height="50"  alt="US-Core" src="assets/images/usbanner.png"/></a></div>
+  </div>
+  <div class="container">  <!-- container -->
+ </div></div>  <!-- /segment-header -->
+
+ <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+  <div id="stripe"> </div>
+  <div class="container">  <!-- container -->
+   <!-- HEADER CONTENT -->
+
+   <nav class="navbar navbar-inverse">
+    <div class="container">
+     <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+      <span class="icon-bar"> </span>
+      <span class="icon-bar"> </span>
+      <span class="icon-bar"> </span>
+     </button>
+     <a class="navbar-brand hidden" href="http://hl7.org/fhir/2017Janindex.html">FHIR</a>
+     <div class="nav-collapse collapse navbar-inverse-collapse">
+      <ul class="nav navbar-nav">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="definitions.html">General Guidance</a></li>
+              <li><a href="profiles.html">US Core Profiles</a></li>
+              <li><a href="extensions.html">Extensions</a></li>
+              <li><a href="valuesets.html">Value Sets</a></li>
+              <li><a href="searchparams.html">Search Parameters</a></li>
+              <li><a href="capstmnts.html">Capability Statements</a></li>
+              <li><a href="security.html">Security</a></li>
+              <li><a href="downloads.html">Downloads</a></li>
+            </ul>
+
+     </div>  <!-- /.nav-collapse -->
+    </div>  <!-- /.container -->
+   </nav>  <!-- /.navbar -->
+
+  <!-- /HEADER CONTENT -->
+  </div>  <!-- /container -->
+ </div>  <!-- /segment-navbar -->
+
+
+
+
+
+  </div>  <!-- /container -->
+ </div>  <!-- /segment-breadcrumb -->
+
+ <div id="segment-content" class="segment">  <!-- segment-content -->
+ <div class="container">  <!-- container -->
+            <div class="row">
+             <div class="inner-wrapper">
+
+
+<div class="col-9">
+
+  <!-- ============CONTENT CONTENT=============== -->
+
+<h2>Vaccine National Drug Code (NDC)</h2>
+
+<pre class="json">
+{
+  "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet">resourceType</a>" : "ValueSet",
+  "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.id">id</a>" : "us-core-ndc-vaccine-codes",
+  "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.text">text</a>" : {
+    "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#Narrative#Narrative.status">status</a>" : "generated",
+    "<a href="http://hl7.org/fhir/2017Jan/datatypes.html#Narrative#Narrative.div">div</a>" : "&lt;div xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;&lt;h2&gt;Vaccine National Drug Code (NDC)&lt;/h2&gt;&lt;div&gt;&lt;p&gt;This value set includes all the Vaccine National Drug Codes (NDC).  This source of this data is provided by the &lt;a href=&quot;https://www2a.cdc.gov/vaccines/iis/iisstandards/ndc_crosswalk.asp&quot;&gt;CDC&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;This value set includes codes from the following code systems:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Include these codes as defined in http://hl7.org/fhir/sid/ndc&lt;table class=&quot;none&quot;&gt;&lt;tr&gt;&lt;td&gt;&lt;b&gt;Code&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;b&gt;Display&lt;/b&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;49281-0589-58&lt;/td&gt;&lt;td&gt;Menactra&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;49281-0623-78&lt;/td&gt;&lt;td&gt;FLUZONE QUADRIVALENT&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;49281-0515-00&lt;/td&gt;&lt;td&gt;Fluzone Quadrivalent, peds&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;49281-0415-88&lt;/td&gt;&lt;td&gt;Fluzone Quadrivalent PF&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;49281-0415-58&lt;/td&gt;&lt;td&gt;FLUZONE QUADRIVALENT PF&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;33332-0115-11&lt;/td&gt;&lt;td&gt;AFLURIA&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;33332-0015-02&lt;/td&gt;&lt;td&gt;AFLURIA&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;66019-0302-01&lt;/td&gt;&lt;td&gt;FluMist Quadrivalent&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;42874-0015-01&lt;/td&gt;&lt;td&gt;Flublok&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;66521-0118-12&lt;/td&gt;&lt;td&gt;Fluvirin&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;66521-0118-11&lt;/td&gt;&lt;td&gt;Fluvirin&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;58160-0883-41&lt;/td&gt;&lt;td&gt;FLUARIX&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;66521-0000-11&lt;/td&gt;&lt;td&gt;Fluad&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;69401-0000-01&lt;/td&gt;&lt;td&gt;Vivotif&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;66019-0301-01&lt;/td&gt;&lt;td&gt;FluMist Quadrivalent&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;33332-0014-02&lt;/td&gt;&lt;td&gt;AFLURIA&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;33332-0114-11&lt;/td&gt;&lt;td&gt;AFLURIA&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;63851-0613-11&lt;/td&gt;&lt;td&gt;Flucelvax&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;66521-0117-11&lt;/td&gt;&lt;td&gt;FLUVIRIN&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;66521-0117-12&lt;/td&gt;&lt;td&gt;Fluvirin&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;00006-4093-01&lt;/td&gt;&lt;td&gt;RECOMBIVAX HB&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;00006-4094-01&lt;/td&gt;&lt;td&gt;RECOMBIVAX HB&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;00006-4095-01&lt;/td&gt;&lt;td&gt;VAQTA&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;00006-4096-01&lt;/td&gt;&lt;td&gt;VAQTA&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;00006-4963-01&lt;/td&gt;&lt;td&gt;ZOSTAVAX&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;00006-4963-01&lt;/td&gt;&lt;td&gt;ZOSTAVAX&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;42874-0014-01&lt;/td&gt;&lt;td&gt;Flublok&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;49281-0414-88&lt;/td&gt;&lt;td&gt;Fluzone Quadrivalent PF&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;49281-0395-88&lt;/td&gt;&lt;td&gt;Fluzone HD&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;49281-0709-48&lt;/td&gt;&lt;td&gt;FLUZONE Intradermal&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;58160-0881-41&lt;/td&gt;&lt;td&gt;FLUARIX&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;58160-0809-01&lt;/td&gt;&lt;td&gt;MENHIBRIX&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;62577-0613-11&lt;/td&gt;&lt;td&gt;Flucelvax&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;19515-0893-02&lt;/td&gt;&lt;td&gt;FLULAVAL&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;49281-0621-78&lt;/td&gt;&lt;td&gt;FLUZONE QUADRIVALENT&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;00005-0100-01&lt;/td&gt;&lt;td&gt;Trumenba&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;00005-0100-01&lt;/td&gt;&lt;td&gt;Trumenba&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;00005-0100-01&lt;/td&gt;&lt;td&gt;Trumenba&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;00006-4047-01&lt;/td&gt;&lt;td&gt;RotaTeq&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;00006-4109-01&lt;/td&gt;&lt;td&gt;GARDASIL&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;62577-0613-11&lt;/td&gt;&lt;td&gt;Flucelvax&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;00006-4121-01&lt;/td&gt;&lt;td&gt;GARDASIL 9&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;00006-4119-01&lt;/td&gt;&lt;td&gt;GARDASIL 9&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;00006-4119-01&lt;/td&gt;&lt;td&gt;GARDASIL 9&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;63851-0511-11&lt;/td&gt;&lt;td&gt;RabAvert&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;49281-0562-58&lt;/td&gt;&lt;td&gt;QUADRACEL&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;46028-0114-11&lt;/td&gt;&lt;td&gt;Bexsero&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;46028-0114-11&lt;/td&gt;&lt;td&gt;Bexsero&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;00006-4171-01&lt;/td&gt;&lt;td&gt;ProQuad&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;13533-0131-00&lt;/td&gt;&lt;td&gt;Tetanus and Diphtheria Toxoids Adsorbed&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;49281-0396-78&lt;/td&gt;&lt;td&gt;FLUZONE&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;49281-0397-88&lt;/td&gt;&lt;td&gt;FLUZONE High-Dose&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;62577-0614-11&lt;/td&gt;&lt;td&gt;Flucelvax&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;58160-0903-41&lt;/td&gt;&lt;td&gt;FLUARIX QUADRIVALENT&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;19515-0898-01&lt;/td&gt;&lt;td&gt;Flulaval Quadrivalent&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;19515-0901-41&lt;/td&gt;&lt;td&gt;Flulaval Quadrivalent&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;49281-0393-88&lt;/td&gt;&lt;td&gt;FLUZONE High-Dose&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;58160-0810-43&lt;/td&gt;&lt;td&gt;INFANRIX&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;58160-0810-01&lt;/td&gt;&lt;td&gt;INFANRIX&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;49281-0790-38&lt;/td&gt;&lt;td&gt;Typhim Vi&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;49281-0790-88&lt;/td&gt;&lt;td&gt;Typhim Vi&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;49281-0640-15&lt;/td&gt;&lt;td&gt;INFLUENZA A (H1N1) 2009 MONOVALENT VACCINE&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;49281-0650-10&lt;/td&gt;&lt;td&gt;INFLUENZA A (H1N1) 2009 MONOVALENT VACCINE&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;49281-0650-90&lt;/td&gt;&lt;td&gt;INFLUENZA A (H1N1) 2009 MONOVALENT VACCINE&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;49281-0650-25&lt;/td&gt;&lt;td&gt;INFLUENZA A (H1N1) 2009 MONOVALENT VACCINE&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;49281-0650-70&lt;/td&gt;&lt;td&gt;INFLUENZA A (H1N1) 2009 MONOVALENT VACCINE&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;49281-0650-50&lt;/td&gt;&lt;td&gt;INFLUENZA A (H1N1) 2009 MONOVALENT VACCINE&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;49281-0707-48&lt;/td&gt;&lt;td&gt;FLUZONE&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;66019-0110-01&lt;/td&gt;&lt;td&gt;FluMist&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;00006-4681-01&lt;/td&gt;&lt;td&gt;M-M-R II&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;49281-0215-58&lt;/td&gt;&lt;td&gt;TENIVAC&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;49281-0215-88&lt;/td&gt;&lt;td&gt;TENIVAC&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;46028-0218-11&lt;/td&gt;&lt;td&gt;Meningococcal (Groups A) CRM197 Oligosaccharide Co&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;49281-0387-65&lt;/td&gt;&lt;td&gt;FLUZONE&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;49281-0386-15&lt;/td&gt;&lt;td&gt;FLUZONE&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;49281-0010-10&lt;/td&gt;&lt;td&gt;FLUZONE&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;49281-0010-25&lt;/td&gt;&lt;td&gt;Fluzone&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;49281-0010-50&lt;/td&gt;&lt;td&gt;FLUZONE&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;54868-0980-00&lt;/td&gt;&lt;td&gt;M-M-R II&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;58160-0830-43&lt;/td&gt;&lt;td&gt;CERVARIX&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;58160-0830-05&lt;/td&gt;&lt;td&gt;CERVARIX&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;00005-1971-01&lt;/td&gt;&lt;td&gt;PREVNAR 13&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;00005-1971-01&lt;/td&gt;&lt;td&gt;PREVNAR 13&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;00005-1971-01&lt;/td&gt;&lt;td&gt;PREVNAR 13&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;17478-0131-00&lt;/td&gt;&lt;td&gt;Tetanus and Diphtheria Toxoids Adsorbed&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;58160-0812-43&lt;/td&gt;&lt;td&gt;KINRIX&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;58160-0812-01&lt;/td&gt;&lt;td&gt;KINRIX&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;66019-0108-01&lt;/td&gt;&lt;td&gt;FluMist&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;00006-4898-01&lt;/td&gt;&lt;td&gt;COMVAX&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;58160-0809-01&lt;/td&gt;&lt;td&gt;MENHIBRIX&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;63851-0612-11&lt;/td&gt;&lt;td&gt;Flucelvax&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;00006-4992-01&lt;/td&gt;&lt;td&gt;RECOMBIVAX HB&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;00006-4981-01&lt;/td&gt;&lt;td&gt;RECOMBIVAX HB&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;00006-4980-00&lt;/td&gt;&lt;td&gt;RECOMBIVAX HB&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;00006-4093-01&lt;/td&gt;&lt;td&gt;RECOMBIVAX HB&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;00006-4094-01&lt;/td&gt;&lt;td&gt;RECOMBIVAX HB&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;00006-4109-01&lt;/td&gt;&lt;td&gt;GARDASIL&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;66521-0112-02&lt;/td&gt;&lt;td&gt;FLUVIRIN&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;66521-0112-10&lt;/td&gt;&lt;td&gt;FLUVIRIN&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;66019-0107-01&lt;/td&gt;&lt;td&gt;FluMist&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;49281-0225-58&lt;/td&gt;&lt;td&gt;DIPHTHERIA AND TETANUS TOXOIDS ADSORBED&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;49281-0705-55&lt;/td&gt;&lt;td&gt;FLUZONE&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;42515-0001-00&lt;/td&gt;&lt;td&gt;IXIARO&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;58160-0879-41&lt;/td&gt;&lt;td&gt;FLUARIX&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;58160-0880-41&lt;/td&gt;&lt;td&gt;FLUARIX&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;58160-0820-01&lt;/td&gt;&lt;td&gt;ENGERIX-B&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;58160-0820-43&lt;/td&gt;&lt;td&gt;ENGERIX-B&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;58160-0821-01&lt;/td&gt;&lt;td&gt;ENGERIX-B&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;58160-0821-43&lt;/td&gt;&lt;td&gt;ENGERIX-B&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;58160-0821-05&lt;/td&gt;&lt;td&gt;ENGERIX-B&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;42874-0012-01&lt;/td&gt;&lt;td&gt;Flublok&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;49281-0278-10&lt;/td&gt;&lt;td&gt;DIPHTHERIA AND TETANUS TOXOIDS ADSORBED&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;66019-0109-01&lt;/td&gt;&lt;td&gt;FluMist&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;19515-0890-02&lt;/td&gt;&lt;td&gt;FLULAVAL&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;19515-0889-02&lt;/td&gt;&lt;td&gt;FLULAVAL&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;58160-0900-41&lt;/td&gt;&lt;td&gt;FLUARIX QUADRIVALENT&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;49281-0860-78&lt;/td&gt;&lt;td&gt;IPOL&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;49281-0860-88&lt;/td&gt;&lt;td&gt;IPOL&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;49281-0389-65&lt;/td&gt;&lt;td&gt;FLUZONE High-Dose&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;49281-0388-15&lt;/td&gt;&lt;td&gt;FLUZONE&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;49281-0011-10&lt;/td&gt;&lt;td&gt;FLUZONE&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;49281-0011-50&lt;/td&gt;&lt;td&gt;FLUZONE&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;49281-0703-55&lt;/td&gt;&lt;td&gt;FLUZONE Intradermal&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;49281-0111-25&lt;/td&gt;&lt;td&gt;FLUZONE&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;66521-0200-10&lt;/td&gt;&lt;td&gt;Influenza A (H1N1) 2009 Monovalent Vaccine&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;66521-0200-02&lt;/td&gt;&lt;td&gt;Influenza A (H1N1) 2009 Monovalent Vaccine&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;49281-0298-10&lt;/td&gt;&lt;td&gt;TRIPEDIA&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;58160-0806-01&lt;/td&gt;&lt;td&gt;HIBERIX&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;33332-0013-02&lt;/td&gt;&lt;td&gt;AFLURIA&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;33332-0113-11&lt;/td&gt;&lt;td&gt;AFLURIA&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;49281-0391-65&lt;/td&gt;&lt;td&gt;FLUZONE High-Dose&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;49281-0012-50&lt;/td&gt;&lt;td&gt;FLUZONE&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;49281-0012-10&lt;/td&gt;&lt;td&gt;FLUZONE&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;49281-0112-25&lt;/td&gt;&lt;td&gt;FLUZONE&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;49281-0390-15&lt;/td&gt;&lt;td&gt;FLUZONE&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;00006-4897-01&lt;/td&gt;&lt;td&gt;PedvaxHIB&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;49281-0291-83&lt;/td&gt;&lt;td&gt;DECAVAC&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;49281-0291-10&lt;/td&gt;&lt;td&gt;DECAVAC&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;49281-0413-88&lt;/td&gt;&lt;td&gt;FLUZONE QUADRIVALENT&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;49281-0413-58&lt;/td&gt;&lt;td&gt;FLUZONE QUADRIVALENT&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;49281-0513-00&lt;/td&gt;&lt;td&gt;FLUZONE QUADRIVALENT&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;66521-0113-02&lt;/td&gt;&lt;td&gt;Fluvirin&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;66521-0113-10&lt;/td&gt;&lt;td&gt;Fluvirin&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;00005-1970-49&lt;/td&gt;&lt;td&gt;Prevnar&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;00006-4047-01&lt;/td&gt;&lt;td&gt;RotaTeq&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;58160-0811-43&lt;/td&gt;&lt;td&gt;PEDIARIX&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;58160-0811-41&lt;/td&gt;&lt;td&gt;PEDIARIX&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;00006-4827-01&lt;/td&gt;&lt;td&gt;VARIVAX&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;00006-4826-01&lt;/td&gt;&lt;td&gt;VARIVAX&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;58160-0842-41&lt;/td&gt;&lt;td&gt;BOOSTRIX&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;58160-0842-01&lt;/td&gt;&lt;td&gt;BOOSTRIX&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;58160-0842-43&lt;/td&gt;&lt;td&gt;BOOSTRIX&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;58160-0842-05&lt;/td&gt;&lt;td&gt;BOOSTRIX&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;66019-0300-01&lt;/td&gt;&lt;td&gt;FluMist Quadrivalent&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;49281-0589-58&lt;/td&gt;&lt;td&gt;Menactra&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;00006-4095-01&lt;/td&gt;&lt;td&gt;VAQTA&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;00006-4096-01&lt;/td&gt;&lt;td&gt;VAQTA&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;00006-4831-01&lt;/td&gt;&lt;td&gt;VAQTA&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;63851-0511-11&lt;/td&gt;&lt;td&gt;RabAvert&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;66019-0200-01&lt;/td&gt;&lt;td&gt;Influenza A H1N1 2009 Monovalent Vaccine Live Intr&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;14362-0111-03&lt;/td&gt;&lt;td&gt;Tetanus and Diphtheria Toxoids Adsorbed&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;33332-0519-01&lt;/td&gt;&lt;td&gt;Influenza A&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;33332-0519-25&lt;/td&gt;&lt;td&gt;Influenza A&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;33332-0629-10&lt;/td&gt;&lt;td&gt;Influenza A&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;58160-0825-43&lt;/td&gt;&lt;td&gt;HAVRIX&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;58160-0825-01&lt;/td&gt;&lt;td&gt;HAVRIX&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;58160-0826-43&lt;/td&gt;&lt;td&gt;HAVRIX&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;58160-0826-05&lt;/td&gt;&lt;td&gt;HAVRIX&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;58160-0826-01&lt;/td&gt;&lt;td&gt;HAVRIX&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;33332-0010-01&lt;/td&gt;&lt;td&gt;AFLURIA&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;33332-0110-10&lt;/td&gt;&lt;td&gt;AFLURIA&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;66521-0115-10&lt;/td&gt;&lt;td&gt;Fluvirin&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;66521-0115-02&lt;/td&gt;&lt;td&gt;Fluvirin&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;00006-4133-01&lt;/td&gt;&lt;td&gt;Tetanus and Diphtheria Toxoids Adsorbed&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;54868-4320-09&lt;/td&gt;&lt;td&gt;PNEUMOVAX 23&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;54868-3339-09&lt;/td&gt;&lt;td&gt;PNEUMOVAX 23&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;00052-0603-01&lt;/td&gt;&lt;td&gt;BCG VACCINE&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;64678-0211-05&lt;/td&gt;&lt;td&gt;BioThrax&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;00006-4739-01&lt;/td&gt;&lt;td&gt;PNEUMOVAX 23&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;00006-4943-01&lt;/td&gt;&lt;td&gt;PNEUMOVAX 23&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;49281-0013-58&lt;/td&gt;&lt;td&gt;FLUZONE&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;49281-0013-88&lt;/td&gt;&lt;td&gt;FLUZONE&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;49281-0392-78&lt;/td&gt;&lt;td&gt;FLUZONE&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;49281-0113-00&lt;/td&gt;&lt;td&gt;FLUZONE&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;49281-0820-10&lt;/td&gt;&lt;td&gt;TETANUS TOXOID ADSORBED&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;49281-0800-83&lt;/td&gt;&lt;td&gt;TETANUS TOXOID ADSORBED&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;49281-0400-88&lt;/td&gt;&lt;td&gt;Adacel&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;49281-0286-58&lt;/td&gt;&lt;td&gt;DAPTACEL&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;49281-0286-58&lt;/td&gt;&lt;td&gt;DAPTACEL&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;49281-0286-58&lt;/td&gt;&lt;td&gt;DAPTACEL&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;58160-0815-41&lt;/td&gt;&lt;td&gt;TWINRIX&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;58160-0815-43&lt;/td&gt;&lt;td&gt;TWINRIX&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;58160-0815-05&lt;/td&gt;&lt;td&gt;TWINRIX&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;58160-0815-43&lt;/td&gt;&lt;td&gt;TWINRIX&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;58160-0815-01&lt;/td&gt;&lt;td&gt;TWINRIX&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;66521-0114-10&lt;/td&gt;&lt;td&gt;Fluvirin&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;76420-0482-01&lt;/td&gt;&lt;td&gt;FLUVIRIN&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;19515-0895-01&lt;/td&gt;&lt;td&gt;Flulaval Quadrivalent&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;00006-4999-01&lt;/td&gt;&lt;td&gt;ProQuad&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;49281-0545-15&lt;/td&gt;&lt;td&gt;ACTHIB&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;51285-0174-02&lt;/td&gt;&lt;td&gt;Adenovirus Type 4 Vaccine, Live, Oral&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;49281-0248-58&lt;/td&gt;&lt;td&gt;IMOVAX RABIES&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;49281-0487-58&lt;/td&gt;&lt;td&gt;MENOMUNE - A/C/Y/W-135 COMBINED&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;49281-0915-58&lt;/td&gt;&lt;td&gt;YF-VAX&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;49281-0547-58&lt;/td&gt;&lt;td&gt;ACTHIB&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;58160-0851-01&lt;/td&gt;&lt;td&gt;ROTARIX&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;49281-0915-68&lt;/td&gt;&lt;td&gt;YF-VAX&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;49281-0488-78&lt;/td&gt;&lt;td&gt;MENOMUNE - A/C/Y/W-135 COMBINED&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;46028-0219-11&lt;/td&gt;&lt;td&gt;Meningococcal (Groups C, Y, W-135) CRM197 Oligosac&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;51285-0175-02&lt;/td&gt;&lt;td&gt;Adenovirus Type 7 Vaccine, Live, Oral&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;49281-0560-05&lt;/td&gt;&lt;td&gt;DTAP-IPV&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;49281-0400-58&lt;/td&gt;&lt;td&gt;Adacel&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;49281-0400-58&lt;/td&gt;&lt;td&gt;Adacel&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;42874-0013-01&lt;/td&gt;&lt;td&gt;Flublok&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;66521-0116-11&lt;/td&gt;&lt;td&gt;FLUVIRIN&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;66521-0116-12&lt;/td&gt;&lt;td&gt;FLUVIRIN&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;00006-4045-01&lt;/td&gt;&lt;td&gt;GARDASIL&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;00006-4045-01&lt;/td&gt;&lt;td&gt;GARDASIL&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;00006-4995-01&lt;/td&gt;&lt;td&gt;RECOMBIVAX HB&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;00006-4995-01&lt;/td&gt;&lt;td&gt;RECOMBIVAX HB&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;00006-4841-01&lt;/td&gt;&lt;td&gt;VAQTA&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;00006-4841-01&lt;/td&gt;&lt;td&gt;VAQTA&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;58160-0804-01&lt;/td&gt;&lt;td&gt;INFLUENZA (H5N1), adjuvanted&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;58160-0802-02&lt;/td&gt;&lt;td&gt;AS03 Adjuvant&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;58160-0901-41&lt;/td&gt;&lt;td&gt;FLUARIX QUADRIVALENT&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;00006-4837-01&lt;/td&gt;&lt;td&gt;PNEUMOVAX 23&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;19515-0891-01&lt;/td&gt;&lt;td&gt;Flulaval Quadrivalent&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;19515-0893-02&lt;/td&gt;&lt;td&gt;FLULAVAL&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;19515-0894-41&lt;/td&gt;&lt;td&gt;Flulaval Quadrivalent&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;49281-0514-00&lt;/td&gt;&lt;td&gt;Fluzone Quadrivalent, Peds&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;49281-0394-78&lt;/td&gt;&lt;td&gt;FLUZONE&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;49281-0014-88&lt;/td&gt;&lt;td&gt;FLUZONE&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;49281-0414-58&lt;/td&gt;&lt;td&gt;FLUZONE QUADRIVALENT PF&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;"
+  },
+  "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.url">url</a>" : "http://hl7.org/fhir/us/core/ValueSet/us-core-ndc-vaccine-codes",
+  "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.name">name</a>" : "Vaccine National Drug Code (NDC)",
+  "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.status">status</a>" : "draft",
+  "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.publisher">publisher</a>" : "HL7 (FHIR Project)",
+  "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.date">date</a>" : "2016-08-10",
+  "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.description">description</a>" : "This value set includes all the Vaccine National Drug Codes (NDC).  This source of this data is provided by the [CDC] (https://www2a.cdc.gov/vaccines/iis/iisstandards/ndc_crosswalk.asp)",
+  "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.purpose">purpose</a>" : "Codes that are used as translations for CVS code for implementation of the Argonaut Immunization IG and MU2015 certification.",
+  "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose">compose</a>" : {
+    "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include">include</a>" : [
+      {
+        "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.system">system</a>" : "http://hl7.org/fhir/sid/ndc",
+        "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept">concept</a>" : [
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "49281-0589-58",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "Menactra",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "NEISSERIA MENINGITIDIS GROUP A CAPSULAR POLYSACCHARIDE DIPHTHERIA TOXOID CONJUGATE ANTIGEN, NEISSERI"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "49281-0623-78",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "FLUZONE QUADRIVALENT"
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "49281-0515-00",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "Fluzone Quadrivalent, peds"
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "49281-0415-88",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "Fluzone Quadrivalent PF"
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "49281-0415-58",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "FLUZONE QUADRIVALENT PF"
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "33332-0115-11",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "AFLURIA",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "INFLUENZA A VIRUS"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "33332-0015-02",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "AFLURIA",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "INFLUENZA A VIRUS"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "66019-0302-01",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "FluMist Quadrivalent",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "INFLUENZA VACCINE LIVE INTRANASAL"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "42874-0015-01",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "Flublok",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "influenza virus vaccine"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "66521-0118-12",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "Fluvirin",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "INFLUENZA  VIRUS"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "66521-0118-11",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "Fluvirin",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "Influenza Virus Vaccine"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "58160-0883-41",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "FLUARIX",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "INFLUENZA VIRUS VACCINE"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "66521-0000-11",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "Fluad",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "TRIVALENT INFLUENZA WITH ADJUVANT 2015/2016"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "69401-0000-01",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "Vivotif",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "SALMONELLA TYPHI TY21A"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "66019-0301-01",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "FluMist Quadrivalent",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "INFLUENZA VACCINE LIVE INTRANASAL"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "33332-0014-02",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "AFLURIA",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "INFLUENZA A VIRUS A/CALIFORNIA/7/2009 X-181 (H1N1) ANTIGEN (PROPIOLACTONE INACTIVATED), INFLUENZA A"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "33332-0114-11",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "AFLURIA",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "INFLUENZA A VIRUS A/CALIFORNIA/7/2009 X-181 (H1N1) ANTIGEN (PROPIOLACTONE INACTIVATED), INFLUENZA A"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "63851-0613-11",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "Flucelvax"
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "66521-0117-11",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "FLUVIRIN"
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "66521-0117-12",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "Fluvirin"
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "00006-4093-01",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "RECOMBIVAX HB",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "HEPATITIS B VACCINE (RECOMBINANT)"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "00006-4094-01",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "RECOMBIVAX HB",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "HEPATITIS B VACCINE (RECOMBINANT)"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "00006-4095-01",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "VAQTA",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "HEPATITIS A VACCINE, INACTIVATED"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "00006-4096-01",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "VAQTA",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "HEPATITIS A VACCINE, INACTIVATED"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "00006-4963-01",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "ZOSTAVAX",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "ZOSTER VACCINE LIVE"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "00006-4963-01",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "ZOSTAVAX",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "ZOSTER VACCINE LIVE"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "42874-0014-01",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "Flublok",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "influenza virus vaccine"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "49281-0414-88",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "Fluzone Quadrivalent PF"
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "49281-0395-88",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "Fluzone HD"
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "49281-0709-48",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "FLUZONE Intradermal"
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "58160-0881-41",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "FLUARIX",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "INFLUENZA VIRUS VACCINE"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "58160-0809-01",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "MENHIBRIX",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "MENINGOCOCCAL GROUPS C AND Y AND HAEMOPHILUS B TETANUS TOXOID CONJUGATE VACCINE"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "62577-0613-11",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "Flucelvax",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "INFLUENZA A VIRUS A/BRISBANE/10/2010 (H1N1) ANTIGEN (MDCK CELL DERIVED, PROPIOLACTONE INACTIVATED),"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "19515-0893-02",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "FLULAVAL",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "INFLUENZA VIRUS VACCINE"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "49281-0621-78",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "FLUZONE QUADRIVALENT",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "INFLUENZA A VIRUS A/CALIFORNIA/7/2009 X-179A (H1N1) ANTIGEN (FORMALDEHYDE INACTIVATED), INFLUENZA A"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "00005-0100-01",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "Trumenba",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "Meningococcal B, recombinant"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "00005-0100-01",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "Trumenba",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "Meningococcal B, recombinant"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "00005-0100-01",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "Trumenba",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "Meningococcal B, recombinant"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "00006-4047-01",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "RotaTeq",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "ROTAVIRUS VACCINE, LIVE, ORAL, PENTAVALENT"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "00006-4109-01",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "GARDASIL",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "HUMAN PAPILLOMAVIRUS QUADRIVALENT (TYPES 6, 11, 16, AND 18) VACCINE, RECOMBINANT"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "62577-0613-11",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "Flucelvax",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "INFLUENZA A VIRUS A/BRISBANE/10/2010 (H1N1) ANTIGEN (MDCK CELL DERIVED, PROPIOLACTONE INACTIVATED),"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "00006-4121-01",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "GARDASIL 9",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "HUMAN PAPILLOMAVIRUS 9-VALENT VACCINE, RECOMBINANT"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "00006-4119-01",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "GARDASIL 9",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "HUMAN PAPILLOMAVIRUS 9-VALENT VACCINE, RECOMBINANT"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "00006-4119-01",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "GARDASIL 9",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "HUMAN PAPILLOMAVIRUS 9-VALENT VACCINE, RECOMBINANT"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "63851-0511-11",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "RabAvert",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "RABIES VACCINE"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "49281-0562-58",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "QUADRACEL",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "DTAP, IPV"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "46028-0114-11",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "Bexsero",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "NEISSERIA MENINGITIDIS SEROGROUP B NHBA FUSION PROTEIN ANTIGEN, NEISSERIA MENINGITIDIS SEROGROUP B F"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "46028-0114-11",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "Bexsero",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "NEISSERIA MENINGITIDIS SEROGROUP B NHBA FUSION PROTEIN ANTIGEN, NEISSERIA MENINGITIDIS SEROGROUP B F"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "00006-4171-01",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "ProQuad",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "MEASLES, MUMPS, RUBELLA AND VARICELLA VIRUS VACCINE LIVE"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "13533-0131-00",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "Tetanus and Diphtheria Toxoids Adsorbed",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "TETANUS AND DIPHTHERIA TOXOIDS ADSORBED"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "49281-0396-78",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "FLUZONE",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "INFLUENZA A VIRUS A/CALIFORNIA/7/2009 X-179A (H1N1) ANTIGEN (FORMALDEHYDE INACTIVATED), INFLUENZA A"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "49281-0397-88",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "FLUZONE High-Dose",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "INFLUENZA A VIRUS A/CALIFORNIA/7/2009 X-179A (H1N1) ANTIGEN (FORMALDEHYDE INACTIVATED), INFLUENZA A"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "62577-0614-11",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "Flucelvax",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "INFLUENZA A VIRUS A/BRISBANE/10/2010 (H1N1) ANTIGEN (MDCK CELL DERIVED, PROPIOLACTONE INACTIVATED),"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "58160-0903-41",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "FLUARIX QUADRIVALENT",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "INFLUENZA VIRUS VACCINE"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "19515-0898-01",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "Flulaval Quadrivalent",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "INFLUENZA VIRUS VACCINE"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "19515-0901-41",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "Flulaval Quadrivalent",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "INFLUENZA VIRUS VACCINE"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "49281-0393-88",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "FLUZONE High-Dose",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "INFLUENZA A VIRUS A/CALIFORNIA/7/2009 X-179A (H1N1) ANTIGEN (FORMALDEHYDE INACTIVATED), INFLUENZA A"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "58160-0810-43",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "INFANRIX",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "DIPHTHERIA AND TETANUS TOXOIDS AND ACELLULAR PERTUSSIS VACCINE ADSORBED"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "58160-0810-01",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "INFANRIX",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "DIPHTHERIA AND TETANUS TOXOIDS AND ACELLULAR PERTUSSIS VACCINE ADSORBED"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "49281-0790-38",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "Typhim Vi",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "SALMONELLA TYPHI TY2 VI POLYSACCHARIDE ANTIGEN"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "49281-0790-88",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "Typhim Vi",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "SALMONELLA TYPHI TY2 VI POLYSACCHARIDE ANTIGEN"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "49281-0640-15",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "INFLUENZA A (H1N1) 2009 MONOVALENT VACCINE",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "INFLUENZA A VIRUS A/CALIFORNIA/7/2009(H1N1)-LIKE ANTIGEN (FORMALDEHYDE INACTIVATED)"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "49281-0650-10",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "INFLUENZA A (H1N1) 2009 MONOVALENT VACCINE",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "INFLUENZA A VIRUS A/CALIFORNIA/7/2009(H1N1)-LIKE ANTIGEN (FORMALDEHYDE INACTIVATED)"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "49281-0650-90",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "INFLUENZA A (H1N1) 2009 MONOVALENT VACCINE",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "INFLUENZA A VIRUS A/CALIFORNIA/7/2009(H1N1)-LIKE ANTIGEN (FORMALDEHYDE INACTIVATED)"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "49281-0650-25",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "INFLUENZA A (H1N1) 2009 MONOVALENT VACCINE",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "INFLUENZA A VIRUS A/CALIFORNIA/7/2009(H1N1)-LIKE ANTIGEN (FORMALDEHYDE INACTIVATED)"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "49281-0650-70",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "INFLUENZA A (H1N1) 2009 MONOVALENT VACCINE",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "INFLUENZA A VIRUS A/CALIFORNIA/7/2009(H1N1)-LIKE ANTIGEN (FORMALDEHYDE INACTIVATED)"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "49281-0650-50",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "INFLUENZA A (H1N1) 2009 MONOVALENT VACCINE",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "INFLUENZA A VIRUS A/CALIFORNIA/7/2009(H1N1)-LIKE ANTIGEN (FORMALDEHYDE INACTIVATED)"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "49281-0707-48",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "FLUZONE",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "INFLUENZA A VIRUS A/CALIFORNIA/7/2009 X-179A (H1N1) ANTIGEN (FORMALDEHYDE INACTIVATED), INFLUENZA A"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "66019-0110-01",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "FluMist",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "INFLUENZA VACCINE LIVE INTRANASAL"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "00006-4681-01",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "M-M-R II",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "MEASLES, MUMPS, AND RUBELLA VIRUS VACCINE LIVE"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "49281-0215-58",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "TENIVAC",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "CLOSTRIDIUM TETANI TOXOID ANTIGEN (FORMALDEHYDE INACTIVATED) AND CORYNEBACTERIUM DIPHTHERIAE TOXOID"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "49281-0215-88",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "TENIVAC",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "CLOSTRIDIUM TETANI TOXOID ANTIGEN (FORMALDEHYDE INACTIVATED) AND CORYNEBACTERIUM DIPHTHERIAE TOXOID"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "46028-0218-11",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "Meningococcal (Groups A) CRM197 Oligosaccharide Co",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "MENA VACCINE"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "49281-0387-65",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "FLUZONE",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "INFLUENZA A VIRUS A/CALIFORNIA/7/2009 X-179A (H1N1) ANTIGEN (FORMALDEHYDE INACTIVATED), INFLUENZA A"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "49281-0386-15",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "FLUZONE",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "INFLUENZA A VIRUS A/CALIFORNIA/7/2009 X-179A (H1N1) ANTIGEN (FORMALDEHYDE INACTIVATED), INFLUENZA A"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "49281-0010-10",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "FLUZONE",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "INFLUENZA A VIRUS A/CALIFORNIA/7/2009 X-179A (H1N1) ANTIGEN (FORMALDEHYDE INACTIVATED), INFLUENZA A"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "49281-0010-25",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "Fluzone",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "INFLUENZA A VIRUS A/CALIFORNIA/7/2009(H1N1)-LIKE HEMAGGLUTININ ANTIGEN (PROPIOLACTONE INACTIVATED),"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "49281-0010-50",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "FLUZONE",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "INFLUENZA A VIRUS A/CALIFORNIA/7/2009 X-179A (H1N1) ANTIGEN (FORMALDEHYDE INACTIVATED), INFLUENZA A"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "54868-0980-00",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "M-M-R II",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "MEASLES, MUMPS, AND RUBELLA VIRUS VACCINE LIVE"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "58160-0830-43",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "CERVARIX",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "HUMAN PAPILLOMAVIRUS BIVALENT (TYPES 16 AND 18) VACCINE, RECOMBINANT"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "58160-0830-05",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "CERVARIX",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "HUMAN PAPILLOMAVIRUS BIVALENT (TYPES 16 AND 18) VACCINE, RECOMBINANT"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "00005-1971-01",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "PREVNAR 13",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "PNEUMOCOCCAL 13-VALENT CONJUGATE VACCINE"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "00005-1971-01",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "PREVNAR 13",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "PNEUMOCOCCAL 13-VALENT CONJUGATE VACCINE"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "00005-1971-01",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "PREVNAR 13",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "PNEUMOCOCCAL 13-VALENT CONJUGATE VACCINE"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "17478-0131-00",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "Tetanus and Diphtheria Toxoids Adsorbed",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "TETANUS AND DIPHTHERIA TOXOIDS ADSORBED"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "58160-0812-43",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "KINRIX",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "DIPHTHERIA AND TETANUS TOXOIDS AND ACELLULAR PERTUSSIS ADSORBED AND INACTIVATED POLIOVIRUS VACCINE"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "58160-0812-01",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "KINRIX",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "DIPHTHERIA AND TETANUS TOXOIDS AND ACELLULAR PERTUSSIS ADSORBED AND INACTIVATED POLIOVIRUS VACCINE"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "66019-0108-01",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "FluMist",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "INFLUENZA VACCINE LIVE INTRANASAL"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "00006-4898-01",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "COMVAX",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "HAEMOPHILUS B CONJUGATE (MENINGOCOCCAL PROTEIN CONJUGATE) AND HEPATITIS B (RECOMBINANT) VACCINE"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "58160-0809-01",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "MENHIBRIX",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "MENINGOCOCCAL GROUPS C AND Y AND HAEMOPHILUS B TETANUS TOXOID CONJUGATE VACCINE"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "63851-0612-11",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "Flucelvax",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "INFLUENZA A VIRUS A/BRISBANE/10/2010 (H1N1) ANTIGEN (MDCK CELL DERIVED, PROPIOLACTONE INACTIVATED),"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "00006-4992-01",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "RECOMBIVAX HB",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "HEPATITIS B VACCINE (RECOMBINANT)"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "00006-4981-01",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "RECOMBIVAX HB",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "HEPATITIS B VACCINE (RECOMBINANT)"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "00006-4980-00",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "RECOMBIVAX HB",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "HEPATITIS B VACCINE (RECOMBINANT)"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "00006-4093-01",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "RECOMBIVAX HB",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "HEPATITIS B VACCINE (RECOMBINANT)"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "00006-4094-01",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "RECOMBIVAX HB",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "HEPATITIS B VACCINE (RECOMBINANT)"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "00006-4109-01",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "GARDASIL",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "HUMAN PAPILLOMAVIRUS QUADRIVALENT (TYPES 6, 11, 16, AND 18) VACCINE, RECOMBINANT"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "66521-0112-02",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "FLUVIRIN",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "INFLUENZA A VIRUS A/CALIFORNIA/7/2009 X-181 (H1N1) HEMAGGLUTININ ANTIGEN (PROPIOLACTONE INACTIVATED)"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "66521-0112-10",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "FLUVIRIN",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "INFLUENZA A VIRUS A/CALIFORNIA/7/2009 X-181 (H1N1) HEMAGGLUTININ ANTIGEN (PROPIOLACTONE INACTIVATED)"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "66019-0107-01",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "FluMist",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "INFLUENZA VACCINE LIVE INTRANASAL"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "49281-0225-58",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "DIPHTHERIA AND TETANUS TOXOIDS ADSORBED",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "CORYNEBACTERIUM DIPHTHERIAE TOXOID ANTIGEN (FORMALDEHYDE INACTIVATED) AND CLOSTRIDIUM TETANI TOXOID"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "49281-0705-55",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "FLUZONE",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "INFLUENZA A VIRUS A/CALIFORNIA/7/2009 X-179A (H1N1) ANTIGEN (FORMALDEHYDE INACTIVATED), INFLUENZA A"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "42515-0001-00",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "IXIARO",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "JAPANESE ENCEPHALITIS VACCINE, INACTIVATED, ADSORBED"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "58160-0879-41",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "FLUARIX",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "INFLUENZA VIRUS VACCINE"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "58160-0880-41",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "FLUARIX",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "INFLUENZA VIRUS VACCINE"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "58160-0820-01",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "ENGERIX-B",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "HEPATITIS B VACCINE (RECOMBINANT)"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "58160-0820-43",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "ENGERIX-B",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "HEPATITIS B VACCINE (RECOMBINANT)"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "58160-0821-01",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "ENGERIX-B",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "HEPATITIS B VACCINE (RECOMBINANT)"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "58160-0821-43",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "ENGERIX-B",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "HEPATITIS B VACCINE (RECOMBINANT)"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "58160-0821-05",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "ENGERIX-B",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "HEPATITIS B VACCINE (RECOMBINANT)"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "42874-0012-01",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "Flublok",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "INFLUENZA VACCINE"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "49281-0278-10",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "DIPHTHERIA AND TETANUS TOXOIDS ADSORBED",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "CORYNEBACTERIUM DIPHTHERIAE TOXOID ANTIGEN (FORMALDEHYDE INACTIVATED) AND CLOSTRIDIUM TETANI TOXOID"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "66019-0109-01",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "FluMist",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "INFLUENZA VACCINE LIVE INTRANASAL"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "19515-0890-02",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "FLULAVAL",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "INFLUENZA VIRUS VACCINE"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "19515-0889-02",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "FLULAVAL",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "INFLUENZA VIRUS VACCINE"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "58160-0900-41",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "FLUARIX QUADRIVALENT",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "INFLUENZA VIRUS VACCINE"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "49281-0860-78",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "IPOL",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "POLIOVIRUS TYPE 1 ANTIGEN (FORMALDEHYDE INACTIVATED), POLIOVIRUS TYPE 2 ANTIGEN (FORMALDEHYDE INACTI"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "49281-0860-88",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "IPOL",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "POLIOVIRUS TYPE 1 ANTIGEN (FORMALDEHYDE INACTIVATED), POLIOVIRUS TYPE 2 ANTIGEN (FORMALDEHYDE INACTI"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "49281-0389-65",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "FLUZONE High-Dose",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "INFLUENZA A VIRUS A/CALIFORNIA/7/2009 X-179A (H1N1) ANTIGEN (FORMALDEHYDE INACTIVATED), INFLUENZA A"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "49281-0388-15",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "FLUZONE",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "INFLUENZA A VIRUS A/CALIFORNIA/7/2009 X-179A (H1N1) ANTIGEN (FORMALDEHYDE INACTIVATED), INFLUENZA A"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "49281-0011-10",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "FLUZONE",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "INFLUENZA A VIRUS A/CALIFORNIA/7/2009 X-179A (H1N1) ANTIGEN (FORMALDEHYDE INACTIVATED), INFLUENZA A"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "49281-0011-50",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "FLUZONE",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "INFLUENZA A VIRUS A/CALIFORNIA/7/2009 X-179A (H1N1) ANTIGEN (FORMALDEHYDE INACTIVATED), INFLUENZA A"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "49281-0703-55",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "FLUZONE Intradermal",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "INFLUENZA A VIRUS A/CALIFORNIA/7/2009 X-179A (H1N1) ANTIGEN (FORMALDEHYDE INACTIVATED), INFLUENZA A"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "49281-0111-25",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "FLUZONE",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "INFLUENZA A VIRUS A/CALIFORNIA/7/2009 X-179A (H1N1) ANTIGEN (FORMALDEHYDE INACTIVATED), INFLUENZA A"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "66521-0200-10",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "Influenza A (H1N1) 2009 Monovalent Vaccine",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "Influenza A (H1N1) 2009 Monovalent Vaccine"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "66521-0200-02",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "Influenza A (H1N1) 2009 Monovalent Vaccine",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "Influenza A (H1N1) 2009 Monovalent Vaccine"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "49281-0298-10",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "TRIPEDIA",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "CORYNEBACTERIUM DIPHTHERIAE TOXOID ANTIGEN (FORMALDEHYDE INACTIVATED), CLOSTRIDIUM TETANI TOXOID ANT"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "58160-0806-01",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "HIBERIX",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "HAEMOPHILUS B CONJUGATE VACCINE (TETANUS TOXOID CONJUGATE)"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "33332-0013-02",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "AFLURIA",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "INFLUENZA A VIRUS A/CALIFORNIA/7/2009 X-181 (H1N1) ANTIGEN (PROPIOLACTONE INACTIVATED), INFLUENZA A"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "33332-0113-11",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "AFLURIA",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "INFLUENZA A VIRUS A/CALIFORNIA/7/2009 X-181 (H1N1) ANTIGEN (PROPIOLACTONE INACTIVATED), INFLUENZA A"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "49281-0391-65",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "FLUZONE High-Dose",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "INFLUENZA A VIRUS A/CALIFORNIA/7/2009 X-179A (H1N1) ANTIGEN (FORMALDEHYDE INACTIVATED), INFLUENZA A"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "49281-0012-50",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "FLUZONE",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "INFLUENZA A VIRUS A/CALIFORNIA/7/2009 X-179A (H1N1) ANTIGEN (FORMALDEHYDE INACTIVATED), INFLUENZA A"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "49281-0012-10",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "FLUZONE",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "INFLUENZA A VIRUS A/CALIFORNIA/7/2009 X-179A (H1N1) ANTIGEN (FORMALDEHYDE INACTIVATED), INFLUENZA A"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "49281-0112-25",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "FLUZONE",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "INFLUENZA A VIRUS A/CALIFORNIA/7/2009 X-179A (H1N1) ANTIGEN (FORMALDEHYDE INACTIVATED), INFLUENZA A"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "49281-0390-15",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "FLUZONE",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "INFLUENZA A VIRUS A/CALIFORNIA/7/2009 X-179A (H1N1) ANTIGEN (FORMALDEHYDE INACTIVATED), INFLUENZA A"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "00006-4897-01",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "PedvaxHIB",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "HAEMOPHILUS B CONJUGATE VACCINE (MENINGOCOCCAL PROTEIN CONJUGATE)"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "49281-0291-83",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "DECAVAC",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "CLOSTRIDIUM TETANI TOXOID ANTIGEN (FORMALDEHYDE INACTIVATED) AND CORYNEBACTERIUM DIPHTHERIAE TOXOID"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "49281-0291-10",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "DECAVAC",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "CLOSTRIDIUM TETANI TOXOID ANTIGEN (FORMALDEHYDE INACTIVATED) AND CORYNEBACTERIUM DIPHTHERIAE TOXOID"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "49281-0413-88",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "FLUZONE QUADRIVALENT",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "INFLUENZA A VIRUS A/CALIFORNIA/7/2009 X-179A (H1N1) ANTIGEN (FORMALDEHYDE INACTIVATED), INFLUENZA A"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "49281-0413-58",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "FLUZONE QUADRIVALENT",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "INFLUENZA A VIRUS A/CALIFORNIA/7/2009 X-179A (H1N1) ANTIGEN (FORMALDEHYDE INACTIVATED), INFLUENZA A"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "49281-0513-00",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "FLUZONE QUADRIVALENT",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "INFLUENZA A VIRUS A/CALIFORNIA/7/2009 X-179A (H1N1) ANTIGEN (FORMALDEHYDE INACTIVATED), INFLUENZA A"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "66521-0113-02",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "Fluvirin",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "Influenza Virus Vaccine"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "66521-0113-10",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "Fluvirin",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "INFLUENZA A VIRUS A/CHRISTCHURCH/16/2010 NIB-74 (H1N1) ANTIGEN (PROPIOLACTONE INACTIVATED), INFLUENZ"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "00005-1970-49",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "Prevnar",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "PNEUMOCOCCAL 7-VALENT"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "00006-4047-01",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "RotaTeq",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "ROTAVIRUS VACCINE, LIVE, ORAL, PENTAVALENT"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "58160-0811-43",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "PEDIARIX",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "DIPHTHERIA AND TETANUS TOXOIDS AND ACELLULAR PERTUSSIS ADSORBED, HEPATITIS B (RECOMBINANT) AND INACT"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "58160-0811-41",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "PEDIARIX",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "DIPHTHERIA AND TETANUS TOXOIDS AND ACELLULAR PERTUSSIS ADSORBED, HEPATITIS B (RECOMBINANT) AND INACT"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "00006-4827-01",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "VARIVAX",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "VARICELLA VIRUS VACCINE LIVE"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "00006-4826-01",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "VARIVAX",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "VARICELLA VIRUS VACCINE LIVE"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "58160-0842-41",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "BOOSTRIX",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "TETANUS TOXOID, REDUCED DIPHTHERIA TOXOID AND ACELLULAR PERTUSSIS VACCINE, ADSORBED"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "58160-0842-01",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "BOOSTRIX",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "TETANUS TOXOID, REDUCED DIPHTHERIA TOXOID AND ACELLULAR PERTUSSIS VACCINE, ADSORBED"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "58160-0842-43",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "BOOSTRIX",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "TETANUS TOXOID, REDUCED DIPHTHERIA TOXOID AND ACELLULAR PERTUSSIS VACCINE, ADSORBED"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "58160-0842-05",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "BOOSTRIX",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "TETANUS TOXOID, REDUCED DIPHTHERIA TOXOID AND ACELLULAR PERTUSSIS VACCINE, ADSORBED"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "66019-0300-01",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "FluMist Quadrivalent",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "INFLUENZA VACCINE LIVE INTRANASAL"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "49281-0589-58",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "Menactra",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "NEISSERIA MENINGITIDIS GROUP A CAPSULAR POLYSACCHARIDE DIPHTHERIA TOXOID CONJUGATE ANTIGEN, NEISSERI"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "00006-4095-01",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "VAQTA",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "HEPATITIS A VACCINE, INACTIVATED"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "00006-4096-01",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "VAQTA",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "HEPATITIS A VACCINE, INACTIVATED"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "00006-4831-01",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "VAQTA",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "HEPATITIS A VACCINE, INACTIVATED"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "63851-0511-11",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "RabAvert",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "RABIES VACCINE"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "66019-0200-01",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "Influenza A H1N1 2009 Monovalent Vaccine Live Intr",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "INFLUENZA A H1N1 2009 MONOVALENT VACCINE LIVE INTRANASAL"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "14362-0111-03",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "Tetanus and Diphtheria Toxoids Adsorbed",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "TETANUS AND DIPHTHERIA TOXOIDS ADSORBED"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "33332-0519-01",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "Influenza A",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "INFLUENZA A VIRUS A/CALIFORNIA/7/2009(H1N1)-LIKE ANTIGEN (PROPIOLACTONE INACTIVATED)"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "33332-0519-25",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "Influenza A",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "INFLUENZA A VIRUS A/CALIFORNIA/7/2009(H1N1)-LIKE ANTIGEN (PROPIOLACTONE INACTIVATED)"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "33332-0629-10",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "Influenza A",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "INFLUENZA A VIRUS A/CALIFORNIA/7/2009(H1N1)-LIKE ANTIGEN (PROPIOLACTONE INACTIVATED)"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "58160-0825-43",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "HAVRIX",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "HEPATITIS A VACCINE"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "58160-0825-01",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "HAVRIX",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "HEPATITIS A VACCINE"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "58160-0826-43",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "HAVRIX",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "HEPATITIS A VACCINE"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "58160-0826-05",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "HAVRIX",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "HEPATITIS A VACCINE"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "58160-0826-01",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "HAVRIX",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "HEPATITIS A VACCINE"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "33332-0010-01",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "AFLURIA",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "INFLUENZA A VIRUS A/CALIFORNIA/7/2009 X-181 (H1N1) HEMAGGLUTININ ANTIGEN (PROPIOLACTONE INACTIVATED)"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "33332-0110-10",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "AFLURIA",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "INFLUENZA A VIRUS A/CALIFORNIA/7/2009 X-181 (H1N1) HEMAGGLUTININ ANTIGEN (PROPIOLACTONE INACTIVATED)"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "66521-0115-10",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "Fluvirin",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "Influenza Virus Vaccine"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "66521-0115-02",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "Fluvirin",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "INFLUENZA A VIRUS A/CALIFORNIA/7/2009 X-179A (H1N1) ANTIGEN (FORMALDEHYDE INACTIVATED), INFLUENZA A"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "00006-4133-01",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "Tetanus and Diphtheria Toxoids Adsorbed",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "TETANUS AND DIPHTHERIA TOXOIDS ADSORBED"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "54868-4320-09",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "PNEUMOVAX 23",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "PNEUMOCOCCAL VACCINE POLYVALENT"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "54868-3339-09",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "PNEUMOVAX 23",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "PNEUMOCOCCAL VACCINE POLYVALENT"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "00052-0603-01",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "BCG VACCINE",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "BACILLUS CALMETTE-GUERIN SUBSTRAIN TICE LIVE ANTIGEN"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "64678-0211-05",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "BioThrax",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "BACILLUS ANTHRACIS"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "00006-4739-01",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "PNEUMOVAX 23",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "PNEUMOCOCCAL VACCINE POLYVALENT"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "00006-4943-01",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "PNEUMOVAX 23",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "PNEUMOCOCCAL VACCINE POLYVALENT"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "49281-0013-58",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "FLUZONE",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "INFLUENZA A VIRUS A/CALIFORNIA/7/2009 X-179A (H1N1) ANTIGEN (FORMALDEHYDE INACTIVATED), INFLUENZA A"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "49281-0013-88",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "FLUZONE",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "INFLUENZA A VIRUS A/CALIFORNIA/7/2009 X-179A (H1N1) ANTIGEN (FORMALDEHYDE INACTIVATED), INFLUENZA A"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "49281-0392-78",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "FLUZONE",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "INFLUENZA A VIRUS A/CALIFORNIA/7/2009 X-179A (H1N1) ANTIGEN (FORMALDEHYDE INACTIVATED), INFLUENZA A"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "49281-0113-00",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "FLUZONE",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "INFLUENZA A VIRUS A/CALIFORNIA/7/2009 X-179A (H1N1) ANTIGEN (FORMALDEHYDE INACTIVATED), INFLUENZA A"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "49281-0820-10",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "TETANUS TOXOID ADSORBED",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "CLOSTRIDIUM TETANI TOXOID ANTIGEN (FORMALDEHYDE INACTIVATED)"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "49281-0800-83",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "TETANUS TOXOID ADSORBED",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "CLOSTRIDIUM TETANI TOXOID ANTIGEN (FORMALDEHYDE INACTIVATED)"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "49281-0400-88",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "Adacel",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "CLOSTRIDIUM TETANI TOXOID ANTIGEN (FORMALDEHYDE INACTIVATED), CORYNEBACTERIUM DIPHTHERIAE TOXOID ANT"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "49281-0286-58",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "DAPTACEL",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "CORYNEBACTERIUM DIPHTHERIAE TOXOID ANTIGEN (FORMALDEHYDE INACTIVATED), CLOSTRIDIUM TETANI TOXOID ANT"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "49281-0286-58",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "DAPTACEL",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "CORYNEBACTERIUM DIPHTHERIAE TOXOID ANTIGEN (FORMALDEHYDE INACTIVATED), CLOSTRIDIUM TETANI TOXOID ANT"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "49281-0286-58",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "DAPTACEL",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "CORYNEBACTERIUM DIPHTHERIAE TOXOID ANTIGEN (FORMALDEHYDE INACTIVATED), CLOSTRIDIUM TETANI TOXOID ANT"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "58160-0815-41",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "TWINRIX",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "HEPATITIS A AND HEPATITIS B (RECOMBINANT) VACCINE"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "58160-0815-43",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "TWINRIX",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "HEPATITIS A AND HEPATITIS B (RECOMBINANT) VACCINE"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "58160-0815-05",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "TWINRIX",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "HEPATITIS A AND HEPATITIS B (RECOMBINANT) VACCINE"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "58160-0815-43",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "TWINRIX",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "HEPATITIS A AND HEPATITIS B (RECOMBINANT) VACCINE"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "58160-0815-01",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "TWINRIX",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "HEPATITIS A AND HEPATITIS B (RECOMBINANT) VACCINE"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "66521-0114-10",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "Fluvirin",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "INFLUENZA A VIRUS A/CHRISTCHURCH/16/2010 NIB-74 (H1N1) ANTIGEN (PROPIOLACTONE INACTIVATED), INFLUENZ"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "76420-0482-01",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "FLUVIRIN",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "INFLUENZA A VIRUS A/CALIFORNIA/7/2009(H1N1)-LIKE HEMAGGLUTININ ANTIGEN (PROPIOLACTONE INACTIVATED),"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "19515-0895-01",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "Flulaval Quadrivalent",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "INFLUENZA VIRUS VACCINE"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "00006-4999-01",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "ProQuad",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "MEASLES, MUMPS, RUBELLA AND VARICELLA VIRUS VACCINE LIVE"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "49281-0545-15",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "ACTHIB",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "HAEMOPHILUS B CONJUGATE VACCINE (TETANUS TOXOID CONJUGATE)"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "51285-0174-02",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "Adenovirus Type 4 Vaccine, Live, Oral",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "ADENOVIRUS TYPE 4 VACCINE, LIVE, ORAL"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "49281-0248-58",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "IMOVAX RABIES",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "RABIES VIRUS STRAIN PM-1503-3M ANTIGEN (PROPIOLACTONE INACTIVATED)"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "49281-0487-58",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "MENOMUNE - A/C/Y/W-135 COMBINED",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "NEISSERIA MENINGITIDIS GROUP A CAPSULAR POLYSACCHARIDE ANTIGEN, NEISSERIA MENINGITIDIS GROUP C CAPSU"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "49281-0915-58",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "YF-VAX",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "YELLOW FEVER VIRUS LIVE ANTIGEN, A"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "49281-0547-58",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "ACTHIB",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "HAEMOPHILUS INFLUENZAE TYPE B STRAIN 1482 CAPSULAR POLYSACCHARIDE TETANUS TOXOID CONJUGATE ANTIGEN"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "58160-0851-01",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "ROTARIX",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "ROTAVIRUS VACCINE, LIVE, ORAL"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "49281-0915-68",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "YF-VAX",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "YELLOW FEVER VIRUS LIVE ANTIGEN, A"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "49281-0488-78",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "MENOMUNE - A/C/Y/W-135 COMBINED",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "NEISSERIA MENINGITIDIS GROUP A POLYSACCHARIDE ANTIGEN, A, NEISSERIA MENINGITIDIS GROUP C POLYSACCHAR"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "46028-0219-11",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "Meningococcal (Groups C, Y, W-135) CRM197 Oligosac",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "MENC, Y, W-135 VACCINE"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "51285-0175-02",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "Adenovirus Type 7 Vaccine, Live, Oral",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "ADENOVIRUS TYPE 7 VACCINE, LIVE, ORAL"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "49281-0560-05",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "DTAP-IPV",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "DIPHTHERIA AND TETANUS TOXOIDS AND ACELLULAR PERTUSSIS ADSORBED, INACTIVATED POLIOVIRUS"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "49281-0400-58",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "Adacel",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "CLOSTRIDIUM TETANI TOXOID ANTIGEN (FORMALDEHYDE INACTIVATED), CORYNEBACTERIUM DIPHTHERIAE TOXOID ANT"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "49281-0400-58",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "Adacel",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "CLOSTRIDIUM TETANI TOXOID ANTIGEN (FORMALDEHYDE INACTIVATED), CORYNEBACTERIUM DIPHTHERIAE TOXOID ANT"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "42874-0013-01",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "Flublok",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "INFLUENZA VACCINE"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "66521-0116-11",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "FLUVIRIN",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "influenza a virus a/christchurch , influenza a virus a/texas   , influenza b virus b/massachusetts"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "66521-0116-12",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "FLUVIRIN",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "influenza a virus a/christchurch , influenza a virus a/texas   , influenza b virus b/massachusetts"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "00006-4045-01",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "GARDASIL",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "HUMAN PAPILLOMAVIRUS QUADRIVALENT (TYPES 6, 11, 16, AND 18) VACCINE, RECOMBINANT"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "00006-4045-01",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "GARDASIL",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "HUMAN PAPILLOMAVIRUS QUADRIVALENT (TYPES 6, 11, 16, AND 18) VACCINE, RECOMBINANT"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "00006-4995-01",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "RECOMBIVAX HB",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "HEPATITIS B VACCINE (RECOMBINANT)"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "00006-4995-01",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "RECOMBIVAX HB",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "HEPATITIS B VACCINE (RECOMBINANT)"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "00006-4841-01",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "VAQTA",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "HEPATITIS A VACCINE, INACTIVATED"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "00006-4841-01",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "VAQTA",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "HEPATITIS A VACCINE, INACTIVATED"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "58160-0804-01",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "INFLUENZA (H5N1), adjuvanted",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "INFLUENZA (H5N1) MONOVALENT, ADJUVANTED"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "58160-0802-02",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "AS03 Adjuvant",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "Adjuvant"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "58160-0901-41",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "FLUARIX QUADRIVALENT",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "INFLUENZA VIRUS VACCINE"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "00006-4837-01",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "PNEUMOVAX 23",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "PNEUMOCOCCAL VACCINE POLYVALENT"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "19515-0891-01",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "Flulaval Quadrivalent",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "INFLUENZA VIRUS VACCINE"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "19515-0893-02",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "FLULAVAL",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "INFLUENZA VIRUS VACCINE"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "19515-0894-41",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "Flulaval Quadrivalent",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation">designation</a>" : [
+              {
+                "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.designation.value">value</a>" : "INFLUENZA VIRUS VACCINE"
+              }
+            ]
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "49281-0514-00",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "Fluzone Quadrivalent, Peds"
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "49281-0394-78",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "FLUZONE"
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "49281-0014-88",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "FLUZONE"
+          },
+          {
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.code">code</a>" : "49281-0414-58",
+            "<a href="http://hl7.org/fhir/2017Jan/valueset.html#ValueSet.compose.include.concept.display">display</a>" : "FLUZONE QUADRIVALENT PF"
+          }
+        ]
+      }
+    ]
+  }
+}</pre>
+
+
+  <!-- ==============END CONTENT END CONTENT=================== -->
+
+<p></p>
+ </div>
+
+    </div>  <!-- /inner-wrapper -->
+            </div>  <!-- /row -->
+        </div>  <!-- /container -->
+
+    </div>  <!-- /segment-content -->
+
+
+
+
+
+</div>
+
+    </div>  <!-- /inner-wrapper -->
+            </div>  <!-- /row -->
+        </div>  <!-- /container -->
+
+    </div>  <!-- /segment-content -->
+
+
+<div id="segment-footer" class="segment">  <!-- segment-footer -->
+  <div class="container">  <!-- container -->
+   <div class="inner-wrapper">
+    <p>
+        US-Core &copy; FHIR STU3 (IG Publisher v1.8.0-10514) generated on Tue, Dec 6, 2016 16:45-0500. |
+             <!--  <a style="color: #81BEF7" rel="license" <!-- <href="../license.html"><img style="border-style: none;" alt="CC0" src="cc0.png"/></a> -->
+                <a style="color: #81BEF7" rel="license" href="http://hl7.org/fhir/2017Janlicense.html"><img style="border-style: none;" alt="CC0" src="cc0.png"/></a> 
+        </span>
+        </p>
+   </div>  <!-- /inner-wrapper -->
+  </div>  <!-- /container -->
+ </div>  <!-- /segment-footer -->
+  <!-- disqus thread -->
+  <!-- disqus -->
+  <!-- end disqus -->
+
+ <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+  <div class="container">  <!-- container -->
+  </div>  <!-- /container -->
+ </div>  <!-- /segment-post-footer -->
+
+</body>
+</html>
+

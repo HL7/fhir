@@ -1,0 +1,241 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "us-core-direct",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative with Details</b></p><p><b>url</b>: <a href=\"http://hl7.org/fhir/us/core/StructureDefinition/us-core-direct\">http://hl7.org/fhir/us/core/StructureDefinition/us-core-direct</a></p><p><b>name</b>: Email is a &quot;direct&quot; email</p><p><b>title</b>: US Core Direct email Extension</p><p><b>status</b>: DRAFT</p><p><b>date</b>: Aug 1, 2016</p><p><b>publisher</b>: Health Level Seven International (FHIR-Infrastructure)</p><p><b>contact</b>: </p><p><b>description</b>: This email address is associated with a &quot;direct&quot; service - e.g. http://wiki.directproject.org/Addressing+Specification.</p><p><b>url</b>: <a href=\"http://hl7.org/fhir/us/core/StructureDefinition/us-core-direct\">http://hl7.org/fhir/us/core/StructureDefinition/us-core-direct</a></p><p><b>name</b>: Email is a &quot;direct&quot; email</p><p><b>title</b>: US Core Direct email Extension</p><p><b>status</b>: DRAFT</p><p><b>publisher</b>: Health Level Seven International (FHIR-Infrastructure)</p><p><b>contact</b>: </p><p><b>date</b>: Aug 1, 2016</p><p><b>description</b>: This email address is associated with a &quot;direct&quot; service - e.g. http://wiki.directproject.org/Addressing+Specification.</p><p><b>fhirVersion</b>: 1.8.0</p><h3>Mappings</h3><table class=\"grid\"><tr><td>-</td><td><b>Identity</b></td><td><b>Uri</b></td><td><b>Name</b></td></tr><tr><td>*</td><td>rim</td><td><a href=\"http://hl7.org/v3\">http://hl7.org/v3</a></td><td>RIM Mapping</td></tr></table><p><b>kind</b>: COMPLEXTYPE</p><p><b>abstract</b>: false</p><p><b>contextType</b>: DATATYPE</p><p><b>context</b>: ContactPoint</p><p><b>type</b>: Extension</p><p><b>baseDefinition</b>: <a href=\"http://hl7.org/fhir/StructureDefinition/Extension\">http://hl7.org/fhir/StructureDefinition/Extension</a></p><p><b>derivation</b>: CONSTRAINT</p><h3>Snapshots</h3><table class=\"grid\"><tr><td>-</td><td><b>Element</b></td></tr><tr><td>*</td><td>todo-bundle</td></tr></table><h3>Differentials</h3><table class=\"grid\"><tr><td>-</td><td><b>Element</b></td></tr><tr><td>*</td><td>todo-bundle</td></tr></table></div>"
+  },
+  "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-direct",
+  "name": "Email is a \"direct\" email",
+  "title": "US Core Direct email Extension",
+  "status": "draft",
+  "publisher": "Health Level Seven International (FHIR-Infrastructure)",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://www.healthit.gov"
+        }
+      ]
+    }
+  ],
+  "date": "2016-08-01",
+  "description": "This email address is associated with a \"direct\" service - e.g. http://wiki.directproject.org/Addressing+Specification.",
+  "fhirVersion": "1.8.0",
+  "mapping": [
+    {
+      "identity": "rim",
+      "uri": "http://hl7.org/v3",
+      "name": "RIM Mapping"
+    }
+  ],
+  "kind": "complex-type",
+  "abstract": false,
+  "contextType": "datatype",
+  "context": [
+    "ContactPoint"
+  ],
+  "type": "Extension",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Extension",
+  "derivation": "constraint",
+  "snapshot": {
+    "element": [
+      {
+        "id": "Extension:direct",
+        "path": "Extension",
+        "sliceName": "direct",
+        "short": "Email is a \"direct\" email",
+        "definition": "This email address is associated with a \"direct\" service - e.g. http://wiki.directproject.org/Addressing+Specification.",
+        "comments": "This extension can only be used on contact points where the system = 'email'.",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Extension",
+          "min": 0,
+          "max": "*"
+        },
+        "condition": [
+          "ele-1"
+        ],
+        "constraint": [
+          {
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children",
+            "expression": "children().count() > id.count()",
+            "xpath": "@value|f:*|h:div",
+            "source": "Element"
+          },
+          {
+            "key": "ext-1",
+            "severity": "error",
+            "human": "Must have either extensions or value[x], not both",
+            "expression": "extension.exists() != value.exists()",
+            "xpath": "exists(f:extension)!=exists(f:*[starts-with(local-name(.), 'value')])",
+            "source": "Extension"
+          }
+        ],
+        "isModifier": false,
+        "mapping": [
+          {
+            "identity": "v2",
+            "map": "No v2 equivalent"
+          },
+          {
+            "identity": "rim",
+            "map": "No RIM equivalent"
+          }
+        ]
+      },
+      {
+        "id": "Extension:direct.id",
+        "path": "Extension.id",
+        "representation": [
+          "xmlAttr"
+        ],
+        "short": "xml:id (or equivalent in JSON)",
+        "definition": "unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Element.id",
+          "min": 0,
+          "max": "1"
+        },
+        "type": [
+          {
+            "code": "string"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          }
+        ]
+      },
+      {
+        "id": "Extension:direct.extension",
+        "path": "Extension.extension",
+        "short": "Additional Content defined by implementations",
+        "definition": "May be used to represent additional information that is not part of the basic definition of the element. In order to make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
+        "comments": "There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.",
+        "alias": [
+          "extensions",
+          "user content"
+        ],
+        "min": 0,
+        "max": "*",
+        "base": {
+          "path": "Element.extension",
+          "min": 0,
+          "max": "*"
+        },
+        "type": [
+          {
+            "code": "Extension"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          }
+        ]
+      },
+      {
+        "id": "Extension:direct.url",
+        "path": "Extension.url",
+        "representation": [
+          "xmlAttr"
+        ],
+        "short": "identifies the meaning of the extension",
+        "definition": "Source of the definition for the extension code - a logical name or a URL.",
+        "comments": "The definition may point directly to a computable or human-readable definition of the extensibility codes, or it may be a logical URI as declared in some other specification. The definition SHALL be a URI for the Structure Definition defining the extension.",
+        "min": 1,
+        "max": "1",
+        "base": {
+          "path": "Extension.url",
+          "min": 1,
+          "max": "1"
+        },
+        "type": [
+          {
+            "code": "uri"
+          }
+        ],
+        "fixedUri": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-direct",
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "N/A"
+          }
+        ]
+      },
+      {
+        "id": "Extension:direct.valueBoolean",
+        "path": "Extension.valueBoolean",
+        "short": "Value of extension",
+        "definition": "Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list).",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Extension.value[x]",
+          "min": 0,
+          "max": "1"
+        },
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ],
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "N/A"
+          }
+        ]
+      }
+    ]
+  },
+  "differential": {
+    "element": [
+      {
+        "id": "Extension:direct",
+        "path": "Extension",
+        "sliceName": "direct",
+        "short": "Email is a \"direct\" email",
+        "definition": "This email address is associated with a \"direct\" service - e.g. http://wiki.directproject.org/Addressing+Specification.",
+        "comments": "This extension can only be used on contact points where the system = 'email'.",
+        "min": 0,
+        "max": "1",
+        "isModifier": false,
+        "mapping": [
+          {
+            "identity": "v2",
+            "map": "No v2 equivalent"
+          },
+          {
+            "identity": "rim",
+            "map": "No RIM equivalent"
+          }
+        ]
+      },
+      {
+        "id": "Extension:direct.url",
+        "path": "Extension.url",
+        "fixedUri": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-direct"
+      },
+      {
+        "id": "Extension:direct.value[x]",
+        "path": "Extension.value[x]",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      }
+    ]
+  }
+}

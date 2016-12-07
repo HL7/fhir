@@ -1,0 +1,36 @@
+{
+  "resourceType": "ValueSet",
+  "id": "detailed-ethnicity",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h2>US-Core Detailed ethnicity</h2><div><p>The 41 <a href=\"http://www.cdc.gov/phin/resources/vocabulary/index.html\">CDC ethnicity codes</a> that are grouped under one of the 2 OMB ethnicity category codes.</p>\n</div><p>This value set includes codes from the following code systems:</p><ul><li/><li>Import all the codes that are contained in <a href=\"http://hl7.org/fhir/2017Jan/v3/Ethnicity/vs.html\">http://hl7.org/fhir/ValueSet/v3-Ethnicity</a></li><li>Exclude these codes as defined in <a href=\"http://hl7.org/fhir/2017Jan/v3/Ethnicity/cs.html\">http://hl7.org/fhir/v3/Ethnicity</a><table class=\"none\"><tr><td><b>Code</b></td><td><b>Display</b></td></tr><tr><td>2135-2</td><td>Hispanic or Latino</td><td>Hispanic or Latino</td></tr><tr><td>2186-5</td><td>Not Hispanic or Latino</td><td>Note that this term remains in the table for completeness, even though within HL7, the notion of &quot;not otherwise coded&quot; term is deprecated.</td></tr></table></li></ul></div>"
+  },
+  "url": "http://hl7.org/fhir/us/core/ValueSet/detailed-ethnicity",
+  "name": "US-Core Detailed ethnicity",
+  "status": "draft",
+  "publisher": "USRealm Task Force",
+  "date": "2016-08-30",
+  "description": "The 41 [CDC ethnicity codes](http://www.cdc.gov/phin/resources/vocabulary/index.html) that are grouped under one of the 2 OMB ethnicity category codes.",
+  "compose": {
+    "include": [
+      {
+        "valueSet": [
+          "http://hl7.org/fhir/ValueSet/v3-Ethnicity"
+        ]
+      }
+    ],
+    "exclude": [
+      {
+        "system": "http://hl7.org/fhir/v3/Ethnicity",
+        "concept": [
+          {
+            "code": "2135-2"
+          },
+          {
+            "code": "2186-5"
+          }
+        ]
+      }
+    ]
+  }
+}

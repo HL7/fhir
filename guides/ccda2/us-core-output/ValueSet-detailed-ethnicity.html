@@ -1,0 +1,182 @@
+<!DOCTYPE HTML>
+
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+   <meta charset="UTF-8"/>
+  <title></title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="US Core Implemenation Guide" />
+<meta name="author" content="http://www.hl7.org"/>
+
+  <link href="fhir.css" rel="stylesheet"/>
+
+   <!-- Bootstrap core CSS -->
+  <link href="dist/css/bootstrap.css" rel="stylesheet"/>
+  <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+  <!-- Project extras -->
+  <link href="assets/css/project.css" rel="stylesheet"/>
+  <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+	<link href="jquery-ui.css" rel="stylesheet"/>
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png"/>
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png"/>
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png"/>
+  <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png"/>
+  <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+
+
+<body>
+
+ <div id="segment-header" class="segment">  <!-- segment-header -->
+  <div class="container">  <!-- container -->
+   <a id="logo" no-external="true" href="http://hl7.org/fhir"><img alt="logo fhir" src="assets/images/fhir-logo-www.png"/> </a>
+   <div id="hl7-status">
+    <b>US-Core CI Build</b>
+   </div>
+
+   <div id="hl7-nav">
+     <a id="hl7-logo" no-external="true" href="http://www.hl7.org">
+     <img height="50" alt="visit the hl7 website" width="42" src="assets/images/hl7-logo.png"/>
+    </a>
+   </div>
+   <div id="hl7-nav"><a id="hl7-logo" no-external="true" href="http://hl7.org/fhir/search.cfm"><img height="50"  alt="US-Core" src="assets/images/usbanner.png"/></a></div>
+  </div>
+  <div class="container">  <!-- container -->
+ </div></div>  <!-- /segment-header -->
+
+ <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+  <div id="stripe"> </div>
+  <div class="container">  <!-- container -->
+   <!-- HEADER CONTENT -->
+
+   <nav class="navbar navbar-inverse">
+    <div class="container">
+     <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+      <span class="icon-bar"> </span>
+      <span class="icon-bar"> </span>
+      <span class="icon-bar"> </span>
+     </button>
+     <a class="navbar-brand hidden" href="http://hl7.org/fhir/2017Janindex.html">FHIR</a>
+     <div class="nav-collapse collapse navbar-inverse-collapse">
+      <ul class="nav navbar-nav">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="definitions.html">General Guidance</a></li>
+              <li><a href="profiles.html">US Core Profiles</a></li>
+              <li><a href="extensions.html">Extensions</a></li>
+              <li><a href="valuesets.html">Value Sets</a></li>
+              <li><a href="searchparams.html">Search Parameters</a></li>
+              <li><a href="capstmnts.html">Capability Statements</a></li>
+              <li><a href="security.html">Security</a></li>
+              <li><a href="downloads.html">Downloads</a></li>
+            </ul>
+
+     </div>  <!-- /.nav-collapse -->
+    </div>  <!-- /.container -->
+   </nav>  <!-- /.navbar -->
+
+  <!-- /HEADER CONTENT -->
+  </div>  <!-- /container -->
+ </div>  <!-- /segment-navbar -->
+
+
+
+<!-- ============BreadCrumbs=============== -->
+
+  </div>  <!-- /container -->
+ </div>  <!-- /segment-breadcrumb -->
+
+ <div id="segment-content" class="segment">  <!-- segment-content -->
+ <div class="container">  <!-- container -->
+            <div class="row">
+             <div class="inner-wrapper">
+
+
+<div class="col-9">
+
+  <!-- ============CONTENT CONTENT=============== -->
+
+<!--
+<h2>US-Core Detailed ethnicity</h2>
+
+<p>
+Formats: <a href="ValueSet-detailed-ethnicity.xml.html">XML</a>, <a href="ValueSet-detailed-ethnicity.json.html">JSON</a>, <a href="ValueSet-detailed-ethnicity.ttl.html">Turtle</a>
+</p>
+
+-->
+
+<!-- include ValueSet-detailed-ethnicity-html.xhtml   -->
+
+<table class="grid">
+ <tbody><tr><td>Defining URL:</td><td>http://hl7.org/fhir/us/core/ValueSet/detailed-ethnicity</td></tr>
+ <tr><td>Name:</td><td>US-Core Detailed ethnicity</td></tr>
+ <tr><td>Definition:</td><td><p>The 41 <a href="http://www.cdc.gov/phin/resources/vocabulary/index.html">CDC ethnicity codes</a> that are grouped under one of the 2 OMB ethnicity category codes.</p>
+</td></tr>
+ <tr><td>Publisher:</td><td>USRealm Task Force</td></tr>
+ <tr><td>Source Resource</td><td><a href="ValueSet-detailed-ethnicity.xml.html">XML</a> / <a href="ValueSet-detailed-ethnicity.json.html">JSON</a> / <a href="ValueSet-detailed-ethnicity.ttl.html">Turtle</a></td></tr>
+</tbody></table>
+
+
+This value set is used by:
+
+
+<ul>
+ <li><a href="StructureDefinition-us-core-ethnicity.html">US Core ethnicity Extension</a></li>
+</ul>
+
+
+<div xmlns="http://www.w3.org/1999/xhtml"><h2>US-Core Detailed ethnicity</h2><div><p>The 41 <a href="http://www.cdc.gov/phin/resources/vocabulary/index.html">CDC ethnicity codes</a> that are grouped under one of the 2 OMB ethnicity category codes.</p>
+</div><p>This value set includes codes from the following code systems:</p><ul><li/><li>Import all the codes that are contained in <a href="http://hl7.org/fhir/2017Jan/v3/Ethnicity/vs.html">http://hl7.org/fhir/ValueSet/v3-Ethnicity</a></li><li>Exclude these codes as defined in <a href="http://hl7.org/fhir/2017Jan/v3/Ethnicity/cs.html">http://hl7.org/fhir/v3/Ethnicity</a><table class="none"><tr><td><b>Code</b></td><td><b>Display</b></td></tr><tr><td>2135-2</td><td>Hispanic or Latino</td><td>Hispanic or Latino</td></tr><tr><td>2186-5</td><td>Not Hispanic or Latino</td><td>Note that this term remains in the table for completeness, even though within HL7, the notion of &quot;not otherwise coded&quot; term is deprecated.</td></tr></table></li></ul></div>
+
+<h3>Expansion</h3>
+
+<div xmlns="http://www.w3.org/1999/xhtml"><p>This value set contains 41 concepts</p><p style="border: black 1px dotted; background-color: #EEEEEE; padding: 8px">Expansion based on http://hl7.org/fhir/ValueSet/v3-Ethnicity version 2016-11-11, http://hl7.org/fhir/v3/Ethnicity version 2016-11-11</p><p>All codes from system <a href="http://hl7.org/fhir/2017Jan/v3/Ethnicity/cs.html"><code>http://hl7.org/fhir/v3/Ethnicity</code></a></p><table class="codes"><tr><td><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td><a name="http---hl7.org-fhir-v3-Ethnicity-2137-8"> </a><a href="http://hl7.org/fhir/2017Jan/v3/Ethnicity/cs.html#v3-Ethnicity-2137-8">2137-8</a></td><td>Spaniard</td><td>Spaniard</td></tr><tr><td><a name="http---hl7.org-fhir-v3-Ethnicity-2138-6"> </a><a href="http://hl7.org/fhir/2017Jan/v3/Ethnicity/cs.html#v3-Ethnicity-2138-6">2138-6</a></td><td>Andalusian</td><td>Andalusian</td></tr><tr><td><a name="http---hl7.org-fhir-v3-Ethnicity-2139-4"> </a><a href="http://hl7.org/fhir/2017Jan/v3/Ethnicity/cs.html#v3-Ethnicity-2139-4">2139-4</a></td><td>Asturian</td><td>Asturian</td></tr><tr><td><a name="http---hl7.org-fhir-v3-Ethnicity-2140-2"> </a><a href="http://hl7.org/fhir/2017Jan/v3/Ethnicity/cs.html#v3-Ethnicity-2140-2">2140-2</a></td><td>Castillian</td><td>Castillian</td></tr><tr><td><a name="http---hl7.org-fhir-v3-Ethnicity-2141-0"> </a><a href="http://hl7.org/fhir/2017Jan/v3/Ethnicity/cs.html#v3-Ethnicity-2141-0">2141-0</a></td><td>Catalonian</td><td>Catalonian</td></tr><tr><td><a name="http---hl7.org-fhir-v3-Ethnicity-2142-8"> </a><a href="http://hl7.org/fhir/2017Jan/v3/Ethnicity/cs.html#v3-Ethnicity-2142-8">2142-8</a></td><td>Belearic Islander</td><td>Belearic Islander</td></tr><tr><td><a name="http---hl7.org-fhir-v3-Ethnicity-2143-6"> </a><a href="http://hl7.org/fhir/2017Jan/v3/Ethnicity/cs.html#v3-Ethnicity-2143-6">2143-6</a></td><td>Gallego</td><td>Gallego</td></tr><tr><td><a name="http---hl7.org-fhir-v3-Ethnicity-2144-4"> </a><a href="http://hl7.org/fhir/2017Jan/v3/Ethnicity/cs.html#v3-Ethnicity-2144-4">2144-4</a></td><td>Valencian</td><td>Valencian</td></tr><tr><td><a name="http---hl7.org-fhir-v3-Ethnicity-2145-1"> </a><a href="http://hl7.org/fhir/2017Jan/v3/Ethnicity/cs.html#v3-Ethnicity-2145-1">2145-1</a></td><td>Canarian</td><td>Canarian</td></tr><tr><td><a name="http---hl7.org-fhir-v3-Ethnicity-2146-9"> </a><a href="http://hl7.org/fhir/2017Jan/v3/Ethnicity/cs.html#v3-Ethnicity-2146-9">2146-9</a></td><td>Spanish Basque</td><td>Spanish Basque</td></tr><tr><td><a name="http---hl7.org-fhir-v3-Ethnicity-2148-5"> </a><a href="http://hl7.org/fhir/2017Jan/v3/Ethnicity/cs.html#v3-Ethnicity-2148-5">2148-5</a></td><td>Mexican</td><td>Mexican</td></tr><tr><td><a name="http---hl7.org-fhir-v3-Ethnicity-2149-3"> </a><a href="http://hl7.org/fhir/2017Jan/v3/Ethnicity/cs.html#v3-Ethnicity-2149-3">2149-3</a></td><td>Mexican American</td><td>Mexican American</td></tr><tr><td><a name="http---hl7.org-fhir-v3-Ethnicity-2150-1"> </a><a href="http://hl7.org/fhir/2017Jan/v3/Ethnicity/cs.html#v3-Ethnicity-2150-1">2150-1</a></td><td>Mexicano</td><td>Mexicano</td></tr><tr><td><a name="http---hl7.org-fhir-v3-Ethnicity-2151-9"> </a><a href="http://hl7.org/fhir/2017Jan/v3/Ethnicity/cs.html#v3-Ethnicity-2151-9">2151-9</a></td><td>Chicano</td><td>Chicano</td></tr><tr><td><a name="http---hl7.org-fhir-v3-Ethnicity-2152-7"> </a><a href="http://hl7.org/fhir/2017Jan/v3/Ethnicity/cs.html#v3-Ethnicity-2152-7">2152-7</a></td><td>La Raza</td><td>La Raza</td></tr><tr><td><a name="http---hl7.org-fhir-v3-Ethnicity-2153-5"> </a><a href="http://hl7.org/fhir/2017Jan/v3/Ethnicity/cs.html#v3-Ethnicity-2153-5">2153-5</a></td><td>Mexican American Indian</td><td>Mexican American Indian</td></tr><tr><td><a name="http---hl7.org-fhir-v3-Ethnicity-2155-0"> </a><a href="http://hl7.org/fhir/2017Jan/v3/Ethnicity/cs.html#v3-Ethnicity-2155-0">2155-0</a></td><td>Central American</td><td>Central American</td></tr><tr><td><a name="http---hl7.org-fhir-v3-Ethnicity-2156-8"> </a><a href="http://hl7.org/fhir/2017Jan/v3/Ethnicity/cs.html#v3-Ethnicity-2156-8">2156-8</a></td><td>Costa Rican</td><td>Costa Rican</td></tr><tr><td><a name="http---hl7.org-fhir-v3-Ethnicity-2157-6"> </a><a href="http://hl7.org/fhir/2017Jan/v3/Ethnicity/cs.html#v3-Ethnicity-2157-6">2157-6</a></td><td>Guatemalan</td><td>Guatemalan</td></tr><tr><td><a name="http---hl7.org-fhir-v3-Ethnicity-2158-4"> </a><a href="http://hl7.org/fhir/2017Jan/v3/Ethnicity/cs.html#v3-Ethnicity-2158-4">2158-4</a></td><td>Honduran</td><td>Honduran</td></tr><tr><td><a name="http---hl7.org-fhir-v3-Ethnicity-2159-2"> </a><a href="http://hl7.org/fhir/2017Jan/v3/Ethnicity/cs.html#v3-Ethnicity-2159-2">2159-2</a></td><td>Nicaraguan</td><td>Nicaraguan</td></tr><tr><td><a name="http---hl7.org-fhir-v3-Ethnicity-2160-0"> </a><a href="http://hl7.org/fhir/2017Jan/v3/Ethnicity/cs.html#v3-Ethnicity-2160-0">2160-0</a></td><td>Panamanian</td><td>Panamanian</td></tr><tr><td><a name="http---hl7.org-fhir-v3-Ethnicity-2161-8"> </a><a href="http://hl7.org/fhir/2017Jan/v3/Ethnicity/cs.html#v3-Ethnicity-2161-8">2161-8</a></td><td>Salvadoran</td><td>Salvadoran</td></tr><tr><td><a name="http---hl7.org-fhir-v3-Ethnicity-2162-6"> </a><a href="http://hl7.org/fhir/2017Jan/v3/Ethnicity/cs.html#v3-Ethnicity-2162-6">2162-6</a></td><td>Central American Indian</td><td>Central American Indian</td></tr><tr><td><a name="http---hl7.org-fhir-v3-Ethnicity-2163-4"> </a><a href="http://hl7.org/fhir/2017Jan/v3/Ethnicity/cs.html#v3-Ethnicity-2163-4">2163-4</a></td><td>Canal Zone</td><td>Canal Zone</td></tr><tr><td><a name="http---hl7.org-fhir-v3-Ethnicity-2165-9"> </a><a href="http://hl7.org/fhir/2017Jan/v3/Ethnicity/cs.html#v3-Ethnicity-2165-9">2165-9</a></td><td>South American</td><td>South American</td></tr><tr><td><a name="http---hl7.org-fhir-v3-Ethnicity-2166-7"> </a><a href="http://hl7.org/fhir/2017Jan/v3/Ethnicity/cs.html#v3-Ethnicity-2166-7">2166-7</a></td><td>Argentinean</td><td>Argentinean</td></tr><tr><td><a name="http---hl7.org-fhir-v3-Ethnicity-2167-5"> </a><a href="http://hl7.org/fhir/2017Jan/v3/Ethnicity/cs.html#v3-Ethnicity-2167-5">2167-5</a></td><td>Bolivian</td><td>Bolivian</td></tr><tr><td><a name="http---hl7.org-fhir-v3-Ethnicity-2168-3"> </a><a href="http://hl7.org/fhir/2017Jan/v3/Ethnicity/cs.html#v3-Ethnicity-2168-3">2168-3</a></td><td>Chilean</td><td>Chilean</td></tr><tr><td><a name="http---hl7.org-fhir-v3-Ethnicity-2169-1"> </a><a href="http://hl7.org/fhir/2017Jan/v3/Ethnicity/cs.html#v3-Ethnicity-2169-1">2169-1</a></td><td>Colombian</td><td>Colombian</td></tr><tr><td><a name="http---hl7.org-fhir-v3-Ethnicity-2170-9"> </a><a href="http://hl7.org/fhir/2017Jan/v3/Ethnicity/cs.html#v3-Ethnicity-2170-9">2170-9</a></td><td>Ecuadorian</td><td>Ecuadorian</td></tr><tr><td><a name="http---hl7.org-fhir-v3-Ethnicity-2171-7"> </a><a href="http://hl7.org/fhir/2017Jan/v3/Ethnicity/cs.html#v3-Ethnicity-2171-7">2171-7</a></td><td>Paraguayan</td><td>Paraguayan</td></tr><tr><td><a name="http---hl7.org-fhir-v3-Ethnicity-2172-5"> </a><a href="http://hl7.org/fhir/2017Jan/v3/Ethnicity/cs.html#v3-Ethnicity-2172-5">2172-5</a></td><td>Peruvian</td><td>Peruvian</td></tr><tr><td><a name="http---hl7.org-fhir-v3-Ethnicity-2173-3"> </a><a href="http://hl7.org/fhir/2017Jan/v3/Ethnicity/cs.html#v3-Ethnicity-2173-3">2173-3</a></td><td>Uruguayan</td><td>Uruguayan</td></tr><tr><td><a name="http---hl7.org-fhir-v3-Ethnicity-2174-1"> </a><a href="http://hl7.org/fhir/2017Jan/v3/Ethnicity/cs.html#v3-Ethnicity-2174-1">2174-1</a></td><td>Venezuelan</td><td>Venezuelan</td></tr><tr><td><a name="http---hl7.org-fhir-v3-Ethnicity-2175-8"> </a><a href="http://hl7.org/fhir/2017Jan/v3/Ethnicity/cs.html#v3-Ethnicity-2175-8">2175-8</a></td><td>South American Indian</td><td>South American Indian</td></tr><tr><td><a name="http---hl7.org-fhir-v3-Ethnicity-2176-6"> </a><a href="http://hl7.org/fhir/2017Jan/v3/Ethnicity/cs.html#v3-Ethnicity-2176-6">2176-6</a></td><td>Criollo</td><td>Criollo</td></tr><tr><td><a name="http---hl7.org-fhir-v3-Ethnicity-2178-2"> </a><a href="http://hl7.org/fhir/2017Jan/v3/Ethnicity/cs.html#v3-Ethnicity-2178-2">2178-2</a></td><td>Latin American</td><td>Latin American</td></tr><tr><td><a name="http---hl7.org-fhir-v3-Ethnicity-2180-8"> </a><a href="http://hl7.org/fhir/2017Jan/v3/Ethnicity/cs.html#v3-Ethnicity-2180-8">2180-8</a></td><td>Puerto Rican</td><td>Puerto Rican</td></tr><tr><td><a name="http---hl7.org-fhir-v3-Ethnicity-2182-4"> </a><a href="http://hl7.org/fhir/2017Jan/v3/Ethnicity/cs.html#v3-Ethnicity-2182-4">2182-4</a></td><td>Cuban</td><td>Cuban</td></tr><tr><td><a name="http---hl7.org-fhir-v3-Ethnicity-2184-0"> </a><a href="http://hl7.org/fhir/2017Jan/v3/Ethnicity/cs.html#v3-Ethnicity-2184-0">2184-0</a></td><td>Dominican</td><td>Dominican</td></tr></table></div>
+
+  <!-- ==============END CONTENT END CONTENT=================== -->
+
+<p></p>
+ </div>
+
+    </div>  <!-- /inner-wrapper -->
+            </div>  <!-- /row -->
+        </div>  <!-- /container -->
+
+    </div>  <!-- /segment-content -->
+
+
+
+</div>
+
+    </div>  <!-- /inner-wrapper -->
+            </div>  <!-- /row -->
+        </div>  <!-- /container -->
+
+    </div>  <!-- /segment-content -->
+
+
+<div id="segment-footer" class="segment">  <!-- segment-footer -->
+  <div class="container">  <!-- container -->
+   <div class="inner-wrapper">
+    <p>
+        US-Core &copy; FHIR STU3 (IG Publisher v1.8.0-10514) generated on Tue, Dec 6, 2016 16:45-0500. |
+             <!--  <a style="color: #81BEF7" rel="license" <!-- <href="../license.html"><img style="border-style: none;" alt="CC0" src="cc0.png"/></a> -->
+                <a style="color: #81BEF7" rel="license" href="http://hl7.org/fhir/2017Janlicense.html"><img style="border-style: none;" alt="CC0" src="cc0.png"/></a> 
+        </span>
+        </p>
+   </div>  <!-- /inner-wrapper -->
+  </div>  <!-- /container -->
+ </div>  <!-- /segment-footer -->
+  <!-- disqus thread -->
+  <!-- disqus -->
+  <!-- end disqus -->
+
+ <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+  <div class="container">  <!-- container -->
+  </div>  <!-- /container -->
+ </div>  <!-- /segment-post-footer -->
+
+</body>
+</html>
+

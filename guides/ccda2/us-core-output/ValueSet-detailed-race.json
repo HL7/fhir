@@ -1,0 +1,45 @@
+{
+  "resourceType": "ValueSet",
+  "id": "detailed-race",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h2>US-Core Detailed Race</h2><div><p>The 900+ <a href=\"http://www.cdc.gov/phin/resources/vocabulary/index.html\">CDC Race codes</a> that are grouped under one of the 5 OMB race category codes.</p>\n</div><p>This value set includes codes from the following code systems:</p><ul><li/><li>Import all the codes that are contained in <a href=\"http://hl7.org/fhir/2017Jan/v3/Race/vs.html\">http://hl7.org/fhir/ValueSet/v3-Race</a></li><li>Exclude these codes as defined in <a href=\"http://hl7.org/fhir/2017Jan/v3/Race/cs.html\">http://hl7.org/fhir/v3/Race</a><table class=\"none\"><tr><td><b>Code</b></td><td><b>Display</b></td></tr><tr><td>1002-5</td><td>American Indian or Alaska Native</td><td>American Indian or Alaska Native</td></tr><tr><td>2028-9</td><td>Asian</td><td>Asian</td></tr><tr><td>2054-5</td><td>Black or African American</td><td>Black or African American</td></tr><tr><td>2076-8</td><td>Native Hawaiian or Other Pacific Islander</td><td>Native Hawaiian or Other Pacific Islander</td></tr><tr><td>2106-3</td><td>White</td><td>White</td></tr></table></li></ul></div>"
+  },
+  "url": "http://hl7.org/fhir/us/core/ValueSet/detailed-race",
+  "name": "US-Core Detailed Race",
+  "status": "draft",
+  "publisher": "USRealm Task Force",
+  "date": "2016-08-30",
+  "description": "The 900+ [CDC Race codes](http://www.cdc.gov/phin/resources/vocabulary/index.html) that are grouped under one of the 5 OMB race category codes.",
+  "compose": {
+    "include": [
+      {
+        "valueSet": [
+          "http://hl7.org/fhir/ValueSet/v3-Race"
+        ]
+      }
+    ],
+    "exclude": [
+      {
+        "system": "http://hl7.org/fhir/v3/Race",
+        "concept": [
+          {
+            "code": "1002-5"
+          },
+          {
+            "code": "2028-9"
+          },
+          {
+            "code": "2054-5"
+          },
+          {
+            "code": "2076-8"
+          },
+          {
+            "code": "2106-3"
+          }
+        ]
+      }
+    ]
+  }
+}

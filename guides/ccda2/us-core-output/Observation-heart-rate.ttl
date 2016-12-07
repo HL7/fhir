@@ -1,0 +1,62 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix loinc: <http://loinc.org/owl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://hl7.org/fhir/us/core/Observation/heart-rate> a fhir:Observation;
+  fhir:nodeRole fhir:treeRoot;
+  fhir:Resource.id [ fhir:value "heart-rate"];
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "http://hl7.org/fhir/us/core/StructureDefinition/us-core-observationresults";
+       fhir:index 0
+     ]
+  ];
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ];
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: heart-rate</p><p><b>meta</b>: </p><p><b>status</b>: final</p><p><b>category</b>: Vital Signs <span style=\"background: LightGoldenRodYellow\">(Details : {http://hl7.org/fhir/observation-category code 'vital-signs' = 'Vital Signs', given as 'Vital Signs'})</span></p><p><b>code</b>: heart_rate <span style=\"background: LightGoldenRodYellow\">(Details : {LOINC code '8867-4' = 'Heart rate', given as 'heart_rate'})</span></p><p><b>subject</b>: <a href=\"Patient-example.html\">Amy Shaw. Generated Summary: id: example; Medical Record Number = 1032702 (USUAL); active; Amy V. Shaw ; ph: 555-555-5555(HOME), amy.shaw@example.com; gender: null; birthDate: Feb 20, 2007</a></p><p><b>encounter</b>: GP Visit</p><p><b>effective</b>: Jul 2, 1999</p><p><b>value</b>: 44.0 {beats}/min<span style=\"background: LightGoldenRodYellow\"> (Details: UCUM code {beats}/min = '{beats}/min')</span></p></div>"
+  ];
+  fhir:Observation.status [ fhir:value "final"];
+  fhir:Observation.category [
+     fhir:index 0;
+     fhir:CodeableConcept.coding [
+       fhir:index 0;
+       fhir:Coding.system [ fhir:value "http://hl7.org/fhir/observation-category" ];
+       fhir:Coding.code [ fhir:value "vital-signs" ];
+       fhir:Coding.display [ fhir:value "Vital Signs" ]
+     ];
+     fhir:CodeableConcept.text [ fhir:value "Vital Signs" ]
+  ];
+  fhir:Observation.code [
+     fhir:CodeableConcept.coding [
+       fhir:index 0;
+       fhir:concept loinc:8867-4;
+       fhir:Coding.system [ fhir:value "http://loinc.org" ];
+       fhir:Coding.code [ fhir:value "8867-4" ];
+       fhir:Coding.display [ fhir:value "heart_rate" ]
+     ];
+     fhir:CodeableConcept.text [ fhir:value "heart_rate" ]
+  ];
+  fhir:Observation.subject [
+     fhir:link <http://hl7.org/fhir/us/core/Patient/example>;
+     fhir:Reference.reference [ fhir:value "Patient/example" ];
+     fhir:Reference.display [ fhir:value "Amy Shaw" ]
+  ];
+  fhir:Observation.encounter [
+     fhir:Reference.display [ fhir:value "GP Visit" ]
+  ];
+  fhir:Observation.effectiveDateTime [ fhir:value "1999-07-02"^^xsd:date];
+  fhir:Observation.valueQuantity [
+     fhir:Quantity.value [ fhir:value "44.0"^^xsd:decimal ];
+     fhir:Quantity.unit [ fhir:value "{beats}/min" ];
+     fhir:Quantity.system [ fhir:value "http://unitsofmeasure.org" ];
+     fhir:Quantity.code [ fhir:value "{beats}/min" ]
+  ] .
+
+<http://hl7.org/fhir/us/core/Patient/example> a fhir:us .
+
+# -------------------------------------------------------------------------------------
+

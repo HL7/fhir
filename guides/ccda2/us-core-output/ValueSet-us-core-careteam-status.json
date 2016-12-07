@@ -1,0 +1,21 @@
+{
+  "resourceType": "ValueSet",
+  "id": "us-core-careteam-status",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h2>CareTeamStatus</h2><div><p>Indicates whether the team is current , represents future intentions or is now a historical record.</p>\n</div><p>This value set includes codes from the following code systems:</p><ul><li>Include all codes defined in <a href=\"CodeSystem-careteam-status.html\">http://hl7.org/fhir/us/core/CodeSystem/careteam-status</a></li></ul></div>"
+  },
+  "url": "http://hl7.org/fhir/us/core/ValueSet/us-core-careteam-status",
+  "name": "CareTeamStatus",
+  "status": "draft",
+  "publisher": "HL7 (FHIR Project)",
+  "date": "2016-12-06T16:45:17-05:00",
+  "description": "Indicates whether the team is current , represents future intentions or is now a historical record.",
+  "compose": {
+    "include": [
+      {
+        "system": "http://hl7.org/fhir/us/core/CodeSystem/careteam-status"
+      }
+    ]
+  }
+}

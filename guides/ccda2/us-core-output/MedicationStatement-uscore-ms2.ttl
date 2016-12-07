@@ -1,0 +1,50 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://hl7.org/fhir/us/core/MedicationStatement/uscore-ms2> a fhir:MedicationStatement;
+  fhir:nodeRole fhir:treeRoot;
+  fhir:Resource.id [ fhir:value "uscore-ms2"];
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationstatement";
+       fhir:index 0
+     ]
+  ];
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ];
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: uscore-ms2</p><p><b>meta</b>: </p><p><b>contained</b>: </p><p><b>status</b>: active</p><p><b>medication</b>: lisinopril oral 10 mg. Generated Summary: unknown resource contained</p><p><b>subject</b>: <a href=\"Patient-example.html\">Amy Shaw</a></p><p><b>effective</b>: May 1, 2010 --&gt; (ongoing)</p><p><b>dateAsserted</b>: May 1, 2016 12:13:03 PM</p></div>"
+  ];
+  fhir:DomainResource.contained [
+     a fhir:Medication;
+     fhir:index 0;
+     fhir:Resource.id [ fhir:value "med1" ];
+     fhir:Medication.code [
+       fhir:CodeableConcept.coding [
+         fhir:index 0;
+         fhir:Coding.system [ fhir:value "http://www.nlm.nih.gov/research/umls/rxnorm" ];
+         fhir:Coding.code [ fhir:value "206765" ];
+         fhir:Coding.display [ fhir:value "Lisinopril 10 MG Oral Tablet [Prinivil]" ]
+       ];
+       fhir:CodeableConcept.text [ fhir:value "lisinopril oral 10 mg" ]
+     ]
+  ];
+  fhir:MedicationStatement.status [ fhir:value "active"];
+  fhir:MedicationStatement.medicationReference [
+     fhir:Reference.reference [ fhir:value "#med1" ];
+     fhir:Reference.display [ fhir:value "lisinopril oral 10 mg" ]
+  ];
+  fhir:MedicationStatement.subject [
+     fhir:Reference.reference [ fhir:value "Patient-example.html" ];
+     fhir:Reference.display [ fhir:value "Amy Shaw" ]
+  ];
+  fhir:MedicationStatement.effectivePeriod [
+     fhir:Period.start [ fhir:value "2010-05-01"^^xsd:date ]
+  ];
+  fhir:MedicationStatement.dateAsserted [ fhir:value "2016-05-01T16:13:03Z"^^xsd:dateTime] .
+
+# -------------------------------------------------------------------------------------
+

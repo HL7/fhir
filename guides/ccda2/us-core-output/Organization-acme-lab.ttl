@@ -1,0 +1,62 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://hl7.org/fhir/us/core/Organization/acme-lab> a fhir:Organization;
+  fhir:nodeRole fhir:treeRoot;
+  fhir:Resource.id [ fhir:value "acme-lab"];
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization";
+       fhir:index 0
+     ]
+  ];
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ];
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: acme-lab</p><p><b>meta</b>: </p><p><b>identifier</b>: 1144221847, 2523423456</p><p><b>active</b>: true</p><p><b>type</b>: Healthcare Provider <span style=\"background: LightGoldenRodYellow\">(Details : {http://hl7.org/fhir/organization-type code 'prov' = 'Healthcare Provider', given as 'Healthcare Provider'})</span></p><p><b>name</b>: Acme Labs</p><p><b>telecom</b>: ph: (+1) 734-677-7777, hq@acme.org</p><p><b>address</b>: 3300 Washtenaw Avenue, Suite 227 Amherst MA 01002 USA </p></div>"
+  ];
+  fhir:Organization.identifier [
+     fhir:index 0;
+     fhir:Identifier.system [ fhir:value "http://hl7.org.fhir/sid/us-npi" ];
+     fhir:Identifier.value [ fhir:value "1144221847" ]
+  ], [
+     fhir:index 1;
+     fhir:Identifier.system [ fhir:value "http://www.acme.org/organization" ];
+     fhir:Identifier.value [ fhir:value "2523423456" ]
+  ];
+  fhir:Organization.active [ fhir:value "true"^^xsd:boolean];
+  fhir:Organization.type [
+     fhir:CodeableConcept.coding [
+       fhir:index 0;
+       fhir:Coding.system [ fhir:value "http://hl7.org/fhir/organization-type" ];
+       fhir:Coding.code [ fhir:value "prov" ];
+       fhir:Coding.display [ fhir:value "Healthcare Provider" ]
+     ]
+  ];
+  fhir:Organization.name [ fhir:value "Acme Labs"];
+  fhir:Organization.telecom [
+     fhir:index 0;
+     fhir:ContactPoint.system [ fhir:value "phone" ];
+     fhir:ContactPoint.value [ fhir:value "(+1) 734-677-7777" ]
+  ], [
+     fhir:index 1;
+     fhir:ContactPoint.system [ fhir:value "email" ];
+     fhir:ContactPoint.value [ fhir:value "hq@acme.org" ]
+  ];
+  fhir:Organization.address [
+     fhir:index 0;
+     fhir:Address.line [
+       fhir:value "3300 Washtenaw Avenue, Suite 227";
+       fhir:index 0
+     ];
+     fhir:Address.city [ fhir:value "Amherst" ];
+     fhir:Address.state [ fhir:value "MA" ];
+     fhir:Address.postalCode [ fhir:value "01002" ];
+     fhir:Address.country [ fhir:value "USA" ]
+  ] .
+
+# -------------------------------------------------------------------------------------
+

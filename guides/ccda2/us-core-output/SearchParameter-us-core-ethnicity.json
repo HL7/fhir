@@ -1,0 +1,20 @@
+{
+  "resourceType": "SearchParameter",
+  "id": "us-core-ethnicity",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: us-core-ethnicity</p><p><b>url</b>: <a href=\"http://hl7.org/fhir/us/core/SearchParameter/us-core-ethnicity\">http://hl7.org/fhir/us/core/SearchParameter/us-core-ethnicity</a></p><p><b>name</b>: ethnicity</p><p><b>status</b>: draft</p><p><b>experimental</b>: true</p><p><b>code</b>: ethnicity</p><p><b>base</b>: Patient</p><p><b>type</b>: token</p><p><b>description</b>: Returns patients with an ethnicity extension matching the specified code.</p><p><b>xpath</b>: f:Patient/f:extension[@url='http://hl7.org/fhir/StructureDefinition/us-core-ethnicity'] | f:Patient/f:extension[@url='http://hl7.org/fhir/StructureDefinition/us-core-ethnicity']</p><p><b>xpathUsage</b>: normal</p></div>"
+  },
+  "url": "http://hl7.org/fhir/us/core/SearchParameter/us-core-ethnicity",
+  "name": "ethnicity",
+  "status": "draft",
+  "experimental": true,
+  "code": "ethnicity",
+  "base": [
+    "Patient"
+  ],
+  "type": "token",
+  "description": "Returns patients with an ethnicity extension matching the specified code.",
+  "xpath": "f:Patient/f:extension[@url='http://hl7.org/fhir/StructureDefinition/us-core-ethnicity'] | f:Patient/f:extension[@url='http://hl7.org/fhir/StructureDefinition/us-core-ethnicity']",
+  "xpathUsage": "normal"
+}

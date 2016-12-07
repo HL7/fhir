@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="careplan-category"/>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><h2>US Core CarePlan Category Extension Codes</h2><div><p>Set of codes that are needed for implementation of the US-Core profiles. These codes are used as extensions to the FHIR and US Core value sets.</p>
+</div><p>This code system http://hl7.org/fhir/us/core/CodeSystem/careplan-category defines the following codes:</p><table class="codes"><tr><td><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td>careteam<a name="careplan-category-careteam"> </a></td><td>Care Team</td><td>Careplan for identifying all the people and /or organizations who plan to participate in the coordination of delivery of care.</td></tr><tr><td>assess-plan<a name="careplan-category-assess-plan"> </a></td><td>Assessment and Plan of Treatment</td><td>The clinical conclusions and assumptions that guide the patient's treatment and the clinical activities formulated for a patient.</td></tr></table></div>
+  </text>
+  <url value="http://hl7.org/fhir/us/core/CodeSystem/careplan-category"/>
+  <name value="US Core CarePlan Category Extension Codes"/>
+  <status value="draft"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <date value="2016-12-06T16:45:17-05:00"/>
+  <description value="Set of codes that are needed for implementation of the US-Core profiles. These codes are used as extensions to the FHIR and US Core value sets.
+"/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/us/core/ValueSet/careplan-category"/>
+  <content value="complete"/>
+  <concept>
+    <code value="careteam"/>
+    <display value="Care Team"/>
+    <definition value="Careplan for identifying all the people and /or organizations who plan to participate in the coordination of delivery of care."/>
+  </concept>
+  <concept>
+    <code value="assess-plan"/>
+    <display value="Assessment and Plan of Treatment"/>
+    <definition value="The clinical conclusions and assumptions that guide the patient&#39;s treatment and the clinical activities formulated for a patient."/>
+  </concept>
+</CodeSystem>

@@ -1,0 +1,38 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://hl7.org/fhir/us/core/ValueSet/omb-ethnicity> a fhir:ValueSet;
+  fhir:nodeRole fhir:treeRoot;
+  fhir:Resource.id [ fhir:value "omb-ethnicity"];
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ];
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h2>OMB Ethnicity Categories</h2><div><p>The codes for the ethnicity categories - 'Hispanic or Latino' and 'Non Hispanic or Latino' - as defined by the <a href=\"https://www.whitehouse.gov/omb/fedreg_1997standards\">OMB Standards for Maintaining, Collecting, and Presenting Federal Data on Race and Ethnicity, Statistical Policy Directive No. 15, as revised, October 30, 1997</a>.</p>\n</div><p>This value set includes codes from the following code systems:</p><ul><li>Include these codes as defined in http://hl7.org/fhir/ValueSet/v3-Ethnicity<table class=\"none\"><tr><td><b>Code</b></td><td><b>Display</b></td></tr><tr><td>2135-2</td><td>Hispanic or Latino</td><td/></tr><tr><td>2186-5</td><td>Non Hispanic or Latino</td><td/></tr></table></li></ul></div>"
+  ];
+  fhir:ValueSet.url [ fhir:value "http://hl7.org/fhir/us/core/ValueSet/omb-ethnicity"];
+  fhir:ValueSet.name [ fhir:value "OMB Ethnicity Categories"];
+  fhir:ValueSet.status [ fhir:value "draft"];
+  fhir:ValueSet.publisher [ fhir:value "USRealm Task Force"];
+  fhir:ValueSet.date [ fhir:value "2016-08-30"^^xsd:date];
+  fhir:ValueSet.description [ fhir:value "The codes for the ethnicity categories - 'Hispanic or Latino' and 'Non Hispanic or Latino' - as defined by the [OMB Standards for Maintaining, Collecting, and Presenting Federal Data on Race and Ethnicity, Statistical Policy Directive No. 15, as revised, October 30, 1997](https://www.whitehouse.gov/omb/fedreg_1997standards)."];
+  fhir:ValueSet.compose [
+     fhir:ValueSet.compose.include [
+       fhir:index 0;
+       fhir:ValueSet.compose.include.system [ fhir:value "http://hl7.org/fhir/ValueSet/v3-Ethnicity" ];
+       fhir:ValueSet.compose.include.concept [
+         fhir:index 0;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "2135-2" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Hispanic or Latino" ]
+       ], [
+         fhir:index 1;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "2186-5" ];
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Non Hispanic or Latino" ]
+       ]
+     ]
+  ] .
+
+# -------------------------------------------------------------------------------------
+

@@ -1,0 +1,1658 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="us-core-pract"/>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p><b>Generated Narrative with Details</b></p><p><b>url</b>: <a href="http://hl7.org/fhir/us/core/StructureDefinition/us-core-pract">http://hl7.org/fhir/us/core/StructureDefinition/us-core-pract</a></p><p><b>name</b>: US Core Practitioner</p><p><b>status</b>: DRAFT</p><p><b>date</b>: Aug 1, 2016</p><p><b>publisher</b>: Health Level Seven International (FHIR-Infrastructure)</p><p><b>contact</b>: </p><p><b>url</b>: <a href="http://hl7.org/fhir/us/core/StructureDefinition/us-core-pract">http://hl7.org/fhir/us/core/StructureDefinition/us-core-pract</a></p><p><b>name</b>: US Core Practitioner</p><p><b>status</b>: DRAFT</p><p><b>publisher</b>: Health Level Seven International (FHIR-Infrastructure)</p><p><b>contact</b>: </p><p><b>date</b>: Aug 1, 2016</p><blockquote><p><b>mapping</b></p><p><b>identity</b>: v2</p><p><b>uri</b>: <a href="http://hl7.org/v2">http://hl7.org/v2</a></p><p><b>name</b>: HL7 v2 Mapping</p></blockquote><blockquote><p><b>mapping</b></p><p><b>identity</b>: rim</p><p><b>uri</b>: <a href="http://hl7.org/v3">http://hl7.org/v3</a></p><p><b>name</b>: RIM Mapping</p></blockquote><blockquote><p><b>mapping</b></p><p><b>identity</b>: servd</p><p><b>uri</b>: <a href="http://www.omg.org/spec/ServD/1.0/">http://www.omg.org/spec/ServD/1.0/</a></p><p><b>name</b>: ServD</p></blockquote><blockquote><p><b>mapping</b></p><p><b>identity</b>: w5</p><p><b>uri</b>: <a href="http://hl7.org/fhir/w5">http://hl7.org/fhir/w5</a></p><p><b>name</b>: W5 Mapping</p></blockquote><p><b>kind</b>: RESOURCE</p><p><b>abstract</b>: false</p><p><b>type</b>: Practitioner</p><p><b>baseDefinition</b>: <a href="http://hl7.org/fhir/StructureDefinition/Practitioner">http://hl7.org/fhir/StructureDefinition/Practitioner</a></p><p><b>derivation</b>: CONSTRAINT</p><h3>Snapshots</h3><table class="grid"><tr><td>-</td><td><b>Element</b></td></tr><tr><td>*</td><td>todo-bundle</td></tr></table><h3>Differentials</h3><table class="grid"><tr><td>-</td><td><b>Element</b></td></tr><tr><td>*</td><td>todo-bundle</td></tr></table></div>
+  </text>
+  <url value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-pract"/>
+  <name value="US Core Practitioner"/>
+  <status value="draft"/>
+  <publisher value="Health Level Seven International (FHIR-Infrastructure)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.healthit.gov"/>
+    </telecom>
+  </contact>
+  <date value="2016-08-01"/>
+  <mapping>
+    <identity value="v2"/>
+    <uri value="http://hl7.org/v2"/>
+    <name value="HL7 v2 Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="servd"/>
+    <uri value="http://www.omg.org/spec/ServD/1.0/"/>
+    <name value="ServD"/>
+  </mapping>
+  <mapping>
+    <identity value="w5"/>
+    <uri value="http://hl7.org/fhir/w5"/>
+    <name value="W5 Mapping"/>
+  </mapping>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="Practitioner"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+  <derivation value="constraint"/>
+  <snapshot>
+    <element id="Practitioner:uscorepract">
+      <path value="Practitioner"/>
+      <sliceName value="USCorePract"/>
+      <short value="US Core Practitioner"/>
+      <definition value="This is basic constraint on provider for use in US Core resources."/>
+      <comments value="Note that a cab driver no longer fits the bill. You probably would be interested in the organization rather than the individual?"/>
+      <alias value="Provider"/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="Practitioner"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <constraint>
+        <key value="dom-2"/>
+        <severity value="error"/>
+        <human value="If the resource is contained in another resource, it SHALL NOT contain nested Resources"/>
+        <expression value="contained.contained.empty()"/>
+        <xpath value="not(parent::f:contained and f:contained)"/>
+        <source value="DomainResource"/>
+      </constraint>
+      <constraint>
+        <key value="dom-1"/>
+        <severity value="error"/>
+        <human value="If the resource is contained in another resource, it SHALL NOT contain any narrative"/>
+        <expression value="contained.text.empty()"/>
+        <xpath value="not(parent::f:contained and f:text)"/>
+        <source value="DomainResource"/>
+      </constraint>
+      <constraint>
+        <key value="dom-4"/>
+        <severity value="error"/>
+        <human value="If a resource is contained in another resource, it SHALL NOT have a meta.versionId or a meta.lastUpdated"/>
+        <expression value="contained.meta.versionId.empty() and contained.meta.lastUpdated.empty()"/>
+        <xpath value="not(exists(f:contained/*/f:meta/f:versionId)) and not(exists(f:contained/*/f:meta/f:lastUpdated))"/>
+        <source value="DomainResource"/>
+      </constraint>
+      <constraint>
+        <key value="dom-3"/>
+        <severity value="error"/>
+        <human value="If the resource is contained in another resource, it SHALL be referred to from elsewhere in the resource"/>
+        <expression value="contained.where((&#39;#&#39;+id in %resource.descendants().reference).not()).empty()"/>
+        <xpath value="not(exists(for $id in f:contained/*/@id return $id[not(ancestor::f:contained/parent::*/descendant::f:reference/@value=concat(&#39;#&#39;, $id))]))"/>
+        <source value="DomainResource"/>
+      </constraint>
+      <mustSupport value="false"/>
+      <isSummary value="false"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value="Entity. Role, or Act"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="PRD (as one example)"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="Role"/>
+      </mapping>
+      <mapping>
+        <identity value="servd"/>
+        <map value="Provider"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="administrative.individual"/>
+      </mapping>
+    </element>
+    <element id="Practitioner:uscorepract.id">
+      <path value="Practitioner.id"/>
+      <short value="Logical id of this artifact"/>
+      <definition value="The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes."/>
+      <comments value="The only time that a resource does not have an id is when it is being submitted to the server using a create operation."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="Resource.id"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="id"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="Practitioner:uscorepract.meta">
+      <path value="Practitioner.meta"/>
+      <short value="Metadata about the resource"/>
+      <definition value="The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content may not always be associated with version changes to the resource."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="Resource.meta"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="Meta"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="Practitioner:uscorepract.implicitRules">
+      <path value="Practitioner.implicitRules"/>
+      <short value="A set of rules under which this content was created"/>
+      <definition value="A reference to a set of rules that were followed when the resource was constructed, and which must be understood when processing the content."/>
+      <comments value="Asserting this rule set restricts the content to be only understood by a limited set of trading partners. This inherently limits the usefulness of the data in the long term. However, the existing health eco-system is highly fractured, and not yet ready to define, collect, and exchange data in a generally computable sense. Wherever possible, implementers and/or specification writers should avoid using this element as much as possible."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="Resource.implicitRules"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="uri"/>
+      </type>
+      <isModifier value="true"/>
+      <isSummary value="true"/>
+    </element>
+    <element id="Practitioner:uscorepract.language">
+      <path value="Practitioner.language"/>
+      <short value="Language of the resource content"/>
+      <definition value="The base language in which the resource is written."/>
+      <comments value="Language is provided to support indexing and accessibility (typically, services such as text to speech use the language tag). The html language tag in the narrative applies  to the narrative. The language tag on the resource may be used to specify the language of other presentations generated from the data in the resource  Not all the content has to be in the base language. The Resource.language should not be assumed to apply to the narrative automatically. If a language is specified, it should it also be specified on the div element in the html (see rules in HTML5 for information about the relationship between xml:lang and the html lang attribute)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="Resource.language"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="code"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet">
+          <valueReference>
+            <reference value="http://hl7.org/fhir/ValueSet/all-languages"/>
+          </valueReference>
+        </extension>
+        <strength value="extensible"/>
+        <description value="A human language."/>
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/languages"/>
+        </valueSetReference>
+      </binding>
+    </element>
+    <element id="Practitioner:uscorepract.text">
+      <path value="Practitioner.text"/>
+      <short value="Text summary of the resource, for human interpretation"/>
+      <definition value="A human-readable narrative that contains a summary of the resource, and may be used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative. Resource definitions may define what content should be represented in the narrative to ensure clinical safety."/>
+      <comments value="Contained resources do not have narrative. Resources that are not contained SHOULD have a narrative. In some cases, a resource may only have text with little or no additional discrete data (as long as all minOccurs=1 elements are satisfied).  This may be necessary for data from legacy systems where information is captured as a &quot;text blob&quot; or where text is additionally entered raw or narrated and encoded in formation is added later."/>
+      <alias value="narrative"/>
+      <alias value="html"/>
+      <alias value="xhtml"/>
+      <alias value="display"/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="DomainResource.text"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="Narrative"/>
+      </type>
+      <condition value="dom-1"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value="Act.text?"/>
+      </mapping>
+    </element>
+    <element id="Practitioner:uscorepract.contained">
+      <path value="Practitioner.contained"/>
+      <short value="Contained, inline Resources"/>
+      <definition value="These resources do not have an independent existence apart from the resource that contains them - they cannot be identified independently, and nor can they have their own independent transaction scope."/>
+      <comments value="This should never be done when the content can be identified properly, as once identification is lost, it is extremely difficult (and context dependent) to restore it again."/>
+      <alias value="inline resources"/>
+      <alias value="anonymous resources"/>
+      <alias value="contained resources"/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="DomainResource.contained"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="Resource"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+    </element>
+    <element id="Practitioner:uscorepract.extension">
+      <path value="Practitioner.extension"/>
+      <short value="Additional Content defined by implementations"/>
+      <definition value="May be used to represent additional information that is not part of the basic definition of the resource. In order to make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension."/>
+      <comments value="There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone."/>
+      <alias value="extensions"/>
+      <alias value="user content"/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="DomainResource.extension"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="Extension"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+    </element>
+    <element id="Practitioner:uscorepract.modifierExtension">
+      <path value="Practitioner.modifierExtension"/>
+      <short value="Extensions that cannot be ignored"/>
+      <definition value="May be used to represent additional information that is not part of the basic definition of the resource, and that modifies the understanding of the element that contains it. Usually modifier elements provide negation or qualification. In order to make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions."/>
+      <comments value="There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone."/>
+      <alias value="extensions"/>
+      <alias value="user content"/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="DomainResource.modifierExtension"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="Extension"/>
+      </type>
+      <isModifier value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+    </element>
+    <element id="Practitioner:uscorepract.identifier">
+      <path value="Practitioner.identifier"/>
+      <short value="A identifier for the person as this agent"/>
+      <definition value="An identifier that applies to this person in this role."/>
+      <requirements value="Either id or name is needed."/>
+      <min value="1"/>
+      <max value="*"/>
+      <base>
+        <path value="Practitioner.identifier"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="Identifier"/>
+      </type>
+      <mustSupport value="true"/>
+      <isSummary value="false"/>
+      <mapping>
+        <identity value="v2"/>
+        <map value="PRD-7 (or XCN.1)"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="./id"/>
+      </mapping>
+      <mapping>
+        <identity value="servd"/>
+        <map value="./Identifiers"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="id"/>
+      </mapping>
+    </element>
+    <element id="Practitioner:uscorepract.identifier.id">
+      <path value="Practitioner.identifier.id"/>
+      <representation value="xmlAttr"/>
+      <short value="xml:id (or equivalent in JSON)"/>
+      <definition value="unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="Element.id"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="string"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
+    <element id="Practitioner:uscorepract.identifier.extension">
+      <path value="Practitioner.identifier.extension"/>
+      <short value="Additional Content defined by implementations"/>
+      <definition value="May be used to represent additional information that is not part of the basic definition of the element. In order to make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension."/>
+      <comments value="There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone."/>
+      <alias value="extensions"/>
+      <alias value="user content"/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="Element.extension"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="Extension"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
+    <element id="Practitioner:uscorepract.identifier.use">
+      <path value="Practitioner.identifier.use"/>
+      <short value="usual | official | temp | secondary (If known)"/>
+      <definition value="The purpose of this identifier."/>
+      <comments value="This is labeled as &quot;Is Modifier&quot; because applications should not mistake a temporary id for a permanent one. Applications can assume that an identifier is permanent unless it explicitly says that it is temporary."/>
+      <requirements value="Allows the appropriate identifier for a particular context of use to be selected from among a set of identifiers."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="Identifier.use"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="code"/>
+      </type>
+      <isModifier value="true"/>
+      <isSummary value="true"/>
+      <binding>
+        <strength value="required"/>
+        <description value="Identifies the purpose for this identifier, if known ."/>
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/identifier-use"/>
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="v2"/>
+        <map value="N/A"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="Role.code or implied by context"/>
+      </mapping>
+    </element>
+    <element id="Practitioner:uscorepract.identifier.type">
+      <path value="Practitioner.identifier.type"/>
+      <short value="Description of identifier"/>
+      <definition value="A coded type for the identifier that can be used to determine which identifier to use for a specific purpose."/>
+      <comments value="This element deals only with general categories of identifiers.  It SHOULD not be used for codes that correspond 1..1 with the Identifier.system. Some identifiers may fall into multiple categories due to common usage.   Where the system is known, a type is unnecessary because the type is always part of the system definition. However systems often need to handle identifiers where the system is not known. There is not a 1:1 relationship between type and system, since many different systems have the same type."/>
+      <requirements value="Allows users to make use of identifiers when the identifier system is not known."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="Identifier.type"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <strength value="extensible"/>
+        <description value="A coded type for an identifier that can be used to determine which identifier to use for a specific purpose."/>
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/identifier-type"/>
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="v2"/>
+        <map value="CX.5"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="Role.code or implied by context"/>
+      </mapping>
+    </element>
+    <element id="Practitioner:uscorepract.identifier.system">
+      <path value="Practitioner.identifier.system"/>
+      <short value="NPI could be used as the identifier system in the US."/>
+      <definition value="Establishes the namespace in which set of possible id values is unique."/>
+      <comments value="NPI could be used as the identifier system in the US."/>
+      <requirements value="There are many sequences of identifiers.  To perform matching, we need to know what sequence we&#39;re dealing with. The system identifies a particular sequence or set of unique identifiers."/>
+      <min value="1"/>
+      <max value="1"/>
+      <base>
+        <path value="Identifier.system"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="uri"/>
+      </type>
+      <example>
+        <label value="General"/>
+        <valueUri value="http://www.acme.com/identifiers/patient or urn:ietf:rfc:3986 if the Identifier.value itself is a full uri"/>
+      </example>
+      <example>
+        <label value="General"/>
+        <valueUri value="NPI preferred, Tax id is allowed, Local id is allowed in addition to &#39;authoritative&#39; identifier"/>
+      </example>
+      <mustSupport value="true"/>
+      <isSummary value="false"/>
+      <mapping>
+        <identity value="v2"/>
+        <map value="CX.4 / EI-2-4"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="II.root or Role.id.root"/>
+      </mapping>
+      <mapping>
+        <identity value="servd"/>
+        <map value="./IdentifierType"/>
+      </mapping>
+    </element>
+    <element id="Practitioner:uscorepract.identifier.value">
+      <path value="Practitioner.identifier.value"/>
+      <short value="The value that is unique"/>
+      <definition value="The portion of the identifier typically relevant to the user and which is unique within the context of the system."/>
+      <comments value="If the value is a full URI, then the system SHALL be urn:ietf:rfc:3986.  The value&#39;s primary purpose is computational mapping.  As a result, it may be normalized for comparison purposes (e.g. removing non-significant whitespace, dashes, etc.)  A value formatted for human display can be conveyed using the [Rendered Value extension](extension-rendered-value.html)."/>
+      <min value="1"/>
+      <max value="1"/>
+      <base>
+        <path value="Identifier.value"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="string"/>
+      </type>
+      <example>
+        <label value="General"/>
+        <valueString value="123456"/>
+      </example>
+      <mustSupport value="true"/>
+      <isSummary value="false"/>
+      <mapping>
+        <identity value="v2"/>
+        <map value="CX.1 / EI.1"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="II.extension or II.root if system indicates OID or GUID (Or Role.id.extension or root)"/>
+      </mapping>
+      <mapping>
+        <identity value="servd"/>
+        <map value="./Value"/>
+      </mapping>
+    </element>
+    <element id="Practitioner:uscorepract.identifier.period">
+      <path value="Practitioner.identifier.period"/>
+      <short value="Time period when id is/was valid for use"/>
+      <definition value="Time period during which identifier is/was valid for use."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="Identifier.period"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="Period"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="v2"/>
+        <map value="CX.7 + CX.8"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="Role.effectiveTime or implied by context"/>
+      </mapping>
+      <mapping>
+        <identity value="servd"/>
+        <map value="./StartDate and ./EndDate"/>
+      </mapping>
+    </element>
+    <element id="Practitioner:uscorepract.identifier.assigner">
+      <path value="Practitioner.identifier.assigner"/>
+      <short value="Organization that issued id (may be just text)"/>
+      <definition value="Organization that issued/manages the identifier."/>
+      <comments value="The Identifier.assigner may omit the .reference element and only contain a .display element reflecting the name or other textual information about the assigning organization."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="Identifier.assigner"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="v2"/>
+        <map value="CX.4 / (CX.4,CX.9,CX.10)"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="II.assigningAuthorityName but note that this is an improper use by the definition of the field.  Also Role.scoper"/>
+      </mapping>
+      <mapping>
+        <identity value="servd"/>
+        <map value="./IdentifierIssuingAuthority"/>
+      </mapping>
+    </element>
+    <element id="Practitioner:uscorepract.active">
+      <path value="Practitioner.active"/>
+      <short value="Whether this practitioner&#39;s record is in active use"/>
+      <definition value="Whether this practitioner&#39;s record is in active use."/>
+      <comments value="Default is true.   If the practitioner is not in use by one organization, then it should mark the period on the PractitonerRole with an end date (even if they are active) as they may be active in another role."/>
+      <requirements value="Need to be able to mark a practitioner record as not to be used because it was created in error."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="Practitioner.active"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="boolean"/>
+      </type>
+      <defaultValueBoolean value="true"/>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value="./statusCode"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="status"/>
+      </mapping>
+    </element>
+    <element id="Practitioner:uscorepract.name">
+      <path value="Practitioner.name"/>
+      <short value="The name(s) associated with the practitioner"/>
+      <definition value="The name(s) associated with the practitioner."/>
+      <comments value="The selection of the use property should ensure that there is a single usual name specified, and others use the nickname (alias), old, or other values as appropriate.  In general select the value to be used in the ResourceReference.display based on this:  1. There is more than 1 name 2. Use = usual 3. Period is current to the date of the usage 4. Use = official 5. Other order as decided by internal business rules."/>
+      <requirements value="The name(s) that a Practitioner is known by. Where there are multiple, the name that the practitioner is usually known as should be used in the display."/>
+      <min value="1"/>
+      <max value="1"/>
+      <base>
+        <path value="Practitioner.name"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="HumanName"/>
+      </type>
+      <mustSupport value="true"/>
+      <isSummary value="false"/>
+      <mapping>
+        <identity value="v2"/>
+        <map value="XCN Components"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="./name"/>
+      </mapping>
+      <mapping>
+        <identity value="servd"/>
+        <map value="./PreferredName (GivenNames, FamilyName, TitleCode)"/>
+      </mapping>
+    </element>
+    <element id="Practitioner:uscorepract.name.id">
+      <path value="Practitioner.name.id"/>
+      <representation value="xmlAttr"/>
+      <short value="xml:id (or equivalent in JSON)"/>
+      <definition value="unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="Element.id"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="string"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
+    <element id="Practitioner:uscorepract.name.extension">
+      <path value="Practitioner.name.extension"/>
+      <short value="Additional Content defined by implementations"/>
+      <definition value="May be used to represent additional information that is not part of the basic definition of the element. In order to make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension."/>
+      <comments value="There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone."/>
+      <alias value="extensions"/>
+      <alias value="user content"/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="Element.extension"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="Extension"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
+    <element id="Practitioner:uscorepract.name.use">
+      <path value="Practitioner.name.use"/>
+      <short value="usual | official | temp | nickname | anonymous | old | maiden"/>
+      <definition value="Identifies the purpose for this name."/>
+      <comments value="This is labeled as &quot;Is Modifier&quot; because applications should not mistake a temporary or old name etc.for a current/permanent one. Applications can assume that a name is current unless it explicitly says that it is temporary or old."/>
+      <requirements value="Allows the appropriate name for a particular context of use to be selected from among a set of names."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="HumanName.use"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="code"/>
+      </type>
+      <isModifier value="true"/>
+      <isSummary value="true"/>
+      <binding>
+        <strength value="required"/>
+        <description value="The use of a human name"/>
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/name-use"/>
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="v2"/>
+        <map value="XPN.7, but often indicated by which field contains the name"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="unique(./use)"/>
+      </mapping>
+      <mapping>
+        <identity value="servd"/>
+        <map value="./NamePurpose"/>
+      </mapping>
+    </element>
+    <element id="Practitioner:uscorepract.name.text">
+      <path value="Practitioner.name.text"/>
+      <short value="Text representation of the full name"/>
+      <definition value="A full text representation of the name."/>
+      <comments value="Can provide both a text representation and structured parts."/>
+      <requirements value="A renderable, unencoded form."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="HumanName.text"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="v2"/>
+        <map value="implied by XPN.11"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="./formatted"/>
+      </mapping>
+    </element>
+    <element id="Practitioner:uscorepract.name.family">
+      <path value="Practitioner.name.family"/>
+      <short value="Family name (often called &#39;Surname&#39;)"/>
+      <definition value="The part of a name that links to the genealogy. In some cultures (e.g. Eritrea) the family name of a son is the first name of his father."/>
+      <comments value="Family Name may be decomposed into specific parts using extensions (de, nl, es related cultures)."/>
+      <alias value="surname"/>
+      <min value="1"/>
+      <max value="1"/>
+      <base>
+        <path value="HumanName.family"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="string"/>
+      </type>
+      <mustSupport value="true"/>
+      <isSummary value="false"/>
+      <mapping>
+        <identity value="v2"/>
+        <map value="XPN.1/FN.1"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="./part[partType = FAM]"/>
+      </mapping>
+      <mapping>
+        <identity value="servd"/>
+        <map value="./FamilyName"/>
+      </mapping>
+    </element>
+    <element id="Practitioner:uscorepract.name.given">
+      <path value="Practitioner.name.given"/>
+      <short value="Given names (not always &#39;first&#39;). Includes middle names"/>
+      <definition value="Given name."/>
+      <comments value="If only initials are recorded, they may be used in place of the full name.  Not called &quot;first name&quot; since given names do not always come first."/>
+      <alias value="first name"/>
+      <alias value="middle name"/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="HumanName.given"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="v2"/>
+        <map value="XPN.2 + XPN.3"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="./part[partType = GIV]"/>
+      </mapping>
+      <mapping>
+        <identity value="servd"/>
+        <map value="./GivenNames"/>
+      </mapping>
+    </element>
+    <element id="Practitioner:uscorepract.name.prefix">
+      <path value="Practitioner.name.prefix"/>
+      <short value="Parts that come before the name"/>
+      <definition value="Part of the name that is acquired as a title due to academic, legal, employment or nobility status, etc. and that appears at the start of the name."/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="HumanName.prefix"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="v2"/>
+        <map value="XPN.5"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="./part[partType = PFX]"/>
+      </mapping>
+      <mapping>
+        <identity value="servd"/>
+        <map value="./TitleCode"/>
+      </mapping>
+    </element>
+    <element id="Practitioner:uscorepract.name.suffix">
+      <path value="Practitioner.name.suffix"/>
+      <short value="Parts that come after the name"/>
+      <definition value="Part of the name that is acquired as a title due to academic, legal, employment or nobility status, etc. and that appears at the end of the name."/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="HumanName.suffix"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="v2"/>
+        <map value="XPN/4"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="./part[partType = SFX]"/>
+      </mapping>
+    </element>
+    <element id="Practitioner:uscorepract.name.period">
+      <path value="Practitioner.name.period"/>
+      <short value="Time period when name was/is in use"/>
+      <definition value="Indicates the period of time when this name was valid for the named person."/>
+      <requirements value="Allows names to be placed in historical context."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="HumanName.period"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="Period"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="v2"/>
+        <map value="XPN.13 + XPN.14"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="./usablePeriod[type=&quot;IVL&lt;TS&gt;&quot;]"/>
+      </mapping>
+      <mapping>
+        <identity value="servd"/>
+        <map value="./StartDate and ./EndDate"/>
+      </mapping>
+    </element>
+    <element id="Practitioner:uscorepract.telecom">
+      <path value="Practitioner.telecom"/>
+      <short value="A contact detail for the practitioner (that apply to all roles)"/>
+      <definition value="A contact detail for the practitioner, e.g. a telephone number or an email address."/>
+      <comments value="Person may have multiple ways to be contacted with different uses or applicable periods.  May need to have options for contacting the person urgently, and also to help with identification  These typically will have home numbers, or mobile numbers that are not role specific."/>
+      <requirements value="Need to know how to reach a practitioner independent to any roles the practitioner may have."/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="Practitioner.telecom"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="ContactPoint"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="v2"/>
+        <map value="PRT-15, STF-10, ROL-12"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="./telecom"/>
+      </mapping>
+      <mapping>
+        <identity value="servd"/>
+        <map value="./ContactPoints"/>
+      </mapping>
+    </element>
+    <element id="Practitioner:uscorepract.address">
+      <path value="Practitioner.address"/>
+      <short value="Address(es) of the practitioner that are not role specific (typically home address)"/>
+      <definition value="Address(es) of the practitioner that are not role specific (typically home address).  Work addresses are not typically entered in this property as they are usually role dependent."/>
+      <comments value="The PractitionerRole does not have an address value on it, as it is expected that the location property be used for this purpose (which has an address)."/>
+      <requirements value="The home/mailing address of the practitioner is often required for employee administration purposes, and also for some rostering services where the start point (practitioners home) can be used in calculations."/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="Practitioner.address"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="Address"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="v2"/>
+        <map value="ORC-24, STF-11, ROL-11, PRT-14"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="./addr"/>
+      </mapping>
+      <mapping>
+        <identity value="servd"/>
+        <map value="./Addresses"/>
+      </mapping>
+    </element>
+    <element id="Practitioner:uscorepract.gender">
+      <path value="Practitioner.gender"/>
+      <short value="male | female | other | unknown"/>
+      <definition value="Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes."/>
+      <requirements value="Needed to address the person correctly."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="Practitioner.gender"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="code"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <strength value="required"/>
+        <description value="The gender of a person used for administrative purposes."/>
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/administrative-gender"/>
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="v2"/>
+        <map value="STF-5"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="./administrativeGender"/>
+      </mapping>
+      <mapping>
+        <identity value="servd"/>
+        <map value="./GenderCode"/>
+      </mapping>
+    </element>
+    <element id="Practitioner:uscorepract.birthDate">
+      <path value="Practitioner.birthDate"/>
+      <short value="The date  on which the practitioner was born"/>
+      <definition value="The date of birth for the practitioner."/>
+      <requirements value="Needed for identification."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="Practitioner.birthDate"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="date"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="v2"/>
+        <map value="STF-6"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="./birthTime"/>
+      </mapping>
+      <mapping>
+        <identity value="servd"/>
+        <map value="(not represented in ServD)"/>
+      </mapping>
+    </element>
+    <element id="Practitioner:uscorepract.photo">
+      <path value="Practitioner.photo"/>
+      <short value="Image of the person"/>
+      <definition value="Image of the person."/>
+      <requirements value="Many EHR systems have the capability to capture an image of patients and personnel. Fits with newer social media usage too."/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="Practitioner.photo"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="Attachment"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="./subjectOf/ObservationEvent[code=&quot;photo&quot;]/value"/>
+      </mapping>
+      <mapping>
+        <identity value="servd"/>
+        <map value="./ImageURI (only supports the URI reference)"/>
+      </mapping>
+    </element>
+    <element id="Practitioner:uscorepract.role">
+      <path value="Practitioner.role"/>
+      <short value="Roles/organizations the practitioner is associated with"/>
+      <definition value="The list of roles/organizations that the practitioner is associated with."/>
+      <comments value="The address to be used for this PractitionerRole is in the referenced location (removing duplication across all the services provided at the location)."/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="Practitioner.role"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <constraint>
+        <key value="ele-1"/>
+        <severity value="error"/>
+        <human value="All FHIR elements must have a @value or children"/>
+        <expression value="children().count() &gt; id.count()"/>
+        <xpath value="@value|f:*|h:div"/>
+        <source value="Element"/>
+      </constraint>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".playingEntity.playingRole"/>
+      </mapping>
+    </element>
+    <element id="Practitioner:uscorepract.role.id">
+      <path value="Practitioner.role.id"/>
+      <representation value="xmlAttr"/>
+      <short value="xml:id (or equivalent in JSON)"/>
+      <definition value="unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="Element.id"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="string"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
+    <element id="Practitioner:uscorepract.role.extension">
+      <path value="Practitioner.role.extension"/>
+      <short value="Additional Content defined by implementations"/>
+      <definition value="May be used to represent additional information that is not part of the basic definition of the element. In order to make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension."/>
+      <comments value="There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone."/>
+      <alias value="extensions"/>
+      <alias value="user content"/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="Element.extension"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="Extension"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
+    <element id="Practitioner:uscorepract.role.modifierExtension">
+      <path value="Practitioner.role.modifierExtension"/>
+      <short value="Extensions that cannot be ignored"/>
+      <definition value="May be used to represent additional information that is not part of the basic definition of the element, and that modifies the understanding of the element that contains it. Usually modifier elements provide negation or qualification. In order to make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions."/>
+      <comments value="There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone."/>
+      <alias value="extensions"/>
+      <alias value="user content"/>
+      <alias value="modifiers"/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="BackboneElement.modifierExtension"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="Extension"/>
+      </type>
+      <isModifier value="true"/>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+    </element>
+    <element id="Practitioner:uscorepract.role.organization">
+      <path value="Practitioner.role.organization"/>
+      <short value="Organization where the roles are performed"/>
+      <definition value="The organization where the Practitioner performs the roles associated."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="Practitioner.role.organization"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".playingEntity.playingRole.scopingOrganization"/>
+      </mapping>
+    </element>
+    <element id="Practitioner:uscorepract.role.code">
+      <path value="Practitioner.role.code"/>
+      <short value="Roles which this practitioner may perform"/>
+      <definition value="Roles which this practitioner is authorized to perform for the organization."/>
+      <comments value="A person may have more than one role. At least one role is required."/>
+      <requirements value="Need to know what authority the practitioner has - what can they do?"/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="Practitioner.role.code"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <strength value="example"/>
+        <description value="The role a person plays representing an organization"/>
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/practitioner-role"/>
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="v2"/>
+        <map value="PRD-1 / STF-18  / PRA-3  / PRT-4  / ROL-3 / ORC-12 / OBR-16 / PV1-7 / PV1-8 / PV1-9 / PV1-17"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".playingEntity.playingRole.code"/>
+      </mapping>
+      <mapping>
+        <identity value="servd"/>
+        <map value="(ServD maps Practitioners and Organizations via another entity, so this concept is not available)"/>
+      </mapping>
+    </element>
+    <element id="Practitioner:uscorepract.role.specialty">
+      <path value="Practitioner.role.specialty"/>
+      <short value="Specific specialty of the practitioner"/>
+      <definition value="Specific specialty of the practitioner."/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="Practitioner.role.specialty"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <strength value="example"/>
+        <description value="Specific specialty associated with the agency"/>
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/practitioner-specialty"/>
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="v2"/>
+        <map value="PRA-5"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".playingEntity.playingRole[classCode=QUAL].code"/>
+      </mapping>
+      <mapping>
+        <identity value="servd"/>
+        <map value="./Specialty"/>
+      </mapping>
+    </element>
+    <element id="Practitioner:uscorepract.role.identifier">
+      <path value="Practitioner.role.identifier"/>
+      <short value="Business Identifiers that are specific to a role/location"/>
+      <definition value="Business Identifiers that are specific to a role/location."/>
+      <requirements value="Some business identifiers are specific to a location and should be able to be associated."/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="Practitioner.role.identifier"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="Identifier"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".playingEntity.playingRole.id"/>
+      </mapping>
+    </element>
+    <element id="Practitioner:uscorepract.role.telecom">
+      <path value="Practitioner.role.telecom"/>
+      <short value="Contact details that are specific to the role/location/service"/>
+      <definition value="Contact details that are specific to the role/location/service."/>
+      <requirements value="Often practitioners have a dedicated line for each location (or service) that they work at, and need to be able to define separate contact details for each of these."/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="Practitioner.role.telecom"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="ContactPoint"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".playingEntity.playingRole.telecom"/>
+      </mapping>
+    </element>
+    <element id="Practitioner:uscorepract.role.period">
+      <path value="Practitioner.role.period"/>
+      <short value="The period during which the practitioner is authorized to perform in these role(s)"/>
+      <definition value="The period during which the person is authorized to act as a practitioner in these role(s) for the organization."/>
+      <requirements value="Even after the agencies is revoked, the fact that it existed must still be recorded."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="Practitioner.role.period"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="Period"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="v2"/>
+        <map value="PRD-8/9 / PRA-5.4"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".playingEntity.playingRole.effectiveTime"/>
+      </mapping>
+      <mapping>
+        <identity value="servd"/>
+        <map value="(ServD maps Practitioners and Organizations via another entity, so this concept is not available)"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="when.done"/>
+      </mapping>
+    </element>
+    <element id="Practitioner:uscorepract.role.location">
+      <path value="Practitioner.role.location"/>
+      <short value="The location(s) at which this practitioner provides care"/>
+      <definition value="The location(s) at which this practitioner provides care."/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="Practitioner.role.location"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".playingEntity.playingRole.location.source[classCode=SDLOC]"/>
+      </mapping>
+      <mapping>
+        <identity value="servd"/>
+        <map value="(ServD maps Practitioners and Organizations via another entity, so this concept is not available)&lt;br/&gt; However these are accessed via the Site.ServiceSite.ServiceSiteProvider record. (The Site has the location)"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="where"/>
+      </mapping>
+    </element>
+    <element id="Practitioner:uscorepract.role.healthcareService">
+      <path value="Practitioner.role.healthcareService"/>
+      <short value="The list of healthcare services that this worker provides for this role&#39;s Organization/Location(s)"/>
+      <definition value="The list of healthcare services that this worker provides for this role&#39;s Organization/Location(s)."/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="Practitioner.role.healthcareService"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
+    <element id="Practitioner:uscorepract.role.endpoint">
+      <path value="Practitioner.role.endpoint"/>
+      <short value="Technical endpoints providing access to services operated for the PractitonerRole"/>
+      <definition value="Technical endpoints providing access to services operated for the PractitonerRole."/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="Practitioner.role.endpoint"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Endpoint"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
+    <element id="Practitioner:uscorepract.qualification">
+      <path value="Practitioner.qualification"/>
+      <short value="Qualifications obtained by training and certification"/>
+      <definition value="Qualifications obtained by training and certification."/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="Practitioner.qualification"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <constraint>
+        <key value="ele-1"/>
+        <severity value="error"/>
+        <human value="All FHIR elements must have a @value or children"/>
+        <expression value="children().count() &gt; id.count()"/>
+        <xpath value="@value|f:*|h:div"/>
+        <source value="Element"/>
+      </constraint>
+      <mapping>
+        <identity value="v2"/>
+        <map value="CER?"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".playingEntity.playingRole[classCode=QUAL].code"/>
+      </mapping>
+      <mapping>
+        <identity value="servd"/>
+        <map value="./Qualifications"/>
+      </mapping>
+    </element>
+    <element id="Practitioner:uscorepract.qualification.id">
+      <path value="Practitioner.qualification.id"/>
+      <representation value="xmlAttr"/>
+      <short value="xml:id (or equivalent in JSON)"/>
+      <definition value="unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="Element.id"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="string"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
+    <element id="Practitioner:uscorepract.qualification.extension">
+      <path value="Practitioner.qualification.extension"/>
+      <short value="Additional Content defined by implementations"/>
+      <definition value="May be used to represent additional information that is not part of the basic definition of the element. In order to make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension."/>
+      <comments value="There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone."/>
+      <alias value="extensions"/>
+      <alias value="user content"/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="Element.extension"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="Extension"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
+    <element id="Practitioner:uscorepract.qualification.modifierExtension">
+      <path value="Practitioner.qualification.modifierExtension"/>
+      <short value="Extensions that cannot be ignored"/>
+      <definition value="May be used to represent additional information that is not part of the basic definition of the element, and that modifies the understanding of the element that contains it. Usually modifier elements provide negation or qualification. In order to make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions."/>
+      <comments value="There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone."/>
+      <alias value="extensions"/>
+      <alias value="user content"/>
+      <alias value="modifiers"/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="BackboneElement.modifierExtension"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="Extension"/>
+      </type>
+      <isModifier value="true"/>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+    </element>
+    <element id="Practitioner:uscorepract.qualification.identifier">
+      <path value="Practitioner.qualification.identifier"/>
+      <short value="An identifier for this qualification for the practitioner"/>
+      <definition value="An identifier that applies to this person&#39;s qualification in this role."/>
+      <requirements value="Often, specific identities are assigned for the qualification."/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="Practitioner.qualification.identifier"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="Identifier"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".playingEntity.playingRole[classCode=QUAL].id"/>
+      </mapping>
+    </element>
+    <element id="Practitioner:uscorepract.qualification.code">
+      <path value="Practitioner.qualification.code"/>
+      <short value="Coded representation of the qualification"/>
+      <definition value="Coded representation of the qualification."/>
+      <min value="1"/>
+      <max value="1"/>
+      <base>
+        <path value="Practitioner.qualification.code"/>
+        <min value="1"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <strength value="example"/>
+        <description value="Specific qualification the practitioner has to provide a service"/>
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/anzsco-occupations"/>
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".playingEntity.playingRole[classCode=QUAL].code"/>
+      </mapping>
+      <mapping>
+        <identity value="servd"/>
+        <map value="./Qualifications.Value"/>
+      </mapping>
+    </element>
+    <element id="Practitioner:uscorepract.qualification.period">
+      <path value="Practitioner.qualification.period"/>
+      <short value="Period during which the qualification is valid"/>
+      <definition value="Period during which the qualification is valid."/>
+      <requirements value="Qualifications are often for a limited period of time, and can be revoked."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="Practitioner.qualification.period"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="Period"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".playingEntity.playingRole[classCode=QUAL].effectiveTime"/>
+      </mapping>
+      <mapping>
+        <identity value="servd"/>
+        <map value="./Qualifications.StartDate and ./Qualifications.EndDate"/>
+      </mapping>
+    </element>
+    <element id="Practitioner:uscorepract.qualification.issuer">
+      <path value="Practitioner.qualification.issuer"/>
+      <short value="Organization that regulates and issues the qualification"/>
+      <definition value="Organization that regulates and issues the qualification."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="Practitioner.qualification.issuer"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".playingEntity.playingRole[classCode=QUAL].scoper"/>
+      </mapping>
+    </element>
+    <element id="Practitioner:uscorepract.communication">
+      <path value="Practitioner.communication"/>
+      <short value="A language the practitioner is able to use in patient communication"/>
+      <definition value="A language the practitioner is able to use in patient communication."/>
+      <comments value="The structure aa-BB with this exact casing is one the most widely used notations for locale. However not all systems actually code this but instead have it as free text. Hence CodeableConcept instead of code as the data type."/>
+      <requirements value="Knowing which language a practitioner speaks can help in facilitating communication with patients."/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="Practitioner.communication"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet">
+          <valueReference>
+            <reference value="http://hl7.org/fhir/ValueSet/all-languages"/>
+          </valueReference>
+        </extension>
+        <strength value="extensible"/>
+        <description value="A human language."/>
+        <valueSetReference>
+          <reference value="http://hl7.org/fhir/ValueSet/languages"/>
+        </valueSetReference>
+      </binding>
+      <mapping>
+        <identity value="v2"/>
+        <map value="PID-15, NK1-20, LAN-2"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="./languageCommunication"/>
+      </mapping>
+      <mapping>
+        <identity value="servd"/>
+        <map value="./Languages.LanguageSpokenCode"/>
+      </mapping>
+    </element>
+  </snapshot>
+  <differential>
+    <element id="Practitioner:uscorepract">
+      <path value="Practitioner"/>
+      <sliceName value="USCorePract"/>
+      <short value="US Core Practitioner"/>
+      <definition value="This is basic constraint on provider for use in US Core resources."/>
+      <alias value="Provider"/>
+      <mustSupport value="false"/>
+      <isModifier value="false"/>
+      <isSummary value="false"/>
+    </element>
+    <element id="Practitioner:uscorepract.identifier">
+      <path value="Practitioner.identifier"/>
+      <requirements value="Either id or name is needed."/>
+      <min value="1"/>
+      <max value="*"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
+      <mustSupport value="true"/>
+      <isModifier value="false"/>
+      <isSummary value="false"/>
+    </element>
+    <element id="Practitioner:uscorepract.identifier.system">
+      <path value="Practitioner.identifier.system"/>
+      <short value="NPI could be used as the identifier system in the US."/>
+      <comments value="NPI could be used as the identifier system in the US."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="uri"/>
+      </type>
+      <example>
+        <label value="General"/>
+        <valueUri value="NPI preferred, Tax id is allowed, Local id is allowed in addition to &#39;authoritative&#39; identifier"/>
+      </example>
+      <mustSupport value="true"/>
+      <isModifier value="false"/>
+      <isSummary value="false"/>
+    </element>
+    <element id="Practitioner:uscorepract.identifier.value">
+      <path value="Practitioner.identifier.value"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <mustSupport value="true"/>
+      <isModifier value="false"/>
+      <isSummary value="false"/>
+    </element>
+    <element id="Practitioner:uscorepract.name">
+      <path value="Practitioner.name"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="HumanName"/>
+      </type>
+      <mustSupport value="true"/>
+      <isModifier value="false"/>
+      <isSummary value="false"/>
+    </element>
+    <element id="Practitioner:uscorepract.name.family">
+      <path value="Practitioner.name.family"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <mustSupport value="true"/>
+      <isModifier value="false"/>
+      <isSummary value="false"/>
+    </element>
+  </differential>
+</StructureDefinition>

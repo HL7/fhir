@@ -1,0 +1,43 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://hl7.org/fhir/us/core/Condition/hc1> a fhir:Condition;
+  fhir:nodeRole fhir:treeRoot;
+  fhir:Resource.id [ fhir:value "hc1"];
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition";
+       fhir:index 0
+     ]
+  ];
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ];
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: hc1</p><p><b>meta</b>: </p><p><b>clinicalStatus</b>: active</p><p><b>verificationStatus</b>: confirmed</p><p><b>category</b>: Health Concern <span style=\"background: LightGoldenRodYellow\">(Details : {http://argonaut.hl7.org code 'additional-concern' = 'additional-concern', given as 'Health Concern'})</span></p><p><b>code</b>: Cost of medications <span style=\"background: LightGoldenRodYellow\">(Details )</span></p><p><b>subject</b>: <a href=\"Patient-example.html\">Amy Shaw </a></p><p><b>onset</b>: Dec 14, 2007</p></div>"
+  ];
+  fhir:Condition.clinicalStatus [ fhir:value "active"];
+  fhir:Condition.verificationStatus [ fhir:value "confirmed"];
+  fhir:Condition.category [
+     fhir:index 0;
+     fhir:CodeableConcept.coding [
+       fhir:index 0;
+       fhir:Coding.system [ fhir:value "http://argonaut.hl7.org" ];
+       fhir:Coding.code [ fhir:value "additional-concern" ];
+       fhir:Coding.display [ fhir:value "Health Concern" ]
+     ];
+     fhir:CodeableConcept.text [ fhir:value "Health Concern" ]
+  ];
+  fhir:Condition.code [
+     fhir:CodeableConcept.text [ fhir:value "Cost of medications" ]
+  ];
+  fhir:Condition.subject [
+     fhir:Reference.reference [ fhir:value "Patient-example.html" ];
+     fhir:Reference.display [ fhir:value "Amy Shaw " ]
+  ];
+  fhir:Condition.onsetDateTime [ fhir:value "2007-12-14"^^xsd:date] .
+
+# -------------------------------------------------------------------------------------
+

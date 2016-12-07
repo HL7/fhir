@@ -1,0 +1,69 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://hl7.org/fhir/us/core/ValueSet/us-core-substance-ndfrt> a fhir:ValueSet;
+  fhir:nodeRole fhir:treeRoot;
+  fhir:Resource.id [ fhir:value "us-core-substance-ndfrt"];
+  fhir:Resource.meta [
+     fhir:Meta.lastUpdated [ fhir:value "2016-05-25T16:59:08.250+10:00"^^xsd:dateTime ]
+  ];
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ];
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h2>US Core Substance ND-FRT codes</h2><div><p>All ND-FRT NUIs for concepts that are subsumed by 'Mechanism of Action - N0000000223', 'Physiologic Effect - N0000009802' or 'Chemical Structure - N0000000002'.</p>\n</div><p>This value set includes codes from the following code systems:</p><ul><li>Include codes from http://hl7.org/fhir/ndfrt where concept  is-a  N0000000223</li><li>Include codes from http://hl7.org/fhir/ndfrt where concept  is-a  N0000009802</li><li>Include codes from http://hl7.org/fhir/ndfrt where concept  is-a  N0000000002</li></ul></div>"
+  ];
+  fhir:ValueSet.url [ fhir:value "http://hl7.org/fhir/us/core/ValueSet/us-core-substance-ndfrt"];
+  fhir:ValueSet.identifier [
+     fhir:index 0;
+     fhir:Identifier.system [ fhir:value "urn:ietf:rfc:3986" ];
+     fhir:Identifier.value [ fhir:value "urn:oid:2.16.840.1.113883.3.88.12.80.18" ]
+  ];
+  fhir:ValueSet.name [ fhir:value "US Core Substance ND-FRT codes"];
+  fhir:ValueSet.status [ fhir:value "draft"];
+  fhir:ValueSet.publisher [ fhir:value "FHIR Project team"];
+  fhir:ValueSet.contact [
+     fhir:index 0;
+     fhir:ContactDetail.telecom [
+       fhir:index 0;
+       fhir:ContactPoint.system [ fhir:value "other" ];
+       fhir:ContactPoint.value [ fhir:value "http://hl7.org/fhir" ]
+     ]
+  ];
+  fhir:ValueSet.date [ fhir:value "2016-12-06T16:45:17-05:00"^^xsd:dateTime];
+  fhir:ValueSet.description [ fhir:value "All ND-FRT NUIs for concepts that are subsumed by 'Mechanism of Action - N0000000223', 'Physiologic Effect - N0000009802' or 'Chemical Structure - N0000000002'."];
+  fhir:ValueSet.compose [
+     fhir:ValueSet.compose.include [
+       fhir:index 0;
+       fhir:ValueSet.compose.include.system [ fhir:value "http://hl7.org/fhir/ndfrt" ];
+       fhir:ValueSet.compose.include.filter [
+         fhir:index 0;
+         fhir:ValueSet.compose.include.filter.property [ fhir:value "concept" ];
+         fhir:ValueSet.compose.include.filter.op [ fhir:value "is-a" ];
+         fhir:ValueSet.compose.include.filter.value [ fhir:value "N0000000223" ]
+       ]
+     ], [
+       fhir:index 1;
+       fhir:ValueSet.compose.include.system [ fhir:value "http://hl7.org/fhir/ndfrt" ];
+       fhir:ValueSet.compose.include.filter [
+         fhir:index 0;
+         fhir:ValueSet.compose.include.filter.property [ fhir:value "concept" ];
+         fhir:ValueSet.compose.include.filter.op [ fhir:value "is-a" ];
+         fhir:ValueSet.compose.include.filter.value [ fhir:value "N0000009802" ]
+       ]
+     ], [
+       fhir:index 2;
+       fhir:ValueSet.compose.include.system [ fhir:value "http://hl7.org/fhir/ndfrt" ];
+       fhir:ValueSet.compose.include.filter [
+         fhir:index 0;
+         fhir:ValueSet.compose.include.filter.property [ fhir:value "concept" ];
+         fhir:ValueSet.compose.include.filter.op [ fhir:value "is-a" ];
+         fhir:ValueSet.compose.include.filter.value [ fhir:value "N0000000002" ]
+       ]
+     ]
+  ] .
+
+# -------------------------------------------------------------------------------------
+

@@ -1,0 +1,814 @@
+<!DOCTYPE HTML>
+
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+   <meta charset="UTF-8"/>
+  <title></title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="US Core Implemenation Guide" />
+<meta name="author" content="http://www.hl7.org"/>
+
+  <link href="fhir.css" rel="stylesheet"/>
+
+   <!-- Bootstrap core CSS -->
+  <link href="dist/css/bootstrap.css" rel="stylesheet"/>
+  <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+  <!-- Project extras -->
+  <link href="assets/css/project.css" rel="stylesheet"/>
+  <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+	<link href="jquery-ui.css" rel="stylesheet"/>
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png"/>
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png"/>
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png"/>
+  <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png"/>
+  <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+
+
+<body>
+
+ <div id="segment-header" class="segment">  <!-- segment-header -->
+  <div class="container">  <!-- container -->
+   <a id="logo" no-external="true" href="http://hl7.org/fhir"><img alt="logo fhir" src="assets/images/fhir-logo-www.png"/> </a>
+   <div id="hl7-status">
+    <b>US-Core CI Build</b>
+   </div>
+
+   <div id="hl7-nav">
+     <a id="hl7-logo" no-external="true" href="http://www.hl7.org">
+     <img height="50" alt="visit the hl7 website" width="42" src="assets/images/hl7-logo.png"/>
+    </a>
+   </div>
+   <div id="hl7-nav"><a id="hl7-logo" no-external="true" href="http://hl7.org/fhir/search.cfm"><img height="50"  alt="US-Core" src="assets/images/usbanner.png"/></a></div>
+  </div>
+  <div class="container">  <!-- container -->
+ </div></div>  <!-- /segment-header -->
+
+ <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+  <div id="stripe"> </div>
+  <div class="container">  <!-- container -->
+   <!-- HEADER CONTENT -->
+
+   <nav class="navbar navbar-inverse">
+    <div class="container">
+     <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+      <span class="icon-bar"> </span>
+      <span class="icon-bar"> </span>
+      <span class="icon-bar"> </span>
+     </button>
+     <a class="navbar-brand hidden" href="http://hl7.org/fhir/2017Janindex.html">FHIR</a>
+     <div class="nav-collapse collapse navbar-inverse-collapse">
+      <ul class="nav navbar-nav">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="definitions.html">General Guidance</a></li>
+              <li><a href="profiles.html">US Core Profiles</a></li>
+              <li><a href="extensions.html">Extensions</a></li>
+              <li><a href="valuesets.html">Value Sets</a></li>
+              <li><a href="searchparams.html">Search Parameters</a></li>
+              <li><a href="capstmnts.html">Capability Statements</a></li>
+              <li><a href="security.html">Security</a></li>
+              <li><a href="downloads.html">Downloads</a></li>
+            </ul>
+
+     </div>  <!-- /.nav-collapse -->
+    </div>  <!-- /.container -->
+   </nav>  <!-- /.navbar -->
+
+  <!-- /HEADER CONTENT -->
+  </div>  <!-- /container -->
+ </div>  <!-- /segment-navbar -->
+
+
+
+
+
+  </div>  <!-- /container -->
+ </div>  <!-- /segment-breadcrumb -->
+
+ <div id="segment-content" class="segment">  <!-- segment-content -->
+ <div class="container">  <!-- container -->
+            <div class="row">
+             <div class="inner-wrapper">
+
+
+<div class="col-9">
+
+  <!-- ============CONTENT CONTENT=============== -->
+
+<h2>US Core ethnicity Extension</h2>
+
+<pre class="rdf">
+@prefix fhir: &lt;http://hl7.org/fhir/&gt; .
+@prefix owl: &lt;http://www.w3.org/2002/07/owl#&gt; .
+@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+@prefix xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt; .
+
+# - resource -------------------------------------------------------------------
+
+&lt;StructureDefinition/us-core-ethnicity&gt; a fhir:StructureDefinition;
+  <a href="http://hl7.org/fhir/2017Jan/rdf.html#tree-root">fhir:nodeRole</a> fhir:treeRoot;
+  <a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.id">fhir:Resource.id</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#id">fhir:value</a> &quot;us-core-ethnicity&quot;];
+  <a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.text">fhir:DomainResource.text</a> [
+     <a href="http://hl7.org/fhir/2017Jan/datatypes.html#Narrative#Narrative.status">fhir:Narrative.status</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#code">fhir:value</a> &quot;generated&quot; ];
+     fhir:Narrative.div &quot;&lt;div xmlns=\&quot;http://www.w3.org/1999/xhtml\&quot;&gt;&lt;p&gt;&lt;b&gt;Generated Narrative with Details&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;url&lt;/b&gt;: &lt;a href=\&quot;http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity\&quot;&gt;http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;name&lt;/b&gt;: US Core ethnicity Extension&lt;/p&gt;&lt;p&gt;&lt;b&gt;title&lt;/b&gt;: US Core ethnicity Extension&lt;/p&gt;&lt;p&gt;&lt;b&gt;status&lt;/b&gt;: DRAFT&lt;/p&gt;&lt;p&gt;&lt;b&gt;date&lt;/b&gt;: Aug 1, 2016&lt;/p&gt;&lt;p&gt;&lt;b&gt;publisher&lt;/b&gt;: Health Level Seven International (FHIR-Infrastructure)&lt;/p&gt;&lt;p&gt;&lt;b&gt;contact&lt;/b&gt;: &lt;/p&gt;&lt;p&gt;&lt;b&gt;description&lt;/b&gt;: Concepts classifying the person into a named category of humans sharing common history, traits, geographical origin or nationality.  The ethnicity codes used to represent these concepts are based upon the [CDC ethnicity and Ethnicity Code Set Version 1.0](http://www.cdc.gov/phin/resources/vocabulary/index.html) which includes over 900 concepts for representing race and ethnicity of which 43 reference ethnicity.  The ethnicity concepts are grouped by and pre-mapped to the 2 OMB ethnicity categories:\r- Hispanic or Latino\r- Not Hispanic or Latino.&lt;/p&gt;&lt;p&gt;&lt;b&gt;url&lt;/b&gt;: &lt;a href=\&quot;http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity\&quot;&gt;http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;name&lt;/b&gt;: US Core ethnicity Extension&lt;/p&gt;&lt;p&gt;&lt;b&gt;title&lt;/b&gt;: US Core ethnicity Extension&lt;/p&gt;&lt;p&gt;&lt;b&gt;status&lt;/b&gt;: DRAFT&lt;/p&gt;&lt;p&gt;&lt;b&gt;publisher&lt;/b&gt;: Health Level Seven International (FHIR-Infrastructure)&lt;/p&gt;&lt;p&gt;&lt;b&gt;contact&lt;/b&gt;: &lt;/p&gt;&lt;p&gt;&lt;b&gt;date&lt;/b&gt;: Aug 1, 2016&lt;/p&gt;&lt;p&gt;&lt;b&gt;description&lt;/b&gt;: Concepts classifying the person into a named category of humans sharing common history, traits, geographical origin or nationality.  The ethnicity codes used to represent these concepts are based upon the [CDC ethnicity and Ethnicity Code Set Version 1.0](http://www.cdc.gov/phin/resources/vocabulary/index.html) which includes over 900 concepts for representing race and ethnicity of which 43 reference ethnicity.  The ethnicity concepts are grouped by and pre-mapped to the 2 OMB ethnicity categories:\r- Hispanic or Latino\r- Not Hispanic or Latino.&lt;/p&gt;&lt;p&gt;&lt;b&gt;purpose&lt;/b&gt;: Complies with 2015 Edition Common Clinical Data Set for patient race.&lt;/p&gt;&lt;p&gt;&lt;b&gt;fhirVersion&lt;/b&gt;: 1.8.0&lt;/p&gt;&lt;h3&gt;Mappings&lt;/h3&gt;&lt;table class=\&quot;grid\&quot;&gt;&lt;tr&gt;&lt;td&gt;-&lt;/td&gt;&lt;td&gt;&lt;b&gt;Identity&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;b&gt;Uri&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;b&gt;Name&lt;/b&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;*&lt;/td&gt;&lt;td&gt;rim&lt;/td&gt;&lt;td&gt;&lt;a href=\&quot;http://hl7.org/v3\&quot;&gt;http://hl7.org/v3&lt;/a&gt;&lt;/td&gt;&lt;td&gt;RIM Mapping&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;&lt;b&gt;kind&lt;/b&gt;: COMPLEXTYPE&lt;/p&gt;&lt;p&gt;&lt;b&gt;abstract&lt;/b&gt;: false&lt;/p&gt;&lt;p&gt;&lt;b&gt;contextType&lt;/b&gt;: RESOURCE&lt;/p&gt;&lt;p&gt;&lt;b&gt;context&lt;/b&gt;: Patient&lt;/p&gt;&lt;p&gt;&lt;b&gt;type&lt;/b&gt;: Extension&lt;/p&gt;&lt;p&gt;&lt;b&gt;baseDefinition&lt;/b&gt;: &lt;a href=\&quot;http://hl7.org/fhir/StructureDefinition/Extension\&quot;&gt;http://hl7.org/fhir/StructureDefinition/Extension&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;derivation&lt;/b&gt;: CONSTRAINT&lt;/p&gt;&lt;h3&gt;Snapshots&lt;/h3&gt;&lt;table class=\&quot;grid\&quot;&gt;&lt;tr&gt;&lt;td&gt;-&lt;/td&gt;&lt;td&gt;&lt;b&gt;Element&lt;/b&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;*&lt;/td&gt;&lt;td&gt;todo-bundle&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;h3&gt;Differentials&lt;/h3&gt;&lt;table class=\&quot;grid\&quot;&gt;&lt;tr&gt;&lt;td&gt;-&lt;/td&gt;&lt;td&gt;&lt;b&gt;Element&lt;/b&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;*&lt;/td&gt;&lt;td&gt;todo-bundle&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;&quot;
+  ];
+  <a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.url">fhir:StructureDefinition.url</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">fhir:value</a> &quot;http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity&quot;];
+  <a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.name">fhir:StructureDefinition.name</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;US Core ethnicity Extension&quot;];
+  <a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.title">fhir:StructureDefinition.title</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;US Core ethnicity Extension&quot;];
+  <a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.status">fhir:StructureDefinition.status</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#code">fhir:value</a> &quot;draft&quot;];
+  <a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.publisher">fhir:StructureDefinition.publisher</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;Health Level Seven International (FHIR-Infrastructure)&quot;];
+  <a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.contact">fhir:StructureDefinition.contact</a> [
+     <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 0;
+     <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ContactDetail#ContactDetail.telecom">fhir:ContactDetail.telecom</a> [
+       <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 0;
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ContactPoint#ContactPoint.system">fhir:ContactPoint.system</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#code">fhir:value</a> &quot;url&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ContactPoint#ContactPoint.value">fhir:ContactPoint.value</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;http://www.healthit.gov&quot; ]     ]
+  ];
+  <a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.date">fhir:StructureDefinition.date</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#dateTime">fhir:value</a> &quot;2016-08-01&quot;^^xsd:date];
+  <a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.description">fhir:StructureDefinition.description</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#markdown">fhir:value</a> &quot;Concepts classifying the person into a named category of humans sharing common history, traits, geographical origin or nationality.  The ethnicity codes used to represent these concepts are based upon the [CDC ethnicity and Ethnicity Code Set Version 1.0](http://www.cdc.gov/phin/resources/vocabulary/index.html) which includes over 900 concepts for representing race and ethnicity of which 43 reference ethnicity.  The ethnicity concepts are grouped by and pre-mapped to the 2 OMB ethnicity categories:\r- Hispanic or Latino\r- Not Hispanic or Latino.&quot;];
+  <a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.purpose">fhir:StructureDefinition.purpose</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#markdown">fhir:value</a> &quot;Complies with 2015 Edition Common Clinical Data Set for patient race.&quot;];
+  <a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.fhirVersion">fhir:StructureDefinition.fhirVersion</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#id">fhir:value</a> &quot;1.8.0&quot;];
+  <a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.mapping">fhir:StructureDefinition.mapping</a> [
+     <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 0;
+     <a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.mapping.identity">fhir:StructureDefinition.mapping.identity</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#id">fhir:value</a> &quot;rim&quot; ];
+     <a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.mapping.uri">fhir:StructureDefinition.mapping.uri</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">fhir:value</a> &quot;http://hl7.org/v3&quot; ];
+     <a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.mapping.name">fhir:StructureDefinition.mapping.name</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;RIM Mapping&quot; ]
+  ];
+  <a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.kind">fhir:StructureDefinition.kind</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#code">fhir:value</a> &quot;complex-type&quot;];
+  <a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.abstract">fhir:StructureDefinition.abstract</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#boolean">fhir:value</a> &quot;false&quot;^^xsd:boolean];
+  <a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.contextType">fhir:StructureDefinition.contextType</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#code">fhir:value</a> &quot;resource&quot;];
+  <a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.context">fhir:StructureDefinition.context</a> [
+     <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;Patient&quot;;
+     <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 0
+  ];
+  <a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.type">fhir:StructureDefinition.type</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#code">fhir:value</a> &quot;Extension&quot;];
+  <a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.baseDefinition">fhir:StructureDefinition.baseDefinition</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/Extension&quot;];
+  <a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.derivation">fhir:StructureDefinition.derivation</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#code">fhir:value</a> &quot;constraint&quot;];
+  <a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.snapshot">fhir:StructureDefinition.snapshot</a> [
+     <a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.snapshot.element">fhir:StructureDefinition.snapshot.element</a> [
+       <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 0;
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.id">fhir:Element.id</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;Extension:ethnicity&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">fhir:ElementDefinition.path</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;Extension&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.sliceName">fhir:ElementDefinition.sliceName</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;ethnicity&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.short">fhir:ElementDefinition.short</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;US Core ethnicity Extension&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">fhir:ElementDefinition.definition</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#markdown">fhir:value</a> &quot;Concepts classifying the person into a named category of humans sharing common history, traits, geographical origin or nationality.  The ethnicity codes used to represent these concepts are based upon the [CDC ethnicity and Ethnicity Code Set Version 1.0](http://www.cdc.gov/phin/resources/vocabulary/index.html) which includes over 900 concepts for representing race and ethnicity of which 43 reference ethnicity.  The ethnicity concepts are grouped by and pre-mapped to the 2 OMB ethnicity categories:\r- Hispanic or Latino\r- Not Hispanic or Latino.&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">fhir:ElementDefinition.min</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:int ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">fhir:ElementDefinition.max</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;1&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base">fhir:ElementDefinition.base</a> [
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.path">fhir:ElementDefinition.base.path</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;Extension&quot; ];
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.min">fhir:ElementDefinition.base.min</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:int ];
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.max">fhir:ElementDefinition.base.max</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;*&quot; ]       ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.condition">fhir:ElementDefinition.condition</a> [
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#id">fhir:value</a> &quot;ele-1&quot;;
+         <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 0       ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.constraint">fhir:ElementDefinition.constraint</a> [
+         <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 0;
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.constraint.key">fhir:ElementDefinition.constraint.key</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#id">fhir:value</a> &quot;ele-1&quot; ];
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.constraint.severity">fhir:ElementDefinition.constraint.severity</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#code">fhir:value</a> &quot;error&quot; ];
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.constraint.human">fhir:ElementDefinition.constraint.human</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;All FHIR elements must have a @value or children&quot; ];
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.constraint.expression">fhir:ElementDefinition.constraint.expression</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;children().count() &gt; id.count()&quot; ];
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.constraint.xpath">fhir:ElementDefinition.constraint.xpath</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;@value|f:*|h:div&quot; ];
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.constraint.source">fhir:ElementDefinition.constraint.source</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">fhir:value</a> &quot;Element&quot; ]       ], [
+         <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 1;
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.constraint.key">fhir:ElementDefinition.constraint.key</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#id">fhir:value</a> &quot;ext-1&quot; ];
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.constraint.severity">fhir:ElementDefinition.constraint.severity</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#code">fhir:value</a> &quot;error&quot; ];
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.constraint.human">fhir:ElementDefinition.constraint.human</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;Must have either extensions or value[x], not both&quot; ];
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.constraint.expression">fhir:ElementDefinition.constraint.expression</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;extension.exists() != value.exists()&quot; ];
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.constraint.xpath">fhir:ElementDefinition.constraint.xpath</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;exists(f:extension)!=exists(f:*[starts-with(local-name(.), 'value')])&quot; ];
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.constraint.source">fhir:ElementDefinition.constraint.source</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">fhir:value</a> &quot;Extension&quot; ]       ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.isModifier">fhir:ElementDefinition.isModifier</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#boolean">fhir:value</a> &quot;false&quot;^^xsd:boolean ]     ], [
+       <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 1;
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.id">fhir:Element.id</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;Extension:ethnicity.id&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">fhir:ElementDefinition.path</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;Extension.id&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.representation">fhir:ElementDefinition.representation</a> [
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#code">fhir:value</a> &quot;xmlAttr&quot;;
+         <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 0       ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.short">fhir:ElementDefinition.short</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;xml:id (or equivalent in JSON)&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">fhir:ElementDefinition.definition</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#markdown">fhir:value</a> &quot;unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">fhir:ElementDefinition.min</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:int ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">fhir:ElementDefinition.max</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;1&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base">fhir:ElementDefinition.base</a> [
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.path">fhir:ElementDefinition.base.path</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;Element.id&quot; ];
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.min">fhir:ElementDefinition.base.min</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:int ];
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.max">fhir:ElementDefinition.base.max</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;1&quot; ]       ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">fhir:ElementDefinition.type</a> [
+         <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 0;
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">fhir:ElementDefinition.type.code</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">fhir:value</a> &quot;string&quot; ]       ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping">fhir:ElementDefinition.mapping</a> [
+         <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 0;
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">fhir:ElementDefinition.mapping.identity</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#id">fhir:value</a> &quot;rim&quot; ];
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">fhir:ElementDefinition.mapping.map</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;n/a&quot; ]       ]     ], [
+       <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 2;
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.id">fhir:Element.id</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;Extension:ethnicity.extension&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">fhir:ElementDefinition.path</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;Extension.extension&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.slicing">fhir:ElementDefinition.slicing</a> [
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.slicing.id">fhir:Element.id</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;2&quot; ];
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.slicing.discriminator">fhir:ElementDefinition.slicing.discriminator</a> [
+           <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;url&quot;;
+           <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 0         ];
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.slicing.ordered">fhir:ElementDefinition.slicing.ordered</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#boolean">fhir:value</a> &quot;false&quot;^^xsd:boolean ];
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.slicing.rules">fhir:ElementDefinition.slicing.rules</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#code">fhir:value</a> &quot;open&quot; ]       ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.short">fhir:ElementDefinition.short</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;Extension&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">fhir:ElementDefinition.definition</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#markdown">fhir:value</a> &quot;An Extension&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">fhir:ElementDefinition.min</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:int ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">fhir:ElementDefinition.max</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;*&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base">fhir:ElementDefinition.base</a> [
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.path">fhir:ElementDefinition.base.path</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;Element.extension&quot; ];
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.min">fhir:ElementDefinition.base.min</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:int ];
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.max">fhir:ElementDefinition.base.max</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;*&quot; ]       ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">fhir:ElementDefinition.type</a> [
+         <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 0;
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">fhir:ElementDefinition.type.code</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">fhir:value</a> &quot;Extension&quot; ]       ]     ], [
+       <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 3;
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.id">fhir:Element.id</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;Extension:ethnicity.extension:ombcategory&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">fhir:ElementDefinition.path</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;Extension.extension&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.sliceName">fhir:ElementDefinition.sliceName</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;ombCategory&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.short">fhir:ElementDefinition.short</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;Hispanic or Latino|Not Hispanic or Latino&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">fhir:ElementDefinition.definition</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#markdown">fhir:value</a> &quot;The 2 ethnicity category codes according to the [OMB Standards for Maintaining, Collecting, and Presenting Federal Data on Race and Ethnicity, Statistical Policy Directive No. 15, as revised, October 30, 1997](https://www.whitehouse.gov/omb/fedreg_1997standards).&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">fhir:ElementDefinition.min</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#integer">fhir:value</a> &quot;1&quot;^^xsd:int ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">fhir:ElementDefinition.max</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;1&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base">fhir:ElementDefinition.base</a> [
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.path">fhir:ElementDefinition.base.path</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;Element.extension&quot; ];
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.min">fhir:ElementDefinition.base.min</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:int ];
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.max">fhir:ElementDefinition.base.max</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;*&quot; ]       ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">fhir:ElementDefinition.type</a> [
+         <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 0;
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">fhir:ElementDefinition.type.code</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">fhir:value</a> &quot;Extension&quot; ]       ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.isModifier">fhir:ElementDefinition.isModifier</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#boolean">fhir:value</a> &quot;false&quot;^^xsd:boolean ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping">fhir:ElementDefinition.mapping</a> [
+         <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 0;
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">fhir:ElementDefinition.mapping.identity</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#id">fhir:value</a> &quot;iso11179&quot; ];
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">fhir:ElementDefinition.mapping.map</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;/ClinicalDocument/recordTarget/patientRole/patient/ethnicGroupCode&quot; ]       ]     ], [
+       <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 4;
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.id">fhir:Element.id</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;Extension:ethnicity.extension:ombcategory.id&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">fhir:ElementDefinition.path</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;Extension.extension.id&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.representation">fhir:ElementDefinition.representation</a> [
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#code">fhir:value</a> &quot;xmlAttr&quot;;
+         <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 0       ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.short">fhir:ElementDefinition.short</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;xml:id (or equivalent in JSON)&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">fhir:ElementDefinition.definition</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#markdown">fhir:value</a> &quot;unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">fhir:ElementDefinition.min</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:int ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">fhir:ElementDefinition.max</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;1&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base">fhir:ElementDefinition.base</a> [
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.path">fhir:ElementDefinition.base.path</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;Element.id&quot; ];
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.min">fhir:ElementDefinition.base.min</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:int ];
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.max">fhir:ElementDefinition.base.max</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;1&quot; ]       ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">fhir:ElementDefinition.type</a> [
+         <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 0;
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">fhir:ElementDefinition.type.code</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">fhir:value</a> &quot;string&quot; ]       ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping">fhir:ElementDefinition.mapping</a> [
+         <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 0;
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">fhir:ElementDefinition.mapping.identity</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#id">fhir:value</a> &quot;rim&quot; ];
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">fhir:ElementDefinition.mapping.map</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;n/a&quot; ]       ]     ], [
+       <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 5;
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.id">fhir:Element.id</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;Extension:ethnicity.extension:ombcategory.extension&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">fhir:ElementDefinition.path</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;Extension.extension.extension&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.short">fhir:ElementDefinition.short</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;Additional Content defined by implementations&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">fhir:ElementDefinition.definition</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#markdown">fhir:value</a> &quot;May be used to represent additional information that is not part of the basic definition of the element. In order to make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.comments">fhir:ElementDefinition.comments</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#markdown">fhir:value</a> &quot;There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.alias">fhir:ElementDefinition.alias</a> [
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;extensions&quot;;
+         <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 0       ], [
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;user content&quot;;
+         <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 1       ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">fhir:ElementDefinition.min</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:int ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">fhir:ElementDefinition.max</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;*&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base">fhir:ElementDefinition.base</a> [
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.path">fhir:ElementDefinition.base.path</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;Element.extension&quot; ];
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.min">fhir:ElementDefinition.base.min</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:int ];
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.max">fhir:ElementDefinition.base.max</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;*&quot; ]       ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">fhir:ElementDefinition.type</a> [
+         <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 0;
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">fhir:ElementDefinition.type.code</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">fhir:value</a> &quot;Extension&quot; ]       ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping">fhir:ElementDefinition.mapping</a> [
+         <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 0;
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">fhir:ElementDefinition.mapping.identity</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#id">fhir:value</a> &quot;rim&quot; ];
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">fhir:ElementDefinition.mapping.map</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;n/a&quot; ]       ]     ], [
+       <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 6;
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.id">fhir:Element.id</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;Extension:ethnicity.extension:ombcategory.url&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">fhir:ElementDefinition.path</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;Extension.extension.url&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.representation">fhir:ElementDefinition.representation</a> [
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#code">fhir:value</a> &quot;xmlAttr&quot;;
+         <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 0       ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.short">fhir:ElementDefinition.short</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;identifies the meaning of the extension&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">fhir:ElementDefinition.definition</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#markdown">fhir:value</a> &quot;Source of the definition for the extension code - a logical name or a URL.&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.comments">fhir:ElementDefinition.comments</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#markdown">fhir:value</a> &quot;The definition may point directly to a computable or human-readable definition of the extensibility codes, or it may be a logical URI as declared in some other specification. The definition SHALL be a URI for the Structure Definition defining the extension.&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">fhir:ElementDefinition.min</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#integer">fhir:value</a> &quot;1&quot;^^xsd:int ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">fhir:ElementDefinition.max</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;1&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base">fhir:ElementDefinition.base</a> [
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.path">fhir:ElementDefinition.base.path</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;Extension.url&quot; ];
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.min">fhir:ElementDefinition.base.min</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#integer">fhir:value</a> &quot;1&quot;^^xsd:int ];
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.max">fhir:ElementDefinition.base.max</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;1&quot; ]       ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">fhir:ElementDefinition.type</a> [
+         <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 0;
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">fhir:ElementDefinition.type.code</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">fhir:value</a> &quot;uri&quot; ]       ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping">fhir:ElementDefinition.mapping</a> [
+         <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 0;
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">fhir:ElementDefinition.mapping.identity</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#id">fhir:value</a> &quot;rim&quot; ];
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">fhir:ElementDefinition.mapping.map</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;N/A&quot; ]       ]     ], [
+       <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 7;
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.id">fhir:Element.id</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;Extension:ethnicity.extension:ombcategory.valueCoding&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">fhir:ElementDefinition.path</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;Extension.extension.valueCoding&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.short">fhir:ElementDefinition.short</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;Value of extension&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">fhir:ElementDefinition.definition</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#markdown">fhir:value</a> &quot;Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list).&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">fhir:ElementDefinition.min</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:int ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">fhir:ElementDefinition.max</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;1&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base">fhir:ElementDefinition.base</a> [
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.path">fhir:ElementDefinition.base.path</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;Extension.value[x]&quot; ];
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.min">fhir:ElementDefinition.base.min</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:int ];
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.max">fhir:ElementDefinition.base.max</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;1&quot; ]       ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">fhir:ElementDefinition.type</a> [
+         <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 0;
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">fhir:ElementDefinition.type.code</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">fhir:value</a> &quot;Coding&quot; ]       ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding">fhir:ElementDefinition.binding</a> [
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding.strength">fhir:ElementDefinition.binding.strength</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#code">fhir:value</a> &quot;required&quot; ];
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding.description">fhir:ElementDefinition.binding.description</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;The 2 ethnicity category codes according to the [OMB Standards for Maintaining, Collecting, and Presenting Federal Data on Race and Ethnicity, Statistical Policy Directive No. 15, as revised, October 30, 1997](https://www.whitehouse.gov/omb/fedreg_1997standards).&quot; ];
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding.valueSet[x]">fhir:ElementDefinition.binding.valueSetReference</a> [
+           <a href="http://hl7.org/fhir/2017Jan/rdf.html#reference">fhir:link</a> &lt;http://hl7.org/fhir/us/core/ValueSet/omb-ethnicity&gt;;
+           <a href="http://hl7.org/fhir/2017Jan/datatypes.html#Reference#Reference.reference">fhir:Reference.reference</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;http://hl7.org/fhir/us/core/ValueSet/omb-ethnicity&quot; ]         ]       ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping">fhir:ElementDefinition.mapping</a> [
+         <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 0;
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">fhir:ElementDefinition.mapping.identity</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#id">fhir:value</a> &quot;rim&quot; ];
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">fhir:ElementDefinition.mapping.map</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;N/A&quot; ]       ]     ], [
+       <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 8;
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.id">fhir:Element.id</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;Extension:ethnicity.extension:detailed&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">fhir:ElementDefinition.path</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;Extension.extension&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.sliceName">fhir:ElementDefinition.sliceName</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;detailed&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.short">fhir:ElementDefinition.short</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;Extended ethnicity codes&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">fhir:ElementDefinition.definition</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#markdown">fhir:value</a> &quot;The 41 CDC ethnicity codes that are grouped under one of the 2 OMB ethnicity category codes.&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">fhir:ElementDefinition.min</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:int ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">fhir:ElementDefinition.max</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;*&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base">fhir:ElementDefinition.base</a> [
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.path">fhir:ElementDefinition.base.path</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;Element.extension&quot; ];
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.min">fhir:ElementDefinition.base.min</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:int ];
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.max">fhir:ElementDefinition.base.max</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;*&quot; ]       ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">fhir:ElementDefinition.type</a> [
+         <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 0;
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">fhir:ElementDefinition.type.code</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">fhir:value</a> &quot;Extension&quot; ]       ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.isModifier">fhir:ElementDefinition.isModifier</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#boolean">fhir:value</a> &quot;false&quot;^^xsd:boolean ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping">fhir:ElementDefinition.mapping</a> [
+         <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 0;
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">fhir:ElementDefinition.mapping.identity</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#id">fhir:value</a> &quot;iso11179&quot; ];
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">fhir:ElementDefinition.mapping.map</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;/ClinicalDocument/recordTarget/patientRole/patient/sdtc:ethnicGroupCode&quot; ]       ]     ], [
+       <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 9;
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.id">fhir:Element.id</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;Extension:ethnicity.extension:detailed.id&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">fhir:ElementDefinition.path</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;Extension.extension.id&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.representation">fhir:ElementDefinition.representation</a> [
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#code">fhir:value</a> &quot;xmlAttr&quot;;
+         <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 0       ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.short">fhir:ElementDefinition.short</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;xml:id (or equivalent in JSON)&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">fhir:ElementDefinition.definition</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#markdown">fhir:value</a> &quot;unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">fhir:ElementDefinition.min</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:int ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">fhir:ElementDefinition.max</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;1&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base">fhir:ElementDefinition.base</a> [
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.path">fhir:ElementDefinition.base.path</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;Element.id&quot; ];
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.min">fhir:ElementDefinition.base.min</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:int ];
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.max">fhir:ElementDefinition.base.max</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;1&quot; ]       ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">fhir:ElementDefinition.type</a> [
+         <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 0;
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">fhir:ElementDefinition.type.code</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">fhir:value</a> &quot;string&quot; ]       ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping">fhir:ElementDefinition.mapping</a> [
+         <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 0;
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">fhir:ElementDefinition.mapping.identity</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#id">fhir:value</a> &quot;rim&quot; ];
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">fhir:ElementDefinition.mapping.map</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;n/a&quot; ]       ]     ], [
+       <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 10;
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.id">fhir:Element.id</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;Extension:ethnicity.extension:detailed.extension&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">fhir:ElementDefinition.path</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;Extension.extension.extension&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.short">fhir:ElementDefinition.short</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;Additional Content defined by implementations&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">fhir:ElementDefinition.definition</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#markdown">fhir:value</a> &quot;May be used to represent additional information that is not part of the basic definition of the element. In order to make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.comments">fhir:ElementDefinition.comments</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#markdown">fhir:value</a> &quot;There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.alias">fhir:ElementDefinition.alias</a> [
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;extensions&quot;;
+         <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 0       ], [
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;user content&quot;;
+         <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 1       ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">fhir:ElementDefinition.min</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:int ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">fhir:ElementDefinition.max</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;*&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base">fhir:ElementDefinition.base</a> [
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.path">fhir:ElementDefinition.base.path</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;Element.extension&quot; ];
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.min">fhir:ElementDefinition.base.min</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:int ];
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.max">fhir:ElementDefinition.base.max</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;*&quot; ]       ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">fhir:ElementDefinition.type</a> [
+         <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 0;
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">fhir:ElementDefinition.type.code</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">fhir:value</a> &quot;Extension&quot; ]       ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping">fhir:ElementDefinition.mapping</a> [
+         <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 0;
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">fhir:ElementDefinition.mapping.identity</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#id">fhir:value</a> &quot;rim&quot; ];
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">fhir:ElementDefinition.mapping.map</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;n/a&quot; ]       ]     ], [
+       <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 11;
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.id">fhir:Element.id</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;Extension:ethnicity.extension:detailed.url&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">fhir:ElementDefinition.path</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;Extension.extension.url&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.representation">fhir:ElementDefinition.representation</a> [
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#code">fhir:value</a> &quot;xmlAttr&quot;;
+         <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 0       ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.short">fhir:ElementDefinition.short</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;identifies the meaning of the extension&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">fhir:ElementDefinition.definition</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#markdown">fhir:value</a> &quot;Source of the definition for the extension code - a logical name or a URL.&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.comments">fhir:ElementDefinition.comments</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#markdown">fhir:value</a> &quot;The definition may point directly to a computable or human-readable definition of the extensibility codes, or it may be a logical URI as declared in some other specification. The definition SHALL be a URI for the Structure Definition defining the extension.&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">fhir:ElementDefinition.min</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#integer">fhir:value</a> &quot;1&quot;^^xsd:int ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">fhir:ElementDefinition.max</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;1&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base">fhir:ElementDefinition.base</a> [
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.path">fhir:ElementDefinition.base.path</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;Extension.url&quot; ];
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.min">fhir:ElementDefinition.base.min</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#integer">fhir:value</a> &quot;1&quot;^^xsd:int ];
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.max">fhir:ElementDefinition.base.max</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;1&quot; ]       ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">fhir:ElementDefinition.type</a> [
+         <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 0;
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">fhir:ElementDefinition.type.code</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">fhir:value</a> &quot;uri&quot; ]       ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping">fhir:ElementDefinition.mapping</a> [
+         <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 0;
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">fhir:ElementDefinition.mapping.identity</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#id">fhir:value</a> &quot;rim&quot; ];
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">fhir:ElementDefinition.mapping.map</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;N/A&quot; ]       ]     ], [
+       <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 12;
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.id">fhir:Element.id</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;Extension:ethnicity.extension:detailed.valueCoding&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">fhir:ElementDefinition.path</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;Extension.extension.valueCoding&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.short">fhir:ElementDefinition.short</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;Value of extension&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">fhir:ElementDefinition.definition</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#markdown">fhir:value</a> &quot;Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list).&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">fhir:ElementDefinition.min</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:int ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">fhir:ElementDefinition.max</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;1&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base">fhir:ElementDefinition.base</a> [
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.path">fhir:ElementDefinition.base.path</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;Extension.value[x]&quot; ];
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.min">fhir:ElementDefinition.base.min</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:int ];
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.max">fhir:ElementDefinition.base.max</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;1&quot; ]       ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">fhir:ElementDefinition.type</a> [
+         <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 0;
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">fhir:ElementDefinition.type.code</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">fhir:value</a> &quot;Coding&quot; ]       ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding">fhir:ElementDefinition.binding</a> [
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding.strength">fhir:ElementDefinition.binding.strength</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#code">fhir:value</a> &quot;required&quot; ];
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding.description">fhir:ElementDefinition.binding.description</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;The 41 [CDC ethnicity codes](http://www.cdc.gov/phin/resources/vocabulary/index.html) that are grouped under one of the 2 OMB ethnicity category codes.&quot; ];
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding.valueSet[x]">fhir:ElementDefinition.binding.valueSetReference</a> [
+           <a href="http://hl7.org/fhir/2017Jan/rdf.html#reference">fhir:link</a> &lt;http://hl7.org/fhir/us/core/ValueSet/detailed-ethnicity&gt;;
+           <a href="http://hl7.org/fhir/2017Jan/datatypes.html#Reference#Reference.reference">fhir:Reference.reference</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;http://hl7.org/fhir/us/core/ValueSet/detailed-ethnicity&quot; ]         ]       ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping">fhir:ElementDefinition.mapping</a> [
+         <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 0;
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">fhir:ElementDefinition.mapping.identity</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#id">fhir:value</a> &quot;rim&quot; ];
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">fhir:ElementDefinition.mapping.map</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;N/A&quot; ]       ]     ], [
+       <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 13;
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.id">fhir:Element.id</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;Extension:ethnicity.extension:text&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">fhir:ElementDefinition.path</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;Extension.extension&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.sliceName">fhir:ElementDefinition.sliceName</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;text&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.short">fhir:ElementDefinition.short</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;ethnicity Text&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">fhir:ElementDefinition.definition</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#markdown">fhir:value</a> &quot;Plain text representation of the ethnicity concept(s).&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">fhir:ElementDefinition.min</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:int ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">fhir:ElementDefinition.max</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;1&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base">fhir:ElementDefinition.base</a> [
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.path">fhir:ElementDefinition.base.path</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;Element.extension&quot; ];
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.min">fhir:ElementDefinition.base.min</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:int ];
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.max">fhir:ElementDefinition.base.max</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;*&quot; ]       ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">fhir:ElementDefinition.type</a> [
+         <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 0;
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">fhir:ElementDefinition.type.code</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">fhir:value</a> &quot;Extension&quot; ]       ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.isModifier">fhir:ElementDefinition.isModifier</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#boolean">fhir:value</a> &quot;false&quot;^^xsd:boolean ]     ], [
+       <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 14;
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.id">fhir:Element.id</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;Extension:ethnicity.extension:text.id&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">fhir:ElementDefinition.path</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;Extension.extension.id&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.representation">fhir:ElementDefinition.representation</a> [
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#code">fhir:value</a> &quot;xmlAttr&quot;;
+         <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 0       ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.short">fhir:ElementDefinition.short</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;xml:id (or equivalent in JSON)&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">fhir:ElementDefinition.definition</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#markdown">fhir:value</a> &quot;unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">fhir:ElementDefinition.min</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:int ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">fhir:ElementDefinition.max</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;1&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base">fhir:ElementDefinition.base</a> [
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.path">fhir:ElementDefinition.base.path</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;Element.id&quot; ];
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.min">fhir:ElementDefinition.base.min</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:int ];
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.max">fhir:ElementDefinition.base.max</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;1&quot; ]       ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">fhir:ElementDefinition.type</a> [
+         <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 0;
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">fhir:ElementDefinition.type.code</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">fhir:value</a> &quot;string&quot; ]       ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping">fhir:ElementDefinition.mapping</a> [
+         <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 0;
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">fhir:ElementDefinition.mapping.identity</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#id">fhir:value</a> &quot;rim&quot; ];
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">fhir:ElementDefinition.mapping.map</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;n/a&quot; ]       ]     ], [
+       <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 15;
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.id">fhir:Element.id</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;Extension:ethnicity.extension:text.extension&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">fhir:ElementDefinition.path</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;Extension.extension.extension&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.short">fhir:ElementDefinition.short</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;Additional Content defined by implementations&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">fhir:ElementDefinition.definition</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#markdown">fhir:value</a> &quot;May be used to represent additional information that is not part of the basic definition of the element. In order to make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.comments">fhir:ElementDefinition.comments</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#markdown">fhir:value</a> &quot;There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.alias">fhir:ElementDefinition.alias</a> [
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;extensions&quot;;
+         <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 0       ], [
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;user content&quot;;
+         <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 1       ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">fhir:ElementDefinition.min</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:int ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">fhir:ElementDefinition.max</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;*&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base">fhir:ElementDefinition.base</a> [
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.path">fhir:ElementDefinition.base.path</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;Element.extension&quot; ];
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.min">fhir:ElementDefinition.base.min</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:int ];
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.max">fhir:ElementDefinition.base.max</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;*&quot; ]       ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">fhir:ElementDefinition.type</a> [
+         <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 0;
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">fhir:ElementDefinition.type.code</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">fhir:value</a> &quot;Extension&quot; ]       ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping">fhir:ElementDefinition.mapping</a> [
+         <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 0;
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">fhir:ElementDefinition.mapping.identity</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#id">fhir:value</a> &quot;rim&quot; ];
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">fhir:ElementDefinition.mapping.map</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;n/a&quot; ]       ]     ], [
+       <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 16;
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.id">fhir:Element.id</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;Extension:ethnicity.extension:text.url&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">fhir:ElementDefinition.path</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;Extension.extension.url&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.representation">fhir:ElementDefinition.representation</a> [
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#code">fhir:value</a> &quot;xmlAttr&quot;;
+         <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 0       ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.short">fhir:ElementDefinition.short</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;identifies the meaning of the extension&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">fhir:ElementDefinition.definition</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#markdown">fhir:value</a> &quot;Source of the definition for the extension code - a logical name or a URL.&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.comments">fhir:ElementDefinition.comments</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#markdown">fhir:value</a> &quot;The definition may point directly to a computable or human-readable definition of the extensibility codes, or it may be a logical URI as declared in some other specification. The definition SHALL be a URI for the Structure Definition defining the extension.&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">fhir:ElementDefinition.min</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#integer">fhir:value</a> &quot;1&quot;^^xsd:int ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">fhir:ElementDefinition.max</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;1&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base">fhir:ElementDefinition.base</a> [
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.path">fhir:ElementDefinition.base.path</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;Extension.url&quot; ];
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.min">fhir:ElementDefinition.base.min</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#integer">fhir:value</a> &quot;1&quot;^^xsd:int ];
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.max">fhir:ElementDefinition.base.max</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;1&quot; ]       ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">fhir:ElementDefinition.type</a> [
+         <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 0;
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">fhir:ElementDefinition.type.code</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">fhir:value</a> &quot;uri&quot; ]       ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping">fhir:ElementDefinition.mapping</a> [
+         <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 0;
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">fhir:ElementDefinition.mapping.identity</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#id">fhir:value</a> &quot;rim&quot; ];
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">fhir:ElementDefinition.mapping.map</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;N/A&quot; ]       ]     ], [
+       <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 17;
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.id">fhir:Element.id</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;Extension:ethnicity.extension:text.valueString&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">fhir:ElementDefinition.path</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;Extension.extension.valueString&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.short">fhir:ElementDefinition.short</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;Value of extension&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">fhir:ElementDefinition.definition</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#markdown">fhir:value</a> &quot;Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list).&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">fhir:ElementDefinition.min</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:int ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">fhir:ElementDefinition.max</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;1&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base">fhir:ElementDefinition.base</a> [
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.path">fhir:ElementDefinition.base.path</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;Extension.value[x]&quot; ];
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.min">fhir:ElementDefinition.base.min</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:int ];
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.max">fhir:ElementDefinition.base.max</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;1&quot; ]       ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">fhir:ElementDefinition.type</a> [
+         <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 0;
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">fhir:ElementDefinition.type.code</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">fhir:value</a> &quot;string&quot; ]       ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping">fhir:ElementDefinition.mapping</a> [
+         <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 0;
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">fhir:ElementDefinition.mapping.identity</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#id">fhir:value</a> &quot;rim&quot; ];
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">fhir:ElementDefinition.mapping.map</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;N/A&quot; ]       ]     ], [
+       <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 18;
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.id">fhir:Element.id</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;Extension:ethnicity.url&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">fhir:ElementDefinition.path</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;Extension.url&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.representation">fhir:ElementDefinition.representation</a> [
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#code">fhir:value</a> &quot;xmlAttr&quot;;
+         <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 0       ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.short">fhir:ElementDefinition.short</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;identifies the meaning of the extension&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">fhir:ElementDefinition.definition</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#markdown">fhir:value</a> &quot;Source of the definition for the extension code - a logical name or a URL.&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.comments">fhir:ElementDefinition.comments</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#markdown">fhir:value</a> &quot;The definition may point directly to a computable or human-readable definition of the extensibility codes, or it may be a logical URI as declared in some other specification. The definition SHALL be a URI for the Structure Definition defining the extension.&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">fhir:ElementDefinition.min</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#integer">fhir:value</a> &quot;1&quot;^^xsd:int ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">fhir:ElementDefinition.max</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;1&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base">fhir:ElementDefinition.base</a> [
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.path">fhir:ElementDefinition.base.path</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;Extension.url&quot; ];
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.min">fhir:ElementDefinition.base.min</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#integer">fhir:value</a> &quot;1&quot;^^xsd:int ];
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.max">fhir:ElementDefinition.base.max</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;1&quot; ]       ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">fhir:ElementDefinition.type</a> [
+         <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 0;
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">fhir:ElementDefinition.type.code</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">fhir:value</a> &quot;uri&quot; ]       ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.fixed[x]">fhir:ElementDefinition.fixedUri</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">fhir:value</a> &quot;http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping">fhir:ElementDefinition.mapping</a> [
+         <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 0;
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">fhir:ElementDefinition.mapping.identity</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#id">fhir:value</a> &quot;rim&quot; ];
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">fhir:ElementDefinition.mapping.map</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;N/A&quot; ]       ]     ], [
+       <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 19;
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.id">fhir:Element.id</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;Extension:ethnicity.value[x]&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">fhir:ElementDefinition.path</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;Extension.value[x]&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.short">fhir:ElementDefinition.short</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;Value of extension&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">fhir:ElementDefinition.definition</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#markdown">fhir:value</a> &quot;Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list).&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">fhir:ElementDefinition.min</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:int ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">fhir:ElementDefinition.max</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;0&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base">fhir:ElementDefinition.base</a> [
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.path">fhir:ElementDefinition.base.path</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;Extension.value[x]&quot; ];
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.min">fhir:ElementDefinition.base.min</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:int ];
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.base.max">fhir:ElementDefinition.base.max</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;1&quot; ]       ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">fhir:ElementDefinition.type</a> [
+         <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 0;
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">fhir:ElementDefinition.type.code</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">fhir:value</a> &quot;base64Binary&quot; ]       ], [
+         <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 1;
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">fhir:ElementDefinition.type.code</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">fhir:value</a> &quot;boolean&quot; ]       ], [
+         <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 2;
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">fhir:ElementDefinition.type.code</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">fhir:value</a> &quot;code&quot; ]       ], [
+         <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 3;
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">fhir:ElementDefinition.type.code</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">fhir:value</a> &quot;date&quot; ]       ], [
+         <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 4;
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">fhir:ElementDefinition.type.code</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">fhir:value</a> &quot;dateTime&quot; ]       ], [
+         <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 5;
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">fhir:ElementDefinition.type.code</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">fhir:value</a> &quot;decimal&quot; ]       ], [
+         <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 6;
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">fhir:ElementDefinition.type.code</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">fhir:value</a> &quot;id&quot; ]       ], [
+         <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 7;
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">fhir:ElementDefinition.type.code</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">fhir:value</a> &quot;instant&quot; ]       ], [
+         <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 8;
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">fhir:ElementDefinition.type.code</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">fhir:value</a> &quot;integer&quot; ]       ], [
+         <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 9;
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">fhir:ElementDefinition.type.code</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">fhir:value</a> &quot;markdown&quot; ]       ], [
+         <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 10;
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">fhir:ElementDefinition.type.code</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">fhir:value</a> &quot;oid&quot; ]       ], [
+         <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 11;
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">fhir:ElementDefinition.type.code</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">fhir:value</a> &quot;positiveInt&quot; ]       ], [
+         <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 12;
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">fhir:ElementDefinition.type.code</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">fhir:value</a> &quot;string&quot; ]       ], [
+         <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 13;
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">fhir:ElementDefinition.type.code</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">fhir:value</a> &quot;time&quot; ]       ], [
+         <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 14;
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">fhir:ElementDefinition.type.code</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">fhir:value</a> &quot;unsignedInt&quot; ]       ], [
+         <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 15;
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">fhir:ElementDefinition.type.code</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">fhir:value</a> &quot;uri&quot; ]       ], [
+         <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 16;
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">fhir:ElementDefinition.type.code</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">fhir:value</a> &quot;Address&quot; ]       ], [
+         <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 17;
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">fhir:ElementDefinition.type.code</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">fhir:value</a> &quot;Age&quot; ]       ], [
+         <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 18;
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">fhir:ElementDefinition.type.code</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">fhir:value</a> &quot;Annotation&quot; ]       ], [
+         <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 19;
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">fhir:ElementDefinition.type.code</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">fhir:value</a> &quot;Attachment&quot; ]       ], [
+         <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 20;
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">fhir:ElementDefinition.type.code</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">fhir:value</a> &quot;CodeableConcept&quot; ]       ], [
+         <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 21;
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">fhir:ElementDefinition.type.code</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">fhir:value</a> &quot;Coding&quot; ]       ], [
+         <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 22;
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">fhir:ElementDefinition.type.code</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">fhir:value</a> &quot;ContactPoint&quot; ]       ], [
+         <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 23;
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">fhir:ElementDefinition.type.code</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">fhir:value</a> &quot;Count&quot; ]       ], [
+         <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 24;
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">fhir:ElementDefinition.type.code</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">fhir:value</a> &quot;Distance&quot; ]       ], [
+         <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 25;
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">fhir:ElementDefinition.type.code</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">fhir:value</a> &quot;Duration&quot; ]       ], [
+         <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 26;
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">fhir:ElementDefinition.type.code</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">fhir:value</a> &quot;HumanName&quot; ]       ], [
+         <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 27;
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">fhir:ElementDefinition.type.code</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">fhir:value</a> &quot;Identifier&quot; ]       ], [
+         <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 28;
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">fhir:ElementDefinition.type.code</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">fhir:value</a> &quot;Money&quot; ]       ], [
+         <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 29;
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">fhir:ElementDefinition.type.code</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">fhir:value</a> &quot;Period&quot; ]       ], [
+         <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 30;
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">fhir:ElementDefinition.type.code</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">fhir:value</a> &quot;Quantity&quot; ]       ], [
+         <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 31;
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">fhir:ElementDefinition.type.code</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">fhir:value</a> &quot;Range&quot; ]       ], [
+         <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 32;
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">fhir:ElementDefinition.type.code</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">fhir:value</a> &quot;Ratio&quot; ]       ], [
+         <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 33;
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">fhir:ElementDefinition.type.code</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">fhir:value</a> &quot;Reference&quot; ]       ], [
+         <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 34;
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">fhir:ElementDefinition.type.code</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">fhir:value</a> &quot;SampledData&quot; ]       ], [
+         <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 35;
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">fhir:ElementDefinition.type.code</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">fhir:value</a> &quot;Signature&quot; ]       ], [
+         <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 36;
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">fhir:ElementDefinition.type.code</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">fhir:value</a> &quot;Timing&quot; ]       ], [
+         <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 37;
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">fhir:ElementDefinition.type.code</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">fhir:value</a> &quot;Meta&quot; ]       ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping">fhir:ElementDefinition.mapping</a> [
+         <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 0;
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">fhir:ElementDefinition.mapping.identity</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#id">fhir:value</a> &quot;rim&quot; ];
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">fhir:ElementDefinition.mapping.map</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;N/A&quot; ]       ]     ]
+  ];
+  <a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.differential">fhir:StructureDefinition.differential</a> [
+     <a href="http://hl7.org/fhir/2017Jan/structuredefinition.html#StructureDefinition.differential.element">fhir:StructureDefinition.differential.element</a> [
+       <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 0;
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.id">fhir:Element.id</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;Extension:ethnicity&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">fhir:ElementDefinition.path</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;Extension&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.sliceName">fhir:ElementDefinition.sliceName</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;ethnicity&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.short">fhir:ElementDefinition.short</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;US Core ethnicity Extension&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">fhir:ElementDefinition.definition</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#markdown">fhir:value</a> &quot;Concepts classifying the person into a named category of humans sharing common history, traits, geographical origin or nationality.  The ethnicity codes used to represent these concepts are based upon the [CDC ethnicity and Ethnicity Code Set Version 1.0](http://www.cdc.gov/phin/resources/vocabulary/index.html) which includes over 900 concepts for representing race and ethnicity of which 43 reference ethnicity.  The ethnicity concepts are grouped by and pre-mapped to the 2 OMB ethnicity categories:\r- Hispanic or Latino\r- Not Hispanic or Latino.&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">fhir:ElementDefinition.min</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:int ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">fhir:ElementDefinition.max</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;1&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.isModifier">fhir:ElementDefinition.isModifier</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#boolean">fhir:value</a> &quot;false&quot;^^xsd:boolean ]     ], [
+       <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 1;
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.id">fhir:Element.id</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;Extension:ethnicity.extension:ombcategory&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">fhir:ElementDefinition.path</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;Extension.extension&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.sliceName">fhir:ElementDefinition.sliceName</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;ombCategory&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.short">fhir:ElementDefinition.short</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;Hispanic or Latino|Not Hispanic or Latino&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">fhir:ElementDefinition.definition</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#markdown">fhir:value</a> &quot;The 2 ethnicity category codes according to the [OMB Standards for Maintaining, Collecting, and Presenting Federal Data on Race and Ethnicity, Statistical Policy Directive No. 15, as revised, October 30, 1997](https://www.whitehouse.gov/omb/fedreg_1997standards).&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">fhir:ElementDefinition.min</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#integer">fhir:value</a> &quot;1&quot;^^xsd:int ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">fhir:ElementDefinition.max</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;1&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">fhir:ElementDefinition.type</a> [
+         <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 0;
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">fhir:ElementDefinition.type.code</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">fhir:value</a> &quot;Extension&quot; ]       ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.isModifier">fhir:ElementDefinition.isModifier</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#boolean">fhir:value</a> &quot;false&quot;^^xsd:boolean ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping">fhir:ElementDefinition.mapping</a> [
+         <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 0;
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">fhir:ElementDefinition.mapping.identity</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#id">fhir:value</a> &quot;iso11179&quot; ];
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">fhir:ElementDefinition.mapping.map</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;/ClinicalDocument/recordTarget/patientRole/patient/ethnicGroupCode&quot; ]       ]     ], [
+       <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 2;
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.id">fhir:Element.id</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;Extension:ethnicity.extension:ombcategory.value[x]&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">fhir:ElementDefinition.path</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;Extension.extension.value[x]&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">fhir:ElementDefinition.type</a> [
+         <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 0;
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">fhir:ElementDefinition.type.code</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">fhir:value</a> &quot;Coding&quot; ]       ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding">fhir:ElementDefinition.binding</a> [
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding.strength">fhir:ElementDefinition.binding.strength</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#code">fhir:value</a> &quot;required&quot; ];
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding.description">fhir:ElementDefinition.binding.description</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;The 2 ethnicity category codes according to the [OMB Standards for Maintaining, Collecting, and Presenting Federal Data on Race and Ethnicity, Statistical Policy Directive No. 15, as revised, October 30, 1997](https://www.whitehouse.gov/omb/fedreg_1997standards).&quot; ];
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding.valueSet[x]">fhir:ElementDefinition.binding.valueSetReference</a> [
+           <a href="http://hl7.org/fhir/2017Jan/rdf.html#reference">fhir:link</a> &lt;http://hl7.org/fhir/us/core/ValueSet/omb-ethnicity&gt;;
+           <a href="http://hl7.org/fhir/2017Jan/datatypes.html#Reference#Reference.reference">fhir:Reference.reference</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;http://hl7.org/fhir/us/core/ValueSet/omb-ethnicity&quot; ]         ]       ]     ], [
+       <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 3;
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.id">fhir:Element.id</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;Extension:ethnicity.extension:detailed&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">fhir:ElementDefinition.path</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;Extension.extension&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.sliceName">fhir:ElementDefinition.sliceName</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;detailed&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.short">fhir:ElementDefinition.short</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;Extended ethnicity codes&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">fhir:ElementDefinition.definition</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#markdown">fhir:value</a> &quot;The 41 CDC ethnicity codes that are grouped under one of the 2 OMB ethnicity category codes.&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">fhir:ElementDefinition.min</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:int ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">fhir:ElementDefinition.max</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;*&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">fhir:ElementDefinition.type</a> [
+         <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 0;
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">fhir:ElementDefinition.type.code</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">fhir:value</a> &quot;Extension&quot; ]       ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.isModifier">fhir:ElementDefinition.isModifier</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#boolean">fhir:value</a> &quot;false&quot;^^xsd:boolean ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping">fhir:ElementDefinition.mapping</a> [
+         <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 0;
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">fhir:ElementDefinition.mapping.identity</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#id">fhir:value</a> &quot;iso11179&quot; ];
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">fhir:ElementDefinition.mapping.map</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;/ClinicalDocument/recordTarget/patientRole/patient/sdtc:ethnicGroupCode&quot; ]       ]     ], [
+       <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 4;
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.id">fhir:Element.id</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;Extension:ethnicity.extension:detailed.value[x]&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">fhir:ElementDefinition.path</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;Extension.extension.value[x]&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">fhir:ElementDefinition.type</a> [
+         <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 0;
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">fhir:ElementDefinition.type.code</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">fhir:value</a> &quot;Coding&quot; ]       ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding">fhir:ElementDefinition.binding</a> [
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding.strength">fhir:ElementDefinition.binding.strength</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#code">fhir:value</a> &quot;required&quot; ];
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding.description">fhir:ElementDefinition.binding.description</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;The 41 [CDC ethnicity codes](http://www.cdc.gov/phin/resources/vocabulary/index.html) that are grouped under one of the 2 OMB ethnicity category codes.&quot; ];
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.binding.valueSet[x]">fhir:ElementDefinition.binding.valueSetReference</a> [
+           <a href="http://hl7.org/fhir/2017Jan/rdf.html#reference">fhir:link</a> &lt;http://hl7.org/fhir/us/core/ValueSet/detailed-ethnicity&gt;;
+           <a href="http://hl7.org/fhir/2017Jan/datatypes.html#Reference#Reference.reference">fhir:Reference.reference</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;http://hl7.org/fhir/us/core/ValueSet/detailed-ethnicity&quot; ]         ]       ]     ], [
+       <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 5;
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.id">fhir:Element.id</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;Extension:ethnicity.extension:text&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">fhir:ElementDefinition.path</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;Extension.extension&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.sliceName">fhir:ElementDefinition.sliceName</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;text&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.short">fhir:ElementDefinition.short</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;ethnicity Text&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.definition">fhir:ElementDefinition.definition</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#markdown">fhir:value</a> &quot;Plain text representation of the ethnicity concept(s).&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.min">fhir:ElementDefinition.min</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:int ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">fhir:ElementDefinition.max</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;1&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">fhir:ElementDefinition.type</a> [
+         <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 0;
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">fhir:ElementDefinition.type.code</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">fhir:value</a> &quot;Extension&quot; ]       ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.isModifier">fhir:ElementDefinition.isModifier</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#boolean">fhir:value</a> &quot;false&quot;^^xsd:boolean ]     ], [
+       <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 6;
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.id">fhir:Element.id</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;Extension:ethnicity.extension:text.value[x]&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">fhir:ElementDefinition.path</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;Extension.extension.value[x]&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type">fhir:ElementDefinition.type</a> [
+         <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 0;
+         <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.type.code">fhir:ElementDefinition.type.code</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">fhir:value</a> &quot;string&quot; ]       ]     ], [
+       <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 7;
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.id">fhir:Element.id</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;Extension:ethnicity.url&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">fhir:ElementDefinition.path</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;Extension.url&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.fixed[x]">fhir:ElementDefinition.fixedUri</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#uri">fhir:value</a> &quot;http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity&quot; ]     ], [
+       <a href="http://hl7.org/fhir/2017Jan/rdf.html#index">fhir:index</a> 8;
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.id">fhir:Element.id</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;Extension:ethnicity.value[x]&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.path">fhir:ElementDefinition.path</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;Extension.value[x]&quot; ];
+       <a href="http://hl7.org/fhir/2017Jan/datatypes.html#ElementDefinition#ElementDefinition.max">fhir:ElementDefinition.max</a> [ <a href="http://hl7.org/fhir/2017Jan/datatypes.html#string">fhir:value</a> &quot;0&quot; ]     ]
+  ].
+
+&lt;http://hl7.org/fhir/us/core/ValueSet/omb-ethnicity&gt; a fhir:us, fhir:us.
+
+&lt;http://hl7.org/fhir/us/core/ValueSet/detailed-ethnicity&gt; a fhir:us, fhir:us.
+
+</pre>
+
+
+
+  <!-- ==============END CONTENT END CONTENT=================== -->
+
+<p></p>
+ </div>
+
+    </div>  <!-- /inner-wrapper -->
+            </div>  <!-- /row -->
+        </div>  <!-- /container -->
+
+    </div>  <!-- /segment-content -->
+
+
+
+
+
+</div>
+
+    </div>  <!-- /inner-wrapper -->
+            </div>  <!-- /row -->
+        </div>  <!-- /container -->
+
+    </div>  <!-- /segment-content -->
+
+
+<div id="segment-footer" class="segment">  <!-- segment-footer -->
+  <div class="container">  <!-- container -->
+   <div class="inner-wrapper">
+    <p>
+        US-Core &copy; FHIR STU3 (IG Publisher v1.8.0-10514) generated on Tue, Dec 6, 2016 16:45-0500. |
+             <!--  <a style="color: #81BEF7" rel="license" <!-- <href="../license.html"><img style="border-style: none;" alt="CC0" src="cc0.png"/></a> -->
+                <a style="color: #81BEF7" rel="license" href="http://hl7.org/fhir/2017Janlicense.html"><img style="border-style: none;" alt="CC0" src="cc0.png"/></a> 
+        </span>
+        </p>
+   </div>  <!-- /inner-wrapper -->
+  </div>  <!-- /container -->
+ </div>  <!-- /segment-footer -->
+  <!-- disqus thread -->
+  <!-- disqus -->
+  <!-- end disqus -->
+
+ <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+  <div class="container">  <!-- container -->
+  </div>  <!-- /container -->
+ </div>  <!-- /segment-post-footer -->
+
+</body>
+</html>
+

@@ -1,0 +1,53 @@
+{
+  "resourceType": "ValueSet",
+  "id": "us-core-careteam-provider-roles",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h2>CareTeam Provider Roles</h2><div><p>Provider roles codes consist of NUCC Health Care Provider Taxonomy Code Set for providers and SNOMED-CT for - non clinical and organization roles including codes from the SCTID 125676002 Person (person) heirarchy and the SCTID 394730007 Healthcare related organization (qualifier value) heirarchy.</p>\n</div><p><b>Copyright Statement:</b> This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement. TODO: Permission to Use and Distribute the Health Care Provider Taxonomy Code Set</p><p>This value set includes codes from the following code systems:</p><ul><li>Include all codes defined in http://nucc.org/provider-taxonomy</li><li>Include codes from <a href=\"http://hl7.org/fhir/2017Jan/codesystem-snomedct.html\">http://snomed.info/sct</a> where concept  is-a  125676002</li><li>Include codes from <a href=\"http://hl7.org/fhir/2017Jan/codesystem-snomedct.html\">http://snomed.info/sct</a> where concept  is-a  394730007</li></ul></div>"
+  },
+  "url": "http://hl7.org/fhir/us/core/ValueSet/us-core-careteam-provider-roles",
+  "name": "CareTeam Provider Roles",
+  "status": "draft",
+  "publisher": "FHIR Project Team",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "other",
+          "value": "http://hl7.org/fhir"
+        }
+      ]
+    }
+  ],
+  "date": "2016-08-08T08:27:28-07:00",
+  "description": "Provider roles codes consist of NUCC Health Care Provider Taxonomy Code Set for providers and SNOMED-CT for - non clinical and organization roles including codes from the SCTID 125676002 Person (person) heirarchy and the SCTID 394730007 Healthcare related organization (qualifier value) heirarchy.",
+  "purpose": "Codes that may be used for implementation of the Argonaut Procedures IG and MU2015 certification.",
+  "copyright": "This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement. TODO: Permission to Use and Distribute the Health Care Provider Taxonomy Code Set",
+  "compose": {
+    "include": [
+      {
+        "system": "http://nucc.org/provider-taxonomy"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "filter": [
+          {
+            "property": "concept",
+            "op": "is-a",
+            "value": "125676002"
+          }
+        ]
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "filter": [
+          {
+            "property": "concept",
+            "op": "is-a",
+            "value": "394730007"
+          }
+        ]
+      }
+    ]
+  }
+}

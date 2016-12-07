@@ -1,0 +1,36 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://hl7.org/fhir/us/core/CarePlan/colonoscopy> a fhir:CarePlan;
+  fhir:nodeRole fhir:treeRoot;
+  fhir:Resource.id [ fhir:value "colonoscopy"];
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "http://hl7.org/fhir/us/core/StructureDefinition/us-core-careplan";
+       fhir:index 0
+     ]
+  ];
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "additional" ];
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n			<strong>Assessment</strong>\n			<ol>\n				<li>Recurrent GI bleed of unknown etiology; hypotension perhaps secondary to this but as likely secondary to polypharmacy.</li>\n				<li>Acute on chronic anemia secondary to #1.</li>\n				<li>Azotemia, acute renal failure with volume loss secondary to #1.</li>\n				<li>Hyperkalemia secondary to #3 and on ACE and K+ supplement.</li>\n				<li>Other chronic diagnoses as noted above, currently stable.</li>\n			</ol>\n			<table>\n				<thead>\n					<tr>\n						<th>Planned Activity</th>\n						<th>Planned Date</th>\n					</tr>\n				</thead>\n				<tbody>\n					<tr>\n						<td>Colonoscopy</td>\n						<td>April 21, 2000</td>\n					</tr>\n				</tbody>\n			</table>\n		</div>"
+  ];
+  fhir:CarePlan.status [ fhir:value "active"];
+  fhir:CarePlan.category [
+     fhir:index 0;
+     fhir:CodeableConcept.coding [
+       fhir:index 0;
+       fhir:Coding.system [ fhir:value "http://argonaut.hl7.org" ];
+       fhir:Coding.code [ fhir:value "assess-plan" ]
+     ]
+  ];
+  fhir:CarePlan.subject [
+     fhir:Reference.reference [ fhir:value "Patient-example.html" ];
+     fhir:Reference.display [ fhir:value "Amy Shaw " ]
+  ] .
+
+# -------------------------------------------------------------------------------------
+

@@ -1,0 +1,93 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://hl7.org/fhir/us/core/Bundle/uscore-mo3> a fhir:Bundle;
+  fhir:nodeRole fhir:treeRoot;
+  fhir:Resource.id [ fhir:value "uscore-mo3"];
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest";
+       fhir:index 0
+     ]
+  ];
+  fhir:Bundle.type [ fhir:value "searchset"];
+  fhir:Bundle.total [ fhir:value "1"^^xsd:nonNegativeInteger];
+  fhir:Bundle.link [
+     fhir:index 0;
+     fhir:Bundle.link.relation [ fhir:value "self" ];
+     fhir:Bundle.link.url [ fhir:value "http://fhir3.healthintersections.com.au/open/MedicationRequest?search-id=4085956e-63b8-402d-b181-325040fdb9&&_id=uscore%2Dmo3&_include=MedicationRequest%3Amedication&_sort=_id" ]
+  ];
+  fhir:Bundle.entry [
+     fhir:index 0;
+     fhir:Bundle.entry.fullUrl [ fhir:value "http://fhir3.healthintersections.com.au/open/MedicationRequest/uscore-mo3" ];
+     fhir:Bundle.entry.resource <http://fhir3.healthintersections.com.au/open/MedicationRequest/uscore-mo3>;
+     fhir:Bundle.entry.search [
+       fhir:Bundle.entry.search.mode [ fhir:value "match" ]
+     ]
+  ], [
+     fhir:index 1;
+     fhir:Bundle.entry.fullUrl [ fhir:value "/Medication/uscore-med2" ];
+     fhir:Bundle.entry.resource </Medication/uscore-med2>;
+     fhir:Bundle.entry.search [
+       fhir:Bundle.entry.search.mode [ fhir:value "include" ]
+     ]
+  ] .
+
+<http://fhir3.healthintersections.com.au/open/MedicationRequest/uscore-mo3> a fhir:MedicationRequest;
+  fhir:index 0;
+  fhir:Resource.id [ fhir:value "uscore-mo3"];
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationstatement";
+       fhir:index 0
+     ]
+  ];
+  fhir:MedicationRequest.status [ fhir:value "active"];
+  fhir:MedicationRequest.stage [
+     fhir:CodeableConcept.coding [
+       fhir:index 0;
+       fhir:Coding.system [ fhir:value "http://hl7.org/fhir/request-stage" ];
+       fhir:Coding.code [ fhir:value "original-order" ]
+     ];
+     fhir:CodeableConcept.text [ fhir:value "Orginal Order" ]
+  ];
+  fhir:MedicationRequest.medicationReference [
+     fhir:link <http://hl7.org/fhir/us/core/Medication/uscore-med2>;
+     fhir:Reference.reference [ fhir:value "Medication/uscore-med2" ];
+     fhir:Reference.display [ fhir:value "Nizatidine 15 MG/ML Oral Solution [Axid]" ]
+  ];
+  fhir:MedicationRequest.patient [
+     fhir:Reference.reference [ fhir:value "Patient-example.html" ];
+     fhir:Reference.display [ fhir:value "Amy Shaw" ]
+  ];
+  fhir:MedicationRequest.dateWritten [ fhir:value "2008-04-05"^^xsd:date];
+  fhir:MedicationRequest.requester [
+     fhir:Reference.reference [ fhir:value "Practitioner-practitioner-1.html" ];
+     fhir:Reference.display [ fhir:value "Ronald Bone, MD" ]
+  ] .
+
+<http://hl7.org/fhir/us/core/Medication/uscore-med2> a fhir:us .
+
+</Medication/uscore-med2> a fhir:Medication;
+  fhir:index 0;
+  fhir:Resource.id [ fhir:value "uscore-med2"];
+  fhir:Resource.meta [
+     fhir:Meta.versionId [ fhir:value "1" ];
+     fhir:Meta.lastUpdated [ fhir:value "2016-11-29T19:45:46Z"^^xsd:dateTime ]
+  ];
+  fhir:Medication.code [
+     fhir:CodeableConcept.coding [
+       fhir:index 0;
+       fhir:Coding.system [ fhir:value "http://www.nlm.nih.gov/research/umls/rxnorm" ];
+       fhir:Coding.code [ fhir:value "582620" ];
+       fhir:Coding.display [ fhir:value "Nizatidine 15 MG/ML Oral Solution [Axid]" ]
+     ];
+     fhir:CodeableConcept.text [ fhir:value "Nizatidine 15 MG/ML Oral Solution [Axid]" ]
+  ] .
+
+# -------------------------------------------------------------------------------------
+

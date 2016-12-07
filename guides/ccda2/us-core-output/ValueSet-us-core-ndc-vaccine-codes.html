@@ -1,0 +1,183 @@
+<!DOCTYPE HTML>
+
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+   <meta charset="UTF-8"/>
+  <title></title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="US Core Implemenation Guide" />
+<meta name="author" content="http://www.hl7.org"/>
+
+  <link href="fhir.css" rel="stylesheet"/>
+
+   <!-- Bootstrap core CSS -->
+  <link href="dist/css/bootstrap.css" rel="stylesheet"/>
+  <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+  <!-- Project extras -->
+  <link href="assets/css/project.css" rel="stylesheet"/>
+  <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+	<link href="jquery-ui.css" rel="stylesheet"/>
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png"/>
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png"/>
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png"/>
+  <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png"/>
+  <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+
+
+<body>
+
+ <div id="segment-header" class="segment">  <!-- segment-header -->
+  <div class="container">  <!-- container -->
+   <a id="logo" no-external="true" href="http://hl7.org/fhir"><img alt="logo fhir" src="assets/images/fhir-logo-www.png"/> </a>
+   <div id="hl7-status">
+    <b>US-Core CI Build</b>
+   </div>
+
+   <div id="hl7-nav">
+     <a id="hl7-logo" no-external="true" href="http://www.hl7.org">
+     <img height="50" alt="visit the hl7 website" width="42" src="assets/images/hl7-logo.png"/>
+    </a>
+   </div>
+   <div id="hl7-nav"><a id="hl7-logo" no-external="true" href="http://hl7.org/fhir/search.cfm"><img height="50"  alt="US-Core" src="assets/images/usbanner.png"/></a></div>
+  </div>
+  <div class="container">  <!-- container -->
+ </div></div>  <!-- /segment-header -->
+
+ <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+  <div id="stripe"> </div>
+  <div class="container">  <!-- container -->
+   <!-- HEADER CONTENT -->
+
+   <nav class="navbar navbar-inverse">
+    <div class="container">
+     <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+      <span class="icon-bar"> </span>
+      <span class="icon-bar"> </span>
+      <span class="icon-bar"> </span>
+     </button>
+     <a class="navbar-brand hidden" href="http://hl7.org/fhir/2017Janindex.html">FHIR</a>
+     <div class="nav-collapse collapse navbar-inverse-collapse">
+      <ul class="nav navbar-nav">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="definitions.html">General Guidance</a></li>
+              <li><a href="profiles.html">US Core Profiles</a></li>
+              <li><a href="extensions.html">Extensions</a></li>
+              <li><a href="valuesets.html">Value Sets</a></li>
+              <li><a href="searchparams.html">Search Parameters</a></li>
+              <li><a href="capstmnts.html">Capability Statements</a></li>
+              <li><a href="security.html">Security</a></li>
+              <li><a href="downloads.html">Downloads</a></li>
+            </ul>
+
+     </div>  <!-- /.nav-collapse -->
+    </div>  <!-- /.container -->
+   </nav>  <!-- /.navbar -->
+
+  <!-- /HEADER CONTENT -->
+  </div>  <!-- /container -->
+ </div>  <!-- /segment-navbar -->
+
+
+
+<!-- ============BreadCrumbs=============== -->
+
+  </div>  <!-- /container -->
+ </div>  <!-- /segment-breadcrumb -->
+
+ <div id="segment-content" class="segment">  <!-- segment-content -->
+ <div class="container">  <!-- container -->
+            <div class="row">
+             <div class="inner-wrapper">
+
+
+<div class="col-9">
+
+  <!-- ============CONTENT CONTENT=============== -->
+
+<!--
+<h2>Vaccine National Drug Code (NDC)</h2>
+
+<p>
+Formats: <a href="ValueSet-us-core-ndc-vaccine-codes.xml.html">XML</a>, <a href="ValueSet-us-core-ndc-vaccine-codes.json.html">JSON</a>, <a href="ValueSet-us-core-ndc-vaccine-codes.ttl.html">Turtle</a>
+</p>
+
+-->
+
+<!-- include ValueSet-us-core-ndc-vaccine-codes-html.xhtml   -->
+
+<table class="grid">
+ <tbody><tr><td>Defining URL:</td><td>http://hl7.org/fhir/us/core/ValueSet/us-core-ndc-vaccine-codes</td></tr>
+ <tr><td>Name:</td><td>Vaccine National Drug Code (NDC)</td></tr>
+ <tr><td>Definition:</td><td><p>This value set includes all the Vaccine National Drug Codes (NDC).  This source of this data is provided by the <a href="https://www2a.cdc.gov/vaccines/iis/iisstandards/ndc_crosswalk.asp">CDC</a></p>
+</td></tr>
+ <tr><td>Publisher:</td><td>HL7 (FHIR Project)</td></tr>
+ <tr><td>Source Resource</td><td><a href="ValueSet-us-core-ndc-vaccine-codes.xml.html">XML</a> / <a href="ValueSet-us-core-ndc-vaccine-codes.json.html">JSON</a> / <a href="ValueSet-us-core-ndc-vaccine-codes.ttl.html">Turtle</a></td></tr>
+</tbody></table>
+
+
+This value set is used by:
+
+
+<ul>
+ <li><a href="StructureDefinition-us-core-immunization.html">US Core Immunization Profile</a></li>
+</ul>
+
+
+<div xmlns="http://www.w3.org/1999/xhtml"><h2>Vaccine National Drug Code (NDC)</h2><div><p>This value set includes all the Vaccine National Drug Codes (NDC).  This source of this data is provided by the <a href="https://www2a.cdc.gov/vaccines/iis/iisstandards/ndc_crosswalk.asp">CDC</a></p>
+</div><p>This value set includes codes from the following code systems:</p><ul><li>Include these codes as defined in http://hl7.org/fhir/sid/ndc<table class="none"><tr><td><b>Code</b></td><td><b>Display</b></td></tr><tr><td>49281-0589-58</td><td>Menactra</td><td/></tr><tr><td>49281-0623-78</td><td>FLUZONE QUADRIVALENT</td><td/></tr><tr><td>49281-0515-00</td><td>Fluzone Quadrivalent, peds</td><td/></tr><tr><td>49281-0415-88</td><td>Fluzone Quadrivalent PF</td><td/></tr><tr><td>49281-0415-58</td><td>FLUZONE QUADRIVALENT PF</td><td/></tr><tr><td>33332-0115-11</td><td>AFLURIA</td><td/></tr><tr><td>33332-0015-02</td><td>AFLURIA</td><td/></tr><tr><td>66019-0302-01</td><td>FluMist Quadrivalent</td><td/></tr><tr><td>42874-0015-01</td><td>Flublok</td><td/></tr><tr><td>66521-0118-12</td><td>Fluvirin</td><td/></tr><tr><td>66521-0118-11</td><td>Fluvirin</td><td/></tr><tr><td>58160-0883-41</td><td>FLUARIX</td><td/></tr><tr><td>66521-0000-11</td><td>Fluad</td><td/></tr><tr><td>69401-0000-01</td><td>Vivotif</td><td/></tr><tr><td>66019-0301-01</td><td>FluMist Quadrivalent</td><td/></tr><tr><td>33332-0014-02</td><td>AFLURIA</td><td/></tr><tr><td>33332-0114-11</td><td>AFLURIA</td><td/></tr><tr><td>63851-0613-11</td><td>Flucelvax</td><td/></tr><tr><td>66521-0117-11</td><td>FLUVIRIN</td><td/></tr><tr><td>66521-0117-12</td><td>Fluvirin</td><td/></tr><tr><td>00006-4093-01</td><td>RECOMBIVAX HB</td><td/></tr><tr><td>00006-4094-01</td><td>RECOMBIVAX HB</td><td/></tr><tr><td>00006-4095-01</td><td>VAQTA</td><td/></tr><tr><td>00006-4096-01</td><td>VAQTA</td><td/></tr><tr><td>00006-4963-01</td><td>ZOSTAVAX</td><td/></tr><tr><td>00006-4963-01</td><td>ZOSTAVAX</td><td/></tr><tr><td>42874-0014-01</td><td>Flublok</td><td/></tr><tr><td>49281-0414-88</td><td>Fluzone Quadrivalent PF</td><td/></tr><tr><td>49281-0395-88</td><td>Fluzone HD</td><td/></tr><tr><td>49281-0709-48</td><td>FLUZONE Intradermal</td><td/></tr><tr><td>58160-0881-41</td><td>FLUARIX</td><td/></tr><tr><td>58160-0809-01</td><td>MENHIBRIX</td><td/></tr><tr><td>62577-0613-11</td><td>Flucelvax</td><td/></tr><tr><td>19515-0893-02</td><td>FLULAVAL</td><td/></tr><tr><td>49281-0621-78</td><td>FLUZONE QUADRIVALENT</td><td/></tr><tr><td>00005-0100-01</td><td>Trumenba</td><td/></tr><tr><td>00005-0100-01</td><td>Trumenba</td><td/></tr><tr><td>00005-0100-01</td><td>Trumenba</td><td/></tr><tr><td>00006-4047-01</td><td>RotaTeq</td><td/></tr><tr><td>00006-4109-01</td><td>GARDASIL</td><td/></tr><tr><td>62577-0613-11</td><td>Flucelvax</td><td/></tr><tr><td>00006-4121-01</td><td>GARDASIL 9</td><td/></tr><tr><td>00006-4119-01</td><td>GARDASIL 9</td><td/></tr><tr><td>00006-4119-01</td><td>GARDASIL 9</td><td/></tr><tr><td>63851-0511-11</td><td>RabAvert</td><td/></tr><tr><td>49281-0562-58</td><td>QUADRACEL</td><td/></tr><tr><td>46028-0114-11</td><td>Bexsero</td><td/></tr><tr><td>46028-0114-11</td><td>Bexsero</td><td/></tr><tr><td>00006-4171-01</td><td>ProQuad</td><td/></tr><tr><td>13533-0131-00</td><td>Tetanus and Diphtheria Toxoids Adsorbed</td><td/></tr><tr><td>49281-0396-78</td><td>FLUZONE</td><td/></tr><tr><td>49281-0397-88</td><td>FLUZONE High-Dose</td><td/></tr><tr><td>62577-0614-11</td><td>Flucelvax</td><td/></tr><tr><td>58160-0903-41</td><td>FLUARIX QUADRIVALENT</td><td/></tr><tr><td>19515-0898-01</td><td>Flulaval Quadrivalent</td><td/></tr><tr><td>19515-0901-41</td><td>Flulaval Quadrivalent</td><td/></tr><tr><td>49281-0393-88</td><td>FLUZONE High-Dose</td><td/></tr><tr><td>58160-0810-43</td><td>INFANRIX</td><td/></tr><tr><td>58160-0810-01</td><td>INFANRIX</td><td/></tr><tr><td>49281-0790-38</td><td>Typhim Vi</td><td/></tr><tr><td>49281-0790-88</td><td>Typhim Vi</td><td/></tr><tr><td>49281-0640-15</td><td>INFLUENZA A (H1N1) 2009 MONOVALENT VACCINE</td><td/></tr><tr><td>49281-0650-10</td><td>INFLUENZA A (H1N1) 2009 MONOVALENT VACCINE</td><td/></tr><tr><td>49281-0650-90</td><td>INFLUENZA A (H1N1) 2009 MONOVALENT VACCINE</td><td/></tr><tr><td>49281-0650-25</td><td>INFLUENZA A (H1N1) 2009 MONOVALENT VACCINE</td><td/></tr><tr><td>49281-0650-70</td><td>INFLUENZA A (H1N1) 2009 MONOVALENT VACCINE</td><td/></tr><tr><td>49281-0650-50</td><td>INFLUENZA A (H1N1) 2009 MONOVALENT VACCINE</td><td/></tr><tr><td>49281-0707-48</td><td>FLUZONE</td><td/></tr><tr><td>66019-0110-01</td><td>FluMist</td><td/></tr><tr><td>00006-4681-01</td><td>M-M-R II</td><td/></tr><tr><td>49281-0215-58</td><td>TENIVAC</td><td/></tr><tr><td>49281-0215-88</td><td>TENIVAC</td><td/></tr><tr><td>46028-0218-11</td><td>Meningococcal (Groups A) CRM197 Oligosaccharide Co</td><td/></tr><tr><td>49281-0387-65</td><td>FLUZONE</td><td/></tr><tr><td>49281-0386-15</td><td>FLUZONE</td><td/></tr><tr><td>49281-0010-10</td><td>FLUZONE</td><td/></tr><tr><td>49281-0010-25</td><td>Fluzone</td><td/></tr><tr><td>49281-0010-50</td><td>FLUZONE</td><td/></tr><tr><td>54868-0980-00</td><td>M-M-R II</td><td/></tr><tr><td>58160-0830-43</td><td>CERVARIX</td><td/></tr><tr><td>58160-0830-05</td><td>CERVARIX</td><td/></tr><tr><td>00005-1971-01</td><td>PREVNAR 13</td><td/></tr><tr><td>00005-1971-01</td><td>PREVNAR 13</td><td/></tr><tr><td>00005-1971-01</td><td>PREVNAR 13</td><td/></tr><tr><td>17478-0131-00</td><td>Tetanus and Diphtheria Toxoids Adsorbed</td><td/></tr><tr><td>58160-0812-43</td><td>KINRIX</td><td/></tr><tr><td>58160-0812-01</td><td>KINRIX</td><td/></tr><tr><td>66019-0108-01</td><td>FluMist</td><td/></tr><tr><td>00006-4898-01</td><td>COMVAX</td><td/></tr><tr><td>58160-0809-01</td><td>MENHIBRIX</td><td/></tr><tr><td>63851-0612-11</td><td>Flucelvax</td><td/></tr><tr><td>00006-4992-01</td><td>RECOMBIVAX HB</td><td/></tr><tr><td>00006-4981-01</td><td>RECOMBIVAX HB</td><td/></tr><tr><td>00006-4980-00</td><td>RECOMBIVAX HB</td><td/></tr><tr><td>00006-4093-01</td><td>RECOMBIVAX HB</td><td/></tr><tr><td>00006-4094-01</td><td>RECOMBIVAX HB</td><td/></tr><tr><td>00006-4109-01</td><td>GARDASIL</td><td/></tr><tr><td>66521-0112-02</td><td>FLUVIRIN</td><td/></tr><tr><td>66521-0112-10</td><td>FLUVIRIN</td><td/></tr><tr><td>66019-0107-01</td><td>FluMist</td><td/></tr><tr><td>49281-0225-58</td><td>DIPHTHERIA AND TETANUS TOXOIDS ADSORBED</td><td/></tr><tr><td>49281-0705-55</td><td>FLUZONE</td><td/></tr><tr><td>42515-0001-00</td><td>IXIARO</td><td/></tr><tr><td>58160-0879-41</td><td>FLUARIX</td><td/></tr><tr><td>58160-0880-41</td><td>FLUARIX</td><td/></tr><tr><td>58160-0820-01</td><td>ENGERIX-B</td><td/></tr><tr><td>58160-0820-43</td><td>ENGERIX-B</td><td/></tr><tr><td>58160-0821-01</td><td>ENGERIX-B</td><td/></tr><tr><td>58160-0821-43</td><td>ENGERIX-B</td><td/></tr><tr><td>58160-0821-05</td><td>ENGERIX-B</td><td/></tr><tr><td>42874-0012-01</td><td>Flublok</td><td/></tr><tr><td>49281-0278-10</td><td>DIPHTHERIA AND TETANUS TOXOIDS ADSORBED</td><td/></tr><tr><td>66019-0109-01</td><td>FluMist</td><td/></tr><tr><td>19515-0890-02</td><td>FLULAVAL</td><td/></tr><tr><td>19515-0889-02</td><td>FLULAVAL</td><td/></tr><tr><td>58160-0900-41</td><td>FLUARIX QUADRIVALENT</td><td/></tr><tr><td>49281-0860-78</td><td>IPOL</td><td/></tr><tr><td>49281-0860-88</td><td>IPOL</td><td/></tr><tr><td>49281-0389-65</td><td>FLUZONE High-Dose</td><td/></tr><tr><td>49281-0388-15</td><td>FLUZONE</td><td/></tr><tr><td>49281-0011-10</td><td>FLUZONE</td><td/></tr><tr><td>49281-0011-50</td><td>FLUZONE</td><td/></tr><tr><td>49281-0703-55</td><td>FLUZONE Intradermal</td><td/></tr><tr><td>49281-0111-25</td><td>FLUZONE</td><td/></tr><tr><td>66521-0200-10</td><td>Influenza A (H1N1) 2009 Monovalent Vaccine</td><td/></tr><tr><td>66521-0200-02</td><td>Influenza A (H1N1) 2009 Monovalent Vaccine</td><td/></tr><tr><td>49281-0298-10</td><td>TRIPEDIA</td><td/></tr><tr><td>58160-0806-01</td><td>HIBERIX</td><td/></tr><tr><td>33332-0013-02</td><td>AFLURIA</td><td/></tr><tr><td>33332-0113-11</td><td>AFLURIA</td><td/></tr><tr><td>49281-0391-65</td><td>FLUZONE High-Dose</td><td/></tr><tr><td>49281-0012-50</td><td>FLUZONE</td><td/></tr><tr><td>49281-0012-10</td><td>FLUZONE</td><td/></tr><tr><td>49281-0112-25</td><td>FLUZONE</td><td/></tr><tr><td>49281-0390-15</td><td>FLUZONE</td><td/></tr><tr><td>00006-4897-01</td><td>PedvaxHIB</td><td/></tr><tr><td>49281-0291-83</td><td>DECAVAC</td><td/></tr><tr><td>49281-0291-10</td><td>DECAVAC</td><td/></tr><tr><td>49281-0413-88</td><td>FLUZONE QUADRIVALENT</td><td/></tr><tr><td>49281-0413-58</td><td>FLUZONE QUADRIVALENT</td><td/></tr><tr><td>49281-0513-00</td><td>FLUZONE QUADRIVALENT</td><td/></tr><tr><td>66521-0113-02</td><td>Fluvirin</td><td/></tr><tr><td>66521-0113-10</td><td>Fluvirin</td><td/></tr><tr><td>00005-1970-49</td><td>Prevnar</td><td/></tr><tr><td>00006-4047-01</td><td>RotaTeq</td><td/></tr><tr><td>58160-0811-43</td><td>PEDIARIX</td><td/></tr><tr><td>58160-0811-41</td><td>PEDIARIX</td><td/></tr><tr><td>00006-4827-01</td><td>VARIVAX</td><td/></tr><tr><td>00006-4826-01</td><td>VARIVAX</td><td/></tr><tr><td>58160-0842-41</td><td>BOOSTRIX</td><td/></tr><tr><td>58160-0842-01</td><td>BOOSTRIX</td><td/></tr><tr><td>58160-0842-43</td><td>BOOSTRIX</td><td/></tr><tr><td>58160-0842-05</td><td>BOOSTRIX</td><td/></tr><tr><td>66019-0300-01</td><td>FluMist Quadrivalent</td><td/></tr><tr><td>49281-0589-58</td><td>Menactra</td><td/></tr><tr><td>00006-4095-01</td><td>VAQTA</td><td/></tr><tr><td>00006-4096-01</td><td>VAQTA</td><td/></tr><tr><td>00006-4831-01</td><td>VAQTA</td><td/></tr><tr><td>63851-0511-11</td><td>RabAvert</td><td/></tr><tr><td>66019-0200-01</td><td>Influenza A H1N1 2009 Monovalent Vaccine Live Intr</td><td/></tr><tr><td>14362-0111-03</td><td>Tetanus and Diphtheria Toxoids Adsorbed</td><td/></tr><tr><td>33332-0519-01</td><td>Influenza A</td><td/></tr><tr><td>33332-0519-25</td><td>Influenza A</td><td/></tr><tr><td>33332-0629-10</td><td>Influenza A</td><td/></tr><tr><td>58160-0825-43</td><td>HAVRIX</td><td/></tr><tr><td>58160-0825-01</td><td>HAVRIX</td><td/></tr><tr><td>58160-0826-43</td><td>HAVRIX</td><td/></tr><tr><td>58160-0826-05</td><td>HAVRIX</td><td/></tr><tr><td>58160-0826-01</td><td>HAVRIX</td><td/></tr><tr><td>33332-0010-01</td><td>AFLURIA</td><td/></tr><tr><td>33332-0110-10</td><td>AFLURIA</td><td/></tr><tr><td>66521-0115-10</td><td>Fluvirin</td><td/></tr><tr><td>66521-0115-02</td><td>Fluvirin</td><td/></tr><tr><td>00006-4133-01</td><td>Tetanus and Diphtheria Toxoids Adsorbed</td><td/></tr><tr><td>54868-4320-09</td><td>PNEUMOVAX 23</td><td/></tr><tr><td>54868-3339-09</td><td>PNEUMOVAX 23</td><td/></tr><tr><td>00052-0603-01</td><td>BCG VACCINE</td><td/></tr><tr><td>64678-0211-05</td><td>BioThrax</td><td/></tr><tr><td>00006-4739-01</td><td>PNEUMOVAX 23</td><td/></tr><tr><td>00006-4943-01</td><td>PNEUMOVAX 23</td><td/></tr><tr><td>49281-0013-58</td><td>FLUZONE</td><td/></tr><tr><td>49281-0013-88</td><td>FLUZONE</td><td/></tr><tr><td>49281-0392-78</td><td>FLUZONE</td><td/></tr><tr><td>49281-0113-00</td><td>FLUZONE</td><td/></tr><tr><td>49281-0820-10</td><td>TETANUS TOXOID ADSORBED</td><td/></tr><tr><td>49281-0800-83</td><td>TETANUS TOXOID ADSORBED</td><td/></tr><tr><td>49281-0400-88</td><td>Adacel</td><td/></tr><tr><td>49281-0286-58</td><td>DAPTACEL</td><td/></tr><tr><td>49281-0286-58</td><td>DAPTACEL</td><td/></tr><tr><td>49281-0286-58</td><td>DAPTACEL</td><td/></tr><tr><td>58160-0815-41</td><td>TWINRIX</td><td/></tr><tr><td>58160-0815-43</td><td>TWINRIX</td><td/></tr><tr><td>58160-0815-05</td><td>TWINRIX</td><td/></tr><tr><td>58160-0815-43</td><td>TWINRIX</td><td/></tr><tr><td>58160-0815-01</td><td>TWINRIX</td><td/></tr><tr><td>66521-0114-10</td><td>Fluvirin</td><td/></tr><tr><td>76420-0482-01</td><td>FLUVIRIN</td><td/></tr><tr><td>19515-0895-01</td><td>Flulaval Quadrivalent</td><td/></tr><tr><td>00006-4999-01</td><td>ProQuad</td><td/></tr><tr><td>49281-0545-15</td><td>ACTHIB</td><td/></tr><tr><td>51285-0174-02</td><td>Adenovirus Type 4 Vaccine, Live, Oral</td><td/></tr><tr><td>49281-0248-58</td><td>IMOVAX RABIES</td><td/></tr><tr><td>49281-0487-58</td><td>MENOMUNE - A/C/Y/W-135 COMBINED</td><td/></tr><tr><td>49281-0915-58</td><td>YF-VAX</td><td/></tr><tr><td>49281-0547-58</td><td>ACTHIB</td><td/></tr><tr><td>58160-0851-01</td><td>ROTARIX</td><td/></tr><tr><td>49281-0915-68</td><td>YF-VAX</td><td/></tr><tr><td>49281-0488-78</td><td>MENOMUNE - A/C/Y/W-135 COMBINED</td><td/></tr><tr><td>46028-0219-11</td><td>Meningococcal (Groups C, Y, W-135) CRM197 Oligosac</td><td/></tr><tr><td>51285-0175-02</td><td>Adenovirus Type 7 Vaccine, Live, Oral</td><td/></tr><tr><td>49281-0560-05</td><td>DTAP-IPV</td><td/></tr><tr><td>49281-0400-58</td><td>Adacel</td><td/></tr><tr><td>49281-0400-58</td><td>Adacel</td><td/></tr><tr><td>42874-0013-01</td><td>Flublok</td><td/></tr><tr><td>66521-0116-11</td><td>FLUVIRIN</td><td/></tr><tr><td>66521-0116-12</td><td>FLUVIRIN</td><td/></tr><tr><td>00006-4045-01</td><td>GARDASIL</td><td/></tr><tr><td>00006-4045-01</td><td>GARDASIL</td><td/></tr><tr><td>00006-4995-01</td><td>RECOMBIVAX HB</td><td/></tr><tr><td>00006-4995-01</td><td>RECOMBIVAX HB</td><td/></tr><tr><td>00006-4841-01</td><td>VAQTA</td><td/></tr><tr><td>00006-4841-01</td><td>VAQTA</td><td/></tr><tr><td>58160-0804-01</td><td>INFLUENZA (H5N1), adjuvanted</td><td/></tr><tr><td>58160-0802-02</td><td>AS03 Adjuvant</td><td/></tr><tr><td>58160-0901-41</td><td>FLUARIX QUADRIVALENT</td><td/></tr><tr><td>00006-4837-01</td><td>PNEUMOVAX 23</td><td/></tr><tr><td>19515-0891-01</td><td>Flulaval Quadrivalent</td><td/></tr><tr><td>19515-0893-02</td><td>FLULAVAL</td><td/></tr><tr><td>19515-0894-41</td><td>Flulaval Quadrivalent</td><td/></tr><tr><td>49281-0514-00</td><td>Fluzone Quadrivalent, Peds</td><td/></tr><tr><td>49281-0394-78</td><td>FLUZONE</td><td/></tr><tr><td>49281-0014-88</td><td>FLUZONE</td><td/></tr><tr><td>49281-0414-58</td><td>FLUZONE QUADRIVALENT PF</td><td/></tr></table></li></ul></div>
+
+<h3>Expansion</h3>
+
+<p style="color: maroon; font-weight: bold">Error expanding ValueSet &quot;http://hl7.org/fhir/us/core/ValueSet/us-core-ndc-vaccine-codes: Error unmarshalling resource: Invalid pointer operation</p>
+
+
+  <!-- ==============END CONTENT END CONTENT=================== -->
+
+<p></p>
+ </div>
+
+    </div>  <!-- /inner-wrapper -->
+            </div>  <!-- /row -->
+        </div>  <!-- /container -->
+
+    </div>  <!-- /segment-content -->
+
+
+
+</div>
+
+    </div>  <!-- /inner-wrapper -->
+            </div>  <!-- /row -->
+        </div>  <!-- /container -->
+
+    </div>  <!-- /segment-content -->
+
+
+<div id="segment-footer" class="segment">  <!-- segment-footer -->
+  <div class="container">  <!-- container -->
+   <div class="inner-wrapper">
+    <p>
+        US-Core &copy; FHIR STU3 (IG Publisher v1.8.0-10514) generated on Tue, Dec 6, 2016 16:45-0500. |
+             <!--  <a style="color: #81BEF7" rel="license" <!-- <href="../license.html"><img style="border-style: none;" alt="CC0" src="cc0.png"/></a> -->
+                <a style="color: #81BEF7" rel="license" href="http://hl7.org/fhir/2017Janlicense.html"><img style="border-style: none;" alt="CC0" src="cc0.png"/></a> 
+        </span>
+        </p>
+   </div>  <!-- /inner-wrapper -->
+  </div>  <!-- /container -->
+ </div>  <!-- /segment-footer -->
+  <!-- disqus thread -->
+  <!-- disqus -->
+  <!-- end disqus -->
+
+ <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+  <div class="container">  <!-- container -->
+  </div>  <!-- /container -->
+ </div>  <!-- /segment-post-footer -->
+
+</body>
+</html>
+

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="us-core-immunization-status"/>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml">
+      <p>Immunization codes constrained from the DSTU core to include only 'completed' and 'enter-in-error'  which are the only two clinically relevent values.</p>
+      <p>Codes that may be used for implementation of the Argonaut Immunization IG and MU2015 certification.</p>
+      <p/>
+      <table border="1" cellpadding="5" cellspacing="0">
+        <tr>
+          <th>Code</th>
+          <th>Display</th>
+          <th>Definition</th>
+        </tr>
+        <tr class="odd">
+          <td>completed</td>
+          <td>Completed</td>
+          <td>All actions that are implied by the administration have occurred.</td>
+        </tr>
+        <tr class="even">
+          <td>entered-in-error</td>
+          <td>Entered in Error</td>
+          <td>The administration was entered in error and therefore nullified.</td>
+        </tr>
+      </table>
+    </div>
+  </text>
+  <url value="http://hl7.org/fhir/us/core/ValueSet/us-core-immunization-status"/>
+  <name value="Immunization Status"/>
+  <status value="draft"/>
+  <publisher value="FHIR Project Team"/>
+  <contact>
+    <telecom>
+      <system value="other"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <date value="2016-12-06T16:45:17-05:00"/>
+  <description value="Immunization codes constrained from the STU core to include only &#39;completed&#39; and &#39;enter-in-error&#39;  which are the only two clinically relevent values."/>
+  <purpose value="Codes that may be used for implementation of the Argonaut Immunization IG and MU2015 certification."/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/medication-admin-status"/>
+      <concept>
+        <code value="completed"/>
+        <display value="Completed"/>
+        <designation>
+          <value value="All actions that are implied by the administration have occurred"/>
+        </designation>
+      </concept>
+    </include>
+    <include>
+      <system value="http://hl7.org/fhir/medication-admin-status"/>
+      <concept>
+        <code value="entered-in-error"/>
+        <display value="Entered in Error"/>
+        <designation>
+          <value value="The administration was entered in error and therefore nullified"/>
+        </designation>
+      </concept>
+    </include>
+  </compose>
+</ValueSet>
