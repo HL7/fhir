@@ -197,7 +197,7 @@
             <max value="1" />
             <type>
                 <code value="Reference" />
-                <profile value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient" />
+                <targetProfile value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient" />
             </type>
         </element>
         <element id="101458">
@@ -211,7 +211,11 @@
             <max value="*" />
             <type>
                 <code value="Reference" />
-                <profile value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-pract" />
+                <targetProfile value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-pract" />
+            </type>
+            <type>
+                <code value="Reference" />
+                <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device" />
             </type>
         </element>
         <element id="6865-000021">
@@ -253,7 +257,7 @@
             <max value="1" />
             <type>
                 <code value="Reference" />
-                <profile value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-pract" />
+                <targetProfile value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-pract" />
             </type>
         </element>
         <element id="111260">
@@ -282,7 +286,7 @@
             <max value="1" />
             <type>
                 <code value="Reference" />
-                <profile value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-pract" />
+                <targetProfile value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-pract" />
             </type>
         </element>
         <element id="101459">
@@ -296,7 +300,7 @@
             <max value="1" />
             <type>
                 <code value="Reference" />
-                <profile value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization" />
+                <targetProfile value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization" />
             </type>
         </element>
     </differential>

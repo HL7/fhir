@@ -36,6 +36,7 @@
                 value="SHALL contain exactly one [1..1] @url=&quot;http://hl7.org/fhir/ccda/StructureDefinition/CCDA_on_FHIR_Informant&quot; (CONF:2219-1852)." />
             <min value="1" />
             <max value="1" />
+      	    <fixedUri value="http://hl7.org/fhir/ccda/StructureDefinition/CCDA_on_FHIR_Informant"/>
         </element>
         <element id="111028">
             <path value="Extension.valueReference" />
@@ -44,6 +45,10 @@
                 value="SHALL contain exactly one [1..1] U.S. Core Practitioner Profile (identifier: http://hl7.org/fhir/us/core/StructureDefinition/us-core-pract) (CONF:2219-1853)." />
             <min value="1" />
             <max value="1" />
+            <type>
+                <code value="Reference" />
+                <targetProfile value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-pract" />
+            </type>
         </element>
     </differential>
 </StructureDefinition>

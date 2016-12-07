@@ -1,1 +1,55 @@
-<StructureDefinition xmlns="http://hl7.org/fhir"><id value="CCDA-on-FHIR-Participant" /><url value="http://hl7.org/fhir/ccda/StructureDefinition/CCDA-on-FHIR-Participant" /><name value="C-CDA on FHIR Participant" /><status value="draft" /><publisher value="Lantana Consulting Group" /><contact><name value="Sarah Gaunt" /><telecom><system value="phone" /><value value="+6 141-029-2506" /><use value="work" /></telecom><telecom><system value="email" /><value value="sarah.gaunt@lantanagroup.com" /><use value="work" /></telecom></contact><description value="C-CDA on FHIR Participant Extension" /><kind value="resource" /><abstract value="false" /><contextType value="extension" /><context value="Extension" /><type value="Extension" /><baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension" /><derivation value="constraint" /><differential><element id="8124-00001"><path value="Extension" /></element><element id="111034"><path value="Extension.url" /><short value="@url" /><definition value="SHALL contain exactly one [1..1] @url=&quot;http://hl7.org/fhir/ccda/StructureDefinition/CCDA_on_FHIR_Participant&quot; (CONF:2219-1859)." /><min value="1" /><max value="1" /></element><element id="127937"><path value="Extension.value[x]" /><slicing><discriminator value="@type" /><rules value="open" /></slicing><short value="value[x]" /><definition value="SHALL contain exactly one [1..1] value[x], where value[x] is (CONF:2219-2474)" /><min value="1" /><max value="1" /></element><element id="127938"><path value="Extension.valueReference" /><short value="valueReference" /><definition value="valueReference which includes RelatedPerson (identifier: http://hl7.org/fhir/StructureDefinition/RelatedPerson) (CONF:2219-2475)" /></element></differential></StructureDefinition>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+    <id value="CCDA-on-FHIR-Participant"/>
+    <url value="http://hl7.org/fhir/ccda/StructureDefinition/CCDA-on-FHIR-Participant"/>
+    <name value="C-CDA on FHIR Participant"/>
+    <status value="draft"/>
+    <publisher value="Lantana Consulting Group"/>
+    <contact>
+        <name value="Sarah Gaunt"/>
+        <telecom>
+            <system value="phone"/>
+            <value value="+6 141-029-2506"/>
+            <use value="work"/>
+        </telecom>
+        <telecom>
+            <system value="email"/>
+            <value value="sarah.gaunt@lantanagroup.com"/>
+            <use value="work"/>
+        </telecom>
+    </contact>
+    <description value="C-CDA on FHIR Participant Extension"/>
+    <kind value="resource"/>
+    <abstract value="false"/>
+    <contextType value="extension"/>
+    <context value="Extension"/>
+    <type value="Extension"/>
+    <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension"/>
+    <derivation value="constraint"/>
+    <differential>
+        <element id="8124-00001">
+            <path value="Extension"/>
+        </element>
+        <element id="111034">
+            <path value="Extension.url"/>
+            <short value="@url"/>
+            <definition
+                value="SHALL contain exactly one [1..1] @url=&quot;http://hl7.org/fhir/ccda/StructureDefinition/CCDA_on_FHIR_Participant&quot; (CONF:2219-1859)."/>
+            <min value="1"/>
+            <max value="1"/>
+      	    <fixedUri value="http://hl7.org/fhir/ccda/StructureDefinition/CCDA_on_FHIR_Participant"/>
+        </element>
+        <element id="127938">
+            <path value="Extension.valueReference"/>
+            <short value="valueReference"/>
+            <definition
+                value="valueReference which includes RelatedPerson (identifier: http://hl7.org/fhir/StructureDefinition/RelatedPerson) (CONF:2219-2475)"
+            />
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="Reference"/>
+                <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+            </type>
+        </element>
+    </differential>
+</StructureDefinition>

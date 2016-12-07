@@ -6,7 +6,7 @@
         <lastUpdated value="2016-06-15T08:16:14Z"/>
         <profile value="http://hl7.org/fhir/ccda/StructureDefinition/CCDA-on-FHIR-Diagnostic-Imaging"/>
     </meta>
-    <language value="EN-us"/>
+    <language value="en-US"/>
     <text>
         <status value="generated"/>
         <div
@@ -25,7 +25,7 @@
         <coding>
             <system value="http://loinc.org"/>
             <code value="18748-4"/>
-            <display value="Diagnostic Imaging Report"/>
+            <display value="Diagnostic imaging study"/>
         </coding>
     </type>
     <title value="Diagnostic Imaging Report"/>

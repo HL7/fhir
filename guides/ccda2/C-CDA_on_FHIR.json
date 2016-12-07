@@ -14,7 +14,7 @@
   "dependencyList": [{
     "name": "USCore",
     "location": "http://hl7.org/fhir/us/core/2017Jan",
-    "source": "C:\\work\\org.hl7.fhir.us\\core\\output"
+    "source": "us-core-output"
   }],
   "defaults": {
     "Any": {

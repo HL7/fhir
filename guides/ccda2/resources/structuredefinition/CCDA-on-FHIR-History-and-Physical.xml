@@ -1,1 +1,1146 @@
-<StructureDefinition xmlns="http://hl7.org/fhir"><id value="CCDA-on-FHIR-History-and-Physical" /><url value="http://hl7.org/fhir/ccda/StructureDefinition/CCDA-on-FHIR-History-and-Physical" /><name value="C-CDA on FHIR History and Physical" /><status value="draft" /><publisher value="Lantana Consulting Group" /><contact><name value="Sarah Gaunt" /><telecom><system value="phone" /><value value="+6 141-029-2506" /><use value="work" /></telecom><telecom><system value="email" /><value value="sarah.gaunt@lantanagroup.com" /><use value="work" /></telecom></contact><description value="A History and Physical (H&amp;P) note is a medical report that documents the current and past conditions of the patient. It contains essential information that helps determine an individual's health status.  &#xA;&#xA;The first portion of the report is a current collection of organized information unique to an individual. This is typically supplied by the patient or the caregiver, concerning the current medical problem or the reason for the patient encounter. This information is followed by a description of any past or ongoing medical issues, including current medications and allergies. Information is also obtained about the patient's lifestyle, habits, and diseases among family members.&#xA;The next portion of the report contains information obtained by physically examining the patient and gathering diagnostic information in the form of laboratory tests, imaging, or other diagnostic procedures.&#xA; &#xA;The report ends with the clinician's assessment of the patient's situation and the intended plan to address those issues.&#xA; &#xA;A History and Physical Examination is required upon hospital admission as well as before operative procedures. An initial evaluation in an ambulatory setting is often documented in the form of an H&amp;P note." /><kind value="resource" /><abstract value="false" /><contextType value="resource" /><context value="Composition" /><type value="Composition" /><baseDefinition value="http://hl7.org/fhir/ccda/StructureDefinition/CCDA-on-FHIR-US-Realm-Header" /><derivation value="constraint" /><differential><element id="7109-00001"><path value="Composition" /></element><element id="109426"><path value="Composition.type" /><label value="History and Physical" /><short value="History and Physical" /><definition value="SHALL contain exactly one [1..1] type, which SHALL be selected from ValueSet HPDocumentType http://hl7.org/fhir/ccda/ValueSet/2.16.840.1.113883.1.11.20.22 DYNAMIC (CONF:2219-1820)." /><min value="1" /><max value="1" /><type><code value="CodeableConcept" /></type><binding><strength value="required" /><valueSetReference><reference value="http://hl7.org/fhir/ccda/ValueSet/2.16.840.1.113883.1.11.20.22" /><display value="HPDocumentType" /></valueSetReference></binding></element><element id="7109-00002"><path value="Composition.section" /><slicing><discriminator value="Composition.section.code" /><rules value="open" /></slicing><definition value="MAY contain zero or one [0..1] section (CONF:2219-1759) such that it" /></element><element id="109345"><path value="Composition.section" /><sliceName value="section_slice_pos2" /><label value="Allergies and Intolerances Section" /><short value="Allergies and Intolerances Section" /><definition value="SHALL contain exactly one [1..1] section (CONF:2219-1739) such that it" /><comments value="Allergies and Intolerances Section" /><min value="1" /><max value="1" /></element><element id="109366"><path value="Composition.section.title" /><sliceName value="section_slice_pos2" /><short value="title" /><definition value="SHALL contain exactly one [1..1] title (CONF:2219-1760)." /><min value="1" /><max value="1" /></element><element id="109367"><path value="Composition.section.code" /><sliceName value="section_slice_pos2" /><label value="Allergies, adverse reactions, alerts" /><short value="Allergies, adverse reactions, alerts" /><definition value="SHALL contain exactly one [1..1] code=&quot;48765-2&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:2219-1761)." /><min value="1" /><max value="1" /><type><code value="CodeableConcept" /></type><patternCodeableConcept><coding><system value="urn:oid:2.16.840.1.113883.6.1" /><code value="48765-2" /></coding></patternCodeableConcept></element><element id="109368"><path value="Composition.section.text" /><sliceName value="section_slice_pos2" /><short value="text" /><definition value="SHALL contain exactly one [1..1] text (CONF:2219-1762)." /><min value="1" /><max value="1" /></element><element id="112609"><path value="Composition.section.entry" /><sliceName value="section_slice_pos2" /><short value="entry" /><definition value="MAY contain zero or more [0..*] U.S. Core AllergyIntolerance Profile (identifier: http://hl7.org/fhir/us/core/StructureDefinition/us-core-allergyintolerance) (CONF:2219-2453)." /><min value="0" /><max value="*" /><type><code value="Reference" /><profile value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-allergyintolerance" /></type></element><element id="109346"><path value="Composition.section" /><sliceName value="section_slice_pos3" /><label value="Assessment and Plan Section" /><short value="Assessment and Plan Section" /><definition value="MAY contain zero or one [0..1] section (CONF:2219-1740) such that it" /><comments value="Assessment and Plan Section" /><min value="0" /><max value="1" /></element><element id="109369"><path value="Composition.section.title" /><sliceName value="section_slice_pos3" /><short value="title" /><definition value="SHALL contain exactly one [1..1] title (CONF:2219-1763)." /><min value="1" /><max value="1" /></element><element id="109370"><path value="Composition.section.code" /><sliceName value="section_slice_pos3" /><label value="Assessment and Plan" /><short value="Assessment and Plan" /><definition value="SHALL contain exactly one [1..1] code=&quot;51847-2&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:2219-1764)." /><min value="1" /><max value="1" /><type><code value="CodeableConcept" /></type><patternCodeableConcept><coding><system value="urn:oid:2.16.840.1.113883.6.1" /><code value="51847-2" /></coding></patternCodeableConcept></element><element id="109371"><path value="Composition.section.text" /><sliceName value="section_slice_pos3" /><short value="text" /><definition value="SHALL contain exactly one [1..1] text (CONF:2219-1765)." /><min value="1" /><max value="1" /></element><element id="109347"><path value="Composition.section" /><sliceName value="section_slice_pos4" /><label value="Assessment Section" /><short value="Assessment Section" /><definition value="MAY contain zero or one [0..1] section (CONF:2219-1741) such that it" /><comments value="Assessment Section" /><min value="0" /><max value="1" /></element><element id="109372"><path value="Composition.section.title" /><sliceName value="section_slice_pos4" /><short value="title" /><definition value="SHALL contain exactly one [1..1] title (CONF:2219-1766)." /><min value="1" /><max value="1" /></element><element id="109373"><path value="Composition.section.code" /><sliceName value="section_slice_pos4" /><label value="Assessments" /><short value="Assessments" /><definition value="SHALL contain exactly one [1..1] code=&quot;51848-0&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:2219-1767)." /><min value="1" /><max value="1" /><type><code value="CodeableConcept" /></type><patternCodeableConcept><coding><system value="urn:oid:2.16.840.1.113883.6.1" /><code value="51848-0" /></coding></patternCodeableConcept></element><element id="109374"><path value="Composition.section.text" /><sliceName value="section_slice_pos4" /><short value="text" /><definition value="SHALL contain exactly one [1..1] text (CONF:2219-1768)." /><min value="1" /><max value="1" /></element><element id="109348"><path value="Composition.section" /><sliceName value="section_slice_pos5" /><label value="Chief Complaint and Reason for Visit Section" /><short value="Chief Complaint and Reason for Visit Section" /><definition value="MAY contain zero or one [0..1] section (CONF:2219-1742) such that it" /><comments value="Chief Complaint and Reason for Visit Section" /><min value="0" /><max value="1" /></element><element id="109375"><path value="Composition.section.title" /><sliceName value="section_slice_pos5" /><short value="title" /><definition value="SHALL contain exactly one [1..1] title (CONF:2219-1769)." /><min value="1" /><max value="1" /></element><element id="109376"><path value="Composition.section.code" /><sliceName value="section_slice_pos5" /><label value="Chief Complaint and Reason for Visit" /><short value="Chief Complaint and Reason for Visit" /><definition value="SHALL contain exactly one [1..1] code=&quot;46239-0&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:2219-1770)." /><min value="1" /><max value="1" /><type><code value="CodeableConcept" /></type><patternCodeableConcept><coding><system value="urn:oid:2.16.840.1.113883.6.1" /><code value="46239-0" /></coding></patternCodeableConcept></element><element id="109377"><path value="Composition.section.text" /><sliceName value="section_slice_pos5" /><short value="text" /><definition value="SHALL contain exactly one [1..1] text (CONF:2219-1771)." /><min value="1" /><max value="1" /></element><element id="109349"><path value="Composition.section" /><sliceName value="section_slice_pos6" /><label value="Chief Complaint Section" /><short value="Chief Complaint Section" /><definition value="MAY contain zero or one [0..1] section (CONF:2219-1743) such that it" /><comments value="Chief Complaint Section" /><min value="0" /><max value="1" /></element><element id="109378"><path value="Composition.section.title" /><sliceName value="section_slice_pos6" /><short value="title" /><definition value="SHALL contain exactly one [1..1] title (CONF:2219-1772)." /><min value="1" /><max value="1" /></element><element id="109379"><path value="Composition.section.code" /><sliceName value="section_slice_pos6" /><label value="Chief Complaint" /><short value="Chief Complaint" /><definition value="SHALL contain exactly one [1..1] code=&quot;10154-3&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:2219-1773)." /><min value="1" /><max value="1" /><type><code value="CodeableConcept" /></type><patternCodeableConcept><coding><system value="urn:oid:2.16.840.1.113883.6.1" /><code value="10154-3" /></coding></patternCodeableConcept></element><element id="109380"><path value="Composition.section.text" /><sliceName value="section_slice_pos6" /><short value="text" /><definition value="SHALL contain exactly one [1..1] text (CONF:2219-1774)." /><min value="1" /><max value="1" /></element><element id="109350"><path value="Composition.section" /><sliceName value="section_slice_pos7" /><label value="Family History Section" /><short value="Family History Section" /><definition value="SHALL contain exactly one [1..1] section (CONF:2219-1744) such that it" /><comments value="Family History Section" /><min value="1" /><max value="1" /></element><element id="109381"><path value="Composition.section.title" /><sliceName value="section_slice_pos7" /><short value="title" /><definition value="SHALL contain exactly one [1..1] title (CONF:2219-1775)." /><min value="1" /><max value="1" /></element><element id="109382"><path value="Composition.section.code" /><sliceName value="section_slice_pos7" /><label value="Family History" /><short value="Family History" /><definition value="SHALL contain exactly one [1..1] code=&quot;10157-6&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:2219-1776)." /><min value="1" /><max value="1" /><type><code value="CodeableConcept" /></type><patternCodeableConcept><coding><system value="urn:oid:2.16.840.1.113883.6.1" /><code value="10157-6" /></coding></patternCodeableConcept></element><element id="109383"><path value="Composition.section.text" /><sliceName value="section_slice_pos7" /><short value="text" /><definition value="SHALL contain exactly one [1..1] text (CONF:2219-1777)." /><min value="1" /><max value="1" /></element><element id="112610"><path value="Composition.section.entry" /><sliceName value="section_slice_pos7" /><short value="entry" /><definition value="MAY contain zero or more [0..*] FamilyMemberHistory (identifier: http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory) (CONF:2219-2454)." /><min value="0" /><max value="*" /><type><code value="Reference" /><profile value="http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory" /></type></element><element id="109351"><path value="Composition.section" /><sliceName value="section_slice_pos8" /><label value="General Status Section" /><short value="General Status Section" /><definition value="SHALL contain exactly one [1..1] section (CONF:2219-1745) such that it" /><comments value="General Status Section" /><min value="1" /><max value="1" /></element><element id="109384"><path value="Composition.section.title" /><sliceName value="section_slice_pos8" /><short value="title" /><definition value="SHALL contain exactly one [1..1] title (CONF:2219-1778)." /><min value="1" /><max value="1" /></element><element id="109385"><path value="Composition.section.code" /><sliceName value="section_slice_pos8" /><label value="General Status" /><short value="General Status" /><definition value="SHALL contain exactly one [1..1] code=&quot;10210-3&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:2219-1779)." /><min value="1" /><max value="1" /><type><code value="CodeableConcept" /></type><patternCodeableConcept><coding><system value="urn:oid:2.16.840.1.113883.6.1" /><code value="10210-3" /></coding></patternCodeableConcept></element><element id="109386"><path value="Composition.section.text" /><sliceName value="section_slice_pos8" /><short value="text" /><definition value="SHALL contain exactly one [1..1] text (CONF:2219-1780)." /><min value="1" /><max value="1" /></element><element id="109352"><path value="Composition.section" /><sliceName value="section_slice_pos9" /><label value="History of Past Illness Section" /><short value="History of Past Illness Section" /><definition value="SHALL contain exactly one [1..1] section (CONF:2219-1746) such that it" /><comments value="History of Past Illness Section" /><min value="1" /><max value="1" /></element><element id="109387"><path value="Composition.section.title" /><sliceName value="section_slice_pos9" /><short value="title" /><definition value="SHALL contain exactly one [1..1] title (CONF:2219-1781)." /><min value="1" /><max value="1" /></element><element id="109388"><path value="Composition.section.code" /><sliceName value="section_slice_pos9" /><label value="History of Past Illness" /><short value="History of Past Illness" /><definition value="SHALL contain exactly one [1..1] code=&quot;11348-0&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:2219-1782)." /><min value="1" /><max value="1" /><type><code value="CodeableConcept" /></type><patternCodeableConcept><coding><system value="urn:oid:2.16.840.1.113883.6.1" /><code value="11348-0" /></coding></patternCodeableConcept></element><element id="109389"><path value="Composition.section.text" /><sliceName value="section_slice_pos9" /><short value="text" /><definition value="SHALL contain exactly one [1..1] text (CONF:2219-1783)." /><min value="1" /><max value="1" /></element><element id="112611"><path value="Composition.section.entry" /><sliceName value="section_slice_pos9" /><short value="entry" /><definition value="MAY contain zero or more [0..*] U.S. Core Condition Profile (identifier: http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition) (CONF:2219-2455)." /><min value="0" /><max value="*" /><type><code value="Reference" /><profile value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition" /></type></element><element id="109353"><path value="Composition.section" /><sliceName value="section_slice_pos10" /><label value="History of Present Illness Section" /><short value="History of Present Illness Section" /><definition value="SHOULD contain zero or one [0..1] section (CONF:2219-1747) such that it" /><comments value="History of Present Illness Section" /><min value="0" /><max value="1" /></element><element id="109390"><path value="Composition.section.title" /><sliceName value="section_slice_pos10" /><short value="title" /><definition value="SHALL contain exactly one [1..1] title (CONF:2219-1784)." /><min value="1" /><max value="1" /></element><element id="109391"><path value="Composition.section.code" /><sliceName value="section_slice_pos10" /><label value="History of Present Illness" /><short value="History of Present Illness" /><definition value="SHALL contain exactly one [1..1] code=&quot;10164-2&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:2219-1785)." /><min value="1" /><max value="1" /><type><code value="CodeableConcept" /></type><patternCodeableConcept><coding><system value="urn:oid:2.16.840.1.113883.6.1" /><code value="10164-2" /></coding></patternCodeableConcept></element><element id="109392"><path value="Composition.section.text" /><sliceName value="section_slice_pos10" /><short value="text" /><definition value="SHALL contain exactly one [1..1] text (CONF:2219-1786)." /><min value="1" /><max value="1" /></element><element id="109354"><path value="Composition.section" /><sliceName value="section_slice_pos11" /><label value="Immunizations Section" /><short value="Immunizations Section" /><definition value="MAY contain zero or one [0..1] section (CONF:2219-1748) such that it" /><comments value="Immunizations Section" /><min value="0" /><max value="1" /></element><element id="109393"><path value="Composition.section.title" /><sliceName value="section_slice_pos11" /><short value="title" /><definition value="SHALL contain exactly one [1..1] title (CONF:2219-1787)." /><min value="1" /><max value="1" /></element><element id="109394"><path value="Composition.section.code" /><sliceName value="section_slice_pos11" /><label value="Immunizations" /><short value="Immunizations" /><definition value="SHALL contain exactly one [1..1] code=&quot;11369-6&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:2219-1788)." /><min value="1" /><max value="1" /><type><code value="CodeableConcept" /></type><patternCodeableConcept><coding><system value="urn:oid:2.16.840.1.113883.6.1" /><code value="11369-6" /></coding></patternCodeableConcept></element><element id="109395"><path value="Composition.section.text" /><sliceName value="section_slice_pos11" /><short value="text" /><definition value="SHALL contain exactly one [1..1] text (CONF:2219-1789)." /><min value="1" /><max value="1" /></element><element id="112612"><path value="Composition.section.entry" /><sliceName value="section_slice_pos11" /><short value="entry" /><definition value="SHOULD contain zero or more [0..*] U.S. Core Immunization Profile (identifier: http://hl7.org/fhir/us/core/StructureDefinition/us-core-immunization) (CONF:2219-2456)." /><min value="0" /><max value="*" /><type><code value="Reference" /><profile value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-immunization" /></type></element><element id="109355"><path value="Composition.section" /><sliceName value="section_slice_pos12" /><label value="Medications Section" /><short value="Medications Section" /><definition value="SHALL contain exactly one [1..1] section (CONF:2219-1749) such that it" /><comments value="Medications Section" /><min value="1" /><max value="1" /></element><element id="109396"><path value="Composition.section.title" /><sliceName value="section_slice_pos12" /><short value="title" /><definition value="SHALL contain exactly one [1..1] title (CONF:2219-1790)." /><min value="1" /><max value="1" /></element><element id="109397"><path value="Composition.section.code" /><sliceName value="section_slice_pos12" /><label value="History of medication use" /><short value="History of medication use" /><definition value="SHALL contain exactly one [1..1] code=&quot;10160-0&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:2219-1791)." /><min value="1" /><max value="1" /><type><code value="CodeableConcept" /></type><patternCodeableConcept><coding><system value="urn:oid:2.16.840.1.113883.6.1" /><code value="10160-0" /></coding></patternCodeableConcept></element><element id="109398"><path value="Composition.section.text" /><sliceName value="section_slice_pos12" /><short value="text" /><definition value="SHALL contain exactly one [1..1] text (CONF:2219-1792)." /><min value="1" /><max value="1" /></element><element id="112613"><path value="Composition.section.entry" /><sliceName value="section_slice_pos12" /><short value="entry" /><definition value="SHOULD contain zero or more [0..*] U.S. Core MedicationStatement Profile (identifier: http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationstatement) (CONF:2219-2457)." /><min value="0" /><max value="*" /><type><code value="Reference" /><profile value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationstatement" /></type></element><element id="109356"><path value="Composition.section" /><sliceName value="section_slice_pos13" /><label value="Physical Exam Section" /><short value="Physical Exam Section" /><definition value="SHALL contain exactly one [1..1] section (CONF:2219-1750) such that it" /><comments value="Physical Exam Section" /><min value="1" /><max value="1" /></element><element id="109399"><path value="Composition.section.title" /><sliceName value="section_slice_pos13" /><short value="title" /><definition value="SHALL contain exactly one [1..1] title (CONF:2219-1793)." /><min value="1" /><max value="1" /></element><element id="109400"><path value="Composition.section.code" /><sliceName value="section_slice_pos13" /><label value="Physical Findings" /><short value="Physical Findings" /><definition value="SHALL contain exactly one [1..1] code=&quot;29545-1&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:2219-1794)." /><min value="1" /><max value="1" /><type><code value="CodeableConcept" /></type><patternCodeableConcept><coding><system value="urn:oid:2.16.840.1.113883.6.1" /><code value="29545-1" /></coding></patternCodeableConcept></element><element id="109401"><path value="Composition.section.text" /><sliceName value="section_slice_pos13" /><short value="text" /><definition value="SHALL contain exactly one [1..1] text (CONF:2219-1795)." /><min value="1" /><max value="1" /></element><element id="109357"><path value="Composition.section" /><sliceName value="section_slice_pos14" /><label value="Plan of Treatment Section" /><short value="Plan of Treatment Section" /><definition value="MAY contain zero or one [0..1] section (CONF:2219-1751) such that it" /><comments value="Plan of Treatment Section" /><min value="0" /><max value="1" /></element><element id="109402"><path value="Composition.section.title" /><sliceName value="section_slice_pos14" /><short value="title" /><definition value="SHALL contain exactly one [1..1] title (CONF:2219-1796)." /><min value="1" /><max value="1" /></element><element id="109403"><path value="Composition.section.code" /><sliceName value="section_slice_pos14" /><label value="Plan of Treatment" /><short value="Plan of Treatment" /><definition value="SHALL contain exactly one [1..1] code=&quot;18776-5&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:2219-1797)." /><min value="1" /><max value="1" /><type><code value="CodeableConcept" /></type><patternCodeableConcept><coding><system value="urn:oid:2.16.840.1.113883.6.1" /><code value="18776-5" /></coding></patternCodeableConcept></element><element id="109404"><path value="Composition.section.text" /><sliceName value="section_slice_pos14" /><short value="text" /><definition value="SHALL contain exactly one [1..1] text (CONF:2219-1798)." /><min value="1" /><max value="1" /></element><element id="109358"><path value="Composition.section" /><sliceName value="section_slice_pos15" /><label value="Problem Section" /><short value="Problem Section" /><definition value="MAY contain zero or one [0..1] section (CONF:2219-1752) such that it" /><comments value="Problem Section" /><min value="0" /><max value="1" /></element><element id="109405"><path value="Composition.section.title" /><sliceName value="section_slice_pos15" /><short value="title" /><definition value="SHALL contain exactly one [1..1] title (CONF:2219-1799)." /><min value="1" /><max value="1" /></element><element id="109406"><path value="Composition.section.code" /><sliceName value="section_slice_pos15" /><label value="Problem List" /><short value="Problem List" /><definition value="SHALL contain exactly one [1..1] code=&quot;11450-4&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:2219-1800)." /><min value="1" /><max value="1" /><type><code value="CodeableConcept" /></type><patternCodeableConcept><coding><system value="urn:oid:2.16.840.1.113883.6.1" /><code value="11450-4" /></coding></patternCodeableConcept></element><element id="109407"><path value="Composition.section.text" /><sliceName value="section_slice_pos15" /><short value="text" /><definition value="SHALL contain exactly one [1..1] text (CONF:2219-1801)." /><min value="1" /><max value="1" /></element><element id="112614"><path value="Composition.section.entry" /><sliceName value="section_slice_pos15" /><short value="entry" /><definition value="SHOULD contain zero or more [0..*] U.S. Core Condition Profile (identifier: http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition) (CONF:2219-2458)." /><min value="0" /><max value="*" /><type><code value="Reference" /><profile value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition" /></type></element><element id="109359"><path value="Composition.section" /><sliceName value="section_slice_pos16" /><label value="Procedures Section" /><short value="Procedures Section" /><definition value="MAY contain zero or one [0..1] section (CONF:2219-1753) such that it" /><comments value="Procedures Section" /><min value="0" /><max value="1" /></element><element id="109408"><path value="Composition.section.title" /><sliceName value="section_slice_pos16" /><short value="title" /><definition value="SHALL contain exactly one [1..1] title (CONF:2219-1802)." /><min value="1" /><max value="1" /></element><element id="109409"><path value="Composition.section.code" /><sliceName value="section_slice_pos16" /><label value="History of Procedures" /><short value="History of Procedures" /><definition value="SHALL contain exactly one [1..1] code=&quot;47519-4&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:2219-1803)." /><min value="1" /><max value="1" /><type><code value="CodeableConcept" /></type><patternCodeableConcept><coding><system value="urn:oid:2.16.840.1.113883.6.1" /><code value="47519-4" /></coding></patternCodeableConcept></element><element id="109410"><path value="Composition.section.text" /><sliceName value="section_slice_pos16" /><short value="text" /><definition value="SHALL contain exactly one [1..1] text (CONF:2219-1804)." /><min value="1" /><max value="1" /></element><element id="112615"><path value="Composition.section.entry" /><sliceName value="section_slice_pos16" /><short value="entry" /><definition value="MAY contain zero or more [0..*] U.S. Core Procedure Profile (identifier: http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure) (CONF:2219-2459)." /><min value="0" /><max value="*" /><type><code value="Reference" /><profile value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure" /></type></element><element id="109360"><path value="Composition.section" /><sliceName value="section_slice_pos17" /><label value="Reason for Visit Section" /><short value="Reason for Visit Section" /><definition value="MAY contain zero or one [0..1] section (CONF:2219-1754) such that it" /><comments value="Reason for Visit Section" /><min value="0" /><max value="1" /></element><element id="109411"><path value="Composition.section.title" /><sliceName value="section_slice_pos17" /><short value="title" /><definition value="SHALL contain exactly one [1..1] title (CONF:2219-1805)." /><min value="1" /><max value="1" /></element><element id="109412"><path value="Composition.section.code" /><sliceName value="section_slice_pos17" /><label value="Reason for Visit" /><short value="Reason for Visit" /><definition value="SHALL contain exactly one [1..1] code=&quot;29299-5&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:2219-1806)." /><min value="1" /><max value="1" /><type><code value="CodeableConcept" /></type><patternCodeableConcept><coding><system value="urn:oid:2.16.840.1.113883.6.1" /><code value="29299-5" /></coding></patternCodeableConcept></element><element id="109413"><path value="Composition.section.text" /><sliceName value="section_slice_pos17" /><short value="text" /><definition value="SHALL contain exactly one [1..1] text (CONF:2219-1807)." /><min value="1" /><max value="1" /></element><element id="109361"><path value="Composition.section" /><sliceName value="section_slice_pos18" /><label value="Results Section" /><short value="Results Section" /><definition value="SHALL contain exactly one [1..1] section (CONF:2219-1755) such that it" /><comments value="Results Section" /><min value="1" /><max value="1" /></element><element id="109414"><path value="Composition.section.title" /><sliceName value="section_slice_pos18" /><short value="title" /><definition value="SHALL contain exactly one [1..1] title (CONF:2219-1808)." /><min value="1" /><max value="1" /></element><element id="109415"><path value="Composition.section.code" /><sliceName value="section_slice_pos18" /><label value="Relevant diagnostic tests and/or laboratory data" /><short value="Relevant diagnostic tests and/or laboratory data" /><definition value="SHALL contain exactly one [1..1] code=&quot;30954-2&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:2219-1809)." /><min value="1" /><max value="1" /><type><code value="CodeableConcept" /></type><patternCodeableConcept><coding><system value="urn:oid:2.16.840.1.113883.6.1" /><code value="30954-2" /></coding></patternCodeableConcept></element><element id="109416"><path value="Composition.section.text" /><sliceName value="section_slice_pos18" /><short value="text" /><definition value="SHALL contain exactly one [1..1] text (CONF:2219-1810)." /><min value="1" /><max value="1" /></element><element id="109362"><path value="Composition.section" /><sliceName value="section_slice_pos19" /><label value="Review of Systems Section" /><short value="Review of Systems Section" /><definition value="SHALL contain exactly one [1..1] section (CONF:2219-1756) such that it" /><comments value="Review of Systems Section" /><min value="1" /><max value="1" /></element><element id="109417"><path value="Composition.section.title" /><sliceName value="section_slice_pos19" /><short value="title" /><definition value="SHALL contain exactly one [1..1] title (CONF:2219-1811)." /><min value="1" /><max value="1" /></element><element id="109418"><path value="Composition.section.code" /><sliceName value="section_slice_pos19" /><label value="Review of Systems" /><short value="Review of Systems" /><definition value="SHALL contain exactly one [1..1] code=&quot;10187-3&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:2219-1812)." /><min value="1" /><max value="1" /><type><code value="CodeableConcept" /></type><patternCodeableConcept><coding><system value="urn:oid:2.16.840.1.113883.6.1" /><code value="10187-3" /></coding></patternCodeableConcept></element><element id="109419"><path value="Composition.section.text" /><sliceName value="section_slice_pos19" /><short value="text" /><definition value="SHALL contain exactly one [1..1] text (CONF:2219-1813)." /><min value="1" /><max value="1" /></element><element id="109363"><path value="Composition.section" /><sliceName value="section_slice_pos20" /><label value="Social History Section" /><short value="Social History Section" /><definition value="SHALL contain exactly one [1..1] section (CONF:2219-1757) such that it" /><comments value="Social History Section" /><min value="1" /><max value="1" /></element><element id="109420"><path value="Composition.section.title" /><sliceName value="section_slice_pos20" /><short value="title" /><definition value="SHALL contain exactly one [1..1] title (CONF:2219-1814)." /><min value="1" /><max value="1" /></element><element id="109421"><path value="Composition.section.code" /><sliceName value="section_slice_pos20" /><label value="Social History" /><short value="Social History" /><definition value="SHALL contain exactly one [1..1] code=&quot;29762-2&quot; (CONF:2219-1815)." /><min value="1" /><max value="1" /><type><code value="CodeableConcept" /></type><patternCodeableConcept><coding><code value="29762-2" /></coding></patternCodeableConcept></element><element id="109422"><path value="Composition.section.text" /><sliceName value="section_slice_pos20" /><short value="text" /><definition value="SHALL contain exactly one [1..1] text (CONF:2219-1816)." /><min value="1" /><max value="1" /></element><element id="112617"><path value="Composition.section.entry" /><sliceName value="section_slice_pos20" /><short value="entry" /><definition value="MAY contain zero or more [0..*] U.S. Core SmokingStatus Profile (identifier: http://hl7.org/fhir/us/core/StructureDefinition/us-core-smokingstatus) (CONF:2219-2461)." /><min value="0" /><max value="*" /><type><code value="Reference" /><profile value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-smokingstatus" /></type></element><element id="109364"><path value="Composition.section" /><sliceName value="section_slice_pos21" /><label value="Vital Signs Section" /><short value="Vital Signs Section" /><definition value="SHALL contain exactly one [1..1] section (CONF:2219-1758) such that it" /><comments value="Vital Signs Section" /><min value="1" /><max value="1" /></element><element id="109423"><path value="Composition.section.title" /><sliceName value="section_slice_pos21" /><short value="title" /><definition value="SHALL contain exactly one [1..1] title (CONF:2219-1817)." /><min value="1" /><max value="1" /></element><element id="109424"><path value="Composition.section.code" /><sliceName value="section_slice_pos21" /><label value="Vital Signs" /><short value="Vital Signs" /><definition value="SHALL contain exactly one [1..1] code=&quot;8716-3&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:2219-1818)." /><min value="1" /><max value="1" /><type><code value="CodeableConcept" /></type><patternCodeableConcept><coding><system value="urn:oid:2.16.840.1.113883.6.1" /><code value="8716-3" /></coding></patternCodeableConcept></element><element id="109425"><path value="Composition.section.text" /><sliceName value="section_slice_pos21" /><short value="text" /><definition value="SHALL contain exactly one [1..1] text (CONF:2219-1819)." /><min value="1" /><max value="1" /></element><element id="112618"><path value="Composition.section.entry" /><sliceName value="section_slice_pos21" /><short value="entry" /><definition value="SHOULD contain zero or more [0..*] U.S. Core VitalSigns Profile (identifier: http://hl7.org/fhir/us/core/StructureDefinition/us-core-vitalsigns) (CONF:2219-2462)." /><min value="0" /><max value="*" /><type><code value="Reference" /><profile value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-vitalsigns" /></type></element><element id="109365"><path value="Composition.section" /><sliceName value="section_slice_pos22" /><label value="Instructions Section" /><short value="Instructions Section" /><definition value="MAY contain zero or one [0..1] section (CONF:2219-1759) such that it" /><comments value="Instructions Section" /><min value="0" /><max value="1" /></element><element id="109427"><path value="Composition.section.title" /><sliceName value="section_slice_pos22" /><short value="title" /><definition value="SHALL contain exactly one [1..1] title (CONF:2219-1821)." /><min value="1" /><max value="1" /></element><element id="109428"><path value="Composition.section.code" /><sliceName value="section_slice_pos22" /><label value="Instructions" /><short value="Instructions" /><definition value="SHALL contain exactly one [1..1] code=&quot;69730-0&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:2219-1822)." /><min value="1" /><max value="1" /><type><code value="CodeableConcept" /></type><patternCodeableConcept><coding><system value="urn:oid:2.16.840.1.113883.6.1" /><code value="69730-0" /></coding></patternCodeableConcept></element><element id="109429"><path value="Composition.section.text" /><sliceName value="section_slice_pos22" /><short value="text" /><definition value="SHALL contain exactly one [1..1] text (CONF:2219-1823)." /><min value="1" /><max value="1" /></element></differential></StructureDefinition>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+    <id value="CCDA-on-FHIR-History-and-Physical"/>
+    <url value="http://hl7.org/fhir/ccda/StructureDefinition/CCDA-on-FHIR-History-and-Physical"/>
+    <name value="C-CDA on FHIR History and Physical"/>
+    <status value="draft"/>
+    <publisher value="Lantana Consulting Group"/>
+    <contact>
+        <name value="Sarah Gaunt"/>
+        <telecom>
+            <system value="phone"/>
+            <value value="+6 141-029-2506"/>
+            <use value="work"/>
+        </telecom>
+        <telecom>
+            <system value="email"/>
+            <value value="sarah.gaunt@lantanagroup.com"/>
+            <use value="work"/>
+        </telecom>
+    </contact>
+    <description
+        value="A History and Physical (H&amp;P) note is a medical report that documents the current and past conditions of the patient. It contains essential information that helps determine an individual's health status.  &#xA;&#xA;The first portion of the report is a current collection of organized information unique to an individual. This is typically supplied by the patient or the caregiver, concerning the current medical problem or the reason for the patient encounter. This information is followed by a description of any past or ongoing medical issues, including current medications and allergies. Information is also obtained about the patient's lifestyle, habits, and diseases among family members.&#xA;The next portion of the report contains information obtained by physically examining the patient and gathering diagnostic information in the form of laboratory tests, imaging, or other diagnostic procedures.&#xA; &#xA;The report ends with the clinician's assessment of the patient's situation and the intended plan to address those issues.&#xA; &#xA;A History and Physical Examination is required upon hospital admission as well as before operative procedures. An initial evaluation in an ambulatory setting is often documented in the form of an H&amp;P note."/>
+    <kind value="resource"/>
+    <abstract value="false"/>
+    <contextType value="resource"/>
+    <context value="Composition"/>
+    <type value="Composition"/>
+    <baseDefinition
+        value="http://hl7.org/fhir/ccda/StructureDefinition/CCDA-on-FHIR-US-Realm-Header"/>
+    <derivation value="constraint"/>
+    <differential>
+        <element id="7109-00001">
+            <path value="Composition"/>
+        </element>
+        <element id="109426">
+            <path value="Composition.type"/>
+            <label value="History and Physical"/>
+            <short value="History and Physical"/>
+            <definition
+                value="SHALL contain exactly one [1..1] type, which SHALL be selected from ValueSet HPDocumentType http://hl7.org/fhir/ccda/ValueSet/2.16.840.1.113883.1.11.20.22 DYNAMIC (CONF:2219-1820)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="CodeableConcept"/>
+            </type>
+            <binding>
+                <strength value="required"/>
+                <valueSetReference>
+                    <reference
+                        value="http://hl7.org/fhir/ccda/ValueSet/2.16.840.1.113883.1.11.20.22"/>
+                    <display value="HPDocumentType"/>
+                </valueSetReference>
+            </binding>
+        </element>
+        <element id="7109-00002">
+            <path value="Composition.section"/>
+            <slicing>
+                <discriminator value="Composition.section.code"/>
+                <rules value="open"/>
+            </slicing>
+            <definition value="MAY contain zero or one [0..1] section (CONF:2219-1759) such that it"
+            />
+        </element>
+        <element id="109345">
+            <path value="Composition.section"/>
+            <sliceName value="section_slice_pos2"/>
+            <label value="Allergies and Intolerances Section"/>
+            <short value="Allergies and Intolerances Section"/>
+            <definition
+                value="SHALL contain exactly one [1..1] section (CONF:2219-1739) such that it"/>
+            <comments value="Allergies and Intolerances Section"/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="109366">
+            <path value="Composition.section.title"/>
+            <sliceName value="section_slice_pos2"/>
+            <short value="title"/>
+            <definition value="SHALL contain exactly one [1..1] title (CONF:2219-1760)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="109367">
+            <path value="Composition.section.code"/>
+            <sliceName value="section_slice_pos2"/>
+            <label value="Allergies, adverse reactions, alerts"/>
+            <short value="Allergies, adverse reactions, alerts"/>
+            <definition
+                value="SHALL contain exactly one [1..1] code=&quot;48765-2&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:2219-1761)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="CodeableConcept"/>
+            </type>
+            <patternCodeableConcept>
+                <coding>
+                    <system value="urn:oid:2.16.840.1.113883.6.1"/>
+                    <code value="48765-2"/>
+                </coding>
+            </patternCodeableConcept>
+        </element>
+        <element id="109368">
+            <path value="Composition.section.text"/>
+            <sliceName value="section_slice_pos2"/>
+            <short value="text"/>
+            <definition value="SHALL contain exactly one [1..1] text (CONF:2219-1762)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="112609">
+            <path value="Composition.section.entry"/>
+            <sliceName value="section_slice_pos2"/>
+            <short value="entry"/>
+            <definition
+                value="MAY contain zero or more [0..*] U.S. Core AllergyIntolerance Profile (identifier: http://hl7.org/fhir/us/core/StructureDefinition/us-core-allergyintolerance) (CONF:2219-2453)."/>
+            <min value="0"/>
+            <max value="*"/>
+            <type>
+                <code value="Reference"/>
+                <targetProfile
+                    value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-allergyintolerance"
+                />
+            </type>
+        </element>
+        <element id="109346">
+            <path value="Composition.section"/>
+            <sliceName value="section_slice_pos3"/>
+            <label value="Assessment and Plan Section"/>
+            <short value="Assessment and Plan Section"/>
+            <definition value="MAY contain zero or one [0..1] section (CONF:2219-1740) such that it"/>
+            <comments value="Assessment and Plan Section"/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="109369">
+            <path value="Composition.section.title"/>
+            <sliceName value="section_slice_pos3"/>
+            <short value="title"/>
+            <definition value="SHALL contain exactly one [1..1] title (CONF:2219-1763)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="109370">
+            <path value="Composition.section.code"/>
+            <sliceName value="section_slice_pos3"/>
+            <label value="Assessment and Plan"/>
+            <short value="Assessment and Plan"/>
+            <definition
+                value="SHALL contain exactly one [1..1] code=&quot;51847-2&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:2219-1764)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="CodeableConcept"/>
+            </type>
+            <patternCodeableConcept>
+                <coding>
+                    <system value="urn:oid:2.16.840.1.113883.6.1"/>
+                    <code value="51847-2"/>
+                </coding>
+            </patternCodeableConcept>
+        </element>
+        <element id="109371">
+            <path value="Composition.section.text"/>
+            <sliceName value="section_slice_pos3"/>
+            <short value="text"/>
+            <definition value="SHALL contain exactly one [1..1] text (CONF:2219-1765)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="109347">
+            <path value="Composition.section"/>
+            <sliceName value="section_slice_pos4"/>
+            <label value="Assessment Section"/>
+            <short value="Assessment Section"/>
+            <definition value="MAY contain zero or one [0..1] section (CONF:2219-1741) such that it"/>
+            <comments value="Assessment Section"/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="109372">
+            <path value="Composition.section.title"/>
+            <sliceName value="section_slice_pos4"/>
+            <short value="title"/>
+            <definition value="SHALL contain exactly one [1..1] title (CONF:2219-1766)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="109373">
+            <path value="Composition.section.code"/>
+            <sliceName value="section_slice_pos4"/>
+            <label value="Assessments"/>
+            <short value="Assessments"/>
+            <definition
+                value="SHALL contain exactly one [1..1] code=&quot;51848-0&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:2219-1767)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="CodeableConcept"/>
+            </type>
+            <patternCodeableConcept>
+                <coding>
+                    <system value="urn:oid:2.16.840.1.113883.6.1"/>
+                    <code value="51848-0"/>
+                </coding>
+            </patternCodeableConcept>
+        </element>
+        <element id="109374">
+            <path value="Composition.section.text"/>
+            <sliceName value="section_slice_pos4"/>
+            <short value="text"/>
+            <definition value="SHALL contain exactly one [1..1] text (CONF:2219-1768)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="109348">
+            <path value="Composition.section"/>
+            <sliceName value="section_slice_pos5"/>
+            <label value="Chief Complaint and Reason for Visit Section"/>
+            <short value="Chief Complaint and Reason for Visit Section"/>
+            <definition value="MAY contain zero or one [0..1] section (CONF:2219-1742) such that it"/>
+            <comments value="Chief Complaint and Reason for Visit Section"/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="109375">
+            <path value="Composition.section.title"/>
+            <sliceName value="section_slice_pos5"/>
+            <short value="title"/>
+            <definition value="SHALL contain exactly one [1..1] title (CONF:2219-1769)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="109376">
+            <path value="Composition.section.code"/>
+            <sliceName value="section_slice_pos5"/>
+            <label value="Chief Complaint and Reason for Visit"/>
+            <short value="Chief Complaint and Reason for Visit"/>
+            <definition
+                value="SHALL contain exactly one [1..1] code=&quot;46239-0&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:2219-1770)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="CodeableConcept"/>
+            </type>
+            <patternCodeableConcept>
+                <coding>
+                    <system value="urn:oid:2.16.840.1.113883.6.1"/>
+                    <code value="46239-0"/>
+                </coding>
+            </patternCodeableConcept>
+        </element>
+        <element id="109377">
+            <path value="Composition.section.text"/>
+            <sliceName value="section_slice_pos5"/>
+            <short value="text"/>
+            <definition value="SHALL contain exactly one [1..1] text (CONF:2219-1771)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="109349">
+            <path value="Composition.section"/>
+            <sliceName value="section_slice_pos6"/>
+            <label value="Chief Complaint Section"/>
+            <short value="Chief Complaint Section"/>
+            <definition value="MAY contain zero or one [0..1] section (CONF:2219-1743) such that it"/>
+            <comments value="Chief Complaint Section"/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="109378">
+            <path value="Composition.section.title"/>
+            <sliceName value="section_slice_pos6"/>
+            <short value="title"/>
+            <definition value="SHALL contain exactly one [1..1] title (CONF:2219-1772)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="109379">
+            <path value="Composition.section.code"/>
+            <sliceName value="section_slice_pos6"/>
+            <label value="Chief Complaint"/>
+            <short value="Chief Complaint"/>
+            <definition
+                value="SHALL contain exactly one [1..1] code=&quot;10154-3&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:2219-1773)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="CodeableConcept"/>
+            </type>
+            <patternCodeableConcept>
+                <coding>
+                    <system value="urn:oid:2.16.840.1.113883.6.1"/>
+                    <code value="10154-3"/>
+                </coding>
+            </patternCodeableConcept>
+        </element>
+        <element id="109380">
+            <path value="Composition.section.text"/>
+            <sliceName value="section_slice_pos6"/>
+            <short value="text"/>
+            <definition value="SHALL contain exactly one [1..1] text (CONF:2219-1774)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="109350">
+            <path value="Composition.section"/>
+            <sliceName value="section_slice_pos7"/>
+            <label value="Family History Section"/>
+            <short value="Family History Section"/>
+            <definition
+                value="SHALL contain exactly one [1..1] section (CONF:2219-1744) such that it"/>
+            <comments value="Family History Section"/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="109381">
+            <path value="Composition.section.title"/>
+            <sliceName value="section_slice_pos7"/>
+            <short value="title"/>
+            <definition value="SHALL contain exactly one [1..1] title (CONF:2219-1775)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="109382">
+            <path value="Composition.section.code"/>
+            <sliceName value="section_slice_pos7"/>
+            <label value="Family History"/>
+            <short value="Family History"/>
+            <definition
+                value="SHALL contain exactly one [1..1] code=&quot;10157-6&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:2219-1776)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="CodeableConcept"/>
+            </type>
+            <patternCodeableConcept>
+                <coding>
+                    <system value="urn:oid:2.16.840.1.113883.6.1"/>
+                    <code value="10157-6"/>
+                </coding>
+            </patternCodeableConcept>
+        </element>
+        <element id="109383">
+            <path value="Composition.section.text"/>
+            <sliceName value="section_slice_pos7"/>
+            <short value="text"/>
+            <definition value="SHALL contain exactly one [1..1] text (CONF:2219-1777)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="112610">
+            <path value="Composition.section.entry"/>
+            <sliceName value="section_slice_pos7"/>
+            <short value="entry"/>
+            <definition
+                value="MAY contain zero or more [0..*] FamilyMemberHistory (identifier: http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory) (CONF:2219-2454)."/>
+            <min value="0"/>
+            <max value="*"/>
+            <type>
+                <code value="Reference"/>
+                <profile value="http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory"/>
+            </type>
+        </element>
+        <element id="109351">
+            <path value="Composition.section"/>
+            <sliceName value="section_slice_pos8"/>
+            <label value="General Status Section"/>
+            <short value="General Status Section"/>
+            <definition
+                value="SHALL contain exactly one [1..1] section (CONF:2219-1745) such that it"/>
+            <comments value="General Status Section"/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="109384">
+            <path value="Composition.section.title"/>
+            <sliceName value="section_slice_pos8"/>
+            <short value="title"/>
+            <definition value="SHALL contain exactly one [1..1] title (CONF:2219-1778)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="109385">
+            <path value="Composition.section.code"/>
+            <sliceName value="section_slice_pos8"/>
+            <label value="General Status"/>
+            <short value="General Status"/>
+            <definition
+                value="SHALL contain exactly one [1..1] code=&quot;10210-3&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:2219-1779)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="CodeableConcept"/>
+            </type>
+            <patternCodeableConcept>
+                <coding>
+                    <system value="urn:oid:2.16.840.1.113883.6.1"/>
+                    <code value="10210-3"/>
+                </coding>
+            </patternCodeableConcept>
+        </element>
+        <element id="109386">
+            <path value="Composition.section.text"/>
+            <sliceName value="section_slice_pos8"/>
+            <short value="text"/>
+            <definition value="SHALL contain exactly one [1..1] text (CONF:2219-1780)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="109352">
+            <path value="Composition.section"/>
+            <sliceName value="section_slice_pos9"/>
+            <label value="History of Past Illness Section"/>
+            <short value="History of Past Illness Section"/>
+            <definition
+                value="SHALL contain exactly one [1..1] section (CONF:2219-1746) such that it"/>
+            <comments value="History of Past Illness Section"/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="109387">
+            <path value="Composition.section.title"/>
+            <sliceName value="section_slice_pos9"/>
+            <short value="title"/>
+            <definition value="SHALL contain exactly one [1..1] title (CONF:2219-1781)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="109388">
+            <path value="Composition.section.code"/>
+            <sliceName value="section_slice_pos9"/>
+            <label value="History of Past Illness"/>
+            <short value="History of Past Illness"/>
+            <definition
+                value="SHALL contain exactly one [1..1] code=&quot;11348-0&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:2219-1782)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="CodeableConcept"/>
+            </type>
+            <patternCodeableConcept>
+                <coding>
+                    <system value="urn:oid:2.16.840.1.113883.6.1"/>
+                    <code value="11348-0"/>
+                </coding>
+            </patternCodeableConcept>
+        </element>
+        <element id="109389">
+            <path value="Composition.section.text"/>
+            <sliceName value="section_slice_pos9"/>
+            <short value="text"/>
+            <definition value="SHALL contain exactly one [1..1] text (CONF:2219-1783)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="112611">
+            <path value="Composition.section.entry"/>
+            <sliceName value="section_slice_pos9"/>
+            <short value="entry"/>
+            <definition
+                value="MAY contain zero or more [0..*] U.S. Core Condition Profile (identifier: http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition) (CONF:2219-2455)."/>
+            <min value="0"/>
+            <max value="*"/>
+            <type>
+                <code value="Reference"/>
+                <targetProfile
+                    value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"/>
+            </type>
+        </element>
+        <element id="109353">
+            <path value="Composition.section"/>
+            <sliceName value="section_slice_pos10"/>
+            <label value="History of Present Illness Section"/>
+            <short value="History of Present Illness Section"/>
+            <definition
+                value="SHOULD contain zero or one [0..1] section (CONF:2219-1747) such that it"/>
+            <comments value="History of Present Illness Section"/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="109390">
+            <path value="Composition.section.title"/>
+            <sliceName value="section_slice_pos10"/>
+            <short value="title"/>
+            <definition value="SHALL contain exactly one [1..1] title (CONF:2219-1784)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="109391">
+            <path value="Composition.section.code"/>
+            <sliceName value="section_slice_pos10"/>
+            <label value="History of Present Illness"/>
+            <short value="History of Present Illness"/>
+            <definition
+                value="SHALL contain exactly one [1..1] code=&quot;10164-2&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:2219-1785)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="CodeableConcept"/>
+            </type>
+            <patternCodeableConcept>
+                <coding>
+                    <system value="urn:oid:2.16.840.1.113883.6.1"/>
+                    <code value="10164-2"/>
+                </coding>
+            </patternCodeableConcept>
+        </element>
+        <element id="109392">
+            <path value="Composition.section.text"/>
+            <sliceName value="section_slice_pos10"/>
+            <short value="text"/>
+            <definition value="SHALL contain exactly one [1..1] text (CONF:2219-1786)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="109354">
+            <path value="Composition.section"/>
+            <sliceName value="section_slice_pos11"/>
+            <label value="Immunizations Section"/>
+            <short value="Immunizations Section"/>
+            <definition value="MAY contain zero or one [0..1] section (CONF:2219-1748) such that it"/>
+            <comments value="Immunizations Section"/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="109393">
+            <path value="Composition.section.title"/>
+            <sliceName value="section_slice_pos11"/>
+            <short value="title"/>
+            <definition value="SHALL contain exactly one [1..1] title (CONF:2219-1787)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="109394">
+            <path value="Composition.section.code"/>
+            <sliceName value="section_slice_pos11"/>
+            <label value="Immunizations"/>
+            <short value="Immunizations"/>
+            <definition
+                value="SHALL contain exactly one [1..1] code=&quot;11369-6&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:2219-1788)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="CodeableConcept"/>
+            </type>
+            <patternCodeableConcept>
+                <coding>
+                    <system value="urn:oid:2.16.840.1.113883.6.1"/>
+                    <code value="11369-6"/>
+                </coding>
+            </patternCodeableConcept>
+        </element>
+        <element id="109395">
+            <path value="Composition.section.text"/>
+            <sliceName value="section_slice_pos11"/>
+            <short value="text"/>
+            <definition value="SHALL contain exactly one [1..1] text (CONF:2219-1789)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="112612">
+            <path value="Composition.section.entry"/>
+            <sliceName value="section_slice_pos11"/>
+            <short value="entry"/>
+            <definition
+                value="SHOULD contain zero or more [0..*] U.S. Core Immunization Profile (identifier: http://hl7.org/fhir/us/core/StructureDefinition/us-core-immunization) (CONF:2219-2456)."/>
+            <min value="0"/>
+            <max value="*"/>
+            <type>
+                <code value="Reference"/>
+                <targetProfile
+                    value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-immunization"/>
+            </type>
+        </element>
+        <element id="109355">
+            <path value="Composition.section"/>
+            <sliceName value="section_slice_pos12"/>
+            <label value="Medications Section"/>
+            <short value="Medications Section"/>
+            <definition
+                value="SHALL contain exactly one [1..1] section (CONF:2219-1749) such that it"/>
+            <comments value="Medications Section"/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="109396">
+            <path value="Composition.section.title"/>
+            <sliceName value="section_slice_pos12"/>
+            <short value="title"/>
+            <definition value="SHALL contain exactly one [1..1] title (CONF:2219-1790)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="109397">
+            <path value="Composition.section.code"/>
+            <sliceName value="section_slice_pos12"/>
+            <label value="History of medication use"/>
+            <short value="History of medication use"/>
+            <definition
+                value="SHALL contain exactly one [1..1] code=&quot;10160-0&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:2219-1791)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="CodeableConcept"/>
+            </type>
+            <patternCodeableConcept>
+                <coding>
+                    <system value="urn:oid:2.16.840.1.113883.6.1"/>
+                    <code value="10160-0"/>
+                </coding>
+            </patternCodeableConcept>
+        </element>
+        <element id="109398">
+            <path value="Composition.section.text"/>
+            <sliceName value="section_slice_pos12"/>
+            <short value="text"/>
+            <definition value="SHALL contain exactly one [1..1] text (CONF:2219-1792)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="112613">
+            <path value="Composition.section.entry"/>
+            <sliceName value="section_slice_pos12"/>
+            <short value="entry"/>
+            <definition
+                value="SHOULD contain zero or more [0..*] U.S. Core MedicationStatement Profile (identifier: http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationstatement) (CONF:2219-2457)."/>
+            <min value="0"/>
+            <max value="*"/>
+            <type>
+                <code value="Reference"/>
+                <targetProfile
+                    value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationstatement"
+                />
+            </type>
+        </element>
+        <element id="109356">
+            <path value="Composition.section"/>
+            <sliceName value="section_slice_pos13"/>
+            <label value="Physical Exam Section"/>
+            <short value="Physical Exam Section"/>
+            <definition
+                value="SHALL contain exactly one [1..1] section (CONF:2219-1750) such that it"/>
+            <comments value="Physical Exam Section"/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="109399">
+            <path value="Composition.section.title"/>
+            <sliceName value="section_slice_pos13"/>
+            <short value="title"/>
+            <definition value="SHALL contain exactly one [1..1] title (CONF:2219-1793)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="109400">
+            <path value="Composition.section.code"/>
+            <sliceName value="section_slice_pos13"/>
+            <label value="Physical Findings"/>
+            <short value="Physical Findings"/>
+            <definition
+                value="SHALL contain exactly one [1..1] code=&quot;29545-1&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:2219-1794)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="CodeableConcept"/>
+            </type>
+            <patternCodeableConcept>
+                <coding>
+                    <system value="urn:oid:2.16.840.1.113883.6.1"/>
+                    <code value="29545-1"/>
+                </coding>
+            </patternCodeableConcept>
+        </element>
+        <element id="109401">
+            <path value="Composition.section.text"/>
+            <sliceName value="section_slice_pos13"/>
+            <short value="text"/>
+            <definition value="SHALL contain exactly one [1..1] text (CONF:2219-1795)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="109357">
+            <path value="Composition.section"/>
+            <sliceName value="section_slice_pos14"/>
+            <label value="Plan of Treatment Section"/>
+            <short value="Plan of Treatment Section"/>
+            <definition value="MAY contain zero or one [0..1] section (CONF:2219-1751) such that it"/>
+            <comments value="Plan of Treatment Section"/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="109402">
+            <path value="Composition.section.title"/>
+            <sliceName value="section_slice_pos14"/>
+            <short value="title"/>
+            <definition value="SHALL contain exactly one [1..1] title (CONF:2219-1796)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="109403">
+            <path value="Composition.section.code"/>
+            <sliceName value="section_slice_pos14"/>
+            <label value="Plan of Treatment"/>
+            <short value="Plan of Treatment"/>
+            <definition
+                value="SHALL contain exactly one [1..1] code=&quot;18776-5&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:2219-1797)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="CodeableConcept"/>
+            </type>
+            <patternCodeableConcept>
+                <coding>
+                    <system value="urn:oid:2.16.840.1.113883.6.1"/>
+                    <code value="18776-5"/>
+                </coding>
+            </patternCodeableConcept>
+        </element>
+        <element id="109404">
+            <path value="Composition.section.text"/>
+            <sliceName value="section_slice_pos14"/>
+            <short value="text"/>
+            <definition value="SHALL contain exactly one [1..1] text (CONF:2219-1798)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="109358">
+            <path value="Composition.section"/>
+            <sliceName value="section_slice_pos15"/>
+            <label value="Problem Section"/>
+            <short value="Problem Section"/>
+            <definition value="MAY contain zero or one [0..1] section (CONF:2219-1752) such that it"/>
+            <comments value="Problem Section"/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="109405">
+            <path value="Composition.section.title"/>
+            <sliceName value="section_slice_pos15"/>
+            <short value="title"/>
+            <definition value="SHALL contain exactly one [1..1] title (CONF:2219-1799)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="109406">
+            <path value="Composition.section.code"/>
+            <sliceName value="section_slice_pos15"/>
+            <label value="Problem List"/>
+            <short value="Problem List"/>
+            <definition
+                value="SHALL contain exactly one [1..1] code=&quot;11450-4&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:2219-1800)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="CodeableConcept"/>
+            </type>
+            <patternCodeableConcept>
+                <coding>
+                    <system value="urn:oid:2.16.840.1.113883.6.1"/>
+                    <code value="11450-4"/>
+                </coding>
+            </patternCodeableConcept>
+        </element>
+        <element id="109407">
+            <path value="Composition.section.text"/>
+            <sliceName value="section_slice_pos15"/>
+            <short value="text"/>
+            <definition value="SHALL contain exactly one [1..1] text (CONF:2219-1801)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="112614">
+            <path value="Composition.section.entry"/>
+            <sliceName value="section_slice_pos15"/>
+            <short value="entry"/>
+            <definition
+                value="SHOULD contain zero or more [0..*] U.S. Core Condition Profile (identifier: http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition) (CONF:2219-2458)."/>
+            <min value="0"/>
+            <max value="*"/>
+            <type>
+                <code value="Reference"/>
+                <targetProfile
+                    value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"/>
+            </type>
+        </element>
+        <element id="109359">
+            <path value="Composition.section"/>
+            <sliceName value="section_slice_pos16"/>
+            <label value="Procedures Section"/>
+            <short value="Procedures Section"/>
+            <definition value="MAY contain zero or one [0..1] section (CONF:2219-1753) such that it"/>
+            <comments value="Procedures Section"/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="109408">
+            <path value="Composition.section.title"/>
+            <sliceName value="section_slice_pos16"/>
+            <short value="title"/>
+            <definition value="SHALL contain exactly one [1..1] title (CONF:2219-1802)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="109409">
+            <path value="Composition.section.code"/>
+            <sliceName value="section_slice_pos16"/>
+            <label value="History of Procedures"/>
+            <short value="History of Procedures"/>
+            <definition
+                value="SHALL contain exactly one [1..1] code=&quot;47519-4&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:2219-1803)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="CodeableConcept"/>
+            </type>
+            <patternCodeableConcept>
+                <coding>
+                    <system value="urn:oid:2.16.840.1.113883.6.1"/>
+                    <code value="47519-4"/>
+                </coding>
+            </patternCodeableConcept>
+        </element>
+        <element id="109410">
+            <path value="Composition.section.text"/>
+            <sliceName value="section_slice_pos16"/>
+            <short value="text"/>
+            <definition value="SHALL contain exactly one [1..1] text (CONF:2219-1804)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="112615">
+            <path value="Composition.section.entry"/>
+            <sliceName value="section_slice_pos16"/>
+            <short value="entry"/>
+            <definition
+                value="MAY contain zero or more [0..*] U.S. Core Procedure Profile (identifier: http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure) (CONF:2219-2459)."/>
+            <min value="0"/>
+            <max value="*"/>
+            <type>
+                <code value="Reference"/>
+                <targetProfile
+                    value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure"/>
+            </type>
+        </element>
+        <element id="109360">
+            <path value="Composition.section"/>
+            <sliceName value="section_slice_pos17"/>
+            <label value="Reason for Visit Section"/>
+            <short value="Reason for Visit Section"/>
+            <definition value="MAY contain zero or one [0..1] section (CONF:2219-1754) such that it"/>
+            <comments value="Reason for Visit Section"/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="109411">
+            <path value="Composition.section.title"/>
+            <sliceName value="section_slice_pos17"/>
+            <short value="title"/>
+            <definition value="SHALL contain exactly one [1..1] title (CONF:2219-1805)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="109412">
+            <path value="Composition.section.code"/>
+            <sliceName value="section_slice_pos17"/>
+            <label value="Reason for Visit"/>
+            <short value="Reason for Visit"/>
+            <definition
+                value="SHALL contain exactly one [1..1] code=&quot;29299-5&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:2219-1806)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="CodeableConcept"/>
+            </type>
+            <patternCodeableConcept>
+                <coding>
+                    <system value="urn:oid:2.16.840.1.113883.6.1"/>
+                    <code value="29299-5"/>
+                </coding>
+            </patternCodeableConcept>
+        </element>
+        <element id="109413">
+            <path value="Composition.section.text"/>
+            <sliceName value="section_slice_pos17"/>
+            <short value="text"/>
+            <definition value="SHALL contain exactly one [1..1] text (CONF:2219-1807)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="109361">
+            <path value="Composition.section"/>
+            <sliceName value="section_slice_pos18"/>
+            <label value="Results Section"/>
+            <short value="Results Section"/>
+            <definition
+                value="SHALL contain exactly one [1..1] section (CONF:2219-1755) such that it"/>
+            <comments value="Results Section"/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="109414">
+            <path value="Composition.section.title"/>
+            <sliceName value="section_slice_pos18"/>
+            <short value="title"/>
+            <definition value="SHALL contain exactly one [1..1] title (CONF:2219-1808)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="109415">
+            <path value="Composition.section.code"/>
+            <sliceName value="section_slice_pos18"/>
+            <label value="Relevant diagnostic tests and/or laboratory data"/>
+            <short value="Relevant diagnostic tests and/or laboratory data"/>
+            <definition
+                value="SHALL contain exactly one [1..1] code=&quot;30954-2&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:2219-1809)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="CodeableConcept"/>
+            </type>
+            <patternCodeableConcept>
+                <coding>
+                    <system value="urn:oid:2.16.840.1.113883.6.1"/>
+                    <code value="30954-2"/>
+                </coding>
+            </patternCodeableConcept>
+        </element>
+        <element id="109416">
+            <path value="Composition.section.text"/>
+            <sliceName value="section_slice_pos18"/>
+            <short value="text"/>
+            <definition value="SHALL contain exactly one [1..1] text (CONF:2219-1810)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="109362">
+            <path value="Composition.section"/>
+            <sliceName value="section_slice_pos19"/>
+            <label value="Review of Systems Section"/>
+            <short value="Review of Systems Section"/>
+            <definition
+                value="SHALL contain exactly one [1..1] section (CONF:2219-1756) such that it"/>
+            <comments value="Review of Systems Section"/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="109417">
+            <path value="Composition.section.title"/>
+            <sliceName value="section_slice_pos19"/>
+            <short value="title"/>
+            <definition value="SHALL contain exactly one [1..1] title (CONF:2219-1811)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="109418">
+            <path value="Composition.section.code"/>
+            <sliceName value="section_slice_pos19"/>
+            <label value="Review of Systems"/>
+            <short value="Review of Systems"/>
+            <definition
+                value="SHALL contain exactly one [1..1] code=&quot;10187-3&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:2219-1812)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="CodeableConcept"/>
+            </type>
+            <patternCodeableConcept>
+                <coding>
+                    <system value="urn:oid:2.16.840.1.113883.6.1"/>
+                    <code value="10187-3"/>
+                </coding>
+            </patternCodeableConcept>
+        </element>
+        <element id="109419">
+            <path value="Composition.section.text"/>
+            <sliceName value="section_slice_pos19"/>
+            <short value="text"/>
+            <definition value="SHALL contain exactly one [1..1] text (CONF:2219-1813)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="109363">
+            <path value="Composition.section"/>
+            <sliceName value="section_slice_pos20"/>
+            <label value="Social History Section"/>
+            <short value="Social History Section"/>
+            <definition
+                value="SHALL contain exactly one [1..1] section (CONF:2219-1757) such that it"/>
+            <comments value="Social History Section"/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="109420">
+            <path value="Composition.section.title"/>
+            <sliceName value="section_slice_pos20"/>
+            <short value="title"/>
+            <definition value="SHALL contain exactly one [1..1] title (CONF:2219-1814)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="109421">
+            <path value="Composition.section.code"/>
+            <sliceName value="section_slice_pos20"/>
+            <label value="Social History"/>
+            <short value="Social History"/>
+            <definition
+                value="SHALL contain exactly one [1..1] code=&quot;29762-2&quot; (CONF:2219-1815)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="CodeableConcept"/>
+            </type>
+            <patternCodeableConcept>
+                <coding>
+                    <code value="29762-2"/>
+                </coding>
+            </patternCodeableConcept>
+        </element>
+        <element id="109422">
+            <path value="Composition.section.text"/>
+            <sliceName value="section_slice_pos20"/>
+            <short value="text"/>
+            <definition value="SHALL contain exactly one [1..1] text (CONF:2219-1816)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="112617">
+            <path value="Composition.section.entry"/>
+            <sliceName value="section_slice_pos20"/>
+            <short value="entry"/>
+            <definition
+                value="MAY contain zero or more [0..*] U.S. Core SmokingStatus Profile (identifier: http://hl7.org/fhir/us/core/StructureDefinition/us-core-smokingstatus) (CONF:2219-2461)."/>
+            <min value="0"/>
+            <max value="*"/>
+            <type>
+                <code value="Reference"/>
+                <targetProfile
+                    value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-smokingstatus"/>
+            </type>
+        </element>
+        <element id="109364">
+            <path value="Composition.section"/>
+            <sliceName value="section_slice_pos21"/>
+            <label value="Vital Signs Section"/>
+            <short value="Vital Signs Section"/>
+            <definition
+                value="SHALL contain exactly one [1..1] section (CONF:2219-1758) such that it"/>
+            <comments value="Vital Signs Section"/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="109423">
+            <path value="Composition.section.title"/>
+            <sliceName value="section_slice_pos21"/>
+            <short value="title"/>
+            <definition value="SHALL contain exactly one [1..1] title (CONF:2219-1817)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="109424">
+            <path value="Composition.section.code"/>
+            <sliceName value="section_slice_pos21"/>
+            <label value="Vital Signs"/>
+            <short value="Vital Signs"/>
+            <definition
+                value="SHALL contain exactly one [1..1] code=&quot;8716-3&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:2219-1818)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="CodeableConcept"/>
+            </type>
+            <patternCodeableConcept>
+                <coding>
+                    <system value="urn:oid:2.16.840.1.113883.6.1"/>
+                    <code value="8716-3"/>
+                </coding>
+            </patternCodeableConcept>
+        </element>
+        <element id="109425">
+            <path value="Composition.section.text"/>
+            <sliceName value="section_slice_pos21"/>
+            <short value="text"/>
+            <definition value="SHALL contain exactly one [1..1] text (CONF:2219-1819)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="112618">
+            <path value="Composition.section.entry"/>
+            <sliceName value="section_slice_pos21"/>
+            <short value="entry"/>
+            <definition
+                value="SHOULD contain zero or more [0..*] U.S. Core VitalSigns Profile (identifier: http://hl7.org/fhir/us/core/StructureDefinition/us-core-vitalsigns) (CONF:2219-2462)."/>
+            <min value="0"/>
+            <max value="*"/>
+            <type>
+                <code value="Reference"/>
+                <targetProfile
+                    value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-vitalsigns"/>
+            </type>
+        </element>
+        <element id="109365">
+            <path value="Composition.section"/>
+            <sliceName value="section_slice_pos22"/>
+            <label value="Instructions Section"/>
+            <short value="Instructions Section"/>
+            <definition value="MAY contain zero or one [0..1] section (CONF:2219-1759) such that it"/>
+            <comments value="Instructions Section"/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="109427">
+            <path value="Composition.section.title"/>
+            <sliceName value="section_slice_pos22"/>
+            <short value="title"/>
+            <definition value="SHALL contain exactly one [1..1] title (CONF:2219-1821)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="109428">
+            <path value="Composition.section.code"/>
+            <sliceName value="section_slice_pos22"/>
+            <label value="Instructions"/>
+            <short value="Instructions"/>
+            <definition
+                value="SHALL contain exactly one [1..1] code=&quot;69730-0&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:2219-1822)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="CodeableConcept"/>
+            </type>
+            <patternCodeableConcept>
+                <coding>
+                    <system value="urn:oid:2.16.840.1.113883.6.1"/>
+                    <code value="69730-0"/>
+                </coding>
+            </patternCodeableConcept>
+        </element>
+        <element id="109429">
+            <path value="Composition.section.text"/>
+            <sliceName value="section_slice_pos22"/>
+            <short value="text"/>
+            <definition value="SHALL contain exactly one [1..1] text (CONF:2219-1823)."/>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+    </differential>
+</StructureDefinition>

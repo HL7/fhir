@@ -6,7 +6,7 @@
         <lastUpdated value="2016-06-15T08:16:14Z"/>
         <profile value="http://hl7.org/fhir/ccda/StructureDefinition/CCDA-on-FHIR-History-and-Physical"/>
     </meta>
-    <language value="EN-us"/>
+    <language value="en-US"/>
     <text>
         <status value="generated"/>
         <div
@@ -33,7 +33,7 @@
     <confidentiality value="N"/>
     <!--  Patient Resource -->
     <subject>
-        <reference value="http://fhir3.healthintersections.com.au/open/Practitioner/2679baa7-5dac-4d22-81ae-daded84500"/>
+        <reference value="http://fhir3.healthintersections.com.au/open/Patient/c493f2f2-28d5-49ab-90e8-9e8be341f7"/>
         <display value="Henry Jones"/>
     </subject>
     <!--  Practitioner Resource -->

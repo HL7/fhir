@@ -36,24 +36,20 @@
                 value="SHALL contain exactly one [1..1] @url=&quot;http://hl7.org/fhir/ccda/StructureDefinition/CCDA_on_FHIR_In_Fulfillment_Of_Order&quot; (CONF:2219-1864)." />
             <min value="1" />
             <max value="1" />
-        </element>
-        <element id="127935">
-            <path value="Extension.value[x]" />
-            <slicing>
-                <discriminator value="@type" />
-                <rules value="open" />
-            </slicing>
-            <short value="value[x]" />
-            <definition value="SHALL contain exactly one [1..1] value[x], where value[x] is (CONF:2219-2472)" />
-            <min value="1" />
-            <max value="1" />
+      	    <fixedUri value="http://hl7.org/fhir/ccda/StructureDefinition/CCDA_on_FHIR_In_Fulfillment_Of_Order"/>
         </element>
         <element id="127936">
             <path value="Extension.valueReference" />
             <short value="valueReference" />
             <definition
                 value="valueReference which includes DiagnosticRequest (identifier: http://hl7.org/fhir/StructureDefinition/DiagnosticRequest) (CONF:2219-2473)"
-             />
+            />
+            <min value="1" />
+            <max value="1" />
+            <type>
+                <code value="Reference" />
+                <targetProfile value="http://hl7.org/fhir/StructureDefinition/DiagnosticRequest" />
+            </type>
         </element>
     </differential>
 </StructureDefinition>

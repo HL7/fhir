@@ -36,6 +36,7 @@
                 value="SHALL contain exactly one [1..1] @url=&quot;http://hl7.org/fhir/ccda/StructureDefinition/CCDA_on_FHIR_Authorization&quot; (CONF:2219-2010)." />
             <min value="1" />
             <max value="1" />
+      	    <fixedUri value="http://hl7.org/fhir/ccda/StructureDefinition/CCDA_on_FHIR_Authorization"/>
         </element>
         <element id="111188">
             <path value="Extension.valueReference" />
@@ -44,6 +45,10 @@
                 value="SHALL contain exactly one [1..1] C-CDA on FHIR Consent (identifier: http://hl7.org/fhir/ccda/StructureDefinition/CCDA_on_FHIR_Consent) (CONF:2219-2011)." />
             <min value="1" />
             <max value="1" />
+            <type>
+                <code value="Reference" />
+                <targetProfile value="http://hl7.org/fhir/ccda/StructureDefinition/CCDA-on-FHIR-Consent" />
+            </type>
         </element>
     </differential>
 </StructureDefinition>

@@ -165,7 +165,7 @@
             <max value="*" />
             <type>
                 <code value="Reference" />
-                <profile value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-allergyintolerance" />
+                <targetProfile value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-allergyintolerance" />
             </type>
         </element>
         <element id="105498">
@@ -551,7 +551,7 @@
             <max value="*" />
             <type>
                 <code value="Reference" />
-                <profile value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition" />
+                <targetProfile value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition" />
             </type>
         </element>
         <element id="105506">
@@ -654,7 +654,7 @@
             <max value="*" />
             <type>
                 <code value="Reference" />
-                <profile value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-immunization" />
+                <targetProfile value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-immunization" />
             </type>
         </element>
         <element id="105508">
@@ -757,7 +757,7 @@
             <max value="*" />
             <type>
                 <code value="Reference" />
-                <profile value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationstatement" />
+                <targetProfile value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationstatement" />
             </type>
         </element>
         <element id="105510">
@@ -995,7 +995,7 @@
             <max value="*" />
             <type>
                 <code value="Reference" />
-                <profile value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition" />
+                <targetProfile value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition" />
             </type>
         </element>
         <element id="105515">
@@ -1053,7 +1053,7 @@
             <max value="*" />
             <type>
                 <code value="Reference" />
-                <profile value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure" />
+                <targetProfile value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure" />
             </type>
         </element>
         <element id="105516">
@@ -1156,7 +1156,7 @@
             <max value="*" />
             <type>
                 <code value="Reference" />
-                <profile value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-observationresults" />
+                <targetProfile value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-observationresults" />
             </type>
         </element>
         <element id="105518">
@@ -1257,7 +1257,7 @@
             <max value="*" />
             <type>
                 <code value="Reference" />
-                <profile value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-smokingstatus" />
+                <targetProfile value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-smokingstatus" />
             </type>
         </element>
         <element id="105520">
@@ -1315,7 +1315,7 @@
             <max value="*" />
             <type>
                 <code value="Reference" />
-                <profile value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-vitalsigns" />
+                <targetProfile value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-vitalsigns" />
             </type>
         </element>
     </differential>
