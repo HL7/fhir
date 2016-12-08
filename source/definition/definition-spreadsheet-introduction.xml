@@ -11,6 +11,9 @@ other resources.  This pattern serves two purposes:
   <li>It provides a standard "view" that might be useful for implementers in processing and manipulating all resources that adhere to the same pattern.  (Tooling that supports
   this may become available in a future release.)</li>
 </ul>
+<p>
+A "definition" resource is a resource that describes a type of activity that *can* occur in a manner that is independent of a particular patient or subject.  Examples include protocols, order sets, questionnaires, etc.  It only includes definitions of activities, not of objects or roles.
+</p>
 </div>
 
 <div>
