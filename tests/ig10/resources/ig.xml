@@ -17,8 +17,9 @@ Hidden IG for de facto IG publishing
 				<reference value="StructureDefinition/daf-core-allergyintolerance"/>
 			</sourceReference>
 		</resource>
+
 		<resource>
-			<purpose value="example"/>
+			<purpose value="terminology"/>
 			<sourceReference>
 				<reference value="ValueSet/test-ig-vs"/>
 			</sourceReference>

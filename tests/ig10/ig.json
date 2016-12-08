@@ -6,14 +6,14 @@
     "temp" : "temp",
     "qa" : "qa",
     "output" : "output",
-    "specification" : "http://hl7.org/fhir/2016May"
+    "specification" : "http://hl7.org/fhir"
   },
 	"canonicalBase": "http://hl7.org/fhir/test-ig-10",
   "sct-edition" :  "http://snomed.info/sct/900000000000207008",
   "version" : "1.0.2",
 	"spreadsheets": [
 		"diagnosticorder-daf-profile-spreadsheet.xml"
-	],  
+	],
 	"defaults": {
 		"Any": {
 	  	"template-format" : "format.html",
@@ -22,8 +22,8 @@
 		"ValueSet": {
       "template-base" : "vs.html"
 		},
-		"ConceptMap": {
-      "template-base" : "cm.html"
+		"CodeSystem": {
+      "template-base" : "cs.html"
 		},
 		"StructureDefinition": {
       "template-base" : "sd.html"
@@ -31,9 +31,9 @@
 	},
 	"source": "ig.xml",
   "resources" : {
-
-"StructureDefinition/daf-core-allergyintolerance": {
-			"source": "ai-sd.xml"
-		}
+    "StructureDefinition/daf-core-allergyintolerance": {
+    			"source": "ai-sd.xml"
+    		},
+    "AllergyIntolerance/62d29612-802f-4233-8df2-fa85d021937b": { "source": "ai-example.xml"}
   }
-}
+  }

@@ -4,7 +4,7 @@
 		<versionId value="3"/>
 		<lastUpdated value="2016-09-29T00:11:47.157+00:00"/>
 	</meta>
-	<url value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-allergyintolerance"/>
+	<url value="http://hl7.org/fhir/test-ig-10/StructureDefinition/daf-core-allergyintolerance"/>
 	<version value="1.0.2"/>
 	<name value="Profile daf-core-allergyintolerance"/>
 	<status value="draft"/>
@@ -43,6 +43,35 @@
 			<isModifier value="false"/>
 			<isSummary value="false"/>
 		</element>
+		<element id="AllergyIntolerance-dafcoreallergyintolerance.patient">
+			<path value="AllergyIntolerance.patient"/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="Reference"/>
+				<profile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+			</type>
+			<mustSupport value="true"/>
+			<isModifier value="false"/>
+			<isSummary value="false"/>
+		</element>
+		<element id="AllergyIntolerance-dafcoreallergyintolerance.substance">
+			<path value="AllergyIntolerance.substance"/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<mustSupport value="true"/>
+			<isModifier value="false"/>
+			<isSummary value="false"/>
+			<binding>
+				<strength value="extensible"/>
+				<valueSetReference>
+					<reference value="http://hl7.org/fhir/ValueSet/daf-substance"/>
+				</valueSetReference>
+			</binding>
+		</element>
 		<element id="AllergyIntolerance-dafcoreallergyintolerance.status">
 			<path value="AllergyIntolerance.status"/>
 			<min value="1"/>
@@ -59,35 +88,6 @@
 					<reference value="http://hl7.org/fhir/ValueSet/allergy-intolerance-status"/>
 				</valueSetReference>
 			</binding>
-		</element>
-		<element id="AllergyIntolerance-dafcoreallergyintolerance.substance">
-			<path value="AllergyIntolerance.substance"/>
-			<min value="1"/>
-			<max value="1"/>
-			<type>
-				<code value="CodeableConcept"/>
-			</type>
-			<mustSupport value="true"/>
-			<isModifier value="false"/>
-			<isSummary value="false"/>
-			<binding>
-				<strength value="extensible"/>
-				<valueSetReference>
-					<reference value="http://hl7.org/fhir/us/daf/ValueSet/daf-core-substance"/>
-				</valueSetReference>
-			</binding>
-		</element>
-		<element id="AllergyIntolerance-dafcoreallergyintolerance.patient">
-			<path value="AllergyIntolerance.patient"/>
-			<min value="1"/>
-			<max value="1"/>
-			<type>
-				<code value="Reference"/>
-				<profile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
-			</type>
-			<mustSupport value="true"/>
-			<isModifier value="false"/>
-			<isSummary value="false"/>
 		</element>
 	</differential>
 </StructureDefinition>
