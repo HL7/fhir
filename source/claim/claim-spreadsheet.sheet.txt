@@ -168,7 +168,7 @@
   Binding Name = ServicePlace
   Binding = value set
   Reference = valueset-service-place
-  Definition = Place of service: pharmcy,school, prison, etc.
+  Definition = Place of service: pharmacy,school, prison, etc.
   Conformance = example
 
  -- Row 25 -----------------------------------
@@ -737,15 +737,15 @@
   UML = 0;115
   Type = =Diagnosis
   Short Name = Diagnosis
-  Definition = Ordered list of patient diagnosis for which care is sought.
+  Definition = List of patient diagnosis for which care is sought.
 
  -- Row 48 -----------------------------------
   Element = Claim.diagnosis.sequence
   Card. = 1..1
   Type = positiveInt
   Short Name = Number to covey order of diagnosis
-  Definition = Sequence of diagnosis which serves to order and provide a link.
-  Requirements = Required to maintain order of the diagnoses.
+  Definition = Sequence of diagnosis which serves to provide a link.
+  Requirements = Required to allow line items to reference the diagnoses.
 
  -- Row 49 -----------------------------------
   Element = Claim.diagnosis.diagnosis[x]
@@ -762,7 +762,7 @@
   Type = CodeableConcept
   Binding = DiagnosisType
   Short Name = Type of Diagnosis
-  Definition = The type of the Diagnosis, for example: admitting,
+  Definition = The type of the Diagnosis, for example: admitting, primary, secondary, discharge.
   Requirements = Required to adjudicate services rendered to the mandated diagnosis grouping system.
   Comments = Diagnosis are presented in list order to their expected importance: primary, secondary, etc.
 
@@ -830,7 +830,7 @@
   Card. = 1..1
   Type = positiveInt
   Short Name = Service instance identifier
-  Definition = A service line item.
+  Definition = Sequence of coverage which serves to provide a link and convey coordination of benefit order.
   Requirements = To maintain order of the coverages.
 
  -- Row 60 -----------------------------------

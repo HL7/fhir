@@ -9,7 +9,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Paul</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2016-11-24T07:31:10Z</LastSaved>
+  <LastSaved>2016-12-09T09:18:38Z</LastSaved>
   <Version>15.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -21,7 +21,7 @@
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ActiveSheet>8</ActiveSheet>
-  <FirstVisibleSheet>4</FirstVisibleSheet>
+  <FirstVisibleSheet>1</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -2944,7 +2944,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Diagnosis</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Ordered list of patient diagnosis for which care is sought. </Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">List of patient diagnosis for which care is sought. </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2978,9 +2978,9 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Number to covey order of diagnosis</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Sequence of diagnosis which serves to order and provide a link.</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Sequence of diagnosis which serves to provide a link.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">Required to maintain order of the diagnoses.</Data><NamedCell
+    <Cell ss:StyleID="s90"><Data ss:Type="String">Required to allow line items to reference the diagnoses.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3049,7 +3049,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Type of Diagnosis</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">The type of the Diagnosis, for example: admitting, </Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">The type of the Diagnosis, for example: admitting, primary, secondary, discharge.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Required to adjudicate services rendered to the mandated diagnosis grouping system.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -3354,7 +3354,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Service instance identifier</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">A service line item.</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Sequence of coverage which serves to provide a link and convey coordination of benefit order.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">To maintain order of the coverages.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -6030,9 +6030,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>64</TopRowBottomPane>
+   <TopRowBottomPane>82</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>10</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -6040,6 +6040,7 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -6047,7 +6048,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>65</ActiveRow>
+     <ActiveRow>60</ActiveRow>
+     <ActiveCol>13</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -9071,7 +9073,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s151"><Data ss:Type="String">ServicePlace</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Place of service: pharmcy,school, prison, etc.</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Place of service: pharmacy,school, prison, etc.</Data></Cell>
     <Cell ss:StyleID="s122"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s122"><Data ss:Type="String">example</Data></Cell>
     <Cell ss:StyleID="s122"><Data ss:Type="String">valueset-service-place</Data></Cell>
@@ -9401,9 +9403,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>31</TopRowBottomPane>
+   <TopRowBottomPane>16</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>2</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -9411,7 +9413,6 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -9419,8 +9420,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>38</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     <ActiveRow>33</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
