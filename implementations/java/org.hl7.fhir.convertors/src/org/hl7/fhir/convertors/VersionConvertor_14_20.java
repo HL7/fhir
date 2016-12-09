@@ -1412,7 +1412,7 @@ public class VersionConvertor_14_20 {
     org.hl7.fhir.dstu2016may.model.ElementDefinition.TypeRefComponent tgt = new org.hl7.fhir.dstu2016may.model.ElementDefinition.TypeRefComponent();
     copyElement(src, tgt);
     tgt.setCode(src.getCode());
-    if (src.getCode().equals("Reference"))
+    if (src.hasCode() && "Reference".equals(src.getCode()))
       tgt.addProfile(src.getTargetProfile());
     else
       tgt.addProfile(src.getProfile());      

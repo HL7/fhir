@@ -51,28 +51,6 @@ public class ValidationEngineTests {
   }
 
   @Test
-  public void test160() throws Exception {
-    if (inbuild) {
-      Assert.assertTrue(true);
-      return;
-    }
-
-    if (!TestingUtilities.silent)
-    System.out.println("Validate patient-example.xml in v1.6.0 version");
-    ValidationEngine ve = new ValidationEngine("C:\\work\\org.hl7.fhir.2016Sep\\build\\publish", DEF_TX);
-    ve.connectToTSServer(DEF_TX);
-    OperationOutcome op = ve.validate("C:\\work\\org.hl7.fhir.2016Sep\\build\\publish\\patient-example.xml", null);
-    int e = errors(op);
-    int w = warnings(op);
-    int h = hints(op);
-    Assert.assertTrue(e == 0);
-    Assert.assertTrue(w == 2);
-    Assert.assertTrue(h == 0);
-    if (!TestingUtilities.silent)
-    System.out.println("  .. done: "+Integer.toString(e)+" errors, "+Integer.toString(w)+" warnings, "+Integer.toString(h)+" hints");
-  }
-
-  @Test
   public void test140() throws Exception {
     if (inbuild) {
       Assert.assertTrue(true);
@@ -136,7 +114,7 @@ public class ValidationEngineTests {
       return;
     }
     if (!TestingUtilities.silent)
-    System.out.println("Validate DAF patient-example.xml in Current version");
+    System.out.println("Validate USCore patient-example.xml in Current version");
     if (!TestingUtilities.silent)
       System.out.println("  .. load FHIR from " +Utilities.path(TestingUtilities.home(),  "publish"));
     ValidationEngine ve = new ValidationEngine(Utilities.path(TestingUtilities.home(),  "publish"), DEF_TX);

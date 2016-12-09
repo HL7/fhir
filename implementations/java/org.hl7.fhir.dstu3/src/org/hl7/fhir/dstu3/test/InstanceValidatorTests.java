@@ -50,12 +50,12 @@ public class InstanceValidatorTests {
 			if (m.getLevel() == IssueSeverity.ERROR || m.getLevel() == IssueSeverity.FATAL) {
 				ec++;
 				if (!TestingUtilities.silent)
-	      System.out.println("  "+m.summary());
+	        System.out.println("  "+m.summary());
 			}
 		}
 		Assert.assertTrue(ec == errorCount);
-		if (!TestingUtilities.silent)
-		System.out.println(val.reportTimes());
+//		if (!TestingUtilities.silent)
+//		System.out.println(val.reportTimes());
   }
 		
   private void validateCnt(String cnt, int errorCount, boolean json) throws Exception {
@@ -121,12 +121,12 @@ public class InstanceValidatorTests {
 
 	@Test
 	public void testXmlListEmpty1() throws Exception {
-		validate("tests\\validation-examples\\list-empty1.xml", 2, false);
+		validate("tests\\validation-examples\\list-empty1.xml", 3, false);
 	}
 
 	@Test
 	public void testXmlListEmpty2() throws Exception {
-		validate("tests\\validation-examples\\list-empty2.xml", 2, false);
+		validate("tests\\validation-examples\\list-empty2.xml", 3, false);
 	}
 
 	@Test
@@ -268,7 +268,7 @@ public class InstanceValidatorTests {
 
 	@Test
 	public void testJsonListEmpty1() throws Exception {
-		validate("tests\\validation-examples\\list-empty1.json", 2, true);
+		validate("tests\\validation-examples\\list-empty1.json", 3, true);
 	}
 
 	@Test

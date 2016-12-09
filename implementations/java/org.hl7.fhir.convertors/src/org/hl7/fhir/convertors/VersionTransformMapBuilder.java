@@ -10,9 +10,6 @@ import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
 
-import org.hl7.fhir.convertors.VersionTransformMapBuilder.CodeMap;
-import org.hl7.fhir.convertors.VersionTransformMapBuilder.IterContext;
-import org.hl7.fhir.convertors.VersionTransformMapBuilder.MapContext;
 import org.hl7.fhir.dstu3.context.SimpleWorkerContext;
 import org.hl7.fhir.dstu3.model.ElementDefinition;
 import org.hl7.fhir.dstu3.model.ElementDefinition.TypeRefComponent;
