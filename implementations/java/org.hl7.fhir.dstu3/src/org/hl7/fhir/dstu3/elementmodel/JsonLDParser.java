@@ -74,9 +74,9 @@ public class JsonLDParser extends ParserBase {
     String id = e.getChildValue("id");
     if (base != null && id != null) {
        if (base.endsWith("#"))
-         prop("@context", base + e.getType() + "-" + id + ">");
+         prop("@id", base + e.getType() + "-" + id + ">");
       else
-        prop("@context", Utilities.pathReverse(base, e.getType(), id));
+        prop("@id", Utilities.pathReverse(base, e.getType(), id));
     }
 		Set<String> done = new HashSet<String>();
 		for (Element child : e.getChildren()) {
