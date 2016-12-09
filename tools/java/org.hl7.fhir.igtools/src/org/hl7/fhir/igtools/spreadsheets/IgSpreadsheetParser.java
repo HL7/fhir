@@ -32,6 +32,7 @@ import org.hl7.fhir.dstu3.model.DateTimeType;
 import org.hl7.fhir.dstu3.model.DateType;
 import org.hl7.fhir.dstu3.model.DecimalType;
 import org.hl7.fhir.dstu3.model.ElementDefinition;
+import org.hl7.fhir.dstu3.model.ElementDefinition.ConstraintSeverity;
 import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionBindingComponent;
 import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionConstraintComponent;
 import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionMappingComponent;
@@ -608,7 +609,12 @@ public class IgSpreadsheetParser {
       if (!s.startsWith("!")) {
         inv.setKey(s);
         inv.setRequirements(sheet.getColumn(row, "Requirements"));
-        inv.getSeverityElement().setValueAsString(sheet.getColumn(row, "Severity"));
+        String sev = sheet.getColumn(row, "Severity");
+        if ("bp".equals(sev)) {
+          inv.setSeverity(ConstraintSeverity.WARNING);
+          inv.addExtension().setUrl("http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice").setValue(new BooleanType(true));
+        } else
+          inv.getSeverityElement().setValueAsString(sev);
         inv.setHuman(sheet.getColumn(row, "English"));
         inv.setExpression(sheet.getColumn(row, "Expression"));
         inv.setXpath(sheet.getColumn(row, "XPath"));
