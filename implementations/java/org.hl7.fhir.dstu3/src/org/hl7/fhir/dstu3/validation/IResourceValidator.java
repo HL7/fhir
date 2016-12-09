@@ -79,6 +79,13 @@ public interface IResourceValidator {
   public void setNoInvariantChecks(boolean value) ;
   
   /**
+   * Whether being unable to resolve a profile in found in Resource.meta.profile or ElementDefinition.type.profile or targetProfile is an error or just a warning
+   * @return
+   */
+  public boolean isErrorForUnknownProfiles();
+  public void setErrorForUnknownProfiles(boolean errorForUnknownProfiles);
+
+  /**
    * Validate suite
    *  
    * you can validate one of the following representations of resources:

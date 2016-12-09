@@ -457,7 +457,7 @@ public class ValidationEngine {
     }
     InstanceValidator validator = new InstanceValidator(this);
     validator.setNoInvariantChecks(isNoInvariantChecks());
-    validator.validate(null, messages, new ByteArrayInputStream(source), cntType, new ValidationProfileSet(profiles));
+    validator.validate(null, messages, new ByteArrayInputStream(source), cntType, new ValidationProfileSet(profiles, true));
     return messagesToOutcome(messages);
   }
 

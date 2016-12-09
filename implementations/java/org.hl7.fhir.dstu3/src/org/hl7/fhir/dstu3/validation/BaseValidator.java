@@ -298,6 +298,15 @@ public class BaseValidator {
 
   }
 
+  protected boolean warningOrError(boolean isError, List<ValidationMessage> errors, IssueType type, int line, int col, String path, boolean thePass, String msg, Object... theMessageArguments) {
+    if (!thePass) {
+      msg = formatMessage(msg, theMessageArguments);
+      errors.add(new ValidationMessage(source, type, line, col, path, msg, isError ? IssueSeverity.ERROR : IssueSeverity.WARNING));
+    }
+    return thePass;
+
+  }
+
   /**
    * Test a rule and add a {@link IssueSeverity#WARNING} validation message if the validation fails
    * 

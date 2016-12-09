@@ -77,6 +77,7 @@ import org.hl7.fhir.dstu3.model.ValueSet;
 import org.hl7.fhir.dstu3.model.ValueSet.ValueSetExpansionContainsComponent;
 import org.hl7.fhir.dstu3.utils.FHIRPathEngine;
 import org.hl7.fhir.dstu3.validation.ValidationMessage.Source;
+import org.hl7.fhir.dstu3.validation.ValidationProfileSet.ProfileRegistration;
 import org.hl7.fhir.exceptions.DefinitionException;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.exceptions.FHIRFormatError;
@@ -114,6 +115,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
   // configuration items
   private CheckDisplayOption checkDisplay;
   private boolean anyExtensionsAllowed;
+  private boolean errorForUnknownProfiles;
   private boolean noInvariantChecks;
   private BestPracticeWarningLevel bpWarnings;
 
@@ -204,14 +206,14 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
       return !profiles.isEmpty();
     }
 
-    public void addProfiles(List<ValidationMessage> errors, List<String> profiles, String path, Element element) throws FHIRException {
-      for (String profile : profiles)
-        addProfile(errors, profile, path, element);
+    public void addProfiles(List<ValidationMessage> errors, ValidationProfileSet profiles, String path, Element element) throws FHIRException {
+      for (ProfileRegistration profile : profiles.getCanonical())
+        addProfile(errors, profile.getProfile(), profile.isError(), path, element);
     }
     
-    public boolean addProfile(List<ValidationMessage> errors, String profile, String path, Element element) {
+    public boolean addProfile(List<ValidationMessage> errors, String profile, boolean error, String path, Element element) {
       StructureDefinition sd = context.fetchResource(StructureDefinition.class, profile);
-      if (warning(errors, IssueType.INVALID, element.line(), element.col(), path, sd != null, "StructureDefinition reference \"{0}\" could not be resolved", profile)) {
+      if (warningOrError(error, errors, IssueType.INVALID, element.line(), element.col(), path, sd != null, "StructureDefinition reference \"{0}\" could not be resolved", profile)) {
         if (rule(errors, IssueType.STRUCTURE, element.line(), element.col(), path, sd.hasSnapshot(),
             "StructureDefinition has no snapshot - validation is against the snapshot, so it must be provided")) {
           if (!profiles.containsKey(sd)) {
@@ -328,7 +330,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 
   @Override
   public org.hl7.fhir.dstu3.elementmodel.Element validate(Object appContext, List<ValidationMessage> errors, InputStream stream, FhirFormat format, String profile) throws Exception {
-    return validate(appContext, errors, stream, format,  new ValidationProfileSet(profile));
+    return validate(appContext, errors, stream, format,  new ValidationProfileSet(profile, true));
   }
 
   @Override
@@ -357,7 +359,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 
   @Override
   public org.hl7.fhir.dstu3.elementmodel.Element validate(Object appContext, List<ValidationMessage> errors, Resource resource, String profile) throws Exception {
-    return validate(appContext, errors, resource, new ValidationProfileSet(profile));
+    return validate(appContext, errors, resource, new ValidationProfileSet(profile, true));
   }
 
   @Override
@@ -381,7 +383,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 
   @Override
   public org.hl7.fhir.dstu3.elementmodel.Element validate(Object appContext, List<ValidationMessage> errors, org.w3c.dom.Element element, String profile) throws Exception {
-    return validate(appContext, errors, element, new ValidationProfileSet(profile));
+    return validate(appContext, errors, element, new ValidationProfileSet(profile, true));
   }
 
   @Override
@@ -408,7 +410,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 
   @Override
   public org.hl7.fhir.dstu3.elementmodel.Element validate(Object appContext, List<ValidationMessage> errors, Document document, String profile) throws Exception {
-    return validate(appContext, errors, document, new ValidationProfileSet(profile));
+    return validate(appContext, errors, document, new ValidationProfileSet(profile, true));
   }
 
   @Override
@@ -435,7 +437,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 
   @Override
   public org.hl7.fhir.dstu3.elementmodel.Element validate(Object appContext, List<ValidationMessage> errors, JsonObject object, String profile) throws Exception {
-    return validate(appContext, errors, object, new ValidationProfileSet(profile));
+    return validate(appContext, errors, object, new ValidationProfileSet(profile, true));
   }
 
   @Override
@@ -479,7 +481,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
   
   @Override
   public void validate(Object appContext, List<ValidationMessage> errors, Element element, String profile) throws Exception {
-    validate(appContext, errors, element, new ValidationProfileSet(profile));
+    validate(appContext, errors, element, new ValidationProfileSet(profile, true));
   }
 
   @Override
@@ -776,7 +778,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
         String p = stack.addToLiteralPath("meta", "profile", ":" + Integer.toString(i));
         if (rule(errors, IssueType.INVALID, element.line(), element.col(), p, !Utilities.noString(ref), "StructureDefinition reference invalid")) {
           long t = System.nanoTime();
-          resourceProfiles.addProfile(errors, ref, p, element);
+          resourceProfiles.addProfile(errors, ref, errorForUnknownProfiles, p, element);
           i++;
         }
       }
@@ -812,11 +814,50 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
         rule(errors, IssueType.STRUCTURE, element.line(), element.col(), path + "[url='" + url + "']", !ex.getSnapshot().getElement().get(0).getIsModifier(),
             "The Extension '" + url + "' must not be used as an extension (it's a modifierExtension)");
 
-      // 2. is the content of the extension valid?
+      // check the type of the extension:
+      Set<String> allowedTypes = listExtensionTypes(ex);
+      String actualType = getExtensionType(element);
+      if (actualType == null) 
+        rule(errors, IssueType.STRUCTURE, element.line(), element.col(), path + "[url='" + url + "']", allowedTypes.isEmpty(), "The Extension '" + url + "' definition is for a complex extension, so it cannot contain a value");
+      else 
+        rule(errors, IssueType.STRUCTURE, element.line(), element.col(), path + "[url='" + url + "']", allowedTypes.contains(actualType), "The Extension '" + url + "' definition allows for the types "+allowedTypes.toString()+" but found type "+actualType);      
+      
+      // 3. is the content of the extension valid?
       validateElement(appContext, errors, ex, ex.getSnapshot().getElement().get(0), null, null, resource, element, "Extension", stack, false);
 
     }
     return ex;
+  }
+
+  private String getExtensionType(Element element) {
+    for (Element e : element.getChildren()) {
+      if (e.getName().startsWith("value")) {
+        String tn = e.getName().substring(5);
+        String ltn = Utilities.uncapitalize(tn);
+        if (isPrimitiveType(ltn))
+          return ltn;
+        else
+          return tn;
+      }
+    }
+    return null;
+  }
+
+  private Set<String> listExtensionTypes(StructureDefinition ex) {
+    ElementDefinition vd = null;
+    for (ElementDefinition ed : ex.getSnapshot().getElement()) {
+      if (ed.getPath().startsWith("Extension.value")) {
+        vd = ed;
+        break;
+      }
+    }
+    Set<String> res = new HashSet<String>();
+    if (vd != null && !"0".equals(vd.getMax())) {
+      for (TypeRefComponent tr : vd.getType()) {
+        res.add(tr.getCode());
+      }
+    }
+    return res;
   }
 
   private boolean checkExtensionContext(List<ValidationMessage> errors, Element element, StructureDefinition definition, NodeStack stack, String extensionParent) {
@@ -1277,7 +1318,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 
   private ResourceProfiles addResourceProfile(List<ValidationMessage> errors, Element resource, String profile, String path, Element element, NodeStack stack) {
     ResourceProfiles resourceProfiles = getResourceProfiles(resource, stack);
-    resourceProfiles.addProfile(errors, profile, path, element);
+    resourceProfiles.addProfile(errors, profile, errorForUnknownProfiles, path, element);
     return resourceProfiles;
   }
 
@@ -1683,6 +1724,14 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 
   public boolean isAnyExtensionsAllowed() {
     return anyExtensionsAllowed;
+  }
+
+  public boolean isErrorForUnknownProfiles() {
+    return errorForUnknownProfiles;
+  }
+
+  public void setErrorForUnknownProfiles(boolean errorForUnknownProfiles) {
+    this.errorForUnknownProfiles = errorForUnknownProfiles;
   }
 
   private boolean isParametersEntry(String path) {
@@ -2735,9 +2784,9 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
           }
         }
 
-      rule(errors, IssueType.INVALID, ei.line(), ei.col(), ei.path, (ei.definition == null) || (ei.index >= last) || isXmlAttr, "Profile " + profile.getUrl() + ", Element is out of order");
+      rule(errors, IssueType.INVALID, ei.line(), ei.col(), ei.path, (ei.definition == null) || (ei.index >= last) || isXmlAttr, "As specified by profile " + profile.getUrl() + ", Element '"+ei.name+"' is out of order");
       if (ei.slice != null && ei.index == last && ei.slice.getSlicing().getOrdered())
-        rule(errors, IssueType.INVALID, ei.line(), ei.col(), ei.path, (ei.definition == null) || (ei.sliceindex >= lastSlice) || isXmlAttr, "Profile " + profile.getUrl() + ", Element is out of order in ordered slice");
+        rule(errors, IssueType.INVALID, ei.line(), ei.col(), ei.path, (ei.definition == null) || (ei.sliceindex >= lastSlice) || isXmlAttr, "As specified by profile " + profile.getUrl() + ", Element  '"+ei.name+"' is out of order in ordered slice");
       if (ei.definition == null || !isXmlAttr)
         last = ei.index;
       if (ei.slice != null)
@@ -3008,7 +3057,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
       if (defn == null)
         defn = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/" + resourceName);
       if (profiles!=null)
-        getResourceProfiles(resource, stack).addProfiles(errors, profiles.getCanonicalAll(), stack.getLiteralPath(), element);
+        getResourceProfiles(resource, stack).addProfiles(errors, profiles, stack.getLiteralPath(), element);
       sdTime = sdTime + (System.nanoTime() - t);
       ok = rule(errors, IssueType.INVALID, element.line(), element.col(), stack.addToLiteralPath(resourceName), defn != null, "No definition found for resource type '" + resourceName + "'");
     }
@@ -3036,7 +3085,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 
   private void loadProfiles(ValidationProfileSet profiles) throws DefinitionException {
     if (profiles != null) { 
-      for (String profile : profiles.getCanonical()) {
+      for (String profile : profiles.getCanonicalUrls()) {
         StructureDefinition p = context.fetchResource(StructureDefinition.class, profile);
         if (p == null)
           throw new DefinitionException("StructureDefinition '" + profile + "' not found");
