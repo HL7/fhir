@@ -214,7 +214,7 @@ public class Validator {
       ValidationEngine validator = new ValidationEngine(definitions, txServer);
       System.out.println("    (v"+validator.getContext().getVersion()+")");
       for (String src : igs) {
-        System.out.println("  .. load IG from "+src);
+        System.out.println("+  .. load IG from "+src);
           validator.loadIg(src);
       }
       validator.setQuestionnaires(questionnaires);

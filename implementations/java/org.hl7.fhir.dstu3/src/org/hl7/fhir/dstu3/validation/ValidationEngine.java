@@ -57,6 +57,7 @@ import org.hl7.fhir.dstu3.formats.RdfParser;
 import org.hl7.fhir.dstu3.formats.XmlParser;
 import org.hl7.fhir.dstu3.model.Bundle;
 import org.hl7.fhir.dstu3.model.DomainResource;
+import org.hl7.fhir.dstu3.model.ExpansionProfile;
 import org.hl7.fhir.dstu3.model.ImplementationGuide;
 import org.hl7.fhir.dstu3.model.MetadataResource;
 import org.hl7.fhir.dstu3.model.OperationOutcome;
@@ -168,8 +169,17 @@ public class ValidationEngine {
   private void loadDefinitions(String src) throws Exception {
     Map<String, byte[]> source = loadSource(src, "igpack.zip");   
     context = SimpleWorkerContext.fromDefinitions(source);
+    context.setExpansionProfile(makeExpProfile());
     fpe = new FHIRPathEngine(context);
     grabNatives(source, "http://hl7.org/fhir");
+  }
+
+  private ExpansionProfile makeExpProfile() {
+    ExpansionProfile ep  = new ExpansionProfile();
+    ep.setId("dc8fd4bc-091a-424a-8a3b-6198ef146891"); // change this to blow the cache
+    ep.setUrl("http://hl7.org/fhir/ExpansionProfile/"+ep.getId());
+    // all defaults....
+    return ep;
   }
 
   private Map<String, byte[]> loadSource(String src, String defname) throws Exception {
@@ -216,7 +226,7 @@ public class ValidationEngine {
         return res;
     }
       } else {
-        if (src.endsWith(".zip") || (defname != null && src.endsWith(defname)))
+        if (src.endsWith(".zip") || src.endsWith(".pack") || (defname != null && src.endsWith(defname)))
           return readZip(new FileInputStream(src));
         else {
           Map<String, byte[]> res = new HashMap<String, byte[]>();

@@ -250,6 +250,8 @@ public abstract class BaseWorkerContext implements IWorkerContext {
   public ValueSetExpansionOutcome expandOnServer(ValueSet vs, String fn) throws Exception {
     if (noTerminologyServer)
       return new ValueSetExpansionOutcome("Error expanding ValueSet: running without terminology services", TerminologyServiceErrorClass.NOSERVICE);
+    if (expProfile == null)
+      throw new Exception("No ExpansionProfile provided");
       
     try {
       Map<String, String> params = new HashMap<String, String>();
@@ -369,7 +371,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
     return b.toString();
   }
   
-  private ValidationResult verifyCodeExternal(ValueSet vs, Coding coding, boolean tryCache) throws IOException {
+  private ValidationResult verifyCodeExternal(ValueSet vs, Coding coding, boolean tryCache) throws Exception {
     ValidationResult res = vs == null ? null : handleByCache(vs, coding, tryCache);
     if (res != null)
       return res;
@@ -385,7 +387,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
     return res;
   }
   
-  private ValidationResult verifyCodeExternal(ValueSet vs, CodeableConcept cc, boolean tryCache) throws IOException {
+  private ValidationResult verifyCodeExternal(ValueSet vs, CodeableConcept cc, boolean tryCache) throws Exception {
     ValidationResult res = handleByCache(vs, cc, tryCache);
     if (res != null)
       return res;
@@ -398,7 +400,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
     return res;
   }
 
-  private ValidationResult serverValidateCode(Parameters pin, boolean doCache) throws IOException {
+  private ValidationResult serverValidateCode(Parameters pin, boolean doCache) throws Exception {
     if (noTerminologyServer)
       return new ValidationResult(null, null, TerminologyServiceErrorClass.NOSERVICE);
     String cacheName = doCache ? generateCacheName(pin) : null;
@@ -409,6 +411,8 @@ public abstract class BaseWorkerContext implements IWorkerContext {
     for (ParametersParameterComponent pp : pin.getParameter())
       if (pp.getName().equals("profile"))
         throw new Error("Can only specify profile in the context");
+    if (expProfile == null)
+      throw new Exception("No ExpansionProfile provided");
     pin.addParameter().setName("profile").setResource(expProfile);
 
     Parameters pout = txServer.operateType(ValueSet.class, "validate-code", pin);
@@ -625,7 +629,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
     return res;
   }
 
-  private ValidationResult verifyCodeInternal(ValueSet vs, CodeableConcept code) throws FileNotFoundException, ETooCostly, IOException {
+  private ValidationResult verifyCodeInternal(ValueSet vs, CodeableConcept code) throws Exception {
     for (Coding c : code.getCoding()) {
       ValidationResult res = verifyCodeInternal(vs, c.getSystem(), c.getCode(), c.getDisplay());
       if (res.isOk())
@@ -637,7 +641,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
       return new ValidationResult(IssueSeverity.ERROR, "None of the codes are in the specified value set");
   }
 
-  private ValidationResult verifyCodeInternal(ValueSet vs, String system, String code, String display) throws FileNotFoundException, ETooCostly, IOException {
+  private ValidationResult verifyCodeInternal(ValueSet vs, String system, String code, String display) throws Exception {
     if (vs.hasExpansion())
       return verifyCodeInExpansion(vs, system, code, display);
     else {
@@ -661,16 +665,18 @@ public abstract class BaseWorkerContext implements IWorkerContext {
     }
   }
 
-  private ValidationResult verifyCodeInCodeSystem(CodeSystem cs, String system, String code, String display) {
+  private ValidationResult verifyCodeInCodeSystem(CodeSystem cs, String system, String code, String display) throws Exception {
     ConceptDefinitionComponent cc = findCodeInConcept(cs.getConcept(), code);
     if (cc == null)
-	  if (cs.getContent().equals(CodeSystem.CodeSystemContentMode.COMPLETE))
-      return new ValidationResult(IssueSeverity.ERROR, "Unknown Code "+code+" in "+cs.getUrl());
-	  else if (!cs.getContent().equals(CodeSystem.CodeSystemContentMode.NOTPRESENT))
-	    return new ValidationResult(IssueSeverity.WARNING, "Unknown Code "+code+" in partial code list of "+cs.getUrl());
-	  else
-	    return new ValidationResult(IssueSeverity.WARNING, "Codes are not available for validation of content from system "+cs.getUrl());
-//      return new ValidationResult(IssueSeverity.ERROR, "Unknown Code "+code+" in "+cs.getUrl());
+      if (cs.getContent().equals(CodeSystem.CodeSystemContentMode.COMPLETE))
+        return new ValidationResult(IssueSeverity.ERROR, "Unknown Code "+code+" in "+cs.getUrl());
+      else if (!cs.getContent().equals(CodeSystem.CodeSystemContentMode.NOTPRESENT))
+        return new ValidationResult(IssueSeverity.WARNING, "Unknown Code "+code+" in partial code list of "+cs.getUrl());
+      else 
+        return verifyCodeExternal(null, new Coding().setSystem(system).setCode(code).setDisplay(display), false);
+//
+//        return new ValidationResult(IssueSeverity.WARNING, "A definition was found for "+cs.getUrl()+", but it has no codes in the definition");
+    //      return new ValidationResult(IssueSeverity.ERROR, "Unknown Code "+code+" in "+cs.getUrl());
     if (display == null)
       return new ValidationResult(cc);
     CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
