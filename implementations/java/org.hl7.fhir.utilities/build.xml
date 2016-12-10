@@ -26,8 +26,8 @@
         <pathelement location="../../../tools/java/imports/Saxon-HE-9.5.1-5.jar"/>
         <pathelement location="../../../tools/java/imports/txtmark-0.11.jar"/>
         <pathelement location="../../../tools/java/imports/hapi-fhir-base-1.6.jar"/>
-        <pathelement location="../../../build/tools/java/imports/commons-lang3-3.3.2.jar"/>
-        <pathelement location="../../../build/tools/java/imports/junit-4.11.jar"/>
+        <pathelement location="../../../tools/java/imports/commons-lang3-3.3.2.jar"/>
+        <pathelement location="../../../tools/java/imports/junit-4.11.jar"/>
     </path>
     <target name="init">
         <mkdir dir="bin"/>
