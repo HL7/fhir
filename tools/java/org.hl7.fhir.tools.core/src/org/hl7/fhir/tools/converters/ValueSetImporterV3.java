@@ -35,7 +35,6 @@ import org.hl7.fhir.dstu3.terminologies.CodeSystemUtilities;
 import org.hl7.fhir.dstu3.terminologies.ValueSetUtilities;
 import org.hl7.fhir.dstu3.utils.NarrativeGenerator;
 import org.hl7.fhir.dstu3.utils.ToolingExtensions;
-import org.hl7.fhir.dstu3.validation.ValidationMessage;
 import org.hl7.fhir.igtools.spreadsheets.CodeSystemConvertor;
 import org.hl7.fhir.tools.publisher.PageProcessor;
 import org.hl7.fhir.tools.publisher.SectionNumberer;
@@ -44,6 +43,7 @@ import org.hl7.fhir.utilities.CSFileInputStream;
 import org.hl7.fhir.utilities.IniFile;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.utilities.validation.ValidationMessage;
 import org.hl7.fhir.utilities.xhtml.XhtmlParser;
 import org.hl7.fhir.utilities.xml.XMLUtil;
 import org.w3c.dom.DOMException;
@@ -454,6 +454,7 @@ public class ValueSetImporterV3 extends ValueSetImporterBase {
     vs.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.URL, "http://www.hl7.org"));
     vs.setStatus(PublicationStatus.ACTIVE);
     vs.setExperimental(false);
+    vs.setImmutable("true".equals(e.getAttribute("isImmutable")));
 
     r = XMLUtil.getNamedChild(e, "version");
     if (r != null)
@@ -501,6 +502,7 @@ public class ValueSetImporterV3 extends ValueSetImporterBase {
     vs.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.URL, "http://www.hl7.org"));
     vs.setStatus(PublicationStatus.ACTIVE);
     vs.setExperimental(false);
+    vs.setImmutable("true".equals(e.getAttribute("isImmutable")));
 
     r = XMLUtil.getNamedChild(e, "version");
     if (r != null) {

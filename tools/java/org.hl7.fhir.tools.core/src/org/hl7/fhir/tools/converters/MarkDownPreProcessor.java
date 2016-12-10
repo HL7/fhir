@@ -3,19 +3,18 @@ package org.hl7.fhir.tools.converters;
 import java.util.List;
 
 import org.hl7.fhir.definitions.model.Definitions;
+import org.hl7.fhir.dstu3.conformance.ProfileUtilities;
+import org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionComponent;
+import org.hl7.fhir.dstu3.model.StructureDefinition;
 import org.hl7.fhir.dstu3.model.ValueSet;
 import org.hl7.fhir.dstu3.model.ValueSet.ValueSetExpansionContainsComponent;
 import org.hl7.fhir.dstu3.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
-import org.hl7.fhir.dstu3.utils.ToolingExtensions;
-import org.hl7.fhir.dstu3.conformance.ProfileUtilities;
-import org.hl7.fhir.dstu3.model.StructureDefinition;
-import org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionComponent;
-import org.hl7.fhir.dstu3.model.OperationOutcome.IssueSeverity;
-import org.hl7.fhir.dstu3.model.OperationOutcome.IssueType;
-import org.hl7.fhir.dstu3.validation.ValidationMessage;
-import org.hl7.fhir.dstu3.validation.ValidationMessage.Source;
 import org.hl7.fhir.tools.publisher.BuildWorkerContext;
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.utilities.validation.ValidationMessage;
+import org.hl7.fhir.utilities.validation.ValidationMessage.IssueSeverity;
+import org.hl7.fhir.utilities.validation.ValidationMessage.IssueType;
+import org.hl7.fhir.utilities.validation.ValidationMessage.Source;
 
 public class MarkDownPreProcessor {
 

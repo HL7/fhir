@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/org.hl7.fhir.convertors"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/org.hl7.fhir.dstu2"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/org.hl7.fhir.dstu2016may"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/org.hl7.fhir.dstu3"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/org.hl7.fhir.utilities"/>
+	<classpathentry kind="lib" path="../../../tools/java/imports/commons-lang3-3.3.2.jar"/>
+	<classpathentry kind="lib" path="../../../tools/java/imports/gson-2.3.jar"/>
+	<classpathentry kind="lib" path="../../../tools/java/imports/hapi-fhir-base-1.6.jar"/>
+	<classpathentry kind="lib" path="../../../tools/java/imports/commons-io-1.2.jar"/>
+	<classpathentry kind="lib" path="../../../tools/java/imports/xpp3_xpath-1.1.4c.jar"/>
+	<classpathentry kind="lib" path="../../../tools/java/imports/xpp3-1.1.4c.jar"/>
+	<classpathentry kind="lib" path="../../../tools/java/imports/commons-codec-1.9.jar"/>
+	<classpathentry kind="lib" path="../../../tools/java/imports/junit-4.11.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

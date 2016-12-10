@@ -16,12 +16,12 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>21930</WindowHeight>
-  <WindowWidth>-19456</WindowWidth>
+  <WindowHeight>14010</WindowHeight>
+  <WindowWidth>28800</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>663</TabRatio>
-  <ActiveSheet>3</ActiveSheet>
+  <ActiveSheet>4</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -5599,7 +5599,6 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>110</Zoom>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -5635,7 +5634,7 @@
    <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Operations!R1C1:R2C9"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="11" ss:ExpandedRowCount="55" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="11" ss:ExpandedRowCount="56" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s115" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="14.4375">
    <Column ss:StyleID="s115" ss:AutoFitWidth="0" ss:Width="131.25"/>
@@ -5779,6 +5778,17 @@
     <Cell ss:StyleID="s126"/>
     <Cell ss:StyleID="s126"/>
     <Cell ss:StyleID="s150"><Data ss:Type="String">average|max|min|count  The statistical operations to be performed on the relevant operations. Multiple statistics operations can be specified. These codes are defined [here](valueset-observation-statistics.html)</Data></Cell>
+    <Cell ss:StyleID="s149"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s125"><Data ss:Type="String">stats.include</Data></Cell>
+    <Cell ss:StyleID="s126"><Data ss:Type="String">in</Data></Cell>
+    <Cell ss:StyleID="s147"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s147"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s126"><Data ss:Type="String">boolean</Data></Cell>
+    <Cell ss:StyleID="s126"/>
+    <Cell ss:StyleID="s126"/>
+    <Cell ss:StyleID="s148"><Data ss:Type="String">Whether to return the observations on which the statistics are based</Data></Cell>
     <Cell ss:StyleID="s149"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -6289,10 +6299,11 @@
     <ValidPrinterInfo/>
     <VerticalResolution>0</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>13</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -6305,12 +6316,11 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>11</ActiveRow>
-     <ActiveCol>7</ActiveCol>
+     <ActiveRow>9</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

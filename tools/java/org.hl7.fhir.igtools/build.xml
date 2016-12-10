@@ -6,6 +6,7 @@
   <property name="org.hl7.fhir.implementation2.location" value="../../../implementations/java/org.hl7.fhir.dstu2"/>
   <property name="org.hl7.fhir.implementation14.location" value="../../../implementations/java/org.hl7.fhir.dstu2016may"/>
   <property name="org.hl7.fhir.convertors.location" value="../../../implementations/java/org.hl7.fhir.convertors"/>
+  <property name="org.hl7.fhir.validation.location" value="../../../implementations/java/org.hl7.fhir.validation"/>
   <property name="org.hl7.fhir.rdf.location" value="../../../implementations/java/org.hl7.fhir.rdf"/>
   <property name="debuglevel" value="source,lines,vars"/>
   <property name="target" value="1.8"/>
@@ -28,6 +29,9 @@
   <path id="org.hl7.fhir.convertors.classpath">
     <pathelement location="${org.hl7.fhir.convertors.location}/bin"/>
   </path>
+  <path id="org.hl7.fhir.validation.classpath">
+    <pathelement location="${org.hl7.fhir.validation.location}/bin"/>
+  </path>
   <path id="org.hl7.fhir.tools.classpath">
     <pathelement location="bin"/>
     <fileset dir="../imports" includes="*.jar"/>
@@ -35,6 +39,7 @@
     <path refid="org.hl7.fhir.implementation2.classpath"/>
     <path refid="org.hl7.fhir.implementation14.classpath"/>
     <path refid="org.hl7.fhir.convertors.classpath"/>
+    <path refid="org.hl7.fhir.validation.classpath"/>
     <path refid="org.hl7.fhir.utilities.classpath"/>
     <path refid="org.hl7.fhir.rdf.classpath"/>
   </path>
@@ -47,6 +52,7 @@
     <ant antfile="build.xml" dir="${org.hl7.fhir.implementation2.location}" inheritAll="false" target="clean"/>
     <ant antfile="build.xml" dir="${org.hl7.fhir.implementation14.location}" inheritAll="false" target="clean"/>
     <ant antfile="build.xml" dir="${org.hl7.fhir.convertors.location}" inheritAll="false" target="clean"/>
+    <ant antfile="build.xml" dir="${org.hl7.fhir.validation.location}" inheritAll="false" target="clean"/>
     <ant antfile="build.xml" dir="${org.hl7.fhir.rdf.location}" inheritAll="false" target="clean"/>
   </target>
   <target depends="build-subprojects,build-project" name="build"/>
@@ -72,6 +78,11 @@
       </propertyset>
     </ant>
     <ant antfile="build.xml" dir="${org.hl7.fhir.convertors.location}" inheritAll="false" target="build-project">
+      <propertyset>
+        <propertyref name="build.compiler"/>
+      </propertyset>
+    </ant>
+    <ant antfile="build.xml" dir="${org.hl7.fhir.validation.location}" inheritAll="false" target="build-project">
       <propertyset>
         <propertyref name="build.compiler"/>
       </propertyset>

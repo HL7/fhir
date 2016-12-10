@@ -12,7 +12,6 @@ import org.hl7.fhir.dstu3.model.Coding;
 import org.hl7.fhir.dstu3.model.ConceptMap;
 import org.hl7.fhir.dstu3.model.ExpansionProfile;
 import org.hl7.fhir.dstu3.model.MetadataResource;
-import org.hl7.fhir.dstu3.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.dstu3.model.Resource;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
 import org.hl7.fhir.dstu3.model.ValueSet;
@@ -21,9 +20,10 @@ import org.hl7.fhir.dstu3.model.ValueSet.ValueSetExpansionComponent;
 import org.hl7.fhir.dstu3.terminologies.ValueSetExpander.TerminologyServiceErrorClass;
 import org.hl7.fhir.dstu3.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
 import org.hl7.fhir.dstu3.utils.INarrativeGenerator;
-import org.hl7.fhir.dstu3.validation.IResourceValidator;
+import org.hl7.fhir.dstu3.utils.IResourceValidator;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.exceptions.TerminologyServiceException;
+import org.hl7.fhir.utilities.validation.ValidationMessage.IssueSeverity;
 
 
 /**

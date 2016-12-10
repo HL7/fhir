@@ -1367,6 +1367,14 @@
   Max = *
 
  -- Row 9 -----------------------------------
+  Name = stats.include
+  Use = in
+  Documentation = Whether to return the observations on which the statistics are based
+  Type = boolean
+  Min = 0
+  Max = 1
+
+ -- Row 10 -----------------------------------
   Name = stats.return
   Use = out
   Documentation = A set of observations, one observation for each code, each containing one component for each statistic. The Observation.component.code contains the statistic, and is relative to the Observation.code and cannot be interpreted independently.  The Observation will also contain a subject, effectivePeriod, and code reflecting the input parameters.  The status is fixed to `final`.
@@ -1374,7 +1382,7 @@
   Min = 1
   Max = *
 
- -- Row 10 -----------------------------------
+ -- Row 11 -----------------------------------
   Name = stats.source
   Use = out
   Documentation = Source observations on which the statistics are based

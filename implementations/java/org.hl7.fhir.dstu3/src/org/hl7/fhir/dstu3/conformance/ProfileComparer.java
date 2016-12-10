@@ -20,8 +20,6 @@ import org.hl7.fhir.dstu3.model.ElementDefinition.TypeRefComponent;
 import org.hl7.fhir.dstu3.model.Enumerations.BindingStrength;
 import org.hl7.fhir.dstu3.model.Enumerations.PublicationStatus;
 import org.hl7.fhir.dstu3.model.IntegerType;
-import org.hl7.fhir.dstu3.model.OperationOutcome.IssueSeverity;
-import org.hl7.fhir.dstu3.model.OperationOutcome.IssueType;
 import org.hl7.fhir.dstu3.model.PrimitiveType;
 import org.hl7.fhir.dstu3.model.Reference;
 import org.hl7.fhir.dstu3.model.StringType;
@@ -36,11 +34,11 @@ import org.hl7.fhir.dstu3.model.ValueSet.ValueSetExpansionContainsComponent;
 import org.hl7.fhir.dstu3.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
 import org.hl7.fhir.dstu3.utils.DefinitionNavigator;
 import org.hl7.fhir.dstu3.utils.ToolingExtensions;
-import org.hl7.fhir.dstu3.validation.ValidationMessage;
-import org.hl7.fhir.dstu3.validation.ValidationMessage.Source;
 import org.hl7.fhir.exceptions.DefinitionException;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.utilities.validation.ValidationMessage;
+import org.hl7.fhir.utilities.validation.ValidationMessage.Source;
 
 /**
  * A engine that generates difference analysis between two sets of structure 
@@ -146,12 +144,12 @@ public class ProfileComparer {
       if (vLeft == null && vRight == null && nullOK)
         return true;
       if (vLeft == null && vRight == null) {
-        messages.add(new ValidationMessage(Source.ProfileComparer, IssueType.STRUCTURE, path, description+" and not null (null/null)", IssueSeverity.ERROR));
+        messages.add(new ValidationMessage(Source.ProfileComparer, ValidationMessage.IssueType.STRUCTURE, path, description+" and not null (null/null)", ValidationMessage.IssueSeverity.ERROR));
         if (ed != null)
           status(ed, ProfileUtilities.STATUS_ERROR);
       }
       if (vLeft == null || !vLeft.equals(vRight)) {
-        messages.add(new ValidationMessage(Source.ProfileComparer, IssueType.STRUCTURE, path, description+" ("+vLeft+"/"+vRight+")", IssueSeverity.ERROR));
+        messages.add(new ValidationMessage(Source.ProfileComparer, ValidationMessage.IssueType.STRUCTURE, path, description+" ("+vLeft+"/"+vRight+")", ValidationMessage.IssueSeverity.ERROR));
         if (ed != null)
           status(ed, ProfileUtilities.STATUS_ERROR);
       }
@@ -162,7 +160,7 @@ public class ProfileComparer {
       if (vLeft == null && vRight == null && nullStatus == BOTH_NULL)
         return true;
       if (vLeft == null && vRight == null) {
-        messages.add(new ValidationMessage(Source.ProfileComparer, IssueType.STRUCTURE, path, "Must be the same and not null (null/null)", IssueSeverity.ERROR));
+        messages.add(new ValidationMessage(Source.ProfileComparer, ValidationMessage.IssueType.STRUCTURE, path, "Must be the same and not null (null/null)", ValidationMessage.IssueSeverity.ERROR));
         status(ed, ProfileUtilities.STATUS_ERROR);
       }
       if (vLeft == null && nullStatus == EITHER_NULL)
@@ -170,7 +168,7 @@ public class ProfileComparer {
       if (vRight == null && nullStatus == EITHER_NULL)
         return true;
       if (vLeft == null || vRight == null || !Base.compareDeep(vLeft, vRight, false)) {
-        messages.add(new ValidationMessage(Source.ProfileComparer, IssueType.STRUCTURE, path, "Must be the same ("+toString(vLeft)+"/"+toString(vRight)+")", IssueSeverity.ERROR));
+        messages.add(new ValidationMessage(Source.ProfileComparer, ValidationMessage.IssueType.STRUCTURE, path, "Must be the same ("+toString(vLeft)+"/"+toString(vRight)+")", ValidationMessage.IssueSeverity.ERROR));
         status(ed, ProfileUtilities.STATUS_ERROR);
       }
       return true;
@@ -178,7 +176,7 @@ public class ProfileComparer {
 
     private boolean rule(ElementDefinition ed, boolean test, String path, String message) {
       if (!test)  {
-        messages.add(new ValidationMessage(Source.ProfileComparer, IssueType.STRUCTURE, path, message, IssueSeverity.ERROR));
+        messages.add(new ValidationMessage(Source.ProfileComparer, ValidationMessage.IssueType.STRUCTURE, path, message, ValidationMessage.IssueSeverity.ERROR));
         status(ed, ProfileUtilities.STATUS_ERROR);
       }
       return test;
@@ -186,7 +184,7 @@ public class ProfileComparer {
 
     private boolean ruleEqual(ElementDefinition ed, boolean vLeft, boolean vRight, String path, String elementName) {
       if (vLeft != vRight) {
-        messages.add(new ValidationMessage(Source.ProfileComparer, IssueType.STRUCTURE, path, elementName+" must be the same ("+vLeft+"/"+vRight+")", IssueSeverity.ERROR));
+        messages.add(new ValidationMessage(Source.ProfileComparer, ValidationMessage.IssueType.STRUCTURE, path, elementName+" must be the same ("+vLeft+"/"+vRight+")", ValidationMessage.IssueSeverity.ERROR));
         status(ed, ProfileUtilities.STATUS_ERROR);
       }
       return true;
@@ -203,7 +201,7 @@ public class ProfileComparer {
     public String getErrorCount() {
       int c = 0;
       for (ValidationMessage vm : messages)
-        if (vm.getLevel() == IssueSeverity.ERROR)
+        if (vm.getLevel() == ValidationMessage.IssueSeverity.ERROR)
           c++;
       return Integer.toString(c);
     }
@@ -211,7 +209,7 @@ public class ProfileComparer {
     public String getWarningCount() {
       int c = 0;
       for (ValidationMessage vm : messages)
-        if (vm.getLevel() == IssueSeverity.WARNING)
+        if (vm.getLevel() == ValidationMessage.IssueSeverity.WARNING)
           c++;
       return Integer.toString(c);
     }
@@ -219,7 +217,7 @@ public class ProfileComparer {
     public String getHintCount() {
       int c = 0;
       for (ValidationMessage vm : messages)
-        if (vm.getLevel() == IssueSeverity.INFORMATION)
+        if (vm.getLevel() == ValidationMessage.IssueSeverity.INFORMATION)
           c++;
       return Integer.toString(c);
     }
@@ -483,7 +481,7 @@ public class ProfileComparer {
     if (rc.isEmpty() && !lc.isEmpty() && left.current().getType().size() == 1 && right.hasTypeChildren(left.current().getType().get(0)))
       rc = right.childrenFromType(left.current().getType().get(0));
     if (lc.size() != rc.size()) {
-      outcome.messages.add(new ValidationMessage(Source.ProfileComparer, IssueType.STRUCTURE, path, "Different number of children at "+path+" ("+Integer.toString(lc.size())+"/"+Integer.toString(rc.size())+")", IssueSeverity.ERROR));
+      outcome.messages.add(new ValidationMessage(Source.ProfileComparer, ValidationMessage.IssueType.STRUCTURE, path, "Different number of children at "+path+" ("+Integer.toString(lc.size())+"/"+Integer.toString(rc.size())+")", ValidationMessage.IssueSeverity.ERROR));
       status(ed, ProfileUtilities.STATUS_ERROR);
       return false;      
     } else {
@@ -495,7 +493,7 @@ public class ProfileComparer {
           if (!compareElements(outcome, cpath, l, r))
             return false;
         } else {
-          outcome.messages.add(new ValidationMessage(Source.ProfileComparer, IssueType.STRUCTURE, path, "Different path at "+path+"["+Integer.toString(i)+"] ("+l.path()+"/"+r.path()+")", IssueSeverity.ERROR));
+          outcome.messages.add(new ValidationMessage(Source.ProfileComparer, ValidationMessage.IssueType.STRUCTURE, path, "Different path at "+path+"["+Integer.toString(i)+"] ("+l.path()+"/"+r.path()+")", ValidationMessage.IssueSeverity.ERROR));
           status(ed, ProfileUtilities.STATUS_ERROR);
           return false;
         }
@@ -542,13 +540,13 @@ public class ProfileComparer {
     // superset: 
     if (isPreferredOrExample(left) && isPreferredOrExample(right)) {
       if (right.getStrength() == BindingStrength.PREFERRED && left.getStrength() == BindingStrength.EXAMPLE && !Base.compareDeep(left.getValueSet(), right.getValueSet(), false)) { 
-        outcome.messages.add(new ValidationMessage(Source.ProfileComparer, IssueType.STRUCTURE, path, "Example/preferred bindings differ at "+path+" using binding from "+outcome.rightName(), IssueSeverity.INFORMATION));
+        outcome.messages.add(new ValidationMessage(Source.ProfileComparer, ValidationMessage.IssueType.STRUCTURE, path, "Example/preferred bindings differ at "+path+" using binding from "+outcome.rightName(), ValidationMessage.IssueSeverity.INFORMATION));
         status(subset, ProfileUtilities.STATUS_HINT);
         subset.setBinding(right);
         superset.setBinding(unionBindings(superset, outcome, path, left, right));
       } else {
         if ((right.getStrength() != BindingStrength.EXAMPLE || left.getStrength() != BindingStrength.EXAMPLE) && !Base.compareDeep(left.getValueSet(), right.getValueSet(), false) ) { 
-          outcome.messages.add(new ValidationMessage(Source.ProfileComparer, IssueType.STRUCTURE, path, "Example/preferred bindings differ at "+path+" using binding from "+outcome.leftName(), IssueSeverity.INFORMATION));
+          outcome.messages.add(new ValidationMessage(Source.ProfileComparer, ValidationMessage.IssueType.STRUCTURE, path, "Example/preferred bindings differ at "+path+" using binding from "+outcome.leftName(), ValidationMessage.IssueSeverity.INFORMATION));
           status(subset, ProfileUtilities.STATUS_HINT);
         }
         subset.setBinding(left);
@@ -589,20 +587,20 @@ public class ProfileComparer {
       superBinding.setValueSet(left.getValueSet());
       return true;
     } else if (!left.hasValueSet()) {
-      outcome.messages.add(new ValidationMessage(Source.ProfileComparer, IssueType.STRUCTURE, path, "No left Value set at "+path, IssueSeverity.ERROR));
+      outcome.messages.add(new ValidationMessage(Source.ProfileComparer, ValidationMessage.IssueType.STRUCTURE, path, "No left Value set at "+path, ValidationMessage.IssueSeverity.ERROR));
       return true;      
     } else if (!right.hasValueSet()) {
-      outcome.messages.add(new ValidationMessage(Source.ProfileComparer, IssueType.STRUCTURE, path, "No right Value set at "+path, IssueSeverity.ERROR));
+      outcome.messages.add(new ValidationMessage(Source.ProfileComparer, ValidationMessage.IssueType.STRUCTURE, path, "No right Value set at "+path, ValidationMessage.IssueSeverity.ERROR));
       return true;      
     } else {
       // ok, now we compare the value sets. This may be unresolvable. 
       ValueSet lvs = resolveVS(outcome.left, left.getValueSet());
       ValueSet rvs = resolveVS(outcome.right, right.getValueSet());
       if (lvs == null) {
-        outcome.messages.add(new ValidationMessage(Source.ProfileComparer, IssueType.STRUCTURE, path, "Unable to resolve left value set "+left.getValueSet().toString()+" at "+path, IssueSeverity.ERROR));
+        outcome.messages.add(new ValidationMessage(Source.ProfileComparer, ValidationMessage.IssueType.STRUCTURE, path, "Unable to resolve left value set "+left.getValueSet().toString()+" at "+path, ValidationMessage.IssueSeverity.ERROR));
         return true;
       } else if (rvs == null) {
-        outcome.messages.add(new ValidationMessage(Source.ProfileComparer, IssueType.STRUCTURE, path, "Unable to resolve right value set "+right.getValueSet().toString()+" at "+path, IssueSeverity.ERROR));
+        outcome.messages.add(new ValidationMessage(Source.ProfileComparer, ValidationMessage.IssueType.STRUCTURE, path, "Unable to resolve right value set "+right.getValueSet().toString()+" at "+path, ValidationMessage.IssueSeverity.ERROR));
         return true;        
       } else {
         // first, we'll try to do it by definition
@@ -618,12 +616,12 @@ public class ProfileComparer {
               throw new DefinitionException("unclosed value sets are not handled yet");
             cvs = intersectByExpansion(lvs, rvs);
             if (!cvs.getCompose().hasInclude()) {
-              outcome.messages.add(new ValidationMessage(Source.ProfileComparer, IssueType.STRUCTURE, path, "The value sets "+lvs.getUrl()+" and "+rvs.getUrl()+" do not intersect", IssueSeverity.ERROR));
+              outcome.messages.add(new ValidationMessage(Source.ProfileComparer, ValidationMessage.IssueType.STRUCTURE, path, "The value sets "+lvs.getUrl()+" and "+rvs.getUrl()+" do not intersect", ValidationMessage.IssueSeverity.ERROR));
               status(subset, ProfileUtilities.STATUS_ERROR);
               return false;
             }
           } catch (Exception e){
-            outcome.messages.add(new ValidationMessage(Source.ProfileComparer, IssueType.STRUCTURE, path, "Unable to expand or process value sets "+lvs.getUrl()+" and "+rvs.getUrl()+": "+e.getMessage(), IssueSeverity.ERROR));
+            outcome.messages.add(new ValidationMessage(Source.ProfileComparer, ValidationMessage.IssueType.STRUCTURE, path, "Unable to expand or process value sets "+lvs.getUrl()+" and "+rvs.getUrl()+": "+e.getMessage(), ValidationMessage.IssueSeverity.ERROR));
             status(subset, ProfileUtilities.STATUS_ERROR);
             return false;          
           }
@@ -664,7 +662,7 @@ public class ProfileComparer {
       for (ConceptSetComponent inc : lvs.getCompose().getInclude()) 
         vs.getCompose().getInclude().add(inc);
       if (lvs.getCompose().hasExclude()) {
-        outcome.messages.add(new ValidationMessage(Source.ProfileComparer, IssueType.STRUCTURE, path, "The value sets "+lvs.getUrl()+" has exclude statements, and no union involving it can be correctly determined", IssueSeverity.ERROR));
+        outcome.messages.add(new ValidationMessage(Source.ProfileComparer, ValidationMessage.IssueType.STRUCTURE, path, "The value sets "+lvs.getUrl()+" has exclude statements, and no union involving it can be correctly determined", ValidationMessage.IssueSeverity.ERROR));
         status(ed, ProfileUtilities.STATUS_ERROR);
       }
     }
@@ -673,7 +671,7 @@ public class ProfileComparer {
         if (!mergeIntoExisting(vs.getCompose().getInclude(), inc))
           vs.getCompose().getInclude().add(inc);
       if (rvs.getCompose().hasExclude()) {
-        outcome.messages.add(new ValidationMessage(Source.ProfileComparer, IssueType.STRUCTURE, path, "The value sets "+lvs.getUrl()+" has exclude statements, and no union involving it can be correctly determined", IssueSeverity.ERROR));
+        outcome.messages.add(new ValidationMessage(Source.ProfileComparer, ValidationMessage.IssueType.STRUCTURE, path, "The value sets "+lvs.getUrl()+" has exclude statements, and no union involving it can be correctly determined", ValidationMessage.IssueSeverity.ERROR));
         status(ed, ProfileUtilities.STATUS_ERROR);
       }
     }    
@@ -848,7 +846,7 @@ public class ProfileComparer {
   private StructureDefinition resolveProfile(ElementDefinition ed, ProfileComparison outcome, String path, String url, String name) {
     StructureDefinition res = context.fetchResource(StructureDefinition.class, url);
     if (res == null) {
-      outcome.messages.add(new ValidationMessage(Source.ProfileComparer, IssueType.INFORMATIONAL, path, "Unable to resolve profile "+url+" in profile "+name, IssueSeverity.INFORMATION));
+      outcome.messages.add(new ValidationMessage(Source.ProfileComparer, ValidationMessage.IssueType.INFORMATIONAL, path, "Unable to resolve profile "+url+" in profile "+name, ValidationMessage.IssueSeverity.INFORMATION));
       status(ed, ProfileUtilities.STATUS_HINT);
     }
     return res;
@@ -972,8 +970,8 @@ public class ProfileComparer {
     if (left.equalsIgnoreCase(right))
       return left;
     if (path != null) {
-      outcome.messages.add(new ValidationMessage(Source.ProfileComparer, IssueType.INFORMATIONAL, path, "Elements differ in definition for "+name+":\r\n  \""+left+"\"\r\n  \""+right+"\"", 
-          "Elements differ in definition for "+name+":<br/>\""+Utilities.escapeXml(left)+"\"<br/>\""+Utilities.escapeXml(right)+"\"", IssueSeverity.INFORMATION));
+      outcome.messages.add(new ValidationMessage(Source.ProfileComparer, ValidationMessage.IssueType.INFORMATIONAL, path, "Elements differ in definition for "+name+":\r\n  \""+left+"\"\r\n  \""+right+"\"", 
+          "Elements differ in definition for "+name+":<br/>\""+Utilities.escapeXml(left)+"\"<br/>\""+Utilities.escapeXml(right)+"\"", ValidationMessage.IssueSeverity.INFORMATION));
       status(ed, ProfileUtilities.STATUS_HINT);
     }
     return "left: "+left+"; right: "+right;
@@ -1030,7 +1028,7 @@ public class ProfileComparer {
         if (Utilities.equals(r.getId(), l.getId()) || (Utilities.equals(r.getXpath(), l.getXpath()) && r.getSeverity() == l.getSeverity()))
           found = true;
       if (!found) {
-        outcome.messages.add(new ValidationMessage(Source.ProfileComparer, IssueType.STRUCTURE, path, "StructureDefinition "+outcome.leftName()+" has a constraint that is not found in "+outcome.rightName()+" and it is uncertain whether they are compatible ("+l.getXpath()+")", IssueSeverity.WARNING));
+        outcome.messages.add(new ValidationMessage(Source.ProfileComparer, ValidationMessage.IssueType.STRUCTURE, path, "StructureDefinition "+outcome.leftName()+" has a constraint that is not found in "+outcome.rightName()+" and it is uncertain whether they are compatible ("+l.getXpath()+")", ValidationMessage.IssueSeverity.WARNING));
         status(ed, ProfileUtilities.STATUS_WARNING);
       }
       result.add(l);
@@ -1041,7 +1039,7 @@ public class ProfileComparer {
         if (Utilities.equals(r.getId(), l.getId()) || (Utilities.equals(r.getXpath(), l.getXpath()) && r.getSeverity() == l.getSeverity()))
           found = true;
       if (!found) {
-        outcome.messages.add(new ValidationMessage(Source.ProfileComparer, IssueType.STRUCTURE, path, "StructureDefinition "+outcome.rightName()+" has a constraint that is not found in "+outcome.leftName()+" and it is uncertain whether they are compatible ("+r.getXpath()+")", IssueSeverity.WARNING));
+        outcome.messages.add(new ValidationMessage(Source.ProfileComparer, ValidationMessage.IssueType.STRUCTURE, path, "StructureDefinition "+outcome.rightName()+" has a constraint that is not found in "+outcome.leftName()+" and it is uncertain whether they are compatible ("+r.getXpath()+")", ValidationMessage.IssueSeverity.WARNING));
         status(ed, ProfileUtilities.STATUS_WARNING);
         result.add(r);
       }

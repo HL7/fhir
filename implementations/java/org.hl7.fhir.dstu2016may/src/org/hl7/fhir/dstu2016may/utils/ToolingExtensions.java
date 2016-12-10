@@ -59,7 +59,7 @@ import org.hl7.fhir.dstu2016may.model.StringType;
 import org.hl7.fhir.dstu2016may.model.Type;
 import org.hl7.fhir.dstu2016may.model.UriType;
 import org.hl7.fhir.dstu2016may.model.ValueSet;
-import org.hl7.fhir.dstu2016may.validation.ValidationMessage.Source;
+import org.hl7.fhir.utilities.validation.ValidationMessage.Source;
 import org.hl7.fhir.exceptions.FHIRFormatError;
 
 

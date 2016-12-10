@@ -30,18 +30,18 @@ package org.hl7.fhir.dstu3.model;
 */
 
 // Generated on Mon, Dec 5, 2016 23:44+1100 for FHIR v1.8.0
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
-import java.util.*;
+import org.hl7.fhir.exceptions.FHIRException;
+import org.hl7.fhir.instance.model.api.IBaseBackboneElement;
 
-import org.hl7.fhir.utilities.Utilities;
+import ca.uhn.fhir.model.api.annotation.Block;
+import ca.uhn.fhir.model.api.annotation.Child;
+import ca.uhn.fhir.model.api.annotation.Description;
 import ca.uhn.fhir.model.api.annotation.ResourceDef;
 import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;
-import ca.uhn.fhir.model.api.annotation.Child;
-import ca.uhn.fhir.model.api.annotation.ChildOrder;
-import ca.uhn.fhir.model.api.annotation.Description;
-import ca.uhn.fhir.model.api.annotation.Block;
-import org.hl7.fhir.instance.model.api.*;
-import org.hl7.fhir.exceptions.FHIRException;
 /**
  * An order for both supply of the medication and the instructions for administration of the medication to a patient. The resource is called "MedicationRequest" rather than "MedicationPrescription" or "MedicationOrder" to generalize the use across inpatient and outpatient settings as well as for care plans, etc and to harmonize with workflow patterns.
  */

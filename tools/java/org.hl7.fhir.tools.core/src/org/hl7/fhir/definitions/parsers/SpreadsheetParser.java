@@ -44,8 +44,8 @@ import org.hl7.fhir.definitions.generators.specification.ProfileGenerator;
 import org.hl7.fhir.definitions.generators.specification.ToolResourceUtilities;
 import org.hl7.fhir.definitions.generators.specification.XPathQueryGenerator;
 import org.hl7.fhir.definitions.model.BindingSpecification;
-import org.hl7.fhir.definitions.model.CommonSearchParameter;
 import org.hl7.fhir.definitions.model.BindingSpecification.BindingMethod;
+import org.hl7.fhir.definitions.model.CommonSearchParameter;
 import org.hl7.fhir.definitions.model.ConstraintStructure;
 import org.hl7.fhir.definitions.model.DefinedCode;
 import org.hl7.fhir.definitions.model.Definitions;
@@ -114,7 +114,6 @@ import org.hl7.fhir.dstu3.model.ValueSet;
 import org.hl7.fhir.dstu3.terminologies.CodeSystemUtilities;
 import org.hl7.fhir.dstu3.terminologies.ValueSetUtilities;
 import org.hl7.fhir.dstu3.utils.ToolingExtensions;
-import org.hl7.fhir.dstu3.validation.ValidationMessage;
 import org.hl7.fhir.igtools.spreadsheets.CodeSystemConvertor;
 import org.hl7.fhir.igtools.spreadsheets.MappingSpace;
 import org.hl7.fhir.igtools.spreadsheets.TabDelimitedSpreadSheet;
@@ -130,6 +129,7 @@ import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.XLSXmlParser;
 import org.hl7.fhir.utilities.XLSXmlParser.Sheet;
+import org.hl7.fhir.utilities.validation.ValidationMessage;
 
 import com.trilead.ssh2.crypto.Base64;
 

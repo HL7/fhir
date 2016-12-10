@@ -7,12 +7,12 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.hl7.fhir.dstu3.model.OperationOutcome.IssueSeverity;
-import org.hl7.fhir.dstu3.model.OperationOutcome.IssueType;
-import org.hl7.fhir.dstu3.validation.ValidationMessage;
-import org.hl7.fhir.dstu3.validation.ValidationMessage.Source;
 import org.hl7.fhir.utilities.FileNotifier;
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.utilities.validation.ValidationMessage;
+import org.hl7.fhir.utilities.validation.ValidationMessage.IssueSeverity;
+import org.hl7.fhir.utilities.validation.ValidationMessage.IssueType;
+import org.hl7.fhir.utilities.validation.ValidationMessage.Source;
 import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
 import org.hl7.fhir.utilities.xhtml.XhtmlDocument;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;

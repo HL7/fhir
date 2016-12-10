@@ -41,7 +41,7 @@ in order to support consistent definitions for schema and UML derived code.
 <p>To enable these use cases, the module defines several components that can each be used independently, or combined to enable more complex functionality. These components are:</p>
 
 <ul>
-	<li><b>Expression Logic</b> - the representation of logic using languages such as FluentPath and Clinical Quality Language (CQL).</li>
+	<li><b>Expression Logic</b> - the representation of logic using languages such as FHIRPath and Clinical Quality Language (CQL).</li>
 	<li><b>Definitional Resources</b> - template resources that are not defined on any specific patient, but are used to define the actions to be performed as part of a clinical knowledge artifact such as an order set or decision support rule.</li>
 	<li><b>Knowledge Artifacts</b> - representation of clinical knowledge such as decision support rules and clinical quality measures.</li>
 </ul>
@@ -104,7 +104,7 @@ in order to support consistent definitions for schema and UML derived code.
 	</thead>
 	<tbody>
 		<tr><td><a href="cqif/extension-cqif-basic-cqlexpression.html">cqlExpression</a></td><td>A general purpose extension that supports the use of Clinical Quality Language within FHIR</td></tr>
-		<tr><td><a href="cqif/extension-cqif-basic-fluentpathexpression.html">fluentPathExpression</a></td><td>A general purpose extension that supports the use of FluentPath within FHIR</td></tr>
+		<tr><td><a href="cqif/extension-cqif-basic-fluentpathexpression.html">fluentPathExpression</a></td><td>A general purpose extension that supports the use of FHIRPath within FHIR</td></tr>
 		<tr><td><a href="cqif/extension-cqif-basic-library.html">library</a></td><td>A general purpose extension that supports the declaration of dependencies that can be accessed by expression logic</td></tr>
 		<tr><td><a href="cqif/extension-cqif-basic-qualityofevidence.html">qualityOfEvidence</a></td><td>An extension that can be applied to Attachments to indicate the quality of evidence in support of a particular artifact or recommendation.</td></tr>
 		<tr><td><a href="cqif/extension-cqif-basic-strengthofrecommendation.html">strengthOfRecommendation</a></td><td>An extension that can be applied to Attachments to indicate the strength of a recommendation.</td></tr>
@@ -176,7 +176,7 @@ in order to support consistent definitions for schema and UML derived code.
 <p>The goals of the module over the next year are to provide a stable basis for implementation of the sharing and evaluation use cases. The Clinical Quality Framework Initiative will use these resources as the basis for implementation projects, targeting an FMM level of 3 or 4 for all module resources within a year. We are actively seeking comments on all areas of the module, with particular focus on supporting the following scenarios:</p>
 
 <ul>
-	<li>The use of FluentPath and CQL to provide dynamic functionality throughout FHIR</li>
+	<li>The use of FHIRPath and CQL to provide dynamic functionality throughout FHIR</li>
 	<li>FHIR-Based Knowledge Artifact Repository</li>
 	<li>FHIR-Based Clinical Decision Support Service</li>
 	<li>FHIR-Based Quality Measure Evaluation and Reporting</li>

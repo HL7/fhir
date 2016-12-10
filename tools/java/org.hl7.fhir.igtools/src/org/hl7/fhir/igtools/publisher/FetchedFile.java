@@ -9,7 +9,7 @@ import java.util.Map;
 import java.util.Set;
 
 import org.hl7.fhir.dstu3.model.Bundle;
-import org.hl7.fhir.dstu3.validation.ValidationMessage;
+import org.hl7.fhir.utilities.validation.ValidationMessage;
 
 public class FetchedFile {
   public final static int PROCESS_RESOURCE = 0;

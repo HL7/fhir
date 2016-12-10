@@ -10,7 +10,7 @@ import org.hl7.fhir.dstu3.model.CodeSystem;
 import org.hl7.fhir.dstu3.model.Resource;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
 import org.hl7.fhir.dstu3.model.ValueSet;
-import org.hl7.fhir.dstu3.validation.IResourceValidator.IValidatorResourceFetcher;
+import org.hl7.fhir.dstu3.utils.IResourceValidator.IValidatorResourceFetcher;
 import org.hl7.fhir.exceptions.DefinitionException;
 import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.utilities.Utilities;

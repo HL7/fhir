@@ -56,7 +56,6 @@ import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.dstu3.model.CodeSystem;
 import org.hl7.fhir.dstu3.test.ToolsHelper;
 import org.hl7.fhir.dstu3.utils.Version;
-import org.hl7.fhir.dstu3.validation.ValidationMessage;
 import org.hl7.fhir.igtools.spreadsheets.TypeRef;
 import org.hl7.fhir.tools.implementations.BaseGenerator;
 import org.hl7.fhir.tools.implementations.GeneratorUtils;
@@ -69,6 +68,7 @@ import org.hl7.fhir.utilities.Logger.LogMessageType;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.ZipGenerator;
+import org.hl7.fhir.utilities.validation.ValidationMessage;
 
 public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
 
@@ -454,6 +454,7 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
     AddToJar(jar, new File(Utilities.path(rootDir+"implementations", "java", "org.hl7.fhir.dstu2", "bin")), Utilities.path(rootDir,"implementations", "java", "org.hl7.fhir.dstu2", "bin", "").length(), names);
     AddToJar(jar, new File(Utilities.path(rootDir+"implementations", "java", "org.hl7.fhir.dstu2016may", "bin")), Utilities.path(rootDir,"implementations", "java", "org.hl7.fhir.dstu2016may", "bin", "").length(), names);
     AddToJar(jar, new File(Utilities.path(rootDir+"implementations", "java", "org.hl7.fhir.convertors", "bin")), Utilities.path(rootDir,"implementations", "java", "org.hl7.fhir.convertors", "bin", "").length(), names);
+    AddToJar(jar, new File(Utilities.path(rootDir+"implementations", "java", "org.hl7.fhir.validation", "bin")), Utilities.path(rootDir,"implementations", "java", "org.hl7.fhir.validation", "bin", "").length(), names);
     AddToJar(jar, new File(Utilities.path(rootDir+"implementations", "java", "org.hl7.fhir.utilities", "bin")), Utilities.path(rootDir,"implementations", "java", "org.hl7.fhir.utilities", "bin", "").length(), names);
     jar.close();
 
@@ -743,6 +744,7 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
     AddToJar(jar, new File(Utilities.path(folders.rootDir,"implementations", "java", "org.hl7.fhir.dstu2",       "bin")), Utilities.path(folders.rootDir, "implementations", "java", "org.hl7.fhir.dstu2",       "bin").length()+1, names);
     AddToJar(jar, new File(Utilities.path(folders.rootDir,"implementations", "java", "org.hl7.fhir.convertors",  "bin")), Utilities.path(folders.rootDir, "implementations", "java", "org.hl7.fhir.convertors",  "bin").length()+1, names);
     AddToJar(jar, new File(Utilities.path(folders.rootDir,"implementations", "java", "org.hl7.fhir.utilities",   "bin")), Utilities.path(folders.rootDir, "implementations", "java", "org.hl7.fhir.utilities",   "bin").length()+1, names);
+    AddToJar(jar, new File(Utilities.path(folders.rootDir,"implementations", "java", "org.hl7.fhir.validation",  "bin")), Utilities.path(folders.rootDir, "implementations", "java", "org.hl7.fhir.validation",  "bin").length()+1, names);
     AddToJar(jar, new File(Utilities.path(folders.rootDir,"tools",           "java", "org.hl7.fhir.igtools",     "bin")), Utilities.path(folders.rootDir, "tools",           "java", "org.hl7.fhir.igtools",     "bin").length()+1, names);
     
     // last, add the igpack:

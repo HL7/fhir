@@ -24,5 +24,6 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/org.hl7.fhir.convertors"/>
 	<classpathentry kind="lib" path="../../../tools/java/imports/commons-io-1.2.jar"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/org.hl7.fhir.dstu2016may"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/org.hl7.fhir.validation"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

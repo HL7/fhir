@@ -11,8 +11,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import com.github.rjeschke.txtmark.Processor;
-
 import org.apache.commons.lang3.StringUtils;
 import org.hl7.fhir.dstu3.conformance.ProfileUtilities.ProfileKnowledgeProvider.BindingResolution;
 import org.hl7.fhir.dstu3.context.IWorkerContext;
@@ -38,8 +36,6 @@ import org.hl7.fhir.dstu3.model.Enumeration;
 import org.hl7.fhir.dstu3.model.Enumerations.BindingStrength;
 import org.hl7.fhir.dstu3.model.Extension;
 import org.hl7.fhir.dstu3.model.IntegerType;
-import org.hl7.fhir.dstu3.model.OperationOutcome.IssueSeverity;
-import org.hl7.fhir.dstu3.model.OperationOutcome.IssueType;
 import org.hl7.fhir.dstu3.model.PrimitiveType;
 import org.hl7.fhir.dstu3.model.Reference;
 import org.hl7.fhir.dstu3.model.Resource;
@@ -59,26 +55,22 @@ import org.hl7.fhir.dstu3.terminologies.ValueSetExpander.ValueSetExpansionOutcom
 import org.hl7.fhir.dstu3.utils.NarrativeGenerator;
 import org.hl7.fhir.dstu3.utils.ToolingExtensions;
 import org.hl7.fhir.dstu3.utils.formats.CSVWriter;
-import org.hl7.fhir.dstu3.validation.ValidationMessage;
-import org.hl7.fhir.dstu3.validation.ValidationMessage.Source;
 import org.hl7.fhir.exceptions.DefinitionException;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.utilities.validation.ValidationMessage;
+import org.hl7.fhir.utilities.validation.ValidationMessage.Source;
 import org.hl7.fhir.utilities.xhtml.HierarchicalTableGenerator;
 import org.hl7.fhir.utilities.xhtml.HierarchicalTableGenerator.Cell;
 import org.hl7.fhir.utilities.xhtml.HierarchicalTableGenerator.Piece;
 import org.hl7.fhir.utilities.xhtml.HierarchicalTableGenerator.Row;
 import org.hl7.fhir.utilities.xhtml.HierarchicalTableGenerator.TableModel;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
-import org.hl7.fhir.utilities.xhtml.XhtmlParser;
 import org.hl7.fhir.utilities.xml.SchematronWriter;
 import org.hl7.fhir.utilities.xml.SchematronWriter.Rule;
 import org.hl7.fhir.utilities.xml.SchematronWriter.SchematronType;
 import org.hl7.fhir.utilities.xml.SchematronWriter.Section;
-
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
 
 /**
  * This class provides a set of utility operations for working with Profiles.
@@ -1067,7 +1059,7 @@ public class ProfileUtilities {
       if (derived.hasMinElement()) {
         if (!Base.compareDeep(derived.getMinElement(), base.getMinElement(), false)) {
           if (derived.getMin() < base.getMin())
-            messages.add(new ValidationMessage(Source.ProfileValidator, IssueType.BUSINESSRULE, pn+"."+source.getPath(), "Derived min  ("+Integer.toString(derived.getMin())+") cannot be less than base min ("+Integer.toString(base.getMin())+")", IssueSeverity.ERROR));
+            messages.add(new ValidationMessage(Source.ProfileValidator, ValidationMessage.IssueType.BUSINESSRULE, pn+"."+source.getPath(), "Derived min  ("+Integer.toString(derived.getMin())+") cannot be less than base min ("+Integer.toString(base.getMin())+")", ValidationMessage.IssueSeverity.ERROR));
           base.setMinElement(derived.getMinElement().copy());
         } else if (trimDifferential)
           derived.setMinElement(null);
@@ -1078,7 +1070,7 @@ public class ProfileUtilities {
       if (derived.hasMaxElement()) {
         if (!Base.compareDeep(derived.getMaxElement(), base.getMaxElement(), false)) {
           if (isLargerMax(derived.getMax(), base.getMax()))
-            messages.add(new ValidationMessage(Source.ProfileValidator, IssueType.BUSINESSRULE, pn+"."+source.getPath(), "Derived max ("+derived.getMax()+") cannot be greater than base max ("+base.getMax()+")", IssueSeverity.ERROR));
+            messages.add(new ValidationMessage(Source.ProfileValidator, ValidationMessage.IssueType.BUSINESSRULE, pn+"."+source.getPath(), "Derived max ("+derived.getMax()+") cannot be greater than base max ("+base.getMax()+")", ValidationMessage.IssueSeverity.ERROR));
           base.setMaxElement(derived.getMaxElement().copy());
         } else if (trimDifferential)
           derived.setMaxElement(null);
@@ -1154,17 +1146,17 @@ public class ProfileUtilities {
       if (derived.hasBinding()) {
         if (!base.hasBinding() || !Base.compareDeep(derived.getBinding(), base.getBinding(), false)) {
           if (base.hasBinding() && base.getBinding().getStrength() == BindingStrength.REQUIRED && derived.getBinding().getStrength() != BindingStrength.REQUIRED)
-            messages.add(new ValidationMessage(Source.ProfileValidator, IssueType.BUSINESSRULE, pn+"."+derived.getPath(), "illegal attempt to change the binding on "+derived.getPath()+" from "+base.getBinding().getStrength().toCode()+" to "+derived.getBinding().getStrength().toCode(), IssueSeverity.ERROR));
+            messages.add(new ValidationMessage(Source.ProfileValidator, ValidationMessage.IssueType.BUSINESSRULE, pn+"."+derived.getPath(), "illegal attempt to change the binding on "+derived.getPath()+" from "+base.getBinding().getStrength().toCode()+" to "+derived.getBinding().getStrength().toCode(), ValidationMessage.IssueSeverity.ERROR));
 //            throw new DefinitionException("StructureDefinition "+pn+" at "+derived.getPath()+": illegal attempt to change a binding from "+base.getBinding().getStrength().toCode()+" to "+derived.getBinding().getStrength().toCode());
           else if (base.hasBinding() && derived.hasBinding() && base.getBinding().getStrength() == BindingStrength.REQUIRED && base.getBinding().hasValueSetReference() && derived.getBinding().hasValueSetReference()) {
             ValueSetExpansionOutcome expBase = context.expandVS(context.fetchResource(ValueSet.class, base.getBinding().getValueSetReference().getReference()), true, false);
             ValueSetExpansionOutcome expDerived = context.expandVS(context.fetchResource(ValueSet.class, derived.getBinding().getValueSetReference().getReference()), true, false);
             if (expBase.getValueset() == null)
-              messages.add(new ValidationMessage(Source.ProfileValidator, IssueType.BUSINESSRULE, pn+"."+base.getPath(), "Binding "+base.getBinding().getValueSetReference().getReference()+" could not be expanded", IssueSeverity.WARNING));
+              messages.add(new ValidationMessage(Source.ProfileValidator, ValidationMessage.IssueType.BUSINESSRULE, pn+"."+base.getPath(), "Binding "+base.getBinding().getValueSetReference().getReference()+" could not be expanded", ValidationMessage.IssueSeverity.WARNING));
             else if (expDerived.getValueset() == null)
-              messages.add(new ValidationMessage(Source.ProfileValidator, IssueType.BUSINESSRULE, pn+"."+derived.getPath(), "Binding "+derived.getBinding().getValueSetReference().getReference()+" could not be expanded", IssueSeverity.WARNING));
+              messages.add(new ValidationMessage(Source.ProfileValidator, ValidationMessage.IssueType.BUSINESSRULE, pn+"."+derived.getPath(), "Binding "+derived.getBinding().getValueSetReference().getReference()+" could not be expanded", ValidationMessage.IssueSeverity.WARNING));
             else if (!isSubset(expBase.getValueset(), expDerived.getValueset()))
-              messages.add(new ValidationMessage(Source.ProfileValidator, IssueType.BUSINESSRULE, pn+"."+derived.getPath(), "Binding "+derived.getBinding().getValueSetReference().getReference()+" is not a subset of binding "+base.getBinding().getValueSetReference().getReference(), IssueSeverity.ERROR));
+              messages.add(new ValidationMessage(Source.ProfileValidator, ValidationMessage.IssueType.BUSINESSRULE, pn+"."+derived.getPath(), "Binding "+derived.getBinding().getValueSetReference().getReference()+" is not a subset of binding "+base.getBinding().getValueSetReference().getReference(), ValidationMessage.IssueSeverity.ERROR));
           }
           base.setBinding(derived.getBinding().copy());
         } else if (trimDifferential)

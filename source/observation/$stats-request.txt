@@ -1,4 +1,4 @@
 //Get the average, min, max and count of a series of BP measurements for a patient
-GET [base]/Observation/$stats?subject=Patient/123&code=55284-4&duration=1&statistic=average&statistic=min&statistic=max&statistic=count
+GET [base]/Observation/$stats?subject=Patient/123&code=55284-4&system=http://loinc.org&duration=1&statistic=average&statistic=min&statistic=max&statistic=count
 
 

@@ -17,7 +17,6 @@ import org.hl7.fhir.dstu2016may.model.ValueSet;
 import org.hl7.fhir.dstu2016may.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.dstu2016may.model.ValueSet.ValueSetExpansionComponent;
 import org.hl7.fhir.dstu2016may.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
-import org.hl7.fhir.dstu2016may.validation.IResourceValidator;
 
 
 /**
@@ -88,13 +87,6 @@ public interface IWorkerContext {
    */
   public INarrativeGenerator getNarrativeGenerator(String prefix, String basePath);
 
-  /**
-   * Get a validator that can check whether a resource is valid 
-   * 
-   * @return a prepared generator
-   * @
-   */
-  public IResourceValidator newValidator();
 
   // -- resource fetchers ---------------------------------------------------
 

@@ -330,10 +330,10 @@
   Element = OperationOutcome.issue.expression
   Card. = 0..*
   Type = string
-  Short Name = FluentPath of element(s) related to issue
-  Definition = A simple FluentPath limited to element names, repetition indicators and the default child access that identifies one of the elements in the resource that caused this issue to be raised.
+  Short Name = FHIRPath of element(s) related to issue
+  Definition = A simple FHIRPath limited to element names, repetition indicators and the default child access that identifies one of the elements in the resource that caused this issue to be raised.
   Requirements = Allows systems to highlight or otherwise guide users to elements implicated in issues to allow them to be fixed more easily.
-  Comments = The root of the FluentPath is the resource or bundle that generated OperationOutcome.  Each FluentPath SHALL resolve to a single node
+  Comments = The root of the FHIRPath is the resource or bundle that generated OperationOutcome.  Each FHIRPath SHALL resolve to a single node
   v2 Mapping = ERR-2
   RIM Mapping = ./location[parent::AcknowledgmentDetail]
 

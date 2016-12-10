@@ -44,8 +44,6 @@ import org.hl7.fhir.dstu3.model.NamingSystem;
 import org.hl7.fhir.dstu3.model.NamingSystem.NamingSystemIdentifierType;
 import org.hl7.fhir.dstu3.model.NamingSystem.NamingSystemUniqueIdComponent;
 import org.hl7.fhir.dstu3.model.OperationOutcome;
-import org.hl7.fhir.dstu3.model.OperationOutcome.IssueSeverity;
-import org.hl7.fhir.dstu3.model.OperationOutcome.IssueType;
 import org.hl7.fhir.dstu3.model.Parameters;
 import org.hl7.fhir.dstu3.model.Parameters.ParametersParameterComponent;
 import org.hl7.fhir.dstu3.model.Questionnaire;
@@ -62,10 +60,10 @@ import org.hl7.fhir.dstu3.model.ValueSet.ValueSetExpansionContainsComponent;
 import org.hl7.fhir.dstu3.terminologies.CodeSystemUtilities;
 import org.hl7.fhir.dstu3.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
 import org.hl7.fhir.dstu3.utils.INarrativeGenerator;
+import org.hl7.fhir.dstu3.utils.IResourceValidator;
 import org.hl7.fhir.dstu3.utils.NarrativeGenerator;
 import org.hl7.fhir.dstu3.utils.client.EFhirClientException;
 import org.hl7.fhir.dstu3.utils.client.FHIRToolingClient;
-import org.hl7.fhir.dstu3.validation.IResourceValidator;
 import org.hl7.fhir.dstu3.validation.InstanceValidator;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.exceptions.TerminologyServiceException;
@@ -77,6 +75,7 @@ import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.ucum.UcumEssenceService;
 import org.hl7.fhir.utilities.ucum.UcumService;
+import org.hl7.fhir.utilities.validation.ValidationMessage.IssueSeverity;
 import org.hl7.fhir.utilities.xml.XMLUtil;
 import org.hl7.fhir.utilities.xml.XMLWriter;
 import org.w3c.dom.Document;
@@ -786,7 +785,7 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
 
   private OperationOutcome buildOO(String message) {
     OperationOutcome oo = new OperationOutcome();
-    oo.addIssue().setSeverity(IssueSeverity.ERROR).setCode(IssueType.EXCEPTION).getDetails().setText(message);
+    oo.addIssue().setSeverity(OperationOutcome.IssueSeverity.ERROR).setCode(OperationOutcome.IssueType.EXCEPTION).getDetails().setText(message);
     return oo;
   }
 

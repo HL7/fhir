@@ -8,17 +8,17 @@ import java.util.Set;
 import org.hl7.fhir.dstu3.model.CodeSystem;
 import org.hl7.fhir.dstu3.model.CodeSystem.CodeSystemContentMode;
 import org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionComponent;
-import org.hl7.fhir.dstu3.model.OperationOutcome.IssueSeverity;
-import org.hl7.fhir.dstu3.model.OperationOutcome.IssueType;
 import org.hl7.fhir.dstu3.model.ValueSet;
 import org.hl7.fhir.dstu3.model.ValueSet.ConceptReferenceComponent;
 import org.hl7.fhir.dstu3.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.dstu3.terminologies.CodeSystemUtilities;
 import org.hl7.fhir.dstu3.validation.BaseValidator;
-import org.hl7.fhir.dstu3.validation.ValidationMessage;
 import org.hl7.fhir.exceptions.TerminologyServiceException;
 import org.hl7.fhir.tools.publisher.BuildWorkerContext;
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.utilities.validation.ValidationMessage;
+import org.hl7.fhir.utilities.validation.ValidationMessage.IssueSeverity;
+import org.hl7.fhir.utilities.validation.ValidationMessage.IssueType;
 
 public class ValueSetValidator extends BaseValidator {
 

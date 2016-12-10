@@ -1941,7 +1941,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">FluentPath invariants - when the extension can be used</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">FHIRPath invariants - when the extension can be used</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">A set of rules as Fluent Invariants about when the extension can be used (e.g. co-occurance variants for the extension)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>

@@ -22,7 +22,6 @@ import org.hl7.fhir.dstu3.model.DateTimeType;
 import org.hl7.fhir.dstu3.model.ElementDefinition;
 import org.hl7.fhir.dstu3.model.Enumerations.BindingStrength;
 import org.hl7.fhir.dstu3.model.Enumerations.PublicationStatus;
-import org.hl7.fhir.dstu3.model.IntegerType;
 import org.hl7.fhir.dstu3.model.StringType;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
 import org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionKind;
@@ -35,7 +34,6 @@ import org.hl7.fhir.dstu3.utils.EOperationOutcome;
 import org.hl7.fhir.dstu3.utils.NarrativeGenerator;
 import org.hl7.fhir.exceptions.DefinitionException;
 import org.hl7.fhir.exceptions.FHIRException;
-import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.utilities.Utilities;
 
 import com.healthmarketscience.jackcess.Database;

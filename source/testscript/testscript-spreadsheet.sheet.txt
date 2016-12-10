@@ -172,7 +172,7 @@
   Id = 11
   Code = eval
   Display = evaluate
-  Definition = Evaluate the fhirpath expression as a boolean condition.
+  Definition = Evaluate the fluentpath expression as a boolean condition.
 
 === Sheet assert-response-code-types =====================================
 
@@ -614,8 +614,8 @@
   Element = TestScript.variable.expression
   Card. = 0..1
   Type = string
-  Short Name = The fhirpath expression against the fixture body
-  Definition = The fhirpath expression to evaluate against the fixture body. When variables are defined, only one of either expression, headerField or path must be specified.
+  Short Name = The fluentpath expression against the fixture body
+  Definition = The fluentpath expression to evaluate against the fixture body. When variables are defined, only one of either expression, headerField or path must be specified.
   Comments = If headerField is defined, then the variable will be evaluated against the headers that sourceId is pointing to.  If expression or path is defined, then the variable will be evaluated against the fixture body that sourceId is pointing to.  It is an error to define any combination of expression, headerField and path.
 
  -- Row 45 -----------------------------------
@@ -956,8 +956,8 @@
   Element = TestScript.setup.action.assert.compareToSourceExpression
   Card. = 0..1
   Type = string
-  Short Name = The fhirpath expression to evaluate against the source fixture
-  Definition = The fhirpath expression to evaluate against the source fixture. When compareToSourceId is defined, either compareToSourceExpression or compareToSourcePath must be defined, but not both.
+  Short Name = The fluentpath expression to evaluate against the source fixture
+  Definition = The fluentpath expression to evaluate against the source fixture. When compareToSourceId is defined, either compareToSourceExpression or compareToSourcePath must be defined, but not both.
   Comments = Thefhirpath expression to be evaluated against the expected fixture to compare to. Ignored if \"assert.value\" is used. The evaluation will be done before the assertion is evaluated.
 
  -- Row 88 -----------------------------------
@@ -982,8 +982,8 @@
   Element = TestScript.setup.action.assert.expression
   Card. = 0..1
   Type = string
-  Short Name = The fhirpath expression to be evaluated
-  Definition = The fhirpath expression to be evaluated against the request or response message contents - HTTP headers and payload.
+  Short Name = The fluentpath expression to be evaluated
+  Definition = The fluentpath expression to be evaluated against the request or response message contents - HTTP headers and payload.
   Comments = If both \"expression\" and a \"fixtureId\" are specified, then the expression will be evaluated against the request or response body mapped to the fixtureId.  If \"expression\" is specified and a \"fixtureId\" is not, then the expression will be evaluated against the response body of the last operation.  Test engines are to store the request and response body and headers of the last operation at all times for subsequent assertions.
 
  -- Row 91 -----------------------------------

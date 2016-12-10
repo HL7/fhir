@@ -19,8 +19,6 @@ import org.hl7.fhir.dstu2016may.model.ElementDefinition.TypeRefComponent;
 import org.hl7.fhir.dstu2016may.model.Enumerations.BindingStrength;
 import org.hl7.fhir.dstu2016may.model.Enumerations.ConformanceResourceStatus;
 import org.hl7.fhir.dstu2016may.model.IntegerType;
-import org.hl7.fhir.dstu2016may.model.OperationOutcome.IssueSeverity;
-import org.hl7.fhir.dstu2016may.model.OperationOutcome.IssueType;
 import org.hl7.fhir.dstu2016may.model.PrimitiveType;
 import org.hl7.fhir.dstu2016may.model.Reference;
 import org.hl7.fhir.dstu2016may.model.StringType;
@@ -33,11 +31,13 @@ import org.hl7.fhir.dstu2016may.model.ValueSet.ConceptReferenceComponent;
 import org.hl7.fhir.dstu2016may.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.dstu2016may.model.ValueSet.ValueSetExpansionContainsComponent;
 import org.hl7.fhir.dstu2016may.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
-import org.hl7.fhir.dstu2016may.validation.ValidationMessage;
-import org.hl7.fhir.dstu2016may.validation.ValidationMessage.Source;
 import org.hl7.fhir.exceptions.DefinitionException;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.utilities.validation.ValidationMessage;
+import org.hl7.fhir.utilities.validation.ValidationMessage.IssueSeverity;
+import org.hl7.fhir.utilities.validation.ValidationMessage.IssueType;
+import org.hl7.fhir.utilities.validation.ValidationMessage.Source;
 
 /**
  * A engine that generates difference analysis between two sets of structure 

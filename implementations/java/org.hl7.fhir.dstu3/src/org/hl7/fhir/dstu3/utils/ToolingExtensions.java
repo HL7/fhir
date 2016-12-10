@@ -55,7 +55,7 @@ import org.hl7.fhir.dstu3.model.Questionnaire.QuestionnaireItemType;
 import org.hl7.fhir.dstu3.model.StringType;
 import org.hl7.fhir.dstu3.model.Type;
 import org.hl7.fhir.dstu3.model.UriType;
-import org.hl7.fhir.dstu3.validation.ValidationMessage.Source;
+import org.hl7.fhir.utilities.validation.ValidationMessage.Source;
 
 
 public class ToolingExtensions {

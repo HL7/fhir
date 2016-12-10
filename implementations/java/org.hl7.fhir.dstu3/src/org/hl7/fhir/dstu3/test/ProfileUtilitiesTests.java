@@ -18,17 +18,17 @@ import org.hl7.fhir.dstu3.model.CodeType;
 import org.hl7.fhir.dstu3.model.ElementDefinition;
 import org.hl7.fhir.dstu3.model.ElementDefinition.SlicingRules;
 import org.hl7.fhir.dstu3.model.Enumerations.BindingStrength;
-import org.hl7.fhir.dstu3.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.dstu3.model.Reference;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
 import org.hl7.fhir.dstu3.model.StructureDefinition.TypeDerivationRule;
 import org.hl7.fhir.dstu3.utils.EOperationOutcome;
-import org.hl7.fhir.dstu3.validation.ValidationMessage;
 import org.hl7.fhir.exceptions.DefinitionException;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.utilities.validation.ValidationMessage;
+import org.hl7.fhir.utilities.validation.ValidationMessage.IssueSeverity;
 
 public class ProfileUtilitiesTests {
 

@@ -34,7 +34,6 @@ import org.hl7.fhir.dstu3.model.MetadataResource;
 import org.hl7.fhir.dstu3.model.NamingSystem;
 import org.hl7.fhir.dstu3.model.NamingSystem.NamingSystemIdentifierType;
 import org.hl7.fhir.dstu3.model.NamingSystem.NamingSystemUniqueIdComponent;
-import org.hl7.fhir.dstu3.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.dstu3.model.Questionnaire;
 import org.hl7.fhir.dstu3.model.Resource;
 import org.hl7.fhir.dstu3.model.ResourceType;
@@ -47,17 +46,16 @@ import org.hl7.fhir.dstu3.model.StructureMap.StructureMapStructureComponent;
 import org.hl7.fhir.dstu3.model.ValueSet;
 import org.hl7.fhir.dstu3.terminologies.ValueSetExpansionCache;
 import org.hl7.fhir.dstu3.utils.INarrativeGenerator;
+import org.hl7.fhir.dstu3.utils.IResourceValidator;
 import org.hl7.fhir.dstu3.utils.NarrativeGenerator;
 import org.hl7.fhir.dstu3.utils.client.FHIRToolingClient;
-import org.hl7.fhir.dstu3.validation.IResourceValidator;
-import org.hl7.fhir.dstu3.validation.InstanceValidator;
-import org.hl7.fhir.dstu3.validation.ValidationMessage;
 import org.hl7.fhir.exceptions.DefinitionException;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.utilities.CSFileInputStream;
 import org.hl7.fhir.utilities.OIDUtils;
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.utilities.validation.ValidationMessage;
 
 import ca.uhn.fhir.parser.DataFormatException;
 
@@ -82,7 +80,7 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
   private String version;
   private String revision;
   private String date;
-
+  
 	// -- Initializations
 	/**
 	 * Load the working context from the validation pack
@@ -243,7 +241,7 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
       ProfileUtilities pu = new ProfileUtilities(this, msgs, this);
       pu.generateSnapshot(sd, p, p.getUrl(), p.getName());
       for (ValidationMessage msg : msgs) {
-        if (msg.getLevel() == IssueSeverity.ERROR || msg.getLevel() == IssueSeverity.FATAL)
+        if (msg.getLevel() == ValidationMessage.IssueSeverity.ERROR || msg.getLevel() == ValidationMessage.IssueSeverity.FATAL)
           throw new DefinitionException("Profile "+p.getName()+" ("+p.getUrl()+"). Error generating snapshot: "+msg.getMessage());
       }
       if (!p.hasSnapshot())
@@ -344,7 +342,7 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
 
 	@Override
 	public IResourceValidator newValidator() {
-		return new InstanceValidator(this);
+	  throw new Error("not supported at this time"); 
 	}
 
   @Override

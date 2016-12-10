@@ -15,7 +15,6 @@ import org.hl7.fhir.dstu2.model.Coding;
 import org.hl7.fhir.dstu2.model.ConceptMap;
 import org.hl7.fhir.dstu2.model.Conformance;
 import org.hl7.fhir.dstu2.model.Extension;
-import org.hl7.fhir.dstu2.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.dstu2.model.Parameters;
 import org.hl7.fhir.dstu2.model.Parameters.ParametersParameterComponent;
 import org.hl7.fhir.dstu2.model.Reference;
@@ -35,6 +34,7 @@ import org.hl7.fhir.dstu2.terminologies.ValueSetExpansionCache;
 import org.hl7.fhir.dstu2.utils.client.FHIRToolingClient;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.utilities.validation.ValidationMessage.IssueSeverity;
 
 public abstract class BaseWorkerContext implements IWorkerContext {
 

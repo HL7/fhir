@@ -13,12 +13,13 @@ import org.hl7.fhir.dstu3.model.Bundle;
 import org.hl7.fhir.dstu3.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.dstu3.model.Constants;
 import org.hl7.fhir.dstu3.model.OperationOutcome;
-import org.hl7.fhir.dstu3.model.OperationOutcome.IssueSeverity;
+import org.hl7.fhir.dstu3.utils.OperationOutcomeUtilities;
 import org.hl7.fhir.dstu3.utils.ToolingExtensions;
-import org.hl7.fhir.dstu3.validation.ValidationMessage;
 import org.hl7.fhir.igtools.publisher.FetchedFile;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.utilities.validation.ValidationMessage;
+import org.hl7.fhir.utilities.validation.ValidationMessage.IssueSeverity;
 import org.stringtemplate.v4.ST;
 
 public class ValidationPresenter implements Comparator<FetchedFile> {
@@ -62,7 +63,7 @@ public class ValidationPresenter implements Comparator<FetchedFile> {
     OperationOutcome oo = new OperationOutcome();
     validationBundle.addEntry(new BundleEntryComponent().setResource(oo));
     for (ValidationMessage vm : linkErrors) {
-      oo.getIssue().add(vm.asIssue(oo));
+      oo.getIssue().add(OperationOutcomeUtilities.convertToIssue(vm, oo));
     }
     for (FetchedFile f : files) {
       if (!f.getErrors().isEmpty()) {
@@ -70,7 +71,7 @@ public class ValidationPresenter implements Comparator<FetchedFile> {
         validationBundle.addEntry(new BundleEntryComponent().setResource(oo));
         ToolingExtensions.addStringExtension(oo, ToolingExtensions.EXT_OO_FILE, f.getName());
         for (ValidationMessage vm : removeDupMessages(f.getErrors())) {
-          oo.getIssue().add(vm.asIssue(oo));
+          oo.getIssue().add(OperationOutcomeUtilities.convertToIssue(vm, oo));
         }
       }
     }

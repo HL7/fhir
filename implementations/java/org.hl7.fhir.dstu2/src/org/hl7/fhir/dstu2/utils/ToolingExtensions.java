@@ -59,7 +59,7 @@ import org.hl7.fhir.dstu2.model.UriType;
 import org.hl7.fhir.dstu2.model.ValueSet;
 import org.hl7.fhir.dstu2.model.ValueSet.ConceptDefinitionComponent;
 import org.hl7.fhir.dstu2.model.ValueSet.ValueSetCodeSystemComponent;
-import org.hl7.fhir.dstu2.validation.ValidationMessage.Source;
+import org.hl7.fhir.utilities.validation.ValidationMessage.Source;
 import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.utilities.Utilities;
 

@@ -9,5 +9,7 @@
 	<classpathentry kind="lib" path="../../../tools/java/imports/Saxon-HE-9.5.1-5.jar"/>
 	<classpathentry kind="lib" path="../../../tools/java/imports/txtmark-0.11.jar"/>
 	<classpathentry kind="lib" path="../../../tools/java/imports/hapi-fhir-base-1.6.jar"/>
+	<classpathentry kind="lib" path="../../../build/tools/java/imports/commons-lang3-3.3.2.jar"/>
+	<classpathentry kind="lib" path="../../../build/tools/java/imports/junit-4.11.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

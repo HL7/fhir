@@ -30,7 +30,6 @@ import org.hl7.fhir.dstu2016may.model.ElementDefinition.ElementDefinitionBinding
 import org.hl7.fhir.dstu2016may.model.NamingSystem;
 import org.hl7.fhir.dstu2016may.model.NamingSystem.NamingSystemIdentifierType;
 import org.hl7.fhir.dstu2016may.model.NamingSystem.NamingSystemUniqueIdComponent;
-import org.hl7.fhir.dstu2016may.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.dstu2016may.model.Questionnaire;
 import org.hl7.fhir.dstu2016may.model.Resource;
 import org.hl7.fhir.dstu2016may.model.ResourceType;
@@ -40,15 +39,14 @@ import org.hl7.fhir.dstu2016may.model.ValueSet;
 import org.hl7.fhir.dstu2016may.terminologies.ValueSetExpansionCache;
 import org.hl7.fhir.dstu2016may.utils.ProfileUtilities.ProfileKnowledgeProvider;
 import org.hl7.fhir.dstu2016may.utils.client.FHIRToolingClient;
-import org.hl7.fhir.dstu2016may.validation.IResourceValidator;
-import org.hl7.fhir.dstu2016may.validation.InstanceValidator;
-import org.hl7.fhir.dstu2016may.validation.ValidationMessage;
 import org.hl7.fhir.exceptions.DefinitionException;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.utilities.CSFileInputStream;
 import org.hl7.fhir.utilities.OIDUtils;
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.utilities.validation.ValidationMessage;
+import org.hl7.fhir.utilities.validation.ValidationMessage.IssueSeverity;
 
 /*
  * This is a stand alone implementation of worker context for use inside a tool.
@@ -234,10 +232,6 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
 		return new NarrativeGenerator(prefix, basePath, this);
 	}
 
-	@Override
-	public IResourceValidator newValidator() {
-		return new InstanceValidator(this);
-	}
 
 	@SuppressWarnings("unchecked")
 	@Override

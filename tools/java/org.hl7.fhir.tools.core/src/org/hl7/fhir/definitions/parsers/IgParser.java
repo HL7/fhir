@@ -40,7 +40,6 @@ import org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionKind;
 import org.hl7.fhir.dstu3.model.UriType;
 import org.hl7.fhir.dstu3.model.ValueSet;
 import org.hl7.fhir.dstu3.utils.ToolingExtensions;
-import org.hl7.fhir.dstu3.validation.ValidationMessage;
 import org.hl7.fhir.igtools.spreadsheets.CodeSystemConvertor;
 import org.hl7.fhir.igtools.spreadsheets.MappingSpace;
 import org.hl7.fhir.tools.publisher.BuildWorkerContext;
@@ -49,6 +48,7 @@ import org.hl7.fhir.utilities.CSFileInputStream;
 import org.hl7.fhir.utilities.Logger;
 import org.hl7.fhir.utilities.Logger.LogMessageType;
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.utilities.validation.ValidationMessage;
 
 public class IgParser {
 

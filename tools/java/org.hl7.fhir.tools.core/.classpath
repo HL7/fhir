@@ -39,5 +39,6 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/org.hl7.fhir.dstu2"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/org.hl7.fhir.convertors"/>
 	<classpathentry kind="lib" path="../imports/hapi-fhir-base-1.6.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/org.hl7.fhir.validation"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

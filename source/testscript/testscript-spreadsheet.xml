@@ -2329,9 +2329,9 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">The fhirpath expression against the fixture body</Data><NamedCell
+    <Cell><Data ss:Type="String">The fluentpath expression against the fixture body</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">The fhirpath expression to evaluate against the fixture body. When variables are defined, only one of either expression, headerField or path must be specified.</Data><NamedCell
+    <Cell><Data ss:Type="String">The fluentpath expression to evaluate against the fixture body. When variables are defined, only one of either expression, headerField or path must be specified.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">If headerField is defined, then the variable will be evaluated against the headers that sourceId is pointing to.  If expression or path is defined, then the variable will be evaluated against the fixture body that sourceId is pointing to.  It is an error to define any combination of expression, headerField and path.</Data><NamedCell
@@ -3702,9 +3702,9 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">The fhirpath expression to evaluate against the source fixture</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">The fluentpath expression to evaluate against the source fixture</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s98"><Data ss:Type="String">The fhirpath expression to evaluate against the source fixture. When compareToSourceId is defined, either compareToSourceExpression or compareToSourcePath must be defined, but not both.</Data><NamedCell
+    <Cell ss:StyleID="s98"><Data ss:Type="String">The fluentpath expression to evaluate against the source fixture. When compareToSourceId is defined, either compareToSourceExpression or compareToSourcePath must be defined, but not both.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><Data ss:Type="String">Thefhirpath expression to be evaluated against the expected fixture to compare to. Ignored if &quot;assert.value&quot; is used. The evaluation will be done before the assertion is evaluated.</Data><NamedCell
@@ -3800,9 +3800,9 @@
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s98"><Data ss:Type="String">The fhirpath expression to be evaluated</Data><NamedCell
+    <Cell ss:StyleID="s98"><Data ss:Type="String">The fluentpath expression to be evaluated</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s98"><Data ss:Type="String">The fhirpath expression to be evaluated against the request or response message contents - HTTP headers and payload.</Data><NamedCell
+    <Cell ss:StyleID="s98"><Data ss:Type="String">The fluentpath expression to be evaluated against the request or response message contents - HTTP headers and payload.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s101"><Data ss:Type="String">If both &quot;expression&quot; and a &quot;fixtureId&quot; are specified, then the expression will be evaluated against the request or response body mapped to the fixtureId.  If &quot;expression&quot; is specified and a &quot;fixtureId&quot; is not, then the expression will be evaluated against the response body of the last operation.  Test engines are to store the request and response body and headers of the last operation at all times for subsequent assertions.</Data><NamedCell
@@ -10117,7 +10117,7 @@
     <Cell ss:StyleID="s125"/>
     <Cell ss:StyleID="s159"/>
     <Cell ss:StyleID="s159"><Data ss:Type="String">evaluate</Data></Cell>
-    <Cell ss:StyleID="s159"><Data ss:Type="String">Evaluate the fhirpath expression as a boolean condition.</Data></Cell>
+    <Cell ss:StyleID="s159"><Data ss:Type="String">Evaluate the fluentpath expression as a boolean condition.</Data></Cell>
     <Cell ss:StyleID="s139"/>
     <Cell ss:StyleID="s139"/>
     <Cell ss:StyleID="s149"/>

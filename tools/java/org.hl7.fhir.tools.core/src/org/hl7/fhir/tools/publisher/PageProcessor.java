@@ -142,8 +142,6 @@ import org.hl7.fhir.dstu3.model.MetadataResource;
 import org.hl7.fhir.dstu3.model.NamingSystem;
 import org.hl7.fhir.dstu3.model.NamingSystem.NamingSystemIdentifierType;
 import org.hl7.fhir.dstu3.model.NamingSystem.NamingSystemUniqueIdComponent;
-import org.hl7.fhir.dstu3.model.OperationOutcome.IssueSeverity;
-import org.hl7.fhir.dstu3.model.OperationOutcome.IssueType;
 import org.hl7.fhir.dstu3.model.Quantity;
 import org.hl7.fhir.dstu3.model.Reference;
 import org.hl7.fhir.dstu3.model.Resource;
@@ -172,8 +170,6 @@ import org.hl7.fhir.dstu3.utils.ResourceUtilities;
 import org.hl7.fhir.dstu3.utils.ToolingExtensions;
 import org.hl7.fhir.dstu3.utils.Translations;
 import org.hl7.fhir.dstu3.utils.client.FHIRToolingClient;
-import org.hl7.fhir.dstu3.validation.ValidationMessage;
-import org.hl7.fhir.dstu3.validation.ValidationMessage.Source;
 import org.hl7.fhir.exceptions.DefinitionException;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.exceptions.PathEngineException;
@@ -183,8 +179,6 @@ import org.hl7.fhir.igtools.spreadsheets.TypeParser;
 import org.hl7.fhir.igtools.spreadsheets.TypeRef;
 import org.hl7.fhir.tools.converters.MarkDownPreProcessor;
 import org.hl7.fhir.tools.converters.ValueSetImporterV2;
-import org.hl7.fhir.tools.publisher.PageProcessor.ConstraintsSorter;
-import org.hl7.fhir.tools.publisher.PageProcessor.SearchParameterListSorter;
 import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.CSFileInputStream;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
@@ -192,6 +186,10 @@ import org.hl7.fhir.utilities.IniFile;
 import org.hl7.fhir.utilities.Logger;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.utilities.validation.ValidationMessage;
+import org.hl7.fhir.utilities.validation.ValidationMessage.IssueSeverity;
+import org.hl7.fhir.utilities.validation.ValidationMessage.IssueType;
+import org.hl7.fhir.utilities.validation.ValidationMessage.Source;
 import org.hl7.fhir.utilities.xhtml.HierarchicalTableGenerator;
 import org.hl7.fhir.utilities.xhtml.HierarchicalTableGenerator.Row;
 import org.hl7.fhir.utilities.xhtml.HierarchicalTableGenerator.TableModel;
@@ -305,7 +303,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   private BindingNameRegistry registry;
   private String oid; // technical identifier associated with the page being built
   private HTMLLinkChecker htmlchecker;
-  private String baseURL = "http://hl7.org/fhir/DSTU2/";
+  private String baseURL = "http://build.fhir.org/";
   private final String tsServer; // terminology to use
   private BuildWorkerContext workerContext;
 //  private List<ValidationMessage> collectedValidationErrors = new ArrayList<ValidationMessage>();
@@ -958,6 +956,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1 + Utilities.URLEncode(pagePath) + s3;  
       else if (com[0].equals("baseURL"))
         src = s1 + Utilities.URLEncode(baseURL) + s3;  
+      else if (com[0].equals("baseURLn"))
+        src = s1 + baseURL + s3;  
       else if (com[0].equals("profilelist"))
         src = s1 + genProfilelist() + s3;  
       else if (com[0].equals("igprofileslist"))
@@ -4705,6 +4705,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1 + genAllSearchParams()+s3;
       else if (com[0].equals("internalsystemlist"))
         src = s1 + genCSList()+s3;
+      else if (com[0].equals("baseURLn"))
+        src = s1 + baseURL+s3;
       else if (com[0].equals("ig.title"))
         src = s1+ig.getName()+s3;
       else if (com[0].equals("ig.wglink"))
@@ -5134,6 +5136,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1 + Utilities.URLEncode(pagePath) + s3;  
       else if (com[0].equals("baseURL"))
         src = s1 + Utilities.URLEncode(baseURL) + s3;  
+      else if (com[0].equals("baseURLn"))
+        src = s1 + baseURL + s3;  
       else if (com[0].equals("operations"))
         src = s1 + genOperations(resource.getOperations(), resource.getName(), resource.getName().toLowerCase(), "") + s3;  
       else if (com[0].equals("operations-summary"))
@@ -6239,6 +6243,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1 + profile.getResource().getUrl() + s3;  
       else if (com[0].equals("baseURL"))
         src = s1 + Utilities.URLEncode(baseURL) + s3;  
+      else if (com[0].equals("baseURLn"))
+        src = s1 + baseURL + s3;  
       else if (com[0].equals("base-link"))
         src = s1 + baseLink(profile.getResource(), genlevel(level)) + s3;  
       else if (com[0].equals("profile-structure-table-diff"))
@@ -6724,6 +6730,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1 + Utilities.URLEncode(pagePath) + s3;  
       else if (com[0].equals("baseURL"))
         src = s1 + Utilities.URLEncode(baseURL) + s3;  
+      else if (com[0].equals("baseURLn"))
+        src = s1 + baseURL + s3;  
       else if (com[0].equals("mappings"))
         src = s1+mappingsExtension(ed)+s3;
       else if (com[0].equals("definitions"))

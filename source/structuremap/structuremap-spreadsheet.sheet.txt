@@ -500,14 +500,14 @@
   Card. = 0..1
   Summary = y
   Type = string
-  Short Name = FluentPath expression  - must be true or the rule does not apply
+  Short Name = FHIRPath expression  - must be true or the rule does not apply
 
  -- Row 44 -----------------------------------
   Element = StructureMap.group.rule.source.check
   Card. = 0..1
   Summary = y
   Type = string
-  Short Name = FluentPath expression  - must be true or the mapping engine throws an error instead of completing
+  Short Name = FHIRPath expression  - must be true or the mapping engine throws an error instead of completing
 
  -- Row 45 -----------------------------------
   Element = StructureMap.group.rule.target

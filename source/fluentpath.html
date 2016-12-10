@@ -2,7 +2,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-[%settitle FluentPath%]
+[%settitle FHIRPath%]
 [%file newheader%]
 </head>
 <body>
@@ -10,7 +10,7 @@
 
 <div class="col-9">
 
-<h2>FluentPath</h2>
+<h2>FHIRPath</h2>
 <table class="cols"><tr><td id="wg"><a _target="blank" href="[%wg its%]">[%wgt its%]</a> Work Group</td><td id="fmm"><a href="../publish/resource.html#maturity">Maturity Level</a>: 0</td><td id="ballot"><a href="help.html#status">Ballot Status</a>: <a href="history.html#pubs">Draft</a></td></tr></table>
 
 <p>
@@ -21,7 +21,7 @@ included in FHIR until publishing questions are resolved.
 </p>
 
 <p>
-FluentPath is a path based navigation and extraction language, 
+FHIRPath is a path based navigation and extraction language, 
 somewhat like XPath. Operations are expressed in terms of the logical 
 content of hierarchical data models, and support traversal, selection 
 and projection of data. Its design was influenced by the needs for 
@@ -34,7 +34,7 @@ In both FHIR and CQL, this means that expressions can be written
 that deal with the contents of the resources and data types as 
 described in the Logical views, or the UML diagrams, rather than 
 against the physical representation of those resources. JSON and 
-XML specific features are not visible to the FluentPath language 
+XML specific features are not visible to the FHIRPath language 
 (such as comments and the split representation of primitives).
 </p>
 
@@ -46,12 +46,12 @@ XPath, OCL, or another similarly expressive language.
 <h3>1. Navigation model</h3>
 
 <p>
-FluentPath navigates and selects nodes from a tree that abstracts away 
+FHIRPath navigates and selects nodes from a tree that abstracts away 
 and is independent of the actual underlying implementation of the source 
-against which the FluentPath query is run. This way, FluentPath can be 
+against which the FHIRPath query is run. This way, FHIRPath can be 
 used on in-memory Java POJOs, Xml data or any other physical representation, 
 so long as that representation can be viewed as classes that have properties. In 
-somewhat more formal terms, FluentPath operates on a directed acyclic graph of 
+somewhat more formal terms, FHIRPath operates on a directed acyclic graph of 
 classes as defined by a MOF-equivalent type system.
 </p>
 
@@ -76,7 +76,7 @@ allows the tree to represent FHIR "primitives", which may still have child exten
 
 <h3>2. Path selection</h3>
 
-<p>FluentPath allows navigation in the tree by composing a path of concatenated labels, e.g.</p>
+<p>FHIRPath allows navigation in the tree by composing a path of concatenated labels, e.g.</p>
 
 <pre><code>name.given</code></pre>
 
@@ -104,7 +104,7 @@ will only produce results when used on data of type <code>Patient</code>.
 </p>
 
 <p>
-Syntactically, FluentPath defines identifiers as any sequence of characters consisting only of letters, digits, and underscores, beginning with a letter or underscore. Paths may use double quotes to include characters in path parts that would otherwise 
+Syntactically, FHIRPath defines identifiers as any sequence of characters consisting only of letters, digits, and underscores, beginning with a letter or underscore. Paths may use double quotes to include characters in path parts that would otherwise 
 be interpreted as operators, e.g.:
 </p>
 
@@ -158,8 +158,8 @@ be different depending on the underlying source.</p>
 <h3>4. Expressions</h3>
 
 <p>
-In addition to paths, FluentPath expressions may contain <em>literals</em> and 
-<em>function invocations</em>. FluentPath supports the following types of literals:</p>
+In addition to paths, FHIRPath expressions may contain <em>literals</em> and 
+<em>function invocations</em>. FHIRPath supports the following types of literals:</p>
 
 <pre><code>boolean: true, false
 string: 'test string', 'urn:oid:3.4.5.6.7.8'
@@ -200,7 +200,7 @@ name.given | name.last
 'sir ' + name.given</code></pre>
 
 <p>
-Finally, FluentPath supports the notion of functions, which all take a collection of values as input 
+Finally, FHIRPath supports the notion of functions, which all take a collection of values as input 
 and produce another collection as output. For example:</p>
 
 <pre><code>(name.given | name.last).distinct()
@@ -213,7 +213,7 @@ identifier.where(use = 'official')</code></pre>
 <p>will return <code>1</code>, since this is implicitly a collection with one constant number <code>9</code>.</p>
 
 <blockquote>
-<p>Note: There is no concept of <code>null</code> in FluentPath. This means that when, in an underlying instance a member is null, there will simply be no corresponding node for that member in the tree. This means that for example <code>Patient.children()</code> will contain only non-null members and <code>Patient.name</code> will return an empty collection if there are no name elements in the instance.</p>
+<p>Note: There is no concept of <code>null</code> in FHIRPath. This means that when, in an underlying instance a member is null, there will simply be no corresponding node for that member in the tree. This means that for example <code>Patient.children()</code> will contain only non-null members and <code>Patient.name</code> will return an empty collection if there are no name elements in the instance.</p>
 </blockquote>
 
 <h4>4.1 Boolean evaluation of collections</h4>
@@ -246,7 +246,7 @@ identifier.where(use = 'official')</code></pre>
 
 <h4>4.2 Propagation of empty results</h4>
 
-<p>FluentPath functions and operators both propagate empty results. This means in general that if any input to a function or operator is empty, then the result will be empty as well. More specifically:</p>
+<p>FHIRPath functions and operators both propagate empty results. This means in general that if any input to a function or operator is empty, then the result will be empty as well. More specifically:</p>
 
 <ul>
 <li>If a function operates on an empty collection, the result is an empty collection</li>
@@ -258,9 +258,9 @@ identifier.where(use = 'official')</code></pre>
 
 <h3>5. Functions</h3>
 
-<p>Functions are distinguished from path navigation names by the fact that they are followed by a <code>()</code> with zero or more parameters. Functions always take a collection as input and produce another collection as output, even though these may be collections of just a single item. Correspondingly, arguments to the functions can be any FluentPath expression, though some functions require these expressions to evaluate to a collection containing a single item of a specific type.</p>
+<p>Functions are distinguished from path navigation names by the fact that they are followed by a <code>()</code> with zero or more parameters. Functions always take a collection as input and produce another collection as output, even though these may be collections of just a single item. Correspondingly, arguments to the functions can be any FHIRPath expression, though some functions require these expressions to evaluate to a collection containing a single item of a specific type.</p>
 
-<p>The following list contains all functions supported in FluentPath, detailing the expected kind of parameters and kind of collection returned by the function:</p>
+<p>The following list contains all functions supported in FHIRPath, detailing the expected kind of parameters and kind of collection returned by the function:</p>
 
 <ul>
 <li>If the function expects a parameter to be a single value (e.g. <code>item(index: integer)</code> and it is passed an argument that evaluates to a collection with multiple items or a collection with an item that is not of the required type, the evaluation of the expression will end and an error will be signaled to the calling environment.</li>
@@ -495,7 +495,7 @@ identifier.where(use = 'official')</code></pre>
 </code></pre>
 
 <blockquote>
-<p>Note: All platforms will use their native regular expression implementations, which will commonly be close to the regular expressions in Perl 5, however there are always small differences. I don't think we can prescribe any "common" dialect for FluentPath.</p>
+<p>Note: All platforms will use their native regular expression implementations, which will commonly be close to the regular expressions in Perl 5, however there are always small differences. I don't think we can prescribe any "common" dialect for FHIRPath.</p>
 </blockquote>
 
 <p><b>contains(string : string) : boolean</b></p>
@@ -521,7 +521,7 @@ identifier.where(use = 'official')</code></pre>
 <p>Returns a collection with all descendant nodes of all items in the input collection. The result does not include the nodes in the input collection themselves. Is a shorthand for <code>repeat(children())</code>.</p>
 
 <blockquote>
-<p>Note: Many of these functions will result in a set of nodes of different underlying types. It may be necessary to use <code>as()</code> as described in the previous section to maintain type safety. See section 8 for more information about type safe use of FluentPath expressions.</p>
+<p>Note: Many of these functions will result in a set of nodes of different underlying types. It may be necessary to use <code>as()</code> as described in the previous section to maintain type safety. See section 8 for more information about type safe use of FHIRPath expressions.</p>
 </blockquote>
 
 <h4>5.7 Utility functions</h4>
@@ -866,7 +866,7 @@ Note how the names of the `vs-` and `ext-` constants are escaped (just like path
 <pre><code>%us-zip = '[0-9]{5}(-[0-9]{4}){0,1}'
 </code></pre>
 
-<p>Authors of Implementation Guides should be aware that adding specific environment variables restricts the use of the FluentPath to their particular context. </p>
+<p>Authors of Implementation Guides should be aware that adding specific environment variables restricts the use of the FHIRPath to their particular context. </p>
 
 <p>Note that these tokens are not restricted to simple types, and they may not have defined fixed values that are known before evaluation at run-time, though there is no way to define these kind of values in implementation guides.</p>
 
@@ -879,7 +879,7 @@ Note how the names of the `vs-` and `ext-` constants are escaped (just like path
 
 <p>because it performs an invalid operation, namely adding numbers and strings. However, there are cases where the author knows that a particular invocation may be safe, but the compiler is not aware of, or cannot infer, the reason. In these cases, type-safety errors can become an unwelcome burden, especially for experienced developers.</p>
 
-<p>As a result, FluentPath defines a <em>strict</em> option that allows an execution environment to determine how much type safety should be applied. With <em>strict</em> enabled, FluentPath behaves as a traditional strongly-typed language, whereas without <em>strict</em>, it behaves as a traditional dynamically-typed language.</p>
+<p>As a result, FHIRPath defines a <em>strict</em> option that allows an execution environment to determine how much type safety should be applied. With <em>strict</em> enabled, FHIRPath behaves as a traditional strongly-typed language, whereas without <em>strict</em>, it behaves as a traditional dynamically-typed language.</p>
 
 <p>For example, since some functions and most operators will only accept a single item as input, and throw an exception otherwise:</p>
 
@@ -910,7 +910,7 @@ Note how the names of the `vs-` and `ext-` constants are escaped (just like path
 
 <p>but is still less concise than would be possible if constraints were well known in advance.</p>
 
-<p>The strict option provides a mode in which the author of the FluentPath statement is protected against such cases by employing strict typing. Based on the definition of the operators and functions and given the type of input, a compiler can trace the statement and determine whether "unsafe" situations can occur.</p>
+<p>The strict option provides a mode in which the author of the FHIRPath statement is protected against such cases by employing strict typing. Based on the definition of the operators and functions and given the type of input, a compiler can trace the statement and determine whether "unsafe" situations can occur.</p>
 
 <p>Unsafe uses are:</p>
 
@@ -923,7 +923,7 @@ Note how the names of the `vs-` and `ext-` constants are escaped (just like path
 <li>Equality operators are used on operands that are not both collections or collections of single items.</li>
 </ul>
 
-<p>There are a few constructs in the FluentPath language where the compiler cannot trace the type, and should issue a warning to the user when doing "strict" evaluation:</p>
+<p>There are a few constructs in the FHIRPath language where the compiler cannot trace the type, and should issue a warning to the user when doing "strict" evaluation:</p>
 
 <ul>
 <li>The <code>children()</code> and <code>descendants()</code> functions</li>
@@ -938,12 +938,12 @@ Note how the names of the `vs-` and `ext-` constants are escaped (just like path
 <ul>
 <li>Use <code>first()</code>, <code>last()</code> or indexer (<code>[ ]</code>) to select a single item</li>
 <li>Use <code>select()</code> and <code>where()</code> to turn the expression into one that evaluates each of the repeating items individually (as in the examples above)</li>
-<li>Use <code>single()</code> to return either the single item or else an empty collection. This is especially useful when using FluentPath to formulate invariants: in cases where single items are considered the "positive" or "true" situation, <code>single()</code> will return an empty collection, so the invariant will evaluate to the empty collection (or false) in any other circumstance.</li>
+<li>Use <code>single()</code> to return either the single item or else an empty collection. This is especially useful when using FHIRPath to formulate invariants: in cases where single items are considered the "positive" or "true" situation, <code>single()</code> will return an empty collection, so the invariant will evaluate to the empty collection (or false) in any other circumstance.</li>
 </ul>
 
-<h3>Appendix A - Use of FluentPath in HL7 FHIR</h3>
+<h3>Appendix A - Use of FHIRPath in HL7 FHIR</h3>
 
-<p>FluentPath is used in five places in the FHIR specifications:</p>
+<p>FHIRPath is used in five places in the FHIR specifications:</p>
 
 <ul>
 <li>search parameter paths - used to define what contents the parameter refers to </li>
@@ -954,12 +954,12 @@ Note how the names of the `vs-` and `ext-` constants are escaped (just like path
 <li>may be used for Patch in the future</li>
 </ul>
 
-<p>As stated in the introduction, FluentPath uses a tree model that abstracts away the actual underlying datamodel of the data being queries. For FHIR, this means that the contents of the resources and data types as described in the Logical views (or the UML diagrams) are used as the model, rather than the JSON and XML formats, so specific xml or json features are not visible to the FluentPath language (such as comments and the split representation of primitives).</p>
+<p>As stated in the introduction, FHIRPath uses a tree model that abstracts away the actual underlying datamodel of the data being queries. For FHIR, this means that the contents of the resources and data types as described in the Logical views (or the UML diagrams) are used as the model, rather than the JSON and XML formats, so specific xml or json features are not visible to the FHIRPath language (such as comments and the split representation of primitives).</p>
 
 <p>More specifically:</p>
 
 <ul>
-<li>A FluentPath may optionally start with a full resource name</li>
+<li>A FHIRPath may optionally start with a full resource name</li>
 <li>Elements of datatypes and resources are used as the name of the nodes which can be navigated over, except for choice elements (ending with '[x]'), see below.</li>
 <li>The <code>contained</code> element node does not have the name of the Resource as its first and only child (instead it directly contains the contained resource's children)</li>
 <li>There is no difference between an attribute and an element</li>
@@ -968,19 +968,19 @@ Note how the names of the `vs-` and `ext-` constants are escaped (just like path
 
 <h4>A.1 Polymorphism in FHIR</h4>
 
-<p>FHIR has the notion of choice elements, where elements can be one of multiple types, e.g. <code>Patient.deceased[x]</code>. In actual instances these will be present as either <code>Patient.deceasedBoolean</code> or <code>Patient.deceasedDateTime</code>. In FluentPath choice elements are labeled according to the name without the '[x]' suffix, and children can be explicitly filtered using the <code>asType</code> operation:</p>
+<p>FHIR has the notion of choice elements, where elements can be one of multiple types, e.g. <code>Patient.deceased[x]</code>. In actual instances these will be present as either <code>Patient.deceasedBoolean</code> or <code>Patient.deceasedDateTime</code>. In FHIRPath choice elements are labeled according to the name without the '[x]' suffix, and children can be explicitly filtered using the <code>asType</code> operation:</p>
 
 <pre><code>Observation.value.as(Quantity).unit
 </code></pre>
 
 <h4>A.2 Using FHIR types in expressions</h4>
 
-<p>The evaluation engine will automatically convert the value of FHIR types representing primitives to FluentPath types when they are used in expression in the following fashion:</p>
+<p>The evaluation engine will automatically convert the value of FHIR types representing primitives to FHIRPath types when they are used in expression in the following fashion:</p>
 
 <table><thead>
 <tr>
 <th>FHIR primitive type</th>
-<th>FluentPath type</th>
+<th>FHIRPath type</th>
 </tr>
 </thead><tbody>
 <tr>
@@ -1025,7 +1025,7 @@ Patient.name.given.extension.first().value = true   // extension of the primitiv
 
 <p><b>trace(name : string) : collection</b></p>
 
-<p>When FluentPath statements are used in an invariant, the log contents should be added to the 
+<p>When FHIRPath statements are used in an invariant, the log contents should be added to the 
 error message constructed when the invariant is violated. For example:</p>
 
 <pre><code>"SHALL have a local reference if the resource is provided inline (url: height; ids: length,weight)" 
@@ -1062,9 +1062,9 @@ from
               When evaluating a datatype, this would be the resource the element is part of. Do not go past a root resource into a bundle, if it is contained in a bundle
 </code></pre>
 
-<h3>Appendix B - Use of FluentPath in Clinical Quality Language (CQL)</h3>
+<h3>Appendix B - Use of FHIRPath in Clinical Quality Language (CQL)</h3>
 
-<p>Clinical Quality Language is being extended to use FluentPath as its core expression language, in much the same way that XQuery uses XPath to represent expressions within queries. In particular, the following extensions to CQL are proposed:</p>
+<p>Clinical Quality Language is being extended to use FHIRPath as its core expression language, in much the same way that XQuery uses XPath to represent expressions within queries. In particular, the following extensions to CQL are proposed:</p>
 
 <h3><a id="Path_Traversal_2"></a>Path Traversal</h3>
 <p>When a path expression involves an element with multiple cardinality, the expression is considered short-hand for an equivalent query invocation. For example:</p>
@@ -1075,7 +1075,7 @@ from
 </code></pre>
 <p>Note that the restriction is required as it ensures that the resulting list will not contain any null elements.</p>
 <h3><a id="Constants_and_Contexts_13"></a>Constants and Contexts</h3>
-<p>FluentPath has the ability to reference contexts (using the <code>$</code> prefix) and environment-defined variables (using the <code>%</code> prefix). Within CQL, these contexts and environment-defined variables are added to the appropriate scope (global for environment-variables, local for contexts) with the prefix included. This allows them to be referenced like any other variable within CQL, but preserves the prefix as a namespace differentiator.</p>
+<p>FHIRPath has the ability to reference contexts (using the <code>$</code> prefix) and environment-defined variables (using the <code>%</code> prefix). Within CQL, these contexts and environment-defined variables are added to the appropriate scope (global for environment-variables, local for contexts) with the prefix included. This allows them to be referenced like any other variable within CQL, but preserves the prefix as a namespace differentiator.</p>
 <h3><a id="Additional_Operators_16"></a>Additional Operators</h3>
 <p>The following additional operators are being added to CQL:</p>
 <ul>
@@ -1085,7 +1085,7 @@ from
 <li><code>|</code> - As a synonym for <code>union</code></li>
 </ul>
 <h3><a id="Methodstyle_Invocation_23"></a>Method-style Invocation</h3>
-<p>One of the primary syntactic features of FluentPath is the ability to “invoke” a function on a collection. For example:</p>
+<p>One of the primary syntactic features of FHIRPath is the ability to “invoke” a function on a collection. For example:</p>
 <pre><code>Patient.name.given.substring(3)
 </code></pre>
 <p>The CQL syntax is being extended to support this style of invocation, but as a short-hand for an equivalent CQL statement for each operator. For example:</p>
@@ -1101,7 +1101,7 @@ from
 <pre><code>Patient.name N where N.given = 'John'
 </code></pre>
 <h3><a id="Strict_Evaluation_44"></a>Strict Evaluation</h3>
-<p>Because CQL is a type-safe language, embedded FluentPath expressions should be compiled in <em>strict</em> mode. However, to enable the use of FluentPath in <em>loose</em> mode, an implicit conversion from a list of elements to an element is added. This implicit conversion is implemented as an invocation of <code>singleton from</code>, ensuring that if the list has multiple elements at run-time an error will be thrown.</p>
+<p>Because CQL is a type-safe language, embedded FHIRPath expressions should be compiled in <em>strict</em> mode. However, to enable the use of FHIRPath in <em>loose</em> mode, an implicit conversion from a list of elements to an element is added. This implicit conversion is implemented as an invocation of <code>singleton from</code>, ensuring that if the list has multiple elements at run-time an error will be thrown.</p>
 <p>In addition, the underlying Expression Logical Model (ELM) is being extended to allow for dynamic invocation. A <code>Dynamic</code> type is introduced with appropriate operators to support run-time invocation where necessary. However, these operators are introduced as an additional layer on top of core ELM, and CQL compiled with the <em>strict</em> option will never produce expressions containing these elements. This avoids placing additional implementation burden on systems that do not need dynamic capabilities.</p>
 
 </div>

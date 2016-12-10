@@ -4,11 +4,11 @@ import java.util.Date;
 import java.util.List;
 
 import org.hl7.fhir.definitions.model.Definitions;
-import org.hl7.fhir.dstu3.validation.ValidationMessage;
 import org.hl7.fhir.tools.publisher.PlatformGenerator;
 import org.hl7.fhir.utilities.Logger;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.ZipGenerator;
+import org.hl7.fhir.utilities.validation.ValidationMessage;
 
 /**
  * Objective C generator. Based off the CSharpGenerator (November-2013)

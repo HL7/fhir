@@ -5,7 +5,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import org.hl7.fhir.definitions.model.SearchParameterDefn.CompositeDefinition;
 import org.hl7.fhir.dstu3.model.ExpressionNode;
 import org.hl7.fhir.dstu3.model.SearchParameter;
 

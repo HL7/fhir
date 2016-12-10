@@ -1,5 +1,7 @@
 package org.hl7.fhir.dstu3.model;
 
+import java.math.BigDecimal;
+
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
@@ -30,18 +32,14 @@ package org.hl7.fhir.dstu3.model;
 */
 
 // Generated on Mon, Dec 5, 2016 23:44+1100 for FHIR v1.8.0
+import java.util.List;
 
-import java.util.*;
-
-import java.math.*;
-import org.hl7.fhir.utilities.Utilities;
-import ca.uhn.fhir.model.api.annotation.Child;
-import ca.uhn.fhir.model.api.annotation.ChildOrder;
-import ca.uhn.fhir.model.api.annotation.Description;
-import ca.uhn.fhir.model.api.annotation.DatatypeDef;
-import ca.uhn.fhir.model.api.annotation.Block;
-import org.hl7.fhir.instance.model.api.*;
 import org.hl7.fhir.exceptions.FHIRException;
+import org.hl7.fhir.instance.model.api.ICompositeType;
+
+import ca.uhn.fhir.model.api.annotation.Child;
+import ca.uhn.fhir.model.api.annotation.DatatypeDef;
+import ca.uhn.fhir.model.api.annotation.Description;
 /**
  * A series of measurements taken by a device, with upper and lower limits. There may be more than one dimension in the data.
  */

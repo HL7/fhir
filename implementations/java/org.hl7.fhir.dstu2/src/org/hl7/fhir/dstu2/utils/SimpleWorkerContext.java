@@ -21,7 +21,6 @@ import org.hl7.fhir.dstu2.model.Bundle;
 import org.hl7.fhir.dstu2.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.dstu2.model.ConceptMap;
 import org.hl7.fhir.dstu2.model.ElementDefinition.ElementDefinitionBindingComponent;
-import org.hl7.fhir.dstu2.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.dstu2.model.Resource;
 import org.hl7.fhir.dstu2.model.StructureDefinition;
 import org.hl7.fhir.dstu2.model.StructureDefinition.StructureDefinitionKind;
@@ -29,9 +28,8 @@ import org.hl7.fhir.dstu2.model.ValueSet;
 import org.hl7.fhir.dstu2.terminologies.ValueSetExpansionCache;
 import org.hl7.fhir.dstu2.utils.ProfileUtilities.ProfileKnowledgeProvider;
 import org.hl7.fhir.dstu2.utils.client.FHIRToolingClient;
-import org.hl7.fhir.dstu2.validation.IResourceValidator;
-import org.hl7.fhir.dstu2.validation.InstanceValidator;
-import org.hl7.fhir.dstu2.validation.ValidationMessage;
+import org.hl7.fhir.utilities.validation.ValidationMessage;
+import org.hl7.fhir.utilities.validation.ValidationMessage.IssueSeverity;
 import org.hl7.fhir.exceptions.DefinitionException;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.utilities.CSFileInputStream;
@@ -211,7 +209,7 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
 
 	@Override
 	public IResourceValidator newValidator() {
-		return new InstanceValidator(this);
+    throw new Error("not supported at this time"); 
 	}
 
 	@SuppressWarnings("unchecked")

@@ -219,39 +219,55 @@ execute the FHIR validator, follow the following steps:
 </p>
 <ul>
  <li><a href="downloads.html">Download</a> the FHIR Validator</li>
- <li><a href="downloads.html">Download</a> One of the FHIR definitions (with or without text)</li>
+ <li>(optional) <a href="downloads.html">Download</a> One of the FHIR definitions (with or without text)</li>
  <li>Execute the validator, providing the path to the definitions, and a reference to the resource to validate</li>
 </ul>
 <p>
 Here is an example windows batch file that demonstrates the process (using the common utilities <a href="http://gnuwin32.sourceforge.net/packages/wget.htm">wget</a> and <a href="http://www.7-zip.org/">7z</a>:
 </p>
 <pre>
- @ECHO OFF
+@ECHO OFF
 
  ECHO get the validator and unzip it 
- wget http://build.fhir.org/fhir/validator.zip
+ wget <%baseURLn%>/validator.zip
  7z.exe x validator.zip
 
  ECHO Get the validation source file (dictionary)
- wget http://hl7.org/fhir/igpack.zip
+ wget <%baseURLn%>/igpack.zip
 
- ECHO get an example to validate
- wget http://hl7.org/fhir/patient-example.xml -O pat-ex.xml
+ ECHO 1. First example shows how to validate against the base spec:
+ ECHO   a. get an example to validate
+ wget <%baseURLn%>/patient-example.xml -O pat-ex.xml
 
- ECHO validate it. The DAF profile will be loaded out of the definitions in validation-min.zip
- java -jar org.hl7.fhir.validator.jar pat-ex.xml -defn igpack.zip -profile http://hl7.org/fhir/StructureDefinition/daf-patient
+ ECHO   b. validate it
+ java -jar org.hl7.fhir.validator.jar pat-ex.xml -defn igpack.zip 
 
+ ECHO 2. Second example shows how to validate against a profile in the spec:
+ ECHO   a. get an example to validate
+ wget <%baseURLn%>/observation-example-heart-rate.xml -O obs-ex.xml
+
+ ECHO   b. validate it
+ java -jar org.hl7.fhir.validator.jar obs-ex.xml -defn igpack.zip -profile http://hl7.org/fhir/StructureDefinition/heartrate
+
+ ECHO 3. Third example shows how to validate against a profile in an implementation guide:
+ ECHO   a. get an example to validate
+ wget <%baseURLn%>/observation-example-heart-rate.xml -O obs-ex.xml
+
+ ECHO   b. validate it. note that you have to tell the validator where to get the implementation guide information
+ java -jar org.hl7.fhir.validator.jar obs-ex.xml -defn igpack.zip -ig http://hl7.org/fhir/us/core -profile http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient
+
+ ECHO Press Any Key to Close
  pause
 </pre>
 <p>
 Note that it is not necessary to download the resource first; the http address can be supplied directly:
 </p>
 <pre>
- java -jar org.hl7.fhir.validator.jar http://hl7.org/fhir/patient-example.html -defn validation-min.xml.zip -profile http://hl7.org/fhir/StructureDefinition/daf-patient
+ java -jar org.hl7.fhir.validator.jar <%baseURLn%>/patient-example.html -defn validation-min.xml.zip -profile http://hl7.org/fhir/StructureDefinition/Patient
 </pre>
 <p>
-The validator requires an underlying terminology server.
-TODO: document this part. for now, hard coded to http://fhir-dev.healthintersections.com.au.
+The validator requires an underlying terminology server. By default, this is http://fhir3.healthintersections.com.au. Use the parameter -tx to specify another
+server. For a full list of parameters and options, just run the validator.jar without any parameters.
 </p>
 
 <a name="op"> </a>
@@ -263,10 +279,10 @@ be used to check whether a resource conforms to a profile. The simplest way to e
 to post the resource to a server:
 </p>
 <pre>
- POST [base]/Patient/$validate?profile=http://hl7.org/fhir/StructureDefinition/daf-patient
+ POST [base]/Observation/$validate?profile=http://hl7.org/fhir/StructureDefinition/heartrate
  [other HTTP headers]
  
- &lt;Patient&gt;... resource to check as the body
+ &lt;Observation&gt;... resource to check as the body
 </pre>
 <p>
 The server will return an <a href="operationoutcome.html">OperationOutcome</a> resource listing issues found in the resource.
