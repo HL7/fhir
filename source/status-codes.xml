@@ -1,5 +1,4 @@
 <?xml version="1.0"?>
-<?mso-application progid="Excel.Sheet"?>
 <Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
  xmlns:o="urn:schemas-microsoft-com:office:office"
  xmlns:x="urn:schemas-microsoft-com:office:excel"
@@ -11,7 +10,7 @@
   <LastAuthor>lloyd</LastAuthor>
   <Created>2013-11-28T10:43:10Z</Created>
   <LastSaved>2016-11-10T01:32:55Z</LastSaved>
-  <Version>16.00</Version>
+  <Version>15.0</Version>
  </DocumentProperties>
  <CustomDocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <WorkbookGuid dt:dt="string">2eaca039-8f5b-4e09-a647-90931ca82fc4</WorkbookGuid>
@@ -20,11 +19,10 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>9384</WindowHeight>
-  <WindowWidth>23040</WindowWidth>
+  <WindowHeight>15460</WindowHeight>
+  <WindowWidth>27760</WindowWidth>
   <WindowTopX>0</WindowTopX>
-  <WindowTopY>0</WindowTopY>
-  <RefModeR1C1/>
+  <WindowTopY>460</WindowTopY>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -32,7 +30,7 @@
   <Style ss:ID="Default" ss:Name="Normal">
    <Alignment ss:Vertical="Bottom"/>
    <Borders/>
-   <Font ss:FontName="Arial" x:Family="Swiss" ss:Color="#000000"/>
+   <Font x:Family="Swiss" ss:Color="#000000"/>
    <Interior/>
    <NumberFormat/>
    <Protection/>
@@ -90,7 +88,7 @@
     <Border ss:Position="Right" ss:LineStyle="Continuous"/>
     <Border ss:Position="Top" ss:LineStyle="Continuous"/>
    </Borders>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Color="#FF0000"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Color="#DD0806"/>
    <Interior/>
   </Style>
   <Style ss:ID="s68" ss:Parent="s62">
@@ -202,7 +200,7 @@
   </Style>
   <Style ss:ID="s81" ss:Parent="s62">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Color="#FF0000"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Color="#DD0806"/>
    <Interior/>
   </Style>
   <Style ss:ID="s83" ss:Parent="s33">
@@ -315,7 +313,7 @@
   <Style ss:ID="s95">
    <Alignment ss:Vertical="Top"/>
    <Borders/>
-   <Font ss:FontName="Arial" x:Family="Swiss" ss:Color="#000000"/>
+   <Font x:Family="Swiss" ss:Color="#000000"/>
    <Interior/>
    <NumberFormat/>
    <Protection/>
@@ -337,14 +335,14 @@
  </Styles>
  <Worksheet ss:Name="Status Codes">
   <Table ss:ExpandedColumnCount="41" ss:ExpandedRowCount="97" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s63" ss:DefaultColumnWidth="65.400000000000006"
+   x:FullRows="1" ss:StyleID="s63" ss:DefaultColumnWidth="65"
    ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s63" ss:Width="314.39999999999998"/>
-   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="69.599999999999994"/>
-   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="74.400000000000006"/>
+   <Column ss:StyleID="s63" ss:Width="314"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="70"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="74"/>
    <Column ss:Index="8" ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="60"/>
-   <Column ss:Index="10" ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="57.6"/>
-   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="92.4"/>
+   <Column ss:Index="10" ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="58"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="92"/>
    <Column ss:Index="36" ss:StyleID="s63" ss:Width="45"/>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Path</Data></Cell>
@@ -378,7 +376,7 @@
     <Cell><Data ss:Type="String">c27</Data></Cell>
     <Cell><Data ss:Type="String">c28</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="40.050000000000004">
+   <Row ss:AutoFitHeight="0" ss:Height="40">
     <Cell><Data ss:Type="String" x:Ticked="1">@codes</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">unknown</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">entered-in-error, marked deleted</Data></Cell>
@@ -410,7 +408,7 @@
     <Cell><Data ss:Type="String">ahead-of-target</Data></Cell>
     <Cell><Data ss:Type="String">behind-target</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="40.050000000000004">
+   <Row ss:AutoFitHeight="0" ss:Height="40">
     <Cell><Data ss:Type="String" x:Ticked="1">@code</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">unknown</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">error</Data></Cell>
@@ -442,7 +440,7 @@
     <Cell><Data ss:Type="String">ahead-of-target</Data></Cell>
     <Cell><Data ss:Type="String">behind-target</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="74.55">
+   <Row ss:AutoFitHeight="0" ss:Height="74">
     <Cell><Data ss:Type="String" x:Ticked="1">@definition</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String" x:Ticked="1">Authoring system does not know the status</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">The record was created in error, and should not be treated as valid (note: in many cases, for record integrity, the information cannot be removed from the record)</Data></Cell>
@@ -463,7 +461,7 @@
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="22.95">
+   <Row ss:AutoFitHeight="0" ss:Height="23">
     <Cell><Data ss:Type="String" x:Ticked="1">Account.status</Data></Cell>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">entered-in-error</Data></Cell>
@@ -1511,7 +1509,7 @@
     <Cell ss:StyleID="s72"><Data ss:Type="String">retired</Data></Cell>
     <Cell ss:StyleID="s71"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="25.049999999999997">
+   <Row ss:AutoFitHeight="0" ss:Height="25">
     <Cell><Data ss:Type="String">Library.status</Data></Cell>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s78"/>
@@ -1531,7 +1529,7 @@
     <Cell ss:StyleID="s72"><Data ss:Type="String">inactive</Data></Cell>
     <Cell ss:StyleID="s71"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="25.049999999999997">
+   <Row ss:AutoFitHeight="0" ss:Height="25">
     <Cell><Data ss:Type="String">Library.status</Data></Cell>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
@@ -1551,7 +1549,7 @@
     <Cell ss:StyleID="s72"><Data ss:Type="String">retired</Data></Cell>
     <Cell ss:StyleID="s71"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="25.049999999999997">
+   <Row ss:AutoFitHeight="0" ss:Height="25">
     <Cell><Data ss:Type="String">List.status</Data></Cell>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s91"><Data ss:Type="String">entered-in-error</Data></Cell>
@@ -1571,7 +1569,7 @@
     <Cell ss:StyleID="s78"><Data ss:Type="String">retired</Data></Cell>
     <Cell ss:StyleID="s72"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="25.049999999999997">
+   <Row ss:AutoFitHeight="0" ss:Height="25">
     <Cell><Data ss:Type="String">Location.status</Data></Cell>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s78"/>
@@ -1747,6 +1745,7 @@
     <Cell ss:StyleID="s72"><Data ss:Type="String">completed</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s71"><Data ss:Type="String">cancelled</Data></Cell>
+    <Cell><Data ss:Type="String">unknown</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">MedicationStatement.status</Data></Cell>
@@ -2416,13 +2415,14 @@
     <HorizontalResolution>-4</HorizontalResolution>
     <VerticalResolution>-4</VerticalResolution>
    </Print>
+   <PageLayoutZoom>0</PageLayoutZoom>
    <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>4</SplitHorizontal>
-   <TopRowBottomPane>79</TopRowBottomPane>
+   <TopRowBottomPane>56</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>13</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -2430,6 +2430,7 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -2437,13 +2438,12 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>92</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+     <ActiveRow>64</ActiveRow>
+     <ActiveCol>18</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
-   <x:PageLayoutZoom>0</x:PageLayoutZoom>
   </WorksheetOptions>
  </Worksheet>
 </Workbook>

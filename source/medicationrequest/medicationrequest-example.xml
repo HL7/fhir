@@ -16,17 +16,14 @@
     </Medication>
   </contained>
   <status value="active" />
-  <stage>
-    <coding>
-      <code value="original-order"/>
-    </coding>
-  </stage>
+  <intent value="order">
+  </intent>
   <medicationReference>
     <reference value="#med0320"/>
   </medicationReference>
-  <patient>
+  <subject>
     <reference value="Patient/example"/>
-  </patient>
+  </subject>
   <prescriber>
     <reference value="Practitioner/example"/>
   </prescriber>

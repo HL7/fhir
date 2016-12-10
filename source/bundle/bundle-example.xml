@@ -39,17 +39,14 @@
       <MedicationRequest>
         <id value="3123"/>
         <!-- snip -->
-        <stage>
-          <coding>
-            <code value="original-order"/>
-          </coding>
-        </stage>
+        <intent value="order">
+        </intent>
 	<medicationReference>
           <reference value="Medication/example"/>
         </medicationReference>
-        <patient>
+        <subject>
           <reference value="Patient/347"/>
-        </patient>
+        </subject>
         <!-- snip -->
       </MedicationRequest>
     </resource>

@@ -31,24 +31,25 @@
         <value value="12345689"/>
     </identifier>
     <status value="active"/>
-    <stage>
-        <coding>
-            <code value="original-order"/>
-        </coding>
-    </stage>
+    <intent value="order">
+    </intent>
     <medicationReference>
         <reference value="#med0315"></reference>
     </medicationReference>
-    <patient>
+    <subject>
         <!-- Linked to the resource patient who needs the medication -->
         <reference value="Patient/pat1"/>
         <display value="Donald Duck"/>
-    </patient>
-    <dateWritten value="2015-01-15"/>
+    </subject>
+    <authoredOn value="2015-01-15"/>
     <requester>
-        <!-- Linked to the practitioner who treats patient -->
-        <reference value="Practitioner/f007"/>
-        <display value="Patrick Pump"/>
+        <agent>
+            <reference value="Practitioner/f007"/>
+            <display value="Patrick Pump"/>
+        </agent>
+        <onBehalfOf>
+            <reference value="Organization/f002"/>
+        </onBehalfOf>
     </requester>
     <dosageInstruction>
         <sequence value="1"/>

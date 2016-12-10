@@ -375,11 +375,8 @@
         </text>
       <!--   The patient details will generally be in the Document resource in the Document bundle, but could just as easily
         point to a patient resource on a server  -->
-        <stage>
-          <coding>
-            <code value="original-order"/>
-          </coding>
-        </stage>
+        <intent value="order">
+        </intent>
         <medicationCodeableConcept>
           <coding>
             <system value="http://snomed.info/sct"/>
@@ -387,14 +384,19 @@
           </coding>
           <text value="Theophylline 200mg"/>
         </medicationCodeableConcept>
-     <patient>
+     <subject>
           <reference value="http://fhir.healthintersections.com.au/open/Patient/d1"/>
           <display value="Peter Patient"/>
-        </patient>
+        </subject>
       <!--   The prescriber details could also be within the bundle, but has the same options as patient  -->
         <requester>
-          <reference value="Practitioner/example"/>
-          <display value="Peter Practitioner"/>
+          <agent>
+            <reference value="Practitioner/example"/>
+            <display value="Peter Practitioner"/>
+          </agent>
+        <onBehalfOf>
+          <reference value="Organization/f002"></reference>
+        </onBehalfOf>
         </requester>
         <reasonCode>
           <text value="Management of Asthma"/>

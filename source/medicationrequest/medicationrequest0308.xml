@@ -9,11 +9,8 @@
         <value value="12345689"/>
     </identifier>
     <status value="completed"/>
-    <stage>
-        <coding>
-            <code value="original-order"/>
-        </coding>
-    </stage>
+    <intent value="order">
+    </intent>
     <medicationCodeableConcept>
         <coding>
             <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
@@ -21,19 +18,28 @@
             <display value="Vicodin 5/500 Oral Tablet"/>
         </coding>
     </medicationCodeableConcept>
-    <patient> <!-- Linked to the resource patient who needs the medication -->
+    <subject> <!-- Linked to the resource patient who needs the medication -->
         <reference value="Patient/pat1"/>
         <display value="Donald Duck"/>        
-    </patient>
+    </subject>
     <context> <!-- Linked to a resource Encounter between patient and practitioner-->
         <reference value="Encounter/f001"/>
         <display value="encounter who leads to this prescription"/>
     </context>
-    <dateWritten value="2015-01-15"/>
-    <requester> 
-        <reference value="Practitioner/f007"/>
-        <display value="Patrick Pump"/>
+    <authoredOn value="2015-01-15"/>
+    <requester>
+        <agent>
+            <reference value="Practitioner/f007"/>
+            <display value="Patrick Pump"/>
+        </agent>
+        <onBehalfOf>
+            <reference value="Organization/f002"/>
+        </onBehalfOf>
     </requester>
+    <recorder>
+        <reference value="Practitioner/f204"></reference>
+        <display value="Carla Espinoza"></display>
+    </recorder>
     <dosageInstruction>
         <sequence value="1"/>
         <text value="1 tablet every four hours as needed for pain" />

@@ -10,31 +10,32 @@
 		<value value="12345"/>
 	</identifier>
 	<status value="active"/>
-	<stage>
-		<coding>
-			<code value="original-order"/>
-		</coding>
-	</stage>
+	<intent value="order">
+	</intent>
 	<medicationReference>
 		<!-- Linked to a RESOURCE Medication -->
 		<reference value="Medication/med0316"/>
 		<display value="prescribed medication"/>
 	</medicationReference>
-	<patient>
+	<subject>
 		<!-- Linked to the resource patient who needs the medication -->
 		<reference value="Patient/pat1"/>
 		<display value="Donald Duck"/>   
-	</patient>
+	</subject>
 	<context>
 		<!-- Linked to a resource Encounter between patient and practitioner-->
 		<reference value="Encounter/f001"/>
 		<display value="encounter that leads to this prescription"/>
 	</context>
-	<dateWritten value="2015-03-01"/>
+	<authoredOn value="2015-03-01"/>
 	<requester>
-		<!-- Linked to the practitioner who treats patient -->
-		<reference value="Practitioner/f007"/>
-		<display value="Patricia Primary"/>
+		<agent>
+			<reference value="Practitioner/f007"/>
+			<display value="Patrick Pump"/>
+		</agent>
+		<onBehalfOf>
+			<reference value="Organization/f002"/>
+		</onBehalfOf>
 	</requester>	
 	<reasonCode>
 		<coding>

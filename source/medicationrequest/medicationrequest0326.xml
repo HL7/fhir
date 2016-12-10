@@ -9,11 +9,7 @@
         <value value="12345689"/>
     </identifier>
     <status value="on-hold"/>
-    <stage>
-        <coding>
-            <code value="original-order"/>
-        </coding>
-    </stage>
+    <intent value="order"/>
     <medicationCodeableConcept>
         <coding>
             <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
@@ -21,15 +17,20 @@
             <display value="Proventil HFA 90mcg/actuat metered dose inhaler, 200 actuat"/>
         </coding>
     </medicationCodeableConcept>
-    <patient>
+    <subject>
         <!-- Linked to the resource patient who needs the medication -->
         <reference value="Patient/pat1"/>
         <display value="Donald Duck"/>
-    </patient>
-    <dateWritten value="2015-01-15"/>
+    </subject>
+    <authoredOn value="2015-01-15"/>
     <requester>
-        <reference value="Practitioner/f007"/>
-        <display value="Patrick Pump"/>
+        <agent>
+            <reference value="Practitioner/f007"/>
+            <display value="Patrick Pump"/>
+        </agent>
+        <onBehalfOf>
+            <reference value="Organization/f002"/>
+        </onBehalfOf>
     </requester>
     <dosageInstruction>
         <sequence value="1"/>
