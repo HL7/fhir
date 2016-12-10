@@ -802,8 +802,8 @@
   Card. = 1..1
   Type = positiveInt
   Short Name = Number to covey order of diagnosis
-  Definition = Sequence of diagnosis which serves to order and provide a link.
-  Requirements = Required to maintain order of the diagnoses.
+  Definition = Sequence of diagnosis which serves to provide a link.
+  Requirements = Required to allow line items to reference the diagnoses.
 
  -- Row 53 -----------------------------------
   Element = ExplanationOfBenefit.diagnosis.diagnosis[x]
@@ -820,7 +820,7 @@
   Type = CodeableConcept
   Binding = DiagnosisType
   Short Name = Type of Diagnosis
-  Definition = The type of the Diagnosis, for example: admitting,
+  Definition = The type of the Diagnosis, for example: admitting, primary, secondary, discharge.
   Requirements = Required to adjudicate services rendered to the mandated diagnosis grouping system.
   Comments = Diagnosis are presented in list order to their expected importance: primary, secondary, etc.
 

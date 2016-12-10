@@ -19,4 +19,19 @@
     <display value="Flu Shot"/>
     <definition value="Flu Shot"/>
   </concept>
+  <concept>
+    <code value="drugcost"/>
+    <display value="Drug Cost"/>
+    <definition value="The wholesale price of the medication."/>
+  </concept>
+  <concept>
+    <code value="markup"/>
+    <display value="Markup"/>
+    <definition value="The additional cost assessed on the drug."/>
+  </concept>
+  <concept>
+    <code value="dispensefee"/>
+    <display value="DispenseFee"/>
+    <definition value="The professional fee charged fro dispensing the product or service."/>
+  </concept>
 </CodeSystem>
