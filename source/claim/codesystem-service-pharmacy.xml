@@ -31,7 +31,12 @@
   </concept>
   <concept>
     <code value="dispensefee"/>
-    <display value="DispenseFee"/>
-    <definition value="The professional fee charged fro dispensing the product or service."/>
+    <display value="Dispense Fee"/>
+    <definition value="The professional fee charged for dispensing the product or service."/>
+  </concept>
+  <concept>
+    <code value="compoundfee"/>
+    <display value="Compounding Fee"/>
+    <definition value="The professional fee charged for compounding the medication."/>
   </concept>
 </CodeSystem>

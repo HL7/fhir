@@ -1,4 +1,5 @@
 ﻿https://www.usps.com/
+http://hl7.org/fhir/pharmacy-information
 http://acme.org/lab/codes/panels
 https://precision.fda.gov/jobs/
 http://acme.org/lab/codes/tests
@@ -6,6 +7,7 @@ http://goodhealthhospital.org/supplement-type-codes
 http://acme.org/lab/codes/organisms
 http://hl7.org/fhir/NamingSystem/hibcc-di
 http://orionhealth.com/fhir/apps/specialties
+http://hl7.org/fhir/pharmacy-refill
 http://fdi.org/fhir/oralsurfacecodes
 http://cancer.questionnaire.org/system/code/yesno
 http://snomed.info/id

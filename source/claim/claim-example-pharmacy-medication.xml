@@ -58,6 +58,57 @@
 		</provider>
 	</careTeam>
 
+	<information>
+		<sequence value="1"/>
+		<category>
+			<coding>
+				<code value="pharmacyrefill"/>
+			</coding>
+		</category>
+		<code>
+			<coding>
+				<system value="http://hl7.org/fhir/pharmacy-refill"/>
+				<code value="new"/>
+			</coding>
+		</code>	
+	</information>
+
+	<information>
+		<sequence value="2"/>
+		<category>
+			<coding>
+				<code value="pharmacyinformation"/>
+			</coding>
+		</category>
+		<code>
+			<coding>
+				<system value="http://hl7.org/fhir/pharmacy-information"/>
+				<code value="refillsremaining"/>
+			</coding>
+		</code>	
+		<valueQuantity>
+			<value value="2"/>
+		</valueQuantity>
+	</information>
+
+	<information>
+		<sequence value="3"/>
+		<category>
+			<coding>
+				<code value="pharmacyinformation"/>
+			</coding>
+		</category>
+		<code>
+			<coding>
+				<system value="http://hl7.org/fhir/pharmacy-information"/>
+				<code value="dayssupply"/>
+			</coding>
+		</code>	
+		<valueQuantity>
+			<value value="90"/>
+		</valueQuantity>
+	</information>
+	
 	<diagnosis>
 		<sequence value="1"/>
 		<diagnosisCodeableConcept>
@@ -78,6 +129,10 @@
 	<item>
 		<sequence value="1"/>
 		<careTeamLinkId value="1"/>
+		<informationLinkId value="1"/>
+		<informationLinkId value="2"/>
+		<informationLinkId value="3"/>
+		<!-- type=packagemedication -->
 		<service>
 			<coding>
 				<system value="http://hl7.org/fhir/RxNorm"/>
@@ -89,14 +144,9 @@
 		<quantity>
 			<value value="90"/>
 			<unit value="TAB"/>
-			<system value="urn:UCUM"/>
+			<system value="http://unitsofmeasure.org"/> <!-- UCUM -->
 			<code value="TAB"/>
 		</quantity>
-		<unitPrice>
-			<value value="1.00"/>
-			<system value="urn:iso:std:iso:4217"/>
-			<code value="USD"/> 
-		</unitPrice> 
 		<net>
 			<value value="90.00"/>
 			<system value="urn:iso:std:iso:4217"/>
@@ -104,23 +154,13 @@
 		</net> 
 		<detail>
 			<sequence value="1"/>
+			<!-- type=costitem -->
 			<service>
 				<coding>
 					<system value="http://hl7.org/fhir/ex-pharmaservice"/>
 					<code value="drugcost"/> 
 				</coding> 
 			</service>
-			<quantity>
-				<value value="90"/>
-				<unit value="TAB"/>
-				<system value="urn:UCUM"/>
-				<code value="TAB"/>
-			</quantity>
-			<unitPrice>
-				<value value="0.50"/>
-				<system value="urn:iso:std:iso:4217"/>
-				<code value="USD"/> 
-			</unitPrice> 
 			<net>
 				<value value="45.00"/>
 				<system value="urn:iso:std:iso:4217"/>
@@ -129,23 +169,13 @@
 		</detail>
 		<detail>
 			<sequence value="2"/>
+			<!-- type=costitem -->
 			<service>
 				<coding>
 					<system value="http://hl7.org/fhir/ex-pharmaservice"/>
 					<code value="markup"/> 
 				</coding> 
 			</service>
-			<quantity>
-				<value value="90"/>
-				<unit value="TAB"/>
-				<system value="urn:UCUM"/>
-				<code value="TAB"/>
-			</quantity>
-			<unitPrice>
-				<value value="0.10"/>
-				<system value="urn:iso:std:iso:4217"/>
-				<code value="USD"/> 
-			</unitPrice> 
 			<net>
 				<value value="9.00"/>
 				<system value="urn:iso:std:iso:4217"/>
@@ -154,6 +184,7 @@
 		</detail>
 		<detail>
 			<sequence value="1"/>
+			<!-- type=costitem -->
 			<service>
 				<coding>
 					<system value="http://hl7.org/fhir/ex-pharmaservice"/>
