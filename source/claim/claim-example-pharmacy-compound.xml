@@ -294,7 +294,7 @@
 			<service>
 				<coding>
 					<system value="http://hl7.org/fhir/ex-pharmaservice"/>
-					<code value="dispensefee"/> 
+					<code value="compoundfee"/> 
 				</coding> 
 			</service>
 			<net>
