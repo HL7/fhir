@@ -1605,4 +1605,10 @@
   Description = Simple Pharmacy Medication Claim
   Filename = claim-example-pharmacy-medication.xml
 
+ -- Row 13 -----------------------------------
+  Name = General-Claim-Pharmacy-Compound
+  Identity = 760152
+  Description = Simple Pharmacy Compound Claim
+  Filename = claim-example-pharmacy-compound.xml
+
 === Sheet Examples =====================================

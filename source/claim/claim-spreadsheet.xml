@@ -20,8 +20,8 @@
   <WindowWidth>15300</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
-  <FirstVisibleSheet>1</FirstVisibleSheet>
+  <ActiveSheet>7</ActiveSheet>
+  <FirstVisibleSheet>4</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -6061,7 +6061,6 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>120</Zoom>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -8179,7 +8178,7 @@
    <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Examples!R1C1:R2C7"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="50" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="51" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s141" ss:DefaultColumnWidth="171.75"
    ss:DefaultRowHeight="15">
    <Row ss:AutoFitHeight="0">
@@ -8322,6 +8321,15 @@
     <Cell ss:StyleID="s81"><Data ss:Type="String">Simple Pharmacy Medication Claim</Data></Cell>
     <Cell ss:StyleID="s80"><Data ss:Type="Number">760151</Data></Cell>
     <Cell ss:StyleID="s80"><Data ss:Type="String">claim-example-pharmacy-medication.xml</Data></Cell>
+    <Cell ss:StyleID="s132"/>
+    <Cell ss:StyleID="s144"><Data ss:Type="String">y</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="30">
+    <Cell ss:StyleID="s143"><Data ss:Type="String">General-Claim-Pharmacy-Compound</Data></Cell>
+    <Cell ss:StyleID="s80"/>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">Simple Pharmacy Compound Claim</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="Number">760152</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">claim-example-pharmacy-compound.xml</Data></Cell>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s144"><Data ss:Type="String">y</Data></Cell>
    </Row>
@@ -8662,12 +8670,13 @@
     <ValidPrinterInfo/>
     <VerticalResolution>0</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>7</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>4</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -8675,7 +8684,6 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -8683,7 +8691,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>16</ActiveRow>
+     <ActiveRow>13</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
