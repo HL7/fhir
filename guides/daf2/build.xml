@@ -16,13 +16,13 @@
   <property name="dir.output" value="output"/>
   <!-- -->
   <target name="dir-setup" description="--> create directories">
-    <delete dir="${dir.pages}"/>
+<!--    <delete dir="${dir.pages}"/>-->
     <delete dir="${dir.qa}"/>
     <delete dir="${dir.temp}"/>
-    <mkdir dir="${dir.pages}"/>
+<!--    <mkdir dir="${dir.pages}"/>
     <mkdir dir="${dir.pageassets}"/>
     <mkdir dir="${dir.pagedata}"/>
-    <mkdir dir="${dir.pageincludes}"/>
+    <mkdir dir="${dir.pageincludes}"/>-->
     <mkdir dir="${dir.qa}"/>
     <mkdir dir="${dir.temp}"/>
     <mkdir dir="${dir.txcache}"/>
