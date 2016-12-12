@@ -149,6 +149,11 @@ public class ValidationPresenter implements Comparator<FetchedFile> {
       "     <td><b>$path$</b></td><td><b>$level$</b></td><td><b>$msg$</b></td>\r\n"+
       "   </tr>\r\n";
   
+  private final String detailsTemplateWithLink = 
+      "   <tr style=\"background-color: $color$\">\r\n"+
+      "     <td><b><a href=\"$pathlink$\">$path$</a></b></td><td><b>$level$</b></td><td><b>$msg$</b></td>\r\n"+
+      "   </tr>\r\n";
+  
   private final String footerTemplate = 
       "</body>\r\n"+
       "</html>\r\n";
@@ -332,8 +337,9 @@ public class ValidationPresenter implements Comparator<FetchedFile> {
     return t.render();
   }
   private String genDetails(ValidationMessage vm) {
-    ST t = template(detailsTemplate);
+    ST t = template(vm.getLocationLink() != null ? detailsTemplateWithLink : detailsTemplate);
     t.add("path", vm.getLocation());
+    t.add("pathlink", vm.getLocationLink());
     t.add("level", vm.getLevel().toCode());
     t.add("color", colorForLevel(vm.getLevel()));
     t.add("msg", vm.getHtml());

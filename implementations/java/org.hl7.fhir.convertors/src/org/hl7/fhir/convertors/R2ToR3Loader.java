@@ -49,6 +49,7 @@ public class R2ToR3Loader implements IContextResourceLoader, VersionConvertorAdv
   @Override
   public void handleCodeSystem(CodeSystem cs, ValueSet vs) {
     cs.setId(vs.getId());
+    cs.setValueSet(vs.getUrl());
     cslist.add(cs);
     
   }

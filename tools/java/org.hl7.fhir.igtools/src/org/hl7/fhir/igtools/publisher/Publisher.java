@@ -197,7 +197,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   private String version;
 
   private String igName;
-
+  private boolean autoBuildMode; // for the IG publication infrastructure
 
   private IFetchFile fetcher = new SimpleFetcher(resourceDirs);
   private SimpleWorkerContext context;
@@ -554,10 +554,12 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     outputDir = Utilities.path(root, str(paths, "output", "output"));
     qaDir = Utilities.path(root, str(paths, "qa"));
     vsCache = ostr(paths, "txCache");
-    if (vsCache == null)
-      vsCache = Utilities.path(System.getProperty("user.home"), "fhircache");
-    else
+    if (vsCache != null)
       vsCache = Utilities.path(root, vsCache);
+    else if (autoBuildMode)
+      vsCache = Utilities.path(System.getProperty("java.io.tmpdir"), "fhircache");
+    else
+      vsCache = Utilities.path(System.getProperty("user.home"), "fhircache");
 
     specPath = str(paths, "specification");
     if (configuration.has("pre-process")) {
@@ -595,7 +597,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     forceDir(qaDir);
 
     Utilities.createDirectory(vsCache);
-    if (clearCache) {
+    if (clearCache || autoBuildMode) {
       log("Terminology Cache is at "+vsCache+". Clearing now");
       Utilities.clearDirectory(vsCache);
     } else
@@ -2957,6 +2959,15 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     return null;
   }
 
+  private static boolean hasNamedParam(String[] args, String param) {
+    for (String a : args) {
+      if (a.equals(param)) {
+        return true;
+      }
+    }
+    return false;
+  }
+
   public void setLogger(ILoggingService logger) {
     this.logger = logger;
 
@@ -3112,6 +3123,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       }
       self.setIgPack(getNamedParam(args, "-spec"));
       self.setTxServer(getNamedParam(args, "-tx"));
+      self.setAutoBuildMode(hasNamedParam(args, "-auto-ig-build"));
       self.watch = hasParam(args, "-watch");
       self.filelog = new StringBuilder();
       try {
@@ -3129,6 +3141,11 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       }
       TextFile.stringToFile(buildReport(getNamedParam(args, "-ig"), getNamedParam(args, "-source"), self.filelog.toString(), Utilities.path(self.qaDir, "validation.txt")), Utilities.path(System.getProperty("java.io.tmpdir"), "fhir-ig-publisher.log"));
     } 
+  }
+
+  private void setAutoBuildMode(boolean value) {
+    autoBuildMode = value;
+    
   }
 
   private static String nowAsString() {

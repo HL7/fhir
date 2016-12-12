@@ -28,10 +28,12 @@ POSSIBILITY OF SUCH DAMAGE.
 */
 package org.hl7.fhir.utilities.xhtml;
 
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.StringWriter;
+import java.io.UnsupportedEncodingException;
 import java.io.Writer;
 
 import org.hl7.fhir.utilities.Utilities;
@@ -105,6 +107,8 @@ public class XhtmlComposer {
       writeInstruction(node);
     else if (node.getNodeType() == NodeType.Element)
       writeElement(indent, node);
+    else if (node.getNodeType() == NodeType.Document)
+      writeDocument(indent, node);
     else if (node.getNodeType() == NodeType.Text)
       writeText(node);
     else if (node.getNodeType() == null)
@@ -208,6 +212,13 @@ public class XhtmlComposer {
       dst.append(indent + "</" + node.getName() + ">" + (isPretty() ? "\r\n" : ""));
     }
   }
+
+  private void writeDocument(String indent, XhtmlNode node) throws IOException  {
+    indent = "";
+    for (XhtmlNode c : node.getChildNodes())
+      writeNode(indent, c);
+  }
+
 
   public void compose(IXMLWriter xml, XhtmlNode node) throws IOException  {
     if (node.getNodeType() == NodeType.Comment)
@@ -315,6 +326,15 @@ public class XhtmlComposer {
     writeNode("", x);
     dst.append("</body></html>\r\n");
     dst.flush();
+  }
+
+  public void composeDocument(FileOutputStream f, XhtmlNode xhtml) throws IOException {
+    byte[] bom = new byte[] { (byte)0xEF, (byte)0xBB, (byte)0xBF };
+    f.write(bom);
+    dst = new OutputStreamWriter(f, "UTF-8");
+    writeNode("", xhtml);
+    dst.flush();
+    dst.close();
   }
   
 }

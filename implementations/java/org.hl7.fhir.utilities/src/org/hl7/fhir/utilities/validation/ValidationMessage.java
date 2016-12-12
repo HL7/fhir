@@ -456,6 +456,7 @@ public class ValidationMessage implements Comparator<ValidationMessage>, Compara
   private IssueType type;
   private IssueSeverity level;
   private String html;
+  private String locationLink;
 
 
   /**
@@ -689,4 +690,14 @@ public class ValidationMessage implements Comparator<ValidationMessage>, Compara
     return compare(this, y);
   }
 
+  public String getLocationLink() {
+    return locationLink;
+  }
+
+  public ValidationMessage setLocationLink(String locationLink) {
+    this.locationLink = locationLink;
+    return this;
+  }
+
+  
 }

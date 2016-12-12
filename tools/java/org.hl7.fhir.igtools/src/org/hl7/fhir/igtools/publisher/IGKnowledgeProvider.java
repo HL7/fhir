@@ -11,6 +11,7 @@ import org.hl7.fhir.dstu3.context.IWorkerContext;
 import org.hl7.fhir.dstu3.elementmodel.ParserBase;
 import org.hl7.fhir.dstu3.elementmodel.Property;
 import org.hl7.fhir.dstu3.formats.FormatUtilities;
+import org.hl7.fhir.dstu3.model.CodeSystem;
 import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionBindingComponent;
 import org.hl7.fhir.dstu3.model.MetadataResource;
 import org.hl7.fhir.dstu3.model.Reference;
@@ -167,8 +168,16 @@ public class IGKnowledgeProvider implements ProfileKnowledgeProvider, ParserBase
     this.specPaths = paths;
     for (MetadataResource bc : context.allConformanceResources()) {
       String s = paths.getPath(bc.getUrl());
+      if (s == null && bc instanceof CodeSystem) { // work around for an R2 issue) 
+        CodeSystem cs = (CodeSystem) bc;
+        s = paths.getPath(cs.getValueSet());
+      }
       if (s != null)
         bc.setUserData("path", specPath(s));
+      
+      
+      else if (!bc.getUrl().contains("StructureDefinition"))
+        System.out.println("No path found for "+bc.getUrl());
     }    
   }
 

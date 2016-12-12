@@ -3404,8 +3404,8 @@ public class NarrativeGenerator implements INarrativeGenerator {
     String ref = (String) cs.getUserData("filename");
     if (ref == null)
       ref = (String) cs.getUserData("path");
-    if (ref == null)
-      return "v2/0136/index.html";  // fix me - csvs!
+    if (ref == null) 
+      return "??.html";
     if (!ref.contains(".html"))
       ref = ref + ".html";
     return ref.replace("\\", "/");
