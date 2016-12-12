@@ -18,7 +18,7 @@
   <date value="2015-09-22T20:02:49+10:00"></date>
   <description value="Profiles the practioner resource to require an identifer."></description>
   <requirements value="The practitioner resource is required to identify the provider placing the order. "></requirements>
-  <fhirVersion value="1.8.0"></fhirVersion>
+  <fhirVersion value="1.9.0"></fhirVersion>
   
   
   

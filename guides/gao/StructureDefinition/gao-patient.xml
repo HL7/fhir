@@ -18,7 +18,7 @@
   <date value="2015-09-22T20:02:49+10:00"></date>
   <description value="The patient resource is required to provide relevant demographics associated with the patient. Other details may be provided according to local implementation requirements. "></description>
   <requirements value="Patient gender and age are often necessary to ensure that an order is appropriate."></requirements>
-  <fhirVersion value="1.8.0"></fhirVersion>
+  <fhirVersion value="1.9.0"></fhirVersion>
   
   
   

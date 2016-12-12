@@ -203,7 +203,7 @@
   Short Name = Formal definition of task
   Definition = A reference to a formal or informal definition of the task.  For example, a protocol, a step within a defined workflow definition, etc.
   Requirements = Enables a formal definition of how he task is to be performed (e.g. using BPMN, BPEL, XPDL or other formal notation) to be associated with a task, enabling automation.
-  Workflow Mapping = Request.definition, Event.definitoin
+  Workflow Mapping = Request.definition, Event.definition
   RIM Mapping = .outboundRelationship[typeCode=DEFN].target
 
  -- Row 4 -----------------------------------

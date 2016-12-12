@@ -14,7 +14,7 @@
    </contact>
    <date value="2016-02-08T19:11:02-07:00"/>
    <description value="A description of the source from which the ResourceVersionDescription was derived. When possible, SourceAndNotation should include a reference to the actual source document from which it was&#xa;&#x9;&#x9;&#x9;&#x9;derived. As an example, if the resource was derived from the W3C Wine Ontology, the URI http://www.w3.org/TR/2003/CR-owl-guide-20030818/wine would unambiguously name the document. In the cases, however, when a definitive&#xa;&#x9;&#x9;&#x9;&#x9;source document is not available, a textual description should be provided, instead, in sourceAndNotationDescription. Where possible, the ontology language and ontology syntax should also be provided. In the case of&#xa;&#x9;&#x9;&#x9;&#x9;the Wine Ontology above, the ontology language would be http://www.w3.org/2002/07/owl# (OWL) and the syntax would be application/rdf+xml."/>
-   <fhirVersion value="1.8.0"/>
+   <fhirVersion value="1.9.0"/>
    <kind value="logical"/>
    <abstract value="false"/>
    <snapshot>

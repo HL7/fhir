@@ -175,9 +175,6 @@ public class IGKnowledgeProvider implements ProfileKnowledgeProvider, ParserBase
       if (s != null)
         bc.setUserData("path", specPath(s));
       
-      
-      else if (!bc.getUrl().contains("StructureDefinition"))
-        System.out.println("No path found for "+bc.getUrl());
     }    
   }
 

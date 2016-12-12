@@ -29,25 +29,22 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 5, 2016 23:44+1100 for FHIR v1.8.0
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
 
-import org.hl7.fhir.dstu3.model.Enumerations.PublicationStatus;
-import org.hl7.fhir.dstu3.model.Enumerations.PublicationStatusEnumFactory;
-// added from java-adornments.txt:
-import org.hl7.fhir.dstu3.utils.StructureMapUtilities;
-import org.hl7.fhir.exceptions.FHIRException;
-import org.hl7.fhir.instance.model.api.IBaseBackboneElement;
+import java.util.*;
+
 import org.hl7.fhir.utilities.Utilities;
-
-import ca.uhn.fhir.model.api.annotation.Block;
+import org.hl7.fhir.dstu3.model.Enumerations.*;
+import ca.uhn.fhir.model.api.annotation.ResourceDef;
+import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;
 import ca.uhn.fhir.model.api.annotation.Child;
 import ca.uhn.fhir.model.api.annotation.ChildOrder;
 import ca.uhn.fhir.model.api.annotation.Description;
-import ca.uhn.fhir.model.api.annotation.ResourceDef;
-import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;
+import ca.uhn.fhir.model.api.annotation.Block;
+import org.hl7.fhir.instance.model.api.*;
+import org.hl7.fhir.exceptions.FHIRException;
+// added from java-adornments.txt:
+import org.hl7.fhir.dstu3.utils.StructureMapUtilities;
 
 // end addition
 /**
@@ -2527,17 +2524,17 @@ public class StructureMap extends MetadataResource {
         protected IdType variable;
 
         /**
-         * FluentPath expression  - must be true or the rule does not apply.
+         * FHIRPath expression  - must be true or the rule does not apply.
          */
         @Child(name = "condition", type = {StringType.class}, order=10, min=0, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="FluentPath expression  - must be true or the rule does not apply", formalDefinition="FluentPath expression  - must be true or the rule does not apply." )
+        @Description(shortDefinition="FHIRPath expression  - must be true or the rule does not apply", formalDefinition="FHIRPath expression  - must be true or the rule does not apply." )
         protected StringType condition;
 
         /**
-         * FluentPath expression  - must be true or the mapping engine throws an error instead of completing.
+         * FHIRPath expression  - must be true or the mapping engine throws an error instead of completing.
          */
         @Child(name = "check", type = {StringType.class}, order=11, min=0, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="FluentPath expression  - must be true or the mapping engine throws an error instead of completing", formalDefinition="FluentPath expression  - must be true or the mapping engine throws an error instead of completing." )
+        @Description(shortDefinition="FHIRPath expression  - must be true or the mapping engine throws an error instead of completing", formalDefinition="FHIRPath expression  - must be true or the mapping engine throws an error instead of completing." )
         protected StringType check;
 
         private static final long serialVersionUID = 825856092L;
@@ -2985,7 +2982,7 @@ public class StructureMap extends MetadataResource {
         }
 
         /**
-         * @return {@link #condition} (FluentPath expression  - must be true or the rule does not apply.). This is the underlying object with id, value and extensions. The accessor "getCondition" gives direct access to the value
+         * @return {@link #condition} (FHIRPath expression  - must be true or the rule does not apply.). This is the underlying object with id, value and extensions. The accessor "getCondition" gives direct access to the value
          */
         public StringType getConditionElement() { 
           if (this.condition == null)
@@ -3005,7 +3002,7 @@ public class StructureMap extends MetadataResource {
         }
 
         /**
-         * @param value {@link #condition} (FluentPath expression  - must be true or the rule does not apply.). This is the underlying object with id, value and extensions. The accessor "getCondition" gives direct access to the value
+         * @param value {@link #condition} (FHIRPath expression  - must be true or the rule does not apply.). This is the underlying object with id, value and extensions. The accessor "getCondition" gives direct access to the value
          */
         public StructureMapGroupRuleSourceComponent setConditionElement(StringType value) { 
           this.condition = value;
@@ -3013,14 +3010,14 @@ public class StructureMap extends MetadataResource {
         }
 
         /**
-         * @return FluentPath expression  - must be true or the rule does not apply.
+         * @return FHIRPath expression  - must be true or the rule does not apply.
          */
         public String getCondition() { 
           return this.condition == null ? null : this.condition.getValue();
         }
 
         /**
-         * @param value FluentPath expression  - must be true or the rule does not apply.
+         * @param value FHIRPath expression  - must be true or the rule does not apply.
          */
         public StructureMapGroupRuleSourceComponent setCondition(String value) { 
           if (Utilities.noString(value))
@@ -3034,7 +3031,7 @@ public class StructureMap extends MetadataResource {
         }
 
         /**
-         * @return {@link #check} (FluentPath expression  - must be true or the mapping engine throws an error instead of completing.). This is the underlying object with id, value and extensions. The accessor "getCheck" gives direct access to the value
+         * @return {@link #check} (FHIRPath expression  - must be true or the mapping engine throws an error instead of completing.). This is the underlying object with id, value and extensions. The accessor "getCheck" gives direct access to the value
          */
         public StringType getCheckElement() { 
           if (this.check == null)
@@ -3054,7 +3051,7 @@ public class StructureMap extends MetadataResource {
         }
 
         /**
-         * @param value {@link #check} (FluentPath expression  - must be true or the mapping engine throws an error instead of completing.). This is the underlying object with id, value and extensions. The accessor "getCheck" gives direct access to the value
+         * @param value {@link #check} (FHIRPath expression  - must be true or the mapping engine throws an error instead of completing.). This is the underlying object with id, value and extensions. The accessor "getCheck" gives direct access to the value
          */
         public StructureMapGroupRuleSourceComponent setCheckElement(StringType value) { 
           this.check = value;
@@ -3062,14 +3059,14 @@ public class StructureMap extends MetadataResource {
         }
 
         /**
-         * @return FluentPath expression  - must be true or the mapping engine throws an error instead of completing.
+         * @return FHIRPath expression  - must be true or the mapping engine throws an error instead of completing.
          */
         public String getCheck() { 
           return this.check == null ? null : this.check.getValue();
         }
 
         /**
-         * @param value FluentPath expression  - must be true or the mapping engine throws an error instead of completing.
+         * @param value FHIRPath expression  - must be true or the mapping engine throws an error instead of completing.
          */
         public StructureMapGroupRuleSourceComponent setCheck(String value) { 
           if (Utilities.noString(value))
@@ -3093,8 +3090,8 @@ public class StructureMap extends MetadataResource {
           childrenList.add(new Property("element", "string", "Optional field for this source.", 0, java.lang.Integer.MAX_VALUE, element));
           childrenList.add(new Property("listMode", "code", "How to handle the list mode for this element.", 0, java.lang.Integer.MAX_VALUE, listMode));
           childrenList.add(new Property("variable", "id", "Named context for field, if a field is specified.", 0, java.lang.Integer.MAX_VALUE, variable));
-          childrenList.add(new Property("condition", "string", "FluentPath expression  - must be true or the rule does not apply.", 0, java.lang.Integer.MAX_VALUE, condition));
-          childrenList.add(new Property("check", "string", "FluentPath expression  - must be true or the mapping engine throws an error instead of completing.", 0, java.lang.Integer.MAX_VALUE, check));
+          childrenList.add(new Property("condition", "string", "FHIRPath expression  - must be true or the rule does not apply.", 0, java.lang.Integer.MAX_VALUE, condition));
+          childrenList.add(new Property("check", "string", "FHIRPath expression  - must be true or the mapping engine throws an error instead of completing.", 0, java.lang.Integer.MAX_VALUE, check));
         }
 
       @Override

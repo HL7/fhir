@@ -29,20 +29,20 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 5, 2016 23:44+1100 for FHIR v1.8.0
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
 
-import org.hl7.fhir.exceptions.FHIRException;
-import org.hl7.fhir.instance.model.api.IBaseBackboneElement;
+import java.util.*;
+
 import org.hl7.fhir.utilities.Utilities;
-
-import ca.uhn.fhir.model.api.annotation.Block;
-import ca.uhn.fhir.model.api.annotation.Child;
-import ca.uhn.fhir.model.api.annotation.Description;
+import org.hl7.fhir.dstu3.model.Enumerations.*;
 import ca.uhn.fhir.model.api.annotation.ResourceDef;
 import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;
+import ca.uhn.fhir.model.api.annotation.Child;
+import ca.uhn.fhir.model.api.annotation.ChildOrder;
+import ca.uhn.fhir.model.api.annotation.Description;
+import ca.uhn.fhir.model.api.annotation.Block;
+import org.hl7.fhir.instance.model.api.*;
+import org.hl7.fhir.exceptions.FHIRException;
 /**
  * This resource provides eligibility and plan details from the processing of an Eligibility resource.
  */
@@ -1090,18 +1090,18 @@ public class EligibilityResponse extends DomainResource {
         /**
          * Benefits allowed.
          */
-        @Child(name = "benefit", type = {UnsignedIntType.class, StringType.class, Money.class}, order=2, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "allowed", type = {UnsignedIntType.class, StringType.class, Money.class}, order=2, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Benefits allowed", formalDefinition="Benefits allowed." )
-        protected Type benefit;
+        protected Type allowed;
 
         /**
          * Benefits used.
          */
-        @Child(name = "benefitUsed", type = {UnsignedIntType.class, Money.class}, order=3, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "used", type = {UnsignedIntType.class, Money.class}, order=3, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Benefits used", formalDefinition="Benefits used." )
-        protected Type benefitUsed;
+        protected Type used;
 
-        private static final long serialVersionUID = -1013861008L;
+        private static final long serialVersionUID = -1506285314L;
 
     /**
      * Constructor
@@ -1143,121 +1143,121 @@ public class EligibilityResponse extends DomainResource {
         }
 
         /**
-         * @return {@link #benefit} (Benefits allowed.)
+         * @return {@link #allowed} (Benefits allowed.)
          */
-        public Type getBenefit() { 
-          return this.benefit;
+        public Type getAllowed() { 
+          return this.allowed;
         }
 
         /**
-         * @return {@link #benefit} (Benefits allowed.)
+         * @return {@link #allowed} (Benefits allowed.)
          */
-        public UnsignedIntType getBenefitUnsignedIntType() throws FHIRException { 
-          if (!(this.benefit instanceof UnsignedIntType))
-            throw new FHIRException("Type mismatch: the type UnsignedIntType was expected, but "+this.benefit.getClass().getName()+" was encountered");
-          return (UnsignedIntType) this.benefit;
+        public UnsignedIntType getAllowedUnsignedIntType() throws FHIRException { 
+          if (!(this.allowed instanceof UnsignedIntType))
+            throw new FHIRException("Type mismatch: the type UnsignedIntType was expected, but "+this.allowed.getClass().getName()+" was encountered");
+          return (UnsignedIntType) this.allowed;
         }
 
-        public boolean hasBenefitUnsignedIntType() { 
-          return this.benefit instanceof UnsignedIntType;
+        public boolean hasAllowedUnsignedIntType() { 
+          return this.allowed instanceof UnsignedIntType;
         }
 
         /**
-         * @return {@link #benefit} (Benefits allowed.)
+         * @return {@link #allowed} (Benefits allowed.)
          */
-        public StringType getBenefitStringType() throws FHIRException { 
-          if (!(this.benefit instanceof StringType))
-            throw new FHIRException("Type mismatch: the type StringType was expected, but "+this.benefit.getClass().getName()+" was encountered");
-          return (StringType) this.benefit;
+        public StringType getAllowedStringType() throws FHIRException { 
+          if (!(this.allowed instanceof StringType))
+            throw new FHIRException("Type mismatch: the type StringType was expected, but "+this.allowed.getClass().getName()+" was encountered");
+          return (StringType) this.allowed;
         }
 
-        public boolean hasBenefitStringType() { 
-          return this.benefit instanceof StringType;
+        public boolean hasAllowedStringType() { 
+          return this.allowed instanceof StringType;
         }
 
         /**
-         * @return {@link #benefit} (Benefits allowed.)
+         * @return {@link #allowed} (Benefits allowed.)
          */
-        public Money getBenefitMoney() throws FHIRException { 
-          if (!(this.benefit instanceof Money))
-            throw new FHIRException("Type mismatch: the type Money was expected, but "+this.benefit.getClass().getName()+" was encountered");
-          return (Money) this.benefit;
+        public Money getAllowedMoney() throws FHIRException { 
+          if (!(this.allowed instanceof Money))
+            throw new FHIRException("Type mismatch: the type Money was expected, but "+this.allowed.getClass().getName()+" was encountered");
+          return (Money) this.allowed;
         }
 
-        public boolean hasBenefitMoney() { 
-          return this.benefit instanceof Money;
+        public boolean hasAllowedMoney() { 
+          return this.allowed instanceof Money;
         }
 
-        public boolean hasBenefit() { 
-          return this.benefit != null && !this.benefit.isEmpty();
+        public boolean hasAllowed() { 
+          return this.allowed != null && !this.allowed.isEmpty();
         }
 
         /**
-         * @param value {@link #benefit} (Benefits allowed.)
+         * @param value {@link #allowed} (Benefits allowed.)
          */
-        public BenefitComponent setBenefit(Type value) { 
-          this.benefit = value;
+        public BenefitComponent setAllowed(Type value) { 
+          this.allowed = value;
           return this;
         }
 
         /**
-         * @return {@link #benefitUsed} (Benefits used.)
+         * @return {@link #used} (Benefits used.)
          */
-        public Type getBenefitUsed() { 
-          return this.benefitUsed;
+        public Type getUsed() { 
+          return this.used;
         }
 
         /**
-         * @return {@link #benefitUsed} (Benefits used.)
+         * @return {@link #used} (Benefits used.)
          */
-        public UnsignedIntType getBenefitUsedUnsignedIntType() throws FHIRException { 
-          if (!(this.benefitUsed instanceof UnsignedIntType))
-            throw new FHIRException("Type mismatch: the type UnsignedIntType was expected, but "+this.benefitUsed.getClass().getName()+" was encountered");
-          return (UnsignedIntType) this.benefitUsed;
+        public UnsignedIntType getUsedUnsignedIntType() throws FHIRException { 
+          if (!(this.used instanceof UnsignedIntType))
+            throw new FHIRException("Type mismatch: the type UnsignedIntType was expected, but "+this.used.getClass().getName()+" was encountered");
+          return (UnsignedIntType) this.used;
         }
 
-        public boolean hasBenefitUsedUnsignedIntType() { 
-          return this.benefitUsed instanceof UnsignedIntType;
+        public boolean hasUsedUnsignedIntType() { 
+          return this.used instanceof UnsignedIntType;
         }
 
         /**
-         * @return {@link #benefitUsed} (Benefits used.)
+         * @return {@link #used} (Benefits used.)
          */
-        public Money getBenefitUsedMoney() throws FHIRException { 
-          if (!(this.benefitUsed instanceof Money))
-            throw new FHIRException("Type mismatch: the type Money was expected, but "+this.benefitUsed.getClass().getName()+" was encountered");
-          return (Money) this.benefitUsed;
+        public Money getUsedMoney() throws FHIRException { 
+          if (!(this.used instanceof Money))
+            throw new FHIRException("Type mismatch: the type Money was expected, but "+this.used.getClass().getName()+" was encountered");
+          return (Money) this.used;
         }
 
-        public boolean hasBenefitUsedMoney() { 
-          return this.benefitUsed instanceof Money;
+        public boolean hasUsedMoney() { 
+          return this.used instanceof Money;
         }
 
-        public boolean hasBenefitUsed() { 
-          return this.benefitUsed != null && !this.benefitUsed.isEmpty();
+        public boolean hasUsed() { 
+          return this.used != null && !this.used.isEmpty();
         }
 
         /**
-         * @param value {@link #benefitUsed} (Benefits used.)
+         * @param value {@link #used} (Benefits used.)
          */
-        public BenefitComponent setBenefitUsed(Type value) { 
-          this.benefitUsed = value;
+        public BenefitComponent setUsed(Type value) { 
+          this.used = value;
           return this;
         }
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("type", "CodeableConcept", "Deductable, visits, benefit amount.", 0, java.lang.Integer.MAX_VALUE, type));
-          childrenList.add(new Property("benefit[x]", "unsignedInt|string|Money", "Benefits allowed.", 0, java.lang.Integer.MAX_VALUE, benefit));
-          childrenList.add(new Property("benefitUsed[x]", "unsignedInt|Money", "Benefits used.", 0, java.lang.Integer.MAX_VALUE, benefitUsed));
+          childrenList.add(new Property("allowed[x]", "unsignedInt|string|Money", "Benefits allowed.", 0, java.lang.Integer.MAX_VALUE, allowed));
+          childrenList.add(new Property("used[x]", "unsignedInt|Money", "Benefits used.", 0, java.lang.Integer.MAX_VALUE, used));
         }
 
       @Override
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
         case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // CodeableConcept
-        case -222710633: /*benefit*/ return this.benefit == null ? new Base[0] : new Base[] {this.benefit}; // Type
-        case -549981964: /*benefitUsed*/ return this.benefitUsed == null ? new Base[0] : new Base[] {this.benefitUsed}; // Type
+        case -911343192: /*allowed*/ return this.allowed == null ? new Base[0] : new Base[] {this.allowed}; // Type
+        case 3599293: /*used*/ return this.used == null ? new Base[0] : new Base[] {this.used}; // Type
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -1269,11 +1269,11 @@ public class EligibilityResponse extends DomainResource {
         case 3575610: // type
           this.type = castToCodeableConcept(value); // CodeableConcept
           break;
-        case -222710633: // benefit
-          this.benefit = castToType(value); // Type
+        case -911343192: // allowed
+          this.allowed = castToType(value); // Type
           break;
-        case -549981964: // benefitUsed
-          this.benefitUsed = castToType(value); // Type
+        case 3599293: // used
+          this.used = castToType(value); // Type
           break;
         default: super.setProperty(hash, name, value);
         }
@@ -1284,10 +1284,10 @@ public class EligibilityResponse extends DomainResource {
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("type"))
           this.type = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("benefit[x]"))
-          this.benefit = castToType(value); // Type
-        else if (name.equals("benefitUsed[x]"))
-          this.benefitUsed = castToType(value); // Type
+        else if (name.equals("allowed[x]"))
+          this.allowed = castToType(value); // Type
+        else if (name.equals("used[x]"))
+          this.used = castToType(value); // Type
         else
           super.setProperty(name, value);
       }
@@ -1296,8 +1296,8 @@ public class EligibilityResponse extends DomainResource {
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 3575610:  return getType(); // CodeableConcept
-        case 952095881:  return getBenefit(); // Type
-        case 787635980:  return getBenefitUsed(); // Type
+        case -1336663592:  return getAllowed(); // Type
+        case -147553373:  return getUsed(); // Type
         default: return super.makeProperty(hash, name);
         }
 
@@ -1309,25 +1309,25 @@ public class EligibilityResponse extends DomainResource {
           this.type = new CodeableConcept();
           return this.type;
         }
-        else if (name.equals("benefitUnsignedInt")) {
-          this.benefit = new UnsignedIntType();
-          return this.benefit;
+        else if (name.equals("allowedUnsignedInt")) {
+          this.allowed = new UnsignedIntType();
+          return this.allowed;
         }
-        else if (name.equals("benefitString")) {
-          this.benefit = new StringType();
-          return this.benefit;
+        else if (name.equals("allowedString")) {
+          this.allowed = new StringType();
+          return this.allowed;
         }
-        else if (name.equals("benefitMoney")) {
-          this.benefit = new Money();
-          return this.benefit;
+        else if (name.equals("allowedMoney")) {
+          this.allowed = new Money();
+          return this.allowed;
         }
-        else if (name.equals("benefitUsedUnsignedInt")) {
-          this.benefitUsed = new UnsignedIntType();
-          return this.benefitUsed;
+        else if (name.equals("usedUnsignedInt")) {
+          this.used = new UnsignedIntType();
+          return this.used;
         }
-        else if (name.equals("benefitUsedMoney")) {
-          this.benefitUsed = new Money();
-          return this.benefitUsed;
+        else if (name.equals("usedMoney")) {
+          this.used = new Money();
+          return this.used;
         }
         else
           return super.addChild(name);
@@ -1337,8 +1337,8 @@ public class EligibilityResponse extends DomainResource {
         BenefitComponent dst = new BenefitComponent();
         copyValues(dst);
         dst.type = type == null ? null : type.copy();
-        dst.benefit = benefit == null ? null : benefit.copy();
-        dst.benefitUsed = benefitUsed == null ? null : benefitUsed.copy();
+        dst.allowed = allowed == null ? null : allowed.copy();
+        dst.used = used == null ? null : used.copy();
         return dst;
       }
 
@@ -1349,7 +1349,7 @@ public class EligibilityResponse extends DomainResource {
         if (!(other instanceof BenefitComponent))
           return false;
         BenefitComponent o = (BenefitComponent) other;
-        return compareDeep(type, o.type, true) && compareDeep(benefit, o.benefit, true) && compareDeep(benefitUsed, o.benefitUsed, true)
+        return compareDeep(type, o.type, true) && compareDeep(allowed, o.allowed, true) && compareDeep(used, o.used, true)
           ;
       }
 
@@ -1364,8 +1364,7 @@ public class EligibilityResponse extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(type, benefit, benefitUsed
-          );
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(type, allowed, used);
       }
 
   public String fhirType() {

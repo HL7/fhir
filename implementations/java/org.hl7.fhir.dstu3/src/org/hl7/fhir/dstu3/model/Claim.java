@@ -1,7 +1,5 @@
 package org.hl7.fhir.dstu3.model;
 
-import java.math.BigDecimal;
-
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
@@ -31,20 +29,21 @@ import java.math.BigDecimal;
   
 */
 
-// Generated on Mon, Dec 5, 2016 23:44+1100 for FHIR v1.8.0
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
 
-import org.hl7.fhir.exceptions.FHIRException;
-import org.hl7.fhir.instance.model.api.IBaseBackboneElement;
+import java.util.*;
+
+import java.math.*;
 import org.hl7.fhir.utilities.Utilities;
-
-import ca.uhn.fhir.model.api.annotation.Block;
-import ca.uhn.fhir.model.api.annotation.Child;
-import ca.uhn.fhir.model.api.annotation.Description;
+import org.hl7.fhir.dstu3.model.Enumerations.*;
 import ca.uhn.fhir.model.api.annotation.ResourceDef;
 import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;
+import ca.uhn.fhir.model.api.annotation.Child;
+import ca.uhn.fhir.model.api.annotation.ChildOrder;
+import ca.uhn.fhir.model.api.annotation.Description;
+import ca.uhn.fhir.model.api.annotation.Block;
+import org.hl7.fhir.instance.model.api.*;
+import org.hl7.fhir.exceptions.FHIRException;
 /**
  * A provider issued list of services and products provided, or to be provided, to a patient which is provided to an insurer for payment recovery.
  */
@@ -1180,9 +1179,16 @@ public class Claim extends DomainResource {
     @Block()
     public static class SpecialConditionComponent extends BackboneElement implements IBaseBackboneElement {
         /**
+         * Sequence of the information element which serves to provide a link.
+         */
+        @Child(name = "sequence", type = {PositiveIntType.class}, order=1, min=1, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="Information instance identifier", formalDefinition="Sequence of the information element which serves to provide a link." )
+        protected PositiveIntType sequence;
+
+        /**
          * The general class of the information supplied: information; exception; accident, employment; onset, etc.
          */
-        @Child(name = "category", type = {CodeableConcept.class}, order=1, min=1, max=1, modifier=false, summary=false)
+        @Child(name = "category", type = {CodeableConcept.class}, order=2, min=1, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Category of information", formalDefinition="The general class of the information supplied: information; exception; accident, employment; onset, etc." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/claim-informationcategory")
         protected CodeableConcept category;
@@ -1190,7 +1196,7 @@ public class Claim extends DomainResource {
         /**
          * System and code pertaining to the specific information regarding special conditions relating to the setting, treatment or patient  for which care is sought which may influence the adjudication.
          */
-        @Child(name = "code", type = {CodeableConcept.class}, order=2, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "code", type = {CodeableConcept.class}, order=3, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Type of information", formalDefinition="System and code pertaining to the specific information regarding special conditions relating to the setting, treatment or patient  for which care is sought which may influence the adjudication." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/claim-exception")
         protected CodeableConcept code;
@@ -1198,26 +1204,26 @@ public class Claim extends DomainResource {
         /**
          * The date when or period to which this information refers.
          */
-        @Child(name = "timing", type = {DateType.class, Period.class}, order=3, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "timing", type = {DateType.class, Period.class}, order=4, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="When it occurred", formalDefinition="The date when or period to which this information refers." )
         protected Type timing;
 
         /**
          * Additional data or information such as resources, documents, images etc. including references to the data or the actual inclusion of the data.
          */
-        @Child(name = "value", type = {StringType.class, Quantity.class, Attachment.class, Reference.class}, order=4, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "value", type = {StringType.class, Quantity.class, Attachment.class, Reference.class}, order=5, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Additional Data or supporting information", formalDefinition="Additional data or information such as resources, documents, images etc. including references to the data or the actual inclusion of the data." )
         protected Type value;
 
         /**
          * For example, provides the reason for: the additional stay, or missing tooth or any other situation where a reason code is required in addition to the content.
          */
-        @Child(name = "reason", type = {CodeableConcept.class}, order=5, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "reason", type = {CodeableConcept.class}, order=6, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Reason associated with the information", formalDefinition="For example, provides the reason for: the additional stay, or missing tooth or any other situation where a reason code is required in addition to the content." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/missing-tooth-reason")
         protected CodeableConcept reason;
 
-        private static final long serialVersionUID = -1504794861L;
+        private static final long serialVersionUID = -518630232L;
 
     /**
      * Constructor
@@ -1229,10 +1235,56 @@ public class Claim extends DomainResource {
     /**
      * Constructor
      */
-      public SpecialConditionComponent(CodeableConcept category) {
+      public SpecialConditionComponent(PositiveIntType sequence, CodeableConcept category) {
         super();
+        this.sequence = sequence;
         this.category = category;
       }
+
+        /**
+         * @return {@link #sequence} (Sequence of the information element which serves to provide a link.). This is the underlying object with id, value and extensions. The accessor "getSequence" gives direct access to the value
+         */
+        public PositiveIntType getSequenceElement() { 
+          if (this.sequence == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create SpecialConditionComponent.sequence");
+            else if (Configuration.doAutoCreate())
+              this.sequence = new PositiveIntType(); // bb
+          return this.sequence;
+        }
+
+        public boolean hasSequenceElement() { 
+          return this.sequence != null && !this.sequence.isEmpty();
+        }
+
+        public boolean hasSequence() { 
+          return this.sequence != null && !this.sequence.isEmpty();
+        }
+
+        /**
+         * @param value {@link #sequence} (Sequence of the information element which serves to provide a link.). This is the underlying object with id, value and extensions. The accessor "getSequence" gives direct access to the value
+         */
+        public SpecialConditionComponent setSequenceElement(PositiveIntType value) { 
+          this.sequence = value;
+          return this;
+        }
+
+        /**
+         * @return Sequence of the information element which serves to provide a link.
+         */
+        public int getSequence() { 
+          return this.sequence == null || this.sequence.isEmpty() ? 0 : this.sequence.getValue();
+        }
+
+        /**
+         * @param value Sequence of the information element which serves to provide a link.
+         */
+        public SpecialConditionComponent setSequence(int value) { 
+            if (this.sequence == null)
+              this.sequence = new PositiveIntType();
+            this.sequence.setValue(value);
+          return this;
+        }
 
         /**
          * @return {@link #category} (The general class of the information supplied: information; exception; accident, employment; onset, etc.)
@@ -1424,6 +1476,7 @@ public class Claim extends DomainResource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
+          childrenList.add(new Property("sequence", "positiveInt", "Sequence of the information element which serves to provide a link.", 0, java.lang.Integer.MAX_VALUE, sequence));
           childrenList.add(new Property("category", "CodeableConcept", "The general class of the information supplied: information; exception; accident, employment; onset, etc.", 0, java.lang.Integer.MAX_VALUE, category));
           childrenList.add(new Property("code", "CodeableConcept", "System and code pertaining to the specific information regarding special conditions relating to the setting, treatment or patient  for which care is sought which may influence the adjudication.", 0, java.lang.Integer.MAX_VALUE, code));
           childrenList.add(new Property("timing[x]", "date|Period", "The date when or period to which this information refers.", 0, java.lang.Integer.MAX_VALUE, timing));
@@ -1434,6 +1487,7 @@ public class Claim extends DomainResource {
       @Override
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
+        case 1349547969: /*sequence*/ return this.sequence == null ? new Base[0] : new Base[] {this.sequence}; // PositiveIntType
         case 50511102: /*category*/ return this.category == null ? new Base[0] : new Base[] {this.category}; // CodeableConcept
         case 3059181: /*code*/ return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeableConcept
         case -873664438: /*timing*/ return this.timing == null ? new Base[0] : new Base[] {this.timing}; // Type
@@ -1447,6 +1501,9 @@ public class Claim extends DomainResource {
       @Override
       public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
+        case 1349547969: // sequence
+          this.sequence = castToPositiveInt(value); // PositiveIntType
+          break;
         case 50511102: // category
           this.category = castToCodeableConcept(value); // CodeableConcept
           break;
@@ -1469,7 +1526,9 @@ public class Claim extends DomainResource {
 
       @Override
       public void setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("category"))
+        if (name.equals("sequence"))
+          this.sequence = castToPositiveInt(value); // PositiveIntType
+        else if (name.equals("category"))
           this.category = castToCodeableConcept(value); // CodeableConcept
         else if (name.equals("code"))
           this.code = castToCodeableConcept(value); // CodeableConcept
@@ -1486,6 +1545,7 @@ public class Claim extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
+        case 1349547969: throw new FHIRException("Cannot make property sequence as it is not a complex type"); // PositiveIntType
         case 50511102:  return getCategory(); // CodeableConcept
         case 3059181:  return getCode(); // CodeableConcept
         case 164632566:  return getTiming(); // Type
@@ -1498,7 +1558,10 @@ public class Claim extends DomainResource {
 
       @Override
       public Base addChild(String name) throws FHIRException {
-        if (name.equals("category")) {
+        if (name.equals("sequence")) {
+          throw new FHIRException("Cannot call addChild on a primitive type Claim.sequence");
+        }
+        else if (name.equals("category")) {
           this.category = new CodeableConcept();
           return this.category;
         }
@@ -1541,6 +1604,7 @@ public class Claim extends DomainResource {
       public SpecialConditionComponent copy() {
         SpecialConditionComponent dst = new SpecialConditionComponent();
         copyValues(dst);
+        dst.sequence = sequence == null ? null : sequence.copy();
         dst.category = category == null ? null : category.copy();
         dst.code = code == null ? null : code.copy();
         dst.timing = timing == null ? null : timing.copy();
@@ -1556,8 +1620,9 @@ public class Claim extends DomainResource {
         if (!(other instanceof SpecialConditionComponent))
           return false;
         SpecialConditionComponent o = (SpecialConditionComponent) other;
-        return compareDeep(category, o.category, true) && compareDeep(code, o.code, true) && compareDeep(timing, o.timing, true)
-           && compareDeep(value, o.value, true) && compareDeep(reason, o.reason, true);
+        return compareDeep(sequence, o.sequence, true) && compareDeep(category, o.category, true) && compareDeep(code, o.code, true)
+           && compareDeep(timing, o.timing, true) && compareDeep(value, o.value, true) && compareDeep(reason, o.reason, true)
+          ;
       }
 
       @Override
@@ -1567,12 +1632,12 @@ public class Claim extends DomainResource {
         if (!(other instanceof SpecialConditionComponent))
           return false;
         SpecialConditionComponent o = (SpecialConditionComponent) other;
-        return true;
+        return compareValues(sequence, o.sequence, true);
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(category, code, timing, value
-          , reason);
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(sequence, category, code
+          , timing, value, reason);
       }
 
   public String fhirType() {
@@ -1585,10 +1650,10 @@ public class Claim extends DomainResource {
     @Block()
     public static class DiagnosisComponent extends BackboneElement implements IBaseBackboneElement {
         /**
-         * Sequence of diagnosis which serves to order and provide a link.
+         * Sequence of diagnosis which serves to provide a link.
          */
         @Child(name = "sequence", type = {PositiveIntType.class}, order=1, min=1, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Number to covey order of diagnosis", formalDefinition="Sequence of diagnosis which serves to order and provide a link." )
+        @Description(shortDefinition="Number to covey order of diagnosis", formalDefinition="Sequence of diagnosis which serves to provide a link." )
         protected PositiveIntType sequence;
 
         /**
@@ -1600,10 +1665,10 @@ public class Claim extends DomainResource {
         protected Type diagnosis;
 
         /**
-         * The type of the Diagnosis, for example: admitting,.
+         * The type of the Diagnosis, for example: admitting, primary, secondary, discharge.
          */
         @Child(name = "type", type = {CodeableConcept.class}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-        @Description(shortDefinition="Type of Diagnosis", formalDefinition="The type of the Diagnosis, for example: admitting,." )
+        @Description(shortDefinition="Type of Diagnosis", formalDefinition="The type of the Diagnosis, for example: admitting, primary, secondary, discharge." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/ex-diagnosistype")
         protected List<CodeableConcept> type;
 
@@ -1634,7 +1699,7 @@ public class Claim extends DomainResource {
       }
 
         /**
-         * @return {@link #sequence} (Sequence of diagnosis which serves to order and provide a link.). This is the underlying object with id, value and extensions. The accessor "getSequence" gives direct access to the value
+         * @return {@link #sequence} (Sequence of diagnosis which serves to provide a link.). This is the underlying object with id, value and extensions. The accessor "getSequence" gives direct access to the value
          */
         public PositiveIntType getSequenceElement() { 
           if (this.sequence == null)
@@ -1654,7 +1719,7 @@ public class Claim extends DomainResource {
         }
 
         /**
-         * @param value {@link #sequence} (Sequence of diagnosis which serves to order and provide a link.). This is the underlying object with id, value and extensions. The accessor "getSequence" gives direct access to the value
+         * @param value {@link #sequence} (Sequence of diagnosis which serves to provide a link.). This is the underlying object with id, value and extensions. The accessor "getSequence" gives direct access to the value
          */
         public DiagnosisComponent setSequenceElement(PositiveIntType value) { 
           this.sequence = value;
@@ -1662,14 +1727,14 @@ public class Claim extends DomainResource {
         }
 
         /**
-         * @return Sequence of diagnosis which serves to order and provide a link.
+         * @return Sequence of diagnosis which serves to provide a link.
          */
         public int getSequence() { 
           return this.sequence == null || this.sequence.isEmpty() ? 0 : this.sequence.getValue();
         }
 
         /**
-         * @param value Sequence of diagnosis which serves to order and provide a link.
+         * @param value Sequence of diagnosis which serves to provide a link.
          */
         public DiagnosisComponent setSequence(int value) { 
             if (this.sequence == null)
@@ -1724,7 +1789,7 @@ public class Claim extends DomainResource {
         }
 
         /**
-         * @return {@link #type} (The type of the Diagnosis, for example: admitting,.)
+         * @return {@link #type} (The type of the Diagnosis, for example: admitting, primary, secondary, discharge.)
          */
         public List<CodeableConcept> getType() { 
           if (this.type == null)
@@ -1802,9 +1867,9 @@ public class Claim extends DomainResource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("sequence", "positiveInt", "Sequence of diagnosis which serves to order and provide a link.", 0, java.lang.Integer.MAX_VALUE, sequence));
+          childrenList.add(new Property("sequence", "positiveInt", "Sequence of diagnosis which serves to provide a link.", 0, java.lang.Integer.MAX_VALUE, sequence));
           childrenList.add(new Property("diagnosis[x]", "CodeableConcept|Reference(Condition)", "The diagnosis.", 0, java.lang.Integer.MAX_VALUE, diagnosis));
-          childrenList.add(new Property("type", "CodeableConcept", "The type of the Diagnosis, for example: admitting,.", 0, java.lang.Integer.MAX_VALUE, type));
+          childrenList.add(new Property("type", "CodeableConcept", "The type of the Diagnosis, for example: admitting, primary, secondary, discharge.", 0, java.lang.Integer.MAX_VALUE, type));
           childrenList.add(new Property("packageCode", "CodeableConcept", "The package billing code, for example DRG, based on the assigned grouping code system.", 0, java.lang.Integer.MAX_VALUE, packageCode));
         }
 
@@ -2241,10 +2306,10 @@ public class Claim extends DomainResource {
     @Block()
     public static class InsuranceComponent extends BackboneElement implements IBaseBackboneElement {
         /**
-         * A service line item.
+         * Sequence of coverage which serves to provide a link and convey coordination of benefit order.
          */
         @Child(name = "sequence", type = {PositiveIntType.class}, order=1, min=1, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Service instance identifier", formalDefinition="A service line item." )
+        @Description(shortDefinition="Service instance identifier", formalDefinition="Sequence of coverage which serves to provide a link and convey coordination of benefit order." )
         protected PositiveIntType sequence;
 
         /**
@@ -2312,7 +2377,7 @@ public class Claim extends DomainResource {
       }
 
         /**
-         * @return {@link #sequence} (A service line item.). This is the underlying object with id, value and extensions. The accessor "getSequence" gives direct access to the value
+         * @return {@link #sequence} (Sequence of coverage which serves to provide a link and convey coordination of benefit order.). This is the underlying object with id, value and extensions. The accessor "getSequence" gives direct access to the value
          */
         public PositiveIntType getSequenceElement() { 
           if (this.sequence == null)
@@ -2332,7 +2397,7 @@ public class Claim extends DomainResource {
         }
 
         /**
-         * @param value {@link #sequence} (A service line item.). This is the underlying object with id, value and extensions. The accessor "getSequence" gives direct access to the value
+         * @param value {@link #sequence} (Sequence of coverage which serves to provide a link and convey coordination of benefit order.). This is the underlying object with id, value and extensions. The accessor "getSequence" gives direct access to the value
          */
         public InsuranceComponent setSequenceElement(PositiveIntType value) { 
           this.sequence = value;
@@ -2340,14 +2405,14 @@ public class Claim extends DomainResource {
         }
 
         /**
-         * @return A service line item.
+         * @return Sequence of coverage which serves to provide a link and convey coordination of benefit order.
          */
         public int getSequence() { 
           return this.sequence == null || this.sequence.isEmpty() ? 0 : this.sequence.getValue();
         }
 
         /**
-         * @param value A service line item.
+         * @param value Sequence of coverage which serves to provide a link and convey coordination of benefit order.
          */
         public InsuranceComponent setSequence(int value) { 
             if (this.sequence == null)
@@ -2601,7 +2666,7 @@ public class Claim extends DomainResource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("sequence", "positiveInt", "A service line item.", 0, java.lang.Integer.MAX_VALUE, sequence));
+          childrenList.add(new Property("sequence", "positiveInt", "Sequence of coverage which serves to provide a link and convey coordination of benefit order.", 0, java.lang.Integer.MAX_VALUE, sequence));
           childrenList.add(new Property("focal", "boolean", "A flag to indicate that this Coverage is the focus for adjudication. The Coverage against which the claim is to be adjudicated.", 0, java.lang.Integer.MAX_VALUE, focal));
           childrenList.add(new Property("coverage", "Reference(Coverage)", "Reference to the program or plan identification, underwriter or payor.", 0, java.lang.Integer.MAX_VALUE, coverage));
           childrenList.add(new Property("businessArrangement", "string", "The contract number of a business agreement which describes the terms and conditions.", 0, java.lang.Integer.MAX_VALUE, businessArrangement));
@@ -6650,10 +6715,10 @@ public class Claim extends DomainResource {
     protected List<SpecialConditionComponent> information;
 
     /**
-     * Ordered list of patient diagnosis for which care is sought.
+     * List of patient diagnosis for which care is sought.
      */
     @Child(name = "diagnosis", type = {}, order=22, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-    @Description(shortDefinition="Diagnosis", formalDefinition="Ordered list of patient diagnosis for which care is sought." )
+    @Description(shortDefinition="Diagnosis", formalDefinition="List of patient diagnosis for which care is sought." )
     protected List<DiagnosisComponent> diagnosis;
 
     /**
@@ -7638,7 +7703,7 @@ public class Claim extends DomainResource {
     }
 
     /**
-     * @return {@link #diagnosis} (Ordered list of patient diagnosis for which care is sought.)
+     * @return {@link #diagnosis} (List of patient diagnosis for which care is sought.)
      */
     public List<DiagnosisComponent> getDiagnosis() { 
       if (this.diagnosis == null)
@@ -7969,7 +8034,7 @@ public class Claim extends DomainResource {
         childrenList.add(new Property("facility", "Reference(Location)", "Facility where the services were provided.", 0, java.lang.Integer.MAX_VALUE, facility));
         childrenList.add(new Property("careTeam", "", "The members of the team who provided the overall service as well as their role and whether responsible and qualifications.", 0, java.lang.Integer.MAX_VALUE, careTeam));
         childrenList.add(new Property("information", "", "Additional information codes regarding exceptions, special considerations, the condition, situation, prior or concurrent issues. Often there are mutiple jurisdiction specific valuesets which are required.", 0, java.lang.Integer.MAX_VALUE, information));
-        childrenList.add(new Property("diagnosis", "", "Ordered list of patient diagnosis for which care is sought.", 0, java.lang.Integer.MAX_VALUE, diagnosis));
+        childrenList.add(new Property("diagnosis", "", "List of patient diagnosis for which care is sought.", 0, java.lang.Integer.MAX_VALUE, diagnosis));
         childrenList.add(new Property("procedure", "", "Ordered list of patient procedures performed to support the adjudication.", 0, java.lang.Integer.MAX_VALUE, procedure));
         childrenList.add(new Property("insurance", "", "Financial instrument by which payment information for health care.", 0, java.lang.Integer.MAX_VALUE, insurance));
         childrenList.add(new Property("accident", "", "An accident which resulted in the need for healthcare services.", 0, java.lang.Integer.MAX_VALUE, accident));

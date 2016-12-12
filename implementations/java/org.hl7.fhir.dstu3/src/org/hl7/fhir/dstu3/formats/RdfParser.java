@@ -29,10 +29,32 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Mon, Dec 5, 2016 23:44+1100 for FHIR v1.8.0
+// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+
+import org.hl7.fhir.dstu3.model.DateType;
+import org.hl7.fhir.dstu3.model.DateTimeType;
+import org.hl7.fhir.dstu3.model.CodeType;
+import org.hl7.fhir.dstu3.model.StringType;
+import org.hl7.fhir.dstu3.model.IntegerType;
+import org.hl7.fhir.dstu3.model.OidType;
+import org.hl7.fhir.dstu3.model.UriType;
+import org.hl7.fhir.dstu3.model.UuidType;
+import org.hl7.fhir.dstu3.model.InstantType;
+import org.hl7.fhir.dstu3.model.BooleanType;
+import org.hl7.fhir.dstu3.model.Base64BinaryType;
+import org.hl7.fhir.dstu3.model.UnsignedIntType;
+import org.hl7.fhir.dstu3.model.MarkdownType;
+import org.hl7.fhir.dstu3.model.TimeType;
+import org.hl7.fhir.dstu3.model.IdType;
+import org.hl7.fhir.dstu3.model.PositiveIntType;
+import org.hl7.fhir.dstu3.model.DecimalType;
 import org.hl7.fhir.dstu3.model.*;
-import org.hl7.fhir.dstu3.utils.formats.Turtle.Complex;
+import org.xmlpull.v1.*;
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.exceptions.FHIRFormatError;
+import org.hl7.fhir.exceptions.FHIRException;
+import org.hl7.fhir.dstu3.utils.formats.Turtle.Complex;
+import java.io.IOException;
 
 public class RdfParser extends RdfParserBase {
 
@@ -2525,6 +2547,8 @@ public class RdfParser extends RdfParserBase {
       t = parent.predicate("fhir:"+parentType+'.'+name);
     }
     composeBackboneElement(t, "information", name, element, index);
+    if (element.hasSequenceElement())
+      composePositiveInt(t, "Claim", "sequence", element.getSequenceElement(), -1);
     if (element.hasCategory())
       composeCodeableConcept(t, "Claim", "category", element.getCategory(), -1);
     if (element.hasCode())
@@ -4957,10 +4981,10 @@ public class RdfParser extends RdfParserBase {
     composeBackboneElement(t, "financial", name, element, index);
     if (element.hasType())
       composeCodeableConcept(t, "EligibilityResponse", "type", element.getType(), -1);
-    if (element.hasBenefit())
-      composeType(t, "EligibilityResponse", "benefit", element.getBenefit(), -1);
-    if (element.hasBenefitUsed())
-      composeType(t, "EligibilityResponse", "benefitUsed", element.getBenefitUsed(), -1);
+    if (element.hasAllowed())
+      composeType(t, "EligibilityResponse", "allowed", element.getAllowed(), -1);
+    if (element.hasUsed())
+      composeType(t, "EligibilityResponse", "used", element.getUsed(), -1);
   }
 
   protected void composeEligibilityResponseErrorsComponent(Complex parent, String parentType, String name, EligibilityResponse.ErrorsComponent element, int index) {
@@ -5565,6 +5589,8 @@ public class RdfParser extends RdfParserBase {
       t = parent.predicate("fhir:"+parentType+'.'+name);
     }
     composeBackboneElement(t, "information", name, element, index);
+    if (element.hasSequenceElement())
+      composePositiveInt(t, "ExplanationOfBenefit", "sequence", element.getSequenceElement(), -1);
     if (element.hasCategory())
       composeCodeableConcept(t, "ExplanationOfBenefit", "category", element.getCategory(), -1);
     if (element.hasCode())
@@ -5991,10 +6017,10 @@ public class RdfParser extends RdfParserBase {
     composeBackboneElement(t, "financial", name, element, index);
     if (element.hasType())
       composeCodeableConcept(t, "ExplanationOfBenefit", "type", element.getType(), -1);
-    if (element.hasBenefit())
-      composeType(t, "ExplanationOfBenefit", "benefit", element.getBenefit(), -1);
-    if (element.hasBenefitUsed())
-      composeType(t, "ExplanationOfBenefit", "benefitUsed", element.getBenefitUsed(), -1);
+    if (element.hasAllowed())
+      composeType(t, "ExplanationOfBenefit", "allowed", element.getAllowed(), -1);
+    if (element.hasUsed())
+      composeType(t, "ExplanationOfBenefit", "used", element.getUsed(), -1);
   }
 
   protected void composeFamilyMemberHistory(Complex parent, String parentType, String name, FamilyMemberHistory element, int index) {
@@ -7767,24 +7793,28 @@ public class RdfParser extends RdfParserBase {
       composeReference(t, "MedicationRequest", "definition", element.getDefinition().get(i), i);
     for (int i = 0; i < element.getBasedOn().size(); i++)
       composeReference(t, "MedicationRequest", "basedOn", element.getBasedOn().get(i), i);
-    if (element.hasRequisition())
-      composeIdentifier(t, "MedicationRequest", "requisition", element.getRequisition(), -1);
+    if (element.hasGroupIdentifier())
+      composeIdentifier(t, "MedicationRequest", "groupIdentifier", element.getGroupIdentifier(), -1);
     if (element.hasStatusElement())
       composeEnum(t, "MedicationRequest", "status", element.getStatusElement(), -1);
-    if (element.hasStage())
-      composeCodeableConcept(t, "MedicationRequest", "stage", element.getStage(), -1);
+    if (element.hasIntentElement())
+      composeEnum(t, "MedicationRequest", "intent", element.getIntentElement(), -1);
+    if (element.hasPriorityElement())
+      composeEnum(t, "MedicationRequest", "priority", element.getPriorityElement(), -1);
     if (element.hasMedication())
       composeType(t, "MedicationRequest", "medication", element.getMedication(), -1);
-    if (element.hasPatient())
-      composeReference(t, "MedicationRequest", "patient", element.getPatient(), -1);
+    if (element.hasSubject())
+      composeReference(t, "MedicationRequest", "subject", element.getSubject(), -1);
     if (element.hasContext())
       composeReference(t, "MedicationRequest", "context", element.getContext(), -1);
     for (int i = 0; i < element.getSupportingInformation().size(); i++)
       composeReference(t, "MedicationRequest", "supportingInformation", element.getSupportingInformation().get(i), i);
-    if (element.hasDateWrittenElement())
-      composeDateTime(t, "MedicationRequest", "dateWritten", element.getDateWrittenElement(), -1);
+    if (element.hasAuthoredOnElement())
+      composeDateTime(t, "MedicationRequest", "authoredOn", element.getAuthoredOnElement(), -1);
     if (element.hasRequester())
-      composeReference(t, "MedicationRequest", "requester", element.getRequester(), -1);
+      composeMedicationRequestMedicationRequestRequesterComponent(t, "MedicationRequest", "requester", element.getRequester(), -1);
+    if (element.hasRecorder())
+      composeReference(t, "MedicationRequest", "recorder", element.getRecorder(), -1);
     for (int i = 0; i < element.getReasonCode().size(); i++)
       composeCodeableConcept(t, "MedicationRequest", "reasonCode", element.getReasonCode().get(i), i);
     for (int i = 0; i < element.getReasonReference().size(); i++)
@@ -7803,6 +7833,22 @@ public class RdfParser extends RdfParserBase {
       composeReference(t, "MedicationRequest", "priorPrescription", element.getPriorPrescription(), -1);
     for (int i = 0; i < element.getEventHistory().size(); i++)
       composeReference(t, "MedicationRequest", "eventHistory", element.getEventHistory().get(i), i);
+  }
+
+  protected void composeMedicationRequestMedicationRequestRequesterComponent(Complex parent, String parentType, String name, MedicationRequest.MedicationRequestRequesterComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeBackboneElement(t, "requester", name, element, index);
+    if (element.hasAgent())
+      composeReference(t, "MedicationRequest", "agent", element.getAgent(), -1);
+    if (element.hasOnBehalfOf())
+      composeReference(t, "MedicationRequest", "onBehalfOf", element.getOnBehalfOf(), -1);
   }
 
   protected void composeMedicationRequestMedicationRequestDispenseRequestComponent(Complex parent, String parentType, String name, MedicationRequest.MedicationRequestDispenseRequestComponent element, int index) {

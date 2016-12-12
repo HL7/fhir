@@ -7,7 +7,7 @@
     <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
   </meta>
   <url value="http://hl7.org/fhir/us/daf/ValueSet/daf-procedure-icd10pcs"/>
-  <version value="1.8.0"/>
+  <version value="1.9.0"/>
   <name value="DAF Procedure Type ICD-10-PCS Codes"/>
   <status value="draft"/>
   <experimental value="true"/>

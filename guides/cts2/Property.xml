@@ -14,7 +14,7 @@
    </contact>
    <date value="2016-02-08T19:11:02-07:00"/>
    <description value="A tag/value pair that does not have a corresponding model attribute. Property represent any statement about a resource (e.g. CodeSystem, Entity, etc.) that does not have a corresponding attribute in the&#xa;&#x9;&#x9;&#x9;&#x9;&#x9;CTS2 model. As an example, the NCI Thesaurus uses a tag named BioCarta_ID (C43677) to associate appropriate thesaurus entities with Bio Carta pathway references. This would be represented by a property,&#xa;&#x9;&#x9;&#x9;&#x9;whose predicate is the URI for C436777 and the value is the actual id."/>
-   <fhirVersion value="1.8.0"/>
+   <fhirVersion value="1.9.0"/>
    <kind value="logical"/>
    <abstract value="false"/>
    <snapshot>

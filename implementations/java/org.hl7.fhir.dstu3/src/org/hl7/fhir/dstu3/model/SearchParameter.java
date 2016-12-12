@@ -29,25 +29,20 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 5, 2016 23:44+1100 for FHIR v1.8.0
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
 
-import org.hl7.fhir.dstu3.model.Enumerations.PublicationStatus;
-import org.hl7.fhir.dstu3.model.Enumerations.PublicationStatusEnumFactory;
-import org.hl7.fhir.dstu3.model.Enumerations.SearchParamType;
-import org.hl7.fhir.dstu3.model.Enumerations.SearchParamTypeEnumFactory;
-import org.hl7.fhir.exceptions.FHIRException;
-import org.hl7.fhir.instance.model.api.IBaseBackboneElement;
+import java.util.*;
+
 import org.hl7.fhir.utilities.Utilities;
-
-import ca.uhn.fhir.model.api.annotation.Block;
+import org.hl7.fhir.dstu3.model.Enumerations.*;
+import ca.uhn.fhir.model.api.annotation.ResourceDef;
+import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;
 import ca.uhn.fhir.model.api.annotation.Child;
 import ca.uhn.fhir.model.api.annotation.ChildOrder;
 import ca.uhn.fhir.model.api.annotation.Description;
-import ca.uhn.fhir.model.api.annotation.ResourceDef;
-import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;
+import ca.uhn.fhir.model.api.annotation.Block;
+import org.hl7.fhir.instance.model.api.*;
+import org.hl7.fhir.exceptions.FHIRException;
 /**
  * A search parameter that defines a named search item that can be used to search/filter on a resource.
  */
@@ -882,10 +877,10 @@ public class SearchParameter extends MetadataResource {
     protected UriType derivedFrom;
 
     /**
-     * A FluentPath expression that returns a set of elements for the search parameter.
+     * A FHIRPath expression that returns a set of elements for the search parameter.
      */
     @Child(name = "expression", type = {StringType.class}, order=5, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="FluentPath expression that extracts the values", formalDefinition="A FluentPath expression that returns a set of elements for the search parameter." )
+    @Description(shortDefinition="FHIRPath expression that extracts the values", formalDefinition="A FHIRPath expression that returns a set of elements for the search parameter." )
     protected StringType expression;
 
     /**
@@ -1744,7 +1739,7 @@ public class SearchParameter extends MetadataResource {
     }
 
     /**
-     * @return {@link #expression} (A FluentPath expression that returns a set of elements for the search parameter.). This is the underlying object with id, value and extensions. The accessor "getExpression" gives direct access to the value
+     * @return {@link #expression} (A FHIRPath expression that returns a set of elements for the search parameter.). This is the underlying object with id, value and extensions. The accessor "getExpression" gives direct access to the value
      */
     public StringType getExpressionElement() { 
       if (this.expression == null)
@@ -1764,7 +1759,7 @@ public class SearchParameter extends MetadataResource {
     }
 
     /**
-     * @param value {@link #expression} (A FluentPath expression that returns a set of elements for the search parameter.). This is the underlying object with id, value and extensions. The accessor "getExpression" gives direct access to the value
+     * @param value {@link #expression} (A FHIRPath expression that returns a set of elements for the search parameter.). This is the underlying object with id, value and extensions. The accessor "getExpression" gives direct access to the value
      */
     public SearchParameter setExpressionElement(StringType value) { 
       this.expression = value;
@@ -1772,14 +1767,14 @@ public class SearchParameter extends MetadataResource {
     }
 
     /**
-     * @return A FluentPath expression that returns a set of elements for the search parameter.
+     * @return A FHIRPath expression that returns a set of elements for the search parameter.
      */
     public String getExpression() { 
       return this.expression == null ? null : this.expression.getValue();
     }
 
     /**
-     * @param value A FluentPath expression that returns a set of elements for the search parameter.
+     * @param value A FHIRPath expression that returns a set of elements for the search parameter.
      */
     public SearchParameter setExpression(String value) { 
       if (Utilities.noString(value))
@@ -2205,7 +2200,7 @@ public class SearchParameter extends MetadataResource {
         childrenList.add(new Property("type", "code", "The type of value a search parameter refers to, and how the content is interpreted.", 0, java.lang.Integer.MAX_VALUE, type));
         childrenList.add(new Property("derivedFrom", "uri", "Where this search parameter is originally defined. If a derivedFrom is provided, then the details in the search parameter must be consistent with the definition from which it is defined. I.e. the parameter should have the same meaning, and (usually) the functionality should be a proper subset of the underlying search parameter.", 0, java.lang.Integer.MAX_VALUE, derivedFrom));
         childrenList.add(new Property("description", "markdown", "A free text natural language description of the search parameter from the consumer's perspective. and how it used.", 0, java.lang.Integer.MAX_VALUE, description));
-        childrenList.add(new Property("expression", "string", "A FluentPath expression that returns a set of elements for the search parameter.", 0, java.lang.Integer.MAX_VALUE, expression));
+        childrenList.add(new Property("expression", "string", "A FHIRPath expression that returns a set of elements for the search parameter.", 0, java.lang.Integer.MAX_VALUE, expression));
         childrenList.add(new Property("xpath", "string", "An XPath expression that returns a set of elements for the search parameter.", 0, java.lang.Integer.MAX_VALUE, xpath));
         childrenList.add(new Property("xpathUsage", "code", "How the search parameter relates to the set of elements returned by evaluating the xpath query.", 0, java.lang.Integer.MAX_VALUE, xpathUsage));
         childrenList.add(new Property("target", "code", "Types of resource (if a resource is referenced).", 0, java.lang.Integer.MAX_VALUE, target));

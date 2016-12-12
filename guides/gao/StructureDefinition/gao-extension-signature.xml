@@ -19,7 +19,7 @@
   <date value="2015-09-22T20:02:49+10:00"></date>
   <description value="Enables a digital signature of the evaluation resource to be provided."></description>
   <requirements value="Required when the Decision Support Service implements the Digital Signature Option."></requirements>
-  <fhirVersion value="1.8.0"></fhirVersion>
+  <fhirVersion value="1.9.0"></fhirVersion>
   <kind value="complex-type"></kind>
   <abstract value="false"></abstract>
   <contextType value="resource"></contextType>

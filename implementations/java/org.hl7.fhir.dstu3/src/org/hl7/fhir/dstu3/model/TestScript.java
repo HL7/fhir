@@ -29,23 +29,20 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 5, 2016 23:44+1100 for FHIR v1.8.0
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
 
-import org.hl7.fhir.dstu3.model.Enumerations.PublicationStatus;
-import org.hl7.fhir.dstu3.model.Enumerations.PublicationStatusEnumFactory;
-import org.hl7.fhir.exceptions.FHIRException;
-import org.hl7.fhir.instance.model.api.IBaseBackboneElement;
+import java.util.*;
+
 import org.hl7.fhir.utilities.Utilities;
-
-import ca.uhn.fhir.model.api.annotation.Block;
+import org.hl7.fhir.dstu3.model.Enumerations.*;
+import ca.uhn.fhir.model.api.annotation.ResourceDef;
+import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;
 import ca.uhn.fhir.model.api.annotation.Child;
 import ca.uhn.fhir.model.api.annotation.ChildOrder;
 import ca.uhn.fhir.model.api.annotation.Description;
-import ca.uhn.fhir.model.api.annotation.ResourceDef;
-import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;
+import ca.uhn.fhir.model.api.annotation.Block;
+import org.hl7.fhir.instance.model.api.*;
+import org.hl7.fhir.exceptions.FHIRException;
 /**
  * TestScript is a resource that specifies a suite of tests against a FHIR server implementation to determine compliance against the FHIR specification.
  */
@@ -307,7 +304,7 @@ public class TestScript extends MetadataResource {
          */
         NOTCONTAINS, 
         /**
-         * Evaluate the fhirpath expression as a boolean condition.
+         * Evaluate the fluentpath expression as a boolean condition.
          */
         EVAL, 
         /**
@@ -388,7 +385,7 @@ public class TestScript extends MetadataResource {
             case NOTEMPTY: return "Compare value is not empty.";
             case CONTAINS: return "Compare value string contains a known value.";
             case NOTCONTAINS: return "Compare value string does not contain a known value.";
-            case EVAL: return "Evaluate the fhirpath expression as a boolean condition.";
+            case EVAL: return "Evaluate the fluentpath expression as a boolean condition.";
             default: return "?";
           }
         }
@@ -2534,10 +2531,10 @@ public class TestScript extends MetadataResource {
         protected StringType description;
 
         /**
-         * The fhirpath expression to evaluate against the fixture body. When variables are defined, only one of either expression, headerField or path must be specified.
+         * The fluentpath expression to evaluate against the fixture body. When variables are defined, only one of either expression, headerField or path must be specified.
          */
         @Child(name = "expression", type = {StringType.class}, order=4, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="The fhirpath expression against the fixture body", formalDefinition="The fhirpath expression to evaluate against the fixture body. When variables are defined, only one of either expression, headerField or path must be specified." )
+        @Description(shortDefinition="The fluentpath expression against the fixture body", formalDefinition="The fluentpath expression to evaluate against the fixture body. When variables are defined, only one of either expression, headerField or path must be specified." )
         protected StringType expression;
 
         /**
@@ -2729,7 +2726,7 @@ public class TestScript extends MetadataResource {
         }
 
         /**
-         * @return {@link #expression} (The fhirpath expression to evaluate against the fixture body. When variables are defined, only one of either expression, headerField or path must be specified.). This is the underlying object with id, value and extensions. The accessor "getExpression" gives direct access to the value
+         * @return {@link #expression} (The fluentpath expression to evaluate against the fixture body. When variables are defined, only one of either expression, headerField or path must be specified.). This is the underlying object with id, value and extensions. The accessor "getExpression" gives direct access to the value
          */
         public StringType getExpressionElement() { 
           if (this.expression == null)
@@ -2749,7 +2746,7 @@ public class TestScript extends MetadataResource {
         }
 
         /**
-         * @param value {@link #expression} (The fhirpath expression to evaluate against the fixture body. When variables are defined, only one of either expression, headerField or path must be specified.). This is the underlying object with id, value and extensions. The accessor "getExpression" gives direct access to the value
+         * @param value {@link #expression} (The fluentpath expression to evaluate against the fixture body. When variables are defined, only one of either expression, headerField or path must be specified.). This is the underlying object with id, value and extensions. The accessor "getExpression" gives direct access to the value
          */
         public TestScriptVariableComponent setExpressionElement(StringType value) { 
           this.expression = value;
@@ -2757,14 +2754,14 @@ public class TestScript extends MetadataResource {
         }
 
         /**
-         * @return The fhirpath expression to evaluate against the fixture body. When variables are defined, only one of either expression, headerField or path must be specified.
+         * @return The fluentpath expression to evaluate against the fixture body. When variables are defined, only one of either expression, headerField or path must be specified.
          */
         public String getExpression() { 
           return this.expression == null ? null : this.expression.getValue();
         }
 
         /**
-         * @param value The fhirpath expression to evaluate against the fixture body. When variables are defined, only one of either expression, headerField or path must be specified.
+         * @param value The fluentpath expression to evaluate against the fixture body. When variables are defined, only one of either expression, headerField or path must be specified.
          */
         public TestScriptVariableComponent setExpression(String value) { 
           if (Utilities.noString(value))
@@ -2978,7 +2975,7 @@ public class TestScript extends MetadataResource {
           childrenList.add(new Property("name", "string", "Descriptive name for this variable.", 0, java.lang.Integer.MAX_VALUE, name));
           childrenList.add(new Property("defaultValue", "string", "A default, hard-coded, or user-defined value for this variable.", 0, java.lang.Integer.MAX_VALUE, defaultValue));
           childrenList.add(new Property("description", "string", "A free text natural language description of the variable and its purpose.", 0, java.lang.Integer.MAX_VALUE, description));
-          childrenList.add(new Property("expression", "string", "The fhirpath expression to evaluate against the fixture body. When variables are defined, only one of either expression, headerField or path must be specified.", 0, java.lang.Integer.MAX_VALUE, expression));
+          childrenList.add(new Property("expression", "string", "The fluentpath expression to evaluate against the fixture body. When variables are defined, only one of either expression, headerField or path must be specified.", 0, java.lang.Integer.MAX_VALUE, expression));
           childrenList.add(new Property("headerField", "string", "Will be used to grab the HTTP header field value from the headers that sourceId is pointing to.", 0, java.lang.Integer.MAX_VALUE, headerField));
           childrenList.add(new Property("hint", "string", "Displayable text string with hint help information to the user when entering a default value.", 0, java.lang.Integer.MAX_VALUE, hint));
           childrenList.add(new Property("path", "string", "XPath or JSONPath to evaluate against the fixture body.  When variables are defined, only one of either expression, headerField or path must be specified.", 0, java.lang.Integer.MAX_VALUE, path));
@@ -6078,10 +6075,10 @@ public class TestScript extends MetadataResource {
         protected StringType compareToSourceId;
 
         /**
-         * The fhirpath expression to evaluate against the source fixture. When compareToSourceId is defined, either compareToSourceExpression or compareToSourcePath must be defined, but not both.
+         * The fluentpath expression to evaluate against the source fixture. When compareToSourceId is defined, either compareToSourceExpression or compareToSourcePath must be defined, but not both.
          */
         @Child(name = "compareToSourceExpression", type = {StringType.class}, order=5, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="The fhirpath expression to evaluate against the source fixture", formalDefinition="The fhirpath expression to evaluate against the source fixture. When compareToSourceId is defined, either compareToSourceExpression or compareToSourcePath must be defined, but not both." )
+        @Description(shortDefinition="The fluentpath expression to evaluate against the source fixture", formalDefinition="The fluentpath expression to evaluate against the source fixture. When compareToSourceId is defined, either compareToSourceExpression or compareToSourcePath must be defined, but not both." )
         protected StringType compareToSourceExpression;
 
         /**
@@ -6100,10 +6097,10 @@ public class TestScript extends MetadataResource {
         protected Enumeration<ContentType> contentType;
 
         /**
-         * The fhirpath expression to be evaluated against the request or response message contents - HTTP headers and payload.
+         * The fluentpath expression to be evaluated against the request or response message contents - HTTP headers and payload.
          */
         @Child(name = "expression", type = {StringType.class}, order=8, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="The fhirpath expression to be evaluated", formalDefinition="The fhirpath expression to be evaluated against the request or response message contents - HTTP headers and payload." )
+        @Description(shortDefinition="The fluentpath expression to be evaluated", formalDefinition="The fluentpath expression to be evaluated against the request or response message contents - HTTP headers and payload." )
         protected StringType expression;
 
         /**
@@ -6420,7 +6417,7 @@ public class TestScript extends MetadataResource {
         }
 
         /**
-         * @return {@link #compareToSourceExpression} (The fhirpath expression to evaluate against the source fixture. When compareToSourceId is defined, either compareToSourceExpression or compareToSourcePath must be defined, but not both.). This is the underlying object with id, value and extensions. The accessor "getCompareToSourceExpression" gives direct access to the value
+         * @return {@link #compareToSourceExpression} (The fluentpath expression to evaluate against the source fixture. When compareToSourceId is defined, either compareToSourceExpression or compareToSourcePath must be defined, but not both.). This is the underlying object with id, value and extensions. The accessor "getCompareToSourceExpression" gives direct access to the value
          */
         public StringType getCompareToSourceExpressionElement() { 
           if (this.compareToSourceExpression == null)
@@ -6440,7 +6437,7 @@ public class TestScript extends MetadataResource {
         }
 
         /**
-         * @param value {@link #compareToSourceExpression} (The fhirpath expression to evaluate against the source fixture. When compareToSourceId is defined, either compareToSourceExpression or compareToSourcePath must be defined, but not both.). This is the underlying object with id, value and extensions. The accessor "getCompareToSourceExpression" gives direct access to the value
+         * @param value {@link #compareToSourceExpression} (The fluentpath expression to evaluate against the source fixture. When compareToSourceId is defined, either compareToSourceExpression or compareToSourcePath must be defined, but not both.). This is the underlying object with id, value and extensions. The accessor "getCompareToSourceExpression" gives direct access to the value
          */
         public SetupActionAssertComponent setCompareToSourceExpressionElement(StringType value) { 
           this.compareToSourceExpression = value;
@@ -6448,14 +6445,14 @@ public class TestScript extends MetadataResource {
         }
 
         /**
-         * @return The fhirpath expression to evaluate against the source fixture. When compareToSourceId is defined, either compareToSourceExpression or compareToSourcePath must be defined, but not both.
+         * @return The fluentpath expression to evaluate against the source fixture. When compareToSourceId is defined, either compareToSourceExpression or compareToSourcePath must be defined, but not both.
          */
         public String getCompareToSourceExpression() { 
           return this.compareToSourceExpression == null ? null : this.compareToSourceExpression.getValue();
         }
 
         /**
-         * @param value The fhirpath expression to evaluate against the source fixture. When compareToSourceId is defined, either compareToSourceExpression or compareToSourcePath must be defined, but not both.
+         * @param value The fluentpath expression to evaluate against the source fixture. When compareToSourceId is defined, either compareToSourceExpression or compareToSourcePath must be defined, but not both.
          */
         public SetupActionAssertComponent setCompareToSourceExpression(String value) { 
           if (Utilities.noString(value))
@@ -6567,7 +6564,7 @@ public class TestScript extends MetadataResource {
         }
 
         /**
-         * @return {@link #expression} (The fhirpath expression to be evaluated against the request or response message contents - HTTP headers and payload.). This is the underlying object with id, value and extensions. The accessor "getExpression" gives direct access to the value
+         * @return {@link #expression} (The fluentpath expression to be evaluated against the request or response message contents - HTTP headers and payload.). This is the underlying object with id, value and extensions. The accessor "getExpression" gives direct access to the value
          */
         public StringType getExpressionElement() { 
           if (this.expression == null)
@@ -6587,7 +6584,7 @@ public class TestScript extends MetadataResource {
         }
 
         /**
-         * @param value {@link #expression} (The fhirpath expression to be evaluated against the request or response message contents - HTTP headers and payload.). This is the underlying object with id, value and extensions. The accessor "getExpression" gives direct access to the value
+         * @param value {@link #expression} (The fluentpath expression to be evaluated against the request or response message contents - HTTP headers and payload.). This is the underlying object with id, value and extensions. The accessor "getExpression" gives direct access to the value
          */
         public SetupActionAssertComponent setExpressionElement(StringType value) { 
           this.expression = value;
@@ -6595,14 +6592,14 @@ public class TestScript extends MetadataResource {
         }
 
         /**
-         * @return The fhirpath expression to be evaluated against the request or response message contents - HTTP headers and payload.
+         * @return The fluentpath expression to be evaluated against the request or response message contents - HTTP headers and payload.
          */
         public String getExpression() { 
           return this.expression == null ? null : this.expression.getValue();
         }
 
         /**
-         * @param value The fhirpath expression to be evaluated against the request or response message contents - HTTP headers and payload.
+         * @param value The fluentpath expression to be evaluated against the request or response message contents - HTTP headers and payload.
          */
         public SetupActionAssertComponent setExpression(String value) { 
           if (Utilities.noString(value))
@@ -7298,10 +7295,10 @@ public class TestScript extends MetadataResource {
           childrenList.add(new Property("description", "string", "The description would be used by test engines for tracking and reporting purposes.", 0, java.lang.Integer.MAX_VALUE, description));
           childrenList.add(new Property("direction", "code", "The direction to use for the assertion.", 0, java.lang.Integer.MAX_VALUE, direction));
           childrenList.add(new Property("compareToSourceId", "string", "Id of the source fixture used as the contents to be evaluated by either the \"source/expression\" or \"sourceId/path\" definition.", 0, java.lang.Integer.MAX_VALUE, compareToSourceId));
-          childrenList.add(new Property("compareToSourceExpression", "string", "The fhirpath expression to evaluate against the source fixture. When compareToSourceId is defined, either compareToSourceExpression or compareToSourcePath must be defined, but not both.", 0, java.lang.Integer.MAX_VALUE, compareToSourceExpression));
+          childrenList.add(new Property("compareToSourceExpression", "string", "The fluentpath expression to evaluate against the source fixture. When compareToSourceId is defined, either compareToSourceExpression or compareToSourcePath must be defined, but not both.", 0, java.lang.Integer.MAX_VALUE, compareToSourceExpression));
           childrenList.add(new Property("compareToSourcePath", "string", "XPath or JSONPath expression to evaluate against the source fixture. When compareToSourceId is defined, either compareToSourceExpression or compareToSourcePath must be defined, but not both.", 0, java.lang.Integer.MAX_VALUE, compareToSourcePath));
           childrenList.add(new Property("contentType", "code", "The content-type or mime-type to use for RESTful operation in the 'Content-Type' header.", 0, java.lang.Integer.MAX_VALUE, contentType));
-          childrenList.add(new Property("expression", "string", "The fhirpath expression to be evaluated against the request or response message contents - HTTP headers and payload.", 0, java.lang.Integer.MAX_VALUE, expression));
+          childrenList.add(new Property("expression", "string", "The fluentpath expression to be evaluated against the request or response message contents - HTTP headers and payload.", 0, java.lang.Integer.MAX_VALUE, expression));
           childrenList.add(new Property("headerField", "string", "The HTTP header field name e.g. 'Location'.", 0, java.lang.Integer.MAX_VALUE, headerField));
           childrenList.add(new Property("minimumId", "string", "The ID of a fixture.  Asserts that the response contains at a minimum the fixture specified by minimumId.", 0, java.lang.Integer.MAX_VALUE, minimumId));
           childrenList.add(new Property("navigationLinks", "boolean", "Whether or not the test execution performs validation on the bundle navigation links.", 0, java.lang.Integer.MAX_VALUE, navigationLinks));
