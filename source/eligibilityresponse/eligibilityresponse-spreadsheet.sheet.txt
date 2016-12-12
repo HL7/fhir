@@ -285,14 +285,14 @@
   Definition = Deductable, visits, benefit amount.
 
  -- Row 31 -----------------------------------
-  Element = EligibilityResponse.insurance.benefitBalance.financial.benefit[x]
+  Element = EligibilityResponse.insurance.benefitBalance.financial.allowed[x]
   Card. = 0..1
   Type = unsignedInt|string|Money
   Short Name = Benefits allowed
   Definition = Benefits allowed
 
  -- Row 32 -----------------------------------
-  Element = EligibilityResponse.insurance.benefitBalance.financial.benefitUsed[x]
+  Element = EligibilityResponse.insurance.benefitBalance.financial.used[x]
   Card. = 0..1
   Type = unsignedInt|Money
   Short Name = Benefits used

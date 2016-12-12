@@ -1,333 +1,333 @@
 <EligibilityResponse xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/remittance.xsd">
- <id value="E2500"/>
+	<id value="E2500"/>
 
- <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">A human-readable rendering of the EligibilityResponse.</div>
-  </text>
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">A human-readable rendering of the EligibilityResponse.</div>
+	</text>
 
-  <identifier>
-    <system value="http://www.BenefitsInc.com/fhir/eligibilityresponse"/>
-    <value value="881234"/>
-  </identifier>
-  
-  <status value="active"/>
+	<identifier>
+		<system value="http://www.BenefitsInc.com/fhir/eligibilityresponse"/>
+		<value value="881234"/>
+	</identifier>
 
-  <created value="2014-08-16"/>
+	<status value="active"/>
 
-  <request>
-	<reference value="http://www.BenefitsInc.com/fhir/eligibility/225476332402"/>
-  </request>
-  
-  <outcome>
-   <coding>
-    <system value="http://hl7.org/fhir/remittance-outcome" />
-	<code value="complete" />
-   </coding>
-  </outcome>
-  
-  <disposition value="Policy is currently in-force."/>
- 
-  <insurer>
-    <reference value="Organization/2"/>
-  </insurer>
+	<created value="2014-08-16"/>
 
-  <inforce value="true"/>
-  
- <insurance>
-  <benefitBalance>
-    <category>
-	 <coding>
-	  <system value="http://hl7.org/fhir/benefit-category"/>
-	  <code value="medical"/>
-	 </coding>
-	</category>
-	
-	<subCategory>
-	 <coding>
-	  <system value="http://hl7.org/fhir/benefit-subcategory"/>
-	  <code value="30"/>
-	  <display value="Health Benefit Plan Coverage"/>
-	 </coding>
-	</subCategory>
+	<request>
+		<reference value="http://www.BenefitsInc.com/fhir/eligibility/225476332402"/>
+	</request>
 
-	<network>
-	 <coding>
-	  <system value="http://hl7.org/fhir/benefit-network"/>
-	  <code value="in"/>
-	 </coding>
-	</network>
-	
-	<unit>
-	 <coding>
-	  <system value="http://hl7.org/fhir/benefit-unit"/>
-	  <code value="individual"/>
-	 </coding>
-	</unit>
-	
-	<term>
-	 <coding>
-	  <system value="http://hl7.org/fhir/benefit-term"/>
-	  <code value="annual"/>
-	 </coding>
-	</term>
-	
-	<financial>
-	  <type>
-	   <coding>
-	    <code value="benefit"/>
-	   </coding>
-	  </type>
-	  
-	  <benefitMoney>
-	    <value value="500000"/>
-        <system value="urn:iso:std:iso:4217"/>
-        <code value="SAR"/> 
-	  </benefitMoney>
-	</financial>
-	
-	<financial>
-	  <type>
-	   <coding>
-	    <code value="copay-maximum"/>
-	   </coding>
-	  </type>
-	  
-	  <benefitMoney>
-	    <value value="100"/>
-        <system value="urn:iso:std:iso:4217"/>
-        <code value="SAR"/> 
-	  </benefitMoney>
-	</financial>
+	<outcome>
+		<coding>
+			<system value="http://hl7.org/fhir/remittance-outcome" />
+			<code value="complete" />
+		</coding>
+	</outcome>
 
-	<financial>
-	  <type>
-	   <coding>
-	    <code value="copay-percent"/>
-	   </coding>
-	  </type>
-	  
-	  <benefitUnsignedInt value="20"/>
-	</financial>
-  </benefitBalance>
+	<disposition value="Policy is currently in-force."/>
 
-  <benefitBalance>
-    <category>
-	 <coding>
-	  <system value="http://hl7.org/fhir/benefit-category"/>
-	  <code value="medical"/>
-	 </coding>
-	</category>
-	
-	<subCategory>
-	 <coding>
-	  <system value="http://hl7.org/fhir/benefit-subcategory"/>
-	  <code value="69"/>
-	  <display value="Maternity"/>
-	 </coding>
-	</subCategory>
+	<insurer>
+		<reference value="Organization/2"/>
+	</insurer>
 
-	<network>
-	 <coding>
-	  <system value="http://hl7.org/fhir/benefit-network"/>
-	  <code value="in"/>
-	 </coding>
-	</network>
-	
-	<unit>
-	 <coding>
-	  <system value="http://hl7.org/fhir/benefit-unit"/>
-	  <code value="individual"/>
-	 </coding>
-	</unit>
-	
-	<term>
-	 <coding>
-	  <system value="http://hl7.org/fhir/benefit-term"/>
-	  <code value="annual"/>
-	 </coding>
-	</term>
-	
-	<financial>
-	  <type>
-	   <coding>
-	    <code value="benefit"/>
-	   </coding>
-	  </type>
-	  
-	  <benefitMoney>
-	    <value value="15000"/>
-        <system value="urn:iso:std:iso:4217"/>
-        <code value="SAR"/> 
-	  </benefitMoney>
-	</financial>
-	
-  </benefitBalance>
-  <benefitBalance>
-    <category>
-	 <coding>
-	  <system value="http://hl7.org/fhir/benefit-category"/>
-	  <code value="oral"/>
-	 </coding>
-	</category>
-	
-	<subCategory>
-	 <coding>
-	  <system value="http://hl7.org/fhir/benefit-subcategory"/>
-	  <code value="F3"/>
-	  <display value="Dental Coverage"/>
-	 </coding>
-	</subCategory>
+	<inforce value="true"/>
 
-	<network>
-	 <coding>
-	  <system value="http://hl7.org/fhir/benefit-network"/>
-	  <code value="in"/>
-	 </coding>
-	</network>
-	
-	<unit>
-	 <coding>
-	  <system value="http://hl7.org/fhir/benefit-unit"/>
-	  <code value="individual"/>
-	 </coding>
-	</unit>
-	
-	<term>
-	 <coding>
-	  <system value="http://hl7.org/fhir/benefit-term"/>
-	  <code value="annual"/>
-	 </coding>
-	</term>
-	
-	<financial>
-	  <type>
-	   <coding>
-	    <code value="benefit"/>
-	   </coding>
-	  </type>
-	  
-	  <benefitMoney>
-	    <value value="2000"/>
-        <system value="urn:iso:std:iso:4217"/>
-        <code value="SAR"/> 
-	  </benefitMoney>
-	</financial>
-	
-  </benefitBalance>
-  <benefitBalance>
-    <category>
-	 <coding>
-	  <system value="http://hl7.org/fhir/benefit-category"/>
-	  <code value="vision"/>
-	 </coding>
-	</category>
-	
-	<subCategory>
-	 <coding>
-	  <system value="http://hl7.org/fhir/benefit-subcategory"/>
-	  <code value="F6"/>
-	  <display value="Vision Coverage"/>
-	 </coding>
-	</subCategory>
+	<insurance>
+		<benefitBalance>
+			<category>
+				<coding>
+					<system value="http://hl7.org/fhir/benefit-category"/>
+					<code value="medical"/>
+				</coding>
+			</category>
 
-	<network>
-	 <coding>
-	  <system value="http://hl7.org/fhir/benefit-network"/>
-	  <code value="in"/>
-	 </coding>
-	</network>
-	
-	<unit>
-	 <coding>
-	  <system value="http://hl7.org/fhir/benefit-unit"/>
-	  <code value="individual"/>
-	 </coding>
-	</unit>
-	
-	<term>
-	 <coding>
-	  <system value="http://hl7.org/fhir/benefit-term"/>
-	  <code value="annual"/>
-	 </coding>
-	</term>
-	
-	<financial>
-	  <type>
-	   <coding>
-	    <code value="benefit"/>
-	   </coding>
-	  </type>
-	  
-	  <benefitMoney>
-	    <value value="400"/>
-        <system value="urn:iso:std:iso:4217"/>
-        <code value="SAR"/> 
-	  </benefitMoney>
-	</financial>
-	
-  </benefitBalance>
-  <benefitBalance>
-    <category>
-	 <coding>
-	  <system value="http://hl7.org/fhir/benefit-category"/>
-	  <code value="vision"/>
-	 </coding>
-	</category>
-	
-	<subCategory>
-	 <coding>
-	  <system value="http://hl7.org/fhir/benefit-subcategory"/>
-	  <code value="49"/>
-	  <display value="Hospital Room and Board"/>
-	 </coding>
-	</subCategory>
+			<subCategory>
+				<coding>
+					<system value="http://hl7.org/fhir/benefit-subcategory"/>
+					<code value="30"/>
+					<display value="Health Benefit Plan Coverage"/>
+				</coding>
+			</subCategory>
 
-	<network>
-	 <coding>
-	  <system value="http://hl7.org/fhir/benefit-network"/>
-	  <code value="in"/>
-	 </coding>
-	</network>
-	
-	<unit>
-	 <coding>
-	  <system value="http://hl7.org/fhir/benefit-unit"/>
-	  <code value="individual"/>
-	 </coding>
-	</unit>
-	
-	<term>
-	 <coding>
-	  <system value="http://hl7.org/fhir/benefit-term"/>
-	  <code value="day"/>
-	 </coding>
-	</term>
-	
-	<financial>
-	  <type>
-	   <coding>
-	    <code value="room"/>
-	   </coding>
-	  </type>
-	  
-	  <benefitString value="shared"/>
-	</financial>
-	<financial>
-	  <type>
-	   <coding>
-	    <code value="benefit"/>
-	   </coding>
-	  </type>
-	  
-	  <benefitMoney>
-	    <value value="600"/>
-        <system value="urn:iso:std:iso:4217"/>
-        <code value="SAR"/> 
-	  </benefitMoney>
-	</financial>
-	
-  </benefitBalance>
- </insurance>
- 
+			<network>
+				<coding>
+					<system value="http://hl7.org/fhir/benefit-network"/>
+					<code value="in"/>
+				</coding>
+			</network>
+
+			<unit>
+				<coding>
+					<system value="http://hl7.org/fhir/benefit-unit"/>
+					<code value="individual"/>
+				</coding>
+			</unit>
+
+			<term>
+				<coding>
+					<system value="http://hl7.org/fhir/benefit-term"/>
+					<code value="annual"/>
+				</coding>
+			</term>
+
+			<financial>
+				<type>
+					<coding>
+						<code value="benefit"/>
+					</coding>
+				</type>
+
+				<allowedMoney>
+					<value value="500000"/>
+					<system value="urn:iso:std:iso:4217"/>
+					<code value="SAR"/> 
+				</allowedMoney>
+			</financial>
+
+			<financial>
+				<type>
+					<coding>
+						<code value="copay-maximum"/>
+					</coding>
+				</type>
+
+				<allowedMoney>
+					<value value="100"/>
+					<system value="urn:iso:std:iso:4217"/>
+					<code value="SAR"/> 
+				</allowedMoney>
+			</financial>
+
+			<financial>
+				<type>
+					<coding>
+						<code value="copay-percent"/>
+					</coding>
+				</type>
+
+				<allowedUnsignedInt value="20"/>
+			</financial>
+		</benefitBalance>
+
+		<benefitBalance>
+			<category>
+				<coding>
+					<system value="http://hl7.org/fhir/benefit-category"/>
+					<code value="medical"/>
+				</coding>
+			</category>
+
+			<subCategory>
+				<coding>
+					<system value="http://hl7.org/fhir/benefit-subcategory"/>
+					<code value="69"/>
+					<display value="Maternity"/>
+				</coding>
+			</subCategory>
+
+			<network>
+				<coding>
+					<system value="http://hl7.org/fhir/benefit-network"/>
+					<code value="in"/>
+				</coding>
+			</network>
+
+			<unit>
+				<coding>
+					<system value="http://hl7.org/fhir/benefit-unit"/>
+					<code value="individual"/>
+				</coding>
+			</unit>
+
+			<term>
+				<coding>
+					<system value="http://hl7.org/fhir/benefit-term"/>
+					<code value="annual"/>
+				</coding>
+			</term>
+
+			<financial>
+				<type>
+					<coding>
+						<code value="benefit"/>
+					</coding>
+				</type>
+
+				<allowedMoney>
+					<value value="15000"/>
+					<system value="urn:iso:std:iso:4217"/>
+					<code value="SAR"/> 
+				</allowedMoney>
+			</financial>
+
+		</benefitBalance>
+		<benefitBalance>
+			<category>
+				<coding>
+					<system value="http://hl7.org/fhir/benefit-category"/>
+					<code value="oral"/>
+				</coding>
+			</category>
+
+			<subCategory>
+				<coding>
+					<system value="http://hl7.org/fhir/benefit-subcategory"/>
+					<code value="F3"/>
+					<display value="Dental Coverage"/>
+				</coding>
+			</subCategory>
+
+			<network>
+				<coding>
+					<system value="http://hl7.org/fhir/benefit-network"/>
+					<code value="in"/>
+				</coding>
+			</network>
+
+			<unit>
+				<coding>
+					<system value="http://hl7.org/fhir/benefit-unit"/>
+					<code value="individual"/>
+				</coding>
+			</unit>
+
+			<term>
+				<coding>
+					<system value="http://hl7.org/fhir/benefit-term"/>
+					<code value="annual"/>
+				</coding>
+			</term>
+
+			<financial>
+				<type>
+					<coding>
+						<code value="benefit"/>
+					</coding>
+				</type>
+
+				<allowedMoney>
+					<value value="2000"/>
+					<system value="urn:iso:std:iso:4217"/>
+					<code value="SAR"/> 
+				</allowedMoney>
+			</financial>
+
+		</benefitBalance>
+		<benefitBalance>
+			<category>
+				<coding>
+					<system value="http://hl7.org/fhir/benefit-category"/>
+					<code value="vision"/>
+				</coding>
+			</category>
+
+			<subCategory>
+				<coding>
+					<system value="http://hl7.org/fhir/benefit-subcategory"/>
+					<code value="F6"/>
+					<display value="Vision Coverage"/>
+				</coding>
+			</subCategory>
+
+			<network>
+				<coding>
+					<system value="http://hl7.org/fhir/benefit-network"/>
+					<code value="in"/>
+				</coding>
+			</network>
+
+			<unit>
+				<coding>
+					<system value="http://hl7.org/fhir/benefit-unit"/>
+					<code value="individual"/>
+				</coding>
+			</unit>
+
+			<term>
+				<coding>
+					<system value="http://hl7.org/fhir/benefit-term"/>
+					<code value="annual"/>
+				</coding>
+			</term>
+
+			<financial>
+				<type>
+					<coding>
+						<code value="benefit"/>
+					</coding>
+				</type>
+
+				<allowedMoney>
+					<value value="400"/>
+					<system value="urn:iso:std:iso:4217"/>
+					<code value="SAR"/> 
+				</allowedMoney>
+			</financial>
+
+		</benefitBalance>
+		<benefitBalance>
+			<category>
+				<coding>
+					<system value="http://hl7.org/fhir/benefit-category"/>
+					<code value="vision"/>
+				</coding>
+			</category>
+
+			<subCategory>
+				<coding>
+					<system value="http://hl7.org/fhir/benefit-subcategory"/>
+					<code value="49"/>
+					<display value="Hospital Room and Board"/>
+				</coding>
+			</subCategory>
+
+			<network>
+				<coding>
+					<system value="http://hl7.org/fhir/benefit-network"/>
+					<code value="in"/>
+				</coding>
+			</network>
+
+			<unit>
+				<coding>
+					<system value="http://hl7.org/fhir/benefit-unit"/>
+					<code value="individual"/>
+				</coding>
+			</unit>
+
+			<term>
+				<coding>
+					<system value="http://hl7.org/fhir/benefit-term"/>
+					<code value="day"/>
+				</coding>
+			</term>
+
+			<financial>
+				<type>
+					<coding>
+						<code value="room"/>
+					</coding>
+				</type>
+
+				<allowedString value="shared"/>
+			</financial>
+			<financial>
+				<type>
+					<coding>
+						<code value="benefit"/>
+					</coding>
+				</type>
+
+				<allowedMoney>
+					<value value="600"/>
+					<system value="urn:iso:std:iso:4217"/>
+					<code value="SAR"/> 
+				</allowedMoney>
+			</financial>
+
+		</benefitBalance>
+	</insurance>
+
 </EligibilityResponse>
