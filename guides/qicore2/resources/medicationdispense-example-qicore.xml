@@ -31,7 +31,7 @@
     <reference value="Practitioner/example"/>
   </dispenser>
   <authorizingPrescription>
-    <reference value="MedicationOrder/medicationorder-example-qicore" />
+    <reference value="MedicationRequest/medicationrequest-example-qicore" />
   </authorizingPrescription>
   <quantity>
     <value value="100"/>

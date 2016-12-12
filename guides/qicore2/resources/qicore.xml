@@ -160,11 +160,11 @@
     </resource>
     <resource>
       <example value="true"/>
-      <name value="QICore MedicationOrder"/>
-      <description value="Example of QICore MedicationOrder"/>
-      <sourceReference><reference value="MedicationOrder/medicationorder-example-qicore"/></sourceReference>
+      <name value="QICore MedicationRequest"/>
+      <description value="Example of QICore MedicationRequest"/>
+      <sourceReference><reference value="MedicationRequest/medicationrequest-example-qicore"/></sourceReference>
       <exampleFor>
-        <reference value="StructureDefinition/qicore-medicationorder"/>
+        <reference value="StructureDefinition/qicore-medicationrequest"/>
       </exampleFor>
     </resource>
     <resource>
@@ -539,13 +539,13 @@
       </page>
     </page>
     <page>
-      <source value="medicationorder-qicore.html"/>
-      <title value="Medication Order"/>
+      <source value="medicationrequest-qicore.html"/>
+      <title value="Medication Request"/>
       <kind value="page"/>
       <format value="generated"/>
       <page>
-        <source value="qicore-medicationorder.html"/>
-        <title value="Medication Order Details"/>
+        <source value="qicore-medicationrequest.html"/>
+        <title value="Medication Request Details"/>
         <kind value="resource"/>
         <format value="generated"/>
       </page>
