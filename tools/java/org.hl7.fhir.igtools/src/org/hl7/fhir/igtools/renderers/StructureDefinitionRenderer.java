@@ -669,8 +669,9 @@ public class StructureDefinitionRenderer extends BaseRenderer {
     } else {
       b.append("<a href=\"");
       String s = igp.getLinkFor("", t.getCode());
-      if (!s.startsWith("http:") && !s.startsWith("https:"))
-        b.append(prefix);         
+//    GG 13/12/2016 - I think that this is always wrong now. 
+//      if (!s.startsWith("http:") && !s.startsWith("https:") && !s.startsWith(".."))
+//        b.append(prefix);         
       b.append(s);
       if (!s.contains(".html")) {
  //     b.append(".html#");
