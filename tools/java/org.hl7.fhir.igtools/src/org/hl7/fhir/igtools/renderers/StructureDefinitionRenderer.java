@@ -878,7 +878,7 @@ public class StructureDefinitionRenderer extends BaseRenderer {
       StringBuilder s = new StringBuilder();
       for (StructureDefinitionMappingComponent map : sd.getMapping()) {
 
-        s.append("<a name=\""+map.getIdentity() +"\"> </a><h3>Mappings for "+map.getName()+" ("+map.getUri()+")</h3>");
+        s.append("<a name=\""+map.getIdentity() +"\"> </a><h3>Mappings for "+Utilities.escapeXml(map.getName())+" ("+map.getUri()+")</h3>");
         if (map.hasComments())
           s.append("<p>"+Utilities.escapeXml(map.getComments())+"</p>");
 //        else if (specmaps != null && preambles.has(map.getUri()))   
