@@ -179,6 +179,9 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
 
   private static final String IG_NAME = "!ig!";
 
+  private static final String REDIRECT_SOURCE = "<html>\r\n<head>\r\n<meta http-equiv=\"Refresh\" content=\"0; url=site/index.html\"/>\r\n</head>\r\n"+
+       "<body>\r\n<p>See here: <a href=\"site/index.html\">this link</a>.</p>\r\n</body>\r\n</html>\r\n";
+
   private String configFile;
   private String sourceDir;
   private String destDir;
@@ -665,6 +668,10 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     validator = new InstanceValidator(context);
     validator.setAllowXsiLocation(true);
     validator.setNoBindingMsgSuppressed(true);
+    if (paths.get("extension-domains") instanceof JsonArray) {
+      for (JsonElement e : (JsonArray) paths.get("extension-domains"))
+        validator.getExtensionDomains().add(((JsonPrimitive) e).getAsString());
+    }
 
     loadSpecDetails(context.getBinaries().get("spec.internals"));
     igpkp = new IGKnowledgeProvider(context, specPath, configuration, errors);
@@ -1794,6 +1801,12 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     log("  ... "+Integer.toString(inspector.total())+" html "+checkPlural("file", inspector.total())+", "+Integer.toString(lf)+" "+checkPlural("page", lf)+" invalid xhtml ("+Integer.toString((lf*100)/(inspector.total() == 0 ? 1 : inspector.total()))+"%)");
     log("  ... "+Integer.toString(inspector.links())+" "+checkPlural("link", inspector.links())+", "+Integer.toString(bl)+" broken "+checkPlural("link", lf)+" ("+Integer.toString((bl*100)/(inspector.links() == 0 ? 1 : inspector.links()))+"%)");
     errors.addAll(linkmsgs);
+    log("Build final .zip");
+    ZipGenerator zip = new ZipGenerator(Utilities.path(tempDir, "full-ig.zip"));
+    zip.addFolder(outputDir, "site/", false);
+    zip.addFileSource("index.html", REDIRECT_SOURCE, false);
+    zip.close();
+    Utilities.copyFile(Utilities.path(tempDir, "full-ig.zip"), Utilities.path(outputDir, "full-ig.zip"));
   }
 
   private void updateImplementationGuide() throws Exception {
