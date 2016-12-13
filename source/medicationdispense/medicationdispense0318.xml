@@ -71,6 +71,7 @@
         </doseQuantity>
     </dosageInstruction> 
 <substitution>
+    <wasSubstituted value="true"></wasSubstituted>
     <type>
         <coding>
             <system value="http://hl7.org/fhir/ValueSet/v3-ActSubstanceAdminSubstitutionCode"/>

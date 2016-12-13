@@ -319,14 +319,21 @@
   Element = MedicationDispense.substitution
   Card. = 0..1
   UML = right
-  Short Name = Deals with substitution of one medicine for another
-  Definition = Indicates whether or not substitution was made as part of the dispense.  In some cases substitution will be expected but does not happen, in other cases substitution is not expected but does happen.  This block explains what substitution did or did not happen and why.
+  Short Name = Whether a substitution was performed on the dispense
+  Definition = Indicates whether or not substitution was made as part of the dispense.  In some cases substitution will be expected but does not happen, in other cases substitution is not expected but does happen.  This block explains what substitution did or did not happen and why.  If nothing is specified, substitution was not done.
   RIM Mapping = .outboundRelationship[typeCode=COMP].target[classCode=SUBST, moodCode=EVN]
   Committee Notes = Significant discssion around this topic.  May not have it right yet. What about the attribution?
 
  -- Row 20 -----------------------------------
-  Element = MedicationDispense.substitution.type
+  Element = MedicationDispense.substitution.wasSubstituted
   Card. = 1..1
+  Type = boolean
+  Short Name = Whether a substitution was or was not performed on the dispense
+  Definition = True if the dispenser dispensed a different drug or product from what was prescribed.
+
+ -- Row 21 -----------------------------------
+  Element = MedicationDispense.substitution.type
+  Card. = 0..1
   Type = CodeableConcept
   Binding = MedicationIntendedSubstitutionType
   Short Name = Code signifying whether a different drug was dispensed from what was prescribed
@@ -335,7 +342,7 @@
   RIM Mapping = .code
   Committee Notes = No substitution made or expected Subtitution made but not expected Substitution expected but not made Substitution made and expected
 
- -- Row 21 -----------------------------------
+ -- Row 22 -----------------------------------
   Element = MedicationDispense.substitution.reason
   Card. = 0..*
   Type = CodeableConcept
@@ -344,7 +351,7 @@
   Definition = Indicates the reason for the substitution of (or lack of substitution) from what was prescribed.
   RIM Mapping = .reasonCode
 
- -- Row 22 -----------------------------------
+ -- Row 23 -----------------------------------
   Element = MedicationDispense.substitution.responsibleParty
   Card. = 0..*
   Type = Reference(Practitioner)
@@ -353,7 +360,7 @@
   RIM Mapping = .participation[typeCode=PFM].role[classCode=ASSIGN]
   Committee Notes = Who is this handled?  Elsewhere attribution is handled by FHIR
 
- -- Row 23 -----------------------------------
+ -- Row 24 -----------------------------------
   Element = MedicationDispense.eventHistory
   Card. = 0..*
   Type = Reference(Provenance)
