@@ -54,6 +54,7 @@ import org.hl7.fhir.dstu3.elementmodel.Element;
 import org.hl7.fhir.dstu3.elementmodel.Manager.FhirFormat;
 import org.hl7.fhir.dstu3.elementmodel.ObjectConverter;
 import org.hl7.fhir.dstu3.elementmodel.ParserBase.ValidationPolicy;
+import org.hl7.fhir.dstu3.elementmodel.TurtleParser;
 import org.hl7.fhir.dstu3.formats.IParser.OutputStyle;
 import org.hl7.fhir.dstu3.formats.JsonParser;
 import org.hl7.fhir.dstu3.formats.XmlParser;
@@ -1920,20 +1921,26 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
 
   private void generateDefinitions(FhirFormat fmt, String specFile)  throws Exception {
     // public definitions
-    Set<String> files = new HashSet<String>();
+    Set<FetchedResource> files = new HashSet<FetchedResource>();
     for (FetchedFile f : fileList) {
       for (FetchedResource r : f.getResources()) {
         if (r.getResource() != null && r.getResource() instanceof MetadataResource) {
-          String fn = Utilities.path(outputDir, r.getElement().fhirType()+"-"+r.getId()+"."+fmt.getExtension());
-          if (new File(fn).exists())
-            files.add(fn);
+          files.add(r);
         }
       }
     }
     if (!files.isEmpty()) {
       ZipGenerator zip = new ZipGenerator(Utilities.path(outputDir, "definitions."+fmt.getExtension()+".zip"));
-      for (String fn : files)
-        zip.addFileName(fn.substring(fn.lastIndexOf(File.separator)+1), fn, false);
+      for (FetchedResource r : files) {
+        ByteArrayOutputStream bs = new ByteArrayOutputStream();
+        if (fmt.equals(FhirFormat.JSON))
+          new JsonParser().compose(bs, r.getResource());
+        else if (fmt.equals(FhirFormat.XML))
+          new XmlParser().compose(bs, r.getResource());
+        else if (fmt.equals(FhirFormat.TURTLE))
+          new TurtleParser(context).compose(r.getElement(), bs, OutputStyle.PRETTY, igpkp.getCanonical());
+        zip.addBytes(r.getElement().fhirType()+"-"+r.getId()+"."+fmt.getExtension(), bs.toByteArray(), false);
+      }
       zip.addFileName("spec.internals", specFile, false);
       zip.close();
     }
