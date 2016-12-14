@@ -11,6 +11,7 @@
     <status value="completed"/>
     <intent value="order">
     </intent>
+    <priority value="routine"></priority>
     <medicationCodeableConcept>
         <coding>
             <system value="http://snomed.info/sct"/>
