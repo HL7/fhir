@@ -9,7 +9,7 @@
       <xsl:apply-templates select="@*|node()"/>
     </xsl:copy>
   </xsl:template>
-  <xsl:template match="/CapabilityStatement">
+  <xsl:template match="/*[self::CapabilityStatement|self::Conformance]">
     <xsl:copy>
       <xsl:copy-of select="@*|id"/>
       <text xmlns="http://hl7.org/fhir">
