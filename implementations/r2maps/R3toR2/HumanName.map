@@ -7,5 +7,12 @@ uses "http://hl7.org/fhir/StructureDefinition/HumanName" as target
 group HumanName extends Element
   input src : HumanName as source
   input tgt : HumanNameR2 as Target
+  "HumanName-use" : for src.use as vs make tgt.use as vt then code(vs, vt)
+  "HumanName-text" : for src.text as vs make tgt.text as vt then string(vs, vt)
+  "HumanName-family" : for src.family as vs make tgt.family as vt then string(vs, vt)
+  "HumanName-given" : for src.given as vs make tgt.given as vt then string(vs, vt)
+  "HumanName-prefix" : for src.prefix as vs make tgt.prefix as vt then string(vs, vt)
+  "HumanName-suffix" : for src.suffix as vs make tgt.suffix as vt then string(vs, vt)
+  "HumanName-period" : for src.period as vs make tgt.period as vt then Period(vs,vt)
 endgroup
 

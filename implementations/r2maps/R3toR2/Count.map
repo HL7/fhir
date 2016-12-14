@@ -7,5 +7,10 @@ uses "http://hl7.org/fhir/StructureDefinition/Count" as target
 group Count extends Element
   input src : Count as source
   input tgt : CountR2 as Target
+  "Count-value" : for src.value as vs make tgt.value as vt then decimal(vs, vt)
+  "Count-comparator" : for src.comparator as vs make tgt.comparator as vt then code(vs, vt)
+  "Count-unit" : for src.unit as vs make tgt.unit as vt then string(vs, vt)
+  "Count-system" : for src.system as vs make tgt.system as vt then uri(vs, vt)
+  "Count-code" : for src.code as vs make tgt.code as vt then code(vs, vt)
 endgroup
 

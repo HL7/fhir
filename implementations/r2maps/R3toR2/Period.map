@@ -7,5 +7,7 @@ uses "http://hl7.org/fhir/StructureDefinition/Period" as target
 group Period extends Element
   input src : Period as source
   input tgt : PeriodR2 as Target
+  "Period-start" : for src.start as vs make tgt.start as vt then dateTime(vs, vt)
+  "Period-end" : for src.end as vs make tgt.end as vt then dateTime(vs, vt)
 endgroup
 

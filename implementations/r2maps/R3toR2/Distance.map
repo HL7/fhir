@@ -7,5 +7,10 @@ uses "http://hl7.org/fhir/StructureDefinition/Distance" as target
 group Distance extends Element
   input src : Distance as source
   input tgt : DistanceR2 as Target
+  "Distance-value" : for src.value as vs make tgt.value as vt then decimal(vs, vt)
+  "Distance-comparator" : for src.comparator as vs make tgt.comparator as vt then code(vs, vt)
+  "Distance-unit" : for src.unit as vs make tgt.unit as vt then string(vs, vt)
+  "Distance-system" : for src.system as vs make tgt.system as vt then uri(vs, vt)
+  "Distance-code" : for src.code as vs make tgt.code as vt then code(vs, vt)
 endgroup
 

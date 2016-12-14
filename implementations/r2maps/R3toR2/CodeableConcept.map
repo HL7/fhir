@@ -7,5 +7,7 @@ uses "http://hl7.org/fhir/StructureDefinition/CodeableConcept" as target
 group CodeableConcept extends Element
   input src : CodeableConcept as source
   input tgt : CodeableConceptR2 as Target
+  "CodeableConcept-coding" : for src.coding as vs make tgt.coding as vt then Coding(vs,vt)
+  "CodeableConcept-text" : for src.text as vs make tgt.text as vt then string(vs, vt)
 endgroup
 

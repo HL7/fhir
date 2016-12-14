@@ -2,10 +2,26 @@
 
 uses "http://hl7.org/fhir/StructureDefinition/ContactPointR2" as source
 uses "http://hl7.org/fhir/StructureDefinition/ContactPoint" as target
+conceptmap "ContactPointSystem" {
+  prefix s = "http://hl7.org/fhir/contact-point-system"
+  prefix t = "http://hl7.org/fhir/contact-point-system"
+
+  s:phone ~ t:phone
+  s:fax ~ t:fax
+  s:email ~ t:email
+  s:pager ~ t:pager
+  s:other ~ t:other
+  s:url ~ t:other
+}
 
 
 group ContactPoint extends Element
   input src : ContactPoint as source
   input tgt : ContactPointR2 as Target
+  "ContactPoint-system" : for src.system as v make tgt.system = translate(v, "#ContactPointSystem", "code")
+  "ContactPoint-value" : for src.value as vs make tgt.value as vt then string(vs, vt)
+  "ContactPoint-use" : for src.use as vs make tgt.use as vt then code(vs, vt)
+  "ContactPoint-rank" : for src.rank as vs make tgt.rank as vt then positiveInt(vs, vt)
+  "ContactPoint-period" : for src.period as vs make tgt.period as vt then Period(vs,vt)
 endgroup
 

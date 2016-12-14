@@ -7,5 +7,7 @@ uses "http://hl7.org/fhir/StructureDefinition/Reference" as target
 group Reference extends Element
   input src : Reference as source
   input tgt : ReferenceR2 as Target
+  "Reference-reference" : for src.reference as vs make tgt.reference as vt then string(vs, vt)
+  "Reference-display" : for src.display as vs make tgt.display as vt then string(vs, vt)
 endgroup
 

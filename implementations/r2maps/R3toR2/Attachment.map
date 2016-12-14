@@ -7,5 +7,13 @@ uses "http://hl7.org/fhir/StructureDefinition/Attachment" as target
 group Attachment extends Element
   input src : Attachment as source
   input tgt : AttachmentR2 as Target
+  "Attachment-contentType" : for src.contentType as vs make tgt.contentType as vt then code(vs, vt)
+  "Attachment-language" : for src.language as vs make tgt.language as vt then code(vs, vt)
+  "Attachment-data" : for src.data as vs make tgt.data as vt then base64Binary(vs, vt)
+  "Attachment-url" : for src.url as vs make tgt.url as vt then uri(vs, vt)
+  "Attachment-size" : for src.size as vs make tgt.size as vt then unsignedInt(vs, vt)
+  "Attachment-hash" : for src.hash as vs make tgt.hash as vt then base64Binary(vs, vt)
+  "Attachment-title" : for src.title as vs make tgt.title as vt then string(vs, vt)
+  "Attachment-creation" : for src.creation as vs make tgt.creation as vt then dateTime(vs, vt)
 endgroup
 

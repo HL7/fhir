@@ -7,5 +7,10 @@ uses "http://hl7.org/fhir/StructureDefinition/Money" as target
 group Money extends Element
   input src : Money as source
   input tgt : MoneyR2 as Target
+  "Money-value" : for src.value as vs make tgt.value as vt then decimal(vs, vt)
+  "Money-comparator" : for src.comparator as vs make tgt.comparator as vt then code(vs, vt)
+  "Money-unit" : for src.unit as vs make tgt.unit as vt then string(vs, vt)
+  "Money-system" : for src.system as vs make tgt.system as vt then uri(vs, vt)
+  "Money-code" : for src.code as vs make tgt.code as vt then code(vs, vt)
 endgroup
 

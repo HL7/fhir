@@ -7,5 +7,9 @@ uses "http://hl7.org/fhir/StructureDefinition/Annotation" as target
 group Annotation extends Element
   input src : Annotation as source
   input tgt : AnnotationR2 as Target
+  "Annotation-author-Reference" : for src.author : Reference as vs make tgt.author = create("Reference") as vt then Reference(vs,vt)
+  "Annotation-author-string" : for src.author : string as vs make tgt.author = create("string") as vt then string(vs,vt)
+  "Annotation-time" : for src.time as vs make tgt.time as vt then dateTime(vs, vt)
+  "Annotation-text" : for src.text as vs make tgt.text as vt then string(vs, vt)
 endgroup
 

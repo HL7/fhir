@@ -7,5 +7,11 @@ uses "http://hl7.org/fhir/StructureDefinition/Identifier" as target
 group Identifier extends Element
   input src : Identifier as source
   input tgt : IdentifierR2 as Target
+  "Identifier-use" : for src.use as vs make tgt.use as vt then code(vs, vt)
+  "Identifier-type" : for src.type as vs make tgt.type as vt then CodeableConcept(vs,vt)
+  "Identifier-system" : for src.system as vs make tgt.system as vt then uri(vs, vt)
+  "Identifier-value" : for src.value as vs make tgt.value as vt then string(vs, vt)
+  "Identifier-period" : for src.period as vs make tgt.period as vt then Period(vs,vt)
+  "Identifier-assigner" : for src.assigner as vs make tgt.assigner as vt then Reference(vs,vt)
 endgroup
 

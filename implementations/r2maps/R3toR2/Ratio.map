@@ -7,5 +7,7 @@ uses "http://hl7.org/fhir/StructureDefinition/Ratio" as target
 group Ratio extends Element
   input src : Ratio as source
   input tgt : RatioR2 as Target
+  "Ratio-numerator" : for src.numerator as vs make tgt.numerator as vt then Quantity(vs,vt)
+  "Ratio-denominator" : for src.denominator as vs make tgt.denominator as vt then Quantity(vs,vt)
 endgroup
 
