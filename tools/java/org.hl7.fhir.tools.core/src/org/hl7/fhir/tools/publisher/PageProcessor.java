@@ -4814,7 +4814,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   private String getSnomedCTVsList() throws Exception {
     StringBuilder s = new StringBuilder();
     s.append("<table class=\"codes\">\r\n");
-    s.append(" <tr><td><b>Name</b></td><td><b>Definition</b></td><td>Usage</td></tr>\r\n");
+    s.append(" <tr><td><b>Name</b></td><td><b>Definition</b></td><td><b>CLD</b></td><td>Usage</td></tr>\r\n");
     
     List<String> sorts = new ArrayList<String>();
     for (ValueSet vs : definitions.getValuesets().values()) {
@@ -4827,11 +4827,42 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       ValueSet vs = definitions.getValuesets().get(sn);
       String path = (String) vs.getUserData("path");
       s.append(" <tr>\r\n  <td><a href=\""+pathTail(Utilities.changeFileExt(path, ".html"))+"\">"+Utilities.escapeXml(vs.getName())+"</a></td>\r\n  <td>"+Utilities.escapeXml(vs.getDescription())+"</td>\r\n");
+      s.append("  <td>"+summariseSCTCLD(vs)+"</td>\r\n");
       s.append("  <td>"+generateValueSetUsage(vs, "", false)+"</td>\r\n");
       s.append(" </tr>\r\n");
     }
     s.append("</table>\r\n");
     return s.toString();
+  }
+
+  private String summariseSCTCLD(ValueSet vs) {
+    boolean hasNonSCT = false;
+    for (ConceptSetComponent cc : vs.getCompose().getInclude()) {
+      if (!"http://snomed.info/sct".equals(cc.getSystem()))
+        hasNonSCT = true;
+    }
+    StringBuilder b = new StringBuilder();
+    b.append("<ul>");
+    for (ConceptSetComponent cc : vs.getCompose().getInclude()) {
+      if ("http://snomed.info/sct".equals(cc.getSystem())) {
+        if (!cc.hasConcept() && !cc.hasFilter()) {
+          b.append("<li>any SCT concept</li>");
+        } else if (cc.hasConcept()) {
+          b.append("<li>"+Integer.toString(cc.getConcept().size())+" enumerated concepts</li>");
+        } else {
+          if (cc.getFilter().size() != 1 || !cc.getFilter().get(0).getProperty().equals("concept"))
+            b.append("<li>ERROR!</li>");
+          else {
+            ConceptDefinitionComponent def = workerContext.getCodeDefinition("http://snomed.info/sct", cc.getFilter().get(0).getValue());
+            b.append("<li>"+cc.getFilter().get(0).getOp().toCode()+" "+(def == null ? cc.getFilter().get(0).getValue() : Utilities.escapeXml(def.getDisplay()))+"</li>");
+          }
+        }
+      }
+    }
+    if (hasNonSCT) 
+      b.append("<li>other code systems</li>");
+    b.append("</ul>");
+    return b.toString();
   }
 
   private boolean referencesSnomed(ValueSet vs) {
