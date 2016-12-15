@@ -17,5 +17,6 @@
 	<classpathentry kind="lib" path="../../../tools/java/imports/commons-codec-1.9.jar"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/org.hl7.fhir.dstu2016may"/>
 	<classpathentry kind="lib" path="../../../tools/java/imports/javaparser-1.0.11.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
