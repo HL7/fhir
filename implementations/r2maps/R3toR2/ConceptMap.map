@@ -1,0 +1,28 @@
+﻿map "http://hl7.org/fhir/StructureMap/ConceptMap3to2" = "R3 to R2 Conversion for ConceptMap"
+
+uses "http://hl7.org/fhir/StructureDefinition/ConceptMapR2" as source
+uses "http://hl7.org/fhir/StructureDefinition/ConceptMap" as target
+
+
+group ConceptMap extends Element
+  input src : ConceptMap as source
+  input tgt : ConceptMapR2 as Target
+  "ConceptMap-url" : for src.url as vs make tgt.url as vt then uri(vs, vt)
+  "ConceptMap-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
+  "ConceptMap-version" : for src.version as vs make tgt.version as vt then string(vs, vt)
+  "ConceptMap-name" : for src.name as vs make tgt.name as vt then string(vs, vt)
+  "ConceptMap-status" : for src.status as vs make tgt.status as vt then code(vs, vt)
+  "ConceptMap-experimental" : for src.experimental as vs make tgt.experimental as vt then boolean(vs, vt)
+  "ConceptMap-publisher" : for src.publisher as vs make tgt.publisher as vt then string(vs, vt)
+  "ConceptMap-contact" : for src.contact as vs0 make tgt.contact = as vt0 then {
+    "ConceptMap.contact-name" : for vs0.name as vs make vt0.name as vt then string(vs, vt)
+    "ConceptMap.contact-telecom" : for vs0.telecom as vs make vt0.telecom as vt then ContactPoint(vs,vt)
+  }
+  "ConceptMap-date" : for src.date as vs make tgt.date as vt then dateTime(vs, vt)
+  "ConceptMap-useContext" : for src.jurisdiction as vs make tgt.useContext as vt then CodeableConcept(vs,vt)
+  "ConceptMap-source-uri" : for src.source  : uri as vs make tgt.source = create("uri") as vt then uri(vs,vt)
+  "ConceptMap-source-Reference" : for src.source  : Reference as vs make tgt.source = create("Reference") as vt then Reference(vs,vt)
+  "ConceptMap-target-uri" : for src.target  : uri as vs make tgt.target = create("uri") as vt then uri(vs,vt)
+  "ConceptMap-target-Reference" : for src.target  : Reference as vs make tgt.target = create("Reference") as vt then Reference(vs,vt)
+endgroup
+

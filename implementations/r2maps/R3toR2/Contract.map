@@ -1,0 +1,23 @@
+﻿map "http://hl7.org/fhir/StructureMap/Contract3to2" = "R3 to R2 Conversion for Contract"
+
+uses "http://hl7.org/fhir/StructureDefinition/ContractR2" as source
+uses "http://hl7.org/fhir/StructureDefinition/Contract" as target
+
+
+group Contract extends Element
+  input src : Contract as source
+  input tgt : ContractR2 as Target
+  "Contract-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
+  "Contract-issued" : for src.issued as vs make tgt.issued as vt then dateTime(vs, vt)
+  "Contract-applies" : for src.applies as vs make tgt.applies as vt then Period(vs,vt)
+  "Contract-subject" : for src.subject as vs make tgt.subject as vt then Reference(vs,vt)
+  "Contract-authority" : for src.authority as vs make tgt.authority as vt then Reference(vs,vt)
+  "Contract-domain" : for src.domain as vs make tgt.domain as vt then Reference(vs,vt)
+  "Contract-type" : for src.type as vs make tgt.type as vt then CodeableConcept(vs,vt)
+  "Contract-subType" : for src.subType as vs make tgt.subType as vt then CodeableConcept(vs,vt)
+  "Contract-action" : for src.action as vs make tgt.action as vt then CodeableConcept(vs,vt)
+  "Contract-actionReason" : for src.actionReason as vs make tgt.actionReason as vt then CodeableConcept(vs,vt)
+  "Contract-binding-Attachment" : for src.binding  : Attachment as vs make tgt.binding = create("Attachment") as vt then Attachment(vs,vt)
+  "Contract-binding-Reference" : for src.binding  : Reference as vs make tgt.binding = create("Reference") as vt then Reference(vs,vt)
+endgroup
+

@@ -1,0 +1,22 @@
+﻿map "http://hl7.org/fhir/StructureMap/Bundle2to3" = "R2 to R3 Conversions for Bundle"
+
+uses "http://hl7.org/fhir/StructureDefinition/Bundle" as source
+uses "http://hl7.org/fhir/StructureDefinition/BundleR2" as target
+
+
+group Bundle extends Element
+  input src : BundleR2 as source
+  input tgt : Bundle as Target
+
+  "Bundle-type" : for src.type as vs make tgt.type as vt then code(vs, vt)
+  "Bundle-total" : for src.total as vs make tgt.total as vt then unsignedInt(vs, vt)
+  "Bundle-link" : for src.link as vs0 make tgt.link = as vt0 then {
+    "Bundle.link-relation" : for vs0.relation as vs make vt0.relation as vt then string(vs, vt)
+    "Bundle.link-url" : for vs0.url as vs make vt0.url as vt then uri(vs, vt)
+  }
+  "Bundle-entry" : for src.entry as vs0 make tgt.entry = as vt0 then {
+    "Bundle.entry-fullUrl" : for vs0.fullUrl as vs make vt0.fullUrl as vt then uri(vs, vt)
+  }
+  "Bundle-signature" : for src.signature as vs make tgt.signature as vt then Signature(vs,vt)
+endgroup
+

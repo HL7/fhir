@@ -1,0 +1,31 @@
+﻿map "http://hl7.org/fhir/StructureMap/DeviceUseRequest3to2" = "R3 to R2 Conversion for DeviceUseRequest"
+
+uses "http://hl7.org/fhir/StructureDefinition/DeviceUseRequestR2" as source
+uses "http://hl7.org/fhir/StructureDefinition/DeviceUseRequest" as target
+conceptmap "DeviceUseRequestStatus" {
+  prefix s = "http://hl7.org/fhir/request-status"
+  prefix t = "http://hl7.org/fhir/device-use-request-status"
+
+  s:draft ~ t:proposed
+  s:draft ~ t:proposed
+  s:draft ~ t:proposed
+  s:draft ~ t:proposed
+  s:draft ~ t:proposed
+  s:draft ~ t:proposed
+}
+
+
+group DeviceUseRequest extends Element
+  input src : DeviceUseRequest as source
+  input tgt : DeviceUseRequestR2 as Target
+  "DeviceUseRequest-status" : for src.status as v make tgt.status = translate(v, "#DeviceUseRequestStatus", "code")
+  "DeviceUseRequest-encounter" : for src.context as vs make tgt.encounter as vt then Reference(vs,vt)
+  "DeviceUseRequest-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
+  "DeviceUseRequest-indication" : for src.reasonCode as vs make tgt.indication as vt then CodeableConcept(vs,vt)
+  "DeviceUseRequest-orderedOn" : for src.authored as vs make tgt.orderedOn as vt then dateTime(vs, vt)
+  "DeviceUseRequest-subject" : for src.subject as vs make tgt.subject as vt then Reference(vs,vt)
+  "DeviceUseRequest-timing-dateTime" : for src.occurrence  : dateTime as vs make tgt.timing = create("dateTime") as vt then dateTime(vs,vt)
+  "DeviceUseRequest-timing-Period" : for src.occurrence  : Period as vs make tgt.timing = create("Period") as vt then Period(vs,vt)
+  "DeviceUseRequest-timing-Timing" : for src.occurrence  : Timing as vs make tgt.timing = create("Timing") as vt then Timing(vs,vt)
+endgroup
+

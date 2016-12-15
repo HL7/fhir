@@ -1,0 +1,26 @@
+﻿map "http://hl7.org/fhir/StructureMap/DeviceMetric2to3" = "R2 to R3 Conversions for DeviceMetric"
+
+uses "http://hl7.org/fhir/StructureDefinition/DeviceMetric" as source
+uses "http://hl7.org/fhir/StructureDefinition/DeviceMetricR2" as target
+
+
+group DeviceMetric extends Element
+  input src : DeviceMetricR2 as source
+  input tgt : DeviceMetric as Target
+
+  "DeviceMetric-type" : for src.type as vs make tgt.type as vt then CodeableConcept(vs,vt)
+  "DeviceMetric-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
+  "DeviceMetric-unit" : for src.unit as vs make tgt.unit as vt then CodeableConcept(vs,vt)
+  "DeviceMetric-source" : for src.source as vs make tgt.source as vt then Reference(vs,vt)
+  "DeviceMetric-parent" : for src.parent as vs make tgt.parent as vt then Reference(vs,vt)
+  "DeviceMetric-operationalStatus" : for src.operationalStatus as vs make tgt.operationalStatus as vt then code(vs, vt)
+  "DeviceMetric-color" : for src.color as vs make tgt.color as vt then code(vs, vt)
+  "DeviceMetric-category" : for src.category as vs make tgt.category as vt then code(vs, vt)
+  "DeviceMetric-measurementPeriod" : for src.measurementPeriod as vs make tgt.measurementPeriod as vt then Timing(vs,vt)
+  "DeviceMetric-calibration" : for src.calibration as vs0 make tgt.calibration = as vt0 then {
+    "DeviceMetric.calibration-type" : for vs0.type as vs make vt0.type as vt then code(vs, vt)
+    "DeviceMetric.calibration-state" : for vs0.state as vs make vt0.state as vt then code(vs, vt)
+    "DeviceMetric.calibration-time" : for vs0.time as vs make vt0.time as vt then instant(vs, vt)
+  }
+endgroup
+

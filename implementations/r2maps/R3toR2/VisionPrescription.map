@@ -1,0 +1,32 @@
+﻿map "http://hl7.org/fhir/StructureMap/VisionPrescription3to2" = "R3 to R2 Conversion for VisionPrescription"
+
+uses "http://hl7.org/fhir/StructureDefinition/VisionPrescriptionR2" as source
+uses "http://hl7.org/fhir/StructureDefinition/VisionPrescription" as target
+
+
+group VisionPrescription extends Element
+  input src : VisionPrescription as source
+  input tgt : VisionPrescriptionR2 as Target
+  "VisionPrescription-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
+  "VisionPrescription-dateWritten" : for src.dateWritten as vs make tgt.dateWritten as vt then dateTime(vs, vt)
+  "VisionPrescription-patient" : for src.patient as vs make tgt.patient as vt then Reference(vs,vt)
+  "VisionPrescription-prescriber" : for src.prescriber as vs make tgt.prescriber as vt then Reference(vs,vt)
+  "VisionPrescription-encounter" : for src.encounter as vs make tgt.encounter as vt then Reference(vs,vt)
+  "VisionPrescription-reason-CodeableConcept" : for src.reason  : CodeableConcept as vs make tgt.reason = create("CodeableConcept") as vt then CodeableConcept(vs,vt)
+  "VisionPrescription-reason-Reference" : for src.reason  : Reference as vs make tgt.reason = create("Reference") as vt then Reference(vs,vt)
+  "VisionPrescription-dispense" : for src.dispense as vs0 make tgt.dispense = as vt0 then {
+    "VisionPrescription.dispense-sphere" : for vs0.sphere as vs make vt0.sphere as vt then decimal(vs, vt)
+    "VisionPrescription.dispense-cylinder" : for vs0.cylinder as vs make vt0.cylinder as vt then decimal(vs, vt)
+    "VisionPrescription.dispense-axis" : for vs0.axis as vs make vt0.axis as vt then integer(vs, vt)
+    "VisionPrescription.dispense-prism" : for vs0.prism as vs make vt0.prism as vt then decimal(vs, vt)
+    "VisionPrescription.dispense-add" : for vs0.add as vs make vt0.add as vt then decimal(vs, vt)
+    "VisionPrescription.dispense-power" : for vs0.power as vs make vt0.power as vt then decimal(vs, vt)
+    "VisionPrescription.dispense-backCurve" : for vs0.backCurve as vs make vt0.backCurve as vt then decimal(vs, vt)
+    "VisionPrescription.dispense-diameter" : for vs0.diameter as vs make vt0.diameter as vt then decimal(vs, vt)
+    "VisionPrescription.dispense-duration" : for vs0.duration as vs make vt0.duration as vt then Quantity(vs,vt)
+    "VisionPrescription.dispense-color" : for vs0.color as vs make vt0.color as vt then string(vs, vt)
+    "VisionPrescription.dispense-brand" : for vs0.brand as vs make vt0.brand as vt then string(vs, vt)
+    "VisionPrescription.dispense-notes" : for vs0.note as vs make vt0.notes as vt then string(vs, vt)
+  }
+endgroup
+

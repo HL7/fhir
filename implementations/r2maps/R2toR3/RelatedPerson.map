@@ -1,0 +1,22 @@
+﻿map "http://hl7.org/fhir/StructureMap/RelatedPerson2to3" = "R2 to R3 Conversions for RelatedPerson"
+
+uses "http://hl7.org/fhir/StructureDefinition/RelatedPerson" as source
+uses "http://hl7.org/fhir/StructureDefinition/RelatedPersonR2" as target
+
+
+group RelatedPerson extends Element
+  input src : RelatedPersonR2 as source
+  input tgt : RelatedPerson as Target
+
+  "RelatedPerson-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
+  "RelatedPerson-patient" : for src.patient as vs make tgt.patient as vt then Reference(vs,vt)
+  "RelatedPerson-relationship" : for src.relationship as vs make tgt.relationship as vt then CodeableConcept(vs,vt)
+  "RelatedPerson-name" : for src.name as vs make tgt.name as vt then HumanName(vs,vt)
+  "RelatedPerson-telecom" : for src.telecom as vs make tgt.telecom as vt then ContactPoint(vs,vt)
+  "RelatedPerson-gender" : for src.gender as vs make tgt.gender as vt then code(vs, vt)
+  "RelatedPerson-birthDate" : for src.birthDate as vs make tgt.birthDate as vt then date(vs, vt)
+  "RelatedPerson-address" : for src.address as vs make tgt.address as vt then Address(vs,vt)
+  "RelatedPerson-photo" : for src.photo as vs make tgt.photo as vt then Attachment(vs,vt)
+  "RelatedPerson-period" : for src.period as vs make tgt.period as vt then Period(vs,vt)
+endgroup
+

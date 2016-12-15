@@ -1,0 +1,20 @@
+﻿map "http://hl7.org/fhir/StructureMap/Flag2to3" = "R2 to R3 Conversions for Flag"
+
+uses "http://hl7.org/fhir/StructureDefinition/Flag" as source
+uses "http://hl7.org/fhir/StructureDefinition/FlagR2" as target
+
+
+group Flag extends Element
+  input src : FlagR2 as source
+  input tgt : Flag as Target
+
+  "Flag-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
+  "Flag-category" : for src.category as vs make tgt.category as vt then CodeableConcept(vs,vt)
+  "Flag-status" : for src.status as vs make tgt.status as vt then code(vs, vt)
+  "Flag-period" : for src.period as vs make tgt.period as vt then Period(vs,vt)
+  "Flag-subject" : for src.subject as vs make tgt.subject as vt then Reference(vs,vt)
+  "Flag-encounter" : for src.encounter as vs make tgt.encounter as vt then Reference(vs,vt)
+  "Flag-author" : for src.author as vs make tgt.author as vt then Reference(vs,vt)
+  "Flag-code" : for src.code as vs make tgt.code as vt then CodeableConcept(vs,vt)
+endgroup
+

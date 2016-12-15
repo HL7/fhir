@@ -1,0 +1,32 @@
+﻿map "http://hl7.org/fhir/StructureMap/Group2to3" = "R2 to R3 Conversions for Group"
+
+uses "http://hl7.org/fhir/StructureDefinition/Group" as source
+uses "http://hl7.org/fhir/StructureDefinition/GroupR2" as target
+
+
+group Group extends Element
+  input src : GroupR2 as source
+  input tgt : Group as Target
+
+  "Group-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
+  "Group-type" : for src.type as vs make tgt.type as vt then code(vs, vt)
+  "Group-actual" : for src.actual as vs make tgt.actual as vt then boolean(vs, vt)
+  "Group-code" : for src.code as vs make tgt.code as vt then CodeableConcept(vs,vt)
+  "Group-name" : for src.name as vs make tgt.name as vt then string(vs, vt)
+  "Group-quantity" : for src.quantity as vs make tgt.quantity as vt then unsignedInt(vs, vt)
+  "Group-characteristic" : for src.characteristic as vs0 make tgt.characteristic = as vt0 then {
+    "Group.characteristic-code" : for vs0.code as vs make vt0.code as vt then CodeableConcept(vs,vt)
+    "Group.characteristic-value-CodeableConcept" : for vs0.value  : CodeableConcept as vs make vt0.value = create("CodeableConcept") as vt then CodeableConcept(vs,vt)
+    "Group.characteristic-value-boolean" : for vs0.value  : boolean as vs make vt0.value = create("boolean") as vt then boolean(vs,vt)
+    "Group.characteristic-value-Quantity" : for vs0.value  : Quantity as vs make vt0.value = create("Quantity") as vt then Quantity(vs,vt)
+    "Group.characteristic-value-Range" : for vs0.value  : Range as vs make vt0.value = create("Range") as vt then Range(vs,vt)
+    "Group.characteristic-exclude" : for vs0.exclude as vs make vt0.exclude as vt then boolean(vs, vt)
+    "Group.characteristic-period" : for vs0.period as vs make vt0.period as vt then Period(vs,vt)
+  }
+  "Group-member" : for src.member as vs0 make tgt.member = as vt0 then {
+    "Group.member-entity" : for vs0.entity as vs make vt0.entity as vt then Reference(vs,vt)
+    "Group.member-period" : for vs0.period as vs make vt0.period as vt then Period(vs,vt)
+    "Group.member-inactive" : for vs0.inactive as vs make vt0.inactive as vt then boolean(vs, vt)
+  }
+endgroup
+

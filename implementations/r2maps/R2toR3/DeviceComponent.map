@@ -1,0 +1,26 @@
+﻿map "http://hl7.org/fhir/StructureMap/DeviceComponent2to3" = "R2 to R3 Conversions for DeviceComponent"
+
+uses "http://hl7.org/fhir/StructureDefinition/DeviceComponent" as source
+uses "http://hl7.org/fhir/StructureDefinition/DeviceComponentR2" as target
+
+
+group DeviceComponent extends Element
+  input src : DeviceComponentR2 as source
+  input tgt : DeviceComponent as Target
+
+  "DeviceComponent-type" : for src.type as vs make tgt.type as vt then CodeableConcept(vs,vt)
+  "DeviceComponent-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
+  "DeviceComponent-lastSystemChange" : for src.lastSystemChange as vs make tgt.lastSystemChange as vt then instant(vs, vt)
+  "DeviceComponent-source" : for src.source as vs make tgt.source as vt then Reference(vs,vt)
+  "DeviceComponent-parent" : for src.parent as vs make tgt.parent as vt then Reference(vs,vt)
+  "DeviceComponent-operationalStatus" : for src.operationalStatus as vs make tgt.operationalStatus as vt then CodeableConcept(vs,vt)
+  "DeviceComponent-parameterGroup" : for src.parameterGroup as vs make tgt.parameterGroup as vt then CodeableConcept(vs,vt)
+  "DeviceComponent-measurementPrinciple" : for src.measurementPrinciple as vs make tgt.measurementPrinciple as vt then code(vs, vt)
+  "DeviceComponent-productionSpecification" : for src.productionSpecification as vs0 make tgt.productionSpecification = as vt0 then {
+    "DeviceComponent.productionSpecification-specType" : for vs0.specType as vs make vt0.specType as vt then CodeableConcept(vs,vt)
+    "DeviceComponent.productionSpecification-componentId" : for vs0.componentId as vs make vt0.componentId as vt then Identifier(vs,vt)
+    "DeviceComponent.productionSpecification-productionSpec" : for vs0.productionSpec as vs make vt0.productionSpec as vt then string(vs, vt)
+  }
+  "DeviceComponent-languageCode" : for src.languageCode as vs make tgt.languageCode as vt then CodeableConcept(vs,vt)
+endgroup
+

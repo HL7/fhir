@@ -944,7 +944,7 @@ public class VersionConvertor_10_20 {
     if (src.hasNameReference())
       tgt.setContentReference("#"+src.getNameReference());
     for (org.hl7.fhir.dstu2.model.ElementDefinition.TypeRefComponent t : src.getType())
-      tgt.addType(convertTypeRefComponent(t));
+      tgt.addType(convertElementDefinitionTypeComponent(t));
     if (src.hasDefaultValue())
       tgt.setDefaultValue(convertType(src.getDefaultValue()));
     if (src.hasMeaningWhenMissing())
@@ -1008,13 +1008,13 @@ public class VersionConvertor_10_20 {
     if (src.hasContentReference())
       tgt.setNameReference(src.getContentReference().substring(1));
     for (org.hl7.fhir.dstu3.model.ElementDefinition.TypeRefComponent t : src.getType())
-      tgt.addType(convertTypeRefComponent(t));
+      tgt.addType(convertElementDefinitionTypeComponent(t));
     tgt.setDefaultValue(convertType(src.getDefaultValue()));
     tgt.setMeaningWhenMissing(src.getMeaningWhenMissing());
     tgt.setFixed(convertType(src.getFixed()));
     tgt.setPattern(convertType(src.getPattern()));
     if (src.hasExample())
-      tgt.setExample(convertType(src.getExample().get(0).getValue()));
+      tgt.setExample(convertType(src.getExampleFirstRep().getValue()));
     tgt.setMinValue(convertType(src.getMinValue()));
     tgt.setMaxValue(convertType(src.getMaxValue()));
     tgt.setMaxLength(src.getMaxLength());
@@ -1120,7 +1120,7 @@ public class VersionConvertor_10_20 {
     return tgt;
   }
 
-  public org.hl7.fhir.dstu3.model.ElementDefinition.TypeRefComponent convertTypeRefComponent(org.hl7.fhir.dstu2.model.ElementDefinition.TypeRefComponent src) throws FHIRException {
+  public org.hl7.fhir.dstu3.model.ElementDefinition.TypeRefComponent convertElementDefinitionTypeComponent(org.hl7.fhir.dstu2.model.ElementDefinition.TypeRefComponent src) throws FHIRException {
     if (src == null || src.isEmpty())
       return null;
     org.hl7.fhir.dstu3.model.ElementDefinition.TypeRefComponent tgt = new org.hl7.fhir.dstu3.model.ElementDefinition.TypeRefComponent();
@@ -1136,7 +1136,7 @@ public class VersionConvertor_10_20 {
     return tgt;
   }
 
-  public org.hl7.fhir.dstu2.model.ElementDefinition.TypeRefComponent convertTypeRefComponent(org.hl7.fhir.dstu3.model.ElementDefinition.TypeRefComponent src) throws FHIRException {
+  public org.hl7.fhir.dstu2.model.ElementDefinition.TypeRefComponent convertElementDefinitionTypeComponent(org.hl7.fhir.dstu3.model.ElementDefinition.TypeRefComponent src) throws FHIRException {
     if (src == null || src.isEmpty())
       return null;
     org.hl7.fhir.dstu2.model.ElementDefinition.TypeRefComponent tgt = new org.hl7.fhir.dstu2.model.ElementDefinition.TypeRefComponent();

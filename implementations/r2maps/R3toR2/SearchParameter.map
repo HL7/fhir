@@ -1,0 +1,26 @@
+﻿map "http://hl7.org/fhir/StructureMap/SearchParameter3to2" = "R3 to R2 Conversion for SearchParameter"
+
+uses "http://hl7.org/fhir/StructureDefinition/SearchParameterR2" as source
+uses "http://hl7.org/fhir/StructureDefinition/SearchParameter" as target
+
+
+group SearchParameter extends Element
+  input src : SearchParameter as source
+  input tgt : SearchParameterR2 as Target
+  "SearchParameter-url" : for src.url as vs make tgt.url as vt then uri(vs, vt)
+  "SearchParameter-name" : for src.name as vs make tgt.name as vt then string(vs, vt)
+  "SearchParameter-status" : for src.status as vs make tgt.status as vt then code(vs, vt)
+  "SearchParameter-experimental" : for src.experimental as vs make tgt.experimental as vt then boolean(vs, vt)
+  "SearchParameter-date" : for src.date as vs make tgt.date as vt then dateTime(vs, vt)
+  "SearchParameter-publisher" : for src.publisher as vs make tgt.publisher as vt then string(vs, vt)
+  "SearchParameter-contact" : for src.contact as vs0 make tgt.contact = as vt0 then {
+    "SearchParameter.contact-name" : for vs0.name as vs make vt0.name as vt then string(vs, vt)
+    "SearchParameter.contact-telecom" : for vs0.telecom as vs make vt0.telecom as vt then ContactPoint(vs,vt)
+  }
+  "SearchParameter-code" : for src.code as vs make tgt.code as vt then code(vs, vt)
+  "SearchParameter-type" : for src.type as vs make tgt.type as vt then code(vs, vt)
+  "SearchParameter-xpath" : for src.xpath as vs make tgt.xpath as vt then string(vs, vt)
+  "SearchParameter-xpathUsage" : for src.xpathUsage as vs make tgt.xpathUsage as vt then code(vs, vt)
+  "SearchParameter-target" : for src.target as vs make tgt.target as vt then code(vs, vt)
+endgroup
+

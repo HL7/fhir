@@ -1,0 +1,38 @@
+﻿map "http://hl7.org/fhir/StructureMap/Procedure3to2" = "R3 to R2 Conversion for Procedure"
+
+uses "http://hl7.org/fhir/StructureDefinition/ProcedureR2" as source
+uses "http://hl7.org/fhir/StructureDefinition/Procedure" as target
+
+
+group Procedure extends Element
+  input src : Procedure as source
+  input tgt : ProcedureR2 as Target
+  "Procedure-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
+  "Procedure-subject" : for src.subject as vs make tgt.subject as vt then Reference(vs,vt)
+  "Procedure-status" : for src.status as vs make tgt.status as vt then code(vs, vt)
+  "Procedure-category" : for src.category as vs make tgt.category as vt then CodeableConcept(vs,vt)
+  "Procedure-code" : for src.code as vs make tgt.code as vt then CodeableConcept(vs,vt)
+  "Procedure-notPerformed" : for src.notPerformed as vs make tgt.notPerformed as vt then boolean(vs, vt)
+  "Procedure-reasonNotPerformed" : for src.reasonNotPerformed as vs make tgt.reasonNotPerformed as vt then CodeableConcept(vs,vt)
+  "Procedure-bodySite" : for src.bodySite as vs make tgt.bodySite as vt then CodeableConcept(vs,vt)
+  "Procedure-reason-CodeableConcept" : for src.reasonCode first  : CodeableConcept as vs make tgt.reason = create("CodeableConcept") as vt then CodeableConcept(vs,vt)
+  "Procedure-performer" : for src.performer as vs0 make tgt.performer = as vt0 then {
+    "Procedure.performer-actor" : for vs0.actor as vs make vt0.actor as vt then Reference(vs,vt)
+    "Procedure.performer-role" : for vs0.role as vs make vt0.role as vt then CodeableConcept(vs,vt)
+  }
+  "Procedure-performed-dateTime" : for src.performed  : dateTime as vs make tgt.performed = create("dateTime") as vt then dateTime(vs,vt)
+  "Procedure-performed-Period" : for src.performed  : Period as vs make tgt.performed = create("Period") as vt then Period(vs,vt)
+  "Procedure-encounter" : for src.encounter as vs make tgt.encounter as vt then Reference(vs,vt)
+  "Procedure-location" : for src.location as vs make tgt.location as vt then Reference(vs,vt)
+  "Procedure-outcome" : for src.outcome as vs make tgt.outcome as vt then CodeableConcept(vs,vt)
+  "Procedure-report" : for src.report as vs make tgt.report as vt then Reference(vs,vt)
+  "Procedure-complication" : for src.complication as vs make tgt.complication as vt then CodeableConcept(vs,vt)
+  "Procedure-followUp" : for src.followUp as vs make tgt.followUp as vt then CodeableConcept(vs,vt)
+  "Procedure-request" : for src.request as vs make tgt.request as vt then Reference(vs,vt)
+  "Procedure-notes" : for src.notes as vs make tgt.notes as vt then Annotation(vs,vt)
+  "Procedure-focalDevice" : for src.focalDevice as vs0 make tgt.focalDevice = as vt0 then {
+    "Procedure.focalDevice-action" : for vs0.action as vs make vt0.action as vt then CodeableConcept(vs,vt)
+    "Procedure.focalDevice-manipulated" : for vs0.manipulated as vs make vt0.manipulated as vt then Reference(vs,vt)
+  }
+endgroup
+

@@ -1,0 +1,30 @@
+﻿map "http://hl7.org/fhir/StructureMap/RiskAssessment2to3" = "R2 to R3 Conversions for RiskAssessment"
+
+uses "http://hl7.org/fhir/StructureDefinition/RiskAssessment" as source
+uses "http://hl7.org/fhir/StructureDefinition/RiskAssessmentR2" as target
+
+
+group RiskAssessment extends Element
+  input src : RiskAssessmentR2 as source
+  input tgt : RiskAssessment as Target
+
+  "RiskAssessment-subject" : for src.subject as vs make tgt.subject as vt then Reference(vs,vt)
+  "RiskAssessment-condition" : for src.condition as vs make tgt.condition as vt then Reference(vs,vt)
+  "RiskAssessment-context" : for src.encounter as vs make tgt.context as vt then Reference(vs,vt)
+  "RiskAssessment-performer" : for src.performer as vs make tgt.performer as vt then Reference(vs,vt)
+  "RiskAssessment-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
+  "RiskAssessment-method" : for src.method as vs make tgt.method as vt then CodeableConcept(vs,vt)
+  "RiskAssessment-basis" : for src.basis as vs make tgt.basis as vt then Reference(vs,vt)
+  "RiskAssessment-prediction" : for src.prediction as vs0 make tgt.prediction = as vt0 then {
+    "RiskAssessment.prediction-outcome" : for vs0.outcome as vs make vt0.outcome as vt then CodeableConcept(vs,vt)
+    "RiskAssessment.prediction-probability-decimal" : for vs0.probability  : decimal as vs make vt0.probability = create("decimal") as vt then decimal(vs,vt)
+    "RiskAssessment.prediction-probability-Range" : for vs0.probability  : Range as vs make vt0.probability = create("Range") as vt then Range(vs,vt)
+    "RiskAssessment.prediction-probability-CodeableConcept" : for vs0.probability  : CodeableConcept as vs make vt0.probability = create("CodeableConcept") as vt then CodeableConcept(vs,vt)
+    "RiskAssessment.prediction-relativeRisk" : for vs0.relativeRisk as vs make vt0.relativeRisk as vt then decimal(vs, vt)
+    "RiskAssessment.prediction-when-Period" : for vs0.when  : Period as vs make vt0.when = create("Period") as vt then Period(vs,vt)
+    "RiskAssessment.prediction-when-Range" : for vs0.when  : Range as vs make vt0.when = create("Range") as vt then Range(vs,vt)
+    "RiskAssessment.prediction-rationale" : for vs0.rationale as vs make vt0.rationale as vt then string(vs, vt)
+  }
+  "RiskAssessment-mitigation" : for src.mitigation as vs make tgt.mitigation as vt then string(vs, vt)
+endgroup
+

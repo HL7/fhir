@@ -1,0 +1,24 @@
+﻿map "http://hl7.org/fhir/StructureMap/Media2to3" = "R2 to R3 Conversions for Media"
+
+uses "http://hl7.org/fhir/StructureDefinition/Media" as source
+uses "http://hl7.org/fhir/StructureDefinition/MediaR2" as target
+
+
+group Media extends Element
+  input src : MediaR2 as source
+  input tgt : Media as Target
+
+  "Media-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
+  "Media-type" : for src.type as vs make tgt.type as vt then code(vs, vt)
+  "Media-subtype" : for src.subtype as vs make tgt.subtype as vt then CodeableConcept(vs,vt)
+  "Media-view" : for src.view as vs make tgt.view as vt then CodeableConcept(vs,vt)
+  "Media-subject" : for src.subject as vs make tgt.subject as vt then Reference(vs,vt)
+  "Media-operator" : for src.operator as vs make tgt.operator as vt then Reference(vs,vt)
+  "Media-deviceName" : for src.deviceName as vs make tgt.deviceName as vt then string(vs, vt)
+  "Media-height" : for src.height as vs make tgt.height as vt then positiveInt(vs, vt)
+  "Media-width" : for src.width as vs make tgt.width as vt then positiveInt(vs, vt)
+  "Media-frames" : for src.frames as vs make tgt.frames as vt then positiveInt(vs, vt)
+  "Media-duration" : for src.duration as vs make tgt.duration as vt then unsignedInt(vs, vt)
+  "Media-content" : for src.content as vs make tgt.content as vt then Attachment(vs,vt)
+endgroup
+

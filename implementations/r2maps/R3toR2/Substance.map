@@ -1,0 +1,23 @@
+﻿map "http://hl7.org/fhir/StructureMap/Substance3to2" = "R3 to R2 Conversion for Substance"
+
+uses "http://hl7.org/fhir/StructureDefinition/SubstanceR2" as source
+uses "http://hl7.org/fhir/StructureDefinition/Substance" as target
+
+
+group Substance extends Element
+  input src : Substance as source
+  input tgt : SubstanceR2 as Target
+  "Substance-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
+  "Substance-category" : for src.category as vs make tgt.category as vt then CodeableConcept(vs,vt)
+  "Substance-code" : for src.code as vs make tgt.code as vt then CodeableConcept(vs,vt)
+  "Substance-description" : for src.description as vs make tgt.description as vt then string(vs, vt)
+  "Substance-instance" : for src.instance as vs0 make tgt.instance = as vt0 then {
+    "Substance.instance-identifier" : for vs0.identifier as vs make vt0.identifier as vt then Identifier(vs,vt)
+    "Substance.instance-expiry" : for vs0.expiry as vs make vt0.expiry as vt then dateTime(vs, vt)
+    "Substance.instance-quantity" : for vs0.quantity as vs make vt0.quantity as vt then Quantity(vs,vt)
+  }
+  "Substance-ingredient" : for src.ingredient as vs0 make tgt.ingredient = as vt0 then {
+    "Substance.ingredient-quantity" : for vs0.quantity as vs make vt0.quantity as vt then Ratio(vs,vt)
+  }
+endgroup
+

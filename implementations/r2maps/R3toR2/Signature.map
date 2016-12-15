@@ -9,8 +9,8 @@ group Signature extends Element
   input tgt : SignatureR2 as Target
   "Signature-type" : for src.type as vs make tgt.type as vt then Coding(vs,vt)
   "Signature-when" : for src.when as vs make tgt.when as vt then instant(vs, vt)
-  "Signature-who-uri" : for src.who : uri as vs make tgt.who = create("uri") as vt then uri(vs,vt)
-  "Signature-who-Reference" : for src.who : Reference as vs make tgt.who = create("Reference") as vt then Reference(vs,vt)
+  "Signature-who-uri" : for src.who  : uri as vs make tgt.who = create("uri") as vt then uri(vs,vt)
+  "Signature-who-Reference" : for src.who  : Reference as vs make tgt.who = create("Reference") as vt then Reference(vs,vt)
   "Signature-contentType" : for src.contentType as vs make tgt.contentType as vt then code(vs, vt)
   "Signature-blob" : for src.blob as vs make tgt.blob as vt then base64Binary(vs, vt)
 endgroup

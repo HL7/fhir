@@ -1,0 +1,27 @@
+﻿map "http://hl7.org/fhir/StructureMap/Location3to2" = "R3 to R2 Conversion for Location"
+
+uses "http://hl7.org/fhir/StructureDefinition/LocationR2" as source
+uses "http://hl7.org/fhir/StructureDefinition/Location" as target
+
+
+group Location extends Element
+  input src : Location as source
+  input tgt : LocationR2 as Target
+  "Location-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
+  "Location-status" : for src.status as vs make tgt.status as vt then code(vs, vt)
+  "Location-name" : for src.name as vs make tgt.name as vt then string(vs, vt)
+  "Location-description" : for src.description as vs make tgt.description as vt then string(vs, vt)
+  "Location-mode" : for src.mode as vs make tgt.mode as vt then code(vs, vt)
+  "Location-type" : for src.type as vs make tgt.type as vt then CodeableConcept(vs,vt)
+  "Location-telecom" : for src.telecom as vs make tgt.telecom as vt then ContactPoint(vs,vt)
+  "Location-address" : for src.address as vs make tgt.address as vt then Address(vs,vt)
+  "Location-physicalType" : for src.physicalType as vs make tgt.physicalType as vt then CodeableConcept(vs,vt)
+  "Location-position" : for src.position as vs0 make tgt.position = as vt0 then {
+    "Location.position-longitude" : for vs0.longitude as vs make vt0.longitude as vt then decimal(vs, vt)
+    "Location.position-latitude" : for vs0.latitude as vs make vt0.latitude as vt then decimal(vs, vt)
+    "Location.position-altitude" : for vs0.altitude as vs make vt0.altitude as vt then decimal(vs, vt)
+  }
+  "Location-managingOrganization" : for src.managingOrganization as vs make tgt.managingOrganization as vt then Reference(vs,vt)
+  "Location-partOf" : for src.partOf as vs make tgt.partOf as vt then Reference(vs,vt)
+endgroup
+

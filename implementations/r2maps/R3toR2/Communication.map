@@ -1,0 +1,27 @@
+﻿map "http://hl7.org/fhir/StructureMap/Communication3to2" = "R3 to R2 Conversion for Communication"
+
+uses "http://hl7.org/fhir/StructureDefinition/CommunicationR2" as source
+uses "http://hl7.org/fhir/StructureDefinition/Communication" as target
+
+
+group Communication extends Element
+  input src : Communication as source
+  input tgt : CommunicationR2 as Target
+  "Communication-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
+  "Communication-category" : for src.category as vs make tgt.category as vt then CodeableConcept(vs,vt)
+  "Communication-sender" : for src.sender as vs make tgt.sender as vt then Reference(vs,vt)
+  "Communication-recipient" : for src.recipient as vs make tgt.recipient as vt then Reference(vs,vt)
+  "Communication-payload" : for src.payload as vs0 make tgt.payload = as vt0 then {
+    "Communication.payload-content-string" : for vs0.content  : string as vs make vt0.content = create("string") as vt then string(vs,vt)
+    "Communication.payload-content-Attachment" : for vs0.content  : Attachment as vs make vt0.content = create("Attachment") as vt then Attachment(vs,vt)
+    "Communication.payload-content-Reference" : for vs0.content  : Reference as vs make vt0.content = create("Reference") as vt then Reference(vs,vt)
+  }
+  "Communication-medium" : for src.medium as vs make tgt.medium as vt then CodeableConcept(vs,vt)
+  "Communication-status" : for src.status as vs make tgt.status as vt then code(vs, vt)
+  "Communication-encounter" : for src.context as vs make tgt.encounter as vt then Reference(vs,vt)
+  "Communication-sent" : for src.sent as vs make tgt.sent as vt then dateTime(vs, vt)
+  "Communication-received" : for src.received as vs make tgt.received as vt then dateTime(vs, vt)
+  "Communication-reason" : for src.reason as vs make tgt.reason as vt then CodeableConcept(vs,vt)
+  "Communication-subject" : for src.subject as vs make tgt.subject as vt then Reference(vs,vt)
+endgroup
+

@@ -1,0 +1,18 @@
+﻿map "http://hl7.org/fhir/StructureMap/Questionnaire3to2" = "R3 to R2 Conversion for Questionnaire"
+
+uses "http://hl7.org/fhir/StructureDefinition/QuestionnaireR2" as source
+uses "http://hl7.org/fhir/StructureDefinition/Questionnaire" as target
+
+
+group Questionnaire extends Element
+  input src : Questionnaire as source
+  input tgt : QuestionnaireR2 as Target
+  "Questionnaire-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
+  "Questionnaire-version" : for src.version as vs make tgt.version as vt then string(vs, vt)
+  "Questionnaire-status" : for src.status as vs make tgt.status as vt then code(vs, vt)
+  "Questionnaire-date" : for src.date as vs make tgt.date as vt then dateTime(vs, vt)
+  "Questionnaire-publisher" : for src.publisher as vs make tgt.publisher as vt then string(vs, vt)
+  "Questionnaire-telecom" : for src.telecom as vs make tgt.telecom as vt then ContactPoint(vs,vt)
+  "Questionnaire-subjectType" : for src.subjectType as vs make tgt.subjectType as vt then code(vs, vt)
+endgroup
+

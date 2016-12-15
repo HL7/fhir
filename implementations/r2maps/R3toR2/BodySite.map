@@ -1,0 +1,17 @@
+﻿map "http://hl7.org/fhir/StructureMap/BodySite3to2" = "R3 to R2 Conversion for BodySite"
+
+uses "http://hl7.org/fhir/StructureDefinition/BodySiteR2" as source
+uses "http://hl7.org/fhir/StructureDefinition/BodySite" as target
+
+
+group BodySite extends Element
+  input src : BodySite as source
+  input tgt : BodySiteR2 as Target
+  "BodySite-patient" : for src.patient as vs make tgt.patient as vt then Reference(vs,vt)
+  "BodySite-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
+  "BodySite-code" : for src.code as vs make tgt.code as vt then CodeableConcept(vs,vt)
+  "BodySite-modifier" : for src.modifier as vs make tgt.modifier as vt then CodeableConcept(vs,vt)
+  "BodySite-description" : for src.description as vs make tgt.description as vt then string(vs, vt)
+  "BodySite-image" : for src.image as vs make tgt.image as vt then Attachment(vs,vt)
+endgroup
+

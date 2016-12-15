@@ -1,0 +1,35 @@
+﻿map "http://hl7.org/fhir/StructureMap/MedicationStatement2to3" = "R2 to R3 Conversions for MedicationStatement"
+
+uses "http://hl7.org/fhir/StructureDefinition/MedicationStatement" as source
+uses "http://hl7.org/fhir/StructureDefinition/MedicationStatementR2" as target
+
+
+group MedicationStatement extends Element
+  input src : MedicationStatementR2 as source
+  input tgt : MedicationStatement as Target
+
+  "MedicationStatement-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
+  "MedicationStatement-status" : for src.status as vs make tgt.status as vt then code(vs, vt)
+  "MedicationStatement-medication-CodeableConcept" : for src.medication  : CodeableConcept as vs make tgt.medication = create("CodeableConcept") as vt then CodeableConcept(vs,vt)
+  "MedicationStatement-medication-Reference" : for src.medication  : Reference as vs make tgt.medication = create("Reference") as vt then Reference(vs,vt)
+  "MedicationStatement-subject" : for src.patient as vs make tgt.subject as vt then Reference(vs,vt)
+  "MedicationStatement-effective-dateTime" : for src.effective  : dateTime as vs make tgt.effective = create("dateTime") as vt then dateTime(vs,vt)
+  "MedicationStatement-effective-Period" : for src.effective  : Period as vs make tgt.effective = create("Period") as vt then Period(vs,vt)
+  "MedicationStatement-informationSource" : for src.informationSource as vs make tgt.informationSource as vt then Reference(vs,vt)
+  "MedicationStatement-derivedFrom" : for src.supportingInformation as vs make tgt.derivedFrom as vt then Reference(vs,vt)
+  "MedicationStatement-dateAsserted" : for src.dateAsserted as vs make tgt.dateAsserted as vt then dateTime(vs, vt)
+  "MedicationStatement-reasonNotTaken" : for src.reasonNotTaken as vs make tgt.reasonNotTaken as vt then CodeableConcept(vs,vt)
+  "MedicationStatement-dosage" : for src.dosage as vs0 make tgt.dosage = as vt0 then {
+    "DosageInstruction-text" : for vs0.text as vs make vt0.text as vt then string(vs, vt)
+    "DosageInstruction-timing" : for vs0.timing as vs make vt0.timing as vt then Timing(vs,vt)
+    "DosageInstruction-asNeeded-boolean" : for vs0.asNeeded  : boolean as vs make vt0.asNeeded = create("boolean") as vt then boolean(vs,vt)
+    "DosageInstruction-asNeeded-CodeableConcept" : for vs0.asNeeded  : CodeableConcept as vs make vt0.asNeeded = create("CodeableConcept") as vt then CodeableConcept(vs,vt)
+    "DosageInstruction-site" : for vs0.siteCodeableConcept as vs make vt0.site as vt then CodeableConcept(vs,vt)
+    "DosageInstruction-route" : for vs0.route as vs make vt0.route as vt then CodeableConcept(vs,vt)
+    "DosageInstruction-method" : for vs0.method as vs make vt0.method as vt then CodeableConcept(vs,vt)
+    "DosageInstruction-rate-Ratio" : for vs0.rate  : Ratio as vs make vt0.rate = create("Ratio") as vt then Ratio(vs,vt)
+    "DosageInstruction-rate-Range" : for vs0.rate  : Range as vs make vt0.rate = create("Range") as vt then Range(vs,vt)
+    "DosageInstruction-maxDosePerPeriod" : for vs0.maxDosePerPeriod as vs make vt0.maxDosePerPeriod as vt then Ratio(vs,vt)
+  }
+endgroup
+

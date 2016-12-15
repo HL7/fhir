@@ -1,0 +1,17 @@
+﻿map "http://hl7.org/fhir/StructureMap/Schedule2to3" = "R2 to R3 Conversions for Schedule"
+
+uses "http://hl7.org/fhir/StructureDefinition/Schedule" as source
+uses "http://hl7.org/fhir/StructureDefinition/ScheduleR2" as target
+
+
+group Schedule extends Element
+  input src : ScheduleR2 as source
+  input tgt : Schedule as Target
+
+  "Schedule-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
+  "Schedule-serviceType" : for src.type as vs make tgt.serviceType as vt then CodeableConcept(vs,vt)
+  "Schedule-actor" : for src.actor as vs make tgt.actor as vt then Reference(vs,vt)
+  "Schedule-planningHorizon" : for src.planningHorizon as vs make tgt.planningHorizon as vt then Period(vs,vt)
+  "Schedule-comment" : for src.comment as vs make tgt.comment as vt then string(vs, vt)
+endgroup
+

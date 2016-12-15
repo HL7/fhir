@@ -1,0 +1,21 @@
+﻿map "http://hl7.org/fhir/StructureMap/Medication2to3" = "R2 to R3 Conversions for Medication"
+
+uses "http://hl7.org/fhir/StructureDefinition/Medication" as source
+uses "http://hl7.org/fhir/StructureDefinition/MedicationR2" as target
+
+
+group Medication extends Element
+  input src : MedicationR2 as source
+  input tgt : Medication as Target
+
+  "Medication-code" : for src.code as vs make tgt.code as vt then CodeableConcept(vs,vt)
+  "Medication-isBrand" : for src.isBrand as vs make tgt.isBrand as vt then boolean(vs, vt)
+  "Medication-manufacturer" : for src.manufacturer as vs make tgt.manufacturer as vt then Reference(vs,vt)
+  "Medication-product" : for src.product as vs0 make tgt.product = as vt0 then {
+    "Medication.product-form" : for vs0.form as vs make vt0.form as vt then CodeableConcept(vs,vt)
+  }
+  "Medication-package" : for src.package as vs0 make tgt.package = as vt0 then {
+    "Medication.package-container" : for vs0.container as vs make vt0.container as vt then CodeableConcept(vs,vt)
+  }
+endgroup
+

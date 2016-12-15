@@ -1,0 +1,36 @@
+﻿map "http://hl7.org/fhir/StructureMap/FamilyMemberHistory3to2" = "R3 to R2 Conversion for FamilyMemberHistory"
+
+uses "http://hl7.org/fhir/StructureDefinition/FamilyMemberHistoryR2" as source
+uses "http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory" as target
+
+
+group FamilyMemberHistory extends Element
+  input src : FamilyMemberHistory as source
+  input tgt : FamilyMemberHistoryR2 as Target
+  "FamilyMemberHistory-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
+  "FamilyMemberHistory-patient" : for src.patient as vs make tgt.patient as vt then Reference(vs,vt)
+  "FamilyMemberHistory-date" : for src.date as vs make tgt.date as vt then dateTime(vs, vt)
+  "FamilyMemberHistory-status" : for src.status as vs make tgt.status as vt then code(vs, vt)
+  "FamilyMemberHistory-name" : for src.name as vs make tgt.name as vt then string(vs, vt)
+  "FamilyMemberHistory-relationship" : for src.relationship as vs make tgt.relationship as vt then CodeableConcept(vs,vt)
+  "FamilyMemberHistory-gender" : for src.gender as vs make tgt.gender as vt then code(vs, vt)
+  "FamilyMemberHistory-born-Period" : for src.born  : Period as vs make tgt.born = create("Period") as vt then Period(vs,vt)
+  "FamilyMemberHistory-born-date" : for src.born  : date as vs make tgt.born = create("date") as vt then date(vs,vt)
+  "FamilyMemberHistory-born-string" : for src.born  : string as vs make tgt.born = create("string") as vt then string(vs,vt)
+  "FamilyMemberHistory-age-Range" : for src.age  : Range as vs make tgt.age = create("Range") as vt then Range(vs,vt)
+  "FamilyMemberHistory-age-string" : for src.age  : string as vs make tgt.age = create("string") as vt then string(vs,vt)
+  "FamilyMemberHistory-deceased-boolean" : for src.deceased  : boolean as vs make tgt.deceased = create("boolean") as vt then boolean(vs,vt)
+  "FamilyMemberHistory-deceased-Range" : for src.deceased  : Range as vs make tgt.deceased = create("Range") as vt then Range(vs,vt)
+  "FamilyMemberHistory-deceased-date" : for src.deceased  : date as vs make tgt.deceased = create("date") as vt then date(vs,vt)
+  "FamilyMemberHistory-deceased-string" : for src.deceased  : string as vs make tgt.deceased = create("string") as vt then string(vs,vt)
+  "FamilyMemberHistory-note" : for src.note as vs make tgt.note as vt then Annotation(vs,vt)
+  "FamilyMemberHistory-condition" : for src.condition as vs0 make tgt.condition = as vt0 then {
+    "FamilyMemberHistory.condition-code" : for vs0.code as vs make vt0.code as vt then CodeableConcept(vs,vt)
+    "FamilyMemberHistory.condition-outcome" : for vs0.outcome as vs make vt0.outcome as vt then CodeableConcept(vs,vt)
+    "FamilyMemberHistory.condition-onset-Range" : for vs0.onset  : Range as vs make vt0.onset = create("Range") as vt then Range(vs,vt)
+    "FamilyMemberHistory.condition-onset-Period" : for vs0.onset  : Period as vs make vt0.onset = create("Period") as vt then Period(vs,vt)
+    "FamilyMemberHistory.condition-onset-string" : for vs0.onset  : string as vs make vt0.onset = create("string") as vt then string(vs,vt)
+    "FamilyMemberHistory.condition-note" : for vs0.note as vs make vt0.note as vt then Annotation(vs,vt)
+  }
+endgroup
+

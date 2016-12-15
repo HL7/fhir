@@ -1,0 +1,40 @@
+﻿map "http://hl7.org/fhir/StructureMap/AuditEvent2to3" = "R2 to R3 Conversions for AuditEvent"
+
+uses "http://hl7.org/fhir/StructureDefinition/AuditEvent" as source
+uses "http://hl7.org/fhir/StructureDefinition/AuditEventR2" as target
+
+
+group AuditEvent extends Element
+  input src : AuditEventR2 as source
+  input tgt : AuditEvent as Target
+
+  "AuditEvent-subtype" : for src.event().getSubtype as vs make tgt.subtype as vt then Coding(vs,vt)
+  "AuditEvent-agent" : for src.participant as vs0 make tgt.agent = as vt0 then {
+    "AuditEvent.agent-role" : for vs0.role as vs make vt0.role as vt then CodeableConcept(vs,vt)
+    "AuditEvent.agent-reference" : for vs0.reference as vs make vt0.reference as vt then Reference(vs,vt)
+    "AuditEvent.agent-userId" : for vs0.userId as vs make vt0.userId as vt then Identifier(vs,vt)
+    "AuditEvent.agent-altId" : for vs0.altId as vs make vt0.altId as vt then string(vs, vt)
+    "AuditEvent.agent-name" : for vs0.name as vs make vt0.name as vt then string(vs, vt)
+    "AuditEvent.agent-requestor" : for vs0.requestor as vs make vt0.requestor as vt then boolean(vs, vt)
+    "AuditEvent.agent-location" : for vs0.location as vs make vt0.location as vt then Reference(vs,vt)
+    "AuditEvent.agent-policy" : for vs0.policy as vs make vt0.policy as vt then uri(vs, vt)
+    "AuditEvent.agent-media" : for vs0.media as vs make vt0.media as vt then Coding(vs,vt)
+  }
+  "AuditEvent-source" : for src.source as vs0 make tgt.source = as vt0 then {
+    "AuditEvent.source-site" : for vs0.site as vs make vt0.site as vt then string(vs, vt)
+    "AuditEvent.source-identifier" : for vs0.identifier as vs make vt0.identifier as vt then Identifier(vs,vt)
+    "AuditEvent.source-type" : for vs0.type as vs make vt0.type as vt then Coding(vs,vt)
+  }
+  "AuditEvent-entity" : for src.object as vs0 make tgt.entity = as vt0 then {
+    "AuditEvent.entity-identifier" : for vs0.identifier as vs make vt0.identifier as vt then Identifier(vs,vt)
+    "AuditEvent.entity-reference" : for vs0.reference as vs make vt0.reference as vt then Reference(vs,vt)
+    "AuditEvent.entity-type" : for vs0.type as vs make vt0.type as vt then Coding(vs,vt)
+    "AuditEvent.entity-role" : for vs0.role as vs make vt0.role as vt then Coding(vs,vt)
+    "AuditEvent.entity-lifecycle" : for vs0.lifecycle as vs make vt0.lifecycle as vt then Coding(vs,vt)
+    "AuditEvent.entity-securityLabel" : for vs0.securityLabel as vs make vt0.securityLabel as vt then Coding(vs,vt)
+    "AuditEvent.entity-name" : for vs0.name as vs make vt0.name as vt then string(vs, vt)
+    "AuditEvent.entity-description" : for vs0.description as vs make vt0.description as vt then string(vs, vt)
+    "AuditEvent.entity-query" : for vs0.query as vs make vt0.query as vt then base64Binary(vs, vt)
+  }
+endgroup
+

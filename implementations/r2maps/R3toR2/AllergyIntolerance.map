@@ -1,0 +1,41 @@
+﻿map "http://hl7.org/fhir/StructureMap/AllergyIntolerance3to2" = "R3 to R2 Conversion for AllergyIntolerance"
+
+uses "http://hl7.org/fhir/StructureDefinition/AllergyIntoleranceR2" as source
+uses "http://hl7.org/fhir/StructureDefinition/AllergyIntolerance" as target
+conceptmap "AllergyIntoleranceCriticality" {
+  prefix s = "http://hl7.org/fhir/allergy-intolerance-criticality"
+  prefix t = "http://hl7.org/fhir/allergy-intolerance-criticality"
+
+  s:low ~ t:CRITL
+  s:low ~ t:CRITL
+  s:low ~ t:CRITL
+}
+
+
+group AllergyIntolerance extends Element
+  input src : AllergyIntolerance as source
+  input tgt : AllergyIntoleranceR2 as Target
+  "AllergyIntolerance-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
+  "AllergyIntolerance-status" : for src.clinicalStatus as vs0 make tgt.status = as vt0 then {
+  }
+  "AllergyIntolerance-type" : for src.type as vs make tgt.type as vt then code(vs, vt)
+  "AllergyIntolerance-criticality" : for src.criticality as v make tgt.criticality = translate(v, "#AllergyIntoleranceCriticality", "code")
+  "AllergyIntolerance-substance" : for src.code as vs make tgt.substance as vt then CodeableConcept(vs,vt)
+  "AllergyIntolerance-patient" : for src.patient as vs make tgt.patient as vt then Reference(vs,vt)
+  "AllergyIntolerance-recordedDate" : for src.assertedDate as vs make tgt.recordedDate as vt then dateTime(vs, vt)
+  "AllergyIntolerance-recorder" : for src.recorder as vs make tgt.recorder as vt then Reference(vs,vt)
+  "AllergyIntolerance-reporter" : for src.asserter as vs make tgt.reporter as vt then Reference(vs,vt)
+  "AllergyIntolerance-lastOccurence" : for src.lastOccurrence as vs make tgt.lastOccurence as vt then dateTime(vs, vt)
+  "AllergyIntolerance-note" : for src.note as vs make tgt.note as vt then Annotation(vs,vt)
+  "AllergyIntolerance-reaction" : for src.reaction as vs0 make tgt.reaction = as vt0 then {
+    "AllergyIntolerance.reaction-substance" : for vs0.substance as vs make vt0.substance as vt then CodeableConcept(vs,vt)
+    "AllergyIntolerance.reaction-certainty" : for vs0.certainty as vs make vt0.certainty as vt then code(vs, vt)
+    "AllergyIntolerance.reaction-manifestation" : for vs0.manifestation as vs make vt0.manifestation as vt then CodeableConcept(vs,vt)
+    "AllergyIntolerance.reaction-description" : for vs0.description as vs make vt0.description as vt then string(vs, vt)
+    "AllergyIntolerance.reaction-onset" : for vs0.onset as vs make vt0.onset as vt then dateTime(vs, vt)
+    "AllergyIntolerance.reaction-severity" : for vs0.severity as vs make vt0.severity as vt then code(vs, vt)
+    "AllergyIntolerance.reaction-exposureRoute" : for vs0.exposureRoute as vs make vt0.exposureRoute as vt then CodeableConcept(vs,vt)
+    "AllergyIntolerance.reaction-note" : for vs0.note as vs make vt0.note as vt then Annotation(vs,vt)
+  }
+endgroup
+

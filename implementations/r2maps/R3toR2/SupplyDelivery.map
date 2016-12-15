@@ -1,0 +1,21 @@
+﻿map "http://hl7.org/fhir/StructureMap/SupplyDelivery3to2" = "R3 to R2 Conversion for SupplyDelivery"
+
+uses "http://hl7.org/fhir/StructureDefinition/SupplyDeliveryR2" as source
+uses "http://hl7.org/fhir/StructureDefinition/SupplyDelivery" as target
+
+
+group SupplyDelivery extends Element
+  input src : SupplyDelivery as source
+  input tgt : SupplyDeliveryR2 as Target
+  "SupplyDelivery-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
+  "SupplyDelivery-status" : for src.status as vs make tgt.status as vt then code(vs, vt)
+  "SupplyDelivery-patient" : for src.patient as vs make tgt.patient as vt then Reference(vs,vt)
+  "SupplyDelivery-type" : for src.type as vs make tgt.type as vt then CodeableConcept(vs,vt)
+  "SupplyDelivery-quantity" : for src.quantity as vs make tgt.quantity as vt then Quantity(vs,vt)
+  "SupplyDelivery-supplier" : for src.supplier as vs make tgt.supplier as vt then Reference(vs,vt)
+  "SupplyDelivery-whenPrepared" : for src.whenPrepared as vs make tgt.whenPrepared as vt then Period(vs,vt)
+  "SupplyDelivery-time" : for src.time as vs make tgt.time as vt then dateTime(vs, vt)
+  "SupplyDelivery-destination" : for src.destination as vs make tgt.destination as vt then Reference(vs,vt)
+  "SupplyDelivery-receiver" : for src.receiver as vs make tgt.receiver as vt then Reference(vs,vt)
+endgroup
+

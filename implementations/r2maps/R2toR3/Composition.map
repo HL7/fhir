@@ -1,0 +1,31 @@
+﻿map "http://hl7.org/fhir/StructureMap/Composition2to3" = "R2 to R3 Conversions for Composition"
+
+uses "http://hl7.org/fhir/StructureDefinition/Composition" as source
+uses "http://hl7.org/fhir/StructureDefinition/CompositionR2" as target
+
+
+group Composition extends Element
+  input src : CompositionR2 as source
+  input tgt : Composition as Target
+
+  "Composition-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
+  "Composition-date" : for src.date as vs make tgt.date as vt then dateTime(vs, vt)
+  "Composition-type" : for src.type as vs make tgt.type as vt then CodeableConcept(vs,vt)
+  "Composition-class" : for src.class as vs make tgt.class as vt then CodeableConcept(vs,vt)
+  "Composition-title" : for src.title as vs make tgt.title as vt then string(vs, vt)
+  "Composition-status" : for src.status as vs make tgt.status as vt then code(vs, vt)
+  "Composition-subject" : for src.subject as vs make tgt.subject as vt then Reference(vs,vt)
+  "Composition-author" : for src.author as vs make tgt.author as vt then Reference(vs,vt)
+  "Composition-attester" : for src.attester as vs0 make tgt.attester = as vt0 then {
+    "Composition.attester-time" : for vs0.time as vs make vt0.time as vt then dateTime(vs, vt)
+    "Composition.attester-party" : for vs0.party as vs make vt0.party as vt then Reference(vs,vt)
+  }
+  "Composition-custodian" : for src.custodian as vs make tgt.custodian as vt then Reference(vs,vt)
+  "Composition-event" : for src.event as vs0 make tgt.event = as vt0 then {
+    "Composition.event-code" : for vs0.code as vs make vt0.code as vt then CodeableConcept(vs,vt)
+    "Composition.event-period" : for vs0.period as vs make vt0.period as vt then Period(vs,vt)
+    "Composition.event-detail" : for vs0.detail as vs make vt0.detail as vt then Reference(vs,vt)
+  }
+  "Composition-encounter" : for src.encounter as vs make tgt.encounter as vt then Reference(vs,vt)
+endgroup
+

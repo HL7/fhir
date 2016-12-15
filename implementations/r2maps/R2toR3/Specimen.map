@@ -1,0 +1,41 @@
+﻿map "http://hl7.org/fhir/StructureMap/Specimen2to3" = "R2 to R3 Conversions for Specimen"
+
+uses "http://hl7.org/fhir/StructureDefinition/Specimen" as source
+uses "http://hl7.org/fhir/StructureDefinition/SpecimenR2" as target
+
+
+group Specimen extends Element
+  input src : SpecimenR2 as source
+  input tgt : Specimen as Target
+
+  "Specimen-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
+  "Specimen-accessionIdentifier" : for src.accessionIdentifier as vs make tgt.accessionIdentifier as vt then Identifier(vs,vt)
+  "Specimen-status" : for src.status as vs make tgt.status as vt then code(vs, vt)
+  "Specimen-type" : for src.type as vs make tgt.type as vt then CodeableConcept(vs,vt)
+  "Specimen-subject" : for src.subject as vs make tgt.subject as vt then Reference(vs,vt)
+  "Specimen-receivedTime" : for src.receivedTime as vs make tgt.receivedTime as vt then dateTime(vs, vt)
+  "Specimen-parent" : for src.parent as vs make tgt.parent as vt then Reference(vs,vt)
+  "Specimen-collection" : for src.collection as vs0 make tgt.collection = as vt0 then {
+    "Specimen.collection-collector" : for vs0.collector as vs make vt0.collector as vt then Reference(vs,vt)
+    "Specimen.collection-collected-dateTime" : for vs0.collected  : dateTime as vs make vt0.collected = create("dateTime") as vt then dateTime(vs,vt)
+    "Specimen.collection-collected-Period" : for vs0.collected  : Period as vs make vt0.collected = create("Period") as vt then Period(vs,vt)
+    "Specimen.collection-quantity" : for vs0.quantity as vs make vt0.quantity as vt then Quantity(vs,vt)
+    "Specimen.collection-method" : for vs0.method as vs make vt0.method as vt then CodeableConcept(vs,vt)
+    "Specimen.collection-bodySite" : for vs0.bodySite as vs make vt0.bodySite as vt then CodeableConcept(vs,vt)
+  }
+  "Specimen-treatment" : for src.treatment as vs0 make tgt.treatment = as vt0 then {
+    "Specimen.treatment-description" : for vs0.description as vs make vt0.description as vt then string(vs, vt)
+    "Specimen.treatment-procedure" : for vs0.procedure as vs make vt0.procedure as vt then CodeableConcept(vs,vt)
+    "Specimen.treatment-additive" : for vs0.additive as vs make vt0.additive as vt then Reference(vs,vt)
+  }
+  "Specimen-container" : for src.container as vs0 make tgt.container = as vt0 then {
+    "Specimen.container-identifier" : for vs0.identifier as vs make vt0.identifier as vt then Identifier(vs,vt)
+    "Specimen.container-description" : for vs0.description as vs make vt0.description as vt then string(vs, vt)
+    "Specimen.container-type" : for vs0.type as vs make vt0.type as vt then CodeableConcept(vs,vt)
+    "Specimen.container-capacity" : for vs0.capacity as vs make vt0.capacity as vt then Quantity(vs,vt)
+    "Specimen.container-specimenQuantity" : for vs0.specimenQuantity as vs make vt0.specimenQuantity as vt then Quantity(vs,vt)
+    "Specimen.container-additive-CodeableConcept" : for vs0.additive  : CodeableConcept as vs make vt0.additive = create("CodeableConcept") as vt then CodeableConcept(vs,vt)
+    "Specimen.container-additive-Reference" : for vs0.additive  : Reference as vs make vt0.additive = create("Reference") as vt then Reference(vs,vt)
+  }
+endgroup
+

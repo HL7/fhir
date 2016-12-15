@@ -1,0 +1,19 @@
+﻿map "http://hl7.org/fhir/StructureMap/EnrollmentResponse2to3" = "R2 to R3 Conversions for EnrollmentResponse"
+
+uses "http://hl7.org/fhir/StructureDefinition/EnrollmentResponse" as source
+uses "http://hl7.org/fhir/StructureDefinition/EnrollmentResponseR2" as target
+
+
+group EnrollmentResponse extends Element
+  input src : EnrollmentResponseR2 as source
+  input tgt : EnrollmentResponse as Target
+
+  "EnrollmentResponse-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
+  "EnrollmentResponse-request" : for src.request as vs make tgt.request as vt then Reference(vs,vt)
+  "EnrollmentResponse-disposition" : for src.disposition as vs make tgt.disposition as vt then string(vs, vt)
+  "EnrollmentResponse-created" : for src.created as vs make tgt.created as vt then dateTime(vs, vt)
+  "EnrollmentResponse-organization" : for src.organization as vs make tgt.organization as vt then Reference(vs,vt)
+  "EnrollmentResponse-requestProvider" : for src.requestProvider as vs make tgt.requestProvider as vt then Reference(vs,vt)
+  "EnrollmentResponse-requestOrganization" : for src.requestOrganization as vs make tgt.requestOrganization as vt then Reference(vs,vt)
+endgroup
+

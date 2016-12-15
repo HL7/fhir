@@ -1,0 +1,25 @@
+﻿map "http://hl7.org/fhir/StructureMap/MessageHeader2to3" = "R2 to R3 Conversions for MessageHeader"
+
+uses "http://hl7.org/fhir/StructureDefinition/MessageHeader" as source
+uses "http://hl7.org/fhir/StructureDefinition/MessageHeaderR2" as target
+
+
+group MessageHeader extends Element
+  input src : MessageHeaderR2 as source
+  input tgt : MessageHeader as Target
+
+  "MessageHeader-timestamp" : for src.timestamp as vs make tgt.timestamp as vt then instant(vs, vt)
+  "MessageHeader-event" : for src.event as vs make tgt.event as vt then Coding(vs,vt)
+  "MessageHeader-response" : for src.response as vs0 make tgt.response = as vt0 then {
+    "MessageHeader.response-identifier" : for vs0.identifier as vs make vt0.identifier as vt then id(vs, vt)
+    "MessageHeader.response-code" : for vs0.code as vs make vt0.code as vt then code(vs, vt)
+    "MessageHeader.response-details" : for vs0.details as vs make vt0.details as vt then Reference(vs,vt)
+  }
+  "MessageHeader-enterer" : for src.enterer as vs make tgt.enterer as vt then Reference(vs,vt)
+  "MessageHeader-author" : for src.author as vs make tgt.author as vt then Reference(vs,vt)
+  "MessageHeader-receiver" : for src.receiver as vs make tgt.receiver as vt then Reference(vs,vt)
+  "MessageHeader-responsible" : for src.responsible as vs make tgt.responsible as vt then Reference(vs,vt)
+  "MessageHeader-reason" : for src.reason as vs make tgt.reason as vt then CodeableConcept(vs,vt)
+  "MessageHeader-data" : for src.data as vs make tgt.data as vt then Reference(vs,vt)
+endgroup
+

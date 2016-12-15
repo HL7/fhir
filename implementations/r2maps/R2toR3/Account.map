@@ -1,0 +1,23 @@
+﻿map "http://hl7.org/fhir/StructureMap/Account2to3" = "R2 to R3 Conversions for Account"
+
+uses "http://hl7.org/fhir/StructureDefinition/Account" as source
+uses "http://hl7.org/fhir/StructureDefinition/AccountR2" as target
+
+
+group Account extends Element
+  input src : AccountR2 as source
+  input tgt : Account as Target
+
+  "Account-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
+  "Account-name" : for src.name as vs make tgt.name as vt then string(vs, vt)
+  "Account-type" : for src.type as vs make tgt.type as vt then CodeableConcept(vs,vt)
+  "Account-status" : for src.status as vs make tgt.status as vt then code(vs, vt)
+  "Account-active" : for src.activePeriod as vs make tgt.active as vt then Period(vs,vt)
+  "Account-currency" : for src.currency as vs make tgt.currency as vt then Coding(vs,vt)
+  "Account-balance" : for src.balance as vs make tgt.balance as vt then Money(vs,vt)
+  "Account-coveragePeriod" : for src.coveragePeriod as vs make tgt.coveragePeriod as vt then Period(vs,vt)
+  "Account-subject" : for src.subject as vs make tgt.subject as vt then Reference(vs,vt)
+  "Account-owner" : for src.owner as vs make tgt.owner as vt then Reference(vs,vt)
+  "Account-description" : for src.description as vs make tgt.description as vt then string(vs, vt)
+endgroup
+

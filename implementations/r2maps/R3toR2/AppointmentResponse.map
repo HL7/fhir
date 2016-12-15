@@ -1,0 +1,19 @@
+﻿map "http://hl7.org/fhir/StructureMap/AppointmentResponse3to2" = "R3 to R2 Conversion for AppointmentResponse"
+
+uses "http://hl7.org/fhir/StructureDefinition/AppointmentResponseR2" as source
+uses "http://hl7.org/fhir/StructureDefinition/AppointmentResponse" as target
+
+
+group AppointmentResponse extends Element
+  input src : AppointmentResponse as source
+  input tgt : AppointmentResponseR2 as Target
+  "AppointmentResponse-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
+  "AppointmentResponse-appointment" : for src.appointment as vs make tgt.appointment as vt then Reference(vs,vt)
+  "AppointmentResponse-start" : for src.start as vs make tgt.start as vt then instant(vs, vt)
+  "AppointmentResponse-end" : for src.end as vs make tgt.end as vt then instant(vs, vt)
+  "AppointmentResponse-participantType" : for src.participantType as vs make tgt.participantType as vt then CodeableConcept(vs,vt)
+  "AppointmentResponse-actor" : for src.actor as vs make tgt.actor as vt then Reference(vs,vt)
+  "AppointmentResponse-participantStatus" : for src.participantStatus as vs make tgt.participantStatus as vt then code(vs, vt)
+  "AppointmentResponse-comment" : for src.comment as vs make tgt.comment as vt then string(vs, vt)
+endgroup
+

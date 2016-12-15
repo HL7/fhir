@@ -1,0 +1,45 @@
+﻿map "http://hl7.org/fhir/StructureMap/ImplementationGuide2to3" = "R2 to R3 Conversions for ImplementationGuide"
+
+uses "http://hl7.org/fhir/StructureDefinition/ImplementationGuide" as source
+uses "http://hl7.org/fhir/StructureDefinition/ImplementationGuideR2" as target
+
+
+group ImplementationGuide extends Element
+  input src : ImplementationGuideR2 as source
+  input tgt : ImplementationGuide as Target
+
+  "ImplementationGuide-url" : for src.url as vs make tgt.url as vt then uri(vs, vt)
+  "ImplementationGuide-version" : for src.version as vs make tgt.version as vt then string(vs, vt)
+  "ImplementationGuide-name" : for src.name as vs make tgt.name as vt then string(vs, vt)
+  "ImplementationGuide-status" : for src.status as vs make tgt.status as vt then code(vs, vt)
+  "ImplementationGuide-experimental" : for src.experimental as vs make tgt.experimental as vt then boolean(vs, vt)
+  "ImplementationGuide-publisher" : for src.publisher as vs make tgt.publisher as vt then string(vs, vt)
+  "ImplementationGuide-contact" : for src.contact as vs0 make tgt.contact = as vt0 then {
+    "ContactDetail-name" : for vs0.name as vs make vt0.name as vt then string(vs, vt)
+    "ContactDetail-telecom" : for vs0.telecom as vs make vt0.telecom as vt then ContactPoint(vs,vt)
+  }
+  "ImplementationGuide-date" : for src.date as vs make tgt.date as vt then dateTime(vs, vt)
+  "ImplementationGuide-fhirVersion" : for src.fhirVersion as vs make tgt.fhirVersion as vt then id(vs, vt)
+  "ImplementationGuide-dependency" : for src.dependency as vs0 make tgt.dependency = as vt0 then {
+    "ImplementationGuide.dependency-type" : for vs0.type as vs make vt0.type as vt then code(vs, vt)
+    "ImplementationGuide.dependency-uri" : for vs0.uri as vs make vt0.uri as vt then uri(vs, vt)
+  }
+  "ImplementationGuide-package" : for src.package as vs0 make tgt.package = as vt0 then {
+    "ImplementationGuide.package-name" : for vs0.name as vs make vt0.name as vt then string(vs, vt)
+    "ImplementationGuide.package-description" : for vs0.description as vs make vt0.description as vt then string(vs, vt)
+  }
+  "ImplementationGuide-global" : for src.global as vs0 make tgt.global = as vt0 then {
+    "ImplementationGuide.global-type" : for vs0.type as vs make vt0.type as vt then code(vs, vt)
+    "ImplementationGuide.global-profile" : for vs0.profile as vs make vt0.profile as vt then Reference(vs,vt)
+  }
+  "ImplementationGuide-binary" : for src.binary as vs make tgt.binary as vt then uri(vs, vt)
+  "ImplementationGuide-page" : for src.page as vs0 make tgt.page = as vt0 then {
+    "ImplementationGuide.page-source" : for vs0.source as vs make vt0.source as vt then uri(vs, vt)
+    "ImplementationGuide.page-title" : for vs0.name as vs make vt0.title as vt then string(vs, vt)
+    "ImplementationGuide.page-kind" : for vs0.kind as vs make vt0.kind as vt then code(vs, vt)
+    "ImplementationGuide.page-type" : for vs0.type as vs make vt0.type as vt then code(vs, vt)
+    "ImplementationGuide.page-package" : for vs0.package as vs make vt0.package as vt then string(vs, vt)
+    "ImplementationGuide.page-format" : for vs0.format as vs make vt0.format as vt then code(vs, vt)
+  }
+endgroup
+

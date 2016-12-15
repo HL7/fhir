@@ -1,0 +1,32 @@
+﻿map "http://hl7.org/fhir/StructureMap/DiagnosticReport2to3" = "R2 to R3 Conversions for DiagnosticReport"
+
+uses "http://hl7.org/fhir/StructureDefinition/DiagnosticReport" as source
+uses "http://hl7.org/fhir/StructureDefinition/DiagnosticReportR2" as target
+
+
+group DiagnosticReport extends Element
+  input src : DiagnosticReportR2 as source
+  input tgt : DiagnosticReport as Target
+
+  "DiagnosticReport-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
+  "DiagnosticReport-status" : for src.status as vs make tgt.status as vt then code(vs, vt)
+  "DiagnosticReport-category" : for src.category as vs make tgt.category as vt then CodeableConcept(vs,vt)
+  "DiagnosticReport-code" : for src.code as vs make tgt.code as vt then CodeableConcept(vs,vt)
+  "DiagnosticReport-subject" : for src.subject as vs make tgt.subject as vt then Reference(vs,vt)
+  "DiagnosticReport-encounter" : for src.encounter as vs make tgt.encounter as vt then Reference(vs,vt)
+  "DiagnosticReport-effective-dateTime" : for src.effective  : dateTime as vs make tgt.effective = create("dateTime") as vt then dateTime(vs,vt)
+  "DiagnosticReport-effective-Period" : for src.effective  : Period as vs make tgt.effective = create("Period") as vt then Period(vs,vt)
+  "DiagnosticReport-issued" : for src.issued as vs make tgt.issued as vt then instant(vs, vt)
+  "DiagnosticReport-request" : for src.request as vs make tgt.request as vt then Reference(vs,vt)
+  "DiagnosticReport-specimen" : for src.specimen as vs make tgt.specimen as vt then Reference(vs,vt)
+  "DiagnosticReport-result" : for src.result as vs make tgt.result as vt then Reference(vs,vt)
+  "DiagnosticReport-imagingStudy" : for src.imagingStudy as vs make tgt.imagingStudy as vt then Reference(vs,vt)
+  "DiagnosticReport-image" : for src.image as vs0 make tgt.image = as vt0 then {
+    "DiagnosticReport.image-comment" : for vs0.comment as vs make vt0.comment as vt then string(vs, vt)
+    "DiagnosticReport.image-link" : for vs0.link as vs make vt0.link as vt then Reference(vs,vt)
+  }
+  "DiagnosticReport-conclusion" : for src.conclusion as vs make tgt.conclusion as vt then string(vs, vt)
+  "DiagnosticReport-codedDiagnosis" : for src.codedDiagnosis as vs make tgt.codedDiagnosis as vt then CodeableConcept(vs,vt)
+  "DiagnosticReport-presentedForm" : for src.presentedForm as vs make tgt.presentedForm as vt then Attachment(vs,vt)
+endgroup
+

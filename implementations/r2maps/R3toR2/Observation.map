@@ -1,0 +1,63 @@
+﻿map "http://hl7.org/fhir/StructureMap/Observation3to2" = "R3 to R2 Conversion for Observation"
+
+uses "http://hl7.org/fhir/StructureDefinition/ObservationR2" as source
+uses "http://hl7.org/fhir/StructureDefinition/Observation" as target
+
+
+group Observation extends Element
+  input src : Observation as source
+  input tgt : ObservationR2 as Target
+  "Observation-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
+  "Observation-status" : for src.status as vs make tgt.status as vt then code(vs, vt)
+  "Observation-category" : for src.category as vs make tgt.category as vt then CodeableConcept(vs,vt)
+  "Observation-code" : for src.code as vs make tgt.code as vt then CodeableConcept(vs,vt)
+  "Observation-subject" : for src.subject as vs make tgt.subject as vt then Reference(vs,vt)
+  "Observation-encounter" : for src.encounter as vs make tgt.encounter as vt then Reference(vs,vt)
+  "Observation-effective-dateTime" : for src.effective  : dateTime as vs make tgt.effective = create("dateTime") as vt then dateTime(vs,vt)
+  "Observation-effective-Period" : for src.effective  : Period as vs make tgt.effective = create("Period") as vt then Period(vs,vt)
+  "Observation-issued" : for src.issued as vs make tgt.issued as vt then instant(vs, vt)
+  "Observation-performer" : for src.performer as vs make tgt.performer as vt then Reference(vs,vt)
+  "Observation-value-Quantity" : for src.value  : Quantity as vs make tgt.value = create("Quantity") as vt then Quantity(vs,vt)
+  "Observation-value-CodeableConcept" : for src.value  : CodeableConcept as vs make tgt.value = create("CodeableConcept") as vt then CodeableConcept(vs,vt)
+  "Observation-value-string" : for src.value  : string as vs make tgt.value = create("string") as vt then string(vs,vt)
+  "Observation-value-Range" : for src.value  : Range as vs make tgt.value = create("Range") as vt then Range(vs,vt)
+  "Observation-value-Ratio" : for src.value  : Ratio as vs make tgt.value = create("Ratio") as vt then Ratio(vs,vt)
+  "Observation-value-SampledData" : for src.value  : SampledData as vs make tgt.value = create("SampledData") as vt then SampledData(vs,vt)
+  "Observation-value-Attachment" : for src.value  : Attachment as vs make tgt.value = create("Attachment") as vt then Attachment(vs,vt)
+  "Observation-value-time" : for src.value  : time as vs make tgt.value = create("time") as vt then time(vs,vt)
+  "Observation-value-dateTime" : for src.value  : dateTime as vs make tgt.value = create("dateTime") as vt then dateTime(vs,vt)
+  "Observation-value-Period" : for src.value  : Period as vs make tgt.value = create("Period") as vt then Period(vs,vt)
+  "Observation-dataAbsentReason" : for src.dataAbsentReason as vs make tgt.dataAbsentReason as vt then CodeableConcept(vs,vt)
+  "Observation-interpretation" : for src.interpretation as vs make tgt.interpretation as vt then CodeableConcept(vs,vt)
+  "Observation-comments" : for src.comment as vs make tgt.comments as vt then string(vs, vt)
+  "Observation-bodySite" : for src.bodySite as vs make tgt.bodySite as vt then CodeableConcept(vs,vt)
+  "Observation-method" : for src.method as vs make tgt.method as vt then CodeableConcept(vs,vt)
+  "Observation-specimen" : for src.specimen as vs make tgt.specimen as vt then Reference(vs,vt)
+  "Observation-device" : for src.device as vs make tgt.device as vt then Reference(vs,vt)
+  "Observation-referenceRange" : for src.referenceRange as vs0 make tgt.referenceRange = as vt0 then {
+    "Observation.referenceRange-low" : for vs0.low as vs make vt0.low as vt then Quantity(vs,vt)
+    "Observation.referenceRange-high" : for vs0.high as vs make vt0.high as vt then Quantity(vs,vt)
+    "Observation.referenceRange-meaning" : for vs0.meaning as vs make vt0.meaning as vt then CodeableConcept(vs,vt)
+    "Observation.referenceRange-age" : for vs0.age as vs make vt0.age as vt then Range(vs,vt)
+    "Observation.referenceRange-text" : for vs0.text as vs make vt0.text as vt then string(vs, vt)
+  }
+  "Observation-related" : for src.related as vs0 make tgt.related = as vt0 then {
+    "Observation.related-type" : for vs0.type as vs make vt0.type as vt then code(vs, vt)
+    "Observation.related-target" : for vs0.target as vs make vt0.target as vt then Reference(vs,vt)
+  }
+  "Observation-component" : for src.component as vs0 make tgt.component = as vt0 then {
+    "Observation.component-code" : for vs0.code as vs make vt0.code as vt then CodeableConcept(vs,vt)
+    "Observation.component-value-Quantity" : for vs0.value  : Quantity as vs make vt0.value = create("Quantity") as vt then Quantity(vs,vt)
+    "Observation.component-value-CodeableConcept" : for vs0.value  : CodeableConcept as vs make vt0.value = create("CodeableConcept") as vt then CodeableConcept(vs,vt)
+    "Observation.component-value-string" : for vs0.value  : string as vs make vt0.value = create("string") as vt then string(vs,vt)
+    "Observation.component-value-Range" : for vs0.value  : Range as vs make vt0.value = create("Range") as vt then Range(vs,vt)
+    "Observation.component-value-Ratio" : for vs0.value  : Ratio as vs make vt0.value = create("Ratio") as vt then Ratio(vs,vt)
+    "Observation.component-value-SampledData" : for vs0.value  : SampledData as vs make vt0.value = create("SampledData") as vt then SampledData(vs,vt)
+    "Observation.component-value-Attachment" : for vs0.value  : Attachment as vs make vt0.value = create("Attachment") as vt then Attachment(vs,vt)
+    "Observation.component-value-time" : for vs0.value  : time as vs make vt0.value = create("time") as vt then time(vs,vt)
+    "Observation.component-value-dateTime" : for vs0.value  : dateTime as vs make vt0.value = create("dateTime") as vt then dateTime(vs,vt)
+    "Observation.component-value-Period" : for vs0.value  : Period as vs make vt0.value = create("Period") as vt then Period(vs,vt)
+    "Observation.component-dataAbsentReason" : for vs0.dataAbsentReason as vs make vt0.dataAbsentReason as vt then CodeableConcept(vs,vt)
+  }
+endgroup
+

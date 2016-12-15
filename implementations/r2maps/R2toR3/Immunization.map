@@ -1,0 +1,47 @@
+﻿map "http://hl7.org/fhir/StructureMap/Immunization2to3" = "R2 to R3 Conversions for Immunization"
+
+uses "http://hl7.org/fhir/StructureDefinition/Immunization" as source
+uses "http://hl7.org/fhir/StructureDefinition/ImmunizationR2" as target
+
+
+group Immunization extends Element
+  input src : ImmunizationR2 as source
+  input tgt : Immunization as Target
+
+  "Immunization-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
+  "Immunization-date" : for src.date as vs make tgt.date as vt then dateTime(vs, vt)
+  "Immunization-vaccineCode" : for src.vaccineCode as vs make tgt.vaccineCode as vt then CodeableConcept(vs,vt)
+  "Immunization-patient" : for src.patient as vs make tgt.patient as vt then Reference(vs,vt)
+  "Immunization-wasNotGiven" : for src.wasNotGiven as vs make tgt.wasNotGiven as vt then boolean(vs, vt)
+  "Immunization-performer" : for src.performer as vs make tgt.performer as vt then Reference(vs,vt)
+  "Immunization-requester" : for src.requester as vs make tgt.requester as vt then Reference(vs,vt)
+  "Immunization-encounter" : for src.encounter as vs make tgt.encounter as vt then Reference(vs,vt)
+  "Immunization-manufacturer" : for src.manufacturer as vs make tgt.manufacturer as vt then Reference(vs,vt)
+  "Immunization-location" : for src.location as vs make tgt.location as vt then Reference(vs,vt)
+  "Immunization-lotNumber" : for src.lotNumber as vs make tgt.lotNumber as vt then string(vs, vt)
+  "Immunization-expirationDate" : for src.expirationDate as vs make tgt.expirationDate as vt then date(vs, vt)
+  "Immunization-site" : for src.site as vs make tgt.site as vt then CodeableConcept(vs,vt)
+  "Immunization-route" : for src.route as vs make tgt.route as vt then CodeableConcept(vs,vt)
+  "Immunization-doseQuantity" : for src.doseQuantity as vs make tgt.doseQuantity as vt then Quantity(vs,vt)
+  "Immunization-note" : for src.note as vs make tgt.note as vt then Annotation(vs,vt)
+  "Immunization-explanation" : for src.explanation as vs0 make tgt.explanation = as vt0 then {
+    "Immunization.explanation-reason" : for vs0.reason as vs make vt0.reason as vt then CodeableConcept(vs,vt)
+    "Immunization.explanation-reasonNotGiven" : for vs0.reasonNotGiven as vs make vt0.reasonNotGiven as vt then CodeableConcept(vs,vt)
+  }
+  "Immunization-reaction" : for src.reaction as vs0 make tgt.reaction = as vt0 then {
+    "Immunization.reaction-date" : for vs0.date as vs make vt0.date as vt then dateTime(vs, vt)
+    "Immunization.reaction-detail" : for vs0.detail as vs make vt0.detail as vt then Reference(vs,vt)
+    "Immunization.reaction-reported" : for vs0.reported as vs make vt0.reported as vt then boolean(vs, vt)
+  }
+  "Immunization-vaccinationProtocol" : for src.vaccinationProtocol as vs0 make tgt.vaccinationProtocol = as vt0 then {
+    "Immunization.vaccinationProtocol-doseSequence" : for vs0.doseSequence as vs make vt0.doseSequence as vt then positiveInt(vs, vt)
+    "Immunization.vaccinationProtocol-description" : for vs0.description as vs make vt0.description as vt then string(vs, vt)
+    "Immunization.vaccinationProtocol-authority" : for vs0.authority as vs make vt0.authority as vt then Reference(vs,vt)
+    "Immunization.vaccinationProtocol-series" : for vs0.series as vs make vt0.series as vt then string(vs, vt)
+    "Immunization.vaccinationProtocol-seriesDoses" : for vs0.seriesDoses as vs make vt0.seriesDoses as vt then positiveInt(vs, vt)
+    "Immunization.vaccinationProtocol-targetDisease" : for vs0.targetDisease as vs make vt0.targetDisease as vt then CodeableConcept(vs,vt)
+    "Immunization.vaccinationProtocol-doseStatus" : for vs0.doseStatus as vs make vt0.doseStatus as vt then CodeableConcept(vs,vt)
+    "Immunization.vaccinationProtocol-doseStatusReason" : for vs0.doseStatusReason as vs make vt0.doseStatusReason as vt then CodeableConcept(vs,vt)
+  }
+endgroup
+
