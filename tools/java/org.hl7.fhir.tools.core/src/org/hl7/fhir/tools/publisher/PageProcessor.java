@@ -1099,7 +1099,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     }
     return "<p>Functional status for this map: "+status+" (based on R2 -> R3 -> R2 round tripping)</p>\r\n"+
     "\r\n"+
-    "<h43>R2 to R3</h4>\r\n"+
+    "<h4>R2 to R3</h4>\r\n"+
     "\r\n"+
     "<div class=\"mapping\">\r\n"+
     "<pre>\r\n"+
