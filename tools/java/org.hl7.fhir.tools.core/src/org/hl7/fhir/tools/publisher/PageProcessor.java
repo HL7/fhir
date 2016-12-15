@@ -30,6 +30,7 @@ POSSIBILITY OF SUCH DAMAGE.
 */
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.StringWriter;
@@ -167,6 +168,7 @@ import org.hl7.fhir.dstu3.utils.NarrativeGenerator;
 import org.hl7.fhir.dstu3.utils.NarrativeGenerator.IReferenceResolver;
 import org.hl7.fhir.dstu3.utils.NarrativeGenerator.ResourceWithReference;
 import org.hl7.fhir.dstu3.utils.ResourceUtilities;
+import org.hl7.fhir.dstu3.utils.StructureMapUtilities;
 import org.hl7.fhir.dstu3.utils.ToolingExtensions;
 import org.hl7.fhir.dstu3.utils.Translations;
 import org.hl7.fhir.dstu3.utils.client.FHIRToolingClient;
@@ -316,6 +318,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   private SpecDifferenceEvaluator diffEngine = new SpecDifferenceEvaluator();
   private Bundle typeBundle;
   private Bundle resourceBundle;
+  private IniFile r2r3ini; 
 
   public PageProcessor(String tsServer) throws URISyntaxException, UcumException {
     super();
@@ -741,6 +744,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         String[] parts = com[1].split("\\/");
         Example e = findExample(parts[0], parts[1]);
         src = s1+genExample(e, com.length > 2 ? Integer.parseInt(com[2]) : 0, genlevel(level))+s3;
+      } else if (com[0].equals("r2r3transform")) { 
+        src = s1+dtR2R3Transform(com[1])+s3;
       } else if (com[0].equals("diff-analysis")) { 
         if ("*".equals(com[1])) {
           updateDiffEngineDefinitions();
@@ -1067,6 +1072,52 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
     }
     return src;
+  }
+
+  private String dtR2R3Transform(String name) throws Exception {
+
+    File f = new File(Utilities.path(folders.rootDir, "implementations", "r2maps", "R2toR3", name+".map"));
+    if (!f.exists())
+       throw new Exception("No R2/R3 map exitss for "+name);
+    String n = name.toLowerCase();
+    String status = r2r3ini.getStringProperty("status", name);
+    if (Utilities.noString(status))
+      status = "unknown";
+    String fwds = TextFile.fileToString(Utilities.path(folders.rootDir, "implementations", "r2maps", "R2toR3",  name+".map"));
+    String bcks = TextFile.fileToString(Utilities.path(folders.rootDir, "implementations", "r2maps", "R3toR2", name+".map"));
+    String fwdsStatus =  "";
+    String bcksStatus =  "";
+    try {
+      new StructureMapUtilities(workerContext).parse(fwds);
+    } catch (FHIRException e) {
+      fwdsStatus = "<p style=\"background-color: #ffb3b3; border:1px solid maroon; padding: 5px;\">This script does not compile: "+e.getMessage()+"</p>\r\n";
+    }
+    try {
+      new StructureMapUtilities(workerContext).parse(bcks);
+    } catch (FHIRException e) {
+      bcksStatus = "<p style=\"background-color: #ffb3b3; border:1px solid maroon; padding: 5px;\">This script does not compile: "+e.getMessage()+"</p>\r\n";
+    }
+    return "<p>Functional status for this map: "+status+" (based on R2 -> R3 -> R2 round tripping)</p>\r\n"+
+    "\r\n"+
+    "<h43>R2 to R3</h4>\r\n"+
+    "\r\n"+
+    "<div class=\"mapping\">\r\n"+
+    "<pre>\r\n"+
+    Utilities.escapeXml(fwds)+"\r\n"+
+    "</pre>\r\n"+
+    "</div>\r\n"+
+    "\r\n"+
+    fwdsStatus+"\r\n"+
+    "\r\n"+
+    "<h4>R3 to R2</h4>\r\n"+
+    "\r\n"+
+    "<div class=\"mapping\">\r\n"+
+    "<pre>\r\n"+
+    Utilities.escapeXml(bcks)+"\r\n"+
+    "</pre>\r\n"+
+    "</div>\r\n"+
+    "\r\n"+
+    bcksStatus+"\r\n";
   }
 
   private String genWGReport() throws Exception {
@@ -3021,6 +3072,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     b.append(makeHeaderTab("Examples", "datatypes-examples.html", mode==null || "examples".equals(mode)));
     b.append(makeHeaderTab("Detailed Descriptions", "datatypes-definitions.html", mode==null || "definitions".equals(mode)));
     b.append(makeHeaderTab("Mappings", "datatypes-mappings.html", mode==null || "mappings".equals(mode)));
+    b.append(makeHeaderTab("R2 Conversions", "datatypes-version-maps.html", mode==null || "conversions".equals(mode)));
     b.append("</ul>\r\n");
     return b.toString();
   }
@@ -3495,7 +3547,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
 //      b.append(makeHeaderTab("HTML Form", n+"-questionnaire.html", "questionnaire".equals(mode)));
     if (hasOps)
       b.append(makeHeaderTab("Operations", n+"-operations.html", "operations".equals(mode)));
-
+    if (new File(Utilities.path(folders.rootDir, "implementations", "r2maps", "R2toR3", title+".map")).exists())
+      b.append(makeHeaderTab("R2 Conversions", n+"-version-maps.html", "conversion".equals(mode)));
     b.append("</ul>\r\n");
 
     return b.toString();   
@@ -4510,6 +4563,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       } else if (com[0].equals("setlevel")) {
         level = Integer.parseInt(com[1]);
         src = s1+s3;
+      } else if (com[0].equals("r2r3transform")) { 
+        src = s1+dtR2R3Transform(com[1])+s3;
       } else if (com[0].equals("diff-analysis")) { 
         if ("*".equals(com[1])) {
           updateDiffEngineDefinitions();
@@ -5019,7 +5074,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     return false;
   }
 
-  String processResourceIncludes(String name, ResourceDefn resource, String xml, String json, String ttl, String tx, String dict, String src, String mappings, String mappingsList, String type, String pagePath, ImplementationGuideDefn ig) throws Exception {
+  String processResourceIncludes(String name, ResourceDefn resource, String xml, String json, String ttl, String tx, String dict, String src, String mappings, String mappingsList, String type, String pagePath, ImplementationGuideDefn ig, Map<String, String> otherValues) throws Exception {
     String workingTitle = Utilities.escapeXml(resource.getName());
     List<String> tabs = new ArrayList<String>();
     int level = (ig == null || ig.isCore()) ? 0 : 1;  
@@ -5183,8 +5238,13 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+searchHeader(level)+s3;
       else if (com[0].equals("diff-analysis")) 
         src = s1+diffEngine.getDiffAsHtml(resource.getProfile())+s3;
+      else if (com[0].equals("r2r3transforms")) 
+        src = s1+getR2r3transformNote(resource.getName())+s3;
       else if (com[0].equals("fmm-style")) 
         src = s1+("0".equals(resource.getFmmLevel()) ? "colsd" : "cols")+s3;
+      else if (otherValues.containsKey(com[0])) 
+        src = s1+otherValues.get(com[0])+s3;
+      
       else if (com[0].equals("resurl")) {
         if (isAggregationEndpoint(resource.getName()))
           src = s1+s3;
@@ -5195,6 +5255,17 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
 
     }
     return src;
+  }
+
+  private String getR2r3transformNote(String name) throws IOException {
+    StringBuilder b = new StringBuilder();
+    if (new File(Utilities.path(folders.rootDir, "implementations", "r2maps", "R2toR3", name+".map")).exists()) {
+      String st = r2r3ini.getStringProperty("status", name);
+      if (Utilities.noString(st))
+        st = "unknown";
+      return "<p>See <a href=\""+name.toLowerCase()+"-version-maps.html\">R2 &lt;--&gt; R3 Conversion Maps</a> (status = "+st+").</p>\r\n";
+    } else
+    return "";
   }
 
   private String getCompLinks(ResourceDefn resource) {
@@ -7096,6 +7167,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   public void setFolders(FolderManager folders) throws Exception {
     this.folders = folders;
     htmlchecker = new HTMLLinkChecker(this, validationErrors, baseURL);
+    r2r3ini = new IniFile(Utilities.path(folders.rootDir, "implementations", "r2maps", "status.ini"));
   }
 
   public void setIni(IniFile ini) {
@@ -8231,4 +8303,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     return evaluationContext;
   }
 
+  public IniFile getR2r3ini() {
+    return r2r3ini;
+  }
+
+  
+  
 }

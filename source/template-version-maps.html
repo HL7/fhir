@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<%file newheader%>
+</head>
+<body>
+<%file newnavbar%>
+
+<div class="col-9">
+
+<%resheader conversion%>
+<h2>Resource <%name%> - Detailed Descriptions</h2>
+
+<p>R2 : R3 Converson maps for <%name%>.</p>
+
+<p>Functional status for this map: <%conv-status%> (based on R2 -> R3 -> R2 round tripping)</p>
+
+<h3>R2 to R3</h3>
+
+<div class="mapping">
+<pre>
+<%fwds%>
+</pre>
+</div>
+
+<%fwds-status%>
+
+<h3>R3 to R2</h3>
+
+<div class="mapping">
+<pre>
+<%bcks%>
+</pre>
+</div>
+
+<%bcks-status%>
+
+</div>
+
+<%file newfooter%>
+    
+</body>
+</html>

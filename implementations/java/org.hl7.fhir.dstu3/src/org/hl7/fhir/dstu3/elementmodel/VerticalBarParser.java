@@ -15,14 +15,7 @@ import org.hl7.fhir.exceptions.FHIRFormatError;
 
 /**
  * This class provides special support for parsing v2 by the v2 logical model
- * Message
- *   segment 0..*
- *     code 1..1
- *     element 0..*
- *       index 1..1
- *       content 0..1
- *         value 0..1 string | xhtml
- *         component 0..*
+ * For the logical model, see the FHIRPath spec
  *         
  * @author Grahame Grieve
  *
