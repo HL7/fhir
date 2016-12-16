@@ -1,18 +1,27 @@
 ﻿map "http://hl7.org/fhir/StructureMap/CommunicationRequest2to3" = "R2 to R3 Conversions for CommunicationRequest"
 
-uses "http://hl7.org/fhir/StructureDefinition/CommunicationRequest" as source
-uses "http://hl7.org/fhir/StructureDefinition/CommunicationRequestR2" as target
+
+uses "http://hl7.org/fhir/DSTU2/StructureDefinition/CommunicationRequest" alias CommunicationRequestR2 as source
+uses "http://hl7.org/fhir/StructureDefinition/CommunicationRequest" alias CommunicationRequest as target
+
+imports "http://hl7.org/fhir/StructureMap/primitives2to3"
+imports "http://hl7.org/fhir/StructureMap/Attachment2to3"
+imports "http://hl7.org/fhir/StructureMap/Identifier2to3"
+imports "http://hl7.org/fhir/StructureMap/Reference2to3"
+imports "http://hl7.org/fhir/StructureMap/Period2to3"
+imports "http://hl7.org/fhir/StructureMap/CodeableConcept2to3"
+
 
 
 group CommunicationRequest extends Element
   input src : CommunicationRequestR2 as source
-  input tgt : CommunicationRequest as Target
+  input tgt : CommunicationRequest as target
 
   "CommunicationRequest-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
   "CommunicationRequest-category" : for src.category as vs make tgt.category as vt then CodeableConcept(vs,vt)
   "CommunicationRequest-sender" : for src.sender as vs make tgt.sender as vt then Reference(vs,vt)
   "CommunicationRequest-recipient" : for src.recipient as vs make tgt.recipient as vt then Reference(vs,vt)
-  "CommunicationRequest-payload" : for src.payload as vs0 make tgt.payload = as vt0 then {
+  "CommunicationRequest-payload" : for src.payload as vs0 make tgt.payload as vt0 then {
     "CommunicationRequest.payload-content-string" : for vs0.content  : string as vs make vt0.content = create("string") as vt then string(vs,vt)
     "CommunicationRequest.payload-content-Attachment" : for vs0.content  : Attachment as vs make vt0.content = create("Attachment") as vt then Attachment(vs,vt)
     "CommunicationRequest.payload-content-Reference" : for vs0.content  : Reference as vs make vt0.content = create("Reference") as vt then Reference(vs,vt)

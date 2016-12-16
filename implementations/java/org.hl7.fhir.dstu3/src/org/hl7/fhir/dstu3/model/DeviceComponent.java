@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -462,9 +462,9 @@ public class DeviceComponent extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -2133482091:  return getSpecType(); // CodeableConcept
-        case -985933064:  return getComponentId(); // Identifier
-        case 182147092: throw new FHIRException("Cannot make property productionSpec as it is not a complex type"); // StringType
+        case -2133482091:  return getSpecType(); 
+        case -985933064:  return getComponentId(); 
+        case 182147092:  return getProductionSpecElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -1113,16 +1113,16 @@ public class DeviceComponent extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3575610:  return getType(); // CodeableConcept
-        case -1618432855:  return getIdentifier(); // Identifier
-        case -2072475531: throw new FHIRException("Cannot make property lastSystemChange as it is not a complex type"); // InstantType
-        case -896505829:  return getSource(); // Reference
-        case -995424086:  return getParent(); // Reference
-        case -2103166364:  return addOperationalStatus(); // CodeableConcept
-        case 1111110742:  return getParameterGroup(); // CodeableConcept
-        case 24324384: throw new FHIRException("Cannot make property measurementPrinciple as it is not a complex type"); // Enumeration<MeasmntPrinciple>
-        case -455527222:  return addProductionSpecification(); // DeviceComponentProductionSpecificationComponent
-        case -2092349083:  return getLanguageCode(); // CodeableConcept
+        case 3575610:  return getType(); 
+        case -1618432855:  return getIdentifier(); 
+        case -2072475531:  return getLastSystemChangeElement();
+        case -896505829:  return getSource(); 
+        case -995424086:  return getParent(); 
+        case -2103166364:  return addOperationalStatus(); 
+        case 1111110742:  return getParameterGroup(); 
+        case 24324384:  return getMeasurementPrincipleElement();
+        case -455527222:  return addProductionSpecification(); 
+        case -2092349083:  return getLanguageCode(); 
         default: return super.makeProperty(hash, name);
         }
 

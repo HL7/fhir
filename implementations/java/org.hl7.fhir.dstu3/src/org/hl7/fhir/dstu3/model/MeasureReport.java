@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -629,11 +629,11 @@ public class MeasureReport extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1618432855:  return getIdentifier(); // Identifier
-        case -2023558323:  return addPopulation(); // MeasureReportGroupPopulationComponent
-        case -386313260: throw new FHIRException("Cannot make property measureScore as it is not a complex type"); // DecimalType
-        case 90983669:  return addStratifier(); // MeasureReportGroupStratifierComponent
-        case 1447496814:  return addSupplementalData(); // MeasureReportGroupSupplementalDataComponent
+        case -1618432855:  return getIdentifier(); 
+        case -2023558323:  return addPopulation(); 
+        case -386313260:  return getMeasureScoreElement();
+        case 90983669:  return addStratifier(); 
+        case 1447496814:  return addSupplementalData(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -948,9 +948,9 @@ public class MeasureReport extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3575610: throw new FHIRException("Cannot make property type as it is not a complex type"); // CodeType
-        case 94851343: throw new FHIRException("Cannot make property count as it is not a complex type"); // IntegerType
-        case 1235842574:  return getPatients(); // Reference
+        case 3575610:  return getTypeElement();
+        case 94851343:  return getCountElement();
+        case 1235842574:  return getPatients(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -1166,8 +1166,8 @@ public class MeasureReport extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1618432855:  return getIdentifier(); // Identifier
-        case 98629247:  return addGroup(); // StratifierGroupComponent
+        case -1618432855:  return getIdentifier(); 
+        case 98629247:  return addGroup(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -1484,9 +1484,9 @@ public class MeasureReport extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 111972721: throw new FHIRException("Cannot make property value as it is not a complex type"); // StringType
-        case -2023558323:  return addPopulation(); // StratifierGroupPopulationComponent
-        case -386313260: throw new FHIRException("Cannot make property measureScore as it is not a complex type"); // DecimalType
+        case 111972721:  return getValueElement();
+        case -2023558323:  return addPopulation(); 
+        case -386313260:  return getMeasureScoreElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -1783,9 +1783,9 @@ public class MeasureReport extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3575610: throw new FHIRException("Cannot make property type as it is not a complex type"); // CodeType
-        case 94851343: throw new FHIRException("Cannot make property count as it is not a complex type"); // IntegerType
-        case 1235842574:  return getPatients(); // Reference
+        case 3575610:  return getTypeElement();
+        case 94851343:  return getCountElement();
+        case 1235842574:  return getPatients(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -2001,8 +2001,8 @@ public class MeasureReport extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1618432855:  return getIdentifier(); // Identifier
-        case 98629247:  return addGroup(); // SupplementalDataGroupComponent
+        case -1618432855:  return getIdentifier(); 
+        case 98629247:  return addGroup(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -2293,9 +2293,9 @@ public class MeasureReport extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 111972721: throw new FHIRException("Cannot make property value as it is not a complex type"); // StringType
-        case 94851343: throw new FHIRException("Cannot make property count as it is not a complex type"); // IntegerType
-        case 1235842574:  return getPatients(); // Reference
+        case 111972721:  return getValueElement();
+        case 94851343:  return getCountElement();
+        case 1235842574:  return getPatients(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -2947,15 +2947,15 @@ public class MeasureReport extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 938321246:  return getMeasure(); // Reference
-        case 3575610: throw new FHIRException("Cannot make property type as it is not a complex type"); // Enumeration<MeasureReportType>
-        case -791418107:  return getPatient(); // Reference
-        case -991726143:  return getPeriod(); // Period
-        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<MeasureReportStatus>
-        case 3076014: throw new FHIRException("Cannot make property date as it is not a complex type"); // DateTimeType
-        case -2053950847:  return getReportingOrganization(); // Reference
-        case 98629247:  return addGroup(); // MeasureReportGroupComponent
-        case 1599836026:  return getEvaluatedResources(); // Reference
+        case 938321246:  return getMeasure(); 
+        case 3575610:  return getTypeElement();
+        case -791418107:  return getPatient(); 
+        case -991726143:  return getPeriod(); 
+        case -892481550:  return getStatusElement();
+        case 3076014:  return getDateElement();
+        case -2053950847:  return getReportingOrganization(); 
+        case 98629247:  return addGroup(); 
+        case 1599836026:  return getEvaluatedResources(); 
         default: return super.makeProperty(hash, name);
         }
 

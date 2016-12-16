@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -664,10 +664,10 @@ public class StructureDefinition extends MetadataResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -135761730: throw new FHIRException("Cannot make property identity as it is not a complex type"); // IdType
-        case 116076: throw new FHIRException("Cannot make property uri as it is not a complex type"); // UriType
-        case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
-        case -602415628: throw new FHIRException("Cannot make property comments as it is not a complex type"); // StringType
+        case -135761730:  return getIdentityElement();
+        case 116076:  return getUriElement();
+        case 3373707:  return getNameElement();
+        case -602415628:  return getCommentsElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -842,7 +842,7 @@ public class StructureDefinition extends MetadataResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1662836996:  return addElement(); // ElementDefinition
+        case -1662836996:  return addElement(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -1006,7 +1006,7 @@ public class StructureDefinition extends MetadataResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1662836996:  return addElement(); // ElementDefinition
+        case -1662836996:  return addElement(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -2769,34 +2769,34 @@ public class StructureDefinition extends MetadataResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 116079: throw new FHIRException("Cannot make property url as it is not a complex type"); // UriType
-        case -1618432855:  return addIdentifier(); // Identifier
-        case 351608024: throw new FHIRException("Cannot make property version as it is not a complex type"); // StringType
-        case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
-        case 110371416: throw new FHIRException("Cannot make property title as it is not a complex type"); // StringType
-        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<PublicationStatus>
-        case -404562712: throw new FHIRException("Cannot make property experimental as it is not a complex type"); // BooleanType
-        case 1447404028: throw new FHIRException("Cannot make property publisher as it is not a complex type"); // StringType
-        case 951526432:  return addContact(); // ContactDetail
-        case 3076014: throw new FHIRException("Cannot make property date as it is not a complex type"); // DateTimeType
-        case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // MarkdownType
-        case -669707736:  return addUseContext(); // UsageContext
-        case -507075711:  return addJurisdiction(); // CodeableConcept
-        case -220463842: throw new FHIRException("Cannot make property purpose as it is not a complex type"); // MarkdownType
-        case 1522889671: throw new FHIRException("Cannot make property copyright as it is not a complex type"); // MarkdownType
-        case -814408215:  return addKeyword(); // Coding
-        case 461006061: throw new FHIRException("Cannot make property fhirVersion as it is not a complex type"); // IdType
-        case 837556430:  return addMapping(); // StructureDefinitionMappingComponent
-        case 3292052: throw new FHIRException("Cannot make property kind as it is not a complex type"); // Enumeration<StructureDefinitionKind>
-        case 1732898850: throw new FHIRException("Cannot make property abstract as it is not a complex type"); // BooleanType
-        case -102839927: throw new FHIRException("Cannot make property contextType as it is not a complex type"); // Enumeration<ExtensionContext>
-        case 951530927: throw new FHIRException("Cannot make property context as it is not a complex type"); // StringType
-        case -802505007: throw new FHIRException("Cannot make property contextInvariant as it is not a complex type"); // StringType
-        case 3575610: throw new FHIRException("Cannot make property type as it is not a complex type"); // CodeType
-        case 1139771140: throw new FHIRException("Cannot make property baseDefinition as it is not a complex type"); // UriType
-        case -1353885513: throw new FHIRException("Cannot make property derivation as it is not a complex type"); // Enumeration<TypeDerivationRule>
-        case 284874180:  return getSnapshot(); // StructureDefinitionSnapshotComponent
-        case -1196150917:  return getDifferential(); // StructureDefinitionDifferentialComponent
+        case 116079:  return getUrlElement();
+        case -1618432855:  return addIdentifier(); 
+        case 351608024:  return getVersionElement();
+        case 3373707:  return getNameElement();
+        case 110371416:  return getTitleElement();
+        case -892481550:  return getStatusElement();
+        case -404562712:  return getExperimentalElement();
+        case 1447404028:  return getPublisherElement();
+        case 951526432:  return addContact(); 
+        case 3076014:  return getDateElement();
+        case -1724546052:  return getDescriptionElement();
+        case -669707736:  return addUseContext(); 
+        case -507075711:  return addJurisdiction(); 
+        case -220463842:  return getPurposeElement();
+        case 1522889671:  return getCopyrightElement();
+        case -814408215:  return addKeyword(); 
+        case 461006061:  return getFhirVersionElement();
+        case 837556430:  return addMapping(); 
+        case 3292052:  return getKindElement();
+        case 1732898850:  return getAbstractElement();
+        case -102839927:  return getContextTypeElement();
+        case 951530927:  return addContextElement();
+        case -802505007:  return addContextInvariantElement();
+        case 3575610:  return getTypeElement();
+        case 1139771140:  return getBaseDefinitionElement();
+        case -1353885513:  return getDerivationElement();
+        case 284874180:  return getSnapshot(); 
+        case -1196150917:  return getDifferential(); 
         default: return super.makeProperty(hash, name);
         }
 

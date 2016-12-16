@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -810,13 +810,20 @@ public class StructureMap extends MetadataResource {
         protected Enumeration<StructureMapModelMode> mode;
 
         /**
+         * The name used for this type in the map.
+         */
+        @Child(name = "alias", type = {StringType.class}, order=3, min=0, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="Name for type in this map", formalDefinition="The name used for this type in the map." )
+        protected StringType alias;
+
+        /**
          * Documentation that describes how the structure is used in the mapping.
          */
-        @Child(name = "documentation", type = {StringType.class}, order=3, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "documentation", type = {StringType.class}, order=4, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Documentation on use of structure", formalDefinition="Documentation that describes how the structure is used in the mapping." )
         protected StringType documentation;
 
-        private static final long serialVersionUID = -451631915L;
+        private static final long serialVersionUID = -277986558L;
 
     /**
      * Constructor
@@ -925,6 +932,55 @@ public class StructureMap extends MetadataResource {
         }
 
         /**
+         * @return {@link #alias} (The name used for this type in the map.). This is the underlying object with id, value and extensions. The accessor "getAlias" gives direct access to the value
+         */
+        public StringType getAliasElement() { 
+          if (this.alias == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create StructureMapStructureComponent.alias");
+            else if (Configuration.doAutoCreate())
+              this.alias = new StringType(); // bb
+          return this.alias;
+        }
+
+        public boolean hasAliasElement() { 
+          return this.alias != null && !this.alias.isEmpty();
+        }
+
+        public boolean hasAlias() { 
+          return this.alias != null && !this.alias.isEmpty();
+        }
+
+        /**
+         * @param value {@link #alias} (The name used for this type in the map.). This is the underlying object with id, value and extensions. The accessor "getAlias" gives direct access to the value
+         */
+        public StructureMapStructureComponent setAliasElement(StringType value) { 
+          this.alias = value;
+          return this;
+        }
+
+        /**
+         * @return The name used for this type in the map.
+         */
+        public String getAlias() { 
+          return this.alias == null ? null : this.alias.getValue();
+        }
+
+        /**
+         * @param value The name used for this type in the map.
+         */
+        public StructureMapStructureComponent setAlias(String value) { 
+          if (Utilities.noString(value))
+            this.alias = null;
+          else {
+            if (this.alias == null)
+              this.alias = new StringType();
+            this.alias.setValue(value);
+          }
+          return this;
+        }
+
+        /**
          * @return {@link #documentation} (Documentation that describes how the structure is used in the mapping.). This is the underlying object with id, value and extensions. The accessor "getDocumentation" gives direct access to the value
          */
         public StringType getDocumentationElement() { 
@@ -977,6 +1033,7 @@ public class StructureMap extends MetadataResource {
           super.listChildren(childrenList);
           childrenList.add(new Property("url", "uri", "The canonical URL that identifies the structure.", 0, java.lang.Integer.MAX_VALUE, url));
           childrenList.add(new Property("mode", "code", "How the referenced structure is used in this mapping.", 0, java.lang.Integer.MAX_VALUE, mode));
+          childrenList.add(new Property("alias", "string", "The name used for this type in the map.", 0, java.lang.Integer.MAX_VALUE, alias));
           childrenList.add(new Property("documentation", "string", "Documentation that describes how the structure is used in the mapping.", 0, java.lang.Integer.MAX_VALUE, documentation));
         }
 
@@ -985,6 +1042,7 @@ public class StructureMap extends MetadataResource {
         switch (hash) {
         case 116079: /*url*/ return this.url == null ? new Base[0] : new Base[] {this.url}; // UriType
         case 3357091: /*mode*/ return this.mode == null ? new Base[0] : new Base[] {this.mode}; // Enumeration<StructureMapModelMode>
+        case 92902992: /*alias*/ return this.alias == null ? new Base[0] : new Base[] {this.alias}; // StringType
         case 1587405498: /*documentation*/ return this.documentation == null ? new Base[0] : new Base[] {this.documentation}; // StringType
         default: return super.getProperty(hash, name, checkValid);
         }
@@ -1000,6 +1058,9 @@ public class StructureMap extends MetadataResource {
         case 3357091: // mode
           this.mode = new StructureMapModelModeEnumFactory().fromType(value); // Enumeration<StructureMapModelMode>
           break;
+        case 92902992: // alias
+          this.alias = castToString(value); // StringType
+          break;
         case 1587405498: // documentation
           this.documentation = castToString(value); // StringType
           break;
@@ -1014,6 +1075,8 @@ public class StructureMap extends MetadataResource {
           this.url = castToUri(value); // UriType
         else if (name.equals("mode"))
           this.mode = new StructureMapModelModeEnumFactory().fromType(value); // Enumeration<StructureMapModelMode>
+        else if (name.equals("alias"))
+          this.alias = castToString(value); // StringType
         else if (name.equals("documentation"))
           this.documentation = castToString(value); // StringType
         else
@@ -1023,9 +1086,10 @@ public class StructureMap extends MetadataResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 116079: throw new FHIRException("Cannot make property url as it is not a complex type"); // UriType
-        case 3357091: throw new FHIRException("Cannot make property mode as it is not a complex type"); // Enumeration<StructureMapModelMode>
-        case 1587405498: throw new FHIRException("Cannot make property documentation as it is not a complex type"); // StringType
+        case 116079:  return getUrlElement();
+        case 3357091:  return getModeElement();
+        case 92902992:  return getAliasElement();
+        case 1587405498:  return getDocumentationElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -1039,6 +1103,9 @@ public class StructureMap extends MetadataResource {
         else if (name.equals("mode")) {
           throw new FHIRException("Cannot call addChild on a primitive type StructureMap.mode");
         }
+        else if (name.equals("alias")) {
+          throw new FHIRException("Cannot call addChild on a primitive type StructureMap.alias");
+        }
         else if (name.equals("documentation")) {
           throw new FHIRException("Cannot call addChild on a primitive type StructureMap.documentation");
         }
@@ -1051,6 +1118,7 @@ public class StructureMap extends MetadataResource {
         copyValues(dst);
         dst.url = url == null ? null : url.copy();
         dst.mode = mode == null ? null : mode.copy();
+        dst.alias = alias == null ? null : alias.copy();
         dst.documentation = documentation == null ? null : documentation.copy();
         return dst;
       }
@@ -1062,8 +1130,8 @@ public class StructureMap extends MetadataResource {
         if (!(other instanceof StructureMapStructureComponent))
           return false;
         StructureMapStructureComponent o = (StructureMapStructureComponent) other;
-        return compareDeep(url, o.url, true) && compareDeep(mode, o.mode, true) && compareDeep(documentation, o.documentation, true)
-          ;
+        return compareDeep(url, o.url, true) && compareDeep(mode, o.mode, true) && compareDeep(alias, o.alias, true)
+           && compareDeep(documentation, o.documentation, true);
       }
 
       @Override
@@ -1073,12 +1141,12 @@ public class StructureMap extends MetadataResource {
         if (!(other instanceof StructureMapStructureComponent))
           return false;
         StructureMapStructureComponent o = (StructureMapStructureComponent) other;
-        return compareValues(url, o.url, true) && compareValues(mode, o.mode, true) && compareValues(documentation, o.documentation, true)
-          ;
+        return compareValues(url, o.url, true) && compareValues(mode, o.mode, true) && compareValues(alias, o.alias, true)
+           && compareValues(documentation, o.documentation, true);
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(url, mode, documentation
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(url, mode, alias, documentation
           );
       }
 
@@ -1456,11 +1524,11 @@ public class StructureMap extends MetadataResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // IdType
-        case -1305664359: throw new FHIRException("Cannot make property extends as it is not a complex type"); // IdType
-        case 1587405498: throw new FHIRException("Cannot make property documentation as it is not a complex type"); // StringType
-        case 100358090:  return addInput(); // StructureMapGroupInputComponent
-        case 3512060:  return addRule(); // StructureMapGroupRuleComponent
+        case 3373707:  return getNameElement();
+        case -1305664359:  return getExtendsElement();
+        case 1587405498:  return getDocumentationElement();
+        case 100358090:  return addInput(); 
+        case 3512060:  return addRule(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -1842,10 +1910,10 @@ public class StructureMap extends MetadataResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // IdType
-        case 3575610: throw new FHIRException("Cannot make property type as it is not a complex type"); // StringType
-        case 3357091: throw new FHIRException("Cannot make property mode as it is not a complex type"); // Enumeration<StructureMapInputMode>
-        case 1587405498: throw new FHIRException("Cannot make property documentation as it is not a complex type"); // StringType
+        case 3373707:  return getNameElement();
+        case 3575610:  return getTypeElement();
+        case 3357091:  return getModeElement();
+        case 1587405498:  return getDocumentationElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -2351,12 +2419,12 @@ public class StructureMap extends MetadataResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // IdType
-        case -896505829:  return addSource(); // StructureMapGroupRuleSourceComponent
-        case -880905839:  return addTarget(); // StructureMapGroupRuleTargetComponent
-        case 3512060:  return addRule(); // StructureMapGroupRuleComponent
-        case -1109226753:  return addDependent(); // StructureMapGroupRuleDependentComponent
-        case 1587405498: throw new FHIRException("Cannot make property documentation as it is not a complex type"); // StringType
+        case 3373707:  return getNameElement();
+        case -896505829:  return addSource(); 
+        case -880905839:  return addTarget(); 
+        case 3512060:  return addRule(); 
+        case -1109226753:  return addDependent(); 
+        case 1587405498:  return getDocumentationElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -3185,17 +3253,17 @@ public class StructureMap extends MetadataResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -393139297: throw new FHIRException("Cannot make property required as it is not a complex type"); // BooleanType
-        case 951530927: throw new FHIRException("Cannot make property context as it is not a complex type"); // IdType
-        case -102839927: throw new FHIRException("Cannot make property contextType as it is not a complex type"); // Enumeration<StructureMapContextType>
-        case 108114: throw new FHIRException("Cannot make property min as it is not a complex type"); // IntegerType
-        case 107876: throw new FHIRException("Cannot make property max as it is not a complex type"); // StringType
-        case 3575610: throw new FHIRException("Cannot make property type as it is not a complex type"); // StringType
-        case -1662836996: throw new FHIRException("Cannot make property element as it is not a complex type"); // StringType
-        case 1345445729: throw new FHIRException("Cannot make property listMode as it is not a complex type"); // Enumeration<StructureMapListMode>
-        case -1249586564: throw new FHIRException("Cannot make property variable as it is not a complex type"); // IdType
-        case -861311717: throw new FHIRException("Cannot make property condition as it is not a complex type"); // StringType
-        case 94627080: throw new FHIRException("Cannot make property check as it is not a complex type"); // StringType
+        case -393139297:  return getRequiredElement();
+        case 951530927:  return getContextElement();
+        case -102839927:  return getContextTypeElement();
+        case 108114:  return getMinElement();
+        case 107876:  return getMaxElement();
+        case 3575610:  return getTypeElement();
+        case -1662836996:  return getElementElement();
+        case 1345445729:  return getListModeElement();
+        case -1249586564:  return getVariableElement();
+        case -861311717:  return getConditionElement();
+        case 94627080:  return getCheckElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -3866,14 +3934,14 @@ public class StructureMap extends MetadataResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 951530927: throw new FHIRException("Cannot make property context as it is not a complex type"); // IdType
-        case -102839927: throw new FHIRException("Cannot make property contextType as it is not a complex type"); // Enumeration<StructureMapContextType>
-        case -1662836996: throw new FHIRException("Cannot make property element as it is not a complex type"); // StringType
-        case -1249586564: throw new FHIRException("Cannot make property variable as it is not a complex type"); // IdType
-        case 1345445729: throw new FHIRException("Cannot make property listMode as it is not a complex type"); // Enumeration<StructureMapListMode>
-        case 337117045: throw new FHIRException("Cannot make property listRuleId as it is not a complex type"); // IdType
-        case 1052666732: throw new FHIRException("Cannot make property transform as it is not a complex type"); // Enumeration<StructureMapTransform>
-        case 1954460585:  return addParameter(); // StructureMapGroupRuleTargetParameterComponent
+        case 951530927:  return getContextElement();
+        case -102839927:  return getContextTypeElement();
+        case -1662836996:  return getElementElement();
+        case -1249586564:  return getVariableElement();
+        case 1345445729:  return addListModeElement();
+        case 337117045:  return getListRuleIdElement();
+        case 1052666732:  return getTransformElement();
+        case 1954460585:  return addParameter(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -4121,7 +4189,7 @@ public class StructureMap extends MetadataResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1410166417:  return getValue(); // Type
+        case -1410166417:  return getValue(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -4382,8 +4450,8 @@ public class StructureMap extends MetadataResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // IdType
-        case -1249586564: throw new FHIRException("Cannot make property variable as it is not a complex type"); // StringType
+        case 3373707:  return getNameElement();
+        case -1249586564:  return addVariableElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -5562,24 +5630,24 @@ public class StructureMap extends MetadataResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 116079: throw new FHIRException("Cannot make property url as it is not a complex type"); // UriType
-        case -1618432855:  return addIdentifier(); // Identifier
-        case 351608024: throw new FHIRException("Cannot make property version as it is not a complex type"); // StringType
-        case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
-        case 110371416: throw new FHIRException("Cannot make property title as it is not a complex type"); // StringType
-        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<PublicationStatus>
-        case -404562712: throw new FHIRException("Cannot make property experimental as it is not a complex type"); // BooleanType
-        case 1447404028: throw new FHIRException("Cannot make property publisher as it is not a complex type"); // StringType
-        case 951526432:  return addContact(); // ContactDetail
-        case 3076014: throw new FHIRException("Cannot make property date as it is not a complex type"); // DateTimeType
-        case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // MarkdownType
-        case -669707736:  return addUseContext(); // UsageContext
-        case -507075711:  return addJurisdiction(); // CodeableConcept
-        case -220463842: throw new FHIRException("Cannot make property purpose as it is not a complex type"); // MarkdownType
-        case 1522889671: throw new FHIRException("Cannot make property copyright as it is not a complex type"); // MarkdownType
-        case 144518515:  return addStructure(); // StructureMapStructureComponent
-        case -1184795739: throw new FHIRException("Cannot make property import as it is not a complex type"); // UriType
-        case 98629247:  return addGroup(); // StructureMapGroupComponent
+        case 116079:  return getUrlElement();
+        case -1618432855:  return addIdentifier(); 
+        case 351608024:  return getVersionElement();
+        case 3373707:  return getNameElement();
+        case 110371416:  return getTitleElement();
+        case -892481550:  return getStatusElement();
+        case -404562712:  return getExperimentalElement();
+        case 1447404028:  return getPublisherElement();
+        case 951526432:  return addContact(); 
+        case 3076014:  return getDateElement();
+        case -1724546052:  return getDescriptionElement();
+        case -669707736:  return addUseContext(); 
+        case -507075711:  return addJurisdiction(); 
+        case -220463842:  return getPurposeElement();
+        case 1522889671:  return getCopyrightElement();
+        case 144518515:  return addStructure(); 
+        case -1184795739:  return addImportElement();
+        case 98629247:  return addGroup(); 
         default: return super.makeProperty(hash, name);
         }
 

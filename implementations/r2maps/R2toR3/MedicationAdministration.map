@@ -1,12 +1,21 @@
 ﻿map "http://hl7.org/fhir/StructureMap/MedicationAdministration2to3" = "R2 to R3 Conversions for MedicationAdministration"
 
-uses "http://hl7.org/fhir/StructureDefinition/MedicationAdministration" as source
-uses "http://hl7.org/fhir/StructureDefinition/MedicationAdministrationR2" as target
+
+uses "http://hl7.org/fhir/DSTU2/StructureDefinition/MedicationAdministration" alias MedicationAdministrationR2 as source
+uses "http://hl7.org/fhir/StructureDefinition/MedicationAdministration" alias MedicationAdministration as target
+
+imports "http://hl7.org/fhir/StructureMap/primitives2to3"
+imports "http://hl7.org/fhir/StructureMap/Identifier2to3"
+imports "http://hl7.org/fhir/StructureMap/Ratio2to3"
+imports "http://hl7.org/fhir/StructureMap/Reference2to3"
+imports "http://hl7.org/fhir/StructureMap/Period2to3"
+imports "http://hl7.org/fhir/StructureMap/CodeableConcept2to3"
+
 
 
 group MedicationAdministration extends Element
   input src : MedicationAdministrationR2 as source
-  input tgt : MedicationAdministration as Target
+  input tgt : MedicationAdministration as target
 
   "MedicationAdministration-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
   "MedicationAdministration-status" : for src.status as vs make tgt.status as vt then code(vs, vt)
@@ -21,7 +30,7 @@ group MedicationAdministration extends Element
   "MedicationAdministration-reasonNotGiven" : for src.reasonNotGiven as vs make tgt.reasonNotGiven as vt then CodeableConcept(vs,vt)
   "MedicationAdministration-reasonGiven" : for src.reasonGiven as vs make tgt.reasonGiven as vt then CodeableConcept(vs,vt)
   "MedicationAdministration-device" : for src.device as vs make tgt.device as vt then Reference(vs,vt)
-  "MedicationAdministration-dosage" : for src.dosage as vs0 make tgt.dosage = as vt0 then {
+  "MedicationAdministration-dosage" : for src.dosage as vs0 make tgt.dosage as vt0 then {
     "MedicationAdministration.dosage-text" : for vs0.text as vs make vt0.text as vt then string(vs, vt)
     "MedicationAdministration.dosage-site" : for vs0.siteCodeableConcept as vs make vt0.site as vt then CodeableConcept(vs,vt)
     "MedicationAdministration.dosage-route" : for vs0.route as vs make vt0.route as vt then CodeableConcept(vs,vt)

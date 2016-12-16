@@ -1,12 +1,20 @@
 ﻿map "http://hl7.org/fhir/StructureMap/DeviceMetric3to2" = "R3 to R2 Conversion for DeviceMetric"
 
-uses "http://hl7.org/fhir/StructureDefinition/DeviceMetricR2" as source
-uses "http://hl7.org/fhir/StructureDefinition/DeviceMetric" as target
+
+uses "http://hl7.org/fhir/StructureDefinition/DeviceMetric" alias DeviceMetric as source
+uses "http://hl7.org/fhir/DSTU2/StructureDefinition/DeviceMetric" alias DeviceMetricR2 as target
+
+imports "http://hl7.org/fhir/StructureMap/primitives3to2"
+imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
+imports "http://hl7.org/fhir/StructureMap/Reference3to2"
+imports "http://hl7.org/fhir/StructureMap/Timing3to2"
+imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
+
 
 
 group DeviceMetric extends Element
   input src : DeviceMetric as source
-  input tgt : DeviceMetricR2 as Target
+  input tgt : DeviceMetricR2 as target
   "DeviceMetric-type" : for src.type as vs make tgt.type as vt then CodeableConcept(vs,vt)
   "DeviceMetric-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
   "DeviceMetric-unit" : for src.unit as vs make tgt.unit as vt then CodeableConcept(vs,vt)
@@ -16,7 +24,7 @@ group DeviceMetric extends Element
   "DeviceMetric-color" : for src.color as vs make tgt.color as vt then code(vs, vt)
   "DeviceMetric-category" : for src.category as vs make tgt.category as vt then code(vs, vt)
   "DeviceMetric-measurementPeriod" : for src.measurementPeriod as vs make tgt.measurementPeriod as vt then Timing(vs,vt)
-  "DeviceMetric-calibration" : for src.calibration as vs0 make tgt.calibration = as vt0 then {
+  "DeviceMetric-calibration" : for src.calibration as vs0 make tgt.calibration as vt0 then {
     "DeviceMetric.calibration-type" : for vs0.type as vs make vt0.type as vt then code(vs, vt)
     "DeviceMetric.calibration-state" : for vs0.state as vs make vt0.state as vt then code(vs, vt)
     "DeviceMetric.calibration-time" : for vs0.time as vs make vt0.time as vt then instant(vs, vt)

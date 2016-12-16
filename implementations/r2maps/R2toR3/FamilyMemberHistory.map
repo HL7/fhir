@@ -1,12 +1,22 @@
 ﻿map "http://hl7.org/fhir/StructureMap/FamilyMemberHistory2to3" = "R2 to R3 Conversions for FamilyMemberHistory"
 
-uses "http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory" as source
-uses "http://hl7.org/fhir/StructureDefinition/FamilyMemberHistoryR2" as target
+
+uses "http://hl7.org/fhir/DSTU2/StructureDefinition/FamilyMemberHistory" alias FamilyMemberHistoryR2 as source
+uses "http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory" alias FamilyMemberHistory as target
+
+imports "http://hl7.org/fhir/StructureMap/primitives2to3"
+imports "http://hl7.org/fhir/StructureMap/Identifier2to3"
+imports "http://hl7.org/fhir/StructureMap/Reference2to3"
+imports "http://hl7.org/fhir/StructureMap/Period2to3"
+imports "http://hl7.org/fhir/StructureMap/Range2to3"
+imports "http://hl7.org/fhir/StructureMap/Annotation2to3"
+imports "http://hl7.org/fhir/StructureMap/CodeableConcept2to3"
+
 
 
 group FamilyMemberHistory extends Element
   input src : FamilyMemberHistoryR2 as source
-  input tgt : FamilyMemberHistory as Target
+  input tgt : FamilyMemberHistory as target
 
   "FamilyMemberHistory-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
   "FamilyMemberHistory-patient" : for src.patient as vs make tgt.patient as vt then Reference(vs,vt)
@@ -25,7 +35,7 @@ group FamilyMemberHistory extends Element
   "FamilyMemberHistory-deceased-date" : for src.deceased  : date as vs make tgt.deceased = create("date") as vt then date(vs,vt)
   "FamilyMemberHistory-deceased-string" : for src.deceased  : string as vs make tgt.deceased = create("string") as vt then string(vs,vt)
   "FamilyMemberHistory-note" : for src.note as vs make tgt.note as vt then Annotation(vs,vt)
-  "FamilyMemberHistory-condition" : for src.condition as vs0 make tgt.condition = as vt0 then {
+  "FamilyMemberHistory-condition" : for src.condition as vs0 make tgt.condition as vt0 then {
     "FamilyMemberHistory.condition-code" : for vs0.code as vs make vt0.code as vt then CodeableConcept(vs,vt)
     "FamilyMemberHistory.condition-outcome" : for vs0.outcome as vs make vt0.outcome as vt then CodeableConcept(vs,vt)
     "FamilyMemberHistory.condition-onset-Range" : for vs0.onset  : Range as vs make vt0.onset = create("Range") as vt then Range(vs,vt)

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -601,13 +601,13 @@ public class PaymentReconciliation extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3575610:  return getType(); // CodeableConcept
-        case 1095692943:  return getRequest(); // Reference
-        case -340323263:  return getResponse(); // Reference
-        case 348678409:  return getSubmitter(); // Reference
-        case 106443592:  return getPayee(); // Reference
-        case 3076014: throw new FHIRException("Cannot make property date as it is not a complex type"); // DateType
-        case -1413853096:  return getAmount(); // Money
+        case 3575610:  return getType(); 
+        case 1095692943:  return getRequest(); 
+        case -340323263:  return getResponse(); 
+        case 348678409:  return getSubmitter(); 
+        case 106443592:  return getPayee(); 
+        case 3076014:  return getDateElement();
+        case -1413853096:  return getAmount(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -835,8 +835,8 @@ public class PaymentReconciliation extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3575610:  return getType(); // CodeableConcept
-        case 3556653: throw new FHIRException("Cannot make property text as it is not a complex type"); // StringType
+        case 3575610:  return getType(); 
+        case 3556653:  return getTextElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -1729,20 +1729,20 @@ public class PaymentReconciliation extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1618432855:  return addIdentifier(); // Identifier
-        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<PaymentReconciliationStatus>
-        case -991726143:  return getPeriod(); // Period
-        case 1028554472: throw new FHIRException("Cannot make property created as it is not a complex type"); // DateTimeType
-        case 1178922291:  return getOrganization(); // Reference
-        case 1095692943:  return getRequest(); // Reference
-        case -1106507950:  return getOutcome(); // CodeableConcept
-        case 583380919: throw new FHIRException("Cannot make property disposition as it is not a complex type"); // StringType
-        case 1601527200:  return getRequestProvider(); // Reference
-        case 599053666:  return getRequestOrganization(); // Reference
-        case -1335224239:  return addDetail(); // DetailsComponent
-        case 3148996:  return getForm(); // CodeableConcept
-        case 110549828:  return getTotal(); // Money
-        case 3387378:  return addNote(); // NotesComponent
+        case -1618432855:  return addIdentifier(); 
+        case -892481550:  return getStatusElement();
+        case -991726143:  return getPeriod(); 
+        case 1028554472:  return getCreatedElement();
+        case 1178922291:  return getOrganization(); 
+        case 1095692943:  return getRequest(); 
+        case -1106507950:  return getOutcome(); 
+        case 583380919:  return getDispositionElement();
+        case 1601527200:  return getRequestProvider(); 
+        case 599053666:  return getRequestOrganization(); 
+        case -1335224239:  return addDetail(); 
+        case 3148996:  return getForm(); 
+        case 110549828:  return getTotal(); 
+        case 3387378:  return addNote(); 
         default: return super.makeProperty(hash, name);
         }
 

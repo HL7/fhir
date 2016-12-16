@@ -1,15 +1,23 @@
 ﻿map "http://hl7.org/fhir/StructureMap/EpisodeOfCare3to2" = "R3 to R2 Conversion for EpisodeOfCare"
 
-uses "http://hl7.org/fhir/StructureDefinition/EpisodeOfCareR2" as source
-uses "http://hl7.org/fhir/StructureDefinition/EpisodeOfCare" as target
+
+uses "http://hl7.org/fhir/StructureDefinition/EpisodeOfCare" alias EpisodeOfCare as source
+uses "http://hl7.org/fhir/DSTU2/StructureDefinition/EpisodeOfCare" alias EpisodeOfCareR2 as target
+
+imports "http://hl7.org/fhir/StructureMap/primitives3to2"
+imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
+imports "http://hl7.org/fhir/StructureMap/Reference3to2"
+imports "http://hl7.org/fhir/StructureMap/Period3to2"
+imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
+
 
 
 group EpisodeOfCare extends Element
   input src : EpisodeOfCare as source
-  input tgt : EpisodeOfCareR2 as Target
+  input tgt : EpisodeOfCareR2 as target
   "EpisodeOfCare-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
   "EpisodeOfCare-status" : for src.status as vs make tgt.status as vt then code(vs, vt)
-  "EpisodeOfCare-statusHistory" : for src.statusHistory as vs0 make tgt.statusHistory = as vt0 then {
+  "EpisodeOfCare-statusHistory" : for src.statusHistory as vs0 make tgt.statusHistory as vt0 then {
     "EpisodeOfCare.statusHistory-status" : for vs0.status as vs make vt0.status as vt then code(vs, vt)
     "EpisodeOfCare.statusHistory-period" : for vs0.period as vs make vt0.period as vt then Period(vs,vt)
   }

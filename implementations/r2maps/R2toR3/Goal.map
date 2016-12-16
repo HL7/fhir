@@ -1,12 +1,20 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Goal2to3" = "R2 to R3 Conversions for Goal"
 
-uses "http://hl7.org/fhir/StructureDefinition/Goal" as source
-uses "http://hl7.org/fhir/StructureDefinition/GoalR2" as target
+
+uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Goal" alias GoalR2 as source
+uses "http://hl7.org/fhir/StructureDefinition/Goal" alias Goal as target
+
+imports "http://hl7.org/fhir/StructureMap/primitives2to3"
+imports "http://hl7.org/fhir/StructureMap/Identifier2to3"
+imports "http://hl7.org/fhir/StructureMap/Reference2to3"
+imports "http://hl7.org/fhir/StructureMap/Annotation2to3"
+imports "http://hl7.org/fhir/StructureMap/CodeableConcept2to3"
+
 
 
 group Goal extends Element
   input src : GoalR2 as source
-  input tgt : Goal as Target
+  input tgt : Goal as target
 
   "Goal-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
   "Goal-subject" : for src.subject as vs make tgt.subject as vt then Reference(vs,vt)
@@ -20,7 +28,7 @@ group Goal extends Element
   "Goal-priority" : for src.priority as vs make tgt.priority as vt then CodeableConcept(vs,vt)
   "Goal-addresses" : for src.addresses as vs make tgt.addresses as vt then Reference(vs,vt)
   "Goal-note" : for src.note as vs make tgt.note as vt then Annotation(vs,vt)
-  "Goal-outcome" : for src.outcome as vs0 make tgt.outcome = as vt0 then {
+  "Goal-outcome" : for src.outcome as vs0 make tgt.outcome as vt0 then {
     "Goal.outcome-result-CodeableConcept" : for vs0.result  : CodeableConcept as vs make vt0.result = create("CodeableConcept") as vt then CodeableConcept(vs,vt)
     "Goal.outcome-result-Reference" : for vs0.result  : Reference as vs make vt0.result = create("Reference") as vt then Reference(vs,vt)
   }

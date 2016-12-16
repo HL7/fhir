@@ -1,12 +1,18 @@
 ﻿map "http://hl7.org/fhir/StructureMap/EnrollmentRequest2to3" = "R2 to R3 Conversions for EnrollmentRequest"
 
-uses "http://hl7.org/fhir/StructureDefinition/EnrollmentRequest" as source
-uses "http://hl7.org/fhir/StructureDefinition/EnrollmentRequestR2" as target
+
+uses "http://hl7.org/fhir/DSTU2/StructureDefinition/EnrollmentRequest" alias EnrollmentRequestR2 as source
+uses "http://hl7.org/fhir/StructureDefinition/EnrollmentRequest" alias EnrollmentRequest as target
+
+imports "http://hl7.org/fhir/StructureMap/primitives2to3"
+imports "http://hl7.org/fhir/StructureMap/Identifier2to3"
+imports "http://hl7.org/fhir/StructureMap/Reference2to3"
+
 
 
 group EnrollmentRequest extends Element
   input src : EnrollmentRequestR2 as source
-  input tgt : EnrollmentRequest as Target
+  input tgt : EnrollmentRequest as target
 
   "EnrollmentRequest-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
   "EnrollmentRequest-created" : for src.created as vs make tgt.created as vt then dateTime(vs, vt)

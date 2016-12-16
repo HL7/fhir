@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import org.hl7.fhir.dstu3.model.DateType;
 import org.hl7.fhir.dstu3.model.DateTimeType;
@@ -7769,6 +7769,8 @@ public class RdfParser extends RdfParserBase {
       t = parent.predicate("fhir:"+parentType+'.'+name);
     }
     composeBackboneElement(t, "substitution", name, element, index);
+    if (element.hasWasSubstitutedElement())
+      composeBoolean(t, "MedicationDispense", "wasSubstituted", element.getWasSubstitutedElement(), -1);
     if (element.hasType())
       composeCodeableConcept(t, "MedicationDispense", "type", element.getType(), -1);
     for (int i = 0; i < element.getReason().size(); i++)
@@ -7901,6 +7903,10 @@ public class RdfParser extends RdfParserBase {
     composeDomainResource(t, "MedicationStatement", name, element, index);
     for (int i = 0; i < element.getIdentifier().size(); i++)
       composeIdentifier(t, "MedicationStatement", "identifier", element.getIdentifier().get(i), i);
+    for (int i = 0; i < element.getBasedOn().size(); i++)
+      composeReference(t, "MedicationStatement", "basedOn", element.getBasedOn().get(i), i);
+    if (element.hasContext())
+      composeReference(t, "MedicationStatement", "context", element.getContext(), -1);
     if (element.hasStatusElement())
       composeEnum(t, "MedicationStatement", "status", element.getStatusElement(), -1);
     if (element.hasMedication())
@@ -10841,6 +10847,8 @@ public class RdfParser extends RdfParserBase {
       composeUri(t, "StructureMap", "url", element.getUrlElement(), -1);
     if (element.hasModeElement())
       composeEnum(t, "StructureMap", "mode", element.getModeElement(), -1);
+    if (element.hasAliasElement())
+      composeString(t, "StructureMap", "alias", element.getAliasElement(), -1);
     if (element.hasDocumentationElement())
       composeString(t, "StructureMap", "documentation", element.getDocumentationElement(), -1);
   }

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -632,8 +632,8 @@ public class MedicationRequest extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 92750597:  return getAgent(); // Reference
-        case -14402964:  return getOnBehalfOf(); // Reference
+        case 92750597:  return getAgent(); 
+        case -14402964:  return getOnBehalfOf(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -968,11 +968,11 @@ public class MedicationRequest extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1434195053:  return getValidityPeriod(); // Period
-        case -239736976: throw new FHIRException("Cannot make property numberOfRepeatsAllowed as it is not a complex type"); // PositiveIntType
-        case -1285004149:  return getQuantity(); // SimpleQuantity
-        case -1910182789:  return getExpectedSupplyDuration(); // Duration
-        case 481140686:  return getPerformer(); // Reference
+        case -1434195053:  return getValidityPeriod(); 
+        case -239736976:  return getNumberOfRepeatsAllowedElement();
+        case -1285004149:  return getQuantity(); 
+        case -1910182789:  return getExpectedSupplyDuration(); 
+        case 481140686:  return getPerformer(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -1194,8 +1194,8 @@ public class MedicationRequest extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -911343192: throw new FHIRException("Cannot make property allowed as it is not a complex type"); // BooleanType
-        case -934964668:  return getReason(); // CodeableConcept
+        case -911343192:  return getAllowedElement();
+        case -934964668:  return getReason(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -2736,29 +2736,29 @@ public class MedicationRequest extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1618432855:  return addIdentifier(); // Identifier
-        case -1014418093:  return addDefinition(); // Reference
-        case -332612366:  return addBasedOn(); // Reference
-        case -445338488:  return getGroupIdentifier(); // Identifier
-        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<MedicationRequestStatus>
-        case -1183762788: throw new FHIRException("Cannot make property intent as it is not a complex type"); // Enumeration<MedicationRequestIntent>
-        case -1165461084: throw new FHIRException("Cannot make property priority as it is not a complex type"); // Enumeration<MedicationRequestPriority>
-        case 1458402129:  return getMedication(); // Type
-        case -1867885268:  return getSubject(); // Reference
-        case 951530927:  return getContext(); // Reference
-        case -1248768647:  return addSupportingInformation(); // Reference
-        case -1500852503: throw new FHIRException("Cannot make property authoredOn as it is not a complex type"); // DateTimeType
-        case 693933948:  return getRequester(); // MedicationRequestRequesterComponent
-        case -799233858:  return getRecorder(); // Reference
-        case 722137681:  return addReasonCode(); // CodeableConcept
-        case -1146218137:  return addReasonReference(); // Reference
-        case 3387378:  return addNote(); // Annotation
-        case 50511102:  return getCategory(); // CodeableConcept
-        case -1201373865:  return addDosageInstruction(); // DosageInstruction
-        case 824620658:  return getDispenseRequest(); // MedicationRequestDispenseRequestComponent
-        case 826147581:  return getSubstitution(); // MedicationRequestSubstitutionComponent
-        case -486355964:  return getPriorPrescription(); // Reference
-        case 1835190426:  return addEventHistory(); // Reference
+        case -1618432855:  return addIdentifier(); 
+        case -1014418093:  return addDefinition(); 
+        case -332612366:  return addBasedOn(); 
+        case -445338488:  return getGroupIdentifier(); 
+        case -892481550:  return getStatusElement();
+        case -1183762788:  return getIntentElement();
+        case -1165461084:  return getPriorityElement();
+        case 1458402129:  return getMedication(); 
+        case -1867885268:  return getSubject(); 
+        case 951530927:  return getContext(); 
+        case -1248768647:  return addSupportingInformation(); 
+        case -1500852503:  return getAuthoredOnElement();
+        case 693933948:  return getRequester(); 
+        case -799233858:  return getRecorder(); 
+        case 722137681:  return addReasonCode(); 
+        case -1146218137:  return addReasonReference(); 
+        case 3387378:  return addNote(); 
+        case 50511102:  return getCategory(); 
+        case -1201373865:  return addDosageInstruction(); 
+        case 824620658:  return getDispenseRequest(); 
+        case 826147581:  return getSubstitution(); 
+        case -486355964:  return getPriorPrescription(); 
+        case 1835190426:  return addEventHistory(); 
         default: return super.makeProperty(hash, name);
         }
 

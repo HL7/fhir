@@ -1,12 +1,21 @@
 ﻿map "http://hl7.org/fhir/StructureMap/CarePlan3to2" = "R3 to R2 Conversion for CarePlan"
 
-uses "http://hl7.org/fhir/StructureDefinition/CarePlanR2" as source
-uses "http://hl7.org/fhir/StructureDefinition/CarePlan" as target
+
+uses "http://hl7.org/fhir/StructureDefinition/CarePlan" alias CarePlan as source
+uses "http://hl7.org/fhir/DSTU2/StructureDefinition/CarePlan" alias CarePlanR2 as target
+
+imports "http://hl7.org/fhir/StructureMap/primitives3to2"
+imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
+imports "http://hl7.org/fhir/StructureMap/Reference3to2"
+imports "http://hl7.org/fhir/StructureMap/Period3to2"
+imports "http://hl7.org/fhir/StructureMap/Annotation3to2"
+imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
+
 
 
 group CarePlan extends Element
   input src : CarePlan as source
-  input tgt : CarePlanR2 as Target
+  input tgt : CarePlanR2 as target
   "CarePlan-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
   "CarePlan-subject" : for src.subject as vs make tgt.subject as vt then Reference(vs,vt)
   "CarePlan-status" : for src.status as vs make tgt.status as vt then code(vs, vt)
@@ -18,12 +27,12 @@ group CarePlan extends Element
   "CarePlan-description" : for src.description as vs make tgt.description as vt then string(vs, vt)
   "CarePlan-addresses" : for src.addresses as vs make tgt.addresses as vt then Reference(vs,vt)
   "CarePlan-support" : for src.support as vs make tgt.support as vt then Reference(vs,vt)
-  "CarePlan-relatedPlan" : for src.relatedPlan as vs0 make tgt.relatedPlan = as vt0 then {
+  "CarePlan-relatedPlan" : for src.relatedPlan as vs0 make tgt.relatedPlan as vt0 then {
     "CarePlan.relatedPlan-code" : for vs0.code as vs make vt0.code as vt then code(vs, vt)
     "CarePlan.relatedPlan-plan" : for vs0.plan as vs make vt0.plan as vt then Reference(vs,vt)
   }
   "CarePlan-goal" : for src.goal as vs make tgt.goal as vt then Reference(vs,vt)
-  "CarePlan-activity" : for src.activity as vs0 make tgt.activity = as vt0 then {
+  "CarePlan-activity" : for src.activity as vs0 make tgt.activity as vt0 then {
     "CarePlan.activity-actionResulting" : for vs0.actionResulting as vs make vt0.actionResulting as vt then Reference(vs,vt)
     "CarePlan.activity-progress" : for vs0.progress as vs make vt0.progress as vt then Annotation(vs,vt)
     "CarePlan.activity-reference" : for vs0.reference as vs make vt0.reference as vt then Reference(vs,vt)

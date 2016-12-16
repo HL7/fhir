@@ -8,6 +8,7 @@ import org.hl7.fhir.dstu3.elementmodel.Element;
 import org.hl7.fhir.dstu3.elementmodel.Manager.FhirFormat;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
 import org.hl7.fhir.exceptions.DefinitionException;
+import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.utilities.validation.ValidationMessage;
 
@@ -102,48 +103,49 @@ public interface IResourceValidator {
    * - a elementmodel resource  
    * 
    * in addition, you can pass one or more profiles ti validate beyond the base standard - as structure definitions or canonical URLs 
+   * @throws IOException 
    */
-  void validate(Object Context, List<ValidationMessage> errors, org.hl7.fhir.dstu3.elementmodel.Element element) throws Exception;
-  void validate(Object Context, List<ValidationMessage> errors, org.hl7.fhir.dstu3.elementmodel.Element element, ValidationProfileSet profiles) throws Exception;
+  void validate(Object Context, List<ValidationMessage> errors, org.hl7.fhir.dstu3.elementmodel.Element element) throws FHIRException, IOException;
+  void validate(Object Context, List<ValidationMessage> errors, org.hl7.fhir.dstu3.elementmodel.Element element, ValidationProfileSet profiles) throws FHIRException, IOException;
   @Deprecated
-  void validate(Object Context, List<ValidationMessage> errors, org.hl7.fhir.dstu3.elementmodel.Element element, String profile) throws Exception;
+  void validate(Object Context, List<ValidationMessage> errors, org.hl7.fhir.dstu3.elementmodel.Element element, String profile) throws FHIRException, IOException;
   @Deprecated
-  void validate(Object Context, List<ValidationMessage> errors, org.hl7.fhir.dstu3.elementmodel.Element element, StructureDefinition profile) throws Exception;
+  void validate(Object Context, List<ValidationMessage> errors, org.hl7.fhir.dstu3.elementmodel.Element element, StructureDefinition profile) throws FHIRException, IOException;
   
-  org.hl7.fhir.dstu3.elementmodel.Element validate(Object Context, List<ValidationMessage> errors, InputStream stream, FhirFormat format) throws Exception;
-  org.hl7.fhir.dstu3.elementmodel.Element validate(Object Context, List<ValidationMessage> errors, InputStream stream, FhirFormat format, ValidationProfileSet profiles) throws Exception;
+  org.hl7.fhir.dstu3.elementmodel.Element validate(Object Context, List<ValidationMessage> errors, InputStream stream, FhirFormat format) throws FHIRException, IOException;
+  org.hl7.fhir.dstu3.elementmodel.Element validate(Object Context, List<ValidationMessage> errors, InputStream stream, FhirFormat format, ValidationProfileSet profiles) throws FHIRException, IOException;
   @Deprecated
-  org.hl7.fhir.dstu3.elementmodel.Element validate(Object Context, List<ValidationMessage> errors, InputStream stream, FhirFormat format, String profile) throws Exception;
+  org.hl7.fhir.dstu3.elementmodel.Element validate(Object Context, List<ValidationMessage> errors, InputStream stream, FhirFormat format, String profile) throws FHIRException, IOException;
   @Deprecated
-  org.hl7.fhir.dstu3.elementmodel.Element validate(Object Context, List<ValidationMessage> errors, InputStream stream, FhirFormat format, StructureDefinition profile) throws Exception;
+  org.hl7.fhir.dstu3.elementmodel.Element validate(Object Context, List<ValidationMessage> errors, InputStream stream, FhirFormat format, StructureDefinition profile) throws FHIRException, IOException;
 
-  org.hl7.fhir.dstu3.elementmodel.Element validate(Object Context, List<ValidationMessage> errors, org.hl7.fhir.dstu3.model.Resource resource) throws Exception;
-  org.hl7.fhir.dstu3.elementmodel.Element validate(Object Context, List<ValidationMessage> errors, org.hl7.fhir.dstu3.model.Resource resource, ValidationProfileSet profiles) throws Exception;
+  org.hl7.fhir.dstu3.elementmodel.Element validate(Object Context, List<ValidationMessage> errors, org.hl7.fhir.dstu3.model.Resource resource) throws FHIRException, IOException;
+  org.hl7.fhir.dstu3.elementmodel.Element validate(Object Context, List<ValidationMessage> errors, org.hl7.fhir.dstu3.model.Resource resource, ValidationProfileSet profiles) throws FHIRException, IOException;
   @Deprecated
-  org.hl7.fhir.dstu3.elementmodel.Element validate(Object Context, List<ValidationMessage> errors, org.hl7.fhir.dstu3.model.Resource resource, String profile) throws Exception;
+  org.hl7.fhir.dstu3.elementmodel.Element validate(Object Context, List<ValidationMessage> errors, org.hl7.fhir.dstu3.model.Resource resource, String profile) throws FHIRException, IOException;
   @Deprecated
-  org.hl7.fhir.dstu3.elementmodel.Element validate(Object Context, List<ValidationMessage> errors, org.hl7.fhir.dstu3.model.Resource resource, StructureDefinition profile) throws Exception;
+  org.hl7.fhir.dstu3.elementmodel.Element validate(Object Context, List<ValidationMessage> errors, org.hl7.fhir.dstu3.model.Resource resource, StructureDefinition profile) throws FHIRException, IOException;
 
-  org.hl7.fhir.dstu3.elementmodel.Element validate(Object Context, List<ValidationMessage> errors, org.w3c.dom.Element element) throws Exception;
-  org.hl7.fhir.dstu3.elementmodel.Element validate(Object Context, List<ValidationMessage> errors, org.w3c.dom.Element element, ValidationProfileSet profiles) throws Exception;
+  org.hl7.fhir.dstu3.elementmodel.Element validate(Object Context, List<ValidationMessage> errors, org.w3c.dom.Element element) throws FHIRException, IOException;
+  org.hl7.fhir.dstu3.elementmodel.Element validate(Object Context, List<ValidationMessage> errors, org.w3c.dom.Element element, ValidationProfileSet profiles) throws FHIRException, IOException;
   @Deprecated
-  org.hl7.fhir.dstu3.elementmodel.Element validate(Object Context, List<ValidationMessage> errors, org.w3c.dom.Element element, String profile) throws Exception;
+  org.hl7.fhir.dstu3.elementmodel.Element validate(Object Context, List<ValidationMessage> errors, org.w3c.dom.Element element, String profile) throws FHIRException, IOException;
   @Deprecated
-  org.hl7.fhir.dstu3.elementmodel.Element validate(Object Context, List<ValidationMessage> errors, org.w3c.dom.Element element, StructureDefinition profile) throws Exception;
+  org.hl7.fhir.dstu3.elementmodel.Element validate(Object Context, List<ValidationMessage> errors, org.w3c.dom.Element element, StructureDefinition profile) throws FHIRException, IOException;
 
-  org.hl7.fhir.dstu3.elementmodel.Element validate(Object Context, List<ValidationMessage> errors, org.w3c.dom.Document document) throws Exception;
-  org.hl7.fhir.dstu3.elementmodel.Element validate(Object Context, List<ValidationMessage> errors, org.w3c.dom.Document document, ValidationProfileSet profiles) throws Exception;
+  org.hl7.fhir.dstu3.elementmodel.Element validate(Object Context, List<ValidationMessage> errors, org.w3c.dom.Document document) throws FHIRException, IOException;
+  org.hl7.fhir.dstu3.elementmodel.Element validate(Object Context, List<ValidationMessage> errors, org.w3c.dom.Document document, ValidationProfileSet profiles) throws FHIRException, IOException;
   @Deprecated
-  org.hl7.fhir.dstu3.elementmodel.Element validate(Object Context, List<ValidationMessage> errors, org.w3c.dom.Document document, String profile) throws Exception;
+  org.hl7.fhir.dstu3.elementmodel.Element validate(Object Context, List<ValidationMessage> errors, org.w3c.dom.Document document, String profile) throws FHIRException, IOException;
   @Deprecated
-  org.hl7.fhir.dstu3.elementmodel.Element validate(Object Context, List<ValidationMessage> errors, org.w3c.dom.Document document, StructureDefinition profile) throws Exception;
+  org.hl7.fhir.dstu3.elementmodel.Element validate(Object Context, List<ValidationMessage> errors, org.w3c.dom.Document document, StructureDefinition profile) throws FHIRException, IOException;
 
-  org.hl7.fhir.dstu3.elementmodel.Element validate(Object Context, List<ValidationMessage> errors, JsonObject object) throws Exception;
-  org.hl7.fhir.dstu3.elementmodel.Element validate(Object Context, List<ValidationMessage> errors, JsonObject object, ValidationProfileSet profiles) throws Exception;
+  org.hl7.fhir.dstu3.elementmodel.Element validate(Object Context, List<ValidationMessage> errors, JsonObject object) throws FHIRException, IOException;
+  org.hl7.fhir.dstu3.elementmodel.Element validate(Object Context, List<ValidationMessage> errors, JsonObject object, ValidationProfileSet profiles) throws FHIRException, IOException;
   @Deprecated
-  org.hl7.fhir.dstu3.elementmodel.Element validate(Object Context, List<ValidationMessage> errors, JsonObject object, String profile) throws Exception;
+  org.hl7.fhir.dstu3.elementmodel.Element validate(Object Context, List<ValidationMessage> errors, JsonObject object, String profile) throws FHIRException, IOException;
   @Deprecated
-  org.hl7.fhir.dstu3.elementmodel.Element validate(Object Context, List<ValidationMessage> errors, JsonObject object, StructureDefinition profile) throws Exception; 
+  org.hl7.fhir.dstu3.elementmodel.Element validate(Object Context, List<ValidationMessage> errors, JsonObject object, StructureDefinition profile) throws FHIRException, IOException; 
 
 
 }

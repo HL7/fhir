@@ -1,7 +1,5 @@
 ﻿map "http://hl7.org/fhir/StructureMap/ClinicalImpression3to2" = "R3 to R2 Conversion for ClinicalImpression"
 
-uses "http://hl7.org/fhir/StructureDefinition/ClinicalImpressionR2" as source
-uses "http://hl7.org/fhir/StructureDefinition/ClinicalImpression" as target
 conceptmap "ClinicalImpressionStatus" {
   prefix s = "http://hl7.org/fhir/clinical-impression-status"
   prefix t = "http://hl7.org/fhir/clinical-impression-status"
@@ -11,10 +9,17 @@ conceptmap "ClinicalImpressionStatus" {
   s:draft ~ t:completed
 }
 
+uses "http://hl7.org/fhir/StructureDefinition/ClinicalImpression" alias ClinicalImpression as source
+uses "http://hl7.org/fhir/DSTU2/StructureDefinition/ClinicalImpression" alias ClinicalImpressionR2 as target
+
+imports "http://hl7.org/fhir/StructureMap/primitives3to2"
+imports "http://hl7.org/fhir/StructureMap/Reference3to2"
+
+
 
 group ClinicalImpression extends Element
   input src : ClinicalImpression as source
-  input tgt : ClinicalImpressionR2 as Target
+  input tgt : ClinicalImpressionR2 as target
   "ClinicalImpression-patient" : for src.subject as vs make tgt.patient as vt then Reference(vs,vt)
   "ClinicalImpression-assessor" : for src.assessor as vs make tgt.assessor as vt then Reference(vs,vt)
   "ClinicalImpression-status" : for src.status as v make tgt.status = translate(v, "#ClinicalImpressionStatus", "code")
@@ -23,7 +28,7 @@ group ClinicalImpression extends Element
   "ClinicalImpression-previous" : for src.previous as vs make tgt.previous as vt then Reference(vs,vt)
   "ClinicalImpression-problem" : for src.problem as vs make tgt.problem as vt then Reference(vs,vt)
   "ClinicalImpression-summary" : for src.summary as vs make tgt.summary as vt then string(vs, vt)
-  "ClinicalImpression-finding" : for src.finding as vs0 make tgt.finding = as vt0 then {
+  "ClinicalImpression-finding" : for src.finding as vs0 make tgt.finding as vt0 then {
   }
   "ClinicalImpression-action" : for src.action as vs make tgt.action as vt then Reference(vs,vt)
 endgroup

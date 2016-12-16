@@ -1,12 +1,21 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Specimen2to3" = "R2 to R3 Conversions for Specimen"
 
-uses "http://hl7.org/fhir/StructureDefinition/Specimen" as source
-uses "http://hl7.org/fhir/StructureDefinition/SpecimenR2" as target
+
+uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Specimen" alias SpecimenR2 as source
+uses "http://hl7.org/fhir/StructureDefinition/Specimen" alias Specimen as target
+
+imports "http://hl7.org/fhir/StructureMap/primitives2to3"
+imports "http://hl7.org/fhir/StructureMap/Identifier2to3"
+imports "http://hl7.org/fhir/StructureMap/Reference2to3"
+imports "http://hl7.org/fhir/StructureMap/Period2to3"
+imports "http://hl7.org/fhir/StructureMap/Quantity2to3"
+imports "http://hl7.org/fhir/StructureMap/CodeableConcept2to3"
+
 
 
 group Specimen extends Element
   input src : SpecimenR2 as source
-  input tgt : Specimen as Target
+  input tgt : Specimen as target
 
   "Specimen-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
   "Specimen-accessionIdentifier" : for src.accessionIdentifier as vs make tgt.accessionIdentifier as vt then Identifier(vs,vt)
@@ -15,7 +24,7 @@ group Specimen extends Element
   "Specimen-subject" : for src.subject as vs make tgt.subject as vt then Reference(vs,vt)
   "Specimen-receivedTime" : for src.receivedTime as vs make tgt.receivedTime as vt then dateTime(vs, vt)
   "Specimen-parent" : for src.parent as vs make tgt.parent as vt then Reference(vs,vt)
-  "Specimen-collection" : for src.collection as vs0 make tgt.collection = as vt0 then {
+  "Specimen-collection" : for src.collection as vs0 make tgt.collection as vt0 then {
     "Specimen.collection-collector" : for vs0.collector as vs make vt0.collector as vt then Reference(vs,vt)
     "Specimen.collection-collected-dateTime" : for vs0.collected  : dateTime as vs make vt0.collected = create("dateTime") as vt then dateTime(vs,vt)
     "Specimen.collection-collected-Period" : for vs0.collected  : Period as vs make vt0.collected = create("Period") as vt then Period(vs,vt)
@@ -23,12 +32,12 @@ group Specimen extends Element
     "Specimen.collection-method" : for vs0.method as vs make vt0.method as vt then CodeableConcept(vs,vt)
     "Specimen.collection-bodySite" : for vs0.bodySite as vs make vt0.bodySite as vt then CodeableConcept(vs,vt)
   }
-  "Specimen-treatment" : for src.treatment as vs0 make tgt.treatment = as vt0 then {
+  "Specimen-treatment" : for src.treatment as vs0 make tgt.treatment as vt0 then {
     "Specimen.treatment-description" : for vs0.description as vs make vt0.description as vt then string(vs, vt)
     "Specimen.treatment-procedure" : for vs0.procedure as vs make vt0.procedure as vt then CodeableConcept(vs,vt)
     "Specimen.treatment-additive" : for vs0.additive as vs make vt0.additive as vt then Reference(vs,vt)
   }
-  "Specimen-container" : for src.container as vs0 make tgt.container = as vt0 then {
+  "Specimen-container" : for src.container as vs0 make tgt.container as vt0 then {
     "Specimen.container-identifier" : for vs0.identifier as vs make vt0.identifier as vt then Identifier(vs,vt)
     "Specimen.container-description" : for vs0.description as vs make vt0.description as vt then string(vs, vt)
     "Specimen.container-type" : for vs0.type as vs make vt0.type as vt then CodeableConcept(vs,vt)

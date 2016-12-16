@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -593,11 +593,11 @@ public class Quantity extends Type implements ICompositeType {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 111972721: throw new FHIRException("Cannot make property value as it is not a complex type"); // DecimalType
-        case -844673834: throw new FHIRException("Cannot make property comparator as it is not a complex type"); // Enumeration<QuantityComparator>
-        case 3594628: throw new FHIRException("Cannot make property unit as it is not a complex type"); // StringType
-        case -887328209: throw new FHIRException("Cannot make property system as it is not a complex type"); // UriType
-        case 3059181: throw new FHIRException("Cannot make property code as it is not a complex type"); // CodeType
+        case 111972721:  return getValueElement();
+        case -844673834:  return getComparatorElement();
+        case 3594628:  return getUnitElement();
+        case -887328209:  return getSystemElement();
+        case 3059181:  return getCodeElement();
         default: return super.makeProperty(hash, name);
         }
 

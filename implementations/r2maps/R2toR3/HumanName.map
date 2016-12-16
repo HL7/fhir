@@ -1,12 +1,17 @@
 ﻿map "http://hl7.org/fhir/StructureMap/HumanName2to3" = "R2 to R3 Conversions for HumanName"
 
-uses "http://hl7.org/fhir/StructureDefinition/HumanName" as source
-uses "http://hl7.org/fhir/StructureDefinition/HumanNameR2" as target
+
+uses "http://hl7.org/fhir/DSTU2/StructureDefinition/HumanName" alias HumanNameR2 as source
+uses "http://hl7.org/fhir/StructureDefinition/HumanName" alias HumanName as target
+
+imports "http://hl7.org/fhir/StructureMap/primitives2to3"
+imports "http://hl7.org/fhir/StructureMap/Period2to3"
+
 
 
 group HumanName extends Element
   input src : HumanNameR2 as source
-  input tgt : HumanName as Target
+  input tgt : HumanName as target
 
   "HumanName-use" : for src.use as vs make tgt.use as vt then code(vs, vt)
   "HumanName-text" : for src.text as vs make tgt.text as vt then string(vs, vt)

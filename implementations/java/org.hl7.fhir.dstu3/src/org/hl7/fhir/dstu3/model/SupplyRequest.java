@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -287,8 +287,8 @@ public class SupplyRequest extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3059181:  return getCode(); // CodeableConcept
-        case -697920873:  return getSchedule(); // Timing
+        case 3059181:  return getCode(); 
+        case -697920873:  return getSchedule(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -962,16 +962,16 @@ public class SupplyRequest extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -791418107:  return getPatient(); // Reference
-        case -896505829:  return getSource(); // Reference
-        case 3076014: throw new FHIRException("Cannot make property date as it is not a complex type"); // DateTimeType
-        case -1618432855:  return getIdentifier(); // Identifier
-        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<SupplyRequestStatus>
-        case 3292052:  return getKind(); // CodeableConcept
-        case -1574475936:  return getOrderedItem(); // Type
-        case -1663305268:  return addSupplier(); // Reference
-        case -669418564:  return getReason(); // Type
-        case 3648314:  return getWhen(); // SupplyRequestWhenComponent
+        case -791418107:  return getPatient(); 
+        case -896505829:  return getSource(); 
+        case 3076014:  return getDateElement();
+        case -1618432855:  return getIdentifier(); 
+        case -892481550:  return getStatusElement();
+        case 3292052:  return getKind(); 
+        case -1574475936:  return getOrderedItem(); 
+        case -1663305268:  return addSupplier(); 
+        case -669418564:  return getReason(); 
+        case 3648314:  return getWhen(); 
         default: return super.makeProperty(hash, name);
         }
 

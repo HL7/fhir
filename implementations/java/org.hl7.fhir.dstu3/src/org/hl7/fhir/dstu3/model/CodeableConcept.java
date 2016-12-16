@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -215,8 +215,8 @@ public class CodeableConcept extends Type implements ICompositeType {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1355086998:  return addCoding(); // Coding
-        case 3556653: throw new FHIRException("Cannot make property text as it is not a complex type"); // StringType
+        case -1355086998:  return addCoding(); 
+        case 3556653:  return getTextElement();
         default: return super.makeProperty(hash, name);
         }
 

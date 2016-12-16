@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -411,9 +411,9 @@ public class ResearchStudy extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
-        case 3059181:  return getCode(); // CodeableConcept
-        case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
+        case 3373707:  return getNameElement();
+        case 3059181:  return getCode(); 
+        case -1724546052:  return getDescriptionElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -1891,26 +1891,26 @@ public class ResearchStudy extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1618432855:  return addIdentifier(); // Identifier
-        case 110371416: throw new FHIRException("Cannot make property title as it is not a complex type"); // StringType
-        case -989163880:  return addProtocol(); // Reference
-        case -995410646:  return addPartOf(); // Reference
-        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<ResearchStudyStatus>
-        case 50511102:  return addCategory(); // CodeableConcept
-        case 97604824:  return addFocus(); // CodeableConcept
-        case 951526432:  return addContact(); // ContactDetail
-        case 666807069:  return addRelatedArtifact(); // RelatedArtifact
-        case -814408215:  return addKeyword(); // CodeableConcept
-        case -507075711:  return addJurisdiction(); // CodeableConcept
-        case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // MarkdownType
-        case 116089604:  return addEnrollment(); // Reference
-        case -991726143:  return getPeriod(); // Period
-        case -1998892262:  return getSponsor(); // Reference
-        case 1437117175:  return getPrincipalInvestigator(); // Reference
-        case 3530567:  return addSite(); // Reference
-        case 1181369065:  return getReasonStopped(); // CodeableConcept
-        case 3387378:  return addNote(); // Annotation
-        case 96860:  return addArm(); // ResearchStudyArmComponent
+        case -1618432855:  return addIdentifier(); 
+        case 110371416:  return getTitleElement();
+        case -989163880:  return addProtocol(); 
+        case -995410646:  return addPartOf(); 
+        case -892481550:  return getStatusElement();
+        case 50511102:  return addCategory(); 
+        case 97604824:  return addFocus(); 
+        case 951526432:  return addContact(); 
+        case 666807069:  return addRelatedArtifact(); 
+        case -814408215:  return addKeyword(); 
+        case -507075711:  return addJurisdiction(); 
+        case -1724546052:  return getDescriptionElement();
+        case 116089604:  return addEnrollment(); 
+        case -991726143:  return getPeriod(); 
+        case -1998892262:  return getSponsor(); 
+        case 1437117175:  return getPrincipalInvestigator(); 
+        case 3530567:  return addSite(); 
+        case 1181369065:  return getReasonStopped(); 
+        case 3387378:  return addNote(); 
+        case 96860:  return addArm(); 
         default: return super.makeProperty(hash, name);
         }
 

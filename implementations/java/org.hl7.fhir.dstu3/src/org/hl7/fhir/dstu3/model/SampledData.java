@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -573,13 +573,13 @@ public class SampledData extends Type implements ICompositeType {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1008619738:  return getOrigin(); // SimpleQuantity
-        case -991726143: throw new FHIRException("Cannot make property period as it is not a complex type"); // DecimalType
-        case -1282148017: throw new FHIRException("Cannot make property factor as it is not a complex type"); // DecimalType
-        case 1209133370: throw new FHIRException("Cannot make property lowerLimit as it is not a complex type"); // DecimalType
-        case -1681713095: throw new FHIRException("Cannot make property upperLimit as it is not a complex type"); // DecimalType
-        case 414334925: throw new FHIRException("Cannot make property dimensions as it is not a complex type"); // PositiveIntType
-        case 3076010: throw new FHIRException("Cannot make property data as it is not a complex type"); // StringType
+        case -1008619738:  return getOrigin(); 
+        case -991726143:  return getPeriodElement();
+        case -1282148017:  return getFactorElement();
+        case 1209133370:  return getLowerLimitElement();
+        case -1681713095:  return getUpperLimitElement();
+        case 414334925:  return getDimensionsElement();
+        case 3076010:  return getDataElement();
         default: return super.makeProperty(hash, name);
         }
 

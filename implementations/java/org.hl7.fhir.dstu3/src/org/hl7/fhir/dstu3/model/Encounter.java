@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -487,8 +487,8 @@ public class Encounter extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<EncounterStatus>
-        case -991726143:  return getPeriod(); // Period
+        case -892481550:  return getStatusElement();
+        case -991726143:  return getPeriod(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -750,9 +750,9 @@ public class Encounter extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3575610:  return addType(); // CodeableConcept
-        case -991726143:  return getPeriod(); // Period
-        case -46292327:  return getIndividual(); // Reference
+        case 3575610:  return addType(); 
+        case -991726143:  return getPeriod(); 
+        case -46292327:  return getIndividual(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -1534,17 +1534,17 @@ public class Encounter extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -965394961:  return getPreAdmissionIdentifier(); // Identifier
-        case -1008619738:  return getOrigin(); // Reference
-        case 538887120:  return getAdmitSource(); // CodeableConcept
-        case 2048045678:  return addAdmittingDiagnosis(); // Reference
-        case 669348630:  return getReAdmission(); // CodeableConcept
-        case -1360641041:  return addDietPreference(); // CodeableConcept
-        case 1583588345:  return addSpecialCourtesy(); // CodeableConcept
-        case 47410321:  return addSpecialArrangement(); // CodeableConcept
-        case -1429847026:  return getDestination(); // Reference
-        case 528065941:  return getDischargeDisposition(); // CodeableConcept
-        case -1985183665:  return addDischargeDiagnosis(); // Reference
+        case -965394961:  return getPreAdmissionIdentifier(); 
+        case -1008619738:  return getOrigin(); 
+        case 538887120:  return getAdmitSource(); 
+        case 2048045678:  return addAdmittingDiagnosis(); 
+        case 669348630:  return getReAdmission(); 
+        case -1360641041:  return addDietPreference(); 
+        case 1583588345:  return addSpecialCourtesy(); 
+        case 47410321:  return addSpecialArrangement(); 
+        case -1429847026:  return getDestination(); 
+        case 528065941:  return getDischargeDisposition(); 
+        case -1985183665:  return addDischargeDiagnosis(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -1883,9 +1883,9 @@ public class Encounter extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 1901043637:  return getLocation(); // Reference
-        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<EncounterLocationStatus>
-        case -991726143:  return getPeriod(); // Period
+        case 1901043637:  return getLocation(); 
+        case -892481550:  return getStatusElement();
+        case -991726143:  return getPeriod(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -3268,26 +3268,26 @@ public class Encounter extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1618432855:  return addIdentifier(); // Identifier
-        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<EncounterStatus>
-        case -986695614:  return addStatusHistory(); // EncounterStatusHistoryComponent
-        case 94742904:  return getClass_(); // Coding
-        case 3575610:  return addType(); // CodeableConcept
-        case -1165461084:  return getPriority(); // CodeableConcept
-        case -791418107:  return getPatient(); // Reference
-        case -1892140189:  return addEpisodeOfCare(); // Reference
-        case -1258204701:  return addIncomingReferral(); // Reference
-        case 767422259:  return addParticipant(); // EncounterParticipantComponent
-        case -1474995297:  return getAppointment(); // Reference
-        case -991726143:  return getPeriod(); // Period
-        case -1106363674:  return getLength(); // Duration
-        case -934964668:  return addReason(); // CodeableConcept
-        case -597168804:  return addIndication(); // Reference
-        case -1177318867:  return addAccount(); // Reference
-        case 1057894634:  return getHospitalization(); // EncounterHospitalizationComponent
-        case 1901043637:  return addLocation(); // EncounterLocationComponent
-        case 243182534:  return getServiceProvider(); // Reference
-        case -995410646:  return getPartOf(); // Reference
+        case -1618432855:  return addIdentifier(); 
+        case -892481550:  return getStatusElement();
+        case -986695614:  return addStatusHistory(); 
+        case 94742904:  return getClass_(); 
+        case 3575610:  return addType(); 
+        case -1165461084:  return getPriority(); 
+        case -791418107:  return getPatient(); 
+        case -1892140189:  return addEpisodeOfCare(); 
+        case -1258204701:  return addIncomingReferral(); 
+        case 767422259:  return addParticipant(); 
+        case -1474995297:  return getAppointment(); 
+        case -991726143:  return getPeriod(); 
+        case -1106363674:  return getLength(); 
+        case -934964668:  return addReason(); 
+        case -597168804:  return addIndication(); 
+        case -1177318867:  return addAccount(); 
+        case 1057894634:  return getHospitalization(); 
+        case 1901043637:  return addLocation(); 
+        case 243182534:  return getServiceProvider(); 
+        case -995410646:  return getPartOf(); 
         default: return super.makeProperty(hash, name);
         }
 

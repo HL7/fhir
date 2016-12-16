@@ -1,12 +1,23 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Patient2to3" = "R2 to R3 Conversions for Patient"
 
-uses "http://hl7.org/fhir/StructureDefinition/Patient" as source
-uses "http://hl7.org/fhir/StructureDefinition/PatientR2" as target
+
+uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Patient" alias PatientR2 as source
+uses "http://hl7.org/fhir/StructureDefinition/Patient" alias Patient as target
+
+imports "http://hl7.org/fhir/StructureMap/primitives2to3"
+imports "http://hl7.org/fhir/StructureMap/Address2to3"
+imports "http://hl7.org/fhir/StructureMap/Attachment2to3"
+imports "http://hl7.org/fhir/StructureMap/HumanName2to3"
+imports "http://hl7.org/fhir/StructureMap/ContactPoint2to3"
+imports "http://hl7.org/fhir/StructureMap/Identifier2to3"
+imports "http://hl7.org/fhir/StructureMap/Reference2to3"
+imports "http://hl7.org/fhir/StructureMap/CodeableConcept2to3"
+
 
 
 group Patient extends Element
   input src : PatientR2 as source
-  input tgt : Patient as Target
+  input tgt : Patient as target
 
   "Patient-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
   "Patient-active" : for src.active as vs make tgt.active as vt then boolean(vs, vt)
@@ -21,13 +32,13 @@ group Patient extends Element
   "Patient-multipleBirth-boolean" : for src.multipleBirth  : boolean as vs make tgt.multipleBirth = create("boolean") as vt then boolean(vs,vt)
   "Patient-multipleBirth-integer" : for src.multipleBirth  : integer as vs make tgt.multipleBirth = create("integer") as vt then integer(vs,vt)
   "Patient-photo" : for src.photo as vs make tgt.photo as vt then Attachment(vs,vt)
-  "Patient-communication" : for src.communication as vs0 make tgt.communication = as vt0 then {
+  "Patient-communication" : for src.communication as vs0 make tgt.communication as vt0 then {
     "Patient.communication-language" : for vs0.language as vs make vt0.language as vt then CodeableConcept(vs,vt)
     "Patient.communication-preferred" : for vs0.preferred as vs make vt0.preferred as vt then boolean(vs, vt)
   }
   "Patient-generalPractitioner" : for src.careProvider as vs make tgt.generalPractitioner as vt then Reference(vs,vt)
   "Patient-managingOrganization" : for src.managingOrganization as vs make tgt.managingOrganization as vt then Reference(vs,vt)
-  "Patient-link" : for src.link as vs0 make tgt.link = as vt0 then {
+  "Patient-link" : for src.link as vs0 make tgt.link as vt0 then {
     "Patient.link-other" : for vs0.other as vs make vt0.other as vt then Reference(vs,vt)
     "Patient.link-type" : for vs0.type as vs make vt0.type as vt then code(vs, vt)
   }

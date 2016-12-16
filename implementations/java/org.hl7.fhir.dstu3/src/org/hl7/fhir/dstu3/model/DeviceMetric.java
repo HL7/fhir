@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -937,9 +937,9 @@ public class DeviceMetric extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3575610: throw new FHIRException("Cannot make property type as it is not a complex type"); // Enumeration<DeviceMetricCalibrationType>
-        case 109757585: throw new FHIRException("Cannot make property state as it is not a complex type"); // Enumeration<DeviceMetricCalibrationState>
-        case 3560141: throw new FHIRException("Cannot make property time as it is not a complex type"); // InstantType
+        case 3575610:  return getTypeElement();
+        case 109757585:  return getStateElement();
+        case 3560141:  return getTimeElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -1583,16 +1583,16 @@ public class DeviceMetric extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3575610:  return getType(); // CodeableConcept
-        case -1618432855:  return getIdentifier(); // Identifier
-        case 3594628:  return getUnit(); // CodeableConcept
-        case -896505829:  return getSource(); // Reference
-        case -995424086:  return getParent(); // Reference
-        case -2103166364: throw new FHIRException("Cannot make property operationalStatus as it is not a complex type"); // Enumeration<DeviceMetricOperationalStatus>
-        case 94842723: throw new FHIRException("Cannot make property color as it is not a complex type"); // Enumeration<DeviceMetricColor>
-        case 50511102: throw new FHIRException("Cannot make property category as it is not a complex type"); // Enumeration<DeviceMetricCategory>
-        case -1300332387:  return getMeasurementPeriod(); // Timing
-        case 1421318634:  return addCalibration(); // DeviceMetricCalibrationComponent
+        case 3575610:  return getType(); 
+        case -1618432855:  return getIdentifier(); 
+        case 3594628:  return getUnit(); 
+        case -896505829:  return getSource(); 
+        case -995424086:  return getParent(); 
+        case -2103166364:  return getOperationalStatusElement();
+        case 94842723:  return getColorElement();
+        case 50511102:  return getCategoryElement();
+        case -1300332387:  return getMeasurementPeriod(); 
+        case 1421318634:  return addCalibration(); 
         default: return super.makeProperty(hash, name);
         }
 

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import org.hl7.fhir.dstu3.model.DateType;
 import org.hl7.fhir.dstu3.model.DateTimeType;
@@ -11508,6 +11508,10 @@ public class JsonParser extends JsonParserBase {
 
   protected void parseMedicationDispenseMedicationDispenseSubstitutionComponentProperties(JsonObject json, MedicationDispense owner, MedicationDispense.MedicationDispenseSubstitutionComponent res) throws IOException, FHIRFormatError {
     parseBackboneProperties(json, res);
+    if (json.has("wasSubstituted"))
+      res.setWasSubstitutedElement(parseBoolean(json.get("wasSubstituted").getAsBoolean()));
+    if (json.has("_wasSubstituted"))
+      parseElementProperties(json.getAsJsonObject("_wasSubstituted"), res.getWasSubstitutedElement());
     if (json.has("type"))
       res.setType(parseCodeableConcept(json.getAsJsonObject("type")));
     if (json.has("reason")) {
@@ -11691,6 +11695,14 @@ public class JsonParser extends JsonParserBase {
         res.getIdentifier().add(parseIdentifier(array.get(i).getAsJsonObject()));
       }
     };
+    if (json.has("basedOn")) {
+      JsonArray array = json.getAsJsonArray("basedOn");
+      for (int i = 0; i < array.size(); i++) {
+        res.getBasedOn().add(parseReference(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("context"))
+      res.setContext(parseReference(json.getAsJsonObject("context")));
     if (json.has("status"))
       res.setStatusElement(parseEnumeration(json.get("status").getAsString(), MedicationStatement.MedicationStatementStatus.NULL, new MedicationStatement.MedicationStatementStatusEnumFactory()));
     if (json.has("_status"))
@@ -16323,6 +16335,10 @@ public class JsonParser extends JsonParserBase {
       res.setModeElement(parseEnumeration(json.get("mode").getAsString(), StructureMap.StructureMapModelMode.NULL, new StructureMap.StructureMapModelModeEnumFactory()));
     if (json.has("_mode"))
       parseElementProperties(json.getAsJsonObject("_mode"), res.getModeElement());
+    if (json.has("alias"))
+      res.setAliasElement(parseString(json.get("alias").getAsString()));
+    if (json.has("_alias"))
+      parseElementProperties(json.getAsJsonObject("_alias"), res.getAliasElement());
     if (json.has("documentation"))
       res.setDocumentationElement(parseString(json.get("documentation").getAsString()));
     if (json.has("_documentation"))
@@ -31902,6 +31918,10 @@ public class JsonParser extends JsonParserBase {
 
   protected void composeMedicationDispenseMedicationDispenseSubstitutionComponentInner(MedicationDispense.MedicationDispenseSubstitutionComponent element) throws IOException {
       composeBackbone(element);
+      if (element.hasWasSubstitutedElement()) {
+        composeBooleanCore("wasSubstituted", element.getWasSubstitutedElement(), false);
+        composeBooleanExtras("wasSubstituted", element.getWasSubstitutedElement(), false);
+      }
       if (element.hasType()) {
         composeCodeableConcept("type", element.getType());
       }
@@ -32110,6 +32130,15 @@ public class JsonParser extends JsonParserBase {
           composeIdentifier(null, e);
         closeArray();
       };
+      if (element.hasBasedOn()) {
+        openArray("basedOn");
+        for (Reference e : element.getBasedOn()) 
+          composeReference(null, e);
+        closeArray();
+      };
+      if (element.hasContext()) {
+        composeReference("context", element.getContext());
+      }
       if (element.hasStatusElement()) {
         composeEnumerationCore("status", element.getStatusElement(), new MedicationStatement.MedicationStatementStatusEnumFactory(), false);
         composeEnumerationExtras("status", element.getStatusElement(), new MedicationStatement.MedicationStatementStatusEnumFactory(), false);
@@ -37090,6 +37119,10 @@ public class JsonParser extends JsonParserBase {
       if (element.hasModeElement()) {
         composeEnumerationCore("mode", element.getModeElement(), new StructureMap.StructureMapModelModeEnumFactory(), false);
         composeEnumerationExtras("mode", element.getModeElement(), new StructureMap.StructureMapModelModeEnumFactory(), false);
+      }
+      if (element.hasAliasElement()) {
+        composeStringCore("alias", element.getAliasElement(), false);
+        composeStringExtras("alias", element.getAliasElement(), false);
       }
       if (element.hasDocumentationElement()) {
         composeStringCore("documentation", element.getDocumentationElement(), false);

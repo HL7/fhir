@@ -1,12 +1,24 @@
 ﻿map "http://hl7.org/fhir/StructureMap/RelatedPerson2to3" = "R2 to R3 Conversions for RelatedPerson"
 
-uses "http://hl7.org/fhir/StructureDefinition/RelatedPerson" as source
-uses "http://hl7.org/fhir/StructureDefinition/RelatedPersonR2" as target
+
+uses "http://hl7.org/fhir/DSTU2/StructureDefinition/RelatedPerson" alias RelatedPersonR2 as source
+uses "http://hl7.org/fhir/StructureDefinition/RelatedPerson" alias RelatedPerson as target
+
+imports "http://hl7.org/fhir/StructureMap/primitives2to3"
+imports "http://hl7.org/fhir/StructureMap/Address2to3"
+imports "http://hl7.org/fhir/StructureMap/Attachment2to3"
+imports "http://hl7.org/fhir/StructureMap/HumanName2to3"
+imports "http://hl7.org/fhir/StructureMap/ContactPoint2to3"
+imports "http://hl7.org/fhir/StructureMap/Identifier2to3"
+imports "http://hl7.org/fhir/StructureMap/Reference2to3"
+imports "http://hl7.org/fhir/StructureMap/Period2to3"
+imports "http://hl7.org/fhir/StructureMap/CodeableConcept2to3"
+
 
 
 group RelatedPerson extends Element
   input src : RelatedPersonR2 as source
-  input tgt : RelatedPerson as Target
+  input tgt : RelatedPerson as target
 
   "RelatedPerson-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
   "RelatedPerson-patient" : for src.patient as vs make tgt.patient as vt then Reference(vs,vt)

@@ -1,26 +1,35 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Encounter3to2" = "R3 to R2 Conversion for Encounter"
 
-uses "http://hl7.org/fhir/StructureDefinition/EncounterR2" as source
-uses "http://hl7.org/fhir/StructureDefinition/Encounter" as target
+
+uses "http://hl7.org/fhir/StructureDefinition/Encounter" alias Encounter as source
+uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Encounter" alias EncounterR2 as target
+
+imports "http://hl7.org/fhir/StructureMap/primitives3to2"
+imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
+imports "http://hl7.org/fhir/StructureMap/Reference3to2"
+imports "http://hl7.org/fhir/StructureMap/Period3to2"
+imports "http://hl7.org/fhir/StructureMap/Duration3to2"
+imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
+
 
 
 group Encounter extends Element
   input src : Encounter as source
-  input tgt : EncounterR2 as Target
+  input tgt : EncounterR2 as target
   "Encounter-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
   "Encounter-status" : for src.status as vs make tgt.status as vt then code(vs, vt)
-  "Encounter-statusHistory" : for src.statusHistory as vs0 make tgt.statusHistory = as vt0 then {
+  "Encounter-statusHistory" : for src.statusHistory as vs0 make tgt.statusHistory as vt0 then {
     "Encounter.statusHistory-status" : for vs0.status as vs make vt0.status as vt then code(vs, vt)
     "Encounter.statusHistory-period" : for vs0.period as vs make vt0.period as vt then Period(vs,vt)
   }
-  "Encounter-class" : for src.class as vs0 make tgt.class = as vt0 then {
+  "Encounter-class" : for src.class as vs0 make tgt.class as vt0 then {
   }
   "Encounter-type" : for src.type as vs make tgt.type as vt then CodeableConcept(vs,vt)
   "Encounter-priority" : for src.priority as vs make tgt.priority as vt then CodeableConcept(vs,vt)
   "Encounter-patient" : for src.patient as vs make tgt.patient as vt then Reference(vs,vt)
   "Encounter-episodeOfCare" : for src.episodeOfCare as vs make tgt.episodeOfCare as vt then Reference(vs,vt)
   "Encounter-incomingReferral" : for src.incomingReferral as vs make tgt.incomingReferral as vt then Reference(vs,vt)
-  "Encounter-participant" : for src.participant as vs0 make tgt.participant = as vt0 then {
+  "Encounter-participant" : for src.participant as vs0 make tgt.participant as vt0 then {
     "Encounter.participant-type" : for vs0.type as vs make vt0.type as vt then CodeableConcept(vs,vt)
     "Encounter.participant-period" : for vs0.period as vs make vt0.period as vt then Period(vs,vt)
     "Encounter.participant-individual" : for vs0.individual as vs make vt0.individual as vt then Reference(vs,vt)
@@ -30,7 +39,7 @@ group Encounter extends Element
   "Encounter-length" : for src.length as vs make tgt.length as vt then Duration(vs,vt)
   "Encounter-reason" : for src.reason as vs make tgt.reason as vt then CodeableConcept(vs,vt)
   "Encounter-indication" : for src.indication as vs make tgt.indication as vt then Reference(vs,vt)
-  "Encounter-hospitalization" : for src.hospitalization as vs0 make tgt.hospitalization = as vt0 then {
+  "Encounter-hospitalization" : for src.hospitalization as vs0 make tgt.hospitalization as vt0 then {
     "Encounter.hospitalization-preAdmissionIdentifier" : for vs0.preAdmissionIdentifier as vs make vt0.preAdmissionIdentifier as vt then Identifier(vs,vt)
     "Encounter.hospitalization-origin" : for vs0.origin as vs make vt0.origin as vt then Reference(vs,vt)
     "Encounter.hospitalization-admitSource" : for vs0.admitSource as vs make vt0.admitSource as vt then CodeableConcept(vs,vt)
@@ -43,7 +52,7 @@ group Encounter extends Element
     "Encounter.hospitalization-dischargeDisposition" : for vs0.dischargeDisposition as vs make vt0.dischargeDisposition as vt then CodeableConcept(vs,vt)
     "Encounter.hospitalization-dischargeDiagnosis" : for vs0.dischargeDiagnosis as vs make vt0.dischargeDiagnosis as vt then Reference(vs,vt)
   }
-  "Encounter-location" : for src.location as vs0 make tgt.location = as vt0 then {
+  "Encounter-location" : for src.location as vs0 make tgt.location as vt0 then {
     "Encounter.location-location" : for vs0.location as vs make vt0.location as vt then Reference(vs,vt)
     "Encounter.location-status" : for vs0.status as vs make vt0.status as vt then code(vs, vt)
     "Encounter.location-period" : for vs0.period as vs make vt0.period as vt then Period(vs,vt)

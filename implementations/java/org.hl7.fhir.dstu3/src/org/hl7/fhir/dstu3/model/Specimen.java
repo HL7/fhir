@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -448,11 +448,11 @@ public class Specimen extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 1883491469:  return getCollector(); // Reference
-        case 1632037015:  return getCollected(); // Type
-        case -1285004149:  return getQuantity(); // SimpleQuantity
-        case -1077554975:  return getMethod(); // CodeableConcept
-        case 1702620169:  return getBodySite(); // CodeableConcept
+        case 1883491469:  return getCollector(); 
+        case 1632037015:  return getCollected(); 
+        case -1285004149:  return getQuantity(); 
+        case -1077554975:  return getMethod(); 
+        case 1702620169:  return getBodySite(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -827,10 +827,10 @@ public class Specimen extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
-        case -1095204141:  return getProcedure(); // CodeableConcept
-        case -1226589236:  return addAdditive(); // Reference
-        case -1313930605:  return getTime(); // Type
+        case -1724546052:  return getDescriptionElement();
+        case -1095204141:  return getProcedure(); 
+        case -1226589236:  return addAdditive(); 
+        case -1313930605:  return getTime(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -1252,12 +1252,12 @@ public class Specimen extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1618432855:  return addIdentifier(); // Identifier
-        case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
-        case 3575610:  return getType(); // CodeableConcept
-        case -67824454:  return getCapacity(); // SimpleQuantity
-        case 1485980595:  return getSpecimenQuantity(); // SimpleQuantity
-        case 261915956:  return getAdditive(); // Type
+        case -1618432855:  return addIdentifier(); 
+        case -1724546052:  return getDescriptionElement();
+        case 3575610:  return getType(); 
+        case -67824454:  return getCapacity(); 
+        case 1485980595:  return getSpecimenQuantity(); 
+        case 261915956:  return getAdditive(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -2135,18 +2135,18 @@ public class Specimen extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1618432855:  return addIdentifier(); // Identifier
-        case 818734061:  return getAccessionIdentifier(); // Identifier
-        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<SpecimenStatus>
-        case 3575610:  return getType(); // CodeableConcept
-        case -1867885268:  return getSubject(); // Reference
-        case -767961010: throw new FHIRException("Cannot make property receivedTime as it is not a complex type"); // DateTimeType
-        case -995424086:  return addParent(); // Reference
-        case 1095692943:  return addRequest(); // Reference
-        case -1741312354:  return getCollection(); // SpecimenCollectionComponent
-        case -63342472:  return addTreatment(); // SpecimenTreatmentComponent
-        case -410956671:  return addContainer(); // SpecimenContainerComponent
-        case 3387378:  return addNote(); // Annotation
+        case -1618432855:  return addIdentifier(); 
+        case 818734061:  return getAccessionIdentifier(); 
+        case -892481550:  return getStatusElement();
+        case 3575610:  return getType(); 
+        case -1867885268:  return getSubject(); 
+        case -767961010:  return getReceivedTimeElement();
+        case -995424086:  return addParent(); 
+        case 1095692943:  return addRequest(); 
+        case -1741312354:  return getCollection(); 
+        case -63342472:  return addTreatment(); 
+        case -410956671:  return addContainer(); 
+        case 3387378:  return addNote(); 
         default: return super.makeProperty(hash, name);
         }
 

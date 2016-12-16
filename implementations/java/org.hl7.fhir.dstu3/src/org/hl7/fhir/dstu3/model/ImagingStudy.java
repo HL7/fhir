@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -317,8 +317,8 @@ public class ImagingStudy extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3575610:  return getType(); // Coding
-        case 116079: throw new FHIRException("Cannot make property url as it is not a complex type"); // UriType
+        case 3575610:  return getType(); 
+        case 116079:  return getUrlElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -1044,17 +1044,17 @@ public class ImagingStudy extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 115792: throw new FHIRException("Cannot make property uid as it is not a complex type"); // OidType
-        case -1034364087: throw new FHIRException("Cannot make property number as it is not a complex type"); // UnsignedIntType
-        case -622722335:  return getModality(); // Coding
-        case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
-        case -1043544226: throw new FHIRException("Cannot make property numberOfInstances as it is not a complex type"); // UnsignedIntType
-        case 1997542747: throw new FHIRException("Cannot make property availability as it is not a complex type"); // Enumeration<InstanceAvailability>
-        case 231778726:  return addBaseLocation(); // SeriesBaseLocationComponent
-        case 1702620169:  return getBodySite(); // Coding
-        case -170291817:  return getLaterality(); // Coding
-        case -1897185151: throw new FHIRException("Cannot make property started as it is not a complex type"); // DateTimeType
-        case 555127957:  return addInstance(); // ImagingStudySeriesInstanceComponent
+        case 115792:  return getUidElement();
+        case -1034364087:  return getNumberElement();
+        case -622722335:  return getModality(); 
+        case -1724546052:  return getDescriptionElement();
+        case -1043544226:  return getNumberOfInstancesElement();
+        case 1997542747:  return getAvailabilityElement();
+        case 231778726:  return addBaseLocation(); 
+        case 1702620169:  return getBodySite(); 
+        case -170291817:  return getLaterality(); 
+        case -1897185151:  return getStartedElement();
+        case 555127957:  return addInstance(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -1313,8 +1313,8 @@ public class ImagingStudy extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3575610:  return getType(); // Coding
-        case 116079: throw new FHIRException("Cannot make property url as it is not a complex type"); // UriType
+        case 3575610:  return getType(); 
+        case 116079:  return getUrlElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -1661,10 +1661,10 @@ public class ImagingStudy extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 115792: throw new FHIRException("Cannot make property uid as it is not a complex type"); // OidType
-        case -1034364087: throw new FHIRException("Cannot make property number as it is not a complex type"); // UnsignedIntType
-        case 1560041540: throw new FHIRException("Cannot make property sopClass as it is not a complex type"); // OidType
-        case 110371416: throw new FHIRException("Cannot make property title as it is not a complex type"); // StringType
+        case 115792:  return getUidElement();
+        case -1034364087:  return getNumberElement();
+        case 1560041540:  return getSopClassElement();
+        case 110371416:  return getTitleElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -2947,24 +2947,24 @@ public class ImagingStudy extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 115792: throw new FHIRException("Cannot make property uid as it is not a complex type"); // OidType
-        case -2115028956:  return getAccession(); // Identifier
-        case -1618432855:  return addIdentifier(); // Identifier
-        case 1997542747: throw new FHIRException("Cannot make property availability as it is not a complex type"); // Enumeration<InstanceAvailability>
-        case -1030238433:  return addModalityList(); // Coding
-        case -791418107:  return getPatient(); // Reference
-        case 951530927:  return getContext(); // Reference
-        case -1897185151: throw new FHIRException("Cannot make property started as it is not a complex type"); // DateTimeType
-        case -332612366:  return addBasedOn(); // Reference
-        case -722568161:  return getReferrer(); // Reference
-        case -2008009094:  return addInterpreter(); // Reference
-        case 231778726:  return addBaseLocation(); // StudyBaseLocationComponent
-        case 1920000407: throw new FHIRException("Cannot make property numberOfSeries as it is not a complex type"); // UnsignedIntType
-        case -1043544226: throw new FHIRException("Cannot make property numberOfInstances as it is not a complex type"); // UnsignedIntType
-        case -1095204141:  return addProcedure(); // Reference
-        case -934964668:  return getReason(); // CodeableConcept
-        case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
-        case -905838985:  return addSeries(); // ImagingStudySeriesComponent
+        case 115792:  return getUidElement();
+        case -2115028956:  return getAccession(); 
+        case -1618432855:  return addIdentifier(); 
+        case 1997542747:  return getAvailabilityElement();
+        case -1030238433:  return addModalityList(); 
+        case -791418107:  return getPatient(); 
+        case 951530927:  return getContext(); 
+        case -1897185151:  return getStartedElement();
+        case -332612366:  return addBasedOn(); 
+        case -722568161:  return getReferrer(); 
+        case -2008009094:  return addInterpreter(); 
+        case 231778726:  return addBaseLocation(); 
+        case 1920000407:  return getNumberOfSeriesElement();
+        case -1043544226:  return getNumberOfInstancesElement();
+        case -1095204141:  return addProcedure(); 
+        case -934964668:  return getReason(); 
+        case -1724546052:  return getDescriptionElement();
+        case -905838985:  return addSeries(); 
         default: return super.makeProperty(hash, name);
         }
 

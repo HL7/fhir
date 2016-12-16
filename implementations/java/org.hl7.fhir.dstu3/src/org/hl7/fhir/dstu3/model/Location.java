@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -529,9 +529,9 @@ public class Location extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 137365935: throw new FHIRException("Cannot make property longitude as it is not a complex type"); // DecimalType
-        case -1439978388: throw new FHIRException("Cannot make property latitude as it is not a complex type"); // DecimalType
-        case 2036550306: throw new FHIRException("Cannot make property altitude as it is not a complex type"); // DecimalType
+        case 137365935:  return getLongitudeElement();
+        case -1439978388:  return getLatitudeElement();
+        case 2036550306:  return getAltitudeElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -1470,20 +1470,20 @@ public class Location extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1618432855:  return addIdentifier(); // Identifier
-        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<LocationStatus>
-        case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
-        case 92902992: throw new FHIRException("Cannot make property alias as it is not a complex type"); // StringType
-        case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
-        case 3357091: throw new FHIRException("Cannot make property mode as it is not a complex type"); // Enumeration<LocationMode>
-        case 3575610:  return getType(); // CodeableConcept
-        case -1429363305:  return addTelecom(); // ContactPoint
-        case -1147692044:  return getAddress(); // Address
-        case -1474715471:  return getPhysicalType(); // CodeableConcept
-        case 747804969:  return getPosition(); // LocationPositionComponent
-        case -2058947787:  return getManagingOrganization(); // Reference
-        case -995410646:  return getPartOf(); // Reference
-        case 1741102485:  return addEndpoint(); // Reference
+        case -1618432855:  return addIdentifier(); 
+        case -892481550:  return getStatusElement();
+        case 3373707:  return getNameElement();
+        case 92902992:  return addAliasElement();
+        case -1724546052:  return getDescriptionElement();
+        case 3357091:  return getModeElement();
+        case 3575610:  return getType(); 
+        case -1429363305:  return addTelecom(); 
+        case -1147692044:  return getAddress(); 
+        case -1474715471:  return getPhysicalType(); 
+        case 747804969:  return getPosition(); 
+        case -2058947787:  return getManagingOrganization(); 
+        case -995410646:  return getPartOf(); 
+        case 1741102485:  return addEndpoint(); 
         default: return super.makeProperty(hash, name);
         }
 

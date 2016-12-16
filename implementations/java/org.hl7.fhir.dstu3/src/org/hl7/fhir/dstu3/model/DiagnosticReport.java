@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -392,8 +392,8 @@ public class DiagnosticReport extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 950398559: throw new FHIRException("Cannot make property comment as it is not a complex type"); // StringType
-        case 3321850:  return getLink(); // Reference
+        case 950398559:  return getCommentElement();
+        case 3321850:  return getLink(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -1645,23 +1645,23 @@ public class DiagnosticReport extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1618432855:  return addIdentifier(); // Identifier
-        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<DiagnosticReportStatus>
-        case 50511102:  return getCategory(); // CodeableConcept
-        case 3059181:  return getCode(); // CodeableConcept
-        case -1867885268:  return getSubject(); // Reference
-        case 1524132147:  return getEncounter(); // Reference
-        case 247104889:  return getEffective(); // Type
-        case -1179159893: throw new FHIRException("Cannot make property issued as it is not a complex type"); // InstantType
-        case 481140686:  return addPerformer(); // Reference
-        case 1095692943:  return addRequest(); // Reference
-        case -2132868344:  return addSpecimen(); // Reference
-        case -934426595:  return addResult(); // Reference
-        case -814900911:  return addImagingStudy(); // Reference
-        case 100313435:  return addImage(); // DiagnosticReportImageComponent
-        case -1731259873: throw new FHIRException("Cannot make property conclusion as it is not a complex type"); // StringType
-        case -1364269926:  return addCodedDiagnosis(); // CodeableConcept
-        case 230090366:  return addPresentedForm(); // Attachment
+        case -1618432855:  return addIdentifier(); 
+        case -892481550:  return getStatusElement();
+        case 50511102:  return getCategory(); 
+        case 3059181:  return getCode(); 
+        case -1867885268:  return getSubject(); 
+        case 1524132147:  return getEncounter(); 
+        case 247104889:  return getEffective(); 
+        case -1179159893:  return getIssuedElement();
+        case 481140686:  return addPerformer(); 
+        case 1095692943:  return addRequest(); 
+        case -2132868344:  return addSpecimen(); 
+        case -934426595:  return addResult(); 
+        case -814900911:  return addImagingStudy(); 
+        case 100313435:  return addImage(); 
+        case -1731259873:  return getConclusionElement();
+        case -1364269926:  return addCodedDiagnosis(); 
+        case 230090366:  return addPresentedForm(); 
         default: return super.makeProperty(hash, name);
         }
 

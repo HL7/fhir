@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -386,9 +386,9 @@ public class MessageHeader extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1618432855: throw new FHIRException("Cannot make property identifier as it is not a complex type"); // IdType
-        case 3059181: throw new FHIRException("Cannot make property code as it is not a complex type"); // Enumeration<ResponseType>
-        case 1557721666:  return getDetails(); // Reference
+        case -1618432855:  return getIdentifierElement();
+        case 3059181:  return getCodeElement();
+        case 1557721666:  return getDetails(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -786,11 +786,11 @@ public class MessageHeader extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
-        case 1319330215: throw new FHIRException("Cannot make property software as it is not a complex type"); // StringType
-        case 351608024: throw new FHIRException("Cannot make property version as it is not a complex type"); // StringType
-        case 951526432:  return getContact(); // ContactPoint
-        case 1741102485: throw new FHIRException("Cannot make property endpoint as it is not a complex type"); // UriType
+        case 3373707:  return getNameElement();
+        case 1319330215:  return getSoftwareElement();
+        case 351608024:  return getVersionElement();
+        case 951526432:  return getContact(); 
+        case 1741102485:  return getEndpointElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -1096,9 +1096,9 @@ public class MessageHeader extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
-        case -880905839:  return getTarget(); // Reference
-        case 1741102485: throw new FHIRException("Cannot make property endpoint as it is not a complex type"); // UriType
+        case 3373707:  return getNameElement();
+        case -880905839:  return getTarget(); 
+        case 1741102485:  return getEndpointElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -1813,17 +1813,17 @@ public class MessageHeader extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 55126294: throw new FHIRException("Cannot make property timestamp as it is not a complex type"); // InstantType
-        case 96891546:  return getEvent(); // Coding
-        case -340323263:  return getResponse(); // MessageHeaderResponseComponent
-        case -896505829:  return getSource(); // MessageSourceComponent
-        case -1429847026:  return addDestination(); // MessageDestinationComponent
-        case -1591951995:  return getEnterer(); // Reference
-        case -1406328437:  return getAuthor(); // Reference
-        case -808719889:  return getReceiver(); // Reference
-        case 1847674614:  return getResponsible(); // Reference
-        case -934964668:  return getReason(); // CodeableConcept
-        case 3076010:  return addData(); // Reference
+        case 55126294:  return getTimestampElement();
+        case 96891546:  return getEvent(); 
+        case -340323263:  return getResponse(); 
+        case -896505829:  return getSource(); 
+        case -1429847026:  return addDestination(); 
+        case -1591951995:  return getEnterer(); 
+        case -1406328437:  return getAuthor(); 
+        case -808719889:  return getReceiver(); 
+        case 1847674614:  return getResponsible(); 
+        case -934964668:  return getReason(); 
+        case 3076010:  return addData(); 
         default: return super.makeProperty(hash, name);
         }
 

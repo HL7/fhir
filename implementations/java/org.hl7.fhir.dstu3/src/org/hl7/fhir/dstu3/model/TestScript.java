@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -893,8 +893,8 @@ public class TestScript extends MetadataResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 100346066: throw new FHIRException("Cannot make property index as it is not a complex type"); // IntegerType
-        case -309425751:  return getProfile(); // Coding
+        case 100346066:  return getIndexElement();
+        case -309425751:  return getProfile(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -1099,8 +1099,8 @@ public class TestScript extends MetadataResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 100346066: throw new FHIRException("Cannot make property index as it is not a complex type"); // IntegerType
-        case -309425751:  return getProfile(); // Coding
+        case 100346066:  return getIndexElement();
+        case -309425751:  return getProfile(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -1332,8 +1332,8 @@ public class TestScript extends MetadataResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3321850:  return addLink(); // TestScriptMetadataLinkComponent
-        case -783669992:  return addCapability(); // TestScriptMetadataCapabilityComponent
+        case 3321850:  return addLink(); 
+        case -783669992:  return addCapability(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -1568,8 +1568,8 @@ public class TestScript extends MetadataResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 116079: throw new FHIRException("Cannot make property url as it is not a complex type"); // UriType
-        case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
+        case 116079:  return getUrlElement();
+        case -1724546052:  return getDescriptionElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -2127,13 +2127,13 @@ public class TestScript extends MetadataResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -393139297: throw new FHIRException("Cannot make property required as it is not a complex type"); // BooleanType
-        case -1109784050: throw new FHIRException("Cannot make property validated as it is not a complex type"); // BooleanType
-        case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
-        case -1008619738: throw new FHIRException("Cannot make property origin as it is not a complex type"); // IntegerType
-        case -1429847026: throw new FHIRException("Cannot make property destination as it is not a complex type"); // IntegerType
-        case 3321850: throw new FHIRException("Cannot make property link as it is not a complex type"); // UriType
-        case -1487597642:  return getCapabilities(); // Reference
+        case -393139297:  return getRequiredElement();
+        case -1109784050:  return getValidatedElement();
+        case -1724546052:  return getDescriptionElement();
+        case -1008619738:  return addOriginElement();
+        case -1429847026:  return getDestinationElement();
+        case 3321850:  return addLinkElement();
+        case -1487597642:  return getCapabilities(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -2440,9 +2440,9 @@ public class TestScript extends MetadataResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 73154411: throw new FHIRException("Cannot make property autocreate as it is not a complex type"); // BooleanType
-        case 89990170: throw new FHIRException("Cannot make property autodelete as it is not a complex type"); // BooleanType
-        case -341064690:  return getResource(); // Reference
+        case 73154411:  return getAutocreateElement();
+        case 89990170:  return getAutodeleteElement();
+        case -341064690:  return getResource(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -3055,14 +3055,14 @@ public class TestScript extends MetadataResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
-        case -659125328: throw new FHIRException("Cannot make property defaultValue as it is not a complex type"); // StringType
-        case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
-        case -1795452264: throw new FHIRException("Cannot make property expression as it is not a complex type"); // StringType
-        case 1160732269: throw new FHIRException("Cannot make property headerField as it is not a complex type"); // StringType
-        case 3202695: throw new FHIRException("Cannot make property hint as it is not a complex type"); // StringType
-        case 3433509: throw new FHIRException("Cannot make property path as it is not a complex type"); // StringType
-        case 1746327190: throw new FHIRException("Cannot make property sourceId as it is not a complex type"); // IdType
+        case 3373707:  return getNameElement();
+        case -659125328:  return getDefaultValueElement();
+        case -1724546052:  return getDescriptionElement();
+        case -1795452264:  return getExpressionElement();
+        case 1160732269:  return getHeaderFieldElement();
+        case 3202695:  return getHintElement();
+        case 3433509:  return getPathElement();
+        case 1746327190:  return getSourceIdElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -3323,8 +3323,8 @@ public class TestScript extends MetadataResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -341064690:  return getResource(); // Reference
-        case 106436749:  return addParam(); // RuleParamComponent
+        case -341064690:  return getResource(); 
+        case 106436749:  return addParam(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -3556,8 +3556,8 @@ public class TestScript extends MetadataResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
-        case 111972721: throw new FHIRException("Cannot make property value as it is not a complex type"); // StringType
+        case 3373707:  return getNameElement();
+        case 111972721:  return getValueElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -3787,8 +3787,8 @@ public class TestScript extends MetadataResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -341064690:  return getResource(); // Reference
-        case 3512060:  return addRule(); // RulesetRuleComponent
+        case -341064690:  return getResource(); 
+        case 3512060:  return addRule(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -4024,8 +4024,8 @@ public class TestScript extends MetadataResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -919875273: throw new FHIRException("Cannot make property ruleId as it is not a complex type"); // IdType
-        case 106436749:  return addParam(); // RulesetRuleParamComponent
+        case -919875273:  return getRuleIdElement();
+        case 106436749:  return addParam(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -4256,8 +4256,8 @@ public class TestScript extends MetadataResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
-        case 111972721: throw new FHIRException("Cannot make property value as it is not a complex type"); // StringType
+        case 3373707:  return getNameElement();
+        case 111972721:  return getValueElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -4421,7 +4421,7 @@ public class TestScript extends MetadataResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1422950858:  return addAction(); // SetupActionComponent
+        case -1422950858:  return addAction(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -4594,8 +4594,8 @@ public class TestScript extends MetadataResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 1662702951:  return getOperation(); // SetupActionOperationComponent
-        case -1408208058:  return getAssert(); // SetupActionAssertComponent
+        case 1662702951:  return getOperation(); 
+        case -1408208058:  return getAssert(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -5673,22 +5673,22 @@ public class TestScript extends MetadataResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3575610:  return getType(); // Coding
-        case -341064690: throw new FHIRException("Cannot make property resource as it is not a complex type"); // CodeType
-        case 102727412: throw new FHIRException("Cannot make property label as it is not a complex type"); // StringType
-        case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
-        case -1423461112: throw new FHIRException("Cannot make property accept as it is not a complex type"); // Enumeration<ContentType>
-        case -389131437: throw new FHIRException("Cannot make property contentType as it is not a complex type"); // Enumeration<ContentType>
-        case -1429847026: throw new FHIRException("Cannot make property destination as it is not a complex type"); // IntegerType
-        case -1760554218: throw new FHIRException("Cannot make property encodeRequestUrl as it is not a complex type"); // BooleanType
-        case -1008619738: throw new FHIRException("Cannot make property origin as it is not a complex type"); // IntegerType
-        case -995427962: throw new FHIRException("Cannot make property params as it is not a complex type"); // StringType
-        case 1074158076:  return addRequestHeader(); // SetupActionOperationRequestHeaderComponent
-        case 693933066: throw new FHIRException("Cannot make property requestId as it is not a complex type"); // IdType
-        case -633138884: throw new FHIRException("Cannot make property responseId as it is not a complex type"); // IdType
-        case 1746327190: throw new FHIRException("Cannot make property sourceId as it is not a complex type"); // IdType
-        case -441951604: throw new FHIRException("Cannot make property targetId as it is not a complex type"); // IdType
-        case 116079: throw new FHIRException("Cannot make property url as it is not a complex type"); // StringType
+        case 3575610:  return getType(); 
+        case -341064690:  return getResourceElement();
+        case 102727412:  return getLabelElement();
+        case -1724546052:  return getDescriptionElement();
+        case -1423461112:  return getAcceptElement();
+        case -389131437:  return getContentTypeElement();
+        case -1429847026:  return getDestinationElement();
+        case -1760554218:  return getEncodeRequestUrlElement();
+        case -1008619738:  return getOriginElement();
+        case -995427962:  return getParamsElement();
+        case 1074158076:  return addRequestHeader(); 
+        case 693933066:  return getRequestIdElement();
+        case -633138884:  return getResponseIdElement();
+        case 1746327190:  return getSourceIdElement();
+        case -441951604:  return getTargetIdElement();
+        case 116079:  return getUrlElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -5985,8 +5985,8 @@ public class TestScript extends MetadataResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 97427706: throw new FHIRException("Cannot make property field as it is not a complex type"); // StringType
-        case 111972721: throw new FHIRException("Cannot make property value as it is not a complex type"); // StringType
+        case 97427706:  return getFieldElement();
+        case 111972721:  return getValueElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -7479,29 +7479,29 @@ public class TestScript extends MetadataResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 102727412: throw new FHIRException("Cannot make property label as it is not a complex type"); // StringType
-        case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
-        case -962590849: throw new FHIRException("Cannot make property direction as it is not a complex type"); // Enumeration<AssertionDirectionType>
-        case 2081856758: throw new FHIRException("Cannot make property compareToSourceId as it is not a complex type"); // StringType
-        case -1415702669: throw new FHIRException("Cannot make property compareToSourceExpression as it is not a complex type"); // StringType
-        case -790206144: throw new FHIRException("Cannot make property compareToSourcePath as it is not a complex type"); // StringType
-        case -389131437: throw new FHIRException("Cannot make property contentType as it is not a complex type"); // Enumeration<ContentType>
-        case -1795452264: throw new FHIRException("Cannot make property expression as it is not a complex type"); // StringType
-        case 1160732269: throw new FHIRException("Cannot make property headerField as it is not a complex type"); // StringType
-        case 818925001: throw new FHIRException("Cannot make property minimumId as it is not a complex type"); // StringType
-        case 1001488901: throw new FHIRException("Cannot make property navigationLinks as it is not a complex type"); // BooleanType
-        case -500553564: throw new FHIRException("Cannot make property operator as it is not a complex type"); // Enumeration<AssertionOperatorType>
-        case 3433509: throw new FHIRException("Cannot make property path as it is not a complex type"); // StringType
-        case 37099616: throw new FHIRException("Cannot make property requestURL as it is not a complex type"); // StringType
-        case -341064690: throw new FHIRException("Cannot make property resource as it is not a complex type"); // CodeType
-        case -340323263: throw new FHIRException("Cannot make property response as it is not a complex type"); // Enumeration<AssertionResponseTypes>
-        case 1438723534: throw new FHIRException("Cannot make property responseCode as it is not a complex type"); // StringType
-        case 3512060:  return getRule(); // ActionAssertRuleComponent
-        case 1548678118:  return getRuleset(); // ActionAssertRulesetComponent
-        case 1746327190: throw new FHIRException("Cannot make property sourceId as it is not a complex type"); // IdType
-        case 1555541038: throw new FHIRException("Cannot make property validateProfileId as it is not a complex type"); // IdType
-        case 111972721: throw new FHIRException("Cannot make property value as it is not a complex type"); // StringType
-        case -481159832: throw new FHIRException("Cannot make property warningOnly as it is not a complex type"); // BooleanType
+        case 102727412:  return getLabelElement();
+        case -1724546052:  return getDescriptionElement();
+        case -962590849:  return getDirectionElement();
+        case 2081856758:  return getCompareToSourceIdElement();
+        case -1415702669:  return getCompareToSourceExpressionElement();
+        case -790206144:  return getCompareToSourcePathElement();
+        case -389131437:  return getContentTypeElement();
+        case -1795452264:  return getExpressionElement();
+        case 1160732269:  return getHeaderFieldElement();
+        case 818925001:  return getMinimumIdElement();
+        case 1001488901:  return getNavigationLinksElement();
+        case -500553564:  return getOperatorElement();
+        case 3433509:  return getPathElement();
+        case 37099616:  return getRequestURLElement();
+        case -341064690:  return getResourceElement();
+        case -340323263:  return getResponseElement();
+        case 1438723534:  return getResponseCodeElement();
+        case 3512060:  return getRule(); 
+        case 1548678118:  return getRuleset(); 
+        case 1746327190:  return getSourceIdElement();
+        case 1555541038:  return getValidateProfileIdElement();
+        case 111972721:  return getValueElement();
+        case -481159832:  return getWarningOnlyElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -7839,8 +7839,8 @@ public class TestScript extends MetadataResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -919875273: throw new FHIRException("Cannot make property ruleId as it is not a complex type"); // IdType
-        case 106436749:  return addParam(); // ActionAssertRuleParamComponent
+        case -919875273:  return getRuleIdElement();
+        case 106436749:  return addParam(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -8068,8 +8068,8 @@ public class TestScript extends MetadataResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
-        case 111972721: throw new FHIRException("Cannot make property value as it is not a complex type"); // StringType
+        case 3373707:  return getNameElement();
+        case 111972721:  return getValueElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -8300,8 +8300,8 @@ public class TestScript extends MetadataResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -2073977951: throw new FHIRException("Cannot make property rulesetId as it is not a complex type"); // IdType
-        case 3512060:  return addRule(); // ActionAssertRulesetRuleComponent
+        case -2073977951:  return getRulesetIdElement();
+        case 3512060:  return addRule(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -8536,8 +8536,8 @@ public class TestScript extends MetadataResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -919875273: throw new FHIRException("Cannot make property ruleId as it is not a complex type"); // IdType
-        case 106436749:  return addParam(); // ActionAssertRulesetRuleParamComponent
+        case -919875273:  return getRuleIdElement();
+        case 106436749:  return addParam(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -8765,8 +8765,8 @@ public class TestScript extends MetadataResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
-        case 111972721: throw new FHIRException("Cannot make property value as it is not a complex type"); // StringType
+        case 3373707:  return getNameElement();
+        case 111972721:  return getValueElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -9056,9 +9056,9 @@ public class TestScript extends MetadataResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
-        case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
-        case -1422950858:  return addAction(); // TestActionComponent
+        case 3373707:  return getNameElement();
+        case -1724546052:  return getDescriptionElement();
+        case -1422950858:  return addAction(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -9241,8 +9241,8 @@ public class TestScript extends MetadataResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 1662702951:  return getOperation(); // SetupActionOperationComponent
-        case -1408208058:  return getAssert(); // SetupActionAssertComponent
+        case 1662702951:  return getOperation(); 
+        case -1408208058:  return getAssert(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -9408,7 +9408,7 @@ public class TestScript extends MetadataResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1422950858:  return addAction(); // TeardownActionComponent
+        case -1422950858:  return addAction(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -9551,7 +9551,7 @@ public class TestScript extends MetadataResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 1662702951:  return getOperation(); // SetupActionOperationComponent
+        case 1662702951:  return getOperation(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -11150,32 +11150,32 @@ public class TestScript extends MetadataResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 116079: throw new FHIRException("Cannot make property url as it is not a complex type"); // UriType
-        case -1618432855:  return getIdentifier(); // Identifier
-        case 351608024: throw new FHIRException("Cannot make property version as it is not a complex type"); // StringType
-        case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
-        case 110371416: throw new FHIRException("Cannot make property title as it is not a complex type"); // StringType
-        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<PublicationStatus>
-        case -404562712: throw new FHIRException("Cannot make property experimental as it is not a complex type"); // BooleanType
-        case 1447404028: throw new FHIRException("Cannot make property publisher as it is not a complex type"); // StringType
-        case 951526432:  return addContact(); // ContactDetail
-        case 3076014: throw new FHIRException("Cannot make property date as it is not a complex type"); // DateTimeType
-        case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // MarkdownType
-        case -669707736:  return addUseContext(); // UsageContext
-        case -507075711:  return addJurisdiction(); // CodeableConcept
-        case -220463842: throw new FHIRException("Cannot make property purpose as it is not a complex type"); // MarkdownType
-        case 1522889671: throw new FHIRException("Cannot make property copyright as it is not a complex type"); // MarkdownType
-        case -1008619738:  return addOrigin(); // TestScriptOriginComponent
-        case -1429847026:  return addDestination(); // TestScriptDestinationComponent
-        case -450004177:  return getMetadata(); // TestScriptMetadataComponent
-        case -843449847:  return addFixture(); // TestScriptFixtureComponent
-        case -309425751:  return addProfile(); // Reference
-        case -1249586564:  return addVariable(); // TestScriptVariableComponent
-        case 3512060:  return addRule(); // TestScriptRuleComponent
-        case 1548678118:  return addRuleset(); // TestScriptRulesetComponent
-        case 109329021:  return getSetup(); // TestScriptSetupComponent
-        case 3556498:  return addTest(); // TestScriptTestComponent
-        case -1663474172:  return getTeardown(); // TestScriptTeardownComponent
+        case 116079:  return getUrlElement();
+        case -1618432855:  return getIdentifier(); 
+        case 351608024:  return getVersionElement();
+        case 3373707:  return getNameElement();
+        case 110371416:  return getTitleElement();
+        case -892481550:  return getStatusElement();
+        case -404562712:  return getExperimentalElement();
+        case 1447404028:  return getPublisherElement();
+        case 951526432:  return addContact(); 
+        case 3076014:  return getDateElement();
+        case -1724546052:  return getDescriptionElement();
+        case -669707736:  return addUseContext(); 
+        case -507075711:  return addJurisdiction(); 
+        case -220463842:  return getPurposeElement();
+        case 1522889671:  return getCopyrightElement();
+        case -1008619738:  return addOrigin(); 
+        case -1429847026:  return addDestination(); 
+        case -450004177:  return getMetadata(); 
+        case -843449847:  return addFixture(); 
+        case -309425751:  return addProfile(); 
+        case -1249586564:  return addVariable(); 
+        case 3512060:  return addRule(); 
+        case 1548678118:  return addRuleset(); 
+        case 109329021:  return getSetup(); 
+        case 3556498:  return addTest(); 
+        case -1663474172:  return getTeardown(); 
         default: return super.makeProperty(hash, name);
         }
 

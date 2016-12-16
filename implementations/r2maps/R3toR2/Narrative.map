@@ -1,12 +1,16 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Narrative3to2" = "R3 to R2 Conversion for Narrative"
 
-uses "http://hl7.org/fhir/StructureDefinition/NarrativeR2" as source
-uses "http://hl7.org/fhir/StructureDefinition/Narrative" as target
+
+uses "http://hl7.org/fhir/StructureDefinition/Narrative" alias Narrative as source
+uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Narrative" alias NarrativeR2 as target
+
+imports "http://hl7.org/fhir/StructureMap/primitives3to2"
+
 
 
 group Narrative extends Element
   input src : Narrative as source
-  input tgt : NarrativeR2 as Target
+  input tgt : NarrativeR2 as target
   "Narrative-status" : for src.status as vs make tgt.status as vt then code(vs, vt)
   "Narrative-div" : for src.div as vs make tgt.div as vt then xhtml(vs, vt)
 endgroup

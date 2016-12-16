@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -1070,11 +1070,11 @@ public class Measure extends MetadataResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1618432855:  return getIdentifier(); // Identifier
-        case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
-        case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
-        case -2023558323:  return addPopulation(); // MeasureGroupPopulationComponent
-        case 90983669:  return addStratifier(); // MeasureGroupStratifierComponent
+        case -1618432855:  return getIdentifier(); 
+        case 3373707:  return getNameElement();
+        case -1724546052:  return getDescriptionElement();
+        case -2023558323:  return addPopulation(); 
+        case 90983669:  return addStratifier(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -1487,11 +1487,11 @@ public class Measure extends MetadataResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3575610: throw new FHIRException("Cannot make property type as it is not a complex type"); // Enumeration<MeasurePopulationType>
-        case -1618432855:  return getIdentifier(); // Identifier
-        case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
-        case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
-        case 1952046943: throw new FHIRException("Cannot make property criteria as it is not a complex type"); // StringType
+        case 3575610:  return getTypeElement();
+        case -1618432855:  return getIdentifier(); 
+        case 3373707:  return getNameElement();
+        case -1724546052:  return getDescriptionElement();
+        case 1952046943:  return getCriteriaElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -1776,9 +1776,9 @@ public class Measure extends MetadataResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1618432855:  return getIdentifier(); // Identifier
-        case 1952046943: throw new FHIRException("Cannot make property criteria as it is not a complex type"); // StringType
-        case 3433509: throw new FHIRException("Cannot make property path as it is not a complex type"); // StringType
+        case -1618432855:  return getIdentifier(); 
+        case 1952046943:  return getCriteriaElement();
+        case 3433509:  return getPathElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -2130,10 +2130,10 @@ public class Measure extends MetadataResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1618432855:  return getIdentifier(); // Identifier
-        case 111574433: throw new FHIRException("Cannot make property usage as it is not a complex type"); // Enumeration<MeasureDataUsage>
-        case 1952046943: throw new FHIRException("Cannot make property criteria as it is not a complex type"); // StringType
-        case 3433509: throw new FHIRException("Cannot make property path as it is not a complex type"); // StringType
+        case -1618432855:  return getIdentifier(); 
+        case 111574433:  return addUsageElement();
+        case 1952046943:  return getCriteriaElement();
+        case 3433509:  return getPathElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -4548,43 +4548,43 @@ public class Measure extends MetadataResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 116079: throw new FHIRException("Cannot make property url as it is not a complex type"); // UriType
-        case -1618432855:  return addIdentifier(); // Identifier
-        case 351608024: throw new FHIRException("Cannot make property version as it is not a complex type"); // StringType
-        case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
-        case 110371416: throw new FHIRException("Cannot make property title as it is not a complex type"); // StringType
-        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<PublicationStatus>
-        case -404562712: throw new FHIRException("Cannot make property experimental as it is not a complex type"); // BooleanType
-        case 3076014: throw new FHIRException("Cannot make property date as it is not a complex type"); // DateTimeType
-        case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // MarkdownType
-        case -220463842: throw new FHIRException("Cannot make property purpose as it is not a complex type"); // MarkdownType
-        case 111574433: throw new FHIRException("Cannot make property usage as it is not a complex type"); // StringType
-        case 223539345: throw new FHIRException("Cannot make property approvalDate as it is not a complex type"); // DateType
-        case -1687512484: throw new FHIRException("Cannot make property lastReviewDate as it is not a complex type"); // DateType
-        case -403934648:  return getEffectivePeriod(); // Period
-        case -669707736:  return addUseContext(); // UsageContext
-        case -507075711:  return addJurisdiction(); // CodeableConcept
-        case 110546223:  return addTopic(); // CodeableConcept
-        case -1895276325:  return addContributor(); // Contributor
-        case 1447404028: throw new FHIRException("Cannot make property publisher as it is not a complex type"); // StringType
-        case 951526432:  return addContact(); // ContactDetail
-        case 1522889671: throw new FHIRException("Cannot make property copyright as it is not a complex type"); // MarkdownType
-        case 666807069:  return addRelatedArtifact(); // RelatedArtifact
-        case 166208699:  return addLibrary(); // Reference
-        case 432371099: throw new FHIRException("Cannot make property disclaimer as it is not a complex type"); // MarkdownType
-        case 1924005583: throw new FHIRException("Cannot make property scoring as it is not a complex type"); // Enumeration<MeasureScoring>
-        case 569347656: throw new FHIRException("Cannot make property compositeScoring as it is not a complex type"); // Enumeration<CompositeMeasureScoring>
-        case 3575610: throw new FHIRException("Cannot make property type as it is not a complex type"); // Enumeration<MeasureType>
-        case 93273500: throw new FHIRException("Cannot make property riskAdjustment as it is not a complex type"); // StringType
-        case 1254503906: throw new FHIRException("Cannot make property rateAggregation as it is not a complex type"); // StringType
-        case 345689335: throw new FHIRException("Cannot make property rationale as it is not a complex type"); // MarkdownType
-        case -18631389: throw new FHIRException("Cannot make property clinicalRecommendationStatement as it is not a complex type"); // MarkdownType
-        case -2085456136: throw new FHIRException("Cannot make property improvementNotation as it is not a complex type"); // StringType
-        case -1014418093: throw new FHIRException("Cannot make property definition as it is not a complex type"); // MarkdownType
-        case -1314002088: throw new FHIRException("Cannot make property guidance as it is not a complex type"); // MarkdownType
-        case 113762: throw new FHIRException("Cannot make property set as it is not a complex type"); // StringType
-        case 98629247:  return addGroup(); // MeasureGroupComponent
-        case 1447496814:  return addSupplementalData(); // MeasureSupplementalDataComponent
+        case 116079:  return getUrlElement();
+        case -1618432855:  return addIdentifier(); 
+        case 351608024:  return getVersionElement();
+        case 3373707:  return getNameElement();
+        case 110371416:  return getTitleElement();
+        case -892481550:  return getStatusElement();
+        case -404562712:  return getExperimentalElement();
+        case 3076014:  return getDateElement();
+        case -1724546052:  return getDescriptionElement();
+        case -220463842:  return getPurposeElement();
+        case 111574433:  return getUsageElement();
+        case 223539345:  return getApprovalDateElement();
+        case -1687512484:  return getLastReviewDateElement();
+        case -403934648:  return getEffectivePeriod(); 
+        case -669707736:  return addUseContext(); 
+        case -507075711:  return addJurisdiction(); 
+        case 110546223:  return addTopic(); 
+        case -1895276325:  return addContributor(); 
+        case 1447404028:  return getPublisherElement();
+        case 951526432:  return addContact(); 
+        case 1522889671:  return getCopyrightElement();
+        case 666807069:  return addRelatedArtifact(); 
+        case 166208699:  return addLibrary(); 
+        case 432371099:  return getDisclaimerElement();
+        case 1924005583:  return getScoringElement();
+        case 569347656:  return getCompositeScoringElement();
+        case 3575610:  return addTypeElement();
+        case 93273500:  return getRiskAdjustmentElement();
+        case 1254503906:  return getRateAggregationElement();
+        case 345689335:  return getRationaleElement();
+        case -18631389:  return getClinicalRecommendationStatementElement();
+        case -2085456136:  return getImprovementNotationElement();
+        case -1014418093:  return getDefinitionElement();
+        case -1314002088:  return getGuidanceElement();
+        case 113762:  return getSetElement();
+        case 98629247:  return addGroup(); 
+        case 1447496814:  return addSupplementalData(); 
         default: return super.makeProperty(hash, name);
         }
 

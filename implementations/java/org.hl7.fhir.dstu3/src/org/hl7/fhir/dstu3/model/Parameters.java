@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -288,10 +288,10 @@ public class Parameters extends Resource implements IBaseParameters {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
-        case -1410166417:  return getValue(); // org.hl7.fhir.dstu3.model.Type
+        case 3373707:  return getNameElement();
+        case -1410166417:  return getValue(); 
         case -341064690: throw new FHIRException("Cannot make property resource as it is not a complex type"); // Resource
-        case 3433459:  return addPart(); // ParametersParameterComponent
+        case 3433459:  return addPart(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -596,7 +596,7 @@ public class Parameters extends Resource implements IBaseParameters {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 1954460585:  return addParameter(); // ParametersParameterComponent
+        case 1954460585:  return addParameter(); 
         default: return super.makeProperty(hash, name);
         }
 

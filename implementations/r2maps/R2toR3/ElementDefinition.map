@@ -1,19 +1,40 @@
 ﻿map "http://hl7.org/fhir/StructureMap/ElementDefinition2to3" = "R2 to R3 Conversions for ElementDefinition"
 
-uses "http://hl7.org/fhir/StructureDefinition/ElementDefinition" as source
-uses "http://hl7.org/fhir/StructureDefinition/ElementDefinitionR2" as target
+
+uses "http://hl7.org/fhir/DSTU2/StructureDefinition/ElementDefinition" alias ElementDefinitionR2 as source
+uses "http://hl7.org/fhir/StructureDefinition/ElementDefinition" alias ElementDefinition as target
+
+imports "http://hl7.org/fhir/StructureMap/primitives2to3"
+imports "http://hl7.org/fhir/StructureMap/Meta2to3"
+imports "http://hl7.org/fhir/StructureMap/Address2to3"
+imports "http://hl7.org/fhir/StructureMap/Attachment2to3"
+imports "http://hl7.org/fhir/StructureMap/HumanName2to3"
+imports "http://hl7.org/fhir/StructureMap/ContactPoint2to3"
+imports "http://hl7.org/fhir/StructureMap/Identifier2to3"
+imports "http://hl7.org/fhir/StructureMap/Coding2to3"
+imports "http://hl7.org/fhir/StructureMap/SampledData2to3"
+imports "http://hl7.org/fhir/StructureMap/Ratio2to3"
+imports "http://hl7.org/fhir/StructureMap/Reference2to3"
+imports "http://hl7.org/fhir/StructureMap/Quantity2to3"
+imports "http://hl7.org/fhir/StructureMap/Period2to3"
+imports "http://hl7.org/fhir/StructureMap/Range2to3"
+imports "http://hl7.org/fhir/StructureMap/Annotation2to3"
+imports "http://hl7.org/fhir/StructureMap/Signature2to3"
+imports "http://hl7.org/fhir/StructureMap/Timing2to3"
+imports "http://hl7.org/fhir/StructureMap/CodeableConcept2to3"
+
 
 
 group ElementDefinition extends Element
   input src : ElementDefinitionR2 as source
-  input tgt : ElementDefinition as Target
+  input tgt : ElementDefinition as target
 
   "ElementDefinition-path" : for src.path as vs make tgt.path as vt then string(vs, vt)
   "ElementDefinition-sliceName" : for src.name as vs make tgt.sliceName as vt then string(vs, vt)
   "ElementDefinition-id" : for src.name as vs make tgt.id as vt then string(vs, vt)
   "ElementDefinition-label" : for src.label as vs make tgt.label as vt then string(vs, vt)
   "ElementDefinition-code" : for src.code as vs make tgt.code as vt then Coding(vs,vt)
-  "ElementDefinition-slicing" : for src.slicing as vs0 make tgt.slicing = as vt0 then {
+  "ElementDefinition-slicing" : for src.slicing as vs0 make tgt.slicing as vt0 then {
     "ElementDefinition.slicing-discriminator" : for vs0.discriminator as vs make vt0.discriminator as vt then string(vs, vt)
     "ElementDefinition.slicing-description" : for vs0.description as vs make vt0.description as vt then string(vs, vt)
     "ElementDefinition.slicing-ordered" : for vs0.ordered as vs make vt0.ordered as vt then boolean(vs, vt)
@@ -26,12 +47,12 @@ group ElementDefinition extends Element
   "ElementDefinition-alias" : for src.alias as vs make tgt.alias as vt then string(vs, vt)
   "ElementDefinition-min" : for src.min as vs make tgt.min as vt then integer(vs, vt)
   "ElementDefinition-max" : for src.max as vs make tgt.max as vt then string(vs, vt)
-  "ElementDefinition-base" : for src.base as vs0 make tgt.base = as vt0 then {
+  "ElementDefinition-base" : for src.base as vs0 make tgt.base as vt0 then {
     "ElementDefinition.base-path" : for vs0.path as vs make vt0.path as vt then string(vs, vt)
     "ElementDefinition.base-min" : for vs0.min as vs make vt0.min as vt then integer(vs, vt)
     "ElementDefinition.base-max" : for vs0.max as vs make vt0.max as vt then string(vs, vt)
   }
-  "ElementDefinition-type" : for src.type as vs0 make tgt.type = as vt0 then {
+  "ElementDefinition-type" : for src.type as vs0 make tgt.type as vt0 then {
   }
   "ElementDefinition-defaultValue-boolean" : for src.defaultValue  : boolean as vs make tgt.defaultValue = create("boolean") as vt then boolean(vs,vt)
   "ElementDefinition-defaultValue-integer" : for src.defaultValue  : integer as vs make tgt.defaultValue = create("integer") as vt then integer(vs,vt)
@@ -153,7 +174,7 @@ group ElementDefinition extends Element
   "ElementDefinition-maxValue-Quantity" : for src.maxValue  : Quantity as vs make tgt.maxValue = create("Quantity") as vt then Quantity(vs,vt)
   "ElementDefinition-maxLength" : for src.maxLength as vs make tgt.maxLength as vt then integer(vs, vt)
   "ElementDefinition-condition" : for src.condition as vs make tgt.condition as vt then id(vs, vt)
-  "ElementDefinition-constraint" : for src.constraint as vs0 make tgt.constraint = as vt0 then {
+  "ElementDefinition-constraint" : for src.constraint as vs0 make tgt.constraint as vt0 then {
     "ElementDefinition.constraint-key" : for vs0.key as vs make vt0.key as vt then id(vs, vt)
     "ElementDefinition.constraint-requirements" : for vs0.requirements as vs make vt0.requirements as vt then string(vs, vt)
     "ElementDefinition.constraint-severity" : for vs0.severity as vs make vt0.severity as vt then code(vs, vt)
@@ -163,13 +184,13 @@ group ElementDefinition extends Element
   "ElementDefinition-mustSupport" : for src.mustSupport as vs make tgt.mustSupport as vt then boolean(vs, vt)
   "ElementDefinition-isModifier" : for src.isModifier as vs make tgt.isModifier as vt then boolean(vs, vt)
   "ElementDefinition-isSummary" : for src.isSummary as vs make tgt.isSummary as vt then boolean(vs, vt)
-  "ElementDefinition-binding" : for src.binding as vs0 make tgt.binding = as vt0 then {
+  "ElementDefinition-binding" : for src.binding as vs0 make tgt.binding as vt0 then {
     "ElementDefinition.binding-strength" : for vs0.strength as vs make vt0.strength as vt then code(vs, vt)
     "ElementDefinition.binding-description" : for vs0.description as vs make vt0.description as vt then string(vs, vt)
     "ElementDefinition.binding-valueSet-uri" : for vs0.valueSet  : uri as vs make vt0.valueSet = create("uri") as vt then uri(vs,vt)
     "ElementDefinition.binding-valueSet-Reference" : for vs0.valueSet  : Reference as vs make vt0.valueSet = create("Reference") as vt then Reference(vs,vt)
   }
-  "ElementDefinition-mapping" : for src.mapping as vs0 make tgt.mapping = as vt0 then {
+  "ElementDefinition-mapping" : for src.mapping as vs0 make tgt.mapping as vt0 then {
     "ElementDefinition.mapping-identity" : for vs0.identity as vs make vt0.identity as vt then id(vs, vt)
     "ElementDefinition.mapping-language" : for vs0.language as vs make vt0.language as vt then code(vs, vt)
     "ElementDefinition.mapping-map" : for vs0.map as vs make vt0.map as vt then string(vs, vt)

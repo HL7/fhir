@@ -1,13 +1,34 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Parameters3to2" = "R3 to R2 Conversion for Parameters"
 
-uses "http://hl7.org/fhir/StructureDefinition/ParametersR2" as source
-uses "http://hl7.org/fhir/StructureDefinition/Parameters" as target
+
+uses "http://hl7.org/fhir/StructureDefinition/Parameters" alias Parameters as source
+uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Parameters" alias ParametersR2 as target
+
+imports "http://hl7.org/fhir/StructureMap/primitives3to2"
+imports "http://hl7.org/fhir/StructureMap/Meta3to2"
+imports "http://hl7.org/fhir/StructureMap/Address3to2"
+imports "http://hl7.org/fhir/StructureMap/Attachment3to2"
+imports "http://hl7.org/fhir/StructureMap/ContactPoint3to2"
+imports "http://hl7.org/fhir/StructureMap/HumanName3to2"
+imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
+imports "http://hl7.org/fhir/StructureMap/Coding3to2"
+imports "http://hl7.org/fhir/StructureMap/SampledData3to2"
+imports "http://hl7.org/fhir/StructureMap/Ratio3to2"
+imports "http://hl7.org/fhir/StructureMap/Reference3to2"
+imports "http://hl7.org/fhir/StructureMap/Period3to2"
+imports "http://hl7.org/fhir/StructureMap/Quantity3to2"
+imports "http://hl7.org/fhir/StructureMap/Range3to2"
+imports "http://hl7.org/fhir/StructureMap/Annotation3to2"
+imports "http://hl7.org/fhir/StructureMap/Signature3to2"
+imports "http://hl7.org/fhir/StructureMap/Timing3to2"
+imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
+
 
 
 group Parameters extends Element
   input src : Parameters as source
-  input tgt : ParametersR2 as Target
-  "Parameters-parameter" : for src.parameter as vs0 make tgt.parameter = as vt0 then {
+  input tgt : ParametersR2 as target
+  "Parameters-parameter" : for src.parameter as vs0 make tgt.parameter as vt0 then {
     "Parameters.parameter-name" : for vs0.name as vs make vt0.name as vt then string(vs, vt)
     "Parameters.parameter-value-base64Binary" : for vs0.value  : base64Binary as vs make vt0.value = create("base64Binary") as vt then base64Binary(vs,vt)
     "Parameters.parameter-value-boolean" : for vs0.value  : boolean as vs make vt0.value = create("boolean") as vt then boolean(vs,vt)

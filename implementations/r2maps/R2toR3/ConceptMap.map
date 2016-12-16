@@ -1,12 +1,19 @@
 ﻿map "http://hl7.org/fhir/StructureMap/ConceptMap2to3" = "R2 to R3 Conversions for ConceptMap"
 
-uses "http://hl7.org/fhir/StructureDefinition/ConceptMap" as source
-uses "http://hl7.org/fhir/StructureDefinition/ConceptMapR2" as target
+
+uses "http://hl7.org/fhir/DSTU2/StructureDefinition/ConceptMap" alias ConceptMapR2 as source
+uses "http://hl7.org/fhir/StructureDefinition/ConceptMap" alias ConceptMap as target
+
+imports "http://hl7.org/fhir/StructureMap/primitives2to3"
+imports "http://hl7.org/fhir/StructureMap/ContactPoint2to3"
+imports "http://hl7.org/fhir/StructureMap/Identifier2to3"
+imports "http://hl7.org/fhir/StructureMap/Reference2to3"
+
 
 
 group ConceptMap extends Element
   input src : ConceptMapR2 as source
-  input tgt : ConceptMap as Target
+  input tgt : ConceptMap as target
 
   "ConceptMap-url" : for src.url as vs make tgt.url as vt then uri(vs, vt)
   "ConceptMap-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
@@ -15,7 +22,7 @@ group ConceptMap extends Element
   "ConceptMap-status" : for src.status as vs make tgt.status as vt then code(vs, vt)
   "ConceptMap-experimental" : for src.experimental as vs make tgt.experimental as vt then boolean(vs, vt)
   "ConceptMap-publisher" : for src.publisher as vs make tgt.publisher as vt then string(vs, vt)
-  "ConceptMap-contact" : for src.contact as vs0 make tgt.contact = as vt0 then {
+  "ConceptMap-contact" : for src.contact as vs0 make tgt.contact as vt0 then {
     "ContactDetail-name" : for vs0.name as vs make vt0.name as vt then string(vs, vt)
     "ContactDetail-telecom" : for vs0.telecom as vs make vt0.telecom as vt then ContactPoint(vs,vt)
   }

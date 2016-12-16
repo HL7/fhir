@@ -1,12 +1,18 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Signature2to3" = "R2 to R3 Conversions for Signature"
 
-uses "http://hl7.org/fhir/StructureDefinition/Signature" as source
-uses "http://hl7.org/fhir/StructureDefinition/SignatureR2" as target
+
+uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Signature" alias SignatureR2 as source
+uses "http://hl7.org/fhir/StructureDefinition/Signature" alias Signature as target
+
+imports "http://hl7.org/fhir/StructureMap/primitives2to3"
+imports "http://hl7.org/fhir/StructureMap/Coding2to3"
+imports "http://hl7.org/fhir/StructureMap/Reference2to3"
+
 
 
 group Signature extends Element
   input src : SignatureR2 as source
-  input tgt : Signature as Target
+  input tgt : Signature as target
 
   "Signature-type" : for src.type as vs make tgt.type as vt then Coding(vs,vt)
   "Signature-when" : for src.when as vs make tgt.when as vt then instant(vs, vt)

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -204,8 +204,8 @@ public class UsageContext extends Type implements ICompositeType {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3059181:  return getCode(); // Coding
-        case -1410166417:  return getValue(); // Type
+        case 3059181:  return getCode(); 
+        case -1410166417:  return getValue(); 
         default: return super.makeProperty(hash, name);
         }
 

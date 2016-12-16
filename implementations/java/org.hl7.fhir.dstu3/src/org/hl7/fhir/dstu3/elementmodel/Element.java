@@ -8,6 +8,7 @@ import java.util.List;
 import org.apache.commons.lang3.Validate;
 import org.hl7.fhir.dstu3.model.Base;
 import org.hl7.fhir.dstu3.model.ElementDefinition;
+import org.hl7.fhir.dstu3.model.StringType;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
 import org.hl7.fhir.dstu3.model.Type;
 import org.hl7.fhir.exceptions.FHIRException;
@@ -228,8 +229,11 @@ public class Element extends Base {
   @Override
 	public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
   	if (isPrimitive() && (hash == "value".hashCode()) && !Utilities.noString(value)) {
-  		String tn = getType();
-  		throw new Error("not done yet"); 
+//  		String tn = getType();
+//  		throw new Error(tn+" not done yet");
+  	  Base[] b = new Base[1];
+  	  b[0] = new StringType(value);
+  	  return b;
   	}
   		
   	List<Base> result = new ArrayList<Base>();

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -341,8 +341,8 @@ public class Person extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -880905839:  return getTarget(); // Reference
-        case 1771900717: throw new FHIRException("Cannot make property assurance as it is not a complex type"); // Enumeration<IdentityAssuranceLevel>
+        case -880905839:  return getTarget(); 
+        case 1771900717:  return getAssuranceElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -1060,16 +1060,16 @@ public class Person extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1618432855:  return addIdentifier(); // Identifier
-        case 3373707:  return addName(); // HumanName
-        case -1429363305:  return addTelecom(); // ContactPoint
-        case -1249512767: throw new FHIRException("Cannot make property gender as it is not a complex type"); // Enumeration<AdministrativeGender>
-        case -1210031859: throw new FHIRException("Cannot make property birthDate as it is not a complex type"); // DateType
-        case -1147692044:  return addAddress(); // Address
-        case 106642994:  return getPhoto(); // Attachment
-        case -2058947787:  return getManagingOrganization(); // Reference
-        case -1422950650: throw new FHIRException("Cannot make property active as it is not a complex type"); // BooleanType
-        case 3321850:  return addLink(); // PersonLinkComponent
+        case -1618432855:  return addIdentifier(); 
+        case 3373707:  return addName(); 
+        case -1429363305:  return addTelecom(); 
+        case -1249512767:  return getGenderElement();
+        case -1210031859:  return getBirthDateElement();
+        case -1147692044:  return addAddress(); 
+        case 106642994:  return getPhoto(); 
+        case -2058947787:  return getManagingOrganization(); 
+        case -1422950650:  return getActiveElement();
+        case 3321850:  return addLink(); 
         default: return super.makeProperty(hash, name);
         }
 

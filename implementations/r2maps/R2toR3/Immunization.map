@@ -1,12 +1,21 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Immunization2to3" = "R2 to R3 Conversions for Immunization"
 
-uses "http://hl7.org/fhir/StructureDefinition/Immunization" as source
-uses "http://hl7.org/fhir/StructureDefinition/ImmunizationR2" as target
+
+uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Immunization" alias ImmunizationR2 as source
+uses "http://hl7.org/fhir/StructureDefinition/Immunization" alias Immunization as target
+
+imports "http://hl7.org/fhir/StructureMap/primitives2to3"
+imports "http://hl7.org/fhir/StructureMap/Identifier2to3"
+imports "http://hl7.org/fhir/StructureMap/Reference2to3"
+imports "http://hl7.org/fhir/StructureMap/Quantity2to3"
+imports "http://hl7.org/fhir/StructureMap/Annotation2to3"
+imports "http://hl7.org/fhir/StructureMap/CodeableConcept2to3"
+
 
 
 group Immunization extends Element
   input src : ImmunizationR2 as source
-  input tgt : Immunization as Target
+  input tgt : Immunization as target
 
   "Immunization-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
   "Immunization-date" : for src.date as vs make tgt.date as vt then dateTime(vs, vt)
@@ -24,16 +33,16 @@ group Immunization extends Element
   "Immunization-route" : for src.route as vs make tgt.route as vt then CodeableConcept(vs,vt)
   "Immunization-doseQuantity" : for src.doseQuantity as vs make tgt.doseQuantity as vt then Quantity(vs,vt)
   "Immunization-note" : for src.note as vs make tgt.note as vt then Annotation(vs,vt)
-  "Immunization-explanation" : for src.explanation as vs0 make tgt.explanation = as vt0 then {
+  "Immunization-explanation" : for src.explanation as vs0 make tgt.explanation as vt0 then {
     "Immunization.explanation-reason" : for vs0.reason as vs make vt0.reason as vt then CodeableConcept(vs,vt)
     "Immunization.explanation-reasonNotGiven" : for vs0.reasonNotGiven as vs make vt0.reasonNotGiven as vt then CodeableConcept(vs,vt)
   }
-  "Immunization-reaction" : for src.reaction as vs0 make tgt.reaction = as vt0 then {
+  "Immunization-reaction" : for src.reaction as vs0 make tgt.reaction as vt0 then {
     "Immunization.reaction-date" : for vs0.date as vs make vt0.date as vt then dateTime(vs, vt)
     "Immunization.reaction-detail" : for vs0.detail as vs make vt0.detail as vt then Reference(vs,vt)
     "Immunization.reaction-reported" : for vs0.reported as vs make vt0.reported as vt then boolean(vs, vt)
   }
-  "Immunization-vaccinationProtocol" : for src.vaccinationProtocol as vs0 make tgt.vaccinationProtocol = as vt0 then {
+  "Immunization-vaccinationProtocol" : for src.vaccinationProtocol as vs0 make tgt.vaccinationProtocol as vt0 then {
     "Immunization.vaccinationProtocol-doseSequence" : for vs0.doseSequence as vs make vt0.doseSequence as vt then positiveInt(vs, vt)
     "Immunization.vaccinationProtocol-description" : for vs0.description as vs make vt0.description as vt then string(vs, vt)
     "Immunization.vaccinationProtocol-authority" : for vs0.authority as vs make vt0.authority as vt then Reference(vs,vt)

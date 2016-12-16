@@ -1,12 +1,17 @@
 ﻿map "http://hl7.org/fhir/StructureMap/SearchParameter2to3" = "R2 to R3 Conversions for SearchParameter"
 
-uses "http://hl7.org/fhir/StructureDefinition/SearchParameter" as source
-uses "http://hl7.org/fhir/StructureDefinition/SearchParameterR2" as target
+
+uses "http://hl7.org/fhir/DSTU2/StructureDefinition/SearchParameter" alias SearchParameterR2 as source
+uses "http://hl7.org/fhir/StructureDefinition/SearchParameter" alias SearchParameter as target
+
+imports "http://hl7.org/fhir/StructureMap/primitives2to3"
+imports "http://hl7.org/fhir/StructureMap/ContactPoint2to3"
+
 
 
 group SearchParameter extends Element
   input src : SearchParameterR2 as source
-  input tgt : SearchParameter as Target
+  input tgt : SearchParameter as target
 
   "SearchParameter-url" : for src.url as vs make tgt.url as vt then uri(vs, vt)
   "SearchParameter-name" : for src.name as vs make tgt.name as vt then string(vs, vt)
@@ -14,7 +19,7 @@ group SearchParameter extends Element
   "SearchParameter-experimental" : for src.experimental as vs make tgt.experimental as vt then boolean(vs, vt)
   "SearchParameter-date" : for src.date as vs make tgt.date as vt then dateTime(vs, vt)
   "SearchParameter-publisher" : for src.publisher as vs make tgt.publisher as vt then string(vs, vt)
-  "SearchParameter-contact" : for src.contact as vs0 make tgt.contact = as vt0 then {
+  "SearchParameter-contact" : for src.contact as vs0 make tgt.contact as vt0 then {
     "ContactDetail-name" : for vs0.name as vs make vt0.name as vt then string(vs, vt)
     "ContactDetail-telecom" : for vs0.telecom as vs make vt0.telecom as vt then ContactPoint(vs,vt)
   }

@@ -1,12 +1,17 @@
 ﻿map "http://hl7.org/fhir/StructureMap/EnrollmentResponse3to2" = "R3 to R2 Conversion for EnrollmentResponse"
 
-uses "http://hl7.org/fhir/StructureDefinition/EnrollmentResponseR2" as source
-uses "http://hl7.org/fhir/StructureDefinition/EnrollmentResponse" as target
+
+uses "http://hl7.org/fhir/StructureDefinition/EnrollmentResponse" alias EnrollmentResponse as source
+uses "http://hl7.org/fhir/DSTU2/StructureDefinition/EnrollmentResponse" alias EnrollmentResponseR2 as target
+
+imports "http://hl7.org/fhir/StructureMap/primitives3to2"
+imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
+
 
 
 group EnrollmentResponse extends Element
   input src : EnrollmentResponse as source
-  input tgt : EnrollmentResponseR2 as Target
+  input tgt : EnrollmentResponseR2 as target
   "EnrollmentResponse-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
   "EnrollmentResponse-disposition" : for src.disposition as vs make tgt.disposition as vt then string(vs, vt)
   "EnrollmentResponse-created" : for src.created as vs make tgt.created as vt then dateTime(vs, vt)

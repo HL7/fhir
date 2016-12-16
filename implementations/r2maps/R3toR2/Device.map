@@ -1,12 +1,21 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Device3to2" = "R3 to R2 Conversion for Device"
 
-uses "http://hl7.org/fhir/StructureDefinition/DeviceR2" as source
-uses "http://hl7.org/fhir/StructureDefinition/Device" as target
+
+uses "http://hl7.org/fhir/StructureDefinition/Device" alias Device as source
+uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Device" alias DeviceR2 as target
+
+imports "http://hl7.org/fhir/StructureMap/primitives3to2"
+imports "http://hl7.org/fhir/StructureMap/ContactPoint3to2"
+imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
+imports "http://hl7.org/fhir/StructureMap/Reference3to2"
+imports "http://hl7.org/fhir/StructureMap/Annotation3to2"
+imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
+
 
 
 group Device extends Element
   input src : Device as source
-  input tgt : DeviceR2 as Target
+  input tgt : DeviceR2 as target
   "Device-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
   "Device-status" : for src.status as vs make tgt.status as vt then code(vs, vt)
   "Device-type" : for src.type as vs make tgt.type as vt then CodeableConcept(vs,vt)

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -624,12 +624,12 @@ public class RelatedArtifact extends Type implements ICompositeType {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3575610: throw new FHIRException("Cannot make property type as it is not a complex type"); // Enumeration<RelatedArtifactType>
-        case 1671764162: throw new FHIRException("Cannot make property display as it is not a complex type"); // StringType
-        case -1442706713: throw new FHIRException("Cannot make property citation as it is not a complex type"); // StringType
-        case 116079: throw new FHIRException("Cannot make property url as it is not a complex type"); // UriType
-        case 861720859:  return getDocument(); // Attachment
-        case -341064690:  return getResource(); // Reference
+        case 3575610:  return getTypeElement();
+        case 1671764162:  return getDisplayElement();
+        case -1442706713:  return getCitationElement();
+        case 116079:  return getUrlElement();
+        case 861720859:  return getDocument(); 
+        case -341064690:  return getResource(); 
         default: return super.makeProperty(hash, name);
         }
 

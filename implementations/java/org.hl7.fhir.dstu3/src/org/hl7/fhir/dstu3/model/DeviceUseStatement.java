@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -642,15 +642,15 @@ public class DeviceUseStatement extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 1702620169:  return getBodySite(); // CodeableConcept
-        case 2042879511:  return getWhenUsed(); // Period
-        case -1335157162:  return getDevice(); // Reference
-        case -1618432855:  return addIdentifier(); // Identifier
-        case -597168804:  return addIndication(); // CodeableConcept
-        case 105008833: throw new FHIRException("Cannot make property notes as it is not a complex type"); // StringType
-        case 735397551: throw new FHIRException("Cannot make property recordedOn as it is not a complex type"); // DateTimeType
-        case -1867885268:  return getSubject(); // Reference
-        case 164632566:  return getTiming(); // Type
+        case 1702620169:  return getBodySite(); 
+        case 2042879511:  return getWhenUsed(); 
+        case -1335157162:  return getDevice(); 
+        case -1618432855:  return addIdentifier(); 
+        case -597168804:  return addIndication(); 
+        case 105008833:  return addNotesElement();
+        case 735397551:  return getRecordedOnElement();
+        case -1867885268:  return getSubject(); 
+        case 164632566:  return getTiming(); 
         default: return super.makeProperty(hash, name);
         }
 

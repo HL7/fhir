@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -488,10 +488,10 @@ public class ClaimResponse extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1422298666: throw new FHIRException("Cannot make property sequenceLinkId as it is not a complex type"); // PositiveIntType
-        case -1110033957: throw new FHIRException("Cannot make property noteNumber as it is not a complex type"); // PositiveIntType
-        case -231349275:  return addAdjudication(); // AdjudicationComponent
-        case -1335224239:  return addDetail(); // ItemDetailComponent
+        case -1422298666:  return getSequenceLinkIdElement();
+        case -1110033957:  return addNoteNumberElement();
+        case -231349275:  return addAdjudication(); 
+        case -1335224239:  return addDetail(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -816,10 +816,10 @@ public class ClaimResponse extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 50511102:  return getCategory(); // CodeableConcept
-        case -934964668:  return getReason(); // CodeableConcept
-        case -1413853096:  return getAmount(); // Money
-        case 111972721: throw new FHIRException("Cannot make property value as it is not a complex type"); // DecimalType
+        case 50511102:  return getCategory(); 
+        case -934964668:  return getReason(); 
+        case -1413853096:  return getAmount(); 
+        case 111972721:  return getValueElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -1205,10 +1205,10 @@ public class ClaimResponse extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1422298666: throw new FHIRException("Cannot make property sequenceLinkId as it is not a complex type"); // PositiveIntType
-        case -1110033957: throw new FHIRException("Cannot make property noteNumber as it is not a complex type"); // PositiveIntType
-        case -231349275:  return addAdjudication(); // AdjudicationComponent
-        case -828829007:  return addSubDetail(); // SubDetailComponent
+        case -1422298666:  return getSequenceLinkIdElement();
+        case -1110033957:  return addNoteNumberElement();
+        case -231349275:  return addAdjudication(); 
+        case -828829007:  return addSubDetail(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -1538,9 +1538,9 @@ public class ClaimResponse extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1422298666: throw new FHIRException("Cannot make property sequenceLinkId as it is not a complex type"); // PositiveIntType
-        case -1110033957: throw new FHIRException("Cannot make property noteNumber as it is not a complex type"); // PositiveIntType
-        case -231349275:  return addAdjudication(); // AdjudicationComponent
+        case -1422298666:  return getSequenceLinkIdElement();
+        case -1110033957:  return addNoteNumberElement();
+        case -231349275:  return addAdjudication(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -2159,15 +2159,15 @@ public class ClaimResponse extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1422298666: throw new FHIRException("Cannot make property sequenceLinkId as it is not a complex type"); // PositiveIntType
-        case 1099842588:  return getRevenue(); // CodeableConcept
-        case 50511102:  return getCategory(); // CodeableConcept
-        case 1984153269:  return getService(); // CodeableConcept
-        case -615513385:  return addModifier(); // CodeableConcept
-        case 101254:  return getFee(); // Money
-        case -1110033957: throw new FHIRException("Cannot make property noteNumber as it is not a complex type"); // PositiveIntType
-        case -231349275:  return addAdjudication(); // AdjudicationComponent
-        case -1335224239:  return addDetail(); // AddedItemsDetailComponent
+        case -1422298666:  return addSequenceLinkIdElement();
+        case 1099842588:  return getRevenue(); 
+        case 50511102:  return getCategory(); 
+        case 1984153269:  return getService(); 
+        case -615513385:  return addModifier(); 
+        case 101254:  return getFee(); 
+        case -1110033957:  return addNoteNumberElement();
+        case -231349275:  return addAdjudication(); 
+        case -1335224239:  return addDetail(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -2686,13 +2686,13 @@ public class ClaimResponse extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 1099842588:  return getRevenue(); // CodeableConcept
-        case 50511102:  return getCategory(); // CodeableConcept
-        case 1984153269:  return getService(); // CodeableConcept
-        case -615513385:  return addModifier(); // CodeableConcept
-        case 101254:  return getFee(); // Money
-        case -1110033957: throw new FHIRException("Cannot make property noteNumber as it is not a complex type"); // PositiveIntType
-        case -231349275:  return addAdjudication(); // AdjudicationComponent
+        case 1099842588:  return getRevenue(); 
+        case 50511102:  return getCategory(); 
+        case 1984153269:  return getService(); 
+        case -615513385:  return addModifier(); 
+        case 101254:  return getFee(); 
+        case -1110033957:  return addNoteNumberElement();
+        case -231349275:  return addAdjudication(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -3052,10 +3052,10 @@ public class ClaimResponse extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1422298666: throw new FHIRException("Cannot make property sequenceLinkId as it is not a complex type"); // PositiveIntType
-        case 516748423: throw new FHIRException("Cannot make property detailSequenceLinkId as it is not a complex type"); // PositiveIntType
-        case -1061088569: throw new FHIRException("Cannot make property subdetailSequenceLinkId as it is not a complex type"); // PositiveIntType
-        case 3059181:  return getCode(); // CodeableConcept
+        case -1422298666:  return getSequenceLinkIdElement();
+        case 516748423:  return getDetailSequenceLinkIdElement();
+        case -1061088569:  return getSubdetailSequenceLinkIdElement();
+        case 3059181:  return getCode(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -3420,12 +3420,12 @@ public class ClaimResponse extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3575610:  return getType(); // CodeableConcept
-        case 1977085293:  return getAdjustment(); // Money
-        case -1255938543:  return getAdjustmentReason(); // CodeableConcept
-        case 3076014: throw new FHIRException("Cannot make property date as it is not a complex type"); // DateType
-        case -1413853096:  return getAmount(); // Money
-        case -1618432855:  return getIdentifier(); // Identifier
+        case 3575610:  return getType(); 
+        case 1977085293:  return getAdjustment(); 
+        case -1255938543:  return getAdjustmentReason(); 
+        case 3076014:  return getDateElement();
+        case -1413853096:  return getAmount(); 
+        case -1618432855:  return getIdentifier(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -3746,10 +3746,10 @@ public class ClaimResponse extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1034364087: throw new FHIRException("Cannot make property number as it is not a complex type"); // PositiveIntType
-        case 3575610:  return getType(); // CodeableConcept
-        case 3556653: throw new FHIRException("Cannot make property text as it is not a complex type"); // StringType
-        case -1613589672:  return getLanguage(); // CodeableConcept
+        case -1034364087:  return getNumberElement();
+        case 3575610:  return getType(); 
+        case 3556653:  return getTextElement();
+        case -1613589672:  return getLanguage(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -4250,12 +4250,12 @@ public class ClaimResponse extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 1349547969: throw new FHIRException("Cannot make property sequence as it is not a complex type"); // PositiveIntType
-        case 97604197: throw new FHIRException("Cannot make property focal as it is not a complex type"); // BooleanType
-        case -351767064:  return getCoverage(); // Reference
-        case 259920682: throw new FHIRException("Cannot make property businessArrangement as it is not a complex type"); // StringType
-        case 522246568: throw new FHIRException("Cannot make property preAuthRef as it is not a complex type"); // StringType
-        case 689513629:  return getClaimResponse(); // Reference
+        case 1349547969:  return getSequenceElement();
+        case 97604197:  return getFocalElement();
+        case -351767064:  return getCoverage(); 
+        case 259920682:  return getBusinessArrangementElement();
+        case 522246568:  return addPreAuthRefElement();
+        case 689513629:  return getClaimResponse(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -5622,28 +5622,28 @@ public class ClaimResponse extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1618432855:  return addIdentifier(); // Identifier
-        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<ClaimResponseStatus>
-        case 1028554472: throw new FHIRException("Cannot make property created as it is not a complex type"); // DateTimeType
-        case 1957615864:  return getInsurer(); // Reference
-        case 1601527200:  return getRequestProvider(); // Reference
-        case 599053666:  return getRequestOrganization(); // Reference
-        case 1095692943:  return getRequest(); // Reference
-        case -1106507950:  return getOutcome(); // CodeableConcept
-        case 583380919: throw new FHIRException("Cannot make property disposition as it is not a complex type"); // StringType
-        case -316321118:  return getPayeeType(); // CodeableConcept
-        case 3242771:  return addItem(); // ItemComponent
-        case -1148899500:  return addAddItem(); // AddedItemComponent
-        case 96784904:  return addError(); // ErrorComponent
-        case -577782479:  return getTotalCost(); // Money
-        case 2096309753:  return getUnallocDeductable(); // Money
-        case 332332211:  return getTotalBenefit(); // Money
-        case -786681338:  return getPayment(); // PaymentComponent
-        case -350385368:  return getReserved(); // Coding
-        case 3148996:  return getForm(); // CodeableConcept
-        case 3387378:  return addNote(); // NoteComponent
-        case -2071896615:  return addCommunicationRequest(); // Reference
-        case 73049818:  return addInsurance(); // InsuranceComponent
+        case -1618432855:  return addIdentifier(); 
+        case -892481550:  return getStatusElement();
+        case 1028554472:  return getCreatedElement();
+        case 1957615864:  return getInsurer(); 
+        case 1601527200:  return getRequestProvider(); 
+        case 599053666:  return getRequestOrganization(); 
+        case 1095692943:  return getRequest(); 
+        case -1106507950:  return getOutcome(); 
+        case 583380919:  return getDispositionElement();
+        case -316321118:  return getPayeeType(); 
+        case 3242771:  return addItem(); 
+        case -1148899500:  return addAddItem(); 
+        case 96784904:  return addError(); 
+        case -577782479:  return getTotalCost(); 
+        case 2096309753:  return getUnallocDeductable(); 
+        case 332332211:  return getTotalBenefit(); 
+        case -786681338:  return getPayment(); 
+        case -350385368:  return getReserved(); 
+        case 3148996:  return getForm(); 
+        case 3387378:  return addNote(); 
+        case -2071896615:  return addCommunicationRequest(); 
+        case 73049818:  return addInsurance(); 
         default: return super.makeProperty(hash, name);
         }
 

@@ -1,12 +1,20 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Provenance2to3" = "R2 to R3 Conversions for Provenance"
 
-uses "http://hl7.org/fhir/StructureDefinition/Provenance" as source
-uses "http://hl7.org/fhir/StructureDefinition/ProvenanceR2" as target
+
+uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Provenance" alias ProvenanceR2 as source
+uses "http://hl7.org/fhir/StructureDefinition/Provenance" alias Provenance as target
+
+imports "http://hl7.org/fhir/StructureMap/primitives2to3"
+imports "http://hl7.org/fhir/StructureMap/Coding2to3"
+imports "http://hl7.org/fhir/StructureMap/Reference2to3"
+imports "http://hl7.org/fhir/StructureMap/Period2to3"
+imports "http://hl7.org/fhir/StructureMap/Signature2to3"
+
 
 
 group Provenance extends Element
   input src : ProvenanceR2 as source
-  input tgt : Provenance as Target
+  input tgt : Provenance as target
 
   "Provenance-target" : for src.target as vs make tgt.target as vt then Reference(vs,vt)
   "Provenance-period" : for src.period as vs make tgt.period as vt then Period(vs,vt)
@@ -14,11 +22,11 @@ group Provenance extends Element
   "Provenance-activity" : for src.activity().getCoding as vs make tgt.activity as vt then Coding(vs,vt)
   "Provenance-location" : for src.location as vs make tgt.location as vt then Reference(vs,vt)
   "Provenance-policy" : for src.policy as vs make tgt.policy as vt then uri(vs, vt)
-  "Provenance-agent" : for src.agent as vs0 make tgt.agent = as vt0 then {
+  "Provenance-agent" : for src.agent as vs0 make tgt.agent as vt0 then {
     "Provenance.agent-role" : for vs0.role as vs make vt0.role as vt then Coding(vs,vt)
     "Provenance.agent-who" : for vs0.actor as vs make vt0.who as vt then Reference(vs,vt)
   }
-  "Provenance-entity" : for src.entity as vs0 make tgt.entity = as vt0 then {
+  "Provenance-entity" : for src.entity as vs0 make tgt.entity as vt0 then {
     "Provenance.entity-role" : for vs0.role as vs make vt0.role as vt then code(vs, vt)
   }
   "Provenance-signature" : for src.signature as vs make tgt.signature as vt then Signature(vs,vt)

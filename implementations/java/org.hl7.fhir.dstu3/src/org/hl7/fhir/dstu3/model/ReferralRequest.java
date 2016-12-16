@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -1375,24 +1375,24 @@ public class ReferralRequest extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1618432855:  return addIdentifier(); // Identifier
-        case -332612366:  return addBasedOn(); // Reference
-        case -995424086:  return getParent(); // Identifier
-        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<ReferralStatus>
-        case 50511102: throw new FHIRException("Cannot make property category as it is not a complex type"); // Enumeration<ReferralCategory>
-        case 3575610:  return getType(); // CodeableConcept
-        case -1165461084:  return getPriority(); // CodeableConcept
-        case -791418107:  return getPatient(); // Reference
-        case 951530927:  return getContext(); // Reference
-        case 1098185163:  return getFulfillmentTime(); // Period
-        case 1433073514: throw new FHIRException("Cannot make property authored as it is not a complex type"); // DateTimeType
-        case 693933948:  return getRequester(); // Reference
-        case -1694759682:  return getSpecialty(); // CodeableConcept
-        case 820081177:  return addRecipient(); // Reference
-        case -934964668:  return getReason(); // CodeableConcept
-        case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
-        case 190229561:  return addServiceRequested(); // CodeableConcept
-        case -1248768647:  return addSupportingInformation(); // Reference
+        case -1618432855:  return addIdentifier(); 
+        case -332612366:  return addBasedOn(); 
+        case -995424086:  return getParent(); 
+        case -892481550:  return getStatusElement();
+        case 50511102:  return getCategoryElement();
+        case 3575610:  return getType(); 
+        case -1165461084:  return getPriority(); 
+        case -791418107:  return getPatient(); 
+        case 951530927:  return getContext(); 
+        case 1098185163:  return getFulfillmentTime(); 
+        case 1433073514:  return getAuthoredElement();
+        case 693933948:  return getRequester(); 
+        case -1694759682:  return getSpecialty(); 
+        case 820081177:  return addRecipient(); 
+        case -934964668:  return getReason(); 
+        case -1724546052:  return getDescriptionElement();
+        case 190229561:  return addServiceRequested(); 
+        case -1248768647:  return addSupportingInformation(); 
         default: return super.makeProperty(hash, name);
         }
 

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -630,9 +630,9 @@ public class TestReport extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3575610: throw new FHIRException("Cannot make property type as it is not a complex type"); // Enumeration<TestReportParticipantType>
-        case 116076: throw new FHIRException("Cannot make property uri as it is not a complex type"); // UriType
-        case 1671764162: throw new FHIRException("Cannot make property display as it is not a complex type"); // StringType
+        case 3575610:  return getTypeElement();
+        case 116076:  return getUriElement();
+        case 1671764162:  return getDisplayElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -802,7 +802,7 @@ public class TestReport extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1422950858:  return addAction(); // SetupActionComponent
+        case -1422950858:  return addAction(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -975,8 +975,8 @@ public class TestReport extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 1662702951:  return getOperation(); // SetupActionOperationComponent
-        case -1408208058:  return getAssert(); // SetupActionAssertComponent
+        case 1662702951:  return getOperation(); 
+        case -1408208058:  return getAssert(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -1269,9 +1269,9 @@ public class TestReport extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -934426595: throw new FHIRException("Cannot make property result as it is not a complex type"); // Enumeration<TestReportResultCodes>
-        case 954925063: throw new FHIRException("Cannot make property message as it is not a complex type"); // MarkdownType
-        case -1335224239: throw new FHIRException("Cannot make property detail as it is not a complex type"); // UriType
+        case -934426595:  return getResultElement();
+        case 954925063:  return getMessageElement();
+        case -1335224239:  return getDetailElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -1569,9 +1569,9 @@ public class TestReport extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -934426595: throw new FHIRException("Cannot make property result as it is not a complex type"); // Enumeration<TestReportResultCodes>
-        case 954925063: throw new FHIRException("Cannot make property message as it is not a complex type"); // MarkdownType
-        case -1335224239: throw new FHIRException("Cannot make property detail as it is not a complex type"); // StringType
+        case -934426595:  return getResultElement();
+        case 954925063:  return getMessageElement();
+        case -1335224239:  return getDetailElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -1868,9 +1868,9 @@ public class TestReport extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
-        case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
-        case -1422950858:  return addAction(); // TestActionComponent
+        case 3373707:  return getNameElement();
+        case -1724546052:  return getDescriptionElement();
+        case -1422950858:  return addAction(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -2053,8 +2053,8 @@ public class TestReport extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 1662702951:  return getOperation(); // SetupActionOperationComponent
-        case -1408208058:  return getAssert(); // SetupActionAssertComponent
+        case 1662702951:  return getOperation(); 
+        case -1408208058:  return getAssert(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -2220,7 +2220,7 @@ public class TestReport extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1422950858:  return addAction(); // TeardownActionComponent
+        case -1422950858:  return addAction(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -2363,7 +2363,7 @@ public class TestReport extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 1662702951:  return getOperation(); // SetupActionOperationComponent
+        case 1662702951:  return getOperation(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -3105,17 +3105,17 @@ public class TestReport extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1618432855:  return getIdentifier(); // Identifier
-        case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
-        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<TestReportStatus>
-        case 109264530: throw new FHIRException("Cannot make property score as it is not a complex type"); // DecimalType
-        case -877169473: throw new FHIRException("Cannot make property tester as it is not a complex type"); // StringType
-        case 1712049149:  return getTestScript(); // Reference
-        case -1179159893: throw new FHIRException("Cannot make property issued as it is not a complex type"); // DateTimeType
-        case 767422259:  return addParticipant(); // TestReportParticipantComponent
-        case 109329021:  return getSetup(); // TestReportSetupComponent
-        case 3556498:  return addTest(); // TestReportTestComponent
-        case -1663474172:  return getTeardown(); // TestReportTeardownComponent
+        case -1618432855:  return getIdentifier(); 
+        case 3373707:  return getNameElement();
+        case -892481550:  return getStatusElement();
+        case 109264530:  return getScoreElement();
+        case -877169473:  return getTesterElement();
+        case 1712049149:  return getTestScript(); 
+        case -1179159893:  return getIssuedElement();
+        case 767422259:  return addParticipant(); 
+        case 109329021:  return getSetup(); 
+        case 3556498:  return addTest(); 
+        case -1663474172:  return getTeardown(); 
         default: return super.makeProperty(hash, name);
         }
 

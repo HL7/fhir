@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -624,14 +624,14 @@ public class Flag extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1618432855:  return addIdentifier(); // Identifier
-        case 50511102:  return getCategory(); // CodeableConcept
-        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<FlagStatus>
-        case -991726143:  return getPeriod(); // Period
-        case -1867885268:  return getSubject(); // Reference
-        case 1524132147:  return getEncounter(); // Reference
-        case -1406328437:  return getAuthor(); // Reference
-        case 3059181:  return getCode(); // CodeableConcept
+        case -1618432855:  return addIdentifier(); 
+        case 50511102:  return getCategory(); 
+        case -892481550:  return getStatusElement();
+        case -991726143:  return getPeriod(); 
+        case -1867885268:  return getSubject(); 
+        case 1524132147:  return getEncounter(); 
+        case -1406328437:  return getAuthor(); 
+        case 3059181:  return getCode(); 
         default: return super.makeProperty(hash, name);
         }
 

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -227,9 +227,9 @@ public class Substance extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1618432855:  return getIdentifier(); // Identifier
-        case -1289159373: throw new FHIRException("Cannot make property expiry as it is not a complex type"); // DateTimeType
-        case -1285004149:  return getQuantity(); // SimpleQuantity
+        case -1618432855:  return getIdentifier(); 
+        case -1289159373:  return getExpiryElement();
+        case -1285004149:  return getQuantity(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -440,8 +440,8 @@ public class Substance extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1285004149:  return getQuantity(); // Ratio
-        case 2127194384:  return getSubstance(); // Type
+        case -1285004149:  return getQuantity(); 
+        case 2127194384:  return getSubstance(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -921,12 +921,12 @@ public class Substance extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1618432855:  return addIdentifier(); // Identifier
-        case 50511102:  return addCategory(); // CodeableConcept
-        case 3059181:  return getCode(); // CodeableConcept
-        case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
-        case 555127957:  return addInstance(); // SubstanceInstanceComponent
-        case -206409263:  return addIngredient(); // SubstanceIngredientComponent
+        case -1618432855:  return addIdentifier(); 
+        case 50511102:  return addCategory(); 
+        case 3059181:  return getCode(); 
+        case -1724546052:  return getDescriptionElement();
+        case 555127957:  return addInstance(); 
+        case -206409263:  return addIngredient(); 
         default: return super.makeProperty(hash, name);
         }
 

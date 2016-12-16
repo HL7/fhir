@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -879,17 +879,17 @@ public class Slot extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1618432855:  return addIdentifier(); // Identifier
-        case 1281188563:  return getServiceCategory(); // CodeableConcept
-        case -1928370289:  return addServiceType(); // CodeableConcept
-        case -1694759682:  return addSpecialty(); // CodeableConcept
-        case -1596426375:  return getAppointmentType(); // CodeableConcept
-        case -697920873:  return getSchedule(); // Reference
-        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<SlotStatus>
-        case 109757538: throw new FHIRException("Cannot make property start as it is not a complex type"); // InstantType
-        case 100571: throw new FHIRException("Cannot make property end as it is not a complex type"); // InstantType
-        case 2068545308: throw new FHIRException("Cannot make property overbooked as it is not a complex type"); // BooleanType
-        case 950398559: throw new FHIRException("Cannot make property comment as it is not a complex type"); // StringType
+        case -1618432855:  return addIdentifier(); 
+        case 1281188563:  return getServiceCategory(); 
+        case -1928370289:  return addServiceType(); 
+        case -1694759682:  return addSpecialty(); 
+        case -1596426375:  return getAppointmentType(); 
+        case -697920873:  return getSchedule(); 
+        case -892481550:  return getStatusElement();
+        case 109757538:  return getStartElement();
+        case 100571:  return getEndElement();
+        case 2068545308:  return getOverbookedElement();
+        case 950398559:  return getCommentElement();
         default: return super.makeProperty(hash, name);
         }
 

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -189,9 +189,16 @@ public class MedicationDispense extends DomainResource {
     @Block()
     public static class MedicationDispenseSubstitutionComponent extends BackboneElement implements IBaseBackboneElement {
         /**
+         * True if the dispenser dispensed a different drug or product from what was prescribed.
+         */
+        @Child(name = "wasSubstituted", type = {BooleanType.class}, order=1, min=1, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="Whether a substitution was or was not performed on the dispense", formalDefinition="True if the dispenser dispensed a different drug or product from what was prescribed." )
+        protected BooleanType wasSubstituted;
+
+        /**
          * A code signifying whether a different drug was dispensed from what was prescribed.
          */
-        @Child(name = "type", type = {CodeableConcept.class}, order=1, min=1, max=1, modifier=false, summary=false)
+        @Child(name = "type", type = {CodeableConcept.class}, order=2, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Code signifying whether a different drug was dispensed from what was prescribed", formalDefinition="A code signifying whether a different drug was dispensed from what was prescribed." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/v3-ActSubstanceAdminSubstitutionCode")
         protected CodeableConcept type;
@@ -199,7 +206,7 @@ public class MedicationDispense extends DomainResource {
         /**
          * Indicates the reason for the substitution of (or lack of substitution) from what was prescribed.
          */
-        @Child(name = "reason", type = {CodeableConcept.class}, order=2, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Child(name = "reason", type = {CodeableConcept.class}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Why was substitution made", formalDefinition="Indicates the reason for the substitution of (or lack of substitution) from what was prescribed." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/v3-SubstanceAdminSubstitutionReason")
         protected List<CodeableConcept> reason;
@@ -207,7 +214,7 @@ public class MedicationDispense extends DomainResource {
         /**
          * The person or organization that has primary responsibility for the substitution.
          */
-        @Child(name = "responsibleParty", type = {Practitioner.class}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Child(name = "responsibleParty", type = {Practitioner.class}, order=4, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Who is responsible for the substitution", formalDefinition="The person or organization that has primary responsibility for the substitution." )
         protected List<Reference> responsibleParty;
         /**
@@ -216,7 +223,7 @@ public class MedicationDispense extends DomainResource {
         protected List<Practitioner> responsiblePartyTarget;
 
 
-        private static final long serialVersionUID = 1218245830L;
+        private static final long serialVersionUID = -728152257L;
 
     /**
      * Constructor
@@ -228,10 +235,55 @@ public class MedicationDispense extends DomainResource {
     /**
      * Constructor
      */
-      public MedicationDispenseSubstitutionComponent(CodeableConcept type) {
+      public MedicationDispenseSubstitutionComponent(BooleanType wasSubstituted) {
         super();
-        this.type = type;
+        this.wasSubstituted = wasSubstituted;
       }
+
+        /**
+         * @return {@link #wasSubstituted} (True if the dispenser dispensed a different drug or product from what was prescribed.). This is the underlying object with id, value and extensions. The accessor "getWasSubstituted" gives direct access to the value
+         */
+        public BooleanType getWasSubstitutedElement() { 
+          if (this.wasSubstituted == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create MedicationDispenseSubstitutionComponent.wasSubstituted");
+            else if (Configuration.doAutoCreate())
+              this.wasSubstituted = new BooleanType(); // bb
+          return this.wasSubstituted;
+        }
+
+        public boolean hasWasSubstitutedElement() { 
+          return this.wasSubstituted != null && !this.wasSubstituted.isEmpty();
+        }
+
+        public boolean hasWasSubstituted() { 
+          return this.wasSubstituted != null && !this.wasSubstituted.isEmpty();
+        }
+
+        /**
+         * @param value {@link #wasSubstituted} (True if the dispenser dispensed a different drug or product from what was prescribed.). This is the underlying object with id, value and extensions. The accessor "getWasSubstituted" gives direct access to the value
+         */
+        public MedicationDispenseSubstitutionComponent setWasSubstitutedElement(BooleanType value) { 
+          this.wasSubstituted = value;
+          return this;
+        }
+
+        /**
+         * @return True if the dispenser dispensed a different drug or product from what was prescribed.
+         */
+        public boolean getWasSubstituted() { 
+          return this.wasSubstituted == null || this.wasSubstituted.isEmpty() ? false : this.wasSubstituted.getValue();
+        }
+
+        /**
+         * @param value True if the dispenser dispensed a different drug or product from what was prescribed.
+         */
+        public MedicationDispenseSubstitutionComponent setWasSubstituted(boolean value) { 
+            if (this.wasSubstituted == null)
+              this.wasSubstituted = new BooleanType();
+            this.wasSubstituted.setValue(value);
+          return this;
+        }
 
         /**
          * @return {@link #type} (A code signifying whether a different drug was dispensed from what was prescribed.)
@@ -387,6 +439,7 @@ public class MedicationDispense extends DomainResource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
+          childrenList.add(new Property("wasSubstituted", "boolean", "True if the dispenser dispensed a different drug or product from what was prescribed.", 0, java.lang.Integer.MAX_VALUE, wasSubstituted));
           childrenList.add(new Property("type", "CodeableConcept", "A code signifying whether a different drug was dispensed from what was prescribed.", 0, java.lang.Integer.MAX_VALUE, type));
           childrenList.add(new Property("reason", "CodeableConcept", "Indicates the reason for the substitution of (or lack of substitution) from what was prescribed.", 0, java.lang.Integer.MAX_VALUE, reason));
           childrenList.add(new Property("responsibleParty", "Reference(Practitioner)", "The person or organization that has primary responsibility for the substitution.", 0, java.lang.Integer.MAX_VALUE, responsibleParty));
@@ -395,6 +448,7 @@ public class MedicationDispense extends DomainResource {
       @Override
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
+        case -592113567: /*wasSubstituted*/ return this.wasSubstituted == null ? new Base[0] : new Base[] {this.wasSubstituted}; // BooleanType
         case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // CodeableConcept
         case -934964668: /*reason*/ return this.reason == null ? new Base[0] : this.reason.toArray(new Base[this.reason.size()]); // CodeableConcept
         case 1511509392: /*responsibleParty*/ return this.responsibleParty == null ? new Base[0] : this.responsibleParty.toArray(new Base[this.responsibleParty.size()]); // Reference
@@ -406,6 +460,9 @@ public class MedicationDispense extends DomainResource {
       @Override
       public void setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
+        case -592113567: // wasSubstituted
+          this.wasSubstituted = castToBoolean(value); // BooleanType
+          break;
         case 3575610: // type
           this.type = castToCodeableConcept(value); // CodeableConcept
           break;
@@ -422,7 +479,9 @@ public class MedicationDispense extends DomainResource {
 
       @Override
       public void setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("type"))
+        if (name.equals("wasSubstituted"))
+          this.wasSubstituted = castToBoolean(value); // BooleanType
+        else if (name.equals("type"))
           this.type = castToCodeableConcept(value); // CodeableConcept
         else if (name.equals("reason"))
           this.getReason().add(castToCodeableConcept(value));
@@ -435,9 +494,10 @@ public class MedicationDispense extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3575610:  return getType(); // CodeableConcept
-        case -934964668:  return addReason(); // CodeableConcept
-        case 1511509392:  return addResponsibleParty(); // Reference
+        case -592113567:  return getWasSubstitutedElement();
+        case 3575610:  return getType(); 
+        case -934964668:  return addReason(); 
+        case 1511509392:  return addResponsibleParty(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -445,7 +505,10 @@ public class MedicationDispense extends DomainResource {
 
       @Override
       public Base addChild(String name) throws FHIRException {
-        if (name.equals("type")) {
+        if (name.equals("wasSubstituted")) {
+          throw new FHIRException("Cannot call addChild on a primitive type MedicationDispense.wasSubstituted");
+        }
+        else if (name.equals("type")) {
           this.type = new CodeableConcept();
           return this.type;
         }
@@ -462,6 +525,7 @@ public class MedicationDispense extends DomainResource {
       public MedicationDispenseSubstitutionComponent copy() {
         MedicationDispenseSubstitutionComponent dst = new MedicationDispenseSubstitutionComponent();
         copyValues(dst);
+        dst.wasSubstituted = wasSubstituted == null ? null : wasSubstituted.copy();
         dst.type = type == null ? null : type.copy();
         if (reason != null) {
           dst.reason = new ArrayList<CodeableConcept>();
@@ -483,8 +547,8 @@ public class MedicationDispense extends DomainResource {
         if (!(other instanceof MedicationDispenseSubstitutionComponent))
           return false;
         MedicationDispenseSubstitutionComponent o = (MedicationDispenseSubstitutionComponent) other;
-        return compareDeep(type, o.type, true) && compareDeep(reason, o.reason, true) && compareDeep(responsibleParty, o.responsibleParty, true)
-          ;
+        return compareDeep(wasSubstituted, o.wasSubstituted, true) && compareDeep(type, o.type, true) && compareDeep(reason, o.reason, true)
+           && compareDeep(responsibleParty, o.responsibleParty, true);
       }
 
       @Override
@@ -494,12 +558,12 @@ public class MedicationDispense extends DomainResource {
         if (!(other instanceof MedicationDispenseSubstitutionComponent))
           return false;
         MedicationDispenseSubstitutionComponent o = (MedicationDispenseSubstitutionComponent) other;
-        return true;
+        return compareValues(wasSubstituted, o.wasSubstituted, true);
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(type, reason, responsibleParty
-          );
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(wasSubstituted, type, reason
+          , responsibleParty);
       }
 
   public String fhirType() {
@@ -667,10 +731,10 @@ public class MedicationDispense extends DomainResource {
     protected List<DosageInstruction> dosageInstruction;
 
     /**
-     * Indicates whether or not substitution was made as part of the dispense.  In some cases substitution will be expected but does not happen, in other cases substitution is not expected but does happen.  This block explains what substitution did or did not happen and why.
+     * Indicates whether or not substitution was made as part of the dispense.  In some cases substitution will be expected but does not happen, in other cases substitution is not expected but does happen.  This block explains what substitution did or did not happen and why.  If nothing is specified, substitution was not done.
      */
     @Child(name = "substitution", type = {}, order=17, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="Deals with substitution of one medicine for another", formalDefinition="Indicates whether or not substitution was made as part of the dispense.  In some cases substitution will be expected but does not happen, in other cases substitution is not expected but does happen.  This block explains what substitution did or did not happen and why." )
+    @Description(shortDefinition="Whether a substitution was performed on the dispense", formalDefinition="Indicates whether or not substitution was made as part of the dispense.  In some cases substitution will be expected but does not happen, in other cases substitution is not expected but does happen.  This block explains what substitution did or did not happen and why.  If nothing is specified, substitution was not done." )
     protected MedicationDispenseSubstitutionComponent substitution;
 
     /**
@@ -1474,7 +1538,7 @@ public class MedicationDispense extends DomainResource {
     }
 
     /**
-     * @return {@link #substitution} (Indicates whether or not substitution was made as part of the dispense.  In some cases substitution will be expected but does not happen, in other cases substitution is not expected but does happen.  This block explains what substitution did or did not happen and why.)
+     * @return {@link #substitution} (Indicates whether or not substitution was made as part of the dispense.  In some cases substitution will be expected but does not happen, in other cases substitution is not expected but does happen.  This block explains what substitution did or did not happen and why.  If nothing is specified, substitution was not done.)
      */
     public MedicationDispenseSubstitutionComponent getSubstitution() { 
       if (this.substitution == null)
@@ -1490,7 +1554,7 @@ public class MedicationDispense extends DomainResource {
     }
 
     /**
-     * @param value {@link #substitution} (Indicates whether or not substitution was made as part of the dispense.  In some cases substitution will be expected but does not happen, in other cases substitution is not expected but does happen.  This block explains what substitution did or did not happen and why.)
+     * @param value {@link #substitution} (Indicates whether or not substitution was made as part of the dispense.  In some cases substitution will be expected but does not happen, in other cases substitution is not expected but does happen.  This block explains what substitution did or did not happen and why.  If nothing is specified, substitution was not done.)
      */
     public MedicationDispense setSubstitution(MedicationDispenseSubstitutionComponent value) { 
       this.substitution = value;
@@ -1591,7 +1655,7 @@ public class MedicationDispense extends DomainResource {
         childrenList.add(new Property("receiver", "Reference(Patient|Practitioner)", "Identifies the person who picked up the medication.  This will usually be a patient or their caregiver, but some cases exist where it can be a healthcare professional.", 0, java.lang.Integer.MAX_VALUE, receiver));
         childrenList.add(new Property("note", "Annotation", "Extra information about the dispense that could not be conveyed in the other attributes.", 0, java.lang.Integer.MAX_VALUE, note));
         childrenList.add(new Property("dosageInstruction", "DosageInstruction", "Indicates how the medication is to be used by the patient.  The pharmacist reviews the medication order prior to dispense and updates the dosageInstruction based on the actual product being dispensed.", 0, java.lang.Integer.MAX_VALUE, dosageInstruction));
-        childrenList.add(new Property("substitution", "", "Indicates whether or not substitution was made as part of the dispense.  In some cases substitution will be expected but does not happen, in other cases substitution is not expected but does happen.  This block explains what substitution did or did not happen and why.", 0, java.lang.Integer.MAX_VALUE, substitution));
+        childrenList.add(new Property("substitution", "", "Indicates whether or not substitution was made as part of the dispense.  In some cases substitution will be expected but does not happen, in other cases substitution is not expected but does happen.  This block explains what substitution did or did not happen and why.  If nothing is specified, substitution was not done.", 0, java.lang.Integer.MAX_VALUE, substitution));
         childrenList.add(new Property("eventHistory", "Reference(Provenance)", "A summary of the events of interest that have occurred, such as when the dispense was verified.", 0, java.lang.Integer.MAX_VALUE, eventHistory));
       }
 
@@ -1734,25 +1798,25 @@ public class MedicationDispense extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1618432855:  return getIdentifier(); // Identifier
-        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<MedicationDispenseStatus>
-        case 1458402129:  return getMedication(); // Type
-        case -791418107:  return getPatient(); // Reference
-        case -1248768647:  return addSupportingInformation(); // Reference
-        case 241511093:  return getDispenser(); // Reference
-        case 2036139309:  return getDispensingOrganization(); // Reference
-        case -1237557856:  return addAuthorizingPrescription(); // Reference
-        case 3575610:  return getType(); // CodeableConcept
-        case -1285004149:  return getQuantity(); // SimpleQuantity
-        case 197175334:  return getDaysSupply(); // SimpleQuantity
-        case -562837097: throw new FHIRException("Cannot make property whenPrepared as it is not a complex type"); // DateTimeType
-        case -940241380: throw new FHIRException("Cannot make property whenHandedOver as it is not a complex type"); // DateTimeType
-        case -1429847026:  return getDestination(); // Reference
-        case -808719889:  return addReceiver(); // Reference
-        case 3387378:  return addNote(); // Annotation
-        case -1201373865:  return addDosageInstruction(); // DosageInstruction
-        case 826147581:  return getSubstitution(); // MedicationDispenseSubstitutionComponent
-        case 1835190426:  return addEventHistory(); // Reference
+        case -1618432855:  return getIdentifier(); 
+        case -892481550:  return getStatusElement();
+        case 1458402129:  return getMedication(); 
+        case -791418107:  return getPatient(); 
+        case -1248768647:  return addSupportingInformation(); 
+        case 241511093:  return getDispenser(); 
+        case 2036139309:  return getDispensingOrganization(); 
+        case -1237557856:  return addAuthorizingPrescription(); 
+        case 3575610:  return getType(); 
+        case -1285004149:  return getQuantity(); 
+        case 197175334:  return getDaysSupply(); 
+        case -562837097:  return getWhenPreparedElement();
+        case -940241380:  return getWhenHandedOverElement();
+        case -1429847026:  return getDestination(); 
+        case -808719889:  return addReceiver(); 
+        case 3387378:  return addNote(); 
+        case -1201373865:  return addDosageInstruction(); 
+        case 826147581:  return getSubstitution(); 
+        case 1835190426:  return addEventHistory(); 
         default: return super.makeProperty(hash, name);
         }
 

@@ -1,12 +1,16 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Attachment3to2" = "R3 to R2 Conversion for Attachment"
 
-uses "http://hl7.org/fhir/StructureDefinition/AttachmentR2" as source
-uses "http://hl7.org/fhir/StructureDefinition/Attachment" as target
+
+uses "http://hl7.org/fhir/StructureDefinition/Attachment" alias Attachment as source
+uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Attachment" alias AttachmentR2 as target
+
+imports "http://hl7.org/fhir/StructureMap/primitives3to2"
+
 
 
 group Attachment extends Element
   input src : Attachment as source
-  input tgt : AttachmentR2 as Target
+  input tgt : AttachmentR2 as target
   "Attachment-contentType" : for src.contentType as vs make tgt.contentType as vt then code(vs, vt)
   "Attachment-language" : for src.language as vs make tgt.language as vt then code(vs, vt)
   "Attachment-data" : for src.data as vs make tgt.data as vt then base64Binary(vs, vt)

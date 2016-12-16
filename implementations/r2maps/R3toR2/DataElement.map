@@ -1,12 +1,20 @@
 ﻿map "http://hl7.org/fhir/StructureMap/DataElement3to2" = "R3 to R2 Conversion for DataElement"
 
-uses "http://hl7.org/fhir/StructureDefinition/DataElementR2" as source
-uses "http://hl7.org/fhir/StructureDefinition/DataElement" as target
+
+uses "http://hl7.org/fhir/StructureDefinition/DataElement" alias DataElement as source
+uses "http://hl7.org/fhir/DSTU2/StructureDefinition/DataElement" alias DataElementR2 as target
+
+imports "http://hl7.org/fhir/StructureMap/primitives3to2"
+imports "http://hl7.org/fhir/StructureMap/ContactPoint3to2"
+imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
+imports "http://hl7.org/fhir/StructureMap/ElementDefinition3to2"
+imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
+
 
 
 group DataElement extends Element
   input src : DataElement as source
-  input tgt : DataElementR2 as Target
+  input tgt : DataElementR2 as target
   "DataElement-url" : for src.url as vs make tgt.url as vt then uri(vs, vt)
   "DataElement-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
   "DataElement-version" : for src.version as vs make tgt.version as vt then string(vs, vt)
@@ -15,13 +23,13 @@ group DataElement extends Element
   "DataElement-publisher" : for src.publisher as vs make tgt.publisher as vt then string(vs, vt)
   "DataElement-date" : for src.date as vs make tgt.date as vt then dateTime(vs, vt)
   "DataElement-name" : for src.name as vs make tgt.name as vt then string(vs, vt)
-  "DataElement-contact" : for src.contact as vs0 make tgt.contact = as vt0 then {
+  "DataElement-contact" : for src.contact as vs0 make tgt.contact as vt0 then {
     "DataElement.contact-name" : for vs0.name as vs make vt0.name as vt then string(vs, vt)
     "DataElement.contact-telecom" : for vs0.telecom as vs make vt0.telecom as vt then ContactPoint(vs,vt)
   }
   "DataElement-useContext" : for src.jurisdiction as vs make tgt.useContext as vt then CodeableConcept(vs,vt)
   "DataElement-stringency" : for src.stringency as vs make tgt.stringency as vt then code(vs, vt)
-  "DataElement-mapping" : for src.mapping as vs0 make tgt.mapping = as vt0 then {
+  "DataElement-mapping" : for src.mapping as vs0 make tgt.mapping as vt0 then {
     "DataElement.mapping-identity" : for vs0.identity as vs make vt0.identity as vt then id(vs, vt)
     "DataElement.mapping-uri" : for vs0.uri as vs make vt0.uri as vt then uri(vs, vt)
     "DataElement.mapping-name" : for vs0.name as vs make vt0.name as vt then string(vs, vt)

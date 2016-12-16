@@ -1,12 +1,22 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Organization3to2" = "R3 to R2 Conversion for Organization"
 
-uses "http://hl7.org/fhir/StructureDefinition/OrganizationR2" as source
-uses "http://hl7.org/fhir/StructureDefinition/Organization" as target
+
+uses "http://hl7.org/fhir/StructureDefinition/Organization" alias Organization as source
+uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Organization" alias OrganizationR2 as target
+
+imports "http://hl7.org/fhir/StructureMap/primitives3to2"
+imports "http://hl7.org/fhir/StructureMap/Address3to2"
+imports "http://hl7.org/fhir/StructureMap/ContactPoint3to2"
+imports "http://hl7.org/fhir/StructureMap/HumanName3to2"
+imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
+imports "http://hl7.org/fhir/StructureMap/Reference3to2"
+imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
+
 
 
 group Organization extends Element
   input src : Organization as source
-  input tgt : OrganizationR2 as Target
+  input tgt : OrganizationR2 as target
   "Organization-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
   "Organization-active" : for src.active as vs make tgt.active as vt then boolean(vs, vt)
   "Organization-type" : for src.type as vs make tgt.type as vt then CodeableConcept(vs,vt)
@@ -14,7 +24,7 @@ group Organization extends Element
   "Organization-telecom" : for src.telecom as vs make tgt.telecom as vt then ContactPoint(vs,vt)
   "Organization-address" : for src.address as vs make tgt.address as vt then Address(vs,vt)
   "Organization-partOf" : for src.partOf as vs make tgt.partOf as vt then Reference(vs,vt)
-  "Organization-contact" : for src.contact as vs0 make tgt.contact = as vt0 then {
+  "Organization-contact" : for src.contact as vs0 make tgt.contact as vt0 then {
     "Organization.contact-purpose" : for vs0.purpose as vs make vt0.purpose as vt then CodeableConcept(vs,vt)
     "Organization.contact-name" : for vs0.name as vs make vt0.name as vt then HumanName(vs,vt)
     "Organization.contact-telecom" : for vs0.telecom as vs make vt0.telecom as vt then ContactPoint(vs,vt)

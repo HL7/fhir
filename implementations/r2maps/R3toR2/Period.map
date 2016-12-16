@@ -1,12 +1,16 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Period3to2" = "R3 to R2 Conversion for Period"
 
-uses "http://hl7.org/fhir/StructureDefinition/PeriodR2" as source
-uses "http://hl7.org/fhir/StructureDefinition/Period" as target
+
+uses "http://hl7.org/fhir/StructureDefinition/Period" alias Period as source
+uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Period" alias PeriodR2 as target
+
+imports "http://hl7.org/fhir/StructureMap/primitives3to2"
+
 
 
 group Period extends Element
   input src : Period as source
-  input tgt : PeriodR2 as Target
+  input tgt : PeriodR2 as target
   "Period-start" : for src.start as vs make tgt.start as vt then dateTime(vs, vt)
   "Period-end" : for src.end as vs make tgt.end as vt then dateTime(vs, vt)
 endgroup

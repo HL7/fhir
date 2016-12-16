@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -527,10 +527,10 @@ public class ListResource extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3145580:  return getFlag(); // CodeableConcept
-        case 1550463001: throw new FHIRException("Cannot make property deleted as it is not a complex type"); // BooleanType
-        case 3076014: throw new FHIRException("Cannot make property date as it is not a complex type"); // DateTimeType
-        case 3242771:  return getItem(); // Reference
+        case 3145580:  return getFlag(); 
+        case 1550463001:  return getDeletedElement();
+        case 3076014:  return getDateElement();
+        case 3242771:  return getItem(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -1389,19 +1389,19 @@ public class ListResource extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1618432855:  return addIdentifier(); // Identifier
-        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<ListStatus>
-        case 3357091: throw new FHIRException("Cannot make property mode as it is not a complex type"); // Enumeration<ListMode>
-        case 110371416: throw new FHIRException("Cannot make property title as it is not a complex type"); // StringType
-        case 3059181:  return getCode(); // CodeableConcept
-        case -1867885268:  return getSubject(); // Reference
-        case 1524132147:  return getEncounter(); // Reference
-        case 3076014: throw new FHIRException("Cannot make property date as it is not a complex type"); // DateTimeType
-        case -896505829:  return getSource(); // Reference
-        case -391079516:  return getOrderedBy(); // CodeableConcept
-        case 3387378:  return addNote(); // Annotation
-        case 96667762:  return addEntry(); // ListEntryComponent
-        case 1140135409:  return getEmptyReason(); // CodeableConcept
+        case -1618432855:  return addIdentifier(); 
+        case -892481550:  return getStatusElement();
+        case 3357091:  return getModeElement();
+        case 110371416:  return getTitleElement();
+        case 3059181:  return getCode(); 
+        case -1867885268:  return getSubject(); 
+        case 1524132147:  return getEncounter(); 
+        case 3076014:  return getDateElement();
+        case -896505829:  return getSource(); 
+        case -391079516:  return getOrderedBy(); 
+        case 3387378:  return addNote(); 
+        case 96667762:  return addEntry(); 
+        case 1140135409:  return getEmptyReason(); 
         default: return super.makeProperty(hash, name);
         }
 

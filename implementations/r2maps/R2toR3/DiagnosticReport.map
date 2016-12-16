@@ -1,12 +1,21 @@
 ﻿map "http://hl7.org/fhir/StructureMap/DiagnosticReport2to3" = "R2 to R3 Conversions for DiagnosticReport"
 
-uses "http://hl7.org/fhir/StructureDefinition/DiagnosticReport" as source
-uses "http://hl7.org/fhir/StructureDefinition/DiagnosticReportR2" as target
+
+uses "http://hl7.org/fhir/DSTU2/StructureDefinition/DiagnosticReport" alias DiagnosticReportR2 as source
+uses "http://hl7.org/fhir/StructureDefinition/DiagnosticReport" alias DiagnosticReport as target
+
+imports "http://hl7.org/fhir/StructureMap/primitives2to3"
+imports "http://hl7.org/fhir/StructureMap/Attachment2to3"
+imports "http://hl7.org/fhir/StructureMap/Identifier2to3"
+imports "http://hl7.org/fhir/StructureMap/Reference2to3"
+imports "http://hl7.org/fhir/StructureMap/Period2to3"
+imports "http://hl7.org/fhir/StructureMap/CodeableConcept2to3"
+
 
 
 group DiagnosticReport extends Element
   input src : DiagnosticReportR2 as source
-  input tgt : DiagnosticReport as Target
+  input tgt : DiagnosticReport as target
 
   "DiagnosticReport-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
   "DiagnosticReport-status" : for src.status as vs make tgt.status as vt then code(vs, vt)
@@ -21,7 +30,7 @@ group DiagnosticReport extends Element
   "DiagnosticReport-specimen" : for src.specimen as vs make tgt.specimen as vt then Reference(vs,vt)
   "DiagnosticReport-result" : for src.result as vs make tgt.result as vt then Reference(vs,vt)
   "DiagnosticReport-imagingStudy" : for src.imagingStudy as vs make tgt.imagingStudy as vt then Reference(vs,vt)
-  "DiagnosticReport-image" : for src.image as vs0 make tgt.image = as vt0 then {
+  "DiagnosticReport-image" : for src.image as vs0 make tgt.image as vt0 then {
     "DiagnosticReport.image-comment" : for vs0.comment as vs make vt0.comment as vt then string(vs, vt)
     "DiagnosticReport.image-link" : for vs0.link as vs make vt0.link as vt then Reference(vs,vt)
   }

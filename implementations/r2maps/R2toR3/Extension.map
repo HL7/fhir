@@ -1,12 +1,33 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Extension2to3" = "R2 to R3 Conversions for Extension"
 
-uses "http://hl7.org/fhir/StructureDefinition/Extension" as source
-uses "http://hl7.org/fhir/StructureDefinition/ExtensionR2" as target
+
+uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Extension" alias ExtensionR2 as source
+uses "http://hl7.org/fhir/StructureDefinition/Extension" alias Extension as target
+
+imports "http://hl7.org/fhir/StructureMap/primitives2to3"
+imports "http://hl7.org/fhir/StructureMap/Meta2to3"
+imports "http://hl7.org/fhir/StructureMap/Address2to3"
+imports "http://hl7.org/fhir/StructureMap/Attachment2to3"
+imports "http://hl7.org/fhir/StructureMap/HumanName2to3"
+imports "http://hl7.org/fhir/StructureMap/ContactPoint2to3"
+imports "http://hl7.org/fhir/StructureMap/Identifier2to3"
+imports "http://hl7.org/fhir/StructureMap/Coding2to3"
+imports "http://hl7.org/fhir/StructureMap/SampledData2to3"
+imports "http://hl7.org/fhir/StructureMap/Ratio2to3"
+imports "http://hl7.org/fhir/StructureMap/Reference2to3"
+imports "http://hl7.org/fhir/StructureMap/Quantity2to3"
+imports "http://hl7.org/fhir/StructureMap/Period2to3"
+imports "http://hl7.org/fhir/StructureMap/Range2to3"
+imports "http://hl7.org/fhir/StructureMap/Annotation2to3"
+imports "http://hl7.org/fhir/StructureMap/Signature2to3"
+imports "http://hl7.org/fhir/StructureMap/Timing2to3"
+imports "http://hl7.org/fhir/StructureMap/CodeableConcept2to3"
+
 
 
 group Extension extends Element
   input src : ExtensionR2 as source
-  input tgt : Extension as Target
+  input tgt : Extension as target
 
   "Extension-url" : for src.url as vs make tgt.url as vt then uri(vs, vt)
   "Extension-value-boolean" : for src.value  : boolean as vs make tgt.value = create("boolean") as vt then boolean(vs,vt)

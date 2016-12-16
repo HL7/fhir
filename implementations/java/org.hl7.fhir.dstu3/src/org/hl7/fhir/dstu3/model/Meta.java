@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -472,11 +472,11 @@ public class Meta extends Type implements IBaseMetaType {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1407102957: throw new FHIRException("Cannot make property versionId as it is not a complex type"); // IdType
-        case 1649733957: throw new FHIRException("Cannot make property lastUpdated as it is not a complex type"); // InstantType
-        case -309425751: throw new FHIRException("Cannot make property profile as it is not a complex type"); // UriType
-        case 949122880:  return addSecurity(); // Coding
-        case 114586:  return addTag(); // Coding
+        case -1407102957:  return getVersionIdElement();
+        case 1649733957:  return getLastUpdatedElement();
+        case -309425751:  return addProfileElement();
+        case 949122880:  return addSecurity(); 
+        case 114586:  return addTag(); 
         default: return super.makeProperty(hash, name);
         }
 

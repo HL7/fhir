@@ -1,12 +1,21 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Location2to3" = "R2 to R3 Conversions for Location"
 
-uses "http://hl7.org/fhir/StructureDefinition/Location" as source
-uses "http://hl7.org/fhir/StructureDefinition/LocationR2" as target
+
+uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Location" alias LocationR2 as source
+uses "http://hl7.org/fhir/StructureDefinition/Location" alias Location as target
+
+imports "http://hl7.org/fhir/StructureMap/primitives2to3"
+imports "http://hl7.org/fhir/StructureMap/Address2to3"
+imports "http://hl7.org/fhir/StructureMap/ContactPoint2to3"
+imports "http://hl7.org/fhir/StructureMap/Identifier2to3"
+imports "http://hl7.org/fhir/StructureMap/Reference2to3"
+imports "http://hl7.org/fhir/StructureMap/CodeableConcept2to3"
+
 
 
 group Location extends Element
   input src : LocationR2 as source
-  input tgt : Location as Target
+  input tgt : Location as target
 
   "Location-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
   "Location-status" : for src.status as vs make tgt.status as vt then code(vs, vt)
@@ -17,7 +26,7 @@ group Location extends Element
   "Location-telecom" : for src.telecom as vs make tgt.telecom as vt then ContactPoint(vs,vt)
   "Location-address" : for src.address as vs make tgt.address as vt then Address(vs,vt)
   "Location-physicalType" : for src.physicalType as vs make tgt.physicalType as vt then CodeableConcept(vs,vt)
-  "Location-position" : for src.position as vs0 make tgt.position = as vt0 then {
+  "Location-position" : for src.position as vs0 make tgt.position as vt0 then {
     "Location.position-longitude" : for vs0.longitude as vs make vt0.longitude as vt then decimal(vs, vt)
     "Location.position-latitude" : for vs0.latitude as vs make vt0.latitude as vt then decimal(vs, vt)
     "Location.position-altitude" : for vs0.altitude as vs make vt0.altitude as vt then decimal(vs, vt)

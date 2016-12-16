@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -581,11 +581,11 @@ public class RiskAssessment extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1106507950:  return getOutcome(); // CodeableConcept
-        case 1430185003:  return getProbability(); // Type
-        case -70741061: throw new FHIRException("Cannot make property relativeRisk as it is not a complex type"); // DecimalType
-        case 1312831238:  return getWhen(); // Type
-        case 345689335: throw new FHIRException("Cannot make property rationale as it is not a complex type"); // StringType
+        case -1106507950:  return getOutcome(); 
+        case 1430185003:  return getProbability(); 
+        case -70741061:  return getRelativeRiskElement();
+        case 1312831238:  return getWhen(); 
+        case 345689335:  return getRationaleElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -1613,22 +1613,22 @@ public class RiskAssessment extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1618432855:  return getIdentifier(); // Identifier
-        case -332612366:  return getBasedOn(); // Reference
-        case -995424086:  return getParent(); // Reference
-        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<RiskAssessmentStatus>
-        case 3059181:  return getCode(); // CodeableConcept
-        case -1867885268:  return getSubject(); // Reference
-        case 951530927:  return getContext(); // Reference
-        case -2022646513:  return getOccurrence(); // Type
-        case -861311717:  return getCondition(); // Reference
-        case 481140686:  return getPerformer(); // Reference
-        case -669418564:  return getReason(); // Type
-        case -1077554975:  return getMethod(); // CodeableConcept
-        case 93508670:  return addBasis(); // Reference
-        case 1161234575:  return addPrediction(); // RiskAssessmentPredictionComponent
-        case 1293793087: throw new FHIRException("Cannot make property mitigation as it is not a complex type"); // StringType
-        case 3387378:  return getNote(); // Annotation
+        case -1618432855:  return getIdentifier(); 
+        case -332612366:  return getBasedOn(); 
+        case -995424086:  return getParent(); 
+        case -892481550:  return getStatusElement();
+        case 3059181:  return getCode(); 
+        case -1867885268:  return getSubject(); 
+        case 951530927:  return getContext(); 
+        case -2022646513:  return getOccurrence(); 
+        case -861311717:  return getCondition(); 
+        case 481140686:  return getPerformer(); 
+        case -669418564:  return getReason(); 
+        case -1077554975:  return getMethod(); 
+        case 93508670:  return addBasis(); 
+        case 1161234575:  return addPrediction(); 
+        case 1293793087:  return getMitigationElement();
+        case 3387378:  return getNote(); 
         default: return super.makeProperty(hash, name);
         }
 

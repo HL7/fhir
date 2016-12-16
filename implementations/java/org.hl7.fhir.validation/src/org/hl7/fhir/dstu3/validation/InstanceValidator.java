@@ -327,22 +327,22 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
   }
 
   @Override
-  public org.hl7.fhir.dstu3.elementmodel.Element validate(Object appContext, List<ValidationMessage> errors, InputStream stream, FhirFormat format) throws Exception {
+  public org.hl7.fhir.dstu3.elementmodel.Element validate(Object appContext, List<ValidationMessage> errors, InputStream stream, FhirFormat format) throws FHIRException, IOException {
     return validate(appContext, errors, stream, format, new ValidationProfileSet());
   }
 
   @Override
-  public org.hl7.fhir.dstu3.elementmodel.Element validate(Object appContext, List<ValidationMessage> errors, InputStream stream, FhirFormat format, String profile) throws Exception {
+  public org.hl7.fhir.dstu3.elementmodel.Element validate(Object appContext, List<ValidationMessage> errors, InputStream stream, FhirFormat format, String profile) throws FHIRException, IOException {
     return validate(appContext, errors, stream, format,  new ValidationProfileSet(profile, true));
   }
 
   @Override
-  public org.hl7.fhir.dstu3.elementmodel.Element validate(Object appContext, List<ValidationMessage> errors, InputStream stream, FhirFormat format, StructureDefinition profile) throws Exception {
+  public org.hl7.fhir.dstu3.elementmodel.Element validate(Object appContext, List<ValidationMessage> errors, InputStream stream, FhirFormat format, StructureDefinition profile) throws FHIRException, IOException {
     return validate(appContext, errors, stream, format, new ValidationProfileSet(profile));
   }
 
   @Override
-  public org.hl7.fhir.dstu3.elementmodel.Element validate(Object appContext, List<ValidationMessage> errors, InputStream stream, FhirFormat format, ValidationProfileSet profiles) throws Exception {
+  public org.hl7.fhir.dstu3.elementmodel.Element validate(Object appContext, List<ValidationMessage> errors, InputStream stream, FhirFormat format, ValidationProfileSet profiles) throws FHIRException, IOException {
     ParserBase parser = Manager.makeParser(context, format);
     if (parser instanceof XmlParser) 
       ((XmlParser) parser).setAllowXsiLocation(allowXsiLocation);
@@ -356,22 +356,22 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
   }
 
   @Override
-  public org.hl7.fhir.dstu3.elementmodel.Element validate(Object appContext, List<ValidationMessage> errors, Resource resource) throws Exception {
+  public org.hl7.fhir.dstu3.elementmodel.Element validate(Object appContext, List<ValidationMessage> errors, Resource resource) throws FHIRException, IOException {
     return validate(appContext, errors, resource, new ValidationProfileSet());
   }
 
   @Override
-  public org.hl7.fhir.dstu3.elementmodel.Element validate(Object appContext, List<ValidationMessage> errors, Resource resource, String profile) throws Exception {
+  public org.hl7.fhir.dstu3.elementmodel.Element validate(Object appContext, List<ValidationMessage> errors, Resource resource, String profile) throws FHIRException, IOException {
     return validate(appContext, errors, resource, new ValidationProfileSet(profile, true));
   }
 
   @Override
-  public org.hl7.fhir.dstu3.elementmodel.Element validate(Object appContext, List<ValidationMessage> errors, Resource resource, StructureDefinition profile) throws Exception {
+  public org.hl7.fhir.dstu3.elementmodel.Element validate(Object appContext, List<ValidationMessage> errors, Resource resource, StructureDefinition profile) throws FHIRException, IOException {
     return validate(appContext, errors, resource, new ValidationProfileSet(profile));
   }
 
   @Override
-  public org.hl7.fhir.dstu3.elementmodel.Element validate(Object appContext, List<ValidationMessage> errors, Resource resource, ValidationProfileSet profiles) throws Exception {
+  public org.hl7.fhir.dstu3.elementmodel.Element validate(Object appContext, List<ValidationMessage> errors, Resource resource, ValidationProfileSet profiles) throws FHIRException, IOException {
     long t = System.nanoTime();
     Element e = new ObjectConverter(context).convert(resource);
     loadTime = System.nanoTime() - t;
@@ -380,22 +380,22 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
   }
 
   @Override
-  public org.hl7.fhir.dstu3.elementmodel.Element validate(Object appContext, List<ValidationMessage> errors, org.w3c.dom.Element element) throws Exception {
+  public org.hl7.fhir.dstu3.elementmodel.Element validate(Object appContext, List<ValidationMessage> errors, org.w3c.dom.Element element) throws FHIRException, IOException {
     return validate(appContext, errors, element, new ValidationProfileSet());
   }
 
   @Override
-  public org.hl7.fhir.dstu3.elementmodel.Element validate(Object appContext, List<ValidationMessage> errors, org.w3c.dom.Element element, String profile) throws Exception {
+  public org.hl7.fhir.dstu3.elementmodel.Element validate(Object appContext, List<ValidationMessage> errors, org.w3c.dom.Element element, String profile) throws FHIRException, IOException {
     return validate(appContext, errors, element, new ValidationProfileSet(profile, true));
   }
 
   @Override
-  public org.hl7.fhir.dstu3.elementmodel.Element validate(Object appContext, List<ValidationMessage> errors, org.w3c.dom.Element element, StructureDefinition profile) throws Exception {
+  public org.hl7.fhir.dstu3.elementmodel.Element validate(Object appContext, List<ValidationMessage> errors, org.w3c.dom.Element element, StructureDefinition profile) throws FHIRException, IOException {
     return validate(appContext, errors, element, new ValidationProfileSet(profile));
   }
 
   @Override
-  public org.hl7.fhir.dstu3.elementmodel.Element validate(Object appContext, List<ValidationMessage> errors, org.w3c.dom.Element element, ValidationProfileSet profiles) throws Exception {
+  public org.hl7.fhir.dstu3.elementmodel.Element validate(Object appContext, List<ValidationMessage> errors, org.w3c.dom.Element element, ValidationProfileSet profiles) throws FHIRException, IOException {
     XmlParser parser = new XmlParser(context);
     parser.setupValidation(ValidationPolicy.EVERYTHING, errors); 
     long t = System.nanoTime();
@@ -407,22 +407,22 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
   }
 
   @Override
-  public org.hl7.fhir.dstu3.elementmodel.Element validate(Object appContext, List<ValidationMessage> errors, Document document) throws Exception {
+  public org.hl7.fhir.dstu3.elementmodel.Element validate(Object appContext, List<ValidationMessage> errors, Document document) throws FHIRException, IOException {
     return validate(appContext, errors, document, new ValidationProfileSet());
   }
 
   @Override
-  public org.hl7.fhir.dstu3.elementmodel.Element validate(Object appContext, List<ValidationMessage> errors, Document document, String profile) throws Exception {
+  public org.hl7.fhir.dstu3.elementmodel.Element validate(Object appContext, List<ValidationMessage> errors, Document document, String profile) throws FHIRException, IOException {
     return validate(appContext, errors, document, new ValidationProfileSet(profile, true));
   }
 
   @Override
-  public org.hl7.fhir.dstu3.elementmodel.Element validate(Object appContext, List<ValidationMessage> errors, Document document, StructureDefinition profile) throws Exception {
+  public org.hl7.fhir.dstu3.elementmodel.Element validate(Object appContext, List<ValidationMessage> errors, Document document, StructureDefinition profile) throws FHIRException, IOException {
     return validate(appContext, errors, document, new ValidationProfileSet(profile));
   }
 
   @Override
-  public org.hl7.fhir.dstu3.elementmodel.Element validate(Object appContext, List<ValidationMessage> errors, Document document, ValidationProfileSet profiles) throws Exception {
+  public org.hl7.fhir.dstu3.elementmodel.Element validate(Object appContext, List<ValidationMessage> errors, Document document, ValidationProfileSet profiles) throws FHIRException, IOException {
     XmlParser parser = new XmlParser(context);
     parser.setupValidation(ValidationPolicy.EVERYTHING, errors); 
     long t = System.nanoTime();
@@ -434,22 +434,22 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
   }
 
   @Override
-  public org.hl7.fhir.dstu3.elementmodel.Element validate(Object appContext, List<ValidationMessage> errors, JsonObject object) throws Exception {
+  public org.hl7.fhir.dstu3.elementmodel.Element validate(Object appContext, List<ValidationMessage> errors, JsonObject object) throws FHIRException, IOException {
     return validate(appContext, errors, object, new ValidationProfileSet());
   }
 
   @Override
-  public org.hl7.fhir.dstu3.elementmodel.Element validate(Object appContext, List<ValidationMessage> errors, JsonObject object, String profile) throws Exception {
+  public org.hl7.fhir.dstu3.elementmodel.Element validate(Object appContext, List<ValidationMessage> errors, JsonObject object, String profile) throws FHIRException, IOException {
     return validate(appContext, errors, object, new ValidationProfileSet(profile, true));
   }
 
   @Override
-  public org.hl7.fhir.dstu3.elementmodel.Element validate(Object appContext, List<ValidationMessage> errors, JsonObject object, StructureDefinition profile) throws Exception {
+  public org.hl7.fhir.dstu3.elementmodel.Element validate(Object appContext, List<ValidationMessage> errors, JsonObject object, StructureDefinition profile) throws FHIRException, IOException {
     return validate(appContext, errors, object, new ValidationProfileSet(profile));
   }
 
   @Override
-  public org.hl7.fhir.dstu3.elementmodel.Element validate(Object appContext, List<ValidationMessage> errors, JsonObject object, ValidationProfileSet profiles) throws Exception {
+  public org.hl7.fhir.dstu3.elementmodel.Element validate(Object appContext, List<ValidationMessage> errors, JsonObject object, ValidationProfileSet profiles) throws FHIRException, IOException {
     JsonParser parser = new JsonParser(context);
     parser.setupValidation(ValidationPolicy.EVERYTHING, errors); 
     long t = System.nanoTime();
@@ -461,7 +461,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
   }
 
   @Override
-  public void validate(Object appContext, List<ValidationMessage> errors, Element element) throws Exception {
+  public void validate(Object appContext, List<ValidationMessage> errors, Element element) throws FHIRException, IOException {
     ValidationProfileSet profileSet = new ValidationProfileSet();
     validate(appContext, errors, element, profileSet);
   }
@@ -483,17 +483,17 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
   }
   
   @Override
-  public void validate(Object appContext, List<ValidationMessage> errors, Element element, String profile) throws Exception {
+  public void validate(Object appContext, List<ValidationMessage> errors, Element element, String profile) throws FHIRException, IOException {
     validate(appContext, errors, element, new ValidationProfileSet(profile, true));
   }
 
   @Override
-  public void validate(Object appContext, List<ValidationMessage> errors, Element element, StructureDefinition profile) throws Exception {
+  public void validate(Object appContext, List<ValidationMessage> errors, Element element, StructureDefinition profile) throws FHIRException, IOException {
     validate(appContext, errors, element, new ValidationProfileSet(profile));
   }
 
   @Override
-  public void validate(Object appContext, List<ValidationMessage> errors, Element element, ValidationProfileSet profiles) throws Exception {
+  public void validate(Object appContext, List<ValidationMessage> errors, Element element, ValidationProfileSet profiles) throws FHIRException, IOException {
     // this is the main entry point; all the other entry points end up here coming here...
     long t = System.nanoTime();
     boolean isRoot = false;
@@ -2031,7 +2031,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
    * @throws DefinitionException 
    * @throws DefinitionException 
    * @throws IOException 
-   * @throws Exception
+   * @throws FHIRException
    */
   private boolean sliceMatches(Object appContext, Element element, String path, ElementDefinition slice, ElementDefinition ed, StructureDefinition profile, List<ValidationMessage> errors, NodeStack stack) throws DefinitionException, FHIRException, IOException {
     if (!slice.getSlicing().hasDiscriminator())

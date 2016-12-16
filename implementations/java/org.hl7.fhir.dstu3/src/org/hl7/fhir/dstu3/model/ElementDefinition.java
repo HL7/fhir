@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -899,10 +899,10 @@ public class ElementDefinition extends Type implements ICompositeType {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1888270692: throw new FHIRException("Cannot make property discriminator as it is not a complex type"); // StringType
-        case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
-        case -1207109523: throw new FHIRException("Cannot make property ordered as it is not a complex type"); // BooleanType
-        case 108873975: throw new FHIRException("Cannot make property rules as it is not a complex type"); // Enumeration<SlicingRules>
+        case -1888270692:  return addDiscriminatorElement();
+        case -1724546052:  return getDescriptionElement();
+        case -1207109523:  return getOrderedElement();
+        case 108873975:  return getRulesElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -1201,9 +1201,9 @@ public class ElementDefinition extends Type implements ICompositeType {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3433509: throw new FHIRException("Cannot make property path as it is not a complex type"); // StringType
-        case 108114: throw new FHIRException("Cannot make property min as it is not a complex type"); // IntegerType
-        case 107876: throw new FHIRException("Cannot make property max as it is not a complex type"); // StringType
+        case 3433509:  return getPathElement();
+        case 108114:  return getMinElement();
+        case 107876:  return getMaxElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -1640,11 +1640,11 @@ public class ElementDefinition extends Type implements ICompositeType {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3059181: throw new FHIRException("Cannot make property code as it is not a complex type"); // UriType
-        case -309425751: throw new FHIRException("Cannot make property profile as it is not a complex type"); // UriType
-        case 1994521304: throw new FHIRException("Cannot make property targetProfile as it is not a complex type"); // UriType
-        case 841524962: throw new FHIRException("Cannot make property aggregation as it is not a complex type"); // Enumeration<AggregationMode>
-        case -670487542: throw new FHIRException("Cannot make property versioning as it is not a complex type"); // Enumeration<ReferenceVersionRules>
+        case 3059181:  return getCodeElement();
+        case -309425751:  return getProfileElement();
+        case 1994521304:  return getTargetProfileElement();
+        case 841524962:  return addAggregationElement();
+        case -670487542:  return getVersioningElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -1863,8 +1863,8 @@ public class ElementDefinition extends Type implements ICompositeType {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 102727412: throw new FHIRException("Cannot make property label as it is not a complex type"); // StringType
-        case -1410166417:  return getValue(); // org.hl7.fhir.dstu3.model.Type
+        case 102727412:  return getLabelElement();
+        case -1410166417:  return getValue(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -2527,13 +2527,13 @@ public class ElementDefinition extends Type implements ICompositeType {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 106079: throw new FHIRException("Cannot make property key as it is not a complex type"); // IdType
-        case -1619874672: throw new FHIRException("Cannot make property requirements as it is not a complex type"); // StringType
-        case 1478300413: throw new FHIRException("Cannot make property severity as it is not a complex type"); // Enumeration<ConstraintSeverity>
-        case 99639597: throw new FHIRException("Cannot make property human as it is not a complex type"); // StringType
-        case -1795452264: throw new FHIRException("Cannot make property expression as it is not a complex type"); // StringType
-        case 114256029: throw new FHIRException("Cannot make property xpath as it is not a complex type"); // StringType
-        case -896505829: throw new FHIRException("Cannot make property source as it is not a complex type"); // UriType
+        case 106079:  return getKeyElement();
+        case -1619874672:  return getRequirementsElement();
+        case 1478300413:  return getSeverityElement();
+        case 99639597:  return getHumanElement();
+        case -1795452264:  return getExpressionElement();
+        case 114256029:  return getXpathElement();
+        case -896505829:  return getSourceElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -2845,9 +2845,9 @@ public class ElementDefinition extends Type implements ICompositeType {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 1791316033: throw new FHIRException("Cannot make property strength as it is not a complex type"); // Enumeration<BindingStrength>
-        case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
-        case -1438410321:  return getValueSet(); // Type
+        case 1791316033:  return getStrengthElement();
+        case -1724546052:  return getDescriptionElement();
+        case -1438410321:  return getValueSet(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -3146,9 +3146,9 @@ public class ElementDefinition extends Type implements ICompositeType {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -135761730: throw new FHIRException("Cannot make property identity as it is not a complex type"); // IdType
-        case -1613589672: throw new FHIRException("Cannot make property language as it is not a complex type"); // CodeType
-        case 107868: throw new FHIRException("Cannot make property map as it is not a complex type"); // StringType
+        case -135761730:  return getIdentityElement();
+        case -1613589672:  return getLanguageElement();
+        case 107868:  return getMapElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -5254,37 +5254,37 @@ public class ElementDefinition extends Type implements ICompositeType {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3433509: throw new FHIRException("Cannot make property path as it is not a complex type"); // StringType
-        case -671065907: throw new FHIRException("Cannot make property representation as it is not a complex type"); // Enumeration<PropertyRepresentation>
-        case -825289923: throw new FHIRException("Cannot make property sliceName as it is not a complex type"); // StringType
-        case 102727412: throw new FHIRException("Cannot make property label as it is not a complex type"); // StringType
-        case 3059181:  return addCode(); // Coding
-        case -2119287345:  return getSlicing(); // ElementDefinitionSlicingComponent
-        case 109413500: throw new FHIRException("Cannot make property short as it is not a complex type"); // StringType
-        case -1014418093: throw new FHIRException("Cannot make property definition as it is not a complex type"); // MarkdownType
-        case -602415628: throw new FHIRException("Cannot make property comments as it is not a complex type"); // MarkdownType
-        case -1619874672: throw new FHIRException("Cannot make property requirements as it is not a complex type"); // MarkdownType
-        case 92902992: throw new FHIRException("Cannot make property alias as it is not a complex type"); // StringType
-        case 108114: throw new FHIRException("Cannot make property min as it is not a complex type"); // IntegerType
-        case 107876: throw new FHIRException("Cannot make property max as it is not a complex type"); // StringType
-        case 3016401:  return getBase(); // ElementDefinitionBaseComponent
-        case 1193747154: throw new FHIRException("Cannot make property contentReference as it is not a complex type"); // UriType
-        case 3575610:  return addType(); // TypeRefComponent
-        case 587922128:  return getDefaultValue(); // org.hl7.fhir.dstu3.model.Type
-        case 1857257103: throw new FHIRException("Cannot make property meaningWhenMissing as it is not a complex type"); // MarkdownType
-        case -391522164:  return getFixed(); // org.hl7.fhir.dstu3.model.Type
-        case -885125392:  return getPattern(); // org.hl7.fhir.dstu3.model.Type
-        case -1322970774:  return addExample(); // ElementDefinitionExampleComponent
-        case -55301663:  return getMinValue(); // Type
-        case 622130931:  return getMaxValue(); // Type
-        case -791400086: throw new FHIRException("Cannot make property maxLength as it is not a complex type"); // IntegerType
-        case -861311717: throw new FHIRException("Cannot make property condition as it is not a complex type"); // IdType
-        case -190376483:  return addConstraint(); // ElementDefinitionConstraintComponent
-        case -1402857082: throw new FHIRException("Cannot make property mustSupport as it is not a complex type"); // BooleanType
-        case -1408783839: throw new FHIRException("Cannot make property isModifier as it is not a complex type"); // BooleanType
-        case 1857548060: throw new FHIRException("Cannot make property isSummary as it is not a complex type"); // BooleanType
-        case -108220795:  return getBinding(); // ElementDefinitionBindingComponent
-        case 837556430:  return addMapping(); // ElementDefinitionMappingComponent
+        case 3433509:  return getPathElement();
+        case -671065907:  return addRepresentationElement();
+        case -825289923:  return getSliceNameElement();
+        case 102727412:  return getLabelElement();
+        case 3059181:  return addCode(); 
+        case -2119287345:  return getSlicing(); 
+        case 109413500:  return getShortElement();
+        case -1014418093:  return getDefinitionElement();
+        case -602415628:  return getCommentsElement();
+        case -1619874672:  return getRequirementsElement();
+        case 92902992:  return addAliasElement();
+        case 108114:  return getMinElement();
+        case 107876:  return getMaxElement();
+        case 3016401:  return getBase(); 
+        case 1193747154:  return getContentReferenceElement();
+        case 3575610:  return addType(); 
+        case 587922128:  return getDefaultValue(); 
+        case 1857257103:  return getMeaningWhenMissingElement();
+        case -391522164:  return getFixed(); 
+        case -885125392:  return getPattern(); 
+        case -1322970774:  return addExample(); 
+        case -55301663:  return getMinValue(); 
+        case 622130931:  return getMaxValue(); 
+        case -791400086:  return getMaxLengthElement();
+        case -861311717:  return addConditionElement();
+        case -190376483:  return addConstraint(); 
+        case -1402857082:  return getMustSupportElement();
+        case -1408783839:  return getIsModifierElement();
+        case 1857548060:  return getIsSummaryElement();
+        case -108220795:  return getBinding(); 
+        case 837556430:  return addMapping(); 
         default: return super.makeProperty(hash, name);
         }
 

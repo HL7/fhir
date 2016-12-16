@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -1377,21 +1377,21 @@ public class ProcedureRequest extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1618432855:  return addIdentifier(); // Identifier
-        case -1867885268:  return getSubject(); // Reference
-        case 3059181:  return getCode(); // CodeableConcept
-        case 1702620169:  return addBodySite(); // CodeableConcept
-        case -669418564:  return getReason(); // Type
-        case 1162627251:  return getScheduled(); // Type
-        case 1524132147:  return getEncounter(); // Reference
-        case 481140686:  return getPerformer(); // Reference
-        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<ProcedureRequestStatus>
-        case 1922406657:  return addSupportingInfo(); // Reference
-        case 105008833:  return addNotes(); // Annotation
-        case -544329575:  return getAsNeeded(); // Type
-        case -391079124: throw new FHIRException("Cannot make property orderedOn as it is not a complex type"); // DateTimeType
-        case -1207109509:  return getOrderer(); // Reference
-        case -1165461084: throw new FHIRException("Cannot make property priority as it is not a complex type"); // Enumeration<ProcedureRequestPriority>
+        case -1618432855:  return addIdentifier(); 
+        case -1867885268:  return getSubject(); 
+        case 3059181:  return getCode(); 
+        case 1702620169:  return addBodySite(); 
+        case -669418564:  return getReason(); 
+        case 1162627251:  return getScheduled(); 
+        case 1524132147:  return getEncounter(); 
+        case 481140686:  return getPerformer(); 
+        case -892481550:  return getStatusElement();
+        case 1922406657:  return addSupportingInfo(); 
+        case 105008833:  return addNotes(); 
+        case -544329575:  return getAsNeeded(); 
+        case -391079124:  return getOrderedOnElement();
+        case -1207109509:  return getOrderer(); 
+        case -1165461084:  return getPriorityElement();
         default: return super.makeProperty(hash, name);
         }
 

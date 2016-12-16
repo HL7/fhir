@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -323,8 +323,8 @@ public class ClinicalImpression extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3059181:  return getCode(); // CodeableConcept
-        case 3242771:  return addItem(); // Reference
+        case 3059181:  return getCode(); 
+        case 3242771:  return addItem(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -557,8 +557,8 @@ public class ClinicalImpression extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 2116201613:  return getItem(); // Type
-        case 93508670: throw new FHIRException("Cannot make property basis as it is not a complex type"); // StringType
+        case 2116201613:  return getItem(); 
+        case 93508670:  return getBasisElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -1924,25 +1924,25 @@ public class ClinicalImpression extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1618432855:  return addIdentifier(); // Identifier
-        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<ClinicalImpressionStatus>
-        case 3059181:  return getCode(); // CodeableConcept
-        case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
-        case -1867885268:  return getSubject(); // Reference
-        case -373213113:  return getAssessor(); // Reference
-        case 3076014: throw new FHIRException("Cannot make property date as it is not a complex type"); // DateTimeType
-        case 247104889:  return getEffective(); // Type
-        case 951530927:  return getContext(); // Reference
-        case -1273775369:  return getPrevious(); // Reference
-        case -309542241:  return addProblem(); // Reference
-        case 956015362:  return addInvestigation(); // ClinicalImpressionInvestigationComponent
-        case -989163880: throw new FHIRException("Cannot make property protocol as it is not a complex type"); // UriType
-        case -1857640538: throw new FHIRException("Cannot make property summary as it is not a complex type"); // StringType
-        case -853173367:  return addFinding(); // ClinicalImpressionFindingComponent
-        case -676337953:  return addPrognosisCodeableConcept(); // CodeableConcept
-        case -587137783:  return addPrognosisReference(); // Reference
-        case -1422950858:  return addAction(); // Reference
-        case 3387378:  return addNote(); // Annotation
+        case -1618432855:  return addIdentifier(); 
+        case -892481550:  return getStatusElement();
+        case 3059181:  return getCode(); 
+        case -1724546052:  return getDescriptionElement();
+        case -1867885268:  return getSubject(); 
+        case -373213113:  return getAssessor(); 
+        case 3076014:  return getDateElement();
+        case 247104889:  return getEffective(); 
+        case 951530927:  return getContext(); 
+        case -1273775369:  return getPrevious(); 
+        case -309542241:  return addProblem(); 
+        case 956015362:  return addInvestigation(); 
+        case -989163880:  return addProtocolElement();
+        case -1857640538:  return getSummaryElement();
+        case -853173367:  return addFinding(); 
+        case -676337953:  return addPrognosisCodeableConcept(); 
+        case -587137783:  return addPrognosisReference(); 
+        case -1422950858:  return addAction(); 
+        case 3387378:  return addNote(); 
         default: return super.makeProperty(hash, name);
         }
 

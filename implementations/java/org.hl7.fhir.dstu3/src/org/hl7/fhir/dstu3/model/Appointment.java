@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -760,10 +760,10 @@ public class Appointment extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3575610:  return addType(); // CodeableConcept
-        case 92645877:  return getActor(); // Reference
-        case -393139297: throw new FHIRException("Cannot make property required as it is not a complex type"); // Enumeration<ParticipantRequired>
-        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<ParticipationStatus>
+        case 3575610:  return addType(); 
+        case 92645877:  return getActor(); 
+        case -393139297:  return getRequiredElement();
+        case -892481550:  return getStatusElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -1922,23 +1922,23 @@ public class Appointment extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1618432855:  return addIdentifier(); // Identifier
-        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<AppointmentStatus>
-        case 1281188563:  return getServiceCategory(); // CodeableConcept
-        case -1928370289:  return addServiceType(); // CodeableConcept
-        case -1694759682:  return addSpecialty(); // CodeableConcept
-        case -1596426375:  return getAppointmentType(); // CodeableConcept
-        case -934964668:  return getReason(); // CodeableConcept
-        case -1165461084: throw new FHIRException("Cannot make property priority as it is not a complex type"); // UnsignedIntType
-        case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
-        case 109757538: throw new FHIRException("Cannot make property start as it is not a complex type"); // InstantType
-        case 100571: throw new FHIRException("Cannot make property end as it is not a complex type"); // InstantType
-        case -413630573: throw new FHIRException("Cannot make property minutesDuration as it is not a complex type"); // PositiveIntType
-        case 3533310:  return addSlot(); // Reference
-        case 1028554472: throw new FHIRException("Cannot make property created as it is not a complex type"); // DateTimeType
-        case 950398559: throw new FHIRException("Cannot make property comment as it is not a complex type"); // StringType
-        case 767422259:  return addParticipant(); // AppointmentParticipantComponent
-        case -897241393:  return addRequestedPeriod(); // Period
+        case -1618432855:  return addIdentifier(); 
+        case -892481550:  return getStatusElement();
+        case 1281188563:  return getServiceCategory(); 
+        case -1928370289:  return addServiceType(); 
+        case -1694759682:  return addSpecialty(); 
+        case -1596426375:  return getAppointmentType(); 
+        case -934964668:  return getReason(); 
+        case -1165461084:  return getPriorityElement();
+        case -1724546052:  return getDescriptionElement();
+        case 109757538:  return getStartElement();
+        case 100571:  return getEndElement();
+        case -413630573:  return getMinutesDurationElement();
+        case 3533310:  return addSlot(); 
+        case 1028554472:  return getCreatedElement();
+        case 950398559:  return getCommentElement();
+        case 767422259:  return addParticipant(); 
+        case -897241393:  return addRequestedPeriod(); 
         default: return super.makeProperty(hash, name);
         }
 

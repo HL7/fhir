@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -690,12 +690,12 @@ public class NutritionRequest extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3575610:  return addType(); // CodeableConcept
-        case -697920873:  return addSchedule(); // Timing
-        case -1671151641:  return addNutrient(); // NutritionRequestOralDietNutrientComponent
-        case -1417816805:  return addTexture(); // NutritionRequestOralDietTextureComponent
-        case -525105592:  return addFluidConsistencyType(); // CodeableConcept
-        case 301526158: throw new FHIRException("Cannot make property instruction as it is not a complex type"); // StringType
+        case 3575610:  return addType(); 
+        case -697920873:  return addSchedule(); 
+        case -1671151641:  return addNutrient(); 
+        case -1417816805:  return addTexture(); 
+        case -525105592:  return addFluidConsistencyType(); 
+        case 301526158:  return getInstructionElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -908,8 +908,8 @@ public class NutritionRequest extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -615513385:  return getModifier(); // CodeableConcept
-        case -1413853096:  return getAmount(); // SimpleQuantity
+        case -615513385:  return getModifier(); 
+        case -1413853096:  return getAmount(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -1086,8 +1086,8 @@ public class NutritionRequest extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -615513385:  return getModifier(); // CodeableConcept
-        case 379498680:  return getFoodType(); // CodeableConcept
+        case -615513385:  return getModifier(); 
+        case 379498680:  return getFoodType(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -1456,11 +1456,11 @@ public class NutritionRequest extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3575610:  return getType(); // CodeableConcept
-        case -1491817446: throw new FHIRException("Cannot make property productName as it is not a complex type"); // StringType
-        case -697920873:  return addSchedule(); // Timing
-        case -1285004149:  return getQuantity(); // SimpleQuantity
-        case 301526158: throw new FHIRException("Cannot make property instruction as it is not a complex type"); // StringType
+        case 3575610:  return getType(); 
+        case -1491817446:  return getProductNameElement();
+        case -697920873:  return addSchedule(); 
+        case -1285004149:  return getQuantity(); 
+        case 301526158:  return getInstructionElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -2027,15 +2027,15 @@ public class NutritionRequest extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -138930641:  return getBaseFormulaType(); // CodeableConcept
-        case -1267705979: throw new FHIRException("Cannot make property baseFormulaProductName as it is not a complex type"); // StringType
-        case -470746842:  return getAdditiveType(); // CodeableConcept
-        case 488079534: throw new FHIRException("Cannot make property additiveProductName as it is not a complex type"); // StringType
-        case 186983261:  return getCaloricDensity(); // SimpleQuantity
-        case -1710107042:  return getRouteofAdministration(); // CodeableConcept
-        case 1255702622:  return addAdministration(); // NutritionRequestEnteralFormulaAdministrationComponent
-        case 2017924652:  return getMaxVolumeToDeliver(); // SimpleQuantity
-        case 427085136: throw new FHIRException("Cannot make property administrationInstruction as it is not a complex type"); // StringType
+        case -138930641:  return getBaseFormulaType(); 
+        case -1267705979:  return getBaseFormulaProductNameElement();
+        case -470746842:  return getAdditiveType(); 
+        case 488079534:  return getAdditiveProductNameElement();
+        case 186983261:  return getCaloricDensity(); 
+        case -1710107042:  return getRouteofAdministration(); 
+        case 1255702622:  return addAdministration(); 
+        case 2017924652:  return getMaxVolumeToDeliver(); 
+        case 427085136:  return getAdministrationInstructionElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -2311,9 +2311,9 @@ public class NutritionRequest extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -697920873:  return getSchedule(); // Timing
-        case -1285004149:  return getQuantity(); // SimpleQuantity
-        case 983460768:  return getRate(); // Type
+        case -697920873:  return getSchedule(); 
+        case -1285004149:  return getQuantity(); 
+        case 983460768:  return getRate(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -3182,18 +3182,18 @@ public class NutritionRequest extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1618432855:  return addIdentifier(); // Identifier
-        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<NutritionOrderStatus>
-        case -791418107:  return getPatient(); // Reference
-        case 1524132147:  return getEncounter(); // Reference
-        case 1792749467: throw new FHIRException("Cannot make property dateTime as it is not a complex type"); // DateTimeType
-        case -1207109509:  return getOrderer(); // Reference
-        case -120164120:  return addAllergyIntolerance(); // Reference
-        case 659473872:  return addFoodPreferenceModifier(); // CodeableConcept
-        case 1760260175:  return addExcludeFoodModifier(); // CodeableConcept
-        case 1153521250:  return getOralDiet(); // NutritionRequestOralDietComponent
-        case -711993159:  return addSupplement(); // NutritionRequestSupplementComponent
-        case -671083805:  return getEnteralFormula(); // NutritionRequestEnteralFormulaComponent
+        case -1618432855:  return addIdentifier(); 
+        case -892481550:  return getStatusElement();
+        case -791418107:  return getPatient(); 
+        case 1524132147:  return getEncounter(); 
+        case 1792749467:  return getDateTimeElement();
+        case -1207109509:  return getOrderer(); 
+        case -120164120:  return addAllergyIntolerance(); 
+        case 659473872:  return addFoodPreferenceModifier(); 
+        case 1760260175:  return addExcludeFoodModifier(); 
+        case 1153521250:  return getOralDiet(); 
+        case -711993159:  return addSupplement(); 
+        case -671083805:  return getEnteralFormula(); 
         default: return super.makeProperty(hash, name);
         }
 

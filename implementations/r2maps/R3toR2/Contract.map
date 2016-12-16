@@ -1,12 +1,21 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Contract3to2" = "R3 to R2 Conversion for Contract"
 
-uses "http://hl7.org/fhir/StructureDefinition/ContractR2" as source
-uses "http://hl7.org/fhir/StructureDefinition/Contract" as target
+
+uses "http://hl7.org/fhir/StructureDefinition/Contract" alias Contract as source
+uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Contract" alias ContractR2 as target
+
+imports "http://hl7.org/fhir/StructureMap/primitives3to2"
+imports "http://hl7.org/fhir/StructureMap/Attachment3to2"
+imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
+imports "http://hl7.org/fhir/StructureMap/Reference3to2"
+imports "http://hl7.org/fhir/StructureMap/Period3to2"
+imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
+
 
 
 group Contract extends Element
   input src : Contract as source
-  input tgt : ContractR2 as Target
+  input tgt : ContractR2 as target
   "Contract-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
   "Contract-issued" : for src.issued as vs make tgt.issued as vt then dateTime(vs, vt)
   "Contract-applies" : for src.applies as vs make tgt.applies as vt then Period(vs,vt)

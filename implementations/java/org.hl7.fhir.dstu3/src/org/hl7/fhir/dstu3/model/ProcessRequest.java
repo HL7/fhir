@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -399,7 +399,7 @@ public class ProcessRequest extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1422298666: throw new FHIRException("Cannot make property sequenceLinkId as it is not a complex type"); // IntegerType
+        case -1422298666:  return getSequenceLinkIdElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -1430,21 +1430,21 @@ public class ProcessRequest extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1618432855:  return addIdentifier(); // Identifier
-        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<ProcessRequestStatus>
-        case -1422950858: throw new FHIRException("Cannot make property action as it is not a complex type"); // Enumeration<ActionList>
-        case -880905839:  return getTarget(); // Reference
-        case 1028554472: throw new FHIRException("Cannot make property created as it is not a complex type"); // DateTimeType
-        case -987494927:  return getProvider(); // Reference
-        case 1178922291:  return getOrganization(); // Reference
-        case 1095692943:  return getRequest(); // Reference
-        case -340323263:  return getResponse(); // Reference
-        case -2001137643: throw new FHIRException("Cannot make property nullify as it is not a complex type"); // BooleanType
-        case -925155509: throw new FHIRException("Cannot make property reference as it is not a complex type"); // StringType
-        case 3242771:  return addItem(); // ItemsComponent
-        case 1942574248: throw new FHIRException("Cannot make property include as it is not a complex type"); // StringType
-        case -1321148966: throw new FHIRException("Cannot make property exclude as it is not a complex type"); // StringType
-        case -991726143:  return getPeriod(); // Period
+        case -1618432855:  return addIdentifier(); 
+        case -892481550:  return getStatusElement();
+        case -1422950858:  return getActionElement();
+        case -880905839:  return getTarget(); 
+        case 1028554472:  return getCreatedElement();
+        case -987494927:  return getProvider(); 
+        case 1178922291:  return getOrganization(); 
+        case 1095692943:  return getRequest(); 
+        case -340323263:  return getResponse(); 
+        case -2001137643:  return getNullifyElement();
+        case -925155509:  return getReferenceElement();
+        case 3242771:  return addItem(); 
+        case 1942574248:  return addIncludeElement();
+        case -1321148966:  return addExcludeElement();
+        case -991726143:  return getPeriod(); 
         default: return super.makeProperty(hash, name);
         }
 

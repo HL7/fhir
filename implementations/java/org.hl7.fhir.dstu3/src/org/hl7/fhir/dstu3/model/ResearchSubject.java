@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -701,14 +701,14 @@ public class ResearchSubject extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1618432855:  return getIdentifier(); // Identifier
-        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<ResearchSubjectStatus>
-        case -991726143:  return getPeriod(); // Period
-        case 109776329:  return getStudy(); // Reference
-        case -46292327:  return getIndividual(); // Reference
-        case 1741912494: throw new FHIRException("Cannot make property assignedArm as it is not a complex type"); // StringType
-        case 528827886: throw new FHIRException("Cannot make property actualArm as it is not a complex type"); // StringType
-        case 951500826:  return getConsent(); // Reference
+        case -1618432855:  return getIdentifier(); 
+        case -892481550:  return getStatusElement();
+        case -991726143:  return getPeriod(); 
+        case 109776329:  return getStudy(); 
+        case -46292327:  return getIndividual(); 
+        case 1741912494:  return getAssignedArmElement();
+        case 528827886:  return getActualArmElement();
+        case 951500826:  return getConsent(); 
         default: return super.makeProperty(hash, name);
         }
 

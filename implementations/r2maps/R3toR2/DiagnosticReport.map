@@ -1,12 +1,21 @@
 ﻿map "http://hl7.org/fhir/StructureMap/DiagnosticReport3to2" = "R3 to R2 Conversion for DiagnosticReport"
 
-uses "http://hl7.org/fhir/StructureDefinition/DiagnosticReportR2" as source
-uses "http://hl7.org/fhir/StructureDefinition/DiagnosticReport" as target
+
+uses "http://hl7.org/fhir/StructureDefinition/DiagnosticReport" alias DiagnosticReport as source
+uses "http://hl7.org/fhir/DSTU2/StructureDefinition/DiagnosticReport" alias DiagnosticReportR2 as target
+
+imports "http://hl7.org/fhir/StructureMap/primitives3to2"
+imports "http://hl7.org/fhir/StructureMap/Attachment3to2"
+imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
+imports "http://hl7.org/fhir/StructureMap/Reference3to2"
+imports "http://hl7.org/fhir/StructureMap/Period3to2"
+imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
+
 
 
 group DiagnosticReport extends Element
   input src : DiagnosticReport as source
-  input tgt : DiagnosticReportR2 as Target
+  input tgt : DiagnosticReportR2 as target
   "DiagnosticReport-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
   "DiagnosticReport-status" : for src.status as vs make tgt.status as vt then code(vs, vt)
   "DiagnosticReport-category" : for src.category as vs make tgt.category as vt then CodeableConcept(vs,vt)
@@ -20,7 +29,7 @@ group DiagnosticReport extends Element
   "DiagnosticReport-specimen" : for src.specimen as vs make tgt.specimen as vt then Reference(vs,vt)
   "DiagnosticReport-result" : for src.result as vs make tgt.result as vt then Reference(vs,vt)
   "DiagnosticReport-imagingStudy" : for src.imagingStudy as vs make tgt.imagingStudy as vt then Reference(vs,vt)
-  "DiagnosticReport-image" : for src.image as vs0 make tgt.image = as vt0 then {
+  "DiagnosticReport-image" : for src.image as vs0 make tgt.image as vt0 then {
     "DiagnosticReport.image-comment" : for vs0.comment as vs make vt0.comment as vt then string(vs, vt)
     "DiagnosticReport.image-link" : for vs0.link as vs make vt0.link as vt then Reference(vs,vt)
   }

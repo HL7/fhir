@@ -1,12 +1,24 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Practitioner3to2" = "R3 to R2 Conversion for Practitioner"
 
-uses "http://hl7.org/fhir/StructureDefinition/PractitionerR2" as source
-uses "http://hl7.org/fhir/StructureDefinition/Practitioner" as target
+
+uses "http://hl7.org/fhir/StructureDefinition/Practitioner" alias Practitioner as source
+uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Practitioner" alias PractitionerR2 as target
+
+imports "http://hl7.org/fhir/StructureMap/primitives3to2"
+imports "http://hl7.org/fhir/StructureMap/Address3to2"
+imports "http://hl7.org/fhir/StructureMap/Attachment3to2"
+imports "http://hl7.org/fhir/StructureMap/HumanName3to2"
+imports "http://hl7.org/fhir/StructureMap/ContactPoint3to2"
+imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
+imports "http://hl7.org/fhir/StructureMap/Reference3to2"
+imports "http://hl7.org/fhir/StructureMap/Period3to2"
+imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
+
 
 
 group Practitioner extends Element
   input src : Practitioner as source
-  input tgt : PractitionerR2 as Target
+  input tgt : PractitionerR2 as target
   "Practitioner-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
   "Practitioner-active" : for src.active as vs make tgt.active as vt then boolean(vs, vt)
   "Practitioner-name" : for src.name as vs make tgt.name as vt then HumanName(vs,vt)
@@ -15,7 +27,7 @@ group Practitioner extends Element
   "Practitioner-gender" : for src.gender as vs make tgt.gender as vt then code(vs, vt)
   "Practitioner-birthDate" : for src.birthDate as vs make tgt.birthDate as vt then date(vs, vt)
   "Practitioner-photo" : for src.photo as vs make tgt.photo as vt then Attachment(vs,vt)
-  "Practitioner-practitionerRole" : for src.role as vs0 make tgt.practitionerRole = as vt0 then {
+  "Practitioner-practitionerRole" : for src.role as vs0 make tgt.practitionerRole as vt0 then {
     "Practitioner.practitionerRole-managingOrganization" : for vs0.organization as vs make vt0.managingOrganization as vt then Reference(vs,vt)
     "Practitioner.practitionerRole-role" : for vs0.code as vs make vt0.role as vt then CodeableConcept(vs,vt)
     "Practitioner.practitionerRole-specialty" : for vs0.specialty as vs make vt0.specialty as vt then CodeableConcept(vs,vt)
@@ -23,7 +35,7 @@ group Practitioner extends Element
     "Practitioner.practitionerRole-location" : for vs0.location as vs make vt0.location as vt then Reference(vs,vt)
     "Practitioner.practitionerRole-healthcareService" : for vs0.healthcareService as vs make vt0.healthcareService as vt then Reference(vs,vt)
   }
-  "Practitioner-qualification" : for src.qualification as vs0 make tgt.qualification = as vt0 then {
+  "Practitioner-qualification" : for src.qualification as vs0 make tgt.qualification as vt0 then {
     "Practitioner.qualification-identifier" : for vs0.identifier as vs make vt0.identifier as vt then Identifier(vs,vt)
     "Practitioner.qualification-code" : for vs0.code as vs make vt0.code as vt then CodeableConcept(vs,vt)
     "Practitioner.qualification-period" : for vs0.period as vs make vt0.period as vt then Period(vs,vt)

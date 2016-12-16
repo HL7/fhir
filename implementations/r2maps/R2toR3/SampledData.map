@@ -1,12 +1,17 @@
 ﻿map "http://hl7.org/fhir/StructureMap/SampledData2to3" = "R2 to R3 Conversions for SampledData"
 
-uses "http://hl7.org/fhir/StructureDefinition/SampledData" as source
-uses "http://hl7.org/fhir/StructureDefinition/SampledDataR2" as target
+
+uses "http://hl7.org/fhir/DSTU2/StructureDefinition/SampledData" alias SampledDataR2 as source
+uses "http://hl7.org/fhir/StructureDefinition/SampledData" alias SampledData as target
+
+imports "http://hl7.org/fhir/StructureMap/primitives2to3"
+imports "http://hl7.org/fhir/StructureMap/Quantity2to3"
+
 
 
 group SampledData extends Element
   input src : SampledDataR2 as source
-  input tgt : SampledData as Target
+  input tgt : SampledData as target
 
   "SampledData-origin" : for src.origin as vs make tgt.origin as vt then Quantity(vs,vt)
   "SampledData-period" : for src.period as vs make tgt.period as vt then decimal(vs, vt)

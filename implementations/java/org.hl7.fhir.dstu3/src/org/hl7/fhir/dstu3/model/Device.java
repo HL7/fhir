@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -1164,22 +1164,22 @@ public class Device extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1618432855:  return addIdentifier(); // Identifier
-        case -1343558178:  return getUdiCarrier(); // Identifier
-        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<DeviceStatus>
-        case 3575610:  return getType(); // CodeableConcept
-        case 462547450: throw new FHIRException("Cannot make property lotNumber as it is not a complex type"); // StringType
-        case -1969347631: throw new FHIRException("Cannot make property manufacturer as it is not a complex type"); // StringType
-        case 416714767: throw new FHIRException("Cannot make property manufactureDate as it is not a complex type"); // DateTimeType
-        case -668811523: throw new FHIRException("Cannot make property expirationDate as it is not a complex type"); // DateTimeType
-        case 104069929: throw new FHIRException("Cannot make property model as it is not a complex type"); // StringType
-        case 351608024: throw new FHIRException("Cannot make property version as it is not a complex type"); // StringType
-        case -791418107:  return getPatient(); // Reference
-        case 106164915:  return getOwner(); // Reference
-        case 951526432:  return addContact(); // ContactPoint
-        case 1901043637:  return getLocation(); // Reference
-        case 116079: throw new FHIRException("Cannot make property url as it is not a complex type"); // UriType
-        case 3387378:  return addNote(); // Annotation
+        case -1618432855:  return addIdentifier(); 
+        case -1343558178:  return getUdiCarrier(); 
+        case -892481550:  return getStatusElement();
+        case 3575610:  return getType(); 
+        case 462547450:  return getLotNumberElement();
+        case -1969347631:  return getManufacturerElement();
+        case 416714767:  return getManufactureDateElement();
+        case -668811523:  return getExpirationDateElement();
+        case 104069929:  return getModelElement();
+        case 351608024:  return getVersionElement();
+        case -791418107:  return getPatient(); 
+        case 106164915:  return getOwner(); 
+        case 951526432:  return addContact(); 
+        case 1901043637:  return getLocation(); 
+        case 116079:  return getUrlElement();
+        case 3387378:  return addNote(); 
         default: return super.makeProperty(hash, name);
         }
 

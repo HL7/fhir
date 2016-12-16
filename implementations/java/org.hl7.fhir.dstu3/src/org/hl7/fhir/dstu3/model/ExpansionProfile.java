@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -384,9 +384,9 @@ public class ExpansionProfile extends MetadataResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -887328209: throw new FHIRException("Cannot make property system as it is not a complex type"); // UriType
-        case 351608024: throw new FHIRException("Cannot make property version as it is not a complex type"); // StringType
-        case 3357091: throw new FHIRException("Cannot make property mode as it is not a complex type"); // Enumeration<SystemVersionProcessingMode>
+        case -887328209:  return getSystemElement();
+        case 351608024:  return getVersionElement();
+        case 3357091:  return getModeElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -619,8 +619,8 @@ public class ExpansionProfile extends MetadataResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -887328209: throw new FHIRException("Cannot make property system as it is not a complex type"); // UriType
-        case 351608024: throw new FHIRException("Cannot make property version as it is not a complex type"); // StringType
+        case -887328209:  return getSystemElement();
+        case 351608024:  return getVersionElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -793,8 +793,8 @@ public class ExpansionProfile extends MetadataResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 1942574248:  return getInclude(); // DesignationIncludeComponent
-        case -1321148966:  return getExclude(); // DesignationExcludeComponent
+        case 1942574248:  return getInclude(); 
+        case -1321148966:  return getExclude(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -960,7 +960,7 @@ public class ExpansionProfile extends MetadataResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -900931593:  return addDesignation(); // DesignationIncludeDesignationComponent
+        case -900931593:  return addDesignation(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -1160,8 +1160,8 @@ public class ExpansionProfile extends MetadataResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1613589672: throw new FHIRException("Cannot make property language as it is not a complex type"); // CodeType
-        case 116103:  return getUse(); // Coding
+        case -1613589672:  return getLanguageElement();
+        case 116103:  return getUse(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -1326,7 +1326,7 @@ public class ExpansionProfile extends MetadataResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -900931593:  return addDesignation(); // DesignationExcludeDesignationComponent
+        case -900931593:  return addDesignation(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -1526,8 +1526,8 @@ public class ExpansionProfile extends MetadataResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1613589672: throw new FHIRException("Cannot make property language as it is not a complex type"); // CodeType
-        case 116103:  return getUse(); // Coding
+        case -1613589672:  return getLanguageElement();
+        case 116103:  return getUse(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -2909,29 +2909,29 @@ public class ExpansionProfile extends MetadataResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 116079: throw new FHIRException("Cannot make property url as it is not a complex type"); // UriType
-        case -1618432855:  return getIdentifier(); // Identifier
-        case 351608024: throw new FHIRException("Cannot make property version as it is not a complex type"); // StringType
-        case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
-        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<PublicationStatus>
-        case -404562712: throw new FHIRException("Cannot make property experimental as it is not a complex type"); // BooleanType
-        case 1447404028: throw new FHIRException("Cannot make property publisher as it is not a complex type"); // StringType
-        case 951526432:  return addContact(); // ContactDetail
-        case 3076014: throw new FHIRException("Cannot make property date as it is not a complex type"); // DateTimeType
-        case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // MarkdownType
-        case -669707736:  return addUseContext(); // UsageContext
-        case -507075711:  return addJurisdiction(); // CodeableConcept
-        case 807748292:  return addFixedVersion(); // ExpansionProfileFixedVersionComponent
-        case 2125282457:  return getExcludedSystem(); // ExpansionProfileExcludedSystemComponent
-        case 461507620: throw new FHIRException("Cannot make property includeDesignations as it is not a complex type"); // BooleanType
-        case -900931593:  return getDesignation(); // ExpansionProfileDesignationComponent
-        case 127972379: throw new FHIRException("Cannot make property includeDefinition as it is not a complex type"); // BooleanType
-        case 2043813842: throw new FHIRException("Cannot make property activeOnly as it is not a complex type"); // BooleanType
-        case 424992625: throw new FHIRException("Cannot make property excludeNested as it is not a complex type"); // BooleanType
-        case 667582980: throw new FHIRException("Cannot make property excludeNotForUI as it is not a complex type"); // BooleanType
-        case 563335154: throw new FHIRException("Cannot make property excludePostCoordinated as it is not a complex type"); // BooleanType
-        case 1486237242: throw new FHIRException("Cannot make property displayLanguage as it is not a complex type"); // CodeType
-        case 597771333: throw new FHIRException("Cannot make property limitedExpansion as it is not a complex type"); // BooleanType
+        case 116079:  return getUrlElement();
+        case -1618432855:  return getIdentifier(); 
+        case 351608024:  return getVersionElement();
+        case 3373707:  return getNameElement();
+        case -892481550:  return getStatusElement();
+        case -404562712:  return getExperimentalElement();
+        case 1447404028:  return getPublisherElement();
+        case 951526432:  return addContact(); 
+        case 3076014:  return getDateElement();
+        case -1724546052:  return getDescriptionElement();
+        case -669707736:  return addUseContext(); 
+        case -507075711:  return addJurisdiction(); 
+        case 807748292:  return addFixedVersion(); 
+        case 2125282457:  return getExcludedSystem(); 
+        case 461507620:  return getIncludeDesignationsElement();
+        case -900931593:  return getDesignation(); 
+        case 127972379:  return getIncludeDefinitionElement();
+        case 2043813842:  return getActiveOnlyElement();
+        case 424992625:  return getExcludeNestedElement();
+        case 667582980:  return getExcludeNotForUIElement();
+        case 563335154:  return getExcludePostCoordinatedElement();
+        case 1486237242:  return getDisplayLanguageElement();
+        case 597771333:  return getLimitedExpansionElement();
         default: return super.makeProperty(hash, name);
         }
 

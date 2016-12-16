@@ -210,7 +210,7 @@
   Element = MedicationStatement.context
   Card. = 0..1
   Summary = y
-  Type = Reference (Encounter | EpisodeofCare)
+  Type = Reference (Encounter | EpisodeOfCare)
   Short Name = Encounter / Episode associated with MedicationStatement
   Definition = The encounter or episode of care that establishes the context for this MedicationStatement.
 

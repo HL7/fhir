@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -685,8 +685,8 @@ public class CarePlan extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3059181: throw new FHIRException("Cannot make property code as it is not a complex type"); // Enumeration<CarePlanRelationship>
-        case 3443497:  return getPlan(); // Reference
+        case 3059181:  return getCodeElement();
+        case 3443497:  return getPlan(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -1067,11 +1067,11 @@ public class CarePlan extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 836386063:  return addActionResulting(); // Reference
-        case -1106507950:  return getOutcome(); // CodeableConcept
-        case -1001078227:  return addProgress(); // Annotation
-        case -925155509:  return getReference(); // Reference
-        case -1335224239:  return getDetail(); // CarePlanActivityDetailComponent
+        case 836386063:  return addActionResulting(); 
+        case -1106507950:  return getOutcome(); 
+        case -1001078227:  return addProgress(); 
+        case -925155509:  return getReference(); 
+        case -1335224239:  return getDetail(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -2168,22 +2168,22 @@ public class CarePlan extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 50511102:  return getCategory(); // CodeableConcept
-        case -1014418093:  return getDefinition(); // Reference
-        case 3059181:  return getCode(); // CodeableConcept
-        case 722137681:  return addReasonCode(); // CodeableConcept
-        case -1146218137:  return addReasonReference(); // Reference
-        case 3178259:  return addGoal(); // Reference
-        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<CarePlanActivityStatus>
-        case 2051346646:  return getStatusReason(); // CodeableConcept
-        case 663275198: throw new FHIRException("Cannot make property prohibited as it is not a complex type"); // BooleanType
-        case 1162627251:  return getScheduled(); // Type
-        case 1901043637:  return getLocation(); // Reference
-        case 481140686:  return addPerformer(); // Reference
-        case 1753005361:  return getProduct(); // Type
-        case -768908335:  return getDailyAmount(); // SimpleQuantity
-        case -1285004149:  return getQuantity(); // SimpleQuantity
-        case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
+        case 50511102:  return getCategory(); 
+        case -1014418093:  return getDefinition(); 
+        case 3059181:  return getCode(); 
+        case 722137681:  return addReasonCode(); 
+        case -1146218137:  return addReasonReference(); 
+        case 3178259:  return addGoal(); 
+        case -892481550:  return getStatusElement();
+        case 2051346646:  return getStatusReason(); 
+        case 663275198:  return getProhibitedElement();
+        case 1162627251:  return getScheduled(); 
+        case 1901043637:  return getLocation(); 
+        case 481140686:  return addPerformer(); 
+        case 1753005361:  return getProduct(); 
+        case -768908335:  return getDailyAmount(); 
+        case -1285004149:  return getQuantity(); 
+        case -1724546052:  return getDescriptionElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -3539,23 +3539,23 @@ public class CarePlan extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1618432855:  return addIdentifier(); // Identifier
-        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<CarePlanStatus>
-        case 50511102:  return addCategory(); // CodeableConcept
-        case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
-        case -1867885268:  return getSubject(); // Reference
-        case 951530927:  return getContext(); // Reference
-        case -991726143:  return getPeriod(); // Period
-        case -615513399: throw new FHIRException("Cannot make property modified as it is not a complex type"); // DateTimeType
-        case -1406328437:  return addAuthor(); // Reference
-        case -7323378:  return addCareTeam(); // Reference
-        case 874544034:  return addAddresses(); // Reference
-        case -1854767153:  return addSupport(); // Reference
-        case -1014418093:  return getDefinition(); // Reference
-        case 1112903156:  return addRelatedPlan(); // CarePlanRelatedPlanComponent
-        case 3178259:  return addGoal(); // Reference
-        case -1655966961:  return addActivity(); // CarePlanActivityComponent
-        case 3387378:  return getNote(); // Annotation
+        case -1618432855:  return addIdentifier(); 
+        case -892481550:  return getStatusElement();
+        case 50511102:  return addCategory(); 
+        case -1724546052:  return getDescriptionElement();
+        case -1867885268:  return getSubject(); 
+        case 951530927:  return getContext(); 
+        case -991726143:  return getPeriod(); 
+        case -615513399:  return getModifiedElement();
+        case -1406328437:  return addAuthor(); 
+        case -7323378:  return addCareTeam(); 
+        case 874544034:  return addAddresses(); 
+        case -1854767153:  return addSupport(); 
+        case -1014418093:  return getDefinition(); 
+        case 1112903156:  return addRelatedPlan(); 
+        case 3178259:  return addGoal(); 
+        case -1655966961:  return addActivity(); 
+        case 3387378:  return getNote(); 
         default: return super.makeProperty(hash, name);
         }
 

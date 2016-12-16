@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -587,14 +587,14 @@ public class Attachment extends Type implements ICompositeType {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -389131437: throw new FHIRException("Cannot make property contentType as it is not a complex type"); // CodeType
-        case -1613589672: throw new FHIRException("Cannot make property language as it is not a complex type"); // CodeType
-        case 3076010: throw new FHIRException("Cannot make property data as it is not a complex type"); // Base64BinaryType
-        case 116079: throw new FHIRException("Cannot make property url as it is not a complex type"); // UriType
-        case 3530753: throw new FHIRException("Cannot make property size as it is not a complex type"); // UnsignedIntType
-        case 3195150: throw new FHIRException("Cannot make property hash as it is not a complex type"); // Base64BinaryType
-        case 110371416: throw new FHIRException("Cannot make property title as it is not a complex type"); // StringType
-        case 1820421855: throw new FHIRException("Cannot make property creation as it is not a complex type"); // DateTimeType
+        case -389131437:  return getContentTypeElement();
+        case -1613589672:  return getLanguageElement();
+        case 3076010:  return getDataElement();
+        case 116079:  return getUrlElement();
+        case 3530753:  return getSizeElement();
+        case 3195150:  return getHashElement();
+        case 110371416:  return getTitleElement();
+        case 1820421855:  return getCreationElement();
         default: return super.makeProperty(hash, name);
         }
 

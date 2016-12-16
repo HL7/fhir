@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -200,8 +200,8 @@ public class Extension extends BaseExtension implements IBaseExtension<Extension
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 116079: throw new FHIRException("Cannot make property url as it is not a complex type"); // UriType
-        case -1410166417:  return getValue(); // org.hl7.fhir.dstu3.model.Type
+        case 116079:  return getUrlElement();
+        case -1410166417:  return getValue(); 
         default: return super.makeProperty(hash, name);
         }
 

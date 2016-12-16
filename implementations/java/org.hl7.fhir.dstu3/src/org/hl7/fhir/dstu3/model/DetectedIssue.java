@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -367,9 +367,9 @@ public class DetectedIssue extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1422950858:  return getAction(); // CodeableConcept
-        case 3076014: throw new FHIRException("Cannot make property date as it is not a complex type"); // DateTimeType
-        case -1406328437:  return getAuthor(); // Reference
+        case -1422950858:  return getAction(); 
+        case 3076014:  return getDateElement();
+        case -1406328437:  return getAuthor(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -1071,16 +1071,16 @@ public class DetectedIssue extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -791418107:  return getPatient(); // Reference
-        case 50511102:  return getCategory(); // CodeableConcept
-        case 1478300413: throw new FHIRException("Cannot make property severity as it is not a complex type"); // Enumeration<DetectedIssueSeverity>
-        case -810216884:  return addImplicated(); // Reference
-        case -1335224239: throw new FHIRException("Cannot make property detail as it is not a complex type"); // StringType
-        case 3076014: throw new FHIRException("Cannot make property date as it is not a complex type"); // DateTimeType
-        case -1406328437:  return getAuthor(); // Reference
-        case -1618432855:  return getIdentifier(); // Identifier
-        case -925155509: throw new FHIRException("Cannot make property reference as it is not a complex type"); // UriType
-        case 1293793087:  return addMitigation(); // DetectedIssueMitigationComponent
+        case -791418107:  return getPatient(); 
+        case 50511102:  return getCategory(); 
+        case 1478300413:  return getSeverityElement();
+        case -810216884:  return addImplicated(); 
+        case -1335224239:  return getDetailElement();
+        case 3076014:  return getDateElement();
+        case -1406328437:  return getAuthor(); 
+        case -1618432855:  return getIdentifier(); 
+        case -925155509:  return getReferenceElement();
+        case 1293793087:  return addMitigation(); 
         default: return super.makeProperty(hash, name);
         }
 

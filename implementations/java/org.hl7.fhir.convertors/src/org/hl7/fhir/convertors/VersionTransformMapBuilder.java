@@ -3,6 +3,7 @@ package org.hl7.fhir.convertors;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -166,6 +167,7 @@ public class VersionTransformMapBuilder {
   private SimpleWorkerContext contextR3;
   private String maps;
   private List<String> errorsOK;
+  private Set<String> dts = new HashSet<String>();
   
   public static void main(String[] args) throws Exception {
     new VersionTransformMapBuilder().execute();
@@ -298,30 +300,40 @@ public class VersionTransformMapBuilder {
     f.append("map \"http://hl7.org/fhir/StructureMap/primitives2to3\" = \"R2 to R3 Primitive Conversions\"\r\n\r\n");
     StringBuilder b = new StringBuilder();
     b.append("map \"http://hl7.org/fhir/StructureMap/primitives3to2\" = \"R3 to R2 Primitive Conversions\"\r\n\r\n");
+    List<String> types = new ArrayList<String>();
     for (StructureDefinition sd : contextR3.allStructures()) {
-      if (sd.getKind() == StructureDefinitionKind.PRIMITIVETYPE) {
-        f.append("uses \"http://hl7.org/fhir/StructureDefinition/"+sd.getType()+"\" as source\r\n");
-        f.append("uses \"http://hl7.org/fhir/StructureDefinition/"+sd.getType()+"R2\" as target\r\n");
-        b.append("uses \"http://hl7.org/fhir/StructureDefinition/"+sd.getType()+"R2\" as source\r\n");
-        b.append("uses \"http://hl7.org/fhir/StructureDefinition/"+sd.getType()+"\" as target\r\n");
-      }
+      if (sd.getKind() == StructureDefinitionKind.PRIMITIVETYPE) 
+        if (!types.contains(sd.getUrl()))
+          types.add(sd.getUrl());
+    }
+    Collections.sort(types);
+    
+    for (String n : types) {
+      StructureDefinition sd = contextR3.fetchResource(StructureDefinition.class, n);
+      b.append("uses \"http://hl7.org/fhir/StructureDefinition/"+sd.getType()+"\" as source\r\n");
+      b.append("uses \"http://hl7.org/fhir/DSTU2/StructureDefinition/"+sd.getType()+"\" as target\r\n");
+      f.append("uses \"http://hl7.org/fhir/DSTU2/StructureDefinition/"+sd.getType()+"\" as source\r\n");
+      f.append("uses \"http://hl7.org/fhir/StructureDefinition/"+sd.getType()+"\" as target\r\n");
     }
     f.append("\r\n");
     b.append("\r\n");
-    for (StructureDefinition sd : contextR3.allStructures()) {
-      if (sd.getKind() == StructureDefinitionKind.PRIMITIVETYPE) {
-        f.append("group "+sd.getType()+" extends Element\r\n");
-        f.append("  input src : "+sd.getType()+"R2 as source\r\n");
-        f.append("  input tgt : "+sd.getType()+" as Target\r\n\r\n");
-        f.append("  \""+sd.getType()+"-value\" : for src.value as v make target.value = v\r\n");
-        f.append("endgroup\r\n\r\n");
-        
-        b.append("group "+sd.getType()+" extends Element\r\n");
-        b.append("  input src : "+sd.getType()+" as source\r\n");
-        b.append("  input tgt : "+sd.getType()+"R2 as Target\r\n\r\n");
-        b.append("  \""+sd.getType()+"-value\" : for src.value as v make target.value = v\r\n");
-        b.append("endgroup\r\n\r\n");
-      }
+    f.append("imports \"http://hl7.org/fhir/StructureMap/Element2to3\"\r\n");
+    b.append("imports \"http://hl7.org/fhir/StructureMap/Element3to2\"\r\n");
+    f.append("\r\n");
+    b.append("\r\n");
+    for (String n : types) {
+      StructureDefinition sd = contextR3.fetchResource(StructureDefinition.class, n);
+      f.append("group "+sd.getType()+" extends Element\r\n");
+      f.append("  input src : "+sd.getType()+"R2 as source\r\n");
+      f.append("  input tgt : "+sd.getType()+" as target\r\n\r\n");
+      f.append("  \""+sd.getType()+"-value\" : for src.value as v make tgt.value = v\r\n");
+      f.append("endgroup\r\n\r\n");
+      
+      b.append("group "+sd.getType()+" extends Element\r\n");
+      b.append("  input src : "+sd.getType()+" as source\r\n");
+      b.append("  input tgt : "+sd.getType()+"R2 as target\r\n\r\n");
+      b.append("  \""+sd.getType()+"-value\" : for src.value as v make tgt.value = v\r\n");
+      b.append("endgroup\r\n\r\n");
     }
     TextFile.stringToFile(f.toString(), "C:\\work\\org.hl7.fhir\\build\\implementations\\r2maps\\R2toR3\\primitives.map");
     TextFile.stringToFile(b.toString(), "C:\\work\\org.hl7.fhir\\build\\implementations\\r2maps\\R3toR2\\primitives.map");
@@ -343,34 +355,50 @@ public class VersionTransformMapBuilder {
       f.append("map \"http://hl7.org/fhir/StructureMap/"+sd.getType()+"2to3\" = \"R2 to R3 Conversions for "+sd.getType()+"\"\r\n\r\n");
       StringBuilder b = new StringBuilder();
       b.append("map \"http://hl7.org/fhir/StructureMap/"+sd.getType()+"3to2\" = \"R3 to R2 Conversion for "+sd.getType()+"\"\r\n\r\n");
-      f.append("uses \"http://hl7.org/fhir/StructureDefinition/"+sd.getType()+"\" as source\r\n");
-      f.append("uses \"http://hl7.org/fhir/StructureDefinition/"+sd.getType()+"R2\" as target\r\n");
-      b.append("uses \"http://hl7.org/fhir/StructureDefinition/"+sd.getType()+"R2\" as source\r\n");
-      b.append("uses \"http://hl7.org/fhir/StructureDefinition/"+sd.getType()+"\" as target\r\n");
-
       f.append("$maps$\r\n");
       b.append("$maps$\r\n");
-      
+      b.append("uses \"http://hl7.org/fhir/StructureDefinition/"+sd.getType()+"\" alias "+sd.getType()+" as source\r\n");
+      b.append("uses \"http://hl7.org/fhir/DSTU2/StructureDefinition/"+sd.getType()+"\" alias "+sd.getType()+"R2 as target\r\n");
+      f.append("uses \"http://hl7.org/fhir/DSTU2/StructureDefinition/"+sd.getType()+"\" alias "+sd.getType()+"R2 as source\r\n");
+      f.append("uses \"http://hl7.org/fhir/StructureDefinition/"+sd.getType()+"\" alias "+sd.getType()+" as target\r\n");
+
+      f.append("\r\nimports \"http://hl7.org/fhir/StructureMap/primitives2to3\"\r\n");
+      f.append("$imports$\r\n\r\n");
+      b.append("\r\nimports \"http://hl7.org/fhir/StructureMap/primitives3to2\"\r\n");
+      b.append("$imports$\r\n\r\n");
+            
       f.append("\r\n");
       b.append("\r\n");
       f.append("group "+sd.getType()+" extends Element\r\n");
       f.append("  input src : "+sd.getType()+"R2 as source\r\n");
-      f.append("  input tgt : "+sd.getType()+" as Target\r\n\r\n");
+      f.append("  input tgt : "+sd.getType()+" as target\r\n\r\n");
       maps = "";
+      dts.clear();
       MapContext context = new MapContext(true, contextR2, mr.oldType, contextR3, mr.type); 
       processMethod(0, "src", "tgt", f, mr.forwards, context);
       f.append("endgroup\r\n\r\n");
-      TextFile.stringToFile(f.toString().replace("$maps$", maps), "C:\\work\\org.hl7.fhir\\build\\implementations\\r2maps\\R2toR3\\"+sd.getType()+".map");
+      TextFile.stringToFile(f.toString().replace("$maps$", maps).replace("$imports$", imports(false)), "C:\\work\\org.hl7.fhir\\build\\implementations\\r2maps\\R2toR3\\"+sd.getType()+".map");
+
       maps = "";
+      dts.clear();
 
       b.append("group "+sd.getType()+" extends Element\r\n");
       b.append("  input src : "+sd.getType()+" as source\r\n");
-      b.append("  input tgt : "+sd.getType()+"R2 as Target\r\n");
+      b.append("  input tgt : "+sd.getType()+"R2 as target\r\n");
       context = new MapContext(false, contextR3, mr.type, contextR2, mr.oldType); 
       processMethod(0, "src", "tgt", b, mr.backwards, context);
       b.append("endgroup\r\n\r\n");
-      TextFile.stringToFile(b.toString().replace("$maps$", maps), "C:\\work\\org.hl7.fhir\\build\\implementations\\r2maps\\R3toR2\\"+sd.getType()+".map");
+      TextFile.stringToFile(b.toString().replace("$maps$", maps).replace("$imports$", imports(true)), "C:\\work\\org.hl7.fhir\\build\\implementations\\r2maps\\R3toR2\\"+sd.getType()+".map");
     }
+  }
+
+  private CharSequence imports(boolean bck) {
+    StringBuilder b = new StringBuilder();
+    for (String s : dts) {
+      if (isDataType(s))
+        b.append("imports \"http://hl7.org/fhir/StructureMap/"+s+(bck ? "3to2\"\r\n" : "2to3\"\r\n"));
+    }
+    return b.toString();
   }
 
   private void processMethod(int indent, String src, String tgt, StringBuilder f, MethodDeclaration meth, MapContext context) throws FHIRException {
@@ -460,9 +488,10 @@ public class VersionTransformMapBuilder {
           if (sv.startsWith("get")) {
             String srcType = getSpecifiedType(context.sourceContext, context.sourceType, context.sourcePath +"."+unPropertyise(sv), expr);
             String tgtType = getSpecifiedType(context.targetContext, context.targetType, context.targetPath +"."+unPropertyise(tv), expr);
-            if (srcType.equals(tgtType))
+            if (srcType.equals(tgtType)) {
               b.append(Utilities.padLeft("", ' ', indent*2)+"  \""+context.targetPath+"-"+unPropertyise(tv)+"\" : for "+src+"."+unPropertyise(sv)+" as vs make "+tgt+"."+unPropertyise(tv)+" as vt then "+tgtType+"(vs, vt)\r\n");
-            else 
+              dts.add(tgtType);
+            } else 
               reportError("type mismatch...");
             return;
           }
@@ -480,6 +509,7 @@ public class VersionTransformMapBuilder {
               for (String s : srcTypes) {
                 if (tgtTypes.contains(s)) {
                   b.append(Utilities.padLeft("", ' ', indent*2)+"  \""+context.targetPath+"-"+unPropertyise(tv)+"-"+s+"\" : for "+src+"."+unPropertyise(sv)+" "+(fr ? "first " : "")+" : "+s+" as vs make "+tgt+"."+unPropertyise(tv)+" = create(\""+s+"\") as vt then "+s+"(vs,vt)\r\n");
+                  dts.add(s);
                 }
               }
             }
@@ -489,6 +519,7 @@ public class VersionTransformMapBuilder {
             String sv = findSrcGet(pm1.getArgs().get(0), iter);
             if (sv != null && sv.startsWith("get")) {
               b.append(Utilities.padLeft("", ' ', indent*2)+"  \""+context.targetPath+"-"+unPropertyise(tv)+"\" : for "+src+"."+unPropertyise(sv)+" as vs make "+tgt+"."+unPropertyise(tv)+" as vt then "+type+"(vs,vt)\r\n");
+              dts.add(type);
               return;
             }
             reportError("Unhandled Assignment of other type: "+expr.toString());
@@ -498,6 +529,7 @@ public class VersionTransformMapBuilder {
             String sv = findSrcGet(pm1.getArgs().get(0), iter);
             if (sv != null && sv.startsWith("get")) {
               b.append(Utilities.padLeft("", ' ', indent*2)+"  \""+context.targetPath+"-"+unPropertyise(tv)+"\" : for "+src+"."+unPropertyise(sv)+" as vs make "+tgt+"."+unPropertyise(tv)+" as vt then "+type+"(vs,vt)\r\n");
+              dts.add(type);
               return;
             }
             reportError("Unhandled Assignment of other type: "+expr.toString());
@@ -520,7 +552,7 @@ public class VersionTransformMapBuilder {
               if (sv != null && sv.startsWith("get")) {
                 String vs = "vs"+Integer.toString(indent);
                 String vt = "vt"+Integer.toString(indent);
-                b.append(Utilities.padLeft("", ' ', indent*2)+"  \""+context.targetPath+"-"+unPropertyise(tv)+"\" : for "+src+"."+unPropertyise(sv)+" as "+vs+" make "+tgt+"."+unPropertyise(tv)+" = as "+vt+" then {\r\n"+processAnonymous(indent, vs, vt, pm1.getName(), 
+                b.append(Utilities.padLeft("", ' ', indent*2)+"  \""+context.targetPath+"-"+unPropertyise(tv)+"\" : for "+src+"."+unPropertyise(sv)+" as "+vs+" make "+tgt+"."+unPropertyise(tv)+" as "+vt+" then {\r\n"+processAnonymous(indent, vs, vt, pm1.getName(), 
                     makeMapContext(context, unPropertyise(sv), unPropertyise(tv)))+Utilities.padLeft("", ' ', indent*2)+"  }\r\n");
                 return;
               }

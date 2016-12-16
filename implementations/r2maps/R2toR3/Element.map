@@ -6,7 +6,7 @@ uses "http://hl7.org/fhir/StructureDefinition/PeriodR2" as target
 
 group Element 
   input src : ElementR2 as source
-  input tgt : Element as Target
+  input tgt : Element as target
 
   "extensions" : for src.extension as vs make tgt.extension as vt then Extension(vs, vt)
 endgroup

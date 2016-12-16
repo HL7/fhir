@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -713,15 +713,15 @@ public class Practitioner extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 1178922291:  return getOrganization(); // Reference
-        case 3059181:  return getCode(); // CodeableConcept
-        case -1694759682:  return addSpecialty(); // CodeableConcept
-        case -1618432855:  return addIdentifier(); // Identifier
-        case -1429363305:  return addTelecom(); // ContactPoint
-        case -991726143:  return getPeriod(); // Period
-        case 1901043637:  return addLocation(); // Reference
-        case 1289661064:  return addHealthcareService(); // Reference
-        case 1741102485:  return addEndpoint(); // Reference
+        case 1178922291:  return getOrganization(); 
+        case 3059181:  return getCode(); 
+        case -1694759682:  return addSpecialty(); 
+        case -1618432855:  return addIdentifier(); 
+        case -1429363305:  return addTelecom(); 
+        case -991726143:  return getPeriod(); 
+        case 1901043637:  return addLocation(); 
+        case 1289661064:  return addHealthcareService(); 
+        case 1741102485:  return addEndpoint(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -1092,10 +1092,10 @@ public class Practitioner extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1618432855:  return addIdentifier(); // Identifier
-        case 3059181:  return getCode(); // CodeableConcept
-        case -991726143:  return getPeriod(); // Period
-        case -1179159879:  return getIssuer(); // Reference
+        case -1618432855:  return addIdentifier(); 
+        case 3059181:  return getCode(); 
+        case -991726143:  return getPeriod(); 
+        case -1179159879:  return getIssuer(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -1930,17 +1930,17 @@ public class Practitioner extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1618432855:  return addIdentifier(); // Identifier
-        case -1422950650: throw new FHIRException("Cannot make property active as it is not a complex type"); // BooleanType
-        case 3373707:  return addName(); // HumanName
-        case -1429363305:  return addTelecom(); // ContactPoint
-        case -1147692044:  return addAddress(); // Address
-        case -1249512767: throw new FHIRException("Cannot make property gender as it is not a complex type"); // Enumeration<AdministrativeGender>
-        case -1210031859: throw new FHIRException("Cannot make property birthDate as it is not a complex type"); // DateType
-        case 106642994:  return addPhoto(); // Attachment
-        case 3506294:  return addRole(); // PractitionerRoleComponent
-        case -631333393:  return addQualification(); // PractitionerQualificationComponent
-        case -1035284522:  return addCommunication(); // CodeableConcept
+        case -1618432855:  return addIdentifier(); 
+        case -1422950650:  return getActiveElement();
+        case 3373707:  return addName(); 
+        case -1429363305:  return addTelecom(); 
+        case -1147692044:  return addAddress(); 
+        case -1249512767:  return getGenderElement();
+        case -1210031859:  return getBirthDateElement();
+        case 106642994:  return addPhoto(); 
+        case 3506294:  return addRole(); 
+        case -631333393:  return addQualification(); 
+        case -1035284522:  return addCommunication(); 
         default: return super.makeProperty(hash, name);
         }
 

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -313,8 +313,8 @@ public class ProcessResponse extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3575610:  return getType(); // CodeableConcept
-        case 3556653: throw new FHIRException("Cannot make property text as it is not a complex type"); // StringType
+        case 3575610:  return getType(); 
+        case 3556653:  return getTextElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -1221,19 +1221,19 @@ public class ProcessResponse extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1618432855:  return addIdentifier(); // Identifier
-        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<ProcessResponseStatus>
-        case 1028554472: throw new FHIRException("Cannot make property created as it is not a complex type"); // DateTimeType
-        case 1178922291:  return getOrganization(); // Reference
-        case 1095692943:  return getRequest(); // Reference
-        case -1106507950:  return getOutcome(); // CodeableConcept
-        case 583380919: throw new FHIRException("Cannot make property disposition as it is not a complex type"); // StringType
-        case 1601527200:  return getRequestProvider(); // Reference
-        case 599053666:  return getRequestOrganization(); // Reference
-        case 3148996:  return getForm(); // CodeableConcept
-        case 3387378:  return addNote(); // ProcessResponseNoteComponent
-        case 96784904:  return addError(); // CodeableConcept
-        case -2071896615:  return addCommunicationRequest(); // Reference
+        case -1618432855:  return addIdentifier(); 
+        case -892481550:  return getStatusElement();
+        case 1028554472:  return getCreatedElement();
+        case 1178922291:  return getOrganization(); 
+        case 1095692943:  return getRequest(); 
+        case -1106507950:  return getOutcome(); 
+        case 583380919:  return getDispositionElement();
+        case 1601527200:  return getRequestProvider(); 
+        case 599053666:  return getRequestOrganization(); 
+        case 3148996:  return getForm(); 
+        case 3387378:  return addNote(); 
+        case 96784904:  return addError(); 
+        case -2071896615:  return addCommunicationRequest(); 
         default: return super.makeProperty(hash, name);
         }
 

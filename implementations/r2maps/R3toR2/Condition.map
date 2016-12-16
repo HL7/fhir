@@ -1,12 +1,21 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Condition3to2" = "R3 to R2 Conversion for Condition"
 
-uses "http://hl7.org/fhir/StructureDefinition/ConditionR2" as source
-uses "http://hl7.org/fhir/StructureDefinition/Condition" as target
+
+uses "http://hl7.org/fhir/StructureDefinition/Condition" alias Condition as source
+uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Condition" alias ConditionR2 as target
+
+imports "http://hl7.org/fhir/StructureMap/primitives3to2"
+imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
+imports "http://hl7.org/fhir/StructureMap/Reference3to2"
+imports "http://hl7.org/fhir/StructureMap/Period3to2"
+imports "http://hl7.org/fhir/StructureMap/Range3to2"
+imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
+
 
 
 group Condition extends Element
   input src : Condition as source
-  input tgt : ConditionR2 as Target
+  input tgt : ConditionR2 as target
   "Condition-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
   "Condition-patient" : for src.subject as vs make tgt.patient as vt then Reference(vs,vt)
   "Condition-encounter" : for src.context as vs make tgt.encounter as vt then Reference(vs,vt)
@@ -25,11 +34,11 @@ group Condition extends Element
   "Condition-abatement-Period" : for src.abatement  : Period as vs make tgt.abatement = create("Period") as vt then Period(vs,vt)
   "Condition-abatement-Range" : for src.abatement  : Range as vs make tgt.abatement = create("Range") as vt then Range(vs,vt)
   "Condition-abatement-string" : for src.abatement  : string as vs make tgt.abatement = create("string") as vt then string(vs,vt)
-  "Condition-stage" : for src.stage as vs0 make tgt.stage = as vt0 then {
+  "Condition-stage" : for src.stage as vs0 make tgt.stage as vt0 then {
     "Condition.stage-summary" : for vs0.summary as vs make vt0.summary as vt then CodeableConcept(vs,vt)
     "Condition.stage-assessment" : for vs0.assessment as vs make vt0.assessment as vt then Reference(vs,vt)
   }
-  "Condition-evidence" : for src.evidence as vs0 make tgt.evidence = as vt0 then {
+  "Condition-evidence" : for src.evidence as vs0 make tgt.evidence as vt0 then {
     "Condition.evidence-code" : for vs0.code as vs make vt0.code as vt then CodeableConcept(vs,vt)
     "Condition.evidence-detail" : for vs0.detail as vs make vt0.detail as vt then Reference(vs,vt)
   }

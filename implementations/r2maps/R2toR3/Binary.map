@@ -1,12 +1,16 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Binary2to3" = "R2 to R3 Conversions for Binary"
 
-uses "http://hl7.org/fhir/StructureDefinition/Binary" as source
-uses "http://hl7.org/fhir/StructureDefinition/BinaryR2" as target
+
+uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Binary" alias BinaryR2 as source
+uses "http://hl7.org/fhir/StructureDefinition/Binary" alias Binary as target
+
+imports "http://hl7.org/fhir/StructureMap/primitives2to3"
+
 
 
 group Binary extends Element
   input src : BinaryR2 as source
-  input tgt : Binary as Target
+  input tgt : Binary as target
 
   "Binary-contentType" : for src.contentType as vs make tgt.contentType as vt then code(vs, vt)
   "Binary-content" : for src.content as vs make tgt.content as vt then base64Binary(vs, vt)

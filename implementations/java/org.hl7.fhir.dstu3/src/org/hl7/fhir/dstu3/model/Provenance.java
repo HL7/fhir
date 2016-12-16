@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -431,10 +431,10 @@ public class Provenance extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3506294:  return getRole(); // Coding
-        case -788654078:  return getWho(); // Type
-        case 418120340:  return getOnBehalfOf(); // Type
-        case 1228161012:  return getRelatedAgentType(); // CodeableConcept
+        case 3506294:  return getRole(); 
+        case -788654078:  return getWho(); 
+        case 418120340:  return getOnBehalfOf(); 
+        case 1228161012:  return getRelatedAgentType(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -747,9 +747,9 @@ public class Provenance extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3506294: throw new FHIRException("Cannot make property role as it is not a complex type"); // Enumeration<ProvenanceEntityRole>
-        case -925155509:  return getReference(); // Reference
-        case 92750597:  return addAgent(); // ProvenanceAgentComponent
+        case 3506294:  return getRoleElement();
+        case -925155509:  return getReference(); 
+        case 92750597:  return addAgent(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -1487,16 +1487,16 @@ public class Provenance extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -880905839:  return addTarget(); // Reference
-        case -991726143:  return getPeriod(); // Period
-        case -799233872: throw new FHIRException("Cannot make property recorded as it is not a complex type"); // InstantType
-        case -934964668:  return addReason(); // Coding
-        case -1655966961:  return getActivity(); // Coding
-        case 1901043637:  return getLocation(); // Reference
-        case -982670030: throw new FHIRException("Cannot make property policy as it is not a complex type"); // UriType
-        case 92750597:  return addAgent(); // ProvenanceAgentComponent
-        case -1298275357:  return addEntity(); // ProvenanceEntityComponent
-        case 1073584312:  return addSignature(); // Signature
+        case -880905839:  return addTarget(); 
+        case -991726143:  return getPeriod(); 
+        case -799233872:  return getRecordedElement();
+        case -934964668:  return addReason(); 
+        case -1655966961:  return getActivity(); 
+        case 1901043637:  return getLocation(); 
+        case -982670030:  return addPolicyElement();
+        case 92750597:  return addAgent(); 
+        case -1298275357:  return addEntity(); 
+        case 1073584312:  return addSignature(); 
         default: return super.makeProperty(hash, name);
         }
 

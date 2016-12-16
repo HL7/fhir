@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -932,16 +932,16 @@ public class Address extends Type implements ICompositeType {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 116103: throw new FHIRException("Cannot make property use as it is not a complex type"); // Enumeration<AddressUse>
-        case 3575610: throw new FHIRException("Cannot make property type as it is not a complex type"); // Enumeration<AddressType>
-        case 3556653: throw new FHIRException("Cannot make property text as it is not a complex type"); // StringType
-        case 3321844: throw new FHIRException("Cannot make property line as it is not a complex type"); // StringType
-        case 3053931: throw new FHIRException("Cannot make property city as it is not a complex type"); // StringType
-        case 288961422: throw new FHIRException("Cannot make property district as it is not a complex type"); // StringType
-        case 109757585: throw new FHIRException("Cannot make property state as it is not a complex type"); // StringType
-        case 2011152728: throw new FHIRException("Cannot make property postalCode as it is not a complex type"); // StringType
-        case 957831062: throw new FHIRException("Cannot make property country as it is not a complex type"); // StringType
-        case -991726143:  return getPeriod(); // Period
+        case 116103:  return getUseElement();
+        case 3575610:  return getTypeElement();
+        case 3556653:  return getTextElement();
+        case 3321844:  return addLineElement();
+        case 3053931:  return getCityElement();
+        case 288961422:  return getDistrictElement();
+        case 109757585:  return getStateElement();
+        case 2011152728:  return getPostalCodeElement();
+        case 957831062:  return getCountryElement();
+        case -991726143:  return getPeriod(); 
         default: return super.makeProperty(hash, name);
         }
 

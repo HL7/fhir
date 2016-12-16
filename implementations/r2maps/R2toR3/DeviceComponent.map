@@ -1,12 +1,19 @@
 ﻿map "http://hl7.org/fhir/StructureMap/DeviceComponent2to3" = "R2 to R3 Conversions for DeviceComponent"
 
-uses "http://hl7.org/fhir/StructureDefinition/DeviceComponent" as source
-uses "http://hl7.org/fhir/StructureDefinition/DeviceComponentR2" as target
+
+uses "http://hl7.org/fhir/DSTU2/StructureDefinition/DeviceComponent" alias DeviceComponentR2 as source
+uses "http://hl7.org/fhir/StructureDefinition/DeviceComponent" alias DeviceComponent as target
+
+imports "http://hl7.org/fhir/StructureMap/primitives2to3"
+imports "http://hl7.org/fhir/StructureMap/Identifier2to3"
+imports "http://hl7.org/fhir/StructureMap/Reference2to3"
+imports "http://hl7.org/fhir/StructureMap/CodeableConcept2to3"
+
 
 
 group DeviceComponent extends Element
   input src : DeviceComponentR2 as source
-  input tgt : DeviceComponent as Target
+  input tgt : DeviceComponent as target
 
   "DeviceComponent-type" : for src.type as vs make tgt.type as vt then CodeableConcept(vs,vt)
   "DeviceComponent-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
@@ -16,7 +23,7 @@ group DeviceComponent extends Element
   "DeviceComponent-operationalStatus" : for src.operationalStatus as vs make tgt.operationalStatus as vt then CodeableConcept(vs,vt)
   "DeviceComponent-parameterGroup" : for src.parameterGroup as vs make tgt.parameterGroup as vt then CodeableConcept(vs,vt)
   "DeviceComponent-measurementPrinciple" : for src.measurementPrinciple as vs make tgt.measurementPrinciple as vt then code(vs, vt)
-  "DeviceComponent-productionSpecification" : for src.productionSpecification as vs0 make tgt.productionSpecification = as vt0 then {
+  "DeviceComponent-productionSpecification" : for src.productionSpecification as vs0 make tgt.productionSpecification as vt0 then {
     "DeviceComponent.productionSpecification-specType" : for vs0.specType as vs make vt0.specType as vt then CodeableConcept(vs,vt)
     "DeviceComponent.productionSpecification-componentId" : for vs0.componentId as vs make vt0.componentId as vt then Identifier(vs,vt)
     "DeviceComponent.productionSpecification-productionSpec" : for vs0.productionSpec as vs make vt0.productionSpec as vt then string(vs, vt)

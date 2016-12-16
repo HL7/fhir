@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -461,12 +461,12 @@ public class BodySite extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -791418107:  return getPatient(); // Reference
-        case -1618432855:  return addIdentifier(); // Identifier
-        case 3059181:  return getCode(); // CodeableConcept
-        case -615513385:  return addModifier(); // CodeableConcept
-        case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
-        case 100313435:  return addImage(); // Attachment
+        case -791418107:  return getPatient(); 
+        case -1618432855:  return addIdentifier(); 
+        case 3059181:  return getCode(); 
+        case -615513385:  return addModifier(); 
+        case -1724546052:  return getDescriptionElement();
+        case 100313435:  return addImage(); 
         default: return super.makeProperty(hash, name);
         }
 

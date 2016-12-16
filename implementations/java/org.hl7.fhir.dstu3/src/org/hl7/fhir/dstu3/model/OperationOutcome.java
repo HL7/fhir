@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -1113,12 +1113,12 @@ public class OperationOutcome extends DomainResource implements IBaseOperationOu
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 1478300413: throw new FHIRException("Cannot make property severity as it is not a complex type"); // Enumeration<IssueSeverity>
-        case 3059181: throw new FHIRException("Cannot make property code as it is not a complex type"); // Enumeration<IssueType>
-        case 1557721666:  return getDetails(); // CodeableConcept
-        case -740386388: throw new FHIRException("Cannot make property diagnostics as it is not a complex type"); // StringType
-        case 1901043637: throw new FHIRException("Cannot make property location as it is not a complex type"); // StringType
-        case -1795452264: throw new FHIRException("Cannot make property expression as it is not a complex type"); // StringType
+        case 1478300413:  return getSeverityElement();
+        case 3059181:  return getCodeElement();
+        case 1557721666:  return getDetails(); 
+        case -740386388:  return getDiagnosticsElement();
+        case 1901043637:  return addLocationElement();
+        case -1795452264:  return addExpressionElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -1309,7 +1309,7 @@ public class OperationOutcome extends DomainResource implements IBaseOperationOu
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 100509913:  return addIssue(); // OperationOutcomeIssueComponent
+        case 100509913:  return addIssue(); 
         default: return super.makeProperty(hash, name);
         }
 

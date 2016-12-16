@@ -1,12 +1,20 @@
 ﻿map "http://hl7.org/fhir/StructureMap/VisionPrescription3to2" = "R3 to R2 Conversion for VisionPrescription"
 
-uses "http://hl7.org/fhir/StructureDefinition/VisionPrescriptionR2" as source
-uses "http://hl7.org/fhir/StructureDefinition/VisionPrescription" as target
+
+uses "http://hl7.org/fhir/StructureDefinition/VisionPrescription" alias VisionPrescription as source
+uses "http://hl7.org/fhir/DSTU2/StructureDefinition/VisionPrescription" alias VisionPrescriptionR2 as target
+
+imports "http://hl7.org/fhir/StructureMap/primitives3to2"
+imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
+imports "http://hl7.org/fhir/StructureMap/Reference3to2"
+imports "http://hl7.org/fhir/StructureMap/Quantity3to2"
+imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
+
 
 
 group VisionPrescription extends Element
   input src : VisionPrescription as source
-  input tgt : VisionPrescriptionR2 as Target
+  input tgt : VisionPrescriptionR2 as target
   "VisionPrescription-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
   "VisionPrescription-dateWritten" : for src.dateWritten as vs make tgt.dateWritten as vt then dateTime(vs, vt)
   "VisionPrescription-patient" : for src.patient as vs make tgt.patient as vt then Reference(vs,vt)
@@ -14,7 +22,7 @@ group VisionPrescription extends Element
   "VisionPrescription-encounter" : for src.encounter as vs make tgt.encounter as vt then Reference(vs,vt)
   "VisionPrescription-reason-CodeableConcept" : for src.reason  : CodeableConcept as vs make tgt.reason = create("CodeableConcept") as vt then CodeableConcept(vs,vt)
   "VisionPrescription-reason-Reference" : for src.reason  : Reference as vs make tgt.reason = create("Reference") as vt then Reference(vs,vt)
-  "VisionPrescription-dispense" : for src.dispense as vs0 make tgt.dispense = as vt0 then {
+  "VisionPrescription-dispense" : for src.dispense as vs0 make tgt.dispense as vt0 then {
     "VisionPrescription.dispense-sphere" : for vs0.sphere as vs make vt0.sphere as vt then decimal(vs, vt)
     "VisionPrescription.dispense-cylinder" : for vs0.cylinder as vs make vt0.cylinder as vt then decimal(vs, vt)
     "VisionPrescription.dispense-axis" : for vs0.axis as vs make vt0.axis as vt then integer(vs, vt)

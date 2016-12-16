@@ -1,12 +1,18 @@
 ﻿map "http://hl7.org/fhir/StructureMap/QuestionnaireResponse3to2" = "R3 to R2 Conversion for QuestionnaireResponse"
 
-uses "http://hl7.org/fhir/StructureDefinition/QuestionnaireResponseR2" as source
-uses "http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse" as target
+
+uses "http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse" alias QuestionnaireResponse as source
+uses "http://hl7.org/fhir/DSTU2/StructureDefinition/QuestionnaireResponse" alias QuestionnaireResponseR2 as target
+
+imports "http://hl7.org/fhir/StructureMap/primitives3to2"
+imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
+imports "http://hl7.org/fhir/StructureMap/Reference3to2"
+
 
 
 group QuestionnaireResponse extends Element
   input src : QuestionnaireResponse as source
-  input tgt : QuestionnaireResponseR2 as Target
+  input tgt : QuestionnaireResponseR2 as target
   "QuestionnaireResponse-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
   "QuestionnaireResponse-questionnaire" : for src.questionnaire as vs make tgt.questionnaire as vt then Reference(vs,vt)
   "QuestionnaireResponse-status" : for src.status as vs make tgt.status as vt then code(vs, vt)

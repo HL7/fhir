@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -261,9 +261,9 @@ public class Medication extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3148996:  return getForm(); // CodeableConcept
-        case -206409263:  return addIngredient(); // MedicationProductIngredientComponent
-        case 93509434:  return addBatch(); // MedicationProductBatchComponent
+        case 3148996:  return getForm(); 
+        case -206409263:  return addIngredient(); 
+        case 93509434:  return addBatch(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -480,8 +480,8 @@ public class Medication extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 2116201613:  return getItem(); // Type
-        case -1413853096:  return getAmount(); // Ratio
+        case 2116201613:  return getItem(); 
+        case -1413853096:  return getAmount(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -710,8 +710,8 @@ public class Medication extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 462547450: throw new FHIRException("Cannot make property lotNumber as it is not a complex type"); // StringType
-        case -668811523: throw new FHIRException("Cannot make property expirationDate as it is not a complex type"); // DateTimeType
+        case 462547450:  return getLotNumberElement();
+        case -668811523:  return getExpirationDateElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -917,8 +917,8 @@ public class Medication extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -410956671:  return getContainer(); // CodeableConcept
-        case 951530617:  return addContent(); // MedicationPackageContentComponent
+        case -410956671:  return getContainer(); 
+        case 951530617:  return addContent(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -1125,8 +1125,8 @@ public class Medication extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 2116201613:  return getItem(); // Type
-        case -1413853096:  return getAmount(); // SimpleQuantity
+        case 2116201613:  return getItem(); 
+        case -1413853096:  return getAmount(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -1464,11 +1464,11 @@ public class Medication extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3059181:  return getCode(); // CodeableConcept
-        case 2055403645: throw new FHIRException("Cannot make property isBrand as it is not a complex type"); // BooleanType
-        case -1969347631:  return getManufacturer(); // Reference
-        case -309474065:  return getProduct(); // MedicationProductComponent
-        case -807062458:  return getPackage(); // MedicationPackageComponent
+        case 3059181:  return getCode(); 
+        case 2055403645:  return getIsBrandElement();
+        case -1969347631:  return getManufacturer(); 
+        case -309474065:  return getProduct(); 
+        case -807062458:  return getPackage(); 
         default: return super.makeProperty(hash, name);
         }
 

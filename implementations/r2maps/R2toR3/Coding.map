@@ -1,12 +1,16 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Coding2to3" = "R2 to R3 Conversions for Coding"
 
-uses "http://hl7.org/fhir/StructureDefinition/Coding" as source
-uses "http://hl7.org/fhir/StructureDefinition/CodingR2" as target
+
+uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Coding" alias CodingR2 as source
+uses "http://hl7.org/fhir/StructureDefinition/Coding" alias Coding as target
+
+imports "http://hl7.org/fhir/StructureMap/primitives2to3"
+
 
 
 group Coding extends Element
   input src : CodingR2 as source
-  input tgt : Coding as Target
+  input tgt : Coding as target
 
   "Coding-system" : for src.system as vs make tgt.system as vt then uri(vs, vt)
   "Coding-version" : for src.version as vs make tgt.version as vt then string(vs, vt)

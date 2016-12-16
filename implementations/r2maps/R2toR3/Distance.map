@@ -1,12 +1,16 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Distance2to3" = "R2 to R3 Conversions for Distance"
 
-uses "http://hl7.org/fhir/StructureDefinition/Distance" as source
-uses "http://hl7.org/fhir/StructureDefinition/DistanceR2" as target
+
+uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Distance" alias DistanceR2 as source
+uses "http://hl7.org/fhir/StructureDefinition/Distance" alias Distance as target
+
+imports "http://hl7.org/fhir/StructureMap/primitives2to3"
+
 
 
 group Distance extends Element
   input src : DistanceR2 as source
-  input tgt : Distance as Target
+  input tgt : Distance as target
 
   "Distance-value" : for src.value as vs make tgt.value as vt then decimal(vs, vt)
   "Distance-comparator" : for src.comparator as vs make tgt.comparator as vt then code(vs, vt)

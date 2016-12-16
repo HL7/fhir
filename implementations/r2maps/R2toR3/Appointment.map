@@ -1,12 +1,19 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Appointment2to3" = "R2 to R3 Conversions for Appointment"
 
-uses "http://hl7.org/fhir/StructureDefinition/Appointment" as source
-uses "http://hl7.org/fhir/StructureDefinition/AppointmentR2" as target
+
+uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Appointment" alias AppointmentR2 as source
+uses "http://hl7.org/fhir/StructureDefinition/Appointment" alias Appointment as target
+
+imports "http://hl7.org/fhir/StructureMap/primitives2to3"
+imports "http://hl7.org/fhir/StructureMap/Identifier2to3"
+imports "http://hl7.org/fhir/StructureMap/Reference2to3"
+imports "http://hl7.org/fhir/StructureMap/CodeableConcept2to3"
+
 
 
 group Appointment extends Element
   input src : AppointmentR2 as source
-  input tgt : Appointment as Target
+  input tgt : Appointment as target
 
   "Appointment-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
   "Appointment-status" : for src.status as vs make tgt.status as vt then code(vs, vt)
@@ -19,7 +26,7 @@ group Appointment extends Element
   "Appointment-minutesDuration" : for src.minutesDuration as vs make tgt.minutesDuration as vt then positiveInt(vs, vt)
   "Appointment-slot" : for src.slot as vs make tgt.slot as vt then Reference(vs,vt)
   "Appointment-comment" : for src.comment as vs make tgt.comment as vt then string(vs, vt)
-  "Appointment-participant" : for src.participant as vs0 make tgt.participant = as vt0 then {
+  "Appointment-participant" : for src.participant as vs0 make tgt.participant as vt0 then {
     "Appointment.participant-type" : for vs0.type as vs make vt0.type as vt then CodeableConcept(vs,vt)
     "Appointment.participant-actor" : for vs0.actor as vs make vt0.actor as vt then Reference(vs,vt)
     "Appointment.participant-required" : for vs0.required as vs make vt0.required as vt then code(vs, vt)

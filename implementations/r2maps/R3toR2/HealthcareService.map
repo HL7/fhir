@@ -1,12 +1,22 @@
 ﻿map "http://hl7.org/fhir/StructureMap/HealthcareService3to2" = "R3 to R2 Conversion for HealthcareService"
 
-uses "http://hl7.org/fhir/StructureDefinition/HealthcareServiceR2" as source
-uses "http://hl7.org/fhir/StructureDefinition/HealthcareService" as target
+
+uses "http://hl7.org/fhir/StructureDefinition/HealthcareService" alias HealthcareService as source
+uses "http://hl7.org/fhir/DSTU2/StructureDefinition/HealthcareService" alias HealthcareServiceR2 as target
+
+imports "http://hl7.org/fhir/StructureMap/primitives3to2"
+imports "http://hl7.org/fhir/StructureMap/Attachment3to2"
+imports "http://hl7.org/fhir/StructureMap/ContactPoint3to2"
+imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
+imports "http://hl7.org/fhir/StructureMap/Reference3to2"
+imports "http://hl7.org/fhir/StructureMap/Period3to2"
+imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
+
 
 
 group HealthcareService extends Element
   input src : HealthcareService as source
-  input tgt : HealthcareServiceR2 as Target
+  input tgt : HealthcareServiceR2 as target
   "HealthcareService-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
   "HealthcareService-providedBy" : for src.providedBy as vs make tgt.providedBy as vt then Reference(vs,vt)
   "HealthcareService-serviceCategory" : for src.serviceCategory as vs make tgt.serviceCategory as vt then CodeableConcept(vs,vt)
@@ -25,12 +35,12 @@ group HealthcareService extends Element
   "HealthcareService-referralMethod" : for src.referralMethod as vs make tgt.referralMethod as vt then CodeableConcept(vs,vt)
   "HealthcareService-publicKey" : for src.publicKey as vs make tgt.publicKey as vt then string(vs, vt)
   "HealthcareService-appointmentRequired" : for src.appointmentRequired as vs make tgt.appointmentRequired as vt then boolean(vs, vt)
-  "HealthcareService-availableTime" : for src.availableTime as vs0 make tgt.availableTime = as vt0 then {
+  "HealthcareService-availableTime" : for src.availableTime as vs0 make tgt.availableTime as vt0 then {
     "HealthcareService.availableTime-allDay" : for vs0.allDay as vs make vt0.allDay as vt then boolean(vs, vt)
     "HealthcareService.availableTime-availableStartTime" : for vs0.availableStartTime as vs make vt0.availableStartTime as vt then time(vs, vt)
     "HealthcareService.availableTime-availableEndTime" : for vs0.availableEndTime as vs make vt0.availableEndTime as vt then time(vs, vt)
   }
-  "HealthcareService-notAvailable" : for src.notAvailable as vs0 make tgt.notAvailable = as vt0 then {
+  "HealthcareService-notAvailable" : for src.notAvailable as vs0 make tgt.notAvailable as vt0 then {
     "HealthcareService.notAvailable-description" : for vs0.description as vs make vt0.description as vt then string(vs, vt)
     "HealthcareService.notAvailable-during" : for vs0.during as vs make vt0.during as vt then Period(vs,vt)
   }

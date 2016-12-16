@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -815,17 +815,17 @@ public class SupplyDelivery extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1618432855:  return getIdentifier(); // Identifier
-        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<SupplyDeliveryStatus>
-        case -791418107:  return getPatient(); // Reference
-        case 3575610:  return getType(); // CodeableConcept
-        case -1285004149:  return getQuantity(); // SimpleQuantity
-        case 1172601071:  return getSuppliedItem(); // Type
-        case -1663305268:  return getSupplier(); // Reference
-        case -562837097:  return getWhenPrepared(); // Period
-        case 3560141: throw new FHIRException("Cannot make property time as it is not a complex type"); // DateTimeType
-        case -1429847026:  return getDestination(); // Reference
-        case -808719889:  return addReceiver(); // Reference
+        case -1618432855:  return getIdentifier(); 
+        case -892481550:  return getStatusElement();
+        case -791418107:  return getPatient(); 
+        case 3575610:  return getType(); 
+        case -1285004149:  return getQuantity(); 
+        case 1172601071:  return getSuppliedItem(); 
+        case -1663305268:  return getSupplier(); 
+        case -562837097:  return getWhenPrepared(); 
+        case 3560141:  return getTimeElement();
+        case -1429847026:  return getDestination(); 
+        case -808719889:  return addReceiver(); 
         default: return super.makeProperty(hash, name);
         }
 

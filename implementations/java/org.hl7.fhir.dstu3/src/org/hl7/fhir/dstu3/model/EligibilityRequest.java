@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -1082,21 +1082,21 @@ public class EligibilityRequest extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1618432855:  return addIdentifier(); // Identifier
-        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<EligibilityRequestStatus>
-        case -1165461084:  return getPriority(); // CodeableConcept
-        case -791418107:  return getPatient(); // Reference
-        case -1927922223:  return getServiced(); // Type
-        case 1028554472: throw new FHIRException("Cannot make property created as it is not a complex type"); // DateTimeType
-        case -1591951995:  return getEnterer(); // Reference
-        case -987494927:  return getProvider(); // Reference
-        case 1178922291:  return getOrganization(); // Reference
-        case 1957615864:  return getInsurer(); // Reference
-        case 501116579:  return getFacility(); // Reference
-        case -351767064:  return getCoverage(); // Reference
-        case 259920682: throw new FHIRException("Cannot make property businessArrangement as it is not a complex type"); // StringType
-        case -1023390027:  return getBenefitCategory(); // CodeableConcept
-        case 1987878471:  return getBenefitSubCategory(); // CodeableConcept
+        case -1618432855:  return addIdentifier(); 
+        case -892481550:  return getStatusElement();
+        case -1165461084:  return getPriority(); 
+        case -791418107:  return getPatient(); 
+        case -1927922223:  return getServiced(); 
+        case 1028554472:  return getCreatedElement();
+        case -1591951995:  return getEnterer(); 
+        case -987494927:  return getProvider(); 
+        case 1178922291:  return getOrganization(); 
+        case 1957615864:  return getInsurer(); 
+        case 501116579:  return getFacility(); 
+        case -351767064:  return getCoverage(); 
+        case 259920682:  return getBusinessArrangementElement();
+        case -1023390027:  return getBenefitCategory(); 
+        case 1987878471:  return getBenefitSubCategory(); 
         default: return super.makeProperty(hash, name);
         }
 

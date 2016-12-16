@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -1676,21 +1676,21 @@ Any information provided in these elements overrides the information from the de
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1102667083: throw new FHIRException("Cannot make property linkId as it is not a complex type"); // StringType
-        case -1014418093: throw new FHIRException("Cannot make property definition as it is not a complex type"); // UriType
-        case 951024232:  return addConcept(); // Coding
-        case -980110702: throw new FHIRException("Cannot make property prefix as it is not a complex type"); // StringType
-        case 3556653: throw new FHIRException("Cannot make property text as it is not a complex type"); // StringType
-        case 3575610: throw new FHIRException("Cannot make property type as it is not a complex type"); // Enumeration<QuestionnaireItemType>
-        case 1893321565:  return addEnableWhen(); // QuestionnaireItemEnableWhenComponent
-        case -393139297: throw new FHIRException("Cannot make property required as it is not a complex type"); // BooleanType
-        case 1094288952: throw new FHIRException("Cannot make property repeats as it is not a complex type"); // BooleanType
-        case -867683742: throw new FHIRException("Cannot make property readOnly as it is not a complex type"); // BooleanType
-        case -791400086: throw new FHIRException("Cannot make property maxLength as it is not a complex type"); // IntegerType
-        case -1249474914:  return getOptions(); // Reference
-        case -1010136971:  return addOption(); // QuestionnaireItemOptionComponent
-        case 871077564:  return getInitial(); // Type
-        case 3242771:  return addItem(); // QuestionnaireItemComponent
+        case -1102667083:  return getLinkIdElement();
+        case -1014418093:  return getDefinitionElement();
+        case 951024232:  return addConcept(); 
+        case -980110702:  return getPrefixElement();
+        case 3556653:  return getTextElement();
+        case 3575610:  return getTypeElement();
+        case 1893321565:  return addEnableWhen(); 
+        case -393139297:  return getRequiredElement();
+        case 1094288952:  return getRepeatsElement();
+        case -867683742:  return getReadOnlyElement();
+        case -791400086:  return getMaxLengthElement();
+        case -1249474914:  return getOptions(); 
+        case -1010136971:  return addOption(); 
+        case 871077564:  return getInitial(); 
+        case 3242771:  return addItem(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -2243,9 +2243,9 @@ Any information provided in these elements overrides the information from the de
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1165870106: throw new FHIRException("Cannot make property question as it is not a complex type"); // StringType
-        case -793058568: throw new FHIRException("Cannot make property hasAnswer as it is not a complex type"); // BooleanType
-        case 1693524994:  return getAnswer(); // Type
+        case -1165870106:  return getQuestionElement();
+        case -793058568:  return getHasAnswerElement();
+        case 1693524994:  return getAnswer(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -2504,7 +2504,7 @@ Any information provided in these elements overrides the information from the de
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1410166417:  return getValue(); // Type
+        case -1410166417:  return getValue(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -3408,18 +3408,18 @@ Any information provided in these elements overrides the information from the de
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 116079: throw new FHIRException("Cannot make property url as it is not a complex type"); // UriType
-        case -1618432855:  return addIdentifier(); // Identifier
-        case 351608024: throw new FHIRException("Cannot make property version as it is not a complex type"); // StringType
-        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<QuestionnaireStatus>
-        case 3076014: throw new FHIRException("Cannot make property date as it is not a complex type"); // DateTimeType
-        case 1447404028: throw new FHIRException("Cannot make property publisher as it is not a complex type"); // StringType
-        case -1429363305:  return addTelecom(); // ContactPoint
-        case -669707736:  return addUseContext(); // CodeableConcept
-        case 110371416: throw new FHIRException("Cannot make property title as it is not a complex type"); // StringType
-        case 951024232:  return addConcept(); // Coding
-        case -603200890: throw new FHIRException("Cannot make property subjectType as it is not a complex type"); // CodeType
-        case 3242771:  return addItem(); // QuestionnaireItemComponent
+        case 116079:  return getUrlElement();
+        case -1618432855:  return addIdentifier(); 
+        case 351608024:  return getVersionElement();
+        case -892481550:  return getStatusElement();
+        case 3076014:  return getDateElement();
+        case 1447404028:  return getPublisherElement();
+        case -1429363305:  return addTelecom(); 
+        case -669707736:  return addUseContext(); 
+        case 110371416:  return getTitleElement();
+        case 951024232:  return addConcept(); 
+        case -603200890:  return addSubjectTypeElement();
+        case 3242771:  return addItem(); 
         default: return super.makeProperty(hash, name);
         }
 

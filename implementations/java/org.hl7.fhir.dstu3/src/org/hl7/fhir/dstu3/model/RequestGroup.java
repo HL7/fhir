@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -2164,25 +2164,25 @@ public class RequestGroup extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -889046145:  return getActionIdentifier(); // Identifier
-        case 102727412: throw new FHIRException("Cannot make property label as it is not a complex type"); // StringType
-        case 110371416: throw new FHIRException("Cannot make property title as it is not a complex type"); // StringType
-        case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
-        case -900391049: throw new FHIRException("Cannot make property textEquivalent as it is not a complex type"); // StringType
-        case 3059181:  return addCode(); // CodeableConcept
-        case 1587405498:  return addDocumentation(); // RelatedArtifact
-        case -861311717:  return addCondition(); // RequestGroupActionConditionComponent
-        case -384107967:  return addRelatedAction(); // RequestGroupActionRelatedActionComponent
-        case 164632566:  return getTiming(); // Type
-        case 767422259:  return addParticipant(); // Reference
-        case 3575610:  return getType(); // Coding
-        case 586678389: throw new FHIRException("Cannot make property groupingBehavior as it is not a complex type"); // Enumeration<ActionGroupingBehavior>
-        case 168639486: throw new FHIRException("Cannot make property selectionBehavior as it is not a complex type"); // Enumeration<ActionSelectionBehavior>
-        case -1163906287: throw new FHIRException("Cannot make property requiredBehavior as it is not a complex type"); // Enumeration<ActionRequiredBehavior>
-        case -1174249033: throw new FHIRException("Cannot make property precheckBehavior as it is not a complex type"); // Enumeration<ActionPrecheckBehavior>
-        case -922577408: throw new FHIRException("Cannot make property cardinalityBehavior as it is not a complex type"); // Enumeration<ActionCardinalityBehavior>
-        case -341064690:  return getResource(); // Reference
-        case -1422950858:  return addAction(); // RequestGroupActionComponent
+        case -889046145:  return getActionIdentifier(); 
+        case 102727412:  return getLabelElement();
+        case 110371416:  return getTitleElement();
+        case -1724546052:  return getDescriptionElement();
+        case -900391049:  return getTextEquivalentElement();
+        case 3059181:  return addCode(); 
+        case 1587405498:  return addDocumentation(); 
+        case -861311717:  return addCondition(); 
+        case -384107967:  return addRelatedAction(); 
+        case 164632566:  return getTiming(); 
+        case 767422259:  return addParticipant(); 
+        case 3575610:  return getType(); 
+        case 586678389:  return getGroupingBehaviorElement();
+        case 168639486:  return getSelectionBehaviorElement();
+        case -1163906287:  return getRequiredBehaviorElement();
+        case -1174249033:  return getPrecheckBehaviorElement();
+        case -922577408:  return getCardinalityBehaviorElement();
+        case -341064690:  return getResource(); 
+        case -1422950858:  return addAction(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -2662,10 +2662,10 @@ public class RequestGroup extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3292052: throw new FHIRException("Cannot make property kind as it is not a complex type"); // Enumeration<ActionConditionKind>
-        case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
-        case -1613589672: throw new FHIRException("Cannot make property language as it is not a complex type"); // StringType
-        case -1795452264: throw new FHIRException("Cannot make property expression as it is not a complex type"); // StringType
+        case 3292052:  return getKindElement();
+        case -1724546052:  return getDescriptionElement();
+        case -1613589672:  return getLanguageElement();
+        case -1795452264:  return getExpressionElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -2939,9 +2939,9 @@ public class RequestGroup extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -889046145:  return getActionIdentifier(); // Identifier
-        case -261851592: throw new FHIRException("Cannot make property relationship as it is not a complex type"); // Enumeration<ActionRelationshipType>
-        case -1960684787:  return getOffset(); // Type
+        case -889046145:  return getActionIdentifier(); 
+        case -261851592:  return getRelationshipElement();
+        case -1960684787:  return getOffset(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -3516,14 +3516,14 @@ public class RequestGroup extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1618432855:  return getIdentifier(); // Identifier
-        case -1867885268:  return getSubject(); // Reference
-        case 951530927:  return getContext(); // Reference
-        case -298443636: throw new FHIRException("Cannot make property occurrenceDateTime as it is not a complex type"); // DateTimeType
-        case -1406328437:  return getAuthor(); // Reference
-        case -669418564:  return getReason(); // Type
-        case 3387378:  return addNote(); // Annotation
-        case -1422950858:  return addAction(); // RequestGroupActionComponent
+        case -1618432855:  return getIdentifier(); 
+        case -1867885268:  return getSubject(); 
+        case 951530927:  return getContext(); 
+        case -298443636:  return getOccurrenceDateTimeElement();
+        case -1406328437:  return getAuthor(); 
+        case -669418564:  return getReason(); 
+        case 3387378:  return addNote(); 
+        case -1422950858:  return addAction(); 
         default: return super.makeProperty(hash, name);
         }
 

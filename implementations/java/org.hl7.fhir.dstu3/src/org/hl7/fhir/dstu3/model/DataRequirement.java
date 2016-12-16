@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -423,11 +423,11 @@ public class DataRequirement extends Type implements ICompositeType {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3433509: throw new FHIRException("Cannot make property path as it is not a complex type"); // StringType
-        case -1438410321:  return getValueSet(); // Type
-        case -766209282: throw new FHIRException("Cannot make property valueCode as it is not a complex type"); // CodeType
-        case -1887705029:  return addValueCoding(); // Coding
-        case 924902896:  return addValueCodeableConcept(); // CodeableConcept
+        case 3433509:  return getPathElement();
+        case -1438410321:  return getValueSet(); 
+        case -766209282:  return addValueCodeElement();
+        case -1887705029:  return addValueCoding(); 
+        case 924902896:  return addValueCodeableConcept(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -695,8 +695,8 @@ public class DataRequirement extends Type implements ICompositeType {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3433509: throw new FHIRException("Cannot make property path as it is not a complex type"); // StringType
-        case -1410166417:  return getValue(); // Type
+        case 3433509:  return getPathElement();
+        case -1410166417:  return getValue(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -1152,11 +1152,11 @@ public class DataRequirement extends Type implements ICompositeType {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3575610: throw new FHIRException("Cannot make property type as it is not a complex type"); // CodeType
-        case -309425751: throw new FHIRException("Cannot make property profile as it is not a complex type"); // UriType
-        case -1402857082: throw new FHIRException("Cannot make property mustSupport as it is not a complex type"); // StringType
-        case -1303674939:  return addCodeFilter(); // DataRequirementCodeFilterComponent
-        case 149531846:  return addDateFilter(); // DataRequirementDateFilterComponent
+        case 3575610:  return getTypeElement();
+        case -309425751:  return addProfileElement();
+        case -1402857082:  return addMustSupportElement();
+        case -1303674939:  return addCodeFilter(); 
+        case 149531846:  return addDateFilter(); 
         default: return super.makeProperty(hash, name);
         }
 

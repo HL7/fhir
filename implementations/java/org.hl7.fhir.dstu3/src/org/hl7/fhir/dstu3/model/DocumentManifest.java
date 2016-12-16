@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -156,7 +156,7 @@ public class DocumentManifest extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3427856:  return getP(); // Type
+        case 3427856:  return getP(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -350,8 +350,8 @@ public class DocumentManifest extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1618432855:  return getIdentifier(); // Identifier
-        case 112787:  return getRef(); // Reference
+        case -1618432855:  return getIdentifier(); 
+        case 112787:  return getRef(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -1205,18 +1205,18 @@ public class DocumentManifest extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 243769515:  return getMasterIdentifier(); // Identifier
-        case -1618432855:  return addIdentifier(); // Identifier
-        case -1867885268:  return getSubject(); // Reference
-        case 820081177:  return addRecipient(); // Reference
-        case 3575610:  return getType(); // CodeableConcept
-        case -1406328437:  return addAuthor(); // Reference
-        case 1028554472: throw new FHIRException("Cannot make property created as it is not a complex type"); // DateTimeType
-        case -896505829: throw new FHIRException("Cannot make property source as it is not a complex type"); // UriType
-        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<DocumentReferenceStatus>
-        case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
-        case 951530617:  return addContent(); // DocumentManifestContentComponent
-        case 1090493483:  return addRelated(); // DocumentManifestRelatedComponent
+        case 243769515:  return getMasterIdentifier(); 
+        case -1618432855:  return addIdentifier(); 
+        case -1867885268:  return getSubject(); 
+        case 820081177:  return addRecipient(); 
+        case 3575610:  return getType(); 
+        case -1406328437:  return addAuthor(); 
+        case 1028554472:  return getCreatedElement();
+        case -896505829:  return getSourceElement();
+        case -892481550:  return getStatusElement();
+        case -1724546052:  return getDescriptionElement();
+        case 951530617:  return addContent(); 
+        case 1090493483:  return addRelated(); 
         default: return super.makeProperty(hash, name);
         }
 

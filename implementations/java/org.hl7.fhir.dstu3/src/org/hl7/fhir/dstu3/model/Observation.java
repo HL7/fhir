@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -657,11 +657,11 @@ public class Observation extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 107348:  return getLow(); // SimpleQuantity
-        case 3202466:  return getHigh(); // SimpleQuantity
-        case 938160637:  return addMeaning(); // CodeableConcept
-        case 96511:  return getAge(); // Range
-        case 3556653: throw new FHIRException("Cannot make property text as it is not a complex type"); // StringType
+        case 107348:  return getLow(); 
+        case 3202466:  return getHigh(); 
+        case 938160637:  return addMeaning(); 
+        case 96511:  return getAge(); 
+        case 3556653:  return getTextElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -909,8 +909,8 @@ public class Observation extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3575610: throw new FHIRException("Cannot make property type as it is not a complex type"); // Enumeration<ObservationRelationshipType>
-        case -880905839:  return getTarget(); // Reference
+        case 3575610:  return getTypeElement();
+        case -880905839:  return getTarget(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -1363,11 +1363,11 @@ public class Observation extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3059181:  return getCode(); // CodeableConcept
-        case -1410166417:  return getValue(); // Type
-        case 1034315687:  return getDataAbsentReason(); // CodeableConcept
-        case -297950712:  return getInterpretation(); // CodeableConcept
-        case -1912545102:  return addReferenceRange(); // ObservationReferenceRangeComponent
+        case 3059181:  return getCode(); 
+        case -1410166417:  return getValue(); 
+        case 1034315687:  return getDataAbsentReason(); 
+        case -297950712:  return getInterpretation(); 
+        case -1912545102:  return addReferenceRange(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -2793,26 +2793,26 @@ public class Observation extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1618432855:  return addIdentifier(); // Identifier
-        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<ObservationStatus>
-        case 50511102:  return addCategory(); // CodeableConcept
-        case 3059181:  return getCode(); // CodeableConcept
-        case -1867885268:  return getSubject(); // Reference
-        case 1524132147:  return getEncounter(); // Reference
-        case 247104889:  return getEffective(); // Type
-        case -1179159893: throw new FHIRException("Cannot make property issued as it is not a complex type"); // InstantType
-        case 481140686:  return addPerformer(); // Reference
-        case -1410166417:  return getValue(); // Type
-        case 1034315687:  return getDataAbsentReason(); // CodeableConcept
-        case -297950712:  return getInterpretation(); // CodeableConcept
-        case 950398559: throw new FHIRException("Cannot make property comment as it is not a complex type"); // StringType
-        case 1702620169:  return getBodySite(); // CodeableConcept
-        case -1077554975:  return getMethod(); // CodeableConcept
-        case -2132868344:  return getSpecimen(); // Reference
-        case -1335157162:  return getDevice(); // Reference
-        case -1912545102:  return addReferenceRange(); // ObservationReferenceRangeComponent
-        case 1090493483:  return addRelated(); // ObservationRelatedComponent
-        case -1399907075:  return addComponent(); // ObservationComponentComponent
+        case -1618432855:  return addIdentifier(); 
+        case -892481550:  return getStatusElement();
+        case 50511102:  return addCategory(); 
+        case 3059181:  return getCode(); 
+        case -1867885268:  return getSubject(); 
+        case 1524132147:  return getEncounter(); 
+        case 247104889:  return getEffective(); 
+        case -1179159893:  return getIssuedElement();
+        case 481140686:  return addPerformer(); 
+        case -1410166417:  return getValue(); 
+        case 1034315687:  return getDataAbsentReason(); 
+        case -297950712:  return getInterpretation(); 
+        case 950398559:  return getCommentElement();
+        case 1702620169:  return getBodySite(); 
+        case -1077554975:  return getMethod(); 
+        case -2132868344:  return getSpecimen(); 
+        case -1335157162:  return getDevice(); 
+        case -1912545102:  return addReferenceRange(); 
+        case 1090493483:  return addRelated(); 
+        case -1399907075:  return addComponent(); 
         default: return super.makeProperty(hash, name);
         }
 

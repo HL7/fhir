@@ -1,12 +1,20 @@
 ﻿map "http://hl7.org/fhir/StructureMap/DocumentManifest3to2" = "R3 to R2 Conversion for DocumentManifest"
 
-uses "http://hl7.org/fhir/StructureDefinition/DocumentManifestR2" as source
-uses "http://hl7.org/fhir/StructureDefinition/DocumentManifest" as target
+
+uses "http://hl7.org/fhir/StructureDefinition/DocumentManifest" alias DocumentManifest as source
+uses "http://hl7.org/fhir/DSTU2/StructureDefinition/DocumentManifest" alias DocumentManifestR2 as target
+
+imports "http://hl7.org/fhir/StructureMap/primitives3to2"
+imports "http://hl7.org/fhir/StructureMap/Attachment3to2"
+imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
+imports "http://hl7.org/fhir/StructureMap/Reference3to2"
+imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
+
 
 
 group DocumentManifest extends Element
   input src : DocumentManifest as source
-  input tgt : DocumentManifestR2 as Target
+  input tgt : DocumentManifestR2 as target
   "DocumentManifest-masterIdentifier" : for src.masterIdentifier as vs make tgt.masterIdentifier as vt then Identifier(vs,vt)
   "DocumentManifest-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
   "DocumentManifest-subject" : for src.subject as vs make tgt.subject as vt then Reference(vs,vt)
@@ -17,11 +25,11 @@ group DocumentManifest extends Element
   "DocumentManifest-source" : for src.source as vs make tgt.source as vt then uri(vs, vt)
   "DocumentManifest-status" : for src.status as vs make tgt.status as vt then code(vs, vt)
   "DocumentManifest-description" : for src.description as vs make tgt.description as vt then string(vs, vt)
-  "DocumentManifest-content" : for src.content as vs0 make tgt.content = as vt0 then {
+  "DocumentManifest-content" : for src.content as vs0 make tgt.content as vt0 then {
     "DocumentManifest.content-p-Attachment" : for vs0.p  : Attachment as vs make vt0.p = create("Attachment") as vt then Attachment(vs,vt)
     "DocumentManifest.content-p-Reference" : for vs0.p  : Reference as vs make vt0.p = create("Reference") as vt then Reference(vs,vt)
   }
-  "DocumentManifest-related" : for src.related as vs0 make tgt.related = as vt0 then {
+  "DocumentManifest-related" : for src.related as vs0 make tgt.related as vt0 then {
     "DocumentManifest.related-identifier" : for vs0.identifier as vs make vt0.identifier as vt then Identifier(vs,vt)
     "DocumentManifest.related-ref" : for vs0.ref as vs make vt0.ref as vt then Reference(vs,vt)
   }

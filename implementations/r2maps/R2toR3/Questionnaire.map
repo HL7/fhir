@@ -1,12 +1,18 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Questionnaire2to3" = "R2 to R3 Conversions for Questionnaire"
 
-uses "http://hl7.org/fhir/StructureDefinition/Questionnaire" as source
-uses "http://hl7.org/fhir/StructureDefinition/QuestionnaireR2" as target
+
+uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Questionnaire" alias QuestionnaireR2 as source
+uses "http://hl7.org/fhir/StructureDefinition/Questionnaire" alias Questionnaire as target
+
+imports "http://hl7.org/fhir/StructureMap/primitives2to3"
+imports "http://hl7.org/fhir/StructureMap/ContactPoint2to3"
+imports "http://hl7.org/fhir/StructureMap/Identifier2to3"
+
 
 
 group Questionnaire extends Element
   input src : QuestionnaireR2 as source
-  input tgt : Questionnaire as Target
+  input tgt : Questionnaire as target
 
   "Questionnaire-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
   "Questionnaire-version" : for src.version as vs make tgt.version as vt then string(vs, vt)

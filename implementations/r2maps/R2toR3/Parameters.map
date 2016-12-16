@@ -1,14 +1,35 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Parameters2to3" = "R2 to R3 Conversions for Parameters"
 
-uses "http://hl7.org/fhir/StructureDefinition/Parameters" as source
-uses "http://hl7.org/fhir/StructureDefinition/ParametersR2" as target
+
+uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Parameters" alias ParametersR2 as source
+uses "http://hl7.org/fhir/StructureDefinition/Parameters" alias Parameters as target
+
+imports "http://hl7.org/fhir/StructureMap/primitives2to3"
+imports "http://hl7.org/fhir/StructureMap/Meta2to3"
+imports "http://hl7.org/fhir/StructureMap/Address2to3"
+imports "http://hl7.org/fhir/StructureMap/Attachment2to3"
+imports "http://hl7.org/fhir/StructureMap/HumanName2to3"
+imports "http://hl7.org/fhir/StructureMap/ContactPoint2to3"
+imports "http://hl7.org/fhir/StructureMap/Identifier2to3"
+imports "http://hl7.org/fhir/StructureMap/Coding2to3"
+imports "http://hl7.org/fhir/StructureMap/SampledData2to3"
+imports "http://hl7.org/fhir/StructureMap/Ratio2to3"
+imports "http://hl7.org/fhir/StructureMap/Reference2to3"
+imports "http://hl7.org/fhir/StructureMap/Quantity2to3"
+imports "http://hl7.org/fhir/StructureMap/Period2to3"
+imports "http://hl7.org/fhir/StructureMap/Range2to3"
+imports "http://hl7.org/fhir/StructureMap/Annotation2to3"
+imports "http://hl7.org/fhir/StructureMap/Signature2to3"
+imports "http://hl7.org/fhir/StructureMap/Timing2to3"
+imports "http://hl7.org/fhir/StructureMap/CodeableConcept2to3"
+
 
 
 group Parameters extends Element
   input src : ParametersR2 as source
-  input tgt : Parameters as Target
+  input tgt : Parameters as target
 
-  "Parameters-parameter" : for src.parameter as vs0 make tgt.parameter = as vt0 then {
+  "Parameters-parameter" : for src.parameter as vs0 make tgt.parameter as vt0 then {
     "Parameters.parameter-name" : for vs0.name as vs make vt0.name as vt then string(vs, vt)
     "Parameters.parameter-value-boolean" : for vs0.value  : boolean as vs make vt0.value = create("boolean") as vt then boolean(vs,vt)
     "Parameters.parameter-value-integer" : for vs0.value  : integer as vs make vt0.value = create("integer") as vt then integer(vs,vt)

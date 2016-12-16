@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -548,10 +548,10 @@ public class ValueSet extends MetadataResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 1391591896: throw new FHIRException("Cannot make property lockedDate as it is not a complex type"); // DateType
-        case 24665195: throw new FHIRException("Cannot make property inactive as it is not a complex type"); // BooleanType
-        case 1942574248:  return addInclude(); // ConceptSetComponent
-        case -1321148966:  return addExclude(); // ConceptSetComponent
+        case 1391591896:  return getLockedDateElement();
+        case 24665195:  return getInactiveElement();
+        case 1942574248:  return addInclude(); 
+        case -1321148966:  return addExclude(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -1001,11 +1001,11 @@ public class ValueSet extends MetadataResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -887328209: throw new FHIRException("Cannot make property system as it is not a complex type"); // UriType
-        case 351608024: throw new FHIRException("Cannot make property version as it is not a complex type"); // StringType
-        case 951024232:  return addConcept(); // ConceptReferenceComponent
-        case -1274492040:  return addFilter(); // ConceptSetFilterComponent
-        case -1410174671: throw new FHIRException("Cannot make property valueSet as it is not a complex type"); // UriType
+        case -887328209:  return getSystemElement();
+        case 351608024:  return getVersionElement();
+        case 951024232:  return addConcept(); 
+        case -1274492040:  return addFilter(); 
+        case -1410174671:  return addValueSetElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -1326,9 +1326,9 @@ public class ValueSet extends MetadataResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3059181: throw new FHIRException("Cannot make property code as it is not a complex type"); // CodeType
-        case 1671764162: throw new FHIRException("Cannot make property display as it is not a complex type"); // StringType
-        case -900931593:  return addDesignation(); // ConceptReferenceDesignationComponent
+        case 3059181:  return getCodeElement();
+        case 1671764162:  return getDisplayElement();
+        case -900931593:  return addDesignation(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -1605,9 +1605,9 @@ public class ValueSet extends MetadataResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1613589672: throw new FHIRException("Cannot make property language as it is not a complex type"); // CodeType
-        case 116103:  return getUse(); // Coding
-        case 111972721: throw new FHIRException("Cannot make property value as it is not a complex type"); // StringType
+        case -1613589672:  return getLanguageElement();
+        case 116103:  return getUse(); 
+        case 111972721:  return getValueElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -1898,9 +1898,9 @@ public class ValueSet extends MetadataResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -993141291: throw new FHIRException("Cannot make property property as it is not a complex type"); // CodeType
-        case 3553: throw new FHIRException("Cannot make property op as it is not a complex type"); // Enumeration<FilterOperator>
-        case 111972721: throw new FHIRException("Cannot make property value as it is not a complex type"); // CodeType
+        case -993141291:  return getPropertyElement();
+        case 3553:  return getOpElement();
+        case 111972721:  return getValueElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -2382,12 +2382,12 @@ public class ValueSet extends MetadataResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1618432855: throw new FHIRException("Cannot make property identifier as it is not a complex type"); // UriType
-        case 55126294: throw new FHIRException("Cannot make property timestamp as it is not a complex type"); // DateTimeType
-        case 110549828: throw new FHIRException("Cannot make property total as it is not a complex type"); // IntegerType
-        case -1019779949: throw new FHIRException("Cannot make property offset as it is not a complex type"); // IntegerType
-        case 1954460585:  return addParameter(); // ValueSetExpansionParameterComponent
-        case -567445985:  return addContains(); // ValueSetExpansionContainsComponent
+        case -1618432855:  return getIdentifierElement();
+        case 55126294:  return getTimestampElement();
+        case 110549828:  return getTotalElement();
+        case -1019779949:  return getOffsetElement();
+        case 1954460585:  return addParameter(); 
+        case -567445985:  return addContains(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -2690,8 +2690,8 @@ public class ValueSet extends MetadataResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
-        case -1410166417:  return getValue(); // Type
+        case 3373707:  return getNameElement();
+        case -1410166417:  return getValue(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -3313,14 +3313,14 @@ public class ValueSet extends MetadataResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -887328209: throw new FHIRException("Cannot make property system as it is not a complex type"); // UriType
-        case 1732898850: throw new FHIRException("Cannot make property abstract as it is not a complex type"); // BooleanType
-        case 24665195: throw new FHIRException("Cannot make property inactive as it is not a complex type"); // BooleanType
-        case 351608024: throw new FHIRException("Cannot make property version as it is not a complex type"); // StringType
-        case 3059181: throw new FHIRException("Cannot make property code as it is not a complex type"); // CodeType
-        case 1671764162: throw new FHIRException("Cannot make property display as it is not a complex type"); // StringType
-        case -900931593:  return addDesignation(); // ConceptReferenceDesignationComponent
-        case -567445985:  return addContains(); // ValueSetExpansionContainsComponent
+        case -887328209:  return getSystemElement();
+        case 1732898850:  return getAbstractElement();
+        case 24665195:  return getInactiveElement();
+        case 351608024:  return getVersionElement();
+        case 3059181:  return getCodeElement();
+        case 1671764162:  return getDisplayElement();
+        case -900931593:  return addDesignation(); 
+        case -567445985:  return addContains(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -4523,25 +4523,25 @@ public class ValueSet extends MetadataResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 116079: throw new FHIRException("Cannot make property url as it is not a complex type"); // UriType
-        case -1618432855:  return addIdentifier(); // Identifier
-        case 351608024: throw new FHIRException("Cannot make property version as it is not a complex type"); // StringType
-        case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
-        case 110371416: throw new FHIRException("Cannot make property title as it is not a complex type"); // StringType
-        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<PublicationStatus>
-        case -404562712: throw new FHIRException("Cannot make property experimental as it is not a complex type"); // BooleanType
-        case 1447404028: throw new FHIRException("Cannot make property publisher as it is not a complex type"); // StringType
-        case 951526432:  return addContact(); // ContactDetail
-        case 3076014: throw new FHIRException("Cannot make property date as it is not a complex type"); // DateTimeType
-        case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // MarkdownType
-        case -669707736:  return addUseContext(); // UsageContext
-        case -507075711:  return addJurisdiction(); // CodeableConcept
-        case 1596987778: throw new FHIRException("Cannot make property immutable as it is not a complex type"); // BooleanType
-        case -220463842: throw new FHIRException("Cannot make property purpose as it is not a complex type"); // MarkdownType
-        case 1522889671: throw new FHIRException("Cannot make property copyright as it is not a complex type"); // MarkdownType
-        case -1809433861: throw new FHIRException("Cannot make property extensible as it is not a complex type"); // BooleanType
-        case 950497682:  return getCompose(); // ValueSetComposeComponent
-        case 17878207:  return getExpansion(); // ValueSetExpansionComponent
+        case 116079:  return getUrlElement();
+        case -1618432855:  return addIdentifier(); 
+        case 351608024:  return getVersionElement();
+        case 3373707:  return getNameElement();
+        case 110371416:  return getTitleElement();
+        case -892481550:  return getStatusElement();
+        case -404562712:  return getExperimentalElement();
+        case 1447404028:  return getPublisherElement();
+        case 951526432:  return addContact(); 
+        case 3076014:  return getDateElement();
+        case -1724546052:  return getDescriptionElement();
+        case -669707736:  return addUseContext(); 
+        case -507075711:  return addJurisdiction(); 
+        case 1596987778:  return getImmutableElement();
+        case -220463842:  return getPurposeElement();
+        case 1522889671:  return getCopyrightElement();
+        case -1809433861:  return getExtensibleElement();
+        case 950497682:  return getCompose(); 
+        case 17878207:  return getExpansion(); 
         default: return super.makeProperty(hash, name);
         }
 

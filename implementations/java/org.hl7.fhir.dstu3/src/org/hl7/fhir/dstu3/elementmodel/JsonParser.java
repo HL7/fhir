@@ -78,7 +78,7 @@ public class JsonParser extends ParserBase {
 			return parse(obj);	
 		} else {
 			JsonObject obj = (JsonObject) new com.google.gson.JsonParser().parse(source);
-			assert (map.containsKey(obj));
+//			assert (map.containsKey(obj));
 			return parse(obj);	
 		} 
 	}

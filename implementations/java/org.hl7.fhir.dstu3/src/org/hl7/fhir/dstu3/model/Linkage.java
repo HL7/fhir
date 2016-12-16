@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -301,8 +301,8 @@ public class Linkage extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3575610: throw new FHIRException("Cannot make property type as it is not a complex type"); // Enumeration<LinkageType>
-        case -341064690:  return getResource(); // Reference
+        case 3575610:  return getTypeElement();
+        case -341064690:  return getResource(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -523,8 +523,8 @@ public class Linkage extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1406328437:  return getAuthor(); // Reference
-        case 3242771:  return addItem(); // LinkageItemComponent
+        case -1406328437:  return getAuthor(); 
+        case 3242771:  return addItem(); 
         default: return super.makeProperty(hash, name);
         }
 

@@ -1,15 +1,22 @@
 ﻿map "http://hl7.org/fhir/StructureMap/MessageHeader3to2" = "R3 to R2 Conversion for MessageHeader"
 
-uses "http://hl7.org/fhir/StructureDefinition/MessageHeaderR2" as source
-uses "http://hl7.org/fhir/StructureDefinition/MessageHeader" as target
+
+uses "http://hl7.org/fhir/StructureDefinition/MessageHeader" alias MessageHeader as source
+uses "http://hl7.org/fhir/DSTU2/StructureDefinition/MessageHeader" alias MessageHeaderR2 as target
+
+imports "http://hl7.org/fhir/StructureMap/primitives3to2"
+imports "http://hl7.org/fhir/StructureMap/Coding3to2"
+imports "http://hl7.org/fhir/StructureMap/Reference3to2"
+imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
+
 
 
 group MessageHeader extends Element
   input src : MessageHeader as source
-  input tgt : MessageHeaderR2 as Target
+  input tgt : MessageHeaderR2 as target
   "MessageHeader-timestamp" : for src.timestamp as vs make tgt.timestamp as vt then instant(vs, vt)
   "MessageHeader-event" : for src.event as vs make tgt.event as vt then Coding(vs,vt)
-  "MessageHeader-response" : for src.response as vs0 make tgt.response = as vt0 then {
+  "MessageHeader-response" : for src.response as vs0 make tgt.response as vt0 then {
     "MessageHeader.response-identifier" : for vs0.identifier as vs make vt0.identifier as vt then id(vs, vt)
     "MessageHeader.response-code" : for vs0.code as vs make vt0.code as vt then code(vs, vt)
     "MessageHeader.response-details" : for vs0.details as vs make vt0.details as vt then Reference(vs,vt)

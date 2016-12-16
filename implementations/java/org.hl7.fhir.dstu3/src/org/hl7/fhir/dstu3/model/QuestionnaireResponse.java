@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -595,12 +595,12 @@ public class QuestionnaireResponse extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1102667083: throw new FHIRException("Cannot make property linkId as it is not a complex type"); // StringType
-        case -1014418093: throw new FHIRException("Cannot make property definition as it is not a complex type"); // UriType
-        case 3556653: throw new FHIRException("Cannot make property text as it is not a complex type"); // StringType
-        case -1867885268:  return getSubject(); // Reference
-        case -1412808770:  return addAnswer(); // QuestionnaireResponseItemAnswerComponent
-        case 3242771:  return addItem(); // QuestionnaireResponseItemComponent
+        case -1102667083:  return getLinkIdElement();
+        case -1014418093:  return getDefinitionElement();
+        case 3556653:  return getTextElement();
+        case -1867885268:  return getSubject(); 
+        case -1412808770:  return addAnswer(); 
+        case 3242771:  return addItem(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -995,8 +995,8 @@ public class QuestionnaireResponse extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1410166417:  return getValue(); // Type
-        case 3242771:  return addItem(); // QuestionnaireResponseItemComponent
+        case -1410166417:  return getValue(); 
+        case 3242771:  return addItem(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -1839,17 +1839,17 @@ public class QuestionnaireResponse extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1618432855:  return getIdentifier(); // Identifier
-        case -332612366:  return addBasedOn(); // Reference
-        case -995424086:  return addParent(); // Reference
-        case -1017049693:  return getQuestionnaire(); // Reference
-        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<QuestionnaireResponseStatus>
-        case -1867885268:  return getSubject(); // Reference
-        case 951530927:  return getContext(); // Reference
-        case -1406328437:  return getAuthor(); // Reference
-        case 1433073514: throw new FHIRException("Cannot make property authored as it is not a complex type"); // DateTimeType
-        case -896505829:  return getSource(); // Reference
-        case 3242771:  return addItem(); // QuestionnaireResponseItemComponent
+        case -1618432855:  return getIdentifier(); 
+        case -332612366:  return addBasedOn(); 
+        case -995424086:  return addParent(); 
+        case -1017049693:  return getQuestionnaire(); 
+        case -892481550:  return getStatusElement();
+        case -1867885268:  return getSubject(); 
+        case 951530927:  return getContext(); 
+        case -1406328437:  return getAuthor(); 
+        case 1433073514:  return getAuthoredElement();
+        case -896505829:  return getSource(); 
+        case 3242771:  return addItem(); 
         default: return super.makeProperty(hash, name);
         }
 

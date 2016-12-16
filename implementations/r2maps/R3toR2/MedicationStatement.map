@@ -1,12 +1,23 @@
 ﻿map "http://hl7.org/fhir/StructureMap/MedicationStatement3to2" = "R3 to R2 Conversion for MedicationStatement"
 
-uses "http://hl7.org/fhir/StructureDefinition/MedicationStatementR2" as source
-uses "http://hl7.org/fhir/StructureDefinition/MedicationStatement" as target
+
+uses "http://hl7.org/fhir/StructureDefinition/MedicationStatement" alias MedicationStatement as source
+uses "http://hl7.org/fhir/DSTU2/StructureDefinition/MedicationStatement" alias MedicationStatementR2 as target
+
+imports "http://hl7.org/fhir/StructureMap/primitives3to2"
+imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
+imports "http://hl7.org/fhir/StructureMap/Ratio3to2"
+imports "http://hl7.org/fhir/StructureMap/Reference3to2"
+imports "http://hl7.org/fhir/StructureMap/Period3to2"
+imports "http://hl7.org/fhir/StructureMap/Range3to2"
+imports "http://hl7.org/fhir/StructureMap/Timing3to2"
+imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
+
 
 
 group MedicationStatement extends Element
   input src : MedicationStatement as source
-  input tgt : MedicationStatementR2 as Target
+  input tgt : MedicationStatementR2 as target
   "MedicationStatement-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
   "MedicationStatement-status" : for src.status as vs make tgt.status as vt then code(vs, vt)
   "MedicationStatement-medication-CodeableConcept" : for src.medication  : CodeableConcept as vs make tgt.medication = create("CodeableConcept") as vt then CodeableConcept(vs,vt)
@@ -18,7 +29,7 @@ group MedicationStatement extends Element
   "MedicationStatement-supportingInformation" : for src.derivedFrom as vs make tgt.supportingInformation as vt then Reference(vs,vt)
   "MedicationStatement-dateAsserted" : for src.dateAsserted as vs make tgt.dateAsserted as vt then dateTime(vs, vt)
   "MedicationStatement-reasonNotTaken" : for src.reasonNotTaken as vs make tgt.reasonNotTaken as vt then CodeableConcept(vs,vt)
-  "MedicationStatement-dosage" : for src.dosage as vs0 make tgt.dosage = as vt0 then {
+  "MedicationStatement-dosage" : for src.dosage as vs0 make tgt.dosage as vt0 then {
     "MedicationStatement.dosage-text" : for vs0.text as vs make vt0.text as vt then string(vs, vt)
     "MedicationStatement.dosage-timing" : for vs0.timing as vs make vt0.timing as vt then Timing(vs,vt)
     "MedicationStatement.dosage-asNeeded-boolean" : for vs0.asNeeded  : boolean as vs make vt0.asNeeded = create("boolean") as vt then boolean(vs,vt)

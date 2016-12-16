@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -864,18 +864,18 @@ public class Media extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1618432855:  return addIdentifier(); // Identifier
-        case 3575610: throw new FHIRException("Cannot make property type as it is not a complex type"); // Enumeration<DigitalMediaType>
-        case -1867567750:  return getSubtype(); // CodeableConcept
-        case 3619493:  return getView(); // CodeableConcept
-        case -1867885268:  return getSubject(); // Reference
-        case -500553564:  return getOperator(); // Reference
-        case 780988929: throw new FHIRException("Cannot make property deviceName as it is not a complex type"); // StringType
-        case -1221029593: throw new FHIRException("Cannot make property height as it is not a complex type"); // PositiveIntType
-        case 113126854: throw new FHIRException("Cannot make property width as it is not a complex type"); // PositiveIntType
-        case -1266514778: throw new FHIRException("Cannot make property frames as it is not a complex type"); // PositiveIntType
-        case -1992012396: throw new FHIRException("Cannot make property duration as it is not a complex type"); // UnsignedIntType
-        case 951530617:  return getContent(); // Attachment
+        case -1618432855:  return addIdentifier(); 
+        case 3575610:  return getTypeElement();
+        case -1867567750:  return getSubtype(); 
+        case 3619493:  return getView(); 
+        case -1867885268:  return getSubject(); 
+        case -500553564:  return getOperator(); 
+        case 780988929:  return getDeviceNameElement();
+        case -1221029593:  return getHeightElement();
+        case 113126854:  return getWidthElement();
+        case -1266514778:  return getFramesElement();
+        case -1992012396:  return getDurationElement();
+        case 951530617:  return getContent(); 
         default: return super.makeProperty(hash, name);
         }
 

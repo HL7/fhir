@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -777,8 +777,8 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 92750597:  return getAgent(); // Reference
-        case -14402964:  return getOnBehalfOf(); // Reference
+        case 92750597:  return getAgent(); 
+        case -14402964:  return getOnBehalfOf(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -1056,9 +1056,9 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 984367650: throw new FHIRException("Cannot make property repetitions as it is not a complex type"); // PositiveIntType
-        case -991726143:  return getPeriod(); // Period
-        case 820081177:  return addRecipient(); // Reference
+        case 984367650:  return getRepetitionsElement();
+        case -991726143:  return getPeriod(); 
+        case 820081177:  return addRecipient(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -1246,8 +1246,8 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3575610:  return getType(); // CodeableConcept
-        case -1410166417:  return getValue(); // org.hl7.fhir.dstu3.model.Type
+        case 3575610:  return getType(); 
+        case -1410166417:  return getValue(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -1554,8 +1554,8 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3575610:  return getType(); // CodeableConcept
-        case -1410166417:  return getValue(); // org.hl7.fhir.dstu3.model.Type
+        case 3575610:  return getType(); 
+        case -1410166417:  return getValue(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -3363,33 +3363,33 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1618432855:  return addIdentifier(); // Identifier
-        case -1139422643:  return getDefinition(); // Type
-        case -332612366:  return addBasedOn(); // Reference
-        case -445338488:  return getGroupIdentifier(); // Identifier
-        case -995410646:  return addPartOf(); // Reference
-        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<TaskStatus>
-        case 2051346646:  return getStatusReason(); // CodeableConcept
-        case 2008591314:  return getBusinessStatus(); // CodeableConcept
-        case -1183762788: throw new FHIRException("Cannot make property intent as it is not a complex type"); // Enumeration<TaskIntent>
-        case -1165461084: throw new FHIRException("Cannot make property priority as it is not a complex type"); // Enumeration<TaskPriority>
-        case 3059181:  return getCode(); // CodeableConcept
-        case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
-        case 97604824:  return getFocus(); // Reference
-        case 101577:  return getFor(); // Reference
-        case 951530927:  return getContext(); // Reference
-        case 1218624249:  return getExecutionPeriod(); // Period
-        case -1500852503: throw new FHIRException("Cannot make property authoredOn as it is not a complex type"); // DateTimeType
-        case 1959003007: throw new FHIRException("Cannot make property lastModified as it is not a complex type"); // DateTimeType
-        case 693933948:  return getRequester(); // TaskRequesterComponent
-        case -901444568:  return addPerformerType(); // CodeableConcept
-        case 106164915:  return getOwner(); // Reference
-        case -934964668:  return getReason(); // CodeableConcept
-        case 3387378:  return addNote(); // Annotation
-        case 1538891575:  return addRelevantHistory(); // Reference
-        case -1561062452:  return getRestriction(); // TaskRestrictionComponent
-        case 100358090:  return addInput(); // ParameterComponent
-        case -1005512447:  return addOutput(); // TaskOutputComponent
+        case -1618432855:  return addIdentifier(); 
+        case -1139422643:  return getDefinition(); 
+        case -332612366:  return addBasedOn(); 
+        case -445338488:  return getGroupIdentifier(); 
+        case -995410646:  return addPartOf(); 
+        case -892481550:  return getStatusElement();
+        case 2051346646:  return getStatusReason(); 
+        case 2008591314:  return getBusinessStatus(); 
+        case -1183762788:  return getIntentElement();
+        case -1165461084:  return getPriorityElement();
+        case 3059181:  return getCode(); 
+        case -1724546052:  return getDescriptionElement();
+        case 97604824:  return getFocus(); 
+        case 101577:  return getFor(); 
+        case 951530927:  return getContext(); 
+        case 1218624249:  return getExecutionPeriod(); 
+        case -1500852503:  return getAuthoredOnElement();
+        case 1959003007:  return getLastModifiedElement();
+        case 693933948:  return getRequester(); 
+        case -901444568:  return addPerformerType(); 
+        case 106164915:  return getOwner(); 
+        case -934964668:  return getReason(); 
+        case 3387378:  return addNote(); 
+        case 1538891575:  return addRelevantHistory(); 
+        case -1561062452:  return getRestriction(); 
+        case 100358090:  return addInput(); 
+        case -1005512447:  return addOutput(); 
         default: return super.makeProperty(hash, name);
         }
 

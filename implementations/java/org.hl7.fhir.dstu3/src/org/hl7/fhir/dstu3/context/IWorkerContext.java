@@ -105,9 +105,10 @@ public interface IWorkerContext {
    * Get a validator that can check whether a resource is valid 
    * 
    * @return a prepared generator
+   * @throws FHIRException 
    * @
    */
-  public IResourceValidator newValidator();
+  public IResourceValidator newValidator() throws FHIRException;
 
   // -- resource fetchers ---------------------------------------------------
 

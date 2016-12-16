@@ -1,13 +1,21 @@
 ﻿map "http://hl7.org/fhir/StructureMap/AuditEvent3to2" = "R3 to R2 Conversion for AuditEvent"
 
-uses "http://hl7.org/fhir/StructureDefinition/AuditEventR2" as source
-uses "http://hl7.org/fhir/StructureDefinition/AuditEvent" as target
+
+uses "http://hl7.org/fhir/StructureDefinition/AuditEvent" alias AuditEvent as source
+uses "http://hl7.org/fhir/DSTU2/StructureDefinition/AuditEvent" alias AuditEventR2 as target
+
+imports "http://hl7.org/fhir/StructureMap/primitives3to2"
+imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
+imports "http://hl7.org/fhir/StructureMap/Coding3to2"
+imports "http://hl7.org/fhir/StructureMap/Reference3to2"
+imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
+
 
 
 group AuditEvent extends Element
   input src : AuditEvent as source
-  input tgt : AuditEventR2 as Target
-  "AuditEvent-participant" : for src.agent as vs0 make tgt.participant = as vt0 then {
+  input tgt : AuditEventR2 as target
+  "AuditEvent-participant" : for src.agent as vs0 make tgt.participant as vt0 then {
     "AuditEvent.participant-role" : for vs0.role as vs make vt0.role as vt then CodeableConcept(vs,vt)
     "AuditEvent.participant-reference" : for vs0.reference as vs make vt0.reference as vt then Reference(vs,vt)
     "AuditEvent.participant-userId" : for vs0.userId as vs make vt0.userId as vt then Identifier(vs,vt)
@@ -18,12 +26,12 @@ group AuditEvent extends Element
     "AuditEvent.participant-policy" : for vs0.policy as vs make vt0.policy as vt then uri(vs, vt)
     "AuditEvent.participant-media" : for vs0.media as vs make vt0.media as vt then Coding(vs,vt)
   }
-  "AuditEvent-source" : for src.source as vs0 make tgt.source = as vt0 then {
+  "AuditEvent-source" : for src.source as vs0 make tgt.source as vt0 then {
     "AuditEvent.source-site" : for vs0.site as vs make vt0.site as vt then string(vs, vt)
     "AuditEvent.source-identifier" : for vs0.identifier as vs make vt0.identifier as vt then Identifier(vs,vt)
     "AuditEvent.source-type" : for vs0.type as vs make vt0.type as vt then Coding(vs,vt)
   }
-  "AuditEvent-object" : for src.entity as vs0 make tgt.object = as vt0 then {
+  "AuditEvent-object" : for src.entity as vs0 make tgt.object as vt0 then {
     "AuditEvent.object-identifier" : for vs0.identifier as vs make vt0.identifier as vt then Identifier(vs,vt)
     "AuditEvent.object-reference" : for vs0.reference as vs make vt0.reference as vt then Reference(vs,vt)
     "AuditEvent.object-type" : for vs0.type as vs make vt0.type as vt then Coding(vs,vt)

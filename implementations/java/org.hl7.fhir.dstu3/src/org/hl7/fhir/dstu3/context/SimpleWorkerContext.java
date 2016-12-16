@@ -67,8 +67,12 @@ import ca.uhn.fhir.parser.DataFormatException;
 
 public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerContext, ProfileKnowledgeProvider {
 
-	public interface IContextResourceLoader {
+  public interface IContextResourceLoader {
     Bundle loadBundle(InputStream stream, boolean isJson) throws FHIRException, IOException;
+  }
+
+  public interface IValidatorFactory {
+    IResourceValidator makeValidator(IWorkerContext ctxts) throws FHIRException;
   }
 
   // all maps are to the full URI
@@ -80,6 +84,7 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
   private String version;
   private String revision;
   private String date;
+  private IValidatorFactory validatorFactory;
   
 	// -- Initializations
 	/**
@@ -341,8 +346,10 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
 	}
 
 	@Override
-	public IResourceValidator newValidator() {
-	  throw new Error("not supported at this time"); 
+	public IResourceValidator newValidator() throws FHIRException {
+	  if (validatorFactory == null)
+	    throw new Error("No validator configured");
+	  return validatorFactory.makeValidator(this);
 	}
 
   @Override
@@ -609,4 +616,14 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
     }
     return res;
   }
+
+  public IValidatorFactory getValidatorFactory() {
+    return validatorFactory;
+  }
+
+  public void setValidatorFactory(IValidatorFactory validatorFactory) {
+    this.validatorFactory = validatorFactory;
+  }
+  
+  
 }

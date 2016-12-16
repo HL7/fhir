@@ -1,12 +1,22 @@
 ﻿map "http://hl7.org/fhir/StructureMap/DocumentReference3to2" = "R3 to R2 Conversion for DocumentReference"
 
-uses "http://hl7.org/fhir/StructureDefinition/DocumentReferenceR2" as source
-uses "http://hl7.org/fhir/StructureDefinition/DocumentReference" as target
+
+uses "http://hl7.org/fhir/StructureDefinition/DocumentReference" alias DocumentReference as source
+uses "http://hl7.org/fhir/DSTU2/StructureDefinition/DocumentReference" alias DocumentReferenceR2 as target
+
+imports "http://hl7.org/fhir/StructureMap/primitives3to2"
+imports "http://hl7.org/fhir/StructureMap/Attachment3to2"
+imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
+imports "http://hl7.org/fhir/StructureMap/Coding3to2"
+imports "http://hl7.org/fhir/StructureMap/Reference3to2"
+imports "http://hl7.org/fhir/StructureMap/Period3to2"
+imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
+
 
 
 group DocumentReference extends Element
   input src : DocumentReference as source
-  input tgt : DocumentReferenceR2 as Target
+  input tgt : DocumentReferenceR2 as target
   "DocumentReference-masterIdentifier" : for src.masterIdentifier as vs make tgt.masterIdentifier as vt then Identifier(vs,vt)
   "DocumentReference-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
   "DocumentReference-subject" : for src.subject as vs make tgt.subject as vt then Reference(vs,vt)
@@ -19,17 +29,17 @@ group DocumentReference extends Element
   "DocumentReference-indexed" : for src.indexed as vs make tgt.indexed as vt then instant(vs, vt)
   "DocumentReference-status" : for src.status as vs make tgt.status as vt then code(vs, vt)
   "DocumentReference-docStatus" : for src.docStatus as vs make tgt.docStatus as vt then CodeableConcept(vs,vt)
-  "DocumentReference-relatesTo" : for src.relatesTo as vs0 make tgt.relatesTo = as vt0 then {
+  "DocumentReference-relatesTo" : for src.relatesTo as vs0 make tgt.relatesTo as vt0 then {
     "DocumentReference.relatesTo-code" : for vs0.code as vs make vt0.code as vt then code(vs, vt)
     "DocumentReference.relatesTo-target" : for vs0.target as vs make vt0.target as vt then Reference(vs,vt)
   }
   "DocumentReference-description" : for src.description as vs make tgt.description as vt then string(vs, vt)
   "DocumentReference-securityLabel" : for src.securityLabel as vs make tgt.securityLabel as vt then CodeableConcept(vs,vt)
-  "DocumentReference-content" : for src.content as vs0 make tgt.content = as vt0 then {
+  "DocumentReference-content" : for src.content as vs0 make tgt.content as vt0 then {
     "DocumentReference.content-attachment" : for vs0.attachment as vs make vt0.attachment as vt then Attachment(vs,vt)
     "DocumentReference.content-format" : for vs0.format as vs make vt0.format as vt then Coding(vs,vt)
   }
-  "DocumentReference-context" : for src.context as vs0 make tgt.context = as vt0 then {
+  "DocumentReference-context" : for src.context as vs0 make tgt.context as vt0 then {
     "DocumentReference.context-encounter" : for vs0.encounter as vs make vt0.encounter as vt then Reference(vs,vt)
     "DocumentReference.context-event" : for vs0.event as vs make vt0.event as vt then CodeableConcept(vs,vt)
     "DocumentReference.context-period" : for vs0.period as vs make vt0.period as vt then Period(vs,vt)

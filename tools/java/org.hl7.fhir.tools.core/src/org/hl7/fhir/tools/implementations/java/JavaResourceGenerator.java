@@ -999,12 +999,17 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
         if (!e.typeCode().equals("xhtml")) {
           write(indent+"    case "+propId(e.getName())+": ");
           String name = e.getName().replace("[x]", "");
-          if (isPrimitive(e.typeCode()) || e.typeCode().equals("Resource") || e.typeCode().equals("DomainResource")) {
+          if (isPrimitive(e.typeCode())) {
+            if (e.unbounded())
+              write(" return add"+upFirst(getElementName(name, false))+"Element();\r\n");
+            else
+              write(" return get"+upFirst(getElementName(name, false))+"Element();\r\n");
+          } else if (e.typeCode().equals("Resource") || e.typeCode().equals("DomainResource")) {
             write("throw new FHIRException(\"Cannot make property "+e.getName()+" as it is not a complex type\"); // "+tn+"\r\n");
           } else if (e.unbounded()) {
-            write(" return add"+upFirst(getElementName(name, false))+"(); // "+tn+"\r\n");
+            write(" return add"+upFirst(getElementName(name, false))+"(); \r\n");
           } else  {
-            write(" return get"+upFirst(getElementName(name, false))+"(); // "+tn+"\r\n");
+            write(" return get"+upFirst(getElementName(name, false))+"(); \r\n");
           }
         }
       }

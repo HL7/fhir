@@ -81,6 +81,7 @@ import org.hl7.fhir.utilities.xhtml.XhtmlNode;
  * 
  * string render(map) - take a structure and convert it to text
  * map parse(text) - take a text representation and parse it 
+ * getTargetType(map) - return the definition for the type to create to hand in 
  * transform(appInfo, source, map, target) - transform from source to target following the map
  * analyse(appInfo, map) - generate profiles and other analysis artifacts for the targets of the transform
  * map generateMapFromMappings(StructureDefinition) - build a mapping from a structure definition with loigcal mappings
@@ -216,7 +217,13 @@ public class StructureMapUtilities {
 		for (StructureMapStructureComponent s : map.getStructure()) {
 			b.append("uses \"");
 			b.append(s.getUrl());
-			b.append("\" as ");
+      b.append("\" ");
+      if (s.hasAlias()) {
+        b.append("alias");
+        b.append(s.getAlias());
+        b.append(" ");
+      }
+      b.append("as ");
 			b.append(s.getMode().toCode());
 			b.append("\r\n");
 			renderDoco(b, s.getDocumentation());
@@ -598,6 +605,10 @@ public class StructureMapUtilities {
 		lexer.token("uses");
 		StructureMapStructureComponent st = result.addStructure();
 		st.setUrl(lexer.readConstant("url"));
+		if (lexer.hasToken("alias")) {
+	    lexer.token("alias");
+		  st.setAlias(lexer.take());
+		}
 		lexer.token("as");
 		st.setMode(StructureMapModelMode.fromCode(lexer.take()));
 		lexer.skipToken(";");
@@ -735,11 +746,12 @@ public class StructureMapUtilities {
 		if (lexer.hasToken(":")) {
 		  // type and cardinality
 		  lexer.token(":");
-		  String type = lexer.takeDottedToken();
-		  String min = lexer.take();
-      lexer.token("..");
-		  String max = lexer.take();
-		  // now ignore 
+		  source.setType(lexer.takeDottedToken());
+		  if (!lexer.hasToken("as", "first", "last", "only_one")) {
+		    source.setMin(lexer.takeInt());
+		    lexer.token("..");
+		    source.setMax(lexer.take());
+		  }
 		}
 		if (Utilities.existsInList(lexer.getCurrent(), "first", "last", "only_one"))
 			if (lexer.getCurrent().equals("only_one")) { 
@@ -862,6 +874,23 @@ public class StructureMapUtilities {
 			return new StringType(lexer.processConstant(s));        
 	}
 
+	public StructureDefinition getTargetType(StructureMap map) throws FHIRException {
+	  boolean found = false;
+	  StructureDefinition res = null;
+	  for (StructureMapStructureComponent uses : map.getStructure()) {
+	    if (uses.getMode() == StructureMapModelMode.TARGET) {
+	      if (found)
+	        throw new FHIRException("Multiple targets found in map "+map.getUrl());
+	      found = true;
+	      res = worker.fetchResource(StructureDefinition.class, uses.getUrl());
+	      if (res == null)
+	        throw new FHIRException("Unable to find "+uses.getUrl()+" referenced from map "+map.getUrl());      
+	    }
+	  }
+	  if (res == null)
+      throw new FHIRException("No targets found in map "+map.getUrl());
+	  return res;
+	}
 
 	public enum VariableMode {
 		INPUT, OUTPUT
@@ -968,7 +997,7 @@ public class StructureMapUtilities {
 				result.add(v);
 	}
 
-	public void transform(Object appInfo, Base source, StructureMap map, Base target) throws Exception {
+	public void transform(Object appInfo, Base source, StructureMap map, Base target) throws FHIRException {
 		TransformContext context = new TransformContext(appInfo);
     log("Start Transform "+map.getUrl());
     StructureMapGroupComponent g = map.getGroup().get(0);
@@ -992,7 +1021,7 @@ public class StructureMapUtilities {
     return name == null ? def : name;
 	}
 
-	private void executeGroup(String indent, TransformContext context, StructureMap map, Variables vars, StructureMapGroupComponent group) throws Exception {
+	private void executeGroup(String indent, TransformContext context, StructureMap map, Variables vars, StructureMapGroupComponent group) throws FHIRException {
 		log(indent+"Group : "+group.getName());
 		// todo: extends
 		// todo: check inputs
@@ -1001,11 +1030,11 @@ public class StructureMapUtilities {
 		}
 	}
 
-	private void executeRule(String indent, TransformContext context, StructureMap map, Variables vars, StructureMapGroupComponent group, StructureMapGroupRuleComponent rule) throws Exception {
+	private void executeRule(String indent, TransformContext context, StructureMap map, Variables vars, StructureMapGroupComponent group, StructureMapGroupRuleComponent rule) throws FHIRException {
 		log(indent+"rule : "+rule.getName());
 		Variables srcVars = vars.copy();
 		if (rule.getSource().size() != 1)
-			throw new Exception("Rule \""+rule.getName()+"\": not handled yet");
+			throw new FHIRException("Rule \""+rule.getName()+"\": not handled yet");
 		List<Variables> source = processSource(rule.getName(), context, srcVars, rule.getSource().get(0));
 		if (source != null) {
 			for (Variables v : source) {
@@ -1025,7 +1054,7 @@ public class StructureMapUtilities {
 		}
 	}
 
-	private void executeDependency(String indent, TransformContext context, StructureMap map, Variables vin, StructureMapGroupComponent group, StructureMapGroupRuleDependentComponent dependent) throws Exception {
+	private void executeDependency(String indent, TransformContext context, StructureMap map, Variables vin, StructureMapGroupComponent group, StructureMapGroupRuleDependentComponent dependent) throws FHIRException {
 		StructureMap targetMap = null;
 		StructureMapGroupComponent target = null;
 		for (StructureMapGroupComponent grp : map.getGroup()) {
@@ -1048,7 +1077,7 @@ public class StructureMapUtilities {
 						targetMap = impMap;
 						target = grp;
 					} else 
-						throw new FHIRException("Multiple possible matches for rule '"+dependent.getName()+"'");
+						throw new FHIRException("Multiple possible matches for rule '"+dependent.getName()+"' in "+targetMap.getUrl()+" and "+impMap.getUrl());
 				}
 			}
 		}
@@ -1072,7 +1101,7 @@ public class StructureMapUtilities {
 	}
 
 
-	private List<Variables> processSource(String ruleId, TransformContext context, Variables vars, StructureMapGroupRuleSourceComponent src) throws Exception {
+	private List<Variables> processSource(String ruleId, TransformContext context, Variables vars, StructureMapGroupRuleSourceComponent src) throws FHIRException {
 		Base b = vars.get(VariableMode.INPUT, src.getContext());
 		if (b == null)
 			throw new FHIRException("Unknown input variable "+src.getContext());
@@ -1096,7 +1125,7 @@ public class StructureMapUtilities {
 				src.setUserData(MAP_WHERE_CHECK, expr);
 			}
 			if (!fpe.evaluateToBoolean(null, b, expr))
-				throw new Exception("Rule \""+ruleId+"\": Check condition failed");
+				throw new FHIRException("Rule \""+ruleId+"\": Check condition failed");
 		} 
 
 		List<Base> items = new ArrayList<Base>();
@@ -1115,14 +1144,14 @@ public class StructureMapUtilities {
 	}
 
 
-	private void processTarget(String ruleId, TransformContext context, Variables vars, StructureMap map, StructureMapGroupRuleTargetComponent tgt) throws Exception {
+	private void processTarget(String ruleId, TransformContext context, Variables vars, StructureMap map, StructureMapGroupRuleTargetComponent tgt) throws FHIRException {
 	  Base dest = null;
 	  if (tgt.hasContext()) {
   		dest = vars.get(VariableMode.OUTPUT, tgt.getContext());
 		if (dest == null)
-			throw new Exception("Rule \""+ruleId+"\": target context not known: "+tgt.getContext());
+			throw new FHIRException("Rule \""+ruleId+"\": target context not known: "+tgt.getContext());
 		if (!tgt.hasElement())
-			throw new Exception("Rule \""+ruleId+"\": Not supported yet");
+			throw new FHIRException("Rule \""+ruleId+"\": Not supported yet");
 	  }
 		Base v = null;
 		if (tgt.hasTransform()) {

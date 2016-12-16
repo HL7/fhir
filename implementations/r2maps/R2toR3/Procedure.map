@@ -1,12 +1,21 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Procedure2to3" = "R2 to R3 Conversions for Procedure"
 
-uses "http://hl7.org/fhir/StructureDefinition/Procedure" as source
-uses "http://hl7.org/fhir/StructureDefinition/ProcedureR2" as target
+
+uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Procedure" alias ProcedureR2 as source
+uses "http://hl7.org/fhir/StructureDefinition/Procedure" alias Procedure as target
+
+imports "http://hl7.org/fhir/StructureMap/primitives2to3"
+imports "http://hl7.org/fhir/StructureMap/Identifier2to3"
+imports "http://hl7.org/fhir/StructureMap/Reference2to3"
+imports "http://hl7.org/fhir/StructureMap/Period2to3"
+imports "http://hl7.org/fhir/StructureMap/Annotation2to3"
+imports "http://hl7.org/fhir/StructureMap/CodeableConcept2to3"
+
 
 
 group Procedure extends Element
   input src : ProcedureR2 as source
-  input tgt : Procedure as Target
+  input tgt : Procedure as target
 
   "Procedure-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
   "Procedure-subject" : for src.subject as vs make tgt.subject as vt then Reference(vs,vt)
@@ -17,7 +26,7 @@ group Procedure extends Element
   "Procedure-reasonNotPerformed" : for src.reasonNotPerformed as vs make tgt.reasonNotPerformed as vt then CodeableConcept(vs,vt)
   "Procedure-bodySite" : for src.bodySite as vs make tgt.bodySite as vt then CodeableConcept(vs,vt)
   "Procedure-reasonCode" : for src.reasonCodeableConcept as vs make tgt.reasonCode as vt then CodeableConcept(vs,vt)
-  "Procedure-performer" : for src.performer as vs0 make tgt.performer = as vt0 then {
+  "Procedure-performer" : for src.performer as vs0 make tgt.performer as vt0 then {
     "Procedure.performer-actor" : for vs0.actor as vs make vt0.actor as vt then Reference(vs,vt)
     "Procedure.performer-role" : for vs0.role as vs make vt0.role as vt then CodeableConcept(vs,vt)
   }
@@ -31,7 +40,7 @@ group Procedure extends Element
   "Procedure-followUp" : for src.followUp as vs make tgt.followUp as vt then CodeableConcept(vs,vt)
   "Procedure-request" : for src.request as vs make tgt.request as vt then Reference(vs,vt)
   "Procedure-notes" : for src.notes as vs make tgt.notes as vt then Annotation(vs,vt)
-  "Procedure-focalDevice" : for src.focalDevice as vs0 make tgt.focalDevice = as vt0 then {
+  "Procedure-focalDevice" : for src.focalDevice as vs0 make tgt.focalDevice as vt0 then {
     "Procedure.focalDevice-action" : for vs0.action as vs make vt0.action as vt then CodeableConcept(vs,vt)
     "Procedure.focalDevice-manipulated" : for vs0.manipulated as vs make vt0.manipulated as vt then Reference(vs,vt)
   }

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -605,10 +605,10 @@ public class Subscription extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3575610: throw new FHIRException("Cannot make property type as it is not a complex type"); // Enumeration<SubscriptionChannelType>
-        case 1741102485: throw new FHIRException("Cannot make property endpoint as it is not a complex type"); // UriType
-        case -786701938: throw new FHIRException("Cannot make property payload as it is not a complex type"); // StringType
-        case -1221270899: throw new FHIRException("Cannot make property header as it is not a complex type"); // StringType
+        case 3575610:  return getTypeElement();
+        case 1741102485:  return getEndpointElement();
+        case -786701938:  return getPayloadElement();
+        case -1221270899:  return getHeaderElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -1202,14 +1202,14 @@ public class Subscription extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 1952046943: throw new FHIRException("Cannot make property criteria as it is not a complex type"); // StringType
-        case 951526432:  return addContact(); // ContactPoint
-        case -934964668: throw new FHIRException("Cannot make property reason as it is not a complex type"); // StringType
-        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<SubscriptionStatus>
-        case 96784904: throw new FHIRException("Cannot make property error as it is not a complex type"); // StringType
-        case 738950403:  return getChannel(); // SubscriptionChannelComponent
-        case 100571: throw new FHIRException("Cannot make property end as it is not a complex type"); // InstantType
-        case 114586:  return addTag(); // Coding
+        case 1952046943:  return getCriteriaElement();
+        case 951526432:  return addContact(); 
+        case -934964668:  return getReasonElement();
+        case -892481550:  return getStatusElement();
+        case 96784904:  return getErrorElement();
+        case 738950403:  return getChannel(); 
+        case 100571:  return getEndElement();
+        case 114586:  return addTag(); 
         default: return super.makeProperty(hash, name);
         }
 

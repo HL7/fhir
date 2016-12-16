@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -1683,9 +1683,9 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
-        case 351608024: throw new FHIRException("Cannot make property version as it is not a complex type"); // StringType
-        case 212873301: throw new FHIRException("Cannot make property releaseDate as it is not a complex type"); // DateTimeType
+        case 3373707:  return getNameElement();
+        case 351608024:  return getVersionElement();
+        case 212873301:  return getReleaseDateElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -1919,8 +1919,8 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
-        case 116079: throw new FHIRException("Cannot make property url as it is not a complex type"); // UriType
+        case -1724546052:  return getDescriptionElement();
+        case 116079:  return getUrlElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -2529,14 +2529,14 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3357091: throw new FHIRException("Cannot make property mode as it is not a complex type"); // Enumeration<RestfulCapabilityMode>
-        case 1587405498: throw new FHIRException("Cannot make property documentation as it is not a complex type"); // StringType
-        case 949122880:  return getSecurity(); // CapabilityStatementRestSecurityComponent
-        case -341064690:  return addResource(); // CapabilityStatementRestResourceComponent
-        case 1844104722:  return addInteraction(); // SystemInteractionComponent
-        case -553645115:  return addSearchParam(); // CapabilityStatementRestResourceSearchParamComponent
-        case 1662702951:  return addOperation(); // CapabilityStatementRestOperationComponent
-        case -397756334: throw new FHIRException("Cannot make property compartment as it is not a complex type"); // UriType
+        case 3357091:  return getModeElement();
+        case 1587405498:  return getDocumentationElement();
+        case 949122880:  return getSecurity(); 
+        case -341064690:  return addResource(); 
+        case 1844104722:  return addInteraction(); 
+        case -553645115:  return addSearchParam(); 
+        case 1662702951:  return addOperation(); 
+        case -397756334:  return addCompartmentElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -2939,10 +2939,10 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3059629: throw new FHIRException("Cannot make property cors as it is not a complex type"); // BooleanType
-        case 1984153269:  return addService(); // CodeableConcept
-        case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
-        case 1952399767:  return addCertificate(); // CapabilityStatementRestSecurityCertificateComponent
+        case 3059629:  return getCorsElement();
+        case 1984153269:  return addService(); 
+        case -1724546052:  return getDescriptionElement();
+        case 1952399767:  return addCertificate(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -3183,8 +3183,8 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3575610: throw new FHIRException("Cannot make property type as it is not a complex type"); // CodeType
-        case 3026845: throw new FHIRException("Cannot make property blob as it is not a complex type"); // Base64BinaryType
+        case 3575610:  return getTypeElement();
+        case 3026845:  return getBlobElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -4263,21 +4263,21 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3575610: throw new FHIRException("Cannot make property type as it is not a complex type"); // CodeType
-        case -309425751:  return getProfile(); // Reference
-        case 1587405498: throw new FHIRException("Cannot make property documentation as it is not a complex type"); // MarkdownType
-        case 1844104722:  return addInteraction(); // ResourceInteractionComponent
-        case -670487542: throw new FHIRException("Cannot make property versioning as it is not a complex type"); // Enumeration<ResourceVersionPolicy>
-        case 187518494: throw new FHIRException("Cannot make property readHistory as it is not a complex type"); // BooleanType
-        case -1400550619: throw new FHIRException("Cannot make property updateCreate as it is not a complex type"); // BooleanType
-        case 6401826: throw new FHIRException("Cannot make property conditionalCreate as it is not a complex type"); // BooleanType
-        case 822786364: throw new FHIRException("Cannot make property conditionalRead as it is not a complex type"); // Enumeration<ConditionalReadStatus>
-        case 519849711: throw new FHIRException("Cannot make property conditionalUpdate as it is not a complex type"); // BooleanType
-        case 23237585: throw new FHIRException("Cannot make property conditionalDelete as it is not a complex type"); // Enumeration<ConditionalDeleteStatus>
-        case 796257373: throw new FHIRException("Cannot make property referencePolicy as it is not a complex type"); // Enumeration<ReferenceHandlingPolicy>
-        case -1035904544: throw new FHIRException("Cannot make property searchInclude as it is not a complex type"); // StringType
-        case -2123884979: throw new FHIRException("Cannot make property searchRevInclude as it is not a complex type"); // StringType
-        case -553645115:  return addSearchParam(); // CapabilityStatementRestResourceSearchParamComponent
+        case 3575610:  return getTypeElement();
+        case -309425751:  return getProfile(); 
+        case 1587405498:  return getDocumentationElement();
+        case 1844104722:  return addInteraction(); 
+        case -670487542:  return getVersioningElement();
+        case 187518494:  return getReadHistoryElement();
+        case -1400550619:  return getUpdateCreateElement();
+        case 6401826:  return getConditionalCreateElement();
+        case 822786364:  return getConditionalReadElement();
+        case 519849711:  return getConditionalUpdateElement();
+        case 23237585:  return getConditionalDeleteElement();
+        case 796257373:  return addReferencePolicyElement();
+        case -1035904544:  return addSearchIncludeElement();
+        case -2123884979:  return addSearchRevIncludeElement();
+        case -553645115:  return addSearchParam(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -4593,8 +4593,8 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3059181: throw new FHIRException("Cannot make property code as it is not a complex type"); // Enumeration<TypeRestfulInteraction>
-        case 1587405498: throw new FHIRException("Cannot make property documentation as it is not a complex type"); // StringType
+        case 3059181:  return getCodeElement();
+        case 1587405498:  return getDocumentationElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -4945,10 +4945,10 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
-        case -1014418093: throw new FHIRException("Cannot make property definition as it is not a complex type"); // UriType
-        case 3575610: throw new FHIRException("Cannot make property type as it is not a complex type"); // Enumeration<SearchParamType>
-        case 1587405498: throw new FHIRException("Cannot make property documentation as it is not a complex type"); // StringType
+        case 3373707:  return getNameElement();
+        case -1014418093:  return getDefinitionElement();
+        case 3575610:  return getTypeElement();
+        case 1587405498:  return getDocumentationElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -5187,8 +5187,8 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3059181: throw new FHIRException("Cannot make property code as it is not a complex type"); // Enumeration<SystemRestfulInteraction>
-        case 1587405498: throw new FHIRException("Cannot make property documentation as it is not a complex type"); // StringType
+        case 3059181:  return getCodeElement();
+        case 1587405498:  return getDocumentationElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -5416,8 +5416,8 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
-        case -1014418093:  return getDefinition(); // Reference
+        case 3373707:  return getNameElement();
+        case -1014418093:  return getDefinition(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -5771,10 +5771,10 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 1741102485:  return addEndpoint(); // CapabilityStatementMessagingEndpointComponent
-        case 897803608: throw new FHIRException("Cannot make property reliableCache as it is not a complex type"); // UnsignedIntType
-        case 1587405498: throw new FHIRException("Cannot make property documentation as it is not a complex type"); // StringType
-        case 96891546:  return addEvent(); // CapabilityStatementMessagingEventComponent
+        case 1741102485:  return addEndpoint(); 
+        case 897803608:  return getReliableCacheElement();
+        case 1587405498:  return getDocumentationElement();
+        case 96891546:  return addEvent(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -5997,8 +5997,8 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -989163880:  return getProtocol(); // Coding
-        case -1147692044: throw new FHIRException("Cannot make property address as it is not a complex type"); // UriType
+        case -989163880:  return getProtocol(); 
+        case -1147692044:  return getAddressElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -6520,13 +6520,13 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3059181:  return getCode(); // Coding
-        case 50511102: throw new FHIRException("Cannot make property category as it is not a complex type"); // Enumeration<MessageSignificanceCategory>
-        case 3357091: throw new FHIRException("Cannot make property mode as it is not a complex type"); // Enumeration<EventCapabilityMode>
-        case 97604824: throw new FHIRException("Cannot make property focus as it is not a complex type"); // CodeType
-        case 1095692943:  return getRequest(); // Reference
-        case -340323263:  return getResponse(); // Reference
-        case 1587405498: throw new FHIRException("Cannot make property documentation as it is not a complex type"); // StringType
+        case 3059181:  return getCode(); 
+        case 50511102:  return getCategoryElement();
+        case 3357091:  return getModeElement();
+        case 97604824:  return getFocusElement();
+        case 1095692943:  return getRequest(); 
+        case -340323263:  return getResponse(); 
+        case 1587405498:  return getDocumentationElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -6845,9 +6845,9 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3357091: throw new FHIRException("Cannot make property mode as it is not a complex type"); // Enumeration<DocumentMode>
-        case 1587405498: throw new FHIRException("Cannot make property documentation as it is not a complex type"); // StringType
-        case -309425751:  return getProfile(); // Reference
+        case 3357091:  return getModeElement();
+        case 1587405498:  return getDocumentationElement();
+        case -309425751:  return getProfile(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -8609,33 +8609,33 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 116079: throw new FHIRException("Cannot make property url as it is not a complex type"); // UriType
-        case 351608024: throw new FHIRException("Cannot make property version as it is not a complex type"); // StringType
-        case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
-        case 110371416: throw new FHIRException("Cannot make property title as it is not a complex type"); // StringType
-        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<PublicationStatus>
-        case -404562712: throw new FHIRException("Cannot make property experimental as it is not a complex type"); // BooleanType
-        case 3076014: throw new FHIRException("Cannot make property date as it is not a complex type"); // DateTimeType
-        case 1447404028: throw new FHIRException("Cannot make property publisher as it is not a complex type"); // StringType
-        case 951526432:  return addContact(); // ContactDetail
-        case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // MarkdownType
-        case -669707736:  return addUseContext(); // UsageContext
-        case -507075711:  return addJurisdiction(); // CodeableConcept
-        case -220463842: throw new FHIRException("Cannot make property purpose as it is not a complex type"); // MarkdownType
-        case 1522889671: throw new FHIRException("Cannot make property copyright as it is not a complex type"); // MarkdownType
-        case 3292052: throw new FHIRException("Cannot make property kind as it is not a complex type"); // Enumeration<CapabilityStatementKind>
-        case -246883639: throw new FHIRException("Cannot make property instantiates as it is not a complex type"); // UriType
-        case 1319330215:  return getSoftware(); // CapabilityStatementSoftwareComponent
-        case 1683336114:  return getImplementation(); // CapabilityStatementImplementationComponent
-        case 461006061: throw new FHIRException("Cannot make property fhirVersion as it is not a complex type"); // IdType
-        case -1862642142: throw new FHIRException("Cannot make property acceptUnknown as it is not a complex type"); // Enumeration<UnknownContentCode>
-        case -1268779017: throw new FHIRException("Cannot make property format as it is not a complex type"); // CodeType
-        case 172338783: throw new FHIRException("Cannot make property patchFormat as it is not a complex type"); // CodeType
-        case 156966506: throw new FHIRException("Cannot make property implementationGuide as it is not a complex type"); // UriType
-        case -309425751:  return addProfile(); // Reference
-        case 3496916:  return addRest(); // CapabilityStatementRestComponent
-        case -1440008444:  return addMessaging(); // CapabilityStatementMessagingComponent
-        case 861720859:  return addDocument(); // CapabilityStatementDocumentComponent
+        case 116079:  return getUrlElement();
+        case 351608024:  return getVersionElement();
+        case 3373707:  return getNameElement();
+        case 110371416:  return getTitleElement();
+        case -892481550:  return getStatusElement();
+        case -404562712:  return getExperimentalElement();
+        case 3076014:  return getDateElement();
+        case 1447404028:  return getPublisherElement();
+        case 951526432:  return addContact(); 
+        case -1724546052:  return getDescriptionElement();
+        case -669707736:  return addUseContext(); 
+        case -507075711:  return addJurisdiction(); 
+        case -220463842:  return getPurposeElement();
+        case 1522889671:  return getCopyrightElement();
+        case 3292052:  return getKindElement();
+        case -246883639:  return addInstantiatesElement();
+        case 1319330215:  return getSoftware(); 
+        case 1683336114:  return getImplementation(); 
+        case 461006061:  return getFhirVersionElement();
+        case -1862642142:  return getAcceptUnknownElement();
+        case -1268779017:  return addFormatElement();
+        case 172338783:  return addPatchFormatElement();
+        case 156966506:  return addImplementationGuideElement();
+        case -309425751:  return addProfile(); 
+        case 3496916:  return addRest(); 
+        case -1440008444:  return addMessaging(); 
+        case 861720859:  return addDocument(); 
         default: return super.makeProperty(hash, name);
         }
 

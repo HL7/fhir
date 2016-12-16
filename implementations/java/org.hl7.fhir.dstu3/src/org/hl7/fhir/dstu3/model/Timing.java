@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -1808,21 +1808,21 @@ public class Timing extends Type implements ICompositeType {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1149635157:  return getBounds(); // Type
-        case 94851343: throw new FHIRException("Cannot make property count as it is not a complex type"); // IntegerType
-        case -372044331: throw new FHIRException("Cannot make property countMax as it is not a complex type"); // IntegerType
-        case -1992012396: throw new FHIRException("Cannot make property duration as it is not a complex type"); // DecimalType
-        case -478083280: throw new FHIRException("Cannot make property durationMax as it is not a complex type"); // DecimalType
-        case -1935429320: throw new FHIRException("Cannot make property durationUnit as it is not a complex type"); // Enumeration<UnitsOfTime>
-        case -70023844: throw new FHIRException("Cannot make property frequency as it is not a complex type"); // IntegerType
-        case 1273846376: throw new FHIRException("Cannot make property frequencyMax as it is not a complex type"); // IntegerType
-        case -991726143: throw new FHIRException("Cannot make property period as it is not a complex type"); // DecimalType
-        case 566580195: throw new FHIRException("Cannot make property periodMax as it is not a complex type"); // DecimalType
-        case 384367333: throw new FHIRException("Cannot make property periodUnit as it is not a complex type"); // Enumeration<UnitsOfTime>
-        case -730552025: throw new FHIRException("Cannot make property dayOfWeek as it is not a complex type"); // Enumeration<DayOfWeek>
-        case 21434232: throw new FHIRException("Cannot make property timeOfDay as it is not a complex type"); // TimeType
-        case 3648314: throw new FHIRException("Cannot make property when as it is not a complex type"); // Enumeration<EventTiming>
-        case -1019779949: throw new FHIRException("Cannot make property offset as it is not a complex type"); // UnsignedIntType
+        case -1149635157:  return getBounds(); 
+        case 94851343:  return getCountElement();
+        case -372044331:  return getCountMaxElement();
+        case -1992012396:  return getDurationElement();
+        case -478083280:  return getDurationMaxElement();
+        case -1935429320:  return getDurationUnitElement();
+        case -70023844:  return getFrequencyElement();
+        case 1273846376:  return getFrequencyMaxElement();
+        case -991726143:  return getPeriodElement();
+        case 566580195:  return getPeriodMaxElement();
+        case 384367333:  return getPeriodUnitElement();
+        case -730552025:  return addDayOfWeekElement();
+        case 21434232:  return addTimeOfDayElement();
+        case 3648314:  return getWhenElement();
+        case -1019779949:  return getOffsetElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -2150,9 +2150,9 @@ public class Timing extends Type implements ICompositeType {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 96891546: throw new FHIRException("Cannot make property event as it is not a complex type"); // DateTimeType
-        case -934531685:  return getRepeat(); // TimingRepeatComponent
-        case 3059181:  return getCode(); // CodeableConcept
+        case 96891546:  return addEventElement();
+        case -934531685:  return getRepeat(); 
+        case 3059181:  return getCode(); 
         default: return super.makeProperty(hash, name);
         }
 

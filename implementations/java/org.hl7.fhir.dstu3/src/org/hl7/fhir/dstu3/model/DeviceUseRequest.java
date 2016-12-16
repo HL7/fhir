@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -1579,26 +1579,26 @@ public class DeviceUseRequest extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1618432855:  return addIdentifier(); // Identifier
-        case -1014418093:  return addDefinition(); // Reference
-        case -332612366:  return addBasedOn(); // Reference
-        case -430332865:  return addReplaces(); // Reference
-        case 395923612:  return getRequisition(); // Identifier
-        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<DeviceUseRequestStatus>
-        case 109757182:  return getStage(); // CodeableConcept
-        case 25206378:  return getDevice(); // Type
-        case -1867885268:  return getSubject(); // Reference
-        case 951530927:  return getContext(); // Reference
-        case -2022646513:  return getOccurrence(); // Type
-        case 1433073514: throw new FHIRException("Cannot make property authored as it is not a complex type"); // DateTimeType
-        case 693933948:  return getRequester(); // Reference
-        case -901444568:  return getPerformerType(); // CodeableConcept
-        case 481140686:  return getPerformer(); // Reference
-        case 722137681:  return addReasonCode(); // CodeableConcept
-        case -1146218137:  return addReasonReference(); // Reference
-        case 1922406657:  return addSupportingInfo(); // Reference
-        case 3387378:  return addNote(); // Annotation
-        case 1538891575:  return addRelevantHistory(); // Reference
+        case -1618432855:  return addIdentifier(); 
+        case -1014418093:  return addDefinition(); 
+        case -332612366:  return addBasedOn(); 
+        case -430332865:  return addReplaces(); 
+        case 395923612:  return getRequisition(); 
+        case -892481550:  return getStatusElement();
+        case 109757182:  return getStage(); 
+        case 25206378:  return getDevice(); 
+        case -1867885268:  return getSubject(); 
+        case 951530927:  return getContext(); 
+        case -2022646513:  return getOccurrence(); 
+        case 1433073514:  return getAuthoredElement();
+        case 693933948:  return getRequester(); 
+        case -901444568:  return getPerformerType(); 
+        case 481140686:  return getPerformer(); 
+        case 722137681:  return addReasonCode(); 
+        case -1146218137:  return addReasonReference(); 
+        case 1922406657:  return addSupportingInfo(); 
+        case 3387378:  return addNote(); 
+        case 1538891575:  return addRelevantHistory(); 
         default: return super.makeProperty(hash, name);
         }
 

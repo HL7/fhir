@@ -1081,6 +1081,18 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
        throw new Exception("No R2/R3 map exitss for "+name);
     String n = name.toLowerCase();
     String status = r2r3ini.getStringProperty("status", name);
+    if (Utilities.noString(status)) {
+      int t = 0;
+      int e = 0;
+      for (String s : r2r3ini.getPropertyNames("outcomes-"+name)) {
+        String v = r2r3ini.getStringProperty("outcomes-"+name, s);
+        t++;
+        if (s.startsWith("error"))
+          e++;
+      }
+      if (t > 0)
+        status = "Passing "+Integer.toString(t-e)+" of "+Integer.toString(t)+" tests";
+    }     
     if (Utilities.noString(status))
       status = "unknown";
     String fwds = TextFile.fileToString(Utilities.path(folders.rootDir, "implementations", "r2maps", "R2toR3",  name+".map"));

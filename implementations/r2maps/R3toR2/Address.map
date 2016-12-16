@@ -1,12 +1,17 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Address3to2" = "R3 to R2 Conversion for Address"
 
-uses "http://hl7.org/fhir/StructureDefinition/AddressR2" as source
-uses "http://hl7.org/fhir/StructureDefinition/Address" as target
+
+uses "http://hl7.org/fhir/StructureDefinition/Address" alias Address as source
+uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Address" alias AddressR2 as target
+
+imports "http://hl7.org/fhir/StructureMap/primitives3to2"
+imports "http://hl7.org/fhir/StructureMap/Period3to2"
+
 
 
 group Address extends Element
   input src : Address as source
-  input tgt : AddressR2 as Target
+  input tgt : AddressR2 as target
   "Address-use" : for src.use as vs make tgt.use as vt then code(vs, vt)
   "Address-type" : for src.type as vs make tgt.type as vt then code(vs, vt)
   "Address-text" : for src.text as vs make tgt.text as vt then string(vs, vt)

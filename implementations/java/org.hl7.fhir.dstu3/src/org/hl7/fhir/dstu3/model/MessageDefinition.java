@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -449,10 +449,10 @@ public class MessageDefinition extends MetadataResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3059181: throw new FHIRException("Cannot make property code as it is not a complex type"); // CodeType
-        case -309425751:  return getProfile(); // Reference
-        case 108114: throw new FHIRException("Cannot make property min as it is not a complex type"); // UnsignedIntType
-        case 107876: throw new FHIRException("Cannot make property max as it is not a complex type"); // StringType
+        case 3059181:  return getCodeElement();
+        case -309425751:  return getProfile(); 
+        case 108114:  return getMinElement();
+        case 107876:  return getMaxElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -695,8 +695,8 @@ public class MessageDefinition extends MetadataResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 954925063:  return getMessage(); // Reference
-        case -73377282: throw new FHIRException("Cannot make property situation as it is not a complex type"); // MarkdownType
+        case 954925063:  return getMessage(); 
+        case -73377282:  return getSituationElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -2135,28 +2135,28 @@ public class MessageDefinition extends MetadataResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 116079: throw new FHIRException("Cannot make property url as it is not a complex type"); // UriType
-        case 351608024: throw new FHIRException("Cannot make property version as it is not a complex type"); // StringType
-        case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
-        case 110371416: throw new FHIRException("Cannot make property title as it is not a complex type"); // StringType
-        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<PublicationStatus>
-        case -404562712: throw new FHIRException("Cannot make property experimental as it is not a complex type"); // BooleanType
-        case 3076014: throw new FHIRException("Cannot make property date as it is not a complex type"); // DateTimeType
-        case 1447404028: throw new FHIRException("Cannot make property publisher as it is not a complex type"); // StringType
-        case 951526432:  return addContact(); // ContactDetail
-        case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // MarkdownType
-        case -669707736:  return addUseContext(); // UsageContext
-        case -507075711:  return addJurisdiction(); // CodeableConcept
-        case -220463842: throw new FHIRException("Cannot make property purpose as it is not a complex type"); // MarkdownType
-        case 1522889671: throw new FHIRException("Cannot make property copyright as it is not a complex type"); // MarkdownType
-        case 3016401:  return getBase(); // Reference
-        case -995424086:  return addParent(); // Reference
-        case -430332865:  return addReplaces(); // Reference
-        case 96891546:  return getEvent(); // Coding
-        case 50511102: throw new FHIRException("Cannot make property category as it is not a complex type"); // Enumeration<MessageSignificanceCategory>
-        case 97604824:  return addFocus(); // MessageDefinitionFocusComponent
-        case 791597824: throw new FHIRException("Cannot make property responseRequired as it is not a complex type"); // BooleanType
-        case -1130933751:  return addAllowedResponse(); // MessageDefinitionAllowedResponseComponent
+        case 116079:  return getUrlElement();
+        case 351608024:  return getVersionElement();
+        case 3373707:  return getNameElement();
+        case 110371416:  return getTitleElement();
+        case -892481550:  return getStatusElement();
+        case -404562712:  return getExperimentalElement();
+        case 3076014:  return getDateElement();
+        case 1447404028:  return getPublisherElement();
+        case 951526432:  return addContact(); 
+        case -1724546052:  return getDescriptionElement();
+        case -669707736:  return addUseContext(); 
+        case -507075711:  return addJurisdiction(); 
+        case -220463842:  return getPurposeElement();
+        case 1522889671:  return getCopyrightElement();
+        case 3016401:  return getBase(); 
+        case -995424086:  return addParent(); 
+        case -430332865:  return addReplaces(); 
+        case 96891546:  return getEvent(); 
+        case 50511102:  return getCategoryElement();
+        case 97604824:  return addFocus(); 
+        case 791597824:  return getResponseRequiredElement();
+        case -1130933751:  return addAllowedResponse(); 
         default: return super.makeProperty(hash, name);
         }
 

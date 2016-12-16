@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -519,10 +519,10 @@ public class PractitionerRole extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 68050338: throw new FHIRException("Cannot make property daysOfWeek as it is not a complex type"); // Enumeration<DaysOfWeek>
-        case -1414913477: throw new FHIRException("Cannot make property allDay as it is not a complex type"); // BooleanType
-        case -1039453818: throw new FHIRException("Cannot make property availableStartTime as it is not a complex type"); // TimeType
-        case 101151551: throw new FHIRException("Cannot make property availableEndTime as it is not a complex type"); // TimeType
+        case 68050338:  return addDaysOfWeekElement();
+        case -1414913477:  return getAllDayElement();
+        case -1039453818:  return getAvailableStartTimeElement();
+        case 101151551:  return getAvailableEndTimeElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -739,8 +739,8 @@ public class PractitionerRole extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
-        case -1320499647:  return getDuring(); // Period
+        case -1724546052:  return getDescriptionElement();
+        case -1320499647:  return getDuring(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -1808,20 +1808,20 @@ public class PractitionerRole extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1618432855:  return addIdentifier(); // Identifier
-        case -1422950650: throw new FHIRException("Cannot make property active as it is not a complex type"); // BooleanType
-        case 574573338:  return getPractitioner(); // Reference
-        case 1178922291:  return getOrganization(); // Reference
-        case 3059181:  return addCode(); // CodeableConcept
-        case -1694759682:  return addSpecialty(); // CodeableConcept
-        case 1901043637:  return addLocation(); // Reference
-        case 1289661064:  return addHealthcareService(); // Reference
-        case -1429363305:  return addTelecom(); // ContactPoint
-        case -991726143:  return getPeriod(); // Period
-        case 1873069366:  return addAvailableTime(); // PractitionerRoleAvailableTimeComponent
-        case -629572298:  return addNotAvailable(); // PractitionerRoleNotAvailableComponent
-        case -1149143617: throw new FHIRException("Cannot make property availabilityExceptions as it is not a complex type"); // StringType
-        case 1741102485:  return addEndpoint(); // Reference
+        case -1618432855:  return addIdentifier(); 
+        case -1422950650:  return getActiveElement();
+        case 574573338:  return getPractitioner(); 
+        case 1178922291:  return getOrganization(); 
+        case 3059181:  return addCode(); 
+        case -1694759682:  return addSpecialty(); 
+        case 1901043637:  return addLocation(); 
+        case 1289661064:  return addHealthcareService(); 
+        case -1429363305:  return addTelecom(); 
+        case -991726143:  return getPeriod(); 
+        case 1873069366:  return addAvailableTime(); 
+        case -629572298:  return addNotAvailable(); 
+        case -1149143617:  return getAvailabilityExceptionsElement();
+        case 1741102485:  return addEndpoint(); 
         default: return super.makeProperty(hash, name);
         }
 

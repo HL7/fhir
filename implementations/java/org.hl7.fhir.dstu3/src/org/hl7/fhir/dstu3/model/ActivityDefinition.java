@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -714,10 +714,10 @@ public class ActivityDefinition extends MetadataResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
-        case 3433509: throw new FHIRException("Cannot make property path as it is not a complex type"); // StringType
-        case -1613589672: throw new FHIRException("Cannot make property language as it is not a complex type"); // StringType
-        case -1795452264: throw new FHIRException("Cannot make property expression as it is not a complex type"); // StringType
+        case -1724546052:  return getDescriptionElement();
+        case 3433509:  return getPathElement();
+        case -1613589672:  return getLanguageElement();
+        case -1795452264:  return getExpressionElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -2884,40 +2884,40 @@ public class ActivityDefinition extends MetadataResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 116079: throw new FHIRException("Cannot make property url as it is not a complex type"); // UriType
-        case -1618432855:  return addIdentifier(); // Identifier
-        case 351608024: throw new FHIRException("Cannot make property version as it is not a complex type"); // StringType
-        case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
-        case 110371416: throw new FHIRException("Cannot make property title as it is not a complex type"); // StringType
-        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<PublicationStatus>
-        case -404562712: throw new FHIRException("Cannot make property experimental as it is not a complex type"); // BooleanType
-        case 3076014: throw new FHIRException("Cannot make property date as it is not a complex type"); // DateTimeType
-        case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // MarkdownType
-        case -220463842: throw new FHIRException("Cannot make property purpose as it is not a complex type"); // MarkdownType
-        case 111574433: throw new FHIRException("Cannot make property usage as it is not a complex type"); // StringType
-        case 223539345: throw new FHIRException("Cannot make property approvalDate as it is not a complex type"); // DateType
-        case -1687512484: throw new FHIRException("Cannot make property lastReviewDate as it is not a complex type"); // DateType
-        case -403934648:  return getEffectivePeriod(); // Period
-        case -669707736:  return addUseContext(); // UsageContext
-        case -507075711:  return addJurisdiction(); // CodeableConcept
-        case 110546223:  return addTopic(); // CodeableConcept
-        case -1895276325:  return addContributor(); // Contributor
-        case 1447404028: throw new FHIRException("Cannot make property publisher as it is not a complex type"); // StringType
-        case 951526432:  return addContact(); // ContactDetail
-        case 1522889671: throw new FHIRException("Cannot make property copyright as it is not a complex type"); // MarkdownType
-        case 666807069:  return addRelatedArtifact(); // RelatedArtifact
-        case 166208699:  return addLibrary(); // Reference
-        case 50511102: throw new FHIRException("Cannot make property category as it is not a complex type"); // Enumeration<ActivityDefinitionCategory>
-        case 3059181:  return getCode(); // CodeableConcept
-        case 164632566:  return getTiming(); // Type
-        case 1901043637:  return getLocation(); // Reference
-        case 841294093: throw new FHIRException("Cannot make property participantType as it is not a complex type"); // Enumeration<ActivityParticipantType>
-        case 1753005361:  return getProduct(); // Type
-        case -1285004149:  return getQuantity(); // SimpleQuantity
-        case -1201373865:  return addDosageInstruction(); // DosageInstruction
-        case 1702620169:  return addBodySite(); // CodeableConcept
-        case 1052666732:  return getTransform(); // Reference
-        case 572625010:  return addDynamicValue(); // ActivityDefinitionDynamicValueComponent
+        case 116079:  return getUrlElement();
+        case -1618432855:  return addIdentifier(); 
+        case 351608024:  return getVersionElement();
+        case 3373707:  return getNameElement();
+        case 110371416:  return getTitleElement();
+        case -892481550:  return getStatusElement();
+        case -404562712:  return getExperimentalElement();
+        case 3076014:  return getDateElement();
+        case -1724546052:  return getDescriptionElement();
+        case -220463842:  return getPurposeElement();
+        case 111574433:  return getUsageElement();
+        case 223539345:  return getApprovalDateElement();
+        case -1687512484:  return getLastReviewDateElement();
+        case -403934648:  return getEffectivePeriod(); 
+        case -669707736:  return addUseContext(); 
+        case -507075711:  return addJurisdiction(); 
+        case 110546223:  return addTopic(); 
+        case -1895276325:  return addContributor(); 
+        case 1447404028:  return getPublisherElement();
+        case 951526432:  return addContact(); 
+        case 1522889671:  return getCopyrightElement();
+        case 666807069:  return addRelatedArtifact(); 
+        case 166208699:  return addLibrary(); 
+        case 50511102:  return getCategoryElement();
+        case 3059181:  return getCode(); 
+        case 164632566:  return getTiming(); 
+        case 1901043637:  return getLocation(); 
+        case 841294093:  return addParticipantTypeElement();
+        case 1753005361:  return getProduct(); 
+        case -1285004149:  return getQuantity(); 
+        case -1201373865:  return addDosageInstruction(); 
+        case 1702620169:  return addBodySite(); 
+        case 1052666732:  return getTransform(); 
+        case 572625010:  return addDynamicValue(); 
         default: return super.makeProperty(hash, name);
         }
 

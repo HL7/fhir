@@ -1,7 +1,5 @@
 ﻿map "http://hl7.org/fhir/StructureMap/AllergyIntolerance2to3" = "R2 to R3 Conversions for AllergyIntolerance"
 
-uses "http://hl7.org/fhir/StructureDefinition/AllergyIntolerance" as source
-uses "http://hl7.org/fhir/StructureDefinition/AllergyIntoleranceR2" as target
 conceptmap "AllergyIntoleranceVerificationStatus" {
   prefix s = "http://hl7.org/fhir/allergy-intolerance-status"
   prefix t = "http://hl7.org/fhir/allergy-verification-status"
@@ -21,10 +19,20 @@ conceptmap "AllergyIntoleranceCriticality" {
   s:CRITL ~ t:low
 }
 
+uses "http://hl7.org/fhir/DSTU2/StructureDefinition/AllergyIntolerance" alias AllergyIntoleranceR2 as source
+uses "http://hl7.org/fhir/StructureDefinition/AllergyIntolerance" alias AllergyIntolerance as target
+
+imports "http://hl7.org/fhir/StructureMap/primitives2to3"
+imports "http://hl7.org/fhir/StructureMap/Identifier2to3"
+imports "http://hl7.org/fhir/StructureMap/Reference2to3"
+imports "http://hl7.org/fhir/StructureMap/Annotation2to3"
+imports "http://hl7.org/fhir/StructureMap/CodeableConcept2to3"
+
+
 
 group AllergyIntolerance extends Element
   input src : AllergyIntoleranceR2 as source
-  input tgt : AllergyIntolerance as Target
+  input tgt : AllergyIntolerance as target
 
   "AllergyIntolerance-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
   "AllergyIntolerance-clinicalStatus" : for src.status as vs make tgt.clinicalStatus as vt then code(vs, vt)
@@ -38,7 +46,7 @@ group AllergyIntolerance extends Element
   "AllergyIntolerance-asserter" : for src.reporter as vs make tgt.asserter as vt then Reference(vs,vt)
   "AllergyIntolerance-lastOccurrence" : for src.lastOccurence as vs make tgt.lastOccurrence as vt then dateTime(vs, vt)
   "AllergyIntolerance-note" : for src.note as vs make tgt.note as vt then Annotation(vs,vt)
-  "AllergyIntolerance-reaction" : for src.reaction as vs0 make tgt.reaction = as vt0 then {
+  "AllergyIntolerance-reaction" : for src.reaction as vs0 make tgt.reaction as vt0 then {
     "AllergyIntolerance.reaction-substance" : for vs0.substance as vs make vt0.substance as vt then CodeableConcept(vs,vt)
     "AllergyIntolerance.reaction-certainty" : for vs0.certainty as vs make vt0.certainty as vt then code(vs, vt)
     "AllergyIntolerance.reaction-manifestation" : for vs0.manifestation as vs make vt0.manifestation as vt then CodeableConcept(vs,vt)

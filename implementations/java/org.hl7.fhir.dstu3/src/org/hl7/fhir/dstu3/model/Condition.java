@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -501,8 +501,8 @@ public class Condition extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1857640538:  return getSummary(); // CodeableConcept
-        case 2119382722:  return addAssessment(); // Reference
+        case -1857640538:  return getSummary(); 
+        case 2119382722:  return addAssessment(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -725,8 +725,8 @@ public class Condition extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3059181:  return getCode(); // CodeableConcept
-        case -1335224239:  return addDetail(); // Reference
+        case 3059181:  return getCode(); 
+        case -1335224239:  return addDetail(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -1862,22 +1862,22 @@ public class Condition extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1618432855:  return addIdentifier(); // Identifier
-        case -462853915: throw new FHIRException("Cannot make property clinicalStatus as it is not a complex type"); // Enumeration<ConditionClinicalStatus>
-        case -842509843: throw new FHIRException("Cannot make property verificationStatus as it is not a complex type"); // Enumeration<ConditionVerificationStatus>
-        case 50511102:  return addCategory(); // CodeableConcept
-        case 1478300413:  return getSeverity(); // CodeableConcept
-        case 3059181:  return getCode(); // CodeableConcept
-        case 1702620169:  return addBodySite(); // CodeableConcept
-        case -1867885268:  return getSubject(); // Reference
-        case 951530927:  return getContext(); // Reference
-        case -1886216323:  return getOnset(); // Type
-        case -584196495:  return getAbatement(); // Type
-        case -174231629: throw new FHIRException("Cannot make property assertedDate as it is not a complex type"); // DateType
-        case -373242253:  return getAsserter(); // Reference
-        case 109757182:  return getStage(); // ConditionStageComponent
-        case 382967383:  return addEvidence(); // ConditionEvidenceComponent
-        case 3387378:  return addNote(); // Annotation
+        case -1618432855:  return addIdentifier(); 
+        case -462853915:  return getClinicalStatusElement();
+        case -842509843:  return getVerificationStatusElement();
+        case 50511102:  return addCategory(); 
+        case 1478300413:  return getSeverity(); 
+        case 3059181:  return getCode(); 
+        case 1702620169:  return addBodySite(); 
+        case -1867885268:  return getSubject(); 
+        case 951530927:  return getContext(); 
+        case -1886216323:  return getOnset(); 
+        case -584196495:  return getAbatement(); 
+        case -174231629:  return getAssertedDateElement();
+        case -373242253:  return getAsserter(); 
+        case 109757182:  return getStage(); 
+        case 382967383:  return addEvidence(); 
+        case 3387378:  return addNote(); 
         default: return super.makeProperty(hash, name);
         }
 

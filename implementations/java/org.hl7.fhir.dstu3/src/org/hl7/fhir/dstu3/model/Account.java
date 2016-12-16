@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -357,9 +357,9 @@ public class Account extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 106437350:  return getParty(); // Reference
-        case -1013289154: throw new FHIRException("Cannot make property onHold as it is not a complex type"); // BooleanType
-        case -991726143:  return getPeriod(); // Period
+        case 106437350:  return getParty(); 
+        case -1013289154:  return getOnHoldElement();
+        case -991726143:  return getPeriod(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -1199,19 +1199,19 @@ A coverage may only be resposible for specific types of charges, and the sequenc
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1618432855:  return addIdentifier(); // Identifier
-        case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
-        case 3575610:  return getType(); // CodeableConcept
-        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<AccountStatus>
-        case -1422950650:  return getActive(); // Period
-        case 575402001:  return getCurrency(); // Coding
-        case -339185956:  return getBalance(); // Money
-        case -351767064:  return addCoverage(); // Reference
-        case 1024117193:  return getCoveragePeriod(); // Period
-        case -1867885268:  return getSubject(); // Reference
-        case 106164915:  return getOwner(); // Reference
-        case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
-        case -188629045:  return addGuarantor(); // GuarantorComponent
+        case -1618432855:  return addIdentifier(); 
+        case 3373707:  return getNameElement();
+        case 3575610:  return getType(); 
+        case -892481550:  return getStatusElement();
+        case -1422950650:  return getActive(); 
+        case 575402001:  return getCurrency(); 
+        case -339185956:  return getBalance(); 
+        case -351767064:  return addCoverage(); 
+        case 1024117193:  return getCoveragePeriod(); 
+        case -1867885268:  return getSubject(); 
+        case 106164915:  return getOwner(); 
+        case -1724546052:  return getDescriptionElement();
+        case -188629045:  return addGuarantor(); 
         default: return super.makeProperty(hash, name);
         }
 

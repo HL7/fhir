@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -571,13 +571,13 @@ public class Patient extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -261851592:  return addRelationship(); // CodeableConcept
-        case 3373707:  return getName(); // HumanName
-        case -1429363305:  return addTelecom(); // ContactPoint
-        case -1147692044:  return getAddress(); // Address
-        case -1249512767: throw new FHIRException("Cannot make property gender as it is not a complex type"); // Enumeration<AdministrativeGender>
-        case 1178922291:  return getOrganization(); // Reference
-        case -991726143:  return getPeriod(); // Period
+        case -261851592:  return addRelationship(); 
+        case 3373707:  return getName(); 
+        case -1429363305:  return addTelecom(); 
+        case -1147692044:  return getAddress(); 
+        case -1249512767:  return getGenderElement();
+        case 1178922291:  return getOrganization(); 
+        case -991726143:  return getPeriod(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -834,9 +834,9 @@ public class Patient extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -2008465092:  return getSpecies(); // CodeableConcept
-        case 94001524:  return getBreed(); // CodeableConcept
-        case -678569453:  return getGenderStatus(); // CodeableConcept
+        case -2008465092:  return getSpecies(); 
+        case 94001524:  return getBreed(); 
+        case -678569453:  return getGenderStatus(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -1048,8 +1048,8 @@ public class Patient extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1613589672:  return getLanguage(); // CodeableConcept
-        case -1294005119: throw new FHIRException("Cannot make property preferred as it is not a complex type"); // BooleanType
+        case -1613589672:  return getLanguage(); 
+        case -1294005119:  return getPreferredElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -1274,8 +1274,8 @@ public class Patient extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 106069776:  return getOther(); // Reference
-        case 3575610: throw new FHIRException("Cannot make property type as it is not a complex type"); // Enumeration<LinkType>
+        case 106069776:  return getOther(); 
+        case 3575610:  return getTypeElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -2433,23 +2433,23 @@ public class Patient extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1618432855:  return addIdentifier(); // Identifier
-        case -1422950650: throw new FHIRException("Cannot make property active as it is not a complex type"); // BooleanType
-        case 3373707:  return addName(); // HumanName
-        case -1429363305:  return addTelecom(); // ContactPoint
-        case -1249512767: throw new FHIRException("Cannot make property gender as it is not a complex type"); // Enumeration<AdministrativeGender>
-        case -1210031859: throw new FHIRException("Cannot make property birthDate as it is not a complex type"); // DateType
-        case -1311442804:  return getDeceased(); // Type
-        case -1147692044:  return addAddress(); // Address
-        case 1756919302:  return getMaritalStatus(); // CodeableConcept
-        case -1764672111:  return getMultipleBirth(); // Type
-        case 106642994:  return addPhoto(); // Attachment
-        case 951526432:  return addContact(); // ContactComponent
-        case -1413116420:  return getAnimal(); // AnimalComponent
-        case -1035284522:  return addCommunication(); // PatientCommunicationComponent
-        case 1488292898:  return addGeneralPractitioner(); // Reference
-        case -2058947787:  return getManagingOrganization(); // Reference
-        case 3321850:  return addLink(); // PatientLinkComponent
+        case -1618432855:  return addIdentifier(); 
+        case -1422950650:  return getActiveElement();
+        case 3373707:  return addName(); 
+        case -1429363305:  return addTelecom(); 
+        case -1249512767:  return getGenderElement();
+        case -1210031859:  return getBirthDateElement();
+        case -1311442804:  return getDeceased(); 
+        case -1147692044:  return addAddress(); 
+        case 1756919302:  return getMaritalStatus(); 
+        case -1764672111:  return getMultipleBirth(); 
+        case 106642994:  return addPhoto(); 
+        case 951526432:  return addContact(); 
+        case -1413116420:  return getAnimal(); 
+        case -1035284522:  return addCommunication(); 
+        case 1488292898:  return addGeneralPractitioner(); 
+        case -2058947787:  return getManagingOrganization(); 
+        case 3321850:  return addLink(); 
         default: return super.makeProperty(hash, name);
         }
 

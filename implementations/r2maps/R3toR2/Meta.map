@@ -1,12 +1,17 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Meta3to2" = "R3 to R2 Conversion for Meta"
 
-uses "http://hl7.org/fhir/StructureDefinition/MetaR2" as source
-uses "http://hl7.org/fhir/StructureDefinition/Meta" as target
+
+uses "http://hl7.org/fhir/StructureDefinition/Meta" alias Meta as source
+uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Meta" alias MetaR2 as target
+
+imports "http://hl7.org/fhir/StructureMap/primitives3to2"
+imports "http://hl7.org/fhir/StructureMap/Coding3to2"
+
 
 
 group Meta extends Element
   input src : Meta as source
-  input tgt : MetaR2 as Target
+  input tgt : MetaR2 as target
   "Meta-versionId" : for src.versionId as vs make tgt.versionId as vt then id(vs, vt)
   "Meta-lastUpdated" : for src.lastUpdated as vs make tgt.lastUpdated as vt then instant(vs, vt)
   "Meta-profile" : for src.profile as vs make tgt.profile as vt then uri(vs, vt)

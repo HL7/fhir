@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -966,18 +966,18 @@ public class Coverage extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 98629247: throw new FHIRException("Cannot make property group as it is not a complex type"); // StringType
-        case 1322335555: throw new FHIRException("Cannot make property groupDisplay as it is not a complex type"); // StringType
-        case -2101792737: throw new FHIRException("Cannot make property subGroup as it is not a complex type"); // StringType
-        case 1051914147: throw new FHIRException("Cannot make property subGroupDisplay as it is not a complex type"); // StringType
-        case 3443497: throw new FHIRException("Cannot make property plan as it is not a complex type"); // StringType
-        case -896076455: throw new FHIRException("Cannot make property planDisplay as it is not a complex type"); // StringType
-        case -1868653175: throw new FHIRException("Cannot make property subPlan as it is not a complex type"); // StringType
-        case -1736083719: throw new FHIRException("Cannot make property subPlanDisplay as it is not a complex type"); // StringType
-        case 94742904: throw new FHIRException("Cannot make property class as it is not a complex type"); // StringType
-        case 1707405354: throw new FHIRException("Cannot make property classDisplay as it is not a complex type"); // StringType
-        case -2105679080: throw new FHIRException("Cannot make property subClass as it is not a complex type"); // StringType
-        case 1436983946: throw new FHIRException("Cannot make property subClassDisplay as it is not a complex type"); // StringType
+        case 98629247:  return getGroupElement();
+        case 1322335555:  return getGroupDisplayElement();
+        case -2101792737:  return getSubGroupElement();
+        case 1051914147:  return getSubGroupDisplayElement();
+        case 3443497:  return getPlanElement();
+        case -896076455:  return getPlanDisplayElement();
+        case -1868653175:  return getSubPlanElement();
+        case -1736083719:  return getSubPlanDisplayElement();
+        case 94742904:  return getClass_Element();
+        case 1707405354:  return getClassDisplayElement();
+        case -2105679080:  return getSubClassElement();
+        case 1436983946:  return getSubClassDisplayElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -2073,22 +2073,22 @@ public class Coverage extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1618432855:  return addIdentifier(); // Identifier
-        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<CoverageStatus>
-        case 3575610:  return getType(); // CodeableConcept
-        case 2046898558:  return getPolicyHolder(); // Reference
-        case -1219769240:  return getSubscriber(); // Reference
-        case 327834531: throw new FHIRException("Cannot make property subscriberId as it is not a complex type"); // StringType
-        case -565102875:  return getBeneficiary(); // Reference
-        case -261851592:  return getRelationship(); // CodeableConcept
-        case -991726143:  return getPeriod(); // Period
-        case 106443915:  return addPayor(); // Reference
-        case 98629247:  return getGroup(); // GroupComponent
-        case -1109226753: throw new FHIRException("Cannot make property dependent as it is not a complex type"); // StringType
-        case 1349547969: throw new FHIRException("Cannot make property sequence as it is not a complex type"); // StringType
-        case 106006350: throw new FHIRException("Cannot make property order as it is not a complex type"); // PositiveIntType
-        case 1843485230: throw new FHIRException("Cannot make property network as it is not a complex type"); // StringType
-        case -566947566:  return addContract(); // Reference
+        case -1618432855:  return addIdentifier(); 
+        case -892481550:  return getStatusElement();
+        case 3575610:  return getType(); 
+        case 2046898558:  return getPolicyHolder(); 
+        case -1219769240:  return getSubscriber(); 
+        case 327834531:  return getSubscriberIdElement();
+        case -565102875:  return getBeneficiary(); 
+        case -261851592:  return getRelationship(); 
+        case -991726143:  return getPeriod(); 
+        case 106443915:  return addPayor(); 
+        case 98629247:  return getGroup(); 
+        case -1109226753:  return getDependentElement();
+        case 1349547969:  return getSequenceElement();
+        case 106006350:  return getOrderElement();
+        case 1843485230:  return getNetworkElement();
+        case -566947566:  return addContract(); 
         default: return super.makeProperty(hash, name);
         }
 

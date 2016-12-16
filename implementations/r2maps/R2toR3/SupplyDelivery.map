@@ -1,12 +1,21 @@
 ﻿map "http://hl7.org/fhir/StructureMap/SupplyDelivery2to3" = "R2 to R3 Conversions for SupplyDelivery"
 
-uses "http://hl7.org/fhir/StructureDefinition/SupplyDelivery" as source
-uses "http://hl7.org/fhir/StructureDefinition/SupplyDeliveryR2" as target
+
+uses "http://hl7.org/fhir/DSTU2/StructureDefinition/SupplyDelivery" alias SupplyDeliveryR2 as source
+uses "http://hl7.org/fhir/StructureDefinition/SupplyDelivery" alias SupplyDelivery as target
+
+imports "http://hl7.org/fhir/StructureMap/primitives2to3"
+imports "http://hl7.org/fhir/StructureMap/Identifier2to3"
+imports "http://hl7.org/fhir/StructureMap/Reference2to3"
+imports "http://hl7.org/fhir/StructureMap/Quantity2to3"
+imports "http://hl7.org/fhir/StructureMap/Period2to3"
+imports "http://hl7.org/fhir/StructureMap/CodeableConcept2to3"
+
 
 
 group SupplyDelivery extends Element
   input src : SupplyDeliveryR2 as source
-  input tgt : SupplyDelivery as Target
+  input tgt : SupplyDelivery as target
 
   "SupplyDelivery-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
   "SupplyDelivery-status" : for src.status as vs make tgt.status as vt then code(vs, vt)

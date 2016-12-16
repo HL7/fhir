@@ -2531,7 +2531,7 @@ public class VersionConvertor_10_20 {
     org.hl7.fhir.dstu3.model.AuditEvent tgt = new org.hl7.fhir.dstu3.model.AuditEvent();
     copyDomainResource(src, tgt);
     if (src.hasEvent()) {
-      tgt.setType(convertCoding(src.getEvent().getType()));
+      tgt.setType(convertCoding(src.getEvent().getType())); 
       for (org.hl7.fhir.dstu2.model.Coding t : src.getEvent().getSubtype())
         tgt.addSubtype(convertCoding(t));
       tgt.setAction(convertAuditEventAction(src.getEvent().getAction()));

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -1329,14 +1329,14 @@ public class AllergyIntolerance extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 530040176:  return getSubstance(); // CodeableConcept
-        case -1404142937: throw new FHIRException("Cannot make property certainty as it is not a complex type"); // Enumeration<AllergyIntoleranceCertainty>
-        case 1115984422:  return addManifestation(); // CodeableConcept
-        case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
-        case 105901603: throw new FHIRException("Cannot make property onset as it is not a complex type"); // DateTimeType
-        case 1478300413: throw new FHIRException("Cannot make property severity as it is not a complex type"); // Enumeration<AllergyIntoleranceSeverity>
-        case 421286274:  return getExposureRoute(); // CodeableConcept
-        case 3387378:  return addNote(); // Annotation
+        case 530040176:  return getSubstance(); 
+        case -1404142937:  return getCertaintyElement();
+        case 1115984422:  return addManifestation(); 
+        case -1724546052:  return getDescriptionElement();
+        case 105901603:  return getOnsetElement();
+        case 1478300413:  return getSeverityElement();
+        case 421286274:  return getExposureRoute(); 
+        case 3387378:  return addNote(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -2449,21 +2449,21 @@ public class AllergyIntolerance extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1618432855:  return addIdentifier(); // Identifier
-        case -462853915: throw new FHIRException("Cannot make property clinicalStatus as it is not a complex type"); // Enumeration<AllergyIntoleranceClinicalStatus>
-        case -842509843: throw new FHIRException("Cannot make property verificationStatus as it is not a complex type"); // Enumeration<AllergyIntoleranceVerificationStatus>
-        case 3575610: throw new FHIRException("Cannot make property type as it is not a complex type"); // Enumeration<AllergyIntoleranceType>
-        case 50511102: throw new FHIRException("Cannot make property category as it is not a complex type"); // Enumeration<AllergyIntoleranceCategory>
-        case -1608054609: throw new FHIRException("Cannot make property criticality as it is not a complex type"); // Enumeration<AllergyIntoleranceCriticality>
-        case 3059181:  return getCode(); // CodeableConcept
-        case -791418107:  return getPatient(); // Reference
-        case -1886216323:  return getOnset(); // Type
-        case -174231629: throw new FHIRException("Cannot make property assertedDate as it is not a complex type"); // DateTimeType
-        case -799233858:  return getRecorder(); // Reference
-        case -373242253:  return getAsserter(); // Reference
-        case 1896977671: throw new FHIRException("Cannot make property lastOccurrence as it is not a complex type"); // DateTimeType
-        case 3387378:  return addNote(); // Annotation
-        case -867509719:  return addReaction(); // AllergyIntoleranceReactionComponent
+        case -1618432855:  return addIdentifier(); 
+        case -462853915:  return getClinicalStatusElement();
+        case -842509843:  return getVerificationStatusElement();
+        case 3575610:  return getTypeElement();
+        case 50511102:  return addCategoryElement();
+        case -1608054609:  return getCriticalityElement();
+        case 3059181:  return getCode(); 
+        case -791418107:  return getPatient(); 
+        case -1886216323:  return getOnset(); 
+        case -174231629:  return getAssertedDateElement();
+        case -799233858:  return getRecorder(); 
+        case -373242253:  return getAsserter(); 
+        case 1896977671:  return getLastOccurrenceElement();
+        case 3387378:  return addNote(); 
+        case -867509719:  return addReaction(); 
         default: return super.makeProperty(hash, name);
         }
 

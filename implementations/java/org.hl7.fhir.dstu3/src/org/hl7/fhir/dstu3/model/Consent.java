@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -1019,15 +1019,15 @@ public class Consent extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3575610: throw new FHIRException("Cannot make property type as it is not a complex type"); // Enumeration<ConsentExceptType>
-        case -991726143:  return getPeriod(); // Period
-        case 92645877:  return addActor(); // ExceptActorComponent
-        case -1422950858:  return addAction(); // CodeableConcept
-        case -722296940:  return addSecurityLabel(); // Coding
-        case -220463842:  return addPurpose(); // Coding
-        case 94742904:  return addClass_(); // Coding
-        case 3059181:  return addCode(); // Coding
-        case 3076010:  return addData(); // ExceptDataComponent
+        case 3575610:  return getTypeElement();
+        case -991726143:  return getPeriod(); 
+        case 92645877:  return addActor(); 
+        case -1422950858:  return addAction(); 
+        case -722296940:  return addSecurityLabel(); 
+        case -220463842:  return addPurpose(); 
+        case 94742904:  return addClass_(); 
+        case 3059181:  return addCode(); 
+        case 3076010:  return addData(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -1291,8 +1291,8 @@ public class Consent extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3506294:  return getRole(); // CodeableConcept
-        case -925155509:  return getReference(); // Reference
+        case 3506294:  return getRole(); 
+        case -925155509:  return getReference(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -1518,8 +1518,8 @@ public class Consent extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 938160637: throw new FHIRException("Cannot make property meaning as it is not a complex type"); // Enumeration<ConsentDataMeaning>
-        case -925155509:  return getReference(); // Reference
+        case 938160637:  return getMeaningElement();
+        case -925155509:  return getReference(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -2448,19 +2448,19 @@ public class Consent extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1618432855:  return getIdentifier(); // Identifier
-        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<ConsentStatus>
-        case 50511102:  return addCategory(); // CodeableConcept
-        case 1792749467: throw new FHIRException("Cannot make property dateTime as it is not a complex type"); // DateTimeType
-        case -991726143:  return getPeriod(); // Period
-        case -791418107:  return getPatient(); // Reference
-        case -435736707:  return addConsentor(); // Reference
-        case 1178922291:  return getOrganization(); // Reference
-        case -1698413947:  return getSource(); // Type
-        case -982670030: throw new FHIRException("Cannot make property policy as it is not a complex type"); // UriType
-        case 820081177:  return addRecipient(); // Reference
-        case -220463842:  return addPurpose(); // Coding
-        case -1289550567:  return addExcept(); // ExceptComponent
+        case -1618432855:  return getIdentifier(); 
+        case -892481550:  return getStatusElement();
+        case 50511102:  return addCategory(); 
+        case 1792749467:  return getDateTimeElement();
+        case -991726143:  return getPeriod(); 
+        case -791418107:  return getPatient(); 
+        case -435736707:  return addConsentor(); 
+        case 1178922291:  return getOrganization(); 
+        case -1698413947:  return getSource(); 
+        case -982670030:  return getPolicyElement();
+        case 820081177:  return addRecipient(); 
+        case -220463842:  return addPurpose(); 
+        case -1289550567:  return addExcept(); 
         default: return super.makeProperty(hash, name);
         }
 

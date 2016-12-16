@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import org.hl7.fhir.dstu3.model.DateType;
 import org.hl7.fhir.dstu3.model.DateTimeType;
@@ -10555,7 +10555,9 @@ public class XmlParser extends XmlParserBase {
   }
 
   protected boolean parseMedicationDispenseMedicationDispenseSubstitutionComponentContent(int eventType, XmlPullParser xpp, MedicationDispense owner, MedicationDispense.MedicationDispenseSubstitutionComponent res) throws XmlPullParserException, IOException, FHIRFormatError {
-      if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("type")) {
+      if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("wasSubstituted")) {
+        res.setWasSubstitutedElement(parseBoolean(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("type")) {
         res.setType(parseCodeableConcept(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("reason")) {
         res.getReason().add(parseCodeableConcept(xpp));
@@ -10732,6 +10734,10 @@ public class XmlParser extends XmlParserBase {
   protected boolean parseMedicationStatementContent(int eventType, XmlPullParser xpp, MedicationStatement res) throws XmlPullParserException, IOException, FHIRFormatError {
       if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("identifier")) {
         res.getIdentifier().add(parseIdentifier(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("basedOn")) {
+        res.getBasedOn().add(parseReference(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("context")) {
+        res.setContext(parseReference(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("status")) {
         res.setStatusElement(parseEnumeration(xpp, MedicationStatement.MedicationStatementStatus.NULL, new MedicationStatement.MedicationStatementStatusEnumFactory()));
       } else if (eventType == XmlPullParser.START_TAG && nameIsTypeName(xpp, "medication")) {
@@ -14590,6 +14596,8 @@ public class XmlParser extends XmlParserBase {
         res.setUrlElement(parseUri(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("mode")) {
         res.setModeElement(parseEnumeration(xpp, StructureMap.StructureMapModelMode.NULL, new StructureMap.StructureMapModelModeEnumFactory()));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("alias")) {
+        res.setAliasElement(parseString(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("documentation")) {
         res.setDocumentationElement(parseString(xpp));
       } else if (!parseBackboneContent(eventType, xpp, res))
@@ -28616,6 +28624,9 @@ public class XmlParser extends XmlParserBase {
 
   protected void composeMedicationDispenseMedicationDispenseSubstitutionComponentElements(MedicationDispense.MedicationDispenseSubstitutionComponent element) throws IOException {
       composeBackboneElements(element);
+      if (element.hasWasSubstitutedElement()) {
+        composeBoolean("wasSubstituted", element.getWasSubstitutedElement());
+      }
       if (element.hasType()) {
         composeCodeableConcept("type", element.getType());
       }
@@ -28801,6 +28812,13 @@ public class XmlParser extends XmlParserBase {
       if (element.hasIdentifier()) { 
         for (Identifier e : element.getIdentifier()) 
           composeIdentifier("identifier", e);
+      }
+      if (element.hasBasedOn()) { 
+        for (Reference e : element.getBasedOn()) 
+          composeReference("basedOn", e);
+      }
+      if (element.hasContext()) {
+        composeReference("context", element.getContext());
       }
       if (element.hasStatusElement())
         composeEnumeration("status", element.getStatusElement(), new MedicationStatement.MedicationStatementStatusEnumFactory());
@@ -32954,6 +32972,9 @@ public class XmlParser extends XmlParserBase {
       }
       if (element.hasModeElement())
         composeEnumeration("mode", element.getModeElement(), new StructureMap.StructureMapModelModeEnumFactory());
+      if (element.hasAliasElement()) {
+        composeString("alias", element.getAliasElement());
+      }
       if (element.hasDocumentationElement()) {
         composeString("documentation", element.getDocumentationElement());
       }

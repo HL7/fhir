@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -365,8 +365,8 @@ public class EpisodeOfCare extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<EpisodeOfCareStatus>
-        case -991726143:  return getPeriod(); // Period
+        case -892481550:  return getStatusElement();
+        case -991726143:  return getPeriod(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -1335,18 +1335,18 @@ public class EpisodeOfCare extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1618432855:  return addIdentifier(); // Identifier
-        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<EpisodeOfCareStatus>
-        case -986695614:  return addStatusHistory(); // EpisodeOfCareStatusHistoryComponent
-        case 3575610:  return addType(); // CodeableConcept
-        case -861311717:  return addCondition(); // Reference
-        case -791418107:  return getPatient(); // Reference
-        case -2058947787:  return getManagingOrganization(); // Reference
-        case -991726143:  return getPeriod(); // Period
-        case -310299598:  return addReferralRequest(); // Reference
-        case -1147746468:  return getCareManager(); // Reference
-        case 3555933:  return addTeam(); // Reference
-        case -1177318867:  return addAccount(); // Reference
+        case -1618432855:  return addIdentifier(); 
+        case -892481550:  return getStatusElement();
+        case -986695614:  return addStatusHistory(); 
+        case 3575610:  return addType(); 
+        case -861311717:  return addCondition(); 
+        case -791418107:  return getPatient(); 
+        case -2058947787:  return getManagingOrganization(); 
+        case -991726143:  return getPeriod(); 
+        case -310299598:  return addReferralRequest(); 
+        case -1147746468:  return getCareManager(); 
+        case 3555933:  return addTeam(); 
+        case -1177318867:  return addAccount(); 
         default: return super.makeProperty(hash, name);
         }
 

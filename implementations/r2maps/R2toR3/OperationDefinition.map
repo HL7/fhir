@@ -1,12 +1,18 @@
 ﻿map "http://hl7.org/fhir/StructureMap/OperationDefinition2to3" = "R2 to R3 Conversions for OperationDefinition"
 
-uses "http://hl7.org/fhir/StructureDefinition/OperationDefinition" as source
-uses "http://hl7.org/fhir/StructureDefinition/OperationDefinitionR2" as target
+
+uses "http://hl7.org/fhir/DSTU2/StructureDefinition/OperationDefinition" alias OperationDefinitionR2 as source
+uses "http://hl7.org/fhir/StructureDefinition/OperationDefinition" alias OperationDefinition as target
+
+imports "http://hl7.org/fhir/StructureMap/primitives2to3"
+imports "http://hl7.org/fhir/StructureMap/ContactPoint2to3"
+imports "http://hl7.org/fhir/StructureMap/Reference2to3"
+
 
 
 group OperationDefinition extends Element
   input src : OperationDefinitionR2 as source
-  input tgt : OperationDefinition as Target
+  input tgt : OperationDefinition as target
 
   "OperationDefinition-url" : for src.url as vs make tgt.url as vt then uri(vs, vt)
   "OperationDefinition-version" : for src.version as vs make tgt.version as vt then string(vs, vt)
@@ -16,7 +22,7 @@ group OperationDefinition extends Element
   "OperationDefinition-experimental" : for src.experimental as vs make tgt.experimental as vt then boolean(vs, vt)
   "OperationDefinition-date" : for src.date as vs make tgt.date as vt then dateTime(vs, vt)
   "OperationDefinition-publisher" : for src.publisher as vs make tgt.publisher as vt then string(vs, vt)
-  "OperationDefinition-contact" : for src.contact as vs0 make tgt.contact = as vt0 then {
+  "OperationDefinition-contact" : for src.contact as vs0 make tgt.contact as vt0 then {
     "ContactDetail-name" : for vs0.name as vs make vt0.name as vt then string(vs, vt)
     "ContactDetail-telecom" : for vs0.telecom as vs make vt0.telecom as vt then ContactPoint(vs,vt)
   }
@@ -27,7 +33,7 @@ group OperationDefinition extends Element
   "OperationDefinition-system" : for src.system as vs make tgt.system as vt then boolean(vs, vt)
   "OperationDefinition-resource" : for src.type as vs make tgt.resource as vt then code(vs, vt)
   "OperationDefinition-instance" : for src.instance as vs make tgt.instance as vt then boolean(vs, vt)
-  "OperationDefinition-parameter" : for src.parameter as vs0 make tgt.parameter = as vt0 then {
+  "OperationDefinition-parameter" : for src.parameter as vs0 make tgt.parameter as vt0 then {
     "OperationDefinition.parameter-name" : for vs0.name as vs make vt0.name as vt then code(vs, vt)
     "OperationDefinition.parameter-use" : for vs0.use as vs make vt0.use as vt then code(vs, vt)
     "OperationDefinition.parameter-min" : for vs0.min as vs make vt0.min as vt then integer(vs, vt)

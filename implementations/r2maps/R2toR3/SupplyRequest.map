@@ -1,12 +1,20 @@
 ﻿map "http://hl7.org/fhir/StructureMap/SupplyRequest2to3" = "R2 to R3 Conversions for SupplyRequest"
 
-uses "http://hl7.org/fhir/StructureDefinition/SupplyRequest" as source
-uses "http://hl7.org/fhir/StructureDefinition/SupplyRequestR2" as target
+
+uses "http://hl7.org/fhir/DSTU2/StructureDefinition/SupplyRequest" alias SupplyRequestR2 as source
+uses "http://hl7.org/fhir/StructureDefinition/SupplyRequest" alias SupplyRequest as target
+
+imports "http://hl7.org/fhir/StructureMap/primitives2to3"
+imports "http://hl7.org/fhir/StructureMap/Identifier2to3"
+imports "http://hl7.org/fhir/StructureMap/Reference2to3"
+imports "http://hl7.org/fhir/StructureMap/Timing2to3"
+imports "http://hl7.org/fhir/StructureMap/CodeableConcept2to3"
+
 
 
 group SupplyRequest extends Element
   input src : SupplyRequestR2 as source
-  input tgt : SupplyRequest as Target
+  input tgt : SupplyRequest as target
 
   "SupplyRequest-patient" : for src.patient as vs make tgt.patient as vt then Reference(vs,vt)
   "SupplyRequest-source" : for src.source as vs make tgt.source as vt then Reference(vs,vt)
@@ -18,7 +26,7 @@ group SupplyRequest extends Element
   "SupplyRequest-supplier" : for src.supplier as vs make tgt.supplier as vt then Reference(vs,vt)
   "SupplyRequest-reason-CodeableConcept" : for src.reason  : CodeableConcept as vs make tgt.reason = create("CodeableConcept") as vt then CodeableConcept(vs,vt)
   "SupplyRequest-reason-Reference" : for src.reason  : Reference as vs make tgt.reason = create("Reference") as vt then Reference(vs,vt)
-  "SupplyRequest-when" : for src.when as vs0 make tgt.when = as vt0 then {
+  "SupplyRequest-when" : for src.when as vs0 make tgt.when as vt0 then {
     "SupplyRequest.when-code" : for vs0.code as vs make vt0.code as vt then CodeableConcept(vs,vt)
     "SupplyRequest.when-schedule" : for vs0.schedule as vs make vt0.schedule as vt then Timing(vs,vt)
   }

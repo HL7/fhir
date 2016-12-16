@@ -1,7 +1,5 @@
 ﻿map "http://hl7.org/fhir/StructureMap/DeviceUseRequest2to3" = "R2 to R3 Conversions for DeviceUseRequest"
 
-uses "http://hl7.org/fhir/StructureDefinition/DeviceUseRequest" as source
-uses "http://hl7.org/fhir/StructureDefinition/DeviceUseRequestR2" as target
 conceptmap "RequestStatus" {
   prefix s = "http://hl7.org/fhir/device-use-request-status"
   prefix t = "http://hl7.org/fhir/request-status"
@@ -18,10 +16,21 @@ conceptmap "RequestStatus" {
   s:proposed ~ t:draft
 }
 
+uses "http://hl7.org/fhir/DSTU2/StructureDefinition/DeviceUseRequest" alias DeviceUseRequestR2 as source
+uses "http://hl7.org/fhir/StructureDefinition/DeviceUseRequest" alias DeviceUseRequest as target
+
+imports "http://hl7.org/fhir/StructureMap/primitives2to3"
+imports "http://hl7.org/fhir/StructureMap/Identifier2to3"
+imports "http://hl7.org/fhir/StructureMap/Reference2to3"
+imports "http://hl7.org/fhir/StructureMap/Period2to3"
+imports "http://hl7.org/fhir/StructureMap/Timing2to3"
+imports "http://hl7.org/fhir/StructureMap/CodeableConcept2to3"
+
+
 
 group DeviceUseRequest extends Element
   input src : DeviceUseRequestR2 as source
-  input tgt : DeviceUseRequest as Target
+  input tgt : DeviceUseRequest as target
 
   "DeviceUseRequest-status" : for src.status as v make tgt.status = translate(v, "#RequestStatus", "code")
   "DeviceUseRequest-context" : for src.encounter as vs make tgt.context as vt then Reference(vs,vt)

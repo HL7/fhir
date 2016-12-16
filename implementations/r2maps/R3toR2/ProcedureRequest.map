@@ -1,12 +1,22 @@
 ﻿map "http://hl7.org/fhir/StructureMap/ProcedureRequest3to2" = "R3 to R2 Conversion for ProcedureRequest"
 
-uses "http://hl7.org/fhir/StructureDefinition/ProcedureRequestR2" as source
-uses "http://hl7.org/fhir/StructureDefinition/ProcedureRequest" as target
+
+uses "http://hl7.org/fhir/StructureDefinition/ProcedureRequest" alias ProcedureRequest as source
+uses "http://hl7.org/fhir/DSTU2/StructureDefinition/ProcedureRequest" alias ProcedureRequestR2 as target
+
+imports "http://hl7.org/fhir/StructureMap/primitives3to2"
+imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
+imports "http://hl7.org/fhir/StructureMap/Reference3to2"
+imports "http://hl7.org/fhir/StructureMap/Period3to2"
+imports "http://hl7.org/fhir/StructureMap/Annotation3to2"
+imports "http://hl7.org/fhir/StructureMap/Timing3to2"
+imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
+
 
 
 group ProcedureRequest extends Element
   input src : ProcedureRequest as source
-  input tgt : ProcedureRequestR2 as Target
+  input tgt : ProcedureRequestR2 as target
   "ProcedureRequest-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
   "ProcedureRequest-subject" : for src.subject as vs make tgt.subject as vt then Reference(vs,vt)
   "ProcedureRequest-code" : for src.code as vs make tgt.code as vt then CodeableConcept(vs,vt)

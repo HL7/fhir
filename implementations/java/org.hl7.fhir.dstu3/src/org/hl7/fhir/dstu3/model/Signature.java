@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -466,12 +466,12 @@ public class Signature extends Type implements ICompositeType {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3575610:  return addType(); // Coding
-        case 3648314: throw new FHIRException("Cannot make property when as it is not a complex type"); // InstantType
-        case -788654078:  return getWho(); // Type
-        case 418120340:  return getOnBehalfOf(); // Type
-        case -389131437: throw new FHIRException("Cannot make property contentType as it is not a complex type"); // CodeType
-        case 3026845: throw new FHIRException("Cannot make property blob as it is not a complex type"); // Base64BinaryType
+        case 3575610:  return addType(); 
+        case 3648314:  return getWhenElement();
+        case -788654078:  return getWho(); 
+        case 418120340:  return getOnBehalfOf(); 
+        case -389131437:  return getContentTypeElement();
+        case 3026845:  return getBlobElement();
         default: return super.makeProperty(hash, name);
         }
 

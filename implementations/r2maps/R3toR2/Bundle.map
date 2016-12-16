@@ -1,19 +1,24 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Bundle3to2" = "R3 to R2 Conversion for Bundle"
 
-uses "http://hl7.org/fhir/StructureDefinition/BundleR2" as source
-uses "http://hl7.org/fhir/StructureDefinition/Bundle" as target
+
+uses "http://hl7.org/fhir/StructureDefinition/Bundle" alias Bundle as source
+uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Bundle" alias BundleR2 as target
+
+imports "http://hl7.org/fhir/StructureMap/primitives3to2"
+imports "http://hl7.org/fhir/StructureMap/Signature3to2"
+
 
 
 group Bundle extends Element
   input src : Bundle as source
-  input tgt : BundleR2 as Target
+  input tgt : BundleR2 as target
   "Bundle-type" : for src.type as vs make tgt.type as vt then code(vs, vt)
   "Bundle-total" : for src.total as vs make tgt.total as vt then unsignedInt(vs, vt)
-  "Bundle-link" : for src.link as vs0 make tgt.link = as vt0 then {
+  "Bundle-link" : for src.link as vs0 make tgt.link as vt0 then {
     "Bundle.link-relation" : for vs0.relation as vs make vt0.relation as vt then string(vs, vt)
     "Bundle.link-url" : for vs0.url as vs make vt0.url as vt then uri(vs, vt)
   }
-  "Bundle-entry" : for src.entry as vs0 make tgt.entry = as vt0 then {
+  "Bundle-entry" : for src.entry as vs0 make tgt.entry as vt0 then {
     "Bundle.entry-fullUrl" : for vs0.fullUrl as vs make vt0.fullUrl as vt then uri(vs, vt)
   }
   "Bundle-signature" : for src.signature as vs make tgt.signature as vt then Signature(vs,vt)

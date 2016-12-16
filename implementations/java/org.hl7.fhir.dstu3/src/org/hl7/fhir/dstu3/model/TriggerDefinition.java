@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -509,10 +509,10 @@ public class TriggerDefinition extends Type implements ICompositeType {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3575610: throw new FHIRException("Cannot make property type as it is not a complex type"); // Enumeration<TriggerType>
-        case 31228997: throw new FHIRException("Cannot make property eventName as it is not a complex type"); // StringType
-        case 1120539260:  return getEventTiming(); // Type
-        case 30931300:  return getEventData(); // DataRequirement
+        case 3575610:  return getTypeElement();
+        case 31228997:  return getEventNameElement();
+        case 1120539260:  return getEventTiming(); 
+        case 30931300:  return getEventData(); 
         default: return super.makeProperty(hash, name);
         }
 

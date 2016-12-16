@@ -1,12 +1,19 @@
 ﻿map "http://hl7.org/fhir/StructureMap/ImagingStudy2to3" = "R2 to R3 Conversions for ImagingStudy"
 
-uses "http://hl7.org/fhir/StructureDefinition/ImagingStudy" as source
-uses "http://hl7.org/fhir/StructureDefinition/ImagingStudyR2" as target
+
+uses "http://hl7.org/fhir/DSTU2/StructureDefinition/ImagingStudy" alias ImagingStudyR2 as source
+uses "http://hl7.org/fhir/StructureDefinition/ImagingStudy" alias ImagingStudy as target
+
+imports "http://hl7.org/fhir/StructureMap/primitives2to3"
+imports "http://hl7.org/fhir/StructureMap/Identifier2to3"
+imports "http://hl7.org/fhir/StructureMap/Coding2to3"
+imports "http://hl7.org/fhir/StructureMap/Reference2to3"
+
 
 
 group ImagingStudy extends Element
   input src : ImagingStudyR2 as source
-  input tgt : ImagingStudy as Target
+  input tgt : ImagingStudy as target
 
   "ImagingStudy-uid" : for src.uid as vs make tgt.uid as vt then oid(vs, vt)
   "ImagingStudy-accession" : for src.accession as vs make tgt.accession as vt then Identifier(vs,vt)
@@ -21,7 +28,7 @@ group ImagingStudy extends Element
   "ImagingStudy-numberOfInstances" : for src.numberOfInstances as vs make tgt.numberOfInstances as vt then unsignedInt(vs, vt)
   "ImagingStudy-procedure" : for src.procedure as vs make tgt.procedure as vt then Reference(vs,vt)
   "ImagingStudy-description" : for src.description as vs make tgt.description as vt then string(vs, vt)
-  "ImagingStudy-series" : for src.series as vs0 make tgt.series = as vt0 then {
+  "ImagingStudy-series" : for src.series as vs0 make tgt.series as vt0 then {
     "ImagingStudy.series-uid" : for vs0.uid as vs make vt0.uid as vt then oid(vs, vt)
     "ImagingStudy.series-number" : for vs0.number as vs make vt0.number as vt then unsignedInt(vs, vt)
     "ImagingStudy.series-modality" : for vs0.modality as vs make vt0.modality as vt then Coding(vs,vt)

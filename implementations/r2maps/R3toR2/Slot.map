@@ -1,12 +1,19 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Slot3to2" = "R3 to R2 Conversion for Slot"
 
-uses "http://hl7.org/fhir/StructureDefinition/SlotR2" as source
-uses "http://hl7.org/fhir/StructureDefinition/Slot" as target
+
+uses "http://hl7.org/fhir/StructureDefinition/Slot" alias Slot as source
+uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Slot" alias SlotR2 as target
+
+imports "http://hl7.org/fhir/StructureMap/primitives3to2"
+imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
+imports "http://hl7.org/fhir/StructureMap/Reference3to2"
+imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
+
 
 
 group Slot extends Element
   input src : Slot as source
-  input tgt : SlotR2 as Target
+  input tgt : SlotR2 as target
   "Slot-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
   "Slot-type" : for src.serviceType as vs make tgt.type as vt then CodeableConcept(vs,vt)
   "Slot-schedule" : for src.schedule as vs make tgt.schedule as vt then Reference(vs,vt)

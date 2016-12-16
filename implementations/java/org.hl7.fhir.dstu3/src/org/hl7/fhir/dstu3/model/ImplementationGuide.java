@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -494,8 +494,8 @@ public class ImplementationGuide extends MetadataResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3575610: throw new FHIRException("Cannot make property type as it is not a complex type"); // Enumeration<GuideDependencyType>
-        case 116076: throw new FHIRException("Cannot make property uri as it is not a complex type"); // UriType
+        case 3575610:  return getTypeElement();
+        case 116076:  return getUriElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -789,9 +789,9 @@ public class ImplementationGuide extends MetadataResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
-        case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
-        case -341064690:  return addResource(); // ImplementationGuidePackageResourceComponent
+        case 3373707:  return getNameElement();
+        case -1724546052:  return getDescriptionElement();
+        case -341064690:  return addResource(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -1277,12 +1277,12 @@ public class ImplementationGuide extends MetadataResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1322970774: throw new FHIRException("Cannot make property example as it is not a complex type"); // BooleanType
-        case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
-        case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
-        case -1163472445: throw new FHIRException("Cannot make property acronym as it is not a complex type"); // StringType
-        case -1698413947:  return getSource(); // Type
-        case -2002349313:  return getExampleFor(); // Reference
+        case -1322970774:  return getExampleElement();
+        case 3373707:  return getNameElement();
+        case -1724546052:  return getDescriptionElement();
+        case -1163472445:  return getAcronymElement();
+        case -1698413947:  return getSource(); 
+        case -2002349313:  return getExampleFor(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -1537,8 +1537,8 @@ public class ImplementationGuide extends MetadataResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3575610: throw new FHIRException("Cannot make property type as it is not a complex type"); // CodeType
-        case -309425751:  return getProfile(); // Reference
+        case 3575610:  return getTypeElement();
+        case -309425751:  return getProfile(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -2105,13 +2105,13 @@ public class ImplementationGuide extends MetadataResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -896505829: throw new FHIRException("Cannot make property source as it is not a complex type"); // UriType
-        case 110371416: throw new FHIRException("Cannot make property title as it is not a complex type"); // StringType
-        case 3292052: throw new FHIRException("Cannot make property kind as it is not a complex type"); // Enumeration<GuidePageKind>
-        case 3575610: throw new FHIRException("Cannot make property type as it is not a complex type"); // CodeType
-        case -807062458: throw new FHIRException("Cannot make property package as it is not a complex type"); // StringType
-        case -1268779017: throw new FHIRException("Cannot make property format as it is not a complex type"); // CodeType
-        case 3433103:  return addPage(); // ImplementationGuidePageComponent
+        case -896505829:  return getSourceElement();
+        case 110371416:  return getTitleElement();
+        case 3292052:  return getKindElement();
+        case 3575610:  return addTypeElement();
+        case -807062458:  return addPackageElement();
+        case -1268779017:  return getFormatElement();
+        case 3433103:  return addPage(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -3305,24 +3305,24 @@ public class ImplementationGuide extends MetadataResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 116079: throw new FHIRException("Cannot make property url as it is not a complex type"); // UriType
-        case 351608024: throw new FHIRException("Cannot make property version as it is not a complex type"); // StringType
-        case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
-        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<PublicationStatus>
-        case -404562712: throw new FHIRException("Cannot make property experimental as it is not a complex type"); // BooleanType
-        case 1447404028: throw new FHIRException("Cannot make property publisher as it is not a complex type"); // StringType
-        case 951526432:  return addContact(); // ContactDetail
-        case 3076014: throw new FHIRException("Cannot make property date as it is not a complex type"); // DateTimeType
-        case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // MarkdownType
-        case -669707736:  return addUseContext(); // UsageContext
-        case -507075711:  return addJurisdiction(); // CodeableConcept
-        case 1522889671: throw new FHIRException("Cannot make property copyright as it is not a complex type"); // MarkdownType
-        case 461006061: throw new FHIRException("Cannot make property fhirVersion as it is not a complex type"); // IdType
-        case -26291381:  return addDependency(); // ImplementationGuideDependencyComponent
-        case -807062458:  return addPackage(); // ImplementationGuidePackageComponent
-        case -1243020381:  return addGlobal(); // ImplementationGuideGlobalComponent
-        case -1388966911: throw new FHIRException("Cannot make property binary as it is not a complex type"); // UriType
-        case 3433103:  return getPage(); // ImplementationGuidePageComponent
+        case 116079:  return getUrlElement();
+        case 351608024:  return getVersionElement();
+        case 3373707:  return getNameElement();
+        case -892481550:  return getStatusElement();
+        case -404562712:  return getExperimentalElement();
+        case 1447404028:  return getPublisherElement();
+        case 951526432:  return addContact(); 
+        case 3076014:  return getDateElement();
+        case -1724546052:  return getDescriptionElement();
+        case -669707736:  return addUseContext(); 
+        case -507075711:  return addJurisdiction(); 
+        case 1522889671:  return getCopyrightElement();
+        case 461006061:  return getFhirVersionElement();
+        case -26291381:  return addDependency(); 
+        case -807062458:  return addPackage(); 
+        case -1243020381:  return addGlobal(); 
+        case -1388966911:  return addBinaryElement();
+        case 3433103:  return getPage(); 
         default: return super.makeProperty(hash, name);
         }
 

@@ -1,12 +1,22 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Person2to3" = "R2 to R3 Conversions for Person"
 
-uses "http://hl7.org/fhir/StructureDefinition/Person" as source
-uses "http://hl7.org/fhir/StructureDefinition/PersonR2" as target
+
+uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Person" alias PersonR2 as source
+uses "http://hl7.org/fhir/StructureDefinition/Person" alias Person as target
+
+imports "http://hl7.org/fhir/StructureMap/primitives2to3"
+imports "http://hl7.org/fhir/StructureMap/Address2to3"
+imports "http://hl7.org/fhir/StructureMap/Attachment2to3"
+imports "http://hl7.org/fhir/StructureMap/HumanName2to3"
+imports "http://hl7.org/fhir/StructureMap/ContactPoint2to3"
+imports "http://hl7.org/fhir/StructureMap/Identifier2to3"
+imports "http://hl7.org/fhir/StructureMap/Reference2to3"
+
 
 
 group Person extends Element
   input src : PersonR2 as source
-  input tgt : Person as Target
+  input tgt : Person as target
 
   "Person-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
   "Person-name" : for src.name as vs make tgt.name as vt then HumanName(vs,vt)
@@ -17,7 +27,7 @@ group Person extends Element
   "Person-photo" : for src.photo as vs make tgt.photo as vt then Attachment(vs,vt)
   "Person-managingOrganization" : for src.managingOrganization as vs make tgt.managingOrganization as vt then Reference(vs,vt)
   "Person-active" : for src.active as vs make tgt.active as vt then boolean(vs, vt)
-  "Person-link" : for src.link as vs0 make tgt.link = as vt0 then {
+  "Person-link" : for src.link as vs0 make tgt.link as vt0 then {
     "Person.link-target" : for vs0.target as vs make vt0.target as vt then Reference(vs,vt)
     "Person.link-assurance" : for vs0.assurance as vs make vt0.assurance as vt then code(vs, vt)
   }

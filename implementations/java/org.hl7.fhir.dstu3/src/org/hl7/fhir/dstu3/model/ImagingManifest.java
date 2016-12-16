@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -352,10 +352,10 @@ public class ImagingManifest extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 115792: throw new FHIRException("Cannot make property uid as it is not a complex type"); // OidType
-        case -814900911:  return getImagingStudy(); // Reference
-        case 231778726:  return addBaseLocation(); // StudyBaseLocationComponent
-        case -905838985:  return addSeries(); // SeriesComponent
+        case 115792:  return getUidElement();
+        case -814900911:  return getImagingStudy(); 
+        case 231778726:  return addBaseLocation(); 
+        case -905838985:  return addSeries(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -578,8 +578,8 @@ public class ImagingManifest extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3575610:  return getType(); // Coding
-        case 116079: throw new FHIRException("Cannot make property url as it is not a complex type"); // UriType
+        case 3575610:  return getType(); 
+        case 116079:  return getUrlElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -878,9 +878,9 @@ public class ImagingManifest extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 115792: throw new FHIRException("Cannot make property uid as it is not a complex type"); // OidType
-        case 231778726:  return addBaseLocation(); // SeriesBaseLocationComponent
-        case 555127957:  return addInstance(); // InstanceComponent
+        case 115792:  return getUidElement();
+        case 231778726:  return addBaseLocation(); 
+        case 555127957:  return addInstance(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -1098,8 +1098,8 @@ public class ImagingManifest extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3575610:  return getType(); // Coding
-        case 116079: throw new FHIRException("Cannot make property url as it is not a complex type"); // UriType
+        case 3575610:  return getType(); 
+        case 116079:  return getUrlElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -1324,8 +1324,8 @@ public class ImagingManifest extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 1560041540: throw new FHIRException("Cannot make property sopClass as it is not a complex type"); // OidType
-        case 115792: throw new FHIRException("Cannot make property uid as it is not a complex type"); // OidType
+        case 1560041540:  return getSopClassElement();
+        case 115792:  return getUidElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -1845,13 +1845,13 @@ public class ImagingManifest extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 115792: throw new FHIRException("Cannot make property uid as it is not a complex type"); // OidType
-        case -791418107:  return getPatient(); // Reference
-        case -1724532252: throw new FHIRException("Cannot make property authoringTime as it is not a complex type"); // DateTimeType
-        case -1406328437:  return getAuthor(); // Reference
-        case 110371416:  return getTitle(); // CodeableConcept
-        case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
-        case 109776329:  return addStudy(); // StudyComponent
+        case 115792:  return getUidElement();
+        case -791418107:  return getPatient(); 
+        case -1724532252:  return getAuthoringTimeElement();
+        case -1406328437:  return getAuthor(); 
+        case 110371416:  return getTitle(); 
+        case -1724546052:  return getDescriptionElement();
+        case 109776329:  return addStudy(); 
         default: return super.makeProperty(hash, name);
         }
 

@@ -1,12 +1,19 @@
 ﻿map "http://hl7.org/fhir/StructureMap/DetectedIssue2to3" = "R2 to R3 Conversions for DetectedIssue"
 
-uses "http://hl7.org/fhir/StructureDefinition/DetectedIssue" as source
-uses "http://hl7.org/fhir/StructureDefinition/DetectedIssueR2" as target
+
+uses "http://hl7.org/fhir/DSTU2/StructureDefinition/DetectedIssue" alias DetectedIssueR2 as source
+uses "http://hl7.org/fhir/StructureDefinition/DetectedIssue" alias DetectedIssue as target
+
+imports "http://hl7.org/fhir/StructureMap/primitives2to3"
+imports "http://hl7.org/fhir/StructureMap/Identifier2to3"
+imports "http://hl7.org/fhir/StructureMap/Reference2to3"
+imports "http://hl7.org/fhir/StructureMap/CodeableConcept2to3"
+
 
 
 group DetectedIssue extends Element
   input src : DetectedIssueR2 as source
-  input tgt : DetectedIssue as Target
+  input tgt : DetectedIssue as target
 
   "DetectedIssue-patient" : for src.patient as vs make tgt.patient as vt then Reference(vs,vt)
   "DetectedIssue-category" : for src.category as vs make tgt.category as vt then CodeableConcept(vs,vt)
@@ -17,7 +24,7 @@ group DetectedIssue extends Element
   "DetectedIssue-author" : for src.author as vs make tgt.author as vt then Reference(vs,vt)
   "DetectedIssue-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
   "DetectedIssue-reference" : for src.reference as vs make tgt.reference as vt then uri(vs, vt)
-  "DetectedIssue-mitigation" : for src.mitigation as vs0 make tgt.mitigation = as vt0 then {
+  "DetectedIssue-mitigation" : for src.mitigation as vs0 make tgt.mitigation as vt0 then {
     "DetectedIssue.mitigation-action" : for vs0.action as vs make vt0.action as vt then CodeableConcept(vs,vt)
     "DetectedIssue.mitigation-date" : for vs0.date as vs make vt0.date as vt then dateTime(vs, vt)
     "DetectedIssue.mitigation-author" : for vs0.author as vs make vt0.author as vt then Reference(vs,vt)

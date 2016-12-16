@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -892,14 +892,14 @@ public class Sequence extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1499470472:  return getChromosome(); // CodeableConcept
-        case 1061239735: throw new FHIRException("Cannot make property genomeBuild as it is not a complex type"); // StringType
-        case -1911500465:  return getReferenceSeqId(); // CodeableConcept
-        case 1923414665:  return getReferenceSeqPointer(); // Reference
-        case -1648301499: throw new FHIRException("Cannot make property referenceSeqString as it is not a complex type"); // StringType
-        case -891993594: throw new FHIRException("Cannot make property strand as it is not a complex type"); // IntegerType
-        case 1903685202: throw new FHIRException("Cannot make property windowStart as it is not a complex type"); // IntegerType
-        case -217026869: throw new FHIRException("Cannot make property windowEnd as it is not a complex type"); // IntegerType
+        case -1499470472:  return getChromosome(); 
+        case 1061239735:  return getGenomeBuildElement();
+        case -1911500465:  return getReferenceSeqId(); 
+        case 1923414665:  return getReferenceSeqPointer(); 
+        case -1648301499:  return getReferenceSeqStringElement();
+        case -891993594:  return getStrandElement();
+        case 1903685202:  return getWindowStartElement();
+        case -217026869:  return getWindowEndElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -1399,12 +1399,12 @@ public class Sequence extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 109757538: throw new FHIRException("Cannot make property start as it is not a complex type"); // IntegerType
-        case 100571: throw new FHIRException("Cannot make property end as it is not a complex type"); // IntegerType
-        case -1418745787: throw new FHIRException("Cannot make property observedAllele as it is not a complex type"); // StringType
-        case 364045960: throw new FHIRException("Cannot make property referenceAllele as it is not a complex type"); // StringType
-        case 94658738: throw new FHIRException("Cannot make property cigar as it is not a complex type"); // StringType
-        case -1654319624:  return getVariantPointer(); // Reference
+        case 109757538:  return getStartElement();
+        case 100571:  return getEndElement();
+        case -1418745787:  return getObservedAlleleElement();
+        case 364045960:  return getReferenceAlleleElement();
+        case 94658738:  return getCigarElement();
+        case -1654319624:  return getVariantPointer(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -2470,20 +2470,20 @@ public class Sequence extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3575610: throw new FHIRException("Cannot make property type as it is not a complex type"); // Enumeration<QualityType>
-        case -1861227106:  return getStandardSequence(); // CodeableConcept
-        case 109757538: throw new FHIRException("Cannot make property start as it is not a complex type"); // IntegerType
-        case 100571: throw new FHIRException("Cannot make property end as it is not a complex type"); // IntegerType
-        case 109264530:  return getScore(); // Quantity
-        case -1077554975:  return getMethod(); // CodeableConcept
-        case -1048421849: throw new FHIRException("Cannot make property truthTP as it is not a complex type"); // DecimalType
-        case 655102276: throw new FHIRException("Cannot make property queryTP as it is not a complex type"); // DecimalType
-        case -1048422285: throw new FHIRException("Cannot make property truthFN as it is not a complex type"); // DecimalType
-        case 655101842: throw new FHIRException("Cannot make property queryFP as it is not a complex type"); // DecimalType
-        case 3182199: throw new FHIRException("Cannot make property gtFP as it is not a complex type"); // DecimalType
-        case -1376177026: throw new FHIRException("Cannot make property precision as it is not a complex type"); // DecimalType
-        case -934922479: throw new FHIRException("Cannot make property recall as it is not a complex type"); // DecimalType
-        case -1295082036: throw new FHIRException("Cannot make property fScore as it is not a complex type"); // DecimalType
+        case 3575610:  return getTypeElement();
+        case -1861227106:  return getStandardSequence(); 
+        case 109757538:  return getStartElement();
+        case 100571:  return getEndElement();
+        case 109264530:  return getScore(); 
+        case -1077554975:  return getMethod(); 
+        case -1048421849:  return getTruthTPElement();
+        case 655102276:  return getQueryTPElement();
+        case -1048422285:  return getTruthFNElement();
+        case 655101842:  return getQueryFPElement();
+        case 3182199:  return getGtFPElement();
+        case -1376177026:  return getPrecisionElement();
+        case -934922479:  return getRecallElement();
+        case -1295082036:  return getFScoreElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -3024,12 +3024,12 @@ public class Sequence extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3575610: throw new FHIRException("Cannot make property type as it is not a complex type"); // Enumeration<RepositoryType>
-        case 116079: throw new FHIRException("Cannot make property url as it is not a complex type"); // UriType
-        case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
-        case -345342029: throw new FHIRException("Cannot make property datasetId as it is not a complex type"); // StringType
-        case 1929752504: throw new FHIRException("Cannot make property variantsetId as it is not a complex type"); // StringType
-        case -1095407289: throw new FHIRException("Cannot make property readsetId as it is not a complex type"); // StringType
+        case 3575610:  return getTypeElement();
+        case 116079:  return getUrlElement();
+        case 3373707:  return getNameElement();
+        case -345342029:  return getDatasetIdElement();
+        case 1929752504:  return getVariantsetIdElement();
+        case -1095407289:  return getReadsetIdElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -3426,11 +3426,11 @@ public class Sequence extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 1591532317: throw new FHIRException("Cannot make property precisionOfBoundaries as it is not a complex type"); // StringType
-        case -1872600587: throw new FHIRException("Cannot make property reportedaCGHRatio as it is not a complex type"); // DecimalType
-        case -1106363674: throw new FHIRException("Cannot make property length as it is not a complex type"); // IntegerType
-        case 106111099:  return getOuter(); // SequenceStructureVariantOuterComponent
-        case 100355670:  return getInner(); // SequenceStructureVariantInnerComponent
+        case 1591532317:  return getPrecisionOfBoundariesElement();
+        case -1872600587:  return getReportedaCGHRatioElement();
+        case -1106363674:  return getLengthElement();
+        case 106111099:  return getOuter(); 
+        case 100355670:  return getInner(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -3663,8 +3663,8 @@ public class Sequence extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 109757538: throw new FHIRException("Cannot make property start as it is not a complex type"); // IntegerType
-        case 100571: throw new FHIRException("Cannot make property end as it is not a complex type"); // IntegerType
+        case 109757538:  return getStartElement();
+        case 100571:  return getEndElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -3879,8 +3879,8 @@ public class Sequence extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 109757538: throw new FHIRException("Cannot make property start as it is not a complex type"); // IntegerType
-        case 100571: throw new FHIRException("Cannot make property end as it is not a complex type"); // IntegerType
+        case 109757538:  return getStartElement();
+        case 100571:  return getEndElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -4985,22 +4985,22 @@ public class Sequence extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1618432855:  return addIdentifier(); // Identifier
-        case 3575610: throw new FHIRException("Cannot make property type as it is not a complex type"); // Enumeration<SequenceType>
-        case 354212295: throw new FHIRException("Cannot make property coordinateSystem as it is not a complex type"); // IntegerType
-        case -791418107:  return getPatient(); // Reference
-        case -2132868344:  return getSpecimen(); // Reference
-        case -1335157162:  return getDevice(); // Reference
-        case 481140686:  return getPerformer(); // Reference
-        case -1285004149:  return getQuantity(); // Quantity
-        case -502547180:  return getReferenceSeq(); // SequenceReferenceSeqComponent
-        case 236785797:  return addVariant(); // SequenceVariantComponent
-        case 125541495: throw new FHIRException("Cannot make property observedSeq as it is not a complex type"); // StringType
-        case 651215103:  return addQuality(); // SequenceQualityComponent
-        case -1798816354: throw new FHIRException("Cannot make property readCoverage as it is not a complex type"); // IntegerType
-        case 1950800714:  return addRepository(); // SequenceRepositoryComponent
-        case -400605635:  return addPointer(); // Reference
-        case 757269394:  return addStructureVariant(); // SequenceStructureVariantComponent
+        case -1618432855:  return addIdentifier(); 
+        case 3575610:  return getTypeElement();
+        case 354212295:  return getCoordinateSystemElement();
+        case -791418107:  return getPatient(); 
+        case -2132868344:  return getSpecimen(); 
+        case -1335157162:  return getDevice(); 
+        case 481140686:  return getPerformer(); 
+        case -1285004149:  return getQuantity(); 
+        case -502547180:  return getReferenceSeq(); 
+        case 236785797:  return addVariant(); 
+        case 125541495:  return getObservedSeqElement();
+        case 651215103:  return addQuality(); 
+        case -1798816354:  return getReadCoverageElement();
+        case 1950800714:  return addRepository(); 
+        case -400605635:  return addPointer(); 
+        case 757269394:  return addStructureVariant(); 
         default: return super.makeProperty(hash, name);
         }
 

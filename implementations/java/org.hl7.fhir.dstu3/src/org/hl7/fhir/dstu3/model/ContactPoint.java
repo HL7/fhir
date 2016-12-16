@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -665,11 +665,11 @@ public class ContactPoint extends Type implements ICompositeType {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -887328209: throw new FHIRException("Cannot make property system as it is not a complex type"); // Enumeration<ContactPointSystem>
-        case 111972721: throw new FHIRException("Cannot make property value as it is not a complex type"); // StringType
-        case 116103: throw new FHIRException("Cannot make property use as it is not a complex type"); // Enumeration<ContactPointUse>
-        case 3492908: throw new FHIRException("Cannot make property rank as it is not a complex type"); // PositiveIntType
-        case -991726143:  return getPeriod(); // Period
+        case -887328209:  return getSystemElement();
+        case 111972721:  return getValueElement();
+        case 116103:  return getUseElement();
+        case 3492908:  return getRankElement();
+        case -991726143:  return getPeriod(); 
         default: return super.makeProperty(hash, name);
         }
 

@@ -1,12 +1,16 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Money3to2" = "R3 to R2 Conversion for Money"
 
-uses "http://hl7.org/fhir/StructureDefinition/MoneyR2" as source
-uses "http://hl7.org/fhir/StructureDefinition/Money" as target
+
+uses "http://hl7.org/fhir/StructureDefinition/Money" alias Money as source
+uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Money" alias MoneyR2 as target
+
+imports "http://hl7.org/fhir/StructureMap/primitives3to2"
+
 
 
 group Money extends Element
   input src : Money as source
-  input tgt : MoneyR2 as Target
+  input tgt : MoneyR2 as target
   "Money-value" : for src.value as vs make tgt.value as vt then decimal(vs, vt)
   "Money-comparator" : for src.comparator as vs make tgt.comparator as vt then code(vs, vt)
   "Money-unit" : for src.unit as vs make tgt.unit as vt then string(vs, vt)

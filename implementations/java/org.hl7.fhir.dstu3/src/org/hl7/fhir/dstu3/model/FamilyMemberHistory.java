@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -420,10 +420,10 @@ public class FamilyMemberHistory extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3059181:  return getCode(); // CodeableConcept
-        case -1106507950:  return getOutcome(); // CodeableConcept
-        case -1886216323:  return getOnset(); // Type
-        case 3387378:  return getNote(); // Annotation
+        case 3059181:  return getCode(); 
+        case -1106507950:  return getOutcome(); 
+        case -1886216323:  return getOnset(); 
+        case 3387378:  return getNote(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -1379,19 +1379,19 @@ public class FamilyMemberHistory extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1618432855:  return addIdentifier(); // Identifier
-        case -791418107:  return getPatient(); // Reference
-        case 3076014: throw new FHIRException("Cannot make property date as it is not a complex type"); // DateTimeType
-        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<FamilyHistoryStatus>
-        case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
-        case -261851592:  return getRelationship(); // CodeableConcept
-        case -1249512767: throw new FHIRException("Cannot make property gender as it is not a complex type"); // Enumeration<AdministrativeGender>
-        case 67532951:  return getBorn(); // Type
-        case -1419716831:  return getAge(); // Type
-        case 2130167587: throw new FHIRException("Cannot make property estimatedAge as it is not a complex type"); // BooleanType
-        case -1311442804:  return getDeceased(); // Type
-        case 3387378:  return getNote(); // Annotation
-        case -861311717:  return addCondition(); // FamilyMemberHistoryConditionComponent
+        case -1618432855:  return addIdentifier(); 
+        case -791418107:  return getPatient(); 
+        case 3076014:  return getDateElement();
+        case -892481550:  return getStatusElement();
+        case 3373707:  return getNameElement();
+        case -261851592:  return getRelationship(); 
+        case -1249512767:  return getGenderElement();
+        case 67532951:  return getBorn(); 
+        case -1419716831:  return getAge(); 
+        case 2130167587:  return getEstimatedAgeElement();
+        case -1311442804:  return getDeceased(); 
+        case 3387378:  return getNote(); 
+        case -861311717:  return addCondition(); 
         default: return super.makeProperty(hash, name);
         }
 

@@ -1,12 +1,21 @@
 ﻿map "http://hl7.org/fhir/StructureMap/DeviceUseStatement3to2" = "R3 to R2 Conversion for DeviceUseStatement"
 
-uses "http://hl7.org/fhir/StructureDefinition/DeviceUseStatementR2" as source
-uses "http://hl7.org/fhir/StructureDefinition/DeviceUseStatement" as target
+
+uses "http://hl7.org/fhir/StructureDefinition/DeviceUseStatement" alias DeviceUseStatement as source
+uses "http://hl7.org/fhir/DSTU2/StructureDefinition/DeviceUseStatement" alias DeviceUseStatementR2 as target
+
+imports "http://hl7.org/fhir/StructureMap/primitives3to2"
+imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
+imports "http://hl7.org/fhir/StructureMap/Reference3to2"
+imports "http://hl7.org/fhir/StructureMap/Period3to2"
+imports "http://hl7.org/fhir/StructureMap/Timing3to2"
+imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
+
 
 
 group DeviceUseStatement extends Element
   input src : DeviceUseStatement as source
-  input tgt : DeviceUseStatementR2 as Target
+  input tgt : DeviceUseStatementR2 as target
   "DeviceUseStatement-bodySite-CodeableConcept" : for src.bodySite  : CodeableConcept as vs make tgt.bodySite = create("CodeableConcept") as vt then CodeableConcept(vs,vt)
   "DeviceUseStatement-whenUsed" : for src.whenUsed as vs make tgt.whenUsed as vt then Period(vs,vt)
   "DeviceUseStatement-device" : for src.device as vs make tgt.device as vt then Reference(vs,vt)

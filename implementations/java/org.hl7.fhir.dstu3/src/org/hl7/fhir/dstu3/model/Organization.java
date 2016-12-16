@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -270,10 +270,10 @@ public class Organization extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -220463842:  return getPurpose(); // CodeableConcept
-        case 3373707:  return getName(); // HumanName
-        case -1429363305:  return addTelecom(); // ContactPoint
-        case -1147692044:  return getAddress(); // Address
+        case -220463842:  return getPurpose(); 
+        case 3373707:  return getName(); 
+        case -1429363305:  return addTelecom(); 
+        case -1147692044:  return getAddress(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -1046,16 +1046,16 @@ public class Organization extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1618432855:  return addIdentifier(); // Identifier
-        case -1422950650: throw new FHIRException("Cannot make property active as it is not a complex type"); // BooleanType
-        case 3575610:  return getType(); // CodeableConcept
-        case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
-        case 92902992: throw new FHIRException("Cannot make property alias as it is not a complex type"); // StringType
-        case -1429363305:  return addTelecom(); // ContactPoint
-        case -1147692044:  return addAddress(); // Address
-        case -995410646:  return getPartOf(); // Reference
-        case 951526432:  return addContact(); // OrganizationContactComponent
-        case 1741102485:  return addEndpoint(); // Reference
+        case -1618432855:  return addIdentifier(); 
+        case -1422950650:  return getActiveElement();
+        case 3575610:  return getType(); 
+        case 3373707:  return getNameElement();
+        case 92902992:  return addAliasElement();
+        case -1429363305:  return addTelecom(); 
+        case -1147692044:  return addAddress(); 
+        case -995410646:  return getPartOf(); 
+        case 951526432:  return addContact(); 
+        case 1741102485:  return addEndpoint(); 
         default: return super.makeProperty(hash, name);
         }
 

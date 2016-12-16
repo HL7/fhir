@@ -1,12 +1,21 @@
 ﻿map "http://hl7.org/fhir/StructureMap/RiskAssessment3to2" = "R3 to R2 Conversion for RiskAssessment"
 
-uses "http://hl7.org/fhir/StructureDefinition/RiskAssessmentR2" as source
-uses "http://hl7.org/fhir/StructureDefinition/RiskAssessment" as target
+
+uses "http://hl7.org/fhir/StructureDefinition/RiskAssessment" alias RiskAssessment as source
+uses "http://hl7.org/fhir/DSTU2/StructureDefinition/RiskAssessment" alias RiskAssessmentR2 as target
+
+imports "http://hl7.org/fhir/StructureMap/primitives3to2"
+imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
+imports "http://hl7.org/fhir/StructureMap/Reference3to2"
+imports "http://hl7.org/fhir/StructureMap/Period3to2"
+imports "http://hl7.org/fhir/StructureMap/Range3to2"
+imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
+
 
 
 group RiskAssessment extends Element
   input src : RiskAssessment as source
-  input tgt : RiskAssessmentR2 as Target
+  input tgt : RiskAssessmentR2 as target
   "RiskAssessment-subject" : for src.subject as vs make tgt.subject as vt then Reference(vs,vt)
   "RiskAssessment-condition" : for src.condition as vs make tgt.condition as vt then Reference(vs,vt)
   "RiskAssessment-encounter" : for src.context as vs make tgt.encounter as vt then Reference(vs,vt)
@@ -14,7 +23,7 @@ group RiskAssessment extends Element
   "RiskAssessment-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
   "RiskAssessment-method" : for src.method as vs make tgt.method as vt then CodeableConcept(vs,vt)
   "RiskAssessment-basis" : for src.basis as vs make tgt.basis as vt then Reference(vs,vt)
-  "RiskAssessment-prediction" : for src.prediction as vs0 make tgt.prediction = as vt0 then {
+  "RiskAssessment-prediction" : for src.prediction as vs0 make tgt.prediction as vt0 then {
     "RiskAssessment.prediction-outcome" : for vs0.outcome as vs make vt0.outcome as vt then CodeableConcept(vs,vt)
     "RiskAssessment.prediction-probability-decimal" : for vs0.probability  : decimal as vs make vt0.probability = create("decimal") as vt then decimal(vs,vt)
     "RiskAssessment.prediction-probability-Range" : for vs0.probability  : Range as vs make vt0.probability = create("Range") as vt then Range(vs,vt)

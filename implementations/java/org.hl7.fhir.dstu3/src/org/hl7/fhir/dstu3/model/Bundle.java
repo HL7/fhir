@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -646,8 +646,8 @@ public class Bundle extends Resource implements IBaseBundle {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -554436100: throw new FHIRException("Cannot make property relation as it is not a complex type"); // StringType
-        case 116079: throw new FHIRException("Cannot make property url as it is not a complex type"); // UriType
+        case -554436100:  return getRelationElement();
+        case 116079:  return getUrlElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -1078,12 +1078,12 @@ public class Bundle extends Resource implements IBaseBundle {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3321850:  return addLink(); // BundleLinkComponent
-        case -511251360: throw new FHIRException("Cannot make property fullUrl as it is not a complex type"); // UriType
+        case 3321850:  return addLink(); 
+        case -511251360:  return getFullUrlElement();
         case -341064690: throw new FHIRException("Cannot make property resource as it is not a complex type"); // Resource
-        case -906336856:  return getSearch(); // BundleEntrySearchComponent
-        case 1095692943:  return getRequest(); // BundleEntryRequestComponent
-        case -340323263:  return getResponse(); // BundleEntryResponseComponent
+        case -906336856:  return getSearch(); 
+        case 1095692943:  return getRequest(); 
+        case -340323263:  return getResponse(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -1351,8 +1351,8 @@ public class Bundle extends Resource implements IBaseBundle {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3357091: throw new FHIRException("Cannot make property mode as it is not a complex type"); // Enumeration<SearchEntryMode>
-        case 109264530: throw new FHIRException("Cannot make property score as it is not a complex type"); // DecimalType
+        case 3357091:  return getModeElement();
+        case 109264530:  return getScoreElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -1829,12 +1829,12 @@ public class Bundle extends Resource implements IBaseBundle {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1077554975: throw new FHIRException("Cannot make property method as it is not a complex type"); // Enumeration<HTTPVerb>
-        case 116079: throw new FHIRException("Cannot make property url as it is not a complex type"); // UriType
-        case 171868368: throw new FHIRException("Cannot make property ifNoneMatch as it is not a complex type"); // StringType
-        case -2061602860: throw new FHIRException("Cannot make property ifModifiedSince as it is not a complex type"); // InstantType
-        case 1692894888: throw new FHIRException("Cannot make property ifMatch as it is not a complex type"); // StringType
-        case 165155330: throw new FHIRException("Cannot make property ifNoneExist as it is not a complex type"); // StringType
+        case -1077554975:  return getMethodElement();
+        case 116079:  return getUrlElement();
+        case 171868368:  return getIfNoneMatchElement();
+        case -2061602860:  return getIfModifiedSinceElement();
+        case 1692894888:  return getIfMatchElement();
+        case 165155330:  return getIfNoneExistElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -2241,10 +2241,10 @@ public class Bundle extends Resource implements IBaseBundle {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // StringType
-        case 1901043637: throw new FHIRException("Cannot make property location as it is not a complex type"); // UriType
-        case 3123477: throw new FHIRException("Cannot make property etag as it is not a complex type"); // StringType
-        case 1959003007: throw new FHIRException("Cannot make property lastModified as it is not a complex type"); // InstantType
+        case -892481550:  return getStatusElement();
+        case 1901043637:  return getLocationElement();
+        case 3123477:  return getEtagElement();
+        case 1959003007:  return getLastModifiedElement();
         case -1106507950: throw new FHIRException("Cannot make property outcome as it is not a complex type"); // Resource
         default: return super.makeProperty(hash, name);
         }
@@ -2739,12 +2739,12 @@ public class Bundle extends Resource implements IBaseBundle {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3575610: throw new FHIRException("Cannot make property type as it is not a complex type"); // Enumeration<BundleType>
-        case -1618432855:  return getIdentifier(); // Identifier
-        case 110549828: throw new FHIRException("Cannot make property total as it is not a complex type"); // UnsignedIntType
-        case 3321850:  return addLink(); // BundleLinkComponent
-        case 96667762:  return addEntry(); // BundleEntryComponent
-        case 1073584312:  return getSignature(); // Signature
+        case 3575610:  return getTypeElement();
+        case -1618432855:  return getIdentifier(); 
+        case 110549828:  return getTotalElement();
+        case 3321850:  return addLink(); 
+        case 96667762:  return addEntry(); 
+        case 1073584312:  return getSignature(); 
         default: return super.makeProperty(hash, name);
         }
 

@@ -1,12 +1,21 @@
 ﻿map "http://hl7.org/fhir/StructureMap/DeviceUseStatement2to3" = "R2 to R3 Conversions for DeviceUseStatement"
 
-uses "http://hl7.org/fhir/StructureDefinition/DeviceUseStatement" as source
-uses "http://hl7.org/fhir/StructureDefinition/DeviceUseStatementR2" as target
+
+uses "http://hl7.org/fhir/DSTU2/StructureDefinition/DeviceUseStatement" alias DeviceUseStatementR2 as source
+uses "http://hl7.org/fhir/StructureDefinition/DeviceUseStatement" alias DeviceUseStatement as target
+
+imports "http://hl7.org/fhir/StructureMap/primitives2to3"
+imports "http://hl7.org/fhir/StructureMap/Identifier2to3"
+imports "http://hl7.org/fhir/StructureMap/Reference2to3"
+imports "http://hl7.org/fhir/StructureMap/Period2to3"
+imports "http://hl7.org/fhir/StructureMap/Timing2to3"
+imports "http://hl7.org/fhir/StructureMap/CodeableConcept2to3"
+
 
 
 group DeviceUseStatement extends Element
   input src : DeviceUseStatementR2 as source
-  input tgt : DeviceUseStatement as Target
+  input tgt : DeviceUseStatement as target
 
   "DeviceUseStatement-bodySite" : for src.bodySiteCodeableConcept as vs make tgt.bodySite as vt then CodeableConcept(vs,vt)
   "DeviceUseStatement-whenUsed" : for src.whenUsed as vs make tgt.whenUsed as vt then Period(vs,vt)

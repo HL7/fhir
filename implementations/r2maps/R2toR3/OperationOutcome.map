@@ -1,14 +1,19 @@
 ﻿map "http://hl7.org/fhir/StructureMap/OperationOutcome2to3" = "R2 to R3 Conversions for OperationOutcome"
 
-uses "http://hl7.org/fhir/StructureDefinition/OperationOutcome" as source
-uses "http://hl7.org/fhir/StructureDefinition/OperationOutcomeR2" as target
+
+uses "http://hl7.org/fhir/DSTU2/StructureDefinition/OperationOutcome" alias OperationOutcomeR2 as source
+uses "http://hl7.org/fhir/StructureDefinition/OperationOutcome" alias OperationOutcome as target
+
+imports "http://hl7.org/fhir/StructureMap/primitives2to3"
+imports "http://hl7.org/fhir/StructureMap/CodeableConcept2to3"
+
 
 
 group OperationOutcome extends Element
   input src : OperationOutcomeR2 as source
-  input tgt : OperationOutcome as Target
+  input tgt : OperationOutcome as target
 
-  "OperationOutcome-issue" : for src.issue as vs0 make tgt.issue = as vt0 then {
+  "OperationOutcome-issue" : for src.issue as vs0 make tgt.issue as vt0 then {
     "OperationOutcome.issue-severity" : for vs0.severity as vs make vt0.severity as vt then code(vs, vt)
     "OperationOutcome.issue-code" : for vs0.code as vs make vt0.code as vt then code(vs, vt)
     "OperationOutcome.issue-details" : for vs0.details as vs make vt0.details as vt then CodeableConcept(vs,vt)

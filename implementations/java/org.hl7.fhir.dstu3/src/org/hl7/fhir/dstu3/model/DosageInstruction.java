@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -735,19 +735,19 @@ public class DosageInstruction extends Type implements ICompositeType {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 1349547969: throw new FHIRException("Cannot make property sequence as it is not a complex type"); // IntegerType
-        case 3556653: throw new FHIRException("Cannot make property text as it is not a complex type"); // StringType
-        case -1206718612:  return addAdditionalInstructions(); // CodeableConcept
-        case -873664438:  return getTiming(); // Timing
-        case -544329575:  return getAsNeeded(); // Type
-        case 3530567:  return getSite(); // CodeableConcept
-        case 108704329:  return getRoute(); // CodeableConcept
-        case -1077554975:  return getMethod(); // CodeableConcept
-        case 1843195715:  return getDose(); // Type
-        case 1506263709:  return getMaxDosePerPeriod(); // Ratio
-        case 2004889914:  return getMaxDosePerAdministration(); // SimpleQuantity
-        case 642099621:  return getMaxDosePerLifetime(); // SimpleQuantity
-        case 983460768:  return getRate(); // Type
+        case 1349547969:  return getSequenceElement();
+        case 3556653:  return getTextElement();
+        case -1206718612:  return addAdditionalInstructions(); 
+        case -873664438:  return getTiming(); 
+        case -544329575:  return getAsNeeded(); 
+        case 3530567:  return getSite(); 
+        case 108704329:  return getRoute(); 
+        case -1077554975:  return getMethod(); 
+        case 1843195715:  return getDose(); 
+        case 1506263709:  return getMaxDosePerPeriod(); 
+        case 2004889914:  return getMaxDosePerAdministration(); 
+        case 642099621:  return getMaxDosePerLifetime(); 
+        case 983460768:  return getRate(); 
         default: return super.makeProperty(hash, name);
         }
 

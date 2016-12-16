@@ -1,12 +1,16 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Count3to2" = "R3 to R2 Conversion for Count"
 
-uses "http://hl7.org/fhir/StructureDefinition/CountR2" as source
-uses "http://hl7.org/fhir/StructureDefinition/Count" as target
+
+uses "http://hl7.org/fhir/StructureDefinition/Count" alias Count as source
+uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Count" alias CountR2 as target
+
+imports "http://hl7.org/fhir/StructureMap/primitives3to2"
+
 
 
 group Count extends Element
   input src : Count as source
-  input tgt : CountR2 as Target
+  input tgt : CountR2 as target
   "Count-value" : for src.value as vs make tgt.value as vt then decimal(vs, vt)
   "Count-comparator" : for src.comparator as vs make tgt.comparator as vt then code(vs, vt)
   "Count-unit" : for src.unit as vs make tgt.unit as vt then string(vs, vt)

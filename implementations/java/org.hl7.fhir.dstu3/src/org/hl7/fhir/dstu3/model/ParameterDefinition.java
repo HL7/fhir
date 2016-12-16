@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -616,13 +616,13 @@ public class ParameterDefinition extends Type implements ICompositeType {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // CodeType
-        case 116103: throw new FHIRException("Cannot make property use as it is not a complex type"); // Enumeration<ParameterUse>
-        case 108114: throw new FHIRException("Cannot make property min as it is not a complex type"); // IntegerType
-        case 107876: throw new FHIRException("Cannot make property max as it is not a complex type"); // StringType
-        case 1587405498: throw new FHIRException("Cannot make property documentation as it is not a complex type"); // StringType
-        case 3575610: throw new FHIRException("Cannot make property type as it is not a complex type"); // CodeType
-        case -309425751:  return getProfile(); // Reference
+        case 3373707:  return getNameElement();
+        case 116103:  return getUseElement();
+        case 108114:  return getMinElement();
+        case 107876:  return getMaxElement();
+        case 1587405498:  return getDocumentationElement();
+        case 3575610:  return getTypeElement();
+        case -309425751:  return getProfile(); 
         default: return super.makeProperty(hash, name);
         }
 

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -223,9 +223,9 @@ public class CareTeam extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3506294:  return getRole(); // CodeableConcept
-        case -1077769574:  return getMember(); // Reference
-        case -991726143:  return getPeriod(); // Period
+        case 3506294:  return getRole(); 
+        case -1077769574:  return getMember(); 
+        case -991726143:  return getPeriod(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -820,14 +820,14 @@ public class CareTeam extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1618432855:  return addIdentifier(); // Identifier
-        case -892481550:  return getStatus(); // CodeableConcept
-        case 50511102:  return addCategory(); // CodeableConcept
-        case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
-        case -1867885268:  return getSubject(); // Reference
-        case -991726143:  return getPeriod(); // Period
-        case 767422259:  return addParticipant(); // CareTeamParticipantComponent
-        case -2058947787:  return addManagingOrganization(); // Reference
+        case -1618432855:  return addIdentifier(); 
+        case -892481550:  return getStatus(); 
+        case 50511102:  return addCategory(); 
+        case 3373707:  return getNameElement();
+        case -1867885268:  return getSubject(); 
+        case -991726143:  return getPeriod(); 
+        case 767422259:  return addParticipant(); 
+        case -2058947787:  return addManagingOrganization(); 
         default: return super.makeProperty(hash, name);
         }
 

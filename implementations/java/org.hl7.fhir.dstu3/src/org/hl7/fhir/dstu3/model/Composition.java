@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -789,9 +789,9 @@ public class Composition extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3357091: throw new FHIRException("Cannot make property mode as it is not a complex type"); // Enumeration<CompositionAttestationMode>
-        case 3560141: throw new FHIRException("Cannot make property time as it is not a complex type"); // DateTimeType
-        case 106437350:  return getParty(); // Reference
+        case 3357091:  return addModeElement();
+        case 3560141:  return getTimeElement();
+        case 106437350:  return getParty(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -1086,9 +1086,9 @@ public class Composition extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3059181:  return addCode(); // CodeableConcept
-        case -991726143:  return getPeriod(); // Period
-        case -1335224239:  return addDetail(); // Reference
+        case 3059181:  return addCode(); 
+        case -991726143:  return getPeriod(); 
+        case -1335224239:  return addDetail(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -1630,14 +1630,14 @@ public class Composition extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 110371416: throw new FHIRException("Cannot make property title as it is not a complex type"); // StringType
-        case 3059181:  return getCode(); // CodeableConcept
-        case 3556653:  return getText(); // Narrative
-        case 3357091: throw new FHIRException("Cannot make property mode as it is not a complex type"); // Enumeration<SectionMode>
-        case -391079516:  return getOrderedBy(); // CodeableConcept
-        case 96667762:  return addEntry(); // Reference
-        case 1140135409:  return getEmptyReason(); // CodeableConcept
-        case 1970241253:  return addSection(); // SectionComponent
+        case 110371416:  return getTitleElement();
+        case 3059181:  return getCode(); 
+        case 3556653:  return getText(); 
+        case 3357091:  return getModeElement();
+        case -391079516:  return getOrderedBy(); 
+        case 96667762:  return addEntry(); 
+        case 1140135409:  return getEmptyReason(); 
+        case 1970241253:  return addSection(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -2608,20 +2608,20 @@ public class Composition extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1618432855:  return getIdentifier(); // Identifier
-        case 3076014: throw new FHIRException("Cannot make property date as it is not a complex type"); // DateTimeType
-        case 3575610:  return getType(); // CodeableConcept
-        case 94742904:  return getClass_(); // CodeableConcept
-        case 110371416: throw new FHIRException("Cannot make property title as it is not a complex type"); // StringType
-        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<CompositionStatus>
-        case -1923018202: throw new FHIRException("Cannot make property confidentiality as it is not a complex type"); // Enumeration<DocumentConfidentiality>
-        case -1867885268:  return getSubject(); // Reference
-        case -1406328437:  return addAuthor(); // Reference
-        case 542920370:  return addAttester(); // CompositionAttesterComponent
-        case 1611297262:  return getCustodian(); // Reference
-        case 96891546:  return addEvent(); // CompositionEventComponent
-        case 1524132147:  return getEncounter(); // Reference
-        case 1970241253:  return addSection(); // SectionComponent
+        case -1618432855:  return getIdentifier(); 
+        case 3076014:  return getDateElement();
+        case 3575610:  return getType(); 
+        case 94742904:  return getClass_(); 
+        case 110371416:  return getTitleElement();
+        case -892481550:  return getStatusElement();
+        case -1923018202:  return getConfidentialityElement();
+        case -1867885268:  return getSubject(); 
+        case -1406328437:  return addAuthor(); 
+        case 542920370:  return addAttester(); 
+        case 1611297262:  return getCustodian(); 
+        case 96891546:  return addEvent(); 
+        case 1524132147:  return getEncounter(); 
+        case 1970241253:  return addSection(); 
         default: return super.makeProperty(hash, name);
         }
 

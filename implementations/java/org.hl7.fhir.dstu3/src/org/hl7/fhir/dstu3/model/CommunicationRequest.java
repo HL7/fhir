@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -386,7 +386,7 @@ public class CommunicationRequest extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 264548711:  return getContent(); // Type
+        case 264548711:  return getContent(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -1420,21 +1420,21 @@ public class CommunicationRequest extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1618432855:  return addIdentifier(); // Identifier
-        case 50511102:  return getCategory(); // CodeableConcept
-        case -905962955:  return getSender(); // Reference
-        case 820081177:  return addRecipient(); // Reference
-        case -786701938:  return addPayload(); // CommunicationRequestPayloadComponent
-        case -1078030475:  return addMedium(); // CodeableConcept
-        case 693933948:  return getRequester(); // Reference
-        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<CommunicationRequestStatus>
-        case 110546223:  return addTopic(); // Reference
-        case 951530927:  return getContext(); // Reference
-        case 1162627251:  return getScheduled(); // Type
-        case -934964668:  return addReason(); // CodeableConcept
-        case 1150582253: throw new FHIRException("Cannot make property requestedOn as it is not a complex type"); // DateTimeType
-        case -1867885268:  return getSubject(); // Reference
-        case -1165461084:  return getPriority(); // CodeableConcept
+        case -1618432855:  return addIdentifier(); 
+        case 50511102:  return getCategory(); 
+        case -905962955:  return getSender(); 
+        case 820081177:  return addRecipient(); 
+        case -786701938:  return addPayload(); 
+        case -1078030475:  return addMedium(); 
+        case 693933948:  return getRequester(); 
+        case -892481550:  return getStatusElement();
+        case 110546223:  return addTopic(); 
+        case 951530927:  return getContext(); 
+        case 1162627251:  return getScheduled(); 
+        case -934964668:  return addReason(); 
+        case 1150582253:  return getRequestedOnElement();
+        case -1867885268:  return getSubject(); 
+        case -1165461084:  return getPriority(); 
         default: return super.makeProperty(hash, name);
         }
 

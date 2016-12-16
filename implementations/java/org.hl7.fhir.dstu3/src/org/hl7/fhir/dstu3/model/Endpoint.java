@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -988,18 +988,18 @@ public class Endpoint extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1618432855:  return addIdentifier(); // Identifier
-        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<EndpointStatus>
-        case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
-        case -2058947787:  return getManagingOrganization(); // Reference
-        case 951526432:  return addContact(); // ContactPoint
-        case -991726143:  return getPeriod(); // Period
-        case 1270211384:  return getConnectionType(); // Coding
-        case 909929960:  return addPayloadType(); // CodeableConcept
-        case -1702836932: throw new FHIRException("Cannot make property payloadMimeType as it is not a complex type"); // CodeType
-        case -1147692044: throw new FHIRException("Cannot make property address as it is not a complex type"); // UriType
-        case -1221270899: throw new FHIRException("Cannot make property header as it is not a complex type"); // StringType
-        case 1446899510: throw new FHIRException("Cannot make property publicKey as it is not a complex type"); // StringType
+        case -1618432855:  return addIdentifier(); 
+        case -892481550:  return getStatusElement();
+        case 3373707:  return getNameElement();
+        case -2058947787:  return getManagingOrganization(); 
+        case 951526432:  return addContact(); 
+        case -991726143:  return getPeriod(); 
+        case 1270211384:  return getConnectionType(); 
+        case 909929960:  return addPayloadType(); 
+        case -1702836932:  return addPayloadMimeTypeElement();
+        case -1147692044:  return getAddressElement();
+        case -1221270899:  return addHeaderElement();
+        case 1446899510:  return getPublicKeyElement();
         default: return super.makeProperty(hash, name);
         }
 

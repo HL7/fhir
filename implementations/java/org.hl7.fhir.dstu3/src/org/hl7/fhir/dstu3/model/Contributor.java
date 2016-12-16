@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -402,9 +402,9 @@ public class Contributor extends Type implements ICompositeType {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3575610: throw new FHIRException("Cannot make property type as it is not a complex type"); // Enumeration<ContributorType>
-        case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
-        case 951526432:  return addContact(); // ContactDetail
+        case 3575610:  return getTypeElement();
+        case 3373707:  return getNameElement();
+        case 951526432:  return addContact(); 
         default: return super.makeProperty(hash, name);
         }
 

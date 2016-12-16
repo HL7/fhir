@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -1181,21 +1181,21 @@ public class VisionPrescription extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -309474065:  return getProduct(); // CodeableConcept
-        case 100913:  return getEye(); // CodeableConcept
-        case -895981619: throw new FHIRException("Cannot make property sphere as it is not a complex type"); // DecimalType
-        case -349378602: throw new FHIRException("Cannot make property cylinder as it is not a complex type"); // DecimalType
-        case 3008417: throw new FHIRException("Cannot make property axis as it is not a complex type"); // IntegerType
-        case 106935105: throw new FHIRException("Cannot make property prism as it is not a complex type"); // DecimalType
-        case 3016401:  return getBase(); // CodeableConcept
-        case 96417: throw new FHIRException("Cannot make property add as it is not a complex type"); // DecimalType
-        case 106858757: throw new FHIRException("Cannot make property power as it is not a complex type"); // DecimalType
-        case 1309344840: throw new FHIRException("Cannot make property backCurve as it is not a complex type"); // DecimalType
-        case -233204595: throw new FHIRException("Cannot make property diameter as it is not a complex type"); // DecimalType
-        case -1992012396:  return getDuration(); // SimpleQuantity
-        case 94842723: throw new FHIRException("Cannot make property color as it is not a complex type"); // StringType
-        case 93997959: throw new FHIRException("Cannot make property brand as it is not a complex type"); // StringType
-        case 3387378: throw new FHIRException("Cannot make property note as it is not a complex type"); // StringType
+        case -309474065:  return getProduct(); 
+        case 100913:  return getEye(); 
+        case -895981619:  return getSphereElement();
+        case -349378602:  return getCylinderElement();
+        case 3008417:  return getAxisElement();
+        case 106935105:  return getPrismElement();
+        case 3016401:  return getBase(); 
+        case 96417:  return getAddElement();
+        case 106858757:  return getPowerElement();
+        case 1309344840:  return getBackCurveElement();
+        case -233204595:  return getDiameterElement();
+        case -1992012396:  return getDuration(); 
+        case 94842723:  return getColorElement();
+        case 93997959:  return getBrandElement();
+        case 3387378:  return getNoteElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -1865,14 +1865,14 @@ public class VisionPrescription extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1618432855:  return addIdentifier(); // Identifier
-        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<VisionStatus>
-        case -791418107:  return getPatient(); // Reference
-        case 1524132147:  return getEncounter(); // Reference
-        case -1496880759: throw new FHIRException("Cannot make property dateWritten as it is not a complex type"); // DateTimeType
-        case 1430631077:  return getPrescriber(); // Reference
-        case -669418564:  return getReason(); // Type
-        case 284885341:  return addDispense(); // VisionPrescriptionDispenseComponent
+        case -1618432855:  return addIdentifier(); 
+        case -892481550:  return getStatusElement();
+        case -791418107:  return getPatient(); 
+        case 1524132147:  return getEncounter(); 
+        case -1496880759:  return getDateWrittenElement();
+        case 1430631077:  return getPrescriber(); 
+        case -669418564:  return getReason(); 
+        case 284885341:  return addDispense(); 
         default: return super.makeProperty(hash, name);
         }
 

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -413,7 +413,7 @@ public class Goal extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1819555005:  return getResult(); // Type
+        case -1819555005:  return getResult(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -1372,20 +1372,20 @@ public class Goal extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1618432855:  return addIdentifier(); // Identifier
-        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<GoalStatus>
-        case 50511102:  return addCategory(); // CodeableConcept
-        case -1165461084:  return getPriority(); // CodeableConcept
-        case -1724546052:  return getDescription(); // CodeableConcept
-        case -1867885268:  return getSubject(); // Reference
-        case 1316793566:  return getStart(); // Type
-        case -815579825:  return getTarget(); // Type
-        case 247524032: throw new FHIRException("Cannot make property statusDate as it is not a complex type"); // DateType
-        case 2051346646:  return addStatusReason(); // CodeableConcept
-        case 175423686:  return getExpressedBy(); // Reference
-        case 874544034:  return addAddresses(); // Reference
-        case 3387378:  return addNote(); // Annotation
-        case -1106507950:  return addOutcome(); // GoalOutcomeComponent
+        case -1618432855:  return addIdentifier(); 
+        case -892481550:  return getStatusElement();
+        case 50511102:  return addCategory(); 
+        case -1165461084:  return getPriority(); 
+        case -1724546052:  return getDescription(); 
+        case -1867885268:  return getSubject(); 
+        case 1316793566:  return getStart(); 
+        case -815579825:  return getTarget(); 
+        case 247524032:  return getStatusDateElement();
+        case 2051346646:  return addStatusReason(); 
+        case 175423686:  return getExpressedBy(); 
+        case 874544034:  return addAddresses(); 
+        case 3387378:  return addNote(); 
+        case -1106507950:  return addOutcome(); 
         default: return super.makeProperty(hash, name);
         }
 

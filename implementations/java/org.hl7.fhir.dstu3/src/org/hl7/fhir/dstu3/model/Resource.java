@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -313,10 +313,10 @@ public abstract class Resource extends BaseResource implements IAnyResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3355: throw new FHIRException("Cannot make property id as it is not a complex type"); // IdType
-        case 3347973:  return getMeta(); // Meta
-        case -961826286: throw new FHIRException("Cannot make property implicitRules as it is not a complex type"); // UriType
-        case -1613589672: throw new FHIRException("Cannot make property language as it is not a complex type"); // CodeType
+        case 3355:  return getIdElement();
+        case 3347973:  return getMeta(); 
+        case -961826286:  return getImplicitRulesElement();
+        case -1613589672:  return getLanguageElement();
         default: return super.makeProperty(hash, name);
         }
 

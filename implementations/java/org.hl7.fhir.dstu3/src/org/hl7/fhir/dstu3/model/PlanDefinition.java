@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -2602,30 +2602,30 @@ public class PlanDefinition extends MetadataResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -889046145:  return getActionIdentifier(); // Identifier
-        case 102727412: throw new FHIRException("Cannot make property label as it is not a complex type"); // StringType
-        case 110371416: throw new FHIRException("Cannot make property title as it is not a complex type"); // StringType
-        case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
-        case -900391049: throw new FHIRException("Cannot make property textEquivalent as it is not a complex type"); // StringType
-        case 3059181:  return addCode(); // CodeableConcept
-        case 1587405498:  return addDocumentation(); // RelatedArtifact
-        case 1126736171:  return addTriggerDefinition(); // TriggerDefinition
-        case -861311717:  return addCondition(); // PlanDefinitionActionDefinitionConditionComponent
-        case 100358090:  return addInput(); // DataRequirement
-        case -1005512447:  return addOutput(); // DataRequirement
-        case -384107967:  return addRelatedAction(); // PlanDefinitionActionDefinitionRelatedActionComponent
-        case 164632566:  return getTiming(); // Type
-        case 841294093: throw new FHIRException("Cannot make property participantType as it is not a complex type"); // Enumeration<PlanActionParticipantType>
-        case 3575610:  return getType(); // Coding
-        case 586678389: throw new FHIRException("Cannot make property groupingBehavior as it is not a complex type"); // Enumeration<PlanActionGroupingBehavior>
-        case 168639486: throw new FHIRException("Cannot make property selectionBehavior as it is not a complex type"); // Enumeration<PlanActionSelectionBehavior>
-        case -1163906287: throw new FHIRException("Cannot make property requiredBehavior as it is not a complex type"); // Enumeration<PlanActionRequiredBehavior>
-        case -1174249033: throw new FHIRException("Cannot make property precheckBehavior as it is not a complex type"); // Enumeration<PlanActionPrecheckBehavior>
-        case -922577408: throw new FHIRException("Cannot make property cardinalityBehavior as it is not a complex type"); // Enumeration<PlanActionCardinalityBehavior>
-        case -990265918:  return getActivityDefinition(); // Reference
-        case 1052666732:  return getTransform(); // Reference
-        case 572625010:  return addDynamicValue(); // PlanDefinitionActionDefinitionDynamicValueComponent
-        case -285031383:  return addActionDefinition(); // PlanDefinitionActionDefinitionComponent
+        case -889046145:  return getActionIdentifier(); 
+        case 102727412:  return getLabelElement();
+        case 110371416:  return getTitleElement();
+        case -1724546052:  return getDescriptionElement();
+        case -900391049:  return getTextEquivalentElement();
+        case 3059181:  return addCode(); 
+        case 1587405498:  return addDocumentation(); 
+        case 1126736171:  return addTriggerDefinition(); 
+        case -861311717:  return addCondition(); 
+        case 100358090:  return addInput(); 
+        case -1005512447:  return addOutput(); 
+        case -384107967:  return addRelatedAction(); 
+        case 164632566:  return getTiming(); 
+        case 841294093:  return addParticipantTypeElement();
+        case 3575610:  return getType(); 
+        case 586678389:  return getGroupingBehaviorElement();
+        case 168639486:  return getSelectionBehaviorElement();
+        case -1163906287:  return getRequiredBehaviorElement();
+        case -1174249033:  return getPrecheckBehaviorElement();
+        case -922577408:  return getCardinalityBehaviorElement();
+        case -990265918:  return getActivityDefinition(); 
+        case 1052666732:  return getTransform(); 
+        case 572625010:  return addDynamicValue(); 
+        case -285031383:  return addActionDefinition(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -3145,10 +3145,10 @@ public class PlanDefinition extends MetadataResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3292052: throw new FHIRException("Cannot make property kind as it is not a complex type"); // Enumeration<PlanActionConditionKind>
-        case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
-        case -1613589672: throw new FHIRException("Cannot make property language as it is not a complex type"); // StringType
-        case -1795452264: throw new FHIRException("Cannot make property expression as it is not a complex type"); // StringType
+        case 3292052:  return getKindElement();
+        case -1724546052:  return getDescriptionElement();
+        case -1613589672:  return getLanguageElement();
+        case -1795452264:  return getExpressionElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -3422,9 +3422,9 @@ public class PlanDefinition extends MetadataResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -889046145:  return getActionIdentifier(); // Identifier
-        case -261851592: throw new FHIRException("Cannot make property relationship as it is not a complex type"); // Enumeration<PlanActionRelationshipType>
-        case -1960684787:  return getOffset(); // Type
+        case -889046145:  return getActionIdentifier(); 
+        case -261851592:  return getRelationshipElement();
+        case -1960684787:  return getOffset(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -3785,10 +3785,10 @@ public class PlanDefinition extends MetadataResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
-        case 3433509: throw new FHIRException("Cannot make property path as it is not a complex type"); // StringType
-        case -1613589672: throw new FHIRException("Cannot make property language as it is not a complex type"); // StringType
-        case -1795452264: throw new FHIRException("Cannot make property expression as it is not a complex type"); // StringType
+        case -1724546052:  return getDescriptionElement();
+        case 3433509:  return getPathElement();
+        case -1613589672:  return getLanguageElement();
+        case -1795452264:  return getExpressionElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -5399,31 +5399,31 @@ public class PlanDefinition extends MetadataResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 116079: throw new FHIRException("Cannot make property url as it is not a complex type"); // UriType
-        case -1618432855:  return addIdentifier(); // Identifier
-        case 351608024: throw new FHIRException("Cannot make property version as it is not a complex type"); // StringType
-        case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
-        case 110371416: throw new FHIRException("Cannot make property title as it is not a complex type"); // StringType
-        case 3575610:  return getType(); // CodeableConcept
-        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<PublicationStatus>
-        case -404562712: throw new FHIRException("Cannot make property experimental as it is not a complex type"); // BooleanType
-        case 3076014: throw new FHIRException("Cannot make property date as it is not a complex type"); // DateTimeType
-        case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // MarkdownType
-        case -220463842: throw new FHIRException("Cannot make property purpose as it is not a complex type"); // MarkdownType
-        case 111574433: throw new FHIRException("Cannot make property usage as it is not a complex type"); // StringType
-        case 223539345: throw new FHIRException("Cannot make property approvalDate as it is not a complex type"); // DateType
-        case -1687512484: throw new FHIRException("Cannot make property lastReviewDate as it is not a complex type"); // DateType
-        case -403934648:  return getEffectivePeriod(); // Period
-        case -669707736:  return addUseContext(); // UsageContext
-        case -507075711:  return addJurisdiction(); // CodeableConcept
-        case 110546223:  return addTopic(); // CodeableConcept
-        case -1895276325:  return addContributor(); // Contributor
-        case 1447404028: throw new FHIRException("Cannot make property publisher as it is not a complex type"); // StringType
-        case 951526432:  return addContact(); // ContactDetail
-        case 1522889671: throw new FHIRException("Cannot make property copyright as it is not a complex type"); // MarkdownType
-        case 666807069:  return addRelatedArtifact(); // RelatedArtifact
-        case 166208699:  return addLibrary(); // Reference
-        case -285031383:  return addActionDefinition(); // PlanDefinitionActionDefinitionComponent
+        case 116079:  return getUrlElement();
+        case -1618432855:  return addIdentifier(); 
+        case 351608024:  return getVersionElement();
+        case 3373707:  return getNameElement();
+        case 110371416:  return getTitleElement();
+        case 3575610:  return getType(); 
+        case -892481550:  return getStatusElement();
+        case -404562712:  return getExperimentalElement();
+        case 3076014:  return getDateElement();
+        case -1724546052:  return getDescriptionElement();
+        case -220463842:  return getPurposeElement();
+        case 111574433:  return getUsageElement();
+        case 223539345:  return getApprovalDateElement();
+        case -1687512484:  return getLastReviewDateElement();
+        case -403934648:  return getEffectivePeriod(); 
+        case -669707736:  return addUseContext(); 
+        case -507075711:  return addJurisdiction(); 
+        case 110546223:  return addTopic(); 
+        case -1895276325:  return addContributor(); 
+        case 1447404028:  return getPublisherElement();
+        case 951526432:  return addContact(); 
+        case 1522889671:  return getCopyrightElement();
+        case 666807069:  return addRelatedArtifact(); 
+        case 166208699:  return addLibrary(); 
+        case -285031383:  return addActionDefinition(); 
         default: return super.makeProperty(hash, name);
         }
 

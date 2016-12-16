@@ -1,7 +1,5 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Timing3to2" = "R3 to R2 Conversion for Timing"
 
-uses "http://hl7.org/fhir/StructureDefinition/TimingR2" as source
-uses "http://hl7.org/fhir/StructureDefinition/Timing" as target
 conceptmap "EventTiming" {
   prefix s = "http://hl7.org/fhir/event-timing"
   prefix t = "http://hl7.org/fhir/v3/TimingEvent"
@@ -22,12 +20,21 @@ conceptmap "EventTiming" {
   s:MORN ~ t:HS
 }
 
+uses "http://hl7.org/fhir/StructureDefinition/Timing" alias Timing as source
+uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Timing" alias TimingR2 as target
+
+imports "http://hl7.org/fhir/StructureMap/primitives3to2"
+imports "http://hl7.org/fhir/StructureMap/Period3to2"
+imports "http://hl7.org/fhir/StructureMap/Range3to2"
+imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
+
+
 
 group Timing extends Element
   input src : Timing as source
-  input tgt : TimingR2 as Target
+  input tgt : TimingR2 as target
   "Timing-event" : for src.event as vs make tgt.event as vt then dateTime(vs, vt)
-  "Timing-repeat" : for src.repeat as vs0 make tgt.repeat = as vt0 then {
+  "Timing-repeat" : for src.repeat as vs0 make tgt.repeat as vt0 then {
     "Timing.repeat-bounds-Range" : for vs0.bounds  : Range as vs make vt0.bounds = create("Range") as vt then Range(vs,vt)
     "Timing.repeat-bounds-Period" : for vs0.bounds  : Period as vs make vt0.bounds = create("Period") as vt then Period(vs,vt)
     "Timing.repeat-count" : for vs0.count as vs make vt0.count as vt then integer(vs, vt)

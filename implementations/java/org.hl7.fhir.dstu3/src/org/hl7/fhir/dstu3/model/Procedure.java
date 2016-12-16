@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -323,8 +323,8 @@ public class Procedure extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 92645877:  return getActor(); // Reference
-        case 3506294:  return getRole(); // CodeableConcept
+        case 92645877:  return getActor(); 
+        case 3506294:  return getRole(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -533,8 +533,8 @@ public class Procedure extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1422950858:  return getAction(); // CodeableConcept
-        case 947372650:  return getManipulated(); // Reference
+        case -1422950858:  return getAction(); 
+        case 947372650:  return getManipulated(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -2205,30 +2205,30 @@ public class Procedure extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1618432855:  return addIdentifier(); // Identifier
-        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<ProcedureStatus>
-        case 50511102:  return getCategory(); // CodeableConcept
-        case 3059181:  return getCode(); // CodeableConcept
-        case -1867885268:  return getSubject(); // Reference
-        case 1524132147:  return getEncounter(); // Reference
-        case 1355984064:  return getPerformed(); // Type
-        case 481140686:  return addPerformer(); // ProcedurePerformerComponent
-        case 1901043637:  return getLocation(); // Reference
-        case -1146218137:  return addReasonReference(); // Reference
-        case 722137681:  return addReasonCode(); // CodeableConcept
-        case 585470509: throw new FHIRException("Cannot make property notPerformed as it is not a complex type"); // BooleanType
-        case -906415471:  return addReasonNotPerformed(); // CodeableConcept
-        case 1702620169:  return addBodySite(); // CodeableConcept
-        case -1106507950:  return getOutcome(); // CodeableConcept
-        case -934521548:  return addReport(); // Reference
-        case -1644401602:  return addComplication(); // CodeableConcept
-        case 301801004:  return addFollowUp(); // CodeableConcept
-        case 1095692943:  return getRequest(); // Reference
-        case 105008833:  return addNotes(); // Annotation
-        case -1129235173:  return addFocalDevice(); // ProcedureFocalDeviceComponent
-        case -504932338:  return addUsedReference(); // Reference
-        case -279910582:  return addUsedCode(); // CodeableConcept
-        case -1399907075:  return addComponent(); // Reference
+        case -1618432855:  return addIdentifier(); 
+        case -892481550:  return getStatusElement();
+        case 50511102:  return getCategory(); 
+        case 3059181:  return getCode(); 
+        case -1867885268:  return getSubject(); 
+        case 1524132147:  return getEncounter(); 
+        case 1355984064:  return getPerformed(); 
+        case 481140686:  return addPerformer(); 
+        case 1901043637:  return getLocation(); 
+        case -1146218137:  return addReasonReference(); 
+        case 722137681:  return addReasonCode(); 
+        case 585470509:  return getNotPerformedElement();
+        case -906415471:  return addReasonNotPerformed(); 
+        case 1702620169:  return addBodySite(); 
+        case -1106507950:  return getOutcome(); 
+        case -934521548:  return addReport(); 
+        case -1644401602:  return addComplication(); 
+        case 301801004:  return addFollowUp(); 
+        case 1095692943:  return getRequest(); 
+        case 105008833:  return addNotes(); 
+        case -1129235173:  return addFocalDevice(); 
+        case -504932338:  return addUsedReference(); 
+        case -279910582:  return addUsedCode(); 
+        case -1399907075:  return addComponent(); 
         default: return super.makeProperty(hash, name);
         }
 

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -345,8 +345,8 @@ public class Contract extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 92645877:  return getActor(); // Reference
-        case 3506294:  return addRole(); // CodeableConcept
+        case 92645877:  return getActor(); 
+        case 3506294:  return addRole(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -621,9 +621,9 @@ public class Contract extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3575610:  return getType(); // Coding
-        case 106437350:  return getParty(); // Reference
-        case 1073584312:  return addSignature(); // Signature
+        case 3575610:  return getType(); 
+        case 106437350:  return getParty(); 
+        case 1073584312:  return addSignature(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -1167,14 +1167,14 @@ public class Contract extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -740568643:  return getEntity(); // Type
-        case -1618432855:  return getIdentifier(); // Identifier
-        case -929905388: throw new FHIRException("Cannot make property effectiveTime as it is not a complex type"); // DateTimeType
-        case -1285004149:  return getQuantity(); // SimpleQuantity
-        case -486196699:  return getUnitPrice(); // Money
-        case -1282148017: throw new FHIRException("Cannot make property factor as it is not a complex type"); // DecimalType
-        case -982754077: throw new FHIRException("Cannot make property points as it is not a complex type"); // DecimalType
-        case 108957:  return getNet(); // Money
+        case -740568643:  return getEntity(); 
+        case -1618432855:  return getIdentifier(); 
+        case -929905388:  return getEffectiveTimeElement();
+        case -1285004149:  return getQuantity(); 
+        case -486196699:  return getUnitPrice(); 
+        case -1282148017:  return getFactorElement();
+        case -982754077:  return getPointsElement();
+        case 108957:  return getNet(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -2007,18 +2007,18 @@ public class Contract extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1618432855:  return getIdentifier(); // Identifier
-        case -1179159893: throw new FHIRException("Cannot make property issued as it is not a complex type"); // DateTimeType
-        case -793235316:  return getApplies(); // Period
-        case 3575610:  return getType(); // CodeableConcept
-        case -1868521062:  return getSubType(); // CodeableConcept
-        case 110546223:  return addTopic(); // Reference
-        case -1422950858:  return addAction(); // CodeableConcept
-        case 1465121818:  return addActionReason(); // CodeableConcept
-        case 92750597:  return addAgent(); // TermAgentComponent
-        case 3556653: throw new FHIRException("Cannot make property text as it is not a complex type"); // StringType
-        case 2046675654:  return addValuedItem(); // TermValuedItemComponent
-        case 98629247:  return addGroup(); // TermComponent
+        case -1618432855:  return getIdentifier(); 
+        case -1179159893:  return getIssuedElement();
+        case -793235316:  return getApplies(); 
+        case 3575610:  return getType(); 
+        case -1868521062:  return getSubType(); 
+        case 110546223:  return addTopic(); 
+        case -1422950858:  return addAction(); 
+        case 1465121818:  return addActionReason(); 
+        case 92750597:  return addAgent(); 
+        case 3556653:  return getTextElement();
+        case 2046675654:  return addValuedItem(); 
+        case 98629247:  return addGroup(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -2323,8 +2323,8 @@ public class Contract extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 92645877:  return getActor(); // Reference
-        case 3506294:  return addRole(); // CodeableConcept
+        case 92645877:  return getActor(); 
+        case 3506294:  return addRole(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -2862,14 +2862,14 @@ public class Contract extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -740568643:  return getEntity(); // Type
-        case -1618432855:  return getIdentifier(); // Identifier
-        case -929905388: throw new FHIRException("Cannot make property effectiveTime as it is not a complex type"); // DateTimeType
-        case -1285004149:  return getQuantity(); // SimpleQuantity
-        case -486196699:  return getUnitPrice(); // Money
-        case -1282148017: throw new FHIRException("Cannot make property factor as it is not a complex type"); // DecimalType
-        case -982754077: throw new FHIRException("Cannot make property points as it is not a complex type"); // DecimalType
-        case 108957:  return getNet(); // Money
+        case -740568643:  return getEntity(); 
+        case -1618432855:  return getIdentifier(); 
+        case -929905388:  return getEffectiveTimeElement();
+        case -1285004149:  return getQuantity(); 
+        case -486196699:  return getUnitPrice(); 
+        case -1282148017:  return getFactorElement();
+        case -982754077:  return getPointsElement();
+        case 108957:  return getNet(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -3070,7 +3070,7 @@ public class Contract extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 264548711:  return getContent(); // Type
+        case 264548711:  return getContent(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -3235,7 +3235,7 @@ public class Contract extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 264548711:  return getContent(); // Type
+        case 264548711:  return getContent(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -3400,7 +3400,7 @@ public class Contract extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 264548711:  return getContent(); // Type
+        case 264548711:  return getContent(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -4822,26 +4822,26 @@ public class Contract extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1618432855:  return getIdentifier(); // Identifier
-        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<ContractStatus>
-        case -1179159893: throw new FHIRException("Cannot make property issued as it is not a complex type"); // DateTimeType
-        case -793235316:  return getApplies(); // Period
-        case -1867885268:  return addSubject(); // Reference
-        case 110546223:  return addTopic(); // Reference
-        case 1475610435:  return addAuthority(); // Reference
-        case -1326197564:  return addDomain(); // Reference
-        case 3575610:  return getType(); // CodeableConcept
-        case -1868521062:  return addSubType(); // CodeableConcept
-        case -1422950858:  return addAction(); // CodeableConcept
-        case 1465121818:  return addActionReason(); // CodeableConcept
-        case 92750597:  return addAgent(); // AgentComponent
-        case -902467798:  return addSigner(); // SignatoryComponent
-        case 2046675654:  return addValuedItem(); // ValuedItemComponent
-        case 3556460:  return addTerm(); // TermComponent
-        case 1514826715:  return getBinding(); // Type
-        case -1423054677:  return addFriendly(); // FriendlyLanguageComponent
-        case 102851257:  return addLegal(); // LegalLanguageComponent
-        case 3512060:  return addRule(); // ComputableLanguageComponent
+        case -1618432855:  return getIdentifier(); 
+        case -892481550:  return getStatusElement();
+        case -1179159893:  return getIssuedElement();
+        case -793235316:  return getApplies(); 
+        case -1867885268:  return addSubject(); 
+        case 110546223:  return addTopic(); 
+        case 1475610435:  return addAuthority(); 
+        case -1326197564:  return addDomain(); 
+        case 3575610:  return getType(); 
+        case -1868521062:  return addSubType(); 
+        case -1422950858:  return addAction(); 
+        case 1465121818:  return addActionReason(); 
+        case 92750597:  return addAgent(); 
+        case -902467798:  return addSigner(); 
+        case 2046675654:  return addValuedItem(); 
+        case 3556460:  return addTerm(); 
+        case 1514826715:  return getBinding(); 
+        case -1423054677:  return addFriendly(); 
+        case 102851257:  return addLegal(); 
+        case 3512060:  return addRule(); 
         default: return super.makeProperty(hash, name);
         }
 

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -343,8 +343,8 @@ public class DocumentReference extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3059181: throw new FHIRException("Cannot make property code as it is not a complex type"); // Enumeration<DocumentRelationshipType>
-        case -880905839:  return getTarget(); // Reference
+        case 3059181:  return getCodeElement();
+        case -880905839:  return getTarget(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -556,8 +556,8 @@ public class DocumentReference extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1963501277:  return getAttachment(); // Attachment
-        case -1268779017:  return addFormat(); // Coding
+        case -1963501277:  return getAttachment(); 
+        case -1268779017:  return addFormat(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -1036,13 +1036,13 @@ public class DocumentReference extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 1524132147:  return getEncounter(); // Reference
-        case 96891546:  return addEvent(); // CodeableConcept
-        case -991726143:  return getPeriod(); // Period
-        case 370698365:  return getFacilityType(); // CodeableConcept
-        case 331373717:  return getPracticeSetting(); // CodeableConcept
-        case 2031381048:  return getSourcePatientInfo(); // Reference
-        case 1090493483:  return addRelated(); // DocumentReferenceContextRelatedComponent
+        case 1524132147:  return getEncounter(); 
+        case 96891546:  return addEvent(); 
+        case -991726143:  return getPeriod(); 
+        case 370698365:  return getFacilityType(); 
+        case 331373717:  return getPracticeSetting(); 
+        case 2031381048:  return getSourcePatientInfo(); 
+        case 1090493483:  return addRelated(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -1272,8 +1272,8 @@ public class DocumentReference extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1618432855:  return getIdentifier(); // Identifier
-        case 112787:  return getRef(); // Reference
+        case -1618432855:  return getIdentifier(); 
+        case 112787:  return getRef(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -2348,23 +2348,23 @@ public class DocumentReference extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 243769515:  return getMasterIdentifier(); // Identifier
-        case -1618432855:  return addIdentifier(); // Identifier
-        case -1867885268:  return getSubject(); // Reference
-        case 3575610:  return getType(); // CodeableConcept
-        case 94742904:  return getClass_(); // CodeableConcept
-        case -1406328437:  return addAuthor(); // Reference
-        case 1611297262:  return getCustodian(); // Reference
-        case 1815000435:  return getAuthenticator(); // Reference
-        case 1028554472: throw new FHIRException("Cannot make property created as it is not a complex type"); // DateTimeType
-        case 1943292145: throw new FHIRException("Cannot make property indexed as it is not a complex type"); // InstantType
-        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<DocumentReferenceStatus>
-        case -23496886:  return getDocStatus(); // CodeableConcept
-        case -7765931:  return addRelatesTo(); // DocumentReferenceRelatesToComponent
-        case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
-        case -722296940:  return addSecurityLabel(); // CodeableConcept
-        case 951530617:  return addContent(); // DocumentReferenceContentComponent
-        case 951530927:  return getContext(); // DocumentReferenceContextComponent
+        case 243769515:  return getMasterIdentifier(); 
+        case -1618432855:  return addIdentifier(); 
+        case -1867885268:  return getSubject(); 
+        case 3575610:  return getType(); 
+        case 94742904:  return getClass_(); 
+        case -1406328437:  return addAuthor(); 
+        case 1611297262:  return getCustodian(); 
+        case 1815000435:  return getAuthenticator(); 
+        case 1028554472:  return getCreatedElement();
+        case 1943292145:  return getIndexedElement();
+        case -892481550:  return getStatusElement();
+        case -23496886:  return getDocStatus(); 
+        case -7765931:  return addRelatesTo(); 
+        case -1724546052:  return getDescriptionElement();
+        case -722296940:  return addSecurityLabel(); 
+        case 951530617:  return addContent(); 
+        case 951530927:  return getContext(); 
         default: return super.makeProperty(hash, name);
         }
 

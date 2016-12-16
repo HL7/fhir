@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -717,14 +717,14 @@ public class EnrollmentRequest extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1618432855:  return addIdentifier(); // Identifier
-        case -892481550: throw new FHIRException("Cannot make property status as it is not a complex type"); // Enumeration<EnrollmentRequestStatus>
-        case 1028554472: throw new FHIRException("Cannot make property created as it is not a complex type"); // DateTimeType
-        case 1957615864:  return getInsurer(); // Reference
-        case -987494927:  return getProvider(); // Reference
-        case 1178922291:  return getOrganization(); // Reference
-        case -1867885268:  return getSubject(); // Reference
-        case -351767064:  return getCoverage(); // Reference
+        case -1618432855:  return addIdentifier(); 
+        case -892481550:  return getStatusElement();
+        case 1028554472:  return getCreatedElement();
+        case 1957615864:  return getInsurer(); 
+        case -987494927:  return getProvider(); 
+        case 1178922291:  return getOrganization(); 
+        case -1867885268:  return getSubject(); 
+        case -351767064:  return getCoverage(); 
         default: return super.makeProperty(hash, name);
         }
 

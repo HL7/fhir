@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Dec 13, 2016 09:53+1100 for FHIR v1.9.0
+// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -1127,17 +1127,17 @@ public class AuditEvent extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3506294:  return addRole(); // CodeableConcept
-        case -925155509:  return getReference(); // Reference
-        case -836030906:  return getUserId(); // Identifier
-        case 92912804: throw new FHIRException("Cannot make property altId as it is not a complex type"); // StringType
-        case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
-        case 693934258: throw new FHIRException("Cannot make property requestor as it is not a complex type"); // BooleanType
-        case 1901043637:  return getLocation(); // Reference
-        case -982670030: throw new FHIRException("Cannot make property policy as it is not a complex type"); // UriType
-        case 103772132:  return getMedia(); // Coding
-        case 1843485230:  return getNetwork(); // AuditEventAgentNetworkComponent
-        case -1881902670:  return addPurposeOfUse(); // CodeableConcept
+        case 3506294:  return addRole(); 
+        case -925155509:  return getReference(); 
+        case -836030906:  return getUserId(); 
+        case 92912804:  return getAltIdElement();
+        case 3373707:  return getNameElement();
+        case 693934258:  return getRequestorElement();
+        case 1901043637:  return getLocation(); 
+        case -982670030:  return addPolicyElement();
+        case 103772132:  return getMedia(); 
+        case 1843485230:  return getNetwork(); 
+        case -1881902670:  return addPurposeOfUse(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -1419,8 +1419,8 @@ public class AuditEvent extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1147692044: throw new FHIRException("Cannot make property address as it is not a complex type"); // StringType
-        case 3575610: throw new FHIRException("Cannot make property type as it is not a complex type"); // Enumeration<AuditEventAgentNetworkType>
+        case -1147692044:  return getAddressElement();
+        case 3575610:  return getTypeElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -1694,9 +1694,9 @@ public class AuditEvent extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3530567: throw new FHIRException("Cannot make property site as it is not a complex type"); // StringType
-        case -1618432855:  return getIdentifier(); // Identifier
-        case 3575610:  return addType(); // Coding
+        case 3530567:  return getSiteElement();
+        case -1618432855:  return getIdentifier(); 
+        case 3575610:  return addType(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -2340,16 +2340,16 @@ public class AuditEvent extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1618432855:  return getIdentifier(); // Identifier
-        case -925155509:  return getReference(); // Reference
-        case 3575610:  return getType(); // Coding
-        case 3506294:  return getRole(); // Coding
-        case -302323862:  return getLifecycle(); // Coding
-        case -722296940:  return addSecurityLabel(); // Coding
-        case 3373707: throw new FHIRException("Cannot make property name as it is not a complex type"); // StringType
-        case -1724546052: throw new FHIRException("Cannot make property description as it is not a complex type"); // StringType
-        case 107944136: throw new FHIRException("Cannot make property query as it is not a complex type"); // Base64BinaryType
-        case -1335224239:  return addDetail(); // AuditEventEntityDetailComponent
+        case -1618432855:  return getIdentifier(); 
+        case -925155509:  return getReference(); 
+        case 3575610:  return getType(); 
+        case 3506294:  return getRole(); 
+        case -302323862:  return getLifecycle(); 
+        case -722296940:  return addSecurityLabel(); 
+        case 3373707:  return getNameElement();
+        case -1724546052:  return getDescriptionElement();
+        case 107944136:  return getQueryElement();
+        case -1335224239:  return addDetail(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -2623,8 +2623,8 @@ public class AuditEvent extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3575610: throw new FHIRException("Cannot make property type as it is not a complex type"); // StringType
-        case 111972721: throw new FHIRException("Cannot make property value as it is not a complex type"); // Base64BinaryType
+        case 3575610:  return getTypeElement();
+        case 111972721:  return getValueElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -3326,16 +3326,16 @@ public class AuditEvent extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3575610:  return getType(); // Coding
-        case -1867567750:  return addSubtype(); // Coding
-        case -1422950858: throw new FHIRException("Cannot make property action as it is not a complex type"); // Enumeration<AuditEventAction>
-        case -799233872: throw new FHIRException("Cannot make property recorded as it is not a complex type"); // InstantType
-        case -1106507950: throw new FHIRException("Cannot make property outcome as it is not a complex type"); // Enumeration<AuditEventOutcome>
-        case 1062502659: throw new FHIRException("Cannot make property outcomeDesc as it is not a complex type"); // StringType
-        case -341917691:  return addPurposeOfEvent(); // CodeableConcept
-        case 92750597:  return addAgent(); // AuditEventAgentComponent
-        case -896505829:  return getSource(); // AuditEventSourceComponent
-        case -1298275357:  return addEntity(); // AuditEventEntityComponent
+        case 3575610:  return getType(); 
+        case -1867567750:  return addSubtype(); 
+        case -1422950858:  return getActionElement();
+        case -799233872:  return getRecordedElement();
+        case -1106507950:  return getOutcomeElement();
+        case 1062502659:  return getOutcomeDescElement();
+        case -341917691:  return addPurposeOfEvent(); 
+        case 92750597:  return addAgent(); 
+        case -896505829:  return getSource(); 
+        case -1298275357:  return addEntity(); 
         default: return super.makeProperty(hash, name);
         }
 
