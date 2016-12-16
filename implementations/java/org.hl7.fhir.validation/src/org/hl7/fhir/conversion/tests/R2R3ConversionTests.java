@@ -44,13 +44,20 @@ import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 import org.xml.sax.SAXException;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonPrimitive;
+
 @RunWith(Parameterized.class)
 public class R2R3ConversionTests implements ITransformerServices {
 
   @Parameters(name = "{index}: id {0}")
   public static Iterable<Object[]> data() throws ParserConfigurationException, SAXException, IOException {
     root = "C:\\work\\org.hl7.fhir\\build"; // todo: where else to get this from?
-    r2r3ini = new IniFile(Utilities.path(root, "implementations", "r2maps", "status.ini"));
+    r2r3Outcomes = (JsonObject) new com.google.gson.JsonParser().parse(TextFile.fileToString(Utilities.path(root, "implementations", "r2maps", "outcomes.json")));
+        
     String srcFile = Utilities.path(root, "source", "release2", "examples.zip");
     ZipInputStream stream = new ZipInputStream(new FileInputStream(srcFile));
 
@@ -84,7 +91,7 @@ public class R2R3ConversionTests implements ITransformerServices {
   private static SimpleWorkerContext contextR2;
   private static SimpleWorkerContext contextR3;
   private static Map<String, StructureMap> library;
-  private static IniFile r2r3ini;
+  private static JsonObject r2r3Outcomes;
   
   private final byte[] content;
   private final String name;
@@ -101,10 +108,12 @@ public class R2R3ConversionTests implements ITransformerServices {
     
     StructureMapUtilities smu = new StructureMapUtilities(contextR3, library, this);
     String tn = null;
+    String id = null;
     try {
       // load the example (r2)
       org.hl7.fhir.dstu3.elementmodel.Element r2 = new org.hl7.fhir.dstu3.elementmodel.XmlParser(contextR2).parse(new ByteArrayInputStream(content));
       tn = r2.fhirType();
+      id = r2.getChildValue("id");
       
       // load the r2 to R3 map
       String mapFile = Utilities.path(root, "implementations", "r2maps", "R2toR3", r2.fhirType()+".map");
@@ -131,13 +140,44 @@ public class R2R3ConversionTests implements ITransformerServices {
 
         // compare the XML
       }
-      r2r3ini.setStringProperty("outcomes-"+tn, name, "success", null);
-      r2r3ini.save();
+      if (tn != null && id != null)
+        updateOutcomes(tn, id, null);
     } catch (Exception e) {
-      r2r3ini.setStringProperty("outcomes-"+tn, name, "error: " +e.getMessage().replace("\r\n", "; "), null);
-      r2r3ini.save();
+      if (tn != null && id != null)
+        updateOutcomes(tn, id, e.getMessage().split("\\r?\\n"));
       throw e;
     }
+  }
+
+  private void updateOutcomes(String tn, String id, String[] errs) throws IOException {
+    JsonObject r = r2r3Outcomes.getAsJsonObject(tn);
+    if (r == null) {
+      r = new JsonObject();
+      r2r3Outcomes.add(tn, r);
+    }
+    JsonObject i = r.getAsJsonObject(id);
+    if (i == null) {
+      i = new JsonObject();
+      r.add(id, i);
+    }
+    if (errs == null || errs.length == 0) {
+      if (i.has("errors"))
+        i.remove("errors");
+    } else {
+      JsonArray arr = i.getAsJsonArray("errors");
+      if (arr == null) {
+        arr = new JsonArray();
+        i.add("errors", arr);
+      }
+      while (arr.size() > 0)
+        arr.remove(0);
+      for (String e : errs)
+        arr.add(new JsonPrimitive(e));
+    }
+    Gson gson = new GsonBuilder().setPrettyPrinting().create();
+    String json = gson.toJson(r2r3Outcomes);
+    TextFile.stringToFile(json, (Utilities.path(root, "implementations", "r2maps", "outcomes.json")));
+    
   }
 
   private void check(List<ValidationMessage> errors) throws FHIRException {

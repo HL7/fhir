@@ -2572,21 +2572,7 @@ public class Publisher implements URIResolver, SectionNumberer {
         return;
     String n = name.toLowerCase();
     Map<String, String> values = new HashMap<String, String>();
-    values.put("conv-status", page.getR2r3ini().getStringProperty("status", name));
-    if (Utilities.noString(values.get("conv-status"))) {
-      int t = 0;
-      int e = 0;
-      for (String s : page.getR2r3ini().getPropertyNames("outcomes-"+name)) {
-        String v = page.getR2r3ini().getStringProperty("outcomes-"+name, s);
-        t++;
-        if (v.startsWith("error"))
-          e++;
-      }
-      if (t > 0)
-        values.put("conv-status", "Passing "+Integer.toString(t-e)+" of "+Integer.toString(t)+" tests");
-    }     
-    if (Utilities.noString(values.get("conv-status")))
-      values.put("conv-status", "unknown");
+    values.put("conv-status", page.r2r3StatusForResource(name));
     values.put("fwds", TextFile.fileToString(Utilities.path(page.getFolders().rootDir, "implementations", "r2maps", "R2toR3",  name+".map")));
     values.put("bcks", TextFile.fileToString(Utilities.path(page.getFolders().rootDir, "implementations", "r2maps", "R3toR2", name+".map")));
     values.put("fwds-status", "");

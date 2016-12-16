@@ -50,6 +50,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 import java.util.UUID;
 
@@ -204,6 +205,9 @@ import org.hl7.fhir.utilities.xml.XhtmlGenerator;
 import org.w3c.dom.Document;
 
 import com.github.rjeschke.txtmark.Processor;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 
 public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferenceResolver  {
 
@@ -318,7 +322,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   private SpecDifferenceEvaluator diffEngine = new SpecDifferenceEvaluator();
   private Bundle typeBundle;
   private Bundle resourceBundle;
-  private IniFile r2r3ini; 
+  private JsonObject r2r3Outcomes; 
 
   public PageProcessor(String tsServer) throws URISyntaxException, UcumException {
     super();
@@ -1074,27 +1078,28 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     return src;
   }
 
+  public String r2r3StatusForResource(String name) {
+    JsonObject r = r2r3Outcomes.getAsJsonObject(name);
+    if (r == null)
+      return "Unknown";
+    int t = 0;
+    int ec = 0;
+    for (Entry<String, JsonElement> e : r.entrySet()) {
+      JsonObject el = (JsonObject) e.getValue(); 
+      t++;
+      if (el.has("errors"))
+        ec++;
+    }
+    return "Passing "+Integer.toString(t-ec)+" of "+Integer.toString(t)+" tests";
+    
+  }
   private String dtR2R3Transform(String name) throws Exception {
 
     File f = new File(Utilities.path(folders.rootDir, "implementations", "r2maps", "R2toR3", name+".map"));
     if (!f.exists())
        throw new Exception("No R2/R3 map exitss for "+name);
     String n = name.toLowerCase();
-    String status = r2r3ini.getStringProperty("status", name);
-    if (Utilities.noString(status)) {
-      int t = 0;
-      int e = 0;
-      for (String s : r2r3ini.getPropertyNames("outcomes-"+name)) {
-        String v = r2r3ini.getStringProperty("outcomes-"+name, s);
-        t++;
-        if (s.startsWith("error"))
-          e++;
-      }
-      if (t > 0)
-        status = "Passing "+Integer.toString(t-e)+" of "+Integer.toString(t)+" tests";
-    }     
-    if (Utilities.noString(status))
-      status = "unknown";
+    String status = r2r3StatusForResource(name);
     String fwds = TextFile.fileToString(Utilities.path(folders.rootDir, "implementations", "r2maps", "R2toR3",  name+".map"));
     String bcks = TextFile.fileToString(Utilities.path(folders.rootDir, "implementations", "r2maps", "R3toR2", name+".map"));
     String fwdsStatus =  "";
@@ -5272,9 +5277,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   private String getR2r3transformNote(String name) throws IOException {
     StringBuilder b = new StringBuilder();
     if (new File(Utilities.path(folders.rootDir, "implementations", "r2maps", "R2toR3", name+".map")).exists()) {
-      String st = r2r3ini.getStringProperty("status", name);
-      if (Utilities.noString(st))
-        st = "unknown";
+      String st = r2r3StatusForResource(name);
       return "<p>See <a href=\""+name.toLowerCase()+"-version-maps.html\">R2 &lt;--&gt; R3 Conversion Maps</a> (status = "+st+").</p>\r\n";
     } else
     return "";
@@ -7179,7 +7182,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   public void setFolders(FolderManager folders) throws Exception {
     this.folders = folders;
     htmlchecker = new HTMLLinkChecker(this, validationErrors, baseURL);
-    r2r3ini = new IniFile(Utilities.path(folders.rootDir, "implementations", "r2maps", "status.ini"));
+    r2r3Outcomes = (JsonObject) new com.google.gson.JsonParser().parse(TextFile.fileToString(Utilities.path(folders.rootDir, "implementations", "r2maps", "outcomes.json")));
   }
 
   public void setIni(IniFile ini) {
@@ -8314,11 +8317,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       evaluationContext = new PageEvaluationContext();
     return evaluationContext;
   }
-
-  public IniFile getR2r3ini() {
-    return r2r3ini;
-  }
-
   
   
 }
