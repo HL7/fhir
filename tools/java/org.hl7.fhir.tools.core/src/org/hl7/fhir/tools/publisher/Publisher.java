@@ -1728,7 +1728,7 @@ public class Publisher implements URIResolver, SectionNumberer {
                   errors.add(new ValidationMessage(Source.ExampleValidator, IssueType.BUSINESSRULE, -1, -1, path,
                       "Unable to resolve invalid example reference " + ref.getRef() + " in " + e.getTitle(),
                       "Unable to resolve invalid example reference " + ref.getRef() + " in <a href=\""+e.getTitle() + ".html"+"\">" + e.getTitle() + "</a>",
-                      IssueSeverity.INFORMATION/*WARNING*/));
+                      IssueSeverity.WARNING));
                 }
               }
 //            System.out.println("unresolved reference "+ref.getRef()+" at "+path);
@@ -4149,7 +4149,7 @@ public class Publisher implements URIResolver, SectionNumberer {
           break;
       }
     if (e == null) {
-      page.getValidationErrors().add(new ValidationMessage(Source.Publisher, IssueType.NOTFOUND, path, "The reference to "+rn+"/"+id+" could not be resolved", IssueSeverity.INFORMATION/*WARNING*/));
+      page.getValidationErrors().add(new ValidationMessage(Source.Publisher, IssueType.NOTFOUND, path, "The reference to "+rn+"/"+id+" could not be resolved", IssueSeverity.WARNING));
       return "#null";
     } else
       return e.getTitle()+".html";
@@ -5297,7 +5297,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       for (SearchParameterDefn sp : r.getSearchParams().values()) {
         if (!sp.isWorks() && !sp.getCode().equals("_id") && !Utilities.noString(sp.getXPath())) {
           page.getValidationErrors().add(new ValidationMessage(Source.Publisher, IssueType.INFORMATIONAL, -1, -1, rn + "." + sp.getCode(), 
-              "Search Parameter '" + rn + "." + sp.getCode() + "' had no found values in any example. Consider reviewing the expression (" + sp.getExpression() + ")", IssueSeverity.INFORMATION/*WARNING*/));
+              "Search Parameter '" + rn + "." + sp.getCode() + "' had no found values in any example. Consider reviewing the expression (" + sp.getExpression() + ")", IssueSeverity.WARNING));
         }
       }
     }
@@ -5317,7 +5317,7 @@ public class Publisher implements URIResolver, SectionNumberer {
   private void produceCoverageWarning(String path, ElementDefn e) {
 
     if (!e.isCoveredByExample() && !Utilities.noString(path) && !e.typeCode().startsWith("@")) {
-      page.getValidationErrors().add(new ValidationMessage(Source.Publisher, IssueType.INFORMATIONAL, -1, -1, path+e.getName(), "Path had no found values in any example. Consider reviewing the path", IssueSeverity.INFORMATION/*WARNING*/));
+      page.getValidationErrors().add(new ValidationMessage(Source.Publisher, IssueType.INFORMATIONAL, -1, -1, path+e.getName(), "Path had no found values in any example. Consider reviewing the path", IssueSeverity.WARNING));
     }
     for (ElementDefn c : e.getElements()) {
       produceCoverageWarning(path + e.getName() + "/", c);

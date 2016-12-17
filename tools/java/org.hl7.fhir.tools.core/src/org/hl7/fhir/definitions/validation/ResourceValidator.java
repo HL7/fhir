@@ -183,7 +183,7 @@ public class ResourceValidator extends BaseValidator {
       String w5Order = listW5Elements(rd);
       String w5CorrectOrder = listW5Correct(rd);
       if (!w5Order.equals(w5CorrectOrder)) {
-        hint(errors, IssueType.REQUIRED, rd.getName(), false, "Resource elements are out of order. The correct order is '"+w5CorrectOrder+"' but the actual order is '"+w5Order+"'");
+        warning(errors, IssueType.REQUIRED, rd.getName(), false, "Resource elements are out of order. The correct order is '"+w5CorrectOrder+"' but the actual order is '"+w5Order+"'");
 //        System.out.println("Resource "+parent.getName()+": elements are out of order. The correct order is '"+w5CorrectOrder+"' but the actual order is '"+w5Order+"'");
       }
       if (!Utilities.noString(rd.getProposedOrder())) {
@@ -202,14 +202,14 @@ public class ResourceValidator extends BaseValidator {
       else if (hasActivFalse(rd))
         rd.setEnteredInErrorStatus(".active = false");
       else 
-        hint(errors, IssueType.REQUIRED,  rd.getName(), false, "A resource must have an 'entered in error' status"); // too many downstream issues in the parsers, and it would only happen as a transient thing when designing the resources
+        warning(errors, IssueType.REQUIRED,  rd.getName(), false, "A resource must have an 'entered in error' status"); // too many downstream issues in the parsers, and it would only happen as a transient thing when designing the resources
         
     String s = rd.getRoot().getMapping(Definitions.RIM_MAPPING);
     hint(errors, IssueType.REQUIRED, rd.getName(), !Utilities.noString(s), "RIM Mapping is required");
 
     for (Operation op : rd.getOperations()) {
-      suppressedwarning(errors, IssueType.BUSINESSRULE, rd.getName()+".$"+op.getName(), hasOpExample(op.getExamples(), false), "Operation must have an example request");
-      suppressedwarning(errors, IssueType.BUSINESSRULE, rd.getName()+".$"+op.getName(), hasOpExample(op.getExamples(), true), "Operation must have an example response");
+      warning(errors, IssueType.BUSINESSRULE, rd.getName()+".$"+op.getName(), hasOpExample(op.getExamples(), false), "Operation must have an example request");
+      warning(errors, IssueType.BUSINESSRULE, rd.getName()+".$"+op.getName(), hasOpExample(op.getExamples(), true), "Operation must have an example response");
     }
     List<String> vsWarns = new ArrayList<String>();
     int vsWarnings = checkElement(errors, rd.getName(), rd.getRoot(), rd, null, s == null || !s.equalsIgnoreCase("n/a"), false, hasSummary(rd.getRoot()), vsWarns, true);
@@ -217,7 +217,7 @@ public class ResourceValidator extends BaseValidator {
     if (!resourceIsTechnical(name)) { // these are exempt because identification is tightly managed
       ElementDefn id = rd.getRoot().getElementByName(definitions, "identifier", true, false);
       if (id == null) 
-        suppressedwarning(errors, IssueType.STRUCTURE, rd.getName(), false, "All resources should have an identifier");
+        warning(errors, IssueType.STRUCTURE, rd.getName(), false, "All resources should have an identifier");
       else 
         rule(errors, IssueType.STRUCTURE, rd.getName(), id.typeCode().equals("Identifier"), "If a resource has an element named identifier, it must have a type 'Identifier'");
     }
@@ -228,10 +228,10 @@ public class ResourceValidator extends BaseValidator {
     if (rd.getRoot().getElementByName(definitions, "patient", true, false) != null && rd.getRoot().getElementByName(definitions, "patient", true, false).typeCode().startsWith("Reference"))
       rule(errors, IssueType.STRUCTURE, rd.getName(), rd.getSearchParams().containsKey("patient"), "A resource that contains a patient reference must have a search parameter 'patient'");
     if (rd.getRoot().getElementByName(definitions, "identifier", true, false) != null) {
-      hint(errors, IssueType.STRUCTURE, rd.getName(), rd.getSearchParams().containsKey("identifier"), "A resource that contains an identifier must have a search parameter 'identifier'");
+      warning(errors, IssueType.STRUCTURE, rd.getName(), rd.getSearchParams().containsKey("identifier"), "A resource that contains an identifier must have a search parameter 'identifier'");
     }
     if (rd.getRoot().getElementByName(definitions, "url", true, false) != null) {
-      hint(errors, IssueType.STRUCTURE, rd.getName(), rd.getSearchParams().containsKey("url"), "A resource that contains a url element must have a search parameter 'url'");
+      warning(errors, IssueType.STRUCTURE, rd.getName(), rd.getSearchParams().containsKey("url"), "A resource that contains a url element must have a search parameter 'url'");
     }
     for (org.hl7.fhir.definitions.model.SearchParameterDefn p : rd.getSearchParams().values()) {
       if (!usages.containsKey(p.getCode()))
@@ -250,7 +250,7 @@ public class ResourceValidator extends BaseValidator {
       rule(errors, IssueType.STRUCTURE, rd.getName(), !p.getCode().equals("filter"), "Search Parameter Name cannot be 'filter')");
       rule(errors, IssueType.STRUCTURE, rd.getName(), !p.getCode().contains("."), "Search Parameter Names cannot contain a '.' (\""+p.getCode()+"\")");
       rule(errors, IssueType.STRUCTURE, rd.getName(), !p.getCode().equalsIgnoreCase("id"), "Search Parameter Names cannot be named 'id' (\""+p.getCode()+"\")");
-      hint(errors, IssueType.STRUCTURE, rd.getName(), !stringMatches(p.getCode(), "id", "lastUpdated", "tag", "profile", "security", "text", "content", "list", "query"), "Search Parameter Names cannot be named one of the reserved names (\""+p.getCode()+"\")");
+      warning(errors, IssueType.STRUCTURE, rd.getName(), !stringMatches(p.getCode(), "id", "lastUpdated", "tag", "profile", "security", "text", "content", "list", "query"), "Search Parameter Names cannot be named one of the reserved names (\""+p.getCode()+"\")");
       hint(errors, IssueType.STRUCTURE, rd.getName(), searchNameOk(p.getCode()), "Search Parameter name '"+p.getCode()+"' does not follow the style guide");
       rule(errors, IssueType.STRUCTURE, rd.getName(), p.getCode().equals(p.getCode().toLowerCase()), "Search Parameter Names should be all lowercase (\""+p.getCode()+"\")");
       if (rule(errors, IssueType.STRUCTURE, rd.getName(), !Utilities.noString(p.getDescription()), "Search Parameter description is empty (\""+p.getCode()+"\")"))
@@ -503,10 +503,10 @@ public class ResourceValidator extends BaseValidator {
     
 		hint(errors, IssueType.STRUCTURE, path, !nameOverlaps(e.getName(), parentName), "Name of child ("+e.getName()+") overlaps with name of parent ("+parentName+")");
     checkDefinitions(errors, path, e);
-    suppressedwarning(errors, IssueType.STRUCTURE, path, !path.contains(".") || !Utilities.isPlural(e.getName()) || !e.unbounded(), "Element names should be singular");
+    warning(errors, IssueType.STRUCTURE, path, !path.contains(".") || !Utilities.isPlural(e.getName()) || !e.unbounded(), "Element names should be singular");
     rule(errors, IssueType.STRUCTURE, path, !e.getName().equals("id"), "Element named \"id\" not allowed");
-    hint(errors, IssueType.STRUCTURE, path, !e.getName().equals("comments"), "Element named \"comments\" not allowed - use 'comment'");
-    hint(errors, IssueType.STRUCTURE, path, !e.getName().equals("notes"), "Element named \"notes\" not allowed - use 'note'");
+    warning(errors, IssueType.STRUCTURE, path, !e.getName().equals("comments"), "Element named \"comments\" not allowed - use 'comment'");
+    warning(errors, IssueType.STRUCTURE, path, !e.getName().equals("notes"), "Element named \"notes\" not allowed - use 'note'");
     rule(errors, IssueType.STRUCTURE, path, !e.getName().endsWith("[x]") || !e.unbounded(), "Elements with a choice of types cannot have a cardinality > 1");
     rule(errors, IssueType.STRUCTURE, path, !e.getName().equals("extension"), "Element named \"extension\" not allowed");
     rule(errors, IssueType.STRUCTURE, path, !e.getName().equals("entries"), "Element named \"entries\" not allowed");
@@ -517,7 +517,7 @@ public class ResourceValidator extends BaseValidator {
     rule(errors, IssueType.STRUCTURE, path, e.getDefinition().endsWith(".") || e.getDefinition().endsWith("?") , "Definition should end with '.' or '?', but is '"+e.getDefinition()+"'");
     if (e.usesType("string") && e.usesType("CodeableConcept"))
       rule(errors, IssueType.STRUCTURE, path, e.getComments().contains("string") && e.getComments().contains("CodeableConcept"), "Element type cannot have both string and CodeableConcept unless the difference between their usage is explained in the comments");
-    hint(errors, IssueType.BUSINESSRULE, path, Utilities.noString(e.getTodo()), "Element has a todo associated with it ("+e.getTodo()+")");
+    warning(errors, IssueType.BUSINESSRULE, path, Utilities.noString(e.getTodo()), "Element has a todo associated with it ("+e.getTodo()+")");
     
     if (!Utilities.noString(e.getW5())) {
       if (path.contains("."))
@@ -528,7 +528,7 @@ public class ResourceValidator extends BaseValidator {
       }
     }
     if (e.getName().equals("subject"))
-      suppressedwarning(errors, IssueType.STRUCTURE, path, !e.typeCode().equals("Reference(Patient)"), "Elements with name 'subject' cannot be a reference to just a patient"); // make this an error...
+      warning(errors, IssueType.STRUCTURE, path, !e.typeCode().equals("Reference(Patient)"), "Elements with name 'subject' cannot be a reference to just a patient"); // make this an error...
     if (e.getName().equals("patient"))
       rule(errors, IssueType.STRUCTURE, path, e.typeCode().equals("Reference(Patient)"), "Elements with name 'patient' must be a reference to just a patient");
     
@@ -536,15 +536,15 @@ public class ResourceValidator extends BaseValidator {
 //      suppressedwarning(errors, IssueType.REQUIRED, path, !Utilities.noString(e.getMapping(ElementDefn.RIM_MAPPING)), "RIM Mapping is required");
 
     if (e.getName().equals("comment")) {
-      hint(errors, IssueType.STRUCTURE, path, isOkComment(path), "MnM must have confirmed this should not be an Annotation");
-      hint(errors, IssueType.STRUCTURE, path, e.typeCode().equals("string"), "The type of 'comment' must be 'string'");
-      hint(errors, IssueType.STRUCTURE, path, e.getMinCardinality() == 0, "The min cardinality of 'comment' must be 0");
-      hint(errors, IssueType.STRUCTURE, path, e.getMaxCardinality() == 1, "The max cardinality of 'comment' must be 1");
+      warning(errors, IssueType.STRUCTURE, path, isOkComment(path), "MnM must have confirmed this should not be an Annotation");
+      warning(errors, IssueType.STRUCTURE, path, e.typeCode().equals("string"), "The type of 'comment' must be 'string'");
+      warning(errors, IssueType.STRUCTURE, path, e.getMinCardinality() == 0, "The min cardinality of 'comment' must be 0");
+      warning(errors, IssueType.STRUCTURE, path, e.getMaxCardinality() == 1, "The max cardinality of 'comment' must be 1");
     }
     if (e.getName().equals("note")) {
-      hint(errors, IssueType.STRUCTURE, path, e.typeCode().equals("Annotation"), "The type of 'note' must be 'Annotation'");
-      hint(errors, IssueType.STRUCTURE, path, e.getMinCardinality() == 0, "The min cardinality of 'note' must be 0");
-      hint(errors, IssueType.STRUCTURE, path, e.unbounded(), "The max cardinality of 'note' must be *");
+      warning(errors, IssueType.STRUCTURE, path, e.typeCode().equals("Annotation"), "The type of 'note' must be 'Annotation'");
+      warning(errors, IssueType.STRUCTURE, path, e.getMinCardinality() == 0, "The min cardinality of 'note' must be 0");
+      warning(errors, IssueType.STRUCTURE, path, e.unbounded(), "The max cardinality of 'note' must be *");
     }
     String sd = e.getShortDefn();
     if( sd.length() > 0)
@@ -680,8 +680,8 @@ public class ResourceValidator extends BaseValidator {
     if (!e.hasShortDefn()) 
       return;
     
-    suppressedwarning(errors, IssueType.STRUCTURE, path, !e.getShortDefn().equals(e.getDefinition()), "Element needs a definition of its own");
-    suppressedwarning(errors, IssueType.STRUCTURE, path, !e.getShortDefn().equals(e.getName()), "Short description can't be the same as the name");
+    warning(errors, IssueType.STRUCTURE, path, !e.getShortDefn().equals(e.getDefinition()), "Element needs a definition of its own");
+    warning(errors, IssueType.STRUCTURE, path, !e.getShortDefn().equals(e.getName()), "Short description can't be the same as the name");
     Set<String> defn = new HashSet<String>();
     for (String w : splitByCamelCase(e.getName()).toLowerCase().split(" ")) 
       defn.add(Utilities.pluralizeMe(w));
@@ -697,7 +697,7 @@ public class ResourceValidator extends BaseValidator {
     for (String s : provided)
       if (!defn.contains(s))
         ok = true;
-    suppressedwarning(errors, IssueType.STRUCTURE, path, ok, "Short description doesn't add any new content: '"+e.getShortDefn()+"'");
+    warning(errors, IssueType.STRUCTURE, path, ok, "Short description doesn't add any new content: '"+e.getShortDefn()+"'");
   }
 
   private boolean nameOverlaps(String name, String parentName) {
@@ -802,7 +802,7 @@ public class ResourceValidator extends BaseValidator {
         d = c.getDisplay();
       
       if (Utilities.noString(c.getSystem()))
-        suppressedwarning(errors, IssueType.STRUCTURE, "Binding @ "+path, !Utilities.noString(c.getDefinition()), "Code "+d+" must have a definition");
+        warning(errors, IssueType.STRUCTURE, "Binding @ "+path, !Utilities.noString(c.getDefinition()), "Code "+d+" must have a definition");
       rule(errors, IssueType.STRUCTURE, "Binding @ "+path, !(Utilities.noString(c.getId()) && Utilities.noString(c.getSystem())) , "Code "+d+" must have a id or a system");
     }
     
@@ -810,7 +810,7 @@ public class ResourceValidator extends BaseValidator {
 //    rule(errors, IssueType.STRUCTURE, "Binding @ "+path, !cd.isHeirachical() || (cd.getChildCodes().size() < cd.getCodes().size()), "Logic error processing Hirachical code set");
 
     // now, rules for the source
-    suppressedwarning(errors, IssueType.STRUCTURE, "Binding @ "+path, cd.getBinding() != BindingMethod.Unbound, "Need to provide a binding");
+    warning(errors, IssueType.STRUCTURE, "Binding @ "+path, cd.getBinding() != BindingMethod.Unbound, "Need to provide a binding");
     rule(errors, IssueType.STRUCTURE, "Binding @ "+path, Utilities.noString(cd.getDefinition())  || (cd.getDefinition().charAt(0) == cd.getDefinition().toUpperCase().charAt(0)), "Definition cannot start with a lowercase letter");
     if (cd.getBinding() == BindingMethod.CodeList) {
       if (path.toLowerCase().endsWith("status")) {

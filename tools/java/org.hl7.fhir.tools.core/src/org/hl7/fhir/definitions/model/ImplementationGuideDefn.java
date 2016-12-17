@@ -248,7 +248,7 @@ public class ImplementationGuideDefn {
         if (!findPage(n, res, ig.getPage().getPage()) && !findLogicalPage(n, type, res, ig.getPage().getPage())) {
           // we didn't find it as a simple page. Figure out what 
          
-          issues.add(new ValidationMessage(Source.Publisher, IssueType.PROCESSING, code+"/"+n, "The page "+n+" is not assigned a bread crumb yet", IssueSeverity.INFORMATION/*WARNING*/));
+          issues.add(new ValidationMessage(Source.Publisher, IssueType.PROCESSING, code+"/"+n, "The page "+n+" is not assigned a bread crumb yet", IssueSeverity.WARNING));
           res.add(new LinkTriple(null, "unsorted", "Work in Progress yet"));
         }
       }

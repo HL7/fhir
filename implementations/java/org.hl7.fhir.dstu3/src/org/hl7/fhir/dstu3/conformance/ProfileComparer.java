@@ -846,7 +846,7 @@ public class ProfileComparer {
   private StructureDefinition resolveProfile(ElementDefinition ed, ProfileComparison outcome, String path, String url, String name) {
     StructureDefinition res = context.fetchResource(StructureDefinition.class, url);
     if (res == null) {
-      outcome.messages.add(new ValidationMessage(Source.ProfileComparer, ValidationMessage.IssueType.INFORMATIONAL, path, "Unable to resolve profile "+url+" in profile "+name, ValidationMessage.IssueSeverity.INFORMATION));
+      outcome.messages.add(new ValidationMessage(Source.ProfileComparer, ValidationMessage.IssueType.INFORMATIONAL, path, "Unable to resolve profile "+url+" in profile "+name, ValidationMessage.IssueSeverity.WARNING));
       status(ed, ProfileUtilities.STATUS_HINT);
     }
     return res;
@@ -1028,7 +1028,7 @@ public class ProfileComparer {
         if (Utilities.equals(r.getId(), l.getId()) || (Utilities.equals(r.getXpath(), l.getXpath()) && r.getSeverity() == l.getSeverity()))
           found = true;
       if (!found) {
-        outcome.messages.add(new ValidationMessage(Source.ProfileComparer, ValidationMessage.IssueType.STRUCTURE, path, "StructureDefinition "+outcome.leftName()+" has a constraint that is not found in "+outcome.rightName()+" and it is uncertain whether they are compatible ("+l.getXpath()+")", ValidationMessage.IssueSeverity.WARNING));
+        outcome.messages.add(new ValidationMessage(Source.ProfileComparer, ValidationMessage.IssueType.STRUCTURE, path, "StructureDefinition "+outcome.leftName()+" has a constraint that is not found in "+outcome.rightName()+" and it is uncertain whether they are compatible ("+l.getXpath()+")", ValidationMessage.IssueSeverity.INFORMATION));
         status(ed, ProfileUtilities.STATUS_WARNING);
       }
       result.add(l);
@@ -1039,7 +1039,7 @@ public class ProfileComparer {
         if (Utilities.equals(r.getId(), l.getId()) || (Utilities.equals(r.getXpath(), l.getXpath()) && r.getSeverity() == l.getSeverity()))
           found = true;
       if (!found) {
-        outcome.messages.add(new ValidationMessage(Source.ProfileComparer, ValidationMessage.IssueType.STRUCTURE, path, "StructureDefinition "+outcome.rightName()+" has a constraint that is not found in "+outcome.leftName()+" and it is uncertain whether they are compatible ("+r.getXpath()+")", ValidationMessage.IssueSeverity.WARNING));
+        outcome.messages.add(new ValidationMessage(Source.ProfileComparer, ValidationMessage.IssueType.STRUCTURE, path, "StructureDefinition "+outcome.rightName()+" has a constraint that is not found in "+outcome.leftName()+" and it is uncertain whether they are compatible ("+r.getXpath()+")", ValidationMessage.IssueSeverity.INFORMATION));
         status(ed, ProfileUtilities.STATUS_WARNING);
         result.add(r);
       }
