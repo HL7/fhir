@@ -3075,6 +3075,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
 
 
   public static void main(String[] args) throws Exception {
+    int exitCode = 0;
     if (hasParam(args, "-gui") || args.length == 0) {
       runGUI();
     } else if (hasParam(args, "-help") || hasParam(args, "-?") || hasParam(args, "/?") || hasParam(args, "?")) {
@@ -3120,6 +3121,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
           try {
             self.execute(hasParam(args, "-resetTx"));
           } catch (Exception e) {
+            exitCode = 1;
             System.out.println("Publishing Implementation Guide Failed: "+e.getMessage());
             System.out.println("");
             System.out.println("Stack Dump (for debugging):");
@@ -3155,6 +3157,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       try {
         self.execute(hasParam(args, "-resetTx"));
       } catch (Exception e) {
+        exitCode = 1;
         self.log("Publishing Content Failed: "+e.getMessage());
         self.log("");
         self.log("Use -? to get command line help");
@@ -3164,9 +3167,12 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
         for (StackTraceElement st : e.getStackTrace()) {
           self.filelog.append(st.toString());
         }
+        exitCode = 1;
+      } finally {
+        TextFile.stringToFile(buildReport(getNamedParam(args, "-ig"), getNamedParam(args, "-source"), self.filelog.toString(), Utilities.path(self.qaDir, "validation.txt")), Utilities.path(System.getProperty("java.io.tmpdir"), "fhir-ig-publisher.log"));
       }
-      TextFile.stringToFile(buildReport(getNamedParam(args, "-ig"), getNamedParam(args, "-source"), self.filelog.toString(), Utilities.path(self.qaDir, "validation.txt")), Utilities.path(System.getProperty("java.io.tmpdir"), "fhir-ig-publisher.log"));
-    } 
+    }
+    System.exit(exitCode);
   }
 
   private void setAutoBuildMode(boolean value) {
