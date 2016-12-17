@@ -5,6 +5,8 @@ uses "http://hl7.org/fhir/StructureDefinition/Composition" alias Composition as 
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Composition" alias CompositionR2 as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives3to2"
+
+imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
 imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
 imports "http://hl7.org/fhir/StructureMap/Reference3to2"
 imports "http://hl7.org/fhir/StructureMap/Period3to2"
@@ -12,9 +14,10 @@ imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
 
 
 
-group Composition extends Element
+group Composition extends DomainResource
   input src : Composition as source
   input tgt : CompositionR2 as target
+
   "Composition-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
   "Composition-date" : for src.date as vs make tgt.date as vt then dateTime(vs, vt)
   "Composition-type" : for src.type as vs make tgt.type as vt then CodeableConcept(vs,vt)

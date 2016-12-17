@@ -5,13 +5,15 @@ uses "http://hl7.org/fhir/DSTU2/StructureDefinition/MessageHeader" alias Message
 uses "http://hl7.org/fhir/StructureDefinition/MessageHeader" alias MessageHeader as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives2to3"
+
+imports "http://hl7.org/fhir/StructureMap/DomainResource2to3"
 imports "http://hl7.org/fhir/StructureMap/Coding2to3"
 imports "http://hl7.org/fhir/StructureMap/Reference2to3"
 imports "http://hl7.org/fhir/StructureMap/CodeableConcept2to3"
 
 
 
-group MessageHeader extends Element
+group MessageHeader extends DomainResource
   input src : MessageHeaderR2 as source
   input tgt : MessageHeader as target
 

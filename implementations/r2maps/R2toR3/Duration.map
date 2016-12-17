@@ -6,9 +6,11 @@ uses "http://hl7.org/fhir/StructureDefinition/Duration" alias Duration as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives2to3"
 
+imports "http://hl7.org/fhir/StructureMap/Quantity2to3"
 
 
-group Duration extends Element
+
+group Duration extends Quantity
   input src : DurationR2 as source
   input tgt : Duration as target
 

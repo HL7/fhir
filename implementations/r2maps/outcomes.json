@@ -5,7 +5,7 @@
   "StructureDefinition": {
     "Account": {
       "errors": [
-        "Exception executing transform vt0.valueSet \u003d create(\"uri\") as vt on Rule \"\"ElementDefinition.binding-valueSet-uri\"\": Unknown Resource or Type Name \u0027uri\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "Address": {
@@ -20,22 +20,28 @@
     },
     "AllergyIntolerance": {
       "errors": [
-        "Exception executing transform vt0.valueSet \u003d create(\"uri\") as vt on Rule \"\"ElementDefinition.binding-valueSet-uri\"\": Unknown Resource or Type Name \u0027uri\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "Annotation": {
       "errors": [
-        "Problem processing expression (derivation \u003d \u0027constraint\u0027) or (kind \u003d \u0027logical\u0027) or (url \u003d \u0027http://hl7.org/fhir/StructureDefinition/\u0027+id) in profile http://hl7.org/fhir/StructureDefinition/StructureDefinition path StructureDefinition: Error performing +: right operand has no value"
+        "StructureDefinition: element.base cannot appear if there is no base on the structure definition [snapshot.exists() implies (snapshot.element.base.exists() \u003d baseDefinition.exists())]",
+        "StructureDefinition: If there\u0027s a type, its content must match the path name in the first element of a snapshot [snapshot.empty() or snapshot.element.first().path \u003d type]",
+        "StructureDefinition: All element definitions must have an id [snapshot.element.all(id.exists()) and differential.element.all(id.exists())]",
+        "StructureDefinition: Profile http://hl7.org/fhir/StructureDefinition/StructureDefinition, Element \u0027StructureDefinition.kind\u0027: minimum required \u003d 1, but only found 0",
+        "StructureDefinition: Profile http://hl7.org/fhir/StructureDefinition/StructureDefinition, Element \u0027StructureDefinition.type\u0027: minimum required \u003d 1, but only found 0",
+        "StructureDefinition.snapshot: In any snapshot, all the elements must be in the specified type [element.first().path \u003d %resource.type and element.tail().all(path.startsWith(%resource.type\u0026\u0027.\u0027))]",
+        "StructureDefinition.differential: In any differential, all the elements must be in the specified type [element.first().path.startsWith(%resource.type) and element.tail().all(path.startsWith(%resource.type\u0026\u0027.\u0027))]"
       ]
     },
     "Appointment": {
       "errors": [
-        "Exception executing transform vt0.valueSet \u003d create(\"uri\") as vt on Rule \"\"ElementDefinition.binding-valueSet-uri\"\": Unknown Resource or Type Name \u0027uri\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "AppointmentResponse": {
       "errors": [
-        "Exception executing transform vt0.valueSet \u003d create(\"uri\") as vt on Rule \"\"ElementDefinition.binding-valueSet-uri\"\": Unknown Resource or Type Name \u0027uri\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "argonaut-careplan": {
@@ -50,47 +56,63 @@
     },
     "AuditEvent": {
       "errors": [
-        "Exception executing transform vt0.valueSet \u003d create(\"uri\") as vt on Rule \"\"ElementDefinition.binding-valueSet-uri\"\": Unknown Resource or Type Name \u0027uri\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "BackboneElement": {
       "errors": [
-        "Problem processing expression (derivation \u003d \u0027constraint\u0027) or (kind \u003d \u0027logical\u0027) or (url \u003d \u0027http://hl7.org/fhir/StructureDefinition/\u0027+id) in profile http://hl7.org/fhir/StructureDefinition/StructureDefinition path StructureDefinition: Error performing +: right operand has no value"
+        "StructureDefinition: element.base cannot appear if there is no base on the structure definition [snapshot.exists() implies (snapshot.element.base.exists() \u003d baseDefinition.exists())]",
+        "StructureDefinition: If there\u0027s a type, its content must match the path name in the first element of a snapshot [snapshot.empty() or snapshot.element.first().path \u003d type]",
+        "StructureDefinition: All element definitions must have an id [snapshot.element.all(id.exists()) and differential.element.all(id.exists())]",
+        "StructureDefinition: Profile http://hl7.org/fhir/StructureDefinition/StructureDefinition, Element \u0027StructureDefinition.kind\u0027: minimum required \u003d 1, but only found 0",
+        "StructureDefinition: Profile http://hl7.org/fhir/StructureDefinition/StructureDefinition, Element \u0027StructureDefinition.type\u0027: minimum required \u003d 1, but only found 0",
+        "StructureDefinition.snapshot: In any snapshot, all the elements must be in the specified type [element.first().path \u003d %resource.type and element.tail().all(path.startsWith(%resource.type\u0026\u0027.\u0027))]",
+        "StructureDefinition.differential: In any differential, all the elements must be in the specified type [element.first().path.startsWith(%resource.type) and element.tail().all(path.startsWith(%resource.type\u0026\u0027.\u0027))]"
       ]
     },
     "base64Binary": {
       "errors": [
-        "Problem processing expression (derivation \u003d \u0027constraint\u0027) or (kind \u003d \u0027logical\u0027) or (url \u003d \u0027http://hl7.org/fhir/StructureDefinition/\u0027+id) in profile http://hl7.org/fhir/StructureDefinition/StructureDefinition path StructureDefinition: Error performing +: right operand has no value"
+        "StructureDefinition: If there\u0027s a type, its content must match the path name in the first element of a snapshot [snapshot.empty() or snapshot.element.first().path \u003d type]",
+        "StructureDefinition: All element definitions must have an id [snapshot.element.all(id.exists()) and differential.element.all(id.exists())]",
+        "StructureDefinition: Profile http://hl7.org/fhir/StructureDefinition/StructureDefinition, Element \u0027StructureDefinition.kind\u0027: minimum required \u003d 1, but only found 0",
+        "StructureDefinition: Profile http://hl7.org/fhir/StructureDefinition/StructureDefinition, Element \u0027StructureDefinition.type\u0027: minimum required \u003d 1, but only found 0",
+        "StructureDefinition.snapshot: In any snapshot, all the elements must be in the specified type [element.first().path \u003d %resource.type and element.tail().all(path.startsWith(%resource.type\u0026\u0027.\u0027))]",
+        "StructureDefinition.differential: In any differential, all the elements must be in the specified type [element.first().path.startsWith(%resource.type) and element.tail().all(path.startsWith(%resource.type\u0026\u0027.\u0027))]"
       ]
     },
     "Basic": {
       "errors": [
-        "Exception executing transform vt0.valueSet \u003d create(\"uri\") as vt on Rule \"\"ElementDefinition.binding-valueSet-uri\"\": Unknown Resource or Type Name \u0027uri\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "Binary": {
       "errors": [
-        "Exception executing transform vt0.valueSet \u003d create(\"uri\") as vt on Rule \"\"ElementDefinition.binding-valueSet-uri\"\": Unknown Resource or Type Name \u0027uri\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "BodySite": {
       "errors": [
-        "Exception executing transform vt0.valueSet \u003d create(\"uri\") as vt on Rule \"\"ElementDefinition.binding-valueSet-uri\"\": Unknown Resource or Type Name \u0027uri\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "boolean": {
       "errors": [
-        "Problem processing expression (derivation \u003d \u0027constraint\u0027) or (kind \u003d \u0027logical\u0027) or (url \u003d \u0027http://hl7.org/fhir/StructureDefinition/\u0027+id) in profile http://hl7.org/fhir/StructureDefinition/StructureDefinition path StructureDefinition: Error performing +: right operand has no value"
+        "StructureDefinition: If there\u0027s a type, its content must match the path name in the first element of a snapshot [snapshot.empty() or snapshot.element.first().path \u003d type]",
+        "StructureDefinition: All element definitions must have an id [snapshot.element.all(id.exists()) and differential.element.all(id.exists())]",
+        "StructureDefinition: Profile http://hl7.org/fhir/StructureDefinition/StructureDefinition, Element \u0027StructureDefinition.kind\u0027: minimum required \u003d 1, but only found 0",
+        "StructureDefinition: Profile http://hl7.org/fhir/StructureDefinition/StructureDefinition, Element \u0027StructureDefinition.type\u0027: minimum required \u003d 1, but only found 0",
+        "StructureDefinition.snapshot: In any snapshot, all the elements must be in the specified type [element.first().path \u003d %resource.type and element.tail().all(path.startsWith(%resource.type\u0026\u0027.\u0027))]",
+        "StructureDefinition.differential: In any differential, all the elements must be in the specified type [element.first().path.startsWith(%resource.type) and element.tail().all(path.startsWith(%resource.type\u0026\u0027.\u0027))]"
       ]
     },
     "Bundle": {
       "errors": [
-        "Exception executing transform vt0.valueSet \u003d create(\"uri\") as vt on Rule \"\"ElementDefinition.binding-valueSet-uri\"\": Unknown Resource or Type Name \u0027uri\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "CarePlan": {
       "errors": [
-        "Exception executing transform vt0.valueSet \u003d create(\"uri\") as vt on Rule \"\"ElementDefinition.binding-valueSet-uri\"\": Unknown Resource or Type Name \u0027uri\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "cholesterol": {
@@ -100,12 +122,12 @@
     },
     "Claim": {
       "errors": [
-        "Exception executing transform vt0.valueSet \u003d create(\"uri\") as vt on Rule \"\"ElementDefinition.binding-valueSet-uri\"\": Unknown Resource or Type Name \u0027uri\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "ClaimResponse": {
       "errors": [
-        "Exception executing transform vt0.valueSet \u003d create(\"uri\") as vt on Rule \"\"ElementDefinition.binding-valueSet-uri\"\": Unknown Resource or Type Name \u0027uri\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "clinicaldocument": {
@@ -115,52 +137,65 @@
     },
     "ClinicalImpression": {
       "errors": [
-        "Exception executing transform vt0.valueSet \u003d create(\"uri\") as vt on Rule \"\"ElementDefinition.binding-valueSet-uri\"\": Unknown Resource or Type Name \u0027uri\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "code": {
       "errors": [
-        "Problem processing expression (derivation \u003d \u0027constraint\u0027) or (kind \u003d \u0027logical\u0027) or (url \u003d \u0027http://hl7.org/fhir/StructureDefinition/\u0027+id) in profile http://hl7.org/fhir/StructureDefinition/StructureDefinition path StructureDefinition: Error performing +: right operand has no value"
+        "StructureDefinition: All element definitions must have an id [snapshot.element.all(id.exists()) and differential.element.all(id.exists())]",
+        "StructureDefinition: Profile http://hl7.org/fhir/StructureDefinition/StructureDefinition, Element \u0027StructureDefinition.kind\u0027: minimum required \u003d 1, but only found 0"
       ]
     },
     "CodeableConcept": {
       "errors": [
-        "Problem processing expression (derivation \u003d \u0027constraint\u0027) or (kind \u003d \u0027logical\u0027) or (url \u003d \u0027http://hl7.org/fhir/StructureDefinition/\u0027+id) in profile http://hl7.org/fhir/StructureDefinition/StructureDefinition path StructureDefinition: Error performing +: right operand has no value"
+        "StructureDefinition: element.base cannot appear if there is no base on the structure definition [snapshot.exists() implies (snapshot.element.base.exists() \u003d baseDefinition.exists())]",
+        "StructureDefinition: If there\u0027s a type, its content must match the path name in the first element of a snapshot [snapshot.empty() or snapshot.element.first().path \u003d type]",
+        "StructureDefinition: All element definitions must have an id [snapshot.element.all(id.exists()) and differential.element.all(id.exists())]",
+        "StructureDefinition: Profile http://hl7.org/fhir/StructureDefinition/StructureDefinition, Element \u0027StructureDefinition.kind\u0027: minimum required \u003d 1, but only found 0",
+        "StructureDefinition: Profile http://hl7.org/fhir/StructureDefinition/StructureDefinition, Element \u0027StructureDefinition.type\u0027: minimum required \u003d 1, but only found 0",
+        "StructureDefinition.snapshot: In any snapshot, all the elements must be in the specified type [element.first().path \u003d %resource.type and element.tail().all(path.startsWith(%resource.type\u0026\u0027.\u0027))]",
+        "StructureDefinition.differential: In any differential, all the elements must be in the specified type [element.first().path.startsWith(%resource.type) and element.tail().all(path.startsWith(%resource.type\u0026\u0027.\u0027))]"
       ]
     },
     "Coding": {
       "errors": [
-        "Problem processing expression (derivation \u003d \u0027constraint\u0027) or (kind \u003d \u0027logical\u0027) or (url \u003d \u0027http://hl7.org/fhir/StructureDefinition/\u0027+id) in profile http://hl7.org/fhir/StructureDefinition/StructureDefinition path StructureDefinition: Error performing +: right operand has no value"
+        "StructureDefinition: element.base cannot appear if there is no base on the structure definition [snapshot.exists() implies (snapshot.element.base.exists() \u003d baseDefinition.exists())]",
+        "StructureDefinition: If there\u0027s a type, its content must match the path name in the first element of a snapshot [snapshot.empty() or snapshot.element.first().path \u003d type]",
+        "StructureDefinition: All element definitions must have an id [snapshot.element.all(id.exists()) and differential.element.all(id.exists())]",
+        "StructureDefinition: Profile http://hl7.org/fhir/StructureDefinition/StructureDefinition, Element \u0027StructureDefinition.kind\u0027: minimum required \u003d 1, but only found 0",
+        "StructureDefinition: Profile http://hl7.org/fhir/StructureDefinition/StructureDefinition, Element \u0027StructureDefinition.type\u0027: minimum required \u003d 1, but only found 0",
+        "StructureDefinition.snapshot: In any snapshot, all the elements must be in the specified type [element.first().path \u003d %resource.type and element.tail().all(path.startsWith(%resource.type\u0026\u0027.\u0027))]",
+        "StructureDefinition.differential: In any differential, all the elements must be in the specified type [element.first().path.startsWith(%resource.type) and element.tail().all(path.startsWith(%resource.type\u0026\u0027.\u0027))]"
       ]
     },
     "Communication": {
       "errors": [
-        "Exception executing transform vt0.valueSet \u003d create(\"uri\") as vt on Rule \"\"ElementDefinition.binding-valueSet-uri\"\": Unknown Resource or Type Name \u0027uri\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "CommunicationRequest": {
       "errors": [
-        "Exception executing transform vt0.valueSet \u003d create(\"uri\") as vt on Rule \"\"ElementDefinition.binding-valueSet-uri\"\": Unknown Resource or Type Name \u0027uri\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "Composition": {
       "errors": [
-        "Exception executing transform vt0.valueSet \u003d create(\"uri\") as vt on Rule \"\"ElementDefinition.binding-valueSet-uri\"\": Unknown Resource or Type Name \u0027uri\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "ConceptMap": {
       "errors": [
-        "Exception executing transform vt0.valueSet \u003d create(\"uri\") as vt on Rule \"\"ElementDefinition.binding-valueSet-uri\"\": Unknown Resource or Type Name \u0027uri\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "Condition": {
       "errors": [
-        "Exception executing transform vt0.valueSet \u003d create(\"uri\") as vt on Rule \"\"ElementDefinition.binding-valueSet-uri\"\": Unknown Resource or Type Name \u0027uri\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "Conformance": {
       "errors": [
-        "Exception executing transform vt0.valueSet \u003d create(\"uri\") as vt on Rule \"\"ElementDefinition.binding-valueSet-uri\"\": Unknown Resource or Type Name \u0027uri\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "consentdirective": {
@@ -175,7 +210,7 @@
     },
     "Contract": {
       "errors": [
-        "Exception executing transform vt0.valueSet \u003d create(\"uri\") as vt on Rule \"\"ElementDefinition.binding-valueSet-uri\"\": Unknown Resource or Type Name \u0027uri\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "Count": {
@@ -185,7 +220,7 @@
     },
     "Coverage": {
       "errors": [
-        "Exception executing transform vt0.valueSet \u003d create(\"uri\") as vt on Rule \"\"ElementDefinition.binding-valueSet-uri\"\": Unknown Resource or Type Name \u0027uri\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "daf-allergyintolerance": {
@@ -340,42 +375,57 @@
     },
     "DataElement": {
       "errors": [
-        "Exception executing transform vt0.valueSet \u003d create(\"uri\") as vt on Rule \"\"ElementDefinition.binding-valueSet-uri\"\": Unknown Resource or Type Name \u0027uri\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "date": {
       "errors": [
-        "Problem processing expression (derivation \u003d \u0027constraint\u0027) or (kind \u003d \u0027logical\u0027) or (url \u003d \u0027http://hl7.org/fhir/StructureDefinition/\u0027+id) in profile http://hl7.org/fhir/StructureDefinition/StructureDefinition path StructureDefinition: Error performing +: right operand has no value"
+        "StructureDefinition: If there\u0027s a type, its content must match the path name in the first element of a snapshot [snapshot.empty() or snapshot.element.first().path \u003d type]",
+        "StructureDefinition: All element definitions must have an id [snapshot.element.all(id.exists()) and differential.element.all(id.exists())]",
+        "StructureDefinition: Profile http://hl7.org/fhir/StructureDefinition/StructureDefinition, Element \u0027StructureDefinition.kind\u0027: minimum required \u003d 1, but only found 0",
+        "StructureDefinition: Profile http://hl7.org/fhir/StructureDefinition/StructureDefinition, Element \u0027StructureDefinition.type\u0027: minimum required \u003d 1, but only found 0",
+        "StructureDefinition.snapshot: In any snapshot, all the elements must be in the specified type [element.first().path \u003d %resource.type and element.tail().all(path.startsWith(%resource.type\u0026\u0027.\u0027))]",
+        "StructureDefinition.differential: In any differential, all the elements must be in the specified type [element.first().path.startsWith(%resource.type) and element.tail().all(path.startsWith(%resource.type\u0026\u0027.\u0027))]"
       ]
     },
     "dateTime": {
       "errors": [
-        "Problem processing expression (derivation \u003d \u0027constraint\u0027) or (kind \u003d \u0027logical\u0027) or (url \u003d \u0027http://hl7.org/fhir/StructureDefinition/\u0027+id) in profile http://hl7.org/fhir/StructureDefinition/StructureDefinition path StructureDefinition: Error performing +: right operand has no value"
+        "StructureDefinition: If there\u0027s a type, its content must match the path name in the first element of a snapshot [snapshot.empty() or snapshot.element.first().path \u003d type]",
+        "StructureDefinition: All element definitions must have an id [snapshot.element.all(id.exists()) and differential.element.all(id.exists())]",
+        "StructureDefinition: Profile http://hl7.org/fhir/StructureDefinition/StructureDefinition, Element \u0027StructureDefinition.kind\u0027: minimum required \u003d 1, but only found 0",
+        "StructureDefinition: Profile http://hl7.org/fhir/StructureDefinition/StructureDefinition, Element \u0027StructureDefinition.type\u0027: minimum required \u003d 1, but only found 0",
+        "StructureDefinition.snapshot: In any snapshot, all the elements must be in the specified type [element.first().path \u003d %resource.type and element.tail().all(path.startsWith(%resource.type\u0026\u0027.\u0027))]",
+        "StructureDefinition.differential: In any differential, all the elements must be in the specified type [element.first().path.startsWith(%resource.type) and element.tail().all(path.startsWith(%resource.type\u0026\u0027.\u0027))]"
       ]
     },
     "decimal": {
       "errors": [
-        "Problem processing expression (derivation \u003d \u0027constraint\u0027) or (kind \u003d \u0027logical\u0027) or (url \u003d \u0027http://hl7.org/fhir/StructureDefinition/\u0027+id) in profile http://hl7.org/fhir/StructureDefinition/StructureDefinition path StructureDefinition: Error performing +: right operand has no value"
+        "StructureDefinition: If there\u0027s a type, its content must match the path name in the first element of a snapshot [snapshot.empty() or snapshot.element.first().path \u003d type]",
+        "StructureDefinition: All element definitions must have an id [snapshot.element.all(id.exists()) and differential.element.all(id.exists())]",
+        "StructureDefinition: Profile http://hl7.org/fhir/StructureDefinition/StructureDefinition, Element \u0027StructureDefinition.kind\u0027: minimum required \u003d 1, but only found 0",
+        "StructureDefinition: Profile http://hl7.org/fhir/StructureDefinition/StructureDefinition, Element \u0027StructureDefinition.type\u0027: minimum required \u003d 1, but only found 0",
+        "StructureDefinition.snapshot: In any snapshot, all the elements must be in the specified type [element.first().path \u003d %resource.type and element.tail().all(path.startsWith(%resource.type\u0026\u0027.\u0027))]",
+        "StructureDefinition.differential: In any differential, all the elements must be in the specified type [element.first().path.startsWith(%resource.type) and element.tail().all(path.startsWith(%resource.type\u0026\u0027.\u0027))]"
       ]
     },
     "DetectedIssue": {
       "errors": [
-        "Exception executing transform vt0.valueSet \u003d create(\"uri\") as vt on Rule \"\"ElementDefinition.binding-valueSet-uri\"\": Unknown Resource or Type Name \u0027uri\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "Device": {
       "errors": [
-        "Exception executing transform vt0.valueSet \u003d create(\"uri\") as vt on Rule \"\"ElementDefinition.binding-valueSet-uri\"\": Unknown Resource or Type Name \u0027uri\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "DeviceComponent": {
       "errors": [
-        "Exception executing transform vt0.valueSet \u003d create(\"uri\") as vt on Rule \"\"ElementDefinition.binding-valueSet-uri\"\": Unknown Resource or Type Name \u0027uri\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "DeviceMetric": {
       "errors": [
-        "Exception executing transform vt0.valueSet \u003d create(\"uri\") as vt on Rule \"\"ElementDefinition.binding-valueSet-uri\"\": Unknown Resource or Type Name \u0027uri\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "devicemetricobservation": {
@@ -385,22 +435,22 @@
     },
     "DeviceUseRequest": {
       "errors": [
-        "Exception executing transform vt0.valueSet \u003d create(\"uri\") as vt on Rule \"\"ElementDefinition.binding-valueSet-uri\"\": Unknown Resource or Type Name \u0027uri\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "DeviceUseStatement": {
       "errors": [
-        "Exception executing transform vt0.valueSet \u003d create(\"uri\") as vt on Rule \"\"ElementDefinition.binding-valueSet-uri\"\": Unknown Resource or Type Name \u0027uri\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "DiagnosticOrder": {
       "errors": [
-        "Exception executing transform vt0.valueSet \u003d create(\"uri\") as vt on Rule \"\"ElementDefinition.binding-valueSet-uri\"\": Unknown Resource or Type Name \u0027uri\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "DiagnosticReport": {
       "errors": [
-        "Exception executing transform vt0.valueSet \u003d create(\"uri\") as vt on Rule \"\"ElementDefinition.binding-valueSet-uri\"\": Unknown Resource or Type Name \u0027uri\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "Distance": {
@@ -410,17 +460,17 @@
     },
     "DocumentManifest": {
       "errors": [
-        "Exception executing transform vt0.valueSet \u003d create(\"uri\") as vt on Rule \"\"ElementDefinition.binding-valueSet-uri\"\": Unknown Resource or Type Name \u0027uri\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "DocumentReference": {
       "errors": [
-        "Exception executing transform vt0.valueSet \u003d create(\"uri\") as vt on Rule \"\"ElementDefinition.binding-valueSet-uri\"\": Unknown Resource or Type Name \u0027uri\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "DomainResource": {
       "errors": [
-        "Exception executing transform vt0.valueSet \u003d create(\"uri\") as vt on Rule \"\"ElementDefinition.binding-valueSet-uri\"\": Unknown Resource or Type Name \u0027uri\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "Duration": {
@@ -440,7 +490,14 @@
     },
     "Element": {
       "errors": [
-        "Problem processing expression (derivation \u003d \u0027constraint\u0027) or (kind \u003d \u0027logical\u0027) or (url \u003d \u0027http://hl7.org/fhir/StructureDefinition/\u0027+id) in profile http://hl7.org/fhir/StructureDefinition/StructureDefinition path StructureDefinition: Error performing +: right operand has no value"
+        "StructureDefinition: If there\u0027s a type, its content must match the path name in the first element of a snapshot [snapshot.empty() or snapshot.element.first().path \u003d type]",
+        "StructureDefinition: All element definitions must have an id [snapshot.element.all(id.exists()) and differential.element.all(id.exists())]",
+        "StructureDefinition: Profile http://hl7.org/fhir/StructureDefinition/StructureDefinition, Element \u0027StructureDefinition.kind\u0027: minimum required \u003d 1, but only found 0",
+        "StructureDefinition: Profile http://hl7.org/fhir/StructureDefinition/StructureDefinition, Element \u0027StructureDefinition.type\u0027: minimum required \u003d 1, but only found 0",
+        "StructureDefinition.snapshot: In any snapshot, all the elements must be in the specified type [element.first().path \u003d %resource.type and element.tail().all(path.startsWith(%resource.type\u0026\u0027.\u0027))]",
+        "StructureDefinition.snapshot.element[1].constraint: Profile http://hl7.org/fhir/StructureDefinition/ElementDefinition, Element \u0027StructureDefinition.snapshot.element[1].constraint.expression\u0027: minimum required \u003d 1, but only found 0",
+        "StructureDefinition.differential: In any differential, all the elements must be in the specified type [element.first().path.startsWith(%resource.type) and element.tail().all(path.startsWith(%resource.type\u0026\u0027.\u0027))]",
+        "StructureDefinition.differential.element[1].constraint: Profile http://hl7.org/fhir/StructureDefinition/ElementDefinition, Element \u0027StructureDefinition.differential.element[1].constraint.expression\u0027: minimum required \u003d 1, but only found 0"
       ]
     },
     "elementdefinition-de": {
@@ -455,42 +512,48 @@
     },
     "EligibilityRequest": {
       "errors": [
-        "Exception executing transform vt0.valueSet \u003d create(\"uri\") as vt on Rule \"\"ElementDefinition.binding-valueSet-uri\"\": Unknown Resource or Type Name \u0027uri\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "EligibilityResponse": {
       "errors": [
-        "Exception executing transform vt0.valueSet \u003d create(\"uri\") as vt on Rule \"\"ElementDefinition.binding-valueSet-uri\"\": Unknown Resource or Type Name \u0027uri\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "Encounter": {
       "errors": [
-        "Exception executing transform vt0.valueSet \u003d create(\"uri\") as vt on Rule \"\"ElementDefinition.binding-valueSet-uri\"\": Unknown Resource or Type Name \u0027uri\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "EnrollmentRequest": {
       "errors": [
-        "Exception executing transform vt0.valueSet \u003d create(\"uri\") as vt on Rule \"\"ElementDefinition.binding-valueSet-uri\"\": Unknown Resource or Type Name \u0027uri\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "EnrollmentResponse": {
       "errors": [
-        "Exception executing transform vt0.valueSet \u003d create(\"uri\") as vt on Rule \"\"ElementDefinition.binding-valueSet-uri\"\": Unknown Resource or Type Name \u0027uri\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "EpisodeOfCare": {
       "errors": [
-        "Exception executing transform vt0.valueSet \u003d create(\"uri\") as vt on Rule \"\"ElementDefinition.binding-valueSet-uri\"\": Unknown Resource or Type Name \u0027uri\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "ExplanationOfBenefit": {
       "errors": [
-        "Exception executing transform vt0.valueSet \u003d create(\"uri\") as vt on Rule \"\"ElementDefinition.binding-valueSet-uri\"\": Unknown Resource or Type Name \u0027uri\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "Extension": {
       "errors": [
-        "Problem processing expression (derivation \u003d \u0027constraint\u0027) or (kind \u003d \u0027logical\u0027) or (url \u003d \u0027http://hl7.org/fhir/StructureDefinition/\u0027+id) in profile http://hl7.org/fhir/StructureDefinition/StructureDefinition path StructureDefinition: Error performing +: right operand has no value"
+        "StructureDefinition: element.base cannot appear if there is no base on the structure definition [snapshot.exists() implies (snapshot.element.base.exists() \u003d baseDefinition.exists())]",
+        "StructureDefinition: If there\u0027s a type, its content must match the path name in the first element of a snapshot [snapshot.empty() or snapshot.element.first().path \u003d type]",
+        "StructureDefinition: All element definitions must have an id [snapshot.element.all(id.exists()) and differential.element.all(id.exists())]",
+        "StructureDefinition: Profile http://hl7.org/fhir/StructureDefinition/StructureDefinition, Element \u0027StructureDefinition.kind\u0027: minimum required \u003d 1, but only found 0",
+        "StructureDefinition: Profile http://hl7.org/fhir/StructureDefinition/StructureDefinition, Element \u0027StructureDefinition.type\u0027: minimum required \u003d 1, but only found 0",
+        "StructureDefinition.snapshot: In any snapshot, all the elements must be in the specified type [element.first().path \u003d %resource.type and element.tail().all(path.startsWith(%resource.type\u0026\u0027.\u0027))]",
+        "StructureDefinition.differential: In any differential, all the elements must be in the specified type [element.first().path.startsWith(%resource.type) and element.tail().all(path.startsWith(%resource.type\u0026\u0027.\u0027))]"
       ]
     },
     "familymemberhistory-genetic": {
@@ -500,12 +563,12 @@
     },
     "FamilyMemberHistory": {
       "errors": [
-        "Exception executing transform vt0.valueSet \u003d create(\"uri\") as vt on Rule \"\"ElementDefinition.binding-valueSet-uri\"\": Unknown Resource or Type Name \u0027uri\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "Flag": {
       "errors": [
-        "Exception executing transform vt0.valueSet \u003d create(\"uri\") as vt on Rule \"\"ElementDefinition.binding-valueSet-uri\"\": Unknown Resource or Type Name \u0027uri\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "genetics": {
@@ -515,12 +578,12 @@
     },
     "Goal": {
       "errors": [
-        "Exception executing transform vt0.valueSet \u003d create(\"uri\") as vt on Rule \"\"ElementDefinition.binding-valueSet-uri\"\": Unknown Resource or Type Name \u0027uri\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "Group": {
       "errors": [
-        "Exception executing transform vt0.valueSet \u003d create(\"uri\") as vt on Rule \"\"ElementDefinition.binding-valueSet-uri\"\": Unknown Resource or Type Name \u0027uri\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "hdlcholesterol": {
@@ -530,7 +593,7 @@
     },
     "HealthcareService": {
       "errors": [
-        "Exception executing transform vt0.valueSet \u003d create(\"uri\") as vt on Rule \"\"ElementDefinition.binding-valueSet-uri\"\": Unknown Resource or Type Name \u0027uri\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "HumanName": {
@@ -540,7 +603,8 @@
     },
     "id": {
       "errors": [
-        "Problem processing expression (derivation \u003d \u0027constraint\u0027) or (kind \u003d \u0027logical\u0027) or (url \u003d \u0027http://hl7.org/fhir/StructureDefinition/\u0027+id) in profile http://hl7.org/fhir/StructureDefinition/StructureDefinition path StructureDefinition: Error performing +: right operand has no value"
+        "StructureDefinition: All element definitions must have an id [snapshot.element.all(id.exists()) and differential.element.all(id.exists())]",
+        "StructureDefinition: Profile http://hl7.org/fhir/StructureDefinition/StructureDefinition, Element \u0027StructureDefinition.kind\u0027: minimum required \u003d 1, but only found 0"
       ]
     },
     "Identifier": {
@@ -550,32 +614,37 @@
     },
     "ImagingObjectSelection": {
       "errors": [
-        "Exception executing transform vt0.valueSet \u003d create(\"uri\") as vt on Rule \"\"ElementDefinition.binding-valueSet-uri\"\": Unknown Resource or Type Name \u0027uri\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "ImagingStudy": {
       "errors": [
-        "Exception executing transform vt0.valueSet \u003d create(\"uri\") as vt on Rule \"\"ElementDefinition.binding-valueSet-uri\"\": Unknown Resource or Type Name \u0027uri\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "Immunization": {
       "errors": [
-        "Exception executing transform vt0.valueSet \u003d create(\"uri\") as vt on Rule \"\"ElementDefinition.binding-valueSet-uri\"\": Unknown Resource or Type Name \u0027uri\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "ImmunizationRecommendation": {
       "errors": [
-        "Exception executing transform vt0.valueSet \u003d create(\"uri\") as vt on Rule \"\"ElementDefinition.binding-valueSet-uri\"\": Unknown Resource or Type Name \u0027uri\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "ImplementationGuide": {
       "errors": [
-        "Exception executing transform vt0.valueSet \u003d create(\"uri\") as vt on Rule \"\"ElementDefinition.binding-valueSet-uri\"\": Unknown Resource or Type Name \u0027uri\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "instant": {
       "errors": [
-        "Problem processing expression (derivation \u003d \u0027constraint\u0027) or (kind \u003d \u0027logical\u0027) or (url \u003d \u0027http://hl7.org/fhir/StructureDefinition/\u0027+id) in profile http://hl7.org/fhir/StructureDefinition/StructureDefinition path StructureDefinition: Error performing +: right operand has no value"
+        "StructureDefinition: If there\u0027s a type, its content must match the path name in the first element of a snapshot [snapshot.empty() or snapshot.element.first().path \u003d type]",
+        "StructureDefinition: All element definitions must have an id [snapshot.element.all(id.exists()) and differential.element.all(id.exists())]",
+        "StructureDefinition: Profile http://hl7.org/fhir/StructureDefinition/StructureDefinition, Element \u0027StructureDefinition.kind\u0027: minimum required \u003d 1, but only found 0",
+        "StructureDefinition: Profile http://hl7.org/fhir/StructureDefinition/StructureDefinition, Element \u0027StructureDefinition.type\u0027: minimum required \u003d 1, but only found 0",
+        "StructureDefinition.snapshot: In any snapshot, all the elements must be in the specified type [element.first().path \u003d %resource.type and element.tail().all(path.startsWith(%resource.type\u0026\u0027.\u0027))]",
+        "StructureDefinition.differential: In any differential, all the elements must be in the specified type [element.first().path.startsWith(%resource.type) and element.tail().all(path.startsWith(%resource.type\u0026\u0027.\u0027))]"
       ]
     },
     "integer": {
@@ -595,17 +664,18 @@
     },
     "List": {
       "errors": [
-        "Exception executing transform vt0.valueSet \u003d create(\"uri\") as vt on Rule \"\"ElementDefinition.binding-valueSet-uri\"\": Unknown Resource or Type Name \u0027uri\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "Location": {
       "errors": [
-        "Exception executing transform vt0.valueSet \u003d create(\"uri\") as vt on Rule \"\"ElementDefinition.binding-valueSet-uri\"\": Unknown Resource or Type Name \u0027uri\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "markdown": {
       "errors": [
-        "Problem processing expression (derivation \u003d \u0027constraint\u0027) or (kind \u003d \u0027logical\u0027) or (url \u003d \u0027http://hl7.org/fhir/StructureDefinition/\u0027+id) in profile http://hl7.org/fhir/StructureDefinition/StructureDefinition path StructureDefinition: Error performing +: right operand has no value"
+        "StructureDefinition: All element definitions must have an id [snapshot.element.all(id.exists()) and differential.element.all(id.exists())]",
+        "StructureDefinition: Profile http://hl7.org/fhir/StructureDefinition/StructureDefinition, Element \u0027StructureDefinition.kind\u0027: minimum required \u003d 1, but only found 0"
       ]
     },
     "measurereport": {
@@ -615,37 +685,37 @@
     },
     "Media": {
       "errors": [
-        "Exception executing transform vt0.valueSet \u003d create(\"uri\") as vt on Rule \"\"ElementDefinition.binding-valueSet-uri\"\": Unknown Resource or Type Name \u0027uri\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "Medication": {
       "errors": [
-        "Exception executing transform vt0.valueSet \u003d create(\"uri\") as vt on Rule \"\"ElementDefinition.binding-valueSet-uri\"\": Unknown Resource or Type Name \u0027uri\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "MedicationAdministration": {
       "errors": [
-        "Exception executing transform vt0.valueSet \u003d create(\"uri\") as vt on Rule \"\"ElementDefinition.binding-valueSet-uri\"\": Unknown Resource or Type Name \u0027uri\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "MedicationDispense": {
       "errors": [
-        "Exception executing transform vt0.valueSet \u003d create(\"uri\") as vt on Rule \"\"ElementDefinition.binding-valueSet-uri\"\": Unknown Resource or Type Name \u0027uri\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "MedicationOrder": {
       "errors": [
-        "Exception executing transform vt0.valueSet \u003d create(\"uri\") as vt on Rule \"\"ElementDefinition.binding-valueSet-uri\"\": Unknown Resource or Type Name \u0027uri\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "MedicationStatement": {
       "errors": [
-        "Exception executing transform vt0.valueSet \u003d create(\"uri\") as vt on Rule \"\"ElementDefinition.binding-valueSet-uri\"\": Unknown Resource or Type Name \u0027uri\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "MessageHeader": {
       "errors": [
-        "Exception executing transform vt0.valueSet \u003d create(\"uri\") as vt on Rule \"\"ElementDefinition.binding-valueSet-uri\"\": Unknown Resource or Type Name \u0027uri\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "Meta": {
@@ -660,7 +730,7 @@
     },
     "NamingSystem": {
       "errors": [
-        "Exception executing transform vt0.valueSet \u003d create(\"uri\") as vt on Rule \"\"ElementDefinition.binding-valueSet-uri\"\": Unknown Resource or Type Name \u0027uri\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "Narrative": {
@@ -670,107 +740,117 @@
     },
     "NutritionOrder": {
       "errors": [
-        "Exception executing transform vt0.valueSet \u003d create(\"uri\") as vt on Rule \"\"ElementDefinition.binding-valueSet-uri\"\": Unknown Resource or Type Name \u0027uri\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "Observation": {
       "errors": [
-        "Exception executing transform vt0.valueSet \u003d create(\"uri\") as vt on Rule \"\"ElementDefinition.binding-valueSet-uri\"\": Unknown Resource or Type Name \u0027uri\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "oid": {
       "errors": [
-        "Problem processing expression (derivation \u003d \u0027constraint\u0027) or (kind \u003d \u0027logical\u0027) or (url \u003d \u0027http://hl7.org/fhir/StructureDefinition/\u0027+id) in profile http://hl7.org/fhir/StructureDefinition/StructureDefinition path StructureDefinition: Error performing +: right operand has no value"
+        "StructureDefinition: All element definitions must have an id [snapshot.element.all(id.exists()) and differential.element.all(id.exists())]",
+        "StructureDefinition: Profile http://hl7.org/fhir/StructureDefinition/StructureDefinition, Element \u0027StructureDefinition.kind\u0027: minimum required \u003d 1, but only found 0"
       ]
     },
     "OperationDefinition": {
       "errors": [
-        "Exception executing transform vt0.valueSet \u003d create(\"uri\") as vt on Rule \"\"ElementDefinition.binding-valueSet-uri\"\": Unknown Resource or Type Name \u0027uri\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "OperationOutcome": {
       "errors": [
-        "Exception executing transform vt0.valueSet \u003d create(\"uri\") as vt on Rule \"\"ElementDefinition.binding-valueSet-uri\"\": Unknown Resource or Type Name \u0027uri\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "Order": {
       "errors": [
-        "Exception executing transform vt0.valueSet \u003d create(\"uri\") as vt on Rule \"\"ElementDefinition.binding-valueSet-uri\"\": Unknown Resource or Type Name \u0027uri\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "OrderResponse": {
       "errors": [
-        "Exception executing transform vt0.valueSet \u003d create(\"uri\") as vt on Rule \"\"ElementDefinition.binding-valueSet-uri\"\": Unknown Resource or Type Name \u0027uri\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "Organization": {
       "errors": [
-        "Exception executing transform vt0.valueSet \u003d create(\"uri\") as vt on Rule \"\"ElementDefinition.binding-valueSet-uri\"\": Unknown Resource or Type Name \u0027uri\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "Parameters": {
       "errors": [
-        "Exception executing transform vt0.valueSet \u003d create(\"uri\") as vt on Rule \"\"ElementDefinition.binding-valueSet-uri\"\": Unknown Resource or Type Name \u0027uri\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "Patient": {
       "errors": [
-        "Exception executing transform vt0.valueSet \u003d create(\"uri\") as vt on Rule \"\"ElementDefinition.binding-valueSet-uri\"\": Unknown Resource or Type Name \u0027uri\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "PaymentNotice": {
       "errors": [
-        "Exception executing transform vt0.valueSet \u003d create(\"uri\") as vt on Rule \"\"ElementDefinition.binding-valueSet-uri\"\": Unknown Resource or Type Name \u0027uri\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "PaymentReconciliation": {
       "errors": [
-        "Exception executing transform vt0.valueSet \u003d create(\"uri\") as vt on Rule \"\"ElementDefinition.binding-valueSet-uri\"\": Unknown Resource or Type Name \u0027uri\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "Period": {
       "errors": [
-        "Problem processing expression (derivation \u003d \u0027constraint\u0027) or (kind \u003d \u0027logical\u0027) or (url \u003d \u0027http://hl7.org/fhir/StructureDefinition/\u0027+id) in profile http://hl7.org/fhir/StructureDefinition/StructureDefinition path StructureDefinition: Error performing +: right operand has no value"
+        "StructureDefinition: element.base cannot appear if there is no base on the structure definition [snapshot.exists() implies (snapshot.element.base.exists() \u003d baseDefinition.exists())]",
+        "StructureDefinition: If there\u0027s a type, its content must match the path name in the first element of a snapshot [snapshot.empty() or snapshot.element.first().path \u003d type]",
+        "StructureDefinition: All element definitions must have an id [snapshot.element.all(id.exists()) and differential.element.all(id.exists())]",
+        "StructureDefinition: Profile http://hl7.org/fhir/StructureDefinition/StructureDefinition, Element \u0027StructureDefinition.kind\u0027: minimum required \u003d 1, but only found 0",
+        "StructureDefinition: Profile http://hl7.org/fhir/StructureDefinition/StructureDefinition, Element \u0027StructureDefinition.type\u0027: minimum required \u003d 1, but only found 0",
+        "StructureDefinition.snapshot: In any snapshot, all the elements must be in the specified type [element.first().path \u003d %resource.type and element.tail().all(path.startsWith(%resource.type\u0026\u0027.\u0027))]",
+        "StructureDefinition.snapshot.element[1].constraint: Profile http://hl7.org/fhir/StructureDefinition/ElementDefinition, Element \u0027StructureDefinition.snapshot.element[1].constraint.expression\u0027: minimum required \u003d 1, but only found 0",
+        "StructureDefinition.differential: In any differential, all the elements must be in the specified type [element.first().path.startsWith(%resource.type) and element.tail().all(path.startsWith(%resource.type\u0026\u0027.\u0027))]",
+        "StructureDefinition.differential.element[1].constraint: Profile http://hl7.org/fhir/StructureDefinition/ElementDefinition, Element \u0027StructureDefinition.differential.element[1].constraint.expression\u0027: minimum required \u003d 1, but only found 0"
       ]
     },
     "Person": {
       "errors": [
-        "Exception executing transform vt0.valueSet \u003d create(\"uri\") as vt on Rule \"\"ElementDefinition.binding-valueSet-uri\"\": Unknown Resource or Type Name \u0027uri\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "positiveInt": {
       "errors": [
-        "Problem processing expression (derivation \u003d \u0027constraint\u0027) or (kind \u003d \u0027logical\u0027) or (url \u003d \u0027http://hl7.org/fhir/StructureDefinition/\u0027+id) in profile http://hl7.org/fhir/StructureDefinition/StructureDefinition path StructureDefinition: Error performing +: right operand has no value"
+        "StructureDefinition: All element definitions must have an id [snapshot.element.all(id.exists()) and differential.element.all(id.exists())]",
+        "StructureDefinition: Profile http://hl7.org/fhir/StructureDefinition/StructureDefinition, Element \u0027StructureDefinition.kind\u0027: minimum required \u003d 1, but only found 0"
       ]
     },
     "Practitioner": {
       "errors": [
-        "Exception executing transform vt0.valueSet \u003d create(\"uri\") as vt on Rule \"\"ElementDefinition.binding-valueSet-uri\"\": Unknown Resource or Type Name \u0027uri\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "Procedure": {
       "errors": [
-        "Exception executing transform vt0.valueSet \u003d create(\"uri\") as vt on Rule \"\"ElementDefinition.binding-valueSet-uri\"\": Unknown Resource or Type Name \u0027uri\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "ProcedureRequest": {
       "errors": [
-        "Exception executing transform vt0.valueSet \u003d create(\"uri\") as vt on Rule \"\"ElementDefinition.binding-valueSet-uri\"\": Unknown Resource or Type Name \u0027uri\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "ProcessRequest": {
       "errors": [
-        "Exception executing transform vt0.valueSet \u003d create(\"uri\") as vt on Rule \"\"ElementDefinition.binding-valueSet-uri\"\": Unknown Resource or Type Name \u0027uri\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "ProcessResponse": {
       "errors": [
-        "Exception executing transform vt0.valueSet \u003d create(\"uri\") as vt on Rule \"\"ElementDefinition.binding-valueSet-uri\"\": Unknown Resource or Type Name \u0027uri\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "Provenance": {
       "errors": [
-        "Exception executing transform vt0.valueSet \u003d create(\"uri\") as vt on Rule \"\"ElementDefinition.binding-valueSet-uri\"\": Unknown Resource or Type Name \u0027uri\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "qicore-adverseevent": {
@@ -950,47 +1030,71 @@
     },
     "Questionnaire": {
       "errors": [
-        "Exception executing transform vt0.valueSet \u003d create(\"uri\") as vt on Rule \"\"ElementDefinition.binding-valueSet-uri\"\": Unknown Resource or Type Name \u0027uri\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "QuestionnaireResponse": {
       "errors": [
-        "Exception executing transform vt0.valueSet \u003d create(\"uri\") as vt on Rule \"\"ElementDefinition.binding-valueSet-uri\"\": Unknown Resource or Type Name \u0027uri\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "Range": {
       "errors": [
-        "Problem processing expression (derivation \u003d \u0027constraint\u0027) or (kind \u003d \u0027logical\u0027) or (url \u003d \u0027http://hl7.org/fhir/StructureDefinition/\u0027+id) in profile http://hl7.org/fhir/StructureDefinition/StructureDefinition path StructureDefinition: Error performing +: right operand has no value"
+        "StructureDefinition: element.base cannot appear if there is no base on the structure definition [snapshot.exists() implies (snapshot.element.base.exists() \u003d baseDefinition.exists())]",
+        "StructureDefinition: If there\u0027s a type, its content must match the path name in the first element of a snapshot [snapshot.empty() or snapshot.element.first().path \u003d type]",
+        "StructureDefinition: All element definitions must have an id [snapshot.element.all(id.exists()) and differential.element.all(id.exists())]",
+        "StructureDefinition: Profile http://hl7.org/fhir/StructureDefinition/StructureDefinition, Element \u0027StructureDefinition.kind\u0027: minimum required \u003d 1, but only found 0",
+        "StructureDefinition: Profile http://hl7.org/fhir/StructureDefinition/StructureDefinition, Element \u0027StructureDefinition.type\u0027: minimum required \u003d 1, but only found 0",
+        "StructureDefinition.snapshot: In any snapshot, all the elements must be in the specified type [element.first().path \u003d %resource.type and element.tail().all(path.startsWith(%resource.type\u0026\u0027.\u0027))]",
+        "StructureDefinition.snapshot.element[1].constraint: Profile http://hl7.org/fhir/StructureDefinition/ElementDefinition, Element \u0027StructureDefinition.snapshot.element[1].constraint.expression\u0027: minimum required \u003d 1, but only found 0",
+        "StructureDefinition.differential: In any differential, all the elements must be in the specified type [element.first().path.startsWith(%resource.type) and element.tail().all(path.startsWith(%resource.type\u0026\u0027.\u0027))]",
+        "StructureDefinition.differential.element[1].constraint: Profile http://hl7.org/fhir/StructureDefinition/ElementDefinition, Element \u0027StructureDefinition.differential.element[1].constraint.expression\u0027: minimum required \u003d 1, but only found 0"
       ]
     },
     "Ratio": {
       "errors": [
-        "Problem processing expression (derivation \u003d \u0027constraint\u0027) or (kind \u003d \u0027logical\u0027) or (url \u003d \u0027http://hl7.org/fhir/StructureDefinition/\u0027+id) in profile http://hl7.org/fhir/StructureDefinition/StructureDefinition path StructureDefinition: Error performing +: right operand has no value"
+        "StructureDefinition: element.base cannot appear if there is no base on the structure definition [snapshot.exists() implies (snapshot.element.base.exists() \u003d baseDefinition.exists())]",
+        "StructureDefinition: If there\u0027s a type, its content must match the path name in the first element of a snapshot [snapshot.empty() or snapshot.element.first().path \u003d type]",
+        "StructureDefinition: All element definitions must have an id [snapshot.element.all(id.exists()) and differential.element.all(id.exists())]",
+        "StructureDefinition: Profile http://hl7.org/fhir/StructureDefinition/StructureDefinition, Element \u0027StructureDefinition.kind\u0027: minimum required \u003d 1, but only found 0",
+        "StructureDefinition: Profile http://hl7.org/fhir/StructureDefinition/StructureDefinition, Element \u0027StructureDefinition.type\u0027: minimum required \u003d 1, but only found 0",
+        "StructureDefinition.snapshot: In any snapshot, all the elements must be in the specified type [element.first().path \u003d %resource.type and element.tail().all(path.startsWith(%resource.type\u0026\u0027.\u0027))]",
+        "StructureDefinition.snapshot.element[1].constraint: Profile http://hl7.org/fhir/StructureDefinition/ElementDefinition, Element \u0027StructureDefinition.snapshot.element[1].constraint.expression\u0027: minimum required \u003d 1, but only found 0",
+        "StructureDefinition.differential: In any differential, all the elements must be in the specified type [element.first().path.startsWith(%resource.type) and element.tail().all(path.startsWith(%resource.type\u0026\u0027.\u0027))]",
+        "StructureDefinition.differential.element[1].constraint: Profile http://hl7.org/fhir/StructureDefinition/ElementDefinition, Element \u0027StructureDefinition.differential.element[1].constraint.expression\u0027: minimum required \u003d 1, but only found 0"
       ]
     },
     "Reference": {
       "errors": [
-        "Problem processing expression (derivation \u003d \u0027constraint\u0027) or (kind \u003d \u0027logical\u0027) or (url \u003d \u0027http://hl7.org/fhir/StructureDefinition/\u0027+id) in profile http://hl7.org/fhir/StructureDefinition/StructureDefinition path StructureDefinition: Error performing +: right operand has no value"
+        "StructureDefinition: element.base cannot appear if there is no base on the structure definition [snapshot.exists() implies (snapshot.element.base.exists() \u003d baseDefinition.exists())]",
+        "StructureDefinition: If there\u0027s a type, its content must match the path name in the first element of a snapshot [snapshot.empty() or snapshot.element.first().path \u003d type]",
+        "StructureDefinition: All element definitions must have an id [snapshot.element.all(id.exists()) and differential.element.all(id.exists())]",
+        "StructureDefinition: Profile http://hl7.org/fhir/StructureDefinition/StructureDefinition, Element \u0027StructureDefinition.kind\u0027: minimum required \u003d 1, but only found 0",
+        "StructureDefinition: Profile http://hl7.org/fhir/StructureDefinition/StructureDefinition, Element \u0027StructureDefinition.type\u0027: minimum required \u003d 1, but only found 0",
+        "StructureDefinition.snapshot: In any snapshot, all the elements must be in the specified type [element.first().path \u003d %resource.type and element.tail().all(path.startsWith(%resource.type\u0026\u0027.\u0027))]",
+        "StructureDefinition.snapshot.element[1].constraint: Profile http://hl7.org/fhir/StructureDefinition/ElementDefinition, Element \u0027StructureDefinition.snapshot.element[1].constraint.expression\u0027: minimum required \u003d 1, but only found 0",
+        "StructureDefinition.differential: In any differential, all the elements must be in the specified type [element.first().path.startsWith(%resource.type) and element.tail().all(path.startsWith(%resource.type\u0026\u0027.\u0027))]",
+        "StructureDefinition.differential.element[1].constraint: Profile http://hl7.org/fhir/StructureDefinition/ElementDefinition, Element \u0027StructureDefinition.differential.element[1].constraint.expression\u0027: minimum required \u003d 1, but only found 0"
       ]
     },
     "ReferralRequest": {
       "errors": [
-        "Exception executing transform vt0.valueSet \u003d create(\"uri\") as vt on Rule \"\"ElementDefinition.binding-valueSet-uri\"\": Unknown Resource or Type Name \u0027uri\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "RelatedPerson": {
       "errors": [
-        "Exception executing transform vt0.valueSet \u003d create(\"uri\") as vt on Rule \"\"ElementDefinition.binding-valueSet-uri\"\": Unknown Resource or Type Name \u0027uri\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "Resource": {
       "errors": [
-        "Exception executing transform vt0.valueSet \u003d create(\"uri\") as vt on Rule \"\"ElementDefinition.binding-valueSet-uri\"\": Unknown Resource or Type Name \u0027uri\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "RiskAssessment": {
       "errors": [
-        "Exception executing transform vt0.valueSet \u003d create(\"uri\") as vt on Rule \"\"ElementDefinition.binding-valueSet-uri\"\": Unknown Resource or Type Name \u0027uri\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "SampledData": {
@@ -1000,7 +1104,7 @@
     },
     "Schedule": {
       "errors": [
-        "Exception executing transform vt0.valueSet \u003d create(\"uri\") as vt on Rule \"\"ElementDefinition.binding-valueSet-uri\"\": Unknown Resource or Type Name \u0027uri\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "sdc-element": {
@@ -1035,7 +1139,7 @@
     },
     "SearchParameter": {
       "errors": [
-        "Exception executing transform vt0.valueSet \u003d create(\"uri\") as vt on Rule \"\"ElementDefinition.binding-valueSet-uri\"\": Unknown Resource or Type Name \u0027uri\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "shareablevalueset": {
@@ -1055,17 +1159,22 @@
     },
     "Slot": {
       "errors": [
-        "Exception executing transform vt0.valueSet \u003d create(\"uri\") as vt on Rule \"\"ElementDefinition.binding-valueSet-uri\"\": Unknown Resource or Type Name \u0027uri\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "Specimen": {
       "errors": [
-        "Exception executing transform vt0.valueSet \u003d create(\"uri\") as vt on Rule \"\"ElementDefinition.binding-valueSet-uri\"\": Unknown Resource or Type Name \u0027uri\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "string": {
       "errors": [
-        "Problem processing expression (derivation \u003d \u0027constraint\u0027) or (kind \u003d \u0027logical\u0027) or (url \u003d \u0027http://hl7.org/fhir/StructureDefinition/\u0027+id) in profile http://hl7.org/fhir/StructureDefinition/StructureDefinition path StructureDefinition: Error performing +: right operand has no value"
+        "StructureDefinition: If there\u0027s a type, its content must match the path name in the first element of a snapshot [snapshot.empty() or snapshot.element.first().path \u003d type]",
+        "StructureDefinition: All element definitions must have an id [snapshot.element.all(id.exists()) and differential.element.all(id.exists())]",
+        "StructureDefinition: Profile http://hl7.org/fhir/StructureDefinition/StructureDefinition, Element \u0027StructureDefinition.kind\u0027: minimum required \u003d 1, but only found 0",
+        "StructureDefinition: Profile http://hl7.org/fhir/StructureDefinition/StructureDefinition, Element \u0027StructureDefinition.type\u0027: minimum required \u003d 1, but only found 0",
+        "StructureDefinition.snapshot: In any snapshot, all the elements must be in the specified type [element.first().path \u003d %resource.type and element.tail().all(path.startsWith(%resource.type\u0026\u0027.\u0027))]",
+        "StructureDefinition.differential: In any differential, all the elements must be in the specified type [element.first().path.startsWith(%resource.type) and element.tail().all(path.startsWith(%resource.type\u0026\u0027.\u0027))]"
       ]
     },
     "example": {
@@ -1075,37 +1184,42 @@
     },
     "StructureDefinition": {
       "errors": [
-        "Exception executing transform vt0.valueSet \u003d create(\"uri\") as vt on Rule \"\"ElementDefinition.binding-valueSet-uri\"\": Unknown Resource or Type Name \u0027uri\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "Subscription": {
       "errors": [
-        "Exception executing transform vt0.valueSet \u003d create(\"uri\") as vt on Rule \"\"ElementDefinition.binding-valueSet-uri\"\": Unknown Resource or Type Name \u0027uri\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "Substance": {
       "errors": [
-        "Exception executing transform vt0.valueSet \u003d create(\"uri\") as vt on Rule \"\"ElementDefinition.binding-valueSet-uri\"\": Unknown Resource or Type Name \u0027uri\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "SupplyDelivery": {
       "errors": [
-        "Exception executing transform vt0.valueSet \u003d create(\"uri\") as vt on Rule \"\"ElementDefinition.binding-valueSet-uri\"\": Unknown Resource or Type Name \u0027uri\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "SupplyRequest": {
       "errors": [
-        "Exception executing transform vt0.valueSet \u003d create(\"uri\") as vt on Rule \"\"ElementDefinition.binding-valueSet-uri\"\": Unknown Resource or Type Name \u0027uri\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "TestScript": {
       "errors": [
-        "Exception executing transform vt0.valueSet \u003d create(\"uri\") as vt on Rule \"\"ElementDefinition.binding-valueSet-uri\"\": Unknown Resource or Type Name \u0027uri\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "time": {
       "errors": [
-        "Problem processing expression (derivation \u003d \u0027constraint\u0027) or (kind \u003d \u0027logical\u0027) or (url \u003d \u0027http://hl7.org/fhir/StructureDefinition/\u0027+id) in profile http://hl7.org/fhir/StructureDefinition/StructureDefinition path StructureDefinition: Error performing +: right operand has no value"
+        "StructureDefinition: If there\u0027s a type, its content must match the path name in the first element of a snapshot [snapshot.empty() or snapshot.element.first().path \u003d type]",
+        "StructureDefinition: All element definitions must have an id [snapshot.element.all(id.exists()) and differential.element.all(id.exists())]",
+        "StructureDefinition: Profile http://hl7.org/fhir/StructureDefinition/StructureDefinition, Element \u0027StructureDefinition.kind\u0027: minimum required \u003d 1, but only found 0",
+        "StructureDefinition: Profile http://hl7.org/fhir/StructureDefinition/StructureDefinition, Element \u0027StructureDefinition.type\u0027: minimum required \u003d 1, but only found 0",
+        "StructureDefinition.snapshot: In any snapshot, all the elements must be in the specified type [element.first().path \u003d %resource.type and element.tail().all(path.startsWith(%resource.type\u0026\u0027.\u0027))]",
+        "StructureDefinition.differential: In any differential, all the elements must be in the specified type [element.first().path.startsWith(%resource.type) and element.tail().all(path.startsWith(%resource.type\u0026\u0027.\u0027))]"
       ]
     },
     "Timing": {
@@ -1120,12 +1234,18 @@
     },
     "unsignedInt": {
       "errors": [
-        "Problem processing expression (derivation \u003d \u0027constraint\u0027) or (kind \u003d \u0027logical\u0027) or (url \u003d \u0027http://hl7.org/fhir/StructureDefinition/\u0027+id) in profile http://hl7.org/fhir/StructureDefinition/StructureDefinition path StructureDefinition: Error performing +: right operand has no value"
+        "StructureDefinition: All element definitions must have an id [snapshot.element.all(id.exists()) and differential.element.all(id.exists())]",
+        "StructureDefinition: Profile http://hl7.org/fhir/StructureDefinition/StructureDefinition, Element \u0027StructureDefinition.kind\u0027: minimum required \u003d 1, but only found 0"
       ]
     },
     "uri": {
       "errors": [
-        "Problem processing expression (derivation \u003d \u0027constraint\u0027) or (kind \u003d \u0027logical\u0027) or (url \u003d \u0027http://hl7.org/fhir/StructureDefinition/\u0027+id) in profile http://hl7.org/fhir/StructureDefinition/StructureDefinition path StructureDefinition: Error performing +: right operand has no value"
+        "StructureDefinition: If there\u0027s a type, its content must match the path name in the first element of a snapshot [snapshot.empty() or snapshot.element.first().path \u003d type]",
+        "StructureDefinition: All element definitions must have an id [snapshot.element.all(id.exists()) and differential.element.all(id.exists())]",
+        "StructureDefinition: Profile http://hl7.org/fhir/StructureDefinition/StructureDefinition, Element \u0027StructureDefinition.kind\u0027: minimum required \u003d 1, but only found 0",
+        "StructureDefinition: Profile http://hl7.org/fhir/StructureDefinition/StructureDefinition, Element \u0027StructureDefinition.type\u0027: minimum required \u003d 1, but only found 0",
+        "StructureDefinition.snapshot: In any snapshot, all the elements must be in the specified type [element.first().path \u003d %resource.type and element.tail().all(path.startsWith(%resource.type\u0026\u0027.\u0027))]",
+        "StructureDefinition.differential: In any differential, all the elements must be in the specified type [element.first().path.startsWith(%resource.type) and element.tail().all(path.startsWith(%resource.type\u0026\u0027.\u0027))]"
       ]
     },
     "uslab-cctarget": {
@@ -1220,17 +1340,18 @@
     },
     "uuid": {
       "errors": [
-        "Problem processing expression (derivation \u003d \u0027constraint\u0027) or (kind \u003d \u0027logical\u0027) or (url \u003d \u0027http://hl7.org/fhir/StructureDefinition/\u0027+id) in profile http://hl7.org/fhir/StructureDefinition/StructureDefinition path StructureDefinition: Error performing +: right operand has no value"
+        "StructureDefinition: All element definitions must have an id [snapshot.element.all(id.exists()) and differential.element.all(id.exists())]",
+        "StructureDefinition: Profile http://hl7.org/fhir/StructureDefinition/StructureDefinition, Element \u0027StructureDefinition.kind\u0027: minimum required \u003d 1, but only found 0"
       ]
     },
     "ValueSet": {
       "errors": [
-        "Exception executing transform vt0.valueSet \u003d create(\"uri\") as vt on Rule \"\"ElementDefinition.binding-valueSet-uri\"\": Unknown Resource or Type Name \u0027uri\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "VisionPrescription": {
       "errors": [
-        "Exception executing transform vt0.valueSet \u003d create(\"uri\") as vt on Rule \"\"ElementDefinition.binding-valueSet-uri\"\": Unknown Resource or Type Name \u0027uri\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "xdsdocumentmanifest": {
@@ -1257,7 +1378,7 @@
     },
     "allergyintolerance-example-refuted": {
       "errors": [
-        "Unknown AllergyIntoleranceClinicalStatus code \u0027refuted\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "fishallergy": {
@@ -1274,9 +1395,21 @@
     }
   },
   "Appointment": {
-    "example": {},
-    "examplereq": {},
-    "2docs": {}
+    "example": {
+      "errors": [
+        "NullPointerException"
+      ]
+    },
+    "examplereq": {
+      "errors": [
+        "NullPointerException"
+      ]
+    },
+    "2docs": {
+      "errors": [
+        "NullPointerException"
+      ]
+    }
   },
   "AppointmentResponse": {
     "example": {},
@@ -1285,58 +1418,62 @@
   "AuditEvent": {
     "example-login": {
       "errors": [
-        "Error at 19, 7: Found \")\" expecting \":\""
+        "Error at 21, 7: Found \")\" expecting \":\""
       ]
     },
     "example-logout": {
       "errors": [
-        "Error at 19, 7: Found \")\" expecting \":\""
+        "Error at 21, 7: Found \")\" expecting \":\""
       ]
     },
     "example-media": {
       "errors": [
-        "Error at 19, 7: Found \")\" expecting \":\""
+        "Error at 21, 7: Found \")\" expecting \":\""
       ]
     },
     "example-pixQuery": {
       "errors": [
-        "Error at 19, 7: Found \")\" expecting \":\""
+        "Error at 21, 7: Found \")\" expecting \":\""
       ]
     },
     "example-search": {
       "errors": [
-        "Error at 19, 7: Found \")\" expecting \":\""
+        "Error at 21, 7: Found \")\" expecting \":\""
       ]
     },
     "example-rest": {
       "errors": [
-        "Error at 19, 7: Found \")\" expecting \":\""
+        "Error at 21, 7: Found \")\" expecting \":\""
       ]
     },
     "example": {
       "errors": [
-        "Error at 19, 7: Found \")\" expecting \":\""
+        "Error at 21, 7: Found \")\" expecting \":\""
       ]
     },
     "example-disclosure": {
       "errors": [
-        "Error at 19, 7: Found \")\" expecting \":\""
+        "Error at 21, 7: Found \")\" expecting \":\""
       ]
     }
   },
   "Basic": {
     "basic-adverseevent-example": {
       "errors": [
-        "Basic.code.coding: Error java.lang.NullPointerException validating Coding"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "referral": {
       "errors": [
-        "Basic.code.coding: Error java.lang.NullPointerException validating Coding"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "basic-example-narrative": {},
-    "classModel": {}
+    "classModel": {
+      "errors": [
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
+      ]
+    }
   },
   "Binary": {
     "example": {},
@@ -8327,6 +8464,16 @@
         "Bundle.entry[4]: must be a resource unless there\u0027s a request or response [resource.exists() or request.exists() or response.exists()]",
         "Bundle.entry[5]: must be a resource unless there\u0027s a request or response [resource.exists() or request.exists() or response.exists()]"
       ]
+    },
+    "10bb101f-a121-4264-a920-67be9cb82c74": {
+      "errors": [
+        "NullPointerException"
+      ]
+    },
+    "3a0707d3-549e-4467-b8b8-5a2ab3800efe": {
+      "errors": [
+        "NullPointerException"
+      ]
     }
   },
   "CarePlan": {
@@ -8408,10 +8555,7 @@
     },
     "preg": {
       "errors": [
-        "CarePlan.addresses: Unable to resolve contained resource",
-        "CarePlan.addresses: SHALL have a contained resource if a local reference is provided ( (url: p1; ids: )) [reference.startsWith(\u0027#\u0027).not() or (reference.substring(1).trace(\u0027url\u0027) in %resource.contained.id.trace(\u0027ids\u0027))]",
-        "CarePlan.goal: Unable to resolve contained resource",
-        "CarePlan.goal: SHALL have a contained resource if a local reference is provided ( (url: goal; ids: )) [reference.startsWith(\u0027#\u0027).not() or (reference.substring(1).trace(\u0027url\u0027) in %resource.contained.id.trace(\u0027ids\u0027))]"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     }
   },
@@ -8432,7 +8576,7 @@
   "Communication": {
     "communication-example": {
       "errors": [
-        "Exception executing transform vt0.content \u003d create(\"string\") as vt on Rule \"\"Communication.payload-content-string\"\": Unknown Resource or Type Name \u0027string\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "example": {
@@ -8442,7 +8586,11 @@
     }
   },
   "CommunicationRequest": {
-    "communicationrequest-example": {},
+    "communicationrequest-example": {
+      "errors": [
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
+      ]
+    },
     "example": {}
   },
   "Composition": {
@@ -8484,7 +8632,7 @@
     },
     "condition-example": {
       "errors": [
-        "Exception executing transform tgt.onset \u003d create(\"dateTime\") as vt on Rule \"\"Condition-onset-dateTime\"\": Unknown Resource or Type Name \u0027dateTime\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "example": {
@@ -8575,10 +8723,14 @@
   "DataElement": {
     "gender": {
       "errors": [
-        "Exception executing transform vt0.valueSet \u003d create(\"uri\") as vt on Rule \"\"ElementDefinition.binding-valueSet-uri\"\": Unknown Resource or Type Name \u0027uri\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
-    "prothrombin": {},
+    "prothrombin": {
+      "errors": [
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
+      ]
+    },
     "dataelement-sdc-profile-example": {
       "errors": [
         "Exception executing transform vt0.valueSet \u003d create(\"uri\") as vt on Rule \"\"ElementDefinition.binding-valueSet-uri\"\": Unknown Resource or Type Name \u0027uri\u0027"
@@ -8586,7 +8738,7 @@
     },
     "dataelement-sdc-profile-example-de": {
       "errors": [
-        "Exception executing transform vt0.valueSet \u003d create(\"uri\") as vt on Rule \"\"ElementDefinition.binding-valueSet-uri\"\": Unknown Resource or Type Name \u0027uri\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     }
   },
@@ -8616,7 +8768,11 @@
         "Device.identifier.type.coding: Error java.lang.NullPointerException validating Coding"
       ]
     },
-    "example-pacemaker": {},
+    "example-pacemaker": {
+      "errors": [
+        "Round trip failed: Names differ at /Device: manufacturer/lotNumber"
+      ]
+    },
     "software": {}
   },
   "DeviceComponent": {
@@ -8653,6 +8809,11 @@
         "DeviceUseRequest: Profile http://hl7.org/fhir/StructureDefinition/DeviceUseRequest, Element \u0027DeviceUseRequest.stage\u0027: minimum required \u003d 1, but only found 0",
         "DeviceUseRequest: Profile http://hl7.org/fhir/StructureDefinition/DeviceUseRequest, Element \u0027DeviceUseRequest.device[x]\u0027: minimum required \u003d 1, but only found 0"
       ]
+    },
+    "deviceuserequest-example": {
+      "errors": [
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
+      ]
     }
   },
   "DeviceUseStatement": {
@@ -8673,7 +8834,7 @@
     },
     "diagnosticreport-example": {
       "errors": [
-        "Exception executing transform tgt.effective \u003d create(\"dateTime\") as vt on Rule \"\"DiagnosticReport-effective-dateTime\"\": Unknown Resource or Type Name \u0027dateTime\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "102": {
@@ -8744,13 +8905,25 @@
     "E2500": {}
   },
   "EnrollmentRequest": {
-    "22345": {}
+    "22345": {
+      "errors": [
+        "Round trip failed: Names differ at /EnrollmentRequest: organization/coverage"
+      ]
+    }
   },
   "EnrollmentResponse": {
-    "ER2500": {}
+    "ER2500": {
+      "errors": [
+        "Round trip failed: Names differ at /EnrollmentResponse: request/disposition"
+      ]
+    }
   },
   "EpisodeOfCare": {
-    "example": {}
+    "example": {
+      "errors": [
+        "NullPointerException"
+      ]
+    }
   },
   "ExplanationOfBenefit": {
     "R3500": {}
@@ -8763,18 +8936,21 @@
   "Goal": {
     "example": {
       "errors": [
-        "Goal: Profile http://hl7.org/fhir/StructureDefinition/Goal, Element \u0027Goal.description\u0027: minimum required \u003d 1, but only found 0"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "goal-example": {
       "errors": [
-        "Goal: Profile http://hl7.org/fhir/StructureDefinition/Goal, Element \u0027Goal.description\u0027: minimum required \u003d 1, but only found 0",
-        "Goal.category.coding: Error java.lang.NullPointerException validating Coding"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     }
   },
   "Group": {
-    "102": {}
+    "102": {
+      "errors": [
+        "NullPointerException"
+      ]
+    }
   },
   "HealthcareService": {
     "example": {
@@ -8796,8 +8972,7 @@
     },
     "imagingstudy-example": {
       "errors": [
-        "ImagingStudy.series.modality: Error java.lang.NullPointerException validating Coding",
-        "ImagingStudy.series.bodySite: Error java.lang.NullPointerException validating Coding"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     }
   },
@@ -8852,7 +9027,7 @@
   "Location": {
     "1": {
       "errors": [
-        "Location.physicalType.coding: Error java.lang.NullPointerException validating Coding"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "amb": {
@@ -8894,11 +9069,14 @@
     },
     "1.2.840.11361907579238403408700.3.0.14.19970327150033": {
       "errors": [
-        "Media.subtype.coding: Error java.lang.NullPointerException validating Coding",
-        "Media.view.coding: Error java.lang.NullPointerException validating Coding"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
-    "sound": {}
+    "sound": {
+      "errors": [
+        "Round trip failed: Attributes differ at /Media/content: missing attribute id"
+      ]
+    }
   },
   "Medication": {
     "f001": {
@@ -9065,13 +9243,21 @@
     }
   },
   "NamingSystem": {
-    "example": {},
+    "example": {
+      "errors": [
+        "NullPointerException"
+      ]
+    },
     "example-id": {
       "errors": [
         "NamingSystem.type.coding: Error java.lang.NullPointerException validating Coding"
       ]
     },
-    "example-replaced": {}
+    "example-replaced": {
+      "errors": [
+        "Round trip failed: Names differ at /NamingSystem: publisher/date"
+      ]
+    }
   },
   "NutritionOrder": {
     "cardiacdiet": {},
@@ -9091,63 +9277,62 @@
   "Observation": {
     "genetics-example1-somatic": {
       "errors": [
-        "Observation.code.coding: Error java.lang.NullPointerException validating Coding",
-        "Observation.interpretation.coding: Error java.lang.NullPointerException validating Coding"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "genetics-example2-germline": {
       "errors": [
-        "Observation.code.coding: Error java.lang.NullPointerException validating Coding"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "genetics-example3-mutationlist": {
       "errors": [
-        "Observation.code.coding: Error java.lang.NullPointerException validating Coding"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "obs-uslab-example1": {
       "errors": [
-        "Exception executing transform tgt.effective \u003d create(\"dateTime\") as vt on Rule \"\"Observation-effective-dateTime\"\": Unknown Resource or Type Name \u0027dateTime\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "obs-uslab-example2": {
       "errors": [
-        "Exception executing transform tgt.effective \u003d create(\"dateTime\") as vt on Rule \"\"Observation-effective-dateTime\"\": Unknown Resource or Type Name \u0027dateTime\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "obs-uslab-example3": {
       "errors": [
-        "Exception executing transform tgt.effective \u003d create(\"dateTime\") as vt on Rule \"\"Observation-effective-dateTime\"\": Unknown Resource or Type Name \u0027dateTime\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "obs-uslab-example4": {
       "errors": [
-        "Exception executing transform tgt.effective \u003d create(\"dateTime\") as vt on Rule \"\"Observation-effective-dateTime\"\": Unknown Resource or Type Name \u0027dateTime\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "obs-uslab-example5": {
       "errors": [
-        "Exception executing transform tgt.effective \u003d create(\"dateTime\") as vt on Rule \"\"Observation-effective-dateTime\"\": Unknown Resource or Type Name \u0027dateTime\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "obs-uslab-example6": {
       "errors": [
-        "Exception executing transform tgt.effective \u003d create(\"dateTime\") as vt on Rule \"\"Observation-effective-dateTime\"\": Unknown Resource or Type Name \u0027dateTime\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "obs-uslab-example7": {
       "errors": [
-        "Exception executing transform tgt.effective \u003d create(\"dateTime\") as vt on Rule \"\"Observation-effective-dateTime\"\": Unknown Resource or Type Name \u0027dateTime\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "obs-uslab-example8": {
       "errors": [
-        "Exception executing transform tgt.effective \u003d create(\"dateTime\") as vt on Rule \"\"Observation-effective-dateTime\"\": Unknown Resource or Type Name \u0027dateTime\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "observation-example": {
       "errors": [
-        "Exception executing transform tgt.effective \u003d create(\"dateTime\") as vt on Rule \"\"Observation-effective-dateTime\"\": Unknown Resource or Type Name \u0027dateTime\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "blood-pressure": {
@@ -9208,6 +9393,26 @@
     "unsat": {
       "errors": [
         "Exception executing transform tgt.effective \u003d create(\"dateTime\") as vt on Rule \"\"Observation-effective-dateTime\"\": Unknown Resource or Type Name \u0027dateTime\u0027"
+      ]
+    },
+    "genetics-example3-mutationlist-1": {
+      "errors": [
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
+      ]
+    },
+    "genetics-example3-mutationlist-2": {
+      "errors": [
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
+      ]
+    },
+    "genetics-example3-mutationlist-3": {
+      "errors": [
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
+      ]
+    },
+    "genetics-example3-mutationlist-4": {
+      "errors": [
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     }
   },
@@ -9327,10 +9532,26 @@
     "example": {}
   },
   "Organization": {
-    "org-uslab-example1": {},
-    "org-uslab-example2": {},
-    "org-uslab-example3": {},
-    "hl7": {},
+    "org-uslab-example1": {
+      "errors": [
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
+      ]
+    },
+    "org-uslab-example2": {
+      "errors": [
+        "NullPointerException"
+      ]
+    },
+    "org-uslab-example3": {
+      "errors": [
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
+      ]
+    },
+    "hl7": {
+      "errors": [
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
+      ]
+    },
     "organization-example": {
       "errors": [
         "Organization.type.coding: Error java.lang.NullPointerException validating Coding"
@@ -9367,10 +9588,18 @@
         "Organization.type.coding[2]: Error java.lang.NullPointerException validating Coding"
       ]
     },
-    "1": {},
+    "1": {
+      "errors": [
+        "NullPointerException"
+      ]
+    },
     "2.16.840.1.113883.19.5": {},
     "2": {},
-    "1832473e-2fe0-452d-abe9-3cdb9879522f": {}
+    "1832473e-2fe0-452d-abe9-3cdb9879522f": {
+      "errors": [
+        "NullPointerException"
+      ]
+    }
   },
   "Parameters": {
     "example": {
@@ -9382,12 +9611,12 @@
   "Patient": {
     "example": {
       "errors": [
-        "Exception executing transform tgt.deceased \u003d create(\"boolean\") as vt on Rule \"\"Patient-deceased-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "patient-example": {
       "errors": [
-        "Exception executing transform tgt.deceased \u003d create(\"boolean\") as vt on Rule \"\"Patient-deceased-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "pat1": {
@@ -9395,10 +9624,14 @@
         "Patient.identifier.type.coding: Error java.lang.NullPointerException validating Coding"
       ]
     },
-    "animal": {},
+    "animal": {
+      "errors": [
+        "Round trip failed: Names differ at /Patient: contact/managingOrganization"
+      ]
+    },
     "pat2": {
       "errors": [
-        "Patient.identifier.type.coding: Error java.lang.NullPointerException validating Coding"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "pat3": {
@@ -9411,7 +9644,11 @@
         "Exception executing transform tgt.deceased \u003d create(\"boolean\") as vt on Rule \"\"Patient-deceased-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
-    "dicom": {},
+    "dicom": {
+      "errors": [
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
+      ]
+    },
     "f001": {
       "errors": [
         "Exception executing transform tgt.deceased \u003d create(\"boolean\") as vt on Rule \"\"Patient-deceased-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
@@ -9425,10 +9662,14 @@
     "ihe-pcd": {},
     "proband": {
       "errors": [
-        "Exception executing transform tgt.deceased \u003d create(\"boolean\") as vt on Rule \"\"Patient-deceased-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
-    "us01": {},
+    "us01": {
+      "errors": [
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
+      ]
+    },
     "xcda": {
       "errors": [
         "Patient.identifier.type.coding: Error java.lang.NullPointerException validating Coding"
@@ -9441,17 +9682,17 @@
     },
     "glossy": {
       "errors": [
-        "Patient.identifier.type.coding: Error java.lang.NullPointerException validating Coding"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "patient-uslab-example1": {
       "errors": [
-        "Exception executing transform tgt.deceased \u003d create(\"boolean\") as vt on Rule \"\"Patient-deceased-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "patient-uslab-example2": {
       "errors": [
-        "Exception executing transform tgt.deceased \u003d create(\"boolean\") as vt on Rule \"\"Patient-deceased-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     }
   },
@@ -9485,9 +9726,21 @@
     }
   },
   "Practitioner": {
-    "pract-uslab-example1": {},
-    "pract-uslab-example2": {},
-    "pract-uslab-example3": {},
+    "pract-uslab-example1": {
+      "errors": [
+        "NullPointerException"
+      ]
+    },
+    "pract-uslab-example2": {
+      "errors": [
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
+      ]
+    },
+    "pract-uslab-example3": {
+      "errors": [
+        "NullPointerException"
+      ]
+    },
     "example": {
       "errors": [
         "Practitioner.role.code.coding: Error java.lang.NullPointerException validating Coding"
@@ -9495,17 +9748,44 @@
     },
     "practitioner-example": {
       "errors": [
-        "Practitioner.role.code.coding: Error java.lang.NullPointerException validating Coding",
-        "Practitioner.role.specialty.coding: Error java.lang.NullPointerException validating Coding"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
-    "f001": {},
-    "f002": {},
-    "f003": {},
-    "f004": {},
-    "f005": {},
-    "f006": {},
-    "f007": {},
+    "f001": {
+      "errors": [
+        "NullPointerException"
+      ]
+    },
+    "f002": {
+      "errors": [
+        "NullPointerException"
+      ]
+    },
+    "f003": {
+      "errors": [
+        "NullPointerException"
+      ]
+    },
+    "f004": {
+      "errors": [
+        "NullPointerException"
+      ]
+    },
+    "f005": {
+      "errors": [
+        "NullPointerException"
+      ]
+    },
+    "f006": {
+      "errors": [
+        "NullPointerException"
+      ]
+    },
+    "f007": {
+      "errors": [
+        "NullPointerException"
+      ]
+    },
     "f201": {
       "errors": [
         "Practitioner.role.code.coding: Error java.lang.NullPointerException validating Coding",
@@ -9542,7 +9822,7 @@
     },
     "procedure-example": {
       "errors": [
-        "Exception executing transform tgt.performed \u003d create(\"dateTime\") as vt on Rule \"\"Procedure-performed-dateTime\"\": Unknown Resource or Type Name \u0027dateTime\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "biopsy": {
@@ -9586,6 +9866,11 @@
       "errors": [
         "ProcedureRequest.code.coding: Error java.lang.NullPointerException validating Coding"
       ]
+    },
+    "procedurerequest-example": {
+      "errors": [
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
+      ]
     }
   },
   "ProcessRequest": {
@@ -9605,22 +9890,46 @@
   "Provenance": {
     "example": {
       "errors": [
-        "Error at 22, 7: Found \")\" expecting \":\""
+        "Error at 24, 7: Found \")\" expecting \":\""
       ]
     },
     "signature": {
       "errors": [
-        "Error at 22, 7: Found \")\" expecting \":\""
+        "Error at 24, 7: Found \")\" expecting \":\""
       ]
     }
   },
   "Questionnaire": {
-    "3141": {},
-    "bb": {},
-    "f201": {},
-    "gcs": {},
-    "questionnaire-sdc-profile-example-cap": {},
-    "questionnaire-sdc-profile-example-loinc": {}
+    "3141": {
+      "errors": [
+        "Round trip failed: Names differ at /Questionnaire: contained/status"
+      ]
+    },
+    "bb": {
+      "errors": [
+        "Round trip failed: node mismatch - more nodes in source in children of /Questionnaire"
+      ]
+    },
+    "f201": {
+      "errors": [
+        "Round trip failed: node mismatch - more nodes in source in children of /Questionnaire"
+      ]
+    },
+    "gcs": {
+      "errors": [
+        "Round trip failed: Names differ at /Questionnaire: contained/status"
+      ]
+    },
+    "questionnaire-sdc-profile-example-cap": {
+      "errors": [
+        "Round trip failed: node mismatch - more nodes in source in children of /Questionnaire"
+      ]
+    },
+    "questionnaire-sdc-profile-example-loinc": {
+      "errors": [
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
+      ]
+    }
   },
   "QuestionnaireResponse": {
     "3141": {
@@ -9631,11 +9940,31 @@
         "QuestionnaireResponse.author: SHALL have a contained resource if a local reference is provided ( (url: questauth; ids: )) [reference.startsWith(\u0027#\u0027).not() or (reference.substring(1).trace(\u0027url\u0027) in %resource.contained.id.trace(\u0027ids\u0027))]"
       ]
     },
-    "bb": {},
-    "f201": {},
-    "gcs": {},
-    "questionnaireresponse-sdc-example-ussg-fht-answers": {},
-    "questionnaireresponse-sdc-profile-example": {}
+    "bb": {
+      "errors": [
+        "Round trip failed: node mismatch - more nodes in source in children of /QuestionnaireResponse"
+      ]
+    },
+    "f201": {
+      "errors": [
+        "Round trip failed: node mismatch - more nodes in source in children of /QuestionnaireResponse"
+      ]
+    },
+    "gcs": {
+      "errors": [
+        "Round trip failed: node mismatch - more nodes in source in children of /QuestionnaireResponse"
+      ]
+    },
+    "questionnaireresponse-sdc-example-ussg-fht-answers": {
+      "errors": [
+        "Round trip failed: node mismatch - more nodes in source in children of /QuestionnaireResponse"
+      ]
+    },
+    "questionnaireresponse-sdc-profile-example": {
+      "errors": [
+        "Round trip failed: node mismatch - more nodes in source in children of /QuestionnaireResponse"
+      ]
+    }
   },
   "ReferralRequest": {
     "example": {
@@ -9645,15 +9974,14 @@
     },
     "referralrequest-example": {
       "errors": [
-        "Unknown ReferralStatus code \u0027rejected\u0027"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     }
   },
   "RelatedPerson": {
     "benedicte": {
       "errors": [
-        "RelatedPerson.relationship.coding[1]: Error java.lang.NullPointerException validating Coding",
-        "RelatedPerson.relationship.coding[2]: Error java.lang.NullPointerException validating Coding"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "f001": {
@@ -9861,7 +10189,11 @@
         "ValueSet: Value set SHALL contain at least one of a a compose, or an expansion element [compose.exists() or expansion.exists()]"
       ]
     },
-    "example-expansion": {},
+    "example-expansion": {
+      "errors": [
+        "Round trip failed: Names differ at /ValueSet: description/compose"
+      ]
+    },
     "example-inline": {
       "errors": [
         "ValueSet: Value set SHALL contain at least one of a a compose, or an expansion element [compose.exists() or expansion.exists()]"
@@ -9872,10 +10204,14 @@
         "ValueSet: Value set SHALL contain at least one of a a compose, or an expansion element [compose.exists() or expansion.exists()]"
       ]
     },
-    "yesnodontknow": {},
+    "yesnodontknow": {
+      "errors": [
+        "Round trip failed: Names differ at /ValueSet: description/compose"
+      ]
+    },
     "nhin-purposeofuse": {
       "errors": [
-        "ValueSet: Value set SHALL contain at least one of a a compose, or an expansion element [compose.exists() or expansion.exists()]"
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     },
     "restful-interaction": {
@@ -9903,6 +10239,20 @@
     "33124": {
       "errors": [
         "Attempt to write to invalid property \u0027value\u0027 on type CodeableConcept"
+      ]
+    }
+  },
+  "Encounter": {
+    "encounter-example": {
+      "errors": [
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
+      ]
+    }
+  },
+  "MedicationDispense": {
+    "medicationdispense-example": {
+      "errors": [
+        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
       ]
     }
   }

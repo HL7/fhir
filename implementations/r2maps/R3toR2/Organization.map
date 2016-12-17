@@ -5,6 +5,8 @@ uses "http://hl7.org/fhir/StructureDefinition/Organization" alias Organization a
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Organization" alias OrganizationR2 as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives3to2"
+
+imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
 imports "http://hl7.org/fhir/StructureMap/Address3to2"
 imports "http://hl7.org/fhir/StructureMap/ContactPoint3to2"
 imports "http://hl7.org/fhir/StructureMap/HumanName3to2"
@@ -14,9 +16,10 @@ imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
 
 
 
-group Organization extends Element
+group Organization extends DomainResource
   input src : Organization as source
   input tgt : OrganizationR2 as target
+
   "Organization-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
   "Organization-active" : for src.active as vs make tgt.active as vt then boolean(vs, vt)
   "Organization-type" : for src.type as vs make tgt.type as vt then CodeableConcept(vs,vt)

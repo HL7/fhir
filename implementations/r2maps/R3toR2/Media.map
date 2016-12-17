@@ -5,6 +5,8 @@ uses "http://hl7.org/fhir/StructureDefinition/Media" alias Media as source
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Media" alias MediaR2 as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives3to2"
+
+imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
 imports "http://hl7.org/fhir/StructureMap/Attachment3to2"
 imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
 imports "http://hl7.org/fhir/StructureMap/Reference3to2"
@@ -12,9 +14,10 @@ imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
 
 
 
-group Media extends Element
+group Media extends DomainResource
   input src : Media as source
   input tgt : MediaR2 as target
+
   "Media-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
   "Media-type" : for src.type as vs make tgt.type as vt then code(vs, vt)
   "Media-subtype" : for src.subtype as vs make tgt.subtype as vt then CodeableConcept(vs,vt)

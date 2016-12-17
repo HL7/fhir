@@ -5,6 +5,8 @@ uses "http://hl7.org/fhir/StructureDefinition/MedicationDispense" alias Medicati
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/MedicationDispense" alias MedicationDispenseR2 as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives3to2"
+
+imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
 imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
 imports "http://hl7.org/fhir/StructureMap/Reference3to2"
 imports "http://hl7.org/fhir/StructureMap/Quantity3to2"
@@ -12,9 +14,10 @@ imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
 
 
 
-group MedicationDispense extends Element
+group MedicationDispense extends DomainResource
   input src : MedicationDispense as source
   input tgt : MedicationDispenseR2 as target
+
   "MedicationDispense-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
   "MedicationDispense-status" : for src.status as vs make tgt.status as vt then code(vs, vt)
   "MedicationDispense-medication-CodeableConcept" : for src.medication  : CodeableConcept as vs make tgt.medication = create("CodeableConcept") as vt then CodeableConcept(vs,vt)

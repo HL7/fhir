@@ -5,6 +5,8 @@ uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Meta" alias MetaR2 as source
 uses "http://hl7.org/fhir/StructureDefinition/Meta" alias Meta as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives2to3"
+
+imports "http://hl7.org/fhir/StructureMap/Element2to3"
 imports "http://hl7.org/fhir/StructureMap/Coding2to3"
 
 

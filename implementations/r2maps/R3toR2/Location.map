@@ -5,6 +5,8 @@ uses "http://hl7.org/fhir/StructureDefinition/Location" alias Location as source
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Location" alias LocationR2 as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives3to2"
+
+imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
 imports "http://hl7.org/fhir/StructureMap/Address3to2"
 imports "http://hl7.org/fhir/StructureMap/ContactPoint3to2"
 imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
@@ -13,9 +15,10 @@ imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
 
 
 
-group Location extends Element
+group Location extends DomainResource
   input src : Location as source
   input tgt : LocationR2 as target
+
   "Location-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
   "Location-status" : for src.status as vs make tgt.status as vt then code(vs, vt)
   "Location-name" : for src.name as vs make tgt.name as vt then string(vs, vt)

@@ -5,6 +5,8 @@ uses "http://hl7.org/fhir/StructureDefinition/Identifier" alias Identifier as so
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Identifier" alias IdentifierR2 as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives3to2"
+
+imports "http://hl7.org/fhir/StructureMap/Element3to2"
 imports "http://hl7.org/fhir/StructureMap/Reference3to2"
 imports "http://hl7.org/fhir/StructureMap/Period3to2"
 imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
@@ -14,6 +16,7 @@ imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
 group Identifier extends Element
   input src : Identifier as source
   input tgt : IdentifierR2 as target
+
   "Identifier-use" : for src.use as vs make tgt.use as vt then code(vs, vt)
   "Identifier-type" : for src.type as vs make tgt.type as vt then CodeableConcept(vs,vt)
   "Identifier-system" : for src.system as vs make tgt.system as vt then uri(vs, vt)

@@ -2,6 +2,7 @@ package org.hl7.fhir.dstu3.elementmodel;
 
 import static org.apache.commons.lang3.StringUtils.isNotBlank;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,6 +14,7 @@ import org.hl7.fhir.dstu3.model.StructureDefinition;
 import org.hl7.fhir.dstu3.model.Type;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 
 /**
@@ -61,7 +63,23 @@ public class Element extends Base {
 		this.name = name;
 	}
 
-	public Element(String name, Property property) {
+  public Element(Element other) {
+    super();
+    if (other != null)
+      comments = new ArrayList<String>(other.comments);
+    name = other.name;
+    type = other.type;
+    value = other.value;
+    index = other.index;
+    if (other != null)
+      children = new ArrayList<Element>(other.children);
+    property = other.property;
+    elementProperty = other.elementProperty;
+    special = other.special;
+    xhtml = other.xhtml;
+  }
+  
+  public Element(String name, Property property) {
 		super();
 		this.name = name;
 		this.property = property;
@@ -262,12 +280,76 @@ public class Element extends Base {
 	
   @Override
   public void setProperty(int hash, String name, Base value) throws FHIRException {
-    throw new Error("not done yet"); 
+    if (isPrimitive() && (hash == "value".hashCode())) {
+      this.value = castToString(value).asStringValue();
+      return;
+    }
+    if ("xhtml".equals(getType()) && (hash == "value".hashCode())) {
+      this.xhtml = castToXhtml(value);
+      this.value =  castToXhtmlString(value);
+      return;
+    }
+    
+//    if (children == null)
+//      children = new ArrayList<Element>();
+//    
+//    // look through existing children
+//    for (Element child : children) {
+//      if (child.getName().equals(name)) {
+//        if (!child.isList()) {
+//          return child;
+//        } else {
+//          Element ne = new Element(this);
+//          children.add(ne);
+//          numberChildren();
+//          return ne;
+//        }
+//      }
+//    }
+//
+//    for (Property p : property.getChildProperties(name, type)) {
+//      if (p.getName().equals(name)) {
+//        Element ne = new Element(name, p);
+//        children.add(ne);
+//        return ne;
+//      }
+//    }
+      
+    throw new Error("Cannot set property "+name+" on "+this.name); 
   }
 
   @Override
   public Base makeProperty(int hash, String name) throws FHIRException {
-    throw new Error("not done yet"); 
+    if (isPrimitive() && (hash == "value".hashCode())) {
+      return new StringType(value);
+    }
+
+    if (children == null)
+      children = new ArrayList<Element>();
+    
+    // look through existing children
+    for (Element child : children) {
+      if (child.getName().equals(name)) {
+        if (!child.isList()) {
+          return child;
+        } else {
+          Element ne = new Element(this);
+          children.add(ne);
+          numberChildren();
+          return ne;
+        }
+      }
+    }
+
+    for (Property p : property.getChildProperties(name, type)) {
+      if (p.getName().equals(name)) {
+        Element ne = new Element(name, p);
+        children.add(ne);
+        return ne;
+      }
+    }
+      
+    throw new Error("Unrecognised name "+name); 
   }
   
 	private int maxToInt(String max) {

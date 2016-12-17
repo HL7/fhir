@@ -5,6 +5,8 @@ uses "http://hl7.org/fhir/StructureDefinition/Immunization" alias Immunization a
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Immunization" alias ImmunizationR2 as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives3to2"
+
+imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
 imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
 imports "http://hl7.org/fhir/StructureMap/Reference3to2"
 imports "http://hl7.org/fhir/StructureMap/Quantity3to2"
@@ -13,9 +15,10 @@ imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
 
 
 
-group Immunization extends Element
+group Immunization extends DomainResource
   input src : Immunization as source
   input tgt : ImmunizationR2 as target
+
   "Immunization-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
   "Immunization-date" : for src.date as vs make tgt.date as vt then dateTime(vs, vt)
   "Immunization-vaccineCode" : for src.vaccineCode as vs make tgt.vaccineCode as vt then CodeableConcept(vs,vt)

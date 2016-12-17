@@ -5,6 +5,8 @@ uses "http://hl7.org/fhir/StructureDefinition/ConceptMap" alias ConceptMap as so
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/ConceptMap" alias ConceptMapR2 as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives3to2"
+
+imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
 imports "http://hl7.org/fhir/StructureMap/ContactPoint3to2"
 imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
 imports "http://hl7.org/fhir/StructureMap/Reference3to2"
@@ -12,9 +14,10 @@ imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
 
 
 
-group ConceptMap extends Element
+group ConceptMap extends DomainResource
   input src : ConceptMap as source
   input tgt : ConceptMapR2 as target
+
   "ConceptMap-url" : for src.url as vs make tgt.url as vt then uri(vs, vt)
   "ConceptMap-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
   "ConceptMap-version" : for src.version as vs make tgt.version as vt then string(vs, vt)

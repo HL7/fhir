@@ -67,6 +67,7 @@ import org.hl7.fhir.dstu3.model.ValueSet.ValueSetExpansionContainsComponent;
 import org.hl7.fhir.dstu3.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
 import org.hl7.fhir.dstu3.utils.FHIRLexer.FHIRLexerException;
 import org.hl7.fhir.dstu3.utils.FHIRPathEngine.IEvaluationContext;
+import org.hl7.fhir.dstu3.utils.StructureMapUtilities.ResolvedGroup;
 import org.hl7.fhir.exceptions.DefinitionException;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.exceptions.PathEngineException;
@@ -91,7 +92,11 @@ import org.hl7.fhir.utilities.xhtml.XhtmlNode;
  */
 public class StructureMapUtilities {
 
-	public static final String MAP_WHERE_CHECK = "map.where.check";
+	public class ResolvedGroup {
+    public StructureMapGroupComponent target;
+    public StructureMap targetMap;
+  }
+  public static final String MAP_WHERE_CHECK = "map.where.check";
 	public static final String MAP_WHERE_EXPRESSION = "map.where.expression";
 	public static final String MAP_EXPRESSION = "map.transform.expression";
   private static final boolean RENDER_MULTIPLE_TARGETS_ONELINE = false;
@@ -1023,8 +1028,13 @@ public class StructureMapUtilities {
 
 	private void executeGroup(String indent, TransformContext context, StructureMap map, Variables vars, StructureMapGroupComponent group) throws FHIRException {
 		log(indent+"Group : "+group.getName());
+    // todo: check inputs
+		if (group.hasExtends()) {
+		  ResolvedGroup rg = resolveGroupReference(map, group.getExtends());
+		  executeGroup(indent+" ", context, rg.targetMap, vars, rg.target); 
+		}
+		  
 		// todo: extends
-		// todo: check inputs
 		for (StructureMapGroupRuleComponent r : group.getRule()) {
 			executeRule(indent+"  ", context, map, vars, group, r);
 		}
@@ -1055,41 +1065,14 @@ public class StructureMapUtilities {
 	}
 
 	private void executeDependency(String indent, TransformContext context, StructureMap map, Variables vin, StructureMapGroupComponent group, StructureMapGroupRuleDependentComponent dependent) throws FHIRException {
-		StructureMap targetMap = null;
-		StructureMapGroupComponent target = null;
-		for (StructureMapGroupComponent grp : map.getGroup()) {
-			if (grp.getName().equals(dependent.getName())) {
-				if (targetMap == null) {
-					targetMap = map;
-					target = grp;
-				} else 
-					throw new FHIRException("Multiple possible matches for rule '"+dependent.getName()+"'");
-			}
-		}
+	  ResolvedGroup rg = resolveGroupReference(map, dependent.getName());
 
-		for (UriType imp : map.getImport()) {
-			StructureMap impMap = library.get(imp.getValue());
-			if (impMap == null)
-				throw new FHIRException("Unable to find map "+imp.getValue());
-			for (StructureMapGroupComponent grp : impMap.getGroup()) {
-				if (grp.getName().equals(dependent.getName())) {
-					if (targetMap == null) {
-						targetMap = impMap;
-						target = grp;
-					} else 
-						throw new FHIRException("Multiple possible matches for rule '"+dependent.getName()+"' in "+targetMap.getUrl()+" and "+impMap.getUrl());
-				}
-			}
-		}
-		if (target == null)
-			throw new FHIRException("No matches found for rule '"+dependent.getName()+"'");
-
-		if (target.getInput().size() != dependent.getVariable().size()) {
-			throw new FHIRException("Rule '"+dependent.getName()+"' has "+Integer.toString(target.getInput().size())+" but the invocation has "+Integer.toString(dependent.getVariable().size())+" variables");
+		if (rg.target.getInput().size() != dependent.getVariable().size()) {
+			throw new FHIRException("Rule '"+dependent.getName()+"' has "+Integer.toString(rg.target.getInput().size())+" but the invocation has "+Integer.toString(dependent.getVariable().size())+" variables");
 		}
 		Variables v = new Variables();
-		for (int i = 0; i < target.getInput().size(); i++) {
-			StructureMapGroupInputComponent input = target.getInput().get(i);
+		for (int i = 0; i < rg.target.getInput().size(); i++) {
+			StructureMapGroupInputComponent input = rg.target.getInput().get(i);
 			StringType var = dependent.getVariable().get(i);
 			VariableMode mode = input.getMode() == StructureMapInputMode.SOURCE ? VariableMode.INPUT : VariableMode.OUTPUT;
 			Base vv = vin.get(mode, var.getValue());
@@ -1097,11 +1080,44 @@ public class StructureMapUtilities {
 				throw new FHIRException("Rule '"+dependent.getName()+"' "+mode.toString()+" variable '"+input.getName()+"' has no value");
 			v.add(mode, input.getName(), vv);    	
 		}
-		executeGroup(indent+"  ", context, targetMap, v, target);
+		executeGroup(indent+"  ", context, rg.targetMap, v, rg.target);
 	}
 
 
-	private List<Variables> processSource(String ruleId, TransformContext context, Variables vars, StructureMapGroupRuleSourceComponent src) throws FHIRException {
+	private ResolvedGroup resolveGroupReference(StructureMap map, String name) throws FHIRException {
+	  ResolvedGroup res = new ResolvedGroup();
+    res.targetMap = null;
+    res.target = null;
+    for (StructureMapGroupComponent grp : map.getGroup()) {
+      if (grp.getName().equals(name)) {
+        if (res.targetMap == null) {
+          res.targetMap = map;
+          res.target = grp;
+        } else 
+          throw new FHIRException("Multiple possible matches for rule '"+name+"'");
+      }
+    }
+
+    for (UriType imp : map.getImport()) {
+      StructureMap impMap = library.get(imp.getValue());
+      if (impMap == null)
+        throw new FHIRException("Unable to find map "+imp.getValue());
+      for (StructureMapGroupComponent grp : impMap.getGroup()) {
+        if (grp.getName().equals(name)) {
+          if (res.targetMap == null) {
+            res.targetMap = impMap;
+            res.target = grp;
+          } else 
+            throw new FHIRException("Multiple possible matches for rule '"+name+"' in "+res.targetMap.getUrl()+" and "+impMap.getUrl());
+        }
+      }
+    }
+    if (res.target == null)
+      throw new FHIRException("No matches found for rule '"+name+"'");
+    return res;
+  }
+
+  private List<Variables> processSource(String ruleId, TransformContext context, Variables vars, StructureMapGroupRuleSourceComponent src) throws FHIRException {
 		Base b = vars.get(VariableMode.INPUT, src.getContext());
 		if (b == null)
 			throw new FHIRException("Unknown input variable "+src.getContext());

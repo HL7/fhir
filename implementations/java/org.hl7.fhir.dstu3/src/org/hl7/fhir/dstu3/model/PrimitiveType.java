@@ -177,5 +177,14 @@ public abstract class PrimitiveType<T> extends Type implements IPrimitiveType<T>
       super.setProperty(name, value);
   }
 
+  @Override
+  public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
+    if (hash == 111972721) {
+      Base[] b = new Base[1];
+      b[0] = new StringType(getValueAsString());
+      return b;
+    } else
+      return super.getProperty(hash, name, checkValid);
+  }
 
 }

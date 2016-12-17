@@ -5,6 +5,8 @@ uses "http://hl7.org/fhir/StructureDefinition/ContactPoint" alias ContactPoint a
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/ContactPoint" alias ContactPointR2 as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives3to2"
+
+imports "http://hl7.org/fhir/StructureMap/Element3to2"
 imports "http://hl7.org/fhir/StructureMap/Period3to2"
 
 
@@ -12,6 +14,7 @@ imports "http://hl7.org/fhir/StructureMap/Period3to2"
 group ContactPoint extends Element
   input src : ContactPoint as source
   input tgt : ContactPointR2 as target
+
   "ContactPoint-system" : for src.system as vs make tgt.system as vt then code(vs, vt)
   "ContactPoint-value" : for src.value as vs make tgt.value as vt then string(vs, vt)
   "ContactPoint-use" : for src.use as vs make tgt.use as vt then code(vs, vt)

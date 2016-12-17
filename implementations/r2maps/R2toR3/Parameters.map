@@ -5,6 +5,8 @@ uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Parameters" alias Parameters
 uses "http://hl7.org/fhir/StructureDefinition/Parameters" alias Parameters as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives2to3"
+
+imports "http://hl7.org/fhir/StructureMap/Resource2to3"
 imports "http://hl7.org/fhir/StructureMap/Meta2to3"
 imports "http://hl7.org/fhir/StructureMap/Address2to3"
 imports "http://hl7.org/fhir/StructureMap/Attachment2to3"
@@ -25,7 +27,7 @@ imports "http://hl7.org/fhir/StructureMap/CodeableConcept2to3"
 
 
 
-group Parameters extends Element
+group Parameters extends Resource
   input src : ParametersR2 as source
   input tgt : Parameters as target
 

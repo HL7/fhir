@@ -14,6 +14,8 @@ uses "http://hl7.org/fhir/StructureDefinition/StructureDefinition" alias Structu
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/StructureDefinition" alias StructureDefinitionR2 as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives3to2"
+
+imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
 imports "http://hl7.org/fhir/StructureMap/ContactPoint3to2"
 imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
 imports "http://hl7.org/fhir/StructureMap/Coding3to2"
@@ -22,9 +24,10 @@ imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
 
 
 
-group StructureDefinition extends Element
+group StructureDefinition extends DomainResource
   input src : StructureDefinition as source
   input tgt : StructureDefinitionR2 as target
+
   "StructureDefinition-url" : for src.url as vs make tgt.url as vt then uri(vs, vt)
   "StructureDefinition-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
   "StructureDefinition-version" : for src.version as vs make tgt.version as vt then string(vs, vt)

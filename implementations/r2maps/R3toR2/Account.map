@@ -5,6 +5,8 @@ uses "http://hl7.org/fhir/StructureDefinition/Account" alias Account as source
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Account" alias AccountR2 as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives3to2"
+
+imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
 imports "http://hl7.org/fhir/StructureMap/Money3to2"
 imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
 imports "http://hl7.org/fhir/StructureMap/Coding3to2"
@@ -14,9 +16,10 @@ imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
 
 
 
-group Account extends Element
+group Account extends DomainResource
   input src : Account as source
   input tgt : AccountR2 as target
+
   "Account-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
   "Account-name" : for src.name as vs make tgt.name as vt then string(vs, vt)
   "Account-type" : for src.type as vs make tgt.type as vt then CodeableConcept(vs,vt)

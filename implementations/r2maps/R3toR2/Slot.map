@@ -5,15 +5,18 @@ uses "http://hl7.org/fhir/StructureDefinition/Slot" alias Slot as source
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Slot" alias SlotR2 as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives3to2"
+
+imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
 imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
 imports "http://hl7.org/fhir/StructureMap/Reference3to2"
 imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
 
 
 
-group Slot extends Element
+group Slot extends DomainResource
   input src : Slot as source
   input tgt : SlotR2 as target
+
   "Slot-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
   "Slot-type" : for src.serviceType as vs make tgt.type as vt then CodeableConcept(vs,vt)
   "Slot-schedule" : for src.schedule as vs make tgt.schedule as vt then Reference(vs,vt)

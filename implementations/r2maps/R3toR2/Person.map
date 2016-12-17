@@ -5,6 +5,8 @@ uses "http://hl7.org/fhir/StructureDefinition/Person" alias Person as source
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Person" alias PersonR2 as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives3to2"
+
+imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
 imports "http://hl7.org/fhir/StructureMap/Address3to2"
 imports "http://hl7.org/fhir/StructureMap/Attachment3to2"
 imports "http://hl7.org/fhir/StructureMap/HumanName3to2"
@@ -14,9 +16,10 @@ imports "http://hl7.org/fhir/StructureMap/Reference3to2"
 
 
 
-group Person extends Element
+group Person extends DomainResource
   input src : Person as source
   input tgt : PersonR2 as target
+
   "Person-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
   "Person-name" : for src.name as vs make tgt.name as vt then HumanName(vs,vt)
   "Person-telecom" : for src.telecom as vs make tgt.telecom as vt then ContactPoint(vs,vt)

@@ -5,6 +5,8 @@ uses "http://hl7.org/fhir/StructureDefinition/MedicationAdministration" alias Me
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/MedicationAdministration" alias MedicationAdministrationR2 as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives3to2"
+
+imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
 imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
 imports "http://hl7.org/fhir/StructureMap/Ratio3to2"
 imports "http://hl7.org/fhir/StructureMap/Reference3to2"
@@ -13,9 +15,10 @@ imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
 
 
 
-group MedicationAdministration extends Element
+group MedicationAdministration extends DomainResource
   input src : MedicationAdministration as source
   input tgt : MedicationAdministrationR2 as target
+
   "MedicationAdministration-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
   "MedicationAdministration-status" : for src.status as vs make tgt.status as vt then code(vs, vt)
   "MedicationAdministration-medication-CodeableConcept" : for src.medication  : CodeableConcept as vs make tgt.medication = create("CodeableConcept") as vt then CodeableConcept(vs,vt)

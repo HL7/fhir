@@ -5,6 +5,8 @@ uses "http://hl7.org/fhir/StructureDefinition/Ratio" alias Ratio as source
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Ratio" alias RatioR2 as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives3to2"
+
+imports "http://hl7.org/fhir/StructureMap/Element3to2"
 imports "http://hl7.org/fhir/StructureMap/Quantity3to2"
 
 
@@ -12,6 +14,7 @@ imports "http://hl7.org/fhir/StructureMap/Quantity3to2"
 group Ratio extends Element
   input src : Ratio as source
   input tgt : RatioR2 as target
+
   "Ratio-numerator" : for src.numerator as vs make tgt.numerator as vt then Quantity(vs,vt)
   "Ratio-denominator" : for src.denominator as vs make tgt.denominator as vt then Quantity(vs,vt)
 endgroup

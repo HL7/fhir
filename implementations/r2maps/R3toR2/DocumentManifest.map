@@ -5,6 +5,8 @@ uses "http://hl7.org/fhir/StructureDefinition/DocumentManifest" alias DocumentMa
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/DocumentManifest" alias DocumentManifestR2 as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives3to2"
+
+imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
 imports "http://hl7.org/fhir/StructureMap/Attachment3to2"
 imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
 imports "http://hl7.org/fhir/StructureMap/Reference3to2"
@@ -12,9 +14,10 @@ imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
 
 
 
-group DocumentManifest extends Element
+group DocumentManifest extends DomainResource
   input src : DocumentManifest as source
   input tgt : DocumentManifestR2 as target
+
   "DocumentManifest-masterIdentifier" : for src.masterIdentifier as vs make tgt.masterIdentifier as vt then Identifier(vs,vt)
   "DocumentManifest-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
   "DocumentManifest-subject" : for src.subject as vs make tgt.subject as vt then Reference(vs,vt)

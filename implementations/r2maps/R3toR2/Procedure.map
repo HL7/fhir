@@ -5,6 +5,8 @@ uses "http://hl7.org/fhir/StructureDefinition/Procedure" alias Procedure as sour
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Procedure" alias ProcedureR2 as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives3to2"
+
+imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
 imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
 imports "http://hl7.org/fhir/StructureMap/Reference3to2"
 imports "http://hl7.org/fhir/StructureMap/Period3to2"
@@ -13,9 +15,10 @@ imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
 
 
 
-group Procedure extends Element
+group Procedure extends DomainResource
   input src : Procedure as source
   input tgt : ProcedureR2 as target
+
   "Procedure-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
   "Procedure-subject" : for src.subject as vs make tgt.subject as vt then Reference(vs,vt)
   "Procedure-status" : for src.status as vs make tgt.status as vt then code(vs, vt)

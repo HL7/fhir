@@ -5,6 +5,8 @@ uses "http://hl7.org/fhir/StructureDefinition/TestScript" alias TestScript as so
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/TestScript" alias TestScriptR2 as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives3to2"
+
+imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
 imports "http://hl7.org/fhir/StructureMap/ContactPoint3to2"
 imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
 imports "http://hl7.org/fhir/StructureMap/Reference3to2"
@@ -12,9 +14,10 @@ imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
 
 
 
-group TestScript extends Element
+group TestScript extends DomainResource
   input src : TestScript as source
   input tgt : TestScriptR2 as target
+
   "TestScript-url" : for src.url as vs make tgt.url as vt then uri(vs, vt)
   "TestScript-version" : for src.version as vs make tgt.version as vt then string(vs, vt)
   "TestScript-name" : for src.name as vs make tgt.name as vt then string(vs, vt)

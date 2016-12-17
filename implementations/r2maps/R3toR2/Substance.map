@@ -5,6 +5,8 @@ uses "http://hl7.org/fhir/StructureDefinition/Substance" alias Substance as sour
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Substance" alias SubstanceR2 as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives3to2"
+
+imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
 imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
 imports "http://hl7.org/fhir/StructureMap/Ratio3to2"
 imports "http://hl7.org/fhir/StructureMap/Quantity3to2"
@@ -12,9 +14,10 @@ imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
 
 
 
-group Substance extends Element
+group Substance extends DomainResource
   input src : Substance as source
   input tgt : SubstanceR2 as target
+
   "Substance-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
   "Substance-category" : for src.category as vs make tgt.category as vt then CodeableConcept(vs,vt)
   "Substance-code" : for src.code as vs make tgt.code as vt then CodeableConcept(vs,vt)

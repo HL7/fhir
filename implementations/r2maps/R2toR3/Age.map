@@ -6,9 +6,11 @@ uses "http://hl7.org/fhir/StructureDefinition/Age" alias Age as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives2to3"
 
+imports "http://hl7.org/fhir/StructureMap/Quantity2to3"
 
 
-group Age extends Element
+
+group Age extends Quantity
   input src : AgeR2 as source
   input tgt : Age as target
 

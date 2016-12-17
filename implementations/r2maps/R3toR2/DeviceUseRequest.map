@@ -16,6 +16,8 @@ uses "http://hl7.org/fhir/StructureDefinition/DeviceUseRequest" alias DeviceUseR
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/DeviceUseRequest" alias DeviceUseRequestR2 as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives3to2"
+
+imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
 imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
 imports "http://hl7.org/fhir/StructureMap/Reference3to2"
 imports "http://hl7.org/fhir/StructureMap/Period3to2"
@@ -24,9 +26,10 @@ imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
 
 
 
-group DeviceUseRequest extends Element
+group DeviceUseRequest extends DomainResource
   input src : DeviceUseRequest as source
   input tgt : DeviceUseRequestR2 as target
+
   "DeviceUseRequest-status" : for src.status as v make tgt.status = translate(v, "#DeviceUseRequestStatus", "code")
   "DeviceUseRequest-encounter" : for src.context as vs make tgt.encounter as vt then Reference(vs,vt)
   "DeviceUseRequest-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)

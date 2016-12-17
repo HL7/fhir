@@ -5,12 +5,14 @@ uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Subscription" alias Subscrip
 uses "http://hl7.org/fhir/StructureDefinition/Subscription" alias Subscription as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives2to3"
+
+imports "http://hl7.org/fhir/StructureMap/DomainResource2to3"
 imports "http://hl7.org/fhir/StructureMap/ContactPoint2to3"
 imports "http://hl7.org/fhir/StructureMap/Coding2to3"
 
 
 
-group Subscription extends Element
+group Subscription extends DomainResource
   input src : SubscriptionR2 as source
   input tgt : Subscription as target
 

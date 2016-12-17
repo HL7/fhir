@@ -5,6 +5,8 @@ uses "http://hl7.org/fhir/StructureDefinition/AuditEvent" alias AuditEvent as so
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/AuditEvent" alias AuditEventR2 as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives3to2"
+
+imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
 imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
 imports "http://hl7.org/fhir/StructureMap/Coding3to2"
 imports "http://hl7.org/fhir/StructureMap/Reference3to2"
@@ -12,9 +14,10 @@ imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
 
 
 
-group AuditEvent extends Element
+group AuditEvent extends DomainResource
   input src : AuditEvent as source
   input tgt : AuditEventR2 as target
+
   "AuditEvent-participant" : for src.agent as vs0 make tgt.participant as vt0 then {
     "AuditEvent.participant-role" : for vs0.role as vs make vt0.role as vt then CodeableConcept(vs,vt)
     "AuditEvent.participant-reference" : for vs0.reference as vs make vt0.reference as vt then Reference(vs,vt)

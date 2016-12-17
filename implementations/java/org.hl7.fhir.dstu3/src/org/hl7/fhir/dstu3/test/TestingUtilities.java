@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -48,7 +49,12 @@ public class TestingUtilities {
     throw new Error("FHIR Home directory not configured");
   }
 	
-	public static String checkXMLIsSame(String f1, String f2) throws Exception {
+  public static String checkXMLIsSame(InputStream f1, InputStream f2) throws Exception {
+    String result = compareXml(f1, f2);
+    return result;
+  }
+  
+  public static String checkXMLIsSame(String f1, String f2) throws Exception {
 		String result = compareXml(f1, f2);
 		if (result != null && SHOW_DIFF) {
 	    String diff = Utilities.path(System.getenv("ProgramFiles(X86)"), "WinMerge", "WinMergeU.exe");
@@ -63,9 +69,13 @@ public class TestingUtilities {
 		return result;
 	}
 
-	private static String compareXml(String f1, String f2) throws Exception {
-	  return compareElements("", loadXml(f1).getDocumentElement(), loadXml(f2).getDocumentElement());
-	}
+  private static String compareXml(InputStream f1, InputStream f2) throws Exception {
+    return compareElements("", loadXml(f1).getDocumentElement(), loadXml(f2).getDocumentElement());
+  }
+
+  private static String compareXml(String f1, String f2) throws Exception {
+    return compareElements("", loadXml(f1).getDocumentElement(), loadXml(f2).getDocumentElement());
+  }
 
 	private static String compareElements(String path, Element e1, Element e2) {
 		if (!e1.getNamespaceURI().equals(e2.getNamespaceURI())) 
@@ -155,19 +165,23 @@ public class TestingUtilities {
 	  return node;
 	}
 
-	private static Document loadXml(String fn) throws Exception {
+  private static Document loadXml(String fn) throws Exception {
+    return loadXml(new FileInputStream(fn));
+  }
+
+  private static Document loadXml(InputStream fn) throws Exception {
     DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-  		factory.setFeature("http://apache.org/xml/features/disallow-doctype-decl", true);
-  		factory.setFeature("http://xml.org/sax/features/external-general-entities", false);
-  		factory.setFeature("http://xml.org/sax/features/external-parameter-entities", false);
-  		factory.setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false);
-  		factory.setXIncludeAware(false);
-  		factory.setExpandEntityReferences(false);
-  			
+      factory.setFeature("http://apache.org/xml/features/disallow-doctype-decl", true);
+      factory.setFeature("http://xml.org/sax/features/external-general-entities", false);
+      factory.setFeature("http://xml.org/sax/features/external-parameter-entities", false);
+      factory.setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false);
+      factory.setXIncludeAware(false);
+      factory.setExpandEntityReferences(false);
+        
     factory.setNamespaceAware(true);
       DocumentBuilder builder = factory.newDocumentBuilder();
-      return builder.parse(new FileInputStream(fn));
-	}
+      return builder.parse(fn);
+  }
 
 	public static String checkJsonIsSame(String f1, String f2) throws JsonSyntaxException, FileNotFoundException, IOException {
 		String result = compareJson(f1, f2);

@@ -592,6 +592,14 @@ private Map<String, Object> userData;
 		throw new FHIRException("Attempt to write to invalid property '"+name+"' on type "+fhirType());
 	}
 
+	/**
+	 * make an instance of a property. If the property is a repeating property, make a new instance. if the property is not repeating, return the property
+	 * 
+	 * @param hash
+	 * @param name
+	 * @return
+	 * @throws FHIRException
+	 */
 	public Base makeProperty(int hash, String name) throws FHIRException {
 		throw new FHIRException("Attempt to make an invalid property '"+name+"' on type "+fhirType());
 	}

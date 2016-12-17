@@ -12,13 +12,18 @@ import org.hl7.fhir.dstu3.context.SimpleWorkerContext.IContextResourceLoader;
 import org.hl7.fhir.dstu3.model.Bundle;
 import org.hl7.fhir.dstu3.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.dstu3.model.CodeSystem;
+import org.hl7.fhir.dstu3.model.MetadataResource;
+import org.hl7.fhir.dstu3.model.StructureDefinition;
+import org.hl7.fhir.dstu3.model.UriType;
 import org.hl7.fhir.dstu3.model.ValueSet;
+import org.hl7.fhir.dstu3.utils.ToolingExtensions;
 import org.hl7.fhir.exceptions.FHIRException;
 
 public class R2ToR3Loader implements IContextResourceLoader, VersionConvertorAdvisor {
 
   private List<CodeSystem> cslist = new ArrayList<>();
-
+  private boolean patchUrls;
+  
   @Override
   public Bundle loadBundle(InputStream stream, boolean isJson) throws FHIRException, IOException {
     Resource r2 = null;
@@ -32,6 +37,15 @@ public class R2ToR3Loader implements IContextResourceLoader, VersionConvertorAdv
       BundleEntryComponent be = b.addEntry();
       be.setFullUrl(cs.getUrl());
       be.setResource(cs);
+    }
+    if (patchUrls) {
+      for (BundleEntryComponent be : b.getEntry()) {
+        if (be.hasResource() && be.getResource() instanceof StructureDefinition) {
+          StructureDefinition sd = (StructureDefinition) be.getResource();
+          sd.setUrl(sd.getUrl().replace("http://hl7.org/fhir/", "http://hl7.org/fhir/DSTU2/"));
+          sd.addExtension().setUrl("http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace").setValue(new UriType("http://hl7.org/fhir"));
+        }
+      }
     }
     return b;
   }
@@ -57,6 +71,15 @@ public class R2ToR3Loader implements IContextResourceLoader, VersionConvertorAdv
   @Override
   public CodeSystem getCodeSystem(ValueSet src) {
     return null;
+  }
+
+  public boolean isPatchUrls() {
+    return patchUrls;
+  }
+
+  public R2ToR3Loader setPatchUrls(boolean patchUrls) {
+    this.patchUrls = patchUrls;
+    return this;
   }
 
 }

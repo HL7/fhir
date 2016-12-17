@@ -5,6 +5,8 @@ uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Ratio" alias RatioR2 as sour
 uses "http://hl7.org/fhir/StructureDefinition/Ratio" alias Ratio as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives2to3"
+
+imports "http://hl7.org/fhir/StructureMap/Element2to3"
 imports "http://hl7.org/fhir/StructureMap/Quantity2to3"
 
 

@@ -5,14 +5,17 @@ uses "http://hl7.org/fhir/StructureDefinition/Questionnaire" alias Questionnaire
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Questionnaire" alias QuestionnaireR2 as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives3to2"
+
+imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
 imports "http://hl7.org/fhir/StructureMap/ContactPoint3to2"
 imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
 
 
 
-group Questionnaire extends Element
+group Questionnaire extends DomainResource
   input src : Questionnaire as source
   input tgt : QuestionnaireR2 as target
+
   "Questionnaire-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
   "Questionnaire-version" : for src.version as vs make tgt.version as vt then string(vs, vt)
   "Questionnaire-status" : for src.status as vs make tgt.status as vt then code(vs, vt)

@@ -5,14 +5,17 @@ uses "http://hl7.org/fhir/StructureDefinition/OperationDefinition" alias Operati
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/OperationDefinition" alias OperationDefinitionR2 as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives3to2"
+
+imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
 imports "http://hl7.org/fhir/StructureMap/ContactPoint3to2"
 imports "http://hl7.org/fhir/StructureMap/Reference3to2"
 
 
 
-group OperationDefinition extends Element
+group OperationDefinition extends DomainResource
   input src : OperationDefinition as source
   input tgt : OperationDefinitionR2 as target
+
   "OperationDefinition-url" : for src.url as vs make tgt.url as vt then uri(vs, vt)
   "OperationDefinition-version" : for src.version as vs make tgt.version as vt then string(vs, vt)
   "OperationDefinition-name" : for src.name as vs make tgt.name as vt then string(vs, vt)

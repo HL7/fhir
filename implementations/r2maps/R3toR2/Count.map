@@ -6,11 +6,14 @@ uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Count" alias CountR2 as targ
 
 imports "http://hl7.org/fhir/StructureMap/primitives3to2"
 
+imports "http://hl7.org/fhir/StructureMap/Quantity3to2"
 
 
-group Count extends Element
+
+group Count extends Quantity
   input src : Count as source
   input tgt : CountR2 as target
+
   "Count-value" : for src.value as vs make tgt.value as vt then decimal(vs, vt)
   "Count-comparator" : for src.comparator as vs make tgt.comparator as vt then code(vs, vt)
   "Count-unit" : for src.unit as vs make tgt.unit as vt then string(vs, vt)

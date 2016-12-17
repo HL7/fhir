@@ -6,11 +6,14 @@ uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Distance" alias DistanceR2 a
 
 imports "http://hl7.org/fhir/StructureMap/primitives3to2"
 
+imports "http://hl7.org/fhir/StructureMap/Quantity3to2"
 
 
-group Distance extends Element
+
+group Distance extends Quantity
   input src : Distance as source
   input tgt : DistanceR2 as target
+
   "Distance-value" : for src.value as vs make tgt.value as vt then decimal(vs, vt)
   "Distance-comparator" : for src.comparator as vs make tgt.comparator as vt then code(vs, vt)
   "Distance-unit" : for src.unit as vs make tgt.unit as vt then string(vs, vt)

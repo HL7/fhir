@@ -5,6 +5,8 @@ uses "http://hl7.org/fhir/StructureDefinition/CommunicationRequest" alias Commun
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/CommunicationRequest" alias CommunicationRequestR2 as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives3to2"
+
+imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
 imports "http://hl7.org/fhir/StructureMap/Attachment3to2"
 imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
 imports "http://hl7.org/fhir/StructureMap/Reference3to2"
@@ -13,9 +15,10 @@ imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
 
 
 
-group CommunicationRequest extends Element
+group CommunicationRequest extends DomainResource
   input src : CommunicationRequest as source
   input tgt : CommunicationRequestR2 as target
+
   "CommunicationRequest-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
   "CommunicationRequest-category" : for src.category as vs make tgt.category as vt then CodeableConcept(vs,vt)
   "CommunicationRequest-sender" : for src.sender as vs make tgt.sender as vt then Reference(vs,vt)

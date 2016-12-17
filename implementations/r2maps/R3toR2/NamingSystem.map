@@ -5,6 +5,8 @@ uses "http://hl7.org/fhir/StructureDefinition/NamingSystem" alias NamingSystem a
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/NamingSystem" alias NamingSystemR2 as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives3to2"
+
+imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
 imports "http://hl7.org/fhir/StructureMap/ContactPoint3to2"
 imports "http://hl7.org/fhir/StructureMap/Reference3to2"
 imports "http://hl7.org/fhir/StructureMap/Period3to2"
@@ -12,9 +14,10 @@ imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
 
 
 
-group NamingSystem extends Element
+group NamingSystem extends DomainResource
   input src : NamingSystem as source
   input tgt : NamingSystemR2 as target
+
   "NamingSystem-name" : for src.name as vs make tgt.name as vt then string(vs, vt)
   "NamingSystem-status" : for src.status as vs make tgt.status as vt then code(vs, vt)
   "NamingSystem-kind" : for src.kind as vs make tgt.kind as vt then code(vs, vt)

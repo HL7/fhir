@@ -5,6 +5,8 @@ uses "http://hl7.org/fhir/StructureDefinition/Practitioner" alias Practitioner a
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Practitioner" alias PractitionerR2 as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives3to2"
+
+imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
 imports "http://hl7.org/fhir/StructureMap/Address3to2"
 imports "http://hl7.org/fhir/StructureMap/Attachment3to2"
 imports "http://hl7.org/fhir/StructureMap/HumanName3to2"
@@ -16,9 +18,10 @@ imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
 
 
 
-group Practitioner extends Element
+group Practitioner extends DomainResource
   input src : Practitioner as source
   input tgt : PractitionerR2 as target
+
   "Practitioner-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
   "Practitioner-active" : for src.active as vs make tgt.active as vt then boolean(vs, vt)
   "Practitioner-name" : for src.name as vs make tgt.name as vt then HumanName(vs,vt)

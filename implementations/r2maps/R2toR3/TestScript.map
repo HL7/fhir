@@ -5,13 +5,15 @@ uses "http://hl7.org/fhir/DSTU2/StructureDefinition/TestScript" alias TestScript
 uses "http://hl7.org/fhir/StructureDefinition/TestScript" alias TestScript as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives2to3"
+
+imports "http://hl7.org/fhir/StructureMap/DomainResource2to3"
 imports "http://hl7.org/fhir/StructureMap/ContactPoint2to3"
 imports "http://hl7.org/fhir/StructureMap/Identifier2to3"
 imports "http://hl7.org/fhir/StructureMap/Reference2to3"
 
 
 
-group TestScript extends Element
+group TestScript extends DomainResource
   input src : TestScriptR2 as source
   input tgt : TestScript as target
 

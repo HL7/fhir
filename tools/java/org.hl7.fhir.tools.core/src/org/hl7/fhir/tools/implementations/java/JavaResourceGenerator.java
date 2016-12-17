@@ -53,10 +53,12 @@ import org.hl7.fhir.definitions.model.ProfiledType;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.SearchParameterDefn;
 import org.hl7.fhir.definitions.model.SearchParameterDefn.SearchType;
+import org.hl7.fhir.dstu3.model.StringType;
 import org.hl7.fhir.dstu3.model.Enumerations.BindingStrength;
 import org.hl7.fhir.igtools.spreadsheets.TypeRef;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
 
 /*
 changes for James
@@ -1026,27 +1028,27 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
     for (ElementDefn e : p.getElements()) {
       if (doGenerateAccessors(e)) { 
         String tn = typeNames.get(e);
-        if (!e.typeCode().equals("xhtml")) {
-          if (first) 
-            write(indent+"    ");
-          else
-            write(indent+"    else ");
-          first = false;
-          write(           "if (name.equals(\""+e.getName()+"\"))\r\n");
-          String name = e.getName().replace("[x]", "");
-          String cn = "("+tn+") value";
-          if (tn.contains("Enumeration<")) { // enumeration
-            cn = "new "+tn.substring(tn.indexOf("<")+1, tn.length()-1)+"EnumFactory().fromType(value)";
-          } else if (e.getTypes().size() == 1 && !e.typeCode().equals("*") && !e.getTypes().get(0).getName().startsWith("@")) { 
-            cn = "castTo"+upFirst(e.getTypes().get(0).getName())+"(value)";
-          } else if (e.getTypes().size() > 0 && !e.getTypes().get(0).getName().startsWith("@")) { 
-            cn = "castToType(value)";
-          }
-          if (e.unbounded()) {
-            write(indent+"      this.get"+upFirst(getElementName(name, false))+"().add("+cn+");\r\n");
-          } else {
-            write(indent+"      this."+getElementName(name, true)+" = "+cn+"; // "+tn+"\r\n");
-          }
+        if (first) 
+          write(indent+"    ");
+        else
+          write(indent+"    else ");
+        first = false;
+        write(           "if (name.equals(\""+e.getName()+"\"))\r\n");
+        String name = e.getName().replace("[x]", "");
+        String cn = "("+tn+") value";
+        if (e.typeCode().equals("xhtml")) {
+          cn = "castToXhtml(value)";
+        } else if (tn.contains("Enumeration<")) { // enumeration
+          cn = "new "+tn.substring(tn.indexOf("<")+1, tn.length()-1)+"EnumFactory().fromType(value)";
+        } else if (e.getTypes().size() == 1 && !e.typeCode().equals("*") && !e.getTypes().get(0).getName().startsWith("@")) { 
+          cn = "castTo"+upFirst(e.getTypes().get(0).getName())+"(value)";
+        } else if (e.getTypes().size() > 0 && !e.getTypes().get(0).getName().startsWith("@")) { 
+          cn = "castToType(value)";
+        }
+        if (e.unbounded()) {
+          write(indent+"      this.get"+upFirst(getElementName(name, false))+"().add("+cn+");\r\n");
+        } else {
+          write(indent+"      this."+getElementName(name, true)+" = "+cn+"; // "+tn+"\r\n");
         }
       }
     }
@@ -1063,24 +1065,24 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
     for (ElementDefn e : p.getElements()) {
       if (doGenerateAccessors(e)) { 
         String tn = typeNames.get(e);
-        if (!e.typeCode().equals("xhtml")) {
-          String name = e.getName().replace("[x]", "");
-          write(indent+"    case "+propId(name)+": // "+name+"\r\n");
-          String cn = "("+tn+") value";
-          if (tn.contains("Enumeration<")) { // enumeration
-            cn = "new "+tn.substring(tn.indexOf("<")+1, tn.length()-1)+"EnumFactory().fromType(value)";
-          } else if (e.getTypes().size() == 1 && !e.typeCode().equals("*") && !e.getTypes().get(0).getName().startsWith("@")) { 
-            cn = "castTo"+upFirst(e.getTypes().get(0).getName())+"(value)";
-          } else if (e.getTypes().size() > 0 && !e.getTypes().get(0).getName().startsWith("@")) { 
-            cn = "castToType(value)";
-          }
-          if (e.unbounded()) {
-            write(indent+"      this.get"+upFirst(getElementName(name, false))+"().add("+cn+"); // "+tn+"\r\n");
-          } else {
-            write(indent+"      this."+getElementName(name, true)+" = "+cn+"; // "+tn+"\r\n");
-          }
-          write(indent+"      break;\r\n");
+        String name = e.getName().replace("[x]", "");
+        write(indent+"    case "+propId(name)+": // "+name+"\r\n");
+        String cn = "("+tn+") value";
+        if (e.typeCode().equals("xhtml")) {
+          cn = "castToXhtml(value)";
+        } if (tn.contains("Enumeration<")) { // enumeration
+          cn = "new "+tn.substring(tn.indexOf("<")+1, tn.length()-1)+"EnumFactory().fromType(value)";
+        } else if (e.getTypes().size() == 1 && !e.typeCode().equals("*") && !e.getTypes().get(0).getName().startsWith("@")) { 
+          cn = "castTo"+upFirst(e.getTypes().get(0).getName())+"(value)";
+        } else if (e.getTypes().size() > 0 && !e.getTypes().get(0).getName().startsWith("@")) { 
+          cn = "castToType(value)";
         }
+        if (e.unbounded()) {
+          write(indent+"      this.get"+upFirst(getElementName(name, false))+"().add("+cn+"); // "+tn+"\r\n");
+        } else {
+          write(indent+"      this."+getElementName(name, true)+" = "+cn+"; // "+tn+"\r\n");
+        }
+        write(indent+"      break;\r\n");
       }
     }
     write(indent+"    default: super.setProperty(hash, name, value);\r\n");
@@ -1095,14 +1097,14 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
     for (ElementDefn e : p.getElements()) {
       if (doGenerateAccessors(e)) { 
         String tn = typeNames.get(e);
-        if (!e.typeCode().equals("xhtml")) {
-          String name = e.getName().replace("[x]", "");
-          write(indent+"    case "+propId(name)+": /*"+name+"*/ ");
-          if (e.unbounded()) {
-            write("return this."+getElementName(name, true)+" == null ? new Base[0] : this."+getElementName(name, true)+".toArray(new Base[this."+getElementName(name, true)+".size()]); // "+tn+"\r\n");
-          } else {
-            write("return this."+getElementName(name, true)+" == null ? new Base[0] : new Base[] {this."+getElementName(name, true)+"}; // "+tn+"\r\n");
-          }
+        String name = e.getName().replace("[x]", "");
+        write(indent+"    case "+propId(name)+": /*"+name+"*/ ");
+        if (e.unbounded()) {
+          write("return this."+getElementName(name, true)+" == null ? new Base[0] : this."+getElementName(name, true)+".toArray(new Base[this."+getElementName(name, true)+".size()]); // "+tn+"\r\n");
+        } else if (e.typeCode().equals("xhtml")) {
+          write("return this."+getElementName(name, true)+" == null ? new Base[0] : new Base[] {new StringType(new XhtmlComposer().composeEx(this."+getElementName(name, true)+"))}; // "+tn+"\r\n");
+        } else {
+          write("return this."+getElementName(name, true)+" == null ? new Base[0] : new Base[] {this."+getElementName(name, true)+"}; // "+tn+"\r\n");
         }
       }
     }

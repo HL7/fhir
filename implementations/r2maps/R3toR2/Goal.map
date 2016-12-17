@@ -5,6 +5,8 @@ uses "http://hl7.org/fhir/StructureDefinition/Goal" alias Goal as source
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Goal" alias GoalR2 as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives3to2"
+
+imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
 imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
 imports "http://hl7.org/fhir/StructureMap/Reference3to2"
 imports "http://hl7.org/fhir/StructureMap/Annotation3to2"
@@ -12,9 +14,10 @@ imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
 
 
 
-group Goal extends Element
+group Goal extends DomainResource
   input src : Goal as source
   input tgt : GoalR2 as target
+
   "Goal-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
   "Goal-subject" : for src.subject as vs make tgt.subject as vt then Reference(vs,vt)
   "Goal-start-date" : for src.start  : date as vs make tgt.start = create("date") as vt then date(vs,vt)

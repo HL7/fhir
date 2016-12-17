@@ -5,6 +5,8 @@ uses "http://hl7.org/fhir/StructureDefinition/SampledData" alias SampledData as 
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/SampledData" alias SampledDataR2 as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives3to2"
+
+imports "http://hl7.org/fhir/StructureMap/Element3to2"
 imports "http://hl7.org/fhir/StructureMap/Quantity3to2"
 
 
@@ -12,6 +14,7 @@ imports "http://hl7.org/fhir/StructureMap/Quantity3to2"
 group SampledData extends Element
   input src : SampledData as source
   input tgt : SampledDataR2 as target
+
   "SampledData-origin" : for src.origin as vs make tgt.origin as vt then Quantity(vs,vt)
   "SampledData-period" : for src.period as vs make tgt.period as vt then decimal(vs, vt)
   "SampledData-factor" : for src.factor as vs make tgt.factor as vt then decimal(vs, vt)

@@ -5,15 +5,18 @@ uses "http://hl7.org/fhir/StructureDefinition/Appointment" alias Appointment as 
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Appointment" alias AppointmentR2 as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives3to2"
+
+imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
 imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
 imports "http://hl7.org/fhir/StructureMap/Reference3to2"
 imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
 
 
 
-group Appointment extends Element
+group Appointment extends DomainResource
   input src : Appointment as source
   input tgt : AppointmentR2 as target
+
   "Appointment-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
   "Appointment-status" : for src.status as vs make tgt.status as vt then code(vs, vt)
   "Appointment-type" : for src.serviceType as vs make tgt.type as vt then CodeableConcept(vs,vt)

@@ -5,6 +5,8 @@ uses "http://hl7.org/fhir/StructureDefinition/RelatedPerson" alias RelatedPerson
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/RelatedPerson" alias RelatedPersonR2 as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives3to2"
+
+imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
 imports "http://hl7.org/fhir/StructureMap/Address3to2"
 imports "http://hl7.org/fhir/StructureMap/Attachment3to2"
 imports "http://hl7.org/fhir/StructureMap/ContactPoint3to2"
@@ -15,9 +17,10 @@ imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
 
 
 
-group RelatedPerson extends Element
+group RelatedPerson extends DomainResource
   input src : RelatedPerson as source
   input tgt : RelatedPersonR2 as target
+
   "RelatedPerson-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
   "RelatedPerson-patient" : for src.patient as vs make tgt.patient as vt then Reference(vs,vt)
   "RelatedPerson-relationship" : for src.relationship as vs make tgt.relationship as vt then CodeableConcept(vs,vt)

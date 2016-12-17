@@ -6,6 +6,8 @@ uses "http://hl7.org/fhir/StructureDefinition/Quantity" alias Quantity as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives2to3"
 
+imports "http://hl7.org/fhir/StructureMap/Element2to3"
+
 
 
 group Quantity extends Element

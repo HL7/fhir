@@ -24,6 +24,8 @@ uses "http://hl7.org/fhir/StructureDefinition/Timing" alias Timing as source
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Timing" alias TimingR2 as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives3to2"
+
+imports "http://hl7.org/fhir/StructureMap/Element3to2"
 imports "http://hl7.org/fhir/StructureMap/Period3to2"
 imports "http://hl7.org/fhir/StructureMap/Range3to2"
 imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
@@ -33,6 +35,7 @@ imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
 group Timing extends Element
   input src : Timing as source
   input tgt : TimingR2 as target
+
   "Timing-event" : for src.event as vs make tgt.event as vt then dateTime(vs, vt)
   "Timing-repeat" : for src.repeat as vs0 make tgt.repeat as vt0 then {
     "Timing.repeat-bounds-Range" : for vs0.bounds  : Range as vs make vt0.bounds = create("Range") as vt then Range(vs,vt)

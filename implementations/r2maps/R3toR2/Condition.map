@@ -5,6 +5,8 @@ uses "http://hl7.org/fhir/StructureDefinition/Condition" alias Condition as sour
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Condition" alias ConditionR2 as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives3to2"
+
+imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
 imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
 imports "http://hl7.org/fhir/StructureMap/Reference3to2"
 imports "http://hl7.org/fhir/StructureMap/Period3to2"
@@ -13,9 +15,10 @@ imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
 
 
 
-group Condition extends Element
+group Condition extends DomainResource
   input src : Condition as source
   input tgt : ConditionR2 as target
+
   "Condition-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
   "Condition-patient" : for src.subject as vs make tgt.patient as vt then Reference(vs,vt)
   "Condition-encounter" : for src.context as vs make tgt.encounter as vt then Reference(vs,vt)

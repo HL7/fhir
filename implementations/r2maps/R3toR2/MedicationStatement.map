@@ -5,6 +5,8 @@ uses "http://hl7.org/fhir/StructureDefinition/MedicationStatement" alias Medicat
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/MedicationStatement" alias MedicationStatementR2 as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives3to2"
+
+imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
 imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
 imports "http://hl7.org/fhir/StructureMap/Ratio3to2"
 imports "http://hl7.org/fhir/StructureMap/Reference3to2"
@@ -15,9 +17,10 @@ imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
 
 
 
-group MedicationStatement extends Element
+group MedicationStatement extends DomainResource
   input src : MedicationStatement as source
   input tgt : MedicationStatementR2 as target
+
   "MedicationStatement-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
   "MedicationStatement-status" : for src.status as vs make tgt.status as vt then code(vs, vt)
   "MedicationStatement-medication-CodeableConcept" : for src.medication  : CodeableConcept as vs make tgt.medication = create("CodeableConcept") as vt then CodeableConcept(vs,vt)

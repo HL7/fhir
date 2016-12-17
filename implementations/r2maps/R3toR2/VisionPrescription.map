@@ -5,6 +5,8 @@ uses "http://hl7.org/fhir/StructureDefinition/VisionPrescription" alias VisionPr
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/VisionPrescription" alias VisionPrescriptionR2 as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives3to2"
+
+imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
 imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
 imports "http://hl7.org/fhir/StructureMap/Reference3to2"
 imports "http://hl7.org/fhir/StructureMap/Quantity3to2"
@@ -12,9 +14,10 @@ imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
 
 
 
-group VisionPrescription extends Element
+group VisionPrescription extends DomainResource
   input src : VisionPrescription as source
   input tgt : VisionPrescriptionR2 as target
+
   "VisionPrescription-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
   "VisionPrescription-dateWritten" : for src.dateWritten as vs make tgt.dateWritten as vt then dateTime(vs, vt)
   "VisionPrescription-patient" : for src.patient as vs make tgt.patient as vt then Reference(vs,vt)

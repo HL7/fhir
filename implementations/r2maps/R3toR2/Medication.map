@@ -5,14 +5,17 @@ uses "http://hl7.org/fhir/StructureDefinition/Medication" alias Medication as so
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Medication" alias MedicationR2 as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives3to2"
+
+imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
 imports "http://hl7.org/fhir/StructureMap/Reference3to2"
 imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
 
 
 
-group Medication extends Element
+group Medication extends DomainResource
   input src : Medication as source
   input tgt : MedicationR2 as target
+
   "Medication-code" : for src.code as vs make tgt.code as vt then CodeableConcept(vs,vt)
   "Medication-isBrand" : for src.isBrand as vs make tgt.isBrand as vt then boolean(vs, vt)
   "Medication-manufacturer" : for src.manufacturer as vs make tgt.manufacturer as vt then Reference(vs,vt)

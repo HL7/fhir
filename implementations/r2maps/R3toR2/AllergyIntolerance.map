@@ -13,6 +13,8 @@ uses "http://hl7.org/fhir/StructureDefinition/AllergyIntolerance" alias AllergyI
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/AllergyIntolerance" alias AllergyIntoleranceR2 as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives3to2"
+
+imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
 imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
 imports "http://hl7.org/fhir/StructureMap/Reference3to2"
 imports "http://hl7.org/fhir/StructureMap/Annotation3to2"
@@ -20,9 +22,10 @@ imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
 
 
 
-group AllergyIntolerance extends Element
+group AllergyIntolerance extends DomainResource
   input src : AllergyIntolerance as source
   input tgt : AllergyIntoleranceR2 as target
+
   "AllergyIntolerance-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
   "AllergyIntolerance-status" : for src.clinicalStatus as vs0 make tgt.status as vt0 then {
   }

@@ -5,6 +5,8 @@ uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Signature" alias SignatureR2
 uses "http://hl7.org/fhir/StructureDefinition/Signature" alias Signature as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives2to3"
+
+imports "http://hl7.org/fhir/StructureMap/Element2to3"
 imports "http://hl7.org/fhir/StructureMap/Coding2to3"
 imports "http://hl7.org/fhir/StructureMap/Reference2to3"
 

@@ -14,6 +14,7 @@ import org.hl7.fhir.dstu3.utils.ToolingExtensions;
 import org.hl7.fhir.exceptions.DefinitionException;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.exceptions.FHIRFormatError;
+import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.validation.ValidationMessage;
 import org.hl7.fhir.utilities.validation.ValidationMessage.IssueSeverity;
 import org.hl7.fhir.utilities.validation.ValidationMessage.IssueType;
@@ -30,8 +31,10 @@ public abstract class ParserBase {
   public enum ValidationPolicy { NONE, QUICK, EVERYTHING }
 
   public boolean isPrimitive(String code) {
-    StructureDefinition sd = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+code);
-    return sd != null && sd.getKind() == StructureDefinitionKind.PRIMITIVETYPE;
+    return Utilities.existsInList(code, "boolean", "integer", "string", "decimal", "uri", "base64Binary", "instant", "date", "dateTime", "time", "code", "oid", "id", "markdown", "unsignedInt", "positiveInt", "xhtml");
+    
+//    StructureDefinition sd = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+code);
+//    return sd != null && sd.getKind() == StructureDefinitionKind.PRIMITIVETYPE;
 	}
 
 	protected IWorkerContext context;

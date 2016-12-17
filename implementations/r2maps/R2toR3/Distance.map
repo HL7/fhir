@@ -6,9 +6,11 @@ uses "http://hl7.org/fhir/StructureDefinition/Distance" alias Distance as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives2to3"
 
+imports "http://hl7.org/fhir/StructureMap/Quantity2to3"
 
 
-group Distance extends Element
+
+group Distance extends Quantity
   input src : DistanceR2 as source
   input tgt : Distance as target
 

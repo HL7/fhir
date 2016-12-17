@@ -1,8 +1,9 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Element2to3" = "R2 to R3 Conversions for Period"
 
-uses "http://hl7.org/fhir/StructureDefinition/Period" as source
-uses "http://hl7.org/fhir/StructureDefinition/PeriodR2" as target
+uses "http://hl7.org/fhir/StructureDefinition/ElementR2" as source
+uses "http://hl7.org/fhir/StructureDefinition/Element" as target
 
+imports "http://hl7.org/fhir/StructureMap/Extension2to3"
 
 group Element 
   input src : ElementR2 as source

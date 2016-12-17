@@ -5,15 +5,18 @@ uses "http://hl7.org/fhir/StructureDefinition/ValueSet" alias ValueSet as source
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/ValueSet" alias ValueSetR2 as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives3to2"
+
+imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
 imports "http://hl7.org/fhir/StructureMap/ContactPoint3to2"
 imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
 imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
 
 
 
-group ValueSet extends Element
+group ValueSet extends DomainResource
   input src : ValueSet as source
   input tgt : ValueSetR2 as target
+
   "ValueSet-url" : for src.url as vs make tgt.url as vt then uri(vs, vt)
   "ValueSet-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
   "ValueSet-version" : for src.version as vs make tgt.version as vt then string(vs, vt)

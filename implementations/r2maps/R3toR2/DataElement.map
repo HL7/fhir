@@ -5,6 +5,8 @@ uses "http://hl7.org/fhir/StructureDefinition/DataElement" alias DataElement as 
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/DataElement" alias DataElementR2 as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives3to2"
+
+imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
 imports "http://hl7.org/fhir/StructureMap/ContactPoint3to2"
 imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
 imports "http://hl7.org/fhir/StructureMap/ElementDefinition3to2"
@@ -12,9 +14,10 @@ imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
 
 
 
-group DataElement extends Element
+group DataElement extends DomainResource
   input src : DataElement as source
   input tgt : DataElementR2 as target
+
   "DataElement-url" : for src.url as vs make tgt.url as vt then uri(vs, vt)
   "DataElement-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
   "DataElement-version" : for src.version as vs make tgt.version as vt then string(vs, vt)

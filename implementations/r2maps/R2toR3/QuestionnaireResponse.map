@@ -5,12 +5,14 @@ uses "http://hl7.org/fhir/DSTU2/StructureDefinition/QuestionnaireResponse" alias
 uses "http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse" alias QuestionnaireResponse as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives2to3"
+
+imports "http://hl7.org/fhir/StructureMap/DomainResource2to3"
 imports "http://hl7.org/fhir/StructureMap/Identifier2to3"
 imports "http://hl7.org/fhir/StructureMap/Reference2to3"
 
 
 
-group QuestionnaireResponse extends Element
+group QuestionnaireResponse extends DomainResource
   input src : QuestionnaireResponseR2 as source
   input tgt : QuestionnaireResponse as target
 

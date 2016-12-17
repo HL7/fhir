@@ -29,9 +29,11 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
+// Generated on Sat, Dec 17, 2016 09:33+1100 for FHIR v1.9.0
 
 import java.util.*;
+
+import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 
 import org.hl7.fhir.utilities.Utilities;
@@ -281,6 +283,7 @@ public class Narrative extends BaseNarrative implements INarrative {
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
         case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<NarrativeStatus>
+        case 99473: /*div*/ return this.div == null ? new Base[0] : new Base[] {new StringType(new XhtmlComposer().composeEx(this.div))}; // XhtmlNode
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -292,6 +295,9 @@ public class Narrative extends BaseNarrative implements INarrative {
         case -892481550: // status
           this.status = new NarrativeStatusEnumFactory().fromType(value); // Enumeration<NarrativeStatus>
           break;
+        case 99473: // div
+          this.div = castToXhtml(value); // XhtmlNode
+          break;
         default: super.setProperty(hash, name, value);
         }
 
@@ -301,6 +307,8 @@ public class Narrative extends BaseNarrative implements INarrative {
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("status"))
           this.status = new NarrativeStatusEnumFactory().fromType(value); // Enumeration<NarrativeStatus>
+        else if (name.equals("div"))
+          this.div = castToXhtml(value); // XhtmlNode
         else
           super.setProperty(name, value);
       }

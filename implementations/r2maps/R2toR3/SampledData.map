@@ -5,6 +5,8 @@ uses "http://hl7.org/fhir/DSTU2/StructureDefinition/SampledData" alias SampledDa
 uses "http://hl7.org/fhir/StructureDefinition/SampledData" alias SampledData as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives2to3"
+
+imports "http://hl7.org/fhir/StructureMap/Element2to3"
 imports "http://hl7.org/fhir/StructureMap/Quantity2to3"
 
 

@@ -5,6 +5,8 @@ uses "http://hl7.org/fhir/StructureDefinition/Signature" alias Signature as sour
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Signature" alias SignatureR2 as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives3to2"
+
+imports "http://hl7.org/fhir/StructureMap/Element3to2"
 imports "http://hl7.org/fhir/StructureMap/Coding3to2"
 imports "http://hl7.org/fhir/StructureMap/Reference3to2"
 
@@ -13,6 +15,7 @@ imports "http://hl7.org/fhir/StructureMap/Reference3to2"
 group Signature extends Element
   input src : Signature as source
   input tgt : SignatureR2 as target
+
   "Signature-type" : for src.type as vs make tgt.type as vt then Coding(vs,vt)
   "Signature-when" : for src.when as vs make tgt.when as vt then instant(vs, vt)
   "Signature-who-uri" : for src.who  : uri as vs make tgt.who = create("uri") as vt then uri(vs,vt)

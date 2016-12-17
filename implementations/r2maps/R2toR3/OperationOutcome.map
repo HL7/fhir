@@ -5,11 +5,13 @@ uses "http://hl7.org/fhir/DSTU2/StructureDefinition/OperationOutcome" alias Oper
 uses "http://hl7.org/fhir/StructureDefinition/OperationOutcome" alias OperationOutcome as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives2to3"
+
+imports "http://hl7.org/fhir/StructureMap/DomainResource2to3"
 imports "http://hl7.org/fhir/StructureMap/CodeableConcept2to3"
 
 
 
-group OperationOutcome extends Element
+group OperationOutcome extends DomainResource
   input src : OperationOutcomeR2 as source
   input tgt : OperationOutcome as target
 

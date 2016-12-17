@@ -13,13 +13,16 @@ uses "http://hl7.org/fhir/StructureDefinition/ClinicalImpression" alias Clinical
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/ClinicalImpression" alias ClinicalImpressionR2 as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives3to2"
+
+imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
 imports "http://hl7.org/fhir/StructureMap/Reference3to2"
 
 
 
-group ClinicalImpression extends Element
+group ClinicalImpression extends DomainResource
   input src : ClinicalImpression as source
   input tgt : ClinicalImpressionR2 as target
+
   "ClinicalImpression-patient" : for src.subject as vs make tgt.patient as vt then Reference(vs,vt)
   "ClinicalImpression-assessor" : for src.assessor as vs make tgt.assessor as vt then Reference(vs,vt)
   "ClinicalImpression-status" : for src.status as v make tgt.status = translate(v, "#ClinicalImpressionStatus", "code")

@@ -336,5 +336,13 @@ public class XhtmlComposer {
     dst.flush();
     dst.close();
   }
+
+  public String composeEx(XhtmlNode node) {
+    try {
+      return compose(node);
+    } catch (IOException e) {
+      throw new Error(e);
+    }
+  }
   
 }

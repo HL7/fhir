@@ -5,6 +5,8 @@ uses "http://hl7.org/fhir/DSTU2/StructureDefinition/HumanName" alias HumanNameR2
 uses "http://hl7.org/fhir/StructureDefinition/HumanName" alias HumanName as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives2to3"
+
+imports "http://hl7.org/fhir/StructureMap/Element2to3"
 imports "http://hl7.org/fhir/StructureMap/Period2to3"
 
 

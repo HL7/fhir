@@ -6,6 +6,8 @@ uses "http://hl7.org/fhir/StructureDefinition/Narrative" alias Narrative as targ
 
 imports "http://hl7.org/fhir/StructureMap/primitives2to3"
 
+imports "http://hl7.org/fhir/StructureMap/Element2to3"
+
 
 
 group Narrative extends Element
@@ -13,6 +15,6 @@ group Narrative extends Element
   input tgt : Narrative as target
 
   "Narrative-status" : for src.status as vs make tgt.status as vt then code(vs, vt)
-  "Narrative-div" : for src.div as vs make tgt.div as vt then xhtml(vs, vt)
+  "Narrative-div" : for src.div as vs make tgt.div = vs
 endgroup
 

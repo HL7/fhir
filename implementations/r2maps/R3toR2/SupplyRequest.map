@@ -5,6 +5,8 @@ uses "http://hl7.org/fhir/StructureDefinition/SupplyRequest" alias SupplyRequest
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/SupplyRequest" alias SupplyRequestR2 as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives3to2"
+
+imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
 imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
 imports "http://hl7.org/fhir/StructureMap/Reference3to2"
 imports "http://hl7.org/fhir/StructureMap/Timing3to2"
@@ -12,9 +14,10 @@ imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
 
 
 
-group SupplyRequest extends Element
+group SupplyRequest extends DomainResource
   input src : SupplyRequest as source
   input tgt : SupplyRequestR2 as target
+
   "SupplyRequest-patient" : for src.patient as vs make tgt.patient as vt then Reference(vs,vt)
   "SupplyRequest-source" : for src.source as vs make tgt.source as vt then Reference(vs,vt)
   "SupplyRequest-date" : for src.date as vs make tgt.date as vt then dateTime(vs, vt)

@@ -5,15 +5,18 @@ uses "http://hl7.org/fhir/StructureDefinition/ImplementationGuide" alias Impleme
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/ImplementationGuide" alias ImplementationGuideR2 as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives3to2"
+
+imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
 imports "http://hl7.org/fhir/StructureMap/ContactPoint3to2"
 imports "http://hl7.org/fhir/StructureMap/Reference3to2"
 imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
 
 
 
-group ImplementationGuide extends Element
+group ImplementationGuide extends DomainResource
   input src : ImplementationGuide as source
   input tgt : ImplementationGuideR2 as target
+
   "ImplementationGuide-url" : for src.url as vs make tgt.url as vt then uri(vs, vt)
   "ImplementationGuide-version" : for src.version as vs make tgt.version as vt then string(vs, vt)
   "ImplementationGuide-name" : for src.name as vs make tgt.name as vt then string(vs, vt)

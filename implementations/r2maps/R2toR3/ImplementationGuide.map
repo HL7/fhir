@@ -5,12 +5,14 @@ uses "http://hl7.org/fhir/DSTU2/StructureDefinition/ImplementationGuide" alias I
 uses "http://hl7.org/fhir/StructureDefinition/ImplementationGuide" alias ImplementationGuide as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives2to3"
+
+imports "http://hl7.org/fhir/StructureMap/DomainResource2to3"
 imports "http://hl7.org/fhir/StructureMap/ContactPoint2to3"
 imports "http://hl7.org/fhir/StructureMap/Reference2to3"
 
 
 
-group ImplementationGuide extends Element
+group ImplementationGuide extends DomainResource
   input src : ImplementationGuideR2 as source
   input tgt : ImplementationGuide as target
 

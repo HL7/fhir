@@ -5,6 +5,8 @@ uses "http://hl7.org/fhir/StructureDefinition/Communication" alias Communication
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Communication" alias CommunicationR2 as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives3to2"
+
+imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
 imports "http://hl7.org/fhir/StructureMap/Attachment3to2"
 imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
 imports "http://hl7.org/fhir/StructureMap/Reference3to2"
@@ -12,9 +14,10 @@ imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
 
 
 
-group Communication extends Element
+group Communication extends DomainResource
   input src : Communication as source
   input tgt : CommunicationR2 as target
+
   "Communication-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
   "Communication-category" : for src.category as vs make tgt.category as vt then CodeableConcept(vs,vt)
   "Communication-sender" : for src.sender as vs make tgt.sender as vt then Reference(vs,vt)

@@ -5,6 +5,8 @@ uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Goal" alias GoalR2 as source
 uses "http://hl7.org/fhir/StructureDefinition/Goal" alias Goal as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives2to3"
+
+imports "http://hl7.org/fhir/StructureMap/DomainResource2to3"
 imports "http://hl7.org/fhir/StructureMap/Identifier2to3"
 imports "http://hl7.org/fhir/StructureMap/Reference2to3"
 imports "http://hl7.org/fhir/StructureMap/Annotation2to3"
@@ -12,7 +14,7 @@ imports "http://hl7.org/fhir/StructureMap/CodeableConcept2to3"
 
 
 
-group Goal extends Element
+group Goal extends DomainResource
   input src : GoalR2 as source
   input tgt : Goal as target
 

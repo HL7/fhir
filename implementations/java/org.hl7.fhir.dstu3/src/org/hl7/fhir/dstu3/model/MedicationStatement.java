@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Dec 16, 2016 08:43+1100 for FHIR v1.9.0
+// Generated on Sat, Dec 17, 2016 09:33+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -1461,7 +1461,7 @@ public class MedicationStatement extends DomainResource {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "External identifier - FHIR will generate its own internal identifiers (probably URLs) which do not need to be explicitly managed by the resource.  The identifier here is one that would be used by another non-FHIR system - for example an automated medication pump would provide a record each time it operated; an administration while the patient was off the ward might be made with a different system and entered after the event.  Particularly important if these records have to be updated.", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("basedOn", "Reference(MedicationRequest|CarePlan|DiagnosticRequest|ProcedureRequest|ReferralRequest)", "A plan, proposal or order that is fulfilled in whole or in part by this event.", 0, java.lang.Integer.MAX_VALUE, basedOn));
-        childrenList.add(new Property("context", "Reference(Encounter|EpisodeofCare)", "The encounter or episode of care that establishes the context for this MedicationStatement.", 0, java.lang.Integer.MAX_VALUE, context));
+        childrenList.add(new Property("context", "Reference(Encounter|EpisodeOfCare)", "The encounter or episode of care that establishes the context for this MedicationStatement.", 0, java.lang.Integer.MAX_VALUE, context));
         childrenList.add(new Property("status", "code", "A code representing the patient or other source's judgment about the state of the medication used that this statement is about.  Generally this will be active or completed.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("medication[x]", "CodeableConcept|Reference(Medication)", "Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.", 0, java.lang.Integer.MAX_VALUE, medication));
         childrenList.add(new Property("subject", "Reference(Patient|Group)", "The person, animal or group who is/was taking the medication.", 0, java.lang.Integer.MAX_VALUE, subject));

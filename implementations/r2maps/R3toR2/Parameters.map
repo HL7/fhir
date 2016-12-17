@@ -5,6 +5,8 @@ uses "http://hl7.org/fhir/StructureDefinition/Parameters" alias Parameters as so
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Parameters" alias ParametersR2 as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives3to2"
+
+imports "http://hl7.org/fhir/StructureMap/Resource3to2"
 imports "http://hl7.org/fhir/StructureMap/Meta3to2"
 imports "http://hl7.org/fhir/StructureMap/Address3to2"
 imports "http://hl7.org/fhir/StructureMap/Attachment3to2"
@@ -25,9 +27,10 @@ imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
 
 
 
-group Parameters extends Element
+group Parameters extends Resource
   input src : Parameters as source
   input tgt : ParametersR2 as target
+
   "Parameters-parameter" : for src.parameter as vs0 make tgt.parameter as vt0 then {
     "Parameters.parameter-name" : for vs0.name as vs make vt0.name as vt then string(vs, vt)
     "Parameters.parameter-value-base64Binary" : for vs0.value  : base64Binary as vs make vt0.value = create("base64Binary") as vt then base64Binary(vs,vt)

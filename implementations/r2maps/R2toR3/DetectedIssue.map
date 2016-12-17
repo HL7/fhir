@@ -5,13 +5,15 @@ uses "http://hl7.org/fhir/DSTU2/StructureDefinition/DetectedIssue" alias Detecte
 uses "http://hl7.org/fhir/StructureDefinition/DetectedIssue" alias DetectedIssue as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives2to3"
+
+imports "http://hl7.org/fhir/StructureMap/DomainResource2to3"
 imports "http://hl7.org/fhir/StructureMap/Identifier2to3"
 imports "http://hl7.org/fhir/StructureMap/Reference2to3"
 imports "http://hl7.org/fhir/StructureMap/CodeableConcept2to3"
 
 
 
-group DetectedIssue extends Element
+group DetectedIssue extends DomainResource
   input src : DetectedIssueR2 as source
   input tgt : DetectedIssue as target
 

@@ -5,6 +5,8 @@ uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Patient" alias PatientR2 as 
 uses "http://hl7.org/fhir/StructureDefinition/Patient" alias Patient as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives2to3"
+
+imports "http://hl7.org/fhir/StructureMap/DomainResource2to3"
 imports "http://hl7.org/fhir/StructureMap/Address2to3"
 imports "http://hl7.org/fhir/StructureMap/Attachment2to3"
 imports "http://hl7.org/fhir/StructureMap/HumanName2to3"
@@ -15,7 +17,7 @@ imports "http://hl7.org/fhir/StructureMap/CodeableConcept2to3"
 
 
 
-group Patient extends Element
+group Patient extends DomainResource
   input src : PatientR2 as source
   input tgt : Patient as target
 

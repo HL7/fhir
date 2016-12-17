@@ -362,14 +362,17 @@ public class VersionTransformMapBuilder {
       f.append("uses \"http://hl7.org/fhir/DSTU2/StructureDefinition/"+sd.getType()+"\" alias "+sd.getType()+"R2 as source\r\n");
       f.append("uses \"http://hl7.org/fhir/StructureDefinition/"+sd.getType()+"\" alias "+sd.getType()+" as target\r\n");
 
+      String base = contextR3.fetchResource(StructureDefinition.class, sd.getBaseDefinition()).getType();
       f.append("\r\nimports \"http://hl7.org/fhir/StructureMap/primitives2to3\"\r\n");
+      f.append("imports \"http://hl7.org/fhir/StructureMap/"+base+"2to3\"\r\n");
       f.append("$imports$\r\n\r\n");
       b.append("\r\nimports \"http://hl7.org/fhir/StructureMap/primitives3to2\"\r\n");
+      b.append("imports \"http://hl7.org/fhir/StructureMap/"+base+"3to2\"\r\n");
       b.append("$imports$\r\n\r\n");
             
       f.append("\r\n");
       b.append("\r\n");
-      f.append("group "+sd.getType()+" extends Element\r\n");
+      f.append("group "+sd.getType()+" extends "+base+"\r\n");
       f.append("  input src : "+sd.getType()+"R2 as source\r\n");
       f.append("  input tgt : "+sd.getType()+" as target\r\n\r\n");
       maps = "";
@@ -382,9 +385,9 @@ public class VersionTransformMapBuilder {
       maps = "";
       dts.clear();
 
-      b.append("group "+sd.getType()+" extends Element\r\n");
+      b.append("group "+sd.getType()+" extends "+base+"\r\n");
       b.append("  input src : "+sd.getType()+" as source\r\n");
-      b.append("  input tgt : "+sd.getType()+"R2 as target\r\n");
+      b.append("  input tgt : "+sd.getType()+"R2 as target\r\n\r\n");
       context = new MapContext(false, contextR3, mr.type, contextR2, mr.oldType); 
       processMethod(0, "src", "tgt", b, mr.backwards, context);
       b.append("endgroup\r\n\r\n");

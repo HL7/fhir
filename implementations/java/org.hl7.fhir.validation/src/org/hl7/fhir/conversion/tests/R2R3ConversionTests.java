@@ -6,6 +6,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -19,13 +20,17 @@ import javax.xml.parsers.ParserConfigurationException;
 
 import org.hl7.fhir.convertors.R2ToR3Loader;
 import org.hl7.fhir.dstu3.context.SimpleWorkerContext;
+import org.hl7.fhir.dstu3.elementmodel.Manager;
+import org.hl7.fhir.dstu3.formats.IParser.OutputStyle;
 import org.hl7.fhir.dstu3.model.Base;
 import org.hl7.fhir.dstu3.model.Coding;
 import org.hl7.fhir.dstu3.model.ExpansionProfile;
 import org.hl7.fhir.dstu3.model.Resource;
 import org.hl7.fhir.dstu3.model.ResourceFactory;
+import org.hl7.fhir.dstu3.model.StructureDefinition;
 import org.hl7.fhir.dstu3.model.Factory;
 import org.hl7.fhir.dstu3.model.StructureMap;
+import org.hl7.fhir.dstu3.test.TestingUtilities;
 import org.hl7.fhir.dstu3.utils.IResourceValidator;
 import org.hl7.fhir.dstu3.utils.StructureMapUtilities;
 import org.hl7.fhir.dstu3.utils.StructureMapUtilities.ITransformerServices;
@@ -55,7 +60,9 @@ public class R2R3ConversionTests implements ITransformerServices {
 
   @Parameters(name = "{index}: id {0}")
   public static Iterable<Object[]> data() throws ParserConfigurationException, SAXException, IOException {
-    root = "C:\\work\\org.hl7.fhir\\build"; // todo: where else to get this from?
+    root = Paths.get(".").toAbsolutePath().normalize().toString();
+    if (!(new File(Utilities.path(root, "implementations", "r2maps", "outcomes.json")).exists()))
+      throw new Error("You must set the default directory to the build directroy when you execute these tests");
     r2r3Outcomes = (JsonObject) new com.google.gson.JsonParser().parse(TextFile.fileToString(Utilities.path(root, "implementations", "r2maps", "outcomes.json")));
         
     String srcFile = Utilities.path(root, "source", "release2", "examples.zip");
@@ -71,7 +78,6 @@ public class R2R3ConversionTests implements ITransformerServices {
       int len = 0;
       while ((len = stream.read(buffer)) > 0)
         output.write(buffer, 0, len);
-//      if (n.contains("flag"))
       examples.put(n, output.toByteArray());
     }
     List<String> names = new ArrayList<String>(examples.size());
@@ -103,10 +109,11 @@ public class R2R3ConversionTests implements ITransformerServices {
 
   @SuppressWarnings("deprecation")
   @Test
-  public void test() throws FileNotFoundException, IOException, FHIRException, org.hl7.fhir.exceptions.FHIRException {
+  public void test() throws Exception {
     checkLoad();
     
-    StructureMapUtilities smu = new StructureMapUtilities(contextR3, library, this);
+    StructureMapUtilities smu3 = new StructureMapUtilities(contextR3, library, this);
+    StructureMapUtilities smu2 = new StructureMapUtilities(contextR2, library, this);
     String tn = null;
     String id = null;
     try {
@@ -118,12 +125,12 @@ public class R2R3ConversionTests implements ITransformerServices {
       // load the r2 to R3 map
       String mapFile = Utilities.path(root, "implementations", "r2maps", "R2toR3", r2.fhirType()+".map");
       if (new File(mapFile).exists()) {
-        StructureMap sm = smu.parse(TextFile.fileToString(mapFile));
-        tn = smu.getTargetType(sm).getType();
+        StructureMap sm = smu3.parse(TextFile.fileToString(mapFile));
+        tn = smu3.getTargetType(sm).getType();
 
         // convert from r2 to r3
         Resource r3 = ResourceFactory.createResource(tn);
-        smu.transform(null, r2, sm, r3);
+        smu3.transform(null, r2, sm, r3);
 
         // validate against R3
         IResourceValidator validator = contextR3.newValidator();
@@ -131,20 +138,32 @@ public class R2R3ConversionTests implements ITransformerServices {
         validator.validate(null, errors, r3);
         check(errors);
 
-
         // load the R3 to R2 map
         //      mapFile = Utilities.path(root, "implementations", "r2maps", "R3toR2", r2.fhirType()+".map");
         //      s = sm.parse(TextFile.fileToString(mapFile));
+        mapFile = Utilities.path(root, "implementations", "r2maps", "R3toR2", r3.fhirType()+".map");
+        sm = smu2.parse(TextFile.fileToString(mapFile));
 
         // convert to R2
+        StructureDefinition sd = smu2.getTargetType(sm);
+        org.hl7.fhir.dstu3.elementmodel.Element ro2 = Manager.build(contextR2, sd);
+        smu2.transform(null, r3, sm, ro2);
 
         // compare the XML
+        ByteArrayOutputStream bs = new ByteArrayOutputStream();
+        new org.hl7.fhir.dstu3.elementmodel.XmlParser(contextR2).compose(ro2, bs, OutputStyle.PRETTY, null);
+        
+        TextFile.bytesToFile(content, Utilities.path(root, "implementations", "r2maps", "test-output", tn+"-"+id+".input.xml"));
+        TextFile.bytesToFile(bs.toByteArray(), Utilities.path(root, "implementations", "r2maps", "test-output", tn+"-"+id+".output.xml"));
+        String s = TestingUtilities.checkXMLIsSame(new ByteArrayInputStream(content), new ByteArrayInputStream(bs.toByteArray()));
+        if (s != null)
+          throw new Exception("Round trip failed: "+s);
       }
       if (tn != null && id != null)
         updateOutcomes(tn, id, null);
     } catch (Exception e) {
       if (tn != null && id != null)
-        updateOutcomes(tn, id, e.getMessage().split("\\r?\\n"));
+        updateOutcomes(tn, id, (e.getMessage() == null ? "NullPointerException" : e.getMessage()).split("\\r?\\n"));
       throw e;
     }
   }
@@ -194,18 +213,18 @@ public class R2R3ConversionTests implements ITransformerServices {
   private void checkLoad() throws IOException, FHIRException {
     if (contextR2 != null)
       return;
-    R2ToR3Loader ldr = new R2ToR3Loader();
+    R2ToR3Loader ldr = new R2ToR3Loader().setPatchUrls(true);
     System.out.println("loading R2");
     contextR2 = new SimpleWorkerContext();
-    contextR2.loadFromFile("C:\\work\\org.hl7.fhir\\build\\source\\release2\\profiles-types.xml", ldr);
-    contextR2.loadFromFile("C:\\work\\org.hl7.fhir\\build\\source\\release2\\profiles-resources.xml", ldr);
-    contextR2.loadFromFile("C:\\work\\org.hl7.fhir\\build\\source\\release2\\expansions.xml", ldr);
+    contextR2.loadFromFile(Utilities.path(root,"source","release2","profiles-types.xml"), ldr);
+    contextR2.loadFromFile(Utilities.path(root,"source","release2","profiles-resources.xml"), ldr);
+    contextR2.loadFromFile(Utilities.path(root,"source","release2","expansions.xml"), ldr);
     
     System.out.println("loading R3");
     contextR3 = new SimpleWorkerContext();
-    contextR3.loadFromFile("C:\\work\\org.hl7.fhir\\build\\publish\\profiles-types.xml", null);
-    contextR3.loadFromFile("C:\\work\\org.hl7.fhir\\build\\publish\\profiles-resources.xml", null);
-    contextR3.loadFromFile("C:\\work\\org.hl7.fhir\\build\\publish\\expansions.xml", null);
+    contextR3.loadFromFile(Utilities.path(root,"publish","profiles-types.xml"), null);
+    contextR3.loadFromFile(Utilities.path(root,"publish","profiles-resources.xml"), null);
+    contextR3.loadFromFile(Utilities.path(root,"publish","expansions.xml"), null);
 
     contextR2.setExpansionProfile(new ExpansionProfile().setUrl("urn:uuid:"+UUID.randomUUID().toString().toLowerCase()));
     contextR3.setExpansionProfile(new ExpansionProfile().setUrl("urn:uuid:"+UUID.randomUUID().toString().toLowerCase()));
@@ -216,8 +235,8 @@ public class R2R3ConversionTests implements ITransformerServices {
     
     System.out.println("loading Maps");
     library = new HashMap<String, StructureMap>();
-    loadLib("C:\\work\\org.hl7.fhir\\build\\implementations\\r2maps\\R2toR3");
-    loadLib("C:\\work\\org.hl7.fhir\\build\\implementations\\r2maps\\R3toR2");
+    loadLib(Utilities.path(root,"implementations","r2maps", "R2toR3"));
+    loadLib(Utilities.path(root,"implementations","r2maps", "R3toR2"));
     System.out.println("loaded");
   }
 

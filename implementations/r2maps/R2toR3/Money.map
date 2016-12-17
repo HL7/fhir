@@ -6,9 +6,11 @@ uses "http://hl7.org/fhir/StructureDefinition/Money" alias Money as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives2to3"
 
+imports "http://hl7.org/fhir/StructureMap/Quantity2to3"
 
 
-group Money extends Element
+
+group Money extends Quantity
   input src : MoneyR2 as source
   input tgt : Money as target
 

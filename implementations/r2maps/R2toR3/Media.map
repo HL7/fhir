@@ -5,6 +5,8 @@ uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Media" alias MediaR2 as sour
 uses "http://hl7.org/fhir/StructureDefinition/Media" alias Media as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives2to3"
+
+imports "http://hl7.org/fhir/StructureMap/DomainResource2to3"
 imports "http://hl7.org/fhir/StructureMap/Attachment2to3"
 imports "http://hl7.org/fhir/StructureMap/Identifier2to3"
 imports "http://hl7.org/fhir/StructureMap/Reference2to3"
@@ -12,7 +14,7 @@ imports "http://hl7.org/fhir/StructureMap/CodeableConcept2to3"
 
 
 
-group Media extends Element
+group Media extends DomainResource
   input src : MediaR2 as source
   input tgt : Media as target
 

@@ -5,6 +5,8 @@ uses "http://hl7.org/fhir/DSTU2/StructureDefinition/ReferralRequest" alias Refer
 uses "http://hl7.org/fhir/StructureDefinition/ReferralRequest" alias ReferralRequest as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives2to3"
+
+imports "http://hl7.org/fhir/StructureMap/DomainResource2to3"
 imports "http://hl7.org/fhir/StructureMap/Identifier2to3"
 imports "http://hl7.org/fhir/StructureMap/Reference2to3"
 imports "http://hl7.org/fhir/StructureMap/Period2to3"
@@ -12,7 +14,7 @@ imports "http://hl7.org/fhir/StructureMap/CodeableConcept2to3"
 
 
 
-group ReferralRequest extends Element
+group ReferralRequest extends DomainResource
   input src : ReferralRequestR2 as source
   input tgt : ReferralRequest as target
 

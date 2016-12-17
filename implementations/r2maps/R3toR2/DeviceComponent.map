@@ -5,15 +5,18 @@ uses "http://hl7.org/fhir/StructureDefinition/DeviceComponent" alias DeviceCompo
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/DeviceComponent" alias DeviceComponentR2 as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives3to2"
+
+imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
 imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
 imports "http://hl7.org/fhir/StructureMap/Reference3to2"
 imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
 
 
 
-group DeviceComponent extends Element
+group DeviceComponent extends DomainResource
   input src : DeviceComponent as source
   input tgt : DeviceComponentR2 as target
+
   "DeviceComponent-type" : for src.type as vs make tgt.type as vt then CodeableConcept(vs,vt)
   "DeviceComponent-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
   "DeviceComponent-lastSystemChange" : for src.lastSystemChange as vs make tgt.lastSystemChange as vt then instant(vs, vt)

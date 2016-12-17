@@ -5,6 +5,8 @@ uses "http://hl7.org/fhir/StructureDefinition/HealthcareService" alias Healthcar
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/HealthcareService" alias HealthcareServiceR2 as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives3to2"
+
+imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
 imports "http://hl7.org/fhir/StructureMap/Attachment3to2"
 imports "http://hl7.org/fhir/StructureMap/ContactPoint3to2"
 imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
@@ -14,9 +16,10 @@ imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
 
 
 
-group HealthcareService extends Element
+group HealthcareService extends DomainResource
   input src : HealthcareService as source
   input tgt : HealthcareServiceR2 as target
+
   "HealthcareService-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
   "HealthcareService-providedBy" : for src.providedBy as vs make tgt.providedBy as vt then Reference(vs,vt)
   "HealthcareService-serviceCategory" : for src.serviceCategory as vs make tgt.serviceCategory as vt then CodeableConcept(vs,vt)

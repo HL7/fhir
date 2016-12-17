@@ -5,6 +5,8 @@ uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Practitioner" alias Practiti
 uses "http://hl7.org/fhir/StructureDefinition/Practitioner" alias Practitioner as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives2to3"
+
+imports "http://hl7.org/fhir/StructureMap/DomainResource2to3"
 imports "http://hl7.org/fhir/StructureMap/Address2to3"
 imports "http://hl7.org/fhir/StructureMap/Attachment2to3"
 imports "http://hl7.org/fhir/StructureMap/HumanName2to3"
@@ -16,7 +18,7 @@ imports "http://hl7.org/fhir/StructureMap/CodeableConcept2to3"
 
 
 
-group Practitioner extends Element
+group Practitioner extends DomainResource
   input src : PractitionerR2 as source
   input tgt : Practitioner as target
 

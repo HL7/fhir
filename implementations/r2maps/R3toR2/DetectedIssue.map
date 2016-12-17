@@ -5,15 +5,18 @@ uses "http://hl7.org/fhir/StructureDefinition/DetectedIssue" alias DetectedIssue
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/DetectedIssue" alias DetectedIssueR2 as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives3to2"
+
+imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
 imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
 imports "http://hl7.org/fhir/StructureMap/Reference3to2"
 imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
 
 
 
-group DetectedIssue extends Element
+group DetectedIssue extends DomainResource
   input src : DetectedIssue as source
   input tgt : DetectedIssueR2 as target
+
   "DetectedIssue-patient" : for src.patient as vs make tgt.patient as vt then Reference(vs,vt)
   "DetectedIssue-category" : for src.category as vs make tgt.category as vt then CodeableConcept(vs,vt)
   "DetectedIssue-severity" : for src.severity as vs make tgt.severity as vt then code(vs, vt)

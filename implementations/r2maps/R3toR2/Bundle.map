@@ -5,13 +5,16 @@ uses "http://hl7.org/fhir/StructureDefinition/Bundle" alias Bundle as source
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Bundle" alias BundleR2 as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives3to2"
+
+imports "http://hl7.org/fhir/StructureMap/Resource3to2"
 imports "http://hl7.org/fhir/StructureMap/Signature3to2"
 
 
 
-group Bundle extends Element
+group Bundle extends Resource
   input src : Bundle as source
   input tgt : BundleR2 as target
+
   "Bundle-type" : for src.type as vs make tgt.type as vt then code(vs, vt)
   "Bundle-total" : for src.total as vs make tgt.total as vt then unsignedInt(vs, vt)
   "Bundle-link" : for src.link as vs0 make tgt.link as vt0 then {

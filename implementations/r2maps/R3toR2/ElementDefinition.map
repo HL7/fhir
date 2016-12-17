@@ -5,6 +5,8 @@ uses "http://hl7.org/fhir/StructureDefinition/ElementDefinition" alias ElementDe
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/ElementDefinition" alias ElementDefinitionR2 as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives3to2"
+
+imports "http://hl7.org/fhir/StructureMap/Element3to2"
 imports "http://hl7.org/fhir/StructureMap/Meta3to2"
 imports "http://hl7.org/fhir/StructureMap/Address3to2"
 imports "http://hl7.org/fhir/StructureMap/Attachment3to2"
@@ -28,6 +30,7 @@ imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
 group ElementDefinition extends Element
   input src : ElementDefinition as source
   input tgt : ElementDefinitionR2 as target
+
   "ElementDefinition-path" : for src.path as vs make tgt.path as vt then string(vs, vt)
   "ElementDefinition-name" : for src.sliceName as vs make tgt.name as vt then string(vs, vt)
   "ElementDefinition-label" : for src.label as vs make tgt.label as vt then string(vs, vt)

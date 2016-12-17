@@ -5,6 +5,8 @@ uses "http://hl7.org/fhir/StructureDefinition/Patient" alias Patient as source
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Patient" alias PatientR2 as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives3to2"
+
+imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
 imports "http://hl7.org/fhir/StructureMap/Address3to2"
 imports "http://hl7.org/fhir/StructureMap/Attachment3to2"
 imports "http://hl7.org/fhir/StructureMap/HumanName3to2"
@@ -15,9 +17,10 @@ imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
 
 
 
-group Patient extends Element
+group Patient extends DomainResource
   input src : Patient as source
   input tgt : PatientR2 as target
+
   "Patient-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
   "Patient-active" : for src.active as vs make tgt.active as vt then boolean(vs, vt)
   "Patient-name" : for src.name as vs make tgt.name as vt then HumanName(vs,vt)

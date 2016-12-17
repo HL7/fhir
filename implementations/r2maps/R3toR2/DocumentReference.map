@@ -5,6 +5,8 @@ uses "http://hl7.org/fhir/StructureDefinition/DocumentReference" alias DocumentR
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/DocumentReference" alias DocumentReferenceR2 as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives3to2"
+
+imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
 imports "http://hl7.org/fhir/StructureMap/Attachment3to2"
 imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
 imports "http://hl7.org/fhir/StructureMap/Coding3to2"
@@ -14,9 +16,10 @@ imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
 
 
 
-group DocumentReference extends Element
+group DocumentReference extends DomainResource
   input src : DocumentReference as source
   input tgt : DocumentReferenceR2 as target
+
   "DocumentReference-masterIdentifier" : for src.masterIdentifier as vs make tgt.masterIdentifier as vt then Identifier(vs,vt)
   "DocumentReference-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
   "DocumentReference-subject" : for src.subject as vs make tgt.subject as vt then Reference(vs,vt)

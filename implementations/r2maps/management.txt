@@ -1,0 +1,106 @@
+Category 1: Passing all tests
+-----------------------------
+Flag
+
+Category 2: except from Conversion
+----------------------------------
+* new since R2, or was never maintained (FM)
+ActivityDefinition
+Claim
+ClaimResponse
+CodeSystem
+Consent
+Coverage
+EligibilityRequest
+EligibilityResponse
+Endpoint
+EnrollmentRequest
+EnrollmentResponse
+ExpansionProfile
+ExplanationOfBenefit
+GuidanceResponse
+ImagingManifest
+MessageDefinition
+Library
+Linkage
+Measure
+MeasureReport
+NutritionRequest
+PlanDefinition
+ProcessRequest
+ProcessResponse
+RequestGroup
+ResearchStudy
+ResearchSubject
+Sequence
+ServiceDefinition
+Task
+TestReport
+
+Category 3: Allocated to a person
+---------------------------------
+
+Grahame: AuditEvent, CapabilityStatement, CompartmentDefinition, ConceptMap, DataElement, ImplementationGuide, NamingSystem, OperationDefinition, SearchParameter, StructureDefinition, StructureMap, ValueSet
+Brian: Account, Appointment, AppointmentResponse, Encounter, EpisodeOfCare, HealthcareService, Location, Organization, Patient, Person, Practitioner, PractitionerRole, RelatedPerson, Schedule, Slot
+Oliver: (todo)
+Stephen: (todo)
+
+Category 4: To be analysed / queued
+-----------------------------------
+AllergyIntolerance
+Basic
+Binary
+BodySite
+Bundle
+CapabilityStatement
+CarePlan
+CareTeam
+ClinicalImpression
+Communication
+CommunicationRequest
+CompartmentDefinition
+Composition
+Condition (aka Problem)
+Contract
+DetectedIssue
+Device
+DeviceComponent
+DeviceMetric
+DeviceUseRequest
+DeviceUseStatement
+DiagnosticRequest
+DiagnosticReport
+DocumentManifest
+DocumentReference
+FamilyMemberHistory
+Flag
+Goal
+Group
+ImagingStudy
+Immunization
+ImmunizationRecommendation
+List
+Media
+Medication
+MedicationAdministration
+MedicationDispense
+MedicationRequest
+MedicationStatement
+MessageHeader
+Observation
+OperationOutcome
+Parameters
+Procedure
+ProcedureRequest
+Provenance
+Questionnaire
+QuestionnaireResponse
+ReferralRequest
+RiskAssessment
+Specimen
+Subscription
+Substance
+SupplyDelivery
+SupplyRequest
+TestScript
+VisionPrescription

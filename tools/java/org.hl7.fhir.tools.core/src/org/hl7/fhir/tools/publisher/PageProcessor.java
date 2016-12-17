@@ -1090,7 +1090,15 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       if (el.has("errors"))
         ec++;
     }
-    return "Passing "+Integer.toString(t-ec)+" of "+Integer.toString(t)+" tests";
+    String color;
+    if (ec == t)
+      color = "#ffcccc";
+    else if (ec == 0)
+      color = "#ccffcc";
+    else
+      color = "#ffe0b3";
+    
+    return "<span style=\"background-color: "+color+"\">Passing "+Integer.toString(t-ec)+" of "+Integer.toString(t)+" tests</span>";
     
   }
   private String dtR2R3Transform(String name) throws Exception {

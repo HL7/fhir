@@ -5,6 +5,8 @@ uses "http://hl7.org/fhir/StructureDefinition/ReferralRequest" alias ReferralReq
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/ReferralRequest" alias ReferralRequestR2 as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives3to2"
+
+imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
 imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
 imports "http://hl7.org/fhir/StructureMap/Reference3to2"
 imports "http://hl7.org/fhir/StructureMap/Period3to2"
@@ -12,9 +14,10 @@ imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
 
 
 
-group ReferralRequest extends Element
+group ReferralRequest extends DomainResource
   input src : ReferralRequest as source
   input tgt : ReferralRequestR2 as target
+
   "ReferralRequest-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
   "ReferralRequest-status" : for src.status as vs make tgt.status as vt then code(vs, vt)
   "ReferralRequest-type" : for src.type as vs make tgt.type as vt then CodeableConcept(vs,vt)

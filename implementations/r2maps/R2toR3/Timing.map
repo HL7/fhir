@@ -24,6 +24,8 @@ uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Timing" alias TimingR2 as so
 uses "http://hl7.org/fhir/StructureDefinition/Timing" alias Timing as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives2to3"
+
+imports "http://hl7.org/fhir/StructureMap/Element2to3"
 imports "http://hl7.org/fhir/StructureMap/Period2to3"
 imports "http://hl7.org/fhir/StructureMap/Range2to3"
 imports "http://hl7.org/fhir/StructureMap/CodeableConcept2to3"

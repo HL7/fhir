@@ -5,12 +5,14 @@ uses "http://hl7.org/fhir/DSTU2/StructureDefinition/EnrollmentRequest" alias Enr
 uses "http://hl7.org/fhir/StructureDefinition/EnrollmentRequest" alias EnrollmentRequest as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives2to3"
+
+imports "http://hl7.org/fhir/StructureMap/DomainResource2to3"
 imports "http://hl7.org/fhir/StructureMap/Identifier2to3"
 imports "http://hl7.org/fhir/StructureMap/Reference2to3"
 
 
 
-group EnrollmentRequest extends Element
+group EnrollmentRequest extends DomainResource
   input src : EnrollmentRequestR2 as source
   input tgt : EnrollmentRequest as target
 

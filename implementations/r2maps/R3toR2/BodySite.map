@@ -5,6 +5,8 @@ uses "http://hl7.org/fhir/StructureDefinition/BodySite" alias BodySite as source
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/BodySite" alias BodySiteR2 as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives3to2"
+
+imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
 imports "http://hl7.org/fhir/StructureMap/Attachment3to2"
 imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
 imports "http://hl7.org/fhir/StructureMap/Reference3to2"
@@ -12,9 +14,10 @@ imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
 
 
 
-group BodySite extends Element
+group BodySite extends DomainResource
   input src : BodySite as source
   input tgt : BodySiteR2 as target
+
   "BodySite-patient" : for src.patient as vs make tgt.patient as vt then Reference(vs,vt)
   "BodySite-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
   "BodySite-code" : for src.code as vs make tgt.code as vt then CodeableConcept(vs,vt)

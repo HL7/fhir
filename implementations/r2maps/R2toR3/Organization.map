@@ -5,6 +5,8 @@ uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Organization" alias Organiza
 uses "http://hl7.org/fhir/StructureDefinition/Organization" alias Organization as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives2to3"
+
+imports "http://hl7.org/fhir/StructureMap/DomainResource2to3"
 imports "http://hl7.org/fhir/StructureMap/Address2to3"
 imports "http://hl7.org/fhir/StructureMap/ContactPoint2to3"
 imports "http://hl7.org/fhir/StructureMap/HumanName2to3"
@@ -14,7 +16,7 @@ imports "http://hl7.org/fhir/StructureMap/CodeableConcept2to3"
 
 
 
-group Organization extends Element
+group Organization extends DomainResource
   input src : OrganizationR2 as source
   input tgt : Organization as target
 

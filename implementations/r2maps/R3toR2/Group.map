@@ -5,6 +5,8 @@ uses "http://hl7.org/fhir/StructureDefinition/Group" alias Group as source
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Group" alias GroupR2 as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives3to2"
+
+imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
 imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
 imports "http://hl7.org/fhir/StructureMap/Reference3to2"
 imports "http://hl7.org/fhir/StructureMap/Quantity3to2"
@@ -14,9 +16,10 @@ imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
 
 
 
-group Group extends Element
+group Group extends DomainResource
   input src : Group as source
   input tgt : GroupR2 as target
+
   "Group-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
   "Group-type" : for src.type as vs make tgt.type as vt then code(vs, vt)
   "Group-actual" : for src.actual as vs make tgt.actual as vt then boolean(vs, vt)

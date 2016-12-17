@@ -5,15 +5,18 @@ uses "http://hl7.org/fhir/StructureDefinition/AppointmentResponse" alias Appoint
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/AppointmentResponse" alias AppointmentResponseR2 as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives3to2"
+
+imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
 imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
 imports "http://hl7.org/fhir/StructureMap/Reference3to2"
 imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
 
 
 
-group AppointmentResponse extends Element
+group AppointmentResponse extends DomainResource
   input src : AppointmentResponse as source
   input tgt : AppointmentResponseR2 as target
+
   "AppointmentResponse-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
   "AppointmentResponse-appointment" : for src.appointment as vs make tgt.appointment as vt then Reference(vs,vt)
   "AppointmentResponse-start" : for src.start as vs make tgt.start as vt then instant(vs, vt)

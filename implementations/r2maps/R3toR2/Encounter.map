@@ -5,6 +5,8 @@ uses "http://hl7.org/fhir/StructureDefinition/Encounter" alias Encounter as sour
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Encounter" alias EncounterR2 as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives3to2"
+
+imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
 imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
 imports "http://hl7.org/fhir/StructureMap/Reference3to2"
 imports "http://hl7.org/fhir/StructureMap/Period3to2"
@@ -13,9 +15,10 @@ imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
 
 
 
-group Encounter extends Element
+group Encounter extends DomainResource
   input src : Encounter as source
   input tgt : EncounterR2 as target
+
   "Encounter-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
   "Encounter-status" : for src.status as vs make tgt.status as vt then code(vs, vt)
   "Encounter-statusHistory" : for src.statusHistory as vs0 make tgt.statusHistory as vt0 then {

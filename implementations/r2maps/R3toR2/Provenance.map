@@ -5,6 +5,8 @@ uses "http://hl7.org/fhir/StructureDefinition/Provenance" alias Provenance as so
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Provenance" alias ProvenanceR2 as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives3to2"
+
+imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
 imports "http://hl7.org/fhir/StructureMap/Coding3to2"
 imports "http://hl7.org/fhir/StructureMap/Reference3to2"
 imports "http://hl7.org/fhir/StructureMap/Period3to2"
@@ -12,9 +14,10 @@ imports "http://hl7.org/fhir/StructureMap/Signature3to2"
 
 
 
-group Provenance extends Element
+group Provenance extends DomainResource
   input src : Provenance as source
   input tgt : ProvenanceR2 as target
+
   "Provenance-target" : for src.target as vs make tgt.target as vt then Reference(vs,vt)
   "Provenance-period" : for src.period as vs make tgt.period as vt then Period(vs,vt)
   "Provenance-recorded" : for src.recorded as vs make tgt.recorded as vt then instant(vs, vt)

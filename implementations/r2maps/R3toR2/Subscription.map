@@ -5,14 +5,17 @@ uses "http://hl7.org/fhir/StructureDefinition/Subscription" alias Subscription a
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Subscription" alias SubscriptionR2 as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives3to2"
+
+imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
 imports "http://hl7.org/fhir/StructureMap/ContactPoint3to2"
 imports "http://hl7.org/fhir/StructureMap/Coding3to2"
 
 
 
-group Subscription extends Element
+group Subscription extends DomainResource
   input src : Subscription as source
   input tgt : SubscriptionR2 as target
+
   "Subscription-criteria" : for src.criteria as vs make tgt.criteria as vt then string(vs, vt)
   "Subscription-contact" : for src.contact as vs make tgt.contact as vt then ContactPoint(vs,vt)
   "Subscription-reason" : for src.reason as vs make tgt.reason as vt then string(vs, vt)

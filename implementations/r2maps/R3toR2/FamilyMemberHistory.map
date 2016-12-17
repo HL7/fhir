@@ -5,6 +5,8 @@ uses "http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory" alias FamilyM
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/FamilyMemberHistory" alias FamilyMemberHistoryR2 as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives3to2"
+
+imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
 imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
 imports "http://hl7.org/fhir/StructureMap/Reference3to2"
 imports "http://hl7.org/fhir/StructureMap/Period3to2"
@@ -14,9 +16,10 @@ imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
 
 
 
-group FamilyMemberHistory extends Element
+group FamilyMemberHistory extends DomainResource
   input src : FamilyMemberHistory as source
   input tgt : FamilyMemberHistoryR2 as target
+
   "FamilyMemberHistory-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
   "FamilyMemberHistory-patient" : for src.patient as vs make tgt.patient as vt then Reference(vs,vt)
   "FamilyMemberHistory-date" : for src.date as vs make tgt.date as vt then dateTime(vs, vt)

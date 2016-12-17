@@ -1,15 +1,18 @@
 package org.hl7.fhir.dstu3.model;
 
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.hl7.fhir.dstu3.elementmodel.Element;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.instance.model.api.IBase;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
+import org.hl7.fhir.utilities.xhtml.XhtmlParser;
 
 import ca.uhn.fhir.model.api.IElement;
 
@@ -627,6 +630,28 @@ private Map<String, Object> userData;
 			throw new FHIRException("Unable to convert a "+b.getClass().getName()+" to a TriggerDefinition");
 	}
 
+  public XhtmlNode castToXhtml(Base b) throws FHIRException {
+    if (b instanceof Element) {
+      return ((Element) b).getXhtml();
+    } else if (b instanceof StringType) {
+      try {
+        return new XhtmlParser().parseFragment(((StringType) b).asStringValue());
+      } catch (IOException e) {
+        throw new FHIRException(e);
+      }
+    } else
+      throw new FHIRException("Unable to convert a "+b.getClass().getName()+" to XHtml");
+  }
+  
+  public String castToXhtmlString(Base b) throws FHIRException {
+    if (b instanceof Element) {
+      return ((Element) b).getValue();
+    } else if (b instanceof StringType) {
+      return ((StringType) b).asStringValue();
+    } else
+      throw new FHIRException("Unable to convert a "+b.getClass().getName()+" to XHtml string");
+  }
+  
 	protected boolean isMetadataBased() {
   	return false;
 	}

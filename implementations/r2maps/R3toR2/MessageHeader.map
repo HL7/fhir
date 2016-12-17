@@ -5,15 +5,18 @@ uses "http://hl7.org/fhir/StructureDefinition/MessageHeader" alias MessageHeader
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/MessageHeader" alias MessageHeaderR2 as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives3to2"
+
+imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
 imports "http://hl7.org/fhir/StructureMap/Coding3to2"
 imports "http://hl7.org/fhir/StructureMap/Reference3to2"
 imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
 
 
 
-group MessageHeader extends Element
+group MessageHeader extends DomainResource
   input src : MessageHeader as source
   input tgt : MessageHeaderR2 as target
+
   "MessageHeader-timestamp" : for src.timestamp as vs make tgt.timestamp as vt then instant(vs, vt)
   "MessageHeader-event" : for src.event as vs make tgt.event as vt then Coding(vs,vt)
   "MessageHeader-response" : for src.response as vs0 make tgt.response as vt0 then {
