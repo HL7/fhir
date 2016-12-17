@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Sat, Dec 17, 2016 09:33+1100 for FHIR v1.9.0
+// Generated on Sun, Dec 18, 2016 09:18+1100 for FHIR v1.9.0
 
 import org.hl7.fhir.dstu3.model.DateType;
 import org.hl7.fhir.dstu3.model.DateTimeType;
@@ -10941,6 +10941,8 @@ public class RdfParser extends RdfParserBase {
       composeString(t, "StructureMap", "max", element.getMaxElement(), -1);
     if (element.hasTypeElement())
       composeString(t, "StructureMap", "type", element.getTypeElement(), -1);
+    if (element.hasDefaultValue())
+      composeType(t, "StructureMap", "defaultValue", element.getDefaultValue(), -1);
     if (element.hasElementElement())
       composeString(t, "StructureMap", "element", element.getElementElement(), -1);
     if (element.hasListModeElement())

@@ -2587,7 +2587,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     } catch (FHIRException e) {
       values.put("bcks-status", "<p style=\"background-color: #ffb3b3; border:1px solid maroon; padding: 5px;\">This script does not compile: "+e.getMessage()+"</p>\r\n");
     }
-    if (page.getDefinitions().hasResource(name)) {
+    if (page.getDefinitions().hasResource(name) || (page.getDefinitions().getBaseResources().containsKey(name) && !name.equals("Parameters"))) {
       String src = TextFile.fileToString(page.getFolders().srcDir + "template-version-maps.html");
       TextFile.stringToFile(
           insertSectionNumbers(page.processResourceIncludes(n, page.getDefinitions().getResourceByName(name), null, null, null, null, null, src, null, null, "res-Detailed Descriptions", n + "-version-maps.html", null, values), st, n

@@ -1,40 +1,40 @@
 ﻿map "http://hl7.org/fhir/StructureMap/primitives2to3" = "R2 to R3 Primitive Conversions"
 
-uses "http://hl7.org/fhir/DSTU2/StructureDefinition/base64Binary" as source
+uses "http://hl7.org/fhir/DSTU2/StructureDefinition/base64Binary" alias base64BinaryR2 as source
 uses "http://hl7.org/fhir/StructureDefinition/base64Binary" as target
-uses "http://hl7.org/fhir/DSTU2/StructureDefinition/boolean" as source
+uses "http://hl7.org/fhir/DSTU2/StructureDefinition/boolean" alias booleanR2 as source
 uses "http://hl7.org/fhir/StructureDefinition/boolean" as target
-uses "http://hl7.org/fhir/DSTU2/StructureDefinition/code" as source
+uses "http://hl7.org/fhir/DSTU2/StructureDefinition/code" alias codeR2 as source
 uses "http://hl7.org/fhir/StructureDefinition/code" as target
-uses "http://hl7.org/fhir/DSTU2/StructureDefinition/date" as source
+uses "http://hl7.org/fhir/DSTU2/StructureDefinition/date" alias dateR2 as source
 uses "http://hl7.org/fhir/StructureDefinition/date" as target
-uses "http://hl7.org/fhir/DSTU2/StructureDefinition/dateTime" as source
+uses "http://hl7.org/fhir/DSTU2/StructureDefinition/dateTime" alias dateTimeR2 as source
 uses "http://hl7.org/fhir/StructureDefinition/dateTime" as target
-uses "http://hl7.org/fhir/DSTU2/StructureDefinition/decimal" as source
+uses "http://hl7.org/fhir/DSTU2/StructureDefinition/decimal" alias decimalR2 as source
 uses "http://hl7.org/fhir/StructureDefinition/decimal" as target
-uses "http://hl7.org/fhir/DSTU2/StructureDefinition/id" as source
+uses "http://hl7.org/fhir/DSTU2/StructureDefinition/id" alias idR2 as source
 uses "http://hl7.org/fhir/StructureDefinition/id" as target
-uses "http://hl7.org/fhir/DSTU2/StructureDefinition/instant" as source
+uses "http://hl7.org/fhir/DSTU2/StructureDefinition/instant" alias instantR2 as source
 uses "http://hl7.org/fhir/StructureDefinition/instant" as target
-uses "http://hl7.org/fhir/DSTU2/StructureDefinition/integer" as source
+uses "http://hl7.org/fhir/DSTU2/StructureDefinition/integer" alias integerR2 as source
 uses "http://hl7.org/fhir/StructureDefinition/integer" as target
-uses "http://hl7.org/fhir/DSTU2/StructureDefinition/markdown" as source
+uses "http://hl7.org/fhir/DSTU2/StructureDefinition/markdown" alias markdownR2 as source
 uses "http://hl7.org/fhir/StructureDefinition/markdown" as target
-uses "http://hl7.org/fhir/DSTU2/StructureDefinition/oid" as source
+uses "http://hl7.org/fhir/DSTU2/StructureDefinition/oid" alias oidR2 as source
 uses "http://hl7.org/fhir/StructureDefinition/oid" as target
-uses "http://hl7.org/fhir/DSTU2/StructureDefinition/positiveInt" as source
+uses "http://hl7.org/fhir/DSTU2/StructureDefinition/positiveInt" alias positiveIntR2 as source
 uses "http://hl7.org/fhir/StructureDefinition/positiveInt" as target
-uses "http://hl7.org/fhir/DSTU2/StructureDefinition/string" as source
+uses "http://hl7.org/fhir/DSTU2/StructureDefinition/string" alias stringR2 as source
 uses "http://hl7.org/fhir/StructureDefinition/string" as target
-uses "http://hl7.org/fhir/DSTU2/StructureDefinition/time" as source
+uses "http://hl7.org/fhir/DSTU2/StructureDefinition/time" alias timeR2 as source
 uses "http://hl7.org/fhir/StructureDefinition/time" as target
-uses "http://hl7.org/fhir/DSTU2/StructureDefinition/unsignedInt" as source
+uses "http://hl7.org/fhir/DSTU2/StructureDefinition/unsignedInt" alias unsignedIntR2 as source
 uses "http://hl7.org/fhir/StructureDefinition/unsignedInt" as target
-uses "http://hl7.org/fhir/DSTU2/StructureDefinition/uri" as source
+uses "http://hl7.org/fhir/DSTU2/StructureDefinition/uri" alias uriR2 as source
 uses "http://hl7.org/fhir/StructureDefinition/uri" as target
-uses "http://hl7.org/fhir/DSTU2/StructureDefinition/uuid" as source
+uses "http://hl7.org/fhir/DSTU2/StructureDefinition/uuid" alias uuidR2 as source
 uses "http://hl7.org/fhir/StructureDefinition/uuid" as target
-uses "http://hl7.org/fhir/DSTU2/StructureDefinition/xhtml" as source
+uses "http://hl7.org/fhir/DSTU2/StructureDefinition/xhtml" alias xhtmlR2 as source
 uses "http://hl7.org/fhir/StructureDefinition/xhtml" as target
 
 imports "http://hl7.org/fhir/StructureMap/Element2to3"
@@ -165,3 +165,9 @@ group xhtml extends Element
   "xhtml-value" : for src.value as v make tgt.value = v
 endgroup
 
+group stringToMarkdown extends Element
+  input src : stringR2 as source
+  input tgt : markdown as target
+
+  "stringToMarkdown-value" : for src.value as v make tgt.value = v
+endgroup

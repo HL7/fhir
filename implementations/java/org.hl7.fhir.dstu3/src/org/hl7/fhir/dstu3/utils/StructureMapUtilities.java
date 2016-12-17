@@ -378,6 +378,11 @@ public class StructureMapUtilities {
 			else
 				b.append(rs.getListMode().toCode());
 		}
+		if (rs.hasDefaultValue()) {
+		  b.append(" default ");
+		  assert rs.getDefaultValue() instanceof StringType;
+		  b.append("\""+Utilities.escapeJson(((StringType) rs.getDefaultValue()).asStringValue())+"\"");
+		}
 		if (rs.hasVariable()) {
 			b.append(" as ");
 			b.append(rs.getVariable());
@@ -752,13 +757,17 @@ public class StructureMapUtilities {
 		  // type and cardinality
 		  lexer.token(":");
 		  source.setType(lexer.takeDottedToken());
-		  if (!lexer.hasToken("as", "first", "last", "only_one")) {
+		  if (!lexer.hasToken("as", "first", "last", "only_one", "default")) {
 		    source.setMin(lexer.takeInt());
 		    lexer.token("..");
 		    source.setMax(lexer.take());
 		  }
 		}
-		if (Utilities.existsInList(lexer.getCurrent(), "first", "last", "only_one"))
+		if (lexer.hasToken("default")) {
+		  lexer.token("default");
+		  source.setDefaultValue(new StringType(lexer.readConstant("default value")));
+		}
+		if (Utilities.existsInList(lexer.getCurrent(), "first", "last", "only_one", "default"))
 			if (lexer.getCurrent().equals("only_one")) { 
 				source.setListMode(StructureMapListMode.SHARE);
 				lexer.take();

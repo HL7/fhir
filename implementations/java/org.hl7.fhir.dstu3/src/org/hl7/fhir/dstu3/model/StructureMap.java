@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sat, Dec 17, 2016 09:33+1100 for FHIR v1.9.0
+// Generated on Sun, Dec 18, 2016 09:18+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -2570,16 +2570,23 @@ public class StructureMap extends MetadataResource {
         protected StringType type;
 
         /**
+         * A value to use if there is no existing value in the source object.
+         */
+        @Child(name = "defaultValue", type = {}, order=7, min=0, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="Default value if no value exists", formalDefinition="A value to use if there is no existing value in the source object." )
+        protected org.hl7.fhir.dstu3.model.Type defaultValue;
+
+        /**
          * Optional field for this source.
          */
-        @Child(name = "element", type = {StringType.class}, order=7, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "element", type = {StringType.class}, order=8, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Optional field for this source", formalDefinition="Optional field for this source." )
         protected StringType element;
 
         /**
          * How to handle the list mode for this element.
          */
-        @Child(name = "listMode", type = {CodeType.class}, order=8, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "listMode", type = {CodeType.class}, order=9, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="first | share | last", formalDefinition="How to handle the list mode for this element." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/map-list-mode")
         protected Enumeration<StructureMapListMode> listMode;
@@ -2587,25 +2594,25 @@ public class StructureMap extends MetadataResource {
         /**
          * Named context for field, if a field is specified.
          */
-        @Child(name = "variable", type = {IdType.class}, order=9, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "variable", type = {IdType.class}, order=10, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Named context for field, if a field is specified", formalDefinition="Named context for field, if a field is specified." )
         protected IdType variable;
 
         /**
          * FHIRPath expression  - must be true or the rule does not apply.
          */
-        @Child(name = "condition", type = {StringType.class}, order=10, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "condition", type = {StringType.class}, order=11, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="FHIRPath expression  - must be true or the rule does not apply", formalDefinition="FHIRPath expression  - must be true or the rule does not apply." )
         protected StringType condition;
 
         /**
          * FHIRPath expression  - must be true or the mapping engine throws an error instead of completing.
          */
-        @Child(name = "check", type = {StringType.class}, order=11, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "check", type = {StringType.class}, order=12, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="FHIRPath expression  - must be true or the mapping engine throws an error instead of completing", formalDefinition="FHIRPath expression  - must be true or the mapping engine throws an error instead of completing." )
         protected StringType check;
 
-        private static final long serialVersionUID = 825856092L;
+        private static final long serialVersionUID = -1543558504L;
 
     /**
      * Constructor
@@ -2903,6 +2910,25 @@ public class StructureMap extends MetadataResource {
         }
 
         /**
+         * @return {@link #defaultValue} (A value to use if there is no existing value in the source object.)
+         */
+        public org.hl7.fhir.dstu3.model.Type getDefaultValue() { 
+          return this.defaultValue;
+        }
+
+        public boolean hasDefaultValue() { 
+          return this.defaultValue != null && !this.defaultValue.isEmpty();
+        }
+
+        /**
+         * @param value {@link #defaultValue} (A value to use if there is no existing value in the source object.)
+         */
+        public StructureMapGroupRuleSourceComponent setDefaultValue(org.hl7.fhir.dstu3.model.Type value) { 
+          this.defaultValue = value;
+          return this;
+        }
+
+        /**
          * @return {@link #element} (Optional field for this source.). This is the underlying object with id, value and extensions. The accessor "getElement" gives direct access to the value
          */
         public StringType getElementElement() { 
@@ -3155,6 +3181,7 @@ public class StructureMap extends MetadataResource {
           childrenList.add(new Property("min", "integer", "Specified minimum cardinality for the element. This is optional; if present, it acts an implicit check on the input content.", 0, java.lang.Integer.MAX_VALUE, min));
           childrenList.add(new Property("max", "string", "Specified maximum cardinality for the element - a number or a \"*\". This is optional; if present, it acts an implicit check on the input content (* just serves as documentation; it's the default value).", 0, java.lang.Integer.MAX_VALUE, max));
           childrenList.add(new Property("type", "string", "Specified type for the element. This works as a condition on the mapping - use for polymorphic elements.", 0, java.lang.Integer.MAX_VALUE, type));
+          childrenList.add(new Property("defaultValue[x]", "*", "A value to use if there is no existing value in the source object.", 0, java.lang.Integer.MAX_VALUE, defaultValue));
           childrenList.add(new Property("element", "string", "Optional field for this source.", 0, java.lang.Integer.MAX_VALUE, element));
           childrenList.add(new Property("listMode", "code", "How to handle the list mode for this element.", 0, java.lang.Integer.MAX_VALUE, listMode));
           childrenList.add(new Property("variable", "id", "Named context for field, if a field is specified.", 0, java.lang.Integer.MAX_VALUE, variable));
@@ -3171,6 +3198,7 @@ public class StructureMap extends MetadataResource {
         case 108114: /*min*/ return this.min == null ? new Base[0] : new Base[] {this.min}; // IntegerType
         case 107876: /*max*/ return this.max == null ? new Base[0] : new Base[] {this.max}; // StringType
         case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // StringType
+        case -659125328: /*defaultValue*/ return this.defaultValue == null ? new Base[0] : new Base[] {this.defaultValue}; // org.hl7.fhir.dstu3.model.Type
         case -1662836996: /*element*/ return this.element == null ? new Base[0] : new Base[] {this.element}; // StringType
         case 1345445729: /*listMode*/ return this.listMode == null ? new Base[0] : new Base[] {this.listMode}; // Enumeration<StructureMapListMode>
         case -1249586564: /*variable*/ return this.variable == null ? new Base[0] : new Base[] {this.variable}; // IdType
@@ -3201,6 +3229,9 @@ public class StructureMap extends MetadataResource {
           break;
         case 3575610: // type
           this.type = castToString(value); // StringType
+          break;
+        case -659125328: // defaultValue
+          this.defaultValue = castToType(value); // org.hl7.fhir.dstu3.model.Type
           break;
         case -1662836996: // element
           this.element = castToString(value); // StringType
@@ -3236,6 +3267,8 @@ public class StructureMap extends MetadataResource {
           this.max = castToString(value); // StringType
         else if (name.equals("type"))
           this.type = castToString(value); // StringType
+        else if (name.equals("defaultValue[x]"))
+          this.defaultValue = castToType(value); // org.hl7.fhir.dstu3.model.Type
         else if (name.equals("element"))
           this.element = castToString(value); // StringType
         else if (name.equals("listMode"))
@@ -3259,6 +3292,7 @@ public class StructureMap extends MetadataResource {
         case 108114:  return getMinElement();
         case 107876:  return getMaxElement();
         case 3575610:  return getTypeElement();
+        case 587922128:  return getDefaultValue(); 
         case -1662836996:  return getElementElement();
         case 1345445729:  return getListModeElement();
         case -1249586564:  return getVariableElement();
@@ -3289,6 +3323,138 @@ public class StructureMap extends MetadataResource {
         else if (name.equals("type")) {
           throw new FHIRException("Cannot call addChild on a primitive type StructureMap.type");
         }
+        else if (name.equals("defaultValueBoolean")) {
+          this.defaultValue = new BooleanType();
+          return this.defaultValue;
+        }
+        else if (name.equals("defaultValueInteger")) {
+          this.defaultValue = new IntegerType();
+          return this.defaultValue;
+        }
+        else if (name.equals("defaultValueDecimal")) {
+          this.defaultValue = new DecimalType();
+          return this.defaultValue;
+        }
+        else if (name.equals("defaultValueBase64Binary")) {
+          this.defaultValue = new Base64BinaryType();
+          return this.defaultValue;
+        }
+        else if (name.equals("defaultValueInstant")) {
+          this.defaultValue = new InstantType();
+          return this.defaultValue;
+        }
+        else if (name.equals("defaultValueString")) {
+          this.defaultValue = new StringType();
+          return this.defaultValue;
+        }
+        else if (name.equals("defaultValueUri")) {
+          this.defaultValue = new UriType();
+          return this.defaultValue;
+        }
+        else if (name.equals("defaultValueDate")) {
+          this.defaultValue = new DateType();
+          return this.defaultValue;
+        }
+        else if (name.equals("defaultValueDateTime")) {
+          this.defaultValue = new DateTimeType();
+          return this.defaultValue;
+        }
+        else if (name.equals("defaultValueTime")) {
+          this.defaultValue = new TimeType();
+          return this.defaultValue;
+        }
+        else if (name.equals("defaultValueCode")) {
+          this.defaultValue = new CodeType();
+          return this.defaultValue;
+        }
+        else if (name.equals("defaultValueOid")) {
+          this.defaultValue = new OidType();
+          return this.defaultValue;
+        }
+        else if (name.equals("defaultValueId")) {
+          this.defaultValue = new IdType();
+          return this.defaultValue;
+        }
+        else if (name.equals("defaultValueUnsignedInt")) {
+          this.defaultValue = new UnsignedIntType();
+          return this.defaultValue;
+        }
+        else if (name.equals("defaultValuePositiveInt")) {
+          this.defaultValue = new PositiveIntType();
+          return this.defaultValue;
+        }
+        else if (name.equals("defaultValueMarkdown")) {
+          this.defaultValue = new MarkdownType();
+          return this.defaultValue;
+        }
+        else if (name.equals("defaultValueAnnotation")) {
+          this.defaultValue = new Annotation();
+          return this.defaultValue;
+        }
+        else if (name.equals("defaultValueAttachment")) {
+          this.defaultValue = new Attachment();
+          return this.defaultValue;
+        }
+        else if (name.equals("defaultValueIdentifier")) {
+          this.defaultValue = new Identifier();
+          return this.defaultValue;
+        }
+        else if (name.equals("defaultValueCodeableConcept")) {
+          this.defaultValue = new CodeableConcept();
+          return this.defaultValue;
+        }
+        else if (name.equals("defaultValueCoding")) {
+          this.defaultValue = new Coding();
+          return this.defaultValue;
+        }
+        else if (name.equals("defaultValueQuantity")) {
+          this.defaultValue = new Quantity();
+          return this.defaultValue;
+        }
+        else if (name.equals("defaultValueRange")) {
+          this.defaultValue = new Range();
+          return this.defaultValue;
+        }
+        else if (name.equals("defaultValuePeriod")) {
+          this.defaultValue = new Period();
+          return this.defaultValue;
+        }
+        else if (name.equals("defaultValueRatio")) {
+          this.defaultValue = new Ratio();
+          return this.defaultValue;
+        }
+        else if (name.equals("defaultValueSampledData")) {
+          this.defaultValue = new SampledData();
+          return this.defaultValue;
+        }
+        else if (name.equals("defaultValueSignature")) {
+          this.defaultValue = new Signature();
+          return this.defaultValue;
+        }
+        else if (name.equals("defaultValueHumanName")) {
+          this.defaultValue = new HumanName();
+          return this.defaultValue;
+        }
+        else if (name.equals("defaultValueAddress")) {
+          this.defaultValue = new Address();
+          return this.defaultValue;
+        }
+        else if (name.equals("defaultValueContactPoint")) {
+          this.defaultValue = new ContactPoint();
+          return this.defaultValue;
+        }
+        else if (name.equals("defaultValueTiming")) {
+          this.defaultValue = new Timing();
+          return this.defaultValue;
+        }
+        else if (name.equals("defaultValueReference")) {
+          this.defaultValue = new Reference();
+          return this.defaultValue;
+        }
+        else if (name.equals("defaultValueMeta")) {
+          this.defaultValue = new Meta();
+          return this.defaultValue;
+        }
         else if (name.equals("element")) {
           throw new FHIRException("Cannot call addChild on a primitive type StructureMap.element");
         }
@@ -3317,6 +3483,7 @@ public class StructureMap extends MetadataResource {
         dst.min = min == null ? null : min.copy();
         dst.max = max == null ? null : max.copy();
         dst.type = type == null ? null : type.copy();
+        dst.defaultValue = defaultValue == null ? null : defaultValue.copy();
         dst.element = element == null ? null : element.copy();
         dst.listMode = listMode == null ? null : listMode.copy();
         dst.variable = variable == null ? null : variable.copy();
@@ -3334,8 +3501,9 @@ public class StructureMap extends MetadataResource {
         StructureMapGroupRuleSourceComponent o = (StructureMapGroupRuleSourceComponent) other;
         return compareDeep(required, o.required, true) && compareDeep(context, o.context, true) && compareDeep(contextType, o.contextType, true)
            && compareDeep(min, o.min, true) && compareDeep(max, o.max, true) && compareDeep(type, o.type, true)
-           && compareDeep(element, o.element, true) && compareDeep(listMode, o.listMode, true) && compareDeep(variable, o.variable, true)
-           && compareDeep(condition, o.condition, true) && compareDeep(check, o.check, true);
+           && compareDeep(defaultValue, o.defaultValue, true) && compareDeep(element, o.element, true) && compareDeep(listMode, o.listMode, true)
+           && compareDeep(variable, o.variable, true) && compareDeep(condition, o.condition, true) && compareDeep(check, o.check, true)
+          ;
       }
 
       @Override
@@ -3353,7 +3521,8 @@ public class StructureMap extends MetadataResource {
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(required, context, contextType
-          , min, max, type, element, listMode, variable, condition, check);
+          , min, max, type, defaultValue, element, listMode, variable, condition, check
+          );
       }
 
   public String fhirType() {

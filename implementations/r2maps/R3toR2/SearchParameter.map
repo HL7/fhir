@@ -5,7 +5,6 @@ uses "http://hl7.org/fhir/StructureDefinition/SearchParameter" alias SearchParam
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/SearchParameter" alias SearchParameterR2 as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives3to2"
-
 imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
 imports "http://hl7.org/fhir/StructureMap/ContactPoint3to2"
 
@@ -19,14 +18,17 @@ group SearchParameter extends DomainResource
   "SearchParameter-name" : for src.name as vs make tgt.name as vt then string(vs, vt)
   "SearchParameter-status" : for src.status as vs make tgt.status as vt then code(vs, vt)
   "SearchParameter-experimental" : for src.experimental as vs make tgt.experimental as vt then boolean(vs, vt)
-  "SearchParameter-date" : for src.date as vs make tgt.date as vt then dateTime(vs, vt)
   "SearchParameter-publisher" : for src.publisher as vs make tgt.publisher as vt then string(vs, vt)
   "SearchParameter-contact" : for src.contact as vs0 make tgt.contact as vt0 then {
     "SearchParameter.contact-name" : for vs0.name as vs make vt0.name as vt then string(vs, vt)
     "SearchParameter.contact-telecom" : for vs0.telecom as vs make vt0.telecom as vt then ContactPoint(vs,vt)
   }
+  "SearchParameter-date" : for src.date as vs make tgt.date as vt then dateTime(vs, vt)
+  "SearchParameter-requirements" : for src.purpose as vs make tgt.requirements as vt then markdownToString(vs, vt)
   "SearchParameter-code" : for src.code as vs make tgt.code as vt then code(vs, vt)
+  "SearchParameter-base" : for src.base only_one as vs make tgt.base as vt then code(vs, vt)
   "SearchParameter-type" : for src.type as vs make tgt.type as vt then code(vs, vt)
+  "SearchParameter-description" : for src.description as vs make tgt.description as vt then markdownToString(vs, vt)
   "SearchParameter-xpath" : for src.xpath as vs make tgt.xpath as vt then string(vs, vt)
   "SearchParameter-xpathUsage" : for src.xpathUsage as vs make tgt.xpathUsage as vt then code(vs, vt)
   "SearchParameter-target" : for src.target as vs make tgt.target as vt then code(vs, vt)

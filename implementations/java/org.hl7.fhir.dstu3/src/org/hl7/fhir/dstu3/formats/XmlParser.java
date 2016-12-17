@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Sat, Dec 17, 2016 09:33+1100 for FHIR v1.9.0
+// Generated on Sun, Dec 18, 2016 09:18+1100 for FHIR v1.9.0
 
 import org.hl7.fhir.dstu3.model.DateType;
 import org.hl7.fhir.dstu3.model.DateTimeType;
@@ -14726,6 +14726,8 @@ public class XmlParser extends XmlParserBase {
         res.setMaxElement(parseString(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("type")) {
         res.setTypeElement(parseString(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && nameIsTypeName(xpp, "defaultValue")) {
+        res.setDefaultValue(parseType("defaultValue", xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("element")) {
         res.setElementElement(parseString(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("listMode")) {
@@ -33101,7 +33103,9 @@ public class XmlParser extends XmlParserBase {
       if (element.hasTypeElement()) {
         composeString("type", element.getTypeElement());
       }
-      if (element.hasElementElement()) {
+      if (element.hasDefaultValue()) {
+        composeType("defaultValue", element.getDefaultValue());
+      }      if (element.hasElementElement()) {
         composeString("element", element.getElementElement());
       }
       if (element.hasListModeElement())

@@ -10026,15 +10026,10 @@
     "example": {}
   },
   "SearchParameter": {
-    "example": {
-      "errors": [
-        "SearchParameter: Profile http://hl7.org/fhir/StructureDefinition/SearchParameter, Element \u0027SearchParameter.description\u0027: minimum required \u003d 1, but only found 0"
-      ]
-    },
+    "example": {},
     "example-extension": {
       "errors": [
-        "SearchParameter: Profile http://hl7.org/fhir/StructureDefinition/SearchParameter, Element \u0027SearchParameter.status\u0027: minimum required \u003d 1, but only found 0",
-        "SearchParameter: Profile http://hl7.org/fhir/StructureDefinition/SearchParameter, Element \u0027SearchParameter.description\u0027: minimum required \u003d 1, but only found 0"
+        "[R3 validation error] SearchParameter: Profile http://hl7.org/fhir/StructureDefinition/SearchParameter, Element \u0027SearchParameter.status\u0027: minimum required \u003d 1, but only found 0"
       ]
     }
   },

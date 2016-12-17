@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Sat, Dec 17, 2016 09:33+1100 for FHIR v1.9.0
+// Generated on Sun, Dec 18, 2016 09:18+1100 for FHIR v1.9.0
 
 import org.hl7.fhir.dstu3.model.DateType;
 import org.hl7.fhir.dstu3.model.DateTimeType;
@@ -16479,6 +16479,9 @@ public class JsonParser extends JsonParserBase {
       res.setTypeElement(parseString(json.get("type").getAsString()));
     if (json.has("_type"))
       parseElementProperties(json.getAsJsonObject("_type"), res.getTypeElement());
+    Type defaultValue = parseType("defaultValue", json);
+    if (defaultValue != null)
+      res.setDefaultValue(defaultValue);
     if (json.has("element"))
       res.setElementElement(parseString(json.get("element").getAsString()));
     if (json.has("_element"))
@@ -37271,6 +37274,9 @@ public class JsonParser extends JsonParserBase {
       if (element.hasTypeElement()) {
         composeStringCore("type", element.getTypeElement(), false);
         composeStringExtras("type", element.getTypeElement(), false);
+      }
+      if (element.hasDefaultValue()) {
+        composeType("defaultValue", element.getDefaultValue());
       }
       if (element.hasElementElement()) {
         composeStringCore("element", element.getElementElement(), false);

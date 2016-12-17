@@ -68,6 +68,7 @@ public class R2R3ConversionTests implements ITransformerServices {
     String srcFile = Utilities.path(root, "source", "release2", "examples.zip");
     ZipInputStream stream = new ZipInputStream(new FileInputStream(srcFile));
 
+    String filter = System.getProperty("resource").toLowerCase();
     Map<String, byte[]> examples = new HashMap<String, byte[]>();
     ZipEntry entry;
     while((entry = stream.getNextEntry())!=null) {
@@ -78,7 +79,8 @@ public class R2R3ConversionTests implements ITransformerServices {
       int len = 0;
       while ((len = stream.read(buffer)) > 0)
         output.write(buffer, 0, len);
-      examples.put(n, output.toByteArray());
+      if (Utilities.noString(filter) || n.contains(filter))
+        examples.put(n, output.toByteArray());
     }
     List<String> names = new ArrayList<String>(examples.size());
     names.addAll(examples.keySet());
@@ -121,6 +123,7 @@ public class R2R3ConversionTests implements ITransformerServices {
       org.hl7.fhir.dstu3.elementmodel.Element r2 = new org.hl7.fhir.dstu3.elementmodel.XmlParser(contextR2).parse(new ByteArrayInputStream(content));
       tn = r2.fhirType();
       id = r2.getChildValue("id");
+      TextFile.bytesToFile(content, Utilities.path(root, "implementations", "r2maps", "test-output", tn+"-"+id+".input.xml"));
       
       // load the r2 to R3 map
       String mapFile = Utilities.path(root, "implementations", "r2maps", "R2toR3", r2.fhirType()+".map");
@@ -131,6 +134,10 @@ public class R2R3ConversionTests implements ITransformerServices {
         // convert from r2 to r3
         Resource r3 = ResourceFactory.createResource(tn);
         smu3.transform(null, r2, sm, r3);
+
+        ByteArrayOutputStream bs = new ByteArrayOutputStream();
+        new org.hl7.fhir.dstu3.formats.XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(bs, r3);
+        TextFile.bytesToFile(bs.toByteArray(), Utilities.path(root, "implementations", "r2maps", "test-output", tn+"-"+id+".r3.xml"));
 
         // validate against R3
         IResourceValidator validator = contextR3.newValidator();
@@ -150,11 +157,10 @@ public class R2R3ConversionTests implements ITransformerServices {
         smu2.transform(null, r3, sm, ro2);
 
         // compare the XML
-        ByteArrayOutputStream bs = new ByteArrayOutputStream();
+        bs = new ByteArrayOutputStream();
         new org.hl7.fhir.dstu3.elementmodel.XmlParser(contextR2).compose(ro2, bs, OutputStyle.PRETTY, null);
-        
-        TextFile.bytesToFile(content, Utilities.path(root, "implementations", "r2maps", "test-output", tn+"-"+id+".input.xml"));
         TextFile.bytesToFile(bs.toByteArray(), Utilities.path(root, "implementations", "r2maps", "test-output", tn+"-"+id+".output.xml"));
+        
         String s = TestingUtilities.checkXMLIsSame(new ByteArrayInputStream(content), new ByteArrayInputStream(bs.toByteArray()));
         if (s != null)
           throw new Exception("Round trip failed: "+s);
@@ -203,7 +209,7 @@ public class R2R3ConversionTests implements ITransformerServices {
     StringBuilder b = new StringBuilder();
     for (ValidationMessage vm : errors) {
       if (vm.getLevel() == IssueSeverity.ERROR || vm.getLevel() == IssueSeverity.FATAL) {
-        b.append(vm.getLocation()+": "+vm.getMessage()+"\r\n");
+        b.append("[R3 validation error] "+vm.getLocation()+": "+vm.getMessage()+"\r\n");
       }
     }
     if (b.length() > 0)
