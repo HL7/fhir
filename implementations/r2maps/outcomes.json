@@ -1139,7 +1139,7 @@
     },
     "SearchParameter": {
       "errors": [
-        "Exception executing transform tgt.value \u003d create(\"boolean\") as vt on Rule \"\"Extension-value-boolean\"\": Unknown Resource or Type Name \u0027boolean\u0027"
+        "NullPointerException"
       ]
     },
     "shareablevalueset": {

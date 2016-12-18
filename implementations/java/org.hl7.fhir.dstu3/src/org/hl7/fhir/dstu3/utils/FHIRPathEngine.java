@@ -413,6 +413,20 @@ public class FHIRPathEngine {
   /**
    * evaluate a path and return true or false (e.g. for an invariant)
    * 
+   * @param appinfo - application context
+   * @param base - the object against which the path is being evaluated
+   * @param path - the FHIR Path statement to use
+   * @return
+   * @throws FHIRException 
+   * @
+   */
+  public boolean evaluateToBoolean(Object appInfo, Resource resource, Base base, ExpressionNode node) throws FHIRException {
+    return convertToBoolean(evaluate(appInfo, resource, base, node));
+  }
+
+  /**
+   * evaluate a path and return true or false (e.g. for an invariant)
+   * 
    * @param base - the object against which the path is being evaluated
    * @param path - the FHIR Path statement to use
    * @return
@@ -1733,8 +1747,14 @@ public class FHIRPathEngine {
     if (atEntry && Character.isUpperCase(exp.getName().charAt(0))) {// special case for start up
       if (item.isResource() && item.fhirType().equals(exp.getName()))  
         result.add(item);
-    } else
+    } else 
       getChildrenByName(item, exp.getName(), result);
+    if (result.size() == 0 && atEntry && context.appInfo != null) {
+      Base temp = hostServices.resolveConstant(context.appInfo, exp.getName());
+      if (temp != null) {
+        result.add(temp);
+      }
+    }
     return result;
   }	
 

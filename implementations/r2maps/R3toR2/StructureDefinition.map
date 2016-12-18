@@ -14,7 +14,6 @@ uses "http://hl7.org/fhir/StructureDefinition/StructureDefinition" alias Structu
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/StructureDefinition" alias StructureDefinitionR2 as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives3to2"
-
 imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
 imports "http://hl7.org/fhir/StructureMap/ContactPoint3to2"
 imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
@@ -38,10 +37,13 @@ group StructureDefinition extends DomainResource
   "StructureDefinition-publisher" : for src.publisher as vs make tgt.publisher as vt then string(vs, vt)
   "StructureDefinition-contact" : for src.contact as vs0 make tgt.contact as vt0 then {
     "StructureDefinition.contact-name" : for vs0.name as vs make vt0.name as vt then string(vs, vt)
-    "StructureDefinition.contact-telecom" : for vs0.telecom as vs make vt0.telecom as vt then ContactPoint(vs,vt)
+    "StructureDefinition.contact-telecom" : for vs0.telecom as vs2 make vt0.telecom as vt2 then ContactPoint(vs2,vt2)
   }
   "StructureDefinition-date" : for src.date as vs make tgt.date as vt then dateTime(vs, vt)
+  "StructureDefinition-description" : for src.description as vs make tgt.description as vt then markdownToString(vs, vt)
   "StructureDefinition-useContext" : for src.jurisdiction as vs make tgt.useContext as vt then CodeableConcept(vs,vt)
+  "StructureDefinition-requirements" : for src.purpose as vs make tgt.requirements as vt then markdownToString(vs, vt)
+  "StructureDefinition-copyright" : for src.copyright as vs make tgt.copyright as vt then markdownToString(vs, vt)
   "StructureDefinition-code" : for src.keyword as vs make tgt.code as vt then Coding(vs,vt)
   "StructureDefinition-fhirVersion" : for src.fhirVersion as vs make tgt.fhirVersion as vt then id(vs, vt)
   "StructureDefinition-mapping" : for src.mapping as vs0 make tgt.mapping as vt0 then {

@@ -145,7 +145,7 @@ public class R2R3ConversionTests implements ITransformerServices {
         IResourceValidator validator = contextR3.newValidator();
         List<ValidationMessage> errors = new ArrayList<ValidationMessage>();
         validator.validate(null, errors, r3);
-        check(errors);
+        check(errors, tn, id);
 
         // load the R3 to R2 map
         //      mapFile = Utilities.path(root, "implementations", "r2maps", "R3toR2", r2.fhirType()+".map");
@@ -207,9 +207,15 @@ public class R2R3ConversionTests implements ITransformerServices {
     
   }
 
-  private void check(List<ValidationMessage> errors) throws FHIRException {
+  private void check(List<ValidationMessage> errors, String tn, String id) throws FHIRException {
     StringBuilder b = new StringBuilder();
     for (ValidationMessage vm : errors) {
+      String s = rules.getStringProperty(tn+"/"+id, "validation");
+      if (!Utilities.noString(s) && vm.getMessage().contains(s))
+        break;
+      s = rules.getStringProperty(tn, "validation");
+      if (!Utilities.noString(s) && vm.getMessage().contains(s))
+        break;
       if (vm.getLevel() == IssueSeverity.ERROR || vm.getLevel() == IssueSeverity.FATAL) {
         b.append("[R3 validation error] "+vm.getLocation()+": "+vm.getMessage()+"\r\n");
       }
@@ -232,6 +238,7 @@ public class R2R3ConversionTests implements ITransformerServices {
     contextR3 = new SimpleWorkerContext();
     contextR3.loadFromFile(Utilities.path(root,"publish","profiles-types.xml"), null);
     contextR3.loadFromFile(Utilities.path(root,"publish","profiles-resources.xml"), null);
+    contextR3.loadFromFile(Utilities.path(root,"publish","extension-definitions.xml"), null);
     contextR3.loadFromFile(Utilities.path(root,"publish","expansions.xml"), null);
 
     contextR2.setExpansionProfile(new ExpansionProfile().setUrl("urn:uuid:"+UUID.randomUUID().toString().toLowerCase()));
@@ -269,7 +276,8 @@ public class R2R3ConversionTests implements ITransformerServices {
 
   @Override
   public Base createResource(TransformContext context, Base res) {
-    throw new Error("createResource not done yet");
+    // nothing to do here .. 
+    return res;
   }
 
   @Override

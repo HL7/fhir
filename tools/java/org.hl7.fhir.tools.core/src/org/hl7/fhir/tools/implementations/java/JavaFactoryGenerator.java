@@ -30,8 +30,11 @@ POSSIBILITY OF SUCH DAMAGE.
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.hl7.fhir.definitions.Config;
@@ -82,18 +85,26 @@ public class JavaFactoryGenerator extends OutputStreamWriter {
     write("            throw new FHIRException(\"Unknown Type Name '\"+name+\"'\");\r\n");
     write("    }\r\n\r\n");
     write("    public static Base createResourceOrType(String name) throws FHIRException {\r\n");
+    List<String> names = new ArrayList<String>();
+    Map<String, String> creates = new HashMap<String, String>();
     for (String name : resources.keySet()) {
-      write("        if (\""+name+"\".equals(name))\r\n");
-      write("            return new "+javaClassName(resources.get(name))+"();\r\n");
+      names.add(name);
+      creates.put(name, "new "+javaClassName(resources.get(name))+"()");
     }
     for (String name : types.keySet()) {
-      write("        if (\""+name+"\".equals(name))\r\n");
+      names.add(name);
       String t = types.get(name);
-      write("            return new "+t+"();\r\n");
+      creates.put(name, "new "+t+"()");
     }    
-    write("        else\r\n");
-    write("            throw new FHIRException(\"Unknown Resource or Type Name '\"+name+\"'\");\r\n");
+    write("      switch (name.hashCode()) {\r\n");
+    Collections.sort(names);
+    for (String name : names) {
+      write("        case "+Integer.toString(name.hashCode())+": return "+creates.get(name)+";\r\n");
+    }    
+    write("      default:\r\n");
+    write("        throw new FHIRException(\"Unknown Resource or Type Name '\"+name+\"'\");\r\n");
     write("    }\r\n");
+    write("  }\r\n");
     write("\r\n");
     write("\r\n");
 		write("}\r\n");

@@ -65,13 +65,13 @@ public class Element extends Base {
 
   public Element(Element other) {
     super();
-    if (other != null)
+    if (other.comments != null)
       comments = new ArrayList<String>(other.comments);
     name = other.name;
     type = other.type;
     value = other.value;
     index = other.index;
-    if (other != null)
+    if (other.children != null)
       children = new ArrayList<Element>(other.children);
     property = other.property;
     elementProperty = other.elementProperty;
@@ -290,30 +290,36 @@ public class Element extends Base {
       return;
     }
     
-//    if (children == null)
-//      children = new ArrayList<Element>();
-//    
-//    // look through existing children
-//    for (Element child : children) {
-//      if (child.getName().equals(name)) {
-//        if (!child.isList()) {
-//          return child;
-//        } else {
-//          Element ne = new Element(this);
-//          children.add(ne);
-//          numberChildren();
-//          return ne;
-//        }
-//      }
-//    }
-//
-//    for (Property p : property.getChildProperties(name, type)) {
-//      if (p.getName().equals(name)) {
-//        Element ne = new Element(name, p);
-//        children.add(ne);
-//        return ne;
-//      }
-//    }
+    if (!value.isPrimitive())
+      throw new FHIRException("Cannot set property "+name+" on "+this.name+" - value is not a primitive type ("+value.fhirType()+")");
+    
+    if (children == null)
+      children = new ArrayList<Element>();
+    
+    // look through existing children
+    for (Element child : children) {
+      if (child.getName().equals(name)) {
+        if (!child.isList()) {
+          child.setValue(value.primitiveValue());
+          return;
+        } else {
+          Element ne = new Element(this);
+          ne.setValue(value.primitiveValue());
+          children.add(ne);
+          numberChildren();
+          return;
+        }
+      }
+    }
+
+    for (Property p : property.getChildProperties(this.name, type)) {
+      if (p.getName().equals(name) || p.getName().equals(name+"[x]")) {
+        Element ne = new Element(name, p);
+        children.add(ne);
+        ne.setValue(value.primitiveValue());
+        return;
+      }
+    }
       
     throw new Error("Cannot set property "+name+" on "+this.name); 
   }
@@ -341,7 +347,7 @@ public class Element extends Base {
       }
     }
 
-    for (Property p : property.getChildProperties(name, type)) {
+    for (Property p : property.getChildProperties(this.name, type)) {
       if (p.getName().equals(name)) {
         Element ne = new Element(name, p);
         children.add(ne);
@@ -349,7 +355,7 @@ public class Element extends Base {
       }
     }
       
-    throw new Error("Unrecognised name "+name); 
+    throw new Error("Unrecognised name "+name+" on "+this.name); 
   }
   
 	private int maxToInt(String max) {

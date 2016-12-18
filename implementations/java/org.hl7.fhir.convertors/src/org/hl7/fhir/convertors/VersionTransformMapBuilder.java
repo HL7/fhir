@@ -217,7 +217,7 @@ public class VersionTransformMapBuilder {
 //        processComplexType(sd);
 //      }
 //    }
-    String rt = "SearchParameter";
+    String rt = "StructureDefinition";
     System.out.println(rt);
     StructureDefinition sd = contextR3.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+rt);
     processComplexType(sd);

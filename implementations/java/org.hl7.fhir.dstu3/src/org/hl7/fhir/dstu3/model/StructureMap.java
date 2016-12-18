@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sun, Dec 18, 2016 09:18+1100 for FHIR v1.9.0
+// Generated on Sun, Dec 18, 2016 21:26+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -356,7 +356,145 @@ public class StructureMap extends MetadataResource {
       }
     }
 
-    public enum StructureMapListMode {
+    public enum StructureMapSourceListMode {
+        /**
+         * Only process this rule for the first in the list
+         */
+        FIRST, 
+        /**
+         * Process this rule for all but the first
+         */
+        NOTFIRST, 
+        /**
+         * Only process this rule for the last in the list
+         */
+        LAST, 
+        /**
+         * Process this rule for all but the last
+         */
+        NOTLAST, 
+        /**
+         * Only process this rule is there is only item
+         */
+        ONLYONE, 
+        /**
+         * added to help the parsers with the generic types
+         */
+        NULL;
+        public static StructureMapSourceListMode fromCode(String codeString) throws FHIRException {
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("first".equals(codeString))
+          return FIRST;
+        if ("not_first".equals(codeString))
+          return NOTFIRST;
+        if ("last".equals(codeString))
+          return LAST;
+        if ("not_last".equals(codeString))
+          return NOTLAST;
+        if ("only_one".equals(codeString))
+          return ONLYONE;
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown StructureMapSourceListMode code '"+codeString+"'");
+        }
+        public String toCode() {
+          switch (this) {
+            case FIRST: return "first";
+            case NOTFIRST: return "not_first";
+            case LAST: return "last";
+            case NOTLAST: return "not_last";
+            case ONLYONE: return "only_one";
+            default: return "?";
+          }
+        }
+        public String getSystem() {
+          switch (this) {
+            case FIRST: return "http://hl7.org/fhir/map-source-list-mode";
+            case NOTFIRST: return "http://hl7.org/fhir/map-source-list-mode";
+            case LAST: return "http://hl7.org/fhir/map-source-list-mode";
+            case NOTLAST: return "http://hl7.org/fhir/map-source-list-mode";
+            case ONLYONE: return "http://hl7.org/fhir/map-source-list-mode";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case FIRST: return "Only process this rule for the first in the list";
+            case NOTFIRST: return "Process this rule for all but the first";
+            case LAST: return "Only process this rule for the last in the list";
+            case NOTLAST: return "Process this rule for all but the last";
+            case ONLYONE: return "Only process this rule is there is only item";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case FIRST: return "First";
+            case NOTFIRST: return "All but the first";
+            case LAST: return "Last";
+            case NOTLAST: return "All but the last";
+            case ONLYONE: return "Enforce only one";
+            default: return "?";
+          }
+        }
+    }
+
+  public static class StructureMapSourceListModeEnumFactory implements EnumFactory<StructureMapSourceListMode> {
+    public StructureMapSourceListMode fromCode(String codeString) throws IllegalArgumentException {
+      if (codeString == null || "".equals(codeString))
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("first".equals(codeString))
+          return StructureMapSourceListMode.FIRST;
+        if ("not_first".equals(codeString))
+          return StructureMapSourceListMode.NOTFIRST;
+        if ("last".equals(codeString))
+          return StructureMapSourceListMode.LAST;
+        if ("not_last".equals(codeString))
+          return StructureMapSourceListMode.NOTLAST;
+        if ("only_one".equals(codeString))
+          return StructureMapSourceListMode.ONLYONE;
+        throw new IllegalArgumentException("Unknown StructureMapSourceListMode code '"+codeString+"'");
+        }
+        public Enumeration<StructureMapSourceListMode> fromType(Base code) throws FHIRException {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("first".equals(codeString))
+          return new Enumeration<StructureMapSourceListMode>(this, StructureMapSourceListMode.FIRST);
+        if ("not_first".equals(codeString))
+          return new Enumeration<StructureMapSourceListMode>(this, StructureMapSourceListMode.NOTFIRST);
+        if ("last".equals(codeString))
+          return new Enumeration<StructureMapSourceListMode>(this, StructureMapSourceListMode.LAST);
+        if ("not_last".equals(codeString))
+          return new Enumeration<StructureMapSourceListMode>(this, StructureMapSourceListMode.NOTLAST);
+        if ("only_one".equals(codeString))
+          return new Enumeration<StructureMapSourceListMode>(this, StructureMapSourceListMode.ONLYONE);
+        throw new FHIRException("Unknown StructureMapSourceListMode code '"+codeString+"'");
+        }
+    public String toCode(StructureMapSourceListMode code) {
+      if (code == StructureMapSourceListMode.FIRST)
+        return "first";
+      if (code == StructureMapSourceListMode.NOTFIRST)
+        return "not_first";
+      if (code == StructureMapSourceListMode.LAST)
+        return "last";
+      if (code == StructureMapSourceListMode.NOTLAST)
+        return "not_last";
+      if (code == StructureMapSourceListMode.ONLYONE)
+        return "only_one";
+      return "?";
+      }
+    public String toSystem(StructureMapSourceListMode code) {
+      return code.getSystem();
+      }
+    }
+
+    public enum StructureMapTargetListMode {
         /**
          * when the target list is being assembled, the items for this rule go first. If more that one rule defines a first item (for a given instance of mapping) then this is an error
          */
@@ -373,7 +511,7 @@ public class StructureMap extends MetadataResource {
          * added to help the parsers with the generic types
          */
         NULL;
-        public static StructureMapListMode fromCode(String codeString) throws FHIRException {
+        public static StructureMapTargetListMode fromCode(String codeString) throws FHIRException {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("first".equals(codeString))
@@ -385,7 +523,7 @@ public class StructureMap extends MetadataResource {
         if (Configuration.isAcceptInvalidEnums())
           return null;
         else
-          throw new FHIRException("Unknown StructureMapListMode code '"+codeString+"'");
+          throw new FHIRException("Unknown StructureMapTargetListMode code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
@@ -397,9 +535,9 @@ public class StructureMap extends MetadataResource {
         }
         public String getSystem() {
           switch (this) {
-            case FIRST: return "http://hl7.org/fhir/map-list-mode";
-            case SHARE: return "http://hl7.org/fhir/map-list-mode";
-            case LAST: return "http://hl7.org/fhir/map-list-mode";
+            case FIRST: return "http://hl7.org/fhir/map-target-list-mode";
+            case SHARE: return "http://hl7.org/fhir/map-target-list-mode";
+            case LAST: return "http://hl7.org/fhir/map-target-list-mode";
             default: return "?";
           }
         }
@@ -421,43 +559,43 @@ public class StructureMap extends MetadataResource {
         }
     }
 
-  public static class StructureMapListModeEnumFactory implements EnumFactory<StructureMapListMode> {
-    public StructureMapListMode fromCode(String codeString) throws IllegalArgumentException {
+  public static class StructureMapTargetListModeEnumFactory implements EnumFactory<StructureMapTargetListMode> {
+    public StructureMapTargetListMode fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("first".equals(codeString))
-          return StructureMapListMode.FIRST;
+          return StructureMapTargetListMode.FIRST;
         if ("share".equals(codeString))
-          return StructureMapListMode.SHARE;
+          return StructureMapTargetListMode.SHARE;
         if ("last".equals(codeString))
-          return StructureMapListMode.LAST;
-        throw new IllegalArgumentException("Unknown StructureMapListMode code '"+codeString+"'");
+          return StructureMapTargetListMode.LAST;
+        throw new IllegalArgumentException("Unknown StructureMapTargetListMode code '"+codeString+"'");
         }
-        public Enumeration<StructureMapListMode> fromType(Base code) throws FHIRException {
+        public Enumeration<StructureMapTargetListMode> fromType(Base code) throws FHIRException {
           if (code == null || code.isEmpty())
             return null;
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
         if ("first".equals(codeString))
-          return new Enumeration<StructureMapListMode>(this, StructureMapListMode.FIRST);
+          return new Enumeration<StructureMapTargetListMode>(this, StructureMapTargetListMode.FIRST);
         if ("share".equals(codeString))
-          return new Enumeration<StructureMapListMode>(this, StructureMapListMode.SHARE);
+          return new Enumeration<StructureMapTargetListMode>(this, StructureMapTargetListMode.SHARE);
         if ("last".equals(codeString))
-          return new Enumeration<StructureMapListMode>(this, StructureMapListMode.LAST);
-        throw new FHIRException("Unknown StructureMapListMode code '"+codeString+"'");
+          return new Enumeration<StructureMapTargetListMode>(this, StructureMapTargetListMode.LAST);
+        throw new FHIRException("Unknown StructureMapTargetListMode code '"+codeString+"'");
         }
-    public String toCode(StructureMapListMode code) {
-      if (code == StructureMapListMode.FIRST)
+    public String toCode(StructureMapTargetListMode code) {
+      if (code == StructureMapTargetListMode.FIRST)
         return "first";
-      if (code == StructureMapListMode.SHARE)
+      if (code == StructureMapTargetListMode.SHARE)
         return "share";
-      if (code == StructureMapListMode.LAST)
+      if (code == StructureMapTargetListMode.LAST)
         return "last";
       return "?";
       }
-    public String toSystem(StructureMapListMode code) {
+    public String toSystem(StructureMapTargetListMode code) {
       return code.getSystem();
       }
     }
@@ -2587,9 +2725,9 @@ public class StructureMap extends MetadataResource {
          * How to handle the list mode for this element.
          */
         @Child(name = "listMode", type = {CodeType.class}, order=9, min=0, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="first | share | last", formalDefinition="How to handle the list mode for this element." )
-        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/map-list-mode")
-        protected Enumeration<StructureMapListMode> listMode;
+        @Description(shortDefinition="first | not_first | last | not_last | only_one", formalDefinition="How to handle the list mode for this element." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/map-source-list-mode")
+        protected Enumeration<StructureMapSourceListMode> listMode;
 
         /**
          * Named context for field, if a field is specified.
@@ -2612,7 +2750,7 @@ public class StructureMap extends MetadataResource {
         @Description(shortDefinition="FHIRPath expression  - must be true or the mapping engine throws an error instead of completing", formalDefinition="FHIRPath expression  - must be true or the mapping engine throws an error instead of completing." )
         protected StringType check;
 
-        private static final long serialVersionUID = -1543558504L;
+        private static final long serialVersionUID = 1773079421L;
 
     /**
      * Constructor
@@ -2980,12 +3118,12 @@ public class StructureMap extends MetadataResource {
         /**
          * @return {@link #listMode} (How to handle the list mode for this element.). This is the underlying object with id, value and extensions. The accessor "getListMode" gives direct access to the value
          */
-        public Enumeration<StructureMapListMode> getListModeElement() { 
+        public Enumeration<StructureMapSourceListMode> getListModeElement() { 
           if (this.listMode == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create StructureMapGroupRuleSourceComponent.listMode");
             else if (Configuration.doAutoCreate())
-              this.listMode = new Enumeration<StructureMapListMode>(new StructureMapListModeEnumFactory()); // bb
+              this.listMode = new Enumeration<StructureMapSourceListMode>(new StructureMapSourceListModeEnumFactory()); // bb
           return this.listMode;
         }
 
@@ -3000,7 +3138,7 @@ public class StructureMap extends MetadataResource {
         /**
          * @param value {@link #listMode} (How to handle the list mode for this element.). This is the underlying object with id, value and extensions. The accessor "getListMode" gives direct access to the value
          */
-        public StructureMapGroupRuleSourceComponent setListModeElement(Enumeration<StructureMapListMode> value) { 
+        public StructureMapGroupRuleSourceComponent setListModeElement(Enumeration<StructureMapSourceListMode> value) { 
           this.listMode = value;
           return this;
         }
@@ -3008,19 +3146,19 @@ public class StructureMap extends MetadataResource {
         /**
          * @return How to handle the list mode for this element.
          */
-        public StructureMapListMode getListMode() { 
+        public StructureMapSourceListMode getListMode() { 
           return this.listMode == null ? null : this.listMode.getValue();
         }
 
         /**
          * @param value How to handle the list mode for this element.
          */
-        public StructureMapGroupRuleSourceComponent setListMode(StructureMapListMode value) { 
+        public StructureMapGroupRuleSourceComponent setListMode(StructureMapSourceListMode value) { 
           if (value == null)
             this.listMode = null;
           else {
             if (this.listMode == null)
-              this.listMode = new Enumeration<StructureMapListMode>(new StructureMapListModeEnumFactory());
+              this.listMode = new Enumeration<StructureMapSourceListMode>(new StructureMapSourceListModeEnumFactory());
             this.listMode.setValue(value);
           }
           return this;
@@ -3200,7 +3338,7 @@ public class StructureMap extends MetadataResource {
         case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // StringType
         case -659125328: /*defaultValue*/ return this.defaultValue == null ? new Base[0] : new Base[] {this.defaultValue}; // org.hl7.fhir.dstu3.model.Type
         case -1662836996: /*element*/ return this.element == null ? new Base[0] : new Base[] {this.element}; // StringType
-        case 1345445729: /*listMode*/ return this.listMode == null ? new Base[0] : new Base[] {this.listMode}; // Enumeration<StructureMapListMode>
+        case 1345445729: /*listMode*/ return this.listMode == null ? new Base[0] : new Base[] {this.listMode}; // Enumeration<StructureMapSourceListMode>
         case -1249586564: /*variable*/ return this.variable == null ? new Base[0] : new Base[] {this.variable}; // IdType
         case -861311717: /*condition*/ return this.condition == null ? new Base[0] : new Base[] {this.condition}; // StringType
         case 94627080: /*check*/ return this.check == null ? new Base[0] : new Base[] {this.check}; // StringType
@@ -3237,7 +3375,7 @@ public class StructureMap extends MetadataResource {
           this.element = castToString(value); // StringType
           break;
         case 1345445729: // listMode
-          this.listMode = new StructureMapListModeEnumFactory().fromType(value); // Enumeration<StructureMapListMode>
+          this.listMode = new StructureMapSourceListModeEnumFactory().fromType(value); // Enumeration<StructureMapSourceListMode>
           break;
         case -1249586564: // variable
           this.variable = castToId(value); // IdType
@@ -3272,7 +3410,7 @@ public class StructureMap extends MetadataResource {
         else if (name.equals("element"))
           this.element = castToString(value); // StringType
         else if (name.equals("listMode"))
-          this.listMode = new StructureMapListModeEnumFactory().fromType(value); // Enumeration<StructureMapListMode>
+          this.listMode = new StructureMapSourceListModeEnumFactory().fromType(value); // Enumeration<StructureMapSourceListMode>
         else if (name.equals("variable"))
           this.variable = castToId(value); // IdType
         else if (name.equals("condition"))
@@ -3576,8 +3714,8 @@ public class StructureMap extends MetadataResource {
          */
         @Child(name = "listMode", type = {CodeType.class}, order=5, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
         @Description(shortDefinition="first | share | last", formalDefinition="If field is a list, how to manage the list." )
-        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/map-list-mode")
-        protected List<Enumeration<StructureMapListMode>> listMode;
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/map-target-list-mode")
+        protected List<Enumeration<StructureMapTargetListMode>> listMode;
 
         /**
          * Internal rule reference for shared list items.
@@ -3601,7 +3739,7 @@ public class StructureMap extends MetadataResource {
         @Description(shortDefinition="Parameters to the transform", formalDefinition="Parameters to the transform." )
         protected List<StructureMapGroupRuleTargetParameterComponent> parameter;
 
-        private static final long serialVersionUID = 775400884L;
+        private static final long serialVersionUID = -1441766429L;
 
     /**
      * Constructor
@@ -3809,16 +3947,16 @@ public class StructureMap extends MetadataResource {
         /**
          * @return {@link #listMode} (If field is a list, how to manage the list.)
          */
-        public List<Enumeration<StructureMapListMode>> getListMode() { 
+        public List<Enumeration<StructureMapTargetListMode>> getListMode() { 
           if (this.listMode == null)
-            this.listMode = new ArrayList<Enumeration<StructureMapListMode>>();
+            this.listMode = new ArrayList<Enumeration<StructureMapTargetListMode>>();
           return this.listMode;
         }
 
         /**
          * @return Returns a reference to <code>this</code> for easy method chaining
          */
-        public StructureMapGroupRuleTargetComponent setListMode(List<Enumeration<StructureMapListMode>> theListMode) { 
+        public StructureMapGroupRuleTargetComponent setListMode(List<Enumeration<StructureMapTargetListMode>> theListMode) { 
           this.listMode = theListMode;
           return this;
         }
@@ -3826,7 +3964,7 @@ public class StructureMap extends MetadataResource {
         public boolean hasListMode() { 
           if (this.listMode == null)
             return false;
-          for (Enumeration<StructureMapListMode> item : this.listMode)
+          for (Enumeration<StructureMapTargetListMode> item : this.listMode)
             if (!item.isEmpty())
               return true;
           return false;
@@ -3835,10 +3973,10 @@ public class StructureMap extends MetadataResource {
         /**
          * @return {@link #listMode} (If field is a list, how to manage the list.)
          */
-        public Enumeration<StructureMapListMode> addListModeElement() {//2 
-          Enumeration<StructureMapListMode> t = new Enumeration<StructureMapListMode>(new StructureMapListModeEnumFactory());
+        public Enumeration<StructureMapTargetListMode> addListModeElement() {//2 
+          Enumeration<StructureMapTargetListMode> t = new Enumeration<StructureMapTargetListMode>(new StructureMapTargetListModeEnumFactory());
           if (this.listMode == null)
-            this.listMode = new ArrayList<Enumeration<StructureMapListMode>>();
+            this.listMode = new ArrayList<Enumeration<StructureMapTargetListMode>>();
           this.listMode.add(t);
           return t;
         }
@@ -3846,11 +3984,11 @@ public class StructureMap extends MetadataResource {
         /**
          * @param value {@link #listMode} (If field is a list, how to manage the list.)
          */
-        public StructureMapGroupRuleTargetComponent addListMode(StructureMapListMode value) { //1
-          Enumeration<StructureMapListMode> t = new Enumeration<StructureMapListMode>(new StructureMapListModeEnumFactory());
+        public StructureMapGroupRuleTargetComponent addListMode(StructureMapTargetListMode value) { //1
+          Enumeration<StructureMapTargetListMode> t = new Enumeration<StructureMapTargetListMode>(new StructureMapTargetListModeEnumFactory());
           t.setValue(value);
           if (this.listMode == null)
-            this.listMode = new ArrayList<Enumeration<StructureMapListMode>>();
+            this.listMode = new ArrayList<Enumeration<StructureMapTargetListMode>>();
           this.listMode.add(t);
           return this;
         }
@@ -3858,10 +3996,10 @@ public class StructureMap extends MetadataResource {
         /**
          * @param value {@link #listMode} (If field is a list, how to manage the list.)
          */
-        public boolean hasListMode(StructureMapListMode value) { 
+        public boolean hasListMode(StructureMapTargetListMode value) { 
           if (this.listMode == null)
             return false;
-          for (Enumeration<StructureMapListMode> v : this.listMode)
+          for (Enumeration<StructureMapTargetListMode> v : this.listMode)
             if (v.getValue().equals(value)) // code
               return true;
           return false;
@@ -4037,7 +4175,7 @@ public class StructureMap extends MetadataResource {
         case -102839927: /*contextType*/ return this.contextType == null ? new Base[0] : new Base[] {this.contextType}; // Enumeration<StructureMapContextType>
         case -1662836996: /*element*/ return this.element == null ? new Base[0] : new Base[] {this.element}; // StringType
         case -1249586564: /*variable*/ return this.variable == null ? new Base[0] : new Base[] {this.variable}; // IdType
-        case 1345445729: /*listMode*/ return this.listMode == null ? new Base[0] : this.listMode.toArray(new Base[this.listMode.size()]); // Enumeration<StructureMapListMode>
+        case 1345445729: /*listMode*/ return this.listMode == null ? new Base[0] : this.listMode.toArray(new Base[this.listMode.size()]); // Enumeration<StructureMapTargetListMode>
         case 337117045: /*listRuleId*/ return this.listRuleId == null ? new Base[0] : new Base[] {this.listRuleId}; // IdType
         case 1052666732: /*transform*/ return this.transform == null ? new Base[0] : new Base[] {this.transform}; // Enumeration<StructureMapTransform>
         case 1954460585: /*parameter*/ return this.parameter == null ? new Base[0] : this.parameter.toArray(new Base[this.parameter.size()]); // StructureMapGroupRuleTargetParameterComponent
@@ -4062,7 +4200,7 @@ public class StructureMap extends MetadataResource {
           this.variable = castToId(value); // IdType
           break;
         case 1345445729: // listMode
-          this.getListMode().add(new StructureMapListModeEnumFactory().fromType(value)); // Enumeration<StructureMapListMode>
+          this.getListMode().add(new StructureMapTargetListModeEnumFactory().fromType(value)); // Enumeration<StructureMapTargetListMode>
           break;
         case 337117045: // listRuleId
           this.listRuleId = castToId(value); // IdType
@@ -4089,7 +4227,7 @@ public class StructureMap extends MetadataResource {
         else if (name.equals("variable"))
           this.variable = castToId(value); // IdType
         else if (name.equals("listMode"))
-          this.getListMode().add(new StructureMapListModeEnumFactory().fromType(value));
+          this.getListMode().add(new StructureMapTargetListModeEnumFactory().fromType(value));
         else if (name.equals("listRuleId"))
           this.listRuleId = castToId(value); // IdType
         else if (name.equals("transform"))
@@ -4154,8 +4292,8 @@ public class StructureMap extends MetadataResource {
         dst.element = element == null ? null : element.copy();
         dst.variable = variable == null ? null : variable.copy();
         if (listMode != null) {
-          dst.listMode = new ArrayList<Enumeration<StructureMapListMode>>();
-          for (Enumeration<StructureMapListMode> i : listMode)
+          dst.listMode = new ArrayList<Enumeration<StructureMapTargetListMode>>();
+          for (Enumeration<StructureMapTargetListMode> i : listMode)
             dst.listMode.add(i.copy());
         };
         dst.listRuleId = listRuleId == null ? null : listRuleId.copy();
@@ -4447,13 +4585,13 @@ public class StructureMap extends MetadataResource {
         protected IdType name;
 
         /**
-         * Names of variables to pass to the rule or group.
+         * Variables to pass to the rule or group.
          */
-        @Child(name = "variable", type = {StringType.class}, order=2, min=1, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-        @Description(shortDefinition="Names of variables to pass to the rule or group", formalDefinition="Names of variables to pass to the rule or group." )
-        protected List<StringType> variable;
+        @Child(name = "variable", type = {}, order=2, min=1, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+        @Description(shortDefinition="Variables to pass to the rule or group", formalDefinition="Variables to pass to the rule or group." )
+        protected List<StructureMapGroupRuleDependentVariableComponent> variable;
 
-        private static final long serialVersionUID = 1021661591L;
+        private static final long serialVersionUID = 1850056670L;
 
     /**
      * Constructor
@@ -4516,18 +4654,18 @@ public class StructureMap extends MetadataResource {
         }
 
         /**
-         * @return {@link #variable} (Names of variables to pass to the rule or group.)
+         * @return {@link #variable} (Variables to pass to the rule or group.)
          */
-        public List<StringType> getVariable() { 
+        public List<StructureMapGroupRuleDependentVariableComponent> getVariable() { 
           if (this.variable == null)
-            this.variable = new ArrayList<StringType>();
+            this.variable = new ArrayList<StructureMapGroupRuleDependentVariableComponent>();
           return this.variable;
         }
 
         /**
          * @return Returns a reference to <code>this</code> for easy method chaining
          */
-        public StructureMapGroupRuleDependentComponent setVariable(List<StringType> theVariable) { 
+        public StructureMapGroupRuleDependentComponent setVariable(List<StructureMapGroupRuleDependentVariableComponent> theVariable) { 
           this.variable = theVariable;
           return this;
         }
@@ -4535,58 +4673,50 @@ public class StructureMap extends MetadataResource {
         public boolean hasVariable() { 
           if (this.variable == null)
             return false;
-          for (StringType item : this.variable)
+          for (StructureMapGroupRuleDependentVariableComponent item : this.variable)
             if (!item.isEmpty())
               return true;
           return false;
         }
 
-        /**
-         * @return {@link #variable} (Names of variables to pass to the rule or group.)
-         */
-        public StringType addVariableElement() {//2 
-          StringType t = new StringType();
+        public StructureMapGroupRuleDependentVariableComponent addVariable() { //3
+          StructureMapGroupRuleDependentVariableComponent t = new StructureMapGroupRuleDependentVariableComponent();
           if (this.variable == null)
-            this.variable = new ArrayList<StringType>();
+            this.variable = new ArrayList<StructureMapGroupRuleDependentVariableComponent>();
           this.variable.add(t);
           return t;
         }
 
-        /**
-         * @param value {@link #variable} (Names of variables to pass to the rule or group.)
-         */
-        public StructureMapGroupRuleDependentComponent addVariable(String value) { //1
-          StringType t = new StringType();
-          t.setValue(value);
+        public StructureMapGroupRuleDependentComponent addVariable(StructureMapGroupRuleDependentVariableComponent t) { //3
+          if (t == null)
+            return this;
           if (this.variable == null)
-            this.variable = new ArrayList<StringType>();
+            this.variable = new ArrayList<StructureMapGroupRuleDependentVariableComponent>();
           this.variable.add(t);
           return this;
         }
 
         /**
-         * @param value {@link #variable} (Names of variables to pass to the rule or group.)
+         * @return The first repetition of repeating field {@link #variable}, creating it if it does not already exist
          */
-        public boolean hasVariable(String value) { 
-          if (this.variable == null)
-            return false;
-          for (StringType v : this.variable)
-            if (v.equals(value)) // string
-              return true;
-          return false;
+        public StructureMapGroupRuleDependentVariableComponent getVariableFirstRep() { 
+          if (getVariable().isEmpty()) {
+            addVariable();
+          }
+          return getVariable().get(0);
         }
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("name", "id", "Name of a rule or group to apply.", 0, java.lang.Integer.MAX_VALUE, name));
-          childrenList.add(new Property("variable", "string", "Names of variables to pass to the rule or group.", 0, java.lang.Integer.MAX_VALUE, variable));
+          childrenList.add(new Property("variable", "", "Variables to pass to the rule or group.", 0, java.lang.Integer.MAX_VALUE, variable));
         }
 
       @Override
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
         case 3373707: /*name*/ return this.name == null ? new Base[0] : new Base[] {this.name}; // IdType
-        case -1249586564: /*variable*/ return this.variable == null ? new Base[0] : this.variable.toArray(new Base[this.variable.size()]); // StringType
+        case -1249586564: /*variable*/ return this.variable == null ? new Base[0] : this.variable.toArray(new Base[this.variable.size()]); // StructureMapGroupRuleDependentVariableComponent
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -4599,7 +4729,7 @@ public class StructureMap extends MetadataResource {
           this.name = castToId(value); // IdType
           break;
         case -1249586564: // variable
-          this.getVariable().add(castToString(value)); // StringType
+          this.getVariable().add((StructureMapGroupRuleDependentVariableComponent) value); // StructureMapGroupRuleDependentVariableComponent
           break;
         default: super.setProperty(hash, name, value);
         }
@@ -4611,7 +4741,7 @@ public class StructureMap extends MetadataResource {
         if (name.equals("name"))
           this.name = castToId(value); // IdType
         else if (name.equals("variable"))
-          this.getVariable().add(castToString(value));
+          this.getVariable().add((StructureMapGroupRuleDependentVariableComponent) value);
         else
           super.setProperty(name, value);
       }
@@ -4620,7 +4750,7 @@ public class StructureMap extends MetadataResource {
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 3373707:  return getNameElement();
-        case -1249586564:  return addVariableElement();
+        case -1249586564:  return addVariable(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -4632,7 +4762,7 @@ public class StructureMap extends MetadataResource {
           throw new FHIRException("Cannot call addChild on a primitive type StructureMap.name");
         }
         else if (name.equals("variable")) {
-          throw new FHIRException("Cannot call addChild on a primitive type StructureMap.variable");
+          return addVariable();
         }
         else
           return super.addChild(name);
@@ -4643,8 +4773,8 @@ public class StructureMap extends MetadataResource {
         copyValues(dst);
         dst.name = name == null ? null : name.copy();
         if (variable != null) {
-          dst.variable = new ArrayList<StringType>();
-          for (StringType i : variable)
+          dst.variable = new ArrayList<StructureMapGroupRuleDependentVariableComponent>();
+          for (StructureMapGroupRuleDependentVariableComponent i : variable)
             dst.variable.add(i.copy());
         };
         return dst;
@@ -4667,7 +4797,7 @@ public class StructureMap extends MetadataResource {
         if (!(other instanceof StructureMapGroupRuleDependentComponent))
           return false;
         StructureMapGroupRuleDependentComponent o = (StructureMapGroupRuleDependentComponent) other;
-        return compareValues(name, o.name, true) && compareValues(variable, o.variable, true);
+        return compareValues(name, o.name, true);
       }
 
       public boolean isEmpty() {
@@ -4676,6 +4806,333 @@ public class StructureMap extends MetadataResource {
 
   public String fhirType() {
     return "StructureMap.group.rule.dependent";
+
+  }
+
+  }
+
+    @Block()
+    public static class StructureMapGroupRuleDependentVariableComponent extends BackboneElement implements IBaseBackboneElement {
+        /**
+         * Name of variable.
+         */
+        @Child(name = "name", type = {StringType.class}, order=1, min=1, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="Name of variable", formalDefinition="Name of variable." )
+        protected StringType name;
+
+        /**
+         * Value if this is not already a known variable.
+         */
+        @Child(name = "value", type = {}, order=2, min=0, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="Value if this is not already a known variable", formalDefinition="Value if this is not already a known variable." )
+        protected org.hl7.fhir.dstu3.model.Type value;
+
+        private static final long serialVersionUID = 342865819L;
+
+    /**
+     * Constructor
+     */
+      public StructureMapGroupRuleDependentVariableComponent() {
+        super();
+      }
+
+    /**
+     * Constructor
+     */
+      public StructureMapGroupRuleDependentVariableComponent(StringType name) {
+        super();
+        this.name = name;
+      }
+
+        /**
+         * @return {@link #name} (Name of variable.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
+         */
+        public StringType getNameElement() { 
+          if (this.name == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create StructureMapGroupRuleDependentVariableComponent.name");
+            else if (Configuration.doAutoCreate())
+              this.name = new StringType(); // bb
+          return this.name;
+        }
+
+        public boolean hasNameElement() { 
+          return this.name != null && !this.name.isEmpty();
+        }
+
+        public boolean hasName() { 
+          return this.name != null && !this.name.isEmpty();
+        }
+
+        /**
+         * @param value {@link #name} (Name of variable.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
+         */
+        public StructureMapGroupRuleDependentVariableComponent setNameElement(StringType value) { 
+          this.name = value;
+          return this;
+        }
+
+        /**
+         * @return Name of variable.
+         */
+        public String getName() { 
+          return this.name == null ? null : this.name.getValue();
+        }
+
+        /**
+         * @param value Name of variable.
+         */
+        public StructureMapGroupRuleDependentVariableComponent setName(String value) { 
+            if (this.name == null)
+              this.name = new StringType();
+            this.name.setValue(value);
+          return this;
+        }
+
+        /**
+         * @return {@link #value} (Value if this is not already a known variable.)
+         */
+        public org.hl7.fhir.dstu3.model.Type getValue() { 
+          return this.value;
+        }
+
+        public boolean hasValue() { 
+          return this.value != null && !this.value.isEmpty();
+        }
+
+        /**
+         * @param value {@link #value} (Value if this is not already a known variable.)
+         */
+        public StructureMapGroupRuleDependentVariableComponent setValue(org.hl7.fhir.dstu3.model.Type value) { 
+          this.value = value;
+          return this;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("name", "string", "Name of variable.", 0, java.lang.Integer.MAX_VALUE, name));
+          childrenList.add(new Property("value[x]", "*", "Value if this is not already a known variable.", 0, java.lang.Integer.MAX_VALUE, value));
+        }
+
+      @Override
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 3373707: /*name*/ return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
+        case 111972721: /*value*/ return this.value == null ? new Base[0] : new Base[] {this.value}; // org.hl7.fhir.dstu3.model.Type
+        default: return super.getProperty(hash, name, checkValid);
+        }
+
+      }
+
+      @Override
+      public void setProperty(int hash, String name, Base value) throws FHIRException {
+        switch (hash) {
+        case 3373707: // name
+          this.name = castToString(value); // StringType
+          break;
+        case 111972721: // value
+          this.value = castToType(value); // org.hl7.fhir.dstu3.model.Type
+          break;
+        default: super.setProperty(hash, name, value);
+        }
+
+      }
+
+      @Override
+      public void setProperty(String name, Base value) throws FHIRException {
+        if (name.equals("name"))
+          this.name = castToString(value); // StringType
+        else if (name.equals("value[x]"))
+          this.value = castToType(value); // org.hl7.fhir.dstu3.model.Type
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base makeProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 3373707:  return getNameElement();
+        case -1410166417:  return getValue(); 
+        default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public Base addChild(String name) throws FHIRException {
+        if (name.equals("name")) {
+          throw new FHIRException("Cannot call addChild on a primitive type StructureMap.name");
+        }
+        else if (name.equals("valueBoolean")) {
+          this.value = new BooleanType();
+          return this.value;
+        }
+        else if (name.equals("valueInteger")) {
+          this.value = new IntegerType();
+          return this.value;
+        }
+        else if (name.equals("valueDecimal")) {
+          this.value = new DecimalType();
+          return this.value;
+        }
+        else if (name.equals("valueBase64Binary")) {
+          this.value = new Base64BinaryType();
+          return this.value;
+        }
+        else if (name.equals("valueInstant")) {
+          this.value = new InstantType();
+          return this.value;
+        }
+        else if (name.equals("valueString")) {
+          this.value = new StringType();
+          return this.value;
+        }
+        else if (name.equals("valueUri")) {
+          this.value = new UriType();
+          return this.value;
+        }
+        else if (name.equals("valueDate")) {
+          this.value = new DateType();
+          return this.value;
+        }
+        else if (name.equals("valueDateTime")) {
+          this.value = new DateTimeType();
+          return this.value;
+        }
+        else if (name.equals("valueTime")) {
+          this.value = new TimeType();
+          return this.value;
+        }
+        else if (name.equals("valueCode")) {
+          this.value = new CodeType();
+          return this.value;
+        }
+        else if (name.equals("valueOid")) {
+          this.value = new OidType();
+          return this.value;
+        }
+        else if (name.equals("valueId")) {
+          this.value = new IdType();
+          return this.value;
+        }
+        else if (name.equals("valueUnsignedInt")) {
+          this.value = new UnsignedIntType();
+          return this.value;
+        }
+        else if (name.equals("valuePositiveInt")) {
+          this.value = new PositiveIntType();
+          return this.value;
+        }
+        else if (name.equals("valueMarkdown")) {
+          this.value = new MarkdownType();
+          return this.value;
+        }
+        else if (name.equals("valueAnnotation")) {
+          this.value = new Annotation();
+          return this.value;
+        }
+        else if (name.equals("valueAttachment")) {
+          this.value = new Attachment();
+          return this.value;
+        }
+        else if (name.equals("valueIdentifier")) {
+          this.value = new Identifier();
+          return this.value;
+        }
+        else if (name.equals("valueCodeableConcept")) {
+          this.value = new CodeableConcept();
+          return this.value;
+        }
+        else if (name.equals("valueCoding")) {
+          this.value = new Coding();
+          return this.value;
+        }
+        else if (name.equals("valueQuantity")) {
+          this.value = new Quantity();
+          return this.value;
+        }
+        else if (name.equals("valueRange")) {
+          this.value = new Range();
+          return this.value;
+        }
+        else if (name.equals("valuePeriod")) {
+          this.value = new Period();
+          return this.value;
+        }
+        else if (name.equals("valueRatio")) {
+          this.value = new Ratio();
+          return this.value;
+        }
+        else if (name.equals("valueSampledData")) {
+          this.value = new SampledData();
+          return this.value;
+        }
+        else if (name.equals("valueSignature")) {
+          this.value = new Signature();
+          return this.value;
+        }
+        else if (name.equals("valueHumanName")) {
+          this.value = new HumanName();
+          return this.value;
+        }
+        else if (name.equals("valueAddress")) {
+          this.value = new Address();
+          return this.value;
+        }
+        else if (name.equals("valueContactPoint")) {
+          this.value = new ContactPoint();
+          return this.value;
+        }
+        else if (name.equals("valueTiming")) {
+          this.value = new Timing();
+          return this.value;
+        }
+        else if (name.equals("valueReference")) {
+          this.value = new Reference();
+          return this.value;
+        }
+        else if (name.equals("valueMeta")) {
+          this.value = new Meta();
+          return this.value;
+        }
+        else
+          return super.addChild(name);
+      }
+
+      public StructureMapGroupRuleDependentVariableComponent copy() {
+        StructureMapGroupRuleDependentVariableComponent dst = new StructureMapGroupRuleDependentVariableComponent();
+        copyValues(dst);
+        dst.name = name == null ? null : name.copy();
+        dst.value = value == null ? null : value.copy();
+        return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof StructureMapGroupRuleDependentVariableComponent))
+          return false;
+        StructureMapGroupRuleDependentVariableComponent o = (StructureMapGroupRuleDependentVariableComponent) other;
+        return compareDeep(name, o.name, true) && compareDeep(value, o.value, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof StructureMapGroupRuleDependentVariableComponent))
+          return false;
+        StructureMapGroupRuleDependentVariableComponent o = (StructureMapGroupRuleDependentVariableComponent) other;
+        return compareValues(name, o.name, true);
+      }
+
+      public boolean isEmpty() {
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(name, value);
+      }
+
+  public String fhirType() {
+    return "StructureMap.group.rule.dependent.variable";
 
   }
 

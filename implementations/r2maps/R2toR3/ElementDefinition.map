@@ -30,8 +30,11 @@ imports "http://hl7.org/fhir/StructureMap/CodeableConcept2to3"
 group ElementDefinition extends Element
   input src : ElementDefinitionR2 as source
   input tgt : ElementDefinition as target
+  input first : boolean as source
 
+  "ElementDefinition-id" : for src.path as vs make tgt.id as vt then stringToId(vs, vt)
   "ElementDefinition-path" : for src.path as vs make tgt.path as vt then string(vs, vt)
+  "ElementDefinition-representation" : for src.representation as vs make tgt.representation as vt then code(vs, vt)
   "ElementDefinition-sliceName" : for src.name as vs make tgt.sliceName as vt then string(vs, vt)
   "ElementDefinition-id" : for src.name as vs make tgt.id as vt then string(vs, vt)
   "ElementDefinition-label" : for src.label as vs make tgt.label as vt then string(vs, vt)
@@ -54,7 +57,11 @@ group ElementDefinition extends Element
     "ElementDefinition.base-min" : for vs0.min as vs make vt0.min as vt then integer(vs, vt)
     "ElementDefinition.base-max" : for vs0.max as vs make vt0.max as vt then string(vs, vt)
   }
-  "ElementDefinition-type" : for src.type as vs0 make tgt.type as vt0 then {
+  "ElementDefinition-type" : for src.type as vs0 where first.not() make tgt.type as vt0 then {
+    "ElementDefinition.type-code" : for vs0.code as vs make vt0.code as vt then codeToUri(vs, vt)
+    "ElementDefinition.type-profile1" : for vs0.profile as vs where code = 'Reference' make vt0.profile as vt then uri(vs, vt)
+    "ElementDefinition.type-profile2" : for vs0.profile as vs where code != 'Reference' make vt0.targetProfile as vt then uri(vs, vt)
+    "ElementDefinition.type-aggregation" : for vs0.aggregation as vs make vt0.aggregation as vt then code(vs, vt)
   }
   "ElementDefinition-defaultValue-boolean" : for src.defaultValue  : boolean as vs make tgt.defaultValue = create("boolean") as vt then boolean(vs,vt)
   "ElementDefinition-defaultValue-integer" : for src.defaultValue  : integer as vs make tgt.defaultValue = create("integer") as vt then integer(vs,vt)
@@ -182,6 +189,7 @@ group ElementDefinition extends Element
     "ElementDefinition.constraint-severity" : for vs0.severity as vs make vt0.severity as vt then code(vs, vt)
     "ElementDefinition.constraint-human" : for vs0.human as vs make vt0.human as vt then string(vs, vt)
     "ElementDefinition.constraint-xpath" : for vs0.xpath as vs make vt0.xpath as vt then string(vs, vt)
+    "ElementDefinition.constraint-expression" : for vs0 make vt0.expression = "todo"
   }
   "ElementDefinition-mustSupport" : for src.mustSupport as vs make tgt.mustSupport as vt then boolean(vs, vt)
   "ElementDefinition-isModifier" : for src.isModifier as vs make tgt.isModifier as vt then boolean(vs, vt)

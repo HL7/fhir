@@ -30,10 +30,17 @@
   Conformance = required
 
  -- Row 5 -----------------------------------
-  Binding Name = StructureMapListMode
+  Binding Name = StructureMapSourceListMode
   Binding = code list
-  Reference = #map-list-mode
-  Definition = If field is a list, how to manage the list
+  Reference = #map-source-list-mode
+  Definition = If field is a list, how to manage the source
+  Conformance = required
+
+ -- Row 6 -----------------------------------
+  Binding Name = StructureMapTargetListMode
+  Binding = code list
+  Reference = #map-target-list-mode
+  Definition = If field is a list, how to manage the production
   Conformance = required
 
 === Sheet map-model-mode =====================================
@@ -194,7 +201,39 @@
   Display = cp
   Definition = Create a contact details. Parameters = (value) or (system, value). If no system is provided, the system should be inferred from the content of the value
 
-=== Sheet map-list-mode =====================================
+=== Sheet map-source-list-mode =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = first
+  Display = First
+  Definition = Only process this rule for the first in the list
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = not_first
+  Display = All but the first
+  Definition = Process this rule for all but the first
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = last
+  Display = Last
+  Definition = Only process this rule for the last in the list
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = not_last
+  Display = All but the last
+  Definition = Process this rule for all but the last
+
+ -- Row 5 -----------------------------------
+  Id = 5
+  Code = only_one
+  Display = Enforce only one
+  Definition = Only process this rule is there is only item
+
+=== Sheet map-target-list-mode =====================================
 
  -- Row 1 -----------------------------------
   Id = 1
@@ -502,8 +541,8 @@
   Card. = 0..1
   Summary = y
   Type = code
-  Binding = StructureMapListMode
-  Short Name = first | share | last
+  Binding = StructureMapSourceListMode
+  Short Name = first | not_first | last | not_last | only_one
   Definition = How to handle the list mode for this element
 
  -- Row 44 -----------------------------------
@@ -570,7 +609,7 @@
   Card. = 0..*
   Summary = y
   Type = code
-  Binding = StructureMapListMode
+  Binding = StructureMapTargetListMode
   Short Name = first | share | last
   Definition = If field is a list, how to manage the list
 
@@ -629,10 +668,23 @@
   Element = StructureMap.group.rule.dependent.variable
   Card. = 1..*
   Summary = y
-  Type = string
-  Short Name = Names of variables to pass to the rule or group
+  Short Name = Variables to pass to the rule or group
 
  -- Row 61 -----------------------------------
+  Element = StructureMap.group.rule.dependent.variable.name
+  Card. = 1..1
+  Summary = y
+  Type = string
+  Short Name = Name of variable
+
+ -- Row 62 -----------------------------------
+  Element = StructureMap.group.rule.dependent.variable.value[x]
+  Card. = 0..1
+  Summary = y
+  Type = *
+  Short Name = Value if this is not already a known variable
+
+ -- Row 63 -----------------------------------
   Element = StructureMap.group.rule.documentation
   Card. = 0..1
   Type = string

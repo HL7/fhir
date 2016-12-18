@@ -50,11 +50,13 @@ import org.hl7.fhir.dstu3.model.StructureMap.StructureMapGroupComponent;
 import org.hl7.fhir.dstu3.model.StructureMap.StructureMapGroupInputComponent;
 import org.hl7.fhir.dstu3.model.StructureMap.StructureMapGroupRuleComponent;
 import org.hl7.fhir.dstu3.model.StructureMap.StructureMapGroupRuleDependentComponent;
+import org.hl7.fhir.dstu3.model.StructureMap.StructureMapGroupRuleDependentVariableComponent;
 import org.hl7.fhir.dstu3.model.StructureMap.StructureMapGroupRuleSourceComponent;
 import org.hl7.fhir.dstu3.model.StructureMap.StructureMapGroupRuleTargetComponent;
 import org.hl7.fhir.dstu3.model.StructureMap.StructureMapGroupRuleTargetParameterComponent;
 import org.hl7.fhir.dstu3.model.StructureMap.StructureMapInputMode;
-import org.hl7.fhir.dstu3.model.StructureMap.StructureMapListMode;
+import org.hl7.fhir.dstu3.model.StructureMap.StructureMapSourceListMode;
+import org.hl7.fhir.dstu3.model.StructureMap.StructureMapTargetListMode;
 import org.hl7.fhir.dstu3.model.StructureMap.StructureMapModelMode;
 import org.hl7.fhir.dstu3.model.StructureMap.StructureMapStructureComponent;
 import org.hl7.fhir.dstu3.model.StructureMap.StructureMapTransform;
@@ -115,10 +117,14 @@ public class StructureMapUtilities {
 
 	}
 
-	private class FluentPathHostServices implements IEvaluationContext{
+	private class FFHIRPathHostServices implements IEvaluationContext{
 
     public Base resolveConstant(Object appContext, String name) throws PathEngineException {
-      throw new Error("Not Implemented Yet");
+      Variables vars = (Variables) appContext;
+      Base res = vars.get(VariableMode.INPUT, name);
+      if (res == null)
+        res = vars.get(VariableMode.OUTPUT, name);
+      return res;
     }
 
     @Override
@@ -167,7 +173,7 @@ public class StructureMapUtilities {
 		this.services = services;
 		this.pkp = pkp;
 		fpe = new FHIRPathEngine(worker);
-		fpe.setHostServices(new FluentPathHostServices());
+		fpe.setHostServices(new FFHIRPathHostServices());
 	}
 
 	public StructureMapUtilities(IWorkerContext worker, Map<String, StructureMap> library, ITransformerServices services) {
@@ -176,6 +182,7 @@ public class StructureMapUtilities {
 		this.library = library;
 		this.services = services;
 		fpe = new FHIRPathEngine(worker);
+    fpe.setHostServices(new FFHIRPathHostServices());
 	}
 
   public StructureMapUtilities(IWorkerContext worker, Map<String, StructureMap> library) {
@@ -183,12 +190,14 @@ public class StructureMapUtilities {
     this.worker = worker;
     this.library = library;
     fpe = new FHIRPathEngine(worker);
+    fpe.setHostServices(new FFHIRPathHostServices());
   }
 
   public StructureMapUtilities(IWorkerContext worker) {
     super();
     this.worker = worker;
     fpe = new FHIRPathEngine(worker);
+    fpe.setHostServices(new FFHIRPathHostServices());
   }
 
   public StructureMapUtilities(IWorkerContext worker, ITransformerServices services) {
@@ -201,6 +210,7 @@ public class StructureMapUtilities {
     }
     this.services = services;
     fpe = new FHIRPathEngine(worker);
+    fpe.setHostServices(new FFHIRPathHostServices());
   }
 
 	public static String render(StructureMap map) {
@@ -342,12 +352,22 @@ public class StructureMapUtilities {
 					b.append(rd.getName());
 					b.append("(");
 					boolean ifirst = true;
-					for (StringType rdp : rd.getVariable()) {
+					for (StructureMapGroupRuleDependentVariableComponent rdp : rd.getVariable()) {
 						if (ifirst)
 							ifirst = false;
 						else
 							b.append(", ");
-						b.append(rd.getVariable());
+						b.append(rdp.getName());
+						if (rdp.hasValue()) {
+              b.append(" = ");
+              if (rdp.getValue() instanceof BooleanType) {
+                b.append(((BooleanType) rdp.getValue()).asStringValue());
+              } else if (rdp.getValue() instanceof StringType) {
+                b.append("\"");
+                b.append(Utilities.escapeJson(((StringType) rdp.getValue()).asStringValue()));
+                b.append("\"");
+              }						  
+						}
 					}
 				}
 			}
@@ -373,9 +393,6 @@ public class StructureMapUtilities {
 		}
 		if (rs.hasListMode()) {
 			b.append(" ");
-			if (rs.getListMode() == StructureMapListMode.SHARE)
-				b.append("only_one");
-			else
 				b.append(rs.getListMode().toCode());
 		}
 		if (rs.hasDefaultValue()) {
@@ -446,10 +463,10 @@ public class StructureMapUtilities {
 			b.append(" as ");
 			b.append(rt.getVariable());
 		}
-		for (Enumeration<StructureMapListMode> lm : rt.getListMode()) {
+		for (Enumeration<StructureMapTargetListMode> lm : rt.getListMode()) {
 			b.append(" ");
 			b.append(lm.getValue().toCode());
-			if (lm.getValue() == StructureMapListMode.SHARE) {
+			if (lm.getValue() == StructureMapTargetListMode.SHARE) {
 				b.append(" ");
 				b.append(rt.getListRuleId());
 			}
@@ -733,7 +750,15 @@ public class StructureMapUtilities {
 		lexer.token("(");
 		boolean done = false;
 		while (!done) {
-			ref.addVariable(lexer.take());
+			StructureMapGroupRuleDependentVariableComponent rdp = ref.addVariable();
+			rdp.setName(lexer.take());
+			if (lexer.hasToken("=")) {
+			  lexer.token("=");
+			  if (lexer.hasToken("true", "false"))			    
+	        rdp.setValue(new BooleanType(lexer.take()));
+			  else  
+  			  rdp.setValue(new StringType(lexer.readConstant("variable value")));
+			}
 			done = !lexer.hasToken(",");
 			if (!done)
 				lexer.next();
@@ -757,7 +782,7 @@ public class StructureMapUtilities {
 		  // type and cardinality
 		  lexer.token(":");
 		  source.setType(lexer.takeDottedToken());
-		  if (!lexer.hasToken("as", "first", "last", "only_one", "default")) {
+		  if (!lexer.hasToken("as", "first", "last", "not_first", "not_last", "only_one", "default")) {
 		    source.setMin(lexer.takeInt());
 		    lexer.token("..");
 		    source.setMax(lexer.take());
@@ -767,12 +792,8 @@ public class StructureMapUtilities {
 		  lexer.token("default");
 		  source.setDefaultValue(new StringType(lexer.readConstant("default value")));
 		}
-		if (Utilities.existsInList(lexer.getCurrent(), "first", "last", "only_one", "default"))
-			if (lexer.getCurrent().equals("only_one")) { 
-				source.setListMode(StructureMapListMode.SHARE);
-				lexer.take();
-			} else 
-				source.setListMode(StructureMapListMode.fromCode(lexer.take()));
+		if (Utilities.existsInList(lexer.getCurrent(), "first", "last", "not_first", "not_last", "only_one"))
+			source.setListMode(StructureMapSourceListMode.fromCode(lexer.take()));
 
 		if (lexer.hasToken("as")) {
 			lexer.take();
@@ -853,15 +874,15 @@ public class StructureMapUtilities {
 			lexer.take();
 			target.setVariable(lexer.take());
 		}
-		while (Utilities.existsInList(lexer.getCurrent(), "first", "last", "share", "only_one")) {
+		while (Utilities.existsInList(lexer.getCurrent(), "first", "last", "share")) {
 			if (lexer.getCurrent().equals("share")) {
-				target.addListMode(StructureMapListMode.SHARE);
+				target.addListMode(StructureMapTargetListMode.SHARE);
 				lexer.next();
 				target.setListRuleId(lexer.take());
 			} else if (lexer.getCurrent().equals("first")) 
-				target.addListMode(StructureMapListMode.FIRST);
+				target.addListMode(StructureMapTargetListMode.FIRST);
 			else
-				target.addListMode(StructureMapListMode.LAST);
+				target.addListMode(StructureMapTargetListMode.LAST);
 			lexer.next();
 		}
 	}
@@ -1082,9 +1103,12 @@ public class StructureMapUtilities {
 		Variables v = new Variables();
 		for (int i = 0; i < rg.target.getInput().size(); i++) {
 			StructureMapGroupInputComponent input = rg.target.getInput().get(i);
-			StringType var = dependent.getVariable().get(i);
+			StructureMapGroupRuleDependentVariableComponent rdp = dependent.getVariable().get(i);
+      String var = rdp.getName();
 			VariableMode mode = input.getMode() == StructureMapInputMode.SOURCE ? VariableMode.INPUT : VariableMode.OUTPUT;
-			Base vv = vin.get(mode, var.getValue());
+			Base vv = vin.get(mode, var);
+      if (vv == null && rdp.hasValue())
+        vv = rdp.getValue();
 			if (vv == null)
 				throw new FHIRException("Rule '"+dependent.getName()+"' "+mode.toString()+" variable '"+input.getName()+"' has no value");
 			v.add(mode, input.getName(), vv);    	
@@ -1138,7 +1162,7 @@ public class StructureMapUtilities {
 				//        fpe.check(context.appInfo, ??, ??, expr)
 				src.setUserData(MAP_WHERE_EXPRESSION, expr);
 			}
-			if (!fpe.evaluateToBoolean(null, b, expr))
+			if (!fpe.evaluateToBoolean(vars, null, b, expr))
 				return null;
 		}
 
@@ -1161,6 +1185,42 @@ public class StructureMapUtilities {
 			if (items.size() == 0 && src.hasDefaultValue())
 			  items.add(src.getDefaultValue());
 		}
+		if (src.hasType()) {
+	    List<Base> remove = new ArrayList<Base>();
+	    for (Base item : items) {
+	      if (!isType(item, src.getType())) {
+	        remove.add(item);
+	      }
+	    }
+	    items.removeAll(remove);
+		}
+		if (src.hasListMode()) {
+		  switch (src.getListMode()) {
+		  case FIRST:
+		    Base bt = items.get(0);
+        items.clear();
+        items.add(bt);
+		    break;
+		  case NOTFIRST: 
+        if (items.size() > 1)
+          items.remove(0);
+        break;
+		  case LAST:
+        bt = items.get(items.size()-1);
+        items.clear();
+        items.add(bt);
+        break;
+		  case NOTLAST: 
+        if (items.size() > 1)
+          items.remove(items.size()-1);
+        break;
+		  case ONLYONE:
+		    if (items.size() > 1)
+		      items.clear();
+        break;
+      case NULL:
+		  }
+		}
 		List<Variables> result = new ArrayList<Variables>();
 		for (Base r : items) {
 			Variables v = vars.copy();
@@ -1172,7 +1232,13 @@ public class StructureMapUtilities {
 	}
 
 
-	private void processTarget(String ruleId, TransformContext context, Variables vars, StructureMap map, StructureMapGroupRuleTargetComponent tgt) throws FHIRException {
+	private boolean isType(Base item, String type) {
+    if (item.fhirType().equals(type))
+      return true;
+    return false;
+  }
+
+  private void processTarget(String ruleId, TransformContext context, Variables vars, StructureMap map, StructureMapGroupRuleTargetComponent tgt) throws FHIRException {
 	  Base dest = null;
 	  if (tgt.hasContext()) {
   		dest = vars.get(VariableMode.OUTPUT, tgt.getContext());
@@ -1197,9 +1263,11 @@ public class StructureMapUtilities {
 	    switch (tgt.getTransform()) {
 	    case CREATE :
 	      Base res = ResourceFactory.createResourceOrType(getParamStringNoNull(vars, tgt.getParameter().get(0), tgt.toString()));
-	      res.setIdBase(tgt.getParameter().size() > 1 ? getParamString(vars, tgt.getParameter().get(0)) : UUID.randomUUID().toString().toLowerCase());
-	      if (services != null) 
-	        res = services.createResource(context, res);
+	      if (res.isResource()) {
+	        res.setIdBase(tgt.getParameter().size() > 1 ? getParamString(vars, tgt.getParameter().get(0)) : UUID.randomUUID().toString().toLowerCase());
+	        if (services != null) 
+	          res = services.createResource(context, res);
+	      }
 	      if (tgt.hasUserData("profile"))
 	        res.setUserData("profile", tgt.getUserData("profile"));
 	      return res;

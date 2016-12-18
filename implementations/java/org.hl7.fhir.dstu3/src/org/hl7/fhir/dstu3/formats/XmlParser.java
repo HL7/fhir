@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Sun, Dec 18, 2016 09:18+1100 for FHIR v1.9.0
+// Generated on Sun, Dec 18, 2016 21:26+1100 for FHIR v1.9.0
 
 import org.hl7.fhir.dstu3.model.DateType;
 import org.hl7.fhir.dstu3.model.DateTimeType;
@@ -14731,7 +14731,7 @@ public class XmlParser extends XmlParserBase {
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("element")) {
         res.setElementElement(parseString(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("listMode")) {
-        res.setListModeElement(parseEnumeration(xpp, StructureMap.StructureMapListMode.NULL, new StructureMap.StructureMapListModeEnumFactory()));
+        res.setListModeElement(parseEnumeration(xpp, StructureMap.StructureMapSourceListMode.NULL, new StructureMap.StructureMapSourceListModeEnumFactory()));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("variable")) {
         res.setVariableElement(parseId(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("condition")) {
@@ -14768,7 +14768,7 @@ public class XmlParser extends XmlParserBase {
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("variable")) {
         res.setVariableElement(parseId(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("listMode")) {
-        res.getListMode().add(parseEnumeration(xpp, StructureMap.StructureMapListMode.NULL, new StructureMap.StructureMapListModeEnumFactory()));
+        res.getListMode().add(parseEnumeration(xpp, StructureMap.StructureMapTargetListMode.NULL, new StructureMap.StructureMapTargetListModeEnumFactory()));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("listRuleId")) {
         res.setListRuleIdElement(parseId(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("transform")) {
@@ -14822,7 +14822,32 @@ public class XmlParser extends XmlParserBase {
       if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("name")) {
         res.setNameElement(parseId(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("variable")) {
-        res.getVariable().add(parseString(xpp));
+        res.getVariable().add(parseStructureMapStructureMapGroupRuleDependentVariableComponent(xpp, owner));
+      } else if (!parseBackboneContent(eventType, xpp, res))
+        return false;
+    return true;
+  }
+
+  protected StructureMap.StructureMapGroupRuleDependentVariableComponent parseStructureMapStructureMapGroupRuleDependentVariableComponent(XmlPullParser xpp, StructureMap owner) throws XmlPullParserException, IOException, FHIRFormatError {
+    StructureMap.StructureMapGroupRuleDependentVariableComponent res = new StructureMap.StructureMapGroupRuleDependentVariableComponent();
+    parseBackboneAttributes(xpp, res);
+    next(xpp);
+    int eventType = nextNoWhitespace(xpp);
+    while (eventType != XmlPullParser.END_TAG) {
+  if (!parseStructureMapStructureMapGroupRuleDependentVariableComponentContent(eventType, xpp, owner, res))
+        unknownContent(xpp);
+      eventType = nextNoWhitespace(xpp);
+    }
+    next(xpp);
+    parseElementClose(res);
+    return res;
+  }
+
+  protected boolean parseStructureMapStructureMapGroupRuleDependentVariableComponentContent(int eventType, XmlPullParser xpp, StructureMap owner, StructureMap.StructureMapGroupRuleDependentVariableComponent res) throws XmlPullParserException, IOException, FHIRFormatError {
+      if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("name")) {
+        res.setNameElement(parseString(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && nameIsTypeName(xpp, "value")) {
+        res.setValue(parseType("value", xpp));
       } else if (!parseBackboneContent(eventType, xpp, res))
         return false;
     return true;
@@ -33109,7 +33134,7 @@ public class XmlParser extends XmlParserBase {
         composeString("element", element.getElementElement());
       }
       if (element.hasListModeElement())
-        composeEnumeration("listMode", element.getListModeElement(), new StructureMap.StructureMapListModeEnumFactory());
+        composeEnumeration("listMode", element.getListModeElement(), new StructureMap.StructureMapSourceListModeEnumFactory());
       if (element.hasVariableElement()) {
         composeId("variable", element.getVariableElement());
       }
@@ -33145,8 +33170,8 @@ public class XmlParser extends XmlParserBase {
         composeId("variable", element.getVariableElement());
       }
         if (element.hasListMode()) 
-          for (Enumeration<StructureMap.StructureMapListMode> e : element.getListMode()) 
-            composeEnumeration("listMode", e, new StructureMap.StructureMapListModeEnumFactory());
+          for (Enumeration<StructureMap.StructureMapTargetListMode> e : element.getListMode()) 
+            composeEnumeration("listMode", e, new StructureMap.StructureMapTargetListModeEnumFactory());
       if (element.hasListRuleIdElement()) {
         composeId("listRuleId", element.getListRuleIdElement());
       }
@@ -33190,10 +33215,29 @@ public class XmlParser extends XmlParserBase {
         composeId("name", element.getNameElement());
       }
       if (element.hasVariable()) { 
-        for (StringType e : element.getVariable()) 
-          composeString("variable", e);
+        for (StructureMap.StructureMapGroupRuleDependentVariableComponent e : element.getVariable()) 
+          composeStructureMapStructureMapGroupRuleDependentVariableComponent("variable", e);
       }
   }
+
+  protected void composeStructureMapStructureMapGroupRuleDependentVariableComponent(String name, StructureMap.StructureMapGroupRuleDependentVariableComponent element) throws IOException {
+    if (element != null) {
+      composeElementAttributes(element);
+      xml.enter(FHIR_NS, name);
+      composeStructureMapStructureMapGroupRuleDependentVariableComponentElements(element);
+      composeElementClose(element);
+      xml.exit(FHIR_NS, name);
+    }
+  }
+
+  protected void composeStructureMapStructureMapGroupRuleDependentVariableComponentElements(StructureMap.StructureMapGroupRuleDependentVariableComponent element) throws IOException {
+      composeBackboneElements(element);
+      if (element.hasNameElement()) {
+        composeString("name", element.getNameElement());
+      }
+      if (element.hasValue()) {
+        composeType("value", element.getValue());
+      }  }
 
   protected void composeSubscription(String name, Subscription element) throws IOException {
     if (element != null) {

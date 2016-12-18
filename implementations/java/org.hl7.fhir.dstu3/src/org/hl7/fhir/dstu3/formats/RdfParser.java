@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Sun, Dec 18, 2016 09:18+1100 for FHIR v1.9.0
+// Generated on Sun, Dec 18, 2016 21:26+1100 for FHIR v1.9.0
 
 import org.hl7.fhir.dstu3.model.DateType;
 import org.hl7.fhir.dstu3.model.DateTimeType;
@@ -11010,7 +11010,23 @@ public class RdfParser extends RdfParserBase {
     if (element.hasNameElement())
       composeId(t, "StructureMap", "name", element.getNameElement(), -1);
     for (int i = 0; i < element.getVariable().size(); i++)
-      composeString(t, "StructureMap", "variable", element.getVariable().get(i), i);
+      composeStructureMapStructureMapGroupRuleDependentVariableComponent(t, "StructureMap", "variable", element.getVariable().get(i), i);
+  }
+
+  protected void composeStructureMapStructureMapGroupRuleDependentVariableComponent(Complex parent, String parentType, String name, StructureMap.StructureMapGroupRuleDependentVariableComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeBackboneElement(t, "variable", name, element, index);
+    if (element.hasNameElement())
+      composeString(t, "StructureMap", "name", element.getNameElement(), -1);
+    if (element.hasValue())
+      composeType(t, "StructureMap", "value", element.getValue(), -1);
   }
 
   protected void composeSubscription(Complex parent, String parentType, String name, Subscription element, int index) {

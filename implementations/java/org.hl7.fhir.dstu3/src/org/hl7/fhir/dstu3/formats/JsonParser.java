@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Sun, Dec 18, 2016 09:18+1100 for FHIR v1.9.0
+// Generated on Sun, Dec 18, 2016 21:26+1100 for FHIR v1.9.0
 
 import org.hl7.fhir.dstu3.model.DateType;
 import org.hl7.fhir.dstu3.model.DateTimeType;
@@ -16487,7 +16487,7 @@ public class JsonParser extends JsonParserBase {
     if (json.has("_element"))
       parseElementProperties(json.getAsJsonObject("_element"), res.getElementElement());
     if (json.has("listMode"))
-      res.setListModeElement(parseEnumeration(json.get("listMode").getAsString(), StructureMap.StructureMapListMode.NULL, new StructureMap.StructureMapListModeEnumFactory()));
+      res.setListModeElement(parseEnumeration(json.get("listMode").getAsString(), StructureMap.StructureMapSourceListMode.NULL, new StructureMap.StructureMapSourceListModeEnumFactory()));
     if (json.has("_listMode"))
       parseElementProperties(json.getAsJsonObject("_listMode"), res.getListModeElement());
     if (json.has("variable"))
@@ -16531,14 +16531,14 @@ public class JsonParser extends JsonParserBase {
     if (json.has("listMode")) {
       JsonArray array = json.getAsJsonArray("listMode");
       for (int i = 0; i < array.size(); i++) {
-        res.getListMode().add(parseEnumeration(array.get(i).getAsString(), StructureMap.StructureMapListMode.NULL, new StructureMap.StructureMapListModeEnumFactory()));
+        res.getListMode().add(parseEnumeration(array.get(i).getAsString(), StructureMap.StructureMapTargetListMode.NULL, new StructureMap.StructureMapTargetListModeEnumFactory()));
       }
     };
     if (json.has("_listMode")) {
       JsonArray array = json.getAsJsonArray("_listMode");
       for (int i = 0; i < array.size(); i++) {
         if (i == res.getListMode().size())
-          res.getListMode().add(parseEnumeration(null, StructureMap.StructureMapListMode.NULL, new StructureMap.StructureMapListModeEnumFactory()));
+          res.getListMode().add(parseEnumeration(null, StructureMap.StructureMapTargetListMode.NULL, new StructureMap.StructureMapTargetListModeEnumFactory()));
         if (array.get(i) instanceof JsonObject) 
           parseElementProperties(array.get(i).getAsJsonObject(), res.getListMode().get(i));
       }
@@ -16587,18 +16587,26 @@ public class JsonParser extends JsonParserBase {
     if (json.has("variable")) {
       JsonArray array = json.getAsJsonArray("variable");
       for (int i = 0; i < array.size(); i++) {
-        res.getVariable().add(parseString(array.get(i).getAsString()));
+        res.getVariable().add(parseStructureMapStructureMapGroupRuleDependentVariableComponent(array.get(i).getAsJsonObject(), owner));
       }
     };
-    if (json.has("_variable")) {
-      JsonArray array = json.getAsJsonArray("_variable");
-      for (int i = 0; i < array.size(); i++) {
-        if (i == res.getVariable().size())
-          res.getVariable().add(parseString(null));
-        if (array.get(i) instanceof JsonObject) 
-          parseElementProperties(array.get(i).getAsJsonObject(), res.getVariable().get(i));
-      }
-    };
+  }
+
+  protected StructureMap.StructureMapGroupRuleDependentVariableComponent parseStructureMapStructureMapGroupRuleDependentVariableComponent(JsonObject json, StructureMap owner) throws IOException, FHIRFormatError {
+    StructureMap.StructureMapGroupRuleDependentVariableComponent res = new StructureMap.StructureMapGroupRuleDependentVariableComponent();
+    parseStructureMapStructureMapGroupRuleDependentVariableComponentProperties(json, owner, res);
+    return res;
+  }
+
+  protected void parseStructureMapStructureMapGroupRuleDependentVariableComponentProperties(JsonObject json, StructureMap owner, StructureMap.StructureMapGroupRuleDependentVariableComponent res) throws IOException, FHIRFormatError {
+    parseBackboneProperties(json, res);
+    if (json.has("name"))
+      res.setNameElement(parseString(json.get("name").getAsString()));
+    if (json.has("_name"))
+      parseElementProperties(json.getAsJsonObject("_name"), res.getNameElement());
+    Type value = parseType("value", json);
+    if (value != null)
+      res.setValue(value);
   }
 
   protected Subscription parseSubscription(JsonObject json) throws IOException, FHIRFormatError {
@@ -37283,8 +37291,8 @@ public class JsonParser extends JsonParserBase {
         composeStringExtras("element", element.getElementElement(), false);
       }
       if (element.hasListModeElement()) {
-        composeEnumerationCore("listMode", element.getListModeElement(), new StructureMap.StructureMapListModeEnumFactory(), false);
-        composeEnumerationExtras("listMode", element.getListModeElement(), new StructureMap.StructureMapListModeEnumFactory(), false);
+        composeEnumerationCore("listMode", element.getListModeElement(), new StructureMap.StructureMapSourceListModeEnumFactory(), false);
+        composeEnumerationExtras("listMode", element.getListModeElement(), new StructureMap.StructureMapSourceListModeEnumFactory(), false);
       }
       if (element.hasVariableElement()) {
         composeIdCore("variable", element.getVariableElement(), false);
@@ -37328,13 +37336,13 @@ public class JsonParser extends JsonParserBase {
       }
       if (element.hasListMode()) {
         openArray("listMode");
-        for (Enumeration<StructureMap.StructureMapListMode> e : element.getListMode()) 
-          composeEnumerationCore(null, e, new StructureMap.StructureMapListModeEnumFactory(), true);
+        for (Enumeration<StructureMap.StructureMapTargetListMode> e : element.getListMode()) 
+          composeEnumerationCore(null, e, new StructureMap.StructureMapTargetListModeEnumFactory(), true);
         closeArray();
         if (anyHasExtras(element.getListMode())) {
           openArray("_listMode");
-          for (Enumeration<StructureMap.StructureMapListMode> e : element.getListMode()) 
-            composeEnumerationExtras(null, e, new StructureMap.StructureMapListModeEnumFactory(), true);
+          for (Enumeration<StructureMap.StructureMapTargetListMode> e : element.getListMode()) 
+            composeEnumerationExtras(null, e, new StructureMap.StructureMapTargetListModeEnumFactory(), true);
           closeArray();
         }
       };
@@ -37385,16 +37393,29 @@ public class JsonParser extends JsonParserBase {
       }
       if (element.hasVariable()) {
         openArray("variable");
-        for (StringType e : element.getVariable()) 
-          composeStringCore(null, e, true);
+        for (StructureMap.StructureMapGroupRuleDependentVariableComponent e : element.getVariable()) 
+          composeStructureMapStructureMapGroupRuleDependentVariableComponent(null, e);
         closeArray();
-        if (anyHasExtras(element.getVariable())) {
-          openArray("_variable");
-          for (StringType e : element.getVariable()) 
-            composeStringExtras(null, e, true);
-          closeArray();
-        }
       };
+  }
+
+  protected void composeStructureMapStructureMapGroupRuleDependentVariableComponent(String name, StructureMap.StructureMapGroupRuleDependentVariableComponent element) throws IOException {
+    if (element != null) {
+      open(name);
+      composeStructureMapStructureMapGroupRuleDependentVariableComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeStructureMapStructureMapGroupRuleDependentVariableComponentInner(StructureMap.StructureMapGroupRuleDependentVariableComponent element) throws IOException {
+      composeBackbone(element);
+      if (element.hasNameElement()) {
+        composeStringCore("name", element.getNameElement(), false);
+        composeStringExtras("name", element.getNameElement(), false);
+      }
+      if (element.hasValue()) {
+        composeType("value", element.getValue());
+      }
   }
 
   protected void composeSubscription(String name, Subscription element) throws IOException {

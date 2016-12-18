@@ -164,6 +164,8 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
       if (!root.isAbstract())
         jFactoryGen.registerReference(n,  root.getName());
     }
+    for (String n : definitions.getPrimitives().keySet())
+      jFactoryGen.registerType(n,  Utilities.capitalize(n)+"Type");
 
     for (String n : definitions.getResources().keySet()) {
       ResourceDefn root = definitions.getResourceByName(n);

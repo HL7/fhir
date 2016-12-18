@@ -171,3 +171,17 @@ group stringToMarkdown extends Element
 
   "stringToMarkdown-value" : for src.value as v make tgt.value = v
 endgroup
+
+group codeToUri extends Element
+  input src : codeR2 as source
+  input tgt : uri as target
+
+  "codeToUri-value" : for src.value as v make tgt.value = v
+endgroup
+
+group stringToId extends Element
+  input src : stringR2 as source
+  input tgt : id as target
+
+  "stringToId-value" : for src.value as v make tgt.value = v
+endgroup
