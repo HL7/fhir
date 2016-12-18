@@ -1156,8 +1156,11 @@ public class StructureMapUtilities {
 		List<Base> items = new ArrayList<Base>();
 		if (!src.hasElement()) 
 			items.add(b);
-		else 
+		else { 
 			getChildrenByName(b, src.getElement(), items);
+			if (items.size() == 0 && src.hasDefaultValue())
+			  items.add(src.getDefaultValue());
+		}
 		List<Variables> result = new ArrayList<Variables>();
 		for (Base r : items) {
 			Variables v = vars.copy();

@@ -64,7 +64,8 @@ public class R2R3ConversionTests implements ITransformerServices {
     if (!(new File(Utilities.path(root, "implementations", "r2maps", "outcomes.json")).exists()))
       throw new Error("You must set the default directory to the build directroy when you execute these tests");
     r2r3Outcomes = (JsonObject) new com.google.gson.JsonParser().parse(TextFile.fileToString(Utilities.path(root, "implementations", "r2maps", "outcomes.json")));
-        
+    rules = new IniFile(Utilities.path(root, "implementations", "r2maps", "test-rules.ini"));
+          
     String srcFile = Utilities.path(root, "source", "release2", "examples.zip");
     ZipInputStream stream = new ZipInputStream(new FileInputStream(srcFile));
 
@@ -100,6 +101,7 @@ public class R2R3ConversionTests implements ITransformerServices {
   private static SimpleWorkerContext contextR3;
   private static Map<String, StructureMap> library;
   private static JsonObject r2r3Outcomes;
+  private static IniFile rules;
   
   private final byte[] content;
   private final String name;
@@ -162,7 +164,7 @@ public class R2R3ConversionTests implements ITransformerServices {
         TextFile.bytesToFile(bs.toByteArray(), Utilities.path(root, "implementations", "r2maps", "test-output", tn+"-"+id+".output.xml"));
         
         String s = TestingUtilities.checkXMLIsSame(new ByteArrayInputStream(content), new ByteArrayInputStream(bs.toByteArray()));
-        if (s != null)
+        if (s != null && !s.equals(rules.getStringProperty(tn+"/"+id, "roundtrip")))
           throw new Exception("Round trip failed: "+s);
       }
       if (tn != null && id != null)

@@ -10027,11 +10027,7 @@
   },
   "SearchParameter": {
     "example": {},
-    "example-extension": {
-      "errors": [
-        "[R3 validation error] SearchParameter: Profile http://hl7.org/fhir/StructureDefinition/SearchParameter, Element \u0027SearchParameter.status\u0027: minimum required \u003d 1, but only found 0"
-      ]
-    }
+    "example-extension": {}
   },
   "Slot": {
     "example": {
