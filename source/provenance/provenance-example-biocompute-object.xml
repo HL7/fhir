@@ -17,7 +17,7 @@
       <code value="author"/>
     </role>
     <whoReference>
-    <reference value="Practitioner/xcda-author"/>
+    <reference value="Practitioner/example"/>
   </whoReference>
   </agent>
 

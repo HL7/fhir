@@ -1,7 +1,7 @@
 <Provenance xmlns="http://hl7.org/fhir">
   <id value="cwl-example"/>
   <target>
-    <reference value="Sequence/sequence-complex-variant"/>
+    <reference value="Sequence/example-pgx-1"/>
   </target>
   <period>
     <start value="2016-11-30"/>
