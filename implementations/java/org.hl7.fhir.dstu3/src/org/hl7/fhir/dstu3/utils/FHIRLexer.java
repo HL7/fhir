@@ -266,6 +266,7 @@ public class FHIRLexer {
       throw error("Found \""+current+"\" expecting \""+kw+"\"");
     next();
   }
+  
   public String readConstant(String desc) throws FHIRLexerException {
     if (!isStringConstant())
       throw error("Found "+current+" expecting \"["+desc+"]\"");

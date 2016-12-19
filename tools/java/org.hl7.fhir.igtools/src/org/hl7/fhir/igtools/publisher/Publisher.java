@@ -1688,7 +1688,6 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   }
 
   private Resource parse(FetchedFile file) throws Exception {
-
     if (version.equals("1.4.0")) {
       org.hl7.fhir.dstu2016may.model.Resource res;
       if (file.getContentType().contains("json"))
@@ -1909,7 +1908,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
         String u = igpkp.getCanonical()+r.getUrlTail();
         if (r.getResource() != null && r.getResource() instanceof MetadataResource) {
           String uc = ((MetadataResource) r.getResource()).getUrl();
-          if (uc != null && !u.equals(uc) && !u.startsWith("http://hl7.org/fhir/template-adhoc-ig") && !(r.getResource() instanceof CodeSystem))
+          if (uc != null && !u.equals(uc) && !u.startsWith("http://hl7.org/fhir/template-adhoc-ig") && !(r.getResource() instanceof CodeSystem) && !(r.getResource() instanceof ImplementationGuide))
             throw new Exception("URL Mismatch "+u+" vs "+uc);
         }
         map.path(u, igpkp.getLinkFor(r));

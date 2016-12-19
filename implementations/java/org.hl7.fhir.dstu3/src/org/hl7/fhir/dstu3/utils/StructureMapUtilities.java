@@ -1198,7 +1198,7 @@ public class StructureMapUtilities {
 		if (src.hasType()) {
 	    List<Base> remove = new ArrayList<Base>();
 	    for (Base item : items) {
-	      if (!isType(item, src.getType())) {
+	      if (item != null && !isType(item, src.getType())) {
 	        remove.add(item);
 	      }
 	    }
@@ -1243,7 +1243,7 @@ public class StructureMapUtilities {
 
 
 	private boolean isType(Base item, String type) {
-    if (item.fhirType().equals(type))
+    if (type.equals(item.fhirType()))
       return true;
     return false;
   }
@@ -1882,8 +1882,13 @@ public class StructureMapUtilities {
     if (tgt.hasTransform()) {
       type = analyseTransform(context, map, tgt, var, vars);
         // profiling: dest.setProperty(tgt.getElement().hashCode(), tgt.getElement(), v);
-    } else  
-      type = new TypeDetails(CollectionStatus.SINGLETON, var.property.baseProperty.getChild(tgt.getElement(),  tgt.getElement()).getType(tgt.getElement()));
+    } else {
+      Property vp = var.property.baseProperty.getChild(tgt.getElement(),  tgt.getElement());
+      if (vp == null)
+        throw new Exception("Unknown Property "+tgt.getElement()+" on "+var.property.path);
+      
+      type = new TypeDetails(CollectionStatus.SINGLETON, vp.getType(tgt.getElement()));
+    }
 
     if (tgt.getTransform() == StructureMapTransform.CREATE) {
       String s = getParamString(vars, tgt.getParameter().get(0));

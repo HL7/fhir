@@ -3989,7 +3989,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
       return null;
     String url = subject.getChildByName("reference").value().toString();
     ResourceWithReference rr = resolver.resolve(url);
-    return rr.resource;
+    return rr == null ? null : rr.resource;
   }
 
   private List<ObservationNode> fetchObservations(List<BaseWrapper> list) {
