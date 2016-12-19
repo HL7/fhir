@@ -69,7 +69,9 @@ public class R2R3ConversionTests implements ITransformerServices {
     String srcFile = Utilities.path(root, "source", "release2", "examples.zip");
     ZipInputStream stream = new ZipInputStream(new FileInputStream(srcFile));
 
-    String filter = System.getProperty("resource").toLowerCase();
+    String filter = System.getProperty("resource");
+    if (filter != null)
+      filter = filter.toLowerCase();
     Map<String, byte[]> examples = new HashMap<String, byte[]>();
     ZipEntry entry;
     while((entry = stream.getNextEntry())!=null) {

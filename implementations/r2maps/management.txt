@@ -52,7 +52,7 @@ AllergyIntolerance
 Basic
 Binary
 BodySite
-Bundle
+Bundle <!-- do bundle last - dependencies on lots of other things
 CapabilityStatement
 CarePlan
 CareTeam
