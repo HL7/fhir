@@ -61,9 +61,10 @@ group ElementDefinition extends Element
     "ElementDefinition.type-profile2" : for vs0.targetProfile as vs make vt0.profile as vt then uri(vs, vt)
     "ElementDefinition.type-aggregation" : for vs0.aggregation as vs make vt0.aggregation as vt then code(vs, vt)
   }
-  "ElementDefinition-type-1st" : for src as vs0 where type.empty() make tgt.type as vt0 then {
+  "ElementDefinition-type-1st" : for src as vs0 where type.empty() and contentReference.empty() make tgt.type as vt0 then {
     "ElementDefinition.type-code" : for srcR.baseDefinition as base make vt0.code = (base.substring(40))
   }
+  "ElementDefinition-contentReference" : for src.contentReference as vs make tgt.nameReference as vt then uriToString(vs,vt)
   "ElementDefinition-defaultValue-base64Binary" : for src.defaultValue  : base64Binary as vs make tgt.defaultValue = create("base64Binary") as vt then base64Binary(vs,vt)
   "ElementDefinition-defaultValue-boolean" : for src.defaultValue  : boolean as vs make tgt.defaultValue = create("boolean") as vt then boolean(vs,vt)
   "ElementDefinition-defaultValue-code" : for src.defaultValue  : code as vs make tgt.defaultValue = create("code") as vt then code(vs,vt)

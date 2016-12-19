@@ -601,11 +601,7 @@
         "Unknown StructureDefinitionKind code \u0027datatype\u0027"
       ]
     },
-    "OperationDefinition": {
-      "errors": [
-        "Round trip failed: Names differ at /StructureDefinition/snapshot/element: nameReference/type"
-      ]
-    },
+    "OperationDefinition": {},
     "OperationOutcome": {},
     "Order": {},
     "OrderResponse": {},
@@ -9725,11 +9721,7 @@
         "[R3 validation error] OperationDefinition: Profile http://hl7.org/fhir/StructureDefinition/OperationDefinition, Element \u0027OperationDefinition.type\u0027: minimum required \u003d 1, but only found 0"
       ]
     },
-    "example": {
-      "errors": [
-        "[R3 validation error] OperationDefinition: Profile http://hl7.org/fhir/StructureDefinition/OperationDefinition, Element \u0027OperationDefinition.type\u0027: minimum required \u003d 1, but only found 0"
-      ]
-    },
+    "example": {},
     "patient-mpi": {
       "errors": [
         "[R3 validation error] OperationDefinition: Profile http://hl7.org/fhir/StructureDefinition/OperationDefinition, Element \u0027OperationDefinition.type\u0027: minimum required \u003d 1, but only found 0"

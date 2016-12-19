@@ -179,3 +179,9 @@ group uriToCode extends Element
   "uriToCode-value" : for src.value as v make tgt.value = v
 endgroup
 
+group uriToString extends Element
+  input src : uri as source
+  input tgt : stringR2 as target
+
+  "uriToString-value" : for src.value as v make tgt.value = v
+endgroup

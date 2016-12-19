@@ -31,9 +31,11 @@ group OperationDefinition extends DomainResource
   "OperationDefinition-idempotent" : for src.idempotent as vs make tgt.idempotent as vt then boolean(vs, vt)
   "OperationDefinition-code" : for src.code as vs make tgt.code as vt then code(vs, vt)
   "OperationDefinition-comment" : for src.notes as vs make tgt.comment as vt then string(vs, vt)
+  "OperationDefinition-description" : for src.description as vs make tgt.description as vt then stringToMarkdown(vs, vt)
   "OperationDefinition-base" : for src.base as vs make tgt.base as vt then Reference(vs,vt)
   "OperationDefinition-system" : for src.system as vs make tgt.system as vt then boolean(vs, vt)
-  "OperationDefinition-resource" : for src.type as vs make tgt.resource as vt then code(vs, vt)
+  "OperationDefinition-type1" : for src.type as vs make tgt.resource as vt then code(vs, vt)
+  "OperationDefinition-type2" : for src where type.exists() make tgt.type = true
   "OperationDefinition-instance" : for src.instance as vs make tgt.instance as vt then boolean(vs, vt)
   "OperationDefinition-parameter" : for src.parameter as vs0 make tgt.parameter as vt0 then {
     "OperationDefinition.parameter-name" : for vs0.name as vs make vt0.name as vt then code(vs, vt)

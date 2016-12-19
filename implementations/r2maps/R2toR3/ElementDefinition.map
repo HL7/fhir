@@ -63,6 +63,7 @@ group ElementDefinition extends Element
     "ElementDefinition.type-profile2" : for vs0.profile as vs where code != 'Reference' make vt0.targetProfile as vt then uri(vs, vt)
     "ElementDefinition.type-aggregation" : for vs0.aggregation as vs make vt0.aggregation as vt then code(vs, vt)
   }
+  "ElementDefinition-nameReference" : for src.nameReference as vs make tgt.contentReference as vt then stringToUri(vs,vt)
   "ElementDefinition-defaultValue-boolean" : for src.defaultValue  : boolean as vs make tgt.defaultValue = create("boolean") as vt then boolean(vs,vt)
   "ElementDefinition-defaultValue-integer" : for src.defaultValue  : integer as vs make tgt.defaultValue = create("integer") as vt then integer(vs,vt)
   "ElementDefinition-defaultValue-decimal" : for src.defaultValue  : decimal as vs make tgt.defaultValue = create("decimal") as vt then decimal(vs,vt)

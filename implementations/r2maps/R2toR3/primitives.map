@@ -185,3 +185,10 @@ group stringToId extends Element
 
   "stringToId-value" : for src.value as v make tgt.value = v
 endgroup
+
+group stringToUri extends Element
+  input src : stringR2 as source
+  input tgt : uri as target
+
+  "stringToUri-value" : for src.value as v make tgt.value = v
+endgroup
