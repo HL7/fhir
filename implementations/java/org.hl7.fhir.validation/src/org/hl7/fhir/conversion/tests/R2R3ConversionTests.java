@@ -147,7 +147,6 @@ public class R2R3ConversionTests implements ITransformerServices {
         IResourceValidator validator = contextR3.newValidator();
         List<ValidationMessage> errors = new ArrayList<ValidationMessage>();
         validator.validate(null, errors, r3);
-        check(errors, tn, id);
 
         // load the R3 to R2 map
         //      mapFile = Utilities.path(root, "implementations", "r2maps", "R3toR2", r2.fhirType()+".map");
@@ -165,6 +164,7 @@ public class R2R3ConversionTests implements ITransformerServices {
         new org.hl7.fhir.dstu3.elementmodel.XmlParser(contextR2).compose(ro2, bs, OutputStyle.PRETTY, null);
         TextFile.bytesToFile(bs.toByteArray(), Utilities.path(root, "implementations", "r2maps", "test-output", tn+"-"+id+".output.xml"));
         
+        check(errors, tn, id);
         String s = TestingUtilities.checkXMLIsSame(new ByteArrayInputStream(content), new ByteArrayInputStream(bs.toByteArray()));
         if (s != null && !s.equals(rules.getStringProperty(tn+"/"+id, "roundtrip")))
           throw new Exception("Round trip failed: "+s);
@@ -242,6 +242,7 @@ public class R2R3ConversionTests implements ITransformerServices {
     contextR3.loadFromFile(Utilities.path(root,"publish","profiles-resources.xml"), null);
     contextR3.loadFromFile(Utilities.path(root,"publish","extension-definitions.xml"), null);
     contextR3.loadFromFile(Utilities.path(root,"publish","expansions.xml"), null);
+    contextR3.setCanRunWithoutTerminology(true);
 
     contextR2.setExpansionProfile(new ExpansionProfile().setUrl("urn:uuid:"+UUID.randomUUID().toString().toLowerCase()));
     contextR3.setExpansionProfile(new ExpansionProfile().setUrl("urn:uuid:"+UUID.randomUUID().toString().toLowerCase()));

@@ -9321,21 +9321,9 @@
     }
   },
   "NamingSystem": {
-    "example": {
-      "errors": [
-        "Round trip failed: Names differ at /NamingSystem: publisher/date"
-      ]
-    },
-    "example-id": {
-      "errors": [
-        "[R3 validation error] NamingSystem.type.coding: Error java.lang.NullPointerException validating Coding"
-      ]
-    },
-    "example-replaced": {
-      "errors": [
-        "Round trip failed: Names differ at /NamingSystem: publisher/date"
-      ]
-    }
+    "example": {},
+    "example-id": {},
+    "example-replaced": {}
   },
   "NutritionOrder": {
     "cardiacdiet": {},

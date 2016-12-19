@@ -21,14 +21,15 @@ group NamingSystem extends DomainResource
   "NamingSystem-name" : for src.name as vs make tgt.name as vt then string(vs, vt)
   "NamingSystem-status" : for src.status as vs make tgt.status as vt then code(vs, vt)
   "NamingSystem-kind" : for src.kind as vs make tgt.kind as vt then code(vs, vt)
-  "NamingSystem-date" : for src.date as vs make tgt.date as vt then dateTime(vs, vt)
   "NamingSystem-publisher" : for src.publisher as vs make tgt.publisher as vt then string(vs, vt)
   "NamingSystem-contact" : for src.contact as vs0 make tgt.contact as vt0 then {
     "NamingSystem.contact-name" : for vs0.name as vs make vt0.name as vt then string(vs, vt)
     "NamingSystem.contact-telecom" : for vs0.telecom as vs make vt0.telecom as vt then ContactPoint(vs,vt)
   }
   "NamingSystem-responsible" : for src.responsible as vs make tgt.responsible as vt then string(vs, vt)
+  "NamingSystem-date" : for src.date as vs make tgt.date as vt then dateTime(vs, vt)
   "NamingSystem-type" : for src.type as vs make tgt.type as vt then CodeableConcept(vs,vt)
+  "NamingSystem-description" : for src.description as vs make tgt.description as vt then markdownToString(vs, vt)
   "NamingSystem-useContext" : for src.jurisdiction as vs make tgt.useContext as vt then CodeableConcept(vs,vt)
   "NamingSystem-usage" : for src.usage as vs make tgt.usage as vt then string(vs, vt)
   "NamingSystem-uniqueId" : for src.uniqueId as vs0 make tgt.uniqueId as vt0 then {

@@ -29,6 +29,7 @@ group NamingSystem extends DomainResource
   }
   "NamingSystem-responsible" : for src.responsible as vs make tgt.responsible as vt then string(vs, vt)
   "NamingSystem-type" : for src.type as vs make tgt.type as vt then CodeableConcept(vs,vt)
+  "NamingSystem-description" : for src.description as vs make tgt.description as vt then stringToMarkdown(vs, vt)
   "NamingSystem-usage" : for src.usage as vs make tgt.usage as vt then string(vs, vt)
   "NamingSystem-uniqueId" : for src.uniqueId as vs0 make tgt.uniqueId as vt0 then {
     "NamingSystem.uniqueId-type" : for vs0.type as vs make vt0.type as vt then code(vs, vt)
@@ -37,5 +38,6 @@ group NamingSystem extends DomainResource
     "NamingSystem.uniqueId-period" : for vs0.period as vs make vt0.period as vt then Period(vs,vt)
   }
   "NamingSystem-replacedBy" : for src.replacedBy as vs make tgt.replacedBy as vt then Reference(vs,vt)
+  "NamingSystem-jurisdiction" : for src.useContext as vs where useContext.coding.system = 'urn:iso:std:iso:3166' make tgt.jurisdiction as vt then CodeableConcept(vs,vt)
 endgroup
 
