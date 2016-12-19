@@ -1,0 +1,43 @@
+<Provenance xmlns="http://hl7.org/fhir">
+  <id value="example-biocompute"/>
+  <target>
+    <reference value="Sequence/example"/>
+  </target>
+  <period>
+    <start value="2017-06-06"/>
+  </period>
+  <recorded value="2016-06-09T08:12:14+10:00"/>
+  <reason>
+      <display value="antiviral resistance detection"/>
+  </reason>
+
+<agent>
+    <role>
+      <system value="http://hl7.org/fhir/provenance-participant-role"/>
+      <code value="author"/>
+    </role>
+    <whoReference>
+    <reference value="Practitioner/xcda-author"/>
+  </whoReference>
+  </agent>
+
+<entity>
+  <role value="source"/>
+  <reference>
+      
+  <identifier>
+    <type>
+        <coding>
+            <system value="https://hive.biochemistry.gwu.edu"/>
+            <code value="biocompute"/>
+            <display value="obj.1001"/>
+        </coding>
+    </type>
+    <value value="https://hive.biochemistry.gwu.edu/cgi-bin/prd/htscsrs/servlet.cgi?pageid=bcoexample_1"/>
+  </identifier>
+  <display value="Biocompute example"/>
+  </reference>
+
+
+</entity>
+</Provenance>

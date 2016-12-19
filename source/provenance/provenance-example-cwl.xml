@@ -1,0 +1,45 @@
+<Provenance xmlns="http://hl7.org/fhir">
+  <id value="cwl-example"/>
+  <target>
+    <reference value="Sequence/sequence-complex-variant"/>
+  </target>
+  <period>
+    <start value="2016-11-30"/>
+  </period>
+  <recorded value="2016-12-01T08:12:14+10:00"/>
+  <reason>
+      <display value="profiling Short Tandem Repeats (STRs) from high throughput sequencing data."/>
+  </reason>
+
+ <agent> 
+    <role>
+      <system value="http://hl7.org/fhir/provenance-participant-role"/>
+      <code value="author"/>
+    </role>
+    <whoReference>
+      <reference value="Patient/example"/>
+    </whoReference>
+  </agent>
+
+<entity>
+  <role value="source"/>
+  <reference>
+    
+  <identifier>
+    <type>
+        <coding>
+	     <system value="https://github.com/common-workflow-language/workflows"/>
+           <code value="CWL"/>
+           <display value="lobSTR"/>
+        </coding>
+    </type>
+    
+    
+    <value value="https://github.com/common-workflow-language/workflows/blob/master/workflows/lobSTR/lobSTR-workflow.cwl"/>
+  </identifier>
+  <display value="CWL example"/>
+  </reference>
+
+ 
+</entity>
+</Provenance>

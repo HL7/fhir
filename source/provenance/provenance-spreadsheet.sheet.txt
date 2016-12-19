@@ -376,7 +376,7 @@
 
  -- Row 5 -----------------------------------
   Name = agent
-  Type = reference
+  Type = token
   Path = Provenance.agent.who[x]
 
  -- Row 6 -----------------------------------
@@ -435,8 +435,14 @@
 
  -- Row 4 -----------------------------------
   Name = Biocompute Object
-  Identity = obj.1001
-  Description = Provenance  for Biocompute object examples
-  Filename = provenance_biocompute_object_example.xml
+  Identity = example-biocompute
+  Description = Provenance  example for Biocompute objects
+  Filename = provenance-example-biocompute-object.xml
+
+ -- Row 5 -----------------------------------
+  Name = CWL Workflow
+  Identity = cwl-example
+  Description = Provenance  example for cwl workflow project
+  Filename = provenance-example-cwl.xml
 
 === Sheet Examples =====================================
