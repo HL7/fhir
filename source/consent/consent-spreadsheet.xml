@@ -6626,7 +6626,7 @@
     <Cell ss:StyleID="s140"/>
     <Cell ss:StyleID="s170"/>
     <Cell ss:StyleID="s170"><Data ss:Type="String">Proposed</Data></Cell>
-    <Cell ss:StyleID="s170"><Data ss:Type="String">The consent has be proposed but not yet agreed to by all parties. The negotiation stage.</Data></Cell>
+    <Cell ss:StyleID="s170"><Data ss:Type="String">The consent has been proposed but not yet agreed to by all parties. The negotiation stage.</Data></Cell>
     <Cell ss:StyleID="s152"/>
     <Cell ss:StyleID="s152"/>
     <Cell ss:StyleID="s165"/>
