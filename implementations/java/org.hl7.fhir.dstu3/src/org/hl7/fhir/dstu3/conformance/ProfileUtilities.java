@@ -783,7 +783,7 @@ public class ProfileUtilities {
     StructureDefinition sd = null;
     if (type.hasProfile() && !type.getCode().equals("Reference"))  
       sd = context.fetchResource(StructureDefinition.class, type.getProfile()); 
-    if (sd == null) 
+    if (sd == null)
       sd = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+type.getCode());
     if (sd == null)
       System.out.println("XX: failed to find profle for type: " + type.getCode()); // debug GJM

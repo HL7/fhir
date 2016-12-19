@@ -33,7 +33,7 @@ public class ObjectConverter  {
     ByteArrayOutputStream bs = new ByteArrayOutputStream();
     org.hl7.fhir.dstu3.formats.JsonParser jp = new org.hl7.fhir.dstu3.formats.JsonParser();
     jp.compose(bs, ig);
-    System.out.println(TextFile.bytesToString(bs.toByteArray()));
+//    System.out.println(TextFile.bytesToString(bs.toByteArray()));
     ByteArrayInputStream bi = new ByteArrayInputStream(bs.toByteArray());
     return new JsonParser(context).parse(bi);
   }
